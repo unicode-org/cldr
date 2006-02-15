@@ -560,8 +560,9 @@ public class UserRegistry {
     }
 
     public static String makePassword(String email) {
-        return  CookieSession.cheapEncode((System.currentTimeMillis()*100) + SurveyMain.pages) + "x" + 
-            CookieSession.cheapEncode(email.hashCode() * SurveyMain.vap.hashCode());
+        return CookieSession.newId(false).substring(0,9);
+//        return  CookieSession.cheapEncode((System.currentTimeMillis()*100) + SurveyMain.pages) + "x" + 
+//            CookieSession.cheapEncode(email.hashCode() * SurveyMain.vap.hashCode());
     }
 
     public User newUser(WebContext ctx, User u) {

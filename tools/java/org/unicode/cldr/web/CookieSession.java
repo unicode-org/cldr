@@ -8,8 +8,12 @@
 //  Copyright 2005 IBM. All rights reserved.
 //
 
+
 package org.unicode.cldr.web;
 
+import java.security.SecureRandom;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class CookieSession {
@@ -114,16 +118,29 @@ public class CookieSession {
     static int g = 8000;
     static int h = 90;
     public static String j = cheapEncode(System.currentTimeMillis());
+
+    // secure stuff
+    static SecureRandom myRand = null;
     
-    protected synchronized String newId(boolean isGuest) {  
-        if(isGuest) {
-            // no reason, just a different set of hashes
-            return cheapEncode(h+=2)+"w"+cheapEncode(j.hashCode()+g++);
-        } else {
-            return cheapEncode((n+=(j.hashCode()%444))+n) +"y" + j;
-        }
+    public static synchronized String newId(boolean isGuest) {
+        try {
+            if(myRand == null) {
+                myRand = SecureRandom.getInstance("SHA1PRNG");
+            }
+
+            MessageDigest aDigest = MessageDigest.getInstance("SHA-1");
+            byte[] outBytes = aDigest.digest( new Integer(myRand.nextInt()).toString().getBytes() );
+            return cheapEncode(outBytes);
+        } catch(NoSuchAlgorithmException nsa) {
+            System.err.println(nsa.toString() + " - falling back..");
+            if(isGuest) {
+                // no reason, just a different set of hashes
+                return cheapEncode(h+=2)+"w"+cheapEncode(j.hashCode()+g++);
+            } else {
+                return cheapEncode((n+=(j.hashCode()%444))+n) +"y" + j;
+            }        
     }
-    
+    }
     // convenience functions
     Object get(String key) { 
         synchronized (stuff) {
@@ -228,6 +245,21 @@ public class CookieSession {
             l /= 26;
         }
         return out;
+    }
+    
+    public static String cheapEncode(byte b[]) {
+        StringBuffer sb = new StringBuffer(new sun.misc.BASE64Encoder().encode(b));
+        for(int i=0;i<sb.length();i++) {
+            char c = sb.charAt(i);
+            if(c == '=') {
+                sb.setCharAt(i,',');
+            } else if(c == '/') {
+                sb.setCharAt(i,'.');
+            } else if(c == '+') {
+                sb.setCharAt(i,'_');
+            }
+        }
+        return sb.toString();
     }
     
     

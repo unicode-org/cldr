@@ -387,7 +387,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<table summary='User list' border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
         for(Iterator li = CookieSession.getAll();li.hasNext();) {
             CookieSession cs = (CookieSession)li.next();
-            ctx.println("<tr><td>" + cs.id + "</td>");
+            ctx.println("<tr><td><tt style='font-size: 72%'>" + cs.id + "</tt></td>");
             ctx.println("<td>" + timeDiff(cs.last) + "</td>");
             if(cs.user != null) {
                 ctx.println("<td>" + cs.user.email + "<br/>" + 
@@ -454,9 +454,12 @@ public class SurveyMain extends HttpServlet {
                         //                        xctx.setLocale(locale);
                         makeCLDRFile(makeDBSource(null, locale));
                     } catch(Throwable t) {
+                        t.printStackTrace();
                         String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
                         logger.severe("loading all: " + complaint);
-                        ctx.println(complaint + "<br>");
+                        ctx.println(complaint + "<br>" + "<pre>");
+                        ctx.print(t);
+                        ctx.println("</pre>");
                     }
                 }
             }
@@ -1609,10 +1612,10 @@ public class SurveyMain extends HttpServlet {
         String requester = ctx.session.user.name + " <" + ctx.session.user.email + ">";
         String body = requester +  " is notifying you of the CLDR vetting account for you.\n" +
         "To access it, visit: \n" +
-        "   http://" + ctx.serverName() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
+        "   http://" + ctx.serverHostport() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
         //                                                                          // DO NOT ESCAPE THIS AMPERSAND.
         "\n" +
-        "Or you can visit\n   http://" + ctx.serverName() + ctx.base() + "\n    username: " + theirEmail + "\n    password: " + pass + "\n" +
+        "Or you can visit\n   http://" + ctx.serverHostport() + ctx.base() + "\n    username: " + theirEmail + "\n    password: " + pass + "\n" +
         "\n" +
         " Please keep this link to yourself. Thanks.\n" +
         " Follow the 'Instructions' link on the main page for more help.\n" +

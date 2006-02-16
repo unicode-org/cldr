@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="1.4"/>
+        <generation date="2006-2-13"/>
+        <language type="nso"/>
+    </identity>
+    <delimiters>
+        <quotationStart draft="true">‘</quotationStart>
+        <quotationEnd draft="true">’</quotationEnd>
+        <alternateQuotationStart draft="true">“</alternateQuotationStart>
+        <alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+    </delimiters>
+    <measurement>
+        <measurementSystem type="metric" draft="true"/>
+    </measurement>
+    <dates>
+        <calendars>
+            <calendar type="gregorian">
+                <months>
+                    <monthContext type="format">
+                        <monthWidth type ="abbreviated">
+                            <month type="1" draft="true">Jan</month>
+                            <month type="2" draft="true">Feb</month>
+                            <month type="3" draft="true">Mat</month>
+                            <month type="4" draft="true">Apo</month>
+                            <month type="5" draft="true">Mei</month>
+                            <month type="6" draft="true">Jun</month>
+                            <month type="7" draft="true">Jul</month>
+                            <month type="8" draft="true">Ago</month>
+                            <month type="9" draft="true">Set</month>
+                            <month type="10" draft="true">Okt</month>
+                            <month type="11" draft="true">Nof</month>
+                            <month type="12" draft="true">Dis</month>
+                        </monthWidth>
+                        <monthWidth type ="wide">
+                            <month type="1" draft="true">Janaware</month>
+                            <month type="2" draft="true">Feberware</month>
+                            <month type="3" draft="true">Matšhe</month>
+                            <month type="4" draft="true">Aporele</month>
+                            <month type="5" draft="true">Mei</month>
+                            <month type="6" draft="true">June</month>
+                            <month type="7" draft="true">Julae</month>
+                            <month type="8" draft="true">Agostose</month>
+                            <month type="9" draft="true">Setemere</month>
+                            <month type="10" draft="true">Oktobore</month>
+                            <month type="11" draft="true">Nofemere</month>
+                            <month type="12" draft="true">Disemere</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type="format">
+                        <dayWidth type ="abbreviated">
+                            <day type="sun" draft="true">Son</day>
+                            <day type="mon" draft="true">Mos</day>
+                            <day type="tue" draft="true">Bed</day>
+                            <day type="wed" draft="true">Rar</day>
+                            <day type="thu" draft="true">Ne</day>
+                            <day type="fri" draft="true">Hla</day>
+                            <day type="sat" draft="true">Mok</day>
+                        </dayWidth>
+                        <dayWidth type ="wide">
+                            <day type="sun" draft="true">Sontaga</day>
+                            <day type="mon" draft="true">Mosupalogo</day>
+                            <day type="tue" draft="true">Labobedi</day>
+                            <day type="wed" draft="true">Laboraro</day>
+                            <day type="thu" draft="true">Labone</day>
+                            <day type="fri" draft="true">Labohlano</day>
+                            <day type="sat" draft="true">Mokibelo</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <quarters>
+                    <quarterContext type="format">
+                        <quarterWidth type ="abbreviated">
+                            <quarter type="1" draft="true">Q1</quarter>
+                            <quarter type="2" draft="true">Q2</quarter>
+                            <quarter type="3" draft="true">Q3</quarter>
+                            <quarter type="4" draft="true">Q4</quarter>
+                        </quarterWidth>
+                    </quarterContext>
+                </quarters>
+                <week>
+                    <minDays count="1" draft="true"/>
+                    <firstDay day="sun" draft="true"/>
+                </week>
+                <am draft="true">AM</am>
+                <pm draft="true">PM</pm>
+                <eras>
+                    <eraNames>
+                        <era type="1" draft="true">AD</era>
+                        <era type="0" draft="true">BC</era>
+                    </eraNames>
+                    <eraAbbr>
+                        <era type="1" draft="true">AD</era>
+                        <era type="0" draft="true">BC</era>
+                    </eraAbbr>
+                </eras>
+                <dateTimeFormats>
+                    <availableFormats>
+                        <dateFormatItem id="1" draft="true">MM-dd</dateFormatItem>
+                        <dateFormatItem id="2" draft="true">d. MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="3" draft="true">d. MMM. yyyy</dateFormatItem>
+                        <dateFormatItem id="4" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="5" draft="true">EEE d MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="6" draft="true">EEE d MMM yy</dateFormatItem>
+                        <dateFormatItem id="7" draft="true">d MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="8" draft="true">d MMM yyyy</dateFormatItem>
+                        <dateFormatItem id="9" draft="true">d MMM yy</dateFormatItem>
+                        <dateFormatItem id="10" draft="true">dd MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="11" draft="true">yy/MM/dd</dateFormatItem>
+                        <dateFormatItem id="12" draft="true">yyyy/MM/dd</dateFormatItem>
+                        <dateFormatItem id="13" draft="true">QQQQ yy</dateFormatItem>
+                        <dateFormatItem id="14" draft="true">MMMM</dateFormatItem>
+                        <dateFormatItem id="15" draft="true">MMM dd</dateFormatItem>
+                        <dateFormatItem id="16" draft="true">yy/MM</dateFormatItem>
+                        <dateFormatItem id="17" draft="true">EEE dd/MMM yy</dateFormatItem>
+                        <dateFormatItem id="18" draft="true">ww</dateFormatItem>
+                        <dateFormatItem id="19" draft="true">yyyy-MM-dd</dateFormatItem>
+                        <dateFormatItem id="20" draft="true">yy-MM-dd</dateFormatItem>
+                        <dateFormatItem id="21" draft="true">mm:ss.SS</dateFormatItem>
+                        <dateFormatItem id="22" draft="true">KK:mm:ss a</dateFormatItem>
+                        <dateFormatItem id="23" draft="true">KK:mm a</dateFormatItem>
+                        <dateFormatItem id="24" draft="true">HH:mm:ss</dateFormatItem>
+                        <dateFormatItem id="25" draft="true">HH:mm</dateFormatItem>
+                        <dateFormatItem id="26" draft="true">yyyy/MM/dd HH:mm:ss</dateFormatItem>
+                        <dateFormatItem id="27" draft="true">yy/MM/dd HH:mm</dateFormatItem>
+                    </availableFormats>
+                </dateTimeFormats>
+            </calendar>
+        </calendars>
+    </dates>
+    <numbers>
+        <symbols>
+            <decimal draft="true">.</decimal>
+            <group draft="true">,</group>
+            <list draft="true">;</list>
+        </symbols>
+        <currencies>
+            <currency type="ZAR">
+                <symbol draft="true">R</symbol>
+            </currency>
+        </currencies>
+    </numbers>
+</ldml>

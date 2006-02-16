@@ -62,6 +62,8 @@ public class ShowLanguages {
 	
 	private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
 		LanguageInfo linfo = new LanguageInfo(cldrFactory);
+        linfo.showTerritoryInfo();
+        
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		
@@ -298,6 +300,33 @@ public class ShowLanguages {
            }
 		}
 
+        /**
+         * 
+         */
+        public void showTerritoryInfo() {
+            Map territory_parent = new TreeMap();
+            gather("001", territory_parent);
+            for (Iterator it = territory_parent.keySet().iterator(); it.hasNext();) {
+                String territory = (String) it.next();
+                String parent = (String) territory_parent.get(territory);
+                System.out.println(territory
+                        + "\t" + english.getName(english.TERRITORY_NAME, territory, false)
+                        + "\t" + parent
+                        + "\t" + english.getName(english.TERRITORY_NAME, parent, false)
+                        );
+            }
+        }
+        
+        private void gather(String item, Map territory_parent) {
+            Collection containedByItem = (Collection) group_contains.get(item);
+            if (containedByItem == null) return;
+            for (Iterator it = containedByItem.iterator(); it.hasNext();) {
+                String contained = (String) it.next();
+                territory_parent.put(contained, item);
+                gather(contained, territory_parent);
+            }
+        }
+
         private void addTerritoryInfo(String territoriesList, String type, String info) {
             String[] territories = territoriesList.split("\\s+");
             territoryTypes.add(type);
@@ -489,6 +518,7 @@ public class ShowLanguages {
 		 */
 		public void printAliases(PrintWriter pw) {
 			doTitle(pw, "Aliases");
+            pw.println("<tr><th class='source'>" + "Type" + "</th><th class='source'>" + "Code" + "</th><th class='target'>" + "Substitute (if avail)" + "</th></tr>");
 			for (Iterator it = aliases.iterator(); it.hasNext();) {
 				String[] items = (String[])it.next();
 				pw.println("<tr><td class='source'>" + items[0] + "</td><td class='source'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");

@@ -69,7 +69,8 @@ abstract public class CheckCLDR {
 			.add(new CheckChildren())
 			.add(new CheckAttributeValues())
 			.add(new CheckDates())
-			.add(new CheckCoverage())
+            .add(new CheckCoverage())
+            .add(new CheckNew())
 		;
 	}
 	

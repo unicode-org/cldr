@@ -70,6 +70,7 @@ public class FlexibleDateTime {
     }
 
     public static PrintWriter log;
+    
 	private static void generate(String[] args) throws IOException {
 		log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
         String filter = ".*";
@@ -170,7 +171,7 @@ public class FlexibleDateTime {
         return result;
 	}
 	
-	private static boolean isGregorianPattern(String path, XPathParts parts) {
+	public static boolean isGregorianPattern(String path, XPathParts parts) {
     	if (path.indexOf("Formats") < 0) return false; // quick exclude
     	parts.set(path);
     	if (parts.size() < 8 || !parts.getElement(7).equals("pattern")) return false;
@@ -319,7 +320,7 @@ public class FlexibleDateTime {
                 }
                 System.out.print(SEPARATOR + "Localized Pattern: \t" + dfpattern);
                 df.applyPattern(dfpattern);
-                System.out.println(SEPARATOR + "Sample Results: \t«" + df.format(now) + "»");
+                System.out.println(SEPARATOR + "Sample Results: \t?" + df.format(now) + "?");
             }
         }
 	}
@@ -428,6 +429,14 @@ public class FlexibleDateTime {
         private transient FormatParser fp = new FormatParser();
         private transient DistanceInfo _distanceInfo = new DistanceInfo();
         private transient boolean isComplete = false;
+        
+        public Collection getPatterns(Collection result) {
+            for (Iterator it = list.iterator(); it.hasNext();) {
+                DateTimeMatcher item = (DateTimeMatcher) it.next();
+                result.add(item.toString());
+            }
+            return result;
+        }
         
         DateTimePatternGenerator add(String pattern) {
             list.add(new DateTimeMatcher().set(pattern));
@@ -594,6 +603,15 @@ public class FlexibleDateTime {
         String pattern = null;
         int[] type = new int[TYPE_LIMIT];
         String[] original = new String[TYPE_LIMIT];
+        transient Set set = new TreeSet();
+        
+        public String toString() {
+            StringBuffer result = new StringBuffer();
+            for (int i = 0; i < TYPE_LIMIT; ++i) {
+                if (original[i] != null) result.append(original[i]);
+            }
+            return result.toString();
+        }
         
         DateTimeMatcher set(String pattern) {
             for (int i = 0; i < TYPE_LIMIT; ++i) {
@@ -606,6 +624,10 @@ public class FlexibleDateTime {
                 String field = (String) it.next();
                 if (field.charAt(0) == 'a') continue; // skip day period, special cass
                 int canonicalIndex = getCanonicalIndex(field);
+                if (canonicalIndex < 0) {
+                    System.out.println("Bad field: " + field);
+                    continue;
+                }
                 int[] row = types[canonicalIndex];
                 int typeValue = row[1];
                 if (original[typeValue] != null) {

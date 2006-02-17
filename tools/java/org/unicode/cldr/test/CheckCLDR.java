@@ -20,6 +20,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.test.FlexibleDateTime.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -32,6 +34,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.tool.UOption;
 
 /**
  * This class provides a foundation for both console-driven CLDR tests, and Survey Tool Tests.
@@ -86,6 +89,26 @@ abstract public class CheckCLDR {
 		CheckCLDR.displayInformation = displayInformation;
 	}
 	
+    private static final int
+    HELP1 = 0,
+    HELP2 = 1,
+    COVERAGE = 2,
+    EXAMPLES = 3,
+    FILE_FILTER = 4,
+    TEST_FILTER = 5,
+    DATE_FORMATS = 6
+    ;
+
+    private static final UOption[] options = {
+        UOption.HELP_H(),
+        UOption.HELP_QUESTION_MARK(),
+        UOption.create("coverage", 'c', UOption.REQUIRES_ARG),
+        UOption.create("examples", 'e', UOption.NO_ARG),
+        UOption.create("file_filter", 'f', UOption.REQUIRES_ARG).setDefault(".*"),
+        UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
+        UOption.create("date_formats", 'd', UOption.NO_ARG),
+    };
+
 	/**
 	 * This will be the test framework way of using these tests. It is preliminary for now.
 	 * The Survey Tool will call setDisplayInformation, and getCheckAll.
@@ -96,11 +119,21 @@ abstract public class CheckCLDR {
 	 */
 	public static void main(String[] args) {
         double deltaTime = System.currentTimeMillis();
-        String factoryFilter = args.length <= 0 ? ".*" : args[0]; // eg de.*
-        String checkFilter = args.length <= 1 ? ".*" : args[1]; // eg .*Collision.* 
-        SHOW_EXAMPLES = args.length <= 2 ? false : true; // eg .*Collision.* 
+        UOption.parseArgs(args, options);
+        String factoryFilter = options[FILE_FILTER].value; 
+        String checkFilter = options[TEST_FILTER].value; 
+        
+        SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
+        boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
+        
+        Level coverageLevel = Level.UNDETERMINED;
+        String coverageLevelInput = options[COVERAGE].value;
+        if (coverageLevelInput != null) coverageLevel = Level.get(coverageLevelInput);
+
         System.out.println("factoryFilter: " + factoryFilter);
-        System.out.println("checkFilter: " + checkFilter);
+        System.out.println("test filter: " + checkFilter);
+        System.out.println("show examples: " + SHOW_EXAMPLES);
+        System.out.println("coverage level: " + coverageLevel);
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
@@ -116,13 +149,16 @@ abstract public class CheckCLDR {
         Map options = new HashMap();
         Counter totalCount = new Counter();
         Counter subtotalCount = new Counter();
+        FlexibleSet fset = new FlexibleSet();
+        
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
             if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
             boolean onlyLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
             options.clear();
-            if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true"); 
+            if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true");
+            options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
             //options.put("CheckCoverage.requiredLevel","comprehensive");
 
 			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);
@@ -135,10 +171,18 @@ abstract public class CheckCLDR {
 			CollectionUtilities.addAll(file.iterator(), paths);
 			UnicodeSet missingExemplars = new UnicodeSet();
             subtotalCount.clear();
+            fset.clear();
+            
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
+
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);
 				String fullPath = file.getFullXPath(path);
+                
+                if (checkFlexibleDates) {
+                    fset.checkFlexibles(path, value, fullPath);
+                }
+
 				checkCldr.check(path, fullPath, value, options, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
@@ -185,6 +229,7 @@ abstract public class CheckCLDR {
                 String type = (String)it2.next();
                 System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
             }
+            fset.showFlexibles();
 		}
         for (Iterator it2 = new TreeSet(totalCount.keySet()).iterator(); it2.hasNext();) {
             String type = (String)it2.next();
@@ -194,7 +239,38 @@ abstract public class CheckCLDR {
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Elapsed: " + deltaTime/60000 + " minutes");
 	}
-	/**
+    
+    private static class FlexibleSet {
+        DateTimePatternGenerator gen = new DateTimePatternGenerator();
+        
+        public void clear() {
+            gen = new DateTimePatternGenerator(); // for now
+        }
+        /**
+         * 
+         */
+        private void showFlexibles() {
+            Set items = (Set)gen.getPatterns(new TreeSet());
+            System.out.println("START DATES");
+            for (Iterator it = items.iterator(); it.hasNext();) {
+                System.out.println("\t\"" + it.next() + "\"");
+            }
+            System.out.println("END DATES");
+        }
+
+        /**
+         * @param path
+         * @param value
+         * @param fullPath
+         */
+        private void checkFlexibles(String path, String value, String fullPath) {
+            if (path.indexOf("gregorian") < 0) return;
+            if (path.indexOf("pattern") < 0 && path.indexOf("dateFormatItem") < 0) return;
+            gen.add(value);
+        }
+    }
+
+    /**
 	 * Get the CLDRFile.
 	 * @param cldrFileToCheck
 	 */

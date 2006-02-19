@@ -828,7 +828,8 @@ private boolean isSupplemental;
 	private static boolean isDistinguishing(String elementName, String attribute) {
 		boolean result =
 		attribute.equals("key") 
-		|| attribute.equals("id") 
+        || attribute.equals("request") 
+        || attribute.equals("id") 
 		|| attribute.equals("_q") 
 		|| attribute.equals("registry") 
 		|| attribute.equals("alt")

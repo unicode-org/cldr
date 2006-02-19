@@ -24,6 +24,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.test.DateTimePatternGenerator.VariableField;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
@@ -34,7 +36,6 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -49,7 +50,6 @@ public class FlexibleDateTime {
     static final boolean DEBUG = false;
     static boolean SHOW_MATCHING = false;
     static boolean SHOW2 = false;
-    static boolean SHOW_DISTANCE = false;
     static boolean SHOW_OO = false;
     static String SEPARATOR = "\r\n\t";
     
@@ -59,12 +59,12 @@ public class FlexibleDateTime {
      * @throws IOException 
      */
     public static void main(String[] args) throws IOException {
-        if (false) { // just for testing simple cases
-            DateTimeMatcher a = new DateTimeMatcher().set("HH:mm");
-            DateTimeMatcher b = new DateTimeMatcher().set("kkmm");
-            DistanceInfo missingFields = new DistanceInfo();
-            int distance = a.getDistance(b, -1, missingFields);
-        }
+//        if (false) { // just for testing simple cases
+//            DateTimePatternGenerator.DateTimeMatcher a = new DateTimePatternGenerator.DateTimeMatcher().set("HH:mm");
+//            DateTimePatternGenerator.DateTimeMatcher b = new DateTimePatternGenerator.DateTimeMatcher().set("kkmm");
+//            DistanceInfo missingFields = new DistanceInfo();
+//            int distance = a.getDistance(b, -1, missingFields);
+//        }
         generate(args);
         //test(args);
     }
@@ -304,8 +304,8 @@ public class FlexibleDateTime {
                     "GEEEEyyyyMMddHHmmss",
                     "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     };
-            DateTimePatternGenerator fdt = new DateTimePatternGenerator()
-            .add(list);
+            DateTimePatternGenerator fdt = new DateTimePatternGenerator();
+            add(fdt, list);
             Date now = new Date(99, 11, 23, 1, 2, 3);
             System.out.println("Sample Input: " + now);
             for (int i = 0; i < testData.length; ++i) {
@@ -313,7 +313,7 @@ public class FlexibleDateTime {
                 System.out.print(SEPARATOR + "Fields: \t" + fdt.getFields(testData[i]));
                 String dfpattern;
                 try {
-                    dfpattern = fdt.getBest(testData[i]);
+                    dfpattern = fdt.getBestPattern(testData[i]);
                 } catch (Exception e) {
                     System.out.println(SEPARATOR + e.getMessage());
                     continue;
@@ -326,530 +326,17 @@ public class FlexibleDateTime {
 	}
     
     
-    
-    
-    static class VariableField {
-        private String string;
-        VariableField(String string) {
-            this.string = string;
-        }
-        public String toString() {
-            return string;
+    public static void add(DateTimePatternGenerator generator, Collection list) {
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            generator.add((String)it.next(), false, null);
         }
     }
     
-    static class FormatParser {
-        private List items = new ArrayList();
-        private char quoteChar = '\'';
-        
-        FormatParser set(String string) {
-            items.clear();
-            if (string.length() == 0) return this;
-            //int start = 1;
-            int lastPos = 0;
-            char last = string.charAt(lastPos);
-            boolean lastIsVar = isVariableField(last);
-            boolean inQuote = last == quoteChar;
-            // accumulate any sequence of unquoted ASCII letters as a variable
-            // anything else as a string (with quotes retained)
-            for (int i = 1; i < string.length(); ++i) {
-                char ch = string.charAt(i);
-                if (ch == quoteChar) {
-                    inQuote = !inQuote;
-                }
-                boolean chIsVar = !inQuote && isVariableField(ch);
-                // break between ASCII letter and any non-equal letter
-                if (ch == last && lastIsVar == chIsVar) continue;
-                String part = string.substring(lastPos, i);
-                if (lastIsVar) {
-                    items.add(new VariableField(part));
-                } else {
-                    items.add(part);
-                }
-                lastPos = i;
-                last = ch;
-                lastIsVar = chIsVar;
-            }
-            String part = string.substring(lastPos, string.length());
-            if (lastIsVar) {
-                items.add(new VariableField(part));
-            } else {
-                items.add(part);
-            }
-            return this;
-        }
-        /**
-         * @param output
-         * @return
-         */
-        public Collection getFields(Collection output) {
-            if (output == null) output = new TreeSet();
-            main:
-                for (Iterator it = items.iterator(); it.hasNext();) {
-                    Object item = it.next();
-                    if (item instanceof VariableField) {
-                        String s = item.toString();
-                        switch(s.charAt(0)) {
-                        //case 'Q': continue main; // HACK
-                        case 'a': continue main; // remove
-                        }
-                        output.add(s);
-                    }
-                }
-            //System.out.println(output);
-            return output;
-        }
-        /**
-         * @return
-         */
-        public String getFieldString() {
-            Set set = (Set)getFields(null);
-            StringBuffer result = new StringBuffer();
-            for (Iterator it = set.iterator(); it.hasNext();) {
-                String item = (String) it.next();
-                result.append(item);
-            }
-            return result.toString();
-        }
-        /**
-         * @param last
-         * @return
-         */
-        private boolean isVariableField(char last) {
-            return last <= 'z' && last >= '0' && (last <= '9' || last >= 'a' || (last >= 'A' && last <= 'Z'));
-        }
-        public List getItems() {
-            return Collections.unmodifiableList(items);
-        }
-    }
+   
     
-    static class DateTimePatternGenerator {
-        private ArrayList list = new ArrayList(1); // items are in priority order
-        private transient DateTimeMatcher current = new DateTimeMatcher();
-        private transient FormatParser fp = new FormatParser();
-        private transient DistanceInfo _distanceInfo = new DistanceInfo();
-        private transient boolean isComplete = false;
-        
-        public Collection getPatterns(Collection result) {
-            for (Iterator it = list.iterator(); it.hasNext();) {
-                DateTimeMatcher item = (DateTimeMatcher) it.next();
-                result.add(item.toString());
-            }
-            return result;
-        }
-        
-        DateTimePatternGenerator add(String pattern) {
-            list.add(new DateTimeMatcher().set(pattern));
-            return this;
-        }
-        
-        DateTimePatternGenerator add(Collection list) {
-            for (Iterator it = list.iterator(); it.hasNext();) {
-                add((String)it.next());
-            }
-            return this;
-        }
-        
-        String getBest(String inputRequest) {
-            if (!isComplete) complete();
-            current.set(inputRequest);
-            String best = getBestRaw(current, -1, _distanceInfo);
-            if (_distanceInfo.missingFieldMask == 0 && _distanceInfo.extraFieldMask == 0) {
-                // we have a good item. Adjust the field types
-                return adjustFieldTypes(best, current);
-            }
-            int neededFields = current.getFieldMask();
-            // otherwise break up by date and time.
-            String datePattern = getBestAppending(neededFields & DATE_MASK);
-            String timePattern = getBestAppending(neededFields & TIME_MASK);
-            
-            
-            if (datePattern == null) return timePattern == null ? "" : timePattern;
-            if (timePattern == null) return datePattern;
-            return MessageFormat.format(getDateTimeFormat(), new Object[]{datePattern, timePattern});
-        }
-
-        // TODO: get from resource
-		private String getDateTimeFormat() {
-			return "{0} {1}";
-		}
-        
-        // TODO: get from resource
-		private String getAppendFormat(int foundMask) {
-			return "{0} [''" + showMask(foundMask) + "'' {1}]";
-		}
-        
-        /**
-         * 
-         */
-        private String getBestAppending(int missingFields) {
-            String resultPattern = null;
-            if (missingFields != 0) {
-                resultPattern = getBestRaw(current, missingFields, _distanceInfo);
-                resultPattern = adjustFieldTypes(resultPattern, current);
-                while (_distanceInfo.missingFieldMask != 0) { // precondition: EVERY single field must work!
-                	int startingMask = _distanceInfo.missingFieldMask;
-                    String temp = getBestRaw(current, _distanceInfo.missingFieldMask, _distanceInfo);
-                    temp = adjustFieldTypes(temp, current);
-                    int foundMask = startingMask & ~_distanceInfo.missingFieldMask;
-                    resultPattern = MessageFormat.format(getAppendFormat(foundMask), new Object[]{resultPattern, temp});
-                }
-            }
-            return resultPattern;
-        }
-        
-        /**
-         * 
-         */
-        private void complete() {
-            // make sure that every valid field occurs once, with a "default" length
-            // for now, just 1. Optimized later
-            boolean[] checked = new boolean[128];
-            checked['a'] = true; // skip 'a'
-            for (int i = 0; i < types.length; ++i) {
-                char c = (char)types[i][0];
-                if (checked[c]) continue;
-                checked[c] = true;
-                add(String.valueOf(c));
-            }
-            isComplete = true;
-            // and add a complete time, complete date. This is a hack for now;
-            // should be replaced by test on locale data.
-            //add("HH:mm:ss.SSS v");
-            //add("G yyyy-MM-dd"); // full normal day
-            //add("eee, G yyyy-MM-dd"); // full normal day with dow
-        }
-        
-        /**
-         * 
-         */
-        private String getBestRaw(DateTimeMatcher source, int includeMask, DistanceInfo missingFields) {
-            if (SHOW_DISTANCE) System.out.println("Searching for: " + source.pattern 
-                    + ", mask: " + showMask(includeMask));
-            DateTimeMatcher best = null;
-            int bestDistance = Integer.MAX_VALUE;
-            DistanceInfo tempInfo = new DistanceInfo();
-            int limit = list.size();
-            int missingCount = 0;
-            for (int i = 0; i < limit; ++i) {
-                DateTimeMatcher trial = (DateTimeMatcher) list.get(i);
-                int distance = source.getDistance(trial, includeMask, tempInfo);
-                if (SHOW_DISTANCE) System.out.println("\tDistance: " + trial.pattern + ":\t" 
-                        + distance + ",\tmissing fields: " + tempInfo);
-                if (distance < bestDistance) {
-                    bestDistance = distance;
-                    best = trial;
-                    missingFields.setTo(tempInfo);
-                    if (distance == 0) break;
-                }
-            }
-            return best.pattern;
-        }
-        
-        public String replaceFieldTypes(String pattern, String inputRequest) {
-            return adjustFieldTypes(pattern, current.set(inputRequest));
-        }
-        
-        /**
-         * 
-         */
-        private String adjustFieldTypes(String pattern, DateTimeMatcher inputRequest) {
-            fp.set(pattern);
-            StringBuffer newPattern = new StringBuffer();
-            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-                Object item = it.next();
-                if (item instanceof String) {
-                    newPattern.append((String)item);
-                } else {
-                    String field = ((VariableField) item).string;
-                    int canonicalIndex = getCanonicalIndex(field);
-                    int type = types[canonicalIndex][1];
-                    if (inputRequest.type[type] != 0) {
-                        String newField = inputRequest.original[type];
-                        // normally we just replace the field. However HOUR is special; we only change the length
-                        if (type != HOUR) {
-                            field = newField;
-                        } else if (field.length() != newField.length()){
-                            char c = field.charAt(0);
-                            field = "";
-                            for (int i = newField.length(); i > 0; --i) field += c;
-                        }
-                    }
-                    newPattern.append(field);
-                }
-            }
-            if (SHOW_DISTANCE) System.out.println("\tRaw: " + pattern);
-            return newPattern.toString();
-        }
-        
-        String getFields(String pattern) {
-            fp.set(pattern);
-            StringBuffer newPattern = new StringBuffer();
-            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-                Object item = it.next();
-                if (item instanceof String) {
-                    newPattern.append((String)item);
-                } else {
-                    newPattern.append("{" + getName(item.toString()) + "}");
-                }
-            }
-            return newPattern.toString();
-        }
-    }
     
-    private static class DateTimeMatcher {
-        // just for testing; fix to make multi-threaded later
-        static FormatParser fp = new FormatParser();
-        String pattern = null;
-        int[] type = new int[TYPE_LIMIT];
-        String[] original = new String[TYPE_LIMIT];
-        transient Set set = new TreeSet();
-        
-        public String toString() {
-            StringBuffer result = new StringBuffer();
-            for (int i = 0; i < TYPE_LIMIT; ++i) {
-                if (original[i] != null) result.append(original[i]);
-            }
-            return result.toString();
-        }
-        
-        DateTimeMatcher set(String pattern) {
-            for (int i = 0; i < TYPE_LIMIT; ++i) {
-                type[i] = NONE;
-                original[i] = null;
-            }
-            this.pattern = pattern;
-            fp.set(pattern);
-            for (Iterator it = fp.getFields(new ArrayList()).iterator(); it.hasNext();) {
-                String field = (String) it.next();
-                if (field.charAt(0) == 'a') continue; // skip day period, special cass
-                int canonicalIndex = getCanonicalIndex(field);
-                if (canonicalIndex < 0) {
-                    System.out.println("Bad field: " + field);
-                    continue;
-                }
-                int[] row = types[canonicalIndex];
-                int typeValue = row[1];
-                if (original[typeValue] != null) {
-                    throw new IllegalArgumentException("Conflicting fields: "
-                            + original[typeValue] + ", " + field);
-                }
-                original[typeValue] = field;
-                int subTypeValue = row[2];
-                if (subTypeValue > 0) subTypeValue += field.length();
-                type[typeValue] = (byte) subTypeValue;
-            }
-            return this;
-        }
-        
-        /**
-         * 
-         */
-        public int getFieldMask() {
-            int result = 0;
-            for (int i = 0; i < type.length; ++i) {
-                if (type[i] != 0) result |= (1<<i);
-            }
-            return result;
-        }
-        
-        /**
-         * 
-         */
-        public void extractFrom(DateTimeMatcher source, int fieldMask) {
-            pattern = source.pattern = null; // nuke the patterns, no longer valid
-            for (int i = 0; i < type.length; ++i) {
-                if ((fieldMask & (1<<i)) != 0) {
-                    type[i] = source.type[i];
-                    original[i] = source.original[i];
-                } else {
-                    type[i] = NONE;
-                    original[i] = null;
-                }
-            }
-        }
-        
-        int getDistance(DateTimeMatcher other, int includeMask, DistanceInfo distanceInfo) {
-            int result = 0;
-            distanceInfo.clear();
-            for (int i = 0; i < type.length; ++i) {
-                int myType = (includeMask & (1<<i)) == 0 ? 0 : type[i];
-                int otherType = other.type[i];
-                if (myType == otherType) continue; // identical (maybe both zero) add 0
-                if (myType == 0) { // and other is not
-                    result += EXTRA_FIELD;
-                    distanceInfo.addExtra(i);
-                } else if (otherType == 0) { // and mine is not
-                    result += MISSING_FIELD;
-                    distanceInfo.addMissing(i);
-                } else {
-                    result += Math.abs(myType - otherType); // square of mismatch
-                }
-            }
-            return result;
-        }		
-    }
     
-    static class DistanceInfo {
-        int missingFieldMask;
-        int extraFieldMask;
-        void clear() {
-            missingFieldMask = extraFieldMask = 0;
-        }
-        /**
-         * 
-         */
-        public void setTo(DistanceInfo other) {
-            missingFieldMask = other.missingFieldMask;
-            extraFieldMask = other.extraFieldMask;
-        }
-        void addMissing(int field) {
-            missingFieldMask |= (1<<field);
-        }
-        void addExtra(int field) {
-            extraFieldMask |= (1<<field);
-        }
-        public String toString() {
-            return "missingFieldMask: " + showMask(missingFieldMask)
-            + ", extraFieldMask: " + showMask(extraFieldMask);
-        }
-    }
     
-    static String showMask(int mask) {
-        String result = "";
-        for (int i = 0; i < TYPE_LIMIT; ++i) {
-            if ((mask & (1<<i)) == 0) continue;
-            if (result.length() != 0) result += " | ";
-            result += FIELD_NAME[i] + " ";
-        }
-        return result;
-    }
-    
-    static private String[] FIELD_NAME = {
-            "Era", "Year", "Quarter", "Month", "Week_in_Year", "Week_in_Month", "Weekday", 
-            "Day", "Day_Of_Year", "Day_of_Week_in_Month", "Dayperiod", 
-            "Hour", "Minute", "Second", "Fractional_Second", "Zone"
-    };
-    
-    static private int
-    ERA = 0,
-    YEAR = 1,
-    QUARTER = 2,
-    MONTH = 3,
-    WEEK_OF_YEAR = 4,
-    WEEK_OF_MONTH = 5,
-    WEEKDAY = 6,
-    DAY = 7,
-    DAY_OF_YEAR = 8,
-    DAY_OF_WEEK_IN_MONTH = 9,
-    DAYPERIOD = 10,
-    HOUR = 11,
-    MINUTE = 12,
-    SECOND = 13,
-    FRACTIONAL_SECOND = 14,
-    ZONE = 15,
-    TYPE_LIMIT = 16;
-    
-    static private int 
-    DATE_MASK = (1<<DAYPERIOD) - 1,
-    TIME_MASK = (1<<TYPE_LIMIT) - 1 - DATE_MASK;
-    
-    static private int // numbers are chosen to express 'distance'
-    DELTA = 0x10,
-    NUMERIC = 0x100,
-    NONE = 0,
-    NARROW = -0x100,
-    SHORT = -0x101,
-    LONG = -0x102,
-    EXTRA_FIELD =   0x10000,
-    MISSING_FIELD = 0x1000;
-    
-    private static String getName(String s) {
-        int i = getCanonicalIndex(s);
-        String name = FIELD_NAME[types[i][1]];
-        int subtype = types[i][2];
-        boolean string = subtype < 0;
-        if (string) subtype = -subtype;
-        if (subtype < 0) name += ":S";
-        else name += ":N";
-        return name;
-    }
-    
-    private static int getCanonicalIndex(String s) {
-        int len = s.length();
-        int ch = s.charAt(0);
-        for (int i = 0; i < types.length; ++i) {
-            int[] row = types[i];
-            if (row[0] != ch) continue;
-            if (row[3] > len) continue;
-            if (row[row.length-1] < len) continue;
-            return i;
-        }
-        return -1;
-    }
-    
-    static private int[][] types = {
-            // the order here makes a difference only when searching for single field.
-            {'G', ERA, SHORT, 1, 3},
-            {'G', ERA, LONG, 4},
-            
-            {'y', YEAR, NUMERIC, 1, 20},
-            {'Y', YEAR, NUMERIC + DELTA, 1, 20},
-            {'u', YEAR, NUMERIC + 2*DELTA, 1, 20},
-
-            {'Q', QUARTER, NUMERIC, 1, 2},
-            {'Q', QUARTER, SHORT, 3},
-            {'Q', QUARTER, LONG, 4},
-
-            {'M', MONTH, NUMERIC, 1, 2},
-            {'M', MONTH, SHORT, 3},
-            {'M', MONTH, LONG, 4},
-            {'M', MONTH, NARROW, 5},
-            {'L', MONTH, NUMERIC + DELTA, 1, 2},
-            {'L', MONTH, SHORT - DELTA, 3},
-            {'L', MONTH, LONG - DELTA, 4},
-            {'L', MONTH, NARROW - DELTA, 5},
-            
-            {'w', WEEK_OF_YEAR, NUMERIC, 1, 2},
-            {'W', WEEK_OF_MONTH, NUMERIC + DELTA, 1},
-            
-            {'e', WEEKDAY, NUMERIC + DELTA, 1, 2},
-            {'e', WEEKDAY, SHORT - DELTA, 3},
-            {'e', WEEKDAY, LONG - DELTA, 4},
-            {'e', WEEKDAY, NARROW - DELTA, 5},
-            {'E', WEEKDAY, SHORT, 1, 3},
-            {'E', WEEKDAY, LONG, 4},
-            {'E', WEEKDAY, NARROW, 5},
-            {'c', WEEKDAY, NUMERIC + 2*DELTA, 1, 2},
-            {'c', WEEKDAY, SHORT - 2*DELTA, 3},
-            {'c', WEEKDAY, LONG - 2*DELTA, 4},
-            {'c', WEEKDAY, NARROW - 2*DELTA, 5},
-            
-            {'d', DAY, NUMERIC, 1, 2},
-            {'D', DAY_OF_YEAR, NUMERIC + DELTA, 1, 3},
-            {'F', DAY_OF_WEEK_IN_MONTH, NUMERIC + 2*DELTA, 1},
-            {'g', DAY, NUMERIC + 3*DELTA, 1, 20}, // really internal use, so we don't care
-            
-            {'a', DAYPERIOD, SHORT, 1},
-            
-            {'H', HOUR, NUMERIC + 10*DELTA, 1, 2}, // 24 hour
-            {'k', HOUR, NUMERIC + 11*DELTA, 1, 2},
-            {'h', HOUR, NUMERIC, 1, 2}, // 12 hour
-            {'K', HOUR, NUMERIC + DELTA, 1, 2},
-            
-            {'m', MINUTE, NUMERIC, 1, 2},
-            
-            {'s', SECOND, NUMERIC, 1, 2},
-            {'S', FRACTIONAL_SECOND, NUMERIC + DELTA, 1, 1000},
-            {'A', SECOND, NUMERIC + 2*DELTA, 1, 1000},
-            
-            {'v', ZONE, SHORT - 2*DELTA, 1},
-            {'v', ZONE, LONG - 2*DELTA, 4},
-            {'z', ZONE, SHORT, 1, 3},
-            {'z', ZONE, LONG, 4},
-            {'Z', ZONE, SHORT - DELTA, 1, 3},
-            {'Z', ZONE, LONG - DELTA, 4},
-    };
     
     // =================
     

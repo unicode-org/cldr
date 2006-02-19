@@ -179,8 +179,7 @@ public class ICUServiceBuilder {
         formatData.setWeekdays(last = getArray(prefix, "day", "stand-alone", "narrow", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
 
         result.setDateFormatSymbols(formatData);
-        //formatData.setZoneStrings();   
-        
+        //formatData.setZoneStrings();  
         
         DecimalFormat numberFormat = (DecimalFormat) getNumberFormat(1);
         numberFormat.setGroupingUsed(false);
@@ -418,7 +417,7 @@ public class ICUServiceBuilder {
         	//<group>.</group>
         	
         	// TODO This is a hack for now, since I am ignoring the possibility of quoted text next to the symbol
-        	int startPos = pattern.indexOf('¤');
+        	int startPos = pattern.indexOf('\u00a4');
         	if (startPos > 0 
         			&& beforeCurrencyMatch.contains(UTF16.charAt(symbol,0))) {
         		int ch = UTF16.charAt(pattern, startPos-1);
@@ -427,7 +426,7 @@ public class ICUServiceBuilder {
         			pattern = pattern.substring(0,startPos) + beforeInsertBetween + pattern.substring(startPos);
         		}
         	}
-        	int endPos = pattern.lastIndexOf('¤') + 1;
+        	int endPos = pattern.lastIndexOf('\u00a4') + 1;
         	if (endPos < pattern.length() 
         			&& afterCurrencyMatch.contains(UTF16.charAt(symbol,symbol.length()-1))) {
         		int ch = UTF16.charAt(pattern, endPos);

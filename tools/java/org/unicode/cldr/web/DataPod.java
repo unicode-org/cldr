@@ -632,6 +632,8 @@ public class DataPod {
     }
     
     private static final boolean SHOW_TIME=false;
+    public static final String FAKE_FLEX_THING = "dateTimes/availableDateFormats/NEW";
+    public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
     private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
         init();
@@ -699,6 +701,11 @@ public class DataPod {
                     // nongreg
                 } else {
                     removePrefix = "//ldml/dates/calendars/calendar/gregorian/";
+                    
+                    // Add the fake 'dateTimes/availableDateFormats/new'
+                    Pea myp = getPea(FAKE_FLEX_THING);
+                    canName=false;
+                    myp.addItem("<i>Use this item to add a new availableDateFormat</i>", null, null);
                 }
             }
         } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {

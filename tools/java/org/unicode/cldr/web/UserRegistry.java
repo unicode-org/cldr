@@ -709,10 +709,10 @@ public class UserRegistry {
         return userCanModifyLocale(localeArray,locale);
     }
     
-    static final String LOCALE_PATTERN = "[, ]+"; // whitespace
+    static final String LOCALE_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
     
     static String[] tokenizeLocale(String localeList) {
-        if(localeList == null) {
+        if((localeList == null)||((localeList=localeList.trim()).length()==0)) {
 //            System.err.println("TKL: null input");
             return new String[0];
         }

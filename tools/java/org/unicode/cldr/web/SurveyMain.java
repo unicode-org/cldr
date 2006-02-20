@@ -129,7 +129,7 @@ public class SurveyMain extends HttpServlet {
     // more global prefs
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
-    
+    static final String PREF_COVLEV = "p_covlev"; // covlev
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
@@ -871,7 +871,7 @@ public class SurveyMain extends HttpServlet {
                 String theirOrg = rs.getString(5);
                 String theirLocaleList = rs.getString(6);
 
-                if(theirLevel > 10) {
+                if((theirLevel > 10)||(theirLevel <= 1)) {
                     continue;
                 }
                 totalUsers++;
@@ -1281,7 +1281,17 @@ public class SurveyMain extends HttpServlet {
 //        nuCtx.println("</div>");
         return val;
     }
-    
+    String showListPref(WebContext ctx, String pref, String what, String[] list) {
+        String val = ctx.pref(pref, list[0]);
+        ctx.println("<label><b>"+what+"</b> ");
+        ctx.println("<select name='"+pref+"'>");
+        for(int n=0;n<list.length;n++) {
+            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
+        }
+        ctx.println("</select></label><br>");
+        return val;
+    }
+    public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
     void doOptions(WebContext ctx) {
         printHeader(ctx, "My Options");
         printUserMenu(ctx);
@@ -1291,9 +1301,10 @@ public class SurveyMain extends HttpServlet {
         ctx.addQuery("do","options");
         ctx.println("<h4>Advanced Options</h4>");
         boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
-//        if(adv) {
-            showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
-//        }
+
+        showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
+
+        showListPref(ctx, PREF_COVLEV, "Coverage Level Testing", PREF_COVLEV_LIST);
         
         printFooter(ctx);
     }
@@ -2353,8 +2364,23 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                 }
             }
         }
+        String altPrefix = null;
+        // handle FFT
+        if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
+            if(UserRegistry.userIsTC(ctx.session.user)) {
+                String idStr="[@id=\"u"+ctx.session.user.id+"-"+CookieSession.newId(false).substring(0,6)+"\"]";
+                fullPathMinusAlt=DataPod.FAKE_FLEX_XPATH+idStr;
+                ctx.println("<tt>"+fullPathMinusAlt+"</tt><br>");
+            } else {
+                ctx.println("<i>Sorry.. this feature ("+DataPod.FAKE_FLEX_THING+") is not available yet.</i><br>");
+                return false;
+            }
+            // no alt prefix
+        } else {
+            altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
+        }
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
-            XPathTable.altProposedPrefix(ctx.session.user.id), ctx.session.user.id, choice_v, choice_r);
+            altPrefix, ctx.session.user.id, choice_v, choice_r);
         ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp+"</b>");
         if(choice.equals(REMOVE)) {
             ctx.print(" <i>(removal)</i>");
@@ -2373,6 +2399,10 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
 // TODO: trim unused params
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[]) {
+    if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
+        return;
+    }
+
     String fullPathFull = pod.xpath(p); 
     String boxClass = canModify?"actionbox":"disabledbox";
     boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
@@ -3188,9 +3218,10 @@ private void printWarning(WebContext ctx, String myxpath) {
 
 static long shortN = 0;
 static final int MAX_CHARS = 100;
-
+static final String SHORT_A = "(Click to show entire warning.)";
+static final String SHORT_B = "(hide.)";
 private synchronized void printShortened(WebContext ctx, String str) {
-    if(str.length()<MAX_CHARS) {
+    if(str.length()<(MAX_CHARS+1+SHORT_A.length())) {
         ctx.println(str);
     } else {
         String key = CookieSession.cheapEncode(shortN++);
@@ -3199,13 +3230,13 @@ private synchronized void printShortened(WebContext ctx, String str) {
 }
 
 private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
-        ctx.println("<span id='h_"+warnHash+"'>" + shortStr + "... ");
+        ctx.println("<span id='h_ww"+warnHash+"'>" + shortStr + "... ");
         ctx.print("<a href='javascript:show(\"ww" + warnHash + "\")'>" + 
-                    "(Click to show entire warning.)</a></span>");
+                    SHORT_A+"</a></span>");
         ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
                     "<span style='display: none'  id='ww" + warnHash + "'>" +
                     longStr + "<a href='javascript:hide(\"ww" + warnHash + "\")'>" + 
-                    "(hide.)</a></span>");
+                    SHORT_B+"</a></span>");
 }
 
 

@@ -895,14 +895,23 @@ public class CLDRDBSource extends XMLSource {
         XPathParts xpp = new XPathParts(null,null);
         // prepare for slot check
         for(int slot=1;slot<100;slot++) {
-            String altProposed = altProposedPrefix+slot; // proposed-u123-4 
-            String alt = LDMLUtilities.formatAlt(altType, altProposed);
+            String altProposed = null;
+            String alt = null;
+            String altTag = null;
+            if(altProposedPrefix != null) {
+                altProposed = altProposedPrefix+slot; // proposed-u123-4 
+                alt = LDMLUtilities.formatAlt(altType, altProposed);
+                altTag =  "[@alt=\"" + alt + "\"]";
+            } else {
+                // no alt
+                altTag = "";
+            }
             //            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
             String refStr = "";
             if(refs.length()!=0) {
                 refStr = "[@references=\""+refs+"\"]";
             }
-            String rawXpath = fullXpathMinusAlt + "[@alt=\"" + alt + "\"]" + refStr; // refstr will get removed
+            String rawXpath = fullXpathMinusAlt + altTag + refStr; // refstr will get removed
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
             String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
             if(!xpath.equals(rawXpath)) {

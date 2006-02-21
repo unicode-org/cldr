@@ -1,7 +1,9 @@
 package org.unicode.cldr.test;
 
 import java.text.ParseException;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +50,27 @@ public class CheckDates extends CheckCLDR {
 		if (cldrFileToCheck == null) return this;
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
-		bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
+        // the following is a hack to work around a bug in ICU4J (the snapshot, not the released version).
+		try {
+            bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
+        } catch (RuntimeException e) {
+            bi = BreakIterator.getCharacterInstance(new ULocale(""));
+        }
+        CLDRFile resolved = getResolvedCldrFileToCheck();
+        flexInfo.set(resolved);
+        for (Iterator it = resolved.iterator(); it.hasNext();) {
+            String path = (String) it.next();
+            String value = resolved.getStringValue(path);
+            String fullPath = resolved.getFullXPath(path);
+            flexInfo.checkFlexibles(path, value, fullPath);
+        }
+        redundants.clear();
+        flexInfo.getRedundants(redundants);
 		return this;
 	}
 	BreakIterator bi;
+    FlexibleDateFromCLDR flexInfo = new FlexibleDateFromCLDR();
+    Collection redundants = new HashSet();
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
@@ -98,6 +117,17 @@ public class CheckDates extends CheckCLDR {
 
 	private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
 		pathParts.set(path);
+        if (pathParts.containsElement("dateFormatItem")) {
+            String failureMessage = (String) flexInfo.getFailurePath(path);
+            if (failureMessage != null) {
+                result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+                .setMessage("{0}", new Object[]{failureMessage}));          
+            }
+            if (redundants.contains(value)) {
+                result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+                .setMessage("Redundant with some pattern (or combination)", new Object[]{}));          
+            }
+        }
 		String calendar = pathParts.findAttributeValue("calendar", "type");
         SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
 		addSamples(x, value, path.indexOf("/dateFormat") >= 0, result);

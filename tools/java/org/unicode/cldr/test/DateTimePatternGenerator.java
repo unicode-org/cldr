@@ -54,7 +54,7 @@ class DateTimePatternGenerator {
     
     /** Field numbers, used for AppendItem functions
      */
-    static public int ERA = 0, YEAR = 1, QUARTER = 2, MONTH = 3,
+    static final public int ERA = 0, YEAR = 1, QUARTER = 2, MONTH = 3,
             WEEK_OF_YEAR = 4, WEEK_OF_MONTH = 5, WEEKDAY = 6, DAY = 7,
             DAY_OF_YEAR = 8, DAY_OF_WEEK_IN_MONTH = 9, DAYPERIOD = 10,
             HOUR = 11, MINUTE = 12, SECOND = 13, FRACTIONAL_SECOND = 14,
@@ -94,7 +94,7 @@ class DateTimePatternGenerator {
      * @param override TODO
      */
     public DateTimePatternGenerator add(String pattern, boolean override, PatternInfo returnInfo) {
-        DateTimeMatcher matcher = new DateTimeMatcher().set(pattern);
+        DateTimeMatcher matcher = new DateTimeMatcher().set(pattern, fp);
         String previousValue = (String)skeleton2pattern.get(matcher);
         if (previousValue != null) {
             returnInfo.status = PatternInfo.CONFLICT;
@@ -112,7 +112,7 @@ class DateTimePatternGenerator {
      */
     public String getBestPattern(String skeleton) {
         //if (!isComplete) complete();
-        current.set(skeleton);
+        current.set(skeleton, fp);
         String best = getBestRaw(current, -1, _distanceInfo);
         if (_distanceInfo.missingFieldMask == 0 && _distanceInfo.extraFieldMask == 0) {
             // we have a good item. Adjust the field types
@@ -154,8 +154,7 @@ class DateTimePatternGenerator {
     }
     
     /**
-     * Return a "clean" generator, with redundant patterns removed.
-     * Redundant patterns are those which if removed, make no difference in the resulting getBestPattern values.
+     * Return Redundant patterns are those which if removed, make no difference in the resulting getBestPattern values.
      * @param output if not null, stores the redundant patterns that are removed. To get these in internal order,
      * supply a LinkedHashSet.
      * @return a new generator
@@ -198,7 +197,7 @@ class DateTimePatternGenerator {
      * @return
      */
     public String replaceFieldTypes(String pattern, String skeleton) {
-        return adjustFieldTypes(pattern, current.set(skeleton), false);
+        return adjustFieldTypes(pattern, current.set(skeleton, fp), false);
     }
     
     public String getAppendItemFormats(int field) {
@@ -236,8 +235,8 @@ class DateTimePatternGenerator {
     private transient boolean isComplete = false;
     private transient DateTimeMatcher skipMatcher = null;
     
-    private static int FRACTIONAL_MASK = 1<<FRACTIONAL_SECOND;
-    private static int SECOND_AND_FRACTIONAL_MASK = (1<<SECOND) | (1<<FRACTIONAL_SECOND);
+    private static final int FRACTIONAL_MASK = 1<<FRACTIONAL_SECOND;
+    private static final int SECOND_AND_FRACTIONAL_MASK = (1<<SECOND) | (1<<FRACTIONAL_SECOND);
     /**
      * We only get called here if we failed to find an exact skeleton. We have broken it into date + time, and look for the pieces.
      * If we fail to find a complete skeleton, we compose in a loop until we have all the fields.
@@ -407,11 +406,11 @@ class DateTimePatternGenerator {
     
     static private Set CANONICAL_SET = new HashSet(Arrays.asList(CANONICAL_ITEMS));
     
-    static private int 
+    static final private int 
     DATE_MASK = (1<<DAYPERIOD) - 1,
     TIME_MASK = (1<<TYPE_LIMIT) - 1 - DATE_MASK;
     
-    static private int // numbers are chosen to express 'distance'
+    static final private int // numbers are chosen to express 'distance'
     DELTA = 0x10,
     NUMERIC = 0x100,
     NONE = 0,
@@ -517,7 +516,7 @@ class DateTimePatternGenerator {
         private String[] original = new String[TYPE_LIMIT];
 
         // just for testing; fix to make multi-threaded later
-        private static FormatParser fp = new FormatParser();
+        // private static FormatParser fp = new FormatParser();
         
         public String toString() {
             StringBuffer result = new StringBuffer();
@@ -527,7 +526,7 @@ class DateTimePatternGenerator {
             return result.toString();
         }
         
-        DateTimeMatcher set(String pattern) {
+        DateTimeMatcher set(String pattern, FormatParser fp) {
             for (int i = 0; i < TYPE_LIMIT; ++i) {
                 type[i] = NONE;
                 original[i] = "";

@@ -9,11 +9,8 @@ package org.unicode.cldr.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,17 +20,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel.Level;
-import org.unicode.cldr.test.DateTimePatternGenerator.PatternInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.CollectionUtilities;
-import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -59,6 +52,7 @@ abstract public class CheckCLDR {
 	static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     public static boolean SHOW_TIMES = false;
+    public static boolean showStackTrace = false;
     
 	/**
 	 * Here is where the list of all checks is found. 
@@ -138,6 +132,7 @@ abstract public class CheckCLDR {
         System.out.println("test filter: " + checkFilter);
         System.out.println("show examples: " + SHOW_EXAMPLES);
         System.out.println("coverage level: " + coverageLevel);
+        System.out.println("checking dates: " + checkFlexibleDates);
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
@@ -153,7 +148,7 @@ abstract public class CheckCLDR {
         Map options = new HashMap();
         Counter totalCount = new Counter();
         Counter subtotalCount = new Counter();
-        FlexibleSet fset = new FlexibleSet();
+        FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
         
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
@@ -175,7 +170,9 @@ abstract public class CheckCLDR {
 			CollectionUtilities.addAll(file.iterator(), paths);
 			UnicodeSet missingExemplars = new UnicodeSet();
             subtotalCount.clear();
-            fset.set(file);
+            if (checkFlexibleDates) {
+                fset.set(file);
+            }
             
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 
@@ -215,7 +212,7 @@ abstract public class CheckCLDR {
 					System.out.println("\t" + statusString);
 					Object[] parameters = status.getParameters();
 					if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
-						if (parameters[i] instanceof Throwable) {
+						if (showStackTrace && parameters[i] instanceof Throwable) {
 							((Throwable)parameters[i]).printStackTrace();
 						}
 						if (status.getMessage().startsWith("Not in exemplars")) {
@@ -233,7 +230,9 @@ abstract public class CheckCLDR {
                 String type = (String)it2.next();
                 System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
             }
-            fset.showFlexibles();
+            if (checkFlexibleDates) {
+                fset.showFlexibles();
+            }
 		}
         for (Iterator it2 = new TreeSet(totalCount.keySet()).iterator(); it2.hasNext();) {
             String type = (String)it2.next();
@@ -244,169 +243,6 @@ abstract public class CheckCLDR {
         System.out.println("Elapsed: " + deltaTime/60000 + " minutes");
 	}
     
-    private static class FlexibleSet {
-        DateTimePatternGenerator gen = new DateTimePatternGenerator();
-        transient XPathParts parts = new XPathParts(null, null);
-        private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-                
-        static List tests = Arrays.asList(new String[]{
-                
-                "HHmmssSSSvvvv", // 'complete' time
-                "HHmm",
-                "HHmmvvvv",
-                "HHmmss",
-                "HHmmssSSSSS",
-                "HHmmssvvvv",
-
-                "MMMd",
-                "Md",
-
-                "YYYYD", // (maybe?)
-
-                "yyyyww",
-                "yyyywwEEE",
-
-                "yyyyQQQQ",
-                "yyyyMM",
-
-                "yyyyMd",
-                "yyyyMMMd",
-                "yyyyMMMEEEd",
-
-                "GyyyyMMMd",
-                "GyyyyMMMEEEd", // 'complete' date 
-                
-                "YYYYwEEE", // year, week of year, weekday
-                "yyyyDD", // year, day of year
-                "yyyyMMFE", // year, month, nth day of week in month
-                // misc
-                "eG", "dMMy", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
-                "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
-                "GEEEEyyyyMMddHHmmss",
-                "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
-                });
-
-        public void set(CLDRFile cldrFile) {
-            icuServiceBuilder.setCldrFile(cldrFile);
-            gen = new DateTimePatternGenerator(); // for now
-            failures.clear();
-        }
-        /**
-         * 
-         */
-        private void showFlexibles() {
-            Map items = (Map)gen.getSkeletons(new LinkedHashMap());
-            System.out.println("ERRORS");
-            for (Iterator it = failures.iterator(); it.hasNext();) {
-                Object item = it.next();
-                System.out.println("\t" + item);
-            }
-            for (int i = 0; i < DateTimePatternGenerator.TYPE_LIMIT; ++i) {
-                String format = gen.getAppendItemFormats(i);
-                if (format.indexOf('\u251C') >= 0) {
-                    System.out.println("\tMissing AppendItem format:\t" + DISPLAY_NAME_MAP[i]);
-                }
-                if (i == DateTimePatternGenerator.FRACTIONAL_SECOND) continue; // don't need this field
-                String name = gen.getAppendItemNames(i);
-                if (name.matches("F[0-9]+")) {
-                    System.out.println("\tMissing Field Name:\t" + DISPLAY_NAME_MAP[i]);
-                }
-            }
-            System.out.println("SKELETON\t=> PATTERN LIST");
-            for (Iterator it = items.keySet().iterator(); it.hasNext();) {
-                Object skeleton = it.next();
-                System.out.println("\t\"" + skeleton + "\"\t=>\t\"" + items.get(skeleton) + "\"");
-            }
-            System.out.println("REDUNDANTS");
-            Collection redundants = gen.getRedundants(new ArrayList());
-            for (Iterator it = redundants.iterator(); it.hasNext();) {
-                Object item = it.next();
-                System.out.println("\t" + item);
-            }
-            System.out.println("TESTS");
-            for (Iterator it = tests.iterator(); it.hasNext();) {
-                String item = (String) it.next();
-                try {
-                    String pat = gen.getBestPattern(item);
-                    String sample = "<can't format>";
-                    try {
-                        DateFormat df = icuServiceBuilder.getDateFormat("gregorian", pat);
-                        sample = df.format(new Date());
-                    } catch (RuntimeException e) {}
-                    System.out.println("\t\"" + item + "\"\t=>\t\"" + pat +  "\"\t=>\t\"" + sample + "\"");
-                } catch (RuntimeException e) {
-                    System.out.println(e.getMessage()); // e.printStackTrace();
-                }
-            }
-            System.out.println("END");
-        }
-
-        /**
-         * @param path
-         * @param value
-         * @param fullPath
-         */
-        private void checkFlexibles(String path, String value, String fullPath) {
-            if (path.indexOf("numbers/symbols/decimal") >= 0) {
-                gen.setDecimal(value);
-                return;
-            }
-            if (path.indexOf("gregorian") < 0) return;
-            if (path.indexOf("/appendItem") >= 0) {
-                String key = (String) parts.set(path).getAttributes(-1).get("request");
-                try {
-                    gen.setAppendItemFormats(getIndex(key, APPEND_ITEM_NAME_MAP), value);
-                } catch (RuntimeException e) {
-                    System.out.println("\tWarning: can't set AppendItemFormat:\t" + key + ":\t" + value);
-                }
-                return;
-            }
-            if (path.indexOf("/fields") >= 0) {
-                String key = (String) parts.set(path).getAttributes(-2).get("type");
-                try {
-                    gen.setAppendItemNames(getIndex(key, DISPLAY_NAME_MAP), value);
-                } catch (RuntimeException e) {
-                    System.out.println("\tWarning: can't set AppendItemName:\t" + key + ":\t" + value);
-                }
-                return;
-            }
-
-            if (path.indexOf("pattern") < 0 && path.indexOf("dateFormatItem") < 0) return;
-            if (path.indexOf("dateTimeFormatLength") > 0) return;
-             try {
-                gen.add(value, false, patternInfo);
-                switch (patternInfo.status) {
-                case PatternInfo.CONFLICT:
-                        failures.add("Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern + "\"");
-                        break;
-                }
-            } catch (RuntimeException e) {
-                failures.add(e.getMessage());
-            }
-        }
-        static private String[] DISPLAY_NAME_MAP = {
-            "era", "year", "quarter", "month", "week", "week_in_month", "weekday", 
-            "day", "day_of_year", "day_of_week_in_month", "dayperiod", 
-            "hour", "minute", "second", "fractional_second", "zone"
-        };
-
-        static private String[] APPEND_ITEM_NAME_MAP = {
-            "G", "y", "Q", "M", "w", "W", "e", 
-            "d", "D", "F", "a", 
-            "h", "m", "s", "S", "v"
-        };
-        
-        int getIndex(String s, String[] strings) {
-            for (int i = 0; i < strings.length; ++i) {
-                if (s.equals(strings[i])) return i;
-            }
-            return -1;
-        }
-        
-        PatternInfo patternInfo = new PatternInfo();
-        List failures = new ArrayList();
-    }
-
     /**
 	 * Get the CLDRFile.
 	 * @param cldrFileToCheck

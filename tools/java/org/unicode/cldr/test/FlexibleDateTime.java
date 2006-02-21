@@ -48,10 +48,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class FlexibleDateTime {
     static final boolean DEBUG = false;
-    static boolean SHOW_MATCHING = false;
-    static boolean SHOW2 = false;
-    static boolean SHOW_OO = false;
-    static String SEPARATOR = "\r\n\t";
+    static final boolean SHOW_MATCHING = false;
+    static final boolean SHOW2 = false;
+    static final boolean SHOW_OO = false;
+    static final String SEPARATOR = "\r\n\t";
     
     /**
      * Test different ways of doing flexible date/times.

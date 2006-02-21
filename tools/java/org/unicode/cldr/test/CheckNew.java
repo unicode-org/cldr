@@ -11,14 +11,17 @@ public class CheckNew extends CheckCLDR {
             + "segmentations|measurementSystemNames|inList|quarters|availableFormats"
             + "|appendItems|singleCountries|hourFormat|hoursFormat|gmtFormat|regionFormat|fallbackFormat"
             + "|abbreviationFallback|preferenceOrdering|singleCountries|relative|currencySpacing"
+            + "|calendars.*/fields"
             + "|exemplarCharacters\\[.*auxiliary"
             + ").*").matcher("");
+    //  dateTimes/availableDateFormats/NEW
+    // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="second"]/displayName
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
         if (stuffToCheckFor.reset(path).matches()) {
             result.add(new CheckStatus()
                     .setCause(this).setType(CheckStatus.warningType)
-                    .setMessage("This field is relatively new, and should be checked to see if it needs translation or adjustment."));
+                    .setMessage("New field: may need translation or fixing."));
         }
         return this;
     }

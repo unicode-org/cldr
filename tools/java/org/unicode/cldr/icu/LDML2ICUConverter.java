@@ -2847,7 +2847,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
             if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
-                res.name = table.name;
+                if(res!=null){
+                    res.name = table.name;
+                }
                 return res; // an alias if for the resource
             }else if(name.equals(LDMLConstants.DEFAULT)){
                 ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -4162,8 +4164,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
     private static final UnicodeSet needsQuoting = new UnicodeSet("[[:whitespace:][:c:][:z:][[:ascii:]-[a-zA-Z0-9]]]");
     private static StringBuffer quoteOperandBuffer = new StringBuffer(); // faster
-    private static final String quoteOperand(String s) {
 
+    private static final String quoteOperand(String s) {
         s = Normalizer.normalize(s, Normalizer.NFC);
         quoteOperandBuffer.setLength(0);
         boolean noQuotes = true;

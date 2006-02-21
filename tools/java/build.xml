@@ -28,7 +28,7 @@
     </target>
 
     <!-- build everything but dist-related stuff -->
-    <target name="all" depends="util,tool,posix,icu,test,ooo,ant-plugin" description="build all primary targets"/>
+    <target name="all" depends="util,ant-plugin,tool,posix,icu,test,ooo" description="build all primary targets"/>
     <target name="ant-plugin" depends="init" description="build utility classes">
         <javac includes="org/unicode/cldr/ant/**/*.java"
             excludes="**/CVS/**/*"

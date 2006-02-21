@@ -97,7 +97,9 @@ public class CLDRFile implements Freezable {
 			String result = (String) xpath_fullXPath.get(xpath);
 			if (result != null) return result;
 			if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
-			throw new IllegalArgumentException("Path not present in data: " + xpath);
+            System.err.println("WARNING: "+getLocaleID()+": path not present in data: " + xpath);
+            return xpath;
+			//throw new IllegalArgumentException("Path not present in data: " + xpath);
 		}
 		public Comments getXpathComments() {
 			return xpath_comments;
@@ -907,7 +909,11 @@ private boolean isSupplemental;
 			result.matchString = matchString;
             Matcher m = Pattern.compile(matchString).matcher("");
 			result.localeList = getMatchingXMLFiles(sourceDirectory, m);
-            result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
+            try {
+                result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
+            } catch(Throwable t) {
+                throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
+            }
 			return result;
 		}
 

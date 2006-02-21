@@ -845,8 +845,14 @@ public class StandardCodes {
 				if ((result = d1.compareTo(d2)) != 0) return result;
 				// name
 				return s1.compareTo(s2); 
-			}
-			throw new IllegalArgumentException("Can't compare " + s1 + " and " + s2);
+			} else  {
+                if(DEBUG) {
+                    /* throw.. */
+                    System.err.println("Can't compare " + s1 + " "+((data1==null)?"(null data)":"") +" and " + s2 + 
+                    ((data2==null)?"(null data)":"")+" - USING STRING COMPARE. (probably a zone went away or was added..)");
+                }
+                return s1.compareTo(s2); 
+            }
 		}		
 	};
 

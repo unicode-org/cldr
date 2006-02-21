@@ -589,24 +589,31 @@ public class DataPod {
                                                     "Formats/decimalFormatLength/decimalFormat|"+
                                                     "Formats/scientificFormatLength/scientificFormat|"+
                                                     "dateTimes/dateTimeLength/|"+
+                                                    "Formats/timeFormatLength|"+
                                                     "/timeFormats/timeFormatLength|"+
+                                                    "/timeFormat|"+
                                                     "s/quarterContext|"+
                                                     "/dateFormats/dateFormatLength|"+
                                                     "/pattern|"+
                                                     "/monthContext|"+
+                                                    "/monthWidth|"+
+                                                    "/timeLength|"+
+                                                    "/quarterWidth|"+
                                                     "/dayContext|"+
                                                     "/dayWidth|"+
                                                     "day/|"+
+                                                    "date/|"+
                                                     "Format|"+
                                                     "s/field|"+
                                                     "\\[@draft=\"true\"\\]|"+ // ???
                                                     "\\[@alt=\"[^\"]*\"\\]|"+ // ???
-                                                    "/displayName$|" + // for currency
-                                                    "/standard"    );
+                                                    "/displayName$|"+  // for currency
+                                                    "/standard/standard$"     );
          mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
-                                              "^//ldml/dates.*|"+
+                                              "^//ldml/dates/timeZoneNames/zone.*|"+
+                                              "^//ldml/dates/calendar.*|"+
                                               "^//ldml/identity.*");
         // what to exclude under 'misc' and calendars
          excludeAlways = Pattern.compile("^//ldml/segmentations.*|"+
@@ -741,7 +748,7 @@ public class DataPod {
             } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
-            } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames"))) {
+            } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
@@ -878,7 +885,10 @@ public class DataPod {
             if(altProposed == null) {
                 // just work on the supers
                 if(superP.displayName == null) {
-                    if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")) {
+                    if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")||
+                       xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")||
+                       (xpathPrefix.startsWith("//ldml/dates") && (-1==peaSuffixXpath.indexOf("/pattern"))
+                                                               && (-1==peaSuffixXpath.indexOf("availableFormats")))) {
                         superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
                         /*
                         if(mixedType == false) {

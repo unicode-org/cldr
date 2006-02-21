@@ -2413,18 +2413,20 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     String fieldHash = pod.fieldHash(p);
     /*  TOP BAR */
     ctx.println("<tr class='topbar'>");
-    ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
-    if(p.displayName != null) {
+    if(p.displayName != null) { // have a display name - code gets its own box
+        ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
         ctx.println("<tt class='codebox'>"
                     + p.type + 
                     "</tt>");
+    } else { // no display name - same box for code+alt
+        ctx.println("<th nowrap class='botgray' colspan='5' valign='top' align='left'>");
     }
     if(p.altType != null) {
         ctx.println(" ("+p.altType+")");
     }
-    ctx.println("</th>");
-    ctx.println("<th nowrap colspan='4' valign='top' align='left' class='botgray'>");
     if(p.displayName != null) {
+        ctx.println("</th>");
+        ctx.println("<th nowrap style='padding-left: 4px;' colspan='4' valign='top' align='left' class='botgray'>");
         ctx.println(p.displayName);
     } else {
         ctx.println("<tt>"+p.type+"</tt>");

@@ -536,7 +536,7 @@ public class DataPod {
                 et= new com.ibm.icu.dev.test.util.ElapsedTimer();
                 System.err.println("DP: Starting populate of " + locale + " // " + prefix);
             }
-            pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile());
+            pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
             if(SHOW_TIME) {
                 System.err.println("DP: Time taken to populate " + locale + " // " + prefix + " = " + et);
             }
@@ -640,15 +640,14 @@ public class DataPod {
     
     private static final boolean SHOW_TIME=false;
     public static final String FAKE_FLEX_THING = "dateTimes/availableDateFormats/NEW";
+    public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
-    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
+    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile, Map options) {
         init();
         XPathParts xpp = new XPathParts(null,null);
 //        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
         CLDRFile aFile = new CLDRFile(src, true);
-        Map options = new TreeMap();
-//        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         
@@ -711,8 +710,11 @@ public class DataPod {
                     
                     // Add the fake 'dateTimes/availableDateFormats/new'
                     Pea myp = getPea(FAKE_FLEX_THING);
+                    String spiel = "<i>Use this item to add a new availableDateFormat</i>";
+                    myp.xpathSuffix = FAKE_FLEX_SUFFIX;
                     canName=false;
-                    myp.addItem("<i>Use this item to add a new availableDateFormat</i>", null, null);
+                    myp.displayName = spiel;
+//                    myp.addItem(spiel, null, null);
                 }
             }
         } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {

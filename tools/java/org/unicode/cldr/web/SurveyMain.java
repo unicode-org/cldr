@@ -129,7 +129,8 @@ public class SurveyMain extends HttpServlet {
     // more global prefs
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
-    static final String PREF_COVLEV = "p_covlev"; // covlev
+    public static final String PREF_COVLEV = "p_covlev"; // covlev
+    public static final String PREF_COVTYP = "p_covtyp"; // covtyp
     //    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
@@ -228,10 +229,9 @@ public class SurveyMain extends HttpServlet {
         pages++;
         
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        
-        response.setContentType("text/html; charset=utf-8");
-        
+                
         if(isBusted != null) {
+            response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
             out.println("<html>");
             out.println("<head>");
@@ -248,11 +248,25 @@ public class SurveyMain extends HttpServlet {
             return;        
         }
         
+        if(request.getParameter("udump") != null &&
+            request.getParameter("udump").equals(vap)) {  // XML.
+            response.setContentType("application/xml; charset=utf-8");
+            WebContext xctx = new WebContext(request,response);
+            doUDump(xctx);
+            xctx.close();
+            return;
+        }
+        
+        // rest of these are HTML
+        response.setContentType("text/html; charset=utf-8");
+
         WebContext ctx = new WebContext(request,response);
         ctx.reqTimer = reqTimer;
         // TODO: ctx.dbsrc..
         ctx.sm = this;
         
+
+                    
         if(ctx.field("dump").equals(vap)) {
             doDump(ctx);
         } else if(ctx.field("sql").equals(vap)) {
@@ -1014,10 +1028,66 @@ public class SurveyMain extends HttpServlet {
     static final String LIST_ACTION_SETLOCALES = "set_locales_";
     static final String LIST_ACTION_DELETE0 = "delete0_";
     static final String LIST_ACTION_DELETE1 = "delete_";
+    static final String LIST_JUST = "justu";
+    static final String LIST_MAILUSER = "mailthem";
+    static final String LIST_MAILUSER_WHAT = "mailthem_t";
+    static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
+    
+    public static final String changeAtTo40(String s) {
+        return s.replaceAll("@","%40");
+    }
+    
+    public static final String change40ToAt(String s) {
+        return s.replaceAll("%40","@");
+    }
+
+    public void doUDump(WebContext ctx) {
+        ctx.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+//        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
+        ctx.println("<users host=\""+ctx.serverHostport()+"\">");
+        String org = null;
+        try { synchronized(reg) {
+            java.sql.ResultSet rs = reg.list(org);
+            if(rs == null) {
+                ctx.println("\t<!-- No results -->");
+                return;
+            }
+            while(rs.next()) {
+                int theirId = rs.getInt(1);
+                int theirLevel = rs.getInt(2);
+                String theirName = rs.getString(3);
+                String theirEmail = rs.getString(4);
+                String theirOrg = rs.getString(5);
+                String theirLocales = rs.getString(6);
+                
+                ctx.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
+                ctx.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
+                ctx.println("\t\t<name>"+theirName+"</name>");
+                ctx.println("\t\t<org>"+theirOrg+"</org>");
+                ctx.println("\t\t<locales type=\"edit\">");
+                String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
+                for(int i=0;i<theirLocalesList.length;i++) {
+                    ctx.println("\t\t\t<locale id=\""+theirLocalesList[i]+"\"/>");
+                }
+                ctx.println("\t\t</locales>");
+                ctx.println("\t</user>");
+            }            
+        }/*end synchronized(reg)*/ } catch(SQLException se) {
+            logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+            ctx.println("<!-- Failure: " + unchainSqlException(se) + " -->");
+        }
+        ctx.println("</users>");
+    }
     
     public void doList(WebContext ctx) {
         int n=0;
-        printHeader(ctx, "List Users");
+        String just = ctx.field(LIST_JUST);
+        if(just.length()==0) {
+            just = null;
+        } else {
+            just = change40ToAt(just);
+        }
+        printHeader(ctx, "List Users" + ((just==null)?"":(" - " + just)));
         printUserMenu(ctx);
         ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
         ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=coverage'>[Locale Coverage Reports]</a>");
@@ -1025,8 +1095,29 @@ public class SurveyMain extends HttpServlet {
         ctx.printHelpLink("/AddModifyUser");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         String org = ctx.session.user.org;
+        if(just!=null) {
+            ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
+        }
         if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             org = null; // all
+        }
+        String cleanEmail = null;
+        String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
+        boolean areSendingMail = false;
+        String mailBody = null;
+        String mailSubj = null;
+        if(UserRegistry.userCanEmailUsers(ctx.session.user)) {
+            cleanEmail = ctx.session.user.email;
+            if(cleanEmail.equals("admin@")) {
+                cleanEmail = "surveytool@unicode.org";
+            }
+            if(ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)) {
+                areSendingMail= true;
+                ctx.println("<h4>begin sending mail...</h4>");
+                mailBody = "Message from " + getRequester(ctx) + ":\n--------\n"+sendWhat+
+                    "\n--------\n\nSurvey Tool: http://" + ctx.serverHostport() + ctx.base()+"\n\n";
+                mailSubj = "CLDR SurveyTool message from " +getRequester(ctx);
+            }
         }
         try { synchronized(reg) {
             java.sql.ResultSet rs = reg.list(org);
@@ -1044,7 +1135,9 @@ public class SurveyMain extends HttpServlet {
             }
             // Preset box
             boolean preFormed = false;
-            if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
+            
+            if(/*(just==null) 
+                  &&*/ UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
                 ctx.printUrlAsHiddenFields();
@@ -1070,6 +1163,9 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
                 ctx.println("   <option value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
                 ctx.println("</select></label> <br>");
+                if(just!=null) {
+                    ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
+                }
                 ctx.println("<input type='submit' name='do' value='list'></form>");
                 if((ctx.field("preset_from").length()>0)&&!ctx.field("preset_from").equals(LIST_ACTION_NONE)) {
                     ctx.println("<hr><i><b>Menus have been pre-filled. <br> Confirm your choices and click Change.</b></i>");
@@ -1084,9 +1180,12 @@ public class SurveyMain extends HttpServlet {
             if(preset_do.equals(LIST_ACTION_NONE)) {
                 preset_do="nothing";
             }
-            if(((UserRegistry.userCanModifyUsers(ctx.session.user))) &&
+            if(/*(just==null)&& */((UserRegistry.userCanModifyUsers(ctx.session.user))) &&
                !preFormed) { // form was already started, above
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
+            }
+            if(just!=null) {
+                ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
             }
             if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.printUrlAsHiddenFields();
@@ -1096,7 +1195,6 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<table summary='User List' class='userlist' border='2'>");
             ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Locales</th></tr>");
             while(rs.next()) {
-                n++;
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
                 String theirName = rs.getString(3);
@@ -1108,8 +1206,19 @@ public class SurveyMain extends HttpServlet {
                 String action = ctx.field(theirTag);
                 CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
                 
+                if(just!=null && !just.equals(theirEmail)) {
+                    continue;
+                }
+                n++;
+                
                 ctx.println("  <tr class='user" + theirLevel + "'>");
                 
+            
+                if(areSendingMail && (theirLevel < UserRegistry.LOCKED) ) {
+                    ctx.print("<td class='framecell'>");
+                    mailUser(ctx,theirEmail,mailSubj,mailBody);
+                    ctx.println("</td>");
+                }
                 // first:  DO.
                 
                 if(havePermToChange) {  // do stuff
@@ -1167,13 +1276,18 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
                         }
                         // ctx.println("Change to " + action);
-                        ctx.println("</td>");
                     } else {
-                        ctx.println("<td></td>");
+                        ctx.print("<td>");
                     }
                 } else {
-                    ctx.println("<td></td>");
-                }              
+                    ctx.print("<td>");
+                }
+                
+                if(just==null) {
+                    ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(theirEmail)+
+                        "' title='More on this user...'>\u22d7</a>");
+                }
+                ctx.println("</td>");
                 
                 // org, level
                 ctx.println("    <td>" + theirOrg + "<br>" +
@@ -1251,6 +1365,40 @@ public class SurveyMain extends HttpServlet {
             ctx.println("</table>");
             ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br>");
             if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
+                if((n>0) && UserRegistry.userCanEmailUsers(ctx.session.user)) { // send a mass email to users
+                    if(ctx.field(LIST_MAILUSER).length()==0) {
+                        ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"'>Check this box to mass-mail these " + n + " users (except locked).</label>");
+                    } else {
+                        ctx.println("<p><div class='pager'>");
+                        ctx.println("<h4>Mailing "+n+" users</h4>");
+                        if(areSendingMail) {
+                            ctx.println("<b>Mail sent.</b><br>");
+                        } else { // dont' allow resend option
+                            ctx.println("<input type='hidden' name='"+LIST_MAILUSER+"' value='y'>");
+                        }
+                        ctx.println("From: "+cleanEmail+"<br>");
+                        if(sendWhat.length()>0) {
+                            ctx.println("<div style='border: 3px dashed olive; margin: 1em; padding: 1em;'>"+
+                                TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n","<br>")+
+                                "</div>");
+                            if(!areSendingMail) {
+                                ctx.println("<input type='hidden' name='"+LIST_MAILUSER_WHAT+"' value='"+
+                                        sendWhat.replaceAll("&","&amp;").replaceAll("'","&quot;")+"'>");
+                                if(!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail) && (ctx.field(LIST_MAILUSER_CONFIRM).length()>0)) {
+                                    ctx.println("<strong>That email didn't match. Try again.</strong><br>");
+                                }
+                                ctx.println("To confirm sending, type your email address (just as it is above): <input name='"+LIST_MAILUSER_CONFIRM+
+                                    "'>");
+                            }
+                        } else {
+                            ctx.println("<textarea NAME='"+LIST_MAILUSER_WHAT+"' id='body' ROWS='15' COLS='85' style='width:100%'></textarea>");
+                        }
+                        ctx.println("</div>");
+                    }
+                    
+                    
+                }
+            
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
                 ctx.println("</form>");
             }
@@ -1259,6 +1407,9 @@ public class SurveyMain extends HttpServlet {
         }/*end synchronized(reg)*/ } catch(SQLException se) {
             logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
             ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
+        }
+        if(just!=null) {
+            ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
         }
         printFooter(ctx);
     }
@@ -1282,13 +1433,25 @@ public class SurveyMain extends HttpServlet {
         return val;
     }
     String showListPref(WebContext ctx, String pref, String what, String[] list) {
-        String val = ctx.pref(pref, list[0]);
-        ctx.println("<label><b>"+what+"</b> ");
-        ctx.println("<select name='"+pref+"'>");
-        for(int n=0;n<list.length;n++) {
-            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
+        return showListPref(ctx,pref,what,list,false);
+    }
+    String showListPref(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
+        String val = ctx.pref(pref, doDef?"default":list[0]);
+        ctx.println("<b>"+what+"</b>: ");
+//        ctx.println("<select name='"+pref+"'>");
+        if(doDef) {
+            WebContext nuCtx = new WebContext(ctx);
+            nuCtx.addQuery(pref, "default");
+            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals("default")?"selected":"notselected")+"'>"+"default"+"</a> ");
         }
-        ctx.println("</select></label><br>");
+        for(int n=0;n<list.length;n++) {
+//            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
+            WebContext nuCtx = new WebContext(ctx);
+            nuCtx.addQuery(pref, list[n]);
+            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
+        }
+//    ctx.println("</select></label><br>");
+        ctx.println("<br>");
         return val;
     }
     public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
@@ -1304,7 +1467,15 @@ public class SurveyMain extends HttpServlet {
 
         showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
 
-        showListPref(ctx, PREF_COVLEV, "Coverage Level Testing", PREF_COVLEV_LIST);
+        ctx.println("<br>");
+        String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
+
+        if(lev.equals("default")) {
+            ctx.print("&nbsp;");
+            ctx.print("&nbsp;");
+            showListPref(ctx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
+        }
+        ctx.println("(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
         
         printFooter(ctx);
     }
@@ -1619,9 +1790,35 @@ public class SurveyMain extends HttpServlet {
         }
     }
     
+    void mailUser(WebContext ctx, String theirEmail, String subject, String message) {
+        String requester = getRequester(ctx);
+        String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
+        String smtp = survprops.getProperty("CLDR_SMTP",null);
+        
+        if(smtp == null) {
+            ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+            ctx.println("<hr/><pre>" + message + "</pre><hr/>");
+            smtp = "NONE";
+        } else {
+            MailSender.sendMail(smtp, from, theirEmail, subject,
+                                message);
+            ctx.println("Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
+        }
+        logger.info( "Mail sent to " + theirEmail + "  from " + from + " via " + smtp + " - "+subject);
+        /* some debugging. */
+    }
+    
+    String getRequester(WebContext ctx) {
+        String cleanEmail = ctx.session.user.email;
+        if(cleanEmail.equals("admin@")) {
+            cleanEmail = "surveytool@unicode.org";
+        }
+        String requester = ctx.session.user.name + " <" + cleanEmail + ">";
+        return requester;
+    }
+    
     void notifyUser(WebContext ctx, String theirEmail, String pass) {
-        String requester = ctx.session.user.name + " <" + ctx.session.user.email + ">";
-        String body = requester +  " is notifying you of the CLDR vetting account for you.\n" +
+        String body = getRequester(ctx) +  " is notifying you of the CLDR vetting account for you.\n" +
         "To access it, visit: \n" +
         "   http://" + ctx.serverHostport() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
         //                                                                          // DO NOT ESCAPE THIS AMPERSAND.
@@ -1631,20 +1828,8 @@ public class SurveyMain extends HttpServlet {
         " Please keep this link to yourself. Thanks.\n" +
         " Follow the 'Instructions' link on the main page for more help.\n" +
         " \n";
-        
-        String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
-        String smtp = survprops.getProperty("CLDR_SMTP",null);
-        if(smtp == null) {
-            ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
-            ctx.println("<hr/><pre>" + body + "</pre><hr/>");
-            smtp = "NONE";
-        } else {
-            MailSender.sendMail(smtp, from, theirEmail, "CLDR Registration for " + theirEmail,
-                                body);
-            ctx.println("Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
-        }
-        logger.info( "Login URL sent to " + theirEmail + "  from " + from + " via " + smtp);
-        /* some debugging. */
+        String subject = "CLDR Registration for " + theirEmail;
+        mailUser(ctx,theirEmail,subject,body);
     }
     
     /**
@@ -1714,7 +1899,7 @@ public class SurveyMain extends HttpServlet {
                 if(cf==null) {
                     throw new InternalError("cf was null.");
                 }
-                checkCldr.setCldrFileToCheck(cf, null, checkCldrResult); // TODO: when does this get updated?
+                checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult); // TODO: when does this get updated?
                 ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
                 {
                     // sanity check: can we get it back out
@@ -1805,10 +1990,14 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if (!status.getType().equals(status.exampleType)) {
-                        ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
-                    } else {
-                        ctx.println("<i>example available</i><br>");
+                    try{ 
+                        if (!status.getType().equals(status.exampleType)) {
+                            ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
+                        } else {
+                            ctx.println("<i>example available</i><br>");
+                        }
+                    } catch(Throwable t) {
+                        ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                     }
                 }
                 ctx.println("</div><hr>");
@@ -3485,9 +3674,8 @@ public static final String unchainSqlException(SQLException e) {
                 CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
                 System.out.println("check created");
                 List result = new ArrayList();
-                Map options = new TreeMap();
-//        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
-
+                Map options = null;
+                
                 check.setCldrFileToCheck(my, options, result); // TODO: when does this get updated?
                 System.out.println("file set");
             }

@@ -73,7 +73,6 @@ public class XPathTable {
     Connection conn = null;
     SurveyMain sm = null;
     public Hashtable xstringHash = new Hashtable();  // public for statistics only
-    public Hashtable idToString = new Hashtable();  // public for statistics only
     public Hashtable stringToId = new Hashtable();  // public for statistics only
 
     java.sql.PreparedStatement insertStmt = null;
@@ -104,19 +103,56 @@ public class XPathTable {
                                         " where ID=?");
         }
     }
-
+    
+//    public Hashtable idToString_ = new Hashtable();  // public for statistics only
+    String idToString[] = new String[0];
+    public final static int CHUNKSIZE = 1024;
+    private final String idToString_put(int id, String str) {
+        try {
+            idToString[id] = str;
+            //idToString_.put(new Integer(id),str);
+        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
+            synchronized(this) {
+                if(id<0) {
+                    throw aioob;
+                } else if(id > idToString.length) {
+                    int newchunk = ((id/CHUNKSIZE)+1)*CHUNKSIZE;
+                    System.err.println("xpt resize from " + idToString.length + " to " + newchunk);
+                    idToString = new String[newchunk];
+                    idToString[id] = str;
+                }
+            }
+        }
+        return str;
+    }
+    
+    private final String idToString_get(int id) {
+        try {
+            return idToString[id];
+        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
+            return null;
+        }
+//        return (String)idToString_.get(new Integer(id));
+    }
+    
     /**
      * Bottleneck for adding xpaths
      * @return the xpath's id (as an Integer)
      */
-    private Integer addXpath(String xpath)
+    private synchronized Integer addXpath(String xpath)
     {
+        Integer nid = (Integer)stringToId.get(xpath); // double check
+        if(nid != null) {
+            return nid;
+        }
+
         synchronized(conn) {
             try {
                     queryStmt.setString(1,xpath);
                 // First, try to query it back from the DB.
                     ResultSet rs = queryStmt.executeQuery();                
                     if(!rs.next()) {
+                        // add it
                         insertStmt.setString(1, xpath);
                         insertStmt.execute();
                         conn.commit();
@@ -133,9 +169,8 @@ public class XPathTable {
                     }
                                     
                     int id = rs.getInt(1);
-                    Integer nid = new Integer(id);
-                    idToString.put(nid,xpath);
-                    stringToId.put(xpath,nid);
+                    nid = new Integer(id);
+                    stringToId.put(idToString_put(id,xpath),nid);
     //                logger.info("Mapped " + id + " back to " + xpath);
                     rs.close();
                     stat_allAdds++;
@@ -197,7 +232,7 @@ public class XPathTable {
      * API for get by ID 
      */
     public final String getById(int id) {
-        String s = (String)idToString.get(new Integer(id));
+        String s = idToString_get(id);
         if(s!=null) {
             return s;
         }
@@ -209,21 +244,11 @@ public class XPathTable {
      */
     public final int getByXpath(String xpath) {
         Integer nid = (Integer)stringToId.get(xpath);
-        if(nid == null) {
-            synchronized(conn) {
-                nid = (Integer)stringToId.get(xpath); // double check
-                if(nid == null) {
-                    // OK, go get it
-                    nid = addXpath(xpath);
-                }
-            }
-        }
         if(nid != null) {
             return nid.intValue();
+        } else {
+            return addXpath(xpath).intValue();
         }
-        // Failing it.
-        logger.severe("Coudln't get xpath for " + xpath);
-        throw new InternalError("Couldn't get xpath for " + xpath);
     }
     
     public String pathToTinyXpath(String path) {

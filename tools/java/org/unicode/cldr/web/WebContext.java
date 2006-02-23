@@ -10,6 +10,7 @@ package org.unicode.cldr.web;
 import org.w3c.dom.Document;
 import java.io.*;
 import java.util.*;
+import org.unicode.cldr.util.*;
 import com.ibm.icu.util.ULocale;
 
 // servlet imports
@@ -395,20 +396,88 @@ public class WebContext {
      * May be null.
      */
     DataPod getExistingPod(String prefix) {
+        return getExistingPod(prefix, defaultPtype());
+    }
+    
+    DataPod getExistingPod(String prefix, String ptype) {
         synchronized(this) {
-            return (DataPod)getByLocaleStatic(DATA_POD+prefix);
+            return (DataPod)getByLocaleStatic(DATA_POD+prefix+":"+ptype);
         }
     }
     
+    static private StandardCodes sc = null;
+    static private synchronized StandardCodes getSC() {
+        if(sc == null) {
+            sc = StandardCodes.make();
+        }
+        return sc;
+    }
+    
+    public String defaultPtype() {
+        String def = pref(SurveyMain.PREF_COVLEV,"default");
+        if(!def.equals("default")) {
+            return def;
+        } else {
+            String org = getChosenLocaleType();
+            String ltype = getEffectiveLocaleType(org);
+            return ltype;
+        }
+    }
+    
+    static synchronized String getEffectiveLocaleType(String org) {
+            try {
+                return  getSC().getEffectiveLocaleType(org);
+            } catch (java.io.IOException ioe) {
+                return org;
+            }
+    }
+    
+   static synchronized String[] getLocaleTypes() {
+    try {
+       return (String[])getSC().getLocaleTypes().keySet().toArray(new String[0]);
+    } catch (IOException ioe) {
+        return new String[0];
+    }
+   }
+    
+    private String getChosenLocaleType() {
+        String org = pref(SurveyMain.PREF_COVTYP, "default");
+        if(org.equals("default")) {
+            org = null;
+        }
+        if((org==null) && 
+           (session.user != null)) {
+            org = session.user.org;
+        }
+        return org;
+    }
+    
+    public Map getOptionsMap() {
+        String def = pref(SurveyMain.PREF_COVLEV,"default");
+        Map options = new HashMap();
+        if(!def.equals("default")) {
+            options.put("CheckCoverage.requiredLevel",def);
+        } else {
+            String org = getChosenLocaleType();
+            if(org!=null) {
+                options.put("CoverageLevel.localeType",session.user.org);
+            }
+        }
+        return options;
+    }
     /** 
      * Get a currently valid pod.. creating it if need be.
      * UI: does write informative notes to the ctx in case of a long delay.
      
      */
     DataPod getPod(String prefix) {
+        return getPod(prefix, defaultPtype());
+    }
+    
+    DataPod getPod(String prefix, String ptype) {
         String loadString = "data was loaded.";
         synchronized(this) {
-            DataPod pod = getExistingPod(prefix);
+            DataPod pod = getExistingPod(prefix, ptype);
             if((pod != null) && (!pod.isValid(sm.lcr))) {
                 pod = null;
                 loadString = "data was re-loaded due to a new user submission.";
@@ -422,7 +491,7 @@ public class WebContext {
                 }
                 synchronized (staticStuff) {
                     pod.register(sm.lcr);
-                    putByLocaleStatic(DATA_POD+prefix, pod);
+                    putByLocaleStatic(DATA_POD+prefix+":"+ptype, pod);
                 }
             }
             pod.touch();

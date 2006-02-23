@@ -34,6 +34,9 @@ public class UserRegistry {
     
 
     public static String levelToStr(WebContext ctx, int level) {
+        return level + ": (" + levelAsStr(level) + ")";
+    }
+    public static String levelAsStr(int level) {
         String thestr = null;
         if(level <= ADMIN) { 
             thestr = "ADMIN";
@@ -48,7 +51,7 @@ public class UserRegistry {
         } else {
             thestr = "??";
         }
-        return level + ": (" + thestr + ")";
+        return thestr;
     }
     
     PreparedStatement insertStmt = null;
@@ -641,6 +644,9 @@ public class UserRegistry {
     }
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
+        return userIsTC(u);
+    }
+    static final boolean userCanEmailUsers(User u) {
         return userIsTC(u);
     }
     /** can the user modify this particular user? */

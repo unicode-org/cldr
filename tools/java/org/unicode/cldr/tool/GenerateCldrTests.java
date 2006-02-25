@@ -629,7 +629,7 @@ public class GenerateCldrTests {
 					for (int i = 0; i < perZoneSamples.length; ++i) {
 						String field = perZoneSamples[i];
 						rp.set("field", field);
-						String formatted = tzf.getFormattedZone(tzid, field, datetime.getTime());
+						String formatted = tzf.getFormattedZone(tzid, field, datetime.getTime(), false);
 						parsePosition.setIndex(0);
 						String parsed = tzf.parse(formatted, parsePosition);
 						rp.set("parse", parsed);

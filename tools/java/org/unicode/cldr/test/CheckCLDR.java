@@ -49,7 +49,7 @@ abstract public class CheckCLDR {
 	private CLDRFile resolvedCldrFileToCheck;
 	private static CLDRFile displayInformation;
 	
-	static boolean SHOW_LOCALE = true;
+	static boolean SHOW_LOCALE = false;
     static boolean SHOW_EXAMPLES = false;
     public static boolean SHOW_TIMES = false;
     public static boolean showStackTrace = false;
@@ -72,6 +72,7 @@ abstract public class CheckCLDR {
 			.add(new CheckDates())
             .add(new CheckCoverage())
             .add(new CheckNew())
+            .add(new CheckZones())
 		;
 	}
 	
@@ -185,16 +186,22 @@ abstract public class CheckCLDR {
                 }
 
 				checkCldr.check(path, fullPath, value, options, result);
+				if (result.size() > 0) {
+					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+					System.out.println("Value:\t" + value + "\t Full Path: " + fullPath);
+				}
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
+					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+					System.out.println("\t" + statusString);
+ 
 					if (status.getType().equals(status.exampleType)) {
 						if (!SHOW_EXAMPLES) continue;
-						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-						System.out.println("\t" + status);
-						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-						System.out.println(status.getHTMLMessage());
+						//System.out.println(status.getHTMLMessage());
 						SimpleDemo d = status.getDemo();
 						if (d != null && d instanceof FormatDemo) {
+							System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
                             FormatDemo fd = (FormatDemo)d;
 							m.clear();
                             m.put("pattern", fd.getPattern());
@@ -203,13 +210,8 @@ abstract public class CheckCLDR {
 						}
 						continue;
 					}
-					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-                    subtotalCount.add(status.type, 1);
+                   subtotalCount.add(status.type, 1);
                     totalCount.add(status.type, 1);
-					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
-					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-					System.out.println("\t" + statusString);
 					Object[] parameters = status.getParameters();
 					if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
 						if (showStackTrace && parameters[i] instanceof Throwable) {

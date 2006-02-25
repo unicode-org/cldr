@@ -87,13 +87,16 @@ public class TimezoneFormatter extends UFormat  {
 	private String inputLocaleID;
 	private boolean skipDraft;
 	
+	public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
+		this(cldrFactory.make(localeID, true, includeDraft), includeDraft);
+	}
 	/**
 	 * Create from a cldrFactory and a locale id.
 	 * @see CLDRFile
 	 */
-	public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
-		inputLocaleID = localeID;
-		desiredLocaleFile = cldrFactory.make(localeID, true, includeDraft);
+	public TimezoneFormatter(CLDRFile resolvedLocaleFile, boolean includeDraft) {
+		desiredLocaleFile = resolvedLocaleFile;
+		inputLocaleID = desiredLocaleFile.getLocaleID();
 		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
 		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
@@ -151,32 +154,35 @@ public class TimezoneFormatter extends UFormat  {
 	
 	/**
 	 * Convenience routine for formatting based on a date
+	 * @param skipExact TODO
 	 */
-	public String getFormattedZone(String inputZoneid, String pattern, long date) {
+	public String getFormattedZone(String inputZoneid, String pattern, long date, boolean skipExact) {
 		String zoneid = (String) old_new.get(inputZoneid);
 		if (zoneid == null) zoneid = inputZoneid;
 		TimeZone tz = TimeZone.getTimeZone(zoneid);
 		int gmtOffset1 = tz.getOffset(date);
 		boolean daylight = tz.getRawOffset() != gmtOffset1;
-		return getFormattedZone(zoneid, pattern, daylight, gmtOffset1);
+		return getFormattedZone(zoneid, pattern, daylight, gmtOffset1, skipExact);
 	}
 	
 	/**
 	 * Convenience routine for formatting based on daylight or not, and the offset
+	 * @param skipExact TODO
 	 */
-	public String getFormattedZone(String zoneid, String pattern, boolean daylight, int gmtOffset1) {
+	public String getFormattedZone(String zoneid, String pattern, boolean daylight, int gmtOffset1, boolean skipExact) {
 		int length = pattern.length() < 4 ? SHORT : LONG;
 		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
 				: pattern.startsWith("Z") ? GMT
 				: GENERIC;
-		return getFormattedZone(zoneid, length, type, gmtOffset1);
+		return getFormattedZone(zoneid, length, type, gmtOffset1, skipExact);
 	}
 	
 	/**
 	 * Main routine for formatting based on a length (LONG or SHORT), 
 	 * a type (GMT, GENERIC, STANDARD, DAYLIGHT), and an offset.
+	 * @param skipExact TODO
 	 */
-	public String getFormattedZone(String inputZoneid, int length, int type, int gmtOffset1) {
+	public String getFormattedZone(String inputZoneid, int length, int type, int gmtOffset1, boolean skipExact) {
 		String result;
 		
 //		1.  Canonicalize the Olson ID according to the table in supplemental data.
@@ -193,7 +199,7 @@ public class TimezoneFormatter extends UFormat  {
 //		* America/Los_Angeles => "Tampo de Pacifica"
 		
 		String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
-		if (type != GMT) {
+		if (type != GMT && !skipExact) {
 			String formatValue = getStringValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
 			if (formatValue != null) return formatValue;
 		}

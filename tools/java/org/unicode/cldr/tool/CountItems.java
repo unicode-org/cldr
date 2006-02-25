@@ -168,7 +168,7 @@ public class CountItems {
             //if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
             out.println(tabber.process(country 
             		+ "\t" + zoneIDShown
-            		+ "\t" + tzf.getFormattedZone(zoneID, "vvvv", minimumDate)
+            		+ "\t" + tzf.getFormattedZone(zoneID, "vvvv", minimumDate, false)
                     + "\t" + zip.formatHours(zip.getMinOffset(minimumDate))
                     + "\t" + zip.formatHours(zip.getMaxOffset(minimumDate))   
                     ));

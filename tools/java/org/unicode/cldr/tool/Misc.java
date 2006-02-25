@@ -13,11 +13,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -38,9 +42,14 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 //import com.ibm.icu.impl.Utility;
 
@@ -64,7 +73,8 @@ public class Misc {
 		WINDOWS = 7,
 		OBSOLETES = 8,
 		ALIASES = 9,
-		INFO = 10
+		INFO = 10,
+        ZONES = 11
 		;
 	
 	private static final UOption[] options = {
@@ -78,7 +88,8 @@ public class Misc {
 	    UOption.create("windows", 'w', UOption.NO_ARG),
 	    UOption.create("obsoletes", 'o', UOption.NO_ARG),
 	    UOption.create("aliases", 'a', UOption.NO_ARG),
-	    UOption.create("info", 'i', UOption.NO_ARG),
+        UOption.create("info", 'i', UOption.NO_ARG),
+        UOption.create("zones", 'z', UOption.NO_ARG),
 	};
 	
 	private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -93,7 +104,8 @@ public class Misc {
 	+ "-w\tgenerates Windows timezone IDs" + XPathParts.NEWLINE
 	+ "-o\tlist display codes that are obsolete" + XPathParts.NEWLINE
 	+ "-o\tshows timezone aliases"
-	+ "-i\tgets element/attribute/value information"
+    + "-i\tgets element/attribute/value information"
+    + "-z\tcollected timezone localizations"
 	;
 
 	/**
@@ -101,6 +113,19 @@ public class Misc {
 	 */
 	public static void main(String[] args) throws IOException {
 		try {
+            Locale someLocale = Locale.FRENCH;
+            Date someDate = new Date();
+            ULocale uloc;
+            
+SimpleDateFormat dateTimeFormat = (SimpleDateFormat) DateFormat.getTimeInstance(DateFormat.SHORT, someLocale);
+String pattern = dateTimeFormat.toPattern();
+// you now have a pattern, which you can copy and modify
+System.out.println(dateTimeFormat.format(someDate)); // unmodified
+pattern += "'some other stuff'";
+dateTimeFormat.applyPattern(pattern);
+System.out.println(dateTimeFormat.format(someDate)); // modified
+            
+            if (true) return;
 	        UOption.parseArgs(args, options);
 	        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
 	        	System.out.println(HELP_TEXT);
@@ -117,6 +142,10 @@ public class Misc {
 			if (options[CURRENT].doesOccur) {
 				printCurrentTimezoneLocalizations(languages);
 			}
+            
+            if (options[ZONES].doesOccur) {
+                printAllZoneLocalizations();
+            }          
 	
 			if (options[TO_LOCALIZE].doesOccur) {
 				for (Iterator it = languages.iterator(); it.hasNext();) {
@@ -189,7 +218,117 @@ public class Misc {
     // ICU info: http://oss.software.ibm.com/cvs/icu/~checkout~/icu/source/common/putil.c
     // search for "Mapping between Windows zone IDs"
 	
+    static Set priorities = new TreeSet(Arrays.asList(new String[] { "en", "zh_Hans",
+            "zh_Hant", "da", "nl", "fi", "fr", "de", "it",
+            "ja", "ko", "nb", "pt_BR", "ru", "es", "sv", "ar", "bg", "ca",
+            "hr", "cs", "et", "el", "he", "hi", "hu", "is", "id", "lv", "lt",
+            "pl", "ro", "sr", "sk", "sl", "tl", "th", "tr", "uk", "ur", "vi"
+//            // "en_GB",  
+            }));
+ 
+    private static void printAllZoneLocalizations() throws IOException {
+        StandardCodes sc = StandardCodes.make();
+        Set zones = sc.getAvailableCodes("tzid");
+        Map offset_zone_locale_name = new TreeMap();
+        for (Iterator it2 = priorities.iterator(); it2.hasNext();) {
+            String locale = (String) it2.next();
+            System.out.println(locale);
+            try {
+                TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, locale, true);
+                for (Iterator it = zones.iterator(); it.hasNext();) {
+                    String zone = (String) it.next();
+                    TimeZone tzone = TimeZone.getTimeZone(zone);
+                    int stdOffset = tzone.getRawOffset();
+                    Integer standardOffset = new Integer(-stdOffset);
+                    String name = tzf.getFormattedZone(zone, "vvvv", false, stdOffset, false);
+                    String gmt = tzf.getFormattedZone(zone, "ZZZZ", false, stdOffset, false);
+                    String fullName = "(" + gmt + ") " 
+                        + (zone.startsWith("Etc") ? "" : name);
+                    
+                    Map zone_locale_name = (Map) offset_zone_locale_name.get(standardOffset);
+                    if (zone_locale_name == null) offset_zone_locale_name.put(standardOffset, zone_locale_name = new TreeMap());
+                    
+                    Map locale_name = (Map) zone_locale_name.get(zone);
+                    if (locale_name == null) zone_locale_name.put(zone, locale_name = new TreeMap());
+                    
+                    locale_name.put(locale, fullName);
+                }
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            }
+        }
+        PrintWriter out = BagFormatter.openUTF8Writer("c:/", "zone_localizations.html");
+        out.println("<html><head>");
+        out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+        out.println("<title>Zone Localizations</title>");
+        out.println("<style>");
+        out.println("th,td { text-align: left; vertical-align: top }");
+        out.println("th { background-color: gray }");
+        out.println("</style>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<table cellspacing='0' cellpadding='2' border='1'>");
+        out.println("<tr><th></th><th>No</th><th>Country</th><th>Offset(s)</th>");
+        
+        // do the header
+        for (Iterator it2 = priorities.iterator(); it2.hasNext();) {
+            String locale = (String) it2.next();
+            String englishLocaleName = english.getName(locale,false);
+            out.println("<th>" + locale + " (" + englishLocaleName + ")" + "</th>");
+        }
+        
+        // now the rows
+        out.println("</tr>");
+        Map zone_country = sc.getZoneToCounty();
+        int count = 0;
+        for (Iterator it = offset_zone_locale_name.keySet().iterator(); it.hasNext();) {
+            Integer offset = (Integer) it.next();
+            //out.println(offset);
+            Map zone_locale_name = (Map) offset_zone_locale_name.get(offset);
+            for (Iterator it2 = zone_locale_name.keySet().iterator(); it2.hasNext();) {
+                String zone = (String) it2.next();
+                out.println("<tr>");
+                out.println("<th>" + (++count) + "</th>");
+                out.println("<th>" + zone + "</th>");
+                String country = (String) zone_country.get(zone);
+                String countryName = english.getName(english.TERRITORY_NAME,country,false);
+                out.println("<td>" + country + " (" + countryName + ")" + "</td>");
+                TimeZone tzone = TimeZone.getTimeZone(zone);
+                out.println("<td>" + offsetString(tzone) + "</td>");
+                Map locale_name = (Map) zone_locale_name.get(zone);
+                for (Iterator it3 = priorities.iterator(); it3.hasNext();) {
+                    String locale = (String) it3.next();
+                    String name = (String) locale_name.get(locale);
+                    out.println("<td>");
+                    if (name == null) {
+                        out.println("&nbsp;");    
+                    } else {
+                        out.println(TransliteratorUtilities.toHTML.transliterate(name));    
+                    }
+                    out.println("</td>");
+                }
+                out.println("</tr>");
+            }
+        }
+        out.println("</table></body></html>");
+        out.close();
+    }
 	/**
+     * @param tzone
+     * @return
+     */
+    private static String offsetString(TimeZone tzone) {
+        // TODO Auto-generated method stub
+        int janOffset = tzone.getOffset(JAN152006);
+        int juneOffset = tzone.getOffset(JUNE152006);
+        String result = hours.format(janOffset/3600000.0);
+        if (juneOffset != janOffset) result += " / " + hours.format(juneOffset/3600000.0);
+        return result;
+    }
+    static long JAN152006 = new Date(2006-1900,1-1,15,0,0,0).getTime();
+    static long JUNE152006 = new Date(2006-1900,6-1,15,0,0,0).getTime();
+    static NumberFormat hours = new DecimalFormat("0.##");
+    /**
 	 * @param languages
 	 * @throws IOException
 	 */
@@ -479,7 +618,7 @@ public class Misc {
 			for (int i = 0; i < TimezoneFormatter.LENGTH_LIMIT; ++i) {
 				log.println("<tr><th>" + TimezoneFormatter.LENGTH.get(i) + "</th>");
 				for (int j = 0; j < TimezoneFormatter.TYPE_LIMIT; ++j) {
-					field[j] = TransliteratorUtilities.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j, 0));
+					field[j] = TransliteratorUtilities.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j, 0, false));
 				}
 				if (field[0].equals(field[1]) && field[1].equals(field[2])) {
 					log.println("<td colspan=\"3\">" + field[0] + "</td>");

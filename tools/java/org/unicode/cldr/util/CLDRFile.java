@@ -97,9 +97,9 @@ public class CLDRFile implements Freezable {
 			String result = (String) xpath_fullXPath.get(xpath);
 			if (result != null) return result;
 			if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
-            System.err.println("WARNING: "+getLocaleID()+": path not present in data: " + xpath);
-            return xpath;
-			//throw new IllegalArgumentException("Path not present in data: " + xpath);
+            //System.err.println("WARNING: "+getLocaleID()+": path not present in data: " + xpath);
+            //return xpath;
+			return null; // throw new IllegalArgumentException("Path not present in data: " + xpath);
 		}
 		public Comments getXpathComments() {
 			return xpath_comments;

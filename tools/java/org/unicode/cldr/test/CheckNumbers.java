@@ -89,11 +89,15 @@ public class CheckNumbers extends CheckCLDR {
 		StringBuffer htmlMessage = new StringBuffer();
         FormatDemo.appendTitle(htmlMessage);
         double sample = getRandomNumber();
-		String formatted = x.format(sample);
-		double parsed = x.parse(formatted).doubleValue();
 		arguments[0] = String.valueOf(sample);
+		String formatted = x.format(sample);
 		arguments[1] = formatted;
-		arguments[2] = String.valueOf(parsed);
+		try {
+			double parsed = x.parse(formatted).doubleValue();
+			arguments[2] = String.valueOf(parsed);
+		} catch (Exception e) {
+			arguments[2] = e.getMessage();
+		}
 //		htmlMessage.append(pattern1)
 //		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
 //		.append(pattern2)

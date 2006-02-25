@@ -404,14 +404,20 @@ public class ICUServiceBuilder {
         	String currencyDecimal = cldrFile.getStringValue(prefix + "decimal");
         	if (currencyDecimal != null) {
         		symbols.setMonetaryDecimalSeparator(currencyDecimal.charAt(0));
+        	} else {
+        		symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
         	}
         	String currencyPattern = cldrFile.getStringValue(prefix + "pattern");
         	if (currencyPattern != null) {
         		pattern = currencyPattern;
         	}
         	
-        	// TODO USE once ICU has available
-        	String currencyGrouping = cldrFile.getStringValue(prefix + "decimal");
+        	String currencyGrouping = cldrFile.getStringValue(prefix + "grouping");
+        	if (currencyGrouping != null) {
+        		symbols.setMonetaryGroupingSeparator(currencyGrouping.charAt(0));
+        	} else {
+        		symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
+        	}
         	
         	//<decimal>,</decimal>
         	//<group>.</group>
@@ -441,11 +447,11 @@ public class ICUServiceBuilder {
         			cldrFile.getStringValue(prefix + "displayName"),
 					null, null);
         	
-        	String possible = null;
-        	possible = cldrFile.getStringValue(prefix + "decimal"); 
-            symbols.setMonetaryDecimalSeparator(possible != null ? possible.charAt(0) : symbols.getDecimalSeparator());
-            if ((possible = cldrFile.getStringValue(prefix + "pattern")) != null) pattern = possible;
-            if ((possible = cldrFile.getStringValue(prefix + "group")) != null) symbols.setGroupingSeparator(possible.charAt(0));
+//        	String possible = null;
+//        	possible = cldrFile.getStringValue(prefix + "decimal"); 
+//            symbols.setMonetaryDecimalSeparator(possible != null ? possible.charAt(0) : symbols.getDecimalSeparator());
+//            if ((possible = cldrFile.getStringValue(prefix + "pattern")) != null) pattern = possible;
+//            if ((possible = cldrFile.getStringValue(prefix + "group")) != null) symbols.setGroupingSeparator(possible.charAt(0));
             //; 
         }
         result = new DecimalFormat(pattern, symbols);

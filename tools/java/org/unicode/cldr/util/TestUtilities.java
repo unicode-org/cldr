@@ -638,7 +638,7 @@ for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
 					Date datetime = ICUServiceBuilder.isoDateParse(type);
 					for (int m = 1; m < fields[k].length; ++m) {
 						String field = fields[k][m];
-						String formatted = tzf.getFormattedZone(zone, field, datetime.getTime());
+						String formatted = tzf.getFormattedZone(zone, field, datetime.getTime(), false);
 						parsePosition.setIndex(0);
 						String parsed = tzf.parse(formatted, parsePosition, offsetMillis);
 						if (parsed == null) parsed = "FAILED PARSE";

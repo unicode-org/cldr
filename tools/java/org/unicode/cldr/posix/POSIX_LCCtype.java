@@ -89,10 +89,12 @@ public class POSIX_LCCtype {
 
         // toupper processing
 
+        UnicodeSet lowers = new UnicodeSet(types[1][1]).retainAll(chars);
+
         UnicodeSet us = new UnicodeSet();
         for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();) {
-        	int low = UCharacter.toUpperCase(it.codepoint);
-            if (low != it.codepoint && chars.contains(low)) us.add(it.codepoint);
+        	int upp = UCharacter.toUpperCase(it.codepoint);
+            if (upp != it.codepoint && chars.contains(upp) && lowers.contains(it.codepoint)) us.add(it.codepoint);
         }
         item = 0;
         last = us.size() - 1;
@@ -107,10 +109,11 @@ public class POSIX_LCCtype {
 
         // tolower processing
 
+        UnicodeSet uppers = new UnicodeSet(types[0][1]).retainAll(chars);
         us = new UnicodeSet();
         for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();) {
         	int low = UCharacter.toLowerCase(it.codepoint);
-            if (low != it.codepoint && chars.contains(low)) us.add(it.codepoint);
+            if (low != it.codepoint && chars.contains(low) && uppers.contains(it.codepoint)) us.add(it.codepoint);
         }
         item = 0;
         last = us.size() - 1;

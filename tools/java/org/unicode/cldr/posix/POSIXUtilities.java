@@ -182,13 +182,15 @@ public class POSIXUtilities {
            { "hh",   "%I" , "%OI" },
            { "h",    "%I" , "%OI" },
            { "mm",   "%M" , "%OM" },
+           { "m",    "%M" , "%OM" },
            { "yyyy", "%Y" , "%Oy" },
            { "yy",   "%y" , "%Oy" },
            { "zzzz", "%Z" , "%Z" },
            { "zzz",  "%Z" , "%Z" },
            { "zz",   "%Z" , "%Z" },
            { "z",    "%Z" , "%Z" },
-           { "ss",   "%S" , "%OS" }
+           { "ss",   "%S" , "%OS" },
+           { "s",    "%S" , "%OS" }
       };
 
       boolean inquotes = false;

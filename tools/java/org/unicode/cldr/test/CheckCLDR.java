@@ -7,6 +7,8 @@
 
 package org.unicode.cldr.test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,11 +25,13 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -63,15 +67,15 @@ abstract public class CheckCLDR {
 	public static CompoundCheckCLDR getCheckAll(String nameMatcher) {
 		return new CompoundCheckCLDR()
 			.setFilter(Pattern.compile(nameMatcher,Pattern.CASE_INSENSITIVE).matcher(""))
-			.add(new CheckForExemplars())
+			.add(new CheckAttributeValues())
+			.add(new CheckChildren())
+            .add(new CheckCoverage())
+			.add(new CheckDates())
 			.add(new CheckDisplayCollisions())
 			.add(new CheckExemplars())
-			.add(new CheckNumbers())
-			.add(new CheckChildren())
-			.add(new CheckAttributeValues())
-			.add(new CheckDates())
-            .add(new CheckCoverage())
+			.add(new CheckForExemplars())
             .add(new CheckNew())
+			.add(new CheckNumbers())
             .add(new CheckZones())
 		;
 	}
@@ -187,8 +191,12 @@ abstract public class CheckCLDR {
 
 				checkCldr.check(path, fullPath, value, options, result);
 				if (result.size() > 0) {
-					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-					System.out.println("Value:\t" + value + "\t Full Path: " + fullPath);
+					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t" + "Value:\t" + value);
+					if (false) {
+						String prettierPath = prettyPath.transliterate(path);
+						System.out.print("\tCategory: " + prettierPath);
+					}
+					System.out.println();
 				}
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
@@ -242,7 +250,7 @@ abstract public class CheckCLDR {
         }
 		
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Elapsed: " + deltaTime/60000 + " minutes");
+        System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
 	}
     
     /**
@@ -530,5 +538,23 @@ abstract public class CheckCLDR {
 		String localizedName = displayInformation.getName(locale, false);
 		if (localizedName == null || localizedName.equals(locale)) return locale;
 		return locale + " [" + localizedName + "]";
+	}
+	
+	static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
+	
+	public static Transliterator getTransliteratorFromFile(String ID, String file) {
+		try {
+			BufferedReader br = Utility.getUTF8Data("prettyPath.txt");
+			StringBuffer input = new StringBuffer();
+			while (true) {
+				String line = br.readLine();
+				if (line == null) break;
+				if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
+				input.append(line);
+			}
+			return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
+		} catch (IOException e) {
+			return null;
+		}
 	}
 }

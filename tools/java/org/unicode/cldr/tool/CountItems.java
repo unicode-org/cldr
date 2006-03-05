@@ -9,6 +9,7 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -52,16 +53,61 @@ import com.ibm.icu.util.ULocale;
  * Simple program to count the amount of data in CLDR. Internal Use.
  */
 public class CountItems {
+	
+	static final String needsTranslationString = "America/Buenos_Aires " // America/Rio_Branco
+		+ " America/Manaus America/Belem "
+		+ " America/Campo_Grande America/Sao_Paulo "
+		+ " Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart "
+		+ " America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns "
+		+ " Asia/Jakarta "
+		+ " America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City "
+		+ " Europe/Moscow Europe/Kaliningrad Europe/Moscow Asia/Yekaterinburg Asia/Novosibirsk Asia/Yakutsk Asia/Vladivostok"
+		+ " Pacific/Honolulu America/Indiana/Indianapolis America/Anchorage " +
+		" America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis" +
+		" America/New_York";
+	
+	static final Map country_map = CollectionUtilities.asMap(new String[][] {
+			{"AQ", "http://www.worldtimezone.com/time-antarctica24.php"},
+			{"AR", "http://www.worldtimezone.com/time-south-america24.php"},
+			{"AU", "http://www.worldtimezone.com/time-australia24.php"},
+			{"BR", "http://www.worldtimezone.com/time-south-america24.php"},
+			{"CA", "http://www.worldtimezone.com/time-canada24.php"},
+			{"CD", "http://www.worldtimezone.com/time-africa24.php"},
+			{"CL", "http://www.worldtimezone.com/time-south-america24.php"},
+			{"CN", "http://www.worldtimezone.com/time-cis24.php"},
+			{"EC", "http://www.worldtimezone.com/time-south-america24.php"},
+			{"ES", "http://www.worldtimezone.com/time-europe24.php"},
+			{"FM", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"GL", "http://www.worldtimezone.com/index24.php"},
+			{"ID", "http://www.worldtimezone.com/time-asia24.php"},
+			{"KI", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"KZ", "http://www.worldtimezone.com/time-cis24.php"},
+			{"MH", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"MN", "http://www.worldtimezone.com/time-cis24.php"},
+			{"MX", "http://www.worldtimezone.com/index24.php"},
+			{"MY", "http://www.worldtimezone.com/time-asia24.php"},
+			{"NZ", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"PF", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"PT", "http://www.worldtimezone.com/time-europe24.php"},
+			{"RU", "http://www.worldtimezone.com/time-russia24.php"},
+			{"SJ", "http://www.worldtimezone.com/index24.php"},
+			{"UA", "http://www.worldtimezone.com/time-cis24.php"},
+			{"UM", "http://www.worldtimezone.com/time-oceania24.php"},
+			{"US", "http://www.worldtimezone.com/time-usa24.php"},
+			{"UZ", "http://www.worldtimezone.com/time-cis24.php"},			
+	});
+
 	/**
 	 * Count the data.
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
         try {
-            countItems();
-            if (true) return;
+            // countItems();
+            
             
             getZoneEquivalences();
+            if (true) return;
             
             getPatternBlocks();
             showExemplars();
@@ -72,7 +118,7 @@ public class CountItems {
         }
 	}
     
-    private static void getZoneEquivalences() throws IOException {
+    private static void getZoneEquivalences() throws IOException, ParseException {
 //    	String tzid = "America/Argentina/ComodRivadavia";
 //    	TimeZone tz = TimeZone.getTimeZone(tzid);
 //    	int offset = tz.getOffset(new Date().getTime());
@@ -80,20 +126,19 @@ public class CountItems {
 //    	System.out.println("in available? " + Arrays.asList(TimeZone.getAvailableIDs()).contains(tzid));
 //    	System.out.println(new TreeSet(Arrays.asList(TimeZone.getAvailableIDs())));
 
-    	String needsTranslationString = "America/Buenos_Aires America/Rio_Branco "
-				+ "America/Campo_Grande America/Sao_Paulo "
-				+ "Australia/Perth, Australia/Darwin, Australia/Brisbane, Australia/Adelaide, Australia/Sydney, Australia/Hobart "
-				+ "America/Vancouver, America/Edmonton, America/Regina, America/Winnipeg, America/Toronto, America/Halifax, America/St_Johns "
-				+ "Asia/Jakarta "
-				+ "America/Tijuana, America/Hermosillo, America/Chihuahua, America/Mexico_City "
-				+ "Europe/Moscow "
-				+ "Pacific/Honolulu, America/Anchorage, America/Los_Angeles, America/Phoenix, America/Denver, America/Chicago, America/Indianapolis, America/New_York";
     	Set needsTranslation = new TreeSet(Arrays.asList(needsTranslationString.split("[,]?\\s+")));
     	Set singleCountries = new TreeSet(Arrays.asList("Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti".split("\\s")));
     	Set defaultItems = new TreeSet(Arrays.asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway".split("\\s")));
     	
     	StandardCodes sc = StandardCodes.make();
         Collection codes = sc.getGoodAvailableCodes("tzid");
+        Set icu4jTZIDs = new TreeSet(Arrays.asList(TimeZone.getAvailableIDs()));
+        Set diff2 = new TreeSet(icu4jTZIDs);
+        diff2.removeAll(codes);
+        System.out.println("icu4jTZIDs - StandardCodes: " + diff2);
+        diff2 = new TreeSet(codes);
+        diff2.removeAll(icu4jTZIDs);
+        System.out.println("StandardCodes - icu4jTZIDs: " + diff2);
         ArrayComparator ac = new ArrayComparator(new Comparator[] {ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE});
         Map zone_countries = sc.getZoneToCounty();
         
@@ -110,33 +155,45 @@ public class CountItems {
         		"<head>" +
         		"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
         		"<title>Modern Equivalent Timezones</title><style>");
-        out.println("td.top,td.topr { border-top: 3px solid #0000FF }");
+        out.println("td.top,td.topr { background-color: #EEEEFF }");
         out.println("td.r,td.topr { text-align:right }");
-        out.println("td.gap { border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
+        out.println("td.gap { font-weight:bold; border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
         out.println("</style>" +
         		"</head>" +
         		"<body>" +
-        		"<table border='1' style='border-collapse: collapse'>");
+        		"<table border='1' cellspacing='0' cellpadding='2' style='border-collapse: collapse'>");
         Tabber.HTMLTabber tabber1 = new Tabber.HTMLTabber();
-        tabber1.setParameters(3, "class='r'");
         tabber1.setParameters(4, "class='r'");
+        tabber1.setParameters(5, "class='r'");
         Tabber.HTMLTabber tabber2 = new Tabber.HTMLTabber();
         tabber2.setParameters(0, "class='top'");
         tabber2.setParameters(1, "class='top'");
         tabber2.setParameters(2, "class='top'");
-        tabber2.setParameters(3, "class='topr'");
+        tabber2.setParameters(3, "class='top'");
         tabber2.setParameters(4, "class='topr'");
+        tabber2.setParameters(5, "class='topr'");
+        Tabber.HTMLTabber tabber3 = new Tabber.HTMLTabber();
+        tabber3.setParameters(0, "class='gap'");
+        tabber3.setParameters(1, "class='gap'");
+        tabber3.setParameters(2, "class='gap'");
+        tabber3.setParameters(3, "class='gap'");
+        tabber3.setParameters(4, "class='gap'");
+        tabber3.setParameters(5, "class='gap'");
+
+        long minimumDate = ICUServiceBuilder.isoDateParse("2000-1-1T00:00:00Z").getTime();
         out.println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
         out.println("<p>$Date$, $Revision$, MED</p>");
+        out.println("<p>Zones identical after: " + ICUServiceBuilder.isoDateFormat(minimumDate) + "</p>");
         String lastCountry = "";
         ZoneInflections lastZip = null;
         ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
         Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
         TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
-        long minimumDate = new Date(1999-1900,5,1).getTime();
         Map country_zoneSet = sc.getCountryToZoneSet();
         boolean shortList = true;
         boolean first = true;
+        int category = 1;
+        Tabber tabber = tabber1;
         for (Iterator it = country_inflection_names.iterator(); it.hasNext();) {
             Object[] row = (Object[]) it.next();
             String country = (String) row[0];
@@ -146,14 +203,15 @@ public class CountItems {
             String zoneID = (String) row[2];
             int zipComp = zip.compareTo(lastZip, diff);
             
-            Tabber tabber = tabber1;
             if (!country.equals(lastCountry)) {
             	if (first) first = false;
-            	out.println("<tr><td colspan='5' class='gap'>&nbsp;</td></tr>");
+            	category = 1;
+            	subheader(out, tabber3);
             }
             else if (diff.value >= minimumDate) {
             	//out.println(tabber.process("\tDiffers at:\t" + ICUServiceBuilder.isoDateFormat(diff.value)));
-            	tabber=tabber2;
+            	tabber = tabber == tabber1 ? tabber2 : tabber1;
+            	++category;
             }
             String zoneIDShown = zoneID;
             if (needsTranslation.contains(zoneID)) {
@@ -166,19 +224,43 @@ public class CountItems {
             	zoneIDShown = "<span style='background-color: #FFFF00'>" + zoneIDShown + "</span> ³";
             }
             //if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
-            out.println(tabber.process(country 
+            String newCountry = country;
+            String mapLink = (String) country_map.get(country);
+            if (mapLink != null) {
+            	newCountry = "<a target='map' href='" + mapLink + "'>" + country + "</a>";
+            }
+            String minOffset = zip.formatHours(zip.getMinOffset(minimumDate));
+            String maxOffset = zip.formatHours(zip.getMaxOffset(minimumDate));
+            if (!icu4jTZIDs.contains(zoneID)) {
+            	minOffset = maxOffset = "??";
+            }
+            	
+            out.println(tabber.process(
+            		newCountry
+            		+ "\t" + "<b>" + category + "</b>"
             		+ "\t" + zoneIDShown
             		+ "\t" + tzf.getFormattedZone(zoneID, "vvvv", minimumDate, false)
-                    + "\t" + zip.formatHours(zip.getMinOffset(minimumDate))
-                    + "\t" + zip.formatHours(zip.getMaxOffset(minimumDate))   
+                    + "\t" + minOffset
+                    + "\t" + maxOffset
                     ));
             lastCountry = country;
             lastZip = zip;
         }
-    	out.println("<tr><td colspan='5' class='gap'>&nbsp;</td></tr>");
+    	subheader(out, tabber3);
         out.println("</table></body></html>");
         out.close();
     }
+
+	private static void subheader(PrintWriter out, Tabber tabber) {
+		//out.println("<tr><td colspan='6' class='gap'>&nbsp;</td></tr>");
+        out.println(tabber.process("Cnty" 
+        		+ "\t" + "Grp"
+        		+ "\t" + "ZoneID"
+        		+ "\t" + "Formatted ID"
+                + "\t" + "MaxOffset"
+                + "\t" + "MinOffset"
+                ));
+	}
     /**
      * 
      */

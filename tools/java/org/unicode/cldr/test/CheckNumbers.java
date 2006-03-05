@@ -119,7 +119,7 @@ public class CheckNumbers extends CheckCLDR {
     private static double getRandomNumber() {
         double rand = random.nextDouble();
         //System.out.println(rand);
-        double sample = Math.round(Math.pow(10,rand*8))/1000.0;
+        double sample = Math.round(rand*100000000.0)/1000.0;
         if (random.nextBoolean()) sample = -sample;
         return sample;
     }

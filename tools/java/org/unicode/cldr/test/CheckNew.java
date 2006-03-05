@@ -8,9 +8,10 @@ import java.util.regex.Pattern;
 public class CheckNew extends CheckCLDR {
     // this list should be updated with each release.
     static final Matcher stuffToCheckFor = Pattern.compile(".*/(" 
-            + "segmentations|measurementSystemNames|inList|quarters|availableFormats"
-            + "|appendItems|singleCountries|hourFormat|hoursFormat|gmtFormat|regionFormat|fallbackFormat"
-            + "|abbreviationFallback|preferenceOrdering|singleCountries|relative|currencySpacing"
+    		// segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
+            + "measurementSystemNames|inList|quarters|availableFormats"
+            + "|appendItem|singleCountries|hourFormat|hoursFormat|gmtFormat|regionFormat|fallbackFormat"
+            + "|relative"
             + "|calendars.*/fields"
             + "|exemplarCharacters\\[.*auxiliary"
             + ").*").matcher("");

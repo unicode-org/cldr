@@ -111,6 +111,14 @@ abstract public class CheckCLDR {
         UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("date_formats", 'd', UOption.NO_ARG),
     };
+    
+    private static String[] HelpMessage = {
+    	"-h \t This message",
+    	"-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -ffr, or -ffr.*, or -f(fr|en-.*)",
+    	"-cxxx \t Set the coverage: eg -ccomprehensive or -cmodern or -cmoderate or -cbasic",
+    	"-e \t Turn on examples (actually a summary of the demo)",
+    	"-txxx \t Filter the Checks: xxx is a regular expressio, eg -t.*number.*",
+    	"-d \t Turn on special date format checks"};
 
 	/**
 	 * This will be the test framework way of using these tests. It is preliminary for now.
@@ -123,6 +131,12 @@ abstract public class CheckCLDR {
 	public static void main(String[] args) {
         double deltaTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
+        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
+        	for (int i = 0; i < HelpMessage.length; ++i) {
+        		System.out.println(HelpMessage[i]);
+        	}
+        	return;
+        }
         String factoryFilter = options[FILE_FILTER].value; 
         String checkFilter = options[TEST_FILTER].value; 
         
@@ -195,6 +209,8 @@ abstract public class CheckCLDR {
 					if (false) {
 						String prettierPath = prettyPath.transliterate(path);
 						System.out.print("\tCategory: " + prettierPath);
+					} else {
+						System.out.print("\tPath: " + path);
 					}
 					System.out.println();
 				}

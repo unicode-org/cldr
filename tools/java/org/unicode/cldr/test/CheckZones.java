@@ -41,6 +41,9 @@ public class CheckZones extends CheckCLDR {
 			Map options, List result) {
 		if (path.indexOf("timeZoneNames") < 0)
 			return this;
+		if (timezoneFormatter == null) {
+			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+		}
 		parts.set(path);
 		if (parts.containsElement("zone")) {
 			String id = (String) parts.getAttributes(3).get("type");

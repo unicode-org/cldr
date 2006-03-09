@@ -116,8 +116,8 @@ abstract public class CheckCLDR {
     	"-h \t This message",
     	"-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -ffr, or -ffr.*, or -f(fr|en-.*)",
     	"-cxxx \t Set the coverage: eg -ccomprehensive or -cmodern or -cmoderate or -cbasic",
+    	"-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
     	"-e \t Turn on examples (actually a summary of the demo)",
-    	"-txxx \t Filter the Checks: xxx is a regular expressio, eg -t.*number.*",
     	"-d \t Turn on special date format checks"};
 
 	/**

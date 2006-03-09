@@ -1,0 +1,10 @@
+$unquoted=[^\"]*;
+'//ldml/localeDisplayNames/languages/language[@type="' ($unquoted) '"]' > 'languages/' $1;
+'//ldml/localeDisplayNames/scripts/script[@type="' ($unquoted) '"]' > 'scripts/' $1;
+'//ldml/localeDisplayNames/territories/territory[@type="' ($unquoted) '"]' > 'territories/' $1;
+'//ldml/numbers/currencies/currency[@type="' ($unquoted) '"]/symbol' > 'currency/' $1 '/symbol';
+'//ldml/numbers/currencies/currency[@type="' ($unquoted) '"]/displayName' > 'currency/' $1 '/displayName';
+'//ldml/dates/timeZoneNames/zone[@type="' ($unquoted) '"]/' ($unquoted) '/' ($unquoted) > 'zone/' $3 '-' $2 '/' $1;
+(.*) > '???'$1;
+
+

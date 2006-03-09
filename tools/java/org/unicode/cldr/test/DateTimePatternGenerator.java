@@ -48,7 +48,7 @@ import com.ibm.icu.text.MessageFormat;
  * @author markdavis
  *
  */
-class DateTimePatternGenerator {
+public class DateTimePatternGenerator {
     // debugging flags
     //static boolean SHOW_DISTANCE = false;
     
@@ -127,6 +127,11 @@ class DateTimePatternGenerator {
         if (datePattern == null) return timePattern == null ? "" : timePattern;
         if (timePattern == null) return datePattern;
         return MessageFormat.format(getDateTimeFormat(), new Object[]{datePattern, timePattern});
+    }
+    
+    public String getSkeleton(String pattern) {
+    	current.set(pattern, fp);
+    	return current.toString();
     }
 
 	private String getDateTimeFormat() {

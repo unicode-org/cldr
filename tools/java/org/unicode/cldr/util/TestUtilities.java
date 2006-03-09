@@ -49,6 +49,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
+import com.ibm.icu.util.UniversalTimeScale;
 
 /**
  * @author davis
@@ -58,6 +59,8 @@ import com.ibm.icu.util.UResourceBundle;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
+		long foo = UniversalTimeScale.from(new Date().getTime(), UniversalTimeScale.JAVA_TIME);
+		System.out.println("Current Universal Time: " + Long.toString(foo,16));
 		System.out.println("LVT_Syllable count: " + new UnicodeSet("[:Hangul_Syllable_Type=LVT_Syllable:]").size());
 		System.out.println("LV_Syllable count: " + new UnicodeSet("[:Hangul_Syllable_Type=LV_Syllable:]").size());
 		System.out.println("AC00 value: " + UCharacter.getIntPropertyValue('\uAC00', UProperty.HANGUL_SYLLABLE_TYPE));

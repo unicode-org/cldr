@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,7 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
@@ -76,7 +78,7 @@ public class CLDRModify {
 	};
 	
 	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
-	private static final UnicodeSet allFixOptions = new UnicodeSet("[envcsrx]");
+	private static final UnicodeSet allFixOptions = new UnicodeSet("[envcsrxd]");
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
 		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
@@ -269,6 +271,10 @@ public class CLDRModify {
 				pw.println();
 				pw.close();
 				Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+				
+				if (totalSkeletons.size() != 0) {
+					System.out.println("Total Skeletons" + totalSkeletons);
+				}
 				/*
 				boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
 						targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
@@ -311,13 +317,13 @@ public class CLDRModify {
 	}
 
 	abstract static class CLDRFilter {
-		protected CLDRFile k;
+		protected CLDRFile cldrFileToFilter;
 		protected Set availableChildren;
 		protected XPathParts parts = new XPathParts(null, null);
 		protected XPathParts fullparts = new XPathParts(null, null);
 		public abstract void handle(String xpath, Set removal, CLDRFile additions);
 		public void setFile(CLDRFile k) {
-			this.k = k;
+			this.cldrFileToFilter = k;
 		}
 	}
 	
@@ -326,8 +332,8 @@ public class CLDRModify {
 			if (!xpath.startsWith("//ldml/localeDisplayNames/territories/territory")) return;
 			String type = parts.set(xpath).findAttributeValue("territory", "type");
 			if ("CS".equals(type) || "SP".equals(type)) {
-				String v = k.getStringValue(xpath);
-				String fullXPath = k.getFullXPath(xpath);
+				String v = cldrFileToFilter.getStringValue(xpath);
+				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
 				fullparts.set(fullXPath);
 				if (type.equals("CS")) {
 					parts.setAttribute("territory", "type", "200");
@@ -357,10 +363,10 @@ public class CLDRModify {
 			
 			// change the element type UNLESS it conflicts
 			parts.setAttribute(element, "type", "stand-alone");
-			if (k.getStringValue(parts.toString()) != null) return;
+			if (cldrFileToFilter.getStringValue(parts.toString()) != null) return;
 			
-			String v = k.getStringValue(xpath);
-			String fullXPath = k.getFullXPath(xpath);
+			String v = cldrFileToFilter.getStringValue(xpath);
+			String fullXPath = cldrFileToFilter.getFullXPath(xpath);
 			fullparts.set(fullXPath);
 			fullparts.setAttribute(element, "type", "stand-alone");
 			replacements.add(fullparts.toString(), v);
@@ -373,12 +379,12 @@ public class CLDRModify {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			byte type = CLDRTest.getNumericType(xpath);
 			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
-			String value = k.getStringValue(xpath);
+			String value = cldrFileToFilter.getStringValue(xpath);
 			// at this point, we only have currency formats
-			boolean isPOSIX = k.getLocaleID().indexOf("POSIX") >= 0;
+			boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
 			String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
 			if (pattern.equals(value)) return;
-			replacements.add(k.getFullXPath(xpath), pattern);
+			replacements.add(cldrFileToFilter.getFullXPath(xpath), pattern);
 		}
 	};
 	
@@ -432,7 +438,7 @@ public class CLDRModify {
 		}
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("/exemplarCharacters") < 0) return;
-			String value = k.getStringValue(xpath);
+			String value = cldrFileToFilter.getStringValue(xpath);
 			String fixedValue = value.replaceAll("- ", "-"); // TODO fix hack
 			if (!fixedValue.equals(value)) {
 				System.out.println("Changing: " + value);
@@ -441,20 +447,78 @@ public class CLDRModify {
 			
 	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, true, null, null, col, col);
 	    	
-	    	if (!value.equals(fixedExemplar1)) replacements.add(k.getFullXPath(xpath), fixedExemplar1);
+	    	if (!value.equals(fixedExemplar1)) replacements.add(cldrFileToFilter.getFullXPath(xpath), fixedExemplar1);
 		}
 	};
 
 	static CLDRFilter fixZZ = new CLDRFilter() {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("/exemplarCharacters") < 0) return;
-			String value = k.getStringValue(xpath);
+			String value = cldrFileToFilter.getStringValue(xpath);
 			if (value.indexOf("[:") < 0) return;
 			UnicodeSet s = new UnicodeSet(value);
 			s.add(0xFFFF);
 			s.remove(0xFFFF); // force flattening
 			// at this point, we only have currency formats
-			replacements.add(k.getFullXPath(xpath), s.toPattern(false));
+			replacements.add(cldrFileToFilter.getFullXPath(xpath), s.toPattern(false));
+		}
+	};
+
+	static HashSet totalSkeletons = new HashSet();
+
+	static CLDRFilter fixDates = new CLDRFilter() {
+		DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
+		HashMap seenSoFar = new HashMap();
+		public void setFile(CLDRFile k) {
+			super.setFile(k);
+			seenSoFar.clear();
+		}
+
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
+			if (xpath.indexOf("/availableFormats") < 0) return;
+			String value = cldrFileToFilter.getStringValue(xpath);
+			if (value == null) return; // not in current file
+			
+			String fullpath = cldrFileToFilter.getFullXPath(xpath);
+			fullparts.set(fullpath);
+			
+			Map attributes = fullparts.findAttributes("dateFormatItem");
+			String id = (String) attributes.get("id");
+			String oldID = id;
+			try {
+				id = dateTimePatternGenerator.getSkeleton(value);
+			} catch (RuntimeException e) {
+				id = "[error]";
+			}
+			
+			String draft = (String) attributes.get("draft");
+			if (draft == null) draft = "true";
+			String alt = (String) attributes.get("alt");
+			if (alt == null) alt = "proposed";
+			alt = fixAlt(alt, id);
+			attributes.put("draft", draft);
+			attributes.put("alt", alt);
+			attributes.put("id", id);
+			attributes.remove("_q");
+			totalSkeletons.add(id);
+
+			replacements.add(fullparts.toString(), value);
+			removal.add(xpath);
+		}
+
+		private String fixAlt(String alt, String id) {
+			Set soFar = (Set) seenSoFar.get(id);
+			if (soFar == null) {
+				seenSoFar.put(id, soFar = new HashSet());
+			} else {
+				for (int i = 1; ; ++i) {
+					String newAlt = alt + "-" + i;
+					alt += "-" + i;
+					if (!soFar.contains(alt)) break;
+				}
+			}
+			soFar.add(alt);
+			return alt;
 		}
 	};
 
@@ -467,8 +531,8 @@ public class CLDRModify {
 			references.reset(k);
 		}
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			String value = k.getStringValue(xpath);
-			String fullpath = k.getFullXPath(xpath);
+			String value = cldrFileToFilter.getStringValue(xpath);
+			String fullpath = cldrFileToFilter.getFullXPath(xpath);
 			if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
 			if (fullpath.indexOf("/references") >= 0) return;
 			fullparts.set(fullpath);
@@ -622,6 +686,7 @@ public class CLDRModify {
 		fixReferences.setFile(k);
 		fixExemplars.setFile(k);
 		fixUnwantedCodes.setFile(k);
+		fixDates.setFile(k);
 		
 		for (Iterator it2 = k.iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
@@ -630,8 +695,10 @@ public class CLDRModify {
 			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
 			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
 			
+			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
+
 			// fix exemplars
-			if (options.indexOf('e') >= 0) fixExemplars.handle(xpath, removal, replacements);
+			if (options.indexOf('d') >= 0) fixDates.handle(xpath, removal, replacements);
 		
 			//Before removing SP, do the following!
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353

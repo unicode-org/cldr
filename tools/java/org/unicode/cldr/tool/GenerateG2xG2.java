@@ -277,7 +277,7 @@ private static void showExample(RuleBasedCollator col) {
 	static Map priorityMap = new TreeMap();
 	static void addPriority(String priority, String code) {
 		if (code.length() == 0) return;
-		Object oldPriority = priorityMap.get(code);
+		String oldPriority = (String) priorityMap.get(code);
 		if (oldPriority == null || priority.compareTo(oldPriority) < 0) priorityMap.put(code, priority);
 		System.out.println(code + ": " + priority);
 	}

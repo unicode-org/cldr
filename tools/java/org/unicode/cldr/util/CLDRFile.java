@@ -1823,7 +1823,8 @@ private boolean isSupplemental;
     
     static Set orderedElements = new HashSet(java.util.Arrays
 			.asList(new String[] {
-					"variable", "comment", "tRule", "attributeValues", "dateFormatItem",
+					"variable", "comment", "tRule", "attributeValues", 
+			//"dateFormatItem",
 			// collation
 					"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
 					"ic", "x", "extend", "first_variable", "last_variable",

@@ -470,39 +470,39 @@
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">MMMM</dateFormatItem>
-						<dateFormatItem id="2">MMM-dd</dateFormatItem>
-						<dateFormatItem id="3">yy-MM</dateFormatItem>
-						<dateFormatItem id="4">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="5">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="6">MM-dd</dateFormatItem>
-						<dateFormatItem id="7">yyyy MMMM EEEE,d</dateFormatItem>
-						<dateFormatItem id="8">yyyy MMMM EEE d</dateFormatItem>
-						<dateFormatItem id="9">yy MMM dd EEE</dateFormatItem>
-						<dateFormatItem id="10">yy MMM EEE d</dateFormatItem>
-						<dateFormatItem id="11">yyyy 'm.' MMMM d 'd.' EEEE</dateFormatItem>
-						<dateFormatItem id="12">yyyy 'metų' MMMM d 'd.'</dateFormatItem>
-						<dateFormatItem id="13">yyyy 'm.' MMM d 'd.' EEE</dateFormatItem>
-						<dateFormatItem id="14">yyyy 'm.' MMMM d 'diena'</dateFormatItem>
-						<dateFormatItem id="15">yyyy 'metų' MMMM d 'diena'</dateFormatItem>
-						<dateFormatItem id="16">yyyy 'metų' MMMM 'mėnesio' d 'diena'</dateFormatItem>
-						<dateFormatItem id="17">yyyy 'm.' MMMM dd 'd.'</dateFormatItem>
-						<dateFormatItem id="18">yyyy MMMM dd EEE</dateFormatItem>
-						<dateFormatItem id="19">ww</dateFormatItem>
-						<dateFormatItem id="20">yy QQQQ</dateFormatItem>
-						<dateFormatItem id="21">H'.'mm 'val.'</dateFormatItem>
-						<dateFormatItem id="22">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="23">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="24">KK:mm a</dateFormatItem>
-						<dateFormatItem id="25">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="26">HH:mm</dateFormatItem>
-						<dateFormatItem id="27">H 'h' m 'min' s 's'</dateFormatItem>
-						<dateFormatItem id="28">H 'h' m 'min'</dateFormatItem>
-						<dateFormatItem id="29">H 'val.' mm 'min.' ss 'sek.'</dateFormatItem>
-						<dateFormatItem id="30">H 'val.' m 'min.'</dateFormatItem>
-						<dateFormatItem id="31">yyyy-MM-dd HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="32">yy-MM-dd HH:mm</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed" draft="true">H 'h' m 'min'</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed-1" draft="true">H 'val.' m 'min.'</dateFormatItem>
+						<dateFormatItem id="Hmm" alt="proposed" draft="true">H'.'mm 'val.'</dateFormatItem>
+						<dateFormatItem id="Hmmss" alt="proposed" draft="true">H 'val.' mm 'min.' ss 'sek.'</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed" draft="true">H 'h' m 'min' s 's'</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM-dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">yy-MM</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">yy MMM EEE d</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">yy MMM dd EEE</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">yy-MM-dd HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">yy QQQQ</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEd" alt="proposed" draft="true">yyyy 'm.' MMM d 'd.' EEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">yyyy 'm.' MMMM d 'd.' EEEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-1" draft="true">yyyy MMMM EEEE,d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">yyyy MMMM EEE d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEdd" alt="proposed" draft="true">yyyy MMMM dd EEE</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">yyyy 'metų' MMMM d 'd.'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">yyyy 'metų' MMMM 'mėnesio' d 'diena'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1-2" draft="true">yyyy 'metų' MMMM d 'diena'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1-2-3" draft="true">yyyy 'm.' MMMM d 'diena'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMdd" alt="proposed" draft="true">yyyy 'm.' MMMM dd 'd.'</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">yyyy-MM-dd HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

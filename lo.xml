@@ -532,36 +532,36 @@
 							<pattern draft="true">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="2">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="3">EEEE,MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="4">EEE, MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="5">EEE, MMM d, yy</dateFormatItem>
-						<dateFormatItem id="6">MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="7">MMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="8">'ວັນທີ' d 'ເດືອນ' MMMM 'ປີ' yy</dateFormatItem>
-						<dateFormatItem id="9">EEEE, 'ວັນທີ' dd 'ເດືອນ' MMMM 'ປີ' yyyy</dateFormatItem>
-						<dateFormatItem id="10">EEEE,dd MMMM GGGGy</dateFormatItem>
-						<dateFormatItem id="11">MM/dd/yy</dateFormatItem>
-						<dateFormatItem id="12">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="13">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="14">MMMM</dateFormatItem>
-						<dateFormatItem id="15">MMM dd</dateFormatItem>
-						<dateFormatItem id="16">MM/yy</dateFormatItem>
-						<dateFormatItem id="17">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="18">ww</dateFormatItem>
-						<dateFormatItem id="19">d/M/yy</dateFormatItem>
-						<dateFormatItem id="20">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="21">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="22">MM-dd</dateFormatItem>
-						<dateFormatItem id="23">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="24">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="25">KK:mm a</dateFormatItem>
-						<dateFormatItem id="26">HH'ໂມງ':mm'ນາທີ':ss'ວິນາທີ'</dateFormatItem>
-						<dateFormatItem id="27">HH'ໂມງ':mm 'ນາທີ'</dateFormatItem>
-						<dateFormatItem id="28">MM/dd/yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="29">dd/MM/yy 'ວັນທີ' 'ເດືອນ' 'ປີ' HH'ໂມງ':mm'ນາທີ'</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="GGGGyMMMMEEEEdd" alt="proposed" draft="true">EEEE,dd MMMM GGGGy</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH'ໂມງ':mm 'ນາທີ'</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH'ໂມງ':mm'ນາທີ':ss'ວິນາທີ'</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, MMM d, yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMMd" alt="proposed" draft="true">'ວັນທີ' d 'ເດືອນ' MMMM 'ປີ' yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">MM/dd/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy 'ວັນທີ' 'ເດືອນ' 'ປີ' HH'ໂມງ':mm'ນາທີ'</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">d/M/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE, 'ວັນທີ' dd 'ເດືອນ' MMMM 'ປີ' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">MMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM/dd/yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

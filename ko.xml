@@ -955,62 +955,62 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">'제'ww'주'</dateFormatItem>
-						<dateFormatItem id="2">yy'년도 제'QQQ'사분기'</dateFormatItem>
-						<dateFormatItem id="3">M'월'</dateFormatItem>
-						<dateFormatItem id="4">M-d</dateFormatItem>
-						<dateFormatItem id="5">M'月' d'日'</dateFormatItem>
-						<dateFormatItem id="6">yyyy'년' M'월' d'일' (EEE)</dateFormatItem>
-						<dateFormatItem id="7">yy'년' M'월'</dateFormatItem>
-						<dateFormatItem id="8">yy'년' M'월' d'일' (EEE)</dateFormatItem>
-						<dateFormatItem id="9">yy-M-d</dateFormatItem>
-						<dateFormatItem id="10">M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="11">yy-M-d EEEE,</dateFormatItem>
-						<dateFormatItem id="12">yy. M. d. EEEE,</dateFormatItem>
-						<dateFormatItem id="13">yy. M. d. (EEE)</dateFormatItem>
-						<dateFormatItem id="14">yy'년' M'월' d'일' EEEE,</dateFormatItem>
-						<dateFormatItem id="15">yy. M. d.</dateFormatItem>
-						<dateFormatItem id="16">yyyy. M. d. EEEE,</dateFormatItem>
-						<dateFormatItem id="17">yyyy. M. d. (EEE)</dateFormatItem>
-						<dateFormatItem id="18">M/d</dateFormatItem>
-						<dateFormatItem id="19">yyyy/M/d</dateFormatItem>
-						<dateFormatItem id="20">yy/M</dateFormatItem>
-						<dateFormatItem id="21">yyyy/M/d EEEE, </dateFormatItem>
-						<dateFormatItem id="22">yyyy'年' M'月' d'日'</dateFormatItem>
-						<dateFormatItem id="23">yy/M/d EEEE,</dateFormatItem>
-						<dateFormatItem id="24">yy/M/d</dateFormatItem>
-						<dateFormatItem id="25">yyyy'년' M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="26">yyyy-M</dateFormatItem>
-						<dateFormatItem id="27">yy'年' M'月' d'日'</dateFormatItem>
-						<dateFormatItem id="28">yy-M</dateFormatItem>
-						<dateFormatItem id="29">yyyy'년' M'월' d'일' EEEE,</dateFormatItem>
-						<dateFormatItem id="30">yy'년' M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="31">yyyy. M. d.</dateFormatItem>
-						<dateFormatItem id="32">'第'ww'週'</dateFormatItem>
-						<dateFormatItem id="33">M'月'</dateFormatItem>
-						<dateFormatItem id="34">yyyy'年' M'月'</dateFormatItem>
-						<dateFormatItem id="35">yy'年' M'月'</dateFormatItem>
-						<dateFormatItem id="36">yyyy'년도 제'QQQ'사분기'</dateFormatItem>
-						<dateFormatItem id="37">yyyy'년' M'월'</dateFormatItem>
-						<dateFormatItem id="38">H'時' m'分'</dateFormatItem>
-						<dateFormatItem id="39">m:s.SS</dateFormatItem>
-						<dateFormatItem id="40">a K'시' m'분' s'초'</dateFormatItem>
-						<dateFormatItem id="41">a K'시' m'분'</dateFormatItem>
-						<dateFormatItem id="42">H'시' m'분' s'초'</dateFormatItem>
-						<dateFormatItem id="43">H'시' m'분'</dateFormatItem>
-						<dateFormatItem id="44">a K:m</dateFormatItem>
-						<dateFormatItem id="45">a K:m:s</dateFormatItem>
-						<dateFormatItem id="46">H:m:s</dateFormatItem>
-						<dateFormatItem id="47">H'時' m'分' s'秒'</dateFormatItem>
-						<dateFormatItem id="48">H:m</dateFormatItem>
-						<dateFormatItem id="49">yyyy'年' M'月' d'日' H'時' m'分' s'秒'</dateFormatItem>
-						<dateFormatItem id="50">yy. M. d. H:m</dateFormatItem>
-						<dateFormatItem id="51">yy/M/d H:m</dateFormatItem>
-						<dateFormatItem id="52">yy'年' M'月' d'日' H'時' m'分' s'秒'</dateFormatItem>
-						<dateFormatItem id="53">yyyy. M. d. H:m:s</dateFormatItem>
-						<dateFormatItem id="54">yyyy'년' M'월' d'일' H'시' m'분' s'초'</dateFormatItem>
-						<dateFormatItem id="55">yy'년' M'월' d'일' H'시' m'분'</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="Hm" alt="proposed" draft="true">H'시' m'분'</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed-1" draft="true">H:m</dateFormatItem>
+						<dateFormatItem id="Hm" alt="proposed-1-2" draft="true">H'時' m'分'</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed" draft="true">H:m:s</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-1" draft="true">H'時' m'分' s'秒'</dateFormatItem>
+						<dateFormatItem id="Hms" alt="proposed-1-2" draft="true">H'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="Km" alt="proposed" draft="true">a K'시' m'분'</dateFormatItem>
+						<dateFormatItem id="Km" alt="proposed-1" draft="true">a K:m</dateFormatItem>
+						<dateFormatItem id="Kms" alt="proposed" draft="true">a K'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="Kms" alt="proposed-1" draft="true">a K:m:s</dateFormatItem>
+						<dateFormatItem id="M" alt="proposed" draft="true">M'月'</dateFormatItem>
+						<dateFormatItem id="M" alt="proposed-1" draft="true">M'월'</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed" draft="true">M-d</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-1" draft="true">M/d</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-1-2" draft="true">M'월' d'일'</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-1-2-3" draft="true">M'月' d'日'</dateFormatItem>
+						<dateFormatItem id="msSS" alt="proposed" draft="true">m:s.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">'第'ww'週'</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed-1" draft="true">'제'ww'주'</dateFormatItem>
+						<dateFormatItem id="yyM" alt="proposed" draft="true">yy'년' M'월'</dateFormatItem>
+						<dateFormatItem id="yyM" alt="proposed-1" draft="true">yy'年' M'月'</dateFormatItem>
+						<dateFormatItem id="yyM" alt="proposed-1-2" draft="true">yy/M</dateFormatItem>
+						<dateFormatItem id="yyM" alt="proposed-1-2-3" draft="true">yy-M</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed" draft="true">yy-M-d EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed-1" draft="true">yy/M/d EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed-1-2" draft="true">yy'년' M'월' d'일' EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed-1-2-3" draft="true">yy. M. d. EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMEEEd" alt="proposed" draft="true">yy. M. d. (EEE)</dateFormatItem>
+						<dateFormatItem id="yyMEEEd" alt="proposed-1" draft="true">yy'년' M'월' d'일' (EEE)</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">yy/M/d</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed-1" draft="true">yy-M-d</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed-1-2" draft="true">yy. M. d.</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed-1-2-3" draft="true">yy'년' M'월' d'일'</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed-1-2-3-4" draft="true">yy'年' M'月' d'日'</dateFormatItem>
+						<dateFormatItem id="yyMdHm" alt="proposed" draft="true">yy'년' M'월' d'일' H'시' m'분'</dateFormatItem>
+						<dateFormatItem id="yyMdHm" alt="proposed-1" draft="true">yy/M/d H:m</dateFormatItem>
+						<dateFormatItem id="yyMdHm" alt="proposed-1-2" draft="true">yy. M. d. H:m</dateFormatItem>
+						<dateFormatItem id="yyMdHms" alt="proposed" draft="true">yy'年' M'月' d'日' H'時' m'分' s'秒'</dateFormatItem>
+						<dateFormatItem id="yyQQQ" alt="proposed" draft="true">yy'년도 제'QQQ'사분기'</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed" draft="true">yyyy-M</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-1" draft="true">yyyy'년' M'월'</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-1-2" draft="true">yyyy'年' M'月'</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd" alt="proposed" draft="true">yyyy/M/d EEEE, </dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1" draft="true">yyyy'년' M'월' d'일' EEEE,</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1-2" draft="true">yyyy. M. d. EEEE,</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEd" alt="proposed" draft="true">yyyy'년' M'월' d'일' (EEE)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEd" alt="proposed-1" draft="true">yyyy. M. d. (EEE)</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">yyyy'년' M'월' d'일'</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed-1" draft="true">yyyy'年' M'月' d'日'</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed-1-2" draft="true">yyyy. M. d.</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed-1-2-3" draft="true">yyyy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMdHms" alt="proposed" draft="true">yyyy. M. d. H:m:s</dateFormatItem>
+						<dateFormatItem id="yyyyMdHms" alt="proposed-1" draft="true">yyyy'년' M'월' d'일' H'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="yyyyMdHms" alt="proposed-1-2" draft="true">yyyy'年' M'月' d'日' H'時' m'分' s'秒'</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" alt="proposed" draft="true">yyyy'년도 제'QQQ'사분기'</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -316,12 +316,12 @@
 							<pattern draft="true">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">MMMM</dateFormatItem>
-						<dateFormatItem id="2">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="3">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="4">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="5">HH:mm</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -513,6 +513,17 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">ቲምቡክቱ</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">ቤልፋስት</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">ያፕ</exemplarCity>
+			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="true">ሮተራ</exemplarCity>
@@ -763,10 +774,6 @@
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="true">ማርድሪድ</exemplarCity>
 			</zone>
-			<!-- Micronesia -->
-			<zone type="Pacific/Yap">
-				<exemplarCity draft="true">ያፕ</exemplarCity>
-			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity draft="true">ትሩክ</exemplarCity>
 			</zone>
@@ -775,10 +782,6 @@
 			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity draft="true">ኮስራይ</exemplarCity>
-			</zone>
-			<!-- United Kingdom -->
-			<zone type="Europe/Belfast">
-				<exemplarCity draft="true">ቤልፋስት</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity draft="true">ሎንዶን</exemplarCity>
@@ -845,9 +848,6 @@
 			<!-- Mali -->
 			<zone type="Africa/Bamako">
 				<exemplarCity draft="true">ባማኮ</exemplarCity>
-			</zone>
-			<zone type="Africa/Timbuktu">
-				<exemplarCity draft="true">ቲምቡክቱ</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">

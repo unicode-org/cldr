@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -161,6 +162,12 @@ abstract public class CheckCLDR {
 	        	throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: " + foo.keySet());
 	        }
         }
+        
+        // check stuff
+        Comparator cc = StandardCodes.make().getTZIDComparator();
+        System.out.println(cc.compare("Antarctica/Rothera", "America/Cordoba"));
+        System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
+
 
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("test filter: " + checkFilter);
@@ -194,6 +201,7 @@ abstract public class CheckCLDR {
             if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true");
             if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
             if (organization != null) options.put("CoverageLevel.localeType", organization);
+            
             //options.put("CheckCoverage.requiredLevel","comprehensive");
 
 			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);

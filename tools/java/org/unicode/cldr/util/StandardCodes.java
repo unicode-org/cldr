@@ -832,6 +832,8 @@ public class StandardCodes {
     	return TZIDComparator;
     }
     
+	private static List errorData = Arrays.asList(new Object[]{new Double(Double.MIN_VALUE), new Double(Double.MIN_VALUE),""});
+
 	private Comparator TZIDComparator = new Comparator() {
 		Map data = getZoneData();
 		public int compare(Object o1, Object o2) {
@@ -841,31 +843,26 @@ public class StandardCodes {
 			//String ss2 = s2.substring(0,s2.indexOf('/'));
 			//if (!ss1.equals(ss2)) return regionalCompare.compare(ss1, ss2);
 			List data1 = (List) data.get(s1);
+			if (data1 == null) data1 = errorData;
 			List data2 = (List) data.get(s2);
-			if (data1 != null && data2 != null) {
-				int result;
-				//country
-				String country1 = (String) data1.get(2);
-				String country2 = (String) data2.get(2);
-				if ((result = country1.compareTo(country2)) != 0) return result;
-				//longitude
-				Double d1 = (Double) data1.get(1);
-				Double d2 = (Double) data2.get(1);
-				if ((result = d1.compareTo(d2)) != 0) return result;
-				//latitude
-				d1 = (Double) data1.get(0);
-				d2 = (Double) data2.get(0);
-				if ((result = d1.compareTo(d2)) != 0) return result;
-				// name
-				return s1.compareTo(s2); 
-			} else  {
-                if(DEBUG) {
-                    /* throw.. */
-                    System.err.println("Can't compare " + s1 + " "+((data1==null)?"(null data)":"") +" and " + s2 + 
-                    ((data2==null)?"(null data)":"")+" - USING STRING COMPARE. (probably a zone went away or was added..)");
-                }
-                return s1.compareTo(s2); 
-            }
+			if (data2 == null) data2 = errorData;
+			
+			int result;
+			//country
+			String country1 = (String) data1.get(2);
+			String country2 = (String) data2.get(2);
+
+			if ((result = country1.compareTo(country2)) != 0) return result;
+			//longitude
+			Double d1 = (Double) data1.get(1);
+			Double d2 = (Double) data2.get(1);
+			if ((result = d1.compareTo(d2)) != 0) return result;
+			//latitude
+			d1 = (Double) data1.get(0);
+			d2 = (Double) data2.get(0);
+			if ((result = d1.compareTo(d2)) != 0) return result;
+			// name
+			return s1.compareTo(s2); 
 		}		
 	};
 
@@ -899,7 +896,9 @@ public class StandardCodes {
     			{"America/Argentina/Catamarca", "America/Catamarca"},
     			{"America/Argentina/Cordoba", "America/Cordoba"},
     			{"America/Argentina/Jujuy", "America/Jujuy"},
-    			{"America/Argentina/Mendoza", "America/Mendoza"}
+    			{"America/Argentina/Mendoza", "America/Mendoza"},
+    			{"America/Kentucky/Louisville", "America/Louisville"},
+    			{"America/Indiana/Indianapolis", "America/Indianapolis"},
     	};
     	FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
     	RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA, new HashMap(), true);

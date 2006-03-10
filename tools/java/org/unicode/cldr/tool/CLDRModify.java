@@ -272,9 +272,6 @@ public class CLDRModify {
 				pw.close();
 				Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 				
-				if (totalSkeletons.size() != 0) {
-					System.out.println("Total Skeletons" + totalSkeletons);
-				}
 				/*
 				boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
 						targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
@@ -284,6 +281,9 @@ public class CLDRModify {
 					System.out.println("\t" + failureLines[1]);
 				}
 				*/
+			}
+			if (totalSkeletons.size() != 0) {
+				System.out.println("Total Skeletons" + totalSkeletons);
 			}
 		} finally {
 			Log.close();

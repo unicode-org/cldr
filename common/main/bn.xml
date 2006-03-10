@@ -183,11 +183,11 @@
 				<am>পূর্বাহ্ণ</am>
 				<pm>অপরাহ্ণ</pm>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">MMMM</dateFormatItem>
-						<dateFormatItem id="2">ww</dateFormatItem>
-						<dateFormatItem id="3">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="4">yy-MM-dd</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

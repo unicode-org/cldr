@@ -656,35 +656,35 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">d.MM.</dateFormatItem>
-						<dateFormatItem id="2">d MMMM yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="3">d MMM yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="4">d MMMM yyyy (EEEE)</dateFormatItem>
-						<dateFormatItem id="5">d MMMM yyyy (EEE)</dateFormatItem>
-						<dateFormatItem id="6">d MMM yy (EEE)</dateFormatItem>
-						<dateFormatItem id="7">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="8">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="9">d MMM yy</dateFormatItem>
-						<dateFormatItem id="10">EEEE, d MMMM yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="11">d.MM.yy</dateFormatItem>
-						<dateFormatItem id="12">d.MM.yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="13">QQQQ yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="14">MMMM</dateFormatItem>
-						<dateFormatItem id="15">d MMM</dateFormatItem>
-						<dateFormatItem id="16">MM.yyyy 'г'.</dateFormatItem>
-						<dateFormatItem id="17">EEE, d MMM yy</dateFormatItem>
-						<dateFormatItem id="18">d.M.yy</dateFormatItem>
-						<dateFormatItem id="19">ww</dateFormatItem>
-						<dateFormatItem id="20">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="21">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="22">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="23">K:mm:ss a</dateFormatItem>
-						<dateFormatItem id="24">K:mm a</dateFormatItem>
-						<dateFormatItem id="25">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="26">H:mm 'ч'.</dateFormatItem>
-						<dateFormatItem id="27">d.MM.yyyy 'г'., H:mm:ss</dateFormatItem>
-						<dateFormatItem id="28">d.MM.yyyy 'г'., H:mm 'ч'.</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="Hmm" alt="proposed" draft="true">H:mm 'ч'.</dateFormatItem>
+						<dateFormatItem id="Hmmss" alt="proposed" draft="true">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Kmm" alt="proposed" draft="true">K:mm a</dateFormatItem>
+						<dateFormatItem id="Kmmss" alt="proposed" draft="true">K:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd" alt="proposed" draft="true">d MMM</dateFormatItem>
+						<dateFormatItem id="MMd" alt="proposed" draft="true">d.MM.</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">d MMM yy (EEE)</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed-1" draft="true">EEE, d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMd" alt="proposed" draft="true">d.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">d.M.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed" draft="true">MM.yyyy 'г'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">d MMMM yyyy (EEEE)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-1" draft="true">EEEE, d MMMM yyyy 'г'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">d MMMM yyyy (EEE)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d MMMM yyyy 'г'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d MMM yyyy 'г'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMd" alt="proposed" draft="true">d.MM.yyyy 'г'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMdHmm" alt="proposed" draft="true">d.MM.yyyy 'г'., H:mm 'ч'.</dateFormatItem>
+						<dateFormatItem id="yyyyMMdHmmss" alt="proposed" draft="true">d.MM.yyyy 'г'., H:mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed" draft="true">QQQQ yyyy 'г'.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -692,6 +692,20 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>Гриинуич{0}</gmtFormat>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">Тимбукту</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">Комодоро Ривадавия</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">Белфастt</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">о. Яп</exemplarCity>
+			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="true">Ротера</exemplarCity>
@@ -735,9 +749,6 @@
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
 				<exemplarCity draft="true">Ушуая</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/ComodRivadavia">
-				<exemplarCity draft="true">Комодоро Ривадавия</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
 				<exemplarCity draft="true">Ла Риоха</exemplarCity>
@@ -975,10 +986,6 @@
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="true">Мадрид</exemplarCity>
 			</zone>
-			<!-- Micronesia -->
-			<zone type="Pacific/Yap">
-				<exemplarCity draft="true">о. Яп</exemplarCity>
-			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity draft="true">о-ви Трук</exemplarCity>
 			</zone>
@@ -998,10 +1005,6 @@
 					<daylight>CEST</daylight>
 				</short>
 				<exemplarCity>Париж</exemplarCity>
-			</zone>
-			<!-- United Kingdom -->
-			<zone type="Europe/Belfast">
-				<exemplarCity draft="true">Белфастt</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity draft="true">Лондон</exemplarCity>
@@ -1101,9 +1104,6 @@
 			<!-- Mali -->
 			<zone type="Africa/Bamako">
 				<exemplarCity draft="true">Бамако</exemplarCity>
-			</zone>
-			<zone type="Africa/Timbuktu">
-				<exemplarCity draft="true">Тимбукту</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">

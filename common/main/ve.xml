@@ -1,153 +1,154 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-    <identity>
-        <version number="1.4"/>
-        <generation date="2006-2-13"/>
-        <language type="ve"/>
-    </identity>
-    <delimiters>
-        <quotationStart draft="true">‘</quotationStart>
-        <quotationEnd draft="true">’</quotationEnd>
-        <alternateQuotationStart draft="true">“</alternateQuotationStart>
-        <alternateQuotationEnd draft="true">”</alternateQuotationEnd>
-    </delimiters>
-    <measurement>
-        <measurementSystem type="metric" draft="true"/>
-    </measurement>
-    <dates>
-        <calendars>
-            <calendar type="gregorian">
-                <months>
-                    <monthContext type="format">
-                        <monthWidth type ="abbreviated">
-                            <month type="1" draft="true">Pha</month>
-                            <month type="2" draft="true">Luh</month>
-                            <month type="3" draft="true">Ṱha</month>
-                            <month type="4" draft="true">Lam</month>
-                            <month type="5" draft="true">Shu</month>
-                            <month type="6" draft="true">Lwi</month>
-                            <month type="7" draft="true">Lwa</month>
-                            <month type="8" draft="true">Ṱha</month>
-                            <month type="9" draft="true">Khu</month>
-                            <month type="10" draft="true">Tsh</month>
-                            <month type="11" draft="true">Ḽar</month>
-                            <month type="12" draft="true">Nye</month>
-                        </monthWidth>
-                        <monthWidth type ="wide">
-                            <month type="1" draft="true">Phando</month>
-                            <month type="2" draft="true">Luhuhi</month>
-                            <month type="3" draft="true">Ṱhafamuhwe</month>
-                            <month type="4" draft="true">Lambamai</month>
-                            <month type="5" draft="true">Shundunthule</month>
-                            <month type="6" draft="true">Fulwi</month>
-                            <month type="7" draft="true">Fulwana</month>
-                            <month type="8" draft="true">Ṱhangule</month>
-                            <month type="9" draft="true">Khubvumedzi</month>
-                            <month type="10" draft="true">Tshimedzi</month>
-                            <month type="11" draft="true">Ḽara</month>
-                            <month type="12" draft="true">Nyendavhusiku</month>
-                        </monthWidth>
-                    </monthContext>
-                </months>
-                <days>
-                    <dayContext type="format">
-                        <dayWidth type ="abbreviated">
-                            <day type="sun" draft="true">Swo</day>
-                            <day type="mon" draft="true">Mus</day>
-                            <day type="tue" draft="true">Vhi</day>
-                            <day type="wed" draft="true">Rar</day>
-                            <day type="thu" draft="true">Ṋa</day>
-                            <day type="fri" draft="true">Ṱan</day>
-                            <day type="sat" draft="true">Mug</day>
-                        </dayWidth>
-                        <dayWidth type ="wide">
-                            <day type="sun" draft="true">Swondaha</day>
-                            <day type="mon" draft="true">Musumbuluwo</day>
-                            <day type="tue" draft="true">Ḽavhuvhili</day>
-                            <day type="wed" draft="true">Ḽavhuraru</day>
-                            <day type="thu" draft="true">Ḽavhuṋa</day>
-                            <day type="fri" draft="true">Ḽavhuṱanu</day>
-                            <day type="sat" draft="true">Mugivhela</day>
-                        </dayWidth>
-                    </dayContext>
-                </days>
-                <quarters>
-                    <quarterContext type="format">
-                        <quarterWidth type ="wide">
-                            <quarter type="1" draft="true">Kotara ya u thoma</quarter>
-                            <quarter type="2" draft="true">Kotara ya vhuvhili</quarter>
-                            <quarter type="3" draft="true">Kotara ya vhuraru</quarter>
-                            <quarter type="4" draft="true">Kotara ya vhuṋa</quarter>
-                        </quarterWidth>
-                        <quarterWidth type ="abbreviated">
-                            <quarter type="1" draft="true">K1</quarter>
-                            <quarter type="2" draft="true">K2</quarter>
-                            <quarter type="3" draft="true">K3</quarter>
-                            <quarter type="4" draft="true">K4</quarter>
-                        </quarterWidth>
-                    </quarterContext>
-                </quarters>
-                <week>
-                    <minDays count="1" draft="true"/>
-                    <firstDay day="sun" draft="true"/>
-                </week>
-                <am draft="true">AM</am>
-                <pm draft="true">PM</pm>
-                <eras>
-                    <eraNames>
-                        <era type="1" draft="true">AD</era>
-                        <era type="0" draft="true">BC</era>
-                    </eraNames>
-                    <eraAbbr>
-                        <era type="1" draft="true">AD</era>
-                        <era type="0" draft="true">BC</era>
-                    </eraAbbr>
-                </eras>
-                <dateTimeFormats>
-                    <availableFormats>
-                        <dateFormatItem id="1" draft="true">MM-dd</dateFormatItem>
-                        <dateFormatItem id="2" draft="true">d. MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="3" draft="true">d. MMM. yyyy</dateFormatItem>
-                        <dateFormatItem id="4" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="5" draft="true">EEE d MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="6" draft="true">EEE d MMM yy</dateFormatItem>
-                        <dateFormatItem id="7" draft="true">d MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="8" draft="true">d MMM yyyy</dateFormatItem>
-                        <dateFormatItem id="9" draft="true">d MMM yy</dateFormatItem>
-                        <dateFormatItem id="10" draft="true">dd MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="11" draft="true">yy/MM/dd</dateFormatItem>
-                        <dateFormatItem id="12" draft="true">yyyy/MM/dd</dateFormatItem>
-                        <dateFormatItem id="13" draft="true">QQQQ yy</dateFormatItem>
-                        <dateFormatItem id="14" draft="true">MMMM</dateFormatItem>
-                        <dateFormatItem id="15" draft="true">MMM dd</dateFormatItem>
-                        <dateFormatItem id="16" draft="true">yy/MM</dateFormatItem>
-                        <dateFormatItem id="17" draft="true">EEE dd/MMM yy</dateFormatItem>
-                        <dateFormatItem id="18" draft="true">ww</dateFormatItem>
-                        <dateFormatItem id="19" draft="true">yyyy-MM-dd</dateFormatItem>
-                        <dateFormatItem id="20" draft="true">yy-MM-dd</dateFormatItem>
-                        <dateFormatItem id="21" draft="true">mm:ss.SS</dateFormatItem>
-                        <dateFormatItem id="22" draft="true">KK:mm:ss a</dateFormatItem>
-                        <dateFormatItem id="23" draft="true">KK:mm a</dateFormatItem>
-                        <dateFormatItem id="24" draft="true">HH:mm:ss</dateFormatItem>
-                        <dateFormatItem id="25" draft="true">HH:mm</dateFormatItem>
-                        <dateFormatItem id="26" draft="true">yyyy/MM/dd HH:mm:ss</dateFormatItem>
-                        <dateFormatItem id="27" draft="true">yy/MM/dd HH:mm</dateFormatItem>
-                    </availableFormats>
-                </dateTimeFormats>
-            </calendar>
-        </calendars>
-    </dates>
-    <numbers>
-        <symbols>
-            <decimal draft="true">.</decimal>
-            <group draft="true">,</group>
-            <list draft="true">;</list>
-        </symbols>
-        <currencies>
-            <currency type="ZAR">
-                <symbol draft="true">R</symbol>
-            </currency>
-        </currencies>
-    </numbers>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ve"/>
+	</identity>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
+	<measurement>
+		<measurementSystem type="metric" draft="true"/>
+	</measurement>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">Pha</month>
+							<month type="2" draft="true">Luh</month>
+							<month type="3" draft="true">Ṱha</month>
+							<month type="4" draft="true">Lam</month>
+							<month type="5" draft="true">Shu</month>
+							<month type="6" draft="true">Lwi</month>
+							<month type="7" draft="true">Lwa</month>
+							<month type="8" draft="true">Ṱha</month>
+							<month type="9" draft="true">Khu</month>
+							<month type="10" draft="true">Tsh</month>
+							<month type="11" draft="true">Ḽar</month>
+							<month type="12" draft="true">Nye</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="true">Phando</month>
+							<month type="2" draft="true">Luhuhi</month>
+							<month type="3" draft="true">Ṱhafamuhwe</month>
+							<month type="4" draft="true">Lambamai</month>
+							<month type="5" draft="true">Shundunthule</month>
+							<month type="6" draft="true">Fulwi</month>
+							<month type="7" draft="true">Fulwana</month>
+							<month type="8" draft="true">Ṱhangule</month>
+							<month type="9" draft="true">Khubvumedzi</month>
+							<month type="10" draft="true">Tshimedzi</month>
+							<month type="11" draft="true">Ḽara</month>
+							<month type="12" draft="true">Nyendavhusiku</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="true">Swo</day>
+							<day type="mon" draft="true">Mus</day>
+							<day type="tue" draft="true">Vhi</day>
+							<day type="wed" draft="true">Rar</day>
+							<day type="thu" draft="true">Ṋa</day>
+							<day type="fri" draft="true">Ṱan</day>
+							<day type="sat" draft="true">Mug</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="true">Swondaha</day>
+							<day type="mon" draft="true">Musumbuluwo</day>
+							<day type="tue" draft="true">Ḽavhuvhili</day>
+							<day type="wed" draft="true">Ḽavhuraru</day>
+							<day type="thu" draft="true">Ḽavhuṋa</day>
+							<day type="fri" draft="true">Ḽavhuṱanu</day>
+							<day type="sat" draft="true">Mugivhela</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">K1</quarter>
+							<quarter type="2" draft="true">K2</quarter>
+							<quarter type="3" draft="true">K3</quarter>
+							<quarter type="4" draft="true">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">Kotara ya u thoma</quarter>
+							<quarter type="2" draft="true">Kotara ya vhuvhili</quarter>
+							<quarter type="3" draft="true">Kotara ya vhuraru</quarter>
+							<quarter type="4" draft="true">Kotara ya vhuṋa</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<week>
+					<minDays count="1" draft="true"/>
+					<firstDay day="sun" draft="true"/>
+				</week>
+				<am draft="true">AM</am>
+				<pm draft="true">PM</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">BC</era>
+						<era type="1" draft="true">AD</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="true">BC</era>
+						<era type="1" draft="true">AD</era>
+					</eraAbbr>
+				</eras>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">yy/MM</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy/MM/dd</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">yy/MM/dd HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMdd" alt="proposed" draft="true">dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy/MM/dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">yyyy/MM/dd HH:mm:ss</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal draft="true">.</decimal>
+			<group draft="true">,</group>
+			<list draft="true">;</list>
+		</symbols>
+		<currencies>
+			<currency type="ZAR">
+				<symbol draft="true">R</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
+

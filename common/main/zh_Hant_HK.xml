@@ -75,35 +75,35 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">MMMMd'日'</dateFormatItem>
-						<dateFormatItem id="2">MMMM/yy</dateFormatItem>
-						<dateFormatItem id="3">yyyy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="4">yy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="5">M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="6">yyyy'年'M'月'd'日' EEEE,</dateFormatItem>
-						<dateFormatItem id="7">d/M/yy EEEE,</dateFormatItem>
-						<dateFormatItem id="8">yy'年'M'月'd'日' EEEE,</dateFormatItem>
-						<dateFormatItem id="9">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="10">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="11">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="12">'第'ww'週'</dateFormatItem>
-						<dateFormatItem id="13">yyyy'年度'QQQQ</dateFormatItem>
-						<dateFormatItem id="14">MMMM</dateFormatItem>
-						<dateFormatItem id="15">HH'時'mm'分'</dateFormatItem>
-						<dateFormatItem id="16">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="17"> a KK:mm:ss</dateFormatItem>
-						<dateFormatItem id="18">a KK:mm</dateFormatItem>
-						<dateFormatItem id="19">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="20">HH:mm</dateFormatItem>
-						<dateFormatItem id="21">mm'分'ss'秒'SS'毫秒'</dateFormatItem>
-						<dateFormatItem id="22">a KK'時'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="23">a KK'時'mm'分'</dateFormatItem>
-						<dateFormatItem id="24">HH'時'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="25">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="26">d/M/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="27">yy'年'M'月'd'日' HH'時'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="28">yyyy'年'M'月'd'日' HH'時'mm'分'ss'秒'</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed-1" draft="true">HH'時'mm'分'</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed-1" draft="true">HH'時'mm'分'ss'秒'</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">a KK:mm</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed-1" draft="true">a KK'時'mm'分'</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">a KK'時'mm'分'ss'秒'</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed-1" draft="true"> a KK:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed" draft="true">MMMMd'日'</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed" draft="true">M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm'分'ss'秒'SS'毫秒'</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed-1" draft="true">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">'第'ww'週'</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed" draft="true">yy'年'M'月'd'日' EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMEEEEd" alt="proposed-1" draft="true">d/M/yy EEEE,</dateFormatItem>
+						<dateFormatItem id="yyMMMM" alt="proposed" draft="true">MMMM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">yy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="yyMdHHmm" alt="proposed" draft="true">d/M/yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyMdHHmmss" alt="proposed" draft="true">yy'年'M'月'd'日' HH'時'mm'分'ss'秒'</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd" alt="proposed" draft="true">yyyy'年'M'月'd'日' EEEE,</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">yyyy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="yyyyMdHHmmss" alt="proposed" draft="true">yyyy'年'M'月'd'日' HH'時'mm'分'ss'秒'</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed" draft="true">yyyy'年度'QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

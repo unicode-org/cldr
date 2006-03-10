@@ -158,7 +158,6 @@
 			<language type="gem">Germanic (Other)</language>
 			<language type="gez">Geez</language>
 			<language type="gil">Gilbertese</language>
-			<language type="gl" alt="variant">Gallegan</language>
 			<language type="gl">Galician</language>
 			<language type="gmh">Middle High German</language>
 			<language type="gn">Guarani</language>
@@ -501,8 +500,8 @@
 			<script type="Bugi">Buginese</script>
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Unified Canadian Aboriginal Symbols</script>
-			<script type="Cher">Cherokee</script>
 			<script type="Cham" references="R1">Cham</script>
+			<script type="Cher">Cherokee</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
 			<script type="Cprt">Cypriot</script>
@@ -823,8 +822,8 @@
 			<territory type="PY">Paraguay</territory>
 			<territory type="PZ">Panama Canal Zone</territory>
 			<territory type="QA">Qatar</territory>
-			<territory type="QU">European Union</territory>
 			<territory type="QO">Outlying Oceania</territory>
+			<territory type="QU">European Union</territory>
 			<territory type="RE">Reunion</territory>
 			<territory type="RO">Romania</territory>
 			<territory type="RU">Russia</territory>
@@ -898,12 +897,12 @@
 			<variant type="HAKKA">Hakka</variant>
 			<variant type="LOJBAN">Lojban</variant>
 			<variant type="NEDIS">Natisone dialect</variant>
+			<variant type="POLYTONI">Polytonic</variant>
 			<variant type="POSIX">Computer</variant>
 			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="ROZAJ">Resian</variant>
-			<variant type="POLYTONI">Polytonic</variant>
-			<variant type="SCOUSE">Scouse</variant>
 			<variant type="SAAHO">Saho</variant>
+			<variant type="SCOUSE">Scouse</variant>
 			<variant type="XIANG">Xiang or Hunanese</variant>
 		</variants>
 		<keys>
@@ -1024,17 +1023,17 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">1st quarter</quarter>
-							<quarter type="2">2nd quarter</quarter>
-							<quarter type="3">3rd quarter</quarter>
-							<quarter type="4">4th quarter</quarter>
-						</quarterWidth>
 						<quarterWidth type="abbreviated">
 							<quarter type="1">Q1</quarter>
 							<quarter type="2">Q2</quarter>
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1st quarter</quarter>
+							<quarter type="2">2nd quarter</quarter>
+							<quarter type="3">3rd quarter</quarter>
+							<quarter type="4">4th quarter</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1093,35 +1092,35 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-                       <dateFormatItem id="1">MM-dd</dateFormatItem>
-                        <dateFormatItem id="2">d. MMMM yyyy</dateFormatItem>
-                        <dateFormatItem id="3">d. MMM. yyyy</dateFormatItem>
-                        <dateFormatItem id="4">EEEE,MMMM d, yyyy</dateFormatItem>
-                        <dateFormatItem id="5">EEE, MMMM d, yyyy</dateFormatItem>
-                        <dateFormatItem id="6">EEE, MMM d, yy</dateFormatItem>
-                        <dateFormatItem id="7">MMMM d, yyyy</dateFormatItem>
-                        <dateFormatItem id="8">MMM d, yyyy</dateFormatItem>
-                        <dateFormatItem id="9">MMM d, yy</dateFormatItem>
-                        <dateFormatItem id="10">EEEE,MMMM dd, yyyy</dateFormatItem>
-                        <dateFormatItem id="11">MM/dd/yy</dateFormatItem>
-                        <dateFormatItem id="12">MM/dd/yyyy</dateFormatItem>
-                        <dateFormatItem id="13">QQQQ yy</dateFormatItem>
-                        <dateFormatItem id="14">MMMM</dateFormatItem>
-                        <dateFormatItem id="15">MMM dd</dateFormatItem>
-                        <dateFormatItem id="16">MM/yy</dateFormatItem>
-                        <dateFormatItem id="17">EEE dd/MMM yy</dateFormatItem>
-                        <dateFormatItem id="18">M/d/yy</dateFormatItem>
-                        <dateFormatItem id="19">ww</dateFormatItem>
-                        <dateFormatItem id="20">yyyy-MM-dd</dateFormatItem>
-                        <dateFormatItem id="21">yy-MM-dd</dateFormatItem>
-                        <dateFormatItem id="22">mm:ss.SS</dateFormatItem>
-                        <dateFormatItem id="23">KK:mm:ss a</dateFormatItem>
-                        <dateFormatItem id="24">KK:mm a</dateFormatItem>
-                        <dateFormatItem id="25">HH:mm:ss</dateFormatItem>
-                        <dateFormatItem id="26">HH:mm</dateFormatItem>
-                        <dateFormatItem id="27">MM/dd/yyyy HH:mm:ss</dateFormatItem>
-                        <dateFormatItem id="28">MM/dd/yy KK:mm a</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, MMM d, yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">MMM d, yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">MM/dd/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMMddKKmm" alt="proposed" draft="true">MM/dd/yy KK:mm a</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">M/d/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE,MMMM dd, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">MMM d, yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">MM/dd/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM/dd/yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>

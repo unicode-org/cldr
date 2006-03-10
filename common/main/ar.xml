@@ -492,22 +492,22 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">dd MMMM yy</dateFormatItem>
-						<dateFormatItem id="2">EEEE dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="3">dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="4">d/M/yyyy</dateFormatItem>
-						<dateFormatItem id="5">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="6">MMMM</dateFormatItem>
-						<dateFormatItem id="7">dd MMM</dateFormatItem>
-						<dateFormatItem id="8">MM/yy</dateFormatItem>
-						<dateFormatItem id="9">ww</dateFormatItem>
-						<dateFormatItem id="10">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="11">ass:mm:KK</dateFormatItem>
-						<dateFormatItem id="12">amm:KK</dateFormatItem>
-						<dateFormatItem id="13">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="14">HH:mm</dateFormatItem>
-						<dateFormatItem id="15">aKK:mm yyyy/MM/d</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">amm:KK</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">ass:mm:KK</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd MMM</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMMdd" alt="proposed" draft="true">dd MMMM yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMdd" alt="proposed" draft="true">dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdKKmm" alt="proposed" draft="true">aKK:mm yyyy/MM/d</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">d/M/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -546,6 +546,20 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">تيمبيوكتو</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">كومودريفادافيا</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">بلفاست</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">ياب</exemplarCity>
+			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="true">روثيرا</exemplarCity>
@@ -589,9 +603,6 @@
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
 				<exemplarCity draft="true">أشوا</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/ComodRivadavia">
-				<exemplarCity draft="true">كومودريفادافيا</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
 				<exemplarCity draft="true">لا ريوجا</exemplarCity>
@@ -805,10 +816,6 @@
 			<zone type="Europe/Madrid">
 				<exemplarCity draft="true">مدريد</exemplarCity>
 			</zone>
-			<!-- Micronesia -->
-			<zone type="Pacific/Yap">
-				<exemplarCity draft="true">ياب</exemplarCity>
-			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity draft="true">ترك</exemplarCity>
 			</zone>
@@ -817,10 +824,6 @@
 			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity draft="true">كوسرا</exemplarCity>
-			</zone>
-			<!-- United Kingdom -->
-			<zone type="Europe/Belfast">
-				<exemplarCity draft="true">بلفاست</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity draft="true">لندن</exemplarCity>
@@ -887,9 +890,6 @@
 			<!-- Mali -->
 			<zone type="Africa/Bamako">
 				<exemplarCity draft="true">باماكو</exemplarCity>
-			</zone>
-			<zone type="Africa/Timbuktu">
-				<exemplarCity draft="true">تيمبيوكتو</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">

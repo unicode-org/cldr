@@ -510,28 +510,28 @@
 							<pattern draft="true">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<availableFormats draft="true">
-						<dateFormatItem id="1">dd-MM</dateFormatItem>
-						<dateFormatItem id="2">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="3">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="4">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="5">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="6">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="7">MMMM</dateFormatItem>
-						<dateFormatItem id="8">dd MMM</dateFormatItem>
-						<dateFormatItem id="9">MM/yy</dateFormatItem>
-						<dateFormatItem id="10">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="11">d/M/yy</dateFormatItem>
-						<dateFormatItem id="12">ww</dateFormatItem>
-						<dateFormatItem id="13">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="14">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="15">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="16">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="17">KK:mm a</dateFormatItem>
-						<dateFormatItem id="18">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="19">HH:mm</dateFormatItem>
-						<dateFormatItem id="20">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="21">dd/MM/yy KK:mm a</dateFormatItem>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="true">dd-MM</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyMMddKKmm" alt="proposed" draft="true">dd/MM/yy KK:mm a</dateFormatItem>
+						<dateFormatItem id="yyMd" alt="proposed" draft="true">d/M/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

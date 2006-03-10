@@ -21,6 +21,7 @@ import org.unicode.cldr.util.XMLSource;
  * CheckCoverage.requiredLevel=value to override the required level. values: comprehensive, modern, moderate, basic<br>
  * CheckCoverage.skip=true to skip a locale. For console testing, you want to skip the non-language locales, since
  * they don't typically add, just replace. See CheckCLDR for an example.
+ * CoverageLevel.localeType=organization to override the organization.
  * @author davis
  *
  */
@@ -51,10 +52,6 @@ public class CheckCoverage extends CheckCLDR {
         CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath);
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
-        if (options != null) {
-            String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
-            if (optionLevel != null) requiredLevel = CoverageLevel.Level.get(optionLevel);
-        }
         if (requiredLevel.compareTo(level) >= 0) {
             result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
@@ -72,7 +69,14 @@ public class CheckCoverage extends CheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
-        requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
+        requiredLevel = null;
+        if (options != null) {
+            String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
+            if (optionLevel != null) requiredLevel = CoverageLevel.Level.get(optionLevel);
+        }
+        if (requiredLevel == null) {
+        	requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
+        }
         skip = false;
         return this;
     }

@@ -183,6 +183,16 @@ public class StandardCodes {
 	
 	private Map platform_locale_status = null;
 	
+	static Comparator caseless = new Comparator() {
+
+		public int compare(Object arg0, Object arg1) {
+			String s1 = (String)arg0;
+			String s2 = (String)arg1;
+			return s1.compareToIgnoreCase(s2);
+		}
+		
+	};
+	
 	/**
 	 * Returns locales according to status. It returns a Map of Maps,
 	 * key 1 is either IBM or Java (perhaps more later),
@@ -193,7 +203,7 @@ public class StandardCodes {
 	public Map getLocaleTypes() throws IOException {
 		if (platform_locale_status == null) {
             LocaleIDParser parser = new LocaleIDParser();
-			platform_locale_status = new TreeMap();
+            platform_locale_status = new TreeMap(caseless);
 			String line;
 			BufferedReader lstreg = Utility.getUTF8Data( "Locales.txt");
 			while (true) {
@@ -203,15 +213,18 @@ public class StandardCodes {
 				if (commentPos >= 0) line = line.substring(0, commentPos);
 				if (line.length() == 0) continue;
 				List stuff = Utility.splitList(line, ';', true);
-				Map locale_status = (Map) platform_locale_status.get(stuff.get(0));
-				if (locale_status == null)  platform_locale_status.put(stuff.get(0), locale_status = new TreeMap());
+				String organization = (String) stuff.get(0);
                 String locale = (String) stuff.get(1);
-				locale_status.put(locale, stuff.get(2));
+                String status = (String) stuff.get(2);
+				Map locale_status = (Map) platform_locale_status.get(organization);
+				if (locale_status == null)  platform_locale_status.put(organization, locale_status = new TreeMap());
                 parser.set(locale);
+                locale = parser.toString(); // normalize
+				locale_status.put(locale, status);
                 String scriptLoc = parser.getLanguageScript();
-                if (locale_status.get(scriptLoc) == null) locale_status.put(scriptLoc, stuff.get(2));
+                if (locale_status.get(scriptLoc) == null) locale_status.put(scriptLoc, status);
                 String lang = parser.getLanguage();
-                if (locale_status.get(lang) == null) locale_status.put(lang, stuff.get(2));
+                if (locale_status.get(lang) == null) locale_status.put(lang, status);
 			}
 			Utility.protectCollection(platform_locale_status);
 		}

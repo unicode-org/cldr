@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -99,7 +100,8 @@ abstract public class CheckCLDR {
     EXAMPLES = 3,
     FILE_FILTER = 4,
     TEST_FILTER = 5,
-    DATE_FORMATS = 6
+    DATE_FORMATS = 6,
+    ORGANIZATION = 7
     ;
 
     private static final UOption[] options = {
@@ -110,6 +112,7 @@ abstract public class CheckCLDR {
         UOption.create("file_filter", 'f', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("date_formats", 'd', UOption.NO_ARG),
+        UOption.create("organization", 'o', UOption.REQUIRES_ARG),
     };
     
     private static String[] HelpMessage = {
@@ -118,7 +121,9 @@ abstract public class CheckCLDR {
     	"-cxxx \t Set the coverage: eg -ccomprehensive or -cmodern or -cmoderate or -cbasic",
     	"-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
     	"-e \t Turn on examples (actually a summary of the demo)",
-    	"-d \t Turn on special date format checks"};
+    	"-d \t Turn on special date format checks",
+    	"-oxxx \t Organization (for coverage tests): ibm, google, ...."
+    	};
 
 	/**
 	 * This will be the test framework way of using these tests. It is preliminary for now.
@@ -127,8 +132,9 @@ abstract public class CheckCLDR {
 	 * Then on each path in the file it will call check.
 	 * Right now it doesn't work with resolved files, so just use unresolved ones.
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
         double deltaTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
         if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
@@ -143,12 +149,22 @@ abstract public class CheckCLDR {
         SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
         boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
         
-        Level coverageLevel = Level.UNDETERMINED;
+        Level coverageLevel = null;
         String coverageLevelInput = options[COVERAGE].value;
         if (coverageLevelInput != null) coverageLevel = Level.get(coverageLevelInput);
+        
+        String organization = options[ORGANIZATION].value;
+        if (organization != null) {
+	        StandardCodes sc = StandardCodes.make();
+	        Map foo = sc.getLocaleTypes();
+	        if (!foo.keySet().contains(organization)) {
+	        	throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: " + foo.keySet());
+	        }
+        }
 
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("test filter: " + checkFilter);
+        System.out.println("organization: " + organization);
         System.out.println("show examples: " + SHOW_EXAMPLES);
         System.out.println("coverage level: " + coverageLevel);
         System.out.println("checking dates: " + checkFlexibleDates);
@@ -176,7 +192,8 @@ abstract public class CheckCLDR {
             boolean onlyLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
             options.clear();
             if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true");
-            options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
+            if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
+            if (organization != null) options.put("CoverageLevel.localeType", organization);
             //options.put("CheckCoverage.requiredLevel","comprehensive");
 
 			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);

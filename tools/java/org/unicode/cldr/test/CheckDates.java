@@ -46,6 +46,8 @@ public class CheckDates extends CheckCLDR {
 	    //+ "\r\n\t\u200E{1}\u200E\r\n\t\u200E{2}\u200E\r\n\t\u200E{3}\u200E"
     ; // keep aligned with previous
 	
+    private static final String DECIMAL_XPATH = "//ldml/numbers/symbols/decimal";
+
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -58,12 +60,21 @@ public class CheckDates extends CheckCLDR {
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
         flexInfo.set(resolved);
-        for (Iterator it = resolved.iterator(); it.hasNext();) {
+
+        // load decimal path specially
+        String decimal = resolved.getStringValue(DECIMAL_XPATH);
+        if(decimal != null)  {
+            flexInfo.checkFlexibles(DECIMAL_XPATH,decimal,DECIMAL_XPATH);
+        }
+
+        // load gregorian appendItems
+        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/"); it.hasNext();) {
             String path = (String) it.next();
             String value = resolved.getStringValue(path);
             String fullPath = resolved.getFullXPath(path);
             flexInfo.checkFlexibles(path, value, fullPath);
         }
+        
         redundants.clear();
         flexInfo.getRedundants(redundants);
 		return this;

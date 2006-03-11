@@ -503,10 +503,8 @@ abstract public class CheckCLDR {
 		private Matcher filter;
 		private List checkList = new ArrayList();
 		private List filteredCheckList = new ArrayList();
-		private CLDRFile cldrFileToCheck;
-		
+
 		public CompoundCheckCLDR add(CheckCLDR item) {
-            item.setCldrFileToCheck(cldrFileToCheck, null, null);
 			checkList.add(item);
 			if (filter == null || filter.reset(item.getClass().getName()).matches()) {
 				filteredCheckList.add(item);
@@ -546,8 +544,7 @@ abstract public class CheckCLDR {
                     if(SHOW_TIMES) System.err.println("OK : " + testTime);
 				} catch (RuntimeException e) {
                     addError(possibleErrors, item, e);
-                    if(SHOW_TIMES) System.err.println("ERR: " + testTime);
-			    	return this;
+                    if(SHOW_TIMES) System.err.println("ERR: " + testTime + " - " + e.toString());
 				}
             }
 			return this;
@@ -563,7 +560,7 @@ abstract public class CheckCLDR {
 				CheckCLDR item = (CheckCLDR) it.next();
 				if (filter == null || filter.reset(item.getClass().getName()).matches()) {
 					filteredCheckList.add(item);
-					item.setCldrFileToCheck(cldrFileToCheck, null, null);
+					item.setCldrFileToCheck(getCldrFileToCheck(), null, null);
 				}
 			}
 			return this;

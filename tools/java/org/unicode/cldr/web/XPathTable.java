@@ -104,15 +104,16 @@ public class XPathTable {
         }
     }
     
-//    public Hashtable idToString_ = new Hashtable();  // public for statistics only
-    String idToString[] = new String[0];
-    public final static int CHUNKSIZE = 1024;
+    public Hashtable idToString_ = new Hashtable();  // public for statistics only
+//    String idToString[] = new String[0];
+    public final static int CHUNKSIZE = 4096;
     private final String idToString_put(int id, String str) {
-        try {
-            idToString[id] = str;
-            //idToString_.put(new Integer(id),str);
-        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
-            synchronized(this) {
+    {
+//        try {
+//            idToString[id] = str;
+            idToString_.put(new Integer(id),str);
+//        } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
+/*            synchronized(this) {
                 if(id<0) {
                     throw aioob;
                 } else if(id > idToString.length) {
@@ -122,17 +123,19 @@ public class XPathTable {
                     idToString[id] = str;
                 }
             }
+*/
         }
         return str;
     }
     
     private final String idToString_get(int id) {
-        try {
+/*        try {
             return idToString[id];
         } catch(java.lang.ArrayIndexOutOfBoundsException aioob) {
             return null;
         }
-//        return (String)idToString_.get(new Integer(id));
+        */
+        return (String)idToString_.get(new Integer(id));
     }
     
     /**

@@ -586,7 +586,8 @@ public class CLDRDBSource extends XMLSource {
                 ResultSet rs = stmts.oxpathFromXpath.executeQuery();
                 if(!rs.next()) {
                     rs.close();
-                    return path; // not found - should be nUll/
+                    logger.severe("gfx not found, falling back: " + locale + "/" + path);
+                    return path; // not found - should be null?
                 }
                 int result = rs.getInt(1);
                 if(rs.next()) {

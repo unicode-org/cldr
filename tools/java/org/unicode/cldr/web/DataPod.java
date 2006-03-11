@@ -527,18 +527,18 @@ public class DataPod {
 		if(simple==true) {
 //            pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english        
             CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC, locale);
-            CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
+            CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR+":"+ctx.defaultPtype());
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
             com.ibm.icu.dev.test.util.ElapsedTimer et;
             if(SHOW_TIME) {
                 et= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("DP: Starting populate of " + locale + " // " + prefix);
+                System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
             }
             pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
             if(SHOW_TIME) {
-                System.err.println("DP: Time taken to populate " + locale + " // " + prefix + " = " + et);
+                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et);
             }
 		} else {
 			throw new InternalError("non-simple pods not supported");
@@ -759,6 +759,11 @@ public class DataPod {
             }
 
             String fullPath = aFile.getFullXPath(xpath);
+            
+            if(fullPath == null) {
+                System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                fullPath = xpath;
+            }
 
             if(needFullPathPattern.matcher(xpath).matches()) {
                 xpath = fullPath; // draft and alt will be removed by the noisePattern .. 

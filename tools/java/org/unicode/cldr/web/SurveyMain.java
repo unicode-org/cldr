@@ -83,6 +83,8 @@ public class SurveyMain extends HttpServlet {
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
     public static final String MKREFERENCE = "enter-reference";
+    
+    public static final String STFORM = "stform";
 
 //    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
     //public static final String MODIFY_THING = "<img src='' title='You are allowed to modify this locale.'>";             // was: F802
@@ -187,6 +189,8 @@ public class SurveyMain extends HttpServlet {
             
     public final void init(final ServletConfig config)
     throws ServletException {
+        new com.ibm.icu.text.SimpleDateFormat();
+    
         super.init(config);
         
         cldrHome = config.getInitParameter("cldr.home");
@@ -383,6 +387,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<h1>System info</h1>");
         ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
         ctx.println("<div class='pager'>");
+        ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+"<br>");
         ctx.println(uptime + ", " + pages + " pages served.<br/>");
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
@@ -763,7 +768,11 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<br/>");
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
-                    ctx.println("You are a: <b>Vetter:</b> ");
+                    if(UserRegistry.userIsExpert(ctx.session.user)) {
+                        ctx.print("You are an: <b>Expert Vetter:</b> ");
+                    } else {
+                        ctx.println("You are a: <b>Vetter:</b> ");
+                    }
                     ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[List " + ctx.session.user.org + " Users]</a>");
                     ctx.println("<br/>");
                 } else if(UserRegistry.userIsStreet(ctx.session.user)) {
@@ -828,8 +837,8 @@ public class SurveyMain extends HttpServlet {
                 registeredUser.printPasswordLink(ctx);
                 WebContext nuCtx = new WebContext(ctx);
                 nuCtx.addQuery("do","list");
-                
-                ctx.println("<p>The password wasn't emailed to this user. You can do so in the '<a href='"+nuCtx.url()+"#u_"+u.email+"'>manage users</a>' page.</p>");
+                nuCtx.addQuery(LIST_JUST, changeAtTo40(new_email));
+                ctx.println("<p>The password wasn't emailed to this user. You can do so in the '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>manage users</a></b>' page.</p>");
             }
         }
         
@@ -1527,7 +1536,7 @@ public class SurveyMain extends HttpServlet {
         // print 'shopping cart'
         if(ctx.field(QUERY_EXAMPLE).length()==0)  {
             if(ctx.session.user != null) {
-                ctx.println("<form method=POST action='" + ctx.base() + "'>");
+                ctx.println("<form name='"+STFORM+"' method=POST action='" + ctx.base() + "'>");
             }
             ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
                         " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
@@ -1888,9 +1897,9 @@ public class SurveyMain extends HttpServlet {
         }
         synchronized (ourSrc) {
             // Set up checks
-            CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
-            List checkCldrResult = new ArrayList();
+            CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
             if (checkCldr == null)  {
+                List checkCldrResult = new ArrayList();
                 //logger.info("Initting tests . . .");
                 long t0 = System.currentTimeMillis();
                 checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
@@ -1899,17 +1908,18 @@ public class SurveyMain extends HttpServlet {
                 if(cf==null) {
                     throw new InternalError("cf was null.");
                 }
-                checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult); // TODO: when does this get updated?
-                ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
+                checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult);
+                //logger.info("fileToCheck set . . . on "+ checkCldr.toString());
+                ctx.putByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype(), checkCldr);
                 {
                     // sanity check: can we get it back out
-                    CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
+                    CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR+":"+ctx.defaultPtype());
                     if(subCheckCldr == null) {
                         throw new InternalError("subCheckCldr == null");
                     }
                 }
                 if(!checkCldrResult.isEmpty()) {
-                    ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult); // don't bother if empty . . .
+                    ctx.putByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype(), checkCldrResult); // don't bother if empty . . .
                 }
                 long t2 = System.currentTimeMillis();
                 //logger.info("Time to init tests: " + (t2-t0));
@@ -1984,23 +1994,27 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName()+" / " + which + " Example</h3>");
             }
             
-            if( (!checkCldrResult.isEmpty()) && 
-                (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
-                ctx.println("<hr><h4>Possible problems with locale:</h4>");
-                ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
-                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    try{ 
-                        if (!status.getType().equals(status.exampleType)) {
-                            ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
-                        } else {
-                            ctx.println("<i>example available</i><br>");
+            {
+                List checkCldrResult = (List)ctx.getByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype()); // don't bother if empty . . .
+
+                if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
+                    (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
+                    ctx.println("<hr><h4>Possible problems with locale:</h4>");
+                    ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                        try{ 
+                            if (!status.getType().equals(status.exampleType)) {
+                                ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
+                            } else {
+                                ctx.println("<i>example available</i><br>");
+                            }
+                        } catch(Throwable t) {
+                            ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                         }
-                    } catch(Throwable t) {
-                        ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                     }
+                    ctx.println("</div><hr>");
                 }
-                ctx.println("</div><hr>");
             }
             subCtx.addQuery("x",which);
             for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
@@ -2313,7 +2327,10 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                 ctx.printHelpLink("/"+cls+"-example","Help with this "+cls+" example", true);
                 ctx.addQuery(QUERY_EXAMPLE,e);
                 ctx.println("<input type='hidden' name='"+QUERY_EXAMPLE+"' value='"+e+"'>");
+                ctx.println(ee.status.toString());
+                ctx.println("<hr width='10%'>");
                 ctx.println(ee.status.getHTMLMessage());
+                ctx.println("<hr width='10%'>");
                 CheckCLDR.SimpleDemo d = ee.status.getDemo();
                 Map m = new TreeMap();
                 if(d != null) {
@@ -2352,7 +2369,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
     //    CLDRFile engf = getEnglishFile();
     CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-    CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
+    CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
     XPathParts pathParts = new XPathParts(null, null);
     XPathParts fullPathParts = new XPathParts(null, null);
     List checkCldrResult = new ArrayList();
@@ -2556,14 +2573,23 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         String altPrefix = null;
         // handle FFT
         if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
-            if(UserRegistry.userIsTC(ctx.session.user)) {
-                String idStr="[@id=\"u"+ctx.session.user.id+"-"+CookieSession.newId(false).substring(0,6)+"\"]";
+               DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
+               //String id = (String) attributes.get("id");
+               String id = null;
+               //String oldID = id;
+               try {
+                    id = dateTimePatternGenerator.getSkeleton(choice_v);
+               } catch (RuntimeException e) {
+                    ctx.println("<i>Sorry, had an error when trying to process flex data <tt><b>"+choice_v+"</b></tt>.. Could be a bad pattern. Try again<br>Error was: ");
+                    printShortened(ctx,e.toString());
+                    ctx.println("<br>");
+                    return false;
+               }
+               
+                altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
+                String idStr="[@id=\""+id+"\"]";
                 fullPathMinusAlt=DataPod.FAKE_FLEX_XPATH+idStr;
                 ctx.println("<tt>"+fullPathMinusAlt+"</tt><br>");
-            } else {
-                ctx.println("<i>Sorry.. this feature ("+DataPod.FAKE_FLEX_THING+") is not available yet.</i><br>");
-                return false;
-            }
             // no alt prefix
         } else {
             altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
@@ -2588,9 +2614,9 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
 // TODO: trim unused params
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[]) {
-    if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
-        return;
-    }
+    //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
+    //    return;
+    //}
 
     String fullPathFull = pod.xpath(p); 
     String boxClass = canModify?"actionbox":"disabledbox";
@@ -2780,7 +2806,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                     if(first==false) {
                         ctx.print(", ");
                     }
-                    ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+"e="+e.hash+"'>");
+                    ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+ QUERY_EXAMPLE+"="+e.hash+"'>");
                     String cls = shortClassName(e.status.getCause());
                     ctx.print(cls);
                     ctx.print("</a>");
@@ -2826,14 +2852,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(!p.confirmOnly) {
             ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
             if(canModify) {
-                ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio' >");
+                ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
             } else {
                 ctx.print("<input type='radio' disabled>");
             }
         }
         ctx.println("</td>");
         if(canModify && !p.confirmOnly) {
-            ctx.println("<td colspan='2'><input name='"+fieldHash+"_v'  class='inputbox'></td>");
+            ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'  class='inputbox'></td>");
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");
                 ctx.print("<a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"'>Ref:</a>");
@@ -3548,6 +3574,7 @@ private Connection getU_DBConnection(String options)
 
 File dbDir = null;
 File dbDir_u = null;
+static String dbInfo = null;
 
 private void doStartupDB()
 {
@@ -3558,8 +3585,16 @@ private void doStartupDB()
     
     logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
     try
-    {
-        Class.forName(db_driver).newInstance();
+    { 
+        Object o = Class.forName(db_driver).newInstance();
+        try {
+            java.sql.Driver drv = (java.sql.Driver)o;
+            dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
+         //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
+        } catch(Throwable t) {
+            dbInfo = "unknown";
+        }
+        logger.info("loaded driver " + o + " - " + dbInfo);
         Connection conn = getDBConnection(";create=true");
         logger.info("Connected to database " + cldrdb);
         Connection conn_u = getU_DBConnection(";create=true");
@@ -3675,8 +3710,7 @@ public static final String unchainSqlException(SQLException e) {
                 System.out.println("check created");
                 List result = new ArrayList();
                 Map options = null;
-                
-                check.setCldrFileToCheck(my, options, result); // TODO: when does this get updated?
+                check.setCldrFileToCheck(my, options, result); 
                 System.out.println("file set");
             }
             

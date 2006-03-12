@@ -5,13 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.FormatDemo;
-import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
@@ -50,11 +46,11 @@ public class CheckNumbers extends CheckCLDR {
         if (path.indexOf("/numbers") < 0) return this;
 		try {
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
-				checkPattern(path, fullPath, value, result);
+				checkPattern(path, fullPath, value, result, false);
 			}
-			if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
-				checkCurrencyFormats(path, fullPath, value, result);
-			}
+//			if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
+//				checkCurrencyFormats(path, fullPath, value, result);
+//			}
 			
 			byte type = getNumericType(path);
 			if (type != NOT_NUMERIC_TYPE) {
@@ -74,29 +70,45 @@ public class CheckNumbers extends CheckCLDR {
 		return this;
 	}
 	
-	private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
-		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
-		addSamples(x, value, "", result);
+	public CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options, List result) {
+        if (path.indexOf("/numbers") < 0) return this;
+		try {
+			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
+				checkPattern(path, fullPath, value, result, true);
+			}
+			if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
+				checkCurrencyFormats(path, fullPath, value, result, true);
+			}
+		} catch (Exception e) {
+			// don't worry about errors here
+		}
+		return this;
 	}
 	
-	private void checkCurrencyFormats(String path, String fullPath, String value, List result) throws ParseException {
+	private void checkPattern(String path, String fullPath, String value, List result, boolean generateExamples) throws ParseException {
+		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
+		addSamples(x, value, "", result, generateExamples);
+	}
+	
+	private void checkCurrencyFormats(String path, String fullPath, String value, List result, boolean generateExamples) throws ParseException {
 		DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
-		addSamples(x, x.toPattern(), value, result);
+		addSamples(x, x.toPattern(), value, result, generateExamples);
 	}
 
-	private void addSamples(DecimalFormat x, String pattern, String context, List result) throws ParseException {
+	private void addSamples(DecimalFormat x, String pattern, String context, List result, boolean generateExamples) throws ParseException {
 		Object[] arguments = new Object[3];
-		StringBuffer htmlMessage = new StringBuffer();
-        FormatDemo.appendTitle(htmlMessage);
+
         double sample = getRandomNumber();
 		arguments[0] = String.valueOf(sample);
 		String formatted = x.format(sample);
 		arguments[1] = formatted;
+		boolean gotFailure = false;
 		try {
 			double parsed = x.parse(formatted).doubleValue();
 			arguments[2] = String.valueOf(parsed);
 		} catch (Exception e) {
 			arguments[2] = e.getMessage();
+			gotFailure = true;
 		}
 //		htmlMessage.append(pattern1)
 //		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
@@ -105,21 +117,22 @@ public class CheckNumbers extends CheckCLDR {
 //		.append(pattern3)
 //		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
 //		.append(pattern4);
-        FormatDemo.appendLine(htmlMessage, pattern, context, arguments[0].toString(), formatted, arguments[2].toString());
-		result.add(new MyCheckStatus()
-				.setFormat(x)
+		if (generateExamples || gotFailure) result.add(new CheckStatus()
 				.setCause(this).setType(CheckStatus.exampleType)
-				.setMessage(SampleList, arguments)
-				.setHTMLMessage(htmlMessage.toString()));
+				.setMessage(SampleList, arguments));
+		if (generateExamples) result.add(new MyCheckStatus()
+				.setFormat(x, pattern, context)
+				.setCause(this).setType(CheckStatus.demoType));
 	}
 
     /**
      * @return
      */
     private static double getRandomNumber() {
+    	// min = 12345.678
         double rand = random.nextDouble();
         //System.out.println(rand);
-        double sample = Math.round(rand*100000000.0)/1000.0;
+        double sample = Math.round(rand*100000.0*1000.0)/1000.0 + 10000.0;
         if (random.nextBoolean()) sample = -sample;
         return sample;
     }
@@ -177,25 +190,33 @@ public class CheckNumbers extends CheckCLDR {
 
     static public class MyCheckStatus extends CheckStatus {
         private DecimalFormat df;
-        public MyCheckStatus setFormat(DecimalFormat df) {
+        String pattern;
+        String context;
+        public MyCheckStatus setFormat(DecimalFormat df, String pattern, String context) {
             this.df = df;
+            this.pattern = pattern;
+            this.context = context;
             return this;
         }
         public SimpleDemo getDemo() {
-            return new MyDemo().setFormat(df);
+            return new MyDemo().setFormat(df, pattern, context);
         }
     }
 
     static class MyDemo extends FormatDemo {
         private DecimalFormat df;
+        String pattern;
+        String context;
         String getPattern() {
             return df.toPattern();
         }
         String getRandomInput() {
             return String.valueOf(getRandomNumber());
         }
-        public MyDemo setFormat(DecimalFormat df) {
+        public MyDemo setFormat(DecimalFormat df, String pattern, String context) {
             this.df = df;
+            this.pattern = pattern;
+            this.context = context;
             return this;
         }
         public boolean processPost(Map inout) {
@@ -231,5 +252,29 @@ public class CheckNumbers extends CheckCLDR {
             }
             return result;
         }
+		public String getHTML(String path, String fullPath, String value) throws Exception {
+			Object[] arguments = new Object[3];
+			StringBuffer htmlMessage = new StringBuffer();
+	        FormatDemo.appendTitle(htmlMessage);
+	        double sample = getRandomNumber();
+			arguments[0] = String.valueOf(sample);
+			String formatted = df.format(sample);
+			arguments[1] = formatted;
+			try {
+				double parsed = df.parse(formatted).doubleValue();
+				arguments[2] = String.valueOf(parsed);
+			} catch (Exception e) {
+				arguments[2] = e.getMessage();
+			}
+//			htmlMessage.append(pattern1)
+//			.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
+//			.append(pattern2)
+//			.append(TransliteratorUtilities.toXML.transliterate(formatted))
+//			.append(pattern3)
+//			.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
+//			.append(pattern4);
+	        FormatDemo.appendLine(htmlMessage, pattern, context, arguments[0].toString(), formatted, arguments[2].toString());
+	        return htmlMessage.toString();
+		}
     }
 }

@@ -42,7 +42,7 @@ public class CheckDates extends CheckCLDR {
 		"2005-12-02 12:15:16",
 		//"AD 2100-07-11T10:15:16Z",
         }; // keep aligned with following
-	static String SampleList = "Samples:\r\n\t\u200E{0}\u200E"
+	static String SampleList = "{0}"
 	    //+ "\r\n\t\u200E{1}\u200E\r\n\t\u200E{2}\u200E\r\n\t\u200E{3}\u200E"
     ; // keep aligned with previous
 	
@@ -68,7 +68,7 @@ public class CheckDates extends CheckCLDR {
         }
 
         // load gregorian appendItems
-        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/"); it.hasNext();) {
+        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
             String path = (String) it.next();
             String value = resolved.getStringValue(path);
             String fullPath = resolved.getFullXPath(path);
@@ -107,6 +107,20 @@ public class CheckDates extends CheckCLDR {
 		}
 		return this;
 	}
+	
+	public CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options, List result) {
+		if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
+		try {
+			if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0
+                    || path.indexOf("/dateFormatItem") >= 0) {
+				checkPattern2(path, fullPath, value, result);
+			}
+		} catch (Exception e) {
+			// don't worry about errors
+		}
+		return this;
+	}
+
 
 	//Calendar myCal = Calendar.getInstance(TimeZone.getTimeZone("America/Denver"));
 	TimeZone denver = TimeZone.getTimeZone("America/Denver");
@@ -140,8 +154,6 @@ public class CheckDates extends CheckCLDR {
             }
         }
 		String calendar = pathParts.findAttributeValue("calendar", "type");
-        SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
-		addSamples(x, value, path.indexOf("/dateFormat") >= 0, result);
 		if (path.indexOf("\"full\"") >= 0) {
 			// for date, check that era is preserved
 			// TODO fix naked constants
@@ -157,7 +169,7 @@ public class CheckDates extends CheckCLDR {
 			//myCal.setTime(dateSource);
 			String result2 = y.format(dateSource);
 			Date backAgain = y.parse(result2);
-			String isoBackAgain = neutralFormat.format(backAgain);
+			//String isoBackAgain = neutralFormat.format(backAgain);
 			if (false && path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
 				CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 				.setMessage("Need Era (G) in full format.", new Object[]{});			
@@ -172,28 +184,27 @@ public class CheckDates extends CheckCLDR {
 		}
 	}
 	
-	private void addSamples(SimpleDateFormat x, String value, boolean isDate, List result) throws ParseException {
+	private void checkPattern2(String path, String fullPath, String value, List result) throws ParseException {
+		pathParts.set(path);
+		String calendar = pathParts.findAttributeValue("calendar", "type");
+        SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
 		Object[] arguments = new Object[samples.length];
-		StringBuffer htmlMessage = new StringBuffer();
-		FormatDemo.appendTitle(htmlMessage);
 		for (int i = 0; i < samples.length; ++i) {
 			String source = getRandomDate(date1950, date2010); // samples[i];
 			Date dateSource = neutralFormat.parse(source);
 			String formatted = x.format(dateSource);
 			Date parsed = x.parse(formatted);
 			String resource = neutralFormat.format(parsed);
-            String context = x.getTimeZone().getID();
 			arguments[i] = source + " \u2192 \u200E" + formatted + "\u200E \u2192 " + resource;
-            FormatDemo.appendLine(htmlMessage, value, context, source, formatted, resource);
 		}
-		htmlMessage.append("</table>");
-        
+        result.add(new CheckStatus()
+                .setCause(this).setType(CheckStatus.exampleType)
+                .setMessage(SampleList, arguments));
         result.add(new MyCheckStatus()
                 .setFormat(x)
-                .setCause(this).setType(CheckStatus.exampleType)
-                .setMessage(SampleList, arguments)
-                .setHTMLMessage(htmlMessage.toString()));
+                .setCause(this).setType(CheckStatus.demoType));
 	}
+	
 
 	private int getFirstGraphemeClusterBoundary(String value) {
 		if (value.length() <= 1) return value.length();
@@ -271,5 +282,23 @@ public class CheckDates extends CheckCLDR {
             }
             return result;
         }
+
+		public String getHTML(String path, String fullPath, String value)
+				throws Exception {
+			StringBuffer htmlMessage = new StringBuffer();
+			FormatDemo.appendTitle(htmlMessage);
+			for (int i = 0; i < samples.length; ++i) {
+				String source = getRandomDate(date1950, date2010); // samples[i];
+				Date dateSource = neutralFormat.parse(source);
+				String formatted = df.format(dateSource);
+				Date parsed = df.parse(formatted);
+				String resource = neutralFormat.format(parsed);
+				String context = df.getTimeZone().getID();
+				FormatDemo.appendLine(htmlMessage, value, context, source,
+						formatted, resource);
+			}
+			htmlMessage.append("</table>");
+			return htmlMessage.toString();
+		}
     }
 }

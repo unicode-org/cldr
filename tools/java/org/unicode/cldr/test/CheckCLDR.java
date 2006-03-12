@@ -164,9 +164,9 @@ abstract public class CheckCLDR {
         }
         
         // check stuff
-        Comparator cc = StandardCodes.make().getTZIDComparator();
-        System.out.println(cc.compare("Antarctica/Rothera", "America/Cordoba"));
-        System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
+//        Comparator cc = StandardCodes.make().getTZIDComparator();
+//        System.out.println(cc.compare("Antarctica/Rothera", "America/Cordoba"));
+//        System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
 
 
         System.out.println("factoryFilter: " + factoryFilter);
@@ -228,49 +228,59 @@ abstract public class CheckCLDR {
                     fset.checkFlexibles(path, value, fullPath);
                 }
 
-				checkCldr.check(path, fullPath, value, options, result);
-				if (result.size() > 0) {
-					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t" + "Value:\t" + value);
-					if (false) {
-						String prettierPath = prettyPath.transliterate(path);
-						System.out.print("\tCategory: " + prettierPath);
+				boolean noHeader = true;
+				int limit = 1;
+				if (SHOW_EXAMPLES) limit = 2;
+				for (int jj = 0; jj < limit; ++jj) {
+					if (jj == 0) {
+						checkCldr.check(path, fullPath, value, options, result);
 					} else {
-						System.out.print("\tPath: " + path);
+						checkCldr.getExamples(path, fullPath, value, options, result);
 					}
-					System.out.println();
-				}
-				for (Iterator it3 = result.iterator(); it3.hasNext();) {
-					CheckStatus status = (CheckStatus) it3.next();
-					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-					System.out.println("\t" + statusString);
- 
-					if (status.getType().equals(status.exampleType)) {
-						if (!SHOW_EXAMPLES) continue;
-						//System.out.println(status.getHTMLMessage());
-						SimpleDemo d = status.getDemo();
-						if (d != null && d instanceof FormatDemo) {
-							System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-                            FormatDemo fd = (FormatDemo)d;
-							m.clear();
-                            m.put("pattern", fd.getPattern());
-                            m.put("input", fd.getRandomInput());
-							if (d.processPost(m)) System.out.println(m);
+					
+					for (Iterator it3 = result.iterator(); it3.hasNext();) {
+						CheckStatus status = (CheckStatus) it3.next();
+						String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+						String statusType = status.getType();
+						
+						if (noHeader) {
+							System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t" + "Value:\t" + value);
+							if (false) {
+								String prettierPath = prettyPath.transliterate(path);
+								System.out.print("\tCategory: " + prettierPath);
+							} else {
+								System.out.print("\tPath: " + path);
+							}
+							System.out.println();
+							noHeader = false;
 						}
-						continue;
+						
+						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+						if (statusType.equals(status.demoType)) {
+							SimpleDemo d = status.getDemo();
+							if (d != null && d instanceof FormatDemo) {
+								FormatDemo fd = (FormatDemo)d;
+								m.clear();
+								m.put("pattern", fd.getPattern());
+								m.put("input", fd.getRandomInput());
+								if (d.processPost(m)) System.out.println("\tDemo:\t" + m);
+							}
+							continue;
+						}
+						System.out.println("\t" + statusString);
+						subtotalCount.add(status.type, 1);
+						totalCount.add(status.type, 1);
+						Object[] parameters = status.getParameters();
+						if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
+							if (showStackTrace && parameters[i] instanceof Throwable) {
+								((Throwable)parameters[i]).printStackTrace();
+							}
+							if (status.getMessage().startsWith("Not in exemplars")) {
+								missingExemplars.addAll(new UnicodeSet(parameters[i].toString()));
+							}
+						}
+						// survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
 					}
-                   subtotalCount.add(status.type, 1);
-                    totalCount.add(status.type, 1);
-					Object[] parameters = status.getParameters();
-					if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
-						if (showStackTrace && parameters[i] instanceof Throwable) {
-							((Throwable)parameters[i]).printStackTrace();
-						}
-						if (status.getMessage().startsWith("Not in exemplars")) {
-							missingExemplars.addAll(new UnicodeSet(parameters[i].toString()));
-						}
-					}
-					// survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
 				}
 			}
 			if (missingExemplars.size() != 0) {
@@ -325,10 +335,12 @@ abstract public class CheckCLDR {
 	 * Status value returned from check
 	 */
 	public static class CheckStatus {
-		public static final String alertType = "Comment", 
+		public static final String 
+			alertType = "Comment", 
             warningType = "Warning", 
             errorType = "Error", 
-            exampleType = "Example";
+            exampleType = "Example",
+            demoType = "Demo";
 		private String type;
 		private String messageFormat;
 		private Object[] parameters;
@@ -343,6 +355,7 @@ abstract public class CheckCLDR {
 			return this;
 		}
 		public String getMessage() {
+			if (messageFormat == null) return messageFormat;
 			return MessageFormat.format(MessageFormat.autoQuoteApostrophe(messageFormat), parameters);
 		}
 		/*
@@ -393,7 +406,10 @@ abstract public class CheckCLDR {
         }
 	}
 	
-	public static class SimpleDemo {
+	public static abstract class SimpleDemo {
+		
+		public abstract String getHTML(String path, String fullPath, String value) throws Exception;
+		
 		/**
 		 * If the getHTMLMessage is not null, then call this in response to a submit.
 		 * @param PostArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
@@ -476,6 +492,24 @@ abstract public class CheckCLDR {
 		result.clear();
 		return handleCheck(path, fullPath, value, options, result);
 	}
+	
+
+	/**
+	 * Returns any examples in the result parameter. Both examples and demos can
+	 * be returned. A demo will have getType() == CheckStatus.demoType. In that
+	 * case, there will be no getMessage or getHTMLMessage available; instead,
+	 * call getDemo() to get the demo, then call getHTML() to get the initial
+	 * HTML.
+	 */ 
+	public final CheckCLDR getExamples(String path, String fullPath, String value, Map options, List result) {
+		result.clear();
+		return handleGetExamples(path, fullPath, value, options, result);		
+	}
+
+
+	protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options2, List result) {
+		return this; // NOOP unless overridden
+	}
 
 	/**
 	 * This is what the subclasses override.
@@ -525,7 +559,22 @@ abstract public class CheckCLDR {
 			}
 			return this;
 		}
-        private void addError(List result, CheckCLDR item, Exception e) {
+
+		protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options, List result) {
+			result.clear();
+			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
+				CheckCLDR item = (CheckCLDR) it.next();
+				try {
+					item.handleGetExamples(path, fullPath, value, options, result);
+				} catch (Exception e) {
+			    	addError(result, item, e);
+			    	return this;
+				}
+			}
+			return this;
+		}
+
+		private void addError(List result, CheckCLDR item, Exception e) {
             result.add(new CheckStatus().setType(CheckStatus.errorType)
                     .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}", 
                             new Object[]{item.getClass().getName(), e.getClass().getName(), e, 

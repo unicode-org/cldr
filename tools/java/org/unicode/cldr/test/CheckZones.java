@@ -31,13 +31,37 @@ public class CheckZones extends CheckCLDR {
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map options, List possibleErrors) {
 		if (cldrFile == null) return this;
 		super.setCldrFileToCheck(cldrFile, options, possibleErrors);
-		timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck(), true);
+		try {
+			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck(), true);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			throw new InternalError("Couldn't create TimezoneFormatter");
+		}
 		return this;
 	}
 	
 	XPathParts parts = new XPathParts(null, null);
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
+			Map options, List result) {
+		if (path.indexOf("timeZoneNames") < 0)
+			return this;
+		if (timezoneFormatter == null) {
+			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+		}
+		parts.set(path);
+		if (parts.containsElement("zone")) {
+			String id = (String) parts.getAttributes(3).get("type");
+			TimeZone tz = TimeZone.getTimeZone(id);
+			if (!parts.containsElement("exemplarCity")) {
+				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+						.setMessage("Remove this field unless always understood in the language."));
+			}
+		}
+		return this;
+	}
+
+	public CheckCLDR handleGetExamples(String path, String fullPath, String value,
 			Map options, List result) {
 		if (path.indexOf("timeZoneNames") < 0)
 			return this;
@@ -72,8 +96,6 @@ public class CheckZones extends CheckCLDR {
 				if (parts.containsElement("short")) pat = "v";
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
 						false, tz.getRawOffset(), true);
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-						.setMessage("Remove this field unless always understood in the language."));
 				result.add(new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
 						.setMessage("Formatted value (if removed!): \"{0}\"", new Object[] {formatted}));
 			}

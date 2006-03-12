@@ -230,10 +230,10 @@ public class FlexibleDateTime {
 	    	Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 	    	CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 	    	XPathParts parts = new XPathParts(null, null);
-	    	for (Iterator it = supp.iterator(); it.hasNext();) {
+	    	for (Iterator it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
 	    		String path = (String) it.next();
 	    		//System.out.println(path);
-	    		if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
+	    		//if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
 	    		parts.set(supp.getFullXPath(path));
 	    		Map attributes = parts.getAttributes(3);
 	    		String type = (String) attributes.get("type");

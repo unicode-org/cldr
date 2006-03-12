@@ -248,8 +248,10 @@ public class ICUServiceBuilder {
     		if (item == null) break;
     		result.add(item);
     	}
-    	if (result.size() < minimumSize) {
-    		Collection s = CollectionUtilities.addAll(cldrFile.iterator(), new TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
+//    	 the following code didn't do anything, so I'm wondering what it was there for?
+    	if (false && result.size() < minimumSize) {
+    		if (true) throw new RuntimeException(); 
+    		Collection s = CollectionUtilities.addAll(cldrFile.iterator(prefix), new TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
     		String item = cldrFile.getStringValue(prefix + lastType + postfix);
     		//throw new IllegalArgumentException("Can't find enough items");
     	}

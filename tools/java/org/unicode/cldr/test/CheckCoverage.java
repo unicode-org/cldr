@@ -77,9 +77,11 @@ public class CheckCoverage extends CheckCLDR {
         if (requiredLevel == null) {
         	requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
         }
+
         if (requiredLevel == null) { 
              requiredLevel = Level.BASIC; 
         } 
+
         skip = false;
         return this;
     }

@@ -383,7 +383,9 @@ public class CoverageLevel {
                 Map platform_local_level = sc.getLocaleTypes();
                 Map locale_level = null;
                 String localeType = (String) options.get("CoverageLevel.localeType"); 
+
                 if (localeType != null) locale_level = (Map) platform_local_level.get(localeType);
+
                 if (locale_level != null) {
                 	for (Iterator it = locale_level.keySet().iterator(); it.hasNext();) {
                 		String locale = (String) it.next();

@@ -102,7 +102,9 @@ abstract public class CheckCLDR {
     FILE_FILTER = 4,
     TEST_FILTER = 5,
     DATE_FORMATS = 6,
-    ORGANIZATION = 7
+    ORGANIZATION = 7,
+    SHOWALL = 8,
+    PRETTY = 9
     ;
 
     private static final UOption[] options = {
@@ -114,6 +116,8 @@ abstract public class CheckCLDR {
         UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("date_formats", 'd', UOption.NO_ARG),
         UOption.create("organization", 'o', UOption.REQUIRES_ARG),
+        UOption.create("showall", 's', UOption.NO_ARG),
+        UOption.create("pretty", 'p', UOption.NO_ARG),
     };
     
     private static String[] HelpMessage = {
@@ -121,9 +125,10 @@ abstract public class CheckCLDR {
     	"-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -ffr, or -ffr.*, or -f(fr|en-.*)",
     	"-cxxx \t Set the coverage: eg -ccomprehensive or -cmodern or -cmoderate or -cbasic",
     	"-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
+    	"-oxxx \t Organization (for coverage tests): ibm, google, ....",
     	"-e \t Turn on examples (actually a summary of the demo)",
     	"-d \t Turn on special date format checks",
-    	"-oxxx \t Organization (for coverage tests): ibm, google, ...."
+    	"-s \t Show all paths",
     	};
 
 	/**
@@ -148,7 +153,9 @@ abstract public class CheckCLDR {
         String checkFilter = options[TEST_FILTER].value; 
         
         SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
+        boolean showAll = options[SHOWALL].doesOccur; 
         boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
+        boolean pretty = options[PRETTY].doesOccur; 
         
         Level coverageLevel = null;
         String coverageLevelInput = options[COVERAGE].value;
@@ -175,11 +182,13 @@ abstract public class CheckCLDR {
         System.out.println("show examples: " + SHOW_EXAMPLES);
         System.out.println("coverage level: " + coverageLevel);
         System.out.println("checking dates: " + checkFlexibleDates);
+        System.out.println("show all: " + showAll);
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
 		CheckCLDR checkCldr = getCheckAll(checkFilter);
 		setDisplayInformation(cldrFactory.make("en", true));
+		PathShower pathShower = new PathShower();
 		
 		// call on the files
 		Set locales = cldrFactory.getAvailable();
@@ -217,6 +226,46 @@ abstract public class CheckCLDR {
             if (checkFlexibleDates) {
                 fset.set(file);
             }
+            pathShower.set(localeID);
+            if (pretty) {
+            	System.out.println("Showing Pretty Paths");
+            	Map prettyMap = new TreeMap();
+            	Set prettySet = new TreeSet();
+            	for (Iterator it2 = paths.iterator(); it2.hasNext();) {
+            		String path = (String)it2.next();
+            		String prettyString = prettyPath.transliterate(path);
+            		if (prettyString.indexOf("%%") >= 0) prettyString = "unmatched/" + prettyString;
+            		Object old = prettyMap.get(prettyString);
+            		if (old != null) {
+            			System.out.println("Collision with: ");
+            			System.out.println("\t" + prettyString);
+            			System.out.println("\t\t" + path);
+            			System.out.println("\t\t" + old);
+            		}
+            		prettyMap.put(prettyString, path);
+            		String cleanPath = prettyString;
+            		int last = prettyString.lastIndexOf('|');
+            		if (last >= 0) cleanPath = cleanPath.substring(0,last);
+            		prettySet.add(cleanPath);
+            		System.out.println(prettyString + " => " + path);
+            	}
+            	System.out.println("Showing Structure");
+            	String oldSplit = pathShower.getSplitChar();
+            	pathShower.setSplitChar("\\|");
+            	for (Iterator it2 = prettyMap.keySet().iterator(); it2.hasNext();) {
+            		String prettyString = (String) it2.next();
+            		String path = (String) prettyMap.get(prettyString);
+            		pathShower.showHeader(prettyString, file.getStringValue(path));
+            	}
+            	System.out.println("Showing Non-Leaves");
+            	pathShower.setSplitChar(oldSplit);
+            	for (Iterator it2 = prettySet.iterator(); it2.hasNext();) {
+            		String prettyString = (String) it2.next();
+            		System.out.println(prettyString);
+            	}
+            	System.out.println("Done Showing Pretty Paths");
+            	return;
+            }
             
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 
@@ -228,7 +277,6 @@ abstract public class CheckCLDR {
                     fset.checkFlexibles(path, value, fullPath);
                 }
 
-				boolean noHeader = true;
 				int limit = 1;
 				if (SHOW_EXAMPLES) limit = 2;
 				for (int jj = 0; jj < limit; ++jj) {
@@ -238,24 +286,15 @@ abstract public class CheckCLDR {
 						checkCldr.getExamples(path, fullPath, value, options, result);
 					}
 					
+					if (showAll) pathShower.showHeader(path, value);
+					
 					for (Iterator it3 = result.iterator(); it3.hasNext();) {
 						CheckStatus status = (CheckStatus) it3.next();
 						String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
 						String statusType = status.getType();
+						pathShower.showHeader(path, value);
 						
-						if (noHeader) {
-							System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t" + "Value:\t" + value);
-							if (false) {
-								String prettierPath = prettyPath.transliterate(path);
-								System.out.print("\tCategory: " + prettierPath);
-							} else {
-								System.out.print("\tPath: " + path);
-							}
-							System.out.println();
-							noHeader = false;
-						}
-						
-						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+						//System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 						if (statusType.equals(status.demoType)) {
 							SimpleDemo d = status.getDemo();
 							if (d != null && d instanceof FormatDemo) {
@@ -302,6 +341,66 @@ abstract public class CheckCLDR {
 		
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+	}
+
+	static class PathShower {
+		String localeID;
+		boolean newLocale = true;
+		String lastPath;
+		String[] lastSplitPath;
+		boolean showEnglish;
+		String splitChar = "/";
+
+		static String lead = "****************************************";
+		
+		void set(String localeID) {
+			this.localeID = localeID;
+			newLocale = true;
+			showEnglish = localeID.equals(CheckCLDR.displayInformation.getLocaleID());
+		}
+		
+		private void showHeader(String path, String value) {
+			if (newLocale) {
+				System.out.println("Locale:\t" + getLocaleAndName(localeID));
+				newLocale = false;
+			}
+			if (path.equals(lastPath)) return;
+			String[] splitPath = path.split(splitChar);
+			
+			for (int i = 0; i < splitPath.length; ++i) {
+				if (lastSplitPath != null && i < lastSplitPath.length && splitPath[i].equals(lastSplitPath[i])) {
+					continue;
+				}
+				lastSplitPath = null; // mark so we continue printing now
+				System.out.print(lead.substring(0,i));
+				System.out.print(splitPath[i]);
+				if (i == splitPath.length - 1) {
+					System.out.print("\tValue:\t" + value);				
+					if (showEnglish) {
+						System.out.print("\tEnglish Value: " + CheckCLDR.displayInformation.getStringValue(path));	
+					}
+				} else {
+					System.out.print(":");
+				}
+				System.out.println();				
+			}
+//			String prettierPath = path;
+//			if (false) {
+//				prettierPath = prettyPath.transliterate(path);
+//			}
+			
+			lastPath = path;
+			lastSplitPath = splitPath;
+		}
+
+		public String getSplitChar() {
+			return splitChar;
+		}
+
+		public PathShower setSplitChar(String splitChar) {
+			this.splitChar = splitChar;
+			return this;
+		}
 	}
     
     /**
@@ -638,6 +737,7 @@ abstract public class CheckCLDR {
 				if (line == null) break;
 				if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
 				input.append(line);
+				input.append('\n');
 			}
 			return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
 		} catch (IOException e) {

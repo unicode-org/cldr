@@ -571,7 +571,8 @@ public class DataPod {
                               "^([^/]*)/([^/]*)/time$", "$1/time/$2",
                               "^([^/]*)/([^/]*)/date", "$1/date/$2",
                               "/alias$", "",
-                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]","/availableDateFormats/$1"
+                              "dateTimes/date/availablesItem", "available date formats:",
+                             /* "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]","/availableDateFormats/$1" */
 //                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
                             };
     private static Pattern fromto_p[] = new Pattern[fromto.length/2];
@@ -639,7 +640,7 @@ public class DataPod {
     }
     
     private static final boolean SHOW_TIME=false;
-    public static final String FAKE_FLEX_THING = "dateTimes/availableDateFormats/NEW";
+    public static final String FAKE_FLEX_THING = "available date formats: add NEW";
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     

@@ -138,6 +138,8 @@ public class SurveyMain extends HttpServlet {
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
     static final String CURRENCIES = "currencies";
     static final String TIMEZONES = "timezones";
+    static final String MEASNAMES = "measurementSystemNames";
+    static final String MEASNAME = "measurementSystemName";
     public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/"+CURRENCIES;
     public static final String CURRENCYTYPE = "//ldml/"+NUMBERSCURRENCIES+"/currency[@type='";
     /**
@@ -147,7 +149,8 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES,
         LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES,
         CURRENCIES,
-        TIMEZONES
+        TIMEZONES,
+        MEASNAMES
     };
     public static String xMAIN = "general";
     public static String xOTHER = "misc";
@@ -1851,6 +1854,8 @@ public class SurveyMain extends HttpServlet {
             subtype = LDMLConstants.LANGUAGE;
         } else if(type.equals(LDMLConstants.SCRIPTS)) {
             subtype = LDMLConstants.SCRIPT;
+        } else if(type.equals(MEASNAMES)) {
+            subtype = MEASNAME;
         } else if(type.equals(LDMLConstants.TERRITORIES)) {
             subtype = LDMLConstants.TERRITORY;
         } else if(type.equals(LDMLConstants.VARIANTS)) {
@@ -2572,6 +2577,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         }
         String altPrefix = null;
         // handle FFT
+                
         if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
                DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
                //String id = (String) attributes.get("id");
@@ -2618,6 +2624,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     //    return;
     //}
 
+    boolean showedRemoveButton = false; 
     String fullPathFull = pod.xpath(p); 
     String boxClass = canModify?"actionbox":"disabledbox";
     boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
@@ -2711,8 +2718,10 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             pClass = "class='missing'";
         } 
         ctx.print("<tr><td colspan='1' align='right' valign='top'>");
-        if((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly) {
-
+//ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
+        if(((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly)
+            || (!j.hasNext()&&!showedRemoveButton)) {
+            showedRemoveButton = true;
             ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
             if(canModify) {
                 ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");

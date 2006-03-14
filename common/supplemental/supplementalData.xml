@@ -116,7 +116,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="AOK" from="1977-01-08" to="1991-03"/>
         </region>
         <region iso3166="AQ">
-	<currency iso4217="XXX"/>
+        <currency iso4217="XXX"/>
             <!-- This is Antarctica. It has no currency -->
         </region>
         <region iso3166="AR">
@@ -142,7 +142,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="EUR" from="1999-01-01"/>
         </region>
         <region iso3166="AZ">
-            <currency iso4217="AZM" from="1993-11-22"/>
+            <currency iso4217="AZN" from="2006-01-01"/>
+            <currency iso4217="AZM" from="1993-11-22"/><!-- End date of old currency not available yet. -->
             <currency iso4217="RUR" from="1991-12-25" to="1994-01-01"/>
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
         </region>
@@ -566,6 +567,7 @@ The printed version of ISO-4217:2001
         <region iso3166="LS">
             <currency iso4217="ZAR" from="1961-02-14"/>
             <currency iso4217="LSL" from="1980-01-22"/>
+            <!-- currency iso4217="LSM" to="1985-05"/ --><!-- Start date is unkown -->
         </region>
         <region iso3166="LT">
             <currency iso4217="LTL" from="1993-06-25"/>

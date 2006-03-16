@@ -43,18 +43,6 @@ public class POSIX_LCMonetary {
 
    Node n; 
 
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencySeparator");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/decimal");
-
-   mon_decimal_point = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
-
-   n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencyGroup");
-   if ( n == null )
-      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/group");
-
-   mon_thousands_sep = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
-
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
    String grouping_pattern = LDMLUtilities.getNodeValue(n);
 
@@ -86,6 +74,22 @@ public class POSIX_LCMonetary {
    else
        currency_symbol = POSIXUtilities.POSIXCharName(int_curr_symbol);
    
+   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/decimal");
+   if ( n == null )
+      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencySeparator");
+   if ( n == null )
+      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/decimal");
+
+   mon_decimal_point = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+
+   n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/group");
+   if ( n == null )
+      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencyGroup");
+   if ( n == null )
+      n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/group");
+
+   mon_thousands_sep = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+
    n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/fractions/info[@iso4217='"+int_curr_symbol+"']");
    if ( n == null )
       n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/fractions/info[@iso4217='DEFAULT']");

@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.*;
 import org.unicode.cldr.util.*;
 import com.ibm.icu.util.ULocale;
+import java.lang.ref.SoftReference;
 
 // servlet imports
 import javax.servlet.*;
@@ -45,6 +46,9 @@ public class WebContext {
     HttpServletRequest request;
     HttpServletResponse response;
     
+    public Map getParameterMap() { 
+        return request.getParameterMap();
+    }
     // New constructor
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
          request = irq;
@@ -382,29 +386,10 @@ public class WebContext {
         Hashtable subHash = (Hashtable)staticStuff.get(locale);
         if(subHash == null) {
             subHash = new Hashtable();
-            
             staticStuff.put(locale, subHash);
         }
         subHash.put(key,value);
     }
-    
-// DataPod functions
-    private static final String DATA_POD = "DataPod_";
-    
-    /**
-     * Get a pod.. even if it may be no longer invalid.
-     * May be null.
-     */
-    DataPod getExistingPod(String prefix) {
-        return getExistingPod(prefix, defaultPtype());
-    }
-    
-    DataPod getExistingPod(String prefix, String ptype) {
-        synchronized(this) {
-            return (DataPod)getByLocaleStatic(DATA_POD+prefix+":"+ptype);
-        }
-    }
-    
     static private StandardCodes sc = null;
     static private synchronized StandardCodes getSC() {
         if(sc == null) {
@@ -465,10 +450,35 @@ public class WebContext {
         }
         return options;
     }
+    
+// DataPod functions
+    private static final String DATA_POD = "DataPod_";
+    
+    /**
+     * Get a pod.. even if it may be no longer invalid.
+     * May be null.
+     */
+    DataPod getExistingPod(String prefix) {
+        return getExistingPod(prefix, defaultPtype());
+    }
+    
+    DataPod getExistingPod(String prefix, String ptype) {
+        synchronized(this) {
+            SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
+            if(sr == null) {
+                return null; // wasn't never there
+            }
+            DataPod dp = (DataPod)sr.get();
+            if(dp == null) {
+                System.err.println("SR expired: " + locale + ":"+ prefix+":"+ptype);
+            }
+            return dp;
+        }
+    }
+    
     /** 
      * Get a currently valid pod.. creating it if need be.
      * UI: does write informative notes to the ctx in case of a long delay.
-     
      */
     DataPod getPod(String prefix) {
         return getPod(prefix, defaultPtype());
@@ -491,7 +501,9 @@ public class WebContext {
                 }
                 synchronized (staticStuff) {
                     pod.register(sm.lcr);
-                    putByLocaleStatic(DATA_POD+prefix+":"+ptype, pod);
+//                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
+                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference(pod)); // PUT******
+                      putByLocale("__keeper:"+prefix+":"+ptype, pod); // put into user's hash so it wont go out of scope
                 }
             }
             pod.touch();

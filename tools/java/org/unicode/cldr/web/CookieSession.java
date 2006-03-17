@@ -267,13 +267,13 @@ public class CookieSession {
     // For now, we just reap *guest* sessions and not regular users. 
     static final int MILLIS_IN_MIN = 1000*60; // 1 minute = 60,000 milliseconds
 // testing:
-//    static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
-//    static final int USER_TO =  30000; // soon.
-//    static final int REAP_TO = 1000; //often.
+//    static final int GUEST_TO =  1 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
+//    static final int USER_TO =  3 * MILLIS_IN_MIN; // soon.
+//    static final int REAP_TO = 8000; //often.
 // production:
-    public static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
-    public static final int USER_TO =  7 * 24 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a week
-    public static final int REAP_TO = 30 * MILLIS_IN_MIN; // Only once every half hour.
+    public static final int GUEST_TO =  1 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after 1 hour
+    public static final int USER_TO =  8 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a few hours
+    public static final int REAP_TO = 15 * MILLIS_IN_MIN; // Only once every quarter hour.
 
     static long lastReap = System.currentTimeMillis();
     

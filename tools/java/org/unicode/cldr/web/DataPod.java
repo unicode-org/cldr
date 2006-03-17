@@ -156,8 +156,8 @@ public class DataPod {
             public int id = -1; // id of CLDR_DATA table row
             public List tests = null;
             public Vector examples = null; 
+            //public List examplesList = null;
             String references = null;
-            // anything else? userID? 
         }
         
         public Set items = new TreeSet(new Comparator() {
@@ -623,6 +623,7 @@ public class DataPod {
                                                 ".*week/firstDay.*|"+
                                                 ".*week/weekendEnd.*|"+
                                                 ".*week/weekendStart.*|" +
+//                                                "^//ldml/dates/.*localizedPatternChars.*|" +
                                                 "^//ldml/posix/messages/.*expr$|" +
                                                 "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" +
                                                 "^//ldml/dates/.*default");// no defaults
@@ -651,7 +652,7 @@ public class DataPod {
         CLDRFile aFile = new CLDRFile(src, true);
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
-        
+        List examplesResult = new ArrayList();
         /*srl*/
         boolean ndebug = false;
         long lastTime = -1;
@@ -970,6 +971,7 @@ public class DataPod {
                 (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
             if((checkCldr != null)&&(altProposed == null)) {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
+                checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
             }
             DataPod.Pea.Item myItem;
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
@@ -982,10 +984,13 @@ public class DataPod {
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if(status.getType().equals(status.exampleType)) {
+                        throw new InternalError("Not supposed to be any examples here.");
+                    /*
                         if(myItem.examples == null) {
                             myItem.examples = new Vector();
                         }
                         myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
+                        */
                     } else if (!(isCodeFallback &&
                         (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { 
                         // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
@@ -999,6 +1004,19 @@ public class DataPod {
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
             }
+            if(!examplesResult.isEmpty()) {
+                // reuse the same ArrayList  unless it contains something                
+                if(myItem.examples == null) {
+                    myItem.examples = new Vector();
+                }
+                for (Iterator it3 = examplesResult.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();                
+                    myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
+                }
+ //               myItem.examplesList = examplesResult;
+   //             examplesResult = new ArrayList(); // getExamples will clear it.
+            }
+
             myItem.inheritFrom=setInheritFrom;
             if((eRefs != null) && (!isInherited)) {
                 myItem.references = eRefs;

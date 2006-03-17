@@ -254,9 +254,10 @@ public class UserRegistry {
                     ret = u; // let it finish..
 
                     if(id >= arraySize) {
-                        int newchunk = ((id/CHUNKSIZE)+1)*CHUNKSIZE;
+                        int newchunk = (((id+1)/CHUNKSIZE)+1)*CHUNKSIZE;
                         System.err.println("UR: userInfo resize from " + infoArray.length + " to " + newchunk);
                         infoArray = new UserRegistry.User[newchunk];
+                        arraySize = newchunk;
                     }
                     infoArray[id]=u;
                     // good so far..

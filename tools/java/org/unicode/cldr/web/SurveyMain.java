@@ -231,9 +231,14 @@ public class SurveyMain extends HttpServlet {
         // handle raw xml
         if(doRawXml(request,response)) {
             // not counted.
+            xpages++;
             return; 
         }
         pages++;
+        
+        if((pages % 100)==0) {
+            freeMem(pages,xpages);        
+        }
         
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
                 
@@ -382,6 +387,15 @@ public class SurveyMain extends HttpServlet {
         printFooter(ctx);
     }
     
+    private static final void freeMem(int pages, int xpages) {
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024000.0;
+        double free = r.freeMemory();
+        free = free / 1024000.0;
+        System.err.println("pages: " + pages+"+"+xpages + ", Free memory: " + free + "M / " + total + "M.<br/>");
+    }
+    
     private void doDump(WebContext ctx)
     {
         printHeader(ctx, "Dump System Info");
@@ -391,18 +405,19 @@ public class SurveyMain extends HttpServlet {
         ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
         ctx.println("<div class='pager'>");
         ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+"<br>");
-        ctx.println(uptime + ", " + pages + " pages served.<br/>");
+        ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
         total = total / 1024000.0;
         double free = r.freeMemory();
         free = free / 1024000.0;
         ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
-        r.gc();
-        ctx.println("Ran gc();<br/>");
+//        r.gc();
+//        ctx.println("Ran gc();<br/>");
         
         ctx.println("String hash has " + stringHash.size() + " items.<br/>");
         ctx.println("xString hash info: " + xpt.statistics() +"<br>");
+        ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
         ctx.println("</div>");
         ctx.println("<hr/>");
         ctx.println("<h1>Current Sessions</h1>");
@@ -552,6 +567,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" + "logout" + "</a>");
     }
     
+    static boolean showedComplaint = false;
      
     /**
     * print the header of the thing
@@ -561,6 +577,12 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">");
         ctx.println("<html>");
         ctx.println("<head>");
+/*
+        if(showedComplaint == false) {
+            showedComplaint = true;
+            System.err.println("**** noindex,nofollow is disabled");
+        }
+        */
         ctx.println("<meta name='robots' content='noindex,nofollow'>");
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         // + "http://www.unicode.org/webscripts/standard_styles.css'>"
@@ -2320,6 +2342,7 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     
     synchronized(ourSrc) { // because it has a connection..
                            // Podder
+        // TODO: move this into showExample. . .
         String e = ctx.field(QUERY_EXAMPLE);
         if(e.length() > 0) {
             DataPod oldPod =  ctx.getExistingPod(fullThing);
@@ -2328,6 +2351,8 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                 ee = oldPod.getExampleEntry(e);
             }
             if(ee != null) {
+                ctx.println("<form method=POST action='" + ctx.base() + "'>");
+                ctx.printUrlAsHiddenFields();   
                 String cls = shortClassName(ee.status.getCause());
                 ctx.printHelpLink("/"+cls+"-example","Help with this "+cls+" example", true);
                 ctx.addQuery(QUERY_EXAMPLE,e);
@@ -2338,14 +2363,27 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                 ctx.println("<hr width='10%'>");
                 CheckCLDR.SimpleDemo d = ee.status.getDemo();
                 Map m = new TreeMap();
+                m.putAll(ctx.getParameterMap());
+
                 if(d != null) {
-                    ctx.println("<i>Note: interaction with this demo is not working yet.</i><br>");
+                    d.processPost(m);
+                
+                    try {
+                        String path = ee.pod.xpath(ee.pea);
+                        String fullPath = cf.getFullXPath(path);
+                        String value = ee.item.value;
+                        String html = d.getHTML(path, fullPath, value);
+                        ctx.println(html);
+                    } catch (Exception ex) {
+                        ctx.println("<br><b>Error: </b> " + ex.toString() +"<br>");
+                    }
 //                    if(d.processPost(m)) {
 //                        ctx.println("<hr>"+m);
 //                    }
                 }
+                ctx.println("</form>");
             } else {
-                ctx.println("<P><P><P><blockquote><i>Sorry.. we couldn't find that example.  Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
+                ctx.println("<P><P><P><blockquote><i>That example seems to have expired. Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
             }
         } else {
             // first, do submissions.
@@ -2361,6 +2399,21 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
             showPeas(ctx, pod, canModify);
         }
     }
+}
+
+String getSortMode(WebContext ctx, DataPod pod) {
+    return getSortMode(ctx, pod.xpathPrefix);
+}
+
+String getSortMode(WebContext ctx, String prefix) {
+    String sortMode = null;
+    if(prefix.indexOf("timeZone")!=-1 ||
+        prefix.indexOf("localeDisplayName")!=-1) {
+        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+    } else {
+        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_CODE); // all the rest get Code Mode
+    }
+    return sortMode;
 }
 
 void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
@@ -2379,7 +2432,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     XPathParts fullPathParts = new XPathParts(null, null);
     List checkCldrResult = new ArrayList();
     Iterator theIterator = null;
-    String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+    String sortMode = getSortMode(ctx, pod);
     List peas = pod.getList(sortMode);
     String refs[] = new String[0];
     String ourDir = getDirectionFor(ctx.locale);
@@ -2406,7 +2459,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     DataPod.DisplaySet dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
     boolean checkPartitions = dSet.partitions.length > 1; // only check if more than one partition    
     // -----
-    skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode));
+    skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode);
     
     ctx.printUrlAsHiddenFields();   
     ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
@@ -2435,7 +2488,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
         }
         
         try {
-            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs);
+            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs,checkCldr);
         } catch(Throwable t) {
             ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br>");
             ctx.print(t);
@@ -2445,7 +2498,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
             for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
                 DataPod.Pea subPea = (DataPod.Pea)e.next();
                 try {
-                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths,refs);
+                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths,refs,checkCldr);
                 } catch(Throwable t) {
                     ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+pod.xpath(subPea)+"."+subPea.altType+"</b><br>");
                     ctx.print(t);
@@ -2468,7 +2521,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     }
     
     
-    /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false);
+    /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false, sortMode);
     
     if(!canModify) {
         ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -2619,7 +2672,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
 
 // TODO: trim unused params
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[]) {
+    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
     //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
     //    return;
     //}
@@ -2791,23 +2844,37 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             ctx.print("<i>(empty)</i>");
         }
         ctx.print("</td>");
-        if(item.tests != null) {
-            ctx.println("<td class='warncell'>");
-            for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
-                CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                if (!status.getType().equals(status.exampleType)) {
-                    
-                    ctx.println("<span class='warning'>");
-                    String cls = shortClassName(status.getCause());
-                    printShortened(ctx,status.toString());
-                    ctx.println("</span>");
-                    if(cls != null) {
-                        ctx.printHelpLink("/"+cls+"","Help");
+        if((item.tests != null) || (item.examples != null)) {
+            if(item.tests != null) {
+                ctx.println("<td class='warncell'>");
+                for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if (!status.getType().equals(status.exampleType)) {
+                        
+                        ctx.println("<span class='warning'>");
+                        String cls = shortClassName(status.getCause());
+                        printShortened(ctx,status.toString());
+                        ctx.println("</span>");
+                        if(cls != null) {
+                            ctx.printHelpLink("/"+cls+"","Help");
+                        }
+                        ctx.print("<br>");
                     }
-                    ctx.print("<br>");
                 }
+            } else {
+                ctx.println("<td class='examplecell'>");
             }
+            
             if(item.examples != null) {
+            /*
+                if(true) { throw new InternalError("had Old examples?  Not supposed to happen.."); }
+            }
+
+            List examples = new ArrayList();
+	public final CheckCLDR getExamples(String path, String fullPath, String value, Map options, List result) {
+
+            {       
+            */         
                 ctx.println("Examples: ");
                 boolean first = true;
                 for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
@@ -2815,10 +2882,18 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                     if(first==false) {
                         ctx.print(", ");
                     }
-                    ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+ QUERY_EXAMPLE+"="+e.hash+"'>");
                     String cls = shortClassName(e.status.getCause());
-                    ctx.print(cls);
-                    ctx.print("</a>");
+                    if(e.status.getType().equals(e.status.exampleType)) {
+                        printShortened(ctx,e.status.toString());
+                        if(cls != null) {
+                            ctx.printHelpLink("/"+cls+"","Help");
+                        }
+                        ctx.println("<br>");
+                    } else {                        
+                        ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                        ctx.print(cls);
+                        ctx.print("</a>");
+                    }
                     first = false;
                 }
 //                    ctx.println(status.getHTMLMessage()+"<br>");
@@ -2902,10 +2977,7 @@ void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDes
     nuCtx.println(" ");
 }
 // TODO: remove this. 
-int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet) {
-    return showSkipBox(ctx, total, displaySet, true);
-}
-int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet, boolean showSearchMode) {
+int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet, boolean showSearchMode, String sortMode) {
 showSearchMode = true;// all
     List displayList = null;
     if(displaySet != null) {
@@ -2923,7 +2995,6 @@ showSearchMode = true;// all
         ctx.println(/*"<p style='float: right; margin-left: 3em;'> " + */
             "<b>Sorted:</b>  ");
         {
-            String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
             boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
             
             //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
@@ -3094,6 +3165,7 @@ showSearchMode = true;// all
 }
 
 public static int pages=0;
+public static int xpages=0;
 /**
 * Main setup
  */
@@ -3352,7 +3424,7 @@ static int usedK() {
 
 
 private void busted(String what) {
-    System.err.println("SurveyTool busted: " + what + " ( after " +pages +" pages served, uptime " + uptime.toString()  + ")");
+    System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
     isBusted = what;
     logger.severe(what);
 }
@@ -3659,7 +3731,15 @@ public static final String unchainSqlException(SQLException e) {
         echain = echain + " -\n " + e.toString();
         e = e.getNextException();
     }
-    return echain;
+    String stackStr = "\n unknown Stack";
+    try {
+        StringWriter asString = new StringWriter();
+        e.printStackTrace(new PrintWriter(asString));
+        stackStr = "\n Stack: \n " + asString.toString();
+    } catch ( Throwable tt ) {
+        // ...
+    }
+    return echain + stackStr;
 }
 
     void doShutdownDB() {

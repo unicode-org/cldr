@@ -1,10 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-	<identity>
+    <identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="ak"/>
-	</identity>
+    </identity>
+    <delimiters>
+        <quotationStart draft="true">“</quotationStart>
+        <quotationEnd draft="true">”</quotationEnd>
+        <alternateQuotationStart draft="true">‘</alternateQuotationStart>
+        <alternateQuotationEnd draft="true">’</alternateQuotationEnd>
+    </delimiters>
+    <measurement>
+        <measurementSystem type="metric" draft="true"/>
+    </measurement>
+    <dates>
+        <calendars>
+            <calendar type="gregorian">
+                <months>
+                    <monthContext type="format">
+                        <monthWidth type ="abbreviated">
+                            <month type="1" draft="true">S-Ɔ</month>
+                            <month type="2" draft="true">K-Ɔ</month>
+                            <month type="3" draft="true">E-Ɔ</month>
+                            <month type="4" draft="true">E-O</month>
+                            <month type="5" draft="true">E-K</month>
+                            <month type="6" draft="true">O-A</month>
+                            <month type="7" draft="true">A-K</month>
+                            <month type="8" draft="true">D-Ɔ</month>
+                            <month type="9" draft="true">F-Ɛ</month>
+                            <month type="10" draft="true">Ɔ-A</month>
+                            <month type="11" draft="true">Ɔ-O</month>
+                            <month type="12" draft="true">M-Ɔ</month>
+                        </monthWidth>
+                        <monthWidth type ="wide">
+                            <month type="1" draft="true">Sanda-Ɔpɛpɔn</month>
+                            <month type="2" draft="true">Kwakwar-Ɔgyefuo</month>
+                            <month type="3" draft="true">Ebɔw-Ɔbenem</month>
+                            <month type="4" draft="true">Ebɔbira-Oforisuo</month>
+                            <month type="5" draft="true">Esusow Aketseaba-Kɔtɔnimba</month>
+                            <month type="6" draft="true">Obirade-Ayɛwohomumu</month>
+                            <month type="7" draft="true">Ayɛwoho-Kitawonsa</month>
+                            <month type="8" draft="true">Difuu-Ɔsandaa</month>
+                            <month type="9" draft="true">Fankwa-Ɛbɔ</month>
+                            <month type="10" draft="true">Ɔbɛsɛ-Ahinime</month>
+                            <month type="11" draft="true">Ɔberɛfɛw-Obubuo</month>
+                            <month type="12" draft="true">Mumu-Ɔpɛnimba</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type="format">
+                        <dayWidth type ="abbreviated">
+                            <day type="sun" draft="true">Kwe</day>
+                            <day type="mon" draft="true">Dwo</day>
+                            <day type="tue" draft="true">Ben</day>
+                            <day type="wed" draft="true">Wuk</day>
+                            <day type="thu" draft="true">Yaw</day>
+                            <day type="fri" draft="true">Fid</day>
+                            <day type="sat" draft="true">Mem</day>
+                        </dayWidth>
+                        <dayWidth type ="wide">
+                            <day type="sun" draft="true">Kwesida</day>
+                            <day type="mon" draft="true">Dwowda</day>
+                            <day type="tue" draft="true">Benada</day>
+                            <day type="wed" draft="true">Wukuda</day>
+                            <day type="thu" draft="true">Yawda</day>
+                            <day type="fri" draft="true">Fida</day>
+                            <day type="sat" draft="true">Memeneda</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <week>
+                    <minDays count="1" draft="true"/>
+                    <firstDay day="mon" draft="true"/>
+                </week>
+                <am draft="true">AN</am>
+                <pm draft="true">EW</pm>
+                <eras>
+                    <eraNames>
+                        <era type="1" draft="true">KE</era>
+                        <era type="0" draft="true">Ansa Kristo</era>
+                    </eraNames>
+                    <eraAbbr>
+                        <era type="1" draft="true">KE</era>
+                        <era type="0" draft="true">AK</era>
+                    </eraAbbr>
+                </eras>
+            </calendar>
+        </calendars>
+    </dates>
+    <numbers>
+        <symbols>
+            <decimal draft="true">.</decimal>
+            <group draft="true">,</group>
+            <list draft="true">;</list>
+        </symbols>
+        <currencies>
+            <currency type="GHC">
+                <displayName draft="true">Sidi</displayName>
+                <symbol draft="true">₵</symbol>
+            </currency>
+        </currencies>
+    </numbers>
 </ldml>
-

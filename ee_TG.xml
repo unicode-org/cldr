@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="ee"/>
-		<territory type="TG"/>
-	</identity>
+    <identity>
+         <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="ee"/>
+        <territory type="TG"/>
+    </identity>
+    <dates>
+        <calendars>
+            <calendar type="gregorian">
+                <eras>
+                    <eraNames>
+                        <era type="1" draft="true">Yesu Ŋɔli</era>
+                    </eraNames>
+                </eras>
+            </calendar>
+        </calendars>
+    </dates>
 </ldml>
-

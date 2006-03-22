@@ -161,6 +161,7 @@ openOffice:followPageWord*) >
 <!ATTLIST openOffice:indexKey  %UNOModule;>
 <!ATTLIST openOffice:indexKey  default (true|false) #REQUIRED>
 <!ATTLIST openOffice:indexKey  openOffice:phonetic (true|false) #REQUIRED>
+<!ATTLIST openOffice:indexKey  openOffice:module CDATA #IMPLIED>
 <!ELEMENT openOffice:unicodeScript (#PCDATA)>
 <!ELEMENT openOffice:followPageWord (#PCDATA)>
 

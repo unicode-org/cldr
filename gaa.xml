@@ -6,6 +6,9 @@
 		<generation date="$Date$"/>
         <language type="gaa"/>
     </identity>
+    <characters>
+        <exemplarCharacters draft="true">[a-z]</exemplarCharacters>
+    </characters>
     <delimiters>
         <quotationStart draft="true">'</quotationStart>
         <quotationEnd draft="true">'</quotationEnd>
@@ -100,8 +103,8 @@
         <currencies>
             <currency type="GHC">
                 <displayName draft="true">Sidi</displayName>
-		<symbol  draft="true">¢</symbol>
-		<symbol alt="variant" draft="true">₵</symbol>
+               <symbol  draft="true">¢</symbol>
+                <symbol alt="variant" draft="true">₵</symbol>
             </currency>
         </currencies>
     </numbers>

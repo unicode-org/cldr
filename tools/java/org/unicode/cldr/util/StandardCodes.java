@@ -1050,7 +1050,7 @@ public class StandardCodes {
 		Set funnyTags = new TreeSet();
 		try {
 			String line;
-			BufferedReader lstreg = Utility.getUTF8Data("draft-ietf-ltru-initial-06.txt");
+			BufferedReader lstreg = Utility.getUTF8Data("language-subtag-registry");
 			boolean started = false;
 			String lastType = null;
 			String lastTag = null;
@@ -1062,19 +1062,13 @@ public class StandardCodes {
 				line = lstreg.readLine();
 				if (line == null) break;
 				if (line.length() == 0) continue; // skip blanks
-				if (line.startsWith("4.  Omitted Code Elements")) break;
-				if (!started) {
-					if (line.startsWith("   File-Date: ")) {
-						started = true;
-					}
-					continue;
-				}
-				if (!line.startsWith("   ")) continue; // skip page header/footer
-				if (line.startsWith("   %%")) continue; // skip separators (ok, since data starts with Type:
-				if (line.startsWith("     ")) {
+				if (line.startsWith("File-Date: ")) continue;
+				if (line.startsWith("%%")) continue; // skip separators (ok, since data starts with Type:
+				if (line.startsWith(" ")) {
 					currentData.put(lastLabel, lastRest + " " + line.trim());
 					continue;
 				}
+
 				/*
    Type: language
    Subtag: aa

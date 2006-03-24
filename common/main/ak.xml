@@ -6,6 +6,9 @@
 		<generation date="$Date$"/>
 		<language type="ak"/>
     </identity>
+    <characters>
+        <exemplarCharacters draft="true">[a-p ɛ r-w ɔ z]</exemplarCharacters>
+    </characters>
     <delimiters>
         <quotationStart draft="true">“</quotationStart>
         <quotationEnd draft="true">”</quotationEnd>
@@ -80,7 +83,7 @@
                 <pm draft="true">EW</pm>
                 <eras>
                     <eraNames>
-                        <era type="1" draft="true">KE</era>
+                        <era type="1" draft="true">>Kristo Ekyiri</era>
                         <era type="0" draft="true">Ansa Kristo</era>
                     </eraNames>
                     <eraAbbr>
@@ -100,8 +103,8 @@
         <currencies>
             <currency type="GHC">
                 <displayName draft="true">Sidi</displayName>
-		<symbol  draft="true">¢</symbol>
-		<symbol alt="variant" draft="true">₵</symbol>
+                <symbol  draft="true">¢</symbol>
+                <symbol alt="variant" draft="true">₵</symbol>
             </currency>
         </currencies>
     </numbers>

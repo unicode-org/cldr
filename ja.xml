@@ -2755,6 +2755,20 @@
 			<noexpr draft="true">^(([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ)</noexpr>
 		</messages>
 	</posix>
+	<segmentations>
+		<segmentation type="WordBreak">
+			<variables>
+				<variable id="$Hiragana">\p{Hiragana}</variable>
+				<variable id="$Hiragana">($Hiragana $X)</variable>
+				<variable id="$Ideographic">\p{Ideographic}</variable>
+				<variable id="$Ideographic">($Ideographic $X)</variable>
+			</variables>
+			<segmentRules>
+				<rule id="13.05"> $Hiragana × $Hiragana </rule>
+				<rule id="13.06"> $Ideographic × $Ideographic </rule>
+			</segmentRules>
+		</segmentation>
+	</segmentations>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ja.txt?only_with_tag=final-update-LDML

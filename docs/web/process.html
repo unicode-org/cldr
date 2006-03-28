@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
 <meta name="VI60_defaultClientScript" content="JavaScript">
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="keywords" content="Unicode, common locale data repository">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>CLDR - Process</title>
@@ -196,7 +196,6 @@
           the Version Numbering Scheme be used.</p>
           <p>b) Common Data: The contents is decided upon by the CLDR-TC, following its procedures 
           and this process.</p>
-          <h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
           <p>Data contributed to CLDR from different sources may be in conflict. For example, a 
           contribution on abbreviated month names may show each abbreviated name ending with a 
           period and another contribution for the same abbreviated month names may not show the 
@@ -205,12 +204,124 @@
           their organization, to help vet current common data and any new proposals for addition or 
           amendment of common data. In particular, national standards organizations are encouraged 
           to be involved in the data vetting process.</p>
-          <p>All people involved in vetting data must be familiar with the
-          <a href="data_formats.html">Data Formats</a> and the requirements for
-          <a href="filing_bug_reports.html">Filing Bug Reports</a>. In particular, they should 
+			<p><strike>All people involved in vetting data must be familiar with the
+          <a href="data_formats.html"><span style="text-decoration: none">Data Formats</span></a> and the requirements for
+          <a href="filing_bug_reports.html"><span style="text-decoration: none">Filing Bug Reports</span></a>. In particular, they should 
           compare any proposed changes against the data in the <a href="comparison_charts.html">
-          Comparison Charts</a> and indicate which platforms the proposed changes align with, or 
-          whether they are different than all of the platforms.</p>
+          	<span style="text-decoration: none">Comparison Charts</span></a> and indicate which platforms the proposed changes align with, or 
+          whether they are different than all of the platforms.</strike></p>
+          <h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
+          <p><span style="background-color: #FFFF00">The following procedure 
+			will be used when resolving differences in submitted data.</span></p>
+			<p><span style="background-color: #FFFF00">There are multiple levels 
+			of access and control <br>
+			<br>
+			</span><i><span style="background-color: #FFFF00">TC - (Technical 
+			Committee members) </span></i></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">Can vet and submit 
+				data for all locales </span></li>
+				<li><span style="background-color: #FFFF00">Can manage users in 
+				their organization</span></li>
+				<li><span style="background-color: #FFFF00">Can see the email 
+				addresses for all vetters </span></li>
+			</ul>
+			<p><i><span style="background-color: #FFFF00">Vetter (some 
+			distinguished as experts)</span></i></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">Can vet and submit 
+				data for a particular set of locales (controlled by their TCs</span></li>
+				<li><span style="background-color: #FFFF00">Cannot manage other 
+				users.</span></li>
+				<li><span style="background-color: #FFFF00">Can see the email 
+				addresses for submitted data in their locales. </span></li>
+			</ul>
+			<p><i><span style="background-color: #FFFF00">Guest</span></i></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">Can vet and submit 
+				data for a particular set of locales (controlled by their TCs</span></li>
+				<li><span style="background-color: #FFFF00">Cannot manage other 
+				users. </span></li>
+				<li><span style="background-color: #FFFF00">Cannot see email 
+				addresses.</span></li>
+			</ul>
+			<p><span style="background-color: #FFFF00">A </span><i>
+			<span style="background-color: #FFFF00">locale group</span></i><span style="background-color: #FFFF00"> 
+			is the set of all locales that share the same first field. For 
+			example, en plus anything that starts with &quot;en_&quot;. The group of 
+			vetters and TCs who are authorized for a locale group is called the
+			</span><i><span style="background-color: #FFFF00">interest group</span></i><span style="background-color: #FFFF00"> 
+			for the locale.<br>
+			<br>
+			Fields with multiple proposals where vetters and TCs have not all 
+			voted for a single proposal are called </span><i>
+			<span style="background-color: #FFFF00">conflicted</span></i><span style="background-color: #FFFF00">. 
+			Correspondingly, a locale with any conflicted fields is a </span><i>
+			<span style="background-color: #FFFF00">conflicted locale</span></i><span style="background-color: #FFFF00">; 
+			a locale group with any conflicted locales is a </span><i>
+			<span style="background-color: #FFFF00">conflicted locale group</span></i><span style="background-color: #FFFF00">.
+			</span></p>
+			<p><span style="background-color: #FFFF00">The <i>draft</i> 
+			attribute in the data can have 3 states:</span></p>
+			<ul>
+				<li><u><i><span style="background-color: #FFFF00">approved
+				</span></i><span style="background-color: #FFFF00">: approved by 
+				the technical committee (equals the CLDR 1.3 value of </span><i>
+				<span style="background-color: #FFFF00">false</span></i><span style="background-color: #FFFF00">, 
+				or an absent <i>draft</i> attribute). This does not mean that 
+				the data is guaranteed to be error-free -- this is the best 
+				judgment of the committee.</span></u></li>
+				<li><u><i><span style="background-color: #FFFF00">provisional</span></i><span style="background-color: #FFFF00">: 
+				entered and confirmed by TC member or expert vetter. 
+				Implementations may choose to accept the provisional data, 
+				especially if there is no translated alternative.</span></u></li>
+				<li><u><i><span style="background-color: #FFFF00">unconfirmed</span></i><span style="background-color: #FFFF00">: 
+				no confirmation available: entered by guest without TC 
+				confirmation; or downgraded from provisional because of 
+				disagreement) (equals CLDR 1.3 of </span><i>
+				<span style="background-color: #FFFF00">false</span></i><span style="background-color: #FFFF00">)</span></u></li>
+			</ul>
+			<p><span style="background-color: #FFFF00">In the vetting phase:</span></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">Anyone with an 
+				account (including submitters) can see a summary of all the 
+				conflicted fields for a given locale group.</span></li>
+				<li><span style="background-color: #FFFF00">Vetters can change 
+				their preferred value (a vote). </span></li>
+				<li><span style="background-color: #FFFF00">Anyone on the 
+				interest group, plus submitters, is notified (batched daily) if 
+				a vote is changed.</span></li>
+				<li><span style="background-color: #FFFF00">For each conflicted 
+				locale group, periodically (weekly at first, then daily) an 
+				email is sent to the interest group summarizing all the 
+				conflicted fields. The email will encourage the interest group 
+				to resolve any conflicts. The interest group will also have 
+				access to all the submitters&#39; emails for the locale group, to 
+				ask questions and resolve issues.</span></li>
+				<li><span style="background-color: #FFFF00">Normally the &quot;change 
+				to&quot; field is frozen during the </span>
+				<span id="mail-highlight-id" style="background-color: yellow;">
+				vetting process</span><span style="background-color: #FFFF00">. 
+				However, in case of a conflicted field this can be appealed to 
+				the TC.</span></li>
+			</ul>
+			<p><span style="background-color: #FFFF00">At the end of the </span>
+			<span id="mail-highlight-id" style="background-color: yellow;">
+			vetting process</span><span style="background-color: #FFFF00" id="mail-highlight-id">:</span></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">All non-conflicted 
+				fields are normally accepted (the TC can override), subject to a 
+				quorum <u>and the conflicting fields removed.</u></span></li>
+				<li><span style="background-color: #FFFF00">The quorum is at 
+				least one expert vetter, or at least 2 vetters from different 
+				organizations.</span></li>
+				<li><span style="background-color: #FFFF00">Conflicted fields 
+				can be decided by the TC, or remain conflicted (and remain <u>
+				<i>provisional </i>or<i> unconfirmed</i></u>). </span></li>
+			</ul>
+			<p><span style="background-color: #FFFF00">This process can be 
+			fine-tuned by the technical committee as needed to resolve any 
+			problems that turn up.</span></p>
           <h3>3.2 <a name="prioritization">Prioritization</a></h3>
           <p>There may be conflicting common practices or standards for a given country and 
           language. Thus LDML provides keyword variants to reflect the different practices. For 

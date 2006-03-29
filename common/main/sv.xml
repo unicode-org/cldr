@@ -996,17 +996,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMMM yyyy</pattern>
+							<pattern references="R3" draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMM yyyy</pattern>
+							<pattern references="R3" draft="true">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">d MMM yyyy</pattern>
+							<pattern references="R3" draft="true">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1041,7 +1041,7 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
-			<gmtFormat>GMT</gmtFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sydpolen</exemplarCity>
 			</zone>

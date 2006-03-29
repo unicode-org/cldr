@@ -3378,6 +3378,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             Node temp = (Node)list.get(i);
             if(temp==null){
                 System.err.println("WARNING: Some elements of DateTimePatterns resource are marked draft producing this resource. "+xpath.toString());
+                arr.first=null;
                 break;
             }
             str.val = LDMLUtilities.getNodeValue(temp);
@@ -3498,6 +3499,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             Node temp = (Node)list.get(i);
             if(temp==null){
                 System.err.println("WARNING: Did not get expected output for symbols. Not producing the resource.");
+                arr.first=null;
                 return null;
             }
             str.val = LDMLUtilities.getNodeValue(temp);

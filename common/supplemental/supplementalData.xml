@@ -3,7 +3,7 @@
 <supplementalData version="1.4">
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
-    <currencyData draft="true">
+    <currencyData>
         <fractions>
             <info iso4217="ADP" digits="0" rounding="0"/>
             <info iso4217="BHD" digits="3" rounding="0"/>
@@ -1276,12 +1276,14 @@ XXX	Code for transations where no currency is involved
 	</calendarData>
     <weekData>
           <minDays count="1" territories="001" />
-          <minDays count="4" territories="AT BE CA CD CH DE DK FI FR IT LI LT LU MC MT NO SE SK" />
+          <minDays count="4" territories="AT BE CA CH DE DK FI FR IT LI LT LU MC MT NO SE SK" />
+          <minDays count="4" territories="CD" draft="true" />
         
           <firstDay day="mon"  territories="001" />
           <firstDay day="fri"  territories="MV" />
           <firstDay day="sat"  territories="AE AF BH DJ DZ EG ER ET IQ IR JO KE KW LB LY MA OM QA SA SD SO TN YE" />
-          <firstDay day="sun"  territories="AS AU AZ BW CA CN ET FO GE GL GU HK IE IL IS JM JP KG KR LA MH MN MO MP MT MW NG NL NZ PH PK SG TH TJ TT TW UM US UZ VI ZA ZW" />
+          <firstDay day="sun"  territories="AS AU AZ BW CA CN FO GE GL GU HK IE IL IS JM JP KG KR LA MH MN MO MP MT NL NZ PH PK SG TH TT TW UM US UZ VI ZA ZW" />
+          <firstDay day="sun"  territories="ET MW NG TJ" draft="true" />
           <firstDay day="thu"  territories="SY" />
         
           <weekendStart day="sat"  territories="001"/>

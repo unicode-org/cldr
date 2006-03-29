@@ -43,8 +43,8 @@ public class POSIX_LCCtype {
 
       if ( ExemplarError )
       {
-         System.out.println("Locale not generated due to exemplar character errors.");
-         System.exit(-1);
+         System.out.println("WARNING: Not all exemplar characters are in the target codeset.");
+         System.out.println("    The resulting locale source might not compile.");
       }
 
       this.chars = chars;

@@ -1,0 +1,135 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Formatting Durations</title>
+<style>
+<!--
+BODY{font:x-small 'Verdana';margin-right:1.5em}
+.e{margin-left:1em;text-indent:-1em;margin-right:1em}
+.m{color:blue}
+.t{color:#990000}
+.tx{font-weight:bold}
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Formatting Durations</h1>
+<p>The following is a strawman proposal for additions to CLDR 1.5 to support 
+durations. The goal is to have a mechanism that allows for reasonable formatting 
+of common durations, with a format which is as easy as possible for translators 
+to use (with instruction).</p>
+<h2>Formats</h2>
+<ol>
+	<li>Add a set of flexible formats targeted at durations.<pre><span class="m">&lt;</span><span class="t">durationFormatItem id</span><span class="m">=&quot;</span><b>hhmm</b><span class="m">&quot;&gt;</span>hh:mm:ss<span class="m">&lt;/</span><span class="t">dateFormatItem</span><span class="m">&gt;
+&lt;</span><span class="t">durationFormatItem id</span><span class="m">=&quot;</span><b>hhmmss</b><span class="m">&quot;&gt;</span>hh:mm<span class="m">&lt;/</span><span class="t">dateFormatItem</span><span class="m">&gt;
+&lt;</span><span class="t">durationFormatItem id</span><span class="m">=&quot;</span><b>hhhmmm</b><span class="m">&quot;&gt;</span>hhh mmm<span class="m">&lt;/</span><span class="t">dateFormatItem</span><span class="m">&gt;
+&lt;</span><span class="t">durationFormatItem id</span><span class="m">=&quot;</span><b>wwwddd</b><span class="m">&quot;&gt;</span>ddd www<span class="m">&lt;/</span><span class="t">dateFormatItem</span><span class="m">&gt;</span></pre>
+	</li>
+	<li>The one and two letter fields have their normal semantics, except that 
+	the numeric width of the top field is unbounded. Eg 108 hours and 23.5 
+	minutes would be &quot;108:23:30&quot; with the first of the above formats. The 
+	difference between hh,HH,kk,KK is ignored: all hour fields are 0..<font face="Times New Roman">&#8734;.</font></li>
+	<li>Field values of 3 or above are handled by formatting as special field 
+	fields (see below), then substituting. 3 letters (eg hhh) gets the 
+	abbreviated format, four letters (like hhhh) gets the wide format.</li>
+	<li>There is an additional concatenation format for fallback, eg &quot;{0}, {1}&quot;. 
+	If there is no exact match, the longest initial match in big-endian order is 
+	used, and the results concatenated with this format. Eg, suppose the key is 
+	&quot;dms&quot;, and there is no match. Then we try for &quot;dm&quot;, then &quot;d&quot;, and 
+	concatenate that result with the result of formatting the rest, using &quot;{0}, 
+	{1}&quot;. So we might get &quot;1 day, 3 minutes 17 seconds&quot;.</li>
+</ol>
+<h2>Special Field Values</h2>
+<ol>
+	<li>We add structure to CLDR for each field type, something like the following.<pre>&lt;durationLength type=&quot;wide&quot;&gt;
+  &lt;duration type=&quot;h&quot; number=&quot;singular&quot;&gt;1 Stunde&lt;/duration&gt;
+  &lt;duration type=&quot;h&quot; number=&quot;other&quot;&gt;{0} Stunden&lt;/duration&gt;
+  &lt;duration type=&quot;m&quot; number=&quot;singular&quot;&gt;1 Minute&lt;/duration&gt;
+  ...
+&lt;/durationLength&gt;
+&lt;durationLength type=&quot;abbreviated&quot;&gt;
+  &lt;duration type=&quot;h&quot; number=&quot;other&quot;&gt;{0}s&lt;/duration&gt;
+  &lt;duration type=&quot;m&quot; number=&quot;singular&quot;&gt;1m&lt;/duration&gt;
+  ...</pre>
+	</li>
+	<li>In these fields, {0} is a placeholder that uses the default number 
+	format for that locale.</li>
+	<li>The <i>number</i> attribute keywords are defined to be the following, 
+	initially. (We would add more attributes as we find languages that need them.) 
+	So for Russian, what corresponds to the above list would be contain oneMod 
+	and fewMod. The <i>other</i> keyword is matched if none of the available 
+	others match.<table border="1" id="table1" cellspacing="0" cellpadding="3">
+		<tr>
+			<th>keyword</th>
+			<th>tests condition</th>
+			<th>comment</th>
+		</tr>
+		<tr>
+			<td>zero</td>
+			<td>x == 0 </td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>one</td>
+			<td>x == 1 </td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>two</td>
+			<td>x == 2</td>
+			<td>used in Slovenian </td>
+		</tr>
+		<tr>
+			<td>some</td>
+			<td>x == 3 || x == 4</td>
+			<td>used in Slovenian</td>
+		</tr>
+		<tr>
+			<td>oneMod</td>
+			<td>x == 1 || x &gt; 20 &amp;&amp; (x mod 10) == 1</td>
+			<td>used in Russian, Serbian,... </td>
+		</tr>
+		<tr>
+			<td>fewMod</td>
+			<td>2 &lt;= x &amp;&amp; x &lt;= 4 || x &gt; 20 &amp;&amp; 2 &lt;= (x mod 10) &amp;&amp; (x mod 10) &lt;= 4</td>
+			<td>used in Russian, Serbian,... </td>
+		</tr>
+		<tr>
+			<td>other</td>
+			<td>x == anything </td>
+			<td>only matches if no other conditions true</td>
+		</tr>
+	</table>
+	</li>
+	<li>Issue: should we allow multiple attributes for single element, like 
+	&lt;duration type=&quot;h&quot; number=&quot;one some&quot;&gt;{0}zw&lt;/duration&gt;. At this point I don't 
+	think it is necessary.</li>
+</ol>
+<h2>Expected API</h2>
+<p>The expected API would have certain parameters.</p>
+<ol>
+	<li>It would allow the programmer to pass in a key (eg &quot;hm&quot; or &quot;hhhmmm&quot;) as 
+	in flexible formats. (While it is possible to pass in fields of mixed 
+	lengths, we caution the programmer that it is unlikely that good results 
+	will obtain.)</li>
+	<li>It would allow the least field to have fractions. The 
+	programmer could pass in just the min/max fractional digits (or maybe for 
+	generality a number format (for that locale of course)). Thus 108 hours 23.5 
+	minutes would be &quot;108:23.5&quot; with the second of the above formats.</li>
+	<li>It would allow leading, trailing, and/or interior zero fields (in any 
+	combination) to be suppressed. Suppose for example that the key is &quot;dhms&quot;, 
+	and the actual value turns out to be 0 days 3 hours 0 minutes 5 seconds. 
+	Then here are some results:<ul>
+		<li>suppress leading results in &quot;3 hours 0 minutes 5 seconds&quot;</li>
+		<li>suppress leading+interior results in &quot;3 hours 5 seconds&quot;</li>
+	</ul>The actual key value that is looked up will change if suppression is 
+	chosen. So if the key is dhms and the h value is zero, then &quot;dms&quot; is 
+	actually looked up in the flexible duration list.</li>
+</ol>
+</body>
+
+</html>

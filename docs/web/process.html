@@ -86,30 +86,31 @@
       <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="index.html">CLDR Project</a></td>
       </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2"><a href="repository_access.html">CLDR 
-        Releases (Downloads)</a></td>
+		<tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="repository_access.html">CLDR Releases 
+        (Downloads)</a></td>
       </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2">CLDR Technical Committee</td>
+		<tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="process.html">CLDR Technical Committee 
+		&amp; Process</a></td>
       </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2"><a href="procedures.html">CLDR-TC Procedures</a></td>
-      </tr>
-      <tr>
+		<tr>
         <td valign="top" class="navColCell" colspan="2"><a href="data_formats.html">Data Formats</a></td>
       </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2"><a href="filing_bug_reports.html">Filing Bug 
-        Reports</a></td>
+		<tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="filing_bug_reports.html">Filing Bug Reports</a></td>
       </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2"><a href="comparison_charts.html">Comparison 
-        Charts</a></td>
+		<tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="comparison_charts.html">Comparison Charts</a></td>
       </tr>
-      <tr>
+		<tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
+        Locale Data Markup Language (LDML)</a></td>
+      </tr>
+		<tr>
         <td valign="top" class="navColCell" colspan="2">
-        <a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data Markup Language (LDML)</a></td>
+		<a href="http://www.unicode.org/consortium/tc-procedures.html">Technical 
+		Committee Procedures</a></td>
       </tr>
       <tr>
         <td class="navColTitle" colspan="2">Related Links</td>
@@ -153,26 +154,27 @@
       <tr>
         <td class="contents" valign="top">
         <blockquote>
-          <h1>CLDR Technical Committee</h1>
+          <h1>CLDR Technical Committee Process</h1>
           <h2><a name="introduction"></a>1. Introduction</h2>
           <p>This document describes the CLDR Technical Committee, and its process for Data 
-          Collection, Vetting, Public Feedback and Release. These procedures and process were based 
-          on the Unicode Technical Committee Procedures, but are modified to provide for a much 
-          lighter-weight process for data collection and release, with a much faster turn-around. In 
-          particular, the meetings are much more often, much shorter, and more informal. Most of the 
+          Collection, Vetting, Public Feedback and Release. The process is 
+			designed to be light-weight: in 
+          particular, the meetings are frequent, short, and informal. Most of the 
           work is by email or phone, with a database recording requested changes in data.</p>
           <p>When gathering data for a region and language, it is important to have multiple sources 
-          for that data to produce the most widely acceptable data. Initial versions of data will be 
-          be based on the best available sources, but the expectation is that CLDR data will be 
+          for that data to produce the most widely acceptable data. Initial versions of data 
+			were based on the best available sources, but CLDR data will be 
           modified and improved, in successive versions, by more input from the contributors inside 
           and outside of the Unicode Consortium.</p>
           <p>It is important to note that CLDR is a Repository, not a Registration. That is, 
           contributors should not expect that their contributions will simply be adopted into the 
           repository; instead, it will be vetted against the best available information.</p>
-          <p>All inputs will be open, and recorded in a bug/feature request database. Changes in 
+          <p>All inputs will be open, and recorded in a bug/feature request database<span style="background-color: #FFFF00"> 
+			or the </span><b>
+			<a href="http://unicode.org/cldr/apps/survey/">
+			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Changes in 
           response to items the database may be entered into the repository snapshot over time by 
-          the maintainers of the repository, but the final approval of the release of any version of 
-          CLDR is up to the decision of the CLDR-TC. For more information, see the
+          the maintainers of the repository, but the final approval of the release of any version of CLDR is up to the decision of the CLDR-TC. For more information, see the
           <a href="procedures.html">CLDR-TC Procedures</a>.</p>
           <h2><a name="specification_changes"></a>2. Specification Changes</h2>
           <p>The LDML specification may be changed to add structure for new kinds of data or other 
@@ -187,7 +189,8 @@
           <h2><a name="data_vetting_process"></a>3. Data Vetting Process</h2>
           <p>Once data for a country and language has been received, the data from the different 
           sources will be compared to show agreements and differences. Initial data contributions 
-          are normally marked as &quot;draft&quot;; this will be changed once the data is vetted.</p>
+          are normally marked as &quot;draft<span style="background-color: #FFFF00">=provisional</span>&quot;; this 
+			<span style="background-color: #FFFF00">may</span> be changed once the data is vetted.</p>
           <p>Note that there are two types of data in the repository:</p>
           <p>a) Comparison data: The contributor can be an individual or an organization. Data from 
           a software platform or product, is normally gathered by calling public APIs, to ensure 
@@ -205,12 +208,6 @@
           their organization, to help vet current common data and any new proposals for addition or 
           amendment of common data. In particular, national standards organizations are encouraged 
           to be involved in the data vetting process.</p>
-			<p><strike>All people involved in vetting data must be familiar with the
-          <a href="data_formats.html"><span style="text-decoration: none">Data Formats</span></a> and the requirements for
-          <a href="filing_bug_reports.html"><span style="text-decoration: none">Filing Bug Reports</span></a>. In particular, they should 
-          compare any proposed changes against the data in the <a href="comparison_charts.html">
-          	<span style="text-decoration: none">Comparison Charts</span></a> and indicate which platforms the proposed changes align with, or 
-          whether they are different than all of the platforms.</strike></p>
           <h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
           <p><span style="background-color: #FFFF00">The following procedure 
 			will be used when resolving differences in submitted data.</span></p>
@@ -342,7 +339,10 @@
           follows.</p>
           <h2>4. <a name="public_feedback">Public Feedback Process</a></h2>
           <p>The public can supply formal feedback into CLDR by filing a
-          <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a>. Anyone can also 
+          <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a><span style="background-color: #FFFF00"> 
+			or via the </span><b>
+			<a href="http://unicode.org/cldr/apps/survey/">
+			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Anyone can also 
           asked to be added to a list that will receive notification of new CLDR bugs, so they can 
           track issues if they want. Anyone will also be able to reply to any bug/rfe, to add 
           comments (this latter feature is not yet functional, but will be soon).</p>
@@ -361,7 +361,10 @@
           <a href="http://www.unicode.org/consortium/distlist.html">Mail Lists</a> to subscribe).</p>
           <p>People should, however, be aware that changes and updates to CLDR will only be taken in 
           response to complete, specific bug reports as described on
-          <a href="filing_bug_reports.html">Filing Bug Reports</a>. Discussion on public mailing 
+          <a href="filing_bug_reports.html">Filing Bug Reports</a><span style="background-color: #FFFF00"> 
+			or via the </span><b>
+			<a href="http://unicode.org/cldr/apps/survey/">
+			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Discussion on public mailing 
           lists is <i>not</i> monitored; no actions will be taken in response to such discussion -- 
           only in response to filed bugs. The process of checking and entering data takes time and 
           effort; so even when bugs/RFEs are accepted, it may take some time before they are in a 
@@ -419,7 +422,7 @@
           <h2><a name="officers"></a>7. Officers</h2>
           <p>The current Technical Committee Officers are:</p>
           <ul>
-            <li>Chair: Mark Davis (IBM)</li>
+            <li>Chair: Mark Davis (<span style="background-color: #FFFF00">Google</span>)</li>
             <li>Vice-Chair: Deborah Goldsmith (Apple)</li>
           </ul>
         </blockquote>

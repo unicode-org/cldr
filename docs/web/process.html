@@ -215,9 +215,9 @@
           <p><span style="background-color: #FFFF00">The following procedure 
 			will be used when resolving differences in submitted data.</span></p>
 			<p><span style="background-color: #FFFF00">There are multiple levels 
-			of access and control <br>
+			of access and control:<br>
 			<br>
-			</span><i><span style="background-color: #FFFF00">TC - (Technical 
+			<i>Committee Vetters</i></span><i><span style="background-color: #FFFF00"> (Technical 
 			Committee members) </span></i></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">Can vet and submit 
@@ -227,20 +227,19 @@
 				<li><span style="background-color: #FFFF00">Can see the email 
 				addresses for all vetters </span></li>
 			</ul>
-			<p><i><span style="background-color: #FFFF00">Vetter (some 
-			distinguished as experts)</span></i></p>
+			<p><i><span style="background-color: #FFFF00">Regular and Expert Vetter</span></i></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">Can vet and submit 
-				data for a particular set of locales (controlled by their TCs</span></li>
+				data for a particular set of locales</span></li>
 				<li><span style="background-color: #FFFF00">Cannot manage other 
 				users.</span></li>
 				<li><span style="background-color: #FFFF00">Can see the email 
 				addresses for submitted data in their locales. </span></li>
 			</ul>
-			<p><i><span style="background-color: #FFFF00">Guest</span></i></p>
+			<p><i><span style="background-color: #FFFF00">Guest Vetters</span></i></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">Can vet and submit 
-				data for a particular set of locales (controlled by their TCs</span></li>
+				data for a particular set of locales</span></li>
 				<li><span style="background-color: #FFFF00">Cannot manage other 
 				users. </span></li>
 				<li><span style="background-color: #FFFF00">Cannot see email 
@@ -250,12 +249,12 @@
 			<span style="background-color: #FFFF00">locale group</span></i><span style="background-color: #FFFF00"> 
 			is the set of all locales that share the same first field. For 
 			example, en plus anything that starts with &quot;en_&quot;. The group of 
-			vetters and TCs who are authorized for a locale group is called the
+			non-guest vetters who are authorized for a locale group is called the
 			</span><i><span style="background-color: #FFFF00">interest group</span></i><span style="background-color: #FFFF00"> 
 			for the locale.<br>
 			<br>
-			Fields with multiple proposals where vetters and TCs have not all 
-			voted for a single proposal are called </span><i>
+			Fields with multiple proposals where some non-guest vetters do not 
+			agree on a single proposal are called </span><i>
 			<span style="background-color: #FFFF00">conflicted</span></i><span style="background-color: #FFFF00">. 
 			Correspondingly, a locale with any conflicted fields is a </span><i>
 			<span style="background-color: #FFFF00">conflicted locale</span></i><span style="background-color: #FFFF00">; 
@@ -265,61 +264,67 @@
 			<p><span style="background-color: #FFFF00">The <i>draft</i> 
 			attribute in the data can have 3 states:</span></p>
 			<ul>
-				<li><u><i><span style="background-color: #FFFF00">approved</span></i><span style="background-color: #FFFF00"><i>:</i> 
-				approved by the technical committee (equals the CLDR 1.3 value 
-				of </span><i><span style="background-color: #FFFF00">false</span></i><span style="background-color: #FFFF00">, 
-				or an absent <i>draft</i> attribute). This does not mean that 
-				the data is guaranteed to be error-free -- this is the best 
-				judgment of the committee.</span></u></li>
-				<li><u><i><span style="background-color: #FFFF00">provisional</span></i><span style="background-color: #FFFF00">: 
-				entered and confirmed by TC member or expert vetter. 
+				<li><i><span style="background-color: #FFFF00; font-weight:700">unconfirmed</span></i><span style="background-color: #FFFF00"><i><b>:</b></i> 
+				entered by guest vetter without other confirmation, or 
+				conflicted. (Equals CLDR 1.3 of <b> <i>true.</i></b>)</span></li>
+				<li><b><i><span style="background-color: #FFFF00">provisional</span></i></b><span style="background-color: #FFFF00"><i><b>:</b></i> 
+				entered by regular vetter (or above), without conflict, but not 
+				yet approved. 
 				Implementations may choose to accept the provisional data, 
-				especially if there is no translated alternative.</span></u></li>
-				<li><u><i><span style="background-color: #FFFF00">unconfirmed</span></i><span style="background-color: #FFFF00">: 
-				no confirmation available: entered by guest without TC 
-				confirmation; or downgraded from provisional because of 
-				disagreement) (equals CLDR 1.3 of <i>true</i>)</span></u></li>
+				especially if there is no translated alternative.</span></li>
+				<li><i><b><span style="background-color: #FFFF00">approved</span></b></i><span style="background-color: #FFFF00"><i><b>:</b>
+				</i>approved by the Technical Committee, as described by the 
+				resolution process below. This does not mean that 
+				the data is guaranteed to be error-free -- this is the best 
+				judgment of the committee. (Equals the CLDR 1.3 value 
+				of </span><i>
+				<span style="background-color: #FFFF00; font-weight:700">false</span></i><span style="background-color: #FFFF00">, 
+				or an absent <i>draft</i> attribute.)</span></li>
 			</ul>
 			<p><span style="background-color: #FFFF00">In the vetting phase:</span></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">Anyone with an 
-				account (including submitters) can see a summary of all the 
+				<li><span style="background-color: #FFFF00">Any vetter, 
+				including guest vetters, can see a summary of all the 
 				conflicted fields for a given locale group.</span></li>
 				<li><span style="background-color: #FFFF00">Vetters can change 
 				their preferred value (a vote). </span></li>
 				<li><span style="background-color: #FFFF00">Anyone on the 
-				interest group, plus submitters, is notified (batched daily) if 
+				interest group is notified (batched daily) if 
 				a vote is changed.</span></li>
 				<li><span style="background-color: #FFFF00">For each conflicted 
 				locale group, periodically (weekly at first, then daily) an 
 				email is sent to the interest group summarizing all the 
 				conflicted fields. The email will encourage the interest group 
 				to resolve any conflicts. The interest group will also have 
-				access to all the submitters&#39; emails for the locale group, to 
+				access to all the vetters&#39; emails for the locale group, to 
 				ask questions and resolve issues.</span></li>
 				<li><span style="background-color: #FFFF00">Normally the &quot;change 
 				to&quot; field is frozen during the </span>
 				<span id="mail-highlight-id" style="background-color: yellow;">
 				vetting process</span><span style="background-color: #FFFF00">, 
-				except for TC members. However, in case of a conflicted field this can be appealed to 
-				the TC.</span></li>
+				except for committee and expert vetters. However, in case of a 
+				conflicted field, it is enabled for non-guest vetters.</span></li>
 			</ul>
 			<p><span style="background-color: #FFFF00">At the end of the </span>
 			<span id="mail-highlight-id" style="background-color: yellow;">
-			vetting process</span><span style="background-color: #FFFF00" id="mail-highlight-id">:</span></p>
+			vetting process:</span></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">All non-conflicted 
-				fields are normally accepted (the TC can override), subject to a 
-				quorum <u>and the conflicting fields removed.</u></span></li>
+				fields are normally accepted, subject to a 
+				quorum. Once a field is accepted, the other proposals for that 
+				field are removed.</span></li>
 				<li><span style="background-color: #FFFF00">The quorum is at 
-				least one expert vetter, or at least 2 vetters from different 
+				least one expert vetter, or at least two regular vetters from different 
 				organizations.</span></li>
 				<li><span style="background-color: #FFFF00">Conflicted fields 
-				can be decided by the TC, or remain conflicted (and remain <u>
-				<i>provisional </i>or<i> unconfirmed</i></u>). </span></li>
+				can be decided by the Technical Committee, or remain conflicted 
+				(thus
+				<i>provisional </i>or<i> unconfirmed</i>).</span></li>
+				<li><span style="background-color: #FFFF00">The Technical 
+				Committee is ultimately responsible for resolving any issues.</span></li>
 			</ul>
 			<p><span style="background-color: #FFFF00">This process can be 
-			fine-tuned by the technical committee as needed to resolve any 
+			fine-tuned by the Technical Committee as needed, to resolve any 
 			problems that turn up.</span></p>
           <h3>3.2 <a name="prioritization">Prioritization</a></h3>
           <p>There may be conflicting common practices or standards for a given country and 

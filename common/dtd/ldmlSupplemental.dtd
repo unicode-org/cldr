@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.24 $
-    $Date: 2006-01-18 07:33:18 $
+    $Revision: 1.25 $
+    $Date: 2006-04-14 17:53:25 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, metadata? ) >
@@ -138,7 +138,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST substitute references CDATA #IMPLIED >
 <!ATTLIST substitute alt CDATA #IMPLIED >
 
-<!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions? ) >
+<!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions?, skipDefaultLocale?) >
 <!ATTLIST metadata draft ( true | false ) #IMPLIED >
 
 <!ELEMENT attributeOrder ( #PCDATA ) >
@@ -225,3 +225,6 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST timezoneCoverage draft ( true | false ) #IMPLIED >
 <!ATTLIST timezoneCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST timezoneCoverage values CDATA #IMPLIED > <!-- would be NMTOKENS, but needs to allow / -->
+
+<!ELEMENT skipDefaultLocale ( #PCDATA ) >
+<!ATTLIST skipDefaultLocale services NMTOKENS #IMPLIED >

@@ -64,7 +64,13 @@ public class POSIXLocale {
         UnicodeSet ExemplarCharacters = new UnicodeSet(LDMLUtilities.getNodeValue(n));
         repertoire.addAll(ExemplarCharacters);
         UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
-        repertoire.addAll(CaseFoldedExemplars);
+        UnicodeSetIterator cf = new UnicodeSetIterator(CaseFoldedExemplars);
+        while ( cf.next() )
+        {
+           if ( (cf.codepoint != UnicodeSetIterator.IS_STRING) && (cf.codepoint <= 0x10ffff) )
+           repertoire.add(cf.codepoint);
+        }
+
         UnicodeSetIterator it = new UnicodeSetIterator(repertoire);
         int PreviousScript = UScript.INVALID_CODE;
         while ( it.next() )
@@ -98,7 +104,7 @@ public class POSIXLocale {
      UnicodeSetIterator rep = new UnicodeSetIterator(repertoire);
      while ( rep.next() )
      {
-        if ( !UCharacter.isDefined(rep.codepoint))
+        if ( !UCharacter.isDefined(rep.codepoint) && (rep.codepoint != UnicodeSetIterator.IS_STRING))
            repertoire.remove(rep.codepoint);
      }
 

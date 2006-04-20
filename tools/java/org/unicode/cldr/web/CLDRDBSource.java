@@ -71,7 +71,10 @@ public class CLDRDBSource extends XMLSource {
                                                     "type varchar(50), " +
                                                     "value varchar(29000) not null, " +
                                                     "submitter INT, " +
-                                                    "modtime TIMESTAMP )";
+                                                    "modtime TIMESTAMP, " +
+                                                    // new additions, April 2006
+                                                    "base_xpath INT NOT NULL WITH DEFAULT -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
+                                                       " )";
 //            System.out.println(sql);
             s.execute(sql);
             sql = "create table " + CLDR_SRC + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
@@ -84,7 +87,8 @@ public class CLDRDBSource extends XMLSource {
             s.execute(sql);
 //            s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_DATA +"(xpath)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_qxpath on " + CLDR_DATA + "(locale,xpath)");
-
+            // New for April 2006.
+            s.execute("create INDEX CLDR_DATA_qbxpath on CLDR_DATA(locale,base_xpath)");
     /*
         superfluous indices.
             s.execute("CREATE INDEX "+CLDR_DATA+"_xpath on " + CLDR_DATA + "(xpath)");
@@ -120,7 +124,7 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement insertSource = null;
         public PreparedStatement oxpathFromXpath = null;
     
-        private PreparedStatement prepareStatement(String name, String sql) {
+        public PreparedStatement prepareStatement(String name, String sql) {
             PreparedStatement ps = null;
             try {
                 ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
@@ -138,8 +142,8 @@ public class CLDRDBSource extends XMLSource {
         MyStatements(Connection conn) {
             insert = prepareStatement("insert",
                         "INSERT INTO " + CLDR_DATA +
-                        " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter) " +
-                        "VALUES (?,?,?,?,?,?,?,?,?)");
+                        " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter,base_xpath,modtime) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
                         
                     // xpath - contains type, no draft
                     // origxpath - original xpath (full) - 
@@ -280,6 +284,8 @@ public class CLDRDBSource extends XMLSource {
                     
                     int txpid = xpt.getByXpath(tinyXpath);
                     
+                    int base_xpid = xpt.xpathToBaseXpathId(xpath);
+                    
                     /*SRL*/ 
     //                System.out.println(xpath + " l: " + locale);
     //                System.out.println(" <- " + oxpath);
@@ -295,7 +301,8 @@ public class CLDRDBSource extends XMLSource {
                         stmts.insert.setString(6,eType);
                         stmts.insert.setString(7,eAlt);
                         stmts.insert.setInt(8,txpid); // tiny
-                        stmts.insert.setNull(9, java.sql.Types.INTEGER);
+                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // ?
+                        stmts.insert.setInt(10, base_xpid);
 
                         stmts.insert.execute();
                     } catch(SQLException se) {
@@ -439,13 +446,16 @@ public class CLDRDBSource extends XMLSource {
                 try {
                     boolean hadDiffs = false;
                     ResultSet rs = stmts.querySourceActives.executeQuery();
-                    ctx.println("<ul>");
+                    ctx.println("<table border='1'>");
+                    ctx.println("<tr><th>#</th><th>loc</th><th>DB Version</th><th>CVS/Disk</th><th>update</th></tr>");
                     while(rs.next()) {
                         int id = rs.getInt(1);
                         String loc = rs.getString(2);
                         String rev = rs.getString(3);
                         String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
-                        ctx.println("<li> <tt>[#"+id+"]" +loc + "</tt>:  db="+rev+" ");
+                        ctx.println("<tr><th><a name='"+id+"'><tt>"+id+"</tt></a></th><td>" +loc + "</td>");
+                        ctx.println("<td>db="+rev+"</td>");
+                        
                         if(rev == null )  {
                             rev = "null";
                         }
@@ -453,27 +463,29 @@ public class CLDRDBSource extends XMLSource {
                             disk = "null";
                         }
                         if(rev.equals(disk)) {
-                            ctx.println(" - latest");
+                            ctx.println("<td class='proposed'>-</td><td></td>");
                         } else {
                             hadDiffs = true;
-                            ctx.println("<span class='dashbox'> != disk="+disk+ " </span> ");
+                            ctx.println("<td class='missing'>disk="+disk+ " </td> ");
                             WebContext subCtx = new WebContext(ctx);
                             subCtx.addQuery("src_update",loc);
                             // ...
                             if(updAll || what.equals(loc)) {
+                                ctx.println("<td class='proposed'>Updating...</td></tr><tr><td colspan='5'>");
                                 manageSourceUpdates_locale(ctx,sm,id,loc);
+                                ctx.println("</td>");
                             } else {
-                                ctx.println("<a href='"+subCtx.url()+"'>Update "+loc+"</a>");
+                                ctx.println("<td><a href='"+subCtx.url()+"#"+id+"'>Update</a></td>");
                             }
                         }
-                        ctx.println("</li>");
+                        ctx.println("</tr>");
                     }
+                    ctx.println("</table>");
                     if(hadDiffs) {
                             WebContext subCtx = new WebContext(ctx);
                             subCtx.addQuery("src_update","all_locs");
-                            ctx.println("<li><b><a href='"+subCtx.url()+"'>Update ALL</b></li>");
+                            ctx.println("<p><b><a href='"+subCtx.url()+"'>Update ALL</b></p>");
                     }
-                    ctx.println("</ul>");
                 } catch(SQLException se) {
                     String complaint = ("CLDRDBSource: err in manageSourceUpdates["+what+"] ("+tree + "/" + "*" +"): " + SurveyMain.unchainSqlException(se));
                     logger.severe(complaint);
@@ -483,6 +495,65 @@ public class CLDRDBSource extends XMLSource {
             }
         }
     }
+
+    public void doDbUpdate(WebContext ctx, SurveyMain sm) {
+     //       querySourceActives = prepareStatement("querySourceActives",
+     //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+        String what = ctx.field("db_update");
+//        boolean updAll = what.equals("all_locs");
+        ctx.println("<h4>DB Update Manager (srl use only)</h4>");
+        System.err.println("doDbUpdate: "+SurveyMain.freeMem());
+        int n = 0, nd = 0;
+        String loc = "_";
+        synchronized (conn) {
+            synchronized(xpt) {
+                String sql="??";
+                try {
+                    boolean hadDiffs = false;
+                    sql = "select xpath,base_xpath from CLDR_DATA WHERE ((BASE_XPATH IS NULL) OR (BASE_XPATH = -1)) AND locale=? FOR UPDATE";
+                    PreparedStatement ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
+                    long t0 = System.currentTimeMillis();
+                    for(Iterator iter = getAvailableLocales().iterator();iter.hasNext();) {
+                        int thisn = 0;
+                        loc = (String)iter.next();
+                        if(loc.equals("aa")) System.err.println("@@ loc = " + loc);
+                        ps.setString(1,loc);
+                        ResultSet rs = ps.executeQuery();
+                        while(rs.next()) {
+                            int oldXpath = rs.getInt(1);
+                            int newXpath = xpt.xpathToBaseXpathId(oldXpath);
+                            n++;
+                            thisn++;
+                            if(newXpath!=oldXpath) {
+                                nd++;
+                            }
+                            rs.updateInt(2,newXpath);
+                            rs.updateRow();
+                            if((n%1000)==0) {
+                                ctx.println(loc + " - " + n + " updated, " + nd + " had differences<br>");
+                                long td = System.currentTimeMillis()-t0;
+                                double per = ((double)n/(double)td)*1000.0;
+                                System.err.println("CLDBSource.doDbUpdate: "  + n + "update, @"+loc + ", " + nd + " had difference.  Avg " + per + "/sec. "+SurveyMain.freeMem());
+                            }
+                        }
+                        if(thisn>0) {
+                            System.err.println(loc + " Committing " + thisn + " items ... "+SurveyMain.freeMem());
+                            conn.commit();
+                        }
+                    }
+                    ctx.println("DONE: " + n + "patched, " + nd + " had difference.<br>");
+                    System.err.println("CLDBSource.doDbUpdate:  DONE, " + n + "patched, " + nd + " had difference. "+SurveyMain.freeMem());
+                    
+                } catch(SQLException se) {
+                    String complaint = ("CLDRDBSource: err in doDbUpdate["+what+"] ("+tree + "/" + "*" +"): " + SurveyMain.unchainSqlException(se) + " - loc was = " + loc + " and SQL was: " + sql);
+                    logger.severe(complaint);
+                    ctx.println("<hr /><pre>" + complaint + "</pre><br />");
+                    return;
+                }
+            }
+        }
+    }
+    
     
 	protected void putFullPath(String distinguishingXPath, String fullxpath) {
         throw new InternalError("read-only");
@@ -637,9 +708,7 @@ public class CLDRDBSource extends XMLSource {
             int dot = localeName.indexOf('.');
             if(dot !=  -1) {
                 localeName = localeName.substring(0,dot);
-                if(i != 0) {
-                    s.add(localeName);
-                }
+                s.add(localeName);
             }
         }
         return s;
@@ -974,6 +1043,8 @@ public class CLDRDBSource extends XMLSource {
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny
                     stmts.insert.setInt(9,submitterId); // submitter
+                    int base_xpid = xpt.xpathToBaseXpathId(xpath);
+                    stmts.insert.setInt(10, base_xpid);
                     stmts.insert.execute();
                     
                 } catch(SQLException se) {
@@ -1075,6 +1146,8 @@ public class CLDRDBSource extends XMLSource {
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny
                     stmts.insert.setInt(9,submitterId); // submitter
+                    int base_xpid = xpt.xpathToBaseXpathId(xpath);
+                    stmts.insert.setInt(10, base_xpid);
                     stmts.insert.execute();
                     
                 } catch(SQLException se) {
@@ -1096,5 +1169,4 @@ public class CLDRDBSource extends XMLSource {
         } // end for
         return null; // couldn't find a slot..
     }
-
 }

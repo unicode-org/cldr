@@ -147,6 +147,10 @@ public class WebContext {
         return field(x, "");
     }
     public String field(String x, String def) {
+        if(request==null) { 
+            return def; // support testing
+        }
+
         String res = request.getParameter(x);
          if(res == null) {       
 //              System.err.println("[[ empty query string: " + x + "]]");

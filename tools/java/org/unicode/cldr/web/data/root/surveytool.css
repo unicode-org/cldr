@@ -271,3 +271,28 @@ td.framecell {
 	color: black;
 }
 
+/*<group=vetting>*/
+
+.approved {
+	border-color: green;
+	border-style: ridge;
+	margin: 2px;
+	padding: 2px;
+}
+
+.disputed {
+	border-color: red;
+	border-style: dotted;
+	margin: 2px;
+	padding: 2px;
+}
+
+.insufficient {
+	border-color: #f0961b;
+	border-style: dashed;
+	margin: 2px;
+	padding: 2px;
+}
+	
+/*</group>*/
+

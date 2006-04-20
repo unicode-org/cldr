@@ -17,6 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class CookieSession {
+    public String ip;
     public String id;
     public long last;
     public Hashtable stuff = new Hashtable();  // user data
@@ -99,6 +100,10 @@ public class CookieSession {
     
     protected void touch() {
         last = System.currentTimeMillis();
+    }
+    
+    public void setIp(String ip) {
+        this.ip=ip;
     }
     
     public void remove() {
@@ -271,9 +276,9 @@ public class CookieSession {
 //    static final int USER_TO =  3 * MILLIS_IN_MIN; // soon.
 //    static final int REAP_TO = 8000; //often.
 // production:
-    public static final int GUEST_TO =  1 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after 1 hour
+    public static final int GUEST_TO =  15 * MILLIS_IN_MIN; // Expire Guest sessions after 15 min
     public static final int USER_TO =  8 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a few hours
-    public static final int REAP_TO = 15 * MILLIS_IN_MIN; // Only once every quarter hour.
+    public static final int REAP_TO = 13 * MILLIS_IN_MIN; // Only once every quarter hour.
 
     static long lastReap = System.currentTimeMillis();
     

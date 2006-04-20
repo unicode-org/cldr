@@ -65,7 +65,7 @@ public class UserRegistry {
     
     public class User {
         public int    id;  // id number
-        public int    userlevel;    // user level
+        public int    userlevel=LOCKED;    // user level
         public String password;       // password
         public String email;    // 
         public String org;  // organization
@@ -76,7 +76,12 @@ public class UserRegistry {
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
         }
-        
+        public String toString() {
+            return email + "("+org+")-" + levelAsStr(userlevel)+"#"+userlevel;
+        }
+        public int hashCode() { 
+            return id;
+        }
     }
         
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -84,7 +89,7 @@ public class UserRegistry {
             email + "</a>");
     }
     
-    private static final String CLDR_USERS = "cldr_users";
+    public static final String CLDR_USERS = "cldr_users";
     
     /** 
      * Called by SM to create the reg
@@ -191,7 +196,7 @@ public class UserRegistry {
                                                     "VALUES(?,?,?,?,?,?)" );
           queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=? AND password=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryIdStmt = conn.prepareStatement("SELECT name,org,email from " + CLDR_USERS +" where id=?",
+          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel from " + CLDR_USERS +" where id=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
           queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
@@ -216,6 +221,16 @@ public class UserRegistry {
     public final static int CHUNKSIZE = 128;
     int arraySize = 0;
     UserRegistry.User infoArray[] = new UserRegistry.User[arraySize];
+    
+    void zapInfo(int id) {
+        synchronized(infoArray) {
+            try {
+                infoArray[id] = null;
+            } catch(IndexOutOfBoundsException ioob) {
+                // nothing to do
+            }
+        }
+    }
     
     public UserRegistry.User getInfo(int id) {
 //    System.err.println("Fetching info for id " + id);
@@ -250,6 +265,7 @@ public class UserRegistry {
                     u.name = rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
+                    u.userlevel = rs.getInt(4);
 //                    System.err.println("SQL Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
                     ret = u; // let it finish..
 
@@ -428,6 +444,7 @@ public class UserRegistry {
                 logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
                 conn.commit();
+                zapInfo(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 records updated.");
@@ -470,6 +487,7 @@ public class UserRegistry {
                 ps.setString(1, newLocales);
                 int n = ps.executeUpdate();
                 conn.commit();
+                zapInfo(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 records updated.");
@@ -513,6 +531,7 @@ public class UserRegistry {
                 logger.info("Attempt user DELETE by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
                 conn.commit();
+                zapInfo(theirId);
                 if(n == 0) {
                     msg = msg + " [Error: no users were removed!] ";
                     logger.severe("Error: 0 users removed.");
@@ -717,10 +736,22 @@ public class UserRegistry {
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
-        
+        if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;
+        if(SurveyMain.phaseVetting && !userIsStreet (u)) return false;
+//        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
         if(u.locales == null) return true; // empty = ALL
         String localeArray[] = tokenizeLocale(u.locales);
         return userCanModifyLocale(localeArray,locale);
+    }
+
+    static final boolean userCanSubmitLocale(User u, String locale) {
+        if(u==null) return false; // no user, no dice
+        if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
+        return userCanModifyLocale(u,locale);
+    }
+
+    static final boolean userCanVetLocale(User u, String locale) {
+        return userCanModifyLocale(u,locale);
     }
     
     static final String LOCALE_PATTERN = "[, \t\u00a0\\s]+"; // whitespace

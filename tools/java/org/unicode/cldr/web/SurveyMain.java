@@ -40,6 +40,7 @@ import org.unicode.cldr.icu.*;
 // sql imports
 import java.sql.Connection;
 import java.sql.ResultSetMetaData;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,6 +52,11 @@ import java.util.Properties;
 import com.ibm.icu.lang.UCharacter;
 
 public class SurveyMain extends HttpServlet {
+
+    // phase?
+    public static final boolean phaseSubmit = false; 
+    public static final boolean phaseVetting    = true;
+    
     /**
     * URL prefix for  help
     */
@@ -175,6 +181,7 @@ public class SurveyMain extends HttpServlet {
     
     public UserRegistry reg = null;
     public XPathTable   xpt = null;
+    public Vetting      vet = null;
     public LocaleChangeRegistry lcr = new LocaleChangeRegistry();
     
     public static String xREVIEW = "Review and Submit";
@@ -223,6 +230,11 @@ public class SurveyMain extends HttpServlet {
 //            logger.info(startupMsg);
             startupTime = null;
         }
+        
+        if(request.getRemoteAddr().equals("66.154.103.161")) {
+            response.sendRedirect("http://www.unicode.org/cldr");
+        }
+        
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires",0);
         response.setHeader("Pragma","no-cache");
@@ -243,21 +255,24 @@ public class SurveyMain extends HttpServlet {
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
                 
         if(isBusted != null) {
-            response.setContentType("text/html; charset=utf-8");
-            PrintWriter out = response.getWriter();
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>CLDR tool broken</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>CLDR Survey Tool is down, because:</h1>");
-            out.println("<tt>" + isBusted + "</tt><br>");
-            out.println("<hr>");
-            out.println("Please try this link for info: <a href='http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status'>http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status</a><br>");
-            out.println("<hr>");
-            out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
-                        " (you are unhappy visitor #" + pages + ")</i>");
-            return;        
+            String pi = request.getParameter("sql");
+            if((pi==null) || (!pi.equals(vap))) {
+                response.setContentType("text/html; charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>CLDR tool broken</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>CLDR Survey Tool is down, because:</h1>");
+                out.println("<tt>" + isBusted + "</tt><br>");
+                out.println("<hr>");
+                out.println("Please try this link for info: <a href='http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status'>http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status</a><br>");
+                out.println("<hr>");
+                out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
+                            " (you are unhappy visitor #" + pages + ")</i>");
+                return;        
+            }
         }
         
         if(request.getParameter("udump") != null &&
@@ -277,6 +292,15 @@ public class SurveyMain extends HttpServlet {
         // TODO: ctx.dbsrc..
         ctx.sm = this;
         
+        /*
+        String theIp = ctx.userIP();
+        if(theIp.equals("66.154.103.161") // gigablast
+          ) {
+            try {
+                Thread.sleep(98765);
+            } catch(InterruptedException ie) {
+            }
+        }*/
 
                     
         if(ctx.field("dump").equals(vap)) {
@@ -297,12 +321,12 @@ public class SurveyMain extends HttpServlet {
         printHeader(ctx, "SQL Console");
         String q = ctx.field("q");
         ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
-        "<b><a href='" + ctx.base() + "?dump="+vap+"'>Stats</a></b></div><br>");
+        "<b><a href='" + ctx.base() + "?dump="+vap+"'>Admin</a></b></div><br>");
         ctx.println("<h1>SQL Console</h1>");
         ctx.printHelpLink("/AdminSql","Help with this SQL page", true);
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
         ctx.println("<input type=hidden name=sql value='" + vap + "'>");
-        ctx.println("SQL: <input class='inputbox' name=q size=80 cols=80 value='" + q + "'><br>");
+        ctx.println("SQL: <input class='inputbox' name=q size=80 cols=80 value=\"" + q + "\"><br>");
         ctx.println("<label style='border: 1px'><input type=checkbox name=unltd>Show all?</label> ");
         ctx.println("<label style='border: 1px'><input type=checkbox name=isUpdate>U/I/D?</label> ");
         ctx.println("<label style='border: 1px'><input type=checkbox name=isUser>UserDB?</label> ");
@@ -387,90 +411,169 @@ public class SurveyMain extends HttpServlet {
         printFooter(ctx);
     }
     
-    private static final void freeMem(int pages, int xpages) {
+    public static String freeMem() {
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
         total = total / 1024000.0;
         double free = r.freeMemory();
         free = free / 1024000.0;
-        System.err.println("pages: " + pages+"+"+xpages + ", Free memory: " + free + "M / " + total + "M.<br/>");
+        return "Free memory: " + free + "M / " + total + "M";
+    }
+    
+    private static final void freeMem(int pages, int xpages) {
+        System.err.println("pages: " + pages+"+"+xpages + ", "+freeMem()+".<br/>");
     }
     
     private void doDump(WebContext ctx)
     {
-        printHeader(ctx, "Dump System Info");
+        printHeader(ctx, "ST Admin");
+        ctx.println("<h1>SurveyTool Administration</h1>");
         ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
         "<b><a href='" + ctx.base() + "?sql="+vap+"'>SQL</a></b></div><br>");
-        ctx.println("<h1>System info</h1>");
         ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
-        ctx.println("<div class='pager'>");
-        ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+"<br>");
-        ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
-        Runtime r = Runtime.getRuntime();
-        double total = r.totalMemory();
-        total = total / 1024000.0;
-        double free = r.freeMemory();
-        free = free / 1024000.0;
-        ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
-//        r.gc();
-//        ctx.println("Ran gc();<br/>");
-        
-        ctx.println("String hash has " + stringHash.size() + " items.<br/>");
-        ctx.println("xString hash info: " + xpt.statistics() +"<br>");
-        ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
-        ctx.println("</div>");
         ctx.println("<hr/>");
-        ctx.println("<h1>Current Sessions</h1>");
-        ctx.println("<table summary='User list' border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
-        for(Iterator li = CookieSession.getAll();li.hasNext();) {
-            CookieSession cs = (CookieSession)li.next();
-            ctx.println("<tr><td><tt style='font-size: 72%'>" + cs.id + "</tt></td>");
-            ctx.println("<td>" + timeDiff(cs.last) + "</td>");
-            if(cs.user != null) {
-                ctx.println("<td>" + cs.user.email + "<br/>" + 
-                            cs.user.name + "<br/>" + 
-                            cs.user.org + "</td>");
-            } else {
-                ctx.println("<td><i>Guest</i></td>");
-            }
-            ctx.println("<td>");
-            Hashtable lh = cs.getLocales();
-            Enumeration e = lh.keys();
-            if(e.hasMoreElements()) { 
-                for(;e.hasMoreElements();) {
-                    String k = e.nextElement().toString();
-                    ctx.println(new ULocale(k).getDisplayName() + " ");
-                }
-            }
-            ctx.println("</td>");
-            
-            ctx.println("<td>");
-            printLiveUserMenu(ctx, cs);
-            if(cs.id.equals(ctx.field("unlink"))) {
-                cs.remove();
-                ctx.println("<br><b>Removed.</b>");
-            }
-            ctx.println("</td>");
-            
-            ctx.println("</tr>");
+        
+        
+        String action = ctx.field("action");
+        if(action.equals("")) {
+            action = "sessions";
         }
-        ctx.println("</table>");
+        WebContext actionCtx = new WebContext(ctx);
+        actionCtx.addQuery("dump",vap);
+
+        printMenu(actionCtx, action, "sessions", "Sessions", "action");    
+            actionCtx.println(" | ");
+        printMenu(actionCtx, action, "stats", "Stats", "action");       
+            actionCtx.println(" | ");
+        printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
+            actionCtx.println(" | ");
+        printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
+            actionCtx.println(" | ");
+        printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
+            actionCtx.println(" | ");
+        printMenu(actionCtx, action, "srl", "SRL-use-only", "action");  
+        if(action.startsWith("srl")) {
+            actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_vet_imp", "Update Implied Vetting", "action");       
+            actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_vet_res", "Update Results Vetting", "action");       
+        }
+        actionCtx.println("<br>");
+        
+        if(action.equals("stats")) {
+            ctx.println("<div class='pager'>");
+            ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+"<br>");
+            ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
+            Runtime r = Runtime.getRuntime();
+            double total = r.totalMemory();
+            total = total / 1024000.0;
+            double free = r.freeMemory();
+            free = free / 1024000.0;
+            ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
+    //        r.gc();
+    //        ctx.println("Ran gc();<br/>");
+            
+            ctx.println("String hash has " + stringHash.size() + " items.<br/>");
+            ctx.println("xString hash info: " + xpt.statistics() +"<br>");
+            ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
+            ctx.println("</div>");
+        }
+        if(action.equals("sessions"))  {
+            ctx.println("<h1>Current Sessions</h1>");
+            ctx.println("<table summary='User list' border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
+            for(Iterator li = CookieSession.getAll();li.hasNext();) {
+                CookieSession cs = (CookieSession)li.next();
+                ctx.println("<tr><td><tt style='font-size: 72%'>" + cs.id + "</tt></td>");
+                ctx.println("<td>" + timeDiff(cs.last) + "</td>");
+                if(cs.user != null) {
+                    ctx.println("<td>" + cs.user.email + "<br/>" + 
+                                cs.user.name + "<br/>" + 
+                                cs.user.org + "</td>");
+                } else {
+                    ctx.println("<td><i>Guest</i><br>"+cs.ip+"</td>");
+                }
+                ctx.println("<td>");
+                Hashtable lh = cs.getLocales();
+                Enumeration e = lh.keys();
+                if(e.hasMoreElements()) { 
+                    for(;e.hasMoreElements();) {
+                        String k = e.nextElement().toString();
+                        ctx.println(new ULocale(k).getDisplayName() + " ");
+                    }
+                }
+                ctx.println("</td>");
+                
+                ctx.println("<td>");
+                printLiveUserMenu(ctx, cs);
+                if(cs.id.equals(ctx.field("unlink"))) {
+                    cs.remove();
+                    ctx.println("<br><b>Removed.</b>");
+                }
+                ctx.println("</td>");
+                
+                ctx.println("</tr>");
+            }
+            ctx.println("</table>");
+        }
 
 
-        if(ctx.field("src_update").length() > 0) {
+        if(action.equals("srl_vet_imp")) {
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("dump",vap);
             ctx.println("<br>");
+            ElapsedTimer et = new ElapsedTimer();
+            int n = vet.updateImpliedVotes();
+            ctx.println("Done updating "+n+" implied votes in: " + et + "<br>");
+        }
+        
+        if(action.equals("srl_vet_res")) {
+            WebContext subCtx = new WebContext(ctx);
+            actionCtx.addQuery("action",action);
+            ctx.println("<br>");
+            String what = actionCtx.field("srl_vet_res");
+            if(what.equals("ALL")) {
+                ctx.println("<h4>Update All</h4>");
+                ElapsedTimer et = new ElapsedTimer();
+                int n = vet.updateResults();
+                ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
+            } else {
+                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all</a> ]<br>");
+                if(what.length()>0) {
+                    ctx.println("<h4>Update "+what+"</h4>");
+                    ElapsedTimer et = new ElapsedTimer();
+                    int n = vet.updateResults(what);
+                    ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
+                }
+            }
+            actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+            actionCtx.printUrlAsHiddenFields();
+            actionCtx.println("Update just: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
+        }
+
+        if(action.equals("upd_src")) {
+            WebContext subCtx = new WebContext(ctx);
+            actionCtx.addQuery("action",action);
+            ctx.println("<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
             localeListMap = null;
-            mySrc.manageSourceUpdates(subCtx, this); // What does this button do?
+            mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
             ctx.println("<br>");
-        } else {
-            ctx.println("<br>[<a href='" + ctx.base() + "?dump=" + vap + "&amp;src_update=none'>Manage Sources (update from disk).. also zaps the localeListMap</a>]<br>");
+        }
+
+        if(action.equals("db_update")) {
+            WebContext subCtx = new WebContext(ctx);
+            subCtx.addQuery("dump",vap);
+            subCtx.addQuery("action","db_update");
+            ctx.println("<br>");
+            CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
+            ElapsedTimer aTimer = new ElapsedTimer();
+            mySrc.doDbUpdate(subCtx, this); // What does this button do?
+            ctx.println("<br>(dbupdate took " + aTimer+")");
+            ctx.println("<br>");
         }
         
 
-        if(ctx.field("loadAll").equals("all")) {
+        if(action.equals("load_all")) {
             com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
             logger.info("Loading all..");            
             File[] inFiles = getInFiles();
@@ -502,59 +605,60 @@ public class SurveyMain extends HttpServlet {
             }
             logger.info("Loaded all. " + allTime);
             ctx.println("Loaded all." + allTime + "<br>");
-        } else {
-            ctx.println("<br>[<a href='" + ctx.base() + "?dump=" + vap + "&amp;loadAll=all'>Load All (SLOW)</a>]<br>");
         }
         
-        ctx.println("<hr>");
-        
-        // OGM---
-        // seconds
-        String timeQuantity = "seconds";
-        long timeInMills = (1000);
-        /*
-        // minutes
-         String timeQuantity = "minutes";
-         long timeInMills = (1000)*60;
-        */
-        ctx.println("<h4>Set outgoing message (leave blank to unset)</h4>");
-        long now = System.currentTimeMillis();
-        if(ctx.field("setogm").equals("1")) {
-            specialHeader=ctx.field("ogm");
-            if(specialHeader.length() ==0) {
-                specialTimer = 0;
-            } else {
-                long offset = ctx.fieldInt("ogmtimer",-1);
-                if(offset<0) {
-                    // no change.
-                } else if(offset == 0) {
-                    specialTimer = 0; // clear
+        if(action.equals("specialmsg")) {
+            ctx.println("<hr>");
+            
+            // OGM---
+            // seconds
+            String timeQuantity = "seconds";
+            long timeInMills = (1000);
+            /*
+            // minutes
+             String timeQuantity = "minutes";
+             long timeInMills = (1000)*60;
+            */
+            ctx.println("<h4>Set outgoing message (leave blank to unset)</h4>");
+            long now = System.currentTimeMillis();
+            if(ctx.field("setogm").equals("1")) {
+                specialHeader=ctx.field("ogm");
+                if(specialHeader.length() ==0) {
+                    specialTimer = 0;
                 } else {
-                    specialTimer = (timeInMills * offset) + now;
+                    long offset = ctx.fieldInt("ogmtimer",-1);
+                    if(offset<0) {
+                        // no change.
+                    } else if(offset == 0) {
+                        specialTimer = 0; // clear
+                    } else {
+                        specialTimer = (timeInMills * offset) + now;
+                    }
                 }
             }
-        }
-        if((specialHeader != null) && (specialHeader.length()>0)) {
-            ctx.println("<div style='border: 2px solid gray; margin: 0.5em; padding: 0.5em;'>" + specialHeader + "</div><br>");
-            if(specialTimer == 0) {
-                ctx.print("Timer is <b>off</b>.<br>");
-            } else if(now>specialTimer) {
-                ctx.print("Timer is <b>expired</b><br>");
+            if((specialHeader != null) && (specialHeader.length()>0)) {
+                ctx.println("<div style='border: 2px solid gray; margin: 0.5em; padding: 0.5em;'>" + specialHeader + "</div><br>");
+                if(specialTimer == 0) {
+                    ctx.print("Timer is <b>off</b>.<br>");
+                } else if(now>specialTimer) {
+                    ctx.print("Timer is <b>expired</b><br>");
+                } else {
+                    ctx.print("Timer remaining: " + timeDiff(now,specialTimer));
+                }
             } else {
-                ctx.print("Timer remaining: " + timeDiff(now,specialTimer));
+                ctx.println("<i>none</i><br>");
             }
-        } else {
-            ctx.println("<i>none</i><br>");
+            ctx.print("<form action='"+actionCtx.base()+"'>");
+            ctx.print("<input type='hidden' name='action' value='"+"specialmsg"+"'>");
+            ctx.print("<input type='hidden' name='dump' value='"+vap+"'>");
+            ctx.print("<input type='hidden' name='setogm' value='"+"1"+"'>");
+            ctx.print("<label>Message: <input name='ogm' value='"+((specialHeader==null)?"":specialHeader.replaceAll("'","\"").replaceAll(">","&gt;"))+
+                    "' size='80'></label><br>");
+            ctx.print("<label>Timer: (use '0' to clear) <input name='ogmtimer' size='10'>"+timeQuantity+"</label><br>");
+            ctx.print("<input type='submit' value='set'>");
+            ctx.print("</form>");
+            // OGM---
         }
-        ctx.print("<form action='"+ctx.base()+"'>");
-        ctx.print("<input type='hidden' name='dump' value='"+vap+"'>");
-        ctx.print("<input type='hidden' name='setogm' value='"+"1"+"'>");
-        ctx.print("<label>Message: <input name='ogm' value='"+((specialHeader==null)?"":specialHeader.replaceAll("'","\"").replaceAll(">","&gt;"))+
-                "' size='80'></label><br>");
-        ctx.print("<label>Timer: (use '0' to clear) <input name='ogmtimer' size='10'>"+timeQuantity+"</label><br>");
-        ctx.print("<input type='submit' value='set'>");
-        ctx.print("</form>");
-        // OGM---
         
         printFooter(ctx);
     }
@@ -584,6 +688,10 @@ public class SurveyMain extends HttpServlet {
         }
         */
         ctx.println("<meta name='robots' content='noindex,nofollow'>");
+        ctx.println("<meta name=\"gigabot\" content=\"noindex\">");
+        ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
+        ctx.println("<meta name=\"gigabot\" content=\"nofollow\">");
+
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         // + "http://www.unicode.org/webscripts/standard_styles.css'>"
         ctx.println("<title>CLDR Vetting | ");
@@ -733,8 +841,20 @@ public class SurveyMain extends HttpServlet {
        //         ctx.println("[Confused? cs="+aNum +", s=" + mySession.id + "]");
             }
         }
+        // Can go from anon -> logged in.
+        // can NOT go from one logged in account to another.
+        if((mySession!=null) &&
+           (mySession.user != null) &&
+           (user!=null) &&
+           (mySession.user.id != user.id)) {
+            mySession = null; // throw it out.
+        }
+        
         if(mySession == null) {
             mySession = new CookieSession(user==null);
+            if(user==null) {
+                mySession.setIp(ctx.userIP());
+            }
             if(!myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
 //                ctx.println("New session: " + mySession.id + "<br>");
             }
@@ -781,7 +901,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<br/>");
             if(UserRegistry.userIsAdmin(ctx.session.user)) {
                 ctx.println("<b>You are an Admin:</b> ");
-                ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "'>[Stats]</a>");
+                ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "'>[Admin]</a>");
                 if(ctx.session.user.id == 1) {
                     ctx.println("<a href='" + ctx.base() + "?sql=" + vap + "'>[Raw SQL]</a>");
                 }
@@ -790,7 +910,6 @@ public class SurveyMain extends HttpServlet {
             if(UserRegistry.userIsTC(ctx.session.user)) {
                 ctx.println("You are: <b>A CLDR TC Member:</b> ");
                 ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
-                ctx.println("<br/>");
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     if(UserRegistry.userIsExpert(ctx.session.user)) {
@@ -799,15 +918,18 @@ public class SurveyMain extends HttpServlet {
                         ctx.println("You are a: <b>Vetter:</b> ");
                     }
                     ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[List " + ctx.session.user.org + " Users]</a>");
-                    ctx.println("<br/>");
                 } else if(UserRegistry.userIsStreet(ctx.session.user)) {
                     ctx.println("You are a: <b>Guest Contributor</b> ");
-                    ctx.println("<br/>");
                 } else if(UserRegistry.userIsLocked(ctx.session.user)) {
                     ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
-                    ctx.println("<br/>");
                 }
             }
+            if(SurveyMain.phaseVetting 
+                && UserRegistry.userIsStreet(ctx.session.user)
+                && !UserRegistry.userIsExpert(ctx.session.user)) {
+                ctx.println(" (Note: in the Vetting phase, you may not submit new data.) ");
+            }
+            ctx.println("<br/>");
         }
     }
     /**
@@ -1806,10 +1928,13 @@ public class SurveyMain extends HttpServlet {
         printMenu(ctx,which,menu,menu);
     }
     protected void printMenu(WebContext ctx, String which, String menu, String title) {
+        printMenu(ctx,which,menu,title,"x");
+    }
+    protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
         if(menu.equals(which)) {
             ctx.print("<b class='selected'>");
         } else {
-            ctx.print("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + "x=" + menu +
+            ctx.print("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + key+"=" + menu +
                       "\">");
         }
         if(menu.endsWith("/")) {
@@ -2594,6 +2719,9 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
     if(choice.length()==0) {
         return false; // nothing to see..
     }
+    String fullPathFull = pod.xpath(p);
+    int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
+    int oldVote = vet.queryVote(pod.locale, ctx.session.user.id, base_xpath);
     // do modification here. 
     String choice_v = ctx.field(fieldHash+"_v"); // choice + value
     String choice_r = ctx.field(fieldHash+"_r"); // choice + value
@@ -2609,7 +2737,6 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
     } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
          choice.equals(REMOVE) ) {
-        String fullPathFull = pod.xpath(p);
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -2663,11 +2790,42 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         lcr.invalidateLocale(pod.locale); // throw out this pod next time. TODO move this to caller.
         return true;
     } else if(choice.equals(CONFIRM)) {
-        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: confirming not supported yet. <br>");        
-    } else if(!choice.equals(DONTCARE)) {
-        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet. <br>");
+        if(oldVote != base_xpath) {
+            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + "<b>");
+            return doVote(ctx, pod.locale, base_xpath); // vote with xpath
+        }
+    } else if (choice.equals(DONTCARE)) {
+        if(oldVote != -1) {
+            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":-1 replacing " + oldVote + "<br>");
+            return doVote(ctx, pod.locale, -1, base_xpath);
+        }
+    } else {
+        for(Iterator j = p.items.iterator();j.hasNext();) {
+            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+            if(choice.equals(item.altProposed)) {
+                if(oldVote != item.xpathId) {
+                    ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + item.xpathId+" replacing " + oldVote + "<br>");
+                    return doVote(ctx, pod.locale, item.xpathId);
+                } else {
+                    return false; // existing vote.
+                }
+            }
+        }
+        ctx.println("<tt title='"+pod.locale+":"+base_xpath+"' class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet. <br>");
     }
     return false;
+}
+
+boolean doVote(WebContext ctx, String locale, int xpath) {
+    int base_xpath = xpt.xpathToBaseXpathId(xpath);
+    return doVote(ctx, locale, xpath, base_xpath);
+}
+
+boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
+    // TODO: checks
+    vet.vote( locale,  base_xpath, ctx.session.user.id, xpath, Vetting.VET_EXPLICIT);
+    lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+    return true;
 }
 
 // TODO: trim unused params
@@ -2686,11 +2844,34 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
     String fieldHash = pod.fieldHash(p);
+    
+    // voting stuff
+    int ourVote = -1;
+    String ourVoteXpath = null;
+    boolean somethingChecked = false; // have we presented a 'vote' yet?
+    int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
+    int resultType[] = new int[1];
+    int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
+    String resultXpath = null;
+    if(resultXpath_id != -1) {
+        resultXpath = xpt.getById(resultXpath_id); 
+    }
+    if(ctx.session.user != null) {
+        ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
+            base_xpath);
+        
+        //System.err.println(base_xpath + ": vote is " + ourVote);
+        if(ourVote != -1) {
+            ourVoteXpath = xpt.getById(ourVote);
+        }
+    }
+    
     /*  TOP BAR */
     ctx.println("<tr class='topbar'>");
+    String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
     if(p.displayName != null) { // have a display name - code gets its own box
         ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
-        ctx.println("<tt class='codebox'>"
+        ctx.println("<tt title='"+baseInfo+"' class='codebox'>"
                     + p.type + 
                     "</tt>");
     } else { // no display name - same box for code+alt
@@ -2704,12 +2885,13 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<th nowrap style='padding-left: 4px;' colspan='4' valign='top' align='left' class='botgray'>");
         ctx.println(p.displayName);
     } else {
-        ctx.println("<tt>"+p.type+"</tt>");
+        ctx.println("<tt title='"+baseInfo+"' >"+p.type+"</tt>");
 
     }
     if(showFullXpaths) {
         ctx.println("<br>"+fullPathFull);
     }
+    
     if(true==false) {
         ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
     }
@@ -2783,9 +2965,12 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             }
         }
         ctx.print("</td>");
-        ctx.print("<td nowrap "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
+        ctx.print("<td title='#"+item.xpathId+"' nowrap "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
         if(item.altProposed != null) {
-            int uid = XPathTable.altProposedToUserid(item.altProposed);
+        
+            // NB: don't show user under 'alt' for now. just show votes.
+            
+            /* int uid = XPathTable.altProposedToUserid(item.altProposed);
             UserRegistry.User theU = null;
             if(uid != -1) {
                 theU = reg.getInfo(uid);
@@ -2812,7 +2997,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 if(sameOrg) {
                     ctx.print("</b>");
                 }
-            } else {
+            } else */ {
                 ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" " + item.altProposed + "</span>");
             }
             if(item.inheritFrom != null) {
@@ -2829,19 +3014,73 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 ctx.print("<span class='"+boxClass+"'>" + CONFIRM + "</span>");
             }
         }
-        ctx.print("</span>");
         if(canModify) {
+            boolean checkThis = !somethingChecked 
+                            && (ourVoteXpath!=null) 
+                            && (item.xpath!=null)
+                            &&  ourVoteXpath.equals(item.xpath);
+            if(checkThis) {
+                somethingChecked = true;
+            } else {
+                /*if(ourVoteXpath != null) {
+                    System.err.println("FAIL:  " + item.xpath + " != " + ourVoteXpath);
+                }*/
+            }
             ctx.print("<input name='"+fieldHash+"'  value='"+
-                ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' type='radio'>");
+                ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
         } else {
             ctx.print("<input type='radio' disabled>");
         }
+        if(item.votes != null) {
+            ctx.println("<br>");
+            //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
+            ctx.print("<span title='vote count' class='votes'>");
+            if(UserRegistry.userIsVetter(ctx.session.user)) {
+                for(Iterator iter=item.votes.iterator();iter.hasNext();) {
+                    UserRegistry.User theU  = (UserRegistry.User) iter.next();
+                    if(theU != null) {
+                        ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
+                        if(iter.hasNext()) {
+                            ctx.print("<br>");
+                        }
+                    } else {
+                        ctx.println("<!-- null user -->");
+                    }
+                }
+            } else {
+                int n = item.votes.size();
+                ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
+            }
+            ctx.print("</span>");
+        }
+        ctx.print("</span>");
         ctx.println("</td>");
+        boolean winner = 
+            ((resultXpath!=null)&&
+            (item.xpath!=null)&&
+            (item.xpath.equals(resultXpath)));
+        
         ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
+        String itemSpan = null;
+        
+        if(winner) {
+            itemSpan = "approved";
+        } else if((item.votes!=null)&&(resultType[0]==Vetting.RES_INSUFFICIENT)) {
+            itemSpan = "insufficient";
+        } else if(resultType[0]==Vetting.RES_DISPUTED) {
+            itemSpan = "disputed";      
+        }
+        
+        if(itemSpan != null) {
+            ctx.print("<span class='"+itemSpan+"'>");
+        }
         if(item.value.length()!=0) {
             ctx.print(item.value);
         } else {
             ctx.print("<i>(empty)</i>");
+        }
+        if(itemSpan != null) {
+            ctx.print("</span>");
         }
         ctx.print("</td>");
         if((item.tests != null) || (item.examples != null)) {
@@ -2925,7 +3164,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.print("<tr " + pClass + "><td nowrap valign='top' align='right'>");
         ctx.print("<span class='"+boxClass+"'>" + DONTCARE + "</span>");
         if(canModify) {
-            ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' CHECKED>");
+            ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
+                +((!somethingChecked /*ourVoteXpath==null*/)?"CHECKED":"")+" >");
+            somethingChecked = true;
         } else {
             ctx.print("<input type='radio' disabled>");
         }
@@ -3171,115 +3412,116 @@ public static int xpages=0;
  */
 static  boolean isSetup = false;
 public synchronized void doStartup() throws ServletException {
-    if(isSetup == true) {
-        return;
-    }
-    
-    // set up CheckCLDR
-    //CheckCLDR.SHOW_TIMES=true;
-    
-    survprops = new java.util.Properties(); 
-    if(cldrHome == null) {
-        cldrHome = System.getProperty("catalina.home");
-        if(cldrHome == null) {  
-            busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
-            return;
-        } 
-        File homeFile = new File(cldrHome, "cldr");
-        if(!homeFile.isDirectory()) {
-            busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+        if(isSetup == true) {
             return;
         }
-        cldrHome = homeFile.getAbsolutePath();
-    }
-    
-    
-    try {
-        java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
-        survprops.load(is);
-        is.close();
-    } catch(java.io.IOException ioe) {
-        /*throw new UnavailableException*/
-        logger.log(Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
-        busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
-               + ioe.toString()); /* .initCause(ioe);*/
-               return;
-    }
+        
+        // set up CheckCLDR
+        //CheckCLDR.SHOW_TIMES=true;
+        
+        survprops = new java.util.Properties(); 
+        if(cldrHome == null) {
+            cldrHome = System.getProperty("catalina.home");
+            if(cldrHome == null) {  
+                busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
+                return;
+            } 
+            File homeFile = new File(cldrHome, "cldr");
+            if(!homeFile.isDirectory()) {
+                busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+                return;
+            }
+            cldrHome = homeFile.getAbsolutePath();
+        }
+        
+        
+        try {
+            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
+            survprops.load(is);
+            is.close();
+        } catch(java.io.IOException ioe) {
+            /*throw new UnavailableException*/
+            logger.log(Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
+            busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
+                   + ioe.toString()); /* .initCause(ioe);*/
+                   return;
+        }
 
-vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-if(!new File(vetdata).isDirectory()) {
-    busted("CLDR_VET_DATA isn't a directory: " + vetdata);
-    return;
-}
-if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
-    try {
-        loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
-        loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
-        logger.addHandler(loggingHandler);
-        logger.setUseParentHandlers(false);
-    } catch(Throwable ioe){
-        busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
+    vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
+    if(!new File(vetdata).isDirectory()) {
+        busted("CLDR_VET_DATA isn't a directory: " + vetdata);
         return;
     }
-}
+    if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
+        try {
+            loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
+            loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
+            logger.addHandler(loggingHandler);
+            logger.setUseParentHandlers(false);
+        } catch(Throwable ioe){
+            busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
+            return;
+        }
+    }
 
-vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
-if((vap==null)||(vap.length()==0)) {
-    /*throw new UnavailableException*/
-    busted("No vetting password set. (CLDR_VAP in cldr.properties)");
-    return;
-}
-vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
-cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
-specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
-specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
+    vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
+    if((vap==null)||(vap.length()==0)) {
+        /*throw new UnavailableException*/
+        busted("No vetting password set. (CLDR_VAP in cldr.properties)");
+        return;
+    }
+    vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
+    cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+    fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
+    specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
+    specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
 
-if(!new File(fileBase).isDirectory()) {
-    busted("CLDR_COMMON isn't a directory: " + fileBase);
-    return;
-}
+    if(!new File(fileBase).isDirectory()) {
+        busted("CLDR_COMMON isn't a directory: " + fileBase);
+        return;
+    }
 
-if(!new File(vetweb).isDirectory()) {
-    busted("CLDR_VET_WEB isn't a directory: " + vetweb);
-    return;
-}
+    if(!new File(vetweb).isDirectory()) {
+        busted("CLDR_VET_WEB isn't a directory: " + vetweb);
+        return;
+    }
 
-File cacheDir = new File(cldrHome, "cache");
-logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
-CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
-CachingEntityResolver.createAndEmptyCacheDir();
-
-
-isSetup = true;
+    File cacheDir = new File(cldrHome, "cache");
+    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+    CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
+    CachingEntityResolver.createAndEmptyCacheDir();
 
 
+    isSetup = true;
 
-int status = 0;
-logger.info(" ------------------ " + new Date().toString() + " ---------------");
-if(isBusted != null) {
-    return; // couldn't write the log
-}
-logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
-if ((specialMessage!=null)&&(specialMessage.length()>0)) {
-    logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
-    busted("message: " + specialMessage);
-}
-SurveyMain m = new SurveyMain();
-/*
- if(!m.reg.read()) {
-     busted("Couldn't load user registry [at least put an empty file there]   - exiting");
-     return;
- }
- */
-if(!readWarnings()) {
-    // already busted
-    return;
-}
 
-doStartupDB();
 
-logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
+    int status = 0;
+    logger.info(" ------------------ " + new Date().toString() + " ---------------");
+    if(isBusted != null) {
+        return; // couldn't write the log
+    }
+    logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
+    if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+        logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
+        busted("message: " + specialMessage);
+    }
+    /*
+     SurveyMain m = new SurveyMain();  ???
+     
+     if(!m.reg.read()) {
+         busted("Couldn't load user registry [at least put an empty file there]   - exiting");
+         return;
+     }
+     */
+    if(!readWarnings()) {
+        // already busted
+        return;
+    }
+
+    doStartupDB();
+
+    logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
 }
 
 public void destroy() {
@@ -3413,7 +3655,7 @@ public Document fetchDoc( String locale) {
     return doc;
 }
 
-static int usedK() {
+public static int usedK() {
     Runtime r = Runtime.getRuntime();
     double total = r.totalMemory();
     total = total / 1024;
@@ -3702,7 +3944,9 @@ private void doStartupDB()
     }
     // now other tables..
     try {
-        reg = UserRegistry.createRegistry(logger, getU_DBConnection(), !doesExist_u);
+        Connection uConn = getU_DBConnection();
+        /* doesExist_u = */ hasTable(uConn, UserRegistry.CLDR_USERS);
+        reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u);
         if(!doesExist_u) { // only import users on first run through..
             reg.importOldUsers(vetdata);
         }
@@ -3710,7 +3954,7 @@ private void doStartupDB()
         busted("On UserRegistry startup: " + unchainSqlException(e));
     }
     try {
-        xpt = XPathTable.createTable(logger, getDBConnection(), !doesExist);
+        xpt = XPathTable.createTable(logger, getDBConnection(), !doesExist, this);
     } catch (SQLException e) {
         busted("On XPathTable startup: " + unchainSqlException(e));
     }
@@ -3720,27 +3964,52 @@ private void doStartupDB()
     } catch (SQLException e) {
         busted("On CLDRDBSource startup: " + unchainSqlException(e));
     }
+    try {
+        vet = Vetting.createTable(logger, getDBConnection(), this);
+    } catch (SQLException e) {
+        busted("On Vetting startup: " + unchainSqlException(e));
+    }
     if(!doesExist) {
         logger.info("all dbs setup");
     }
 }    
 
-public static final String unchainSqlException(SQLException e) {
-    String echain = "SQL exception: \n ";
-    while(e!=null) {
-        echain = echain + " -\n " + e.toString();
-        e = e.getNextException();
+    public static final String unchainSqlException(SQLException e) {
+        String echain = "SQL exception: \n ";
+        while(e!=null) {
+            echain = echain + " -\n " + e.toString();
+            e = e.getNextException();
+        }
+        String stackStr = "\n unknown Stack";
+        try {
+            StringWriter asString = new StringWriter();
+            e.printStackTrace(new PrintWriter(asString));
+            stackStr = "\n Stack: \n " + asString.toString();
+        } catch ( Throwable tt ) {
+            // ...
+        }
+        return echain + stackStr;
     }
-    String stackStr = "\n unknown Stack";
-    try {
-        StringWriter asString = new StringWriter();
-        e.printStackTrace(new PrintWriter(asString));
-        stackStr = "\n Stack: \n " + asString.toString();
-    } catch ( Throwable tt ) {
-        // ...
+
+    public boolean hasTable(Connection conn, String table) {
+        try {
+            DatabaseMetaData dbmd = conn.getMetaData();
+            ResultSet rs = dbmd.getTables(null, null, table.toUpperCase(), null);
+
+            if(rs.next()==true) {
+                rs.close();
+                System.err.println("table " + table + " did exist.");
+                return true;
+            } else {
+                System.err.println("table " + table + " did not exist.");
+                return false;
+            }
+        } catch (SQLException se)
+        {
+            busted("While looking for table '" + table + "': " + unchainSqlException(se));
+            return false; // NOTREACHED
+        }
     }
-    return echain + stackStr;
-}
 
     void doShutdownDB() {
         boolean gotSQLExc = false;
@@ -3779,8 +4048,11 @@ public static final String unchainSqlException(SQLException e) {
             cldrHome="/data/jakarta/cldr";
             vap="NO_VAP";
             SurveyMain sm=new SurveyMain();
+            System.out.println("sm created.");
             sm.doStartup();
+            System.out.println("sm started.");
             sm.doStartupDB();
+            System.out.println("DB started.");
             /*  sm.smok(4);
             sm.smok(3);
             sm.smok(2);
@@ -3788,22 +4060,81 @@ public static final String unchainSqlException(SQLException e) {
             sm.smok(33);
             sm.smok(333);
             sm.smok(1333);  */
+            String ourXpath = "//ldml/numbers";
+            
+            System.out.println("xpath xpt.getByXpath("+ourXpath+") = " + sm.xpt.getByXpath(ourXpath));
+            
             
             if(arg.length>0) {
-                CLDRDBSource dbSource = CLDRDBSource.createInstance(sm.fileBase, sm.xpt, new ULocale(arg[0]),
-                                                                    sm.getDBConnection(), null);            
-                System.out.println("dbSource created.");
-                CLDRFile my = new CLDRFile(dbSource,false);
-                System.out.println("file created ");
-                CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
-                System.out.println("check created");
-                List result = new ArrayList();
-                Map options = null;
-                check.setCldrFileToCheck(my, options, result); 
-                System.out.println("file set");
+                WebContext xctx = new WebContext(false);
+                xctx.sm = sm;
+                xctx.session=new CookieSession(true);
+                for(int i=0;i<arg.length;i++) {
+                    System.out.println("loading stuff for " + arg[i]);
+                    xctx.setLocale(new ULocale(arg[i]));
+                    
+                    WebContext ctx = xctx;
+                    System.out.println("  - loading CLDRFile and stuff");
+                    CLDRFile cf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+                    if(cf == null) {
+                        throw new InternalError("CLDRFile is null!");
+                    }
+                    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+                    if(ourSrc == null) {
+                        throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+                    }
+                    CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
+                    if (checkCldr == null)  {
+                        List checkCldrResult = new ArrayList();
+                        System.err.println("Initting tests . . .");
+                        long t0 = System.currentTimeMillis();
+                        checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+                        
+                        checkCldr.setDisplayInformation(sm.getEnglishFile());
+                        if(cf==null) {
+                            throw new InternalError("cf was null.");
+                        }
+                        checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult);
+                        System.err.println("fileToCheck set . . . on "+ checkCldr.toString());
+                        ctx.putByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype(), checkCldr);
+                        {
+                            // sanity check: can we get it back out
+                            CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR+":"+ctx.defaultPtype());
+                            if(subCheckCldr == null) {
+                                throw new InternalError("subCheckCldr == null");
+                            }
+                        }
+                        if(!checkCldrResult.isEmpty()) {
+                            ctx.putByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype(), checkCldrResult); // don't bother if empty . . .
+                        }
+                        long t2 = System.currentTimeMillis();
+                        System.err.println("Time to init tests " + arg[i]+": " + (t2-t0));
+                    }
+
+                    System.err.println("getPod:");
+                    xctx.getPod("//ldml/numbers");
+                /*
+                    System.out.println("loading dbsource for " + arg[i]);
+                    CLDRDBSource dbSource = CLDRDBSource.createInstance(sm.fileBase, sm.xpt, new ULocale(arg[i]),
+                                                                        sm.getDBConnection(), null);            
+                    System.out.println("dbSource created for " + arg[i]);
+                    CLDRFile my = new CLDRFile(dbSource,false);
+                    System.out.println("file created ");
+                    CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
+                    System.out.println("check created");
+                    List result = new ArrayList();
+                    Map options = null;
+                    check.setCldrFileToCheck(my, options, result); 
+                    System.out.println("file set .. done with " + arg[i]);
+                */
+                }
+            } else {
+                System.out.println("No locales listed");
             }
             
+            System.out.println("done...");
             sm.doShutdownDB();
+            System.out.println("DB shutdown.");
         } catch(Throwable t) {
             System.out.println("Something bad happened.");
             System.out.println(t.toString());

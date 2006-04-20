@@ -38,20 +38,22 @@ public class DataPod {
     public static final String DATAPOD_NORMAL = "Normal";
     public static final String DATAPOD_PRIORITY = "Priority";
     public static final String DATAPOD_PROPOSED = "Proposed";
+    public static final String DATAPOD_VETPROB = "Vetting Issue";
 
     public String locale = null;
     public String xpathPrefix = null;
     
     private String fieldHash; // prefix string used for calculating html fields
-
+    private SurveyMain sm;
+    
     DataPod(SurveyMain sm, String loc, String prefix) {
+        this.sm = sm;
         locale = loc;
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
     }
     private static int n =0;
     protected static synchronized int getN() { return ++n; }
-
     // This class represents an Example box, so that it can be popped out.
     public class ExampleEntry {
 
@@ -148,6 +150,7 @@ public class DataPod {
         boolean hasTests = false;
         boolean hasProps = false;
         boolean hasInherited = false;
+        public int voteType = 0; // bitmask of all voting types included
         String inheritFrom = null;
         public class Item {
             String inheritFrom = null;
@@ -158,6 +161,10 @@ public class DataPod {
             public Vector examples = null; 
             //public List examplesList = null;
             String references = null;
+            String xpath = null;
+            int xpathId = -1;
+            
+            public Set votes = null; // Set of Users who voted for this.
         }
         
         public Set items = new TreeSet(new Comparator() {
@@ -247,14 +254,32 @@ public class DataPod {
          * The 'limit' is one more than the index number of the last item.
          * In some cases, there is only one partition, and its name is null.
          */
+        public abstract class PartitionMembership {
+            public abstract boolean isMember(Pea p);
+        };
         public class Partition {
+
+            public PartitionMembership pm;
+
             public String name; // name of this partition
             public int start; // first item
             public int limit; // after last item
-            public Partition(String n, int f, int t) {
+
+            public Partition(String n, int s, int l) {
                 name = n;
-                start = f;
-                limit = t;
+                start = s;
+                limit = l;
+            }
+            
+            public Partition(String n, PartitionMembership pm) {
+                name = n;
+                this.pm = pm;
+                start = -1;
+                limit = -1;
+            }
+            
+            public String toString() {
+                return name + " - ["+start+".."+limit+"]";
             }
         };
         public Partition partitions[];  // display group partitions.  May only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
@@ -266,89 +291,77 @@ public class DataPod {
             // fetch partitions..
             Vector v = new Vector();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                // fish for it
-                int priorityStart = -1; // things with warnings or proposed
-                int proposedStart = -1; // things with warnings or proposed
-                int normalStart = -1; // normal things
-                int missingStart = -1; // missing things
+                Partition testPartitions[] = { 
                 
+                    new Partition(DATAPOD_VETPROB, 
+                        new PartitionMembership() { 
+                            public boolean isMember(Pea p) {
+                                return ((p.voteType & Vetting.RES_BAD_MASK)>0);
+                            }
+                        }),
+                    new Partition(DATAPOD_PRIORITY, 
+                        new PartitionMembership() { 
+                            public boolean isMember(Pea p) {
+                                return (p.hasTests);
+                            }
+                        }),
+                    new Partition(DATAPOD_PROPOSED, 
+                        new PartitionMembership() { 
+                            public boolean isMember(Pea p) {
+                                return (p.hasProps);
+                            }
+                        }),
+                    new Partition(DATAPOD_NORMAL, 
+                        new PartitionMembership() { 
+                            public boolean isMember(Pea p) {
+                                return (!p.hasInherited);
+                            }
+                        }),
+                    new Partition(DATAPOD_MISSING, 
+                        new PartitionMembership() { 
+                            public boolean isMember(Pea p) {
+                                return (p.hasInherited);
+                            }
+                        }),
+                    };
+                // find the starts
+                int lastGood = 0;
                 Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
                 for(int i=0;i<peasArray.length;i++) {
                     Pea p = peasArray[i];
-                    // Vegetable, Animal, Mineral?
-                    if(priorityStart == -1) {
-                        if(p.hasTests) {
-                            priorityStart = i;
+                    for(int j=lastGood;j<testPartitions.length;j++) {
+                        if(testPartitions[j].pm.isMember(p)) {
+                            if(j>lastGood) {
+                                lastGood = j;
+                            }
+                            if(testPartitions[j].start == -1) {
+                                testPartitions[j].start = i;
+                            }
+                            break; // sit here until we fail membership
                         }
-                    }
-                    if(proposedStart == -1) {
-                        if(p.hasProps && !p.hasTests) {
-                            proposedStart = i;
-                        }
-                    }
-                    if(normalStart == -1) {
-                        if(!p.hasProps && !p.hasTests && !p.hasInherited) {
-                            normalStart = i;
-                        }
-                    }
-                    if(missingStart == -1) {
-                        if(p.hasInherited && !p.hasProps && !p.hasTests) {
-                            missingStart = i;
+                        
+                        if(testPartitions[j].start != -1) {
+                            testPartitions[j].limit = i;
                         }
                     }
                 }
-                int end = peasArray.length;
-                if(end>0) {
-                    // fixup
-                    Partition priority = null;
-                    Partition proposed = null;
-                    Partition normal = null;
-                    Partition missing = null;
+                // catch the last item
+                if((testPartitions[lastGood].start != -1) &&
+                    (testPartitions[lastGood].limit == -1)) {
+                    testPartitions[lastGood].limit = peas.size(); // limit = off the end.
+                }
                     
-                    // from last to first
-                    if(missingStart != -1) {
-                        missing = new Partition(DATAPOD_MISSING,missingStart,end);
-                        end = missingStart;
-                    }
-                    
-                    if(normalStart != -1) {
-                        normal = new Partition(DATAPOD_NORMAL,normalStart,end);
-                        end = normalStart;
-                    }
-
-                    if(proposedStart != -1) {
-                        proposed = new Partition(DATAPOD_PROPOSED,proposedStart,end);
-                        end = proposedStart;
-                    }
-
-                    if(priorityStart != -1) {
-                        priority = new Partition(DATAPOD_PRIORITY,priorityStart,end);
-                        end = priorityStart;
-                    }
-                    
-                    if(end != 0) {
-                        throw new InternalError("Partitions do not cover entire set- end is " + end);
-                    }
-                    
-                    if(priority != null) {
-                        v.add(priority);
-                    }
-                    if(proposed != null) {
-                        v.add(proposed);
-                    }
-                    if(normal != null) {
-                        v.add(normal);
-                    }
-                    if(missing != null) {
-                        v.add(missing);
+                for(int j=0;j<testPartitions.length;j++) {
+                    System.err.println("P"+j+" - " + testPartitions[j]);
+                    if(testPartitions[j].start != -1) {
+                        v.add(testPartitions[j]);
                     }
                 }
-                
             } else {
                 // default partition
                 v.add(new Partition(null, 0, peas.size()));
             }
-            partitions = (Partition[])v.toArray(new Partition[0]);
+            partitions = (Partition[])v.toArray(new Partition[0]); // fold it up
         }
     }
     
@@ -407,6 +420,16 @@ public class DataPod {
                             
                             int rv = 0; // neg:  a < b.  pos: a> b
                             
+                            // sort 'vetting issues' to the top.
+                            if(rv == 0) {
+                                if((p1.voteType & Vetting.RES_BAD_MASK)>0) {
+                                    rv -= 10000;
+                                }
+                                if((p2.voteType & Vetting.RES_BAD_MASK)>0) {
+                                    rv += 10000;
+                                }
+                            }
+
                             if(rv == 0) {
                                 if(p1.hasTests) {
                                     rv -= 1000;
@@ -708,7 +731,7 @@ public class DataPod {
                     excludeGrego = true; 
                     // nongreg
                 } else {
-                    removePrefix = "//ldml/dates/calendars/calendar/gregorian/";
+                    removePrefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]";
                     
                     // Add the fake 'dateTimes/availableDateFormats/new'
                     Pea myp = getPea(FAKE_FLEX_THING);
@@ -731,7 +754,6 @@ public class DataPod {
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             boolean confirmOnly = false;
             String xpath = (String)it.next();
-
             if(SHOW_TIME) {
                 count++;
                 if((count%250)==0) {
@@ -761,6 +783,12 @@ public class DataPod {
             }
 
             String fullPath = aFile.getFullXPath(xpath);
+            //int xpath_id = src.xpt.getByXpath(fullPath);
+            int base_xpath = src.xpt.xpathToBaseXpathId(xpath);
+            String baseXpath = src.xpt.getById(base_xpath);
+            
+            
+///*srl*/            System.err.println("X: "+xpath+"\nF: "+fullPath+"\nB: " + baseXpath);
             
             if(fullPath == null) {
                 System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
@@ -768,23 +796,28 @@ public class DataPod {
             }
 
             if(needFullPathPattern.matcher(xpath).matches()) {
-                xpath = fullPath; // draft and alt will be removed by the noisePattern .. 
-                // but just in case, we are going to turn on shorten, in case a non-shortened xpath is added someday.
+                //  we are going to turn on shorten, in case a non-shortened xpath is added someday.
                 useShorten = true;
-            }            
+            }           
 
 //if(ndebug)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
             boolean mixedType = false;
             String type;
-            String lastType = src.xpt.typeFromPathToTinyXpath(xpath, xpp);  // last type in the list
+            String lastType = src.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
+///*srl*/System.err.println("LT = " + lastType);
             String displaySuffixXpath;
             String peaSuffixXpath = null; // if non null:  write to suffixXpath
-            String fullSuffixXpath = xpath.substring(xpathPrefix.length(),xpath.length());
-            if((removePrefix == null)||!xpath.startsWith(removePrefix)) {
-                displaySuffixXpath = fullSuffixXpath;
+            
+            // these need to work on the base
+            String fullSuffixXpath = baseXpath.substring(xpathPrefix.length(),baseXpath.length());
+///*srl*/System.err.println("Fs:"+fullSuffixXpath);
+            if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
+                displaySuffixXpath = baseXpath;
+///*srl*/                System.err.println("RP: " + removePrefix);
             } else {
-                displaySuffixXpath = xpath.substring(removePrefix.length(),xpath.length());
+                displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
             }
+///*srl*/System.err.println("dX:"+displaySuffixXpath);
             if(useShorten == false) {
                 type = lastType;
                 if(type == null) {
@@ -810,7 +843,12 @@ public class DataPod {
                 }
 
                 for(pn=0;pn<fromto.length/2;pn++) {
+//                    String oldType = type;
                     type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
+                    // who caused the change?
+//                    if((type.indexOf("ldmls/")>0)&&(oldType.indexOf("ldmls/")<0)) {
+//                        System.err.println("ldmls @ #"+pn+", "+fromto[pn*2]+" -> " + fromto[(pn*2)+1]);
+//                    }
                 }
 
             }
@@ -864,17 +902,18 @@ public class DataPod {
 //    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
     
             xpp.clear();
+            /*
             xpp.initialize(xpath);
-            String lelement = xpp.getElement(-1);
+            String lelement = xpp.getElement(-1); */
             /* all of these are always at the end */
-            String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
             
-            /* FULL path processing (references..) */
+            /* FULL path processing (references.. alt proposed.. ) */
             xpp.clear();
             xpp.initialize(fullPath);
-            lelement = xpp.getElement(-1);
-            String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
-            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+            String lelement = xpp.getElement(-1);
+            String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+            String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
+            String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
 //if(ndebug) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
             
@@ -912,7 +951,13 @@ public class DataPod {
                     if(isReferences) {
                         String eUri = xpp.findAttributeValue(lelement,"uri");
                        if((eUri!=null)&&eUri.length()>0) {
-                            superP.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
+                           if(eUri.startsWith("isbn:")) {
+                                // linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).                
+                                superP.displayName = /*type + " - "+*/ "<a href='http://my.linkbaton.com/isbn/"+
+                                    eUri.substring(5,eUri.length())+"'>"+eUri+"</a>";
+                            } else {
+                                superP.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
+                            }
                         } else {
                             superP.displayName = null;
                         }
@@ -984,7 +1029,7 @@ public class DataPod {
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if(status.getType().equals(status.exampleType)) {
-                        throw new InternalError("Not supposed to be any examples here.");
+                        //throw new InternalError("Not supposed to be any examples here.");
                     /*
                         if(myItem.examples == null) {
                             myItem.examples = new Vector();
@@ -1004,6 +1049,20 @@ public class DataPod {
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
             }
+            myItem.xpath = xpath;
+            myItem.xpathId = src.xpt.getByXpath(xpath);
+    
+            // store who voted for what. [ this could be loaded at displaytime..]
+            myItem.votes = sm.vet.gatherVotes(locale, xpath);
+
+            // bitwise OR in the voting types. Needed for sorting.
+            if(p.voteType == 0) {
+                int vtypes[] = new int[1];
+                vtypes[0]=0;
+                /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
+                p.voteType |= vtypes[0];
+            }
+            
             if(!examplesResult.isEmpty()) {
                 // reuse the same ArrayList  unless it contains something                
                 if(myItem.examples == null) {

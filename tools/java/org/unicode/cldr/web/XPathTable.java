@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import org.unicode.cldr.util.*;
 
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.icu.LDMLConstants;
@@ -31,7 +32,8 @@ public class XPathTable {
      * @param ourConn the conn to use
      * @param isNew  true if should CREATE TABLEs
      */
-    public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, boolean isNew) throws SQLException {
+    public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, boolean isNew, SurveyMain sm) throws SQLException {
+        /* isNew = */ sm.hasTable(ourConn, CLDR_XPATHS);
         XPathTable reg = new XPathTable(xlogger,ourConn);
         if(isNew) {
             reg.setupDB();
@@ -215,6 +217,7 @@ public class XPathTable {
                     if(!rs.next()) {
                         rs.close();
                         logger.severe("XPath: no xpath for ID " + id);
+                        //throw new RuntimeException("no xpath for id " + id);
                         return null;
                     }
                                     
@@ -279,6 +282,41 @@ public class XPathTable {
         Map lastAtts = xpp.getAttributes(-1);
         lastAtts.remove(LDMLConstants.ALT);
         return xpp.toString();
+    }
+    
+    public final int xpathToBaseXpathId(String xpath) {
+        return getByXpath(xpathToBaseXpath(xpath));
+    }
+    
+    public final int xpathToBaseXpathId(int xpath) {
+        return getByXpath(xpathToBaseXpath(getById(xpath)));
+    }
+    
+    public String xpathToBaseXpath(String xpath) {
+        XPathParts xpp = new XPathParts(null,null);
+        xpp.clear();
+        xpp.initialize(xpath);
+        Map lastAtts = xpp.getAttributes(-1);
+        String oldAlt = (String)lastAtts.get(LDMLConstants.ALT);
+        if(oldAlt == null) {
+            /*
+                String lelement = xpp.getElement(-1);
+            oldAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            */
+            return xpath; // no change
+        }
+        
+        String newAlt = LDMLUtilities.parseAlt(oldAlt)[0];  // #0 : altType
+        if(newAlt == null) {
+            lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+        } else if(newAlt.equals(oldAlt)) {
+            return xpath; // No change
+        } else {
+            lastAtts.put(LDMLConstants.ALT, newAlt);
+        }
+        String newXpath = xpp.toString();
+        //System.err.println("xp2Bxp: " + xpath + " --> " + newXpath);
+        return newXpath;
     }
     
     public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {

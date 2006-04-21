@@ -147,10 +147,12 @@ public class DataPod {
 		public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
+        int base_xpath = -1;
         boolean hasTests = false;
         boolean hasProps = false;
         boolean hasInherited = false;
         public int voteType = 0; // bitmask of all voting types included
+        public int reservedForSort = -1; // reserved to use in collator.
         String inheritFrom = null;
         public class Item {
             String inheritFrom = null;
@@ -242,6 +244,36 @@ public class DataPod {
         }
     }
     
+    public abstract class PartitionMembership {
+        public abstract boolean isMember(Pea p);
+    };
+    public class Partition {
+
+        public PartitionMembership pm;
+
+        public String name; // name of this partition
+        public int start; // first item
+        public int limit; // after last item
+
+        public Partition(String n, int s, int l) {
+            name = n;
+            start = s;
+            limit = l;
+        }
+        
+        public Partition(String n, PartitionMembership pm) {
+            name = n;
+            this.pm = pm;
+            start = -1;
+            limit = -1;
+        }
+        
+        public String toString() {
+            return name + " - ["+start+".."+limit+"]";
+        }
+
+    };
+
     /** 
      * A class representing a list of peas, in sorted and divided order.
      */
@@ -254,35 +286,9 @@ public class DataPod {
          * The 'limit' is one more than the index number of the last item.
          * In some cases, there is only one partition, and its name is null.
          */
-        public abstract class PartitionMembership {
-            public abstract boolean isMember(Pea p);
-        };
-        public class Partition {
-
-            public PartitionMembership pm;
-
-            public String name; // name of this partition
-            public int start; // first item
-            public int limit; // after last item
-
-            public Partition(String n, int s, int l) {
-                name = n;
-                start = s;
-                limit = l;
-            }
-            
-            public Partition(String n, PartitionMembership pm) {
-                name = n;
-                this.pm = pm;
-                start = -1;
-                limit = -1;
-            }
-            
-            public String toString() {
-                return name + " - ["+start+".."+limit+"]";
-            }
-        };
-        public Partition partitions[];  // display group partitions.  May only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
+        
+        public Partition partitions[];  // display group partitions.  Might only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
+        
         
         public DisplaySet(List myPeas, List myDisplayPeas, String sortMode) {
             peas = myPeas;
@@ -291,44 +297,22 @@ public class DataPod {
             // fetch partitions..
             Vector v = new Vector();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                Partition testPartitions[] = { 
-                
-                    new Partition(DATAPOD_VETPROB, 
-                        new PartitionMembership() { 
-                            public boolean isMember(Pea p) {
-                                return ((p.voteType & Vetting.RES_BAD_MASK)>0);
-                            }
-                        }),
-                    new Partition(DATAPOD_PRIORITY, 
-                        new PartitionMembership() { 
-                            public boolean isMember(Pea p) {
-                                return (p.hasTests);
-                            }
-                        }),
-                    new Partition(DATAPOD_PROPOSED, 
-                        new PartitionMembership() { 
-                            public boolean isMember(Pea p) {
-                                return (p.hasProps);
-                            }
-                        }),
-                    new Partition(DATAPOD_NORMAL, 
-                        new PartitionMembership() { 
-                            public boolean isMember(Pea p) {
-                                return (!p.hasInherited);
-                            }
-                        }),
-                    new Partition(DATAPOD_MISSING, 
-                        new PartitionMembership() { 
-                            public boolean isMember(Pea p) {
-                                return (p.hasInherited);
-                            }
-                        }),
-                    };
+                Partition testPartitions[] = createTestPartitions();
                 // find the starts
                 int lastGood = 0;
                 Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
                 for(int i=0;i<peasArray.length;i++) {
                     Pea p = peasArray[i];
+                    
+///*srl*/                    if(p.base_xpath == 964) {
+//                        System.err.println(p.base_xpath+": Props:"+new Boolean(p.hasProps)+", Tests:"+new Boolean(p.hasTests)+
+//                            ", Inherit:"+new Boolean(p.hasInherited));
+//                            
+//                        for(int j=0;j<testPartitions.length;j++) {
+//                            System.err.println(p.base_xpath+": " + testPartitions[j].name+": " + testPartitions[j].pm.isMember(p));
+//                        }
+//                    }
+                    
                     for(int j=lastGood;j<testPartitions.length;j++) {
                         if(testPartitions[j].pm.isMember(p)) {
                             if(j>lastGood) {
@@ -352,7 +336,7 @@ public class DataPod {
                 }
                     
                 for(int j=0;j<testPartitions.length;j++) {
-                    System.err.println("P"+j+" - " + testPartitions[j]);
+ ///*srl*/                   System.err.println("P"+j+" - " + testPartitions[j]);
                     if(testPartitions[j].start != -1) {
                         v.add(testPartitions[j]);
                     }
@@ -363,8 +347,74 @@ public class DataPod {
             }
             partitions = (Partition[])v.toArray(new Partition[0]); // fold it up
         }
+
     }
+
+
+    private Partition[] createTestPartitions() {
+        Partition theTestPartitions[] = 
+        {                 
+                new Partition("Changes Proposed: Insufficient Votes", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return  (p.voteType == Vetting.RES_INSUFFICIENT) ||
+                                (p.voteType == Vetting.RES_NO_VOTES);
+                        }
+                    }),
+                new Partition("Changes Proposed: Disputed", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((p.voteType & Vetting.RES_DISPUTED)>0);
+                        }
+                    }),
+                new Partition("Changes Proposed: Tentatively Approved", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((p.hasProps)&&
+                                ((p.voteType & Vetting.RES_BAD_MASK)==0)&&
+                                    (p.voteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                        }
+                    }),
+/*                new Partition("Other "+DATAPOD_VETPROB + " [internal error]",  // should not appear?
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((p.voteType & Vetting.RES_BAD_MASK)>0);
+                        }
+                    }),
+    */
+                new Partition("No Changes Proposed: Questionable Values", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasTests&&!p.hasProps) && ((p.voteType==0) || (p.voteType==Vetting.RES_NO_VOTES)
+                                    || (p.voteType==Vetting.RES_NO_CHANGE));
+                        }
+                    }),
+        /*
+                new Partition("Changes Propsed: [internal error]", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasProps);
+                        }
+                    }),
+        */
+                new Partition("No Changes Proposed: Status Quo", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
+                                    (p.voteType == Vetting.RES_NO_CHANGE));
+                        }
+                    }),
+                new Partition("No Changes Proposed: Inherited", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasInherited&&!p.hasProps);
+                        }
+                    }),
+        };
+        return theTestPartitions;
+    }        
     
+
     private DisplaySet oldDisplaySet = null;
     String oldSortMode2 = "";
     public DisplaySet getDisplaySet(String sortMode) {
@@ -409,6 +459,19 @@ public class DataPod {
                     });
                 } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
                     newSet = new TreeSet(new Comparator() {
+                        int categorizePea(Pea p, Partition partitions[]) {
+                            int rv = -1;
+                            for(int i=0;i<partitions.length;i++) {
+                                if(partitions[i].pm.isMember(p)) {
+                                    rv = i;
+                                }
+                            }
+                            if(rv==-1) {
+///*srl*/                                System.err.println("Uncategorized pea: " + p.base_xpath);
+                            }
+                            return rv;
+                        }
+                        final Partition[] warningSort = createTestPartitions();
 //                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
@@ -420,40 +483,18 @@ public class DataPod {
                             
                             int rv = 0; // neg:  a < b.  pos: a> b
                             
-                            // sort 'vetting issues' to the top.
-                            if(rv == 0) {
-                                if((p1.voteType & Vetting.RES_BAD_MASK)>0) {
-                                    rv -= 10000;
-                                }
-                                if((p2.voteType & Vetting.RES_BAD_MASK)>0) {
-                                    rv += 10000;
-                                }
+                            if(p1.reservedForSort==-1) {
+                                p1.reservedForSort = categorizePea(p1, warningSort);
                             }
-
-                            if(rv == 0) {
-                                if(p1.hasTests) {
-                                    rv -= 1000;
-                                }
-                                if(p2.hasTests) {
-                                    rv += 1000;
-                                }
+                            if(p2.reservedForSort==-1) {
+                                p2.reservedForSort = categorizePea(p2, warningSort);
                             }
                             
                             if(rv == 0) {
-                                if(p1.hasProps) {
-                                    rv -= 100; // 0 items last
-                                }
-                                if(p2.hasProps) {
-                                    rv += 100; // 0 items last
-                                }
-                            }
-                            
-                            if(rv == 0) {
-                                if(!p1.hasInherited) {
-                                    rv -= 10; // 0 items last
-                                }
-                                if(!p2.hasInherited) {
-                                    rv += 10; // 0 items last
+                                if(p1.reservedForSort < p2.reservedForSort) {
+                                    return -1;
+                                } else if(p1.reservedForSort > p2.reservedForSort) {
+                                    return 1;
                                 }
                             }
 
@@ -921,6 +962,7 @@ public class DataPod {
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
+            p.base_xpath = base_xpath;
             Pea superP = getPea(type);
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
@@ -1007,8 +1049,16 @@ public class DataPod {
                     p.inheritFrom = sourceLocale;
                 }
             } else {
-                p.hasProps = true;
-                superP.hasProps = true;
+                if(!isInherited) {
+                    p.hasProps = true;
+                    superP.hasProps = true;
+                } else {
+                    // inherited, proposed
+                   // p.hasProps = true; // Don't mark as a proposal.
+                   // superP.hasProps = true;
+                   p.hasInherited=true;
+                   p.inheritFrom=sourceLocale;
+                }
             }
             
             String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.

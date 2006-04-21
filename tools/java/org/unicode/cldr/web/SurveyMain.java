@@ -2582,7 +2582,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
         }
     }
     DataPod.DisplaySet dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
-    boolean checkPartitions = dSet.partitions.length > 1; // only check if more than one partition    
+    boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
     // -----
     skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode);
     
@@ -2604,7 +2604,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
         if(checkPartitions) {
             for(int j = 0;j<dSet.partitions.length;j++) {
                 if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
-                    ctx.println("<tr style='font-size: 200%' class='heading'><th colspan='2'><i>" +
+                    ctx.println("<tr class='heading'><th align='left' colspan='5'><i>" +
                         "<a name='" + dSet.partitions[j].name + "'>" +
                         dSet.partitions[j].name + "</a>" +
                         "</i></th></tr>");
@@ -2895,6 +2895,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(true==false) {
         ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
     }
+///*srl*/    ctx.println("<div style='float: right; font-size: 200%; font-family: Georgia; color: white; text-shadow: green 0px 0px 8px;'>"+p.reservedForSort+"</div>");
     ctx.println("</th> </tr>");
     
     
@@ -3392,15 +3393,17 @@ showSearchMode = true;// all
     } // no multiple pages
     else {
         if(displaySet.partitions.length > 1) {
-            ctx.println("<br><b>Items:</b> ");
+            ctx.println("<br><b>Items:</b><ul>");
             for(int j=0;j<displaySet.partitions.length;j++) {
-                    ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
-                    ctx.print(displaySet.partitions[j].name + "</a></b> ");
+                ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
+                ctx.print(displaySet.partitions[j].name + "</a></b> ");
+                if(j<displaySet.partitions.length-1) {
+                    ctx.println("<br>");
+                }
             }
-            ctx.println("<br>");
+            ctx.println("</ul>");
         }
     }
-    //        ctx.println("</p>");
     ctx.println("</div>");
     return skip;
 }

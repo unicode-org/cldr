@@ -32,6 +32,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import com.ibm.icu.util.ULocale;
 
 public class CLDRDBSource extends XMLSource {
+    public boolean finalData = false; // show final, vetted data only?
     private static java.util.logging.Logger logger;
  // local things
     private Comments xpath_comments = new Comments(); // map from paths to comments.  (for now: empty. TODO: make this real)
@@ -117,6 +118,8 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement queryXpathPrefixes = null;
         public PreparedStatement keySet = null;
         public PreparedStatement keyASet = null;
+        public PreparedStatement keyVettingSet = null;
+        public PreparedStatement queryVetValue = null;
         public PreparedStatement queryIdStmt = null;
         public PreparedStatement querySource = null;
         public PreparedStatement querySourceInfo = null;
@@ -170,6 +173,12 @@ public class CLDRDBSource extends XMLSource {
             queryValue = prepareStatement("queryValue",
                 "SELECT value FROM " + CLDR_DATA +
                         " WHERE locale=? AND xpath=?"); // TODO: 1 need to be more specific! ! ! !
+
+            queryVetValue = prepareStatement("queryVetValue",
+                "SELECT CLDR_DATA.value FROM CLDR_RESULT," + CLDR_DATA +
+                        " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? AND "
+                            +" (CLDR_RESULT.locale=CLDR_DATA.locale) AND (CLDR_RESULT.result_xpath=CLDR_DATA.xpath)"); // TODO: 1 need to be more specific! ! ! !
+
             keyASet = prepareStatement("keyASet",
             /*
                 "SELECT "+CLDR_DATA+".xpath from "+
@@ -184,7 +193,9 @@ public class CLDRDBSource extends XMLSource {
             keySet = prepareStatement("keySet",
                 "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
-
+            keyVettingSet = prepareStatement("keyVettingSet",
+                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL" );
+                
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
 
@@ -599,20 +610,39 @@ public class CLDRDBSource extends XMLSource {
         }
     
         String locale = getLocaleID();
+        int xpath = xpt.getByXpath(path);
 //logger.info(locale + ":" + path);
 //        synchronized (conn) {
             try {
-                stmts.queryValue.setString(1,locale);
-                stmts.queryValue.setInt(2,xpt.getByXpath(path)); // TODO: 2 more specificity
-                ResultSet rs = stmts.queryValue.executeQuery();
+                ResultSet rs;
+                if(finalData) {
+                    stmts.queryVetValue.setString(1,locale);
+                    stmts.queryVetValue.setInt(2,xpath); // TODO: 2 more specificity
+                    rs = stmts.queryVetValue.executeQuery();
+                } else {
+                    stmts.queryValue.setString(1,locale);
+                    stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
+                    rs = stmts.queryValue.executeQuery();
+                }
                 String rv;
                 if(!rs.next()) {
-                    rs.close();
-//                    if(true && locale.equals("root")) { // TODO: check this later.
-//                        throw new InternalError("No value at root=" + locale + " path " + path);                    
-//                    }                    
-//logger.info(locale + ":" + path+" -> null");
-                  return null;
+                    if(!finalData) {
+                        rs.close();                    
+                        return null;
+                    } else {
+//                        System.err.println("Plan B, couldn't find "+ xpath + " - trying original");
+                        // plan B: look for original data
+                        stmts.queryValue.setString(1,locale);
+                        stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
+                        rs = stmts.queryValue.executeQuery();
+                        
+                        if(!rs.next()) {
+//                            System.err.println(" Plan B failed.");
+                            // NOW return null
+                            return null;
+                        }
+//                        System.err.println(" Plan B OK! - " + rs.getString(1));
+                    }                      
                 }
                 rv = rs.getString(1);
                 if(rs.next()) {
@@ -621,7 +651,7 @@ public class CLDRDBSource extends XMLSource {
                     throw new InternalError(complaint);                    
                 }
                 rs.close();
-//logger.info(locale + ":" + path+" -> " + rv);
+///*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
                 return rv;
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
@@ -645,6 +675,9 @@ public class CLDRDBSource extends XMLSource {
      * @param path cleaned path
      */
     public String getFullPathAtDPath(String path) {
+        if(finalData) {
+            return path; // TODO: investigate this.
+        }
         String locale = getLocaleID();
         int pathid = xpt.getByXpath(path); // note: want this to fail, or it will fill xpt with trash.
 //        if(nid < 0) {
@@ -723,11 +756,15 @@ public class CLDRDBSource extends XMLSource {
 
 
     public Iterator iterator(String prefix) {
-//com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        Iterator i =  prefixKeySet(prefix).iterator();
-//logger.info(et + " for iterator on " + getLocaleID());
-        return i;
-    }
+        if(finalData) {
+            return super.iterator(prefix);
+        } else {
+    //com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+            Iterator i =  prefixKeySet(prefix).iterator();
+    //logger.info(et + " for iterator on " + getLocaleID());
+            return i;
+        }
+     }
 
     /**
      * @deprecated
@@ -737,14 +774,23 @@ public class CLDRDBSource extends XMLSource {
         String locale = getLocaleID();
 //        synchronized (conn) {
             try {
-                stmts.keySet.setString(1,locale);
-                ResultSet rs = stmts.keySet.executeQuery();
+                ResultSet rs;
+                if(finalData==false) {
+                    stmts.keySet.setString(1,locale);
+                    rs = stmts.keySet.executeQuery();
+                } else {
+                    stmts.keyVettingSet.setString(1,locale);
+                    rs = stmts.keyVettingSet.executeQuery();
+                }
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
 //                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
-                    String xpath = (xpt.getById(rs.getInt(1)));
+                    int xpathid = rs.getInt(1);
+///*srl*/           if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
+                    
+                    String xpath = (xpt.getById(xpathid));
 /*                    if(-1!=xpath.indexOf("tlh")) {
                         xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
                         System.err.println("@tlh: " + xpath);
@@ -864,13 +910,19 @@ public class CLDRDBSource extends XMLSource {
             factory = nFactory; 
             xpt = nXpt; 
     }
-    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID, Connection conn, UserRegistry.User user) {
+    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID, Connection conn,
+        UserRegistry.User user) {
+        return createInstance(theDir, xpt, localeID, conn, user, false);
+    }
+    public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID,
+            Connection conn, UserRegistry.User user, boolean finalData) {
         CLDRFile.Factory afactory = CLDRFile.Factory.make(theDir,".*");
         CLDRDBSource result =  new CLDRDBSource(afactory, xpt);
         result.dir = theDir;
         result.setLocaleID(localeID.toString());
         result.initConn(conn, afactory);
         result.user = user;
+        result.finalData = finalData;
         return result;
     }
     

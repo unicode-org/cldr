@@ -457,6 +457,8 @@ public class SurveyMain extends HttpServlet {
             printMenu(actionCtx, action, "srl_vet_imp", "Update Implied Vetting", "action");       
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_res", "Update Results Vetting", "action");       
+            actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
         }
         actionCtx.println("<br>");
         
@@ -560,10 +562,10 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<br>");
         }
 
-        if(action.equals("db_update")) {
+        if(action.equals("srl_db_update")) {
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("dump",vap);
-            subCtx.addQuery("action","db_update");
+            subCtx.addQuery("action","srl_db_update");
             ctx.println("<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
             ElapsedTimer aTimer = new ElapsedTimer();
@@ -2260,26 +2262,43 @@ public void doRaw(WebContext ctx) {
 }
 
 public static final String XML_PREFIX="/xml/main";
+public static final String VXML_PREFIX="/vxml/main";
 
 public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
     String s = request.getPathInfo();
-    if((s==null)||(!s.startsWith(XML_PREFIX))) {
+    if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX))) {
         return false;
     }
 
+    boolean finalData = false;
     
-    if(s.equals(XML_PREFIX)) {
-        WebContext ctx = new WebContext(request,response);
-        response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
-        return true;
+    if(s.startsWith(VXML_PREFIX)) {
+        finalData = true;
+
+        if(s.equals(VXML_PREFIX)) {
+            WebContext ctx = new WebContext(request,response);
+            response.sendRedirect(ctx.schemeHostPort()+ctx.base()+VXML_PREFIX+"/");
+            return true;
+        }
+        s = s.substring(VXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+    } else {
+        if(s.equals(XML_PREFIX)) {
+            WebContext ctx = new WebContext(request,response);
+            response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
+            return true;
+        }
+        s = s.substring(XML_PREFIX.length()+1,s.length()); //   "foo.xml"
     }
-    s = s.substring(XML_PREFIX.length()+1,s.length()); //   "foo.xml"
     
     if(s.length() == 0) {
         WebContext ctx = new WebContext(request,response);
         response.setContentType("text/html; charset=utf-8");
-        ctx.println("<title>CLDR Data | All Locales</title>");
+        if(finalData) {
+            ctx.println("<title>CLDR Data | All Locales - Vetted Data</title>");
+        } else {
+            ctx.println("<title>CLDR Data | All Locales</title>");
+        }
         ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
         ctx.println("<h4>Locales</h4>");
         ctx.println("<ul>");
@@ -2316,7 +2335,7 @@ public boolean doRawXml(HttpServletRequest request, HttpServletResponse response
             throw new InternalError("No such locale: " + s);
         } else {
             response.setContentType("application/xml; charset=utf-8");
-            CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale));
+            CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale), finalData);
             CLDRFile file = makeCLDRFile(dbSource);
 //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
             file.write(response.getWriter());
@@ -2433,6 +2452,11 @@ CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale) {
                                                         getDBConnection(), user);
     return dbSource;
 }
+CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale, boolean finalData) {
+    CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
+                                                        getDBConnection(), user, finalData);
+    return dbSource;
+}
 static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
     return new CLDRFile(dbSource,false);
 }
@@ -2534,9 +2558,9 @@ String getSortMode(WebContext ctx, String prefix) {
     String sortMode = null;
     if(prefix.indexOf("timeZone")!=-1 ||
         prefix.indexOf("localeDisplayName")!=-1) {
-        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
     } else {
-        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_CODE); // all the rest get Code Mode
+        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_CODE); // all the rest get Code Mode
     }
     return sortMode;
 }

@@ -1949,14 +1949,15 @@ public class SurveyMain extends HttpServlet {
                 explanation = explanation + ", ";
             }
             explanation = explanation + "disputed";
-        }
-        if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
-            rv = rv + ("<span style='margin: 1px; padding: 1px;' class='insufficient'>");
-            if(explanation.length() >0) {
-                explanation = explanation + ", ";
-            }
-            explanation = explanation + "insufficient votes";
-        }
+        } else {
+			if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
+				rv = rv + ("<span style='margin: 1px; padding: 1px;' class='insufficient'>");
+				if(explanation.length() >0) {
+					explanation = explanation + ", ";
+				}
+				explanation = explanation + "insufficient votes";
+			}
+		}
         if(explanation.length()>0) {
             rv = rv + ("<span title='"+explanation+"'>");
         }
@@ -1964,10 +1965,9 @@ public class SurveyMain extends HttpServlet {
         if(explanation.length()>0) {
             rv = rv + ("</span>");
         }
-        if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
-            rv = rv + ("</span>");
-        }
         if((s&Vetting.RES_DISPUTED)>0) {
+            rv = rv + ("</span>");
+        } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
             rv = rv + ("</span>");
         }
         return rv;
@@ -2871,13 +2871,14 @@ boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSou
                         ctx.print("<tt class='codebox'>"+newType+"</tt>");
                         ctx.print(" added.. " + newRef +" @ " +uri);
                         someDidChange=true;
-                        lcr.invalidateLocale(oldPod.locale); // throw out this pod next time. TODO: move this to caller
                     }
                 }
             }
         }
     }
-    
+	if(someDidChange) {
+		lcr.invalidateLocale(oldPod.locale);
+	}
     return someDidChange;
 }
 
@@ -2955,7 +2956,6 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
             ctx.print(" <i>(removal)</i>");
         }
         ctx.println("<br>");
-        lcr.invalidateLocale(pod.locale); // throw out this pod next time. TODO move this to caller.
         return true;
     } else if(choice.equals(CONFIRM)) {
         if(oldVote != base_xpath) {

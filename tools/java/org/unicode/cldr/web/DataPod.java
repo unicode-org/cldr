@@ -1062,9 +1062,15 @@ public class DataPod {
             String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
             boolean isCodeFallback = (setInheritFrom!=null)&&
                 (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
-            if((checkCldr != null)&&(altProposed == null)) {
-                checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
-                checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
+            if((checkCldr != null)/*&&(altProposed == null)*/) {
+                if(altProposed == null) {
+                    checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
+                    checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
+                } else {
+                    // hose the Xpath off first
+                    checkCldr.check(baseXpath, baseXpath, value, options, checkCldrResult);
+                    checkCldr.getExamples(baseXpath, baseXpath, value, options, examplesResult);
+                }
             }
             DataPod.Pea.Item myItem;
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));

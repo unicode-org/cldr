@@ -31,6 +31,7 @@ public class Vetting {
     public static final String CLDR_RESULT = "cldr_result";
     public static final String CLDR_VET = "cldr_vet";
     public static final String CLDR_INTGROUP = "cldr_intgroup";
+    public static final String CLDR_STATUS = "cldr_status";
     
     
     public static final int VET_EXPLICIT = 0; // explicit
@@ -152,6 +153,31 @@ public class Vetting {
                 s.close();
                 conn.commit();
             }
+            if(!sm.hasTable(conn, CLDR_STATUS)) {
+                logger.info("Vetting DB: setting up " + CLDR_STATUS);
+                Statement s = conn.createStatement();
+                s.execute("create table " + CLDR_STATUS + " " +
+                                                        "(locale VARCHAR(20) NOT NULL, " +
+                                                        "type SMALLINT NOT NULL, "+
+                                                        "modtime TIMESTAMP NOT NULL, " +
+                                                        "unique(locale))");
+                s.execute("CREATE UNIQUE INDEX "+CLDR_STATUS+"_unique_loc on " + CLDR_STATUS +" (locale)");
+                s.close();
+                conn.commit();
+            }
+
+            if(!sm.hasTable(conn, CLDR_INTGROUP)) {
+                logger.info("Vetting DB: setting up " + CLDR_INTGROUP);
+                Statement s = conn.createStatement();
+                s.execute("create table " + CLDR_INTGROUP + " " +
+                                                        "(intgroup VARCHAR(20) NOT NULL, " +
+                                                        "last_sent_nag TIMESTAMP," +
+                                                        "last_sent_update TIMESTAMP," +
+                                                        "unique(intgroup))");
+                s.execute("CREATE UNIQUE INDEX "+CLDR_INTGROUP+"_unique_loc on " + CLDR_INTGROUP +" (intgroup)");
+                s.close();
+                conn.commit();
+            }
         }
     }
     
@@ -188,6 +214,12 @@ public class Vetting {
     PreparedStatement queryVoteId = null;
     PreparedStatement updateVote = null;
     PreparedStatement rmResult = null;
+    PreparedStatement queryTypes = null;
+    PreparedStatement insertStatus = null;
+    PreparedStatement updateStatus = null;
+    PreparedStatement queryStatus = null;
+    PreparedStatement staleResult = null;
+    PreparedStatement updateResult = null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -221,7 +253,18 @@ public class Vetting {
                 "delete from CLDR_RESULT where (locale=?)AND(base_xpath=?)");
             queryResult = prepareStatement("queryResult",
                 "select CLDR_RESULT.result_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
-                
+            queryTypes = prepareStatement("queryTypes",
+                "select distinct CLDR_RESULT.type from CLDR_RESULT where locale=?");
+            insertStatus = prepareStatement("insertStatus",
+                "insert into CLDR_STATUS (type,locale,modtime) values (?,?,CURRENT_TIMESTAMP)");
+            updateStatus = prepareStatement("updateStatus",
+                "update CLDR_STATUS set type=?,modtime=CURRENT_TIMESTAMP where locale=?");
+            queryStatus = prepareStatement("queryStatus",
+                "select type from CLDR_STATUS where locale=?");
+            staleResult = prepareStatement("staleResult",
+                "select CLDR_RESULT.id,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.locale=? AND exists (select * from CLDR_VET where (CLDR_VET.base_xpath=CLDR_RESULT.base_xpath) AND (CLDR_VET.locale=CLDR_RESULT.locale) AND (CLDR_VET.modtime>CLDR_RESULT.modtime))");
+            updateResult = prepareStatement("updateResult",
+                "update CLDR_RESULT set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?");
         }
     }
     
@@ -437,7 +480,8 @@ public class Vetting {
     }
     
     public int updateResults(String locale, int type[]) {
-        int count = 0;
+        int ncount = 0; // new count
+        int ucount = 0; // update count
         int updates = 0;
         int base_xpath=-1;
         // two lists here.
@@ -458,14 +502,32 @@ public class Vetting {
                 
                 ResultSet rs = missingResults.executeQuery();
                 while(rs.next()) {
-                    count++;
+                    ncount++;
                     base_xpath = rs.getInt(1);
                     
                     int rc = updateResults(-1, locale, base_xpath);
 
                     updates |= rc;
                 }
-                conn.commit();
+                if(ncount > 0) {
+                    conn.commit();
+                }
+                
+                // out of date
+                staleResult.setString(1,locale);
+                rs = staleResult.executeQuery();  // id, base_xpath
+                while(rs.next()) {
+                    ucount++;
+                    int id = rs.getInt(1);
+                    base_xpath = rs.getInt(2);
+                    
+                    int rc = updateResults(id, locale, base_xpath);
+    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+                    updates |= rc;
+                }
+                if(ucount > 0) {
+                    conn.commit();
+                }
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
                     "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
@@ -474,7 +536,7 @@ public class Vetting {
                 throw new RuntimeException(complaint);
             }
             type[0] = updates;
-            return count;
+            return ncount + ucount;
         }
     }
     
@@ -704,19 +766,21 @@ public class Vetting {
         if(type==-1) {
             throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+" - no type");
         }
+        
+        int setXpath = resultXpath;
+        if(setXpath==-1) {
+            setXpath = fallbackXpath;
+        }
+        
         if(id == -1) { 
             // insert 
         // insertResult: "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             insertResult.setInt(2,base_xpath);
 //System.err.println(base_xpath+"::fb="+fallbackXpath+", rx="+resultXpath);
-            if(resultXpath != -1) {
-                insertResult.setInt(3,resultXpath);
+            if(setXpath != -1) {
+                insertResult.setInt(3,setXpath);
             } else {
-                if(fallbackXpath != -1) {
-                    insertResult.setInt(3,fallbackXpath); // Won't be returned by getVote.. only in non-vetting situations
-                } else {
-                    insertResult.setNull(3,java.sql.Types.SMALLINT); // no fallback.
-                }
+                insertResult.setNull(3,java.sql.Types.SMALLINT); // no fallback.
             }
             insertResult.setInt(4,type);
             /*
@@ -732,8 +796,17 @@ public class Vetting {
             }
             return type;
         } else {
-            // have an id - update
-            throw new RuntimeException("Not implemented: update");
+            // get the old one
+            // ... for now, just do an update
+            // update CLDR_RESULT set vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
+            updateResult.setInt(1, setXpath);
+            updateResult.setInt(2, type);
+            updateResult.setInt(3, id);
+            int res = updateResult.executeUpdate();
+            if(res != 1) {
+                throw new RuntimeException(locale+":"+base_xpath+"@"+id+"="+resultXpath+ " ("+typeToStr(type)+") - update failed.");
+            }
+            return type;
         }
     }
     
@@ -789,12 +862,84 @@ public class Vetting {
                     insertVote.setInt(5,type);
                     insertVote.executeUpdate();
                 }
-                rmResult.setString(1,locale);
+      /*          rmResult.setString(1,locale);
                 rmResult.setInt(2,base_xpath);
                 rmResult.executeUpdate();
+*/
                 updateResults(locale);
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+    }
+    
+    // called from updateStatus(). 
+    // Assumes caller has lock.
+    private int updateStatus(String locale, boolean isUpdate) throws SQLException {
+        queryTypes.setString(1, locale);
+        ResultSet rs = queryTypes.executeQuery();
+        
+        int t = 0;
+        while(rs.next()) {
+            t |= rs.getInt(1);
+        }
+
+        if(isUpdate==true) {
+            updateStatus.setInt(1,t);
+            updateStatus.setString(2,locale);
+            return updateStatus.executeUpdate();
+        } else {
+            insertStatus.setInt(1,t);
+            insertStatus.setString(2,locale);
+            return insertStatus.executeUpdate();
+        }
+        
+    }
+    
+    int updateStatus() {
+        synchronized(conn) {
+            // missing ones 
+            int locs=0;
+            int count=0;
+            try {
+                Statement s = conn.createStatement();
+                ResultSet rs = s.executeQuery("select distinct CLDR_DATA.locale from CLDR_DATA where not exists ( select * from CLDR_STATUS where CLDR_STATUS.locale=CLDR_DATA.locale)");
+                while(rs.next()) {
+                    count += updateStatus(rs.getString(1), false);
+                    locs++;
+                }
+                conn.commit();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  update status - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+            return count;
+        }
+    }
+    
+    int status(String locale) {
+        synchronized(conn) {
+            // missing ones 
+            int locs=0;
+            int count=0;
+            try {
+                queryStatus.setString(1,locale);
+                ResultSet rs = queryStatus.executeQuery();
+                if(rs.next()) {
+                    int i = rs.getInt(1);
+                    rs.close();
+                    return i;
+                } else {
+                    rs.close();
+                    return -1;
+                }
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  query status - " + SurveyMain.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);

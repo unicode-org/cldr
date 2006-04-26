@@ -8,6 +8,11 @@
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
 	</head>
 	<body style='padding: 1em'>
+
+    <% if(request.getParameter("logout")!=null) { %> 
+        <i>You have been logged out. Thank you for using the Survey Tool.</i>
+    <% } %>
+
 		<h1>CLDR Web Applications</h1>
 		<ul>
 			<li><strong><a href="survey/">CLDR Survey Tool</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>

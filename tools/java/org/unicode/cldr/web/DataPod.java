@@ -193,7 +193,7 @@ public class DataPod {
         }
         
         String myFieldHash = null;
-        public synchronized String fieldHash() {
+        public String fieldHash() { // deterministic. No need for sync.
             if(myFieldHash == null) {
                 String ret = "";
                 if(type != null) {
@@ -231,17 +231,13 @@ public class DataPod {
         }
     }
 
-    Hashtable peasHash = new Hashtable();
-    String oldSortMode = null;
-    List peas = null;
+    Hashtable peasHash = new Hashtable(); // hashtable of type->Pea
  
     /**
      * get all peas.. unsorted.
      */
     public Collection getAll() {
-        synchronized(peasHash) {
-            return peasHash.values();
-        }
+        return peasHash.values();
     }
     
     public abstract class PartitionMembership {
@@ -278,6 +274,7 @@ public class DataPod {
      * A class representing a list of peas, in sorted and divided order.
      */
     public class DisplaySet {
+        String sortMode = null;
         public boolean canName = true; // can use the 'name' view?
         public List peas; // list of peas in sorted order
         public List displayPeas; // list of Strings suitable for display
@@ -293,6 +290,7 @@ public class DataPod {
         public DisplaySet(List myPeas, List myDisplayPeas, String sortMode) {
             peas = myPeas;
             displayPeas = myDisplayPeas;
+            this.sortMode = sortMode;
             
             // fetch partitions..
             Vector v = new Vector();
@@ -415,140 +413,140 @@ public class DataPod {
     }        
     
 
-    private DisplaySet oldDisplaySet = null;
-    String oldSortMode2 = "";
+    private Hashtable displayHash = new Hashtable();
+    
     public DisplaySet getDisplaySet(String sortMode) {
-        synchronized(peasHash) {
-            if(!oldSortMode2.equals(sortMode)) {
-                oldSortMode2 = sortMode;
-                oldDisplaySet = new DisplaySet(getList(sortMode), getDisplayList(sortMode), sortMode);
-                oldDisplaySet.canName = canName;
-            }
-            return oldDisplaySet;
+        DisplaySet aDisplaySet = (DisplaySet)displayHash.get(sortMode);
+        if(aDisplaySet == null)  {
+            aDisplaySet = new DisplaySet(getList(sortMode), getDisplayList(sortMode), sortMode);
+            aDisplaySet.canName = canName;
+            displayHash.put(sortMode, aDisplaySet);
         }
+        return aDisplaySet;
     }
+    
+    private Hashtable listHash = new Hashtable();  // hash of sortMode->pea
     
     /**
      * get a List of peas, in sorted order 
      */
     public List getList(String sortMode) {
-        synchronized(peasHash) {
-            if(!sortMode.equals(oldSortMode)) {
-                peas = null; /* throw out the old list - it's in the wrong order. */
-            }
-        
-            if((peas == null) /* || sortMode != curSortMode... */ ) {
-                Set newSet;
-                
+        List aList = (List)listHash.get(sortMode);
+        if(aList == null) {
+            Set newSet;
+            
 //                final com.ibm.icu.text.RuleBasedCollator rbc = 
 //                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
 //                rbc.setNumericCollation(true);
 
-                
-                if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-                    newSet = new TreeSet(new Comparator() {
+            
+            if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
+                newSet = new TreeSet(new Comparator() {
 //                        com.ibm.icu.text.Collator myCollator = rbc;
-                        public int compare(Object o1, Object o2){
-                            Pea p1 = (Pea) o1;
-                            Pea p2 = (Pea) o2;
-                            if(p1==p2) { 
-                                return 0;
-                            }
-                            return myCollator.compare(p1.type, p2.type);
+                    public int compare(Object o1, Object o2){
+                        Pea p1 = (Pea) o1;
+                        Pea p2 = (Pea) o2;
+                        if(p1==p2) { 
+                            return 0;
                         }
-                    });
-                } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                    newSet = new TreeSet(new Comparator() {
-                        int categorizePea(Pea p, Partition partitions[]) {
-                            int rv = -1;
-                            for(int i=0;i<partitions.length;i++) {
-                                if(partitions[i].pm.isMember(p)) {
-                                    rv = i;
-                                }
+                        return myCollator.compare(p1.type, p2.type);
+                    }
+                });
+            } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
+                newSet = new TreeSet(new Comparator() {
+                    int categorizePea(Pea p, Partition partitions[]) {
+                        int rv = -1;
+                        for(int i=0;i<partitions.length;i++) {
+                            if(partitions[i].pm.isMember(p)) {
+                                rv = i;
                             }
-                            if(rv==-1) {
+                        }
+                        if(rv==-1) {
 ///*srl*/                                System.err.println("Uncategorized pea: " + p.base_xpath);
-                            }
-                            return rv;
                         }
-                        final Partition[] warningSort = createTestPartitions();
+                        return rv;
+                    }
+                    final Partition[] warningSort = createTestPartitions();
 //                        com.ibm.icu.text.Collator myCollator = rbc;
-                        public int compare(Object o1, Object o2){
-                            Pea p1 = (Pea) o1;
-                            Pea p2 = (Pea) o2;
-                            
-                            if(p1==p2) {
-                                return 0;
-                            }
-                            
-                            int rv = 0; // neg:  a < b.  pos: a> b
-                            
-                            if(p1.reservedForSort==-1) {
-                                p1.reservedForSort = categorizePea(p1, warningSort);
-                            }
-                            if(p2.reservedForSort==-1) {
-                                p2.reservedForSort = categorizePea(p2, warningSort);
-                            }
-                            
-                            if(rv == 0) {
-                                if(p1.reservedForSort < p2.reservedForSort) {
-                                    return -1;
-                                } else if(p1.reservedForSort > p2.reservedForSort) {
-                                    return 1;
-                                }
-                            }
-
-                           if(rv == 0) { // try to avoid a compare
-                                int crv = myCollator.compare(p1.type, p2.type);
-                                if(crv < 0) {
-                                    rv -= 1;
-                                } else if(crv > 0) {
-                                    rv += 1;
-                                }
-                            }
-                            
-                            if(rv < 0) {
+                    public int compare(Object o1, Object o2){
+                        Pea p1 = (Pea) o1;
+                        Pea p2 = (Pea) o2;
+                        
+                        if(p1==p2) {
+                            return 0;
+                        }
+                        
+                        int rv = 0; // neg:  a < b.  pos: a> b
+                        
+                        if(p1.reservedForSort==-1) {
+                            p1.reservedForSort = categorizePea(p1, warningSort);
+                        }
+                        if(p2.reservedForSort==-1) {
+                            p2.reservedForSort = categorizePea(p2, warningSort);
+                        }
+                        
+                        if(rv == 0) {
+                            if(p1.reservedForSort < p2.reservedForSort) {
                                 return -1;
-                            } else if(rv > 0) {
+                            } else if(p1.reservedForSort > p2.reservedForSort) {
                                 return 1;
-                            } else {
-                                return 0;
                             }
                         }
-                    });
-                } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
-                    newSet = new TreeSet(new Comparator() {
-//                        com.ibm.icu.text.Collator myCollator = rbc;
-                        public int compare(Object o1, Object o2){
-                            Pea p1 = (Pea) o1;
-                            Pea p2 = (Pea) o2;
-                            if(p1==p2) { 
-                                return 0;
-                            }
+
+                       if(rv == 0) { // try to avoid a compare
+                            int crv;
                             String p1d = p1.displayName;
                             if(p1.displayName == null ) {
-                                    p1d = p1.type;
-//                                throw new InternalError("item p1 w/ null display: " + p1.type);
+                                p1d = p1.type;
                             }
                             String p2d = p2.displayName;
                             if(p2.displayName == null ) {
-                                    p2d = p2.type;
-//                                throw new InternalError("item p2 w/ null display: " + p2.type);
+                                p2d = p2.type;
                             }
                             return myCollator.compare(p1d, p2d);
                         }
-                    });
-                } else {
-                    throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
-                }
-                newSet.addAll(peasHash.values()); // sort it    
-                
-                peas = new ArrayList(); // list it (waste here??)
-                peas.addAll(newSet);
+                        
+                        if(rv < 0) {
+                            return -1;
+                        } else if(rv > 0) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                });
+            } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
+                newSet = new TreeSet(new Comparator() {
+//                        com.ibm.icu.text.Collator myCollator = rbc;
+                    public int compare(Object o1, Object o2){
+                        Pea p1 = (Pea) o1;
+                        Pea p2 = (Pea) o2;
+                        if(p1==p2) { 
+                            return 0;
+                        }
+                        String p1d = p1.displayName;
+                        if(p1.displayName == null ) {
+                                p1d = p1.type;
+//                                throw new InternalError("item p1 w/ null display: " + p1.type);
+                        }
+                        String p2d = p2.displayName;
+                        if(p2.displayName == null ) {
+                                p2d = p2.type;
+//                                throw new InternalError("item p2 w/ null display: " + p2.type);
+                        }
+                        return myCollator.compare(p1d, p2d);
+                    }
+                });
+            } else {
+                throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
             }
-            oldSortMode = sortMode;
-            return peas;
+            
+            newSet.addAll(peasHash.values()); // sort it    
+            
+            aList = new ArrayList(); // list it (waste here??)
+            aList.addAll(newSet);
         }
+        return aList;
     }
     
     /** Returns a list parallel to that of getList() but of Strings suitable for display. 

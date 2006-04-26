@@ -196,11 +196,12 @@ public class XPathTable {
         if(x==null) {
             return null;
         }
+
         String y = (String)xstringHash.get(x);
         if(y==null) {
             xstringHash.put(x,x);
             
-            addXpath(x);
+            //addXpath(x);
             
             return x;
         } else {

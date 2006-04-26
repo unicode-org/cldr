@@ -72,6 +72,7 @@ public class UserRegistry {
         public String name;     // full name
         public Date last_connect;
         public String locales;
+        public String intlocs = null;
         public String ip;
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
@@ -136,6 +137,7 @@ public class UserRegistry {
                                                     "audit varchar(1024) , " +
                                                     "locales varchar(1024) , " +
                                                     "prefs varchar(1024) , " +
+                                                    "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
                                                     "primary key(id))");
             s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
                                                     "VALUES(" + ADMIN +"," + 
@@ -194,11 +196,11 @@ public class UserRegistry {
         synchronized(conn) {
           insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
                                                     "VALUES(?,?,?,?,?,?)" );
-          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=? AND password=?",
+          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs from " + CLDR_USERS +" where email=? AND password=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel from " + CLDR_USERS +" where id=?",
+          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs from " + CLDR_USERS +" where id=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=?",
+          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
         }
       }finally{
@@ -341,6 +343,7 @@ public class UserRegistry {
                 u.userlevel = rs.getInt(3);
                 u.org = rs.getString(4);
                 u.locales = rs.getString(5);
+                u.intlocs = rs.getString(6);
                 
                 // good so far..
                 
@@ -384,14 +387,6 @@ public class UserRegistry {
         
        return u;   
     }
-    /*
-    public UserRegistry.User add(WebContext ctx, String email, String sponsor, String name, String requester) {
-        return null;
-    }
-    public boolean read() {
-        return false; // always broken
-    }
-    */
     
     Connection conn = null;
     SurveyMain sm = null;
@@ -411,9 +406,9 @@ public class UserRegistry {
 //            try {
                 s = conn.createStatement();
                 if(organization == null) {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales FROM " + CLDR_USERS + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs FROM " + CLDR_USERS + ORDER);
                 } else {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
                 }
 //            } finally  {
 //                s.close();
@@ -467,7 +462,11 @@ public class UserRegistry {
     }
 
     String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales) {
-        if(ctx.session.user.userlevel > TC) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
+        return setLocales(ctx, theirId, theirEmail, newLocales, false);
+    }
+    
+    String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales, boolean intLocs) {
+        if(!intLocs && ctx.session.user.userlevel > TC) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
             return ("[Permission Denied]");
         }
 
@@ -480,7 +479,8 @@ public class UserRegistry {
         }
         synchronized(conn) {
             try {
-                String theSql = "UPDATE " + CLDR_USERS + " SET locales=? WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
+                String theSql = "UPDATE " + CLDR_USERS + " SET "+
+                    (intLocs?"intlocs":"locales") + "=? WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
                 PreparedStatement ps = conn.prepareStatement(theSql);
       //           msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
                 logger.info("Attempt user locales update by " + ctx.session.user.email + ": " + theSql + " - " + newLocales);
@@ -496,6 +496,9 @@ public class UserRegistry {
                     logger.severe("Error: " + n + " records updated!");
                 } else {
                     msg = msg + " [locales set]";
+                    if(intLocs) { 
+                        return null;
+                    }
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);

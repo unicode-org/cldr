@@ -747,21 +747,25 @@ public class CLDRDBSource extends XMLSource {
         return s;
     }
     
+    Hashtable keySets = new Hashtable();
     public Iterator iterator() {
-//com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        Iterator i =  oldKeySet().iterator();
-//logger.info(et + " for iterator on " + getLocaleID());
-        return i;
+        String k = getLocaleID();
+        Set s = (Set)keySets.get(k);
+        if(s==null) {
+            s = oldKeySet();
+            keySets.put(k,s);
+        }
+        return s.iterator();
     }
 
 
     public Iterator iterator(String prefix) {
         if(finalData) {
-            return super.iterator(prefix);
+            return super.iterator(prefix); // no optimization for this, yet
         } else {
-    //com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+ //   com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
             Iterator i =  prefixKeySet(prefix).iterator();
-    //logger.info(et + " for iterator on " + getLocaleID());
+//    logger.info(et + " for iterator on " + getLocaleID() + " prefix " + prefix);
             return i;
         }
      }
@@ -971,6 +975,7 @@ public class CLDRDBSource extends XMLSource {
         return rs;
     }
     
+    /*
     public java.sql.ResultSet listForType(int xpath, String type) {
         return listForType(xpath, type, getLocaleID());
     }
@@ -990,6 +995,7 @@ public class CLDRDBSource extends XMLSource {
         }
         return rs;
     }
+    */
     private File[] getInFiles() {
         // 1. get the list of input XML files
         FileFilter myFilter = new FileFilter() {

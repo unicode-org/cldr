@@ -1,111 +1,112 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-    <identity>
- 		<version number="$Revision$"/>
+	<identity>
+		<version number="$Revision$"/>
 		<generation date="$Date$"/>
-        <language type="gaa"/>
-    </identity>
-    <characters>
-        <exemplarCharacters draft="true">[a-z]</exemplarCharacters>
-    </characters>
-    <delimiters>
-        <quotationStart draft="true">'</quotationStart>
-        <quotationEnd draft="true">'</quotationEnd>
-        <alternateQuotationStart draft="true">"</alternateQuotationStart>
-        <alternateQuotationEnd draft="true">"</alternateQuotationEnd>
-    </delimiters>
-    <measurement>
-        <measurementSystem type="metric" draft="true"/>
-    </measurement>
-    <dates>
-        <calendars>
-            <calendar type="gregorian">
-                <months>
-                    <monthContext type="format">
-                        <monthWidth type ="abbreviated">
-                            <month type="1" draft="true">Aha</month>
-                            <month type="2" draft="true">Ofl</month>
-                            <month type="3" draft="true">Och</month>
-                            <month type="4" draft="true">Abe</month>
-                            <month type="5" draft="true">Agb</month>
-                            <month type="6" draft="true">Otu</month>
-                            <month type="7" draft="true">Maa</month>
-                            <month type="8" draft="true">Man</month>
-                            <month type="9" draft="true">Gbo</month>
-                            <month type="10" draft="true">Ant</month>
-                            <month type="11" draft="true">Ale</month>
-                            <month type="12" draft="true">Afu</month>
-                        </monthWidth>
-                        <monthWidth type ="wide">
-                            <month type="1" draft="true">Aharabata</month>
-                            <month type="2" draft="true">Oflo</month>
-                            <month type="3" draft="true">Ochokrikri</month>
-                            <month type="4" draft="true">Abeibee</month>
-                            <month type="5" draft="true">Agbeinaa</month>
-                            <month type="6" draft="true">Otukwadan</month>
-                            <month type="7" draft="true">Maawe</month>
-                            <month type="8" draft="true">Manyawale</month>
-                            <month type="9" draft="true">Gbo</month>
-                            <month type="10" draft="true">Anton</month>
-                            <month type="11" draft="true">Alemle</month>
-                            <month type="12" draft="true">Afuabee</month>
-                        </monthWidth>
-                    </monthContext>
-                </months>
-                <days>
-                    <dayContext type="format">
-                        <dayWidth type ="abbreviated">
-                            <day type="sun" draft="true">Ho</day>
-                            <day type="mon" draft="true">Dzu</day>
-                            <day type="tue" draft="true">Dzf</day>
-                            <day type="wed" draft="true">Sho</day>
-                            <day type="thu" draft="true">Soo</day>
-                            <day type="fri" draft="true">Soh</day>
-                            <day type="sat" draft="true">Ho</day>
-                        </dayWidth>
-                        <dayWidth type ="wide">
-                            <day type="sun" draft="true">Hogbaa</day>
-                            <day type="mon" draft="true">Dzu</day>
-                            <day type="tue" draft="true">Dzufo</day>
-                            <day type="wed" draft="true">Sho</day>
-                            <day type="thu" draft="true">Soo</day>
-                            <day type="fri" draft="true">Sohaa</day>
-                            <day type="sat" draft="true">Ho</day>
-                        </dayWidth>
-                    </dayContext>
-                </days>
-                <week>
-                    <minDays count="1" draft="true"/>
-                    <firstDay day="mon" draft="true"/>
-                </week>
-                <am draft="true">LB</am>
-                <pm draft="true">SN</pm>
-                <eras>
-                    <eraNames>
-                        <era type="1" draft="true">KJ</era>
-                        <era type="0" draft="true">Dani Jesu</era>
-                    </eraNames>
-                    <eraAbbr>
-                        <era type="1" draft="true">KJ</era>
-                        <era type="0" draft="true">DJ</era>
-                    </eraAbbr>
-                </eras>
-            </calendar>
-        </calendars>
-    </dates>
-    <numbers>
-        <symbols>
-            <decimal draft="true">.</decimal>
-            <group draft="true">,</group>
-            <list draft="true">;</list>
-        </symbols>
-        <currencies>
-            <currency type="GHC">
-                <displayName draft="true">Sidi</displayName>
-               <symbol  draft="true">¢</symbol>
-                <symbol alt="variant" draft="true">₵</symbol>
-            </currency>
-        </currencies>
-    </numbers>
+		<language type="gaa"/>
+	</identity>
+	<characters>
+		<exemplarCharacters draft="true">[a-z]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="true">'</quotationStart>
+		<quotationEnd draft="true">'</quotationEnd>
+		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+	</delimiters>
+	<measurement>
+		<measurementSystem type="metric" draft="true"/>
+	</measurement>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">Aha</month>
+							<month type="2" draft="true">Ofl</month>
+							<month type="3" draft="true">Och</month>
+							<month type="4" draft="true">Abe</month>
+							<month type="5" draft="true">Agb</month>
+							<month type="6" draft="true">Otu</month>
+							<month type="7" draft="true">Maa</month>
+							<month type="8" draft="true">Man</month>
+							<month type="9" draft="true">Gbo</month>
+							<month type="10" draft="true">Ant</month>
+							<month type="11" draft="true">Ale</month>
+							<month type="12" draft="true">Afu</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="true">Aharabata</month>
+							<month type="2" draft="true">Oflo</month>
+							<month type="3" draft="true">Ochokrikri</month>
+							<month type="4" draft="true">Abeibee</month>
+							<month type="5" draft="true">Agbeinaa</month>
+							<month type="6" draft="true">Otukwadan</month>
+							<month type="7" draft="true">Maawe</month>
+							<month type="8" draft="true">Manyawale</month>
+							<month type="9" draft="true">Gbo</month>
+							<month type="10" draft="true">Anton</month>
+							<month type="11" draft="true">Alemle</month>
+							<month type="12" draft="true">Afuabee</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="true">Ho</day>
+							<day type="mon" draft="true">Dzu</day>
+							<day type="tue" draft="true">Dzf</day>
+							<day type="wed" draft="true">Sho</day>
+							<day type="thu" draft="true">Soo</day>
+							<day type="fri" draft="true">Soh</day>
+							<day type="sat" draft="true">Ho</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="true">Hogbaa</day>
+							<day type="mon" draft="true">Dzu</day>
+							<day type="tue" draft="true">Dzufo</day>
+							<day type="wed" draft="true">Sho</day>
+							<day type="thu" draft="true">Soo</day>
+							<day type="fri" draft="true">Sohaa</day>
+							<day type="sat" draft="true">Ho</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<minDays count="1" draft="true"/>
+					<firstDay day="mon" draft="true"/>
+				</week>
+				<am draft="true">LB</am>
+				<pm draft="true">SN</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">Dani Jesu</era>
+						<era type="1" draft="true">KJ</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="true">DJ</era>
+						<era type="1" draft="true">KJ</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal draft="true">.</decimal>
+			<group draft="true">,</group>
+			<list draft="true">;</list>
+		</symbols>
+		<currencies>
+			<currency type="GHC">
+				<displayName draft="true">Sidi</displayName>
+				<symbol draft="true">¢</symbol>
+				<symbol alt="variant" draft="true">₵</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
+

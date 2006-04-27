@@ -1,115 +1,116 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-    <identity>
+	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="ee"/>
-    </identity>
-    <characters>
-        <exemplarCharacters draft="true">[a b d ɖ e ɛ f ƒ g ɣ h x i k-n ŋ o ɔ p-v ʋ w y z]</exemplarCharacters>
-    </characters>
-    <delimiters>
-        <quotationStart draft="true">“</quotationStart>
-        <quotationEnd draft="true">”</quotationEnd>
-        <alternateQuotationStart draft="true">‘</alternateQuotationStart>
-        <alternateQuotationEnd draft="true">’</alternateQuotationEnd>
-    </delimiters>
-    <measurement>
-        <measurementSystem type="metric" draft="true"/>
-    </measurement>
-    <dates>
-        <calendars>
-            <calendar type="gregorian">
-                <months>
-                    <monthContext type="format">
-                        <monthWidth type ="abbreviated">
-                            <month type="1" draft="true">Dzv</month>
-                            <month type="2" draft="true">Dzd</month>
-                            <month type="3" draft="true">Ted</month>
-                            <month type="4" draft="true">Afɔ</month>
-                            <month type="5" draft="true">Dam</month>
-                            <month type="6" draft="true">Mas</month>
-                            <month type="7" draft="true">Sia</month>
-                            <month type="8" draft="true">Dea</month>
-                            <month type="9" draft="true">Any</month>
-                            <month type="10" draft="true">Kel</month>
-                            <month type="11" draft="true">Ade</month>
-                            <month type="12" draft="true">Dzm</month>
-                        </monthWidth>
-                        <monthWidth type ="wide">
-                            <month type="1" draft="true">Dzove</month>
-                            <month type="2" draft="true">Dzodze</month>
-                            <month type="3" draft="true">Tedoxe</month>
-                            <month type="4" draft="true">Afɔfiɛ</month>
-                            <month type="5" draft="true">Dama</month>
-                            <month type="6" draft="true">Masa</month>
-                            <month type="7" draft="true">Siamlɔm</month>
-                            <month type="8" draft="true">Deasiamime</month>
-                            <month type="9" draft="true">Anyɔnyɔ</month>
-                            <month type="10" draft="true">Kele</month>
-                            <month type="11" draft="true">Adeɛmekpɔxe</month>
-                            <month type="12" draft="true">Dzome</month>
-                        </monthWidth>
-                    </monthContext>
-                </months>
-                <days>
-                    <dayContext type="format">
-                        <dayWidth type ="abbreviated">
-                            <day type="sun" draft="true">Kɔs</day>
-                            <day type="mon" draft="true">Dzo</day>
-                            <day type="tue" draft="true">Bra</day>
-                            <day type="wed" draft="true">Kuɖ</day>
-                            <day type="thu" draft="true">Yaw</day>
-                            <day type="fri" draft="true">Fiɖ</day>
-                            <day type="sat" draft="true">Mem</day>
-                        </dayWidth>
-                        <dayWidth type ="wide">
-                            <day type="sun" draft="true">Kɔsiɖa</day>
-                            <day type="mon" draft="true">Dzoɖa</day>
-                            <day type="tue" draft="true">Braɖa</day>
-                            <day type="wed" draft="true">Kuɖa</day>
-                            <day type="thu" draft="true">Yawoɖa</day>
-                            <day type="fri" draft="true">Fiɖa</day>
-                            <day type="sat" draft="true">Memleɖa</day>
-                        </dayWidth>
-                    </dayContext>
-                </days>
-                <week>
-                    <minDays count="1" draft="true"/>
-                    <firstDay day="mon" draft="true"/>
-                </week>
-                <am draft="true">AN</am>
-                <pm draft="true">EW</pm>
-                <eras>
-                    <eraNames>
-                        <era type="1" draft="true">YŊ</era>
-                        <era type="0" draft="true">Hafi Yesu</era>
-                    </eraNames>
-                    <eraAbbr>
-                        <era type="1" draft="true">YŊ</era>
-                        <era type="0" draft="true">HY</era>
-                    </eraAbbr>
-                </eras>
-            </calendar>
-        </calendars>
-    </dates>
-    <numbers>
-        <symbols>
-            <decimal draft="true">.</decimal>
-            <group draft="true">,</group>
-            <list draft="true">;</list>
-        </symbols>
-        <currencies>
-            <currency type="GHC">
-                <displayName draft="true">Siɖi</displayName>
-                <symbol  draft="true">¢</symbol>
-                <symbol alt="variant" draft="true">₵</symbol>
-            </currency>
-            <currency type="XOF">
-                <displayName draft="true">Sefa</displayName>
-                <symbol draft="true">CFA</symbol>
-            </currency>
-        </currencies>
-    </numbers>
+	</identity>
+	<characters>
+		<exemplarCharacters draft="true">[a b d ɖ e ɛ f ƒ g ɣ h x i k-n ŋ o ɔ p-v ʋ w y z]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="true">“</quotationStart>
+		<quotationEnd draft="true">”</quotationEnd>
+		<alternateQuotationStart draft="true">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">’</alternateQuotationEnd>
+	</delimiters>
+	<measurement>
+		<measurementSystem type="metric" draft="true"/>
+	</measurement>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">Dzv</month>
+							<month type="2" draft="true">Dzd</month>
+							<month type="3" draft="true">Ted</month>
+							<month type="4" draft="true">Afɔ</month>
+							<month type="5" draft="true">Dam</month>
+							<month type="6" draft="true">Mas</month>
+							<month type="7" draft="true">Sia</month>
+							<month type="8" draft="true">Dea</month>
+							<month type="9" draft="true">Any</month>
+							<month type="10" draft="true">Kel</month>
+							<month type="11" draft="true">Ade</month>
+							<month type="12" draft="true">Dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="true">Dzove</month>
+							<month type="2" draft="true">Dzodze</month>
+							<month type="3" draft="true">Tedoxe</month>
+							<month type="4" draft="true">Afɔfiɛ</month>
+							<month type="5" draft="true">Dama</month>
+							<month type="6" draft="true">Masa</month>
+							<month type="7" draft="true">Siamlɔm</month>
+							<month type="8" draft="true">Deasiamime</month>
+							<month type="9" draft="true">Anyɔnyɔ</month>
+							<month type="10" draft="true">Kele</month>
+							<month type="11" draft="true">Adeɛmekpɔxe</month>
+							<month type="12" draft="true">Dzome</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="true">Kɔs</day>
+							<day type="mon" draft="true">Dzo</day>
+							<day type="tue" draft="true">Bra</day>
+							<day type="wed" draft="true">Kuɖ</day>
+							<day type="thu" draft="true">Yaw</day>
+							<day type="fri" draft="true">Fiɖ</day>
+							<day type="sat" draft="true">Mem</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="true">Kɔsiɖa</day>
+							<day type="mon" draft="true">Dzoɖa</day>
+							<day type="tue" draft="true">Braɖa</day>
+							<day type="wed" draft="true">Kuɖa</day>
+							<day type="thu" draft="true">Yawoɖa</day>
+							<day type="fri" draft="true">Fiɖa</day>
+							<day type="sat" draft="true">Memleɖa</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<minDays count="1" draft="true"/>
+					<firstDay day="mon" draft="true"/>
+				</week>
+				<am draft="true">AN</am>
+				<pm draft="true">EW</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">Hafi Yesu</era>
+						<era type="1" draft="true">YŊ</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="true">HY</era>
+						<era type="1" draft="true">YŊ</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal draft="true">.</decimal>
+			<group draft="true">,</group>
+			<list draft="true">;</list>
+		</symbols>
+		<currencies>
+			<currency type="GHC">
+				<displayName draft="true">Siɖi</displayName>
+				<symbol draft="true">¢</symbol>
+				<symbol alt="variant" draft="true">₵</symbol>
+			</currency>
+			<currency type="XOF">
+				<displayName draft="true">Sefa</displayName>
+				<symbol draft="true">CFA</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
+

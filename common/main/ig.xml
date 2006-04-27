@@ -1,110 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
-    <identity>
- 		<version number="$Revision$"/>
+	<identity>
+		<version number="$Revision$"/>
 		<generation date="$Date$"/>
-        <language type="ig"/>
-    </identity>
-    <characters>
-        <exemplarCharacters draft="true">[a b {ch} d e ẹ f g {gb} {gh} {gw} h i ị j k {kp} {kw} l-n {nw} {ny} ṅ o ọ p r s {sh} t u ụ v w y-z]</exemplarCharacters>
-    </characters>
-    <delimiters>
-        <quotationStart draft="true">“</quotationStart>
-        <quotationEnd draft="true">”</quotationEnd>
-        <alternateQuotationStart draft="true">‘</alternateQuotationStart>
-        <alternateQuotationEnd draft="true">’</alternateQuotationEnd>
-    </delimiters>
-    <measurement>
-        <measurementSystem type="metric" draft="true"/>
-    </measurement>
-    <dates>
-        <calendars>
-            <calendar type="gregorian">
-                <months>
-                    <monthContext type="format">
-                        <monthWidth type ="abbreviated">
-                            <month type="1" draft="true">Jen</month>
-                            <month type="2" draft="true">Feb</month>
-                            <month type="3" draft="true">Maa</month>
-                            <month type="4" draft="true">Epr</month>
-                            <month type="5" draft="true">Mee</month>
-                            <month type="6" draft="true">Juu</month>
-                            <month type="7" draft="true">Jul</month>
-                            <month type="8" draft="true">Ọgọ</month>
-                            <month type="9" draft="true">Sep</month>
-                            <month type="10" draft="true">Ọkt</month>
-                            <month type="11" draft="true">Nov</month>
-                            <month type="12" draft="true">Dis</month>
-                        </monthWidth>
-                        <monthWidth type ="wide">
-                            <month type="1" draft="true">Jenụwarị</month>
-                            <month type="2" draft="true">Febrụwarị</month>
-                            <month type="3" draft="true">Maachị</month>
-                            <month type="4" draft="true">Eprel</month>
-                            <month type="5" draft="true">Mee</month>
-                            <month type="6" draft="true">Juun</month>
-                            <month type="7" draft="true">Julaị</month>
-                            <month type="8" draft="true">Ọgọọst</month>
-                            <month type="9" draft="true">Septemba</month>
-                            <month type="10" draft="true">Ọktoba</month>
-                            <month type="11" draft="true">Novemba</month>
-                            <month type="12" draft="true">Disemba</month>
-                        </monthWidth>
-                    </monthContext>
-                </months>
-                <days>
-                    <dayContext type="format">
-                        <dayWidth type ="abbreviated">
-                            <day type="sun" draft="true">Ụka</day>
-                            <day type="mon" draft="true">Mọn</day>
-                            <day type="tue" draft="true">Tiu</day>
-                            <day type="wed" draft="true">Wen</day>
-                            <day type="thu" draft="true">Tọọ</day>
-                            <day type="fri" draft="true">Fraị</day>
-                            <day type="sat" draft="true">Sat</day>
-                        </dayWidth>
-                        <dayWidth type ="wide">
-                            <day type="sun" draft="true">Mbọsị Ụka</day>
-                            <day type="mon" draft="true">Mọnde</day>
-                            <day type="tue" draft="true">Tiuzdee</day>
-                            <day type="wed" draft="true">Wenezdee</day>
-                            <day type="thu" draft="true">Tọọzdee</day>
-                            <day type="fri" draft="true">Fraịdee</day>
-                            <day type="sat" draft="true">Satọdee</day>
-                        </dayWidth>
-                    </dayContext>
-                </days>
-                <week>
-                    <minDays count="1" draft="true"/>
-                    <firstDay day="sun" draft="true"/>
-                </week>
-                <am draft="true">A.M.</am>
-                <pm draft="true">P.M.</pm>
-                <eras>
-                    <eraNames>
-                        <era type="1" draft="true">Afọ Kristi</era>
-                        <era type="0" draft="true">Tupu Kristi</era>
-                    </eraNames>
-                    <eraAbbr>
-                        <era type="1" draft="true">A.K.</era>
-                        <era type="0" draft="true">T.K.</era>
-                    </eraAbbr>
-                </eras>
-            </calendar>
-        </calendars>
-    </dates>
-    <numbers>
-        <symbols>
-            <decimal draft="true">.</decimal>
-            <group draft="true">,</group>
-            <list draft="true">;</list>
-        </symbols>
-        <currencies>
-            <currency type="NGN">
-                <displayName draft="true">Naịra</displayName>
-                <symbol draft="true">₦</symbol>
-            </currency>
-        </currencies>
-    </numbers>
+		<language type="ig"/>
+	</identity>
+	<characters>
+		<exemplarCharacters draft="true">[a b {ch} d e ẹ f g {gb} {gh} {gw} h i ị j k {kp} {kw} l-n {nw} {ny} ṅ o ọ p r s {sh} t u ụ v w y-z]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="true">“</quotationStart>
+		<quotationEnd draft="true">”</quotationEnd>
+		<alternateQuotationStart draft="true">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">’</alternateQuotationEnd>
+	</delimiters>
+	<measurement>
+		<measurementSystem type="metric" draft="true"/>
+	</measurement>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">Jen</month>
+							<month type="2" draft="true">Feb</month>
+							<month type="3" draft="true">Maa</month>
+							<month type="4" draft="true">Epr</month>
+							<month type="5" draft="true">Mee</month>
+							<month type="6" draft="true">Juu</month>
+							<month type="7" draft="true">Jul</month>
+							<month type="8" draft="true">Ọgọ</month>
+							<month type="9" draft="true">Sep</month>
+							<month type="10" draft="true">Ọkt</month>
+							<month type="11" draft="true">Nov</month>
+							<month type="12" draft="true">Dis</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="true">Jenụwarị</month>
+							<month type="2" draft="true">Febrụwarị</month>
+							<month type="3" draft="true">Maachị</month>
+							<month type="4" draft="true">Eprel</month>
+							<month type="5" draft="true">Mee</month>
+							<month type="6" draft="true">Juun</month>
+							<month type="7" draft="true">Julaị</month>
+							<month type="8" draft="true">Ọgọọst</month>
+							<month type="9" draft="true">Septemba</month>
+							<month type="10" draft="true">Ọktoba</month>
+							<month type="11" draft="true">Novemba</month>
+							<month type="12" draft="true">Disemba</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="true">Ụka</day>
+							<day type="mon" draft="true">Mọn</day>
+							<day type="tue" draft="true">Tiu</day>
+							<day type="wed" draft="true">Wen</day>
+							<day type="thu" draft="true">Tọọ</day>
+							<day type="fri" draft="true">Fraị</day>
+							<day type="sat" draft="true">Sat</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="true">Mbọsị Ụka</day>
+							<day type="mon" draft="true">Mọnde</day>
+							<day type="tue" draft="true">Tiuzdee</day>
+							<day type="wed" draft="true">Wenezdee</day>
+							<day type="thu" draft="true">Tọọzdee</day>
+							<day type="fri" draft="true">Fraịdee</day>
+							<day type="sat" draft="true">Satọdee</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<minDays count="1" draft="true"/>
+					<firstDay day="sun" draft="true"/>
+				</week>
+				<am draft="true">A.M.</am>
+				<pm draft="true">P.M.</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">Tupu Kristi</era>
+						<era type="1" draft="true">Afọ Kristi</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="true">T.K.</era>
+						<era type="1" draft="true">A.K.</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal draft="true">.</decimal>
+			<group draft="true">,</group>
+			<list draft="true">;</list>
+		</symbols>
+		<currencies>
+			<currency type="NGN">
+				<displayName draft="true">Naịra</displayName>
+				<symbol draft="true">₦</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
+

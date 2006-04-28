@@ -2497,9 +2497,9 @@ public void doMain(WebContext ctx) {
     ctx.println("<hr/><p><p>");
     ctx.println("<h3>Basic information about the Locale</h3>");
     
-    ctx.print("  <p><i><font size='4'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+
+    ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+
                 "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
-                " <b>Submit</b> button!</font></i></li>    <li><i><font size='4'>"+
+                " <b>"+xSAVE+"</b> button!</font></i></li>    <li><i><font size='4'>"+
                             SLOW_PAGE_NOTICE+
                 "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
 //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"

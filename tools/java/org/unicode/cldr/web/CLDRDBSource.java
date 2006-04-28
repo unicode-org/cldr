@@ -527,7 +527,6 @@ public class CLDRDBSource extends XMLSource {
                     for(Iterator iter = getAvailableLocales().iterator();iter.hasNext();) {
                         int thisn = 0;
                         loc = (String)iter.next();
-                        if(loc.equals("aa")) System.err.println("@@ loc = " + loc);
                         ps.setString(1,loc);
                         ResultSet rs = ps.executeQuery();
                         while(rs.next()) {

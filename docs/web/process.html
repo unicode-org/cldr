@@ -323,6 +323,81 @@
 			<p><span style="background-color: #FFFF00">This process can be 
 			fine-tuned by the Technical Committee as needed, to resolve any 
 			problems that turn up.</span></p>
+			<p><span style="background-color: #FFFF00">Note:</span></p>
+			<ul>
+				<li><span style="background-color: #FFFF00">If data has a formal 
+				problem, it can be fixed directly (in CVS) without going through 
+				the above process. Examples include:</span><ul>
+					<li><span style="background-color: #FFFF00">syntactic 
+					problems in pattern, extra trailing spaces, inconsistent 
+					decimals, mechanical sweep sto change attributes, 
+					translatable characters not quoted in patterns, changing &#39; 
+					(punctuation mark) to curly apostrophe or s-cedilla to 
+					s-comma-below, removing disallowed exemplar characters (non 
+					letter, number, mark, uppercase when there is a lowercase).</span></li>
+					<li><span style="background-color: #FFFF00">These are 
+					changed in-place, without adding in new draft alternative.</span></li>
+				</ul>
+				</li>
+				<li><span style="background-color: #FFFF00">Bulk submissions of 
+				data can be done directly (CVS), with all new data marked 
+				draft=&quot;unconfirmed&quot;, but only the data passes the CheckCLDR 
+				console tests.</span></li>
+				<li><span style="background-color: #FFFF00">
+				Linguistically-sensitive data should always go through the 
+				survey tool. Examples include:</span><ul>
+					<li><span style="background-color: #FFFF00">names of months, 
+					territories, number formats, changing ascii apostrophe to 
+					U+02BC modifier letter apostrophe or U+02BB modifier letter 
+					turned comma, or U+02BD modifier letter reversed comma, 
+					adding/removing normal exemplar characters,...</span></li>
+				</ul>
+				</li>
+				<li><span style="background-color: #FFFF00">The survey tool does 
+				not currently handle all CLDR data. The regular bug system 
+				should be used to submit new data or ask for revisions of this 
+				data. In particular:</span><ul>
+					<li><span style="background-color: #FFFF00">Collation, 
+					transforms, or text segmentation, which are more complex.
+					</span>
+					<ul>
+						<li><span style="background-color: #FFFF00">For 
+						collation data, see the comparison charts at </span>
+						<a href="http://www.unicode.org/cldr/comparison_charts.html">
+						<span style="background-color: #FFFF00">
+						http://www.unicode.org/cldr/comparison_charts.html</span></a><span style="background-color: #FFFF00"> 
+						or the XML data at </span>
+						<a href="http://unicode.org/cldr/data/common/collation/">
+						<span style="background-color: #FFFF00">
+						http://unicode.org/cldr/data/common/collation/</span></a><span style="background-color: #FFFF00">
+						</span></li>
+						<li><span style="background-color: #FFFF00">For 
+						transforms, see the XML data at </span>
+						<a href="http://unicode.org/cldr/data/common/transforms/">
+						<span style="background-color: #FFFF00">
+						http://unicode.org/cldr/data/common/transforms/</span></a><span style="background-color: #FFFF00">
+						</span></li>
+					</ul>
+					</li>
+					<li><span style="background-color: #FFFF00">Non-linguistic 
+					locale data:</span><ul>
+						<li><span style="background-color: #FFFF00">XML data:
+						</span>
+						<a href="http://unicode.org/cldr/data/common/supplemental/">
+						<span style="background-color: #FFFF00">
+						http://unicode.org/cldr/data/common/supplemental/</span></a><span style="background-color: #FFFF00">
+						</span></li>
+						<li><span style="background-color: #FFFF00">HTML view:
+						</span>
+						<a href="http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html">
+						<span style="background-color: #FFFF00">
+						http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</span></a><span style="background-color: #FFFF00">
+						</span></li>
+					</ul>
+					</li>
+				</ul>
+				</li>
+			</ul>
           <h3>3.2 <a name="prioritization">Prioritization</a></h3>
           <p>There may be conflicting common practices or standards for a given country and 
           language. Thus LDML provides keyword variants to reflect the different practices. For 

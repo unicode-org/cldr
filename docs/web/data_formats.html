@@ -326,6 +326,22 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               <p>This finds the highest primary (that&#39;s what the 1 is for) character less than c, 
               and uses that as the reset point. For Maltese, the same technique needs to be used for 
               ġ and ż.</li>
+            	<li><span style="background-color: #FFFF00">Contractions can be 
+				blocked with CGJ, as described in the Unicode Standard and in 
+				the </span>
+				<a href="http://www.unicode.org/faq/char_combmark.html">
+				<span style="background-color: #FFFF00">Characters and Combining 
+				Marks FAQ</span></a><span style="background-color: #FFFF00">.</span></li>
+				<li><span style="background-color: #FFFF00">Normally all 
+				combinations of case need to be supplied for contractions. That 
+				is, if </span><i><span style="background-color: #FFFF00">ch</span></i><span style="background-color: #FFFF00"> 
+				is a contraction, then you would have the rules ... ch &lt; cH &lt; Ch 
+				&lt; CH. The reason for this is so that all case variants sort at 
+				the same primary level: thus lowercasing a string will not 
+				affect its primary order. Cases such as </span><i>
+				<span style="background-color: #FFFF00">McHugh</span></i><span style="background-color: #FFFF00"> 
+				are handled like other instances where contractions should be 
+				blocked.</span></li>
             </ol>
           </blockquote>
           <h2><a name="Exemplar">Exemplar Characters</a></h2>
@@ -360,7 +376,8 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             combinations, then we tend to list those separately. This is especially true of 
             combining marks. For example, if the orthography has a-z plus é, but doesn&#39;t use j and 
             w, then the main set could be: [a-i é k-v x-z].</span></p>
-            <p><span class="changed">If the sequence can&#39;t be represented as an NFC character, then 
+            <p><span class="changed">If the sequence can&#39;t be represented as a 
+			single NFC character, then 
             it needs the be represented with {}. So for <i>x-grave</i>, one would use [a-i é k-v x 
             {x̀} y-z]. On input, it is always safe to use {} or \u escapes where there is any doubt. 
             Thus the input set [abcde {e\u0300} {x\u0300}] will resolve to [a-e è {x̀}].</span></p>
@@ -374,8 +391,9 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <p><span class="changed">If characters can be used productively in combination with a 
             large number of others (such as say Indic matras), then we don&#39;t enumerate all the 
             possible combinations, we just list them separately, such as: </span></p>
-            <p><span class="changed">[‌ ‍ ॐ ०-९ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़ झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ 
-            र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ] </span></p>
+            <p><span style="background-color: #FFFF00">[ॐ ०-९ ऄ-ऋ ॠ ऌ ॡ ऍ-क {क़} 
+			ख {ख़} ग {ग़} घ-ज {ज़} झ-ड {ड़} ढ {ढ़} ण-फ {फ़} ब-य {य़} र-ह ़ ँ-ः 
+			॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ]</span></p>
             <h3>Restrictions</h3>
             <ol>
               <li><span class="changed">The sets should be restricted to those letters with a 
@@ -404,8 +422,17 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
                 but not </span></span><span class="changed">
                 <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
                 Default_Ignorable_Code_Point</a></span><span>).</span></li>
+				<li><span style="background-color: #FFFF00">Exceptional 
+				characters approved by the technical committee.</span></li>
               </ol>
               </li>
+            	<li><span style="background-color: #FFFF00">The characters 
+				should be in NFC.</span></li>
+				<li><span style="background-color: #FFFF00">The CGJ, used to 
+				block contractions in </span><a href="#Collation">
+				<span style="background-color: #FFFF00">Collation</span></a><span style="background-color: #FFFF00">, 
+				should not be part of the exemplar sets since its function is 
+				common across any language with contractions.</span></li>
             </ol>
           </blockquote>
           <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 

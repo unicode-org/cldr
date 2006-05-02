@@ -307,14 +307,21 @@
 			vetting process:</span></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">All non-conflicted 
-				fields are normally accepted, subject to a 
-				quorum. Once a field is accepted, the other proposals for that 
-				field are removed.</span></li>
+				fields that meet a quorum are normally approved.</span></li>
+				<li><span style="background-color: #FFFF00">Once a field is 
+				approved, the other proposals for that 
+				field are removed (or made into alternates, according to Technical Committee 
+				decision).</span></li>
 				<li><span style="background-color: #FFFF00">The quorum is at 
 				least one expert vetter, or at least two regular vetters from different 
 				organizations.</span></li>
-				<li><span style="background-color: #FFFF00">Conflicted fields 
-				can be decided by the Technical Committee, or remain conflicted 
+				<li><span style="background-color: #FFFF00">If the quorum is not 
+				met, then the data remains, marked as draft=&quot;unconfirmed&quot; if it 
+				has no votes, or draft=&quot;provisional&quot; if it has at least one 
+				vote.</span></li>
+				<li><span style="background-color: #FFFF00">The Technical Committee 
+				may decide to make a particular conflicted field <i>approved</i>, or 
+				have it remain conflicted 
 				(thus
 				<i>provisional </i>or<i> unconfirmed</i>).</span></li>
 				<li><span style="background-color: #FFFF00">The Technical 
@@ -323,26 +330,27 @@
 			<p><span style="background-color: #FFFF00">This process can be 
 			fine-tuned by the Technical Committee as needed, to resolve any 
 			problems that turn up.</span></p>
-			<p><span style="background-color: #FFFF00">Note:</span></p>
+			<p><span style="font-weight: 700; background-color: #FFFF00">Notes:</span></p>
 			<ul>
 				<li><span style="background-color: #FFFF00">If data has a formal 
 				problem, it can be fixed directly (in CVS) without going through 
 				the above process. Examples include:</span><ul>
 					<li><span style="background-color: #FFFF00">syntactic 
 					problems in pattern, extra trailing spaces, inconsistent 
-					decimals, mechanical sweep sto change attributes, 
+					decimals, mechanical sweeps to change attributes, 
 					translatable characters not quoted in patterns, changing &#39; 
 					(punctuation mark) to curly apostrophe or s-cedilla to 
-					s-comma-below, removing disallowed exemplar characters (non 
-					letter, number, mark, uppercase when there is a lowercase).</span></li>
+					s-comma-below, removing disallowed exemplar characters 
+					(non-letter, number, mark, uppercase when there is a 
+					lowercase).</span></li>
 					<li><span style="background-color: #FFFF00">These are 
-					changed in-place, without adding in new draft alternative.</span></li>
+					changed in-place, without changing the draft status.</span></li>
 				</ul>
 				</li>
 				<li><span style="background-color: #FFFF00">Bulk submissions of 
-				data can be done directly (CVS), with all new data marked 
-				draft=&quot;unconfirmed&quot;, but only the data passes the CheckCLDR 
-				console tests.</span></li>
+				new data can be done directly (CVS), with all new data marked 
+				draft=&quot;unconfirmed&quot;, but only where the data passes the 
+				CheckCLDR console tests.</span></li>
 				<li><span style="background-color: #FFFF00">
 				Linguistically-sensitive data should always go through the 
 				survey tool. Examples include:</span><ul>
@@ -350,13 +358,13 @@
 					territories, number formats, changing ascii apostrophe to 
 					U+02BC modifier letter apostrophe or U+02BB modifier letter 
 					turned comma, or U+02BD modifier letter reversed comma, 
-					adding/removing normal exemplar characters,...</span></li>
+					adding/removing normal exemplar characters.</span></li>
 				</ul>
 				</li>
 				<li><span style="background-color: #FFFF00">The survey tool does 
-				not currently handle all CLDR data. The regular bug system 
-				should be used to submit new data or ask for revisions of this 
-				data. In particular:</span><ul>
+				not currently handle all CLDR data. For data it doesn&#39;t cover, 
+				the regular bug system should be used to submit new data or ask 
+				for revisions of this data. In particular:</span><ul>
 					<li><span style="background-color: #FFFF00">Collation, 
 					transforms, or text segmentation, which are more complex.
 					</span>

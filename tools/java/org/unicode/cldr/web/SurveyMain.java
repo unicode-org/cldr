@@ -271,6 +271,15 @@ public class SurveyMain extends HttpServlet {
                 out.println("<hr>");
                 out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
                             " (you are unhappy visitor #" + pages + ")</i>");
+
+/** SRL **/
+                if(false) { // dump static tables.
+                    response.setContentType("application/xml; charset=utf-8");
+                    WebContext xctx = new WebContext(request,response);
+                    xctx.staticInfo();
+                    xctx.close();
+                }
+/** srl **/
                 return;        
             }
         }
@@ -445,6 +454,8 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "stats", "Stats", "action");       
             actionCtx.println(" | ");
+        printMenu(actionCtx, action, "statics", "Statics", "action");       
+            actionCtx.println(" | ");
         printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
@@ -482,8 +493,10 @@ public class SurveyMain extends HttpServlet {
             ctx.println("xString hash info: " + xpt.statistics() +"<br>");
             ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
             ctx.println("</div>");
-        }
-        if(action.equals("sessions"))  {
+        } else if(action.equals("statics")) {
+            ctx.println("<h1>Statics</h1>");
+            ctx.staticInfo();
+        } else if(action.equals("sessions"))  {
             ctx.println("<h1>Current Sessions</h1>");
             ctx.println("<table summary='User list' border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
             for(Iterator li = CookieSession.getAll();li.hasNext();) {
@@ -517,6 +530,15 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</td>");
                 
                 ctx.println("</tr>");
+                
+                if(cs.id.equals(ctx.field("see"))) {
+                    ctx.println("<tr><td colspan=5>");
+                    ctx.println("Stuff: " + cs.toString() + "<br>");
+                    ctx.staticInfo_Object(cs.stuff);
+                    ctx.println("<hr>Prefs: <br>");
+                    ctx.staticInfo_Object(cs.prefs);
+                    ctx.println("</td></tr>");
+                }
             }
             ctx.println("</table>");
         }
@@ -678,6 +700,7 @@ public class SurveyMain extends HttpServlet {
      * print menu of stuff to 'work with' a live user session..
      */
     private void printLiveUserMenu(WebContext ctx, CookieSession cs) {
+        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>" + "see" + "</a> |");
         ctx.println("<a href='" + ctx.base() + "?&amp;s=" + cs.id + "'>" + "be" + "</a> |");
         ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" + "kick" + "</a>");
     }
@@ -1054,7 +1077,8 @@ public class SurveyMain extends HttpServlet {
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocaleList = rs.getString(6);
-
+//                String theirIntLocs = rs.getString(7);
+//timestamp(8)
                 if((theirLevel > 10)||(theirLevel <= 1)) {
                     continue;
                 }
@@ -1384,6 +1408,7 @@ public class SurveyMain extends HttpServlet {
                 String theirOrg = rs.getString(5);
                 String theirLocales = rs.getString(6);                
                 String theirIntlocs = rs.getString(7);
+                java.sql.Timestamp theirLast = rs.getTimestamp(8);
                 boolean havePermToChange = UserRegistry.userCanModifyUser(ctx.session.user, theirId, theirLevel);
                 String theirTag = theirId + "_" + theirEmail; // ID+email - prevents stale data. (i.e. delete of user 3 if the rows change..)
                 String action = ctx.field(theirTag);
@@ -1541,6 +1566,12 @@ public class SurveyMain extends HttpServlet {
                         printLiveUserMenu(ctx, theUser);
                     }
                     ctx.println("</td>");
+                } else if(theirLast != null) {
+                    ctx.println("<td>");
+                    ctx.println("<b>Last Login:" + timeDiff(theirLast.getTime()) + " ago</b>");
+                    ctx.print("<br/><font size='-2'>");
+                    ctx.print(theirLast.toString());
+                    ctx.println("</font></td>");
                 }
                 
                 ctx.println("  </tr>");
@@ -2159,9 +2190,9 @@ public class SurveyMain extends HttpServlet {
         */
         return subtype;
     }
-        
-    public static final String CHECKCLDR = "_CheckCLDR";  // key for CheckCLDR objects by locale
-    public static final String CHECKCLDR_RES = "_CheckCLDR_RES";  // key for CheckCLDR objects by locale
+
+    public static final String CHECKCLDR = "CheckCLDR_";  // key for CheckCLDR objects by locale
+    public static final String CHECKCLDR_RES = "CheckCLDR_RES_";  // key for CheckCLDR objects by locale
     
     /**
         * show the actual locale data..
@@ -2180,44 +2211,18 @@ public class SurveyMain extends HttpServlet {
             doMain(ctx);
             return;
         }
-        
-        CLDRFile cf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-        if(cf == null) {
-            throw new InternalError("CLDRFile is null!");
-        }
-        CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-        if(ourSrc == null) {
-            throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
-        }
-        synchronized (ourSrc) {
-            // Set up checks
-            CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
-            if (checkCldr == null)   {
-                List checkCldrResult = new ArrayList();
-//                logger.info("Initting tests . . . - "+ctx.locale+"|" + (USER_FILE + CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
-                long t0 = System.currentTimeMillis();
-                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
-                
-                checkCldr.setDisplayInformation(getEnglishFile());
-                if(cf==null) {
-                    throw new InternalError("cf was null.");
-                }
-                checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult);
-                //logger.info("fileToCheck set . . . on "+ checkCldr.toString());
-                ctx.putByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype(), checkCldr);
-                {
-                    // sanity check: can we get it back out
-                    CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR+":"+ctx.defaultPtype());
-                    if(subCheckCldr == null) {
-                        throw new InternalError("subCheckCldr == null");
-                    }
-                }
-                if(!checkCldrResult.isEmpty()) {
-                    ctx.putByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype(), checkCldrResult); // don't bother if empty . . .
-                }
-                long t2 = System.currentTimeMillis();
-                //logger.info("Time to init tests: " + (t2-t0));
+        synchronized (ctx.session) { // session sync
+            UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            CLDRFile cf = uf.cldrfile;
+            if(cf == null) {
+                throw new InternalError("CLDRFile is null!");
             }
+            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            if(ourSrc == null) {
+                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+            }
+            // Set up checks
+            CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
             
             // Locale menu
             if((which == null) ||
@@ -2293,7 +2298,7 @@ public class SurveyMain extends HttpServlet {
             }
             
             {
-                List checkCldrResult = (List)ctx.getByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype()); // don't bother if empty . . .
+                List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.defaultPtype());
 
                 if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
                     (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
@@ -2389,6 +2394,8 @@ public class SurveyMain extends HttpServlet {
 }
 
 public void doRaw(WebContext ctx) {
+    ctx.println("raw not supported currently. ");
+/*
     CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
     
     ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
@@ -2402,7 +2409,7 @@ public void doRaw(WebContext ctx) {
     //                    hexXML.transliterate(asString);
     String asHtml = TransliteratorUtilities.toHTML.transliterate(asString);
     ctx.println(asHtml);
-    ctx.println("</pre>");
+    ctx.println("</pre>");*/
 }
 
 public static final String XML_PREFIX="/xml/main";
@@ -2543,6 +2550,7 @@ private final Hashtable getNodeHash() {
 **/
 
 public static final String USER_FILE = "UserFile";
+public static final String USER_FILE_KEY = "UserFileKey";
 public static final String CLDRDBSRC = "_source";
 
 private static CLDRFile gEnglishFile = null;
@@ -2567,29 +2575,86 @@ public synchronized CLDRFile getEnglishFile(/*CLDRDBSource ourSrc*/) {
 public synchronized String getDirectionFor(ULocale locale) {
     // Hackness:
     String locStr = locale.toString();
+    String script = locale.getScript();
     if(locStr.startsWith("ps") ||
        locStr.startsWith("fa") ||
        locStr.startsWith("ar") ||
        locStr.startsWith("syr") ||
        locStr.startsWith("he") ||
-       locStr.startsWith("uz_Arab")) {
+       "Arab".equals(script)) {
         return "rtl";
     } else {
         return "ltr";
     }
 }
 
-CLDRFile getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
-    CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
-    if(file == null) {
-        CLDRDBSource dbSource = makeDBSource(user, locale);
-        file = makeCLDRFile(dbSource);
-        
-        ctx.putByLocale(USER_FILE,file); 
-        String srcKey = USER_FILE + CLDRDBSRC;
-        ctx.putByLocale(srcKey,dbSource);  // TODO: remove. for debugging.
+public class UserLocaleStuff extends Registerable {
+    public CLDRFile cldrfile = null;
+    public CLDRDBSource dbSource = null;
+    public Hashtable hash = new Hashtable();
+    
+    public UserLocaleStuff(String locale) {
+        super(lcr, locale);
+//System.err.println("Adding ULS:"+locale);
     }
-    return file;
+    
+    public void clear() {
+        hash.clear();        
+        // TODO: try just kicking these instead of clearing?
+        cldrfile=null;
+        dbSource=null;
+        setValid();
+    }
+    
+    public CheckCLDR getCheck(WebContext ctx) {
+        CheckCLDR checkCldr = (CheckCLDR)hash.get(CHECKCLDR+ctx.defaultPtype());
+        if (checkCldr == null)   {
+            List checkCldrResult = new ArrayList();
+//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+//            long t0 = System.currentTimeMillis();
+            checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+            
+            checkCldr.setDisplayInformation(getEnglishFile());
+            if(cldrfile==null) {
+                throw new InternalError("cldrfile was null.");
+            }
+            checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(), checkCldrResult);
+//            logger.info("fileToCheck set . . . on "+ checkCldr.toString());
+            hash.put(CHECKCLDR+ctx.defaultPtype(), checkCldr);
+            if(!checkCldrResult.isEmpty()) {
+                hash.put(CHECKCLDR_RES+ctx.defaultPtype(), checkCldrResult);
+            }
+//            long t2 = System.currentTimeMillis();
+//            logger.info("Time to init tests: " + (t2-t0));
+        }
+        return checkCldr;
+    }
+};
+
+UserLocaleStuff getOldUserFile(WebContext ctx) {
+    UserLocaleStuff uf = (UserLocaleStuff)ctx.getByLocale(USER_FILE_KEY);
+    return uf;
+}
+
+UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
+    // has this locale been invalidated?
+    UserLocaleStuff uf = getOldUserFile(ctx);
+    
+    if(uf == null) {
+        uf = new UserLocaleStuff(locale.toString());
+        ctx.putByLocale(USER_FILE_KEY, uf);
+        uf.register(); // register with lcr
+    } else if(!uf.isValid()) {
+//        System.err.println("Invalid, clearing: "+ uf.toString());
+        uf.clear();
+        uf.register(); // reregister
+    }
+    
+    if(uf.cldrfile == null) {
+        uf.dbSource = makeDBSource(user, locale);
+        uf.cldrfile = makeCLDRFile(uf.dbSource);
+    }
+    return uf;
 }
 CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale) {
     CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
@@ -2623,8 +2688,9 @@ public void showLocaleCodeList(WebContext ctx, String which) {
 * This is the main function for showing lists of items (pods).
  */
 public void showPathList(WebContext ctx, String xpath, String lastElement) {
-    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-    CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
+    UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
+    CLDRDBSource ourSrc = uf.dbSource;
+    CLDRFile cf =  uf.cldrfile;
     String fullThing = xpath + "/" + lastElement;
     boolean isTz = xpath.equals("timeZoneNames");
     if(lastElement == null) {
@@ -2683,7 +2749,8 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
             if(canModify) {
                 DataPod oldPod = ctx.getExistingPod(fullThing);
                 if(processPeaChanges(ctx, oldPod, cf, ourSrc)) {
-                    ctx.println("<br> You submitted some new data. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+                    int j = vet.updateResults(oldPod.locale); // bach 'em
+                    ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
                 }
             }
     //        System.out.println("Pod's full thing: " + fullThing);
@@ -2717,10 +2784,11 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     
     //       total = mySet.count();
     //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-    CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
-    //    CLDRFile engf = getEnglishFile();
-    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-    CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
+    UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
+    CLDRFile cf = uf.cldrfile;
+        //    CLDRFile engf = getEnglishFile();
+    CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+    CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
     XPathParts pathParts = new XPathParts(null, null);
     XPathParts fullPathParts = new XPathParts(null, null);
     List checkCldrResult = new ArrayList();
@@ -2906,6 +2974,10 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
     } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
          choice.equals(REMOVE) ) {
+        if(!UserRegistry.userCanSubmitAnyLocale(ctx.session.user)) {
+            ctx.println("You are not allowed to submit data at this time.<br>");
+            return false;
+        }
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -2951,15 +3023,19 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         }
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
             altPrefix, ctx.session.user.id, choice_v, choice_r);
+        // update implied vote
         ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp+"</b>");
         if(choice.equals(REMOVE)) {
             ctx.print(" <i>(removal)</i>");
         }
+        doUnVote(ctx, pod.locale, base_xpath);
+        int n = vet.updateImpliedVotes(pod.locale);
+        ctx.println("updated " + n + " implied votes due to new data submission.");
         ctx.println("<br>");
         return true;
     } else if(choice.equals(CONFIRM)) {
         if(oldVote != base_xpath) {
-            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + "<b>");
+            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + "<br>");
             return doVote(ctx, pod.locale, base_xpath); // vote with xpath
         }
     } else if (choice.equals(DONTCARE)) {
@@ -2996,12 +3072,21 @@ boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
     return true;
 }
 
+int doUnVote(WebContext ctx, String locale, int base_xpath) {
+    // TODO: checks
+    int rs = vet.unvote( locale,  base_xpath, ctx.session.user.id);
+    lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+    return rs;
+}
+
 // TODO: trim unused params
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
     //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
     //    return;
     //}
+    
+    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user);
 
     boolean showedRemoveButton = false; 
     String fullPathFull = pod.xpath(p); 
@@ -3283,7 +3368,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
 
             {       
             */         
-                ctx.println("Examples: ");
+//                ctx.println("Examples: ");
                 boolean first = true;
                 for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
                     DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
@@ -3345,14 +3430,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.print("<td nowrap valign='top' align='right'>");
         if(!p.confirmOnly) {
             ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
-            if(canModify) {
+            if(canModify && canSubmit) {
                 ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
             } else {
                 ctx.print("<input type='radio' disabled>");
             }
         }
         ctx.println("</td>");
-        if(canModify && !p.confirmOnly) {
+        if(canSubmit && canModify && !p.confirmOnly) {
             ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'  class='inputbox'></td>");
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");
@@ -4174,7 +4259,7 @@ private void doStartupDB()
             String ourXpath = "//ldml/numbers";
             
             System.out.println("xpath xpt.getByXpath("+ourXpath+") = " + sm.xpt.getByXpath(ourXpath));
-            
+/*            
             
             if(arg.length>0) {
                 WebContext xctx = new WebContext(false);
@@ -4186,6 +4271,7 @@ private void doStartupDB()
                     
                     WebContext ctx = xctx;
                     System.out.println("  - loading CLDRFile and stuff");
+                    UserLocaleStuff uf = sm.getUserFile(...
                     CLDRFile cf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
                     if(cf == null) {
                         throw new InternalError("CLDRFile is null!");
@@ -4199,8 +4285,9 @@ private void doStartupDB()
                         List checkCldrResult = new ArrayList();
                         System.err.println("Initting tests . . .");
                         long t0 = System.currentTimeMillis();
-                        checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
-                        
+        */
+                      //  checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+        /*                
                         checkCldr.setDisplayInformation(sm.getEnglishFile());
                         if(cf==null) {
                             throw new InternalError("cf was null.");
@@ -4221,9 +4308,10 @@ private void doStartupDB()
                         long t2 = System.currentTimeMillis();
                         System.err.println("Time to init tests " + arg[i]+": " + (t2-t0));
                     }
-
                     System.err.println("getPod:");
                     xctx.getPod("//ldml/numbers");
+*/
+                
                 /*
                     System.out.println("loading dbsource for " + arg[i]);
                     CLDRDBSource dbSource = CLDRDBSource.createInstance(sm.fileBase, sm.xpt, new ULocale(arg[i]),
@@ -4238,10 +4326,12 @@ private void doStartupDB()
                     check.setCldrFileToCheck(my, options, result); 
                     System.out.println("file set .. done with " + arg[i]);
                 */
+    /*
                 }
             } else {
                 System.out.println("No locales listed");
             }
+    */
             
             System.out.println("done...");
             sm.doShutdownDB();

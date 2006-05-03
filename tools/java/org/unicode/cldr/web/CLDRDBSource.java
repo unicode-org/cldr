@@ -751,6 +751,7 @@ public class CLDRDBSource extends XMLSource {
         String k = getLocaleID();
         Set s = (Set)keySets.get(k);
         if(s==null) {
+//            System.err.println("CCLCDRDBSource iterator: " + k);
             s = oldKeySet();
             keySets.put(k,s);
         }

@@ -12,6 +12,8 @@ import java.io.*;
 import java.util.*;
 import org.unicode.cldr.util.*;
 import com.ibm.icu.util.ULocale;
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.lang.ref.SoftReference;
 
 // servlet imports
@@ -316,21 +318,17 @@ public class WebContext {
         locale = l;
         String parents = null;
         Vector localesVector = new Vector();
-        Vector docsVector = new Vector();
         parents = l.toString();
         if(false) { // TODO: change
             do {
                 try {
-                    Document d = sm.fetchDoc(parents);
                     localesVector.add(parents);
-                    docsVector.add(d);
                 } catch(Throwable t) {
                     logger.log(java.util.logging.Level.SEVERE,"Error fetching " + parents + "<br/>",t);
                     // error is shown elsewhere.
                 }
                 parents = getParent(parents);
             } while(parents != null);
-            doc = (Document[])docsVector.toArray(doc);
             docLocale = (String[])localesVector.toArray(docLocale);
             logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
         } else {
@@ -371,6 +369,63 @@ public class WebContext {
     
     // Static data
     static Hashtable staticStuff = new Hashtable();
+    
+    public int staticInfo_Reference(Object o) {
+        int s = 0;
+        Object oo = ((Reference)o).get();
+        println("Reference -&gt; <ul>");
+        s += staticInfo_Object(oo);
+        println("</ul>");
+        return s;
+    }
+    
+    public int staticInfo_DataPod(Object o) {
+        int s = 0;
+        DataPod pod = (DataPod)o;
+        
+        print(o.toString());
+        
+        return 1;
+    }
+
+    public int staticInfo_Object(Object o) {
+        if(o == null) {
+            println("null");
+            return 0;
+        } else if(o instanceof Reference) {
+            return staticInfo_Reference(o);
+        } else if(o instanceof Hashtable) {
+            return staticInfo_Hashtable(o);
+        } else if(o instanceof DataPod) {
+            return staticInfo_DataPod(o);
+        } else { 
+            println(o.getClass().toString());
+            return 1;
+        }
+    }
+    
+    public int staticInfo_Hashtable(Object o) {
+        int s = 0;
+        Hashtable subHash = (Hashtable)o;
+        println("<ul>");
+        for(Iterator ee = subHash.keySet().iterator();ee.hasNext();) {
+            String kk = ee.next().toString();
+            println(kk + ":");
+            Object oo = subHash.get(kk);
+            s += staticInfo_Object(oo);
+            println("<br>");
+        }
+        println("</ul>");
+        return s;
+    }
+    
+    public final int staticInfo() {
+        println("<h4>Static Info</h4>");
+        int s = staticInfo_Object(staticStuff);
+        println(staticStuff.size() + " locales, " + s+ " sub items.");
+        println("<hr>");
+        return s;
+    }
     
     public final void putByLocaleStatic(String key, Object value) {
         putByLocaleStatic(key, locale, value);
@@ -468,7 +523,7 @@ public class WebContext {
     
     DataPod getExistingPod(String prefix, String ptype) {
         synchronized(this) {
-            SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
+            Reference sr = (Reference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
             if(sr == null) {
                 return null; // wasn't never there
             }
@@ -492,7 +547,7 @@ public class WebContext {
         String loadString = "data was loaded.";
         synchronized(this) {
             DataPod pod = getExistingPod(prefix, ptype);
-            if((pod != null) && (!pod.isValid(sm.lcr))) {
+            if((pod != null) && (!pod.isValid())) {
                 pod = null;
                 loadString = "data was re-loaded due to a new user submission.";
             }
@@ -504,7 +559,7 @@ public class WebContext {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
                 synchronized (staticStuff) {
-                    pod.register(sm.lcr);
+                    pod.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
                       putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference(pod)); // PUT******
                       putByLocale("__keeper:"+prefix+":"+ptype, pod); // put into user's hash so it wont go out of scope

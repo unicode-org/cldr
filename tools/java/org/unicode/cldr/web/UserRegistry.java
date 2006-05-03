@@ -62,6 +62,7 @@ public class UserRegistry {
     PreparedStatement queryStmt = null;
     PreparedStatement queryIdStmt = null;
     PreparedStatement queryEmailStmt = null;
+    PreparedStatement touchStmt = null;
     
     public class User {
         public int    id;  // id number
@@ -70,7 +71,7 @@ public class UserRegistry {
         public String email;    // 
         public String org;  // organization
         public String name;     // full name
-        public Date last_connect;
+        public java.sql.Timestamp last_connect;
         public String locales;
         public String intlocs = null;
         public String ip;
@@ -138,7 +139,8 @@ public class UserRegistry {
                                                     "locales varchar(1024) , " +
                                                     "prefs varchar(1024) , " +
                                                     "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                    "primary key(id))");
+                                                    "lastlogin TIMESTAMP, " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                    "primary key(id))"); 
             s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
                                                     "VALUES(" + ADMIN +"," + 
                                                     "'admin'," + 
@@ -196,12 +198,13 @@ public class UserRegistry {
         synchronized(conn) {
           insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
                                                     "VALUES(?,?,?,?,?,?)" );
-          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs from " + CLDR_USERS +" where email=? AND password=?",
+          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
           queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs from " + CLDR_USERS +" where id=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs from " + CLDR_USERS +" where email=?",
+          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            touchStmt = conn.prepareStatement("UPDATE CLDR_USERS set lastlogin=CURRENT_TIMESTAMP where id=?");
         }
       }finally{
         if(queryStmt == null) {
@@ -212,6 +215,9 @@ public class UserRegistry {
         }
         if(insertStmt == null) {
             logger.severe("insertStmt failed to initialize");
+        }
+        if(touchStmt == null) {
+            logger.severe("touchStmt failed to initialize");
         }
       }
     }
@@ -344,6 +350,7 @@ public class UserRegistry {
                 u.org = rs.getString(4);
                 u.locales = rs.getString(5);
                 u.intlocs = rs.getString(6);
+                u.last_connect = rs.getTimestamp(7);
                 
                 // good so far..
                 
@@ -353,6 +360,10 @@ public class UserRegistry {
                     return null;
                 }
                 logger.info("Login: " + email + " @ " + ip);
+                touchStmt.setInt(1, u.id);
+                touchStmt.executeUpdate();
+                conn.commit();
+                
                 return u;
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se),se);
@@ -406,9 +417,9 @@ public class UserRegistry {
 //            try {
                 s = conn.createStatement();
                 if(organization == null) {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs FROM " + CLDR_USERS + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS + ORDER);
                 } else {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
                 }
 //            } finally  {
 //                s.close();
@@ -751,6 +762,12 @@ public class UserRegistry {
         if(u==null) return false; // no user, no dice
         if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanModifyLocale(u,locale);
+    }
+
+    static final boolean userCanSubmitAnyLocale(User u) {
+        if(u==null) return false; // no user, no dice
+        if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
+        return userCanSubmit(u);
     }
 
     static final boolean userCanVetLocale(User u, String locale) {

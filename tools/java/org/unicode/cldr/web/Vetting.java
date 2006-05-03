@@ -208,6 +208,7 @@ public class Vetting {
     PreparedStatement queryVoteForXpath = null;
     PreparedStatement queryVoteForBaseXpath = null;
     PreparedStatement missingResults = null;
+    PreparedStatement rmVote = null;
     PreparedStatement dataByBase = null;
     PreparedStatement insertResult = null;
     PreparedStatement queryResult = null;
@@ -237,6 +238,8 @@ public class Vetting {
                 "insert into CLDR_VET (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
             queryVote = prepareStatement("queryVote",
                 "select CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
+            rmVote = prepareStatement("rmVote",
+                "delete from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
             queryVoteId = prepareStatement("queryVoteId",
                 "select CLDR_VET.id from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
             updateVote = prepareStatement("updateVote",
@@ -279,7 +282,9 @@ public class Vetting {
             String fileName = inFiles[i].getName();
             int dot = fileName.indexOf('.');
             String localeName = fileName.substring(0,dot);
-            System.err.println(localeName + " - "+i+"/"+nrInFiles);
+            if((i%100)==0) {
+                System.err.println(localeName + " - "+i+"/"+nrInFiles);
+            }
             ElapsedTimer et2 = new ElapsedTimer();
             int count = updateImpliedVotes(localeName);
             tcount += count;
@@ -838,6 +843,26 @@ public class Vetting {
         }
     }
     
+    int unvote(String locale, int base_xpath, int submitter) {
+        //rmVote;
+        synchronized(conn) {
+            try {
+                rmVote.setString(1,locale);
+                rmVote.setInt(2,submitter);
+                rmVote.setInt(3,base_xpath);
+                
+                int rs = rmVote.executeUpdate();
+                conn.commit();
+                return rs;
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't rm voting  for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+    }
+    
     void vote(String locale, int base_xpath, int submitter, int vote_xpath, int type) {
         synchronized(conn) {
             try {
@@ -853,7 +878,7 @@ public class Vetting {
                     updateVote.setInt(2, type);
                     updateVote.setInt(3, id);
                     updateVote.executeUpdate();
-                    System.err.println("updated CLDR_VET #"+id);
+//                    System.err.println("updated CLDR_VET #"+id);
                 } else {
                     insertVote.setString(1,locale);
                     insertVote.setInt(2,submitter);
@@ -866,7 +891,7 @@ public class Vetting {
                 rmResult.setInt(2,base_xpath);
                 rmResult.executeUpdate();
 */
-                updateResults(locale);
+              //  updateResults(locale);// caller needs to do updateResults
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
                 logger.severe(complaint);

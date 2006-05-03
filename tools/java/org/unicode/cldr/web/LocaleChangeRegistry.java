@@ -42,10 +42,10 @@ public class LocaleChangeRegistry {
      * register an object
      * @param locale - the locale to register. Note, parent locales will automatically be registered.
      */
-    public void register(/* other params: tree, etc.., */ String locale, String key, Object what) {
+    public void register(/* other params: tree, etc.., */ String locale, String key, Object /*notused */what) {
         synchronized(this) {
             while(locale != null ) {
-                internalGetHash(locale).put(key, what);
+                internalGetHash(locale).put(key, "what"); // Register as string
                 locale = WebContext.getParent(locale);
             }
         }

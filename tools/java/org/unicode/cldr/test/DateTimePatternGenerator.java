@@ -1,25 +1,14 @@
 /*
-
  *******************************************************************************
-
- * Copyright (C) 2002-2006, International Business Machines Corporation and    *
-
+ * Copyright (C) 2002-2006, Google, International Business Machines Corporation and    *
  * others. All Rights Reserved.                                                *
-
  *******************************************************************************
-
  *
-
  * $Source$
-
  * $Date$
-
  * $Revision$
-
  *
-
  *******************************************************************************
-
 */
 package org.unicode.cldr.test;
 
@@ -30,6 +19,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -37,78 +28,40 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.ULocale;
 
 /**
  * This class provides flexible generation of date format patterns, like "yy-MM-dd". The user can build up the generator
  * by adding successive patterns. Once that is done, a query can be made using a "skeleton", which is a pattern which just
  * includes the desired fields and lengths. The generator will return the "best fit" pattern corresponding to that skeleton.
- * <p>Normally this class is built with data from a particular locale, but one can also be built from scratch.
- * <p>Note that single-field patterns are automatically added, and don't need to be added explicitly.
- * <p>Issue: may be useful to also have a function that returns the fields in a pattern, since we have that internally.
+ * <p>The main method people will use is getBestPattern(String skeleton),
+ * since normally this class is pre-built with data from a particular locale. However, generators can be built directly from other data as well.
+ * <p><i>Issue: may be useful to also have a function that returns the list of fields in a pattern, in order, since we have that internally.
+ * That would be useful for getting the UI order of field elements.</i>
  * @author markdavis
  *
  */
 public class DateTimePatternGenerator {
     // debugging flags
     //static boolean SHOW_DISTANCE = false;
-    
-    /** Field numbers, used for AppendItem functions
-     */
-    static final public int ERA = 0, YEAR = 1, QUARTER = 2, MONTH = 3,
-            WEEK_OF_YEAR = 4, WEEK_OF_MONTH = 5, WEEKDAY = 6, DAY = 7,
-            DAY_OF_YEAR = 8, DAY_OF_WEEK_IN_MONTH = 9, DAYPERIOD = 10,
-            HOUR = 11, MINUTE = 12, SECOND = 13, FRACTIONAL_SECOND = 14,
-            ZONE = 15, TYPE_LIMIT = 16;
-
-    /**
-     * Return a list of all the skeletons (in canonical form) from this class.
-     * 
-     * @param an
-     *            output Map. If you want to see the intern order being used,
-     *            supply a LinkedHashMap.
-     * @return the input Map.
-     */
-    public Map getSkeletons(Map result) {
-        for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
-            DateTimeMatcher item = (DateTimeMatcher) it.next();
-            String pattern = (String) skeleton2pattern.get(item);
-            if (CANONICAL_SET.contains(pattern)) continue;
-            result.put(item.toString(), pattern);
-        }
-        return result;
-    }
-    
-    /**
-     * A struct used because Java doesn't have output parameters. Used with add(...)
-     */
-    public static final class PatternInfo { // struct for return information
-        public static final int OK = 0, CONFLICT = 1; // status values
-        public int status;
-        public String conflictingPattern;
-    }
-    
-    /**
-     * Adds a pattern to the generator. If the pattern has the same skeleton as an existing pattern,
-     * and the override parameter is set, then the previous value is overriden. Otherwise, the previous
-     * value is retained. In either case, the conflicting information is returned in PatternInfo.
-     * @param override TODO
-     */
-    public DateTimePatternGenerator add(String pattern, boolean override, PatternInfo returnInfo) {
-        DateTimeMatcher matcher = new DateTimeMatcher().set(pattern, fp);
-        String previousValue = (String)skeleton2pattern.get(matcher);
-        if (previousValue != null) {
-            returnInfo.status = PatternInfo.CONFLICT;
-            returnInfo.conflictingPattern = previousValue;
-            if (!override) return this;
-        }
-        returnInfo.status = PatternInfo.OK;
-        returnInfo.conflictingPattern = "";
-        skeleton2pattern.put(matcher, pattern);
-        return this;
-    }
+	
+	/**
+	 * Create empty generator, to be constructed with add(...) etc.
+	 */
+	public DateTimePatternGenerator() {		
+	}
+	
+	/**
+	 * Construct a flexible generator according to data for a given locale.
+	 * @param uLocale
+	 */
+	public DateTimePatternGenerator(ULocale uLocale) {
+		// TBD
+	}
     
     /**
      * Return the best pattern matching the input skeleton. It is guaranteed to have all of the fields in the skeleton.
+     * @param skeleton The skeleton is a pattern containing only the variable fields. For example, "MMMdd" and "mmhh" are skeletons.
      */
     public String getBestPattern(String skeleton) {
         //if (!isComplete) complete();
@@ -129,42 +82,126 @@ public class DateTimePatternGenerator {
         return MessageFormat.format(getDateTimeFormat(), new Object[]{datePattern, timePattern});
     }
     
+    /**
+     * PatternInfo supplies output parameters for add(...).
+     * It is used because Java doesn't have real output parameters. It is treated like a struct (eg Point), so all fields are public.
+     */
+    public static final class PatternInfo { // struct for return information
+        public static final int OK = 0, CONFLICT = 1; // status values
+        public int status;
+        public String conflictingPattern;
+    }
+    
+    /**
+     * Adds a pattern to the generator. If the pattern has the same skeleton as an existing pattern,
+     * and the override parameter is set, then the previous value is overriden. Otherwise, the previous
+     * value is retained. In either case, the conflicting information is returned in PatternInfo.
+     * <p>Note that single-field patterns (like "MMM") are automatically added, and don't need to be added explicitly!
+     * @param override when existing values are to be overridden use true, otherwise use false.
+     */
+    public DateTimePatternGenerator add(String pattern, boolean override, PatternInfo returnInfo) {
+        DateTimeMatcher matcher = new DateTimeMatcher().set(pattern, fp);
+        String previousValue = (String)skeleton2pattern.get(matcher);
+        if (previousValue != null) {
+            returnInfo.status = PatternInfo.CONFLICT;
+            returnInfo.conflictingPattern = previousValue;
+            if (!override) return this;
+        }
+        returnInfo.status = PatternInfo.OK;
+        returnInfo.conflictingPattern = "";
+        skeleton2pattern.put(matcher, pattern);
+        return this;
+    }
+    
+    /**
+     * Utility to return a unique skeleton from a given pattern. For example, both "MMM-dd" and "dd/MMM" produce the skeleton "MMMdd".
+     * @param pattern Input pattern, such as "dd/MMM"
+     * @return skeleton, such as "MMMdd"
+     */
     public String getSkeleton(String pattern) {
     	current.set(pattern, fp);
     	return current.toString();
     }
 
-	private String getDateTimeFormat() {
-		return dateTimeFormat;
-	}
+    /**
+     * Return a list of all the skeletons (in canonical form) from this class, and the patterns that they map to.
+     * @param result an output Map in which to place the mapping from skeleton to pattern. If you want to see the internal order being used, supply a LinkedHashMap.
+     * If the input value is null, then a LinkedHashMap is allocated.
+     * <p><i>Issue: an alternate API would be to just return a list of the skeletons, and then have a separate routine to get from skeleton to pattern.</i>
+     * @return the input Map containing the values.
+     */
+    public Map getSkeletons(Map result) {
+    	if (result == null) result = new LinkedHashMap();
+        for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
+            DateTimeMatcher item = (DateTimeMatcher) it.next();
+            String pattern = (String) skeleton2pattern.get(item);
+            if (CANONICAL_SET.contains(pattern)) continue;
+            result.put(item.toString(), pattern);
+        }
+        return result;
+    }
+
+    /**
+     * Adjusts the field types (width and subtype) of a pattern to match what is in a skeleton. That is, if you supply a pattern
+     * like "d-M H:m", and a skeleton of "MMMMddhhmm", then the input pattern is adjusted to be "dd-MMMM hh:mm".
+     * This is used internally to get the best match for the input skeleton, but can also be used externally.
+     * @param pattern input pattern
+     * @param skeleton
+     * @return pattern adjusted to match the skeleton fields widths and subtypes.
+     */
+    public String replaceFieldTypes(String pattern, String skeleton) {
+        return adjustFieldTypes(pattern, current.set(skeleton, fp), false);
+    }
     
+    /**
+     * The date time format is a message format pattern used to compose date and time patterns. The default value is "{0} {1}", where {0} will be replaced by the date
+     * pattern and {1} will be replaced by the time pattern.
+     * <p>This is used when the input skeleton contains both date and time fields, but there is not a close match among the added patterns.
+     * For example, suppose that this object was created by adding "dd-MMM" and "hh:mm", and its datetimeFormat is the default "{0} {1}".
+     * Then if the input skeleton is "MMMdhmm", there is
+     * not an exact match, so the input skeleton is broken up into two components "MMMd" and "hmm". There are close matches for those two skeletons,
+     * so the result is put together with this pattern, resulting in "d-MMM h:mm".
+     * @param dateTimeFormat message format pattern, here {0} will be replaced by the date pattern and {1} will be replaced by the time pattern. 
+     */
     public void setDateTimeFormat(String dateTimeFormat) {
         this.dateTimeFormat = dateTimeFormat;
     }
 
-	public String getDecimal() {
-        return decimal;
-    }
+    /**
+     * Getter corresponding to setDateTimeFormat.
+     * @return pattern
+     */
+    public String getDateTimeFormat() {
+		return dateTimeFormat;
+	}
 
+    /**
+     * The decimal value is used in formatting fractions of seconds. If the skeleton contains fractional seconds, 
+     * then this is used with the fractional seconds. For example, suppose that the input pattern is "hhmmssSSSS", and the best matching pattern internally is
+     * "H:mm:ss", and the decimal string is ",". Then the resulting pattern is modified to be "H:mm:ss,SSSS"
+     * @param decimal
+     */
     public void setDecimal(String decimal) {
         this.decimal = decimal;
     }
 
-    private String getAppendFormat(int foundMask) {
-        return appendItemFormats[foundMask];
-	}
-    
-    private String getAppendName(int foundMask) {
-        return "'" + appendItemNames[foundMask] + "'";
+   /**
+    * Getter corresponding to setDecimal.
+    * @return string corresponding to the decimal point
+    */
+	public String getDecimal() {
+        return decimal;
     }
-    
+
     /**
-     * Return Redundant patterns are those which if removed, make no difference in the resulting getBestPattern values.
-     * @param output if not null, stores the redundant patterns that are removed. To get these in internal order,
-     * supply a LinkedHashSet.
-     * @return a new generator
+     * Redundant patterns are those which if removed, make no difference in the resulting getBestPattern values.
+     * This method returns a list of them, to help check the consistency of the patterns used to build this generator.
+     * @param output stores the redundant patterns that are removed. To get these in internal order,
+     * supply a LinkedHashSet. If null, a collection is allocated.
+     * @return the collection with added elements.
      */
     public Collection getRedundants(Collection output) {
+    	if (output == null) output = new LinkedHashSet();
         for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
             DateTimeMatcher current = (DateTimeMatcher) it.next();
             String pattern = (String) skeleton2pattern.get(current);
@@ -194,32 +231,53 @@ public class DateTimePatternGenerator {
         return output;
     }
     
-    /**
-     * Adjusts the field types (width and subtype) according to the skeleton string. That is, if you supply a pattern
-     * like "d-M H:m", and a skeleton of "MMMMddhhmm", then the input pattern is adjusted to be "dd-MMMM hh:mm".
-     * @param pattern
-     * @param skeleton
-     * @return
+    /** Field numbers, used for AppendItem functions
      */
-    public String replaceFieldTypes(String pattern, String skeleton) {
-        return adjustFieldTypes(pattern, current.set(skeleton, fp), false);
-    }
-    
-    public String getAppendItemFormats(int field) {
-        return appendItemFormats[field];
-    }
+    static final public int ERA = 0, YEAR = 1, QUARTER = 2, MONTH = 3,
+            WEEK_OF_YEAR = 4, WEEK_OF_MONTH = 5, WEEKDAY = 6, DAY = 7,
+            DAY_OF_YEAR = 8, DAY_OF_WEEK_IN_MONTH = 9, DAYPERIOD = 10,
+            HOUR = 11, MINUTE = 12, SECOND = 13, FRACTIONAL_SECOND = 14,
+            ZONE = 15, TYPE_LIMIT = 16;
 
+    /**
+     * An AppendItem format is a pattern used to append a field if there is no good match. For example, suppose that the input skeleton is "GyyyyMMMd",
+     * and there is no matching pattern internally, but there is a pattern matching "yyyyMMMd", say "d-MM-yyyy". Then that pattern is used, plus the G.
+     * The way these two are conjoined is by using the AppendItemFormat for G (era). So if that value is, say "{0}, {1}" then the final resulting pattern
+     * is "d-MM-yyyy, G".<p>There are actually three available variables: {0} is the pattern so far, {1} is the element we are adding, and {2} is the name of the element.
+     * @param field such as ERA
+     * @param value pattern, such as "{0}, {1}"
+     */
     public void setAppendItemFormats(int field, String value) {
        appendItemFormats[field] = value;
     }
 
+    /**
+     * Getter corresponding to setAppendItemFormats. Values below 0 or at or above TYPE_LIMIT are illegal arguments.
+     * @param field
+     * @return append pattern for field
+     */
+    public String getAppendItemFormats(int field) {
+        return appendItemFormats[field];
+    }
+
+    /**
+     * Sets the names of fields, eg "era" in English for ERA. These are only used if the corresponding AppendItemFormat contains a {2} variable.
+     * @param field
+     * @param value
+     */
+    public void setAppendItemNames(int field, String value) {
+        appendItemNames[field] = value;
+    }
+
+    /**
+     * Getter corresponding to setAppendItemNames. Values below 0 or at or above TYPE_LIMIT are illegal arguments.
+     * @param field
+     * @return name for field
+     */
     public String getAppendItemNames(int field) {
         return appendItemNames[field];
     }
 
-    public void setAppendItemNames(int field, String value) {
-        appendItemNames[field] = value;
-    }
     // ========= PRIVATES ============
     
     private Map skeleton2pattern = new TreeMap(); // items are in priority order
@@ -273,6 +331,14 @@ public class DateTimePatternGenerator {
         }
         return resultPattern;
     }
+    
+    private String getAppendName(int foundMask) {
+        return "'" + appendItemNames[foundMask] + "'";
+    }
+    private String getAppendFormat(int foundMask) {
+        return appendItemFormats[foundMask];
+	}
+    
     
     /**
      * @param current2

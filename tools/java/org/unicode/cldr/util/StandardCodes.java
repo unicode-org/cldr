@@ -1095,10 +1095,14 @@ public class StandardCodes {
 					currentData = new TreeMap();
 					if (endTag == null) {
 						subtagData.put(lastTag, currentData);
+						languageCount.add(lastType,1);
+						//System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
 					} else {
 						for (; lastTag.compareTo(endTag) <= 0; lastTag = nextAlpha(lastTag)) {
 							//System.out.println(">" + current);
 							subtagData.put(lastTag, currentData);
+							languageCount.add(lastType,1);
+							//System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
 						}
 
 					}
@@ -1120,5 +1124,10 @@ public class StandardCodes {
             }
 		}
 		return result;
+	}
+
+	static Counter languageCount = new Counter();
+	public static Counter getLanguageCount() {
+		return languageCount;
 	}
 }

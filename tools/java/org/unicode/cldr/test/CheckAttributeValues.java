@@ -41,9 +41,10 @@ public class CheckAttributeValues extends CheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
+        	if (parts.getAttributeCount(i) == 0) continue;
             Map attributes = parts.getAttributes(i);
             String element = parts.getElement(i);
-            if (attributes.size() == 0) continue;
+
             Map attribute_validity = (Map) element_attribute_validity.get(element);
             for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
                 String attribute = (String) it.next();

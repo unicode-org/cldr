@@ -1032,7 +1032,7 @@ public class DataPod {
             if((superP != p) && (p.displayName == null)) {
                 p.displayName = superP.displayName;
             }
-            String sourceLocale = aFile.getSourceLocaleID(xpath);
+            String sourceLocale = aFile.getSourceLocaleID(xpath, null);
 
             boolean isInherited = !(sourceLocale.equals(locale));
             

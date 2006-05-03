@@ -16,6 +16,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.ibm.icu.impl.CollectionUtilities.PrefixIterator;
 
@@ -211,9 +213,13 @@ public abstract class XMLSource implements Freezable {
 	 * Return the localeID of the XMLSource where the path was found
 	 * SUBCLASSING: must be overridden in a resolving locale
 	 * @param path
+	 * @param status TODO
 	 * @return
 	 */
-	public String getSourceLocaleID(String path) {
+	public String getSourceLocaleID(String path, CLDRFile.Status status) {
+		if (status != null) {
+			status.pathWhereFound = CLDRFile.getDistinguishingXPath(path, null, false);
+		}
 		return getLocaleID();
 	}
 	
@@ -359,6 +365,22 @@ public abstract class XMLSource implements Freezable {
 	}
 
 	/**
+	 * for debugging only
+	 */
+	public String toString(String regex) {
+		Matcher matcher = Pattern.compile(regex).matcher("");
+		StringBuffer result = new StringBuffer();
+		for (Iterator it = iterator(); it.hasNext();) {
+			String path = (String) it.next();
+			if (!matcher.reset(path).matches()) continue;
+			String value = getValueAtDPath(path);
+			String fullpath = getFullPathAtDPath(path);
+			result.append(fullpath).append(" =\t ").append(value).append("\r\n");
+		}
+		return result.toString();
+	}
+
+	/**
 	 * @return returns whether supplemental or not
 	 */
 	public boolean isNonInheriting() {
@@ -458,6 +480,7 @@ public abstract class XMLSource implements Freezable {
 	    		parentAndPath.next();
 	    	}
 		}
+		
 		public String getFullPathAtDPath(String xpath) {
 			XMLSource currentSource = mySource;
 	    	String result = currentSource.getValueAtDPath(xpath);
@@ -476,15 +499,24 @@ public abstract class XMLSource implements Freezable {
 	    		parentAndPath.next();
 	    	}
 		}
-		public String getSourceLocaleID(String xpath) {
+		
+		public String getSourceLocaleID(String xpath, CLDRFile.Status status) {
 			xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
 			XMLSource currentSource = mySource;
             boolean result = currentSource.hasValueAtDPath(xpath);
 	    	//String result = currentSource.getValueAtDPath(xpath);
-	    	if (result != false) return mySource.getLocaleID(); // was: null
+	    	if (result != false) {
+	    		if (status != null) {
+	    			status.pathWhereFound = xpath;
+	    		}
+	    		return mySource.getLocaleID(); // was: null
+	    	}
 	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
 	    	while (true) {
 	    		if (parentAndPath.parentID == null) {
+		    		if (status != null) {
+		    			status.pathWhereFound = parentAndPath.path;
+		    		}
 	    			return CODE_FALLBACK_ID;
 	    		}
 	    		currentSource = make(parentAndPath.parentID);
@@ -492,6 +524,9 @@ public abstract class XMLSource implements Freezable {
 	    		//result = currentSource.getValueAtDPath(parentAndPath.path);
 	    		if(result != false) { // was: null
 	    			/*result = */ currentSource.getFullPathAtDPath(parentAndPath.path); // what does this do?
+		    		if (status != null) {
+		    			status.pathWhereFound = parentAndPath.path;
+		    		}
 	    			return currentSource.getLocaleID();
 	    		}
 	    		parentAndPath.next();

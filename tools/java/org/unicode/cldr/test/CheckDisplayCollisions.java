@@ -191,9 +191,9 @@ public class CheckDisplayCollisions extends CheckCLDR {
         if (parts1.size() != parts2.size()) return false;
         for (int i = 0; i < parts1.size(); ++i) {
             if (!parts1.getElement(i).equals(parts2.getElement(i))) return false;
+            if (parts1.getAttributeCount(i) == 0 && parts2.getAttributeCount(i) == 0) continue;
             Map attributes1 = parts1.getAttributes(i);
             Map attributes2 = parts2.getAttributes(i);
-            if (attributes1.size() == 0 && attributes2.size() == 0) continue;
             Set s1 = attributes1.keySet();
             Set s2 = attributes2.keySet();
             if (s1.contains("alt")) { // WARNING: we have to copy so as to not modify map

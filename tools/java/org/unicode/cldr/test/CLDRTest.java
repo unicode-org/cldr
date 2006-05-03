@@ -550,9 +550,9 @@ public class CLDRTest extends TestFmwk {
 			String xpath = (String) it2.next();
 			parts.set(item.getFullXPath(xpath));
 			for (int i = 0; i < parts.size(); ++i) {
+				if (parts.getAttributeCount(i) == 0) continue;
 				String element = parts.getElement(i);
 				Map attributes = parts.getAttributes(i);
-				if (attributes == null) continue;
 				for (Iterator it3 = attributes.keySet().iterator(); it3.hasNext();) {
 					String attribute = (String) it3.next();
 					String avalue = (String) attributes.get(attribute);

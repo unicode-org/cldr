@@ -51,7 +51,7 @@ public class CheckZones extends CheckCLDR {
 		}
 		parts.set(path);
 		if (parts.containsElement("zone")) {
-			String id = (String) parts.getAttributes(3).get("type");
+			String id = (String) parts.getAttributeValue(3, "type");
 			TimeZone tz = TimeZone.getTimeZone(id);
 			if (!parts.containsElement("exemplarCity")) {
 				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
@@ -70,7 +70,7 @@ public class CheckZones extends CheckCLDR {
 		}
 		parts.set(path);
 		if (parts.containsElement("zone")) {
-			String id = (String) parts.getAttributes(3).get("type");
+			String id = (String) parts.getAttributeValue(3,"type");
 			TimeZone tz = TimeZone.getTimeZone(id);
 			String pat = "vvvv";
 			if (parts.containsElement("short")) pat = "v";

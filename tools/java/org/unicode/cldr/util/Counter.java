@@ -14,11 +14,15 @@ package org.unicode.cldr.util;
 
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public final class Counter {
     Map map = new HashMap();
@@ -71,16 +75,34 @@ public final class Counter {
         return map.size();
     }
 
-    public Map getSortedByCount() {
-        Map result = new TreeMap();
-        Iterator it = map.keySet().iterator();
-        while (it.hasNext()) {
+    public Set getKeysetSortedByCount(boolean ascending) {
+        Map count_key = new TreeMap();
+        int counter = 0; // original order
+        for (Iterator it =  map.keySet().iterator(); it.hasNext();) {
             Object key = it.next();
-            Object count = map.get(key);
-            result.put(count, key);
+            long count = getCount(key);
+            if (!ascending) count = Integer.MAX_VALUE-count;
+            count_key.put(new Long((count<<32) + (counter++)), key);
+        }
+        Set result = new LinkedHashSet();
+        for (Iterator it = count_key.keySet().iterator(); it.hasNext();) {
+            Object count = it.next();
+            Object key = count_key.get(count);
+            result.add(key);
         }
         return result;
     }
+    
+    public Set getKeysetSortedByKey() {
+        return new TreeSet(map.keySet());
+    }
+
+    public Set getKeysetSortedByKey(Comparator comparator) {
+    	Set s = new TreeSet(comparator);
+    	s.addAll(map.keySet());
+        return s;
+    }
+
 
     public Map getKeyToKey() {
         Map result = new HashMap();
@@ -102,5 +124,9 @@ public final class Counter {
 
     public int size() {
         return map.size();
+    }
+    
+    public String toString() {
+    	return map.toString();
     }
 }

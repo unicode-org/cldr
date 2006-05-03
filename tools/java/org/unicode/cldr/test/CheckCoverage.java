@@ -39,7 +39,7 @@ public class CheckCoverage extends CheckCLDR {
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
         
         // skip all items that are in anything but raw codes
-        String source = getResolvedCldrFileToCheck().getSourceLocaleID(path);
+        String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
         if (!source.equals(XMLSource.CODE_FALLBACK_ID)) return this;
         
         if(path == null) { 

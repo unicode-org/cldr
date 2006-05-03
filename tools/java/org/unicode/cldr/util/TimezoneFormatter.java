@@ -115,7 +115,7 @@ public class TimezoneFormatter extends UFormat  {
 		String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
 		if (temp != null) {
 			singleCountriesList = (String) new XPathParts(null, null).set(temp)
-					.findAttributes("singleCountries").get("list");
+					.findAttributeValue("singleCountries", "list");
 		}
         singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 

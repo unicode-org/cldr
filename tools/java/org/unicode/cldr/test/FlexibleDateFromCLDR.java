@@ -158,7 +158,7 @@ class FlexibleDateFromCLDR {
         }
         if (path.indexOf("gregorian") < 0) return;
         if (path.indexOf("/appendItem") >= 0) {
-            String key = (String) parts.set(path).getAttributes(-1).get("request");
+            String key = (String) parts.set(path).getAttributeValue(-1, "request");
             try {
                 gen.setAppendItemFormats(getIndex(key, APPEND_ITEM_NAME_MAP), value);
             } catch (RuntimeException e) {
@@ -167,7 +167,7 @@ class FlexibleDateFromCLDR {
             return;
         }
         if (path.indexOf("/fields") >= 0) {
-            String key = (String) parts.set(path).getAttributes(-2).get("type");
+            String key = (String) parts.set(path).getAttributeValue(-2, "type");
             try {
                 gen.setAppendItemNames(getIndex(key, DISPLAY_NAME_MAP), value);
             } catch (RuntimeException e) {

@@ -235,9 +235,9 @@ public class FlexibleDateTime {
 	    		//System.out.println(path);
 	    		//if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
 	    		parts.set(supp.getFullXPath(path));
-	    		Map attributes = parts.getAttributes(3);
-	    		String type = (String) attributes.get("type");
-	    		String replacement = (String) attributes.get("replacement");
+	    		//Map attributes = parts.getAttributes(3);
+	    		String type = parts.getAttributeValue(3, "type");
+	    		String replacement = parts.getAttributeValue(3, "replacement");
 	    		if (parts.getElement(3).equals("languageAlias")) {
 	    			languageAlias.put(type, replacement);
 	    		} else if (parts.getElement(3).equals("territoryAlias")) {

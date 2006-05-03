@@ -3,7 +3,7 @@
  * Copyright (C) 2004, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
-*/
+ */
 package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
@@ -35,7 +35,9 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;
@@ -46,82 +48,76 @@ import org.unicode.cldr.util.Utility.*;
  * <br>-DSHOW_FILES=<anything> shows all create/open of files.
  */
 public class CLDRModify {
+	static final String DEBUG_PATHS = null; // ".*currency.*";
 	static final boolean COMMENT_REMOVALS = false; // append removals as comments
 	// TODO make this into input option.
 	
+	static FixList fixList = new FixList();
+	
 	private static final int
-	    HELP1 = 0,
-	    HELP2 = 1,
-	    SOURCEDIR = 2,
-	    DESTDIR = 3,
-	    MATCH = 4,
-	    JOIN = 5,
-		MINIMIZE = 6,
-		FIX = 7,
-		JOIN_ARGS = 8,
-		VET_ADD = 9,
-		RESOLVE = 10
-		;
+	HELP1 = 0,
+	HELP2 = 1,
+	SOURCEDIR = 2,
+	DESTDIR = 3,
+	MATCH = 4,
+	JOIN = 5,
+	MINIMIZE = 6,
+	FIX = 7,
+	JOIN_ARGS = 8,
+	VET_ADD = 9,
+	RESOLVE = 10
+	;
 	
 	private static final UOption[] options = {
-	    UOption.HELP_H(),
-	    UOption.HELP_QUESTION_MARK(),
-	    UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-	    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "main/"),
-	    UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
-	    UOption.create("join", 'j', UOption.OPTIONAL_ARG),
-	    UOption.create("minimize", 'r', UOption.NO_ARG),
-	    UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
-	    UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
+		UOption.HELP_H(),
+		UOption.HELP_QUESTION_MARK(),
+		UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
+		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "main/"),
+		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
+		UOption.create("join", 'j', UOption.OPTIONAL_ARG),
+		UOption.create("minimize", 'r', UOption.NO_ARG),
+		UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
+		UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
 		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb"),
-	    UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
+		UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
 	};
 	
 	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
-	private static final UnicodeSet allFixOptions = new UnicodeSet("[envcsrxd]");
 	
-	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
-		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
-		+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
-		+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
-		+ "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
-		+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
-		+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
-		+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
-		+ "-j<merge_dir>/X'\tto merge two sets of files together (from <source_dir>/X and <merge_dir>/X', " + XPathParts.NEWLINE
-		+ "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
-		+ "\tExample:-jC:\\Unicode-CVS2\\cldr\\dropbox\\to_be_merged\\missing\\missing_*" + XPathParts.NEWLINE
-		+ "-i\tmerge arguments:" + XPathParts.NEWLINE
-		+ "\tr\t replace contents (otherwise new data will be draft)" + XPathParts.NEWLINE
-		+ "\tc\t ignore comments in <merge_dir> files" + XPathParts.NEWLINE
-		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
-		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
-		+ "\t fix options" + XPathParts.NEWLINE
-		+ "\tn\t fix numbers" + XPathParts.NEWLINE
-		+ "\te\t fix exemplars" + XPathParts.NEWLINE
-		+ "\tv\t validate codes" + XPathParts.NEWLINE
-		+ "\tc\t fix CS" + XPathParts.NEWLINE
-		+ "\ts\t fix stand-alone narrows" + XPathParts.NEWLINE
-		+ "\tr\t fix references and standards" + XPathParts.NEWLINE
-		+ "\tx\t remove illegal currencies (later, others)" + XPathParts.NEWLINE
-		+ "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
-		+ "-z\t generate resolved files" + XPathParts.NEWLINE
-		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
-		;
+	static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
+	+ "-h or -?\t for this message" + XPathParts.NEWLINE
+	+ "-"+options[SOURCEDIR].shortName + "\t source directory. Default = " 
+	+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+	+ "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
+	+ "-"+options[DESTDIR].shortName + "\t destination directory. Default = "
+	+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+	+ "-m<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
+	+ "-j<merge_dir>/X'\t to merge two sets of files together (from <source_dir>/X and <merge_dir>/X', " + XPathParts.NEWLINE
+	+ "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
+	+ "\tExample:-jC:\\Unicode-CVS2\\cldr\\dropbox\\to_be_merged\\missing\\missing_*" + XPathParts.NEWLINE
+	+ "-i\t merge arguments:" + XPathParts.NEWLINE
+	+ "\tr\t replace contents (otherwise new data will be draft)" + XPathParts.NEWLINE
+	+ "\tc\t ignore comments in <merge_dir> files" + XPathParts.NEWLINE
+	+ "-r\t to minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
+	+ "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
+	+ "-z\t generate resolved files" + XPathParts.NEWLINE
+	+ "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE;
+
+	static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
 	
 	/**
 	 * Picks options and executes. Use -h to see options.
 	 */
 	public static void main(String[] args) throws Exception {
 		long startTime = System.currentTimeMillis();
-        UOption.parseArgs(args, options);
-        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
-        	System.out.println(HELP_TEXT);
-        	return;
-        }
-        checkSuboptions(options[FIX], allFixOptions);
-        checkSuboptions(options[JOIN_ARGS], allMergeOptions);
-
+		UOption.parseArgs(args, options);
+		if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
+			System.out.println(HELP_TEXT1 + fixList.showHelp() + HELP_TEXT2);
+			return;
+		}
+		checkSuboptions(options[FIX], fixList.getOptions());
+		checkSuboptions(options[JOIN_ARGS], allMergeOptions);
+		
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
@@ -131,18 +127,18 @@ public class CLDRModify {
 		Log.setLog(targetDir + "log.txt");
 		try {		//String[] failureLines = new String[2];
 			SimpleLineComparator lineComparer = new SimpleLineComparator(
-						//SimpleLineComparator.SKIP_SPACES + 
-						SimpleLineComparator.TRIM +
-						SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
-				
+					//SimpleLineComparator.SKIP_SPACES + 
+					SimpleLineComparator.TRIM +
+					SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
+			
 			Factory cldrFactory = Factory.make(sourceDir, ".*");
-	
+			
 			if (options[VET_ADD].doesOccur) {
-	        	VettingAdder va = new VettingAdder(options[VET_ADD].value);
-	        	va.showFiles(cldrFactory, targetDir);
-	        	return;
-	        }
-	
+				VettingAdder va = new VettingAdder(options[VET_ADD].value);
+				va.showFiles(cldrFactory, targetDir);
+				return;
+			}
+			
 			//testMinimize(cldrFactory);
 			//if (true) return;
 			
@@ -161,17 +157,17 @@ public class CLDRModify {
 				mergeFactory = Factory.make(mergeDir, ".*");
 			}
 			/*
-			Factory cldrFactory = Factory.make(sourceDir, ".*");
-			Set testSet = cldrFactory.getAvailable();
-			String[] quicktest = new String[] {
-					"de"
-					//"ar", "dz_BT",
-					// "sv", "en", "de"
-				};
-			if (quicktest.length > 0) {
-				testSet = new TreeSet(Arrays.asList(quicktest));
-			}
-			*/
+			 Factory cldrFactory = Factory.make(sourceDir, ".*");
+			 Set testSet = cldrFactory.getAvailable();
+			 String[] quicktest = new String[] {
+			 "de"
+			 //"ar", "dz_BT",
+			  // "sv", "en", "de"
+			   };
+			   if (quicktest.length > 0) {
+			   testSet = new TreeSet(Arrays.asList(quicktest));
+			   }
+			   */
 			Set locales = new TreeSet(cldrFactory.getAvailable());
 			if (mergeFactory != null) {
 				Set temp = new TreeSet(mergeFactory.getAvailable());
@@ -185,9 +181,9 @@ public class CLDRModify {
 				System.out.println("Merging: " + locales3);
 			}
 			new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
-	
+			
 			for (Iterator it = locales.iterator(); it.hasNext();) {
-	
+				
 				String test = (String) it.next();
 				//testJavaSemantics();
 				
@@ -195,6 +191,10 @@ public class CLDRModify {
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
 				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
+				if (k.isNonInheriting()) continue; // for now, skip supplementals
+				if (DEBUG_PATHS != null) {
+					System.out.println("Debug1 (" + test + "):\t" + k.toString(DEBUG_PATHS));
+				}
 //				System.out.println(k);
 //				String s1 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"0061\"][@id=\"$CB\"] ";
 //				String s2 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"003A\"][@id=\"$CB\"]";
@@ -214,8 +214,14 @@ public class CLDRModify {
 					// special fix
 					k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
 				}
+				if (DEBUG_PATHS != null) {
+					System.out.println("Debug2 (" + test + "):\t" + k.toString(DEBUG_PATHS));
+				}
 				if (options[FIX].doesOccur) {
-					fix(k, options[FIX].value.toLowerCase(), cldrFactory);
+					fix(k, options[FIX].value, cldrFactory);
+				}
+				if (DEBUG_PATHS != null) {
+					System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}
 				if (options[MINIMIZE].doesOccur) {
 					// TODO, fix identity
@@ -228,16 +234,20 @@ public class CLDRModify {
 				//System.out.println(CLDRFile.getAttributeOrder());
 				
 				/*if (false) {
-					Map tempComments = k.getXpath_comments();
-	
-					for (Iterator it2 = tempComments.keySet().iterator(); it2.hasNext();) {
-						String key = (String) it2.next();
-						String comment = (String) tempComments.get(key);
-						Log.logln("Writing extra comment: " + key);
-						System.out.println(key + "\t comment: " + comment);
-					}
-				}*/
-	
+				 Map tempComments = k.getXpath_comments();
+				 
+				 for (Iterator it2 = tempComments.keySet().iterator(); it2.hasNext();) {
+				 String key = (String) it2.next();
+				 String comment = (String) tempComments.get(key);
+				 Log.logln("Writing extra comment: " + key);
+				 System.out.println(key + "\t comment: " + comment);
+				 }
+				 }*/
+				
+				if (DEBUG_PATHS != null) {
+					System.out.println("Debug4 (" + test + "):\t" + k.toString(DEBUG_PATHS));
+				}
+				
 				PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
 				String testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
 				if (false) {
@@ -265,7 +275,7 @@ public class CLDRModify {
 					}
 					System.out.println("Done Printing Raw File:");
 				}
-
+				
 				
 				k.write(pw);
 				pw.println();
@@ -273,14 +283,14 @@ public class CLDRModify {
 				Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 				
 				/*
-				boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
-						targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
-				if (!ok) {
-					System.out.println("Found differences at: ");
-					System.out.println("\t" + failureLines[0]);
-					System.out.println("\t" + failureLines[1]);
-				}
-				*/
+				 boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
+				 targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
+				 if (!ok) {
+				 System.out.println("Found differences at: ");
+				 System.out.println("\t" + failureLines[0]);
+				 System.out.println("\t" + failureLines[1]);
+				 }
+				 */
 			}
 			if (totalSkeletons.size() != 0) {
 				System.out.println("Total Skeletons" + totalSkeletons);
@@ -296,14 +306,14 @@ public class CLDRModify {
 	 */
 	private static void checkSuboptions(UOption givenOptions, UnicodeSet allowedOptions) {
 		if (givenOptions.doesOccur && !allowedOptions.containsAll(givenOptions.value)) {
-        	throw new IllegalArgumentException("Illegal sub-options for " 
-        			+ givenOptions.shortName 
+			throw new IllegalArgumentException("Illegal sub-options for " 
+					+ givenOptions.shortName 
 					+ ": "
-        			+ new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions) 
+					+ new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions) 
 					+ "\r\nUse -? for help.");
-        }
+		}
 	}
-
+	
 	/**
 	 * 
 	 */
@@ -315,236 +325,6 @@ public class CLDRModify {
 		}
 		toMergeIn.removeAll(toRemove, false);
 	}
-
-	abstract static class CLDRFilter {
-		protected CLDRFile cldrFileToFilter;
-		protected Set availableChildren;
-		protected XPathParts parts = new XPathParts(null, null);
-		protected XPathParts fullparts = new XPathParts(null, null);
-		public abstract void handle(String xpath, Set removal, CLDRFile additions);
-		public void setFile(CLDRFile k) {
-			this.cldrFileToFilter = k;
-		}
-	}
-	
-	static CLDRFilter fixCS = new CLDRFilter() {
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (!xpath.startsWith("//ldml/localeDisplayNames/territories/territory")) return;
-			String type = parts.set(xpath).findAttributeValue("territory", "type");
-			if ("CS".equals(type) || "SP".equals(type)) {
-				String v = cldrFileToFilter.getStringValue(xpath);
-				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-				fullparts.set(fullXPath);
-				if (type.equals("CS")) {
-					parts.setAttribute("territory", "type", "200");
-					fullparts.setAttribute("territory", "type", "200");
-				} else {
-					parts.setAttribute("territory", "type", "CS");
-					fullparts.setAttribute("territory", "type", "CS");
-					parts.setAttribute("territory", "draft", "true");
-					fullparts.setAttribute("territory", "draft", "true");
-				}
-				replacements.add(fullparts.toString(), v);
-				removal.add(xpath);
-			}
-		}		
-	};
-	
-	static CLDRFilter fixNarrow = new CLDRFilter() {
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
-			parts.set(xpath);
-			String element = "";
-			if (parts.findElement("dayContext") >= 0) {
-				element = "dayContext";
-			} else if (parts.findElement("monthContext") >= 0) {
-				element = "monthContext";				
-			} else return;
-			
-			// change the element type UNLESS it conflicts
-			parts.setAttribute(element, "type", "stand-alone");
-			if (cldrFileToFilter.getStringValue(parts.toString()) != null) return;
-			
-			String v = cldrFileToFilter.getStringValue(xpath);
-			String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-			fullparts.set(fullXPath);
-			fullparts.setAttribute(element, "type", "stand-alone");
-			replacements.add(fullparts.toString(), v);
-			removal.add(xpath);
-		}		
-	};
-	
-	
-	static CLDRFilter fixNumbers = new CLDRFilter() {
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			byte type = CLDRTest.getNumericType(xpath);
-			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
-			String value = cldrFileToFilter.getStringValue(xpath);
-			// at this point, we only have currency formats
-			boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
-			String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
-			if (pattern.equals(value)) return;
-			replacements.add(cldrFileToFilter.getFullXPath(xpath), pattern);
-		}
-	};
-	
-	static CLDRFilter fixUnwantedCodes = new CLDRFilter() {
-/*		Set legalCurrencies;
-		{		
-			StandardCodes sc = StandardCodes.make();
-	        legalCurrencies = new TreeSet(sc.getAvailableCodes("currency"));
-	        // first remove non-ISO
-	        for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
-	        	String code = (String) it.next();
-	        	List data = sc.getFullData("currency", code);
-	        	if ("X".equals(data.get(3))) it.remove();
-	        }
-		}
-*/
-		StandardCodes sc = StandardCodes.make();
-		String[] codeTypes = {"language", "script", "territory", "currency"};
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (xpath.indexOf("/currency") < 0 
-					&& xpath.indexOf("/timeZoneNames") < 0 
-					&& xpath.indexOf("/localeDisplayNames") < 0) return;
-			parts.set(xpath);
-			String code;
-			for (int i = 0; i < codeTypes.length; ++i) {
-				code = parts.findAttributeValue(codeTypes[i], "type");
-				if (code != null) {
-					if (!sc.getGoodAvailableCodes(codeTypes[i]).contains(code)) removal.add(xpath);
-					return;
-				}
-			}
-			code = parts.findAttributeValue("zone", "type");
-			if (code != null) {
-				if (code.indexOf("/GMT") >= 0) removal.add(xpath);
-			}
-
-		}
-	};
-
-	static CLDRFilter fixExemplars = new CLDRFilter() {
-		Collator col;
-		Collator spaceCol;
-		UnicodeSet uppercase = new UnicodeSet("[[:Uppercase:]-[\u0130]]");
-
-		public void setFile(CLDRFile k) {
-			super.setFile(k);
-			String locale = k.getLocaleID();
-			col = Collator.getInstance(new ULocale(locale));
-			spaceCol = Collator.getInstance(new ULocale(locale));
-			spaceCol.setStrength(col.PRIMARY);
-		}
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (xpath.indexOf("/exemplarCharacters") < 0) return;
-			String value = cldrFileToFilter.getStringValue(xpath);
-			String fixedValue = value.replaceAll("- ", "-"); // TODO fix hack
-			if (!fixedValue.equals(value)) {
-				System.out.println("Changing: " + value);
-			}
-			UnicodeSet s = new UnicodeSet(fixedValue).removeAll(uppercase);
-			
-	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, true, null, null, col, col);
-	    	
-	    	if (!value.equals(fixedExemplar1)) replacements.add(cldrFileToFilter.getFullXPath(xpath), fixedExemplar1);
-		}
-	};
-
-	static CLDRFilter fixZZ = new CLDRFilter() {
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (xpath.indexOf("/exemplarCharacters") < 0) return;
-			String value = cldrFileToFilter.getStringValue(xpath);
-			if (value.indexOf("[:") < 0) return;
-			UnicodeSet s = new UnicodeSet(value);
-			s.add(0xFFFF);
-			s.remove(0xFFFF); // force flattening
-			// at this point, we only have currency formats
-			replacements.add(cldrFileToFilter.getFullXPath(xpath), s.toPattern(false));
-		}
-	};
-
-	static HashSet totalSkeletons = new HashSet();
-
-	static CLDRFilter fixDates = new CLDRFilter() {
-		DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
-		HashMap seenSoFar = new HashMap();
-		public void setFile(CLDRFile k) {
-			super.setFile(k);
-			seenSoFar.clear();
-		}
-
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (xpath.indexOf("/availableFormats") < 0) return;
-			String value = cldrFileToFilter.getStringValue(xpath);
-			if (value == null) return; // not in current file
-			
-			String fullpath = cldrFileToFilter.getFullXPath(xpath);
-			fullparts.set(fullpath);
-			
-			Map attributes = fullparts.findAttributes("dateFormatItem");
-			String id = (String) attributes.get("id");
-			String oldID = id;
-			try {
-				id = dateTimePatternGenerator.getSkeleton(value);
-			} catch (RuntimeException e) {
-				id = "[error]";
-			}
-			
-			String draft = (String) attributes.get("draft");
-			if (draft == null) draft = "true";
-			String alt = (String) attributes.get("alt");
-			if (alt == null) alt = "proposed";
-			alt = fixAlt(alt, id);
-			attributes.put("draft", draft);
-			attributes.put("alt", alt);
-			attributes.put("id", id);
-			attributes.remove("_q");
-			totalSkeletons.add(id);
-
-			replacements.add(fullparts.toString(), value);
-			removal.add(xpath);
-		}
-
-		private String fixAlt(String alt, String id) {
-			Set soFar = (Set) seenSoFar.get(id);
-			if (soFar == null) {
-				seenSoFar.put(id, soFar = new HashSet());
-			} else {
-				for (int i = 1; ; ++i) {
-					String newAlt = alt + "-" + i;
-					alt += "-" + i;
-					if (!soFar.contains(alt)) break;
-				}
-			}
-			soFar.add(alt);
-			return alt;
-		}
-	};
-
-	static CLDRFilter fixReferences = new CLDRFilter() {
-		References standards = new References(true);
-		References references = new References(false);
-		public void setFile(CLDRFile k) {
-			super.setFile(k);
-			standards.reset(k);
-			references.reset(k);
-		}
-		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			String value = cldrFileToFilter.getStringValue(xpath);
-			String fullpath = cldrFileToFilter.getFullXPath(xpath);
-			if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
-			if (fullpath.indexOf("/references") >= 0) return;
-			fullparts.set(fullpath);
-			int fixCount = 0;
-			for (int i = 0; i < fullparts.size(); ++i) {
-				Map attributes = fullparts.getAttributes(i);
-				fixCount += standards.fix(attributes, replacements);
-				fixCount += references.fix(attributes, replacements);
-			}
-			if (fixCount >= 0) replacements.add(fullparts.toString(), value);
-		}
-	};
 	
 	private static class References {
 		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
@@ -569,9 +349,9 @@ public class CLDRModify {
 				if (path.indexOf("/reference") < 0) continue;
 				parts.set(k.getFullXPath(path));
 				if (!parts.getElement(2).equals("reference")) continue;
-				Map attributes = parts.getAttributes(2);
-				String token = (String) attributes.get("type");
-				boolean refIsStandard = "true".equals(attributes.get("standard"));
+				//Map attributes = parts.getAttributes(2);
+				String token = parts.getAttributeValue(2, "type");
+				boolean refIsStandard = "true".equals(parts.getAttributeValue(2, "standard"));
 				if (refIsStandard != isStandard) continue;
 				String references = k.getStringValue(path);
 				tokenSet.add(token);
@@ -609,9 +389,307 @@ public class CLDRModify {
 			return result;
 		}
 	}
-
+	
+	
+	abstract static class CLDRFilter {
+		protected CLDRFile cldrFileToFilter;
+		protected Set availableChildren;
+		protected XPathParts parts = new XPathParts(null, null);
+		protected XPathParts fullparts = new XPathParts(null, null);
+		public abstract void handle(String xpath, Set removal, CLDRFile additions);
+		public void setFile(CLDRFile k) {
+			this.cldrFileToFilter = k;
+		}
+	}
+	
+	static class FixList {
+		// simple class, so we use quick list
+		CLDRFilter[] filters = new CLDRFilter[128]; // only ascii
+		String[] helps = new String[128]; // only ascii
+		UnicodeSet options = new UnicodeSet();
+		
+		void add(char letter, String help) {
+			add(letter, help, null);
+		}
+		public UnicodeSet getOptions() {
+			return options;
+		}
+		void add(char letter, String help, CLDRFilter filter) {
+			if (helps[letter] != null) throw new IllegalArgumentException("Duplicate letter: " + letter);
+			filters[letter] = filter;
+			helps[letter] = help;
+			options.add(letter);
+		}
+		void setFile(CLDRFile file) {
+			for (int i = 0; i < filters.length; ++i) {
+				if (filters[i] != null) {
+					filters[i].setFile(file);
+				}
+			}
+		}
+		void handle(String options, String xpath, Set removal, CLDRFile additions) {
+			options = options.toLowerCase();
+			for (int i = 0; i < options.length(); ++i) {
+				char c = options.charAt(i);
+				if (filters[c] != null) {
+					filters[c].handle(xpath, removal, additions);
+				}
+			}
+		}
+		String showHelp() {
+			String result = "";
+			for (int i = 0; i < filters.length; ++i) {
+				if (helps[i] != null) {
+					result += "\t" + (char)i + "\t " + helps[i] + XPathParts.NEWLINE;
+				}
+			}
+			return result;
+		}
+	}
+	
+	static HashSet totalSkeletons = new HashSet();
+	
+	
+	static {
+		fixList.add('c', "fix CS (Don't use!)", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (!xpath.startsWith("//ldml/localeDisplayNames/territories/territory")) return;
+				String type = parts.set(xpath).findAttributeValue("territory", "type");
+				if ("CS".equals(type) || "SP".equals(type)) {
+					String v = cldrFileToFilter.getStringValue(xpath);
+					String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+					fullparts.set(fullXPath);
+					if (type.equals("CS")) {
+						parts.setAttribute("territory", "type", "200");
+						fullparts.setAttribute("territory", "type", "200");
+					} else {
+						parts.setAttribute("territory", "type", "CS");
+						fullparts.setAttribute("territory", "type", "CS");
+						parts.setAttribute("territory", "draft", "true");
+						fullparts.setAttribute("territory", "draft", "true");
+					}
+					replacements.add(fullparts.toString(), v);
+					removal.add(xpath);
+				}
+			}		
+		});
+		
+		fixList.add('e', "remove id=\"[error']\"", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("id=\"[error]\"") < 0) return;
+				removal.add(xpath);
+			}		
+		});
+		
+		fixList.add('s', "fix stand-alone narrows", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
+				parts.set(xpath);
+				String element = "";
+				if (parts.findElement("dayContext") >= 0) {
+					element = "dayContext";
+				} else if (parts.findElement("monthContext") >= 0) {
+					element = "monthContext";				
+				} else return;
+				
+				// change the element type UNLESS it conflicts
+				parts.setAttribute(element, "type", "stand-alone");
+				if (cldrFileToFilter.getStringValue(parts.toString()) != null) return;
+				
+				String v = cldrFileToFilter.getStringValue(xpath);
+				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+				fullparts.set(fullXPath);
+				fullparts.setAttribute(element, "type", "stand-alone");
+				replacements.add(fullparts.toString(), v);
+				removal.add(xpath);
+			}		
+		});
+		
+		
+		fixList.add('n', "fix numbers", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				byte type = CLDRTest.getNumericType(xpath);
+				if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
+				String value = cldrFileToFilter.getStringValue(xpath);
+				// at this point, we only have currency formats
+				boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
+				String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
+				if (pattern.equals(value)) return;
+				replacements.add(cldrFileToFilter.getFullXPath(xpath), pattern);
+			}
+		});
+		
+		fixList.add('x', "remove illegal codes", new CLDRFilter() {
+			/*		Set legalCurrencies;
+			 {		
+			 StandardCodes sc = StandardCodes.make();
+			 legalCurrencies = new TreeSet(sc.getAvailableCodes("currency"));
+			 // first remove non-ISO
+			  for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
+			  String code = (String) it.next();
+			  List data = sc.getFullData("currency", code);
+			  if ("X".equals(data.get(3))) it.remove();
+			  }
+			  }
+			  */
+			StandardCodes sc = StandardCodes.make();
+			String[] codeTypes = {"language", "script", "territory", "currency"};
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("/currency") < 0 
+						&& xpath.indexOf("/timeZoneNames") < 0 
+						&& xpath.indexOf("/localeDisplayNames") < 0) return;
+				parts.set(xpath);
+				String code;
+				for (int i = 0; i < codeTypes.length; ++i) {
+					code = parts.findAttributeValue(codeTypes[i], "type");
+					if (code != null) {
+						if (!sc.getGoodAvailableCodes(codeTypes[i]).contains(code)) removal.add(xpath);
+						return;
+					}
+				}
+				code = parts.findAttributeValue("zone", "type");
+				if (code != null) {
+					if (code.indexOf("/GMT") >= 0) removal.add(xpath);
+				}
+				
+			}
+		});
+		
+		fixList.add('q', "fix exemplars", new CLDRFilter() {
+			Collator col;
+			Collator spaceCol;
+			UnicodeSet uppercase = new UnicodeSet("[[:Uppercase:]-[\u0130]]");
+			UnicodeSetIterator usi = new UnicodeSetIterator();
+			
+			public void setFile(CLDRFile k) {
+				super.setFile(k);
+				String locale = k.getLocaleID();
+				col = Collator.getInstance(new ULocale(locale));
+				spaceCol = Collator.getInstance(new ULocale(locale));
+				spaceCol.setStrength(col.PRIMARY);
+			}
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("/exemplarCharacters") < 0) return;
+				String value = cldrFileToFilter.getStringValue(xpath);
+				try {
+					String fixedValue = value.replaceAll("- ", "-"); // TODO fix hack
+					if (!fixedValue.equals(value)) {
+						System.out.println("Changing: " + value);
+					}
+					UnicodeSet s1 = new UnicodeSet(fixedValue).removeAll(uppercase);
+					UnicodeSet s = new UnicodeSet();
+					for (usi.reset(s1); usi.next(); ) {
+						s.add(Normalizer.compose(usi.getString(), false));
+					}
+					
+					String fixedExemplar1 = CollectionUtilities.prettyPrint(s, true, null, null, col, col);
+					
+					if (!value.equals(fixedExemplar1)) replacements.add(cldrFileToFilter.getFullXPath(xpath), fixedExemplar1);
+				} catch (RuntimeException e) {
+					System.out.println("Illegal UnicodeSet: " + cldrFileToFilter.getLocaleID() + "\t" + value);
+				}
+			}
+		});
+		
+		fixList.add('z', "fix ZZ", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("/exemplarCharacters") < 0) return;
+				String value = cldrFileToFilter.getStringValue(xpath);
+				if (value.indexOf("[:") < 0) return;
+				UnicodeSet s = new UnicodeSet(value);
+				s.add(0xFFFF);
+				s.remove(0xFFFF); // force flattening
+				// at this point, we only have currency formats
+				replacements.add(cldrFileToFilter.getFullXPath(xpath), s.toPattern(false));
+			}
+		});
+		
+		fixList.add('d', "fix dates",  new CLDRFilter() {
+			DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
+			HashMap seenSoFar = new HashMap();
+			public void setFile(CLDRFile k) {
+				super.setFile(k);
+				seenSoFar.clear();
+			}
+			
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("/availableFormats") < 0) return;
+				String value = cldrFileToFilter.getStringValue(xpath);
+				if (value == null) return; // not in current file
+				
+				String fullpath = cldrFileToFilter.getFullXPath(xpath);
+				fullparts.set(fullpath);
+				
+				Map attributes = fullparts.findAttributes("dateFormatItem");
+				String id = (String) attributes.get("id");
+				String oldID = id;
+				try {
+					id = dateTimePatternGenerator.getSkeleton(value);
+				} catch (RuntimeException e) {
+					id = "[error]";
+				}
+				
+				String draft = (String) attributes.get("draft");
+				if (draft == null) draft = "true";
+				String alt = (String) attributes.get("alt");
+				if (alt == null) alt = "proposed";
+				alt = fixAlt(alt, id);
+				attributes.put("draft", draft);
+				attributes.put("alt", alt);
+				attributes.put("id", id);
+				attributes.remove("_q");
+				totalSkeletons.add(id);
+				
+				replacements.add(fullparts.toString(), value);
+				removal.add(xpath);
+			}
+			
+			private String fixAlt(String alt, String id) {
+				Set soFar = (Set) seenSoFar.get(id);
+				if (soFar == null) {
+					seenSoFar.put(id, soFar = new HashSet());
+				} else {
+					for (int i = 1; ; ++i) {
+						String newAlt = alt + "-" + i;
+						alt += "-" + i;
+						if (!soFar.contains(alt)) break;
+					}
+				}
+				soFar.add(alt);
+				return alt;
+			}
+		});
+		
+		fixList.add('r', "fix references and standards", new CLDRFilter() {
+			References standards = new References(true);
+			References references = new References(false);
+			public void setFile(CLDRFile k) {
+				super.setFile(k);
+				standards.reset(k);
+				references.reset(k);
+			}
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				String value = cldrFileToFilter.getStringValue(xpath);
+				String fullpath = cldrFileToFilter.getFullXPath(xpath);
+				if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
+				if (fullpath.indexOf("/references") >= 0) return;
+				fullparts.set(fullpath);
+				int fixCount = 0;
+				for (int i = 0; i < fullparts.size(); ++i) {
+					Map attributes = fullparts.getAttributes(i);
+					fixCount += standards.fix(attributes, replacements);
+					fixCount += references.fix(attributes, replacements);
+				}
+				if (fixCount >= 0) replacements.add(fullparts.toString(), value);
+			}
+		});
+		
+		fixList.add('i', "fix Identical Children");
+		fixList.add('v', "check attribute validity");
+	}
+	
 	// references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
-
+	
 	private static class ValuePair {
 		String value;
 		String fullxpath;
@@ -642,12 +720,12 @@ public class CLDRModify {
 				if (xpath.indexOf("/identity") >= 0) continue;
 				if (xpath.startsWith("//ldml/numbers/currencies/currency")) continue;
 				if (xpath.indexOf("[@alt") >= 0) continue;
-
+				
 				// must be string vale
 				ValuePair v1 = new ValuePair();
 				v1.value = item.getStringValue(xpath);
 				v1.fullxpath = item.getFullXPath(xpath);
-
+				
 				ValuePair vAlready = (ValuePair) haveSameValues.get(xpath);
 				if (vAlready == null) {
 					haveSameValues.put(xpath, v1);
@@ -666,7 +744,35 @@ public class CLDRModify {
 			replacements.add(v.fullxpath, v.value);
 		}
 	}
+	
+	static void fixAltProposed() {
+		throw new IllegalArgumentException();
+    	// throw out any alt=proposed values that are the same as the main
+//    	HashSet toRemove = new HashSet();
+//    	for (Iterator it = dataSource.iterator(); it.hasNext();) {
+//    		String cpath = (String) it.next();
+//    		if (cpath.indexOf("[@alt=") < 0) continue;
+//    		String cpath2 = getNondraftNonaltXPath(cpath);
+//    		String value = getStringValue(cpath);
+//    		String value2 = getStringValue(cpath2);
+//    		if (!value.equals(value2)) continue;
+//    		// have to worry about cases where the info is not in the value!!
+//    		//fix this; values are the same!!
+//       		String fullpath = getNondraftNonaltXPath(getFullXPath(cpath));
+//    		String fullpath2 = getNondraftNonaltXPath(getFullXPath(cpath2));
+//    		if (!fullpath.equals(fullpath2)) continue;
+//    		Log.logln(getLocaleID() + "\tRemoving redundant alternate: " + getFullXPath(cpath) + " ;\t" + value);
+//    		Log.logln("\t\tBecause of: " + getFullXPath(cpath2) + " ;\t" + value2);
+//    		if (getFullXPath(cpath2).indexOf("[@references=") >= 0) {
+//    			System.out.println("Warning: removing references: " + getFullXPath(cpath2));
+//    		}
+//    		toRemove.add(cpath);
+//    	}
+//    	dataSource.removeAll(toRemove);
 
+	}
+	
+	
 	/**
 	 * Perform various fixes
 	 * TODO add options to pick which one.
@@ -680,77 +786,41 @@ public class CLDRModify {
 		
 		Set removal = new TreeSet(CLDRFile.ldmlComparator);
 		CLDRFile replacements = CLDRFile.make("temp");
-		fixNumbers.setFile(k);
-		fixCS.setFile(k);
-		fixNarrow.setFile(k);
-		fixReferences.setFile(k);
-		fixExemplars.setFile(k);
-		fixUnwantedCodes.setFile(k);
-		fixDates.setFile(k);
+		fixList.setFile(k);
 		
 		for (Iterator it2 = k.iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
-
-			// Fix number problems across locales
-			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
-			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
-			
-			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
-
-			// fix exemplars
-			if (options.indexOf('d') >= 0) fixDates.handle(xpath, removal, replacements);
-		
-			//Before removing SP, do the following!
-			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353
-			/*
-			<territory type="CS">Czechoslovakia</territory>
-			=>
-			<territory type="200">Czechoslovakia</territory>
-	
-			<territory type="SP">Serbia</territory>
-			=>
-			<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
-			*/
-			//if (options.indexOf('c') >= 0) fixCS.handle(xpath, removal, replacements);
-			
-			//Give best default for each language
-			//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
-			
-			// It appears that all of the current "narrow" data that we have was intended to be
-			// stand-alone instead of format, and should be changed to be so in a mechanical
-			// sweep.
-			if (options.indexOf('s') >= 0) fixNarrow.handle(xpath, removal, replacements);
-			
-			// move references
-			// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
-			// My recommendation would be: collect all
-			// contents of standard and references. Number the standards S001, S002,... and the
-			// references R001, R002, etc. Emit
-			if (options.indexOf('r') >= 0) fixReferences.handle(xpath, removal, replacements);
-			
-			// remove illegal codes
-			if (options.indexOf('x') >= 0) fixUnwantedCodes.handle(xpath, removal, replacements);
+			fixList.handle(options, xpath, removal, replacements);
 		}
 		
-		//remove bad attributes
-		//		http://www.jtcsv.com/cgibin/locale-bugs?findid=351
-		//Removing invalid currency codes
-		//http://www.jtcsv.com/cgibin/locale-bugs?findid=323
+		// remove bad attributes
 		
-		if (options.indexOf('v') >= 0) CLDRTest.checkAttributeValidity(k, null, removal);
+		if (options.indexOf('v') >= 0) {
+			CLDRTest.checkAttributeValidity(k, null, removal);
+		}
 		
 		// raise identical elements
 		
-		if (options.indexOf('i') >= 0) fixIdenticalChildren(cldrFactory, k, replacements);
+		if (options.indexOf('i') >= 0) {
+			fixIdenticalChildren(cldrFactory, k, replacements);
+		}
 		
 		// now do the actions we collected
 		
+		if (true) {
+			if (removal.size() != 0 || !replacements.isEmpty()) {
+				System.out.println("Removals:");
+				System.out.println(removal);
+				System.out.println("Additions:");
+				System.out.println(replacements);
+			}
+		}
 		if (removal.size() != 0) {
 			k.removeAll(removal, COMMENT_REMOVALS);
 		}
 		k.putAll(replacements, k.MERGE_REPLACE_MINE);
 	}
-
+	
 	/**
 	 * Internal
 	 */
@@ -758,11 +828,11 @@ public class CLDRModify {
 		// quick test of following
 		CLDRFile test2;
 		/*
-		test2 = cldrFactory.make("root", false);
-		test2.show();
-		System.out.println();
-		System.out.println();
-		*/
+		 test2 = cldrFactory.make("root", false);
+		 test2.show();
+		 System.out.println();
+		 System.out.println();
+		 */
 		test2 = cldrFactory.make("root", true);
 		//test2.show();
 		System.out.println();
@@ -771,14 +841,14 @@ public class CLDRModify {
 		test2.write(xxx);
 		xxx.flush();
 	}
-
+	
 	/**
 	 * Internal
 	 */
 	private static SimpleLineComparator testLineComparator(String sourceDir, String targetDir) {
 		SimpleLineComparator lineComparer = new SimpleLineComparator(
 				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY);
-
+		
 		if (false) {
 			int x = lineComparer.compare("a", "b");
 			x = lineComparer.compare("a", " a");
@@ -791,7 +861,7 @@ public class CLDRModify {
 		}
 		return lineComparer;
 	}
-
+	
 	/**
 	 * Internal
 	 */
@@ -810,32 +880,32 @@ public class CLDRModify {
 	
 	// <localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZ</localizedPatternChars> 
 	/*
-		<localizedPattern>
-		 <map type="era">G</map>
-		 <map type="year">y</map>
-		 <map type="year_iso">Y</map>
-		 <map type="year_uniform">u</map>
-		 <map type="month">M</map>
-		 <map type="week_in_year">w</map>
-		 <map type="week_in_month">W</map>
-		 <map type="day">d</map>
-		 <map type="day_of_year">D</map>
-		 <map type="day_of_week_in_month">F</map>
-		 <map type="day_julian">g</map>
-		 <map type="day_of_week">E</map>
-		 <map type="day_of_week_local">e</map>
-		 <map type="period_in_day">a</map>
-		 <map type="hour_1_12">h</map>
-		 <map type="hour_0_23">H</map>
-		 <map type="hour_0_11">K</map>
-		 <map type="hour_1_24">k</map>
-		 <map type="minute">m</map>
-		 <map type="second">s</map>
-		 <map type="fractions_of_second">S</map>
-		 <map type="milliseconds_in_day">A</map>
-		 <map type="timezone">z</map>
-		 <map type="timezone_gmt">Z</map>
-		</localizedPattern>
-		*/
-
+	 <localizedPattern>
+	 <map type="era">G</map>
+	 <map type="year">y</map>
+	 <map type="year_iso">Y</map>
+	 <map type="year_uniform">u</map>
+	 <map type="month">M</map>
+	 <map type="week_in_year">w</map>
+	 <map type="week_in_month">W</map>
+	 <map type="day">d</map>
+	 <map type="day_of_year">D</map>
+	 <map type="day_of_week_in_month">F</map>
+	 <map type="day_julian">g</map>
+	 <map type="day_of_week">E</map>
+	 <map type="day_of_week_local">e</map>
+	 <map type="period_in_day">a</map>
+	 <map type="hour_1_12">h</map>
+	 <map type="hour_0_23">H</map>
+	 <map type="hour_0_11">K</map>
+	 <map type="hour_1_24">k</map>
+	 <map type="minute">m</map>
+	 <map type="second">s</map>
+	 <map type="fractions_of_second">S</map>
+	 <map type="milliseconds_in_day">A</map>
+	 <map type="timezone">z</map>
+	 <map type="timezone_gmt">Z</map>
+	 </localizedPattern>
+	 */
+	
 }

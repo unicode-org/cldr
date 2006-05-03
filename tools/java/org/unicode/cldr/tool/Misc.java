@@ -113,19 +113,19 @@ public class Misc {
 	 */
 	public static void main(String[] args) throws IOException {
 		try {
-            Locale someLocale = Locale.FRENCH;
-            Date someDate = new Date();
-            ULocale uloc;
-            
-SimpleDateFormat dateTimeFormat = (SimpleDateFormat) DateFormat.getTimeInstance(DateFormat.SHORT, someLocale);
-String pattern = dateTimeFormat.toPattern();
-// you now have a pattern, which you can copy and modify
-System.out.println(dateTimeFormat.format(someDate)); // unmodified
-pattern += "'some other stuff'";
-dateTimeFormat.applyPattern(pattern);
-System.out.println(dateTimeFormat.format(someDate)); // modified
-            
-            if (true) return;
+//            Locale someLocale = Locale.FRENCH;
+//            Date someDate = new Date();
+//            ULocale uloc;
+//            
+//SimpleDateFormat dateTimeFormat = (SimpleDateFormat) DateFormat.getTimeInstance(DateFormat.SHORT, someLocale);
+//String pattern = dateTimeFormat.toPattern();
+//// you now have a pattern, which you can copy and modify
+//System.out.println(dateTimeFormat.format(someDate)); // unmodified
+//pattern += "'some other stuff'";
+//dateTimeFormat.applyPattern(pattern);
+//System.out.println(dateTimeFormat.format(someDate)); // modified
+//            
+//            if (true) return;
 	        UOption.parseArgs(args, options);
 	        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
 	        	System.out.println(HELP_TEXT);

@@ -12,6 +12,22 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 public class TestMisc {
     public static void main(String[] args) {
+    	showEnglish();
+    	//testPopulous();
+    }
+    private static void showEnglish() {
+    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+		CLDRFile english = cldrFactory.make("en", true);
+		CLDRFile.Status status = new CLDRFile.Status();
+		for (Iterator it = english.iterator(); it.hasNext();) {
+			String path = (String) it.next();
+			String locale = english.getSourceLocaleID(path, status);
+			if (!locale.equals("en") || !status.pathWhereFound.equals(path)) {
+				System.out.println(path + "\t" + locale + "\t" + status.pathWhereFound + "\t");
+			}
+		}
+	}
+	static void testPopulous() {
         Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = CLDRFile.make("supplemental");
@@ -22,11 +38,11 @@ public class TestMisc {
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);
             parts.set(fullPath);
-            Map attributes = parts.getAttributes(-1);
-            String type = (String) attributes.get("type");
+            //Map attributes = parts.getAttributes(-1);
+            String type = parts.getAttributeValue(-1, "type");
             String pop = (String) language_territory_hack_map.get(type);
             if (pop != null) {
-                attributes.put("mostPopulousTerritory", pop);
+                parts.putAttributeValue(-1, "mostPopulousTerritory", pop);
                 fullPath = parts.toString();
             }
             temp.add(fullPath, value);

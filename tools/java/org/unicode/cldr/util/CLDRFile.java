@@ -156,6 +156,10 @@ public class CLDRFile implements Freezable {
 		return "locked: " + locked + "\r\n" + dataSource;
 	}
 	
+	public String toString(String regex) {
+		return "locked: " + locked + " [" + regex +  "]\r\n" + dataSource.toString(regex);
+	}
+	
     // for refactoring
     
 	public CLDRFile setNonInheriting(boolean isSupplemental) {
@@ -424,9 +428,10 @@ public class CLDRFile implements Freezable {
     
 	/**
 	 * Find out where the value was found (for resolving locales)
+	 * @param status the distinguished path where the item was found. Pass in null if you don't care.
 	 */
-    public String getSourceLocaleID(String xpath) {
-    	return dataSource.getSourceLocaleID(xpath);
+    public String getSourceLocaleID(String xpath, CLDRFile.Status status) {
+    	return dataSource.getSourceLocaleID(xpath, status);
     }
     
     /**
@@ -488,7 +493,7 @@ public class CLDRFile implements Freezable {
     			String cpath = (String) it.next();
     			String fullpath = getFullXPath(cpath);
     			if (fullpath.indexOf("[@draft") >= 0) {
-    				hasDraftVersion.add(getNondraftXPath(cpath)); // strips the alt and the draft
+    				hasDraftVersion.add(getNondraftNonaltXPath(cpath)); // strips the alt and the draft
     			}
     		}
     		// only replace draft items!
@@ -498,10 +503,10 @@ public class CLDRFile implements Freezable {
 				String cpath = (String) it.next();
 				//Value otherValueOld = (Value) other.getXpath_value().get(cpath);
 				// fix the data
-				cpath = Utility.replace(cpath, "[@type=\"ZZ\"]", "[@type=\"QO\"]"); // fix because tag meaning changed after beta
-				cpath = getNondraftXPath(cpath);
+				//cpath = Utility.replace(cpath, "[@type=\"ZZ\"]", "[@type=\"QO\"]"); // fix because tag meaning changed after beta
+				cpath = getNondraftNonaltXPath(cpath);
 				String newValue = other.getStringValue(cpath);
-				String newFullPath = getNondraftXPath(other.getFullXPath(cpath));
+				String newFullPath = getNondraftNonaltXPath(other.getFullXPath(cpath));
 				// newFullPath = Utility.replace(newFullPath, "[@type=\"ZZ\"]", "[@type=\"QO\"]");
 				// another hack; need to add references back in
 				newFullPath = addReferencesIfNeeded(newFullPath, getFullXPath(cpath));
@@ -540,29 +545,7 @@ public class CLDRFile implements Freezable {
     			}
     		}
     	} else throw new IllegalArgumentException("Illegal operand: " + conflict_resolution);
-    	
-    	// throw out any alt=proposed values that are the same as the main
-    	HashSet toRemove = new HashSet();
-    	for (Iterator it = dataSource.iterator(); it.hasNext();) {
-    		String cpath = (String) it.next();
-    		if (cpath.indexOf("[@alt=") < 0) continue;
-    		String cpath2 = getNondraftXPath(cpath);
-    		String value = getStringValue(cpath);
-    		String value2 = getStringValue(cpath2);
-    		if (!value.equals(value2)) continue;
-    		// have to worry about cases where the info is not in the value!!
-       		String fullpath = getNondraftXPath(getFullXPath(cpath));
-    		String fullpath2 = getNondraftXPath(getFullXPath(cpath2));
-    		if (!fullpath.equals(fullpath2)) continue;
-    		Log.logln(getLocaleID() + "\tRemoving redundant alternate: " + getFullXPath(cpath) + " ;\t" + value);
-    		Log.logln("\t\tBecause of: " + getFullXPath(cpath2) + " ;\t" + value2);
-    		if (getFullXPath(cpath2).indexOf("[@references=") >= 0) {
-    			System.out.println("Warning: removing references: " + getFullXPath(cpath2));
-    		}
-    		toRemove.add(cpath);
-    	}
-    	dataSource.removeAll(toRemove);
-    	
+    	    	
     	dataSource.getXpathComments().setInitialComment(
     			Utility.joinWithSeparation(dataSource.getXpathComments().getInitialComment(),
     					XPathParts.NEWLINE, 
@@ -656,7 +639,7 @@ private boolean isSupplemental;
     		if (!currentValue.equals(otherValue)) continue;
     		String currentFullXPath = dataSource.getFullPath(xpath);
     		String otherFullXPath = other.dataSource.getFullPath(xpath);
-    		if (!getNondraftXPath(currentFullXPath).equals(getNondraftXPath(otherFullXPath))) continue;
+    		if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) continue;
     		if (first) {
     			first = false;
     			if (butComment) appendFinalComment("Duplicates removed:");
@@ -792,34 +775,54 @@ private boolean isSupplemental;
     private static boolean equalsIgnoringDraft(String path1, String path2) {
     	// TODO: optimize
     	if (path1.indexOf("[@draft=") < 0 && path2.indexOf("[@draft=") < 0) return path1.equals(path2);
-		return getNondraftXPath(path1).equals(path2);
+		return getNondraftNonaltXPath(path1).equals(getNondraftNonaltXPath(path2));
     }
     
-    private static String getNondraftXPath(String xpath) {
-    	XPathParts parts = new XPathParts(null,null).set(xpath);
-    	String restore;
-    	for (int i = 0; i < parts.size(); ++i) {
-    		String element = parts.getElement(i);
-    		Map attributes = parts.getAttributes(i);
-    		restore = null;
-    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    			String attribute = (String) it.next();
-    			if (attribute.equals("draft")) it.remove();
-    			else if (attribute.equals("alt")) {
-    				String value = (String) attributes.get(attribute);		
-	    			int proposedPos = value.indexOf("proposed");
-	    			if (proposedPos >= 0) {
-	    				it.remove();
-	    				if (proposedPos > 0) {
-	    					restore = value.substring(0, proposedPos-1); // is of form xxx-proposedyyy
-	    				}
+    static XPathParts nondraftParts = new XPathParts(null,null);
+    
+    private static String getNondraftNonaltXPath(String xpath) {
+    	if (xpath.indexOf("draft=\"") < 0 && xpath.indexOf("alt=\"") < 0 ) return xpath;
+    	synchronized (nondraftParts) {
+	    	XPathParts parts = new XPathParts(null,null).set(xpath);
+	    	String restore;
+	    	for (int i = 0; i < parts.size(); ++i) {
+	    		String element = parts.getElement(i);
+	    		Map attributes = parts.getAttributes(i);
+	    		restore = null;
+	    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+	    			String attribute = (String) it.next();
+	    			if (attribute.equals("draft")) it.remove();
+	    			else if (attribute.equals("alt")) {
+	    				String value = (String) attributes.get(attribute);		
+		    			int proposedPos = value.indexOf("proposed");
+		    			if (proposedPos >= 0) {
+		    				it.remove();
+		    				if (proposedPos > 0) {
+		    					restore = value.substring(0, proposedPos-1); // is of form xxx-proposedyyy
+		    				}
+		    			}
 	    			}
-    			}
-    		}
-    		if (restore != null) attributes.put("alt", restore);
+	    		}
+	    		if (restore != null) attributes.put("alt", restore);
+	    	}
+	    	return parts.toString();
     	}
-    	return parts.toString();
     }
+
+//    private static String getNondraftXPath(String xpath) {
+//    	if (xpath.indexOf("draft=\"") < 0) return xpath;
+//    	synchronized (nondraftParts) {
+//	    	XPathParts parts = new XPathParts(null,null).set(xpath);
+//	    	for (int i = 0; i < parts.size(); ++i) {
+//	    		Map attributes = parts.getAttributes(i);
+//	    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+//	    			String attribute = (String) it.next();
+//	    			if (attribute.equals("draft")) it.remove();
+//	    		}
+//	    	}
+//	    	return parts.toString();
+//    	}
+//    }
     
 	/**
 	 * Determine if an attribute is a distinguishing attribute.
@@ -2132,12 +2135,22 @@ private boolean isSupplemental;
 
 
 
-    public static boolean isLOG_PROGRESS() {
+    public static class Status {
+		public String pathWhereFound;
+	}
+
+
+
+	public static boolean isLOG_PROGRESS() {
         return LOG_PROGRESS;
     }
 
     public static void setLOG_PROGRESS(boolean log_progress) {
         LOG_PROGRESS = log_progress;
     }
+
+	public boolean isEmpty() {
+		return !dataSource.iterator().hasNext();
+	}
    
 }

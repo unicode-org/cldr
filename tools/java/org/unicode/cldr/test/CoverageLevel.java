@@ -306,15 +306,15 @@ public class CoverageLevel {
     public CoverageLevel.Level getCoverageLevel(String fullPath) {
         parts.set(fullPath);
         String lastElement = parts.getElement(-1);
-        Map attributes = parts.getAttributes(-1);
-        String type = (String)attributes.get("type");
+
+        String type = parts.getAttributeValue(-1, "type");
         CoverageLevel.Level result = null;
         String part1 = parts.getElement(1);
         if (lastElement.equals("exemplarCity")) {
             if (latinScript) {
                 result = CoverageLevel.Level.UNDETERMINED;
             } else {
-                type = (String) parts.getAttributes(-2).get("type"); // it's one level up
+                type = (String) parts.getAttributeValue(-2, "type"); // it's one level up
                 result = (CoverageLevel.Level) zone_level.get(type);
             }
         } else if (part1.equals("localeDisplayNames")) {
@@ -326,7 +326,7 @@ public class CoverageLevel {
             } else if (lastElement.equals("script")) {
                 result = (CoverageLevel.Level) script_level.get(type);
             } else if (lastElement.equals("type")) {
-                String key = (String)attributes.get("key");
+                String key = parts.getAttributeValue(-1, "key");
                 if (key.equals("calendar")) {
                     result = (CoverageLevel.Level) calendar_level.get(type);
                 }
@@ -339,7 +339,7 @@ public class CoverageLevel {
             if (latinScript && lastElement.equals("symbol")) {
                 result = CoverageLevel.Level.UNDETERMINED;
             } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
-                String currency = (String) parts.getAttributes(-2).get("type");
+                String currency = (String) parts.getAttributeValue(-2, "type");
                 result = (CoverageLevel.Level) currency_level.get(currency);
             }
         }
@@ -465,8 +465,8 @@ public class CoverageLevel {
             path = metadata.getFullXPath(path);
             parts.set(path);
             String lastElement = parts.getElement(-1);
-            Map attributes = parts.getAttributes(-1);
-            String type = (String) attributes.get("type");
+            //Map attributes = parts.getAttributes(-1);
+            String type = parts.getAttributeValue(-1, "type");
             if (parts.containsElement("coverageAdditions")) {
                 // System.out.println(path);
                 // System.out.flush();
@@ -474,7 +474,7 @@ public class CoverageLevel {
                 // <languageCoverage type="basic" values="de en es fr it ja
                 // pt ru zh"/>
                 CoverageLevel.Level level = CoverageLevel.Level.get(type);
-                String values = (String) attributes.get("values");
+                String values = parts.getAttributeValue(-1, "values");
                 Utility.addTreeMapChain(coverageData, new Object[] {
                         lastElement, level,
                         new TreeSet(Arrays.asList(values.split("\\s+"))) });
@@ -491,17 +491,17 @@ public class CoverageLevel {
             path = data.getFullXPath(path);
             parts.set(path);
             String lastElement = parts.getElement(-1);
-            Map attributes = parts.getAttributes(-1);
-            String type = (String) attributes.get("type");
+            //Map attributes = parts.getAttributes(-1);
+            String type = parts.getAttributeValue(-1, "type");
             //System.out.println(path);
             if (lastElement.equals("zoneItem")) {
                 if (multizoneTerritories == null) {
-                    Map multiAttributes = parts.getAttributes(-2);
-                    String multizone = (String) multiAttributes.get("multizone");
+                    //Map multiAttributes = parts.getAttributes(-2);
+                    String multizone = parts.getAttributeValue(-2, "multizone");
                     multizoneTerritories = new TreeSet(Arrays.asList(multizone.split("\\s+")));
                 }
                 //<zoneItem type="Africa/Abidjan" territory="CI"/>
-                String territory = (String) attributes.get("territory");
+                String territory = parts.getAttributeValue(-1, "territory");
                 if (!multizoneTerritories.contains(territory)) continue;
                 Set territories = (Set) territory_timezone.get(territory);
                 if (territories == null) territory_timezone.put(territory, territories = new TreeSet());
@@ -511,18 +511,17 @@ public class CoverageLevel {
                 // System.out.flush();
                 // we have element, type, subtype, and values
                 Set values = new TreeSet(
-                        Arrays.asList(((String) attributes
-                                .get("territories")).split("\\s+")));
+                        Arrays.asList((parts.getAttributeValue(-1, "territories")).split("\\s+")));
                 Utility.addTreeMapChain(coverageData, new Object[] {
                         lastElement, type, values });
                 addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);
             } else if (parts.containsElement("languageData")) {
                 // <language type="ab" scripts="Cyrl" territories="GE"
                 // alt="secondary"/>
-                String alt = (String) attributes.get("alt");
+                String alt = parts.getAttributeValue(-1, "alt");
                 if (alt != null) continue;
                 modernLanguages.add(type);
-                String scripts = (String) attributes.get("scripts");
+                String scripts = parts.getAttributeValue(-1, "scripts");
                 if (scripts != null) {
                     Set scriptSet = new TreeSet(Arrays.asList(scripts
                             .split("\\s+")));
@@ -530,8 +529,7 @@ public class CoverageLevel {
                     Utility.addTreeMapChain(language_scripts,
                             new Object[] {type, scriptSet});
                 }
-                String territories = (String) attributes
-                        .get("territories");
+                String territories = parts.getAttributeValue(-1, "territories");
                 if (territories != null) {
                     Set territorySet = new TreeSet(Arrays
                             .asList(territories
@@ -544,8 +542,8 @@ public class CoverageLevel {
             } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
                 //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
                 // if the 'to' value is less than 10 years, it is not modern
-                String to = (String) attributes.get("to");
-                String currency = (String) attributes.get("iso4217");
+                String to = parts.getAttributeValue(-1, "to");
+                String currency = parts.getAttributeValue(-1, "iso4217");
                 if (to == null || to.compareTo("1995") >= 0) {
                     modernCurrencies.add(currency);
                     // only add current currencies to must have list
@@ -561,7 +559,7 @@ public class CoverageLevel {
                     territoryContainment.add(type);
                 }
                 if (type.equals(EUROPEAN_UNION)) {
-                    euroCountries = new TreeSet(Arrays.asList(((String)attributes.get("contains")).split("\\s+")));
+                    euroCountries = new TreeSet(Arrays.asList((parts.getAttributeValue(-1, "contains")).split("\\s+")));
                 }
             }
         }

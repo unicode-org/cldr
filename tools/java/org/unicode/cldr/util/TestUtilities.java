@@ -42,7 +42,9 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedBreakIterator;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -59,6 +61,11 @@ import com.ibm.icu.util.UniversalTimeScale;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
+		try {
+		checkNumericTimezone();
+		
+		if (true) return;
+		
 		long foo = UniversalTimeScale.from(new Date().getTime(), UniversalTimeScale.JAVA_TIME);
 		System.out.println("Current Universal Time: " + Long.toString(foo,16));
 		System.out.println("LVT_Syllable count: " + new UnicodeSet("[:Hangul_Syllable_Type=LVT_Syllable:]").size());
@@ -73,7 +80,90 @@ public class TestUtilities {
 		//printCountries();
 		//printZoneSamples();
 		//printCurrencies();
-		System.out.println("Done");
+		} finally {
+			System.out.println("Done");
+		}
+	}
+	
+	private static void checkNumericTimezone() throws IOException {
+		String[] map_integer_zones = new String[1000];
+		StandardCodes sc = StandardCodes.make();
+		Set timezones = new TreeSet(sc.getGoodAvailableCodes("tzid"));
+		Map map_timezone_integer = new java.util.TreeMap();
+		BufferedReader input = Utility.getUTF8Data("timezone_numeric.txt");
+		int maxNumeric = -1;
+		Map fixOld = sc.getZoneLinkold_new();
+		while (true) {
+			String line = input.readLine();
+			if (line == null) break;
+			String[] parts = line.split(";\\s*");
+			int numeric = Integer.parseInt(parts[0]);
+			String originalTzid = parts[1].trim();
+			String fixedID = (String) fixOld.get(originalTzid);
+			if (fixedID == null) {
+				if (!timezones.contains(originalTzid)) {
+					System.out.println(numeric + "\t" + originalTzid + "\tStrange ID: " + fixedID);
+				}
+				fixedID = originalTzid;
+			} else {
+				System.out.println("Replacing " + originalTzid + " with " + fixedID);
+			}
+			if (map_integer_zones[numeric] != null) {
+				System.out.println("Duplicate number:" + numeric + ",\t" + fixedID + ",\t" + originalTzid + ",\t" + map_integer_zones[numeric]);
+				fixedID = "{" + originalTzid + "}";
+			}
+			if (map_timezone_integer.get(fixedID) != null) {
+				System.out.println("Duplicate zone:" + numeric + ",\t" + fixedID + ",\t" + originalTzid + ",\t" + map_timezone_integer.get(fixedID));
+				fixedID = "{" + originalTzid + "}";
+			}
+			map_integer_zones[numeric] = fixedID;
+			map_timezone_integer.put(fixedID, new Integer(numeric));	
+			if (maxNumeric < numeric) maxNumeric = numeric;
+		}
+		// get the differences (and sort them)
+		RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance();
+		eng.setNumericCollation(true);
+		
+		Set extra = new TreeSet(eng);
+		extra.addAll(map_timezone_integer.keySet());
+		extra.removeAll(timezones);
+		System.out.println("Extra: " + extra);
+		Set needed = new TreeSet(eng);
+		needed.addAll(timezones);
+		needed.removeAll(map_timezone_integer.keySet());
+		System.out.println("Needed: " + needed);
+		
+		// fill in the slots with the missing items
+		// make Etc/GMT go first
+		int numeric = 1;
+		List ordered = new ArrayList(needed);
+//		if (ordered.contains("Etc/GMT")) {
+//			ordered.remove("Etc/GMT");
+//			ordered.add(0,"Etc/GMT");
+//		}
+		
+		for (Iterator it = ordered.iterator(); it.hasNext();) {
+			String tzid = (String) it.next();
+			while (map_integer_zones[numeric] != null) ++numeric; // find first free one
+			if (maxNumeric < numeric) maxNumeric = numeric;
+			map_integer_zones[numeric] = tzid;
+			map_timezone_integer.put(tzid, new Integer(numeric));
+		}
+		
+		// print it out
+		Map equiv = sc.getZoneLinkNew_OldSet();
+		TreeSet old = new TreeSet();
+		for (int i = 1; i <= maxNumeric; ++i) {
+			Set s = (Set) equiv.get(map_integer_zones[i]);
+			String oString = "";
+			if (s != null) {
+				old.clear();
+				old.addAll(s);
+				oString = "\t" + old;
+			}
+			//System.out.println(i + ";\t" + map_integer_zones[i] + ";" + oString);
+			System.out.println("\t\"" + map_integer_zones[i] + "\",");
+		}
 	}
 	
 	private static void checkTranslit() {

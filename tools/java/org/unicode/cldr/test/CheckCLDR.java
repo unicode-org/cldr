@@ -70,7 +70,7 @@ abstract public class CheckCLDR {
 		return new CompoundCheckCLDR()
 			.setFilter(Pattern.compile(nameMatcher,Pattern.CASE_INSENSITIVE).matcher(""))
 			.add(new CheckAttributeValues())
-			.add(new CheckChildren())
+			//.add(new CheckChildren()) // don't enable this; will do in code.
             .add(new CheckCoverage())
 			.add(new CheckDates())
 			.add(new CheckDisplayCollisions())
@@ -572,7 +572,15 @@ abstract public class CheckCLDR {
 	/**
 	 * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
 	 * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
-	 * @param path
+	 * @param path Must be a distinguished path, such as what comes out of CLDRFile.iterator()
+	 * @param fullPath Must be the full path
+	 * @param value the value associated with the path
+	 * @param options A set of test-specific options. Set these with code of the form:<br>
+	 * options.put("CoverageLevel.localeType", "G0")<br>
+	 * That is, use <testname>.<optiontype>, <optionvalue>)<br>
+	 * There is one general option; the following will cause the tests that depend on the rest of the CLDRFile to be abbreviated.<br>
+	 * options.put("submission", "true") // actually, any value will work, not just "true". Remove "submission" to restore it.
+	 * It can be used for new data entry.
 	 * @param result
 	 */
 	public final CheckCLDR check(String path, String fullPath, String value, Map options, List result) {

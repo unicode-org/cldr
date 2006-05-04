@@ -36,6 +36,8 @@ public class CheckCoverage extends CheckCLDR {
             Map options, List result) {
         // for now, skip all but localeDisplayNames
         if (skip) return this;
+        if (options.get("submission") == null) return this;
+
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
         
         // skip all items that are in anything but raw codes

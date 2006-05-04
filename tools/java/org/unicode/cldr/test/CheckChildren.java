@@ -20,6 +20,9 @@ public class CheckChildren extends CheckCLDR {
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map options, List result) {
 		if (immediateChildren == null) return this; // skip
+		
+        if (options.get("submission") == null) return this;
+
 		String current = getResolvedCldrFileToCheck().getStringValue(path);
 		tempSet.clear();
 		for (int i = 0; i < immediateChildren.length; ++i) {

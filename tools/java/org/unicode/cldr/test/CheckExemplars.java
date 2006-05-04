@@ -37,44 +37,58 @@ public class CheckExemplars extends CheckCLDR {
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/exemplarCharacters") < 0) return this;
         checkExemplar(value, result);
+        if (options.get("submission") == null) return this;
         // check relation to auxiliary set
-       	if (path.indexOf("auxiliary") < 0) {
-            // check for auxiliary anyway
-           	UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary");
-       		if (auxiliarySet == null) {
-       			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-       					.setMessage("Missing Auxiliary Set")
-       					.setHTMLMessage("Missing Auxiliary Set:" +
-       					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			
-       		}
-       	} else { // auxiliary
-   			UnicodeSet auxiliarySet = new UnicodeSet(value);
-   			UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("");
-   			if (auxiliarySet.containsSome(mainSet)) {
-   				UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
-   				if (overlap.size() != 0) {
-   					String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
-   					result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-   							.setMessage("Auxilliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
-   				}
-   			}
-        }
+        try {       	
+        	if (path.indexOf("auxiliary") < 0) {
+        		// check for auxiliary anyway
+        		
+        		UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary");
+        		
+        		if (auxiliarySet == null) {
+        			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        					.setMessage("Missing Auxiliary Set")
+        					.setHTMLMessage("Missing Auxiliary Set:" +
+        					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			
+        		}
+        		
+        	} else { // auxiliary
+        		UnicodeSet auxiliarySet = new UnicodeSet(value);
+        		UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("");
+        		if (auxiliarySet.containsSome(mainSet)) {
+        			UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
+        			if (overlap.size() != 0) {
+        				String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
+        				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+        						.setMessage("Auxilliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
+        			}
+        		}
+        	}
+        } catch (Exception e) {} // if these didn't parse, checkExemplar will be called anyway at some point
  		return this;
 	}
 
 	private void checkExemplar(String v, List result) {
 		if (v == null) return;
-    	UnicodeSet exemplar1 = new UnicodeSet(v);
+		UnicodeSet exemplar1;
+    	try {
+    		exemplar1 = new UnicodeSet(v);
+    	} catch (Exception e) {
+	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+	    	    	.setMessage("This field must be a set of the form [a b c-d ...]: ", new Object[]{e.getMessage()}));
+    		return;
+    	}
     	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
     	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
     	if (!doubleCheck.equals(exemplar1)) {
 	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 	    	    	.setMessage("Internal Error: formatting not working for {0}", new Object[]{exemplar1}));
 
-    	} else if (!v.equals(fixedExemplar1)) {
-	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-	    	.setMessage("Better formatting would be \u200E{0}\u200E", new Object[]{fixedExemplar1}));
     	}
+//    	else if (!v.equals(fixedExemplar1)) {
+//	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+//	    	.setMessage("Better formatting would be \u200E{0}\u200E", new Object[]{fixedExemplar1}));
+//    	}
     	if (!AllowedInExemplars.containsAll(exemplar1)) {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {

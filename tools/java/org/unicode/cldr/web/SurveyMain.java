@@ -471,6 +471,10 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_sta", "Update Vetting Status", "action");       
             actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_vet_nag", "MAIL: vet nag [weekly]", "action");       
+            actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_vet_upd", "MAIL: vote change [daily]", "action");       
+            actionCtx.println(" | ");
             
             printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
         }
@@ -551,15 +555,19 @@ public class SurveyMain extends HttpServlet {
             ElapsedTimer et = new ElapsedTimer();
             int n = vet.updateImpliedVotes();
             ctx.println("Done updating "+n+" implied votes in: " + et + "<br>");
-        }
-        
-        if(action.equals("srl_vet_sta")) {
+        } else if(action.equals("srl_vet_sta")) {
             ElapsedTimer et = new ElapsedTimer();
             int n = vet.updateStatus();
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
-        }
-        
-        if(action.equals("srl_vet_res")) {
+        } else if(action.equals("srl_vet_nag")) {
+            ElapsedTimer et = new ElapsedTimer();
+            vet.doNag();
+            ctx.println("Done nagging in: " + et + "<br>");
+//        } else if(action.equals("srl_vet_upd")) {
+//            ElapsedTimer et = new ElapsedTimer();
+//            int n = vet.updateStatus();
+//            ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
+        } else if(action.equals("srl_vet_res")) {
             WebContext subCtx = new WebContext(ctx);
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
@@ -3852,6 +3860,107 @@ static protected File[] getInFiles() {
     return baseDir.listFiles(myFilter);
 }
 
+static protected String[] getLocales() {
+    File inFiles[] = getInFiles();
+    int nrInFiles = inFiles.length;
+    Vector v = new Vector();
+    for(int i=0;i<nrInFiles;i++) {
+        String fileName = inFiles[i].getName();
+        int dot = fileName.indexOf('.');
+        if(dot !=  -1) {
+            String locale = fileName.substring(0,dot);
+            v.add(locale);
+        }
+    }
+    return (String[])v.toArray(new String[0]);
+}
+
+/**
+ * Returns a Map of all interest groups.
+ * en -> en, en_US, en_MT, ...
+ * fr -> fr, fr_BE, fr_FR, ...
+ */
+static protected Map getIntGroups() {
+    String[] locales = getLocales();
+    Map h = new HashMap();
+    for(int i=0;i<locales.length;i++) {
+        String locale = locales[i];
+        String group = locale;
+        int dash = locale.indexOf('_');
+        if(dash !=  -1) {
+            group = locale.substring(0,dash);
+        }
+        Set s = (Set)h.get(group);
+        if(s == null) {
+            s = new HashSet();
+            h.put(group,s);
+        }
+        s.add(locale);
+    }
+    return h;
+}
+
+/* returns a map of String localegroup -> Set [ User interestedUser,  ... ]
+*/ 
+protected Map getIntUsers(Map intGroups) {
+    Map m = new HashMap();
+    try {
+        synchronized(reg) {
+            java.sql.ResultSet rs = reg.list(null);
+            if(rs == null) {
+                return m;
+            }
+            while(rs.next()) {
+                int theirLevel = rs.getInt(2);
+                if(theirLevel > UserRegistry.VETTER) {
+                    continue; // will not receive notice.
+                }
+                
+                int theirId = rs.getInt(1);
+                UserRegistry.User u = reg.getInfo(theirId);
+                //String theirName = rs.getString(3);
+                //String theirEmail = rs.getString(4);
+                //String theirOrg = rs.getString(5);
+                String theirLocales = rs.getString(6);                
+                String theirIntlocs = rs.getString(7);
+                
+                String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
+                
+                if((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all locales
+                    localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
+                }
+                
+                if(localeArray.length == 0) {
+                    for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
+                        String group = (String)li.next();
+                        Set v = (Set)m.get(group);
+                        if(v == null) {
+                            v=new HashSet();
+                            m.put(group, v);
+                        }
+                        v.add(u);
+                    //    System.err.println(group + " - " + u.email + " (ALL)");
+                    }
+                } else {
+                    for(int i=0;i<localeArray.length;i++) {
+                        String group= localeArray[i];
+                        Set v = (Set)m.get(group);
+                        if(v == null) {
+                            v=new HashSet();
+                            m.put(group, v);
+                        }
+                        v.add(u);
+                 //       System.err.println(group + " - " + u.email + "");
+                    }
+                }
+            }
+        }
+    } catch (SQLException se) {
+        throw new RuntimeException("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
+    }
+    return m;
+}
+
 
 void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
     writeRadio(ctx, xpath, type, value, checked.equals(value));        
@@ -3864,12 +3973,14 @@ void writeRadio(WebContext ctx,String xpath,String type,String value,boolean che
 }
 
 
-public static final com.ibm.icu.text.Transliterator hexXML = com.ibm.icu.text.Transliterator.getInstance(
-                                                                                                         "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+public static final com.ibm.icu.text.Transliterator hexXML
+    = com.ibm.icu.text.Transliterator.getInstance(
+    "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
 
 // like above, but quote " 
-public static final com.ibm.icu.text.Transliterator quoteXML = com.ibm.icu.text.Transliterator.getInstance(
-                                                                                                           "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+public static final com.ibm.icu.text.Transliterator quoteXML 
+    = com.ibm.icu.text.Transliterator.getInstance(
+     "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
 
 // cache of documents
 static Hashtable docTable = new Hashtable();

@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
+import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LDMLUtilities;
 
@@ -221,6 +222,10 @@ public class Vetting {
     PreparedStatement queryStatus = null;
     PreparedStatement staleResult = null;
     PreparedStatement updateResult = null;
+    PreparedStatement intQuery = null;
+    PreparedStatement intAdd = null;
+    PreparedStatement intUpdateNag = null;
+    PreparedStatement intUpdateUpdate = null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -268,6 +273,14 @@ public class Vetting {
                 "select CLDR_RESULT.id,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.locale=? AND exists (select * from CLDR_VET where (CLDR_VET.base_xpath=CLDR_RESULT.base_xpath) AND (CLDR_VET.locale=CLDR_RESULT.locale) AND (CLDR_VET.modtime>CLDR_RESULT.modtime))");
             updateResult = prepareStatement("updateResult",
                 "update CLDR_RESULT set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?");
+            intQuery = prepareStatement("intQuery",
+                "select last_sent_nag,last_sent_update from CLDR_INTGROUP where intgroup=?");
+            intAdd = prepareStatement("intAdd",
+                "insert into CLDR_INTGROUP (intgroup) values (?)");
+            intUpdateNag = prepareStatement("intUpdateNag",
+                "update CLDR_INTGROUP  set last_sent_nag=CURRENT_TIMESTAMP where intgroup=?");
+            intUpdateUpdate = prepareStatement("intUpdateUpdate",
+                "update CLDR_INTGROUP  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
         }
     }
     
@@ -970,5 +983,125 @@ public class Vetting {
                 throw new RuntimeException(complaint);
             }
         }
+    }
+    
+    
+    /**
+     * mailBucket:
+     *   mail waiting to go out.
+     * Hashmap:
+     *    Integer(userid)   ->   String body-of-mail-to-send
+     * 
+     * This way, users only get one mail per service.
+     */
+    int sendBucket(Map mailBucket, String title) {
+        int n =0;
+        String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
+        String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
+        System.err.println("FS: " + from + " | " + smtp);
+        boolean noMail = (smtp==null);
+        for(Iterator li = mailBucket.keySet().iterator();li.hasNext();) {
+            Integer user = (Integer)li.next();
+            String s = (String)mailBucket.get(user);            
+            UserRegistry.User u = sm.reg.getInfo(user.intValue());
+            if(!noMail) {
+                MailSender.sendMail(smtp,from,u.email, title, s);
+            } else {
+                System.err.println("--------");
+                System.err.println("- To  : " + u.email);
+                System.err.println("- Subj: " + title);
+                System.err.println("");
+                System.err.println(s);
+            }
+            n++;
+        }
+        return n;
+    }
+    
+    void doNag() {
+        Map mailBucket = new HashMap(); // mail bucket: 
+    
+        Map intGroups = sm.getIntGroups();
+        Map intUsers = sm.getIntUsers(intGroups);
+        
+        System.err.println("--- nag ---");
+        
+        for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
+            String group = (String)li.next();
+            Set s = (Set)intGroups.get(group);            
+            doNag(mailBucket, (Set)intUsers.get(group), group, s);
+        }
+        
+        if(mailBucket.isEmpty()) {
+            System.err.println("--- nag: nothing to send.");
+        } else {
+            int n= sendBucket(mailBucket, "CLDR Unresolved Issues Report");
+            System.err.println("--- nag: " + n + " emails sent.");
+        }
+    }
+    
+    void doNag(Map mailBucket, Set intUsers, String group, Set s) {
+        // First, are there any problems here?
+        String complain = null;
+        
+        if((intUsers==null) || intUsers.isEmpty()) {
+            // if noone cares ...
+            return;
+        }
+        
+        boolean didPrint =false;
+        for(Iterator li=s.iterator();li.hasNext();) {
+            String loc = (String)li.next();
+            
+            int locStatus = status(loc);
+            if((locStatus&RES_BAD_MASK)>0) {
+                if(complain == null) {
+//                    System.err.println(" -nag: " + group);
+                    complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
+                }
+//                System.err.println("  -nag: " + loc + " - " + typeToStr(locStatus));
+                String problem = "insufficient votes";
+                if((locStatus&Vetting.RES_DISPUTED)>0) {
+                    problem = "DISPUTED votes";      
+                }
+
+                complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
+            }
+        }
+        if(complain != null) {
+            for(Iterator li = intUsers.iterator();li.hasNext();) {
+                UserRegistry.User u = (UserRegistry.User)li.next();
+                Integer intid = new Integer(u.id);
+                String body = (String)mailBucket.get(intid);
+                if(body == null) {
+                    body = "\r\n\r\nPlease see http://unicode.org/cldr/wiki?VettingProcess for more information.\nYou will need to be logged-in before making changes.\r\n\r\n";
+                }
+                body = body + complain + "\n";
+                mailBucket.put(intid,body);
+            }
+        }
+    }
+    
+    void doUpdate() {
+    }
+    
+    
+    java.sql.Timestamp getTimestamp(boolean forNag,String locale, boolean reset) {
+        java.sql.Timestamp ts = null;
+        try {
+            intQuery.setString(1,locale);
+            
+            ResultSet rs = intQuery.executeQuery();
+            if(rs.next()) {
+                ts =  rs.getTimestamp(forNag?1:2);
+            }
+            rs.close();
+        } catch ( SQLException se ) {
+            String complaint = "Vetter:  couldn't  query timestamp - nag=" + forNag + ", forRest="+reset+" - " + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            se.printStackTrace();
+            throw new RuntimeException(complaint);
+        }
+        return ts;
     }
 }

@@ -13,11 +13,30 @@ package org.unicode.cldr.web;
 
 import java.util.*;
 import javax.mail.*;
+import java.io.*;
 
 import javax.mail.internet.*;
 
 
 public class MailSender {
+    public static synchronized void log(String to, String what, Throwable t) {
+        try{ 
+          OutputStream file = new FileOutputStream("cldrmail.log", true); // Append
+          PrintWriter pw = new PrintWriter(file);
+          
+          pw.println (new Date().toString() + ": " + to + " : " + what);
+          if(t != null) {
+            pw.println(t.toString());
+            t.printStackTrace(pw);
+          }
+          
+          pw.close();
+          file.close();
+        } catch(IOException ioe) {
+            System.err.println("MailSender::log:  " +ioe.toString() + " whilst processing " +  to + " - " + what);
+        }
+    }
+
     public static final String footer =             
                 "\n----------\n"+
                 "This email was generated automatically as part of the CLDR survey process\n"+
@@ -32,7 +51,8 @@ public class MailSender {
     */
     public static synchronized void sendMail(String smtp, String from, String to, String subject, String body) {
         if(to.equals("admin@")) {
-            System.err.println("Not emailing admin.");
+            log(to,"Suppressed: " + subject,null);        
+//            System.err.println("Not emailing admin.");
             return;
         }
         try {
@@ -44,9 +64,11 @@ public class MailSender {
             ourMessage.setSubject(subject);
             ourMessage.setText(body+footer);
             Transport.send(ourMessage);
+            log(to,subject,null);
         } catch(Throwable t) {  
-            System.err.println(t.toString());
-            t.printStackTrace();
+            System.err.println("MAIL ERR: for" + to + ", " + t.toString() + " - check cldrmail.log");
+            //t.printStackTrace();
+            log(to,"FAIL: "+subject,t);
         }
     }
     /*

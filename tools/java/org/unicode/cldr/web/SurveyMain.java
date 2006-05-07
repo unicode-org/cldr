@@ -777,6 +777,21 @@ public class SurveyMain extends HttpServlet {
         ctx.print("<span class='notselected'>valid <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 ");
+        int guests = CookieSession.nGuests;
+        int users = CookieSession.nUsers;
+        if((guests+users)>0) { // ??
+            ctx.print("approx. ");
+            if(users>0) {
+                ctx.print(users+" logged in");
+            }
+            if(guests>0) {
+                if(users>0) {
+                    ctx.print(" and");
+                }
+                ctx.print(" "+guests+" visiting");
+            }
+            ctx.print(" \u00b7 ");
+        }
         ctx.print("#" + pages + " served in " + ctx.reqTimer + "</div>");
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
         ctx.println("</body>");
@@ -3697,7 +3712,8 @@ public synchronized void doStartup() throws ServletException {
             }
             cldrHome = homeFile.getAbsolutePath();
         }
-        
+
+        logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
         
         try {
             java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
@@ -3751,7 +3767,7 @@ public synchronized void doStartup() throws ServletException {
     }
 
     File cacheDir = new File(cldrHome, "cache");
-    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+//    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
     CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
     CachingEntityResolver.createAndEmptyCacheDir();
 
@@ -3761,11 +3777,10 @@ public synchronized void doStartup() throws ServletException {
 
 
     int status = 0;
-    logger.info(" ------------------ " + new Date().toString() + " ---------------");
+//    logger.info(" ------------------ " + new Date().toString() + " ---------------");
     if(isBusted != null) {
         return; // couldn't write the log
     }
-    logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
     if ((specialMessage!=null)&&(specialMessage.length()>0)) {
         logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
         busted("message: " + specialMessage);
@@ -4213,7 +4228,7 @@ private void doStartupDB()
     boolean doesExist = dbDir.isDirectory();
     boolean doesExist_u = dbDir_u.isDirectory();
     
-    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
+//    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
     try
     { 
         Object o = Class.forName(db_driver).newInstance();
@@ -4224,11 +4239,11 @@ private void doStartupDB()
         } catch(Throwable t) {
             dbInfo = "unknown";
         }
-        logger.info("loaded driver " + o + " - " + dbInfo);
+//        logger.info("loaded driver " + o + " - " + dbInfo);
         Connection conn = getDBConnection(";create=true");
-        logger.info("Connected to database " + cldrdb);
+//        logger.info("Connected to database " + cldrdb);
         Connection conn_u = getU_DBConnection(";create=true");
-        logger.info("Connected to user database " + cldrdb_u);
+//        logger.info("Connected to user database " + cldrdb_u);
         
         // set up our main tables.
         if(doesExist == false) {
@@ -4305,7 +4320,7 @@ private void doStartupDB()
 
             if(rs.next()==true) {
                 rs.close();
-                System.err.println("table " + table + " did exist.");
+//                System.err.println("table " + table + " did exist.");
                 return true;
             } else {
                 System.err.println("table " + table + " did not exist.");

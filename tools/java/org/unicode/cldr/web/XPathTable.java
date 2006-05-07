@@ -39,7 +39,7 @@ public class XPathTable {
             reg.setupDB();
         }
         reg.myinit();
-        logger.info("XPathTable DB: Created.");
+//        logger.info("XPathTable DB: Created.");
         return reg;
     }
     

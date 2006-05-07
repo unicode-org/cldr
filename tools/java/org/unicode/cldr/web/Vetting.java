@@ -85,7 +85,7 @@ public class Vetting {
         Vetting reg = new Vetting(xlogger,ourConn,sm);
         reg.setupDB(); // always call - we can figure it out.
         reg.myinit();
-        logger.info("Vetting DB: Created.");
+//        logger.info("Vetting DB: Created.");
         return reg;
     }
 
@@ -112,7 +112,7 @@ public class Vetting {
     {
         synchronized(conn) {
             String sql = null;
-            logger.info("Vetting DB: initializing...");
+//            logger.info("Vetting DB: initializing...");
             if(!sm.hasTable(conn, CLDR_RESULT)) {
                 logger.info("Vetting DB: setting up " + CLDR_RESULT);
                 Statement s = conn.createStatement();
@@ -213,6 +213,7 @@ public class Vetting {
     PreparedStatement dataByBase = null;
     PreparedStatement insertResult = null;
     PreparedStatement queryResult = null;
+    PreparedStatement countResultByType = null;
     PreparedStatement queryVoteId = null;
     PreparedStatement updateVote = null;
     PreparedStatement rmResult = null;
@@ -261,6 +262,8 @@ public class Vetting {
                 "delete from CLDR_RESULT where (locale=?)AND(base_xpath=?)");
             queryResult = prepareStatement("queryResult",
                 "select CLDR_RESULT.result_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
+            countResultByType = prepareStatement("countResultByType",
+                "select COUNT(base_xpath) from CLDR_RESULT where locale=? AND type=?");
             queryTypes = prepareStatement("queryTypes",
                 "select distinct CLDR_RESULT.type from CLDR_RESULT where locale=?");
             insertStatus = prepareStatement("insertStatus",
@@ -493,7 +496,7 @@ public class Vetting {
         ElapsedTimer et2 = new ElapsedTimer();
         int type[] = new int[1];
         int count = updateResults(locale,type);
-        System.err.println("updateResults("+locale+ " ("+count+" updated, "+typeToStr(type[0])+") - "+ et2.toString());
+        System.err.println("Vetting Results for "+locale+ ":  "+count+" updated, "+typeToStr(type[0])+" - "+ et2.toString());
         return count;
     }
     
@@ -540,7 +543,7 @@ public class Vetting {
                     base_xpath = rs.getInt(2);
                     
                     int rc = updateResults(id, locale, base_xpath);
-    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+//    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
                     updates |= rc;
                 }
                 if(ucount > 0) {
@@ -1055,14 +1058,21 @@ public class Vetting {
             
             int locStatus = status(loc);
             if((locStatus&RES_BAD_MASK)>0) {
+                int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
+                int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
+                int numDisputed = countResultsByType(loc,RES_DISPUTED);
+                
                 if(complain == null) {
 //                    System.err.println(" -nag: " + group);
                     complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
                 }
 //                System.err.println("  -nag: " + loc + " - " + typeToStr(locStatus));
-                String problem = "insufficient votes";
-                if((locStatus&Vetting.RES_DISPUTED)>0) {
-                    problem = "DISPUTED votes";      
+                String problem = "";
+                if((numNoVotes+numInsufficient)>0) {
+                    problem = problem + " INSUFFICIENT VOTES: "+(numNoVotes+numInsufficient)+" ";
+                }
+                if(numDisputed>0) {
+                    problem = problem + " DISPUTED VOTES: "+numDisputed+"";
                 }
 
                 complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
@@ -1074,7 +1084,8 @@ public class Vetting {
                 Integer intid = new Integer(u.id);
                 String body = (String)mailBucket.get(intid);
                 if(body == null) {
-                    body = "\r\n\r\nPlease see http://unicode.org/cldr/wiki?VettingProcess for more information.\nYou will need to be logged-in before making changes.\r\n\r\n";
+                    body = "The following is an automatic message, periodically generated to update vetters on the progress on their locales. We are working on a short time schedule, so we'd appreciate your looking at the cases below.\r\n"+
+                    "\r\nFor more information, see http://unicode.org/cldr/wiki?VettingProcess\nYou will need to be logged-in before making changes.\r\n\r\n";
                 }
                 body = body + complain + "\n";
                 mailBucket.put(intid,body);
@@ -1085,6 +1096,26 @@ public class Vetting {
     void doUpdate() {
     }
     
+    
+    int countResultsByType(String locale, int type) {
+        int rv = 0;
+        try {
+            countResultByType.setString(1,locale);
+            countResultByType.setInt(2, type);
+            
+            ResultSet rs = countResultByType.executeQuery();
+            if(rs.next()) {
+                rv =  rs.getInt(1);
+            }
+            rs.close();
+        } catch ( SQLException se ) {
+            String complaint = "Vetter:  couldn't  query count - loc=" + locale + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            se.printStackTrace();
+            throw new RuntimeException(complaint);
+        }
+        return rv;
+    }
     
     java.sql.Timestamp getTimestamp(boolean forNag,String locale, boolean reset) {
         java.sql.Timestamp ts = null;

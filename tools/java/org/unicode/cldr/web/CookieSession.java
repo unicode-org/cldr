@@ -278,9 +278,12 @@ public class CookieSession {
 // production:
     public static final int GUEST_TO =  10 * MILLIS_IN_MIN; // Expire Guest sessions after 15 min
     public static final int USER_TO =  1 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a few hours
-    public static final int REAP_TO = 13 * MILLIS_IN_MIN; // Only once every quarter hour.
+    public static final int REAP_TO = 4 * MILLIS_IN_MIN; // Only once every 4 mintutes
 
-    static long lastReap = System.currentTimeMillis();
+    static long lastReap = 0; // reap once, to get a count..
+    
+    public static int nGuests = 0;
+    public static int nUsers = 0;
     
     public static void reap() {        
         synchronized(gHash) {
@@ -288,6 +291,8 @@ public class CookieSession {
             if((System.currentTimeMillis()-lastReap) < REAP_TO) {
                 return;
             }
+            int guests=0;
+            int users=0;
             lastReap=System.currentTimeMillis();
            // System.out.println("reaping..");
             // step 0: reap all guests older than time
@@ -296,20 +301,26 @@ public class CookieSession {
                 
                 if(cs.user == null) {
                     if(cs.age() > GUEST_TO) {
-                        System.out.println("Reaped guest session: " + cs.id + " after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
+//                        System.out.println("Reaped guest session: " + cs.id + " after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
                         cs.remove();
                         // concurrent modify . . . (i.e. rescan.)
                         i = gHash.values().iterator();
+                    } else {
+                        guests++;
                     }
                 } else {
                     if(cs.age() > USER_TO) {
-                        System.out.println("Reaped users session: " + cs.id + " (" + cs.user.email + ") after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
+//                        System.out.println("Reaped users session: " + cs.id + " (" + cs.user.email + ") after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
                         cs.remove();
                         // concurrent modify . . . (i.e. rescan.)
                         i = gHash.values().iterator();
+                    } else {
+                        users++;
                     }
                 }
             }
+            nGuests=guests;
+            nUsers=users;
         }
     }
 }

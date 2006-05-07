@@ -107,7 +107,7 @@ public class UserRegistry {
             reg.setupDB();
         }
         reg.myinit();
-        logger.info("UserRegistry DB: created");
+//        logger.info("UserRegistry DB: created");
         return reg;
     }
     
@@ -127,7 +127,7 @@ public class UserRegistry {
     private void setupDB() throws SQLException
     {
         synchronized(conn) {
-            logger.info("UserRegistry DB: initializing...");
+//            logger.info("UserRegistry DB: initializing...");
             Statement s = conn.createStatement();
             s.execute("create table " + CLDR_USERS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
                                                     "userlevel int not null, " +
@@ -264,7 +264,7 @@ public class UserRegistry {
                     // First, try to query it back from the DB.
                     rs = pstmt.executeQuery();                
                     if(!rs.next()) {
-                        System.err.println("Unknown user#:" + id);
+//                        System.err.println("Unknown user#:" + id);
                         return null;
                     }
                     User u = new UserRegistry.User();                    
@@ -279,7 +279,7 @@ public class UserRegistry {
 
                     if(id >= arraySize) {
                         int newchunk = (((id+1)/CHUNKSIZE)+1)*CHUNKSIZE;
-                        System.err.println("UR: userInfo resize from " + infoArray.length + " to " + newchunk);
+//                        System.err.println("UR: userInfo resize from " + infoArray.length + " to " + newchunk);
                         infoArray = new UserRegistry.User[newchunk];
                         arraySize = newchunk;
                     }

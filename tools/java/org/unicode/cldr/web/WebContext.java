@@ -212,6 +212,20 @@ public class WebContext {
         }
     }
 
+    void removeQuery(String k) {
+        if(outQueryMap.get(k)!=null) { // if it was there..
+            // rebuild query string:
+            outQuery=null;
+            TreeMap oldMap = outQueryMap;
+            oldMap.remove(k); // replace
+            outQueryMap=new TreeMap();
+            for(Iterator i=oldMap.keySet().iterator();i.hasNext();) {
+                String somek = (String)i.next();
+                addQuery(somek,(String)oldMap.get(somek));
+            }
+        }
+    }
+
     String url() {
         if(outQuery == null) {
             return base();

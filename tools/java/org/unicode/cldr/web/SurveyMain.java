@@ -560,9 +560,15 @@ public class SurveyMain extends HttpServlet {
             int n = vet.updateStatus();
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
         } else if(action.equals("srl_vet_nag")) {
-            ElapsedTimer et = new ElapsedTimer();
-            vet.doNag();
-            ctx.println("Done nagging in: " + et + "<br>");
+            if(ctx.field("srl_vet_nag").length()>0) {
+                ElapsedTimer et = new ElapsedTimer();
+                vet.doNag();
+                ctx.println("Done nagging in: " + et + "<br>");
+            }else{
+                actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+                actionCtx.printUrlAsHiddenFields();
+                actionCtx.println("Send Nag Email? <input type='hidden' name='srl_vet_nag' value='Yep'><input type='hidden' name='action' value='srl_vet_nag'><input type='submit' value='Nag'></form>");
+            }
 //        } else if(action.equals("srl_vet_upd")) {
 //            ElapsedTimer et = new ElapsedTimer();
 //            int n = vet.updateStatus();
@@ -2524,6 +2530,80 @@ public boolean doRawXml(HttpServletRequest request, HttpServletResponse response
 public void doMain(WebContext ctx) {
     String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.locale.toString() + ".xml"); // just get ver of the latest file.
     String dbVer = makeDBSource(null,ctx.locale).getSourceRevision();
+    
+    // what should users be notified about?
+    int vetStatus = vet.status(ctx.locale.toString());
+    if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
+        ctx.println("<hr>");
+        int numNoVotes = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_NO_VOTES);
+        int numInsufficient = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_INSUFFICIENT);
+        int numDisputed = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_DISPUTED);
+//            rv = rv + ("");
+     
+        ctx.println("<h4>There are ");
+        if((numNoVotes+numInsufficient)>0) {
+            ctx.print("<span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient</span>");
+        }
+        if(numDisputed>0) {
+            ctx.print("<span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed</span>");
+        }
+        ctx.println("items in the following sections:</h4>");
+        Hashtable result = new Hashtable();
+        synchronized(vet.conn) { 
+            try { // moderately expensive.. since we are tying up vet's connection..
+                ResultSet rs = vet.listBadResults(ctx.locale.toString());
+                while(rs.next()) {
+                    int xp = rs.getInt(1);
+                    String path = xpt.getById(xp);
+                    
+                    String theMenu = null;
+                    
+                    if(path.startsWith(LOCALEDISPLAYNAMES)) {
+                        for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
+                            if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
+                                theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
+                            }
+                        }
+                    } else if(path.startsWith(GREGO_XPATH)) {
+                        theMenu=GREGORIAN_CALENDAR;
+                    } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
+                        theMenu=OTHER_CALENDARS;
+                    } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
+                        theMenu=CURRENCIES;
+                    } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
+                        theMenu=TIMEZONES;
+                    } else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
+                        theMenu = LDMLConstants.CHARACTERS;
+                    } else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
+                        theMenu = LDMLConstants.NUMBERS;
+                    } else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
+                        theMenu = LDMLConstants.REFERENCES;
+                    } else {
+                        theMenu=xOTHER;
+                        // other?
+                    }
+                    
+                    if(theMenu != null) {
+                        result.put(theMenu, "");// what goes here?
+                    }
+                }
+                rs.close();
+            } catch (SQLException se) {
+                throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+            }
+        }
+        WebContext subCtx = new WebContext(ctx);
+        //subCtx.addQuery("_",ctx.locale.toString());
+        subCtx.removeQuery("x");
+        
+        for(Iterator li = result.keySet().iterator();li.hasNext();) {
+            String item = (String)li.next();
+            printMenu(subCtx, "", item);
+            if(li.hasNext() ) {
+                subCtx.print(" | ");
+            }
+        }
+    }
     ctx.println("<hr/><p><p>");
     ctx.println("<h3>Basic information about the Locale</h3>");
     

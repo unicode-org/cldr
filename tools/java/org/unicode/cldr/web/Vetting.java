@@ -182,7 +182,7 @@ public class Vetting {
         }
     }
     
-    Connection conn = null;
+    public Connection conn = null;
     SurveyMain sm = null;
     
     public String statistics() {
@@ -227,6 +227,7 @@ public class Vetting {
     PreparedStatement intAdd = null;
     PreparedStatement intUpdateNag = null;
     PreparedStatement intUpdateUpdate = null;
+    PreparedStatement listBadResults= null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -264,6 +265,8 @@ public class Vetting {
                 "select CLDR_RESULT.result_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
             countResultByType = prepareStatement("countResultByType",
                 "select COUNT(base_xpath) from CLDR_RESULT where locale=? AND type=?");
+            listBadResults = prepareStatement("listBadResults",
+                "select base_xpath from CLDR_RESULT where locale=? AND type<="+RES_BAD_MAX);
             queryTypes = prepareStatement("queryTypes",
                 "select distinct CLDR_RESULT.type from CLDR_RESULT where locale=?");
             insertStatus = prepareStatement("insertStatus",
@@ -531,6 +534,12 @@ public class Vetting {
                     updates |= rc;
                 }
                 if(ncount > 0) {
+                    int uscnt = updateStatus(locale, true);// update results
+                    if(uscnt>0) {
+                        System.err.println("updated " + uscnt + " statuses, due to implied vote\n");
+                    } else {
+                        System.err.println("updated " + uscnt + " statuses, due to impliedvote??\n");
+                    }
                     conn.commit();
                 }
                 
@@ -547,6 +556,12 @@ public class Vetting {
                     updates |= rc;
                 }
                 if(ucount > 0) {
+                    int uscnt = updateStatus(locale, true);// update results
+                    if(uscnt>0) {
+                        System.err.println("updated " + uscnt + " statuses, due to vote change\n");
+                    } else {
+                        System.err.println("updated " + uscnt + " statuses, due to vote change??\n");
+                    }
                     conn.commit();
                 }
             } catch ( SQLException se ) {
@@ -572,12 +587,17 @@ public class Vetting {
         // calculated
         public boolean tc_voted_for = false;
         public boolean quorum = false;
+        public boolean someone_voted_for = false;
         
         Chad(int x) {
             xpath = x;
         }
         void vote(UserRegistry.User u) {
             voters.add(u);
+            
+            if(UserRegistry.userIsVetter(u)) {
+                someone_voted_for=true;
+            }
             
             if(UserRegistry.userIsTC(u)) {
                 tc_voted_for = true;
@@ -610,6 +630,9 @@ public class Vetting {
             }
             if(tc_voted_for) {
                 rs = rs + " [TC] ";
+            }
+            if(someone_voted_for) {
+                rs = rs + " [V] ";
             }
             for(Iterator i = voters.iterator();i.hasNext();) {
                 UserRegistry.User them = (UserRegistry.User)i.next();
@@ -672,17 +695,24 @@ public class Vetting {
                 //System.err.println(locale+":"+base_xpath+" - Collected "+count+" votes in " + chads.size() + " chads");                
             }
         }
-
+                    
         if((type==-1) && !chads.isEmpty()) {
+            int number_voted_for=0;
             boolean sawQuorum = false;
             boolean tcOverride = false;
             Chad quorumChad = null;
             for(Iterator i=chads.values().iterator();(type==-1)&&i.hasNext();) {
                 Chad c = (Chad)i.next();
+                if(c.someone_voted_for) {
+                    number_voted_for++;
+                    if(number_voted_for>1) {
+                        type = RES_DISPUTED;  // if more than one chad has a legit vote - disputed.
+                    }
+                }
                 //System.err.println("  "+c);
                 if(c.quorum) {
                     if(sawQuorum) {
-                        type = RES_DISPUTED; // Note: don't handle TC's ability to override, yet.
+                        type = RES_DISPUTED; // Note: don't handle TC or admin ability to override, yet. Probably handle with an admin supervote.
                     } else {
                         sawQuorum = true;
                         quorumChad = c;
@@ -702,7 +732,7 @@ public class Vetting {
                 fallbackXpath = resultXpath;
             }
             
-            if((sawQuorum == false) && !chads.isEmpty()) {
+            if((type==-1)&&(sawQuorum == false) && !chads.isEmpty()) {
                 type = RES_INSUFFICIENT; // Some people voted, but no quorum.
             }
         } 
@@ -918,7 +948,7 @@ public class Vetting {
     }
     
     // called from updateStatus(). 
-    // Assumes caller has lock.
+    // Assumes caller has lock, and that caller will call commit()
     private int updateStatus(String locale, boolean isUpdate) throws SQLException {
         queryTypes.setString(1, locale);
         ResultSet rs = queryTypes.executeQuery();
@@ -940,7 +970,7 @@ public class Vetting {
         
     }
     
-    int updateStatus() {
+    int updateStatus() { // updates MISSING status
         synchronized(conn) {
             // missing ones 
             int locs=0;
@@ -1001,12 +1031,22 @@ public class Vetting {
         int n =0;
         String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
         String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
-        System.err.println("FS: " + from + " | " + smtp);
+//        System.err.println("FS: " + from + " | " + smtp);
         boolean noMail = (smtp==null);
         for(Iterator li = mailBucket.keySet().iterator();li.hasNext();) {
             Integer user = (Integer)li.next();
             String s = (String)mailBucket.get(user);            
             UserRegistry.User u = sm.reg.getInfo(user.intValue());
+            
+            if(!UserRegistry.userIsTC(u)) {
+                s = "Note: If you have questions about this email,  instead of replying here,\n " +
+                    "please contact your CLDR-TC representiative for your organization ("+u.org+").\n"+
+                    "You can find the TC users listed near the top if you click '[List "+u.org+" Users] in the SurveyTool,\n" +
+                    "Or, at http://www.unicode.org/cldr/apps/survey?do=list\n"+
+                    "If you are unable to contact them, then you may reply to this email. Thank you.\n\n\n"+s;
+            }
+            
+            
             if(!noMail) {
                 MailSender.sendMail(smtp,from,u.email, title, s);
             } else {
@@ -1017,6 +1057,9 @@ public class Vetting {
                 System.err.println(s);
             }
             n++;
+            if((n%50==0)) {
+                System.err.println("Vetter.MailBucket: sent email " + n + "/"+mailBucket.size());
+            }
         }
         return n;
     }
@@ -1099,6 +1142,7 @@ public class Vetting {
     
     int countResultsByType(String locale, int type) {
         int rv = 0;
+        synchronized(conn) {
         try {
             countResultByType.setString(1,locale);
             countResultByType.setInt(2, type);
@@ -1114,11 +1158,30 @@ public class Vetting {
             se.printStackTrace();
             throw new RuntimeException(complaint);
         }
+        }
         return rv;
+    }
+    
+    ResultSet listBadResults(String locale) {
+        ResultSet rs = null;
+        synchronized(conn) {
+        try {
+            listBadResults.setString(1,locale);
+            
+            rs = listBadResults.executeQuery();
+        } catch ( SQLException se ) {
+            String complaint = "Vetter:  couldn't  query bad results - loc=" + locale + ", type=BAD - " + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            se.printStackTrace();
+            throw new RuntimeException(complaint);
+        }
+        }
+        return rs;
     }
     
     java.sql.Timestamp getTimestamp(boolean forNag,String locale, boolean reset) {
         java.sql.Timestamp ts = null;
+        synchronized(conn) {
         try {
             intQuery.setString(1,locale);
             
@@ -1132,6 +1195,7 @@ public class Vetting {
             logger.severe(complaint);
             se.printStackTrace();
             throw new RuntimeException(complaint);
+        }
         }
         return ts;
     }

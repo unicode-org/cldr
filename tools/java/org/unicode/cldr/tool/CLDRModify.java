@@ -518,7 +518,18 @@ public class CLDRModify {
 				replacements.add(cldrFileToFilter.getFullXPath(xpath), pattern);
 			}
 		});
-		
+
+		fixList.add('f', "NFC (all but transforms, exemplarCharacters)", new CLDRFilter() {
+			public void handle(String xpath, Set removal, CLDRFile replacements) {
+				if (xpath.indexOf("/segmentation") >= 0 || 
+						xpath.indexOf("/exemplarCharacters") >= 0) return;
+				String value = cldrFileToFilter.getStringValue(xpath);
+				String nfcValue = Normalizer.compose(value, false);
+				if (value.equals(nfcValue)) return;
+				replacements.add(cldrFileToFilter.getFullXPath(xpath), nfcValue);
+			}
+		});
+
 		fixList.add('x', "remove illegal codes", new CLDRFilter() {
 			/*		Set legalCurrencies;
 			 {		

@@ -2075,20 +2075,27 @@ private boolean isSupplemental;
                     
                     String draft = null;
                     String alt = null;
-                    for (int i = 0; i < distinguishingParts.size(); ++i) {
+                    String references = "";
+                    // note: we only need to clean up items that are NOT on the last element,
+                    // so we go up to size() - 1.
+                    for (int i = 0; i < distinguishingParts.size() - 1; ++i) {
                         Map attributes = distinguishingParts.getAttributes(i);
                         for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-                            String attribute = (String) it.next();
-                            if (attribute.equals("draft")) {
-                                draft = (String) attributes.get(attribute);
-                                it.remove();
-                            } else if (attribute.equals("alt")) {
-                                alt = (String) attributes.get(attribute);
-                                it.remove();
-                            }
+                        	String attribute = (String) it.next();
+                        	if (attribute.equals("draft")) {
+                        		draft = (String) attributes.get(attribute);
+                        		it.remove();
+                        	} else if (attribute.equals("alt")) {
+                        		alt = (String) attributes.get(attribute);
+                        		it.remove();
+                        	} else if (attribute.equals("references")) {
+                        		if (references.length() != 0) references += " ";
+                        		references += (String) attributes.get("references");
+                        		it.remove();
+                        	}
                         }
                     }
-                    if (draft != null || alt != null) {
+                    if (draft != null || alt != null || references.length() != 0) {
                         // get the last element that is not ordered.
                         int placementIndex = distinguishingParts.size() - 1;
                         while (true) {
@@ -2099,6 +2106,7 @@ private boolean isSupplemental;
                         Map attributes = distinguishingParts.getAttributes(placementIndex);
                         if (draft != null) attributes.put("draft", draft);
                         if (alt != null) attributes.put("alt", alt);
+                        if (references.length() != 0) attributes.put("references", references);
                         String newXPath = distinguishingParts.toString();
                         if (!newXPath.equals(xpath)) {
                             normalizedPathMap.put(xpath, newXPath); // store differences

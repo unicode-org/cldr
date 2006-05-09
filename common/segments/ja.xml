@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<ldml>
+	<segmentations>
+		<segmentation type="WordBreak">
+			<variables>
+				<variable id="$Hiragana">\p{Hiragana}</variable>
+				<variable id="$Hiragana">($Hiragana $X)</variable>
+				<variable id="$Ideographic">\p{Ideographic}</variable>
+				<variable id="$Ideographic">($Ideographic $X)</variable>
+			</variables>
+			<segmentRules>
+				<rule id="13.05"> $Hiragana × $Hiragana </rule>
+				<rule id="13.06"> $Ideographic × $Ideographic </rule>
+			</segmentRules>
+		</segmentation>
+	</segmentations>
+</ldml>

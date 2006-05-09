@@ -30,6 +30,7 @@ public class UserRegistry {
     public static final int STREET  = 10;
     public static final int LOCKED  = 999;
     
+    public static final String FOR_ADDING= "(for adding)";
     public static final int ALL_LEVELS[] = { // for UI presentation
         ADMIN, TC, EXPERT, VETTER, STREET, LOCKED };
     
@@ -360,9 +361,11 @@ public class UserRegistry {
                     return null;
                 }
                 logger.info("Login: " + email + " @ " + ip);
-                touchStmt.setInt(1, u.id);
-                touchStmt.executeUpdate();
-                conn.commit();
+                if(!FOR_ADDING.equals(ip)) {
+                    touchStmt.setInt(1, u.id);
+                    touchStmt.executeUpdate();
+                    conn.commit();
+                }
                 
                 return u;
             } catch (SQLException se) {
@@ -629,7 +632,7 @@ public class UserRegistry {
                     logger.info("Added.");
                     conn.commit();
                     ctx.println("<p>Added user.<p>");
-                    return get(u.password, u.email,"(for adding)"); // throw away old user
+                    return get(u.password, u.email,FOR_ADDING); // throw away old user
                 } else {
                     ctx.println("Couldn't add user.");
                     conn.commit();

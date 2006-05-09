@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -1824,9 +1825,11 @@ private boolean isSupplemental;
 			"hour", "minute", "second", "zone"}).freeze();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
-    static Set orderedElements = new HashSet(java.util.Arrays
+    static Set orderedElements = Collections.unmodifiableSet(new HashSet(java.util.Arrays
 			.asList(new String[] {
 					"variable", "comment", "tRule", "attributeValues", 
+					// collation
+					"base", "settings", "suppress_contractions", "optimize", "rules",
 			//"dateFormatItem",
 			// collation
 					"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
@@ -1835,7 +1838,7 @@ private boolean isSupplemental;
 					"first_secondary_ignorable", "last_secondary_ignorable",
 					"first_primary_ignorable", "last_primary_ignorable",
 					"first_non_ignorable", "last_non_ignorable",
-					"first_trailing", "last_trailing" }));
+					"first_trailing", "last_trailing" })));
 	/**
 	 * 
 	 */
@@ -2055,6 +2058,8 @@ private boolean isSupplemental;
     
     // WARNING: this must go AFTER attributeOrdering is set; otherwise it uses a null comparator!!
     private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
+    
+    //private static Set atomicElements = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{"collation", "segmentation"})));
 
     private static class DistinguishedXPath {
         private static Map distinguishingMap = new HashMap();
@@ -2078,7 +2083,10 @@ private boolean isSupplemental;
                     String references = "";
                     // note: we only need to clean up items that are NOT on the last element,
                     // so we go up to size() - 1.
+
                     for (int i = 0; i < distinguishingParts.size() - 1; ++i) {
+                    	// String element = distinguishingParts.getElement(i);
+                    	//if (atomicElements.contains(element)) break;
                         Map attributes = distinguishingParts.getAttributes(i);
                         for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
                         	String attribute = (String) it.next();

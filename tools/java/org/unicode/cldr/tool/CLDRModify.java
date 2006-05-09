@@ -86,10 +86,10 @@ public class CLDRModify {
 	
 	static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
 	+ "-h or -?\t for this message" + XPathParts.NEWLINE
-	+ "-"+options[SOURCEDIR].shortName + "\t source directory. Default = " 
+	+ "-"+options[SOURCEDIR].shortName + "\t source directory. Default = -s" 
 	+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
 	+ "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
-	+ "-"+options[DESTDIR].shortName + "\t destination directory. Default = "
+	+ "-"+options[DESTDIR].shortName + "\t destination directory. Default = -d"
 	+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
 	+ "-m<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
 	+ "-j<merge_dir>/X'\t to merge two sets of files together (from <source_dir>/X and <merge_dir>/X', " + XPathParts.NEWLINE
@@ -519,10 +519,17 @@ public class CLDRModify {
 			}
 		});
 
-		fixList.add('f', "NFC (all but transforms, exemplarCharacters)", new CLDRFilter() {
+		fixList.add('f', "NFC (all but transforms, exemplarCharacters, pc, sc, tc, qc, ic)", new CLDRFilter() {
 			public void handle(String xpath, Set removal, CLDRFile replacements) {
-				if (xpath.indexOf("/segmentation") >= 0 || 
-						xpath.indexOf("/exemplarCharacters") >= 0) return;
+				if (xpath.indexOf("/segmentation") >= 0
+						|| xpath.indexOf("/transforms") >= 0
+						|| xpath.indexOf("/exemplarCharacters") >= 0
+						|| xpath.indexOf("/pc") >= 0
+						|| xpath.indexOf("/sc") >= 0
+						|| xpath.indexOf("/tc") >= 0
+						|| xpath.indexOf("/qc") >= 0
+						|| xpath.indexOf("/ic") >= 0
+				) return;
 				String value = cldrFileToFilter.getStringValue(xpath);
 				String nfcValue = Normalizer.compose(value, false);
 				if (value.equals(nfcValue)) return;

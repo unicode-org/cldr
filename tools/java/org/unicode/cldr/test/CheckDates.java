@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -184,6 +185,8 @@ public class CheckDates extends CheckCLDR {
 		}
 	}
 	
+	private ParsePosition parsePosition = new ParsePosition(0);
+	
 	private void checkPattern2(String path, String fullPath, String value, List result) throws ParseException {
 		pathParts.set(path);
 		String calendar = pathParts.findAttributeValue("calendar", "type");
@@ -193,9 +196,17 @@ public class CheckDates extends CheckCLDR {
 			String source = getRandomDate(date1950, date2010); // samples[i];
 			Date dateSource = neutralFormat.parse(source);
 			String formatted = x.format(dateSource);
-			Date parsed = x.parse(formatted);
-			String resource = neutralFormat.format(parsed);
-			arguments[i] = source + " \u2192 \u200E" + formatted + "\u200E \u2192 " + resource;
+			String reparsed;
+			
+			parsePosition.setIndex(0);
+			Date parsed = x.parse(formatted, parsePosition);
+			if (parsePosition.getIndex() != formatted.length()) {
+				reparsed = "Couldn't parse past: " + formatted.substring(0,parsePosition.getIndex());
+			} else {
+				reparsed = neutralFormat.format(parsed);
+			}
+
+			arguments[i] = source + " \u2192 \u201C\u200E" + formatted + "\u200E\u201D \u2192 " + reparsed;
 		}
         result.add(new CheckStatus()
                 .setCause(this).setType(CheckStatus.exampleType)
@@ -249,56 +260,47 @@ public class CheckDates extends CheckCLDR {
             this.df = df;
             return this;
         }
-        public boolean processPost(Map inout) {
+        
+        protected void getArguments(Map inout) {
+            currentPattern = currentInput = currentFormatted = currentReparsed = "?";
             boolean result = false;
             Date d;
             try {
-                String pattern = (String) inout.get("pattern");
-                df.applyPattern(pattern);
+            	currentPattern = (String) inout.get("pattern");
+                if (currentPattern != null) df.applyPattern(currentPattern);
+                else currentPattern = getPattern();
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "pattern", "Use format like: ##,###.##");
-                return true;
+            	currentPattern = "Use format like: ##,###.##";
+                return;
             }
             try {
-                String s = (String) inout.get("input");
-                d = neutralFormat.parse(s);
+            	currentInput = (String) inout.get("input");
+            	if (currentInput == null) {
+            		currentInput = getRandomInput();
+            	}
+            	d = neutralFormat.parse(currentInput);
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "input", "Use English format: 1234.56");
-                return true;
-            }
-            String formatted;
-            try {
-                formatted = df.format(d);
-                result |= putIfDifferent(inout, "formatted", formatted);
-            } catch (Exception e) {
-                result |= putIfDifferent(inout, "formatted", "Can't format: " + e.getMessage());
-                return true;
+            	currentInput = "Use neutral format like: 1993-11-31 13:49:02";
+                return;
             }
             try {
-                Date n = df.parse(formatted);
-                result |= putIfDifferent(inout, "reparsed", n.toString());
+            	currentFormatted = df.format(d);
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "reparsed", "Can't parse: " + e.getMessage());
+            	currentFormatted = "Can't format: " + e.getMessage();
+                return;
             }
-            return result;
+            try {            	
+            	parsePosition.setIndex(0);         
+                Date n = df.parse(currentFormatted, parsePosition);
+                if (parsePosition.getIndex() != currentFormatted.length()) {
+                	currentReparsed = "Couldn't parse past: "  + "\u200E" + currentFormatted.substring(0, parsePosition.getIndex()) + "\u200E";
+                } else {
+                	currentReparsed = neutralFormat.format(n);
+                }
+            } catch (Exception e) {
+            	currentReparsed = "Can't parse: " + e.getMessage();
+            }
         }
 
-		public String getHTML(String path, String fullPath, String value)
-				throws Exception {
-			StringBuffer htmlMessage = new StringBuffer();
-			FormatDemo.appendTitle(htmlMessage);
-			for (int i = 0; i < samples.length; ++i) {
-				String source = getRandomDate(date1950, date2010); // samples[i];
-				Date dateSource = neutralFormat.parse(source);
-				String formatted = df.format(dateSource);
-				Date parsed = df.parse(formatted);
-				String resource = neutralFormat.format(parsed);
-				String context = df.getTimeZone().getID();
-				FormatDemo.appendLine(htmlMessage, value, context, source,
-						formatted, resource);
-			}
-			htmlMessage.append("</table>");
-			return htmlMessage.toString();
-		}
     }
 }

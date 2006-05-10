@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -300,9 +301,9 @@ abstract public class CheckCLDR {
 							if (d != null && d instanceof FormatDemo) {
 								FormatDemo fd = (FormatDemo)d;
 								m.clear();
-								m.put("pattern", fd.getPattern());
-								m.put("input", fd.getRandomInput());
-								if (d.processPost(m)) System.out.println("\tDemo:\t" + m);
+								//m.put("pattern", fd.getPattern());
+								//m.put("input", fd.getRandomInput());
+								if (d.processPost(m)) System.out.println("\tDemo:\t" + fd.getPlainText(m));
 							}
 							continue;
 						}
@@ -506,29 +507,66 @@ abstract public class CheckCLDR {
 	}
 	
 	public static abstract class SimpleDemo {
-		
-		public abstract String getHTML(String path, String fullPath, String value) throws Exception;
+		Map internalPostArguments = new HashMap();
 		
 		/**
-		 * If the getHTMLMessage is not null, then call this in response to a submit.
-		 * @param PostArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
+		 * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
+		 * <br>The first time this is called, the Map should be empty.
 		 * @return true if the map has been changed
 		 */ 
-		public boolean processPost(Map PostArguments) {
-			return false;
-		}
+		public abstract String getHTML(Map postArguments) throws Exception;
+		
 		/**
-		 * Utility for setting map. Use the paradigm in CheckNumbers.
+		 * Only here for compatibiltiy. Use the other getHTML instead
 		 */
-		public boolean putIfDifferent(Map inout, String key, String value) {
-			Object oldValue = inout.put(key, value);
-			return !value.equals(oldValue);
+		public final String getHTML(String path, String fullPath, String value) throws Exception {
+			return getHTML(internalPostArguments);
 		}
+		
+		/**
+		 * THIS IS ONLY FOR COMPATIBILITY: you can call this, then the non-postArguments form of getHTML; or better, call
+		 * getHTML with the postArguments.
+		 * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
+		 * @return true if the map has been changed
+		 */ 
+		public final boolean processPost(Map postArguments) {
+			internalPostArguments.clear();
+			internalPostArguments.putAll(postArguments);
+			return true;
+		}
+//		/**
+//		 * Utility for setting map. Use the paradigm in CheckNumbers.
+//		 */
+//		public boolean putIfDifferent(Map inout, String key, String value) {
+//			Object oldValue = inout.put(key, value);
+//			return !value.equals(oldValue);
+//		}
 	}
     
     public static abstract class FormatDemo extends SimpleDemo {
-        abstract String getPattern(); // just for testing
-        abstract String getRandomInput(); // just for testing
+        protected String currentPattern, currentInput, currentFormatted, currentReparsed;
+        protected String currentContext = "";
+        protected ParsePosition parsePosition = new ParsePosition(0);
+
+        abstract String getPattern();
+        abstract String getRandomInput(); 
+        abstract protected void getArguments(Map postArguments);
+        
+		public String getHTML(Map postArguments) throws Exception {
+			getArguments(postArguments);
+			StringBuffer htmlMessage = new StringBuffer();
+	        FormatDemo.appendTitle(htmlMessage);
+	        FormatDemo.appendLine(htmlMessage, currentPattern, currentContext, currentInput, currentFormatted, currentReparsed);
+	        htmlMessage.append("</table>");
+	        return htmlMessage.toString();
+		}
+		
+		public String getPlainText(Map postArguments) {
+			getArguments(postArguments);
+			return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\", \"{2}\"> \u2192 \"\u200E{3}\u200E\" \u2192 \"{4}\"",
+					new String[] {currentPattern, currentContext, currentInput, currentFormatted, currentReparsed});
+		}
+
         /**
          * @param htmlMessage
          * @param pattern
@@ -577,7 +615,7 @@ abstract public class CheckCLDR {
 	 * @param value the value associated with the path
 	 * @param options A set of test-specific options. Set these with code of the form:<br>
 	 * options.put("CoverageLevel.localeType", "G0")<br>
-	 * That is, use <testname>.<optiontype>, <optionvalue>)<br>
+	 * That is, the key is of the form <testname>.<optiontype>, and the value is of the form <optionvalue>.<br>
 	 * There is one general option; the following will cause the tests that depend on the rest of the CLDRFile to be abbreviated.<br>
 	 * options.put("submission", "true") // actually, any value will work, not just "true". Remove "submission" to restore it.
 	 * It can be used for new data entry.

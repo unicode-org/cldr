@@ -40,7 +40,7 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/fields/field[@type="' ($avalue) '"]/displayName' > '|field-label|' $1;
 
-'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|other' $1;
+'$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|other-' $1;
 '$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|append|' | '#%%' $1;
 
 '#%%G' > 'era';

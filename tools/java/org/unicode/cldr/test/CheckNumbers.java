@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -21,7 +22,7 @@ public class CheckNumbers extends CheckCLDR {
 	}
 	private static Random random = new Random();
 	
-	static String SampleList = "{0} \u2192 \u200E{1}\u200E \u2192 {2}";
+	static String SampleList = "{0} \u2192 \u201C\u200E{1}\u200E\u201D \u2192 {2}";
 	
 	boolean isPOSIX;
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
@@ -86,8 +87,13 @@ public class CheckNumbers extends CheckCLDR {
 	}
 	
 	private void checkPattern(String path, String fullPath, String value, List result, boolean generateExamples) throws ParseException {
-		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
-		addSamples(x, value, "", result, generateExamples);
+		if (value.indexOf('\u00a4') >= 0) { // currency pattern
+			DecimalFormat x = icuServiceBuilder.getCurrencyFormat("XXX");
+			addSamples(x, x.toPattern(), value, result, generateExamples);
+		} else {
+			DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
+			addSamples(x, value, "", result, generateExamples);
+		}
 	}
 	
 	private void checkCurrencyFormats(String path, String fullPath, String value, List result, boolean generateExamples) throws ParseException {
@@ -95,6 +101,8 @@ public class CheckNumbers extends CheckCLDR {
 		addSamples(x, x.toPattern(), value, result, generateExamples);
 	}
 
+	private ParsePosition parsePosition = new ParsePosition(0);
+	
 	private void addSamples(DecimalFormat x, String pattern, String context, List result, boolean generateExamples) throws ParseException {
 		Object[] arguments = new Object[3];
 
@@ -104,8 +112,14 @@ public class CheckNumbers extends CheckCLDR {
 		arguments[1] = formatted;
 		boolean gotFailure = false;
 		try {
-			double parsed = x.parse(formatted).doubleValue();
-			arguments[2] = String.valueOf(parsed);
+			parsePosition.setIndex(0);
+			double parsed = x.parse(formatted, parsePosition).doubleValue();
+			if (parsePosition.getIndex() != formatted.length()) {
+				arguments[2] = "Couldn't parse past: " + "\u200E" + formatted.substring(0,parsePosition.getIndex()) + "\u200E";
+				gotFailure = true;
+			} else {
+				arguments[2] = String.valueOf(parsed);
+			}
 		} catch (Exception e) {
 			arguments[2] = e.getMessage();
 			gotFailure = true;
@@ -121,7 +135,7 @@ public class CheckNumbers extends CheckCLDR {
 				.setCause(this).setType(CheckStatus.exampleType)
 				.setMessage(SampleList, arguments));
 		if (generateExamples) result.add(new MyCheckStatus()
-				.setFormat(x, pattern, context)
+				.setFormat(x, context)
 				.setCause(this).setType(CheckStatus.demoType));
 	}
 
@@ -190,91 +204,72 @@ public class CheckNumbers extends CheckCLDR {
 
     static public class MyCheckStatus extends CheckStatus {
         private DecimalFormat df;
-        String pattern;
         String context;
-        public MyCheckStatus setFormat(DecimalFormat df, String pattern, String context) {
+        
+        public MyCheckStatus setFormat(DecimalFormat df, String context) {
             this.df = df;
-            this.pattern = pattern;
             this.context = context;
             return this;
         }
         public SimpleDemo getDemo() {
-            return new MyDemo().setFormat(df, pattern, context);
+            return new MyDemo().setFormat(df, context);
         }
     }
 
     static class MyDemo extends FormatDemo {
         private DecimalFormat df;
-        String pattern;
-        String context;
+
         String getPattern() {
             return df.toPattern();
         }
         String getRandomInput() {
             return String.valueOf(getRandomNumber());
         }
-        public MyDemo setFormat(DecimalFormat df, String pattern, String context) {
+        public MyDemo setFormat(DecimalFormat df, String context) {
             this.df = df;
-            this.pattern = pattern;
-            this.context = context;
+            currentContext = context;
             return this;
         }
-        public boolean processPost(Map inout) {
-            boolean result = false;
+        
+        protected void getArguments(Map inout) {
+            currentPattern = currentInput = currentFormatted = currentReparsed = "?";
             double d;
             try {
-                String pattern = (String) inout.get("pattern");
-                df.applyPattern(pattern);
+                currentPattern = (String) inout.get("pattern");
+                if (currentPattern != null) df.applyPattern(currentPattern);
+                else currentPattern = getPattern();
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "pattern", "Use format like: ##,###.##");
-                return true;
+            	currentPattern = "Use format like: ##,###.##";
+                return;
             }
             try {
-                String s = (String) inout.get("input");
-                d = Double.parseDouble(s);
+            	currentInput = (String) inout.get("input");
+            	if (currentInput == null) {
+            		currentInput = getRandomInput();
+            	}
+            	d = Double.parseDouble(currentInput);
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "input", "Use English format: 1234.56");
-                return true;
-            }
-            String formatted;
-            try {
-                formatted = df.format(d);
-                result |= putIfDifferent(inout, "formatted", formatted);
-            } catch (Exception e) {
-                result |= putIfDifferent(inout, "formatted", "Can't format: " + e.getMessage());
-                return true;
+            	currentInput = "Use English format: 1234.56";
+                return;
             }
             try {
-                Number n = df.parse(formatted);
-                result |= putIfDifferent(inout, "reparsed", n.toString());
+            	currentFormatted = df.format(d);
             } catch (Exception e) {
-                result |= putIfDifferent(inout, "reparsed", "Can't parse: " + e.getMessage());
+            	currentFormatted = "Can't format: " + e.getMessage();
+                return;
             }
-            return result;
+            try {
+            	parsePosition.setIndex(0);
+                Number n = df.parse(currentFormatted, parsePosition);
+                if (parsePosition.getIndex() != currentFormatted.length()) {
+                	currentReparsed = "Couldn't parse past: \u200E" + currentFormatted.substring(0, parsePosition.getIndex()) + "\u200E";
+                } else {
+                	currentReparsed = n.toString();
+                }
+            } catch (Exception e) {
+            	currentReparsed = "Can't parse: " + e.getMessage();
+            }
         }
-		public String getHTML(String path, String fullPath, String value) throws Exception {
-			Object[] arguments = new Object[3];
-			StringBuffer htmlMessage = new StringBuffer();
-	        FormatDemo.appendTitle(htmlMessage);
-	        double sample = getRandomNumber();
-			arguments[0] = String.valueOf(sample);
-			String formatted = df.format(sample);
-			arguments[1] = formatted;
-			try {
-				double parsed = df.parse(formatted).doubleValue();
-				arguments[2] = String.valueOf(parsed);
-			} catch (Exception e) {
-				arguments[2] = e.getMessage();
-			}
-//			htmlMessage.append(pattern1)
-//			.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
-//			.append(pattern2)
-//			.append(TransliteratorUtilities.toXML.transliterate(formatted))
-//			.append(pattern3)
-//			.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
-//			.append(pattern4);
-	        FormatDemo.appendLine(htmlMessage, pattern, context, arguments[0].toString(), formatted, arguments[2].toString());
-	        return htmlMessage.toString();
-		}
+        
     }
 }

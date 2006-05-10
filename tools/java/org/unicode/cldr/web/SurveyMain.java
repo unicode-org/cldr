@@ -3476,7 +3476,6 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
                     DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
                     if(first==false) {
-                        ctx.print(", ");
                     }
                     String cls = shortClassName(e.status.getCause());
                     if(e.status.getType().equals(e.status.exampleType)) {

@@ -59,8 +59,9 @@ public class Vetting {
     public static final int RES_GOOD            = 32; // normal, unanimous
     public static final int RES_UNANIMOUS       = 64; // no new data
     public static final int RES_NO_CHANGE       = 128; // no new data
+    public static final int RES_REMOVAL         = 256; // no new data
 
-    public static final String RES_LIST = "0IDATGUN";
+    public static final String RES_LIST = "0IDATGUNR";
     
     public static String typeToStr(int t) {
         if(t==0) {
@@ -206,6 +207,7 @@ public class Vetting {
     PreparedStatement dataByUserAndBase = null;
     PreparedStatement insertVote = null;
     PreparedStatement queryVote = null;
+    PreparedStatement queryValue = null;
     PreparedStatement queryVoteForXpath = null;
     PreparedStatement queryVoteForBaseXpath = null;
     PreparedStatement missingResults = null;
@@ -287,6 +289,9 @@ public class Vetting {
                 "update CLDR_INTGROUP  set last_sent_nag=CURRENT_TIMESTAMP where intgroup=?");
             intUpdateUpdate = prepareStatement("intUpdateUpdate",
                 "update CLDR_INTGROUP  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
+            queryValue = prepareStatement("queryValue",
+                "SELECT value FROM " + CLDRDBSource.CLDR_DATA +
+                        " WHERE locale=? AND xpath=?");
         }
     }
     
@@ -588,6 +593,7 @@ public class Vetting {
         public boolean tc_voted_for = false;
         public boolean quorum = false;
         public boolean someone_voted_for = false;
+        public boolean removal = false; // is this a vote for Removal?
         
         Chad(int x) {
             xpath = x;
@@ -669,6 +675,7 @@ public class Vetting {
         int fallbackXpath = -1;
 
         boolean disputed = false; 
+        queryValue.setString(1,locale);
         
         // Step 0: gather all votes
         {
@@ -686,6 +693,29 @@ public class Vetting {
                 Chad c = (Chad)chads.get(new Integer(vote_xpath));
                 if(c==null) {
                     c = new Chad(vote_xpath);
+                    
+                    // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
+                    queryValue.setInt(2,vote_xpath);
+                    ResultSet crs= queryValue.executeQuery();
+                    if(!crs.next()) {
+                        if(vote_xpath==base_xpath){
+///*srl, et al*/              System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
+                            c.removal=true;
+                        }else {
+//                            System.err.println(locale+":"+vote_xpath + " = ERR: missing value??");
+                        }
+                    } else {
+                        String v = crs.getString(1);
+                        if(v.length()==0) {
+                            if(vote_xpath!=base_xpath){
+//                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
+                                c.removal=true;
+                            } else {
+//                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
+                            }
+                        }
+                    }
+                    crs.close();
                 }
                 UserRegistry.User u = sm.reg.getInfo(submitter);
                 c.vote(u);
@@ -721,7 +751,10 @@ public class Vetting {
             }
             if(sawQuorum && (type==-1)) {
                 // We have a winner.
-                if(chads.size()==1) {
+                if(quorumChad.removal) {
+///*srl*/                    System.err.println("RESULT: "+locale+":"+base_xpath+" = RES_REMOVAL");
+                    type = RES_REMOVAL; // quorum is to remove an item. Needed to suppress base_xpath from iterator()
+                } else if(chads.size()==1) {
                     type = RES_UNANIMOUS; // not shown if TC also voted.
                 } else if(quorumChad.tc_voted_for) {
                     type = RES_TC;

@@ -194,7 +194,7 @@ public class CLDRDBSource extends XMLSource {
                 "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
             keyVettingSet = prepareStatement("keyVettingSet",
-                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL" );
+                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND type<"+Vetting.RES_REMOVAL );
                 
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
@@ -611,7 +611,6 @@ public class CLDRDBSource extends XMLSource {
         String locale = getLocaleID();
         int xpath = xpt.getByXpath(path);
 //logger.info(locale + ":" + path);
-//        synchronized (conn) {
             try {
                 ResultSet rs;
                 if(finalData) {
@@ -656,7 +655,6 @@ public class CLDRDBSource extends XMLSource {
                 logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
                 return null;
             }
-//        }
     }
 	
     // new functions
@@ -674,11 +672,15 @@ public class CLDRDBSource extends XMLSource {
      * @param path cleaned path
      */
     public String getFullPathAtDPath(String path) {
-        if(finalData) {
+        if(finalData && !xpathThatNeedsOrig(path)) {
             return path; // TODO: investigate this.
         }
-        String locale = getLocaleID();
         int pathid = xpt.getByXpath(path); // note: want this to fail, or it will fill xpt with trash.
+        return getOrigXpath(pathid);
+    }
+    
+    public String getOrigXpath(int pathid) {
+        String locale = getLocaleID();
 //        if(nid < 0) {
 //                return path;
 //        }
@@ -689,19 +691,19 @@ public class CLDRDBSource extends XMLSource {
                 ResultSet rs = stmts.oxpathFromXpath.executeQuery();
                 if(!rs.next()) {
                     rs.close();
-                    logger.severe("gfx not found, falling back: " + locale + "/" + path);
-                    return path; // not found - should be null?
+                    logger.severe("gfx not found, falling back: " + locale + "/" + xpt.getById(pathid));
+                    return xpt.getById(pathid); // not found - should be null?
                 }
                 int result = rs.getInt(1);
                 if(rs.next()) {
-                    logger.severe("gfx returns two results: " + locale + "/" + path);
+                    logger.severe("gfx returns two results: " + locale + "/" + xpt.getById(pathid));
                     // fail?? what?
                 }
                 rs.close();
                 return xpt.getById(result);
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-                return path; //? should be null?
+                logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + SurveyMain.unchainSqlException(se));
+                return xpt.getById(pathid); //? should be null?
             }
 //        }
     }
@@ -748,6 +750,10 @@ public class CLDRDBSource extends XMLSource {
     
     Hashtable keySets = new Hashtable();
     public Iterator iterator() {
+        if(finalData) { // don't cache finaldata iterator.
+            return oldKeySet().iterator();
+        }
+        
         String k = getLocaleID();
         Set s = (Set)keySets.get(k);
         if(s==null) {
@@ -775,6 +781,7 @@ public class CLDRDBSource extends XMLSource {
      * TODO: rewrite as iterator
      */
     private Set oldKeySet() {
+        
         String locale = getLocaleID();
 //        synchronized (conn) {
             try {
@@ -800,6 +807,14 @@ public class CLDRDBSource extends XMLSource {
                         System.err.println("@tlh: " + xpath);
                     }
                     */
+                    if(finalData==true) {
+ //                       System.err.println("Path: " +xpath);
+                        if(xpathThatNeedsOrig(xpath)) {
+//                            System.err.println("@@ munging xpath:"+xpath+" ("+xpathid+")");
+                            xpath = getOrigXpath(xpathid);
+//                            System.err.println("-> "+xpath);
+                        }
+                    }
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
@@ -814,6 +829,21 @@ public class CLDRDBSource extends XMLSource {
 //        }
     }
 
+    final private boolean xpathThatNeedsOrig(String xpath) {
+     if(xpath.endsWith("/minDays") ||
+        xpath.endsWith("/default") ||
+        xpath.endsWith("/alias") ||
+        xpath.endsWith("/weekendStart") ||
+        xpath.endsWith("/weekendEnd") ||
+        xpath.endsWith("/measurementSystem") ||
+        xpath.endsWith("/inList") ||
+        xpath.endsWith("/firstDay") ) {
+        return true;
+     }
+     return false;
+    }
+
+
     private Set prefixKeySet(String prefix) {
 //        String locale = getLocaleID();
 //        synchronized (conn) {
@@ -826,10 +856,10 @@ public class CLDRDBSource extends XMLSource {
 //                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
-                    if(-1!=xpath.indexOf("tlh")) {
-                        xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
+                    //if(-1!=xpath.indexOf("tlh")) {
+                    //    xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
 //                        System.err.println("@tlh: " + xpath);
-                    }
+                    //}
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }

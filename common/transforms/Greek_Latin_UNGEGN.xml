@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
 	<transforms>
-		<transform source="Greek" target="Latin" direction="both">
+		<transform source="Greek" target="Latin" variant="UNGEGN" direction="both">
 			<comment># For modern Greek, based on UNGEGN rules.</comment>
 			<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>
 			<comment># MINIMAL FILTER GENERATED FOR: Greek-Latin/UNGEGN</comment>

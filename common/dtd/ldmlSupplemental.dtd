@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.25 $
-    $Date: 2006-04-14 17:53:25 $
+    $Revision: 1.26 $
+    $Date: 2006-05-15 07:25:02 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, metadata? ) >
+<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.4" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -132,11 +132,25 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST character standard CDATA #IMPLIED >
 <!ATTLIST character references CDATA #IMPLIED >
 <!ATTLIST character alt CDATA #IMPLIED >
+
 <!ELEMENT substitute (#PCDATA) >
 <!ATTLIST substitute draft ( true | false ) #IMPLIED >
 <!ATTLIST substitute standard CDATA #IMPLIED >
 <!ATTLIST substitute references CDATA #IMPLIED >
 <!ATTLIST substitute alt CDATA #IMPLIED >
+
+<!ELEMENT transforms ( transform*) >
+<!ELEMENT transform ((comment | tRule)*) >
+<!ATTLIST transform draft ( true | false ) #IMPLIED >
+<!ATTLIST transform references CDATA #IMPLIED >
+<!ATTLIST transform alt CDATA #IMPLIED >
+<!ATTLIST transform source CDATA #IMPLIED >
+<!ATTLIST transform target CDATA #IMPLIED >
+<!ATTLIST transform variant CDATA #IMPLIED >
+<!ATTLIST transform direction ( forward | backward | both ) "both" >
+<!ATTLIST transform visibility ( internal | external ) "external" >
+<!ELEMENT comment (#PCDATA) >
+<!ELEMENT tRule (#PCDATA) >
 
 <!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions?, skipDefaultLocale?) >
 <!ATTLIST metadata draft ( true | false ) #IMPLIED >

@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.26 $
-    $Date: 2006-05-15 07:25:02 $
+    $Revision: 1.27 $
+    $Date: 2006-05-18 14:45:46 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
@@ -31,6 +31,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
 <!ATTLIST info draft ( true | false ) #IMPLIED >
+<!ATTLIST info references CDATA #IMPLIED >
 
 <!ELEMENT region ( currency* ) >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
@@ -42,6 +43,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >
+<!ATTLIST currency references CDATA #IMPLIED >
 
 <!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->
 <!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
@@ -51,6 +53,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST group type NMTOKEN #REQUIRED >
 <!ATTLIST group contains NMTOKENS #IMPLIED >
 <!ATTLIST group draft ( true | false ) #IMPLIED >
+<!ATTLIST group references CDATA #IMPLIED >
 
 <!ELEMENT languageData ( language* ) >
 <!ELEMENT language EMPTY >
@@ -59,6 +62,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST language territories NMTOKENS #IMPLIED >
 <!ATTLIST language variants NMTOKENS #IMPLIED >
 <!ATTLIST language draft ( true | false ) #IMPLIED >
+<!ATTLIST language references CDATA #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 
 <!ELEMENT calendarData ( calendar* ) >
@@ -66,6 +70,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST calendar type NMTOKENS #REQUIRED >
 <!ATTLIST calendar territories NMTOKENS #IMPLIED >
 <!ATTLIST calendar draft ( true | false ) #IMPLIED >
+<!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* ) >
@@ -74,24 +79,28 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED >
 <!ATTLIST minDays territories NMTOKENS #REQUIRED >
 <!ATTLIST minDays draft ( true | false ) #IMPLIED >
+<!ATTLIST minDays references CDATA #IMPLIED >
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
 
 <!ELEMENT firstDay EMPTY >
 <!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST firstDay territories NMTOKENS #REQUIRED >
 <!ATTLIST firstDay draft ( true | false ) #IMPLIED >
+<!ATTLIST firstDay references CDATA #IMPLIED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekendStart EMPTY >
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST weekendStart territories NMTOKENS #REQUIRED >
 <!ATTLIST weekendStart draft ( true | false ) #IMPLIED >
+<!ATTLIST weekendStart references CDATA #IMPLIED >
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekendEnd EMPTY >
 <!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST weekendEnd territories NMTOKENS #REQUIRED >
 <!ATTLIST weekendEnd draft ( true | false ) #IMPLIED >
+<!ATTLIST weekendEnd references CDATA #IMPLIED >
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
 
 <!ELEMENT measurementData ( measurementSystem*, paperSize* ) >
@@ -100,28 +109,35 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >
 <!ATTLIST measurementSystem territories NMTOKENS #REQUIRED >
 <!ATTLIST measurementSystem draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystem references CDATA #IMPLIED >
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
 
 <!ELEMENT paperSize EMPTY >
 <!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED >
 <!ATTLIST paperSize territories NMTOKENS #REQUIRED >
 <!ATTLIST paperSize draft ( true | false ) #IMPLIED >
+<!ATTLIST paperSize references CDATA #IMPLIED >
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
 
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #REQUIRED >
+<!ATTLIST mapTimezones references CDATA #IMPLIED >
+
 <!ELEMENT mapZone EMPTY >
 <!ATTLIST mapZone type CDATA #REQUIRED >
 <!ATTLIST mapZone other CDATA #REQUIRED >
+<!ATTLIST mapZone references CDATA #IMPLIED >
 
 <!ELEMENT zoneFormatting ( zoneItem* ) >
 <!ATTLIST zoneFormatting multizone NMTOKENS #REQUIRED >
+<!ATTLIST zoneFormatting references CDATA #IMPLIED >
 
 <!ELEMENT zoneItem EMPTY >
 <!ATTLIST zoneItem type CDATA #REQUIRED >
 <!ATTLIST zoneItem territory NMTOKEN #REQUIRED >
 <!ATTLIST zoneItem aliases CDATA #IMPLIED >
+<!ATTLIST zoneItem references CDATA #IMPLIED >
 
 <!ELEMENT characters ( character-fallback*) >
 <!ATTLIST characters draft ( true | false ) #IMPLIED >

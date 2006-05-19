@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
 	<version number="$Revision$"/>
@@ -71,12 +71,6 @@ http://europa.eu.int/comm/budget/inforeuro/index.cfm?fuseaction=countries&Langua
 http://www.unece.org/cefact/recommendations/rec09/rec09_ecetrd203.pdf
 The printed version of ISO-4217:2001
 -->
-        <region iso3166="830">
-            <currency iso4217="GBP" from="1694-07-27"/>
-        </region>
-        <region iso3166="833">
-            <currency iso4217="GBP" from="1694-07-27"/>
-        </region>
         <region iso3166="AD">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ESP" from="1873" to="2002-02-28"/>
@@ -144,7 +138,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="AZ">
             <currency iso4217="AZN" from="2006-01-01"/>
-            <currency iso4217="AZM" from="1993-11-22"/><!-- End date of old currency not available yet. -->
+            <currency iso4217="AZM" from="1993-11-22" to="2006-12-31"/>
             <currency iso4217="RUR" from="1991-12-25" to="1994-01-01"/>
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
         </region>
@@ -365,8 +359,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="JPY" from="1914-10-03" to="1944"/>
         </region>
         <region iso3166="FO">
-            <currency iso4217="DKK" from="1873-5-27"/>
-            <!-- currency iso4217="FOK" from="1940"/ --><!-- Not listed in the 2001 or 2004 list -->
+            <!-- ISO-4217 doesn't have a code for the Faroese krona, but it depends on the DKK currency.  -->
+            <currency iso4217="DKK" from="1948"/>
         </region>
         <region iso3166="FR">
             <currency iso4217="EUR" from="1999-01-01"/>
@@ -391,6 +385,10 @@ The printed version of ISO-4217:2001
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
             <!-- currency iso4217="XNF" from="1960-01-01" to="1975-03-31"/ --><!-- Not listed in the 2001 or 2004 list -->
+        </region>
+        <region iso3166="GG">
+            <!-- ISO-4217 doesn't have a code for the Guernsey pound, but it depends on the GBP currency.  -->
+            <currency iso4217="GBP" from="1830"/>
         </region>
         <region iso3166="GH">
             <currency iso4217="GHC" from="1979-03-09"/>
@@ -474,6 +472,9 @@ The printed version of ISO-4217:2001
             <currency iso4217="ILS" from="1985-09-04"/>
             <currency iso4217="ILP" from="1948-08-16" to="1980-02-22"/>
         </region>
+        <region iso3166="IM">
+            <currency iso4217="GBP" from="1840-01-03"/>
+        </region>
         <region iso3166="IN">
             <currency iso4217="INR" from="1835-08-17"/>
         </region>
@@ -496,6 +497,10 @@ The printed version of ISO-4217:2001
         <region iso3166="IT">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ITL" from="1862-8-24" to="2002-02-28"/>
+        </region>
+        <region iso3166="JE">
+            <!-- ISO-4217 doesn't have a code for the Jersey pound, but it depends on the GBP currency.  -->
+            <currency iso4217="GBP" from="1837"/>
         </region>
         <region iso3166="JM">
             <currency iso4217="JMD" from="1969-09-08"/>
@@ -603,7 +608,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="MG">
             <currency iso4217="MGA" from="1983-11-01"/>
-            <currency iso4217="MGF" from="1963-07-01" to="2004-11-30"/>
+            <currency iso4217="MGF" from="1963-07-01" to="2004-12-31"/>
         </region>
         <region iso3166="MH">
             <currency iso4217="USD" from="1944"/>
@@ -692,7 +697,6 @@ The printed version of ISO-4217:2001
         <region iso3166="NL">
             <currency iso4217="EUR" from="1999-1-1"/>
             <currency iso4217="NLG" from="1813" to="2002-02-28"/>
-            <!-- FRG was used from 1810 to 1813 -->
         </region>
         <region iso3166="NO">
             <currency iso4217="NOK" from="1905-06-07"/>
@@ -915,8 +919,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="TTD" from="1964"/>
         </region>
         <region iso3166="TV">
+            <!-- ISO-4217 doesn't have a code for the Tuvaluan dollar, but it depends on the AUD currency.  -->
             <currency iso4217="AUD" from="1966-02-14"/>
-            <!-- currency iso4217="TVD" from="1975-10-01"/ --><!-- Not listed in the 2001 or 2004 list -->
         </region>
         <region iso3166="TW">
             <currency iso4217="TWD" from="1949-06-15"/>
@@ -1053,7 +1057,8 @@ XXX	Code for transations where no currency is involved
 		<group type="015" contains="DZ EG EH LY MA SD TN"/> <!--Northern Africa -->
 		<group type="150" contains="039 151 154 155"/> <!--Europe -->
 		<group type="151" contains="BG BY CZ HU MD PL RO RU SK UA"/> <!--Eastern Europe -->
-		<group type="154" contains="830 833 AX DK EE FI FO GB IE IS LT LV NO SE SJ"/> <!--Northern Europe -->
+		<group type="154" contains="830 AX DK EE FI FO GB IE IM IS LT LV NO SE SJ"/> <!--Northern Europe -->
+		<group type="830" contains="GG JE"/> <!--Channel Islands -->
 		<group type="155" contains="AT BE CH DE FR LI LU MC NL"/> <!--Western Europe -->
 		<group type="017" contains="AO CD CF CG CM GA GQ ST TD"/> <!--Middle Africa -->
 		<group type="172" contains="AM AZ BY GE KG KZ MD RU TJ TM UA UZ"/> <!-- Commonwealth of Independent States -->
@@ -1390,19 +1395,16 @@ XXX	Code for transations where no currency is involved
 KZ MH ML MN MX MY NZ PF PT RU SJ UA UM US UZ">
 			<zoneItem type="Africa/Abidjan" territory="CI"/>
 			<zoneItem type="Africa/Accra" territory="GH"/>
-			<zoneItem type="America/Adak" territory="US" aliases="America/Atka
-US/Aleutian"/>
+			<zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
 			<zoneItem type="Africa/Addis_Ababa" territory="ET"/>
-			<zoneItem type="Australia/Adelaide" territory="AU"
-aliases="Australia/South"/>
+			<zoneItem type="Australia/Adelaide" territory="AU" aliases="Australia/South"/>
 			<zoneItem type="Asia/Aden" territory="YE"/>
 			<zoneItem type="Africa/Algiers" territory="DZ"/>
 			<zoneItem type="Asia/Almaty" territory="KZ"/>
 			<zoneItem type="Asia/Amman" territory="JO"/>
 			<zoneItem type="Europe/Amsterdam" territory="NL"/>
 			<zoneItem type="Asia/Anadyr" territory="RU"/>
-			<zoneItem type="America/Anchorage" territory="US" aliases="SystemV/YST9YDT
-US/Alaska"/>
+			<zoneItem type="America/Anchorage" territory="US" aliases="SystemV/YST9YDT US/Alaska"/>
 			<zoneItem type="Europe/Andorra" territory="AD"/>
 			<zoneItem type="America/Anguilla" territory="AI"/>
 			<zoneItem type="Indian/Antananarivo" territory="MG"/>
@@ -1412,8 +1414,7 @@ US/Alaska"/>
 			<zoneItem type="Asia/Aqtobe" territory="KZ"/>
 			<zoneItem type="America/Araguaina" territory="BR"/>
 			<zoneItem type="America/Aruba" territory="AW"/>
-			<zoneItem type="Asia/Ashgabat" territory="TM"
-aliases="Asia/Ashkhabad"/>
+			<zoneItem type="Asia/Ashgabat" territory="TM" aliases="Asia/Ashkhabad"/>
 			<zoneItem type="Africa/Asmera" territory="ER"/>
 			<zoneItem type="America/Asuncion" territory="PY"/>
 			<zoneItem type="Europe/Athens" territory="GR"/>
@@ -1443,16 +1444,13 @@ aliases="Asia/Ashkhabad"/>
 			<zoneItem type="America/Boise" territory="US"/>
 			<zoneItem type="Europe/Bratislava" territory="SK"/>
 			<zoneItem type="Africa/Brazzaville" territory="CG"/>
-			<zoneItem type="Australia/Brisbane" territory="AU"
-aliases="Australia/Queensland"/>
-			<zoneItem type="Australia/Broken_Hill" territory="AU"
-aliases="Australia/Yancowinna"/>
+			<zoneItem type="Australia/Brisbane" territory="AU" aliases="Australia/Queensland"/>
+			<zoneItem type="Australia/Broken_Hill" territory="AU" aliases="Australia/Yancowinna"/>
 			<zoneItem type="Asia/Brunei" territory="BN"/>
 			<zoneItem type="Europe/Brussels" territory="BE"/>
 			<zoneItem type="Europe/Bucharest" territory="RO"/>
 			<zoneItem type="Europe/Budapest" territory="HU"/>
-			<zoneItem type="America/Buenos_Aires" territory="AR"
-aliases="America/Argentina/Buenos_Aires"/>
+			<zoneItem type="America/Buenos_Aires" territory="AR" aliases="America/Argentina/Buenos_Aires"/>
 			<zoneItem type="Africa/Bujumbura" territory="BI"/>
 			<zoneItem type="Africa/Cairo" territory="EG" aliases="Egypt"/>
 			<zoneItem type="Asia/Calcutta" territory="IN"/>
@@ -1464,22 +1462,18 @@ aliases="America/Argentina/Buenos_Aires"/>
 			<zoneItem type="America/Caracas" territory="VE"/>
 			<zoneItem type="Africa/Casablanca" territory="MA"/>
 			<zoneItem type="Antarctica/Casey" territory="AQ"/>
-			<zoneItem type="America/Catamarca" territory="AR"
-aliases="America/Argentina/Catamarca"/>
+			<zoneItem type="America/Catamarca" territory="AR" aliases="America/Argentina/Catamarca"/>
 			<zoneItem type="America/Cayenne" territory="GF"/>
 			<zoneItem type="America/Cayman" territory="KY"/>
 			<zoneItem type="America/North_Dakota/Center" territory="US"/>
 			<zoneItem type="Africa/Ceuta" territory="ES"/>
 			<zoneItem type="Indian/Chagos" territory="IO"/>
 			<zoneItem type="Pacific/Chatham" territory="NZ" aliases="NZ-CHAT"/>
-			<zoneItem type="America/Chicago" territory="US" aliases="CST6CDT
-SystemV/CST6CDT US/Central"/>
+			<zoneItem type="America/Chicago" territory="US" aliases="CST6CDT SystemV/CST6CDT US/Central"/>
 			<zoneItem type="America/Chihuahua" territory="MX"/>
-			<zoneItem type="Europe/Chisinau" territory="MD"
-aliases="Europe/Tiraspol"/>
+			<zoneItem type="Europe/Chisinau" territory="MD" aliases="Europe/Tiraspol"/>
 			<zoneItem type="Asia/Choibalsan" territory="MN"/>
-			<zoneItem type="Asia/Chongqing" territory="CN"
-aliases="Asia/Chungking"/>
+			<zoneItem type="Asia/Chongqing" territory="CN" aliases="Asia/Chungking"/>
 			<zoneItem type="Indian/Christmas" territory="CX"/>
 			<zoneItem type="Indian/Cocos" territory="CC"/>
 			<zoneItem type="Asia/Colombo" territory="LK"/>
@@ -1487,8 +1481,7 @@ aliases="Asia/Chungking"/>
 			<zoneItem type="Indian/Comoro" territory="KM"/>
 			<zoneItem type="Africa/Conakry" territory="GN"/>
 			<zoneItem type="Europe/Copenhagen" territory="DK"/>
-			<zoneItem type="America/Cordoba" territory="AR"
-aliases="America/Argentina/Cordoba America/Rosario"/>
+			<zoneItem type="America/Cordoba" territory="AR" aliases="America/Argentina/Cordoba America/Rosario"/>
 			<zoneItem type="America/Costa_Rica" territory="CR"/>
 			<zoneItem type="America/Cuiaba" territory="BR"/>
 			<zoneItem type="America/Curacao" territory="AN"/>
@@ -1496,15 +1489,13 @@ aliases="America/Argentina/Cordoba America/Rosario"/>
 			<zoneItem type="Asia/Damascus" territory="SY"/>
 			<zoneItem type="America/Danmarkshavn" territory="GL"/>
 			<zoneItem type="Africa/Dar_es_Salaam" territory="TZ"/>
-			<zoneItem type="Australia/Darwin" territory="AU"
-aliases="Australia/North"/>
+			<zoneItem type="Australia/Darwin" territory="AU" aliases="Australia/North"/>
 			<zoneItem type="Antarctica/Davis" territory="AQ"/>
 			<zoneItem type="America/Dawson" territory="CA"/>
 			<zoneItem type="America/Dawson_Creek" territory="CA"/>
 			<zoneItem type="America/Denver" territory="US" aliases="MST7MDT
 SystemV/MST7MDT US/Mountain"/>
-			<zoneItem type="America/Detroit" territory="US"
-aliases="US/Michigan"/>
+			<zoneItem type="America/Detroit" territory="US" aliases="US/Michigan"/>
 			<zoneItem type="Asia/Dhaka" territory="BD" aliases="Asia/Dacca"/>
 			<zoneItem type="Asia/Dili" territory="TL"/>
 			<zoneItem type="Africa/Djibouti" territory="DJ"/>
@@ -1514,10 +1505,8 @@ aliases="US/Michigan"/>
 			<zoneItem type="Europe/Dublin" territory="IE" aliases="Eire"/>
 			<zoneItem type="Antarctica/DumontDUrville" territory="AQ"/>
 			<zoneItem type="Asia/Dushanbe" territory="TJ"/>
-			<zoneItem type="Pacific/Easter" territory="CL"
-aliases="Chile/EasterIsland"/>
-			<zoneItem type="America/Edmonton" territory="CA"
-aliases="Canada/Mountain"/>
+			<zoneItem type="Pacific/Easter" territory="CL" aliases="Chile/EasterIsland"/>
+			<zoneItem type="America/Edmonton" territory="CA" aliases="Canada/Mountain"/>
 			<zoneItem type="Pacific/Efate" territory="VU"/>
 			<zoneItem type="America/Eirunepe" territory="BR"/>
 			<zoneItem type="Africa/El_Aaiun" territory="EH"/>
@@ -1531,8 +1520,7 @@ aliases="Canada/Mountain"/>
 			<zoneItem type="Pacific/Funafuti" territory="TV"/>
 			<zoneItem type="Africa/Gaborone" territory="BW"/>
 			<zoneItem type="Pacific/Galapagos" territory="EC"/>
-			<zoneItem type="Pacific/Gambier" territory="PF"
-aliases="SystemV/YST9"/>
+			<zoneItem type="Pacific/Gambier" territory="PF" aliases="SystemV/YST9"/>
 			<zoneItem type="Asia/Gaza" territory="PS"/>
 			<zoneItem type="Europe/Gibraltar" territory="GI"/>
 			<zoneItem type="America/Glace_Bay" territory="CA"/>
@@ -1575,18 +1563,15 @@ GMT0 Greenwich UCT UTC Universal Zulu"/>
 			<zoneItem type="America/Guatemala" territory="GT"/>
 			<zoneItem type="America/Guayaquil" territory="EC"/>
 			<zoneItem type="America/Guyana" territory="GY"/>
-			<zoneItem type="America/Halifax" territory="CA" aliases="Canada/Atlantic
-SystemV/AST4ADT"/>
+			<zoneItem type="America/Halifax" territory="CA" aliases="Canada/Atlantic SystemV/AST4ADT"/>
 			<zoneItem type="Africa/Harare" territory="ZW"/>
 			<zoneItem type="Asia/Harbin" territory="CN"/>
 			<zoneItem type="America/Havana" territory="CU" aliases="Cuba"/>
 			<zoneItem type="Europe/Helsinki" territory="FI"/>
 			<zoneItem type="America/Hermosillo" territory="MX"/>
-			<zoneItem type="Australia/Hobart" territory="AU"
-aliases="Australia/Tasmania"/>
+			<zoneItem type="Australia/Hobart" territory="AU" aliases="Australia/Tasmania"/>
 			<zoneItem type="Asia/Hong_Kong" territory="HK" aliases="Hongkong"/>
-			<zoneItem type="Pacific/Honolulu" territory="US" aliases="HST
-SystemV/HST10 US/Hawaii"/>
+			<zoneItem type="Pacific/Honolulu" territory="US" aliases="HST SystemV/HST10 US/Hawaii"/>
 			<zoneItem type="Asia/Hovd" territory="MN"/>
 			<zoneItem type="America/Indianapolis" territory="US"
 aliases="America/Fort_Wayne America/Indiana/Indianapolis EST SystemV/EST5
@@ -1594,18 +1579,15 @@ US/East-Indiana"/>
 			<zoneItem type="America/Inuvik" territory="CA"/>
 			<zoneItem type="America/Iqaluit" territory="CA"/>
 			<zoneItem type="Asia/Irkutsk" territory="RU"/>
-			<zoneItem type="Europe/Istanbul" territory="TR" aliases="Asia/Istanbul
-Turkey"/>
+			<zoneItem type="Europe/Istanbul" territory="TR" aliases="Asia/Istanbul Turkey"/>
 			<zoneItem type="Asia/Jakarta" territory="ID"/>
 			<zoneItem type="America/Jamaica" territory="JM" aliases="Jamaica"/>
 			<zoneItem type="Atlantic/Jan_Mayen" territory="SJ"/>
 			<zoneItem type="Asia/Jayapura" territory="ID"/>
-			<zoneItem type="Asia/Jerusalem" territory="IL" aliases="Asia/Tel_Aviv
-Israel"/>
+			<zoneItem type="Asia/Jerusalem" territory="IL" aliases="Asia/Tel_Aviv Israel"/>
 			<zoneItem type="Africa/Johannesburg" territory="ZA"/>
 			<zoneItem type="Pacific/Johnston" territory="UM"/>
-			<zoneItem type="America/Jujuy" territory="AR"
-aliases="America/Argentina/Jujuy"/>
+			<zoneItem type="America/Jujuy" territory="AR" aliases="America/Argentina/Jujuy"/>
 			<zoneItem type="America/Juneau" territory="US"/>
 			<zoneItem type="Asia/Kabul" territory="AF"/>
 			<zoneItem type="Europe/Kaliningrad" territory="RU"/>
@@ -1620,15 +1602,13 @@ aliases="America/Argentina/Jujuy"/>
 			<zoneItem type="Africa/Kigali" territory="RW"/>
 			<zoneItem type="Africa/Kinshasa" territory="CD"/>
 			<zoneItem type="Pacific/Kiritimati" territory="KI"/>
-			<zoneItem type="America/Indiana/Knox" territory="US"
-aliases="America/Knox_IN US/Indiana-Starke"/>
+			<zoneItem type="America/Indiana/Knox" territory="US" aliases="America/Knox_IN US/Indiana-Starke"/>
 			<zoneItem type="Pacific/Kosrae" territory="FM"/>
 			<zoneItem type="Asia/Krasnoyarsk" territory="RU"/>
 			<zoneItem type="Asia/Kuala_Lumpur" territory="MY"/>
 			<zoneItem type="Asia/Kuching" territory="MY"/>
 			<zoneItem type="Asia/Kuwait" territory="KW"/>
-			<zoneItem type="Pacific/Kwajalein" territory="MH"
-aliases="Kwajalein"/>
+			<zoneItem type="Pacific/Kwajalein" territory="MH" aliases="Kwajalein"/>
 			<zoneItem type="America/La_Paz" territory="BO"/>
 			<zoneItem type="America/Argentina/La_Rioja" territory="AR"/>
 			<zoneItem type="Africa/Lagos" territory="NG"/>
@@ -1640,12 +1620,10 @@ aliases="Kwajalein"/>
 			<zoneItem type="Africa/Lome" territory="TG"/>
 			<zoneItem type="Europe/London" territory="GB" aliases="GB GB-Eire"/>
 			<zoneItem type="Arctic/Longyearbyen" territory="SJ"/>
-			<zoneItem type="Australia/Lord_Howe" territory="AU"
-aliases="Australia/LHI"/>
+			<zoneItem type="Australia/Lord_Howe" territory="AU" aliases="Australia/LHI"/>
 			<zoneItem type="America/Los_Angeles" territory="US" aliases="PST8PDT
 SystemV/PST8PDT US/Pacific US/Pacific-New"/>
-			<zoneItem type="America/Louisville" territory="US"
-aliases="America/Kentucky/Louisville"/>
+			<zoneItem type="America/Louisville" territory="US" aliases="America/Kentucky/Louisville"/>
 			<zoneItem type="Africa/Luanda" territory="AO"/>
 			<zoneItem type="Africa/Lubumbashi" territory="CD"/>
 			<zoneItem type="Africa/Lusaka" territory="ZM"/>
@@ -1657,8 +1635,7 @@ aliases="America/Kentucky/Louisville"/>
 			<zoneItem type="Asia/Magadan" territory="RU"/>
 			<zoneItem type="Indian/Mahe" territory="SC"/>
 			<zoneItem type="Pacific/Majuro" territory="MH"/>
-			<zoneItem type="Asia/Makassar" territory="ID"
-aliases="Asia/Ujung_Pandang"/>
+			<zoneItem type="Asia/Makassar" territory="ID" aliases="Asia/Ujung_Pandang"/>
 			<zoneItem type="Africa/Malabo" territory="GQ"/>
 			<zoneItem type="Indian/Maldives" territory="MV"/>
 			<zoneItem type="Europe/Malta" territory="MT"/>
@@ -1674,18 +1651,14 @@ aliases="Asia/Ujung_Pandang"/>
 			<zoneItem type="Indian/Mauritius" territory="MU"/>
 			<zoneItem type="Antarctica/Mawson" territory="AQ"/>
 			<zoneItem type="Indian/Mayotte" territory="YT"/>
-			<zoneItem type="America/Mazatlan" territory="MX"
-aliases="Mexico/BajaSur"/>
+			<zoneItem type="America/Mazatlan" territory="MX" aliases="Mexico/BajaSur"/>
 			<zoneItem type="Africa/Mbabane" territory="SZ"/>
 			<zoneItem type="Antarctica/McMurdo" territory="AQ"/>
-			<zoneItem type="Australia/Melbourne" territory="AU"
-aliases="Australia/Victoria"/>
-			<zoneItem type="America/Mendoza" territory="AR"
-aliases="America/Argentina/Mendoza"/>
+			<zoneItem type="Australia/Melbourne" territory="AU" aliases="Australia/Victoria"/>
+			<zoneItem type="America/Mendoza" territory="AR" aliases="America/Argentina/Mendoza"/>
 			<zoneItem type="America/Menominee" territory="US"/>
 			<zoneItem type="America/Merida" territory="MX"/>
-			<zoneItem type="America/Mexico_City" territory="MX"
-aliases="Mexico/General"/>
+			<zoneItem type="America/Mexico_City" territory="MX" aliases="Mexico/General"/>
 			<zoneItem type="Pacific/Midway" territory="UM"/>
 			<zoneItem type="Europe/Minsk" territory="BY"/>
 			<zoneItem type="America/Miquelon" territory="PM"/>
@@ -1706,14 +1679,12 @@ aliases="Mexico/General"/>
 			<zoneItem type="America/New_York" territory="US" aliases="EST5EDT
 SystemV/EST5EDT US/Eastern"/>
 			<zoneItem type="Africa/Niamey" territory="NE"/>
-			<zoneItem type="Asia/Nicosia" territory="CY"
-aliases="Europe/Nicosia"/>
+			<zoneItem type="Asia/Nicosia" territory="CY" aliases="Europe/Nicosia"/>
 			<zoneItem type="America/Nipigon" territory="CA"/>
 			<zoneItem type="Pacific/Niue" territory="NU"/>
 			<zoneItem type="America/Nome" territory="US"/>
 			<zoneItem type="Pacific/Norfolk" territory="NF"/>
-			<zoneItem type="America/Noronha" territory="BR"
-aliases="Brazil/DeNoronha"/>
+			<zoneItem type="America/Noronha" territory="BR" aliases="Brazil/DeNoronha"/>
 			<zoneItem type="Africa/Nouakchott" territory="MR"/>
 			<zoneItem type="Pacific/Noumea" territory="NC"/>
 			<zoneItem type="Asia/Novosibirsk" territory="RU"/>
@@ -1721,21 +1692,17 @@ aliases="Brazil/DeNoronha"/>
 			<zoneItem type="Asia/Oral" territory="KZ"/>
 			<zoneItem type="Europe/Oslo" territory="NO"/>
 			<zoneItem type="Africa/Ouagadougou" territory="BF"/>
-			<zoneItem type="Pacific/Pago_Pago" territory="AS" aliases="Pacific/Samoa
-US/Samoa"/>
+			<zoneItem type="Pacific/Pago_Pago" territory="AS" aliases="Pacific/Samoa US/Samoa"/>
 			<zoneItem type="Pacific/Palau" territory="PW"/>
 			<zoneItem type="Antarctica/Palmer" territory="AQ"/>
 			<zoneItem type="America/Panama" territory="PA"/>
 			<zoneItem type="America/Pangnirtung" territory="CA"/>
 			<zoneItem type="America/Paramaribo" territory="SR"/>
 			<zoneItem type="Europe/Paris" territory="FR"/>
-			<zoneItem type="Australia/Perth" territory="AU"
-aliases="Australia/West"/>
+			<zoneItem type="Australia/Perth" territory="AU" aliases="Australia/West"/>
 			<zoneItem type="Asia/Phnom_Penh" territory="KH"/>
-			<zoneItem type="America/Phoenix" territory="US" aliases="MST SystemV/MST7
-US/Arizona"/>
-			<zoneItem type="Pacific/Pitcairn" territory="PN"
-aliases="SystemV/PST8"/>
+			<zoneItem type="America/Phoenix" territory="US" aliases="MST SystemV/MST7 US/Arizona"/>
+			<zoneItem type="Pacific/Pitcairn" territory="PN" aliases="SystemV/PST8"/>
 			<zoneItem type="Pacific/Ponape" territory="FM"/>
 			<zoneItem type="Asia/Pontianak" territory="ID"/>
 			<zoneItem type="Pacific/Port_Moresby" territory="PG"/>
@@ -1744,8 +1711,7 @@ aliases="SystemV/PST8"/>
 			<zoneItem type="America/Porto_Velho" territory="BR"/>
 			<zoneItem type="Africa/Porto-Novo" territory="BJ"/>
 			<zoneItem type="Europe/Prague" territory="CZ"/>
-			<zoneItem type="America/Puerto_Rico" territory="PR"
-aliases="SystemV/AST4"/>
+			<zoneItem type="America/Puerto_Rico" territory="PR" aliases="SystemV/AST4"/>
 			<zoneItem type="Asia/Pyongyang" territory="KP"/>
 			<zoneItem type="Asia/Qatar" territory="QA"/>
 			<zoneItem type="Asia/Qyzylorda" territory="KZ"/>
@@ -1759,8 +1725,7 @@ aliases="Canada/East-Saskatchewan Canada/Saskatchewan SystemV/CST6"/>
 			<zoneItem type="Indian/Reunion" territory="RE"/>
 			<zoneItem type="Atlantic/Reykjavik" territory="IS" aliases="Iceland"/>
 			<zoneItem type="Europe/Riga" territory="LV"/>
-			<zoneItem type="America/Rio_Branco" territory="BR"
-aliases="America/Porto_Acre Brazil/Acre"/>
+			<zoneItem type="America/Rio_Branco" territory="BR" aliases="America/Porto_Acre Brazil/Acre"/>
 			<zoneItem type="America/Argentina/Rio_Gallegos" territory="AR"/>
 			<zoneItem type="Asia/Riyadh" territory="SA"/>
 			<zoneItem type="Europe/Rome" territory="IT"/>
@@ -1772,11 +1737,9 @@ aliases="America/Porto_Acre Brazil/Acre"/>
 			<zoneItem type="Asia/Samarkand" territory="UZ"/>
 			<zoneItem type="America/Argentina/San_Juan" territory="AR"/>
 			<zoneItem type="Europe/San_Marino" territory="SM"/>
-			<zoneItem type="America/Santiago" territory="CL"
-aliases="Chile/Continental"/>
+			<zoneItem type="America/Santiago" territory="CL" aliases="Chile/Continental"/>
 			<zoneItem type="America/Santo_Domingo" territory="DO"/>
-			<zoneItem type="America/Sao_Paulo" territory="BR"
-aliases="Brazil/East"/>
+			<zoneItem type="America/Sao_Paulo" territory="BR" aliases="Brazil/East"/>
 			<zoneItem type="Africa/Sao_Tome" territory="ST"/>
 			<zoneItem type="Europe/Sarajevo" territory="BA"/>
 			<zoneItem type="America/Scoresbysund" territory="GL"/>
@@ -1790,12 +1753,10 @@ aliases="Brazil/East"/>
 			<zoneItem type="Atlantic/South_Georgia" territory="GS"/>
 			<zoneItem type="Antarctica/South_Pole" territory="AQ"/>
 			<zoneItem type="Atlantic/St_Helena" territory="SH"/>
-			<zoneItem type="America/St_Johns" territory="CA"
-aliases="Canada/Newfoundland"/>
+			<zoneItem type="America/St_Johns" territory="CA" aliases="Canada/Newfoundland"/>
 			<zoneItem type="America/St_Kitts" territory="KN"/>
 			<zoneItem type="America/St_Lucia" territory="LC"/>
-			<zoneItem type="America/St_Thomas" territory="VI"
-aliases="America/Virgin"/>
+			<zoneItem type="America/St_Thomas" territory="VI" aliases="America/Virgin"/>
 			<zoneItem type="America/St_Vincent" territory="VC"/>
 			<zoneItem type="Atlantic/Stanley" territory="FK"/>
 			<zoneItem type="Europe/Stockholm" territory="SE"/>
@@ -1820,21 +1781,18 @@ Mexico/BajaNorte"/>
 			<zoneItem type="Europe/Tirane" territory="AL"/>
 			<zoneItem type="Asia/Tokyo" territory="JP" aliases="Japan"/>
 			<zoneItem type="Pacific/Tongatapu" territory="TO"/>
-			<zoneItem type="America/Toronto" territory="CA"
-aliases="Canada/Eastern"/>
+			<zoneItem type="America/Toronto" territory="CA" aliases="Canada/Eastern"/>
 			<zoneItem type="America/Tortola" territory="VG"/>
 			<zoneItem type="Africa/Tripoli" territory="LY" aliases="Libya"/>
 			<zoneItem type="Pacific/Truk" territory="FM"/>
 			<zoneItem type="America/Argentina/Tucuman" territory="AR"/>
 			<zoneItem type="Africa/Tunis" territory="TN"/>
-			<zoneItem type="Asia/Ulaanbaatar" territory="MN"
-aliases="Asia/Ulan_Bator"/>
+			<zoneItem type="Asia/Ulaanbaatar" territory="MN" aliases="Asia/Ulan_Bator"/>
 			<zoneItem type="Asia/Urumqi" territory="CN"/>
 			<zoneItem type="America/Argentina/Ushuaia" territory="AR"/>
 			<zoneItem type="Europe/Uzhgorod" territory="UA"/>
 			<zoneItem type="Europe/Vaduz" territory="LI"/>
-			<zoneItem type="America/Vancouver" territory="CA"
-aliases="Canada/Pacific"/>
+			<zoneItem type="America/Vancouver" territory="CA" aliases="Canada/Pacific"/>
 			<zoneItem type="Europe/Vatican" territory="VA"/>
 			<zoneItem type="America/Indiana/Vevay" territory="US"/>
 			<zoneItem type="Europe/Vienna" territory="AT"/>
@@ -1845,11 +1803,9 @@ aliases="Canada/Pacific"/>
 			<zoneItem type="Pacific/Wake" territory="UM"/>
 			<zoneItem type="Pacific/Wallis" territory="WF"/>
 			<zoneItem type="Europe/Warsaw" territory="PL" aliases="Poland"/>
-			<zoneItem type="America/Whitehorse" territory="CA"
-aliases="Canada/Yukon"/>
+			<zoneItem type="America/Whitehorse" territory="CA" aliases="Canada/Yukon"/>
 			<zoneItem type="Africa/Windhoek" territory="NA"/>
-			<zoneItem type="America/Winnipeg" territory="CA"
-aliases="Canada/Central"/>
+			<zoneItem type="America/Winnipeg" territory="CA" aliases="Canada/Central"/>
 			<zoneItem type="America/Yakutat" territory="US"/>
 			<zoneItem type="Asia/Yakutsk" territory="RU"/>
 			<zoneItem type="Pacific/Yap" territory="FM"/>

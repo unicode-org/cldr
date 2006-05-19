@@ -194,7 +194,7 @@ public class CLDRDBSource extends XMLSource {
                 "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
             keyVettingSet = prepareStatement("keyVettingSet",
-                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND type<"+Vetting.RES_REMOVAL );
+                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
                 
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
@@ -710,7 +710,10 @@ public class CLDRDBSource extends XMLSource {
     
     
 	public Comments getXpathComments() {
-        return xpath_comments; // TODO: make this real.  For now, return this empty item.
+        // ...
+        CLDRFile file = factory.make(getLocaleID(), false, true);
+        return file.getXpath_comments();
+//        return xpath_comments; // TODO: make this real.  For now, return this empty item.
     }
 	public void setXpathComments(Comments path) {
         this.xpath_comments = xpath_comments;
@@ -964,7 +967,7 @@ public class CLDRDBSource extends XMLSource {
         try {
             CLDRDBSource result = (CLDRDBSource) super.clone();
             // copy junk
-            result.xpath_comments = new Comments(); // TODO: make this real.
+//            result.xpath_comments = xpath_comments; // TODO: clone it.
             // Copy SHARED things
             result.xpt = xpt; 
             result.dir = dir;

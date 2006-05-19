@@ -69,7 +69,7 @@ public class CheckDates extends CheckCLDR {
         }
 
         // load gregorian appendItems
-        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
+        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems"); it.hasNext();) {
             String path = (String) it.next();
             String value = resolved.getStringValue(path);
             String fullPath = resolved.getFullXPath(path);

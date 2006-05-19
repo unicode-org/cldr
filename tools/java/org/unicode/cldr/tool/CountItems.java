@@ -107,10 +107,10 @@ public class CountItems {
             
             
             getZoneEquivalences();
-            if (true) return;
+            //if (true) return;
             
-            getPatternBlocks();
-            showExemplars();
+            //getPatternBlocks();
+            //showExemplars();
             genSupplementalZoneData(true);
             showZoneInfo();
         } finally{

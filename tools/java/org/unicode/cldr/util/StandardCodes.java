@@ -183,6 +183,15 @@ public class StandardCodes {
 	
 	private Map platform_locale_status = null;
 	
+    public String getEffectiveLocaleType(String type) throws IOException {
+        Map m = getLocaleTypes();
+        if((type!=null) && (m.get(type) != null)) {
+            return type;
+        } else {
+            return "IBM"; // the default.. for now..
+        }
+    }
+
 	static Comparator caseless = new Comparator() {
 
 		public int compare(Object arg0, Object arg1) {

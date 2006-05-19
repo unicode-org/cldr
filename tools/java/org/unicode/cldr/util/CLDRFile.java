@@ -2061,7 +2061,15 @@ private boolean isSupplemental;
     
     //private static Set atomicElements = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{"collation", "segmentation"})));
 
+    public static final String distinguishedXPathStats() {
+        return distinguishedXPath.stats();
+    }
+    
     private static class DistinguishedXPath {
+        public static final String stats() {
+            return "distinguishingMap:" + distinguishingMap.size() + " " +
+                   "normalizedPathMap:" + normalizedPathMap.size();
+        }
         private static Map distinguishingMap = new HashMap();
         private static Map normalizedPathMap = new HashMap();
         private static XPathParts distinguishingParts;

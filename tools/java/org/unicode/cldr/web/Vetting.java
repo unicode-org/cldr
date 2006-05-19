@@ -36,7 +36,7 @@ public class Vetting {
     
     
     public static final int VET_EXPLICIT = 0; // explicit
-    public static final int VET_IMPLIED  = 1; // explicit
+    public static final int VET_IMPLIED  = 1; // implicit
 
     /* 
         0: no votes (and some draft data) - NO resolution

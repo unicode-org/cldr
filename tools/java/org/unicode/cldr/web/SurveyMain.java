@@ -2834,7 +2834,7 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                         String path = ee.pod.xpath(ee.pea);
                         String fullPath = cf.getFullXPath(path);
                         String value = ee.item.value;
-                        String html = d.getHTML(path, fullPath, value);
+                        String html = d.getHTML(m);
                         ctx.println(html);
                     } catch (Exception ex) {
                         ctx.println("<br><b>Error: </b> " + ex.toString() +"<br>");
@@ -3066,6 +3066,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
     String choice_v = ctx.field(fieldHash+"_v"); // choice + value
     String choice_r = ctx.field(fieldHash+"_r"); // choice + value
     String choice_refDisplay = ""; // display value for ref
+    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps;
     
     if(choice_r.length()>0) {
         choice_refDisplay = " Ref: "+choice_r;
@@ -3077,7 +3078,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
     } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
          choice.equals(REMOVE) ) {
-        if(!UserRegistry.userCanSubmitAnyLocale(ctx.session.user)) {
+        if(!canSubmit) {
             ctx.println("You are not allowed to submit data at this time.<br>");
             return false;
         }
@@ -3189,7 +3190,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     //    return;
     //}
     
-    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user);
+    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
+        || (canModify&&p.hasProps); // or, there's modified data.
 
     boolean showedRemoveButton = false; 
     String fullPathFull = pod.xpath(p); 
@@ -3272,7 +3274,50 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<td class='warncell'>Missing, using code.</td>");
         ctx.println("</tr>");
     }
-    if(isAlias) {   
+    if(p.pathWhereFound != null) {
+        // middle common string match
+        String a = fullPathFull;
+        String b = p.pathWhereFound;
+        
+        // run them through the wringer..
+        a = xpt.getById(xpt.xpathToBaseXpathId(a));  
+        b = xpt.getById(xpt.xpathToBaseXpathId(b));
+        
+        
+        int alen = a.length();
+        int blen = b.length();
+        
+        int prefixSize;
+        int suffixSize;
+        for(prefixSize=0;a.substring(0,prefixSize).equals(b.substring(0,prefixSize));prefixSize++)
+            ;
+        int maxlen = (alen>blen)?alen:blen;
+        
+        /* System.err.println("A:"+a);
+        System.err.println("B:"+b); */
+        
+        for(suffixSize=0;((suffixSize+prefixSize)<maxlen)&&a.substring(alen-suffixSize,alen).equals(b.substring(blen-suffixSize,blen));suffixSize++)
+            ;
+//                    System.err.println("SUFF"+suffixSize+": ["+a+"] -> "+a.substring(alen-suffixSize,alen));
+        
+        if(prefixSize==0) {
+            prefixSize=1;
+        }
+        
+        String xa = a.substring(prefixSize-1,alen-suffixSize+1);
+        String xb = b.substring(prefixSize-1,blen-suffixSize+1);
+        
+        if((xa.length()+xb.length())>0) {
+            ctx.println("<tr><td colspan='3'><i>Alias: <tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
+            ctx.printHelpLink("/AliasedFrom","Help",true,false);
+            ctx.println("</td></tr>");
+        } else {
+            ctx.println("<tr><td colspan='3'><i>Aliased: </i>");
+            ctx.printHelpLink("/AliasedFrom","Help",true,false);
+            ctx.println("</td></tr>");
+        }
+    }
+    else if(isAlias) {   
 //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")/*,fullPathFull.length()*/);
 //<tt class='codebox'>["+shortStr+"]</tt>
         ctx.println("<tr><td colspan='3'><i>Alias</i></td></tr>");
@@ -3315,7 +3360,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             || (!j.hasNext()&&!showedRemoveButton)) {
             showedRemoveButton = true;
             ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
-            if(canModify) {
+            if(canModify&&canSubmit) {
                 ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");
             } else {
                 ctx.print("<input type='radio' disabled>");
@@ -3532,7 +3577,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.print("<td nowrap valign='top' align='right'>");
         if(!p.confirmOnly) {
             ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
-            if(canModify && canSubmit) {
+            if(canModify && canSubmit ) {
                 ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
             } else {
                 ctx.print("<input type='radio' disabled>");

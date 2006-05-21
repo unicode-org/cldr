@@ -55,8 +55,8 @@ public class SurveyMain extends HttpServlet {
 
     // phase?
     public static final boolean phaseSubmit = false; 
-    public static final boolean phaseVetting    = true;
-    
+    public static final boolean phaseVetting = false;
+    public static final boolean phaseClosed = true;
     /**
     * URL prefix for  help
     */
@@ -345,18 +345,19 @@ public class SurveyMain extends HttpServlet {
             logger.severe("Raw SQL: " + q);
             ctx.println("<hr>");
             ctx.println("query: <tt>" + q + "</tt><br><br>");
+            Connection conn = null;
+            Statement s = null;
             try {
                 int i,j;
                 
                 com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
                 
-                Connection conn = null;
                 if(ctx.field("isUser").length()>0) {
                     conn = getU_DBConnection();
                 } else {
                     conn = getDBConnection();
                 }
-                Statement s = conn.createStatement();
+                s = conn.createStatement();
                 //s.setQueryTimeout(120); // 2 minute timeout. Not supported by derby..
                 if(ctx.field("isUpdate").length()>0) {
                     int rc = s.executeUpdate(q);
@@ -401,6 +402,7 @@ public class SurveyMain extends HttpServlet {
                     }
                     
                     ctx.println("</table>");
+                    rs.close();
                 }
                 
                 ctx.println("elapsed time: " + et + "<br>");
@@ -415,6 +417,20 @@ public class SurveyMain extends HttpServlet {
                 String complaint = t.toString();
                 ctx.println("<pre style='border: 1px solid red; margin: 1em; padding: 1em;'>" + complaint + "</pre>" );
                 logger.severe("Err in SQL execute: " + complaint);
+            }
+            
+            try {
+                s.close();
+                conn.close();
+            } catch(SQLException se) {
+                String complaint = "in closing: SQL err: " + unchainSqlException(se);
+                
+                ctx.println("<pre style='border: 1px solid red; margin: 1em; padding: 1em;'>in closing: " + complaint + "</pre>" );
+                logger.severe(complaint);
+            } catch(Throwable t) {
+                String complaint = t.toString();
+                ctx.println("<pre style='border: 1px solid red; margin: 1em; padding: 1em;'>in closing: " + complaint + "</pre>" );
+                logger.severe("Err in SQL close: " + complaint);
             }
         }
         printFooter(ctx);
@@ -994,6 +1010,8 @@ public class SurveyMain extends HttpServlet {
                 && UserRegistry.userIsStreet(ctx.session.user)
                 && !UserRegistry.userIsExpert(ctx.session.user)) {
                 ctx.println(" (Note: in the Vetting phase, you may not submit new data.) ");
+            } else if(SurveyMain.phaseClosed || !UserRegistry.userIsTC(ctx.session.user)) {
+                ctx.println("(SurveyTool is closed to vetting and data submissions.)");
             }
             ctx.println("<br/>");
         }

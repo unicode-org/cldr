@@ -753,6 +753,7 @@ public class UserRegistry {
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
+        if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;
         if(SurveyMain.phaseVetting && !userIsStreet (u)) return false;
 //        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
@@ -763,17 +764,23 @@ public class UserRegistry {
 
     static final boolean userCanSubmitLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
+        if(userIsTC(u)) return true; // TC can modify all
+        if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanModifyLocale(u,locale);
     }
 
     static final boolean userCanSubmitAnyLocale(User u) {
         if(u==null) return false; // no user, no dice
+        if(userIsTC(u)) return true; // TC can modify all
+        if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanSubmit(u);
     }
 
     static final boolean userCanVetLocale(User u, String locale) {
+        if(userIsTC(u)) return true; // TC can modify all
+        if(SurveyMain.phaseClosed) return false;
         return userCanModifyLocale(u,locale);
     }
     

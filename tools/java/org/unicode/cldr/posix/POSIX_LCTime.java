@@ -99,7 +99,8 @@ public class POSIX_LCTime {
             t_fmt_ampm = "";
             SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='KKmmss']";
             n = LDMLUtilities.getNode(doc, SearchLocation);
-            t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0);
+            if ( n != null )
+               t_fmt_ampm = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0);
 
             if ( t_fmt_ampm.indexOf("%p") < 0 )
                t_fmt_ampm = "";

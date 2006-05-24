@@ -268,7 +268,7 @@ public class Vetting {
             countResultByType = prepareStatement("countResultByType",
                 "select COUNT(base_xpath) from CLDR_RESULT where locale=? AND type=?");
             listBadResults = prepareStatement("listBadResults",
-                "select base_xpath from CLDR_RESULT where locale=? AND type<="+RES_BAD_MAX);
+                "select base_xpath,type from CLDR_RESULT where locale=? AND type<="+RES_BAD_MAX);
             queryTypes = prepareStatement("queryTypes",
                 "select distinct CLDR_RESULT.type from CLDR_RESULT where locale=?");
             insertStatus = prepareStatement("insertStatus",
@@ -590,7 +590,7 @@ public class Vetting {
         public Set voters = new HashSet(); // Set of users which voted for this.
         
         // calculated
-        public boolean tc_voted_for = false;
+        public boolean admin_voted_for = false;
         public boolean quorum = false;
         public boolean someone_voted_for = false;
         public boolean removal = false; // is this a vote for Removal?
@@ -605,8 +605,8 @@ public class Vetting {
                 someone_voted_for=true;
             }
             
-            if(UserRegistry.userIsTC(u)) {
-                tc_voted_for = true;
+            if(UserRegistry.userIsAdmin(u)) {
+                admin_voted_for = true;
               //  System.err.println("Quorum: TC " + u);
                 quorum = true;
             } else if(UserRegistry.userIsExpert(u)) {
@@ -634,8 +634,8 @@ public class Vetting {
             } else {
                 rs = "        ";
             }
-            if(tc_voted_for) {
-                rs = rs + " [TC] ";
+            if(admin_voted_for) {
+                rs = rs + " [ADMIN] ";
             }
             if(someone_voted_for) {
                 rs = rs + " [V] ";
@@ -728,8 +728,12 @@ public class Vetting {
             boolean sawQuorum = false;
             boolean tcOverride = false;
             Chad quorumChad = null;
+			Chad adminChad = null;
             for(Iterator i=chads.values().iterator();(type==-1)&&i.hasNext();) {
                 Chad c = (Chad)i.next();
+				if((adminChad == null) && c.admin_voted_for) {
+					adminChad = c;
+				}
                 if(c.someone_voted_for) {
                     number_voted_for++;
                     if(number_voted_for>1) {
@@ -746,6 +750,11 @@ public class Vetting {
                     }
                 }
             }
+			if((type==RES_DISPUTED)&&(adminChad != null)) { // If it was already unanimous - no need to consider it an override. Keep the noise down.
+				type = RES_ADMIN;
+                resultXpath = adminChad.xpath;
+                fallbackXpath = resultXpath;
+			}
             if(sawQuorum && (type==-1)) {
                 // We have a winner.
                 if(quorumChad.removal) {
@@ -753,8 +762,8 @@ public class Vetting {
                     type = RES_REMOVAL; // quorum is to remove an item. Needed to suppress base_xpath from iterator()
                 } else if(chads.size()==1) {
                     type = RES_UNANIMOUS; // not shown if TC also voted.
-                } else if(quorumChad.tc_voted_for) {
-                    type = RES_TC;
+                } else if(quorumChad.admin_voted_for) {
+                    type = RES_ADMIN;
                 } else {
                     type = RES_GOOD; // we have a winner, anyways.
                 }

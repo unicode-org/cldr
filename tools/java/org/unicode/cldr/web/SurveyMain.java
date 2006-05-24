@@ -45,6 +45,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 import java.util.Properties;
 
@@ -1076,6 +1077,43 @@ public class SurveyMain extends HttpServlet {
         printFooter(ctx);
     }
     
+    
+    private static int sqlCount(WebContext ctx, Connection conn, String sql) {
+        int rv = -1;
+        try {
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+            if(rs.next()) {
+                rv = rs.getInt(1);
+            }
+            rs.close();
+            s.close();
+        } catch ( SQLException se ) {
+            String complaint = " Couldn't query count - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+            System.err.println(complaint);
+            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
+        }
+        return rv;
+    }
+
+    private static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
+        int rv = -1;
+        try {
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                rv = rs.getInt(1);
+            }
+            rs.close();
+        } catch ( SQLException se ) {
+            String complaint = " Couldn't query count - " + SurveyMain.unchainSqlException(se) + " -  ps";
+            System.err.println(complaint);
+            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
+        }
+        return rv;
+    }
+
+    
+    
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; //ctx.prefBool(PREF_SHOWCODES);
         printHeader(ctx, "Locale Coverage");
@@ -1104,9 +1142,33 @@ public class SurveyMain extends HttpServlet {
 
         int totalUsers = 0;
         int allUsers = 0; // users with all
+        
+        int totalSubmit=0;
+        int totalVet=0;
+        
+        Connection conn = null;
+        Map userMap = null;
+        Map nullMap = null;
+        Hashtable localeStatus = null;
+        Hashtable nullStatus = null;
+        
+        if(UserRegistry.userIsTC(ctx.session.user)) {
+            conn = getDBConnection();
+            userMap = new TreeMap();
+            nullMap = new TreeMap();
+            localeStatus = new Hashtable();
+            nullStatus = new Hashtable();
+        }
+        
         Set s = new TreeSet();
         Set badSet = new TreeSet();
-        try { synchronized(reg) {
+        try {
+			PreparedStatement psMySubmit = conn.prepareStatement("select COUNT(id) from CLDR_DATA where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psMyVet = conn.prepareStatement("select COUNT(id) from CLDR_VET where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psnSubmit = conn.prepareStatement("select COUNT(id) from CLDR_DATA where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psnVet = conn.prepareStatement("select COUNT(id) from CLDR_VET where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+
+			synchronized(reg) {
             java.sql.ResultSet rs = reg.list(org);
             if(rs == null) {
                 ctx.println("<i>No results...</i>");
@@ -1124,6 +1186,32 @@ public class SurveyMain extends HttpServlet {
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocaleList = rs.getString(6);
+                
+				String nameLink =  "<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(theirEmail)+
+                        "' title='More on this user...'>"+theirName +" </a>";
+				// setup
+			
+				
+                if(conn!=null) {
+					psMySubmit.setInt(1,theirId);
+					psMyVet.setInt(1,theirId);
+					psnSubmit.setInt(1,theirId);
+					psnVet.setInt(1,theirId);
+					
+                   int mySubmit=sqlCount(ctx,conn,psMySubmit);
+                    int myVet=sqlCount(ctx,conn,psMyVet);
+                
+                    String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits: "+ mySubmit+"</td><td>vets: "+myVet+"</td></tr>";
+					if((mySubmit+myVet)==0) {
+						nullMap.put(theirName, userInfo);
+//						userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
+					} else {
+						userMap.put(theirName, userInfo);
+					}
+                
+                    totalSubmit+= mySubmit;
+                    totalVet+= myVet;
+                }
 //                String theirIntLocs = rs.getString(7);
 //timestamp(8)
                 if((theirLevel > 10)||(theirLevel <= 1)) {
@@ -1154,6 +1242,43 @@ public class SurveyMain extends HttpServlet {
                                 s.add(localeList[i]);
                                 hitList[j]++;
                                // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + localeList[i] + "<br>");
+                               
+                               if(conn != null) {
+									psnSubmit.setString(2,localeList[i]);
+									psnVet.setString(2,localeList[i]);
+									
+                                    int nSubmit=sqlCount(ctx,conn,psnSubmit);
+                                    int nVet=sqlCount(ctx,conn,psnVet);
+									
+									Hashtable theHash = localeStatus;
+									if((nSubmit+nVet)==0) {
+										theHash = nullStatus; // vetter w/ no work done
+									}
+									
+                                    Hashtable oldStr = (Hashtable)theHash.get(localeList[i]);
+                                    if(oldStr==null) {
+                                        oldStr = new Hashtable();
+										theHash.put(localeList[i],oldStr);
+                                    } else {
+//                                       // oldStr = oldStr+"<br>\n";
+                                    }
+                                    
+                                    String userInfo = nameLink+" ";
+									if(nSubmit>0) {
+										userInfo = userInfo + " submits: "+ nSubmit+" ";
+									}
+									if(nVet > 0) {
+										userInfo = userInfo + " vets: "+nVet;
+									}
+									
+									if((nSubmit+nVet)==0) {
+//										userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
+										userInfo = "<strike>"+userInfo+"</strike>";
+									}
+//									userInfo = userInfo + ", file: "+localeList[i]+", th: " + theirLocales[j];
+                                    oldStr.put(new Integer(theirId), userInfo + "<!-- " + localeList[i] + " -->");
+                               }
+							   continue; // count once.
                             }
                         }
                     }
@@ -1191,7 +1316,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<br>");
         }
 
-        ctx.println("<table summary='Locale Coverage' border=1 class='list'>");
+        ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
         int n=0;
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
             n++;
@@ -1205,14 +1330,37 @@ public class SurveyMain extends HttpServlet {
             } else {
                 ctx.print("<span class='disabledbox' style='color:#888'>");
             }
-            ctx.print(aLocale);            
-            ctx.print("<br><font size='-1'>"+new ULocale(aLocale).getDisplayName()+"</font>");
-//            //printLocaleLink(baseContext, aLocale, ln);
+//            ctx.print(aLocale);            
+            //ctx.print("<br><font size='-1'>"+new ULocale(aLocale).getDisplayName()+"</font>");
+			printLocaleStatus(ctx, aLocale, ln, aLocale);
             ctx.print("</span>");
 
             if(showCodes) {
                 ctx.println("<br><tt>" + aLocale + "</tt>");
             }
+			if(localeStatus!=null && !localeStatus.isEmpty()) {
+				Hashtable what = (Hashtable)localeStatus.get(aLocale);
+				if(what!=null) {
+					ctx.println("<ul>");
+					for(Iterator i = what.values().iterator();i.hasNext();) {
+						ctx.println("<li>"+i.next()+"</li>");
+					}
+					ctx.println("</ul>");
+				}
+			}
+			if(nullStatus!=null && !nullStatus.isEmpty()) {
+				Hashtable what = (Hashtable)nullStatus.get(aLocale);				
+				if(what!=null) {
+					ctx.println("<br><blockquote> <b>Did not participate:</b> ");
+					for(Iterator i = what.values().iterator();i.hasNext();) {
+						ctx.println(i.next().toString()	);
+						if(i.hasNext()) {
+							ctx.println(", ");
+						}
+					}
+					ctx.println("</blockquote>");
+				}
+			}
             ctx.println(" </td>");
             
             TreeMap sm = (TreeMap)subLocales.get(aLocale);
@@ -1220,41 +1368,90 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<td valign='top'>");
             int j = 0;
             for(Iterator si = sm.keySet().iterator();si.hasNext();) {
-                if(j>0) { 
-                    ctx.println(", ");
-                }
                 String sn = (String)si.next();
                 String subLocale = (String)sm.get(sn);
                 if(subLocale.length()>0) {
 
-                     has = (s.contains(subLocale));
+					has = (s.contains(subLocale));
+
+					if(j>0) { 
+						if(localeStatus==null) {
+							ctx.println(", ");
+						} else {
+							ctx.println("<br>");
+						}
+					}
+
                     if(has) {
                         ctx.print("<span class='selected'>");
                     } else {
                         ctx.print("<span class='disabledbox' style='color:#888'>");
                     }
-                    ctx.print(subLocale);           
-                    ctx.print("&nbsp;<font size='-1'>("+new ULocale(subLocale).getDisplayName()+")</font>");
+                  //  ctx.print(subLocale);           
+//                    ctx.print("&nbsp;<font size='-1'>("+new ULocale(subLocale).getDisplayName()+")</font>");
     
-        //            //printLocaleLink(baseContext, aLocale, ln);
-                    if(has) {
+					printLocaleStatus(ctx, subLocale, sn, subLocale);
+                   // if(has) {
                         ctx.print("</span>");
-                    }
+                   // }
 
 
 //                    printLocaleLink(baseContext, subLocale, sn);
                     if(showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
+					if(localeStatus!=null&&!nullStatus.isEmpty()) {
+						Hashtable what = (Hashtable)localeStatus.get(subLocale);
+						if(what!=null) {
+							ctx.println("<ul>");
+							for(Iterator i = what.values().iterator();i.hasNext();) {
+								ctx.println("<li>"+i.next()+"</li>");
+							}
+							ctx.println("</ul>");
+						}
+					}
+					if(nullStatus!=null && !nullStatus.isEmpty()) {
+						Hashtable what = (Hashtable)nullStatus.get(subLocale);				
+						if(what!=null) {
+							ctx.println("<br><blockquote><b>Did not participate:</b> ");
+							for(Iterator i = what.values().iterator();i.hasNext();) {
+								ctx.println(i.next().toString()	);
+								if(i.hasNext()) {
+									ctx.println(", ");
+								}
+							}
+							ctx.println("</blockquote>");
+						}
+					}
                 }
                 j++;
             }
-            ctx.println("</td");
+            ctx.println("</td>");
             ctx.println("</tr>");
         }
         ctx.println("</table> ");
-        ctx.println(totalUsers + "  users, including " + allUsers + " with 'all' privs (not counted against the locale list)");
+        ctx.println(totalUsers + "  users, including " + allUsers + " with 'all' privs (not counted against the locale list)<br>");
+    
+        if(conn!=null) {
+            int totalResult=sqlCount(ctx,conn,"select COUNT(*) from CLDR_RESULT");
+            int totalData=sqlCount(ctx,conn,"select COUNT(id) from CLDR_DATA");
+            ctx.println("These users have submitted " + totalSubmit + " items, and voted for " + totalVet + " items (including implied votes).<br>");
+            ctx.println("In all, the SurveyTool has " + totalData + " items (including proposed) and " + totalResult + " items that may need voting.<br>");
+			
+			ctx.println("<hr>");
+			ctx.println("<h4>Participated: "+userMap.size()+"</h4><table border='1'>");
+			for(Iterator i = userMap.values().iterator();i.hasNext();) {
+				String which = (String)i.next();
+				ctx.println(which);
+			}
+			ctx.println("</table><h4>Did Not Participate at all: "+nullMap.size()+"</h4><table border='1'>");
+			for(Iterator i = nullMap.values().iterator();i.hasNext();) {
+				String which = (String)i.next();
+				ctx.println(which);
+			}
+			ctx.println("</table>");
 
+		}
 
         printFooter(ctx);
     }
@@ -2542,6 +2739,35 @@ public boolean doRawXml(HttpServletRequest request, HttpServletResponse response
     return true;
 }
 
+private static String xpathToMenu(String path) {                    
+	String theMenu=null;
+	if(path.startsWith(LOCALEDISPLAYNAMES)) {
+		for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
+			if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
+				theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
+			}
+		}
+	} else if(path.startsWith(GREGO_XPATH)) {
+		theMenu=GREGORIAN_CALENDAR;
+	} else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
+		theMenu=OTHER_CALENDARS;
+	} else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
+		theMenu=CURRENCIES;
+	} else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
+		theMenu=TIMEZONES;
+	} else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
+		theMenu = LDMLConstants.CHARACTERS;
+	} else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
+		theMenu = LDMLConstants.NUMBERS;
+	} else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
+		theMenu = LDMLConstants.REFERENCES;
+	} else {
+		theMenu=xOTHER;
+		// other?
+	}
+	return theMenu;
+}
+
 /**
 * Show the 'main info about this locale' (General) panel.
  */
@@ -2558,52 +2784,26 @@ public void doMain(WebContext ctx) {
         int numDisputed = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_DISPUTED);
 //            rv = rv + ("");
      
-        ctx.println("<h4>There are ");
-        if((numNoVotes+numInsufficient)>0) {
-            ctx.print("<span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient</span>");
-        }
-        if(numDisputed>0) {
-            ctx.print("<span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed</span>");
-        }
-        ctx.println("items in the following sections:</h4>");
-        Hashtable result = new Hashtable();
+        Hashtable insItems = new Hashtable();
+        Hashtable disItems = new Hashtable();
         synchronized(vet.conn) { 
             try { // moderately expensive.. since we are tying up vet's connection..
                 ResultSet rs = vet.listBadResults(ctx.locale.toString());
                 while(rs.next()) {
                     int xp = rs.getInt(1);
+					int type = rs.getInt(2);
+					
                     String path = xpt.getById(xp);
                     
-                    String theMenu = null;
-                    
-                    if(path.startsWith(LOCALEDISPLAYNAMES)) {
-                        for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
-                            if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
-                                theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
-                            }
-                        }
-                    } else if(path.startsWith(GREGO_XPATH)) {
-                        theMenu=GREGORIAN_CALENDAR;
-                    } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
-                        theMenu=OTHER_CALENDARS;
-                    } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
-                        theMenu=CURRENCIES;
-                    } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
-                        theMenu=TIMEZONES;
-                    } else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
-                        theMenu = LDMLConstants.CHARACTERS;
-                    } else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
-                        theMenu = LDMLConstants.NUMBERS;
-                    } else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
-                        theMenu = LDMLConstants.REFERENCES;
-                    } else {
-                        theMenu=xOTHER;
-                        // other?
-                    }
-                    
+					String theMenu = xpathToMenu(path);
+					
                     if(theMenu != null) {
-                        result.put(theMenu, "");// what goes here?
-                    }
+						if(type == Vetting.RES_DISPUTED) {
+							disItems.put(theMenu, "");// what goes here?
+						} else {
+							insItems.put(theMenu, "");
+						}
+					}
                 }
                 rs.close();
             } catch (SQLException se) {
@@ -2613,14 +2813,28 @@ public void doMain(WebContext ctx) {
         WebContext subCtx = new WebContext(ctx);
         //subCtx.addQuery("_",ctx.locale.toString());
         subCtx.removeQuery("x");
-        
-        for(Iterator li = result.keySet().iterator();li.hasNext();) {
-            String item = (String)li.next();
-            printMenu(subCtx, "", item);
-            if(li.hasNext() ) {
-                subCtx.print(" | ");
-            }
+
+        if((numNoVotes+numInsufficient)>0) {
+            ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient</span> </h4>");
+			for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
+				String item = (String)li.next();
+				printMenu(subCtx, "", item);
+				if(li.hasNext() ) {
+					subCtx.print(" | ");
+				}
+			}
         }
+        if(numDisputed>0) {
+            ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed</span> </h4>");
+			for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
+				String item = (String)li.next();
+				printMenu(subCtx, "", item);
+				if(li.hasNext() ) {
+					subCtx.print(" | ");
+				}
+			}
+        }
+        
     }
     ctx.println("<hr/><p><p>");
     ctx.println("<h3>Basic information about the Locale</h3>");
@@ -3502,6 +3716,10 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(itemSpan != null) {
             ctx.print("</span>");
         }
+		if(winner && resultType[0]==Vetting.RES_ADMIN) {
+			ctx.println("<br>");
+			ctx.printHelpLink("/AdminOverride","Admin Override");
+		}
         ctx.print("</td>");
         if((item.tests != null) || (item.examples != null)) {
             if(item.tests != null) {

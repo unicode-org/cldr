@@ -1130,7 +1130,7 @@ public class SurveyMain extends HttpServlet {
         File inFiles[] = getInFiles();
         int nrInFiles = inFiles.length;
         String localeList[] = new String[nrInFiles];
-        
+        Set allLocs = new HashSet();
         for(int i=0;i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
             int dot = localeName.indexOf('.');
@@ -1138,6 +1138,7 @@ public class SurveyMain extends HttpServlet {
                 localeName = localeName.substring(0,dot);
             }
             localeList[i]=localeName;
+			allLocs.add(localeName);
         }
 
         int totalUsers = 0;
@@ -1146,6 +1147,8 @@ public class SurveyMain extends HttpServlet {
         int totalSubmit=0;
         int totalVet=0;
         
+		Map intGroups = getIntGroups();
+		
         Connection conn = null;
         Map userMap = null;
         Map nullMap = null;
@@ -1232,61 +1235,66 @@ public class SurveyMain extends HttpServlet {
                     // all.
                     allUsers++;
                 } else {
-                    int hitList[] = new int[theirLocales.length]; // # of times each is used
-                    for (int i=0;i<nrInFiles;i++) {
-                        for(int j=0;j<theirLocales.length;j++) {
-                            if((theirLocales[j]==null)||(theirLocales[j].length()==0)) {
-                                continue;  // all
-                            }
-                            if(UserRegistry.userCanModifyLocale(theirLocales[j],localeList[i])) {
-                                s.add(localeList[i]);
-                                hitList[j]++;
-                               // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + localeList[i] + "<br>");
+//                    int hitList[] = new int[theirLocales.length]; // # of times each is used
+					Set theirSet = new HashSet(); // set of locales this vetter has access to
+					for(int j=0;j<theirLocales.length;j++) { 
+						Set subSet = (Set)intGroups.get(theirLocales[j]); // Is it an interest group? (de, fr, ..)
+						if(subSet!=null) {
+							theirSet.addAll(subSet); // add all sublocs
+						} else if(allLocs.contains(theirLocales[j])) {
+							theirSet.add(theirLocales[j]);
+						} else {
+							badSet.add(theirLocales[j]);
+						}
+					}
+					for(Iterator i = theirSet.iterator();i.hasNext();) {
+						String theLocale = (String)i.next();
+						s.add(theLocale);
+                          //      hitList[j]++;
+                               // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + theLocale + "<br>");
                                
-                               if(conn != null) {
-									psnSubmit.setString(2,localeList[i]);
-									psnVet.setString(2,localeList[i]);
-									
-                                    int nSubmit=sqlCount(ctx,conn,psnSubmit);
-                                    int nVet=sqlCount(ctx,conn,psnVet);
-									
-									Hashtable theHash = localeStatus;
-									if((nSubmit+nVet)==0) {
-										theHash = nullStatus; // vetter w/ no work done
-									}
-									
-                                    Hashtable oldStr = (Hashtable)theHash.get(localeList[i]);
-                                    if(oldStr==null) {
-                                        oldStr = new Hashtable();
-										theHash.put(localeList[i],oldStr);
-                                    } else {
+					   if(conn != null) {
+							psnSubmit.setString(2,theLocale);
+							psnVet.setString(2,theLocale);
+							
+							int nSubmit=sqlCount(ctx,conn,psnSubmit);
+							int nVet=sqlCount(ctx,conn,psnVet);
+							
+							Hashtable theHash = localeStatus;
+							if((nSubmit+nVet)==0) {
+								theHash = nullStatus; // vetter w/ no work done
+							}
+							
+							Hashtable oldStr = (Hashtable)theHash.get(theLocale);
+							if(oldStr==null) {
+								oldStr = new Hashtable();
+								theHash.put(theLocale,oldStr);
+							} else {
 //                                       // oldStr = oldStr+"<br>\n";
-                                    }
-                                    
-                                    String userInfo = nameLink+" ";
-									if(nSubmit>0) {
-										userInfo = userInfo + " submits: "+ nSubmit+" ";
-									}
-									if(nVet > 0) {
-										userInfo = userInfo + " vets: "+nVet;
-									}
-									
-									if((nSubmit+nVet)==0) {
+							}
+							
+							String userInfo = nameLink+" ";
+							if(nSubmit>0) {
+								userInfo = userInfo + " submits: "+ nSubmit+" ";
+							}
+							if(nVet > 0) {
+								userInfo = userInfo + " vets: "+nVet;
+							}
+							
+							if((nSubmit+nVet)==0) {
 //										userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
-										userInfo = "<strike>"+userInfo+"</strike>";
-									}
-//									userInfo = userInfo + ", file: "+localeList[i]+", th: " + theirLocales[j];
-                                    oldStr.put(new Integer(theirId), userInfo + "<!-- " + localeList[i] + " -->");
-                               }
-							   continue; // count once.
-                            }
-                        }
+								userInfo = "<strike>"+userInfo+"</strike>";
+							}
+//									userInfo = userInfo + ", file: "+theLocale+", th: " + theirLocales[j];
+							oldStr.put(new Integer(theirId), userInfo + "<!-- " + theLocale + " -->");
+					   }
                     }
+					/*
                     for(int j=0;j<theirLocales.length;j++) {
                         if(hitList[j]==0) {
                             badSet.add(theirLocales[j]);
                         }
-                    }
+                    }*/
                 }
             }
             // #level $name $email $org

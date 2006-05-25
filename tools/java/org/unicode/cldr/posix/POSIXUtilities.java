@@ -158,43 +158,43 @@ public class POSIXUtilities {
         return result.toString();
    }
 
-   public static String POSIXDateTimeFormat ( String s , boolean UseAltDigits )
+   public static String POSIXDateTimeFormat ( String s , boolean UseAltDigits, POSIXVariant variant )
    {
 
       //  This is an array of the POSIX date / time field descriptors and their corresponding representations
       //  in LDML.  We use these to replace the LDML fields with POSIX field descriptors.
-
+               
       String[][] FieldDescriptors = {
-           { "/",    "<SOLIDUS>" , "<SOLIDUS>" },
-           { "DDD",  "%j" , "%j" },
-           { "EEEE", "%A" , "%A" },
-           { "EEE",  "%a" , "%a" },
-           { "G",    "%N" , "%N" },
-           { "HH",   "%H" , "%OH" },
-           { "H",    "%H" , "%OH" },
-           { "KK",   "%I" , "%OI" },
-           { "K",    "%I" , "%OI" },
-           { "MMMM", "%B" , "%B" },
-           { "MMM",  "%b" , "%b" },
-           { "MM",   "%m" , "%Om" },
-           { "M",    "%m" , "%Om" },
-           { "a",    "%p" , "%p" },
-           { "dd",   "%d" , "%Od" },
-           { "d",    "%e" , "%Oe" },
-           { "hh",   "%I" , "%OI" },
-           { "h",    "%I" , "%OI" },
-           { "kk",   "%H" , "%OH" },
-           { "k",    "%H" , "%OH" },
-           { "mm",   "%M" , "%OM" },
-           { "m",    "%M" , "%OM" },
-           { "yyyy", "%Y" , "%Oy" },
-           { "yy",   "%y" , "%Oy" },
-           { "zzzz", "%Z" , "%Z" },
-           { "zzz",  "%Z" , "%Z" },
-           { "zz",   "%Z" , "%Z" },
-           { "z",    "%Z" , "%Z" },
-           { "ss",   "%S" , "%OS" },
-           { "s",    "%S" , "%OS" }
+           { "/",    "<SOLIDUS>" , "<SOLIDUS>" , "<SOLIDUS>" },
+           { "DDD",  "%j" , "%j" , "%j" },
+           { "EEEE", "%A" , "%A" , "%A" },
+           { "EEE",  "%a" , "%a" , "%a" },
+           { "G",    "%N" , "%N" , "%N" },
+           { "HH",   "%H" , "%OH" , "%H" },
+           { "H",    "%H" , "%OH" , "%k" }, //solaris defines exact mapping for "H""
+           { "KK",   "%I" , "%OI" , "%I" },
+           { "K",    "%I" , "%OI" , "%I" },
+           { "MMMM", "%B" , "%B" , "%B" },
+           { "MMM",  "%b" , "%b" , "%b" },
+           { "MM",   "%m" , "%Om" , "%m" },
+           { "M",    "%m" , "%Om" , "%m" },
+           { "a",    "%p" , "%p" , "%p" },
+           { "dd",   "%d" , "%Od" , "%d" },
+           { "d",    "%e" , "%Oe" , "%e" },
+           { "hh",   "%I" , "%OI" , "%I" },
+           { "h",    "%I" , "%OI" , "%l" }, //solaris defines exact mapping for "h"
+           { "kk",   "%H" , "%OH" , "%H" },
+           { "k",    "%H" , "%OH" , "%H" },
+           { "mm",   "%M" , "%OM" , "%M" },
+           { "m",    "%M" , "%OM" , "%M" },
+           { "yyyy", "%Y" , "%Oy" , "%Y" },
+           { "yy",   "%y" , "%Oy" , "%y" },
+           { "zzzz", "%Z" , "%Z" , "%Z" },
+           { "zzz",  "%Z" , "%Z" , "%Z" },
+           { "zz",   "%Z" , "%Z" , "%Z" },
+           { "z",    "%Z" , "%Z" , "%Z" },
+           { "ss",   "%S" , "%OS" , "%S" },
+           { "s",    "%S" , "%OS" ,"%S" }
       };
 
       boolean inquotes = false;
@@ -209,6 +209,8 @@ public class POSIXUtilities {
                {
                   if ( UseAltDigits )
                      result.append(FieldDescriptors[i][2]);
+                 else if ( variant.platform.equals(POSIXVariant.SOLARIS))
+                     result.append(FieldDescriptors[i][3]);
                   else
                      result.append(FieldDescriptors[i][1]);
                   replaced = true;

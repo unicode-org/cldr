@@ -44,12 +44,14 @@ public class POSIXLocale {
    POSIX_LCMonetary lc_monetary;
    POSIX_LCTime lc_time;
    POSIX_LCMessages lc_messages;
-   
+   POSIXVariant variant;
 
    public POSIXLocale ( String locale_name , String cldr_data_location , UnicodeSet repertoire, Charset cs, String codeset, UnicodeSet collateset , POSIXVariant variant ) throws Exception {
 
       this.locale_name = locale_name;
       this.codeset = codeset;
+      this.variant = variant;
+      
       boolean ignoreDraft = true;
       doc = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"main", locale_name, false, false, false, ignoreDraft);
       supp = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"supplementalData.xml",  true );
@@ -142,7 +144,7 @@ public class POSIXLocale {
       lc_ctype = new POSIX_LCCtype ( doc, repertoire );
       lc_numeric = new POSIX_LCNumeric( doc );
       lc_monetary = new POSIX_LCMonetary( doc , supp , variant );
-      lc_time = new POSIX_LCTime( doc );
+      lc_time = new POSIX_LCTime( doc , variant);
       lc_messages = new POSIX_LCMessages( doc , locale_name , variant );
 
    } // end POSIXLocale ( String locale_name, String cldr_data_location );
@@ -164,7 +166,7 @@ public class POSIXLocale {
       lc_collate.write(out);
       lc_numeric.write(out);
       lc_monetary.write(out);
-      lc_time.write(out);
+      lc_time.write(out, variant);
       lc_messages.write(out);
 
    } // end write(PrintWriter out);

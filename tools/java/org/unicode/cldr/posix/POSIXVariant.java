@@ -13,6 +13,11 @@ public class POSIXVariant {
    public String currency;
    public String platform;
    public String yesno;
+   
+   // valid values for the "platform" type
+   public static final String SOLARIS     = "solaris";
+   public static final String AIX         = "aix";
+   
 
    public POSIXVariant ( String variant_string ) {
 

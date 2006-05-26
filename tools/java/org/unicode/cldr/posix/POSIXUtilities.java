@@ -173,7 +173,7 @@ public class POSIXUtilities {
            { "HH",   "%H" , "%OH" , "%H" },
            { "H",    "%H" , "%OH" , "%k" }, //solaris defines exact mapping for "H""
            { "KK",   "%I" , "%OI" , "%I" },
-           { "K",    "%I" , "%OI" , "%I" },
+           { "K",    "%I" , "%OI" , "%l" }, 
            { "MMMM", "%B" , "%B" , "%B" },
            { "MMM",  "%b" , "%b" , "%b" },
            { "MM",   "%m" , "%Om" , "%m" },
@@ -184,7 +184,7 @@ public class POSIXUtilities {
            { "hh",   "%I" , "%OI" , "%I" },
            { "h",    "%I" , "%OI" , "%l" }, //solaris defines exact mapping for "h"
            { "kk",   "%H" , "%OH" , "%H" },
-           { "k",    "%H" , "%OH" , "%H" },
+           { "k",    "%H" , "%OH" , "%k" },
            { "mm",   "%M" , "%OM" , "%M" },
            { "m",    "%M" , "%OM" , "%M" },
            { "yyyy", "%Y" , "%Oy" , "%Y" },

@@ -58,6 +58,7 @@ public class SurveyMain extends HttpServlet {
     public static final boolean phaseSubmit = false; 
     public static final boolean phaseVetting = false;
     public static final boolean phaseClosed = true;
+    public static final boolean phaseDisputed = true;
     /**
     * URL prefix for  help
     */
@@ -122,7 +123,10 @@ public class SurveyMain extends HttpServlet {
     static final String QUERY_PASSWORD_ALT = "uid";
     static final String QUERY_EMAIL = "email";
     static final String QUERY_SESSION = "s";
+    static final String QUERY_LOCALE = "_";
+    static final String QUERY_SECTION = "x";
     static final String QUERY_EXAMPLE = "e";
+	
     static final String SURVEYTOOL_COOKIE_SESSION = "com.org.unicode.cldr.web.CookieSession.id";
     static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SHOWCODES = "p_codes";
@@ -232,7 +236,8 @@ public class SurveyMain extends HttpServlet {
             startupTime = null;
         }
         
-        if(request.getRemoteAddr().equals("66.154.103.161")) {
+        if(request.getRemoteAddr().equals("66.154.103.161") ||
+		   request.getRemoteAddr().equals("203.148.64.17") ) {
             response.sendRedirect("http://www.unicode.org/cldr");
         }
         
@@ -576,6 +581,9 @@ public class SurveyMain extends HttpServlet {
             ElapsedTimer et = new ElapsedTimer();
             int n = vet.updateStatus();
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
+		} else if(action.equals("srl_dis_nag")) {
+			vet.doDisputeNag("asdfjkl;", null);
+			ctx.println("\u3058\u3083\u3001\u3057\u3064\u308c\u3044\u3057\u307e\u3059\u3002<br/>");
         } else if(action.equals("srl_vet_nag")) {
             if(ctx.field("srl_vet_nag").length()>0) {
                 ElapsedTimer et = new ElapsedTimer();
@@ -826,7 +834,7 @@ public class SurveyMain extends HttpServlet {
      */
     public void setLocale(WebContext ctx)
     {
-        String locale = ctx.field("_");
+        String locale = ctx.field(QUERY_LOCALE);
         if(locale != null) {  // knock out some bad cases
             if((locale.indexOf('.') != -1) ||
                (locale.indexOf('/') != -1)) {
@@ -1558,6 +1566,8 @@ public class SurveyMain extends HttpServlet {
         String cleanEmail = null;
         String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
         boolean areSendingMail = false;
+		boolean didConfirmMail = false;
+		boolean areSendingDisp = (ctx.field(LIST_MAILUSER+"_d").length())>0;
         String mailBody = null;
         String mailSubj = null;
         if(UserRegistry.userCanEmailUsers(ctx.session.user)) {
@@ -1566,11 +1576,14 @@ public class SurveyMain extends HttpServlet {
                 cleanEmail = "surveytool@unicode.org";
             }
             if(ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)) {
-                areSendingMail= true;
                 ctx.println("<h4>begin sending mail...</h4>");
+				didConfirmMail=true;
                 mailBody = "Message from " + getRequester(ctx) + ":\n--------\n"+sendWhat+
                     "\n--------\n\nSurvey Tool: http://" + ctx.serverHostport() + ctx.base()+"\n\n";
                 mailSubj = "CLDR SurveyTool message from " +getRequester(ctx);
+				if(!areSendingDisp) {
+					areSendingMail= true;
+				}
             }
         }
         try { synchronized(reg) {
@@ -1839,9 +1852,19 @@ public class SurveyMain extends HttpServlet {
                     } else {
                         ctx.println("<p><div class='pager'>");
                         ctx.println("<h4>Mailing "+n+" users</h4>");
-                        if(areSendingMail) {
-                            ctx.println("<b>Mail sent.</b><br>");
+                        if(didConfirmMail) {
+							if(areSendingDisp) {
+								int nm = vet.doDisputeNag(mailBody,UserRegistry.userIsAdmin(ctx.session.user)?null:ctx.session.user.org);
+								ctx.println("<b>dispute note sent: " + nm + " emails sent.</b><br>");
+							} else {
+								ctx.println("<b>Mail sent.</b><br>");
+							}
                         } else { // dont' allow resend option
+							if(sendWhat.length()>0) {
+								ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"_d'>Check this box to send a Dispute complaint to your vetters. (Otherwise it is just a normal email.)</label><br>");
+							} else {
+								ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
+							}
                             ctx.println("<input type='hidden' name='"+LIST_MAILUSER+"' value='y'>");
                         }
                         ctx.println("From: "+cleanEmail+"<br>");
@@ -1849,7 +1872,7 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("<div style='border: 3px dashed olive; margin: 1em; padding: 1em;'>"+
                                 TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n","<br>")+
                                 "</div>");
-                            if(!areSendingMail) {
+                            if(!didConfirmMail) {
                                 ctx.println("<input type='hidden' name='"+LIST_MAILUSER_WHAT+"' value='"+
                                         sendWhat.replaceAll("&","&amp;").replaceAll("'","&quot;")+"'>");
                                 if(!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail) && (ctx.field(LIST_MAILUSER_CONFIRM).length()>0)) {
@@ -2002,7 +2025,7 @@ public class SurveyMain extends HttpServlet {
     public void doSession(WebContext ctx)
     {
         // which 
-        String which = ctx.field("x");
+        String which = ctx.field(QUERY_SECTION);
         
         setLocale(ctx);
         
@@ -2086,7 +2109,7 @@ public class SurveyMain extends HttpServlet {
                 for(;e.hasMoreElements();) {
                     String k = e.nextElement().toString();
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
-                    ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() +"_=" + k + "\">" + 
+                    ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
                                 new ULocale(k).getDisplayName());
                     if(canModify) {
                         ctx.print(modifyThing(ctx));
@@ -2265,7 +2288,7 @@ public class SurveyMain extends HttpServlet {
 //        ctx.print(hasDraft?"<b>":"") ;
         ctx.print("<a "  /* + (hasDraft?"class='draftl'":"class='nodraft'")  */
                   +" title='" + localeName + "' href=\"" + ctx.url() 
-                  + connector + "_=" + localeName + "\">");
+                  + connector + QUERY_LOCALE+"=" + localeName + "\">");
         printLocaleStatus(ctx, localeName, n, localeName);
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
@@ -2350,16 +2373,23 @@ public class SurveyMain extends HttpServlet {
     }
     
     protected void printMenu(WebContext ctx, String which, String menu) {
-        printMenu(ctx,which,menu,menu);
+        printMenu(ctx,which,menu,menu, QUERY_SECTION);
+    }
+    protected void printMenuWithAnchor(WebContext ctx, String which, String menu, String anchor) {
+        printMenu(ctx,which,menu,menu, QUERY_SECTION, anchor);
     }
     protected void printMenu(WebContext ctx, String which, String menu, String title) {
-        printMenu(ctx,which,menu,title,"x");
+        printMenu(ctx,which,menu,title,QUERY_SECTION);
     }
     protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
+		printMenu(ctx,which,menu,title,key,null);
+	}
+    protected void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
         if(menu.equals(which)) {
             ctx.print("<b class='selected'>");
         } else {
             ctx.print("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + key+"=" + menu +
+					((anchor!=null)?("#"+anchor):"") +
                       "\">");
         }
         if(menu.endsWith("/")) {
@@ -2458,8 +2488,8 @@ public class SurveyMain extends HttpServlet {
         int n = ctx.docLocale.length;
         if(which.equals(xREMOVE)) {
             ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
-            ctx.session.getLocales().remove(ctx.field("_"));
-            ctx.println("<h2>Your session for " + ctx.field("_") + " has been removed.</h2>");
+            ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
+            ctx.println("<h2>Your session for " + ctx.field(QUERY_LOCALE) + " has been removed.</h2>");
             doMain(ctx);
             return;
         }
@@ -2484,7 +2514,7 @@ public class SurveyMain extends HttpServlet {
             
             
             WebContext subCtx = new WebContext(ctx);
-            subCtx.addQuery("_",ctx.locale.toString());
+            subCtx.addQuery(QUERY_LOCALE,ctx.locale.toString());
 
             if(ctx.field(QUERY_EXAMPLE).length()==0) {
                 ctx.println("<table summary='locale info' width='95%' border=0><tr><td width='25%'>");
@@ -2494,7 +2524,7 @@ public class SurveyMain extends HttpServlet {
                         ctx.print("&nbsp;&nbsp;");
                     }
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-                    ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +"_=" + ctx.docLocale[i] + 
+                    ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                         "\">");
                     printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(), "");
                     ctx.println(" <tt  style='font-size: 60%' class='codebox'>"+ctx.docLocale[i]+"</tt>" + "</a> ");
@@ -2571,7 +2601,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("</div><hr>");
                 }
             }
-            subCtx.addQuery("x",which);
+            subCtx.addQuery(QUERY_SECTION,which);
             for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
                 if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
                     if(which.equals(CURRENCIES)) {
@@ -2747,7 +2777,7 @@ public boolean doRawXml(HttpServletRequest request, HttpServletResponse response
     return true;
 }
 
-private static String xpathToMenu(String path) {                    
+public static String xpathToMenu(String path) {                    
 	String theMenu=null;
 	if(path.startsWith(LOCALEDISPLAYNAMES)) {
 		for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
@@ -2819,8 +2849,8 @@ public void doMain(WebContext ctx) {
             }
         }
         WebContext subCtx = new WebContext(ctx);
-        //subCtx.addQuery("_",ctx.locale.toString());
-        subCtx.removeQuery("x");
+        //subCtx.addQuery(QUERY_LOCALE,ctx.locale.toString());
+        subCtx.removeQuery(QUERY_SECTION);
 
         if((numNoVotes+numInsufficient)>0) {
             ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient</span> </h4>");
@@ -2836,7 +2866,7 @@ public void doMain(WebContext ctx) {
             ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed</span> </h4>");
 			for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
 				String item = (String)li.next();
-				printMenu(subCtx, "", item);
+				printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
 				if(li.hasNext() ) {
 					subCtx.print(" | ");
 				}
@@ -3114,7 +3144,7 @@ String getSortMode(WebContext ctx, String prefix) {
         prefix.indexOf("localeDisplayName")!=-1) {
         sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
     } else {
-        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_CODE); // all the rest get Code Mode
+        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
     }
     return sortMode;
 }
@@ -3166,6 +3196,13 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode);
     
     ctx.printUrlAsHiddenFields();   
+	
+	boolean disputedOnly = false;
+	if(ctx.field("only").equals("disputed")) {
+		ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
+		disputedOnly=true;
+	}
+	
     ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
     ctx.println("<table summary='Data Items for "+ctx.locale.toString()+" " + pod.xpathPrefix + "' class='list' border='0'>");
     
@@ -3176,8 +3213,21 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
                 "<th> data</th>\n"+
                 "<th> alerts</th>\n"+
                 "</tr>");
+				
+	int peaStart = skip; // where should it start?
+	int peaCount = CODES_PER_PAGE; // hwo many to show?
+	
+	if(disputedOnly) {
+		for(int j = 0;j<dSet.partitions.length;j++) {
+			if(dSet.partitions[j].name.equals(DataPod.CHANGES_DISPUTED)) {
+				peaStart=dSet.partitions[j].start;
+				peaCount=(dSet.partitions[j].limit - peaStart);
+			}
+		}
+	}
+	
     
-    for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
+    for(ListIterator i = peas.listIterator(peaStart);(count<peaCount)&&i.hasNext();count++) {
         DataPod.Pea p = (DataPod.Pea)i.next();
         
         if(checkPartitions) {
@@ -3438,7 +3488,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     String boxClass = canModify?"actionbox":"disabledbox";
     boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
     WebContext refCtx = new WebContext(ctx);
-    refCtx.setQuery("x","references");
+    refCtx.setQuery(QUERY_SECTION,"references");
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
     String fieldHash = pod.fieldHash(p);
@@ -3873,7 +3923,7 @@ showSearchMode = true;// all
     ctx.println("<div class='pager' style='margin: 2px'>");
     if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString())) { // at least street level
         // TODO: move to pager
-        if((ctx.field("x").length()>0) && !ctx.field("x").equals(xMAIN)) {
+        if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
             ctx.println("<input style='float:right' type='submit' value='" + xSAVE + "'>");
         }
     }

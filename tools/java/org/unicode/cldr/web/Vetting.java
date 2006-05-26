@@ -1072,6 +1072,9 @@ public class Vetting {
         String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
 //        System.err.println("FS: " + from + " | " + smtp);
         boolean noMail = (smtp==null);
+
+///*srl*/		noMail = true;
+		
         for(Iterator li = mailBucket.keySet().iterator();li.hasNext();) {
             Integer user = (Integer)li.next();
             String s = (String)mailBucket.get(user);            
@@ -1174,6 +1177,136 @@ public class Vetting {
             }
         }
     }
+
+
+    int doDisputeNag(String message, String org) {
+        Map mailBucket = new HashMap(); // mail bucket: 
+    
+        Map intGroups = sm.getIntGroups();
+        Map intUsers = sm.getIntUsers(intGroups);
+        
+        System.err.println("--- nag ---");
+        
+        for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
+            String group = (String)li.next();
+            Set s = (Set)intGroups.get(group);            
+            doDisputeNag(mailBucket, (Set)intUsers.get(group), group, s, message, org);
+        }
+        
+        if(mailBucket.isEmpty()) {
+            System.err.println("--- nag: nothing to send.");
+			return 0;
+        } else {
+            int n= sendBucket(mailBucket, "CLDR Dispute Report for " + ((org!=null)?org:" SurveyTool"));
+            System.err.println("--- nag: " + n + " emails sent.");
+			return n;
+        }
+    }
+
+
+	/**
+	 * Send mail to certain users with details about disputed items.
+	 *  
+	 * @param mailBucket the bucket of outbound mail
+	 * @param intUsers map of locale -> users
+	 * @param group which group this locale is in
+	 * @param message special message 
+	 * @param users ONLY send mail to these users
+	 */
+    void doDisputeNag(Map mailBucket, Set intUsers, String group, Set locales, String message, String org) {
+		//**NB: As this function was copied from doNag(), it will have some commented out parts from that function
+		//**    for future features.
+
+        // First, are there any problems here?
+        String complain = null;
+        
+        if((intUsers==null) || intUsers.isEmpty()) {
+            // if noone cares ...
+            return;
+        }
+        
+        boolean didPrint =false;
+        for(Iterator li=locales.iterator();li.hasNext();) {
+            String loc = (String)li.next();
+            
+            int locStatus = status(loc);
+            if((locStatus&RES_DISPUTED)>0) {  // RES_BAD_MASK
+//                int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
+//                int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
+                int numDisputed = countResultsByType(loc,RES_DISPUTED);
+                
+                if(complain == null) {
+//                    System.err.println(" -nag: " + group);
+                    complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  DISPUTED VOTES: "+numDisputed+" \n";
+                }
+//                System.err.println("  -nag: " + loc + " - " + typeToStr(locStatus));
+                String problem = "";
+//                if((numNoVotes+numInsufficient)>0) {
+//                    problem = problem + " INSUFFICIENT VOTES: "+(numNoVotes+numInsufficient)+" ";
+//                }
+                if(numDisputed>0) {
+                    problem = problem + " DISPUTED VOTES: "+numDisputed+"\n\n";
+                }
+
+				// Get the actual XPaths
+//				Hashtable insItems = new Hashtable();
+				Hashtable disItems = new Hashtable();
+				synchronized(this.conn) { 
+					try { // moderately expensive.. since we are tying up vet's connection..
+						ResultSet rs = this.listBadResults(loc);
+						while(rs.next()) {
+							int xp = rs.getInt(1);
+							int type = rs.getInt(2);
+							
+							String path = sm.xpt.getById(xp);
+							
+							String theMenu = SurveyMain.xpathToMenu(path);
+							
+							if(theMenu != null) {
+								if(type == Vetting.RES_DISPUTED) {
+									disItems.put(theMenu, "");// what goes here?
+								} /* else {
+									insItems.put(theMenu, "");
+								}*/ 
+							}
+						}
+						rs.close();
+					} catch (SQLException se) {
+						throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+					}
+				}
+				//WebContext subCtx = new WebContext(ctx);
+				//subCtx.addQuery("_",ctx.locale.toString());
+				//subCtx.removeQuery("x");
+
+				if(numDisputed>0) {
+					for(Iterator li2 = disItems.keySet().iterator();li2.hasNext();) {
+						String item = (String)li2.next();
+						
+						complain = complain + "http://www.unicode.org/cldr/apps/survey?_="+loc+"&x="+item.replaceAll(" ","+")+"&only=disputed\n";
+					}
+				}
+                //complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
+            }
+        }
+        if(complain != null) {
+            for(Iterator li = intUsers.iterator();li.hasNext();) {
+                UserRegistry.User u = (UserRegistry.User)li.next();
+				if((org != null) && (!u.org.equals(org))) {
+					continue;
+				}
+//				if(!users.contains(u)) continue; /* TODO: optimize as a single boolean op */
+                Integer intid = new Integer(u.id);
+                String body = (String)mailBucket.get(intid);
+                if(body == null) {
+                    body = message + "\n\nYou will need to be logged-in before making changes at these URLs.\r\n\r\n";
+                }
+                body = body + complain + "\n";
+                mailBucket.put(intid,body);
+            }
+        }
+    }
+
     
     void doUpdate() {
     }

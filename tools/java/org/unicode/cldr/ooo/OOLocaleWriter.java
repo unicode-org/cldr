@@ -43,6 +43,9 @@ public class OOLocaleWriter extends XMLWriter
         String dtd = "<!DOCTYPE Locale SYSTEM \'locale.dtd\'>";
         println(dtd);
         
+        //fulfill legal requirement
+        println ("<!-- Some data is generated from the Common Locale Data Repository (www.unicode.org/cldr) -->");
+        
         StringBuffer localeStrBuff = new StringBuffer("<" + OOConstants.LOCALE);
         
         String str = (String) localeInfo.get(OOConstants.VERSION_DTD);

@@ -119,6 +119,7 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement keySet = null;
         public PreparedStatement keyASet = null;
         public PreparedStatement keyVettingSet = null;
+		public PreparedStatement keyUnconfirmedSet = null;
         public PreparedStatement queryVetValue = null;
         public PreparedStatement queryIdStmt = null;
         public PreparedStatement querySource = null;
@@ -195,7 +196,7 @@ public class CLDRDBSource extends XMLSource {
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
             keyVettingSet = prepareStatement("keyVettingSet",
                 "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
-                
+//			keyUnconfirmedSet = "select distinct CLDR_DATA.locale,CLDR_DATA.xpath from CLDR_DATA,CLDR_VET where CLDR_DATA.xpath=CLDR_VET.vote_xpath AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_DATA.xpath)";
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
 
@@ -821,6 +822,15 @@ public class CLDRDBSource extends XMLSource {
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
+				rs.close();
+				if(finalData) {
+					// also add provisional and unconfirmed items
+
+					// provisional: "at least one Vetter has voted for it"
+					
+					
+					// unconfirmed: "a Guest Vetter has voted for it"
+				}
 //                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0

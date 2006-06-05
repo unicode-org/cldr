@@ -62,7 +62,8 @@ public class Vetting {
     public static final int RES_REMOVAL         = 256; // no new data
 
     public static final String RES_LIST = "0IDATGUNR";
-    
+	public static final String TWID_VET_VERBOSE = "Vetting_Verbose";
+	boolean VET_VERBOSE=false;
     public static String typeToStr(int t) {
         if(t==0) {
             return "z";
@@ -87,6 +88,10 @@ public class Vetting {
         reg.setupDB(); // always call - we can figure it out.
         reg.myinit();
 //        logger.info("Vetting DB: Created.");
+
+		// initialize twid parameters
+		reg.VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE);
+
         return reg;
     }
 
@@ -509,6 +514,7 @@ public class Vetting {
     }
     
     public int updateResults(String locale, int type[]) {
+		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE);
         int ncount = 0; // new count
         int ucount = 0; // update count
         int updates = 0;
@@ -607,11 +613,11 @@ public class Vetting {
             
             if(UserRegistry.userIsAdmin(u)) {
                 admin_voted_for = true;
-              //  System.err.println("Quorum: TC " + u);
                 quorum = true;
+			    if(VET_VERBOSE) System.err.println(" +Quorum: admin  " + u + " --> "+toString());
             } else if(UserRegistry.userIsExpert(u)) {
-              //  System.err.println("Quorum: expert " + u);
                 quorum = true;
+			    if(VET_VERBOSE) System.err.println(" +Quorum: expert " + u + " --> "+toString());
             } else if(UserRegistry.userIsVetter(u)) {
                 /* did at least one vetter from another user vote for it? */
                 if(!quorum) {
@@ -619,8 +625,9 @@ public class Vetting {
                         UserRegistry.User them = (UserRegistry.User)i.next();
                         if(!them.org.equals(u.org) &&
                             UserRegistry.userIsVetter(them)) {
-                       //     System.err.println("QUorum: got " + u + " and " + them);
                             quorum=true;
+							if(VET_VERBOSE) System.err.println(" +Quorum: got " + u + " and " + them + " --> "+toString());
+							return;
                         }
                     }
                 }
@@ -648,7 +655,7 @@ public class Vetting {
                 }
             }
             rs = rs + " - " + voters.size()+"voters";
-            return rs;
+            return rs + " #"+xpath;
         }
     };
     
@@ -716,7 +723,7 @@ public class Vetting {
                 }
                 UserRegistry.User u = sm.reg.getInfo(submitter);
                 c.vote(u);
-                chads.put(vote_int, c);
+                chads.put(vote_int, c); // TODO: should be able to do this only when it wasnt present
             }
             if(count>0) {
                 //System.err.println(locale+":"+base_xpath+" - Collected "+count+" votes in " + chads.size() + " chads");                
@@ -729,7 +736,7 @@ public class Vetting {
             boolean tcOverride = false;
             Chad quorumChad = null;
 			Chad adminChad = null;
-            for(Iterator i=chads.values().iterator();(type==-1)&&i.hasNext();) {
+            for(Iterator i=chads.values().iterator();i.hasNext();) { // see if any chads win.  Collect admin chad.  This could set DISPUTED. 
                 Chad c = (Chad)i.next();
 				if((adminChad == null) && c.admin_voted_for) {
 					adminChad = c;
@@ -740,7 +747,7 @@ public class Vetting {
                         type = RES_DISPUTED;  // if more than one chad has a legit vote - disputed.
                     }
                 }
-                //System.err.println("  "+c);
+                if(VET_VERBOSE) System.err.println("  "+c);
                 if(c.quorum) {
                     if(sawQuorum) {
                         type = RES_DISPUTED; // Note: don't handle TC or admin ability to override, yet. Probably handle with an admin supervote.
@@ -1283,7 +1290,7 @@ public class Vetting {
 					for(Iterator li2 = disItems.keySet().iterator();li2.hasNext();) {
 						String item = (String)li2.next();
 						
-						complain = complain + "http://www.unicode.org/cldr/apps/survey?_="+loc+"&x="+item.replaceAll(" ","+")+"&only=disputed\n";
+						complain = complain + "http://www.unicode.org/cldr/apps/survey?_="+loc+"&amp;x="+item.replaceAll(" ","+")+"&only=disputed\n";
 					}
 				}
                 //complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
@@ -1371,4 +1378,70 @@ public class Vetting {
         }
         return ts;
     }
+	
+	void doDisputePage(WebContext ctx) {
+		Map m = new TreeMap();
+		int n = 0;
+		int locs=0;
+		synchronized(conn) {
+		 try {
+			// select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.type=4");
+			while(rs.next()) {
+				n++;
+				String aLoc = rs.getString(1);
+				int aXpath = rs.getInt(2);
+				String path = sm.xpt.getById(aXpath);
+				String theMenu = SurveyMain.xpathToMenu(path);
+				if(theMenu==null) {
+					theMenu="raw";
+				}
+				Hashtable ht = (Hashtable)m.get(aLoc);
+				if(ht==null) {
+					locs++;
+					ht = new Hashtable();
+					m.put(aLoc,ht);
+				}
+				Set st = (Set)ht.get(theMenu);
+				if(st==null) {
+					st = new TreeSet();
+					ht.put(theMenu,st);
+				}
+				st.add(path);
+			}
+			ctx.println("<hr>"+n+" disputed items total in " + m.size() + " locales.<br>");			
+         } catch ( SQLException se ) {
+            String complaint = "Vetter:  couldn't do DisputePage - " + SurveyMain.unchainSqlException(se);
+            logger.severe(complaint);
+            se.printStackTrace();
+            throw new RuntimeException(complaint);
+         }
+        }
+
+		for(Iterator i = m.keySet().iterator();i.hasNext();) {
+			String loc = (String)i.next();
+			ctx.println("<h4>");
+			sm.printLocaleLink(ctx,loc,new ULocale(loc).getDisplayName());
+			ctx.println("</h4>");
+			ctx.println("<ul>");
+			Hashtable ht = (Hashtable)m.get(loc);
+			for(Iterator ii = ht.keySet().iterator();ii.hasNext();) {
+				String theMenu = (String)ii.next();
+				ctx.print("<li><a style='text-decoration: none;' href='"+ctx.base()+"?"+
+					"_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+theMenu+"</a><pre>");
+				for(Iterator iii = ((Set)ht.get(theMenu)).iterator();iii.hasNext();) {
+					String xp = (String)iii.next();
+					ctx.println(xp);
+				}
+				ctx.print("</pre></li>");
+			}
+			ctx.println("</ul>");
+			/*
+				if(theMenu != null) {
+				}
+				ctx.print(path);
+				*/
+		}
+	}
 }

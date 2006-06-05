@@ -454,6 +454,53 @@ public class SurveyMain extends HttpServlet {
     private static final void freeMem(int pages, int xpages) {
         System.err.println("pages: " + pages+"+"+xpages + ", "+freeMem()+".<br/>");
     }
+	
+	Hashtable twidHash = new Hashtable();
+
+    boolean showToggleTwid(WebContext ctx, String pref, String what) {
+		String qKey = "twidb_"+pref;
+		String nVal = ctx.field(qKey);
+		if(nVal.length()>0) {
+			twidPut(pref,new Boolean(nVal).booleanValue());
+			ctx.println("<div style='float: right;'><b class='disputed'>changed</b></div>");
+		}
+        boolean val = twidGetBool(pref, false);
+        WebContext nuCtx = new WebContext(ctx);
+        nuCtx.addQuery(qKey, new Boolean(!val).toString());
+//        nuCtx.println("<div class='pager' style='float: right;'>");
+        nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + ": "+
+            ((val)?"<span class='selected'>TRUE</span>":"<span class='notselected'>false</span>") + "</a><br>");
+//        nuCtx.println("</div>");
+        return val;
+    }
+	
+	private boolean twidGetBool(String key, boolean defVal) {
+        Boolean b = (Boolean)twidHash.get(key);
+        if(b == null) {
+            return defVal;
+        } else {
+            return b.booleanValue();
+        }
+	}
+	
+	void twidPut(String key, boolean val) {
+		twidHash.put(key, new Boolean(val));
+	}
+	
+
+	/* twiddle: these are params settable at runtime. */
+    boolean twidBool(String x) {
+        return twidBool(x,false);
+    }
+	
+    synchronized boolean twidBool(String x, boolean defVal)
+    {
+        boolean ret = twidGetBool(x, defVal);
+        twidPut(x, ret);
+        return ret;
+    }
+    
+	
     
     private void doDump(WebContext ctx)
     {
@@ -471,6 +518,8 @@ public class SurveyMain extends HttpServlet {
         }
         WebContext actionCtx = new WebContext(ctx);
         actionCtx.addQuery("dump",vap);
+		WebContext actionSubCtx = new WebContext(actionCtx);
+		actionSubCtx.addQuery("action",action);
 
         printMenu(actionCtx, action, "sessions", "Sessions", "action");    
             actionCtx.println(" | ");
@@ -485,6 +534,7 @@ public class SurveyMain extends HttpServlet {
         printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "srl", "SRL-use-only", "action");  
+		
         if(action.startsWith("srl")) {
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_imp", "Update Implied Vetting", "action");       
@@ -499,9 +549,14 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
             
             printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
+            actionCtx.println(" | ");
+            
+            printMenu(actionCtx, action, "srl_twiddle", "twiddle params", "action");       
         }
         actionCtx.println("<br>");
         
+		/* Begin sub pages */
+		
         if(action.equals("stats")) {
             ctx.println("<div class='pager'>");
             ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+"<br>");
@@ -567,10 +622,7 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             ctx.println("</table>");
-        }
-
-
-        if(action.equals("srl_vet_imp")) {
+        } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("dump",vap);
             ctx.println("<br>");
@@ -620,9 +672,21 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
             actionCtx.printUrlAsHiddenFields();
             actionCtx.println("Update just: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
-        }
-
-        if(action.equals("upd_src")) {
+        } else if(action.equals("srl_twiddle")) {
+			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
+			
+			for(Iterator i = twidHash.keySet().iterator();i.hasNext();) {
+				String k = (String)i.next();
+				Object o = twidHash.get(k);
+				if(o instanceof Boolean) {	
+					boolean adv = showToggleTwid(actionSubCtx, k, "Boolean "+k);
+				} else {
+					actionSubCtx.println("<h4>"+k+"</h4>");
+				}
+			}
+			
+			
+		} else if(action.equals("upd_src")) {
             WebContext subCtx = new WebContext(ctx);
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
@@ -630,9 +694,7 @@ public class SurveyMain extends HttpServlet {
             localeListMap = null;
             mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
             ctx.println("<br>");
-        }
-
-        if(action.equals("srl_db_update")) {
+        } else if(action.equals("srl_db_update")) {
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("dump",vap);
             subCtx.addQuery("action","srl_db_update");
@@ -642,10 +704,7 @@ public class SurveyMain extends HttpServlet {
             mySrc.doDbUpdate(subCtx, this); // What does this button do?
             ctx.println("<br>(dbupdate took " + aTimer+")");
             ctx.println("<br>");
-        }
-        
-
-        if(action.equals("load_all")) {
+        } else if(action.equals("load_all")) {
             com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
             logger.info("Loading all..");            
             File[] inFiles = getInFiles();
@@ -677,9 +736,7 @@ public class SurveyMain extends HttpServlet {
             }
             logger.info("Loaded all. " + allTime);
             ctx.println("Loaded all." + allTime + "<br>");
-        }
-        
-        if(action.equals("specialmsg")) {
+        } else if(action.equals("specialmsg")) {
             ctx.println("<hr>");
             
             // OGM---
@@ -973,19 +1030,23 @@ public class SurveyMain extends HttpServlet {
         return message;
     }
     
+	//    protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
+
     /**
      * Print menu of choices available to the user.
      */
     public void printUserMenu(WebContext ctx) {
         if(ctx.session.user == null)  {
             ctx.println("You are a <b>Visitor</b>. <a href='" + ctx.jspLink("login.jsp") +"'>Login</a> ");
+            ctx.println(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=disputed"+"'>Disputed</a>");
             ctx.println(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=options"+"'>My options</a>");
             ctx.println("<br>");
         } else {
                 
             ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
             ctx.println("<a href='" + ctx.base() + "?do=logout'>Logout</a><br>");
-            ctx.println(" <a href='"+ctx.url()+ctx.urlConnector()+"do=options"+"'>My options</a>");
+            ctx.println(" <a href='"+ctx.url()+ctx.urlConnector()+"do=options"+"'>My options</a> | ");
+            ctx.println(" <a href='"+ctx.url()+ctx.urlConnector()+"do=disputed"+"'>Disputed</a>");
             ctx.print(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(ctx.session.user.email)+
                 "' >My account</a>");
             ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
@@ -1996,9 +2057,28 @@ public class SurveyMain extends HttpServlet {
         return val;
     }
     public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
+	
+	void doDisputed(WebContext ctx){
+		if(ctx.session.user != null) {
+			printHeader(ctx, "Disputed Items Page");
+			printUserMenu(ctx);
+		}
+        ctx.printHelpLink("/DisputedItems");
+        
+        ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
+        ctx.addQuery("do","disputed");
+        ctx.println("<h2>DisputedItems</h2>");
+
+		vet.doDisputePage(ctx);
+        
+        printFooter(ctx);
+    } 
+	
     void doOptions(WebContext ctx) {
-        printHeader(ctx, "My Options");
-        printUserMenu(ctx);
+		if(ctx.session.user != null) {
+			printHeader(ctx, "My Options");
+			printUserMenu(ctx);
+		}
         ctx.printHelpLink("/MyOptions");
         
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
@@ -2059,10 +2139,11 @@ public class SurveyMain extends HttpServlet {
                 return;
             } else if(doWhat.equals("options")) {
                 doOptions(ctx);
+            } else if(doWhat.equals("disputed")) {
+                doDisputed(ctx);
             } else {
                 printHeader(ctx,doWhat + "?");
                 ctx.println("<i>some error, try hitting the Back button.</i>");
-                ctx.println("<br> User level : " + ctx.session.user.userlevel);
                 printFooter(ctx);
             }
             return;
@@ -2131,6 +2212,8 @@ public class SurveyMain extends HttpServlet {
         String doWhat = ctx.field("do");
         if(doWhat.equals("options")) {
             doOptions(ctx);
+		} else if(doWhat.equals("disputed")) {
+			doDisputed(ctx);
         } else {
             doLocale(ctx, baseContext, which);
         }
@@ -2309,6 +2392,7 @@ public class SurveyMain extends HttpServlet {
             nuCtx.println("</div>");
         }
         ctx.println("<h1>Locales</h1>");
+				
         ctx.println(SLOW_PAGE_NOTICE);
         TreeMap lm = getLocaleListMap();
         if(lm == null) {
@@ -3167,6 +3251,11 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     List checkCldrResult = new ArrayList();
     Iterator theIterator = null;
     String sortMode = getSortMode(ctx, pod);
+	boolean disputedOnly = false;
+	if(ctx.field("only").equals("disputed")) {
+		disputedOnly=true;
+		sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
+	}
     List peas = pod.getList(sortMode);
     String refs[] = new String[0];
     String ourDir = getDirectionFor(ctx.locale);
@@ -3197,10 +3286,8 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     
     ctx.printUrlAsHiddenFields();   
 	
-	boolean disputedOnly = false;
-	if(ctx.field("only").equals("disputed")) {
+	if(disputedOnly==true){
 		ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
-		disputedOnly=true;
 	}
 	
     ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");

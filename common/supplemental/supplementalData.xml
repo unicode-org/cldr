@@ -1153,7 +1153,6 @@ XXX	Code for transations where no currency is involved
 		<language type="gv" scripts="Latn" territories="GB"/>
 		<language type="ha" scripts="Arab Latn" territories="NE NG"/>
 		<language type="haw" scripts="Latn" territories="US" alt="secondary"/>
-		<language type="haw" scripts="Latn" territories="US" alt="secondary"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="he" scripts="Hebr" territories="IL"/>
 		<language type="hi" scripts="Deva" territories="IN FJ"/>
 		<language type="ho" scripts="Latn" territories="PG"/>
@@ -1192,7 +1191,6 @@ XXX	Code for transations where no currency is involved
 		<language type="ku" scripts="Arab Latn Cyrl" territories="IQ IR TR"/>
 		<language type="ku" scripts="Arab Latn Cyrl" territories="SY" alt="secondary"/>
 		<language type="kw" scripts="Latn" territories="GB" alt="secondary"/>
-		<language type="kw" scripts="Latn" territories="GB" alt="secondary"/> <!-- Reflecting submitted data, cldrbug #1013 --> <!-- Secondary? -->
 		<language type="ky" scripts="Arab Cyrl" territories="CN" alt="secondary"/>
 		<language type="ky" scripts="Arab Cyrl" territories="KG"/>
 		<language type="la" scripts="Latn" territories="VA"/>
@@ -1247,7 +1245,9 @@ XXX	Code for transations where no currency is involved
 		<language type="rw" scripts="Latn" territories="RW"/>
 		<language type="sa" scripts="Deva" territories="IN" alt="secondary"/>
 		<language type="sd" scripts="Deva Arab" territories="IN PK"/>
+		<language type="se" scripts="Latn" territories="FI NO"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="sg" scripts="Latn" territories="CF"/>
+	<!--	<language type="sh" scripts="Latn" territories="BA CS YU" alt="secondary"/> --> <!-- this one is only aliases.. -->
 		<language type="si" scripts="Sinh" territories="LK"/>
 		<language type="sk" scripts="Latn" territories="CS" alt="secondary"/>
 		<language type="sk" scripts="Latn" territories="SK"/>
@@ -1257,12 +1257,14 @@ XXX	Code for transations where no currency is involved
 		<language type="so" scripts="Latn" territories="ET KE" alt="secondary"/>
 		<language type="son" scripts="Latn" territories="BJ ML NE" alt="secondary"/>
 		<language type="sq" scripts="Latn" territories="AL MK CS"/>
+		<language type="sid" scripts="Latn" territories="ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="sr" scripts="Cyrl Latn" territories="BA CS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="HR" alt="secondary"/>
 		<language type="ss" scripts="Latn" territories="SZ ZA"/>
 		<language type="st" scripts="Latn" territories="LS ZA"/>
 		<language type="sv" scripts="Latn" territories="AX FI SE"/>
 		<language type="sw" scripts="Latn" territories="KE TZ YT"/>
+		<language type="syr" scripts="Syrc" territories="SY"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="ta" scripts="Taml" territories="IN LK SG"/>
 		<language type="te" scripts="Telu" territories="IN"/>
 		<language type="tem" scripts="Latn" territories="SL"/>
@@ -1270,6 +1272,7 @@ XXX	Code for transations where no currency is involved
 		<language type="tg" scripts="Arab Cyrl Latn" territories="TJ"/>
 		<language type="th" scripts="Thai" territories="TH"/>
 		<language type="ti" scripts="Ethi" territories="ER ET"/>
+		<language type="tig" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="tk" scripts="Arab Cyrl Latn" territories="AF IR" alt="secondary"/>
 		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
 		<language type="tkl" scripts="Latn" territories="TK"/>
@@ -1280,17 +1283,21 @@ XXX	Code for transations where no currency is involved
 		<language type="tpi" scripts="Latn" territories="PG"/>
 		<language type="tr" scripts="Arab Latn" territories="CY TR"/>
 		<language type="ts" scripts="Latn" territories="ZA"/>
+		<language type="tt" scripts="Cyrl" territories="RU"/> <!-- Reflecting submitted data, cldrbug #1013. Official language of Republic of Tatarstan according to http://en.wikipedia.org/wiki/Tatar_language#Official_status -->
 		<language type="tvl" scripts="Latn" territories="TV"/>
 		<language type="uk" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="uk" scripts="Cyrl" territories="UA"/>
 		<language type="ur" scripts="Arab" territories="IN PK"/>
 		<language type="uz" scripts="Arab Cyrl Latn" territories="AF" alt="secondary"/>
 		<language type="uz" scripts="Arab Cyrl Latn" territories="UZ"/>
+		<language type="ug" scripts="Arab" territories="CN"/> <!-- Reflecting submitted data, cldrbug #1013. No territory level data yet. http://en.wikipedia.org/wiki/Uighur_language#Official_status  "The Uyghurs are one of the 56 official nationalities in China, and Uyghur is an official language of Xinjiang." -->
 		<language type="ve" scripts="Latn" territories="ZA"/>
 		<language type="vi" scripts="Latn" territories="VN"/>
+		<language type="wal" scripts="Ethi" territories="ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="wo" scripts="Latn" territories="GM MR SN"/>
 		<language type="xh" scripts="Latn" territories="LS ZA"/>
 		<language type="yi" scripts="Hebr"/>
+		<language type="yo" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="zh" scripts="Bopo Hani Hans Hant" territories="CN CX HK MO SG TW"/>
 		<language type="zu" scripts="Latn" territories="LS ZA"/>
 	</languageData>

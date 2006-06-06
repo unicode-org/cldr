@@ -38,7 +38,8 @@
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
     
-            <variable id="$alt" type="regex">proposed([-]?[1-9][0-9]*)?|variant</variable>
+            <variable id="$altkeys" type="regex">(variant|list|secondary|email|www)</variable>
+            <variable id="$alt" type="regex">($altkeys(-proposed([-]?[1-9][0-9]*)?)?)|(proposed([-]?[1-9][0-9]*)?)</variable>
             <variable id="$append" type="notDoneYet"/>
             <variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>
             <variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>

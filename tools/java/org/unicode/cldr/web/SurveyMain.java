@@ -3694,7 +3694,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             ctx.println("</td></tr>");
         }
     }
-    else if(isAlias) {   
+    /* else */ if(isAlias) {   
 //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")/*,fullPathFull.length()*/);
 //<tt class='codebox'>["+shortStr+"]</tt>
         ctx.println("<tr><td colspan='3'><i>Alias</i></td></tr>");
@@ -4731,7 +4731,7 @@ private void doStartupDB()
     dbDir = new File(cldrHome,CLDR_DB);
     dbDir_u = new File(cldrHome,CLDR_DB_U);
     boolean doesExist = dbDir.isDirectory();
-    boolean doesExist_u = dbDir_u.isDirectory();
+///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
     
 //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
     try
@@ -4747,7 +4747,7 @@ private void doStartupDB()
 //        logger.info("loaded driver " + o + " - " + dbInfo);
         Connection conn = getDBConnection(";create=true");
 //        logger.info("Connected to database " + cldrdb);
-        Connection conn_u = getU_DBConnection(";create=true");
+///*U*/        Connection conn_u = getU_DBConnection(";create=true");
 //        logger.info("Connected to user database " + cldrdb_u);
         
         // set up our main tables.
@@ -4757,8 +4757,8 @@ private void doStartupDB()
         conn.commit();        
         conn.close(); 
         
-        conn_u.commit();
-        conn_u.close();
+///*U*/        conn_u.commit();
+///*U*/        conn_u.close();
     }
     catch (SQLException e)
     {
@@ -4771,12 +4771,19 @@ private void doStartupDB()
     }
     // now other tables..
     try {
-        Connection uConn = getU_DBConnection();
-        /* doesExist_u = */ hasTable(uConn, UserRegistry.CLDR_USERS);
+        Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
+        boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
         reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u);
         if(!doesExist_u) { // only import users on first run through..
             reg.importOldUsers(vetdata);
         }
+		
+		String doMigrate = survprops.getProperty("CLDR_MIGRATE");
+		if((doMigrate!=null) && (doMigrate.length()>0)) {
+			System.err.println("** User DB migrate");
+			reg.migrateFrom(getU_DBConnection());
+		}
+		
     } catch (SQLException e) {
         busted("On UserRegistry startup: " + unchainSqlException(e));
     }

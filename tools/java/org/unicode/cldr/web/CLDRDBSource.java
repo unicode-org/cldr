@@ -196,7 +196,8 @@ public class CLDRDBSource extends XMLSource {
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
             keyVettingSet = prepareStatement("keyVettingSet",
                 "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
-//			keyUnconfirmedSet = "select distinct CLDR_DATA.locale,CLDR_DATA.xpath from CLDR_DATA,CLDR_VET where CLDR_DATA.xpath=CLDR_VET.vote_xpath AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_DATA.xpath)";
+			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
+				"select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_VET where CLDR_DATA.locale=? AND CLDR_DATA.xpath=CLDR_VET.vote_xpath AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_DATA.xpath)");
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
 
@@ -673,9 +674,14 @@ public class CLDRDBSource extends XMLSource {
      * @param path cleaned path
      */
     public String getFullPathAtDPath(String path) {
-        if(finalData && !xpathThatNeedsOrig(path)) {
-            return path; // TODO: investigate this.
-        }
+		if(finalData) {
+			if(path.indexOf("alt=\"proposed")>=0) {
+				return path+"[@draft=\"unconfirmed\"]";
+			}
+			if(!xpathThatNeedsOrig(path)) {
+				return path; // TODO: investigate this.
+			}
+		}
         int pathid = xpt.getByXpath(path); // note: want this to fail, or it will fill xpt with trash.
         return getOrigXpath(pathid);
     }
@@ -826,6 +832,14 @@ public class CLDRDBSource extends XMLSource {
 				if(finalData) {
 					// also add provisional and unconfirmed items
 
+					stmts.keyUnconfirmedSet.setString(1,locale);
+					rs = stmts.keyUnconfirmedSet.executeQuery();
+					while(rs.next()) {
+						int xpathid = rs.getInt(1);
+						String xpath = (xpt.getById(xpathid));
+						s.add(xpath+"[@draft=\"unconfirmed\"]");
+					}
+					rs.close();
 					// provisional: "at least one Vetter has voted for it"
 					
 					

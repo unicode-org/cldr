@@ -156,6 +156,59 @@ public class UserRegistry {
     }
     static final int ADMIN_ID = 1;
     static final int ALL_ID = -1;
+	
+	public void migrateFrom(Connection uConn) throws SQLException {
+		System.err.println("USER MIGRATE");
+		Statement s = conn.createStatement(); // 'new' side
+		int n = s.executeUpdate("DROP TABLE CLDR_USERS");
+		System.err.println("drop table: " + n + " rows from 'new' side table");
+		setupDB();
+		System.err.println("Reset table");
+		Statement oldS = uConn.createStatement(); // old side
+
+		ResultSet rs = oldS.executeQuery("select id from CLDR_USERS order by id desc");
+		if(rs.next()) {
+			n=rs.getInt(1);
+		} else { 
+			throw new RuntimeException("Err: couldn't count old users");
+		}
+		rs.close();
+
+		System.err.println("max userid: " + n);
+		
+		for(;n>0;n--) {
+			s.execute("INSERT INTO CLDR_USERS (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
+		}
+		conn.commit();
+		System.err.println("dummy users created.");
+		
+		PreparedStatement patchStmt = conn.prepareStatement("UPDATE " + CLDR_USERS + " set userlevel=?,name=?,email=?,org=?,password=?,locales=?,intlocs=?,lastlogin=?  " +
+                                                    " where id=?" );
+
+		Statement us = uConn.createStatement();
+		rs = us.executeQuery("SELECT userlevel,name,email,org,password,locales,intlocs,lastlogin,id from "+CLDR_USERS);
+		//								1         2   3    4     5       6      7        8       9
+		n=0;
+		while(rs.next()) {
+			n++;
+			patchStmt.setInt(1,		rs.getInt(1));
+			patchStmt.setString(2,	rs.getString(2));
+			patchStmt.setString(3,	rs.getString(3));
+			patchStmt.setString(4,	rs.getString(4));
+			patchStmt.setString(5,  rs.getString(5));
+			patchStmt.setString(6,  rs.getString(6));
+			patchStmt.setString(7,  rs.getString(7));
+			patchStmt.setTimestamp(8, rs.getTimestamp(8));
+			patchStmt.setInt(9, rs.getInt(9));
+			
+			int j = patchStmt.executeUpdate();
+			System.err.println("n"+n+", id"+rs.getInt(9)+", e:"+rs.getString(3) + " -> updt. " + j);
+		}
+		conn.commit();
+		rs.close();
+		
+		System.err.println("Done.  Probably good to restart ST now.");
+	}
     
     public void importOldUsers(String dir) throws SQLException
     {

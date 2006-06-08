@@ -1,6 +1,5 @@
 package org.unicode.cldr.icu;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -18,7 +18,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 
-public class ConvertTransforms {
+public class ConvertTransforms extends CLDRConverterTool{
 	
 	private static final int
 	HELP1 = 0,
@@ -47,25 +47,11 @@ public class ConvertTransforms {
 
 	// TODO add options to set input and output directories, matching pattern
 	public static void main(String[] args) throws Exception {
-		UOption.parseArgs(args, options);
-		if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
-			System.out.println(HELP_TEXT1);
-			return;
-		}
-		
-		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "transforms/";
-		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
-		String match = options[MATCH].value;
-		
-		try {
-//			fixData(sourceDir, match, targetDir);
-			writeTransforms(sourceDir, match, targetDir);
-		} finally {
-			System.out.println("DONE");
-		}
+	    ConvertTransforms ct = new ConvertTransforms();
+        ct.processArgs(args);
 	}
 	
-	public static void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws Exception {
+	public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		System.out.println(new File(inputDirectory).getCanonicalPath());
 		Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
 		Set ids = cldrFactory.getAvailable();
@@ -81,7 +67,7 @@ public class ConvertTransforms {
 				if (id.equals("All")) continue;
 				try {
 					convertFile(cldrFactory, id, outputDirectory, index);
-				} catch (Exception e) {
+				} catch (IOException e) {
 					System.err.println("Failure in: " + id);
 					throw e;
 				}
@@ -107,7 +93,7 @@ public class ConvertTransforms {
 		}	
 	}
 
-	private static void convertFile(Factory cldrFactory, String id, String outputDirectory, PrintWriter index) throws IOException {
+	private void convertFile(Factory cldrFactory, String id, String outputDirectory, PrintWriter index) throws IOException {
 		PrintWriter output = null;
 		String filename = null;
 		CLDRFile cldrFile = cldrFactory.make(id, false);
@@ -137,7 +123,7 @@ public class ConvertTransforms {
 	
 	static XPathParts parts = new XPathParts();
 	
-	static String addIndexInfo(PrintWriter index, String path) {
+	private String addIndexInfo(PrintWriter index, String path) {
 		parts.set(path);
 		Map attributes = parts.findAttributes("transform");
 		if (attributes == null) return null; // error, not a transform file
@@ -179,7 +165,7 @@ public class ConvertTransforms {
 	
 	// fixData ONLY NEEDED TO FIX FILE PROBLEM
 	
-	private static void fixData(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
+	private void fixData(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		File dir = new File(inputDirectory);
 		File[] files = dir.listFiles();
 		for (int i = 0; i < files.length; ++i) {
@@ -190,7 +176,7 @@ public class ConvertTransforms {
 				String line = input.readLine();
 				if (line == null) break;
 				if (line.indexOf("DOCTYPE") >= 0) {
-					line = line.replace(" ldml ", " supplementalData ");
+					line = line.replaceAll(" ldml ", " supplementalData ");
 				}
 				output.println(line);
 			}
@@ -198,4 +184,28 @@ public class ConvertTransforms {
 			output.close();
 		}
 	}
+
+    public void processArgs(String[] args) {
+        // TODO Auto-generated method stub
+        UOption.parseArgs(args, options);
+        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
+            System.out.println(HELP_TEXT1);
+            return;
+        }
+        
+        String sourceDir = options[SOURCEDIR].value;    // Utility.COMMON_DIRECTORY + "transforms/";
+        String targetDir = options[DESTDIR].value;  // Utility.GEN_DIRECTORY + "main/";
+        String match = options[MATCH].value;
+        
+        try {
+//          fixData(sourceDir, match, targetDir);
+            writeTransforms(sourceDir, match, targetDir+File.separator);
+        }catch(IOException ex){
+            RuntimeException e = new RuntimeException();
+            e.initCause(ex.getCause());
+            throw e;
+        }finally {
+            System.out.println("DONE");
+        }
+    }
 }

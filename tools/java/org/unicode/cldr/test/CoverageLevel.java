@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.UnicodeSet;
@@ -110,7 +111,8 @@ public class CoverageLevel {
     private static Map territory_timezone = new TreeMap();
     private static Map territory_calendar = new TreeMap();
     private static Set modernCurrencies = new TreeSet();
-     
+    
+    private static Map posixCoverage = new TreeMap();
     // current stuff, set according to file
 
     private boolean initialized = false;
@@ -147,6 +149,7 @@ public class CoverageLevel {
                 CLDRFile supplementalMetadata = file.make("supplementalMetadata", false);
                 CLDRFile supplementalData = file.make("supplementalData", false);
                 init(supplementalData, supplementalMetadata, options);
+                initPosixCoverage(file.getLocaleID(), supplementalData);
                 initialized = true;
             }
         }
@@ -202,7 +205,7 @@ public class CoverageLevel {
 
         script_level.putAll(base_script_level);
         putAll(script_level, (Set) language_scripts.get(language), CoverageLevel.Level.BASIC);
-
+        
         territory_level.putAll(base_territory_level);
         putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.BASIC);
         
@@ -240,7 +243,7 @@ public class CoverageLevel {
             String territory = (String) it.next();
             setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), CoverageLevel.Level.BASIC, true);
         }
-
+        
         
         if (CheckCoverage.DEBUG) {
             System.out.println(language_level);               
@@ -440,7 +443,7 @@ public class CoverageLevel {
                         System.out.println();
                     }
                 }
-
+                
 
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -457,6 +460,77 @@ public class CoverageLevel {
         } catch (RuntimeException e) {
             throw e; // just for debugging
         }
+    }
+    private void initPosixCoverage(String localeID, CLDRFile supplementalData){
+        parser.set(localeID);
+        //String language = parser.getLanguage();
+        String territory = parser.getLanguage();
+        //String scpt = parser.getScript();
+        
+        String currencySymbol = supplementalData.getStringValue("//supplementalData/currencyData/region[@iso3166='"+territory+"']/currency");
+        //String fractions = supplementalData.getStringValue("//supplementalData/currencyData/fractions/info[@iso4217='"+currencySymbol+"']");
+        posixCoverage.put("//ldml/posix/messages/yesstr", Level.POSIX);
+        posixCoverage.put("//ldml/posix/messages/nostr", Level.POSIX);
+        posixCoverage.put("//ldml/characters/exemplarCharacters", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/currencies/currency[@type=\""+currencySymbol+"\"]/symbol", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/currencies/currency[@type=\""+currencySymbol+"\"]/decimal", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/currencies/currency[@type=\""+currencySymbol+"\"]/group", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/decimal", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/group", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/plusSign", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/minusSign", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/decimal", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/group", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/numbers/symbols/nativeZeroDigit", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat/pattern", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/am", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/pm", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"mon\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"tue\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"wed\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"thu\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"fri\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sat\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"mon\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"tue\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"wed\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"thu\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"fri\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sat\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"2\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"3\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"4\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"5\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"7\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"8\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"9\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"10\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"11\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"12\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"2\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"4\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"5\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"7\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"8\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"9\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"10\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"11\"]", Level.POSIX);
+        posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]", Level.POSIX);
+        //posixCoverage.put("//ldml/collations/collation[@type=\"standard\"]/settings", Level.POSIX);
+        //posixCoverage.put("//ldml/collations/collation[@type=\"standard\"]/rules", Level.POSIX);
     }
 
     private void getMetadata(CLDRFile metadata) {
@@ -567,5 +641,43 @@ public class CoverageLevel {
             euroCountries = new TreeSet(); // placate other parts of the code
             euroCountriesMissing = true;
         }    
+    }
+    public void checkPosixCoverage(String path, String fullPath, String value,
+                                    Map options, List result, CLDRFile file, CLDRFile resolved) {
+        if (options.get("submission") == null) return;
+
+         // skip all items that are in anything but raw codes
+        String source = resolved.getSourceLocaleID(path, null);
+        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !(source.equals("root") && isValueCode(fullPath, value))){
+            return;
+        }
+        
+        if(path == null) { 
+            throw new InternalError("Empty path!");
+        } else if(file == null) {
+            throw new InternalError("no file to check!");
+        }
+        //parts.set(fullPath);
+        //parts.equals()
+        // check to see if the level is good enough
+        CoverageLevel.Level level = (CoverageLevel.Level) posixCoverage.get(fullPath);
+        
+        if (level==null || level == CoverageLevel.Level.UNDETERMINED) return; // continue if we don't know what the status is
+        if (Level.POSIX.compareTo(level) >= 0) {
+            result.add(new CheckStatus().setType(CheckStatus.errorType)
+                    .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
+        }
+    }
+    private boolean isValueCode(String xpath, String value){
+        try{
+            Integer.parseInt(value);
+            if(xpath.indexOf("nativeZeroDigit")>0){
+                return false;
+            }
+            return true;
+        }catch(NumberFormatException ex){
+            
+        }
+        return false;
     }
 }

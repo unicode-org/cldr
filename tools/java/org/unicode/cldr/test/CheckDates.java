@@ -250,10 +250,10 @@ public class CheckDates extends CheckCLDR {
 
     static class MyDemo extends FormatDemo {
         private SimpleDateFormat df;
-        String getPattern() {
+        protected String getPattern() {
             return df.toPattern();
         }
-        String getRandomInput() {
+        protected String getRandomInput() {
             return getRandomDate(date1950, date2010);
         }
         public MyDemo setFormat(SimpleDateFormat df) {

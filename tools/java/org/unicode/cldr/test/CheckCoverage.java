@@ -11,7 +11,6 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 
 
@@ -63,8 +62,7 @@ public class CheckCoverage extends CheckCLDR {
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck,
-            Map options, List possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
         skip = true;
         if (options != null && options.get("CheckCoverage.skip") != null) return this;   
@@ -87,5 +85,10 @@ public class CheckCoverage extends CheckCLDR {
         skip = false;
         return this;
     }
-
+    public void setRequiredLevel(Level level){
+        requiredLevel = level;
+    }
+    public Level getRequiredLevel(){
+        return requiredLevel;
+    }
 }

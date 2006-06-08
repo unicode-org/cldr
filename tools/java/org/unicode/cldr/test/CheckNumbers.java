@@ -219,10 +219,10 @@ public class CheckNumbers extends CheckCLDR {
     static class MyDemo extends FormatDemo {
         private DecimalFormat df;
 
-        String getPattern() {
+        protected String getPattern() {
             return df.toPattern();
         }
-        String getRandomInput() {
+        protected String getRandomInput() {
             return String.valueOf(getRandomNumber());
         }
         public MyDemo setFormat(DecimalFormat df, String context) {

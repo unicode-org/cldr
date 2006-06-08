@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +26,6 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -123,10 +121,10 @@ abstract public class CheckCLDR {
     
     private static String[] HelpMessage = {
     	"-h \t This message",
-    	"-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -ffr, or -ffr.*, or -f(fr|en-.*)",
-    	"-cxxx \t Set the coverage: eg -ccomprehensive or -cmodern or -cmoderate or -cbasic",
-    	"-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
-    	"-oxxx \t Organization (for coverage tests): ibm, google, ....",
+    	"-f xxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
+    	"-c xxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
+    	"-t xxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
+    	"-o xxx \t Organization (for coverage tests): ibm, google, ....",
     	"-e \t Turn on examples (actually a summary of the demo)",
     	"-d \t Turn on special date format checks",
     	"-s \t Show all paths",
@@ -196,7 +194,7 @@ abstract public class CheckCLDR {
 		List result = new ArrayList();
 		Set paths = new TreeSet(CLDRFile.ldmlComparator);
 		Map m = new TreeMap();
-		double testNumber = 0;
+		//double testNumber = 0;
         Map options = new HashMap();
         Counter totalCount = new Counter();
         Counter subtotalCount = new Counter();
@@ -296,7 +294,7 @@ abstract public class CheckCLDR {
 						pathShower.showHeader(path, value);
 						
 						//System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-						if (statusType.equals(status.demoType)) {
+						if (statusType.equals(CheckStatus.demoType)) {
 							SimpleDemo d = status.getDemo();
 							if (d != null && d instanceof FormatDemo) {
 								FormatDemo fd = (FormatDemo)d;
@@ -344,7 +342,7 @@ abstract public class CheckCLDR {
         System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
 	}
 
-	static class PathShower {
+	public static class PathShower {
 		String localeID;
 		boolean newLocale = true;
 		String lastPath;
@@ -354,13 +352,15 @@ abstract public class CheckCLDR {
 
 		static String lead = "****************************************";
 		
-		void set(String localeID) {
+		public void set(String localeID) {
 			this.localeID = localeID;
 			newLocale = true;
 			showEnglish = localeID.equals(CheckCLDR.displayInformation.getLocaleID());
 		}
-		
-		private void showHeader(String path, String value) {
+		public void setDisplayInformation(CLDRFile displayInformation) {
+            CheckCLDR.setDisplayInformation(displayInformation); 
+        }
+		public void showHeader(String path, String value) {
 			if (newLocale) {
 				System.out.println("Locale:\t" + getLocaleAndName(localeID));
 				newLocale = false;
@@ -548,9 +548,9 @@ abstract public class CheckCLDR {
         protected String currentContext = "";
         protected ParsePosition parsePosition = new ParsePosition(0);
 
-        abstract String getPattern();
-        abstract String getRandomInput(); 
-        abstract protected void getArguments(Map postArguments);
+        protected abstract String getPattern();
+        protected abstract String getRandomInput(); 
+        protected abstract void getArguments(Map postArguments);
         
 		public String getHTML(Map postArguments) throws Exception {
 			getArguments(postArguments);

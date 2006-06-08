@@ -215,13 +215,13 @@ public class CountItems {
             }
             String zoneIDShown = zoneID;
             if (needsTranslation.contains(zoneID)) {
-            	zoneIDShown = "<b>" + zoneIDShown + " ¹</b>";
+            	zoneIDShown = "<b>" + zoneIDShown + "\u00B9</b>";
             }
             if (singleCountries.contains(zoneID)) {
-            	zoneIDShown = "<i>" + zoneIDShown + "</i> ²";
+            	zoneIDShown = "<i>" + zoneIDShown + "</i> \u00B2";
             }
             if (defaultItems.contains(zoneID)) {
-            	zoneIDShown = "<span style='background-color: #FFFF00'>" + zoneIDShown + "</span> ³";
+            	zoneIDShown = "<span style='background-color: #FFFF00'>" + zoneIDShown + "</span> ?";
             }
             //if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
             String newCountry = country;

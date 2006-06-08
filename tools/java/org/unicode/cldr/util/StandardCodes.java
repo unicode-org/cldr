@@ -262,6 +262,25 @@ public class StandardCodes {
             return false;
         }
     }
+    /**
+     * Gets the coverage group given a locale and org
+     * @param locale
+     * @param org
+     * @return group if availble, null if not
+     */
+    public String getGroup(String locale, String org){
+        try{
+            Map map = getLocaleTypes();
+            Map locMap = (Map) map.get(org);
+            if(locMap!=null){
+                String gp = (String)locMap.get(locale);
+                return gp;
+            }
+            return null;
+        }catch( IOException ex){
+            return null;
+        }
+    }
 	// ========== PRIVATES ==========
 
 	private StandardCodes() {

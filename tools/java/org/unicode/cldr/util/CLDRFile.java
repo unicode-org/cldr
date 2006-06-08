@@ -214,7 +214,7 @@ public class CLDRFile implements Freezable {
 	public static CLDRFile make(String localeName, String dir, boolean includeDraft) {
 		return makeFromFile(dir + File.separator + localeName + ".xml", localeName, includeDraft);
     }
-	
+    
     /**
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
@@ -224,21 +224,21 @@ public class CLDRFile implements Freezable {
     public static CLDRFile makeFromFile(String fullFileName, String localeName, boolean includeDraft) {
         File f = new File(fullFileName);
         try {
-        	fullFileName = f.getCanonicalPath();
+            fullFileName = f.getCanonicalPath();
             if (DEBUG_LOGGING) {
-             	System.out.println("Parsing: " + fullFileName);
-             	Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
-    	    }
-			FileInputStream fis = new FileInputStream(f);
-	    	CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
-			fis.close();
-			return result;
-		} catch (Exception e) {
-			//e.printStackTrace();
-			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
-		}
+                System.out.println("Parsing: " + fullFileName);
+                Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
+            }
+            FileInputStream fis = new FileInputStream(f);
+            CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
+            fis.close();
+            return result;
+        } catch (Exception e) {
+            //e.printStackTrace();
+            throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
+        }
     }
-    
+
     /**
      * Produce a CLDRFile from a file input stream. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName

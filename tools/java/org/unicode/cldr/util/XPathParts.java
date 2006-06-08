@@ -252,6 +252,10 @@ public class XPathParts {
                 if(i == min-1 ){
                     String et1 = (String)e1.getAttribute("type");
                     String et2 = (String)e2.getAttribute("type");
+                    if(et1==null && et2==null){
+                        et1 = (String)e1.getAttribute("id");
+                        et2 = (String)e2.getAttribute("id");
+                    }
                     if(et1.equals(et2)){
                         return true;
                     }

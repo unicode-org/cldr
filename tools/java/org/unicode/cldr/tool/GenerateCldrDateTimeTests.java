@@ -5,38 +5,19 @@
  */
 package org.unicode.cldr.tool;
 
-import java.text.ParseException;
-import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.GenerateCldrTests.DataShower;
-//import org.unicode.cldr.tool.GenerateCldrTests.Equator;
-import org.unicode.cldr.tool.GenerateCldrTests.ResultsPrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Log;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DecimalFormatSymbols;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 
@@ -181,9 +162,9 @@ class GenerateCldrDateTimeTests {
 <plusSign>+</plusSign>
 <minusSign>-</minusSign>
 <exponential>E</exponential>
-<perMille>‰</perMille>
-<infinity>?</infinity>
-<nan>?</nan>
+<perMille>\u2030</perMille>
+<infinity>\u221E</infinity>
+<nan>NaN</nan>
 </symbols>
 -
 	<decimalFormats>

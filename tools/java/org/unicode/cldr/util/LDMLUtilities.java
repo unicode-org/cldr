@@ -109,7 +109,7 @@ public class LDMLUtilities {
             return full;
         }
         String[] constituents = locale.split("_");
-        String loc=null, oldLoc =null;
+        String loc=null;
         boolean isAvailable = false;
         //String lastLoc = "root";
         for(int i=0; i<constituents.length; i++){
@@ -399,6 +399,7 @@ public class LDMLUtilities {
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.DATE_TIME_FORMATS) > -1){
             // TODO fix this
+            return "DateTimePatterns";
         }else if(token.indexOf(LDMLConstants.DTFL) > -1){
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.DATE_TIME_FORMAT) > -1){
@@ -563,6 +564,11 @@ public class LDMLUtilities {
                 parentNodeInSource = nodeInSource.getParentNode();
                 Node childToImport = source.importNode(child,true);
                 parentNodeInSource.replaceChild(childToImport, nodeInSource);
+                //override the validSubLocales attribute
+                String val = LDMLUtilities.getAttributeValue(child.getParentNode(), LDMLConstants.VALID_SUBLOCALE);
+                NamedNodeMap map = parentNodeInSource.getAttributes();
+                Node vs = map.getNamedItem(LDMLConstants.VALID_SUBLOCALE);
+                vs.setNodeValue(val);
             }else{
                 boolean childElementNodes = areChildrenElementNodes(child);
                 boolean sourceElementNodes = areChildrenElementNodes(nodeInSource);
@@ -810,19 +816,14 @@ public class LDMLUtilities {
         NamedNodeMap attr = node.getAttributes();
         int len = attr.getLength();
         if(len>0){
-            xpath.append("[");
             for(int i=0; i<len; i++){
-                if(i>0){
-                    xpath.append(" and ");
-                }
                 Node item = attr.item(i);
-                xpath.append("@");
+                xpath.append("[@");
                 xpath.append(item.getNodeName());
                 xpath.append("='");
                 xpath.append(item.getNodeValue());
-                xpath.append("'");
+                xpath.append("']");
             }
-            xpath.append("]");
         }
     }
     private static boolean areChildNodesElements(Node node){
@@ -975,6 +976,19 @@ public class LDMLUtilities {
                 xpath.append(and);
             }
             xpath.append("@registry='");
+            xpath.append(val);
+            xpath.append("'");
+            terminate = true;
+        }
+        val = getAttributeValue(node, LDMLConstants.ID);
+        if(val!=null){
+            if(isStart){
+                xpath.append("[");
+                isStart=false;
+            }else{
+                xpath.append(and);
+            }
+            xpath.append("@id='");
             xpath.append(val);
             xpath.append("'");
             terminate = true;

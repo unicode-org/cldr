@@ -8,6 +8,8 @@
 */
 package org.unicode.cldr.posix;
 
+import java.text.StringCharacterIterator;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -508,4 +510,46 @@ public class POSIXUtilities {
                     .replaceAll("&lt;",  "\\\\<")
                     .replaceAll("&gt;",  "\\\\>"));
   }
+
+   public static String POSIXYesNoExpr ( String s )
+   {
+      StringBuffer result = new StringBuffer();
+      String [] YesNoElements;
+      YesNoElements = s.split(":");
+      for ( int i = 0 ; i < YesNoElements.length ; i++ )      
+      {
+         String cur = YesNoElements[i];
+         if ( cur.length() > 1 && cur.toLowerCase().equals(cur) )
+         {   
+            if ( result.length() > 0 )
+               result.append(")|(");
+            else
+               result.append("^((");
+
+            StringCharacterIterator si = new StringCharacterIterator(cur);
+            boolean OptLastChars = false;
+            for ( char c = si.first(); c != StringCharacterIterator.DONE; c = si.next() )
+            {
+               if ( c != Character.toUpperCase(c) )
+               {
+                  if ( si.getIndex() == 1 )
+                  {
+                     result.append("(");
+                     OptLastChars = true;   
+                  }
+                  result.append("[");
+                  result.append(c);
+                  result.append(Character.toUpperCase(c));
+                  result.append("]");
+               }
+               else
+                  result.append(c);
+            }
+            if ( OptLastChars )
+               result.append(")?");
+         }
+      }
+      result.append("))");
+      return(POSIXCharNameNP(result.toString()));
+   }
 }

@@ -58,11 +58,18 @@ public class POSIX_LCMessages {
                  buf.append(":yes:y:YES:Y");
             }
             yesstr = POSIXUtilities.POSIXCharNameNP(buf.toString());
+            yesexpr = POSIXUtilities.POSIXYesNoExpr(buf.toString());
          }
          else if ( variant.yesno.equals("short"))
+         {
             yesstr = "yes";
+            yesexpr = POSIXUtilities.POSIXYesNoExpr(yesstr);
+         }
          else
+         {
             yesstr = "yes:y:YES:Y";
+            yesexpr = POSIXUtilities.POSIXYesNoExpr(yesstr);
+         }
 
          SearchLocation = "//ldml/posix/messages/nostr";
          n = LDMLUtilities.getNode(doc, SearchLocation);
@@ -86,25 +93,18 @@ public class POSIX_LCMessages {
                  buf.append(":no:n:NO:N");
             }
             nostr = POSIXUtilities.POSIXCharNameNP(buf.toString());
+            noexpr = POSIXUtilities.POSIXYesNoExpr(buf.toString());
          }
          else if ( variant.yesno.equals("short"))
+         {
             nostr = "no";
+            noexpr = POSIXUtilities.POSIXYesNoExpr(nostr);
+         }
          else
+         {
             nostr = "no:n:NO:N";
-
-         SearchLocation = "//ldml/posix/messages/yesexpr";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-            yesexpr = POSIXUtilities.POSIXCharNameNP(s);
-         else
-            yesexpr = "^[yY]([eE][sS])?";
-
-         SearchLocation = "//ldml/posix/messages/noexpr";
-         n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-            noexpr = POSIXUtilities.POSIXCharNameNP(s);
-         else
-            noexpr = "^[nN][oO]?";
+            noexpr = POSIXUtilities.POSIXYesNoExpr(nostr);
+         }
 
    }
 

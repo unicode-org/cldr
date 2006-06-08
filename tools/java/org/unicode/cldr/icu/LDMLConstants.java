@@ -57,6 +57,8 @@ public class LDMLConstants {
     public static final String AQS             = "alternateQuotationStart";
     public static final String AQE             = "alternateQuotationEnd";
     public static final String MS              = "measurementSystem";
+    public static final String MSNS            = "measurementSystemNames";
+    public static final String MSN             = "measurementSystemName";
     public static final String HEIGHT          = "height";
     public static final String WIDTH           = "width";
     public static final String PAPER_SIZE      = "paperSize";
@@ -115,6 +117,7 @@ public class LDMLConstants {
     public static final String ERA             = "era";
     public static final String ERAABBR         = "eraAbbr";
     public static final String ERANAMES        = "eraNames";
+    public static final String ERANARROW       = "eraNarrow";
     public static final String ABBREVIATED     = "abbreviated";
     public static final String WIDE            = "wide";
     public static final String CURRENCY        = "currency";
@@ -147,7 +150,8 @@ public class LDMLConstants {
     public static final String NORMALIZATION   = "normalization";
     public static final String CASE_LEVEL      = "caseLevel";
     public static final String CASE_FIRST      = "caseFirst";
-    public static final String HIRAGANA_Q      = "hiraganaQuarternary";
+    public static final String HIRAGANA_Q      = "hiraganaQuaternary";
+    public static final String HIRAGANA_Q_DEP  = "hiraganaQuarternary";
     public static final String NUMERIC         = "numeric";
     public static final String RESET           = "reset";
     public static final String PC              = "pc";
@@ -202,6 +206,8 @@ public class LDMLConstants {
     public static final String SEGMENTATIONS     = "segmentations";
     public static final String TIMEZONE_DATA     = "timezoneData";
     public static final String CALENDAR_DATA     = "calendarData";
+    public static final String WEEK_DATA         = "weekData";
+    public static final String MEASUREMENT_DATA  = "measurementData";
     public static final String ZONE_ITEM         = "zoneItem";
     public static final String ALIASES           = "aliases";
     public static final String MAP_TIMEZONES     = "mapTimezones";
@@ -286,10 +292,11 @@ public class LDMLConstants {
     public static final String Q_3              = "3";
     public static final String Q_4              = "4";
     
-    //felxible date time
+    //flexible date time
     public static final String AVAIL_FMTS       = "availableFormats";
     public static final String DATE_FMT_ITEM    = "dateFormatItem";
     public static final String APPEND_ITEMS     = "appendItems";
+    public static final String APPEND_ITEM      = "appendItem";
     public static final String REQUEST          = "request";
     
     //PN added - Open and Close tags
@@ -492,5 +499,6 @@ public class LDMLConstants {
     public static final String DATE_FMT_ITEM_C        = "</" + DATE_FMT_ITEM + ">";
     public static final String APPEND_ITEMS_O         = "<" + APPEND_ITEMS + ">";
     public static final String APPEND_ITEMS_C         = "</" + APPEND_ITEMS + ">";
+
 
 }

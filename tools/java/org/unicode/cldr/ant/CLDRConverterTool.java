@@ -1,6 +1,7 @@
 package org.unicode.cldr.ant;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -9,9 +10,7 @@ import java.util.Vector;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
 import org.w3c.dom.Node;
 
@@ -169,8 +168,9 @@ public abstract class CLDRConverterTool {
         if(coverageLevel==null){
             CLDRFile sd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_NAME, supplementalDir, true);
             CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, supplementalDir, true);
+            HashMap options = new HashMap();
             coverageLevel = new CoverageLevel();
-            coverageLevel.init(sd, smd, null);
+            coverageLevel.init(sd, smd, options);
             ArrayList errors = new ArrayList();
             coverageLevel.setFile(localeName, exemplarsContainA_Z, null, null, errors);
         }
@@ -399,7 +399,9 @@ public abstract class CLDRConverterTool {
                                ){
                                 include = true;
                             }else if(draftVal!=null && draftVal.matches(inc.draft)){
-                                include = true;
+                                if(!(inc.preferAlt!=null && include==false)){
+                                    include = true;
+                                }
                             }else{
                                 include = false;
                             }

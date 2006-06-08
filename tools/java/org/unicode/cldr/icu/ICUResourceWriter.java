@@ -48,6 +48,7 @@ public class ICUResourceWriter {
         public String name;
         public Resource next;
         boolean noSort = false;
+        public Resource first=null;
         public StringBuffer escapeSyntaxChars(String val){
             // escape the embedded quotes
             if(val==null) {
@@ -157,6 +158,12 @@ public class ICUResourceWriter {
             }
         }
     }
+    
+    public static final String UCA_RULES = "uca_rules";
+    public static final String TRANSLITERATOR = "transliaterator";
+    public static final String COLLATION = "collation";
+    public static final String DEPENDENCY = "dependency";
+    
     public static class  ResourceProcess extends Resource{
         String val;
         String ext;
@@ -192,7 +199,6 @@ public class ICUResourceWriter {
         }
     }
     public static class  ResourceArray extends Resource{
-        public Resource first;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -264,7 +270,6 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceIntVector extends Resource{
-        ResourceInt first;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -371,8 +376,7 @@ public class ICUResourceWriter {
     
     public static class ResourceTable extends Resource{
         public String annotation;
-        public Resource first;
-        public static final String NO_FALLBACK= "no fallback";
+        public static final String NO_FALLBACK= "nofallback";
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);

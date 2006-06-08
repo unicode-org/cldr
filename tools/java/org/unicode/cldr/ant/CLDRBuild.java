@@ -108,8 +108,8 @@ public class CLDRBuild extends Task{
             }
           
         }else{
-            if(srcFiles.length==1 && destFiles.length==1){
-                ret.put(srcFiles[0].getName(),".*");
+            for(int i=0; i<srcFiles.length;i++){
+                ret.put(srcFiles[i].getName(),".*");
             }
         }
         // only build the files that need to be built

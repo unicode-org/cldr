@@ -1,5 +1,5 @@
 <!--
-Copyright © 2003-2005 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
+Copyright © 2003-2006 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode data files and any associated documentation (the "Data Files") or Unicode software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that (a) the above copyright notice(s) and this permission notice appear with all copies of the Data Files or Software, (b) both the above copyright notice(s) and this permission notice appear in associated documentation, and (c) there is clear notice in each modified Data File or in the Software as well as in the documentation associated with the Data File(s) or Software that the data or software has been modified.
 
@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.27 $
-    $Date: 2006-05-18 14:45:46 $
+    $Revision: 1.28 $
+    $Date: 2006-06-09 10:40:55 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
@@ -21,28 +21,27 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST generation date CDATA #REQUIRED >
 
 <!ELEMENT currencyData ( fractions*, region+ ) >
-<!ATTLIST currencyData draft ( true | false ) #IMPLIED >
-
+<!ATTLIST currencyData draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ELEMENT fractions ( info+ ) >
-<!ATTLIST fractions draft ( true | false ) #IMPLIED >
+<!ATTLIST fractions draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT info EMPTY >
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
-<!ATTLIST info draft ( true | false ) #IMPLIED >
+<!ATTLIST info draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST info references CDATA #IMPLIED >
 
 <!ELEMENT region ( currency* ) >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
-<!ATTLIST region draft ( true | false ) #IMPLIED >
+<!ATTLIST region draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT currency ( alternate* ) >
 <!ATTLIST currency before NMTOKEN #IMPLIED > <!-- This usage is deprecated. Use from and to. -->
 <!ATTLIST currency from NMTOKEN #IMPLIED >
 <!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
-<!ATTLIST currency draft ( true | false ) #IMPLIED >
+<!ATTLIST currency draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currency references CDATA #IMPLIED >
 
 <!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->
@@ -52,7 +51,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT group EMPTY >
 <!ATTLIST group type NMTOKEN #REQUIRED >
 <!ATTLIST group contains NMTOKENS #IMPLIED >
-<!ATTLIST group draft ( true | false ) #IMPLIED >
+<!ATTLIST group draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST group references CDATA #IMPLIED >
 
 <!ELEMENT languageData ( language* ) >
@@ -61,7 +60,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST language scripts NMTOKENS #IMPLIED >
 <!ATTLIST language territories NMTOKENS #IMPLIED >
 <!ATTLIST language variants NMTOKENS #IMPLIED >
-<!ATTLIST language draft ( true | false ) #IMPLIED >
+<!ATTLIST language draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST language references CDATA #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 
@@ -69,7 +68,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT calendar EMPTY >
 <!ATTLIST calendar type NMTOKENS #REQUIRED >
 <!ATTLIST calendar territories NMTOKENS #IMPLIED >
-<!ATTLIST calendar draft ( true | false ) #IMPLIED >
+<!ATTLIST calendar draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
 
@@ -78,28 +77,28 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT minDays EMPTY >
 <!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED >
 <!ATTLIST minDays territories NMTOKENS #REQUIRED >
-<!ATTLIST minDays draft ( true | false ) #IMPLIED >
+<!ATTLIST minDays draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST minDays references CDATA #IMPLIED >
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
 
 <!ELEMENT firstDay EMPTY >
 <!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST firstDay territories NMTOKENS #REQUIRED >
-<!ATTLIST firstDay draft ( true | false ) #IMPLIED >
+<!ATTLIST firstDay draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST firstDay references CDATA #IMPLIED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekendStart EMPTY >
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST weekendStart territories NMTOKENS #REQUIRED >
-<!ATTLIST weekendStart draft ( true | false ) #IMPLIED >
+<!ATTLIST weekendStart draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendStart references CDATA #IMPLIED >
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekendEnd EMPTY >
 <!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST weekendEnd territories NMTOKENS #REQUIRED >
-<!ATTLIST weekendEnd draft ( true | false ) #IMPLIED >
+<!ATTLIST weekendEnd draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
 
@@ -108,14 +107,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT measurementSystem EMPTY >
 <!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >
 <!ATTLIST measurementSystem territories NMTOKENS #REQUIRED >
-<!ATTLIST measurementSystem draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystem draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystem references CDATA #IMPLIED >
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
 
 <!ELEMENT paperSize EMPTY >
 <!ATTLIST paperSize type ( A4 | US-Letter ) #REQUIRED >
 <!ATTLIST paperSize territories NMTOKENS #REQUIRED >
-<!ATTLIST paperSize draft ( true | false ) #IMPLIED >
+<!ATTLIST paperSize draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST paperSize references CDATA #IMPLIED >
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
 
@@ -140,24 +139,24 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST zoneItem references CDATA #IMPLIED >
 
 <!ELEMENT characters ( character-fallback*) >
-<!ATTLIST characters draft ( true | false ) #IMPLIED >
+<!ATTLIST characters draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ELEMENT character-fallback ( character* ) >
 <!ELEMENT character (substitute*) >
 <!ATTLIST character value CDATA #REQUIRED >
-<!ATTLIST character draft ( true | false ) #IMPLIED >
+<!ATTLIST character draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST character standard CDATA #IMPLIED >
 <!ATTLIST character references CDATA #IMPLIED >
 <!ATTLIST character alt CDATA #IMPLIED >
 
 <!ELEMENT substitute (#PCDATA) >
-<!ATTLIST substitute draft ( true | false ) #IMPLIED >
+<!ATTLIST substitute draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST substitute standard CDATA #IMPLIED >
 <!ATTLIST substitute references CDATA #IMPLIED >
 <!ATTLIST substitute alt CDATA #IMPLIED >
 
 <!ELEMENT transforms ( transform*) >
 <!ELEMENT transform ((comment | tRule)*) >
-<!ATTLIST transform draft ( true | false ) #IMPLIED >
+<!ATTLIST transform draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST transform references CDATA #IMPLIED >
 <!ATTLIST transform alt CDATA #IMPLIED >
 <!ATTLIST transform source CDATA #IMPLIED >
@@ -169,43 +168,43 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT tRule (#PCDATA) >
 
 <!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions?, skipDefaultLocale?) >
-<!ATTLIST metadata draft ( true | false ) #IMPLIED >
+<!ATTLIST metadata draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT attributeOrder ( #PCDATA ) >
-<!ATTLIST attributeOrder draft ( true | false ) #IMPLIED >
+<!ATTLIST attributeOrder draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT elementOrder ( #PCDATA ) >
-<!ATTLIST elementOrder draft ( true | false ) #IMPLIED >
+<!ATTLIST elementOrder draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT serialElements ( #PCDATA ) >
-<!ATTLIST serialElements draft ( true | false ) #IMPLIED >
+<!ATTLIST serialElements draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT suppress (  attributes*  ) >
-<!ATTLIST suppress draft ( true | false ) #IMPLIED >
+<!ATTLIST suppress draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT attributes EMPTY >
-<!ATTLIST attributes draft ( true | false ) #IMPLIED >
+<!ATTLIST attributes draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST attributes element NMTOKENS #IMPLIED >
 <!ATTLIST attributes attribute NMTOKENS #IMPLIED >
 <!ATTLIST attributes attributeValue CDATA #IMPLIED >
 
 <!ELEMENT validity (  variable*,  attributeValues* ) >
-<!ATTLIST validity draft ( true | false ) #IMPLIED >
+<!ATTLIST validity draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT variable ( #PCDATA ) >
-<!ATTLIST variable draft ( true | false ) #IMPLIED >
+<!ATTLIST variable draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST variable id CDATA #IMPLIED >
 <!ATTLIST variable type NMTOKEN #IMPLIED >
 
 <!ELEMENT attributeValues (  #PCDATA ) >
-<!ATTLIST attributeValues draft ( true | false ) #IMPLIED >
+<!ATTLIST attributeValues draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST attributeValues elements NMTOKENS #IMPLIED >
 <!ATTLIST attributeValues attributes NMTOKENS #IMPLIED >
 <!ATTLIST attributeValues type NMTOKEN #IMPLIED >
 <!ATTLIST attributeValues order NMTOKEN #IMPLIED >
 
 <!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias* ) >
-<!ATTLIST alias draft ( true | false ) #IMPLIED >
+<!ATTLIST alias draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #IMPLIED >
@@ -224,35 +223,35 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
 
 <!ELEMENT deprecated ( deprecatedItems* ) >
-<!ATTLIST deprecated draft ( true | false ) #IMPLIED >
+<!ATTLIST deprecated draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT deprecatedItems EMPTY >
-<!ATTLIST deprecatedItems draft ( true | false ) #IMPLIED >
+<!ATTLIST deprecatedItems draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST deprecatedItems type ( standard | supplemental ) #IMPLIED >
 <!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems values CDATA #IMPLIED >
 
 <!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, timezoneCoverage* ) >
-<!ATTLIST coverageAdditions draft ( true | false ) #IMPLIED >
+<!ATTLIST coverageAdditions draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT languageCoverage ( #PCDATA ) >
-<!ATTLIST languageCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST languageCoverage draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST languageCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST languageCoverage values NMTOKENS #IMPLIED >
 
 <!ELEMENT scriptCoverage ( #PCDATA ) >
-<!ATTLIST scriptCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST scriptCoverage draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST scriptCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST scriptCoverage values NMTOKENS #IMPLIED >
 
 <!ELEMENT territoryCoverage ( #PCDATA ) >
-<!ATTLIST territoryCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST territoryCoverage draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territoryCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST territoryCoverage values NMTOKENS #IMPLIED >
 
 <!ELEMENT timezoneCoverage ( #PCDATA ) >
-<!ATTLIST timezoneCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST timezoneCoverage draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST timezoneCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST timezoneCoverage values CDATA #IMPLIED > <!-- would be NMTOKENS, but needs to allow / -->
 

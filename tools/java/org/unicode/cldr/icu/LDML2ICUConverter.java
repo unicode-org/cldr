@@ -373,7 +373,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         FilenameFilter filter = new FilenameFilter(){
                 public boolean accept(File dir, String name) {
-                    if(name.matches(".*\\.xml")){
+                    if(name.matches(".*\\.xml")&& !name.equals("characters.xml")){
                         return true;
                     }
                     return false;

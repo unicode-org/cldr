@@ -104,7 +104,7 @@
 				<variable id="$XX">($XX $X)</variable>
 				<!-- OUT OF ORDER ON PURPOSE -->
 				<!-- LB 10  Treat any remaining combining mark as AL. -->
-				<variable id="$AL">($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)</variable>
+				<variable id="$AL">($AL | ^ $CM | (?&lt;=[$SP $BK $CR $LF $NL $ZW]) $CM)</variable>
 			</variables>
 			<segmentRules>
 				<!-- LB 4  Always break after hard line breaks (but never between CR and LF). -->

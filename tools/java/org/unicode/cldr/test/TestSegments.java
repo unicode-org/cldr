@@ -49,6 +49,10 @@ import com.ibm.icu.util.ULocale;
 
 public class TestSegments {
 	private static final boolean JDK4HACK = true;
+	private static final boolean TESTING = false;
+	// static String indent = "\t\t";
+	static String indent = "";
+
 	/**
 	 * If not null, maskes off the character properties so the UnicodeSets are easier to use when debugging.
 	 */
@@ -60,7 +64,7 @@ public class TestSegments {
 	private static final boolean DEBUG_SHOW_MATCHES = false;
 	private static final boolean SHOW_VAR_CONTENTS = false;
 	private static final boolean SHOW_RULE_LIST = false;
-	private static final int monkeyLimit = 1000000, monkeyStringCount = 10;
+	private static final int monkeyLimit = 1000, monkeyStringCount = 10;
 	private static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
 
 	private static final Matcher flagItems = Pattern.compile(
@@ -80,9 +84,11 @@ public class TestSegments {
 			String testName = tests[i][0];
 			if (!testChoice.contains(testName)) continue;
 			RuleListBuilder rb = new RuleListBuilder();
-			System.out.println();
-			System.out.println();
-			System.out.println("Building: " + testName);
+			if (TESTING) {
+				System.out.println();
+				System.out.println();
+				System.out.println("Building: " + testName);
+			}
 			int j = 1;
 			for (; j < tests[i].length; ++j) {
 				String line = tests[i][j];
@@ -90,6 +96,7 @@ public class TestSegments {
 				rb.addLine(line);
 			}
 			System.out.println(rb.toString(testName));
+			if (!TESTING) continue;
 			System.out.println();
 			System.out.println("Testing");
 			RuleList rl = rb.make();
@@ -175,7 +182,7 @@ public class TestSegments {
 				System.out.println(line + "\tMismatch at Line\t" + i 
 						+ ",\toffset\t" + j 
 						+ ",\twith Rule\t" + rl.getBreakRule()
-						+ ":\t" + (icuBreakResults ? "ICU Breaks, CLDR Doesn't" : "CLDR Breaks, ICU Doesn't"));
+						+ ":\t" + (icuBreakResults ? "ICU Breaks, CLDR Doesn't" : "ICU Doesn't, CLDR Breaks"));
 				System.out.println(showResults(test, j, rsg, icuBreakResults));
 				rl.breaksAt(test, j); // for debugging
 			}
@@ -511,23 +518,24 @@ public class TestSegments {
 		private List lastComments = new ArrayList();
 		
 		public String toString(String testName) {
+			
 			StringBuffer result = new StringBuffer();
-			result.append("\t\t<segmentation type=\"" + testName + "\">").append("\r\n");
-			result.append("\t\t\t<variables>").append("\r\n");
+			result.append(indent + "<segmentation type=\"" + testName + "\">").append("\r\n");
+			result.append(indent + "\t<variables>").append("\r\n");
 			for (int i = 0; i < rawVariables.size(); ++i) {
-				result.append("\t\t\t\t").append(rawVariables.get(i)).append("\r\n");
+				result.append(indent + "\t\t").append(rawVariables.get(i)).append("\r\n");
 			}
-			result.append("\t\t\t</variables>").append("\r\n");
-			result.append("\t\t\t<rules>").append("\r\n");
+			result.append(indent + "\t</variables>").append("\r\n");
+			result.append(indent + "\t<rules>").append("\r\n");
 			for (Iterator it = rawRules.keySet().iterator(); it.hasNext();) {
 				Object key = it.next();
-				result.append("\t\t\t\t").append(rawRules.get(key)).append("\r\n");
+				result.append(indent + "\t\t").append(rawRules.get(key)).append("\r\n");
 			}
-			result.append("\t\t\t</rules>").append("\r\n");
+			result.append(indent + "\t</rules>").append("\r\n");
 			for (int i = 0; i < lastComments.size(); ++i) {
-				result.append("\t\t\t").append(lastComments.get(i)).append("\r\n");
+				result.append(indent + "\t").append(lastComments.get(i)).append("\r\n");
 			}
-			result.append("\t\t</segmentation>").append("\r\n");
+			result.append(indent + "</segmentation>").append("\r\n");
 			return result.toString();
 		}
 		
@@ -643,13 +651,17 @@ public class TestSegments {
 				double increment = 0.0001;
 				double temp = order.doubleValue() - increment*lastComments.size();
 				for (int i = 0; i < lastComments.size(); ++i) {
-					rawRules.put(new Double(temp), lastComments.get(i));
+					Double position = new Double(temp);
+					if (rawRules.containsKey(position)) {
+						System.out.println("WARNING: Overriding rule " + position);
+					}
+					rawRules.put(position, lastComments.get(i));
 					temp += increment;
 				}
 				lastComments.clear();
 			}
 			rawRules.put(order, "<rule id=\"" + RuleList.nf.format(order) + "\""
-					+ (flagItems.reset(line).find() ? " normative=\"true\"" : "")
+					//+ (flagItems.reset(line).find() ? " normative=\"true\"" : "")
 					+ "> " + line + " </rule>");
 			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after), line));
 			return this;	
@@ -816,6 +828,8 @@ public class TestSegments {
 		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
 		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
 		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
+		//"$NEWLINE=[$GCCR $GCLF \\u0085 \\u000B \\u000C \\u2028 \\u2029]",
+		"$Sep=\\p{Sentence_Break=Sep}",
 		"# Now normal variables",
 		"$Format=\\p{Word_Break=Format}",
 		"$Katakana=\\p{Word_Break=Katakana}",
@@ -825,26 +839,30 @@ public class TestSegments {
 		"$Numeric=\\p{Word_Break=Numeric}",
 		"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
 		
-		"# Fixes for GC, Format",
-		"# Subtract Format from Control, since we don't want to break before/after",
+		"# WARNING: For Rule 4: Fixes for GC, Format",
+		//"# Subtract Format from Control, since we don't want to break before/after",
 		//"$GCControl=[$GCControl-$Format]", 
 		"# Add format and extend to everything",
-		//"$X=[$Format $GCExtend]*",
-		"$X= $GCExtend* $Format*",
+		"$X=[$Format $GCExtend]*",
+		//"$X= ($GCExtend | $Format)*",
 		"$Katakana=($Katakana $X)",
 		"$ALetter=($ALetter $X)",
 		"$MidLetter=($MidLetter $X)",
 		"$MidNum=($MidNum $X)",
 		"$Numeric=($Numeric $X)",
 		"$ExtendNumLet=($ExtendNumLet $X)",
-		"# Keep GC together; don't need GC rules 6-8, since they are covered by the other rules",
-		"3.3) $GCCR  	×  	$GCLF",
+		//"# Do not break within CRLF",
+		"3) $GCCR  	×  	$GCLF",
 		//"3.4) ( $Control | $CR | $LF ) 	÷",
 		//"3.5) ÷ 	( $Control | $CR | $LF )",
 		//"3.9) × 	$Extend",
-		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
-		"# Don't break within X + Format. Otherwise Format is added because of variables below",
-		"4) × 	$Format", 
+		//"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"# Ignore Format and Extend characters, except when they appear at the beginning of a region of text.",
+		"# (See Section 6.2 Grapheme Cluster and Format Rules.)",
+		"# WARNING: Implemented as don't break before format (except after linebreaks),",
+		"# AND add format and extend in all variables definitions that appear after this point!",
+		//"4) × [$Format $GCExtend]", 
+		"4) [^ $Sep ] × [$Format $GCExtend]", 
 		"# Vanilla rules",
 		"5)$ALetter  	×  	$ALetter",
 		"6)$ALetter 	× 	$MidLetter $ALetter",
@@ -857,10 +875,10 @@ public class TestSegments {
 		"13)$Katakana 	× 	$Katakana",
 		"13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	× 	$ExtendNumLet",
 		"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
-		"#15.1,100)$ALetter ÷",
-		"#15.1,100)$Numeric ÷",
-		"#15.1,100)$Katakana ÷",
-		"#15.1,100)$Ideographic ÷",
+		//"#15.1,100)$ALetter ÷",
+		//"#15.1,100)$Numeric ÷",
+		//"#15.1,100)$Katakana ÷",
+		//"#15.1,100)$Ideographic ÷",
 
 
 		"test",
@@ -905,15 +923,15 @@ public class TestSegments {
 		"$WJ=\\p{Line_Break=Word_Joiner}",
 		"$XX=\\p{Line_Break=Unknown}",
 		"$ZW=\\p{Line_Break=ZWSpace}",
-		//"$NotNL=[^$NL]",
-		"# LB 1  Assign a line breaking class to each code point of the input. " +
-		"Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
+		"$NotNL=[^$NL]",
+		"# LB 1  Assign a line breaking class to each code point of the input. ",
+		"# Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
 		"# NOTE: CB is ok to fall through, but must handle others here.",
 		//"show $AL",
 		"$AL=[$AI $AL $XX $SA $SG]",
 		//"show $AL",
 		//"$oldAL=$AL", // for debugging
-		"# Fixes for Rule 7",
+		"# WARNING: Fixes for Rule 9",
 		"# Treat X CM* as if it were X.",
 		"# Where X is any line break class except SP, BK, CR, LF, NL or ZW.",
 		"$X=$CM*",
@@ -947,107 +965,100 @@ public class TestSegments {
 		"$SY=($SY $X)",
 		"$WJ=($WJ $X)",
 		"$XX=($XX $X)",
-		"# LB 7c  Treat any remaining combining mark as AL.",
+		"# OUT OF ORDER ON PURPOSE",
+		"# LB 10  Treat any remaining combining mark as AL.",
 		"$AL=($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)",
 
-		"# LB 3a  Always break after hard line breaks (but never between CR and LF).",
-		"3.1) $BK ÷",
-		"# LB 3b  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks.",
-		"3.21) $CR × $LF",
-		"3.22) $CR ÷",
-		"3.23) $LF ÷",
-		"3.24) $NL ÷",
-		"# LB 3c  Do not break before hard line breaks.",
-		"3.3) × ( $BK | $CR | $LF | $NL )",
-		"# LB 4  Do not break before spaces or zero-width space.",
-		"4.01) × $SP",
-		"4.02) × $ZW",
-		"# LB 5  Break after zero-width space.",
-		"5) $ZW ÷",
-		"# LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character" +
-		" in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.)",
-		"7.2) [^$SP $BK $CR $LF $NL $ZW] × $CM",
+		"# LB 4  Always break after hard line breaks (but never between CR and LF).",
+		"4) $BK ÷",
+		"# LB 5  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks.",
+		"5.01) $CR × $LF",
+		"5.02) $CR ÷",
+		"5.03) $LF ÷",
+		"5.04) $NL ÷",
+		"# LB 6  Do not break before hard line breaks.",
+		"6) × ( $BK | $CR | $LF | $NL )",
+		"# LB 7  Do not break before spaces or zero-width space.",
+		"7.01) × $SP",
+		"7.02) × $ZW",
+		"# LB 8  Break after zero-width space.",
+		"8) $ZW ÷",
+		"# LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character",
+		"# in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.)",
+		"9) [^$SP $BK $CR $LF $NL $ZW] × $CM",
 		"#WARNING: this is done by modifying the variable values for all but SP.... That is, $AL is really ($AI $CM*)!",
-		"# LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
+		"# LB 11  Do not break before or after WORD JOINER and related characters.",
+		"11.01) × $WJ",
+		"11.02) $WJ ×",
+		"# LB 12  Do not break before or after NBSP and related characters.",
+		"12.01) [^$SP] × $GL",
+		"12.02) $GL ×",
+
+		"# LB 13  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
 		"# Using customization 7.",
-		//"8.01) $NotNL × $CL",
-		//"8.02) × $EX",
-		//"8.03) $NotNL × $IS",
-		//"8.04) $NotNL × $SY",
-		"8.01) × $CL",
-		"8.02) × $EX",
-		"8.03) × $IS",
-		"8.04) × $SY",
-		"#LB 9  Do not break after ‘[’, even after spaces.",
-		"9) $OP $SP* ×",
-		"# LB 10  Do not break within ‘\"[’, even with intervening spaces.",
-		"10) $QU $SP* × $OP",
-		"# LB 11  Do not break within ‘]h’, even with intervening spaces.",
-		"11) $CL $SP* × $NS",
-		"# LB 11a  Do not break within ‘——’, even with intervening spaces.",
-		"11.1) $B2 $SP* × $B2",
-		"# LB 11b  Do not break before or after WORD JOINER and related characters.",
-		"11.21) × $WJ",
-		"11.22) $WJ ×",
-		"# LB 12  Break after spaces.",
-		"12) $SP ÷",
-		"# LB 13  Do not break before or after NBSP and related characters.",
-		"13.01) × $GL",
-		"13.02) $GL ×",
-		"# LB 14  Do not break before or after ‘\"’.",
-		"14.01)  × $QU",
-		"14.02) $QU ×",
-		"# LB 14a  Break before and after unresolved CB.",
-		"14.12)  ÷ $CB",
-		"14.13) $CB ÷",
-		"# LB 15  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents.",
-		"15.01) × $BA",
-		"15.02) × $HY",
-		"15.03) × $NS",
-		"15.04) $BB ×",
-		"# LB 16  Do not break between two ellipses, or between letters or numbers and ellipsis.",
+		"13.01) $NotNL × $CL",
+		"13.02) × $EX",
+		"13.03) $NotNL × $IS",
+		"13.04) $NotNL × $SY",
+		"#LB 14  Do not break after ‘[’, even after spaces.",
+		"14) $OP $SP* ×",
+		"# LB 15  Do not break within ‘\"[’, even with intervening spaces.",
+		"15) $QU $SP* × $OP",
+		"# LB 16  Do not break within ‘]h’, even with intervening spaces.",
+		"16) $CL $SP* × $NS",
+		"# LB 17  Do not break within ‘——’, even with intervening spaces.",
+		"17) $B2 $SP* × $B2",
+		"# LB 18  Break after spaces.",
+		"18) $SP ÷",
+		"# LB 19  Do not break before or after ‘\"’.",
+		"19.01)  × $QU",
+		"19.02) $QU ×",
+		"# LB 20  Break before and after unresolved CB.",
+		"20.01)  ÷ $CB",
+		"20.02) $CB ÷",
+		"# LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents.",
+		"21.01) × $BA",
+		"21.02) × $HY",
+		"21.03) × $NS",
+		"21.04) $BB ×",
+		"# LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis.",
 		//"show $AL",
-		"16.01) $AL × $IN",
-		"16.02) $ID × $IN",
-		"16.03) $IN × $IN",
-		"16.04) $NU × $IN",
-		"# LB 17  Do not break within ‘a9’, ‘3a’, or ‘H%’.",
-		"17.01) $ID × $PO",
-		"17.02) $AL × $NU",
-		"17.03) $NU × $AL",
+		"22.01) $AL × $IN",
+		"22.02) $ID × $IN",
+		"22.03) $IN × $IN",
+		"22.04) $NU × $IN",
+		"# LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’.",
+		"23.01) $ID × $PO",
+		"23.02) $AL × $NU",
+		"23.03) $NU × $AL",
+		"# LB 24  Do not break between prefix and letters or ideographs.",
+		"24.01) $PR × $ID",
+		"24.02) $PR × $AL",
+		"24.03) $PO × $AL",
 		"# Using customization 7",
 		"# LB 18  Do not break between the following pairs of classes.",
 		"# LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?",
 		"# Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after ",
-		"18.111) $PR × ( $OP | $HY )? $NU",
-		"18.112) ( $OP | $HY ) × $NU",
-		"18.113) $NU × ($NU | $SY | $IS)",
-		"18.114) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS)",
-		"18.115) $NU ($NU | $SY | $IS)* × $CL",
-		"18.115) $NU ($NU | $SY | $IS)* $CL? × $PO",
-		"#18.11) $CL × $PO",
-		"#18.12) $HY × $NU",
-		"#18.13) $IS × $NU",
-		"#18.13) $NU × $NU",
-		"#18.14) $NU × $PO",
-		"18.15) $PR × $AL",
-		"#18.16) $PR × $HY",
-		"18.17) $PR × $ID",
-		"#18.18) $PR × $NU",
-		"#18.19) $PR × $OP",
-		"#18.195) $SY × $NU",
-		"#LB 18b Do not break a Korean syllable.",
-		"18.21) $JL  × $JL | $JV | $H2 | $H3",
-		"18.22) $JV | $H2 × $JV | $JT",
-		"18.23) $JT | $H3 × $JT",
-		"# LB 18c Treat a Korean Syllable Block the same as ID.",
-		"18.31) $JL | $JV | $JT | $H2 | $H3 × $IN",
-		"18.32) $JL | $JV | $JT | $H2 | $H3  × $PO",
-		"18.33) $PR × $JL | $JV | $JT | $H2 | $H3",
-		"# LB 19  Do not break between alphabetics (\"at\").",
-		"19) $AL × $AL",
-		"# LB 19b  Do not break between numeric punctuation and alphabetics (\"e.g.\").",
-		"19.1) $IS × $AL",
+		"25.01) ($PR | $PO) × ( $OP | $HY )? $NU",
+		"25.02) ( $OP | $HY ) × $NU",
+		"25.03) $NU × ($NU | $SY | $IS)",
+		"25.04) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS | $CL)",
+
+		"#LB 26 Do not break a Korean syllable.",
+		"26.01) $JL  × $JL | $JV | $H2 | $H3",
+		"26.02) $JV | $H2 × $JV | $JT",
+		"26.03) $JT | $H3 × $JT",
+		"# LB 27 Treat a Korean Syllable Block the same as ID.",
+		"27.01) $JL | $JV | $JT | $H2 | $H3 × $IN",
+		"27.02) $JL | $JV | $JT | $H2 | $H3  × $PO",
+		"27.03) $PR × $JL | $JV | $JT | $H2 | $H3",
+		"# LB 28  Do not break between alphabetics (\"at\").",
+		"28) $AL × $AL",
+		"# LB 29  Do not break between numeric punctuation and alphabetics (\"e.g.\").",
+		"29) $IS × $AL",
+		"# LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation.",
+		"30.01) ($AL | $NU) × $OP",
+		"30.02) $CL × ($AL | $NU)",
 		"test",
 		"\uCD40\u1185",
 		"http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
@@ -1078,8 +1089,9 @@ public class TestSegments {
 		"$NotStuff=[^$OLetter $Upper $Lower $Sep $ATerm $STerm]",
 		"# $ATerm and $Sterm are temporary, to match ICU until UTC decides.",
 
-		"# Now add format and extend to everything but Sep and controls",
-		"$X=$GCExtend* $Format*",
+		"# WARNING: For Rule 5, now add format and extend to everything but Sep",
+		"$X=[$Format $GCExtend]*",
+		//"$X=$GCExtend* $Format*",
 		"$Sp=(($Sp | [$Sp - $GCControl] $GCExtend*) $Format*)",
 		"$Lower=($Lower $X)",
 		"$Upper=($Upper $X)",
@@ -1089,19 +1101,25 @@ public class TestSegments {
 		"$STerm=($STerm $X)",
 		"$Close=($Close $X)",
 
-		"# keep GC together; don't need 6-8, since they are covered by the other rules",
-		"3.3) $GCCR  	×  	$GCLF",
-		"# Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29",
-		"3.35) $Sep  	÷",
+		"# Do not break within CRLF",
+		"3) $GCCR  	×  	$GCLF",
+		"# Break after paragraph separators.",
+		"4) $Sep  	÷",
 		//"3.4) ( $Control | $CR | $LF ) 	÷",
 		//"3.5) ÷ 	( $Control | $CR | $LF )",
-		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
-		"4) × 	$Format", 
-		"# 4 means don't break within X + Format. Otherwise Format is added because of variables below",
-		"#Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
+		"# Ignore Format and Extend characters, except when they appear at the beginning of a region of text.",
+		"# (See Section 6.2 Grapheme Cluster and Format Rules.)",
+		"# WARNING: Implemented as don't break before format (except after linebreaks),",
+		"# AND add format and extend in all variables definitions that appear after this point!",
+		//"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"5) [^$Sep] × [$Format $GCExtend]", 
+		"# Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter,",
+		"# is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase.",
+		"# For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
 		"6) $ATerm 	× 	$Numeric",
 		"7) $Upper $ATerm 	× 	$Upper",
 		"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
+		"8.1) ($STerm | $ATerm) $Close* $Sp* 	× 	($STerm | $ATerm)",
 		"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
 		"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
 		"# Note the fix to $Sp*, $Sep?",

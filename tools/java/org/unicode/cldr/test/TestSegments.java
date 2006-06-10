@@ -25,7 +25,9 @@ import java.util.regex.PatternSyntaxException;
 
 import org.unicode.cldr.util.StandardCodes;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
 import com.ibm.icu.impl.UCharacterProperty;
@@ -34,6 +36,7 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedBreakIterator;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -49,9 +52,9 @@ import com.ibm.icu.util.ULocale;
 
 public class TestSegments {
 	private static final boolean JDK4HACK = true;
-	private static final boolean TESTING = false;
-	// static String indent = "\t\t";
-	static String indent = "";
+	private static final boolean TESTING = true;
+	static String indent = "\t\t";
+	// static String indent = "";
 
 	/**
 	 * If not null, maskes off the character properties so the UnicodeSets are easier to use when debugging.
@@ -75,7 +78,7 @@ public class TestSegments {
 	 * @param args unused
 	 */
 	public static void main(String[] args) {
-		if (args.length == 0) args = new String[] {"GraphemeCluster", "WordBreak", "LineBreak", "SentenceBreak"};
+		if (args.length == 0) args = new String[] {"GraphemeClusterBreak", "LineBreak", "SentenceBreak", "WordBreak"};
 		List testChoice = Arrays.asList(args);
 		
 		// grab the rules, build a RuleList, and run against the test samples.
@@ -95,7 +98,7 @@ public class TestSegments {
 				if (line.equals("test")) break;
 				rb.addLine(line);
 			}
-			System.out.println(rb.toString(testName));
+			System.out.print(rb.toString(testName));
 			if (!TESTING) continue;
 			System.out.println();
 			System.out.println("Testing");
@@ -526,12 +529,12 @@ public class TestSegments {
 				result.append(indent + "\t\t").append(rawVariables.get(i)).append("\r\n");
 			}
 			result.append(indent + "\t</variables>").append("\r\n");
-			result.append(indent + "\t<rules>").append("\r\n");
+			result.append(indent + "\t<segmentRules>").append("\r\n");
 			for (Iterator it = rawRules.keySet().iterator(); it.hasNext();) {
 				Object key = it.next();
 				result.append(indent + "\t\t").append(rawRules.get(key)).append("\r\n");
 			}
-			result.append(indent + "\t</rules>").append("\r\n");
+			result.append(indent + "\t</segmentRules>").append("\r\n");
 			for (int i = 0; i < lastComments.size(); ++i) {
 				result.append(indent + "\t").append(lastComments.get(i)).append("\r\n");
 			}
@@ -599,7 +602,7 @@ public class TestSegments {
 				rawVariables.addAll(lastComments);
 				lastComments.clear();
 			}
-			rawVariables.add("<variable id=\"" + name + "\">" + value + "</variable>");
+			rawVariables.add("<variable id=\"" + name + "\">" + TransliteratorUtilities.toXML.transliterate(value) + "</variable>");
 			if (!identifierMatcher.reset(name).matches()) {
 				throw new IllegalArgumentException("Variable name must be $id: '" + name + "'");
 			}
@@ -662,7 +665,7 @@ public class TestSegments {
 			}
 			rawRules.put(order, "<rule id=\"" + RuleList.nf.format(order) + "\""
 					//+ (flagItems.reset(line).find() ? " normative=\"true\"" : "")
-					+ "> " + line + " </rule>");
+					+ "> " + TransliteratorUtilities.toXML.transliterate(line) + " </rule>");
 			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after), line));
 			return this;	
 		}
@@ -801,7 +804,7 @@ public class TestSegments {
 		"test",
 		"The quick 100 brown foxes."
 	},{
-		"GraphemeCluster",
+		"GraphemeClusterBreak",
 		"$CR=\\p{Grapheme_Cluster_Break=CR}",
 		"$LF=\\p{Grapheme_Cluster_Break=LF}",
 		"$Control=\\p{Grapheme_Cluster_Break=Control}",
@@ -821,69 +824,6 @@ public class TestSegments {
 		"test",
 		"The qui\u0300ck 100 brown foxes.",
 		"compareGrapheme"
-	},{
-		"WordBreak",
-		"# GC stuff",
-		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
-		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
-		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
-		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
-		//"$NEWLINE=[$GCCR $GCLF \\u0085 \\u000B \\u000C \\u2028 \\u2029]",
-		"$Sep=\\p{Sentence_Break=Sep}",
-		"# Now normal variables",
-		"$Format=\\p{Word_Break=Format}",
-		"$Katakana=\\p{Word_Break=Katakana}",
-		"$ALetter=\\p{Word_Break=ALetter}",
-		"$MidLetter=\\p{Word_Break=MidLetter}",
-		"$MidNum=\\p{Word_Break=MidNum}",
-		"$Numeric=\\p{Word_Break=Numeric}",
-		"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
-		
-		"# WARNING: For Rule 4: Fixes for GC, Format",
-		//"# Subtract Format from Control, since we don't want to break before/after",
-		//"$GCControl=[$GCControl-$Format]", 
-		"# Add format and extend to everything",
-		"$X=[$Format $GCExtend]*",
-		//"$X= ($GCExtend | $Format)*",
-		"$Katakana=($Katakana $X)",
-		"$ALetter=($ALetter $X)",
-		"$MidLetter=($MidLetter $X)",
-		"$MidNum=($MidNum $X)",
-		"$Numeric=($Numeric $X)",
-		"$ExtendNumLet=($ExtendNumLet $X)",
-		//"# Do not break within CRLF",
-		"3) $GCCR  	×  	$GCLF",
-		//"3.4) ( $Control | $CR | $LF ) 	÷",
-		//"3.5) ÷ 	( $Control | $CR | $LF )",
-		//"3.9) × 	$Extend",
-		//"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
-		"# Ignore Format and Extend characters, except when they appear at the beginning of a region of text.",
-		"# (See Section 6.2 Grapheme Cluster and Format Rules.)",
-		"# WARNING: Implemented as don't break before format (except after linebreaks),",
-		"# AND add format and extend in all variables definitions that appear after this point!",
-		//"4) × [$Format $GCExtend]", 
-		"4) [^ $Sep ] × [$Format $GCExtend]", 
-		"# Vanilla rules",
-		"5)$ALetter  	×  	$ALetter",
-		"6)$ALetter 	× 	$MidLetter $ALetter",
-		"7)$ALetter $MidLetter 	× 	$ALetter",
-		"8)$Numeric 	× 	$Numeric",
-		"9)$ALetter 	× 	$Numeric",
-		"10)$Numeric 	× 	$ALetter",
-		"11)$Numeric $MidNum 	× 	$Numeric",
-		"12)$Numeric 	× 	$MidNum $Numeric",
-		"13)$Katakana 	× 	$Katakana",
-		"13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	× 	$ExtendNumLet",
-		"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
-		//"#15.1,100)$ALetter ÷",
-		//"#15.1,100)$Numeric ÷",
-		//"#15.1,100)$Katakana ÷",
-		//"#15.1,100)$Ideographic ÷",
-
-
-		"test",
-		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
-		"compareWord"
 	},{
 		"LineBreak",
 		"# Variables",
@@ -1086,7 +1026,7 @@ public class TestSegments {
 		//"# subtract Format from Control, since we don't want to break before/after",
 		//"$Control=[$Control-$Format]", 
 		"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
-		"$NotStuff=[^$OLetter $Upper $Lower $Sep $ATerm $STerm]",
+		//"$NotStuff=[^$OLetter $Upper $Lower $Sep]",
 		"# $ATerm and $Sterm are temporary, to match ICU until UTC decides.",
 
 		"# WARNING: For Rule 5, now add format and extend to everything but Sep",
@@ -1118,7 +1058,7 @@ public class TestSegments {
 		"# For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
 		"6) $ATerm 	× 	$Numeric",
 		"7) $Upper $ATerm 	× 	$Upper",
-		"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
+		"8) $ATerm $Close* $Sp* 	× 	[^$OLetter $Upper $Lower $Sep]* $Lower",
 		"8.1) ($STerm | $ATerm) $Close* $Sp* 	× 	($STerm | $ATerm)",
 		"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
 		"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
@@ -1130,5 +1070,68 @@ public class TestSegments {
 		"test",
 		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareSentence"
+	},{
+		"WordBreak",
+		"# GC stuff",
+		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
+		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
+		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
+		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
+		//"$NEWLINE=[$GCCR $GCLF \\u0085 \\u000B \\u000C \\u2028 \\u2029]",
+		"$Sep=\\p{Sentence_Break=Sep}",
+		"# Now normal variables",
+		"$Format=\\p{Word_Break=Format}",
+		"$Katakana=\\p{Word_Break=Katakana}",
+		"$ALetter=\\p{Word_Break=ALetter}",
+		"$MidLetter=\\p{Word_Break=MidLetter}",
+		"$MidNum=\\p{Word_Break=MidNum}",
+		"$Numeric=\\p{Word_Break=Numeric}",
+		"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
+		
+		"# WARNING: For Rule 4: Fixes for GC, Format",
+		//"# Subtract Format from Control, since we don't want to break before/after",
+		//"$GCControl=[$GCControl-$Format]", 
+		"# Add format and extend to everything",
+		"$X=[$Format $GCExtend]*",
+		//"$X= ($GCExtend | $Format)*",
+		"$Katakana=($Katakana $X)",
+		"$ALetter=($ALetter $X)",
+		"$MidLetter=($MidLetter $X)",
+		"$MidNum=($MidNum $X)",
+		"$Numeric=($Numeric $X)",
+		"$ExtendNumLet=($ExtendNumLet $X)",
+		//"# Do not break within CRLF",
+		"3) $GCCR  	×  	$GCLF",
+		//"3.4) ( $Control | $CR | $LF ) 	÷",
+		//"3.5) ÷ 	( $Control | $CR | $LF )",
+		//"3.9) × 	$Extend",
+		//"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"# Ignore Format and Extend characters, except when they appear at the beginning of a region of text.",
+		"# (See Section 6.2 Grapheme Cluster and Format Rules.)",
+		"# WARNING: Implemented as don't break before format (except after linebreaks),",
+		"# AND add format and extend in all variables definitions that appear after this point!",
+		//"4) × [$Format $GCExtend]", 
+		"4) [^ $Sep ] × [$Format $GCExtend]", 
+		"# Vanilla rules",
+		"5)$ALetter  	×  	$ALetter",
+		"6)$ALetter 	× 	$MidLetter $ALetter",
+		"7)$ALetter $MidLetter 	× 	$ALetter",
+		"8)$Numeric 	× 	$Numeric",
+		"9)$ALetter 	× 	$Numeric",
+		"10)$Numeric 	× 	$ALetter",
+		"11)$Numeric $MidNum 	× 	$Numeric",
+		"12)$Numeric 	× 	$MidNum $Numeric",
+		"13)$Katakana 	× 	$Katakana",
+		"13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	× 	$ExtendNumLet",
+		"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
+		//"#15.1,100)$ALetter ÷",
+		//"#15.1,100)$Numeric ÷",
+		//"#15.1,100)$Katakana ÷",
+		//"#15.1,100)$Ideographic ÷",
+
+
+		"test",
+		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
+		"compareWord"
 	}};
 }

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.text.SimpleDateFormat;
 
 public class ConvertTransforms extends CLDRConverterTool{
 	
@@ -25,7 +26,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 	HELP2 = 1,
 	SOURCEDIR = 2,
 	DESTDIR = 3,
-	MATCH = 4
+	MATCH = 4,
+	SKIP_COMMENTS = 5
 	;
 	
 	private static final UOption[] options = {
@@ -34,6 +36,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY + "transforms/"),
 		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "transforms/"),
 		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
+		UOption.create("commentSkip", 'c', UOption.NO_ARG),
 	};
 	
 	static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
@@ -50,12 +53,15 @@ public class ConvertTransforms extends CLDRConverterTool{
 	    ConvertTransforms ct = new ConvertTransforms();
         ct.processArgs(args);
 	}
+
+	private boolean skipComments;
 	
 	public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		System.out.println(new File(inputDirectory).getCanonicalPath());
 		Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
 		Set ids = cldrFactory.getAvailable();
 		PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
+		doHeader(index);
 		try {
 			index.println("// File: root.txt");
 			index.println("// Generated from CLDR: " + new Date());
@@ -105,13 +111,14 @@ public class ConvertTransforms extends CLDRConverterTool{
 				filename = addIndexInfo(index, path);
 				if (filename == null) return; // not a transform file!
 				output = BagFormatter.openUTF8Writer(outputDirectory, filename);
+				doHeader(output);
 				output.println("# File: " + id + ".txt");
 				output.println("# Generated from CLDR: " + new Date());
 				output.println("#");
 				first = false;
 			}
 			if (path.indexOf("/comment") >= 0) {
-				output.println(value);
+				if (!skipComments) output.println(value);
 			} else if (path.indexOf("/tRule") >= 0) {
 				output.println(value);
 			} else {
@@ -185,6 +192,17 @@ public class ConvertTransforms extends CLDRConverterTool{
 		}
 	}
 
+	private void doHeader(PrintWriter output) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy"); 
+		output.print('\uFEFF');
+		output.println("// ***************************************************************************");
+		output.println("// *");
+		output.println("// *  Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
+		output.println("// *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
+		output.println("// *");
+		output.println("// ***************************************************************************");
+	}
+
     public void processArgs(String[] args) {
         // TODO Auto-generated method stub
         UOption.parseArgs(args, options);
@@ -196,6 +214,7 @@ public class ConvertTransforms extends CLDRConverterTool{
         String sourceDir = options[SOURCEDIR].value;    // Utility.COMMON_DIRECTORY + "transforms/";
         String targetDir = options[DESTDIR].value;  // Utility.GEN_DIRECTORY + "main/";
         String match = options[MATCH].value;
+        skipComments = options[SKIP_COMMENTS].doesOccur;
         
         try {
 //          fixData(sourceDir, match, targetDir);

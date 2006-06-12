@@ -9,6 +9,7 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
+import java.lang.Float;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -68,12 +69,34 @@ public class POSIX_LCMonetary {
    else
       int_curr_symbol = variant.currency;
 
+   String tmp_currency_symbol;
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/symbol");
    if ( n != null )
-       currency_symbol = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+       tmp_currency_symbol = LDMLUtilities.getNodeValue(n);
    else
-       currency_symbol = POSIXUtilities.POSIXCharName(int_curr_symbol);
+       tmp_currency_symbol = int_curr_symbol;
    
+
+// Check to see if currency symbol has a choice pattern
+
+   if ( tmp_currency_symbol.indexOf("|") >= 0 )
+   {
+       String [] choices = tmp_currency_symbol.split("\\u007c");
+       for ( int i = choices.length - 1 ; i >= 0 ; i-- )
+       {
+          String [] numvalue = choices[i].split("[<\\u2264]",2);
+          Float num = Float.valueOf(numvalue[0]);
+          Float ten = new Float(10);
+          if ( num.compareTo(ten) <= 0 || i == 0 )
+          {
+             currency_symbol = POSIXUtilities.POSIXCharName(numvalue[1]);
+             i = 0;
+          }
+       }
+   }
+   else
+      currency_symbol = POSIXUtilities.POSIXCharName(tmp_currency_symbol);
+
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/decimal");
    if ( n == null )
       n = LDMLUtilities.getNode(doc, "//ldml/numbers/symbols/currencySeparator");

@@ -831,7 +831,7 @@ private boolean isSupplemental;
 	 * @param attribute
 	 * @return
 	 */
-	private static boolean isDistinguishing(String elementName, String attribute) {
+	public static boolean isDistinguishing(String elementName, String attribute) {
 		boolean result =
 		attribute.equals("key") 
         || attribute.equals("request") 

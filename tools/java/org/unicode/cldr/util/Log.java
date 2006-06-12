@@ -57,5 +57,6 @@ public class Log {
 	
 	public static void setLog(String file) throws IOException {
 		log = BagFormatter.openUTF8Writer("", file);
+		log.print('\uFEFF');
 	}
 }

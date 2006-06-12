@@ -1,32 +1,159 @@
 package org.unicode.cldr.test;
 
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Formatter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.text.UTF16;
+
+import sun.security.x509.X400Address;
+
 public class TestMisc {
     public static void main(String[] args) {
-    	showEnglish();
+    	//showEnglish();
+    	//checkPrivateUse();
     	//testPopulous();
+    	checkDistinguishing();
     }
-    private static void showEnglish() {
+    
+    
+    
+    private static void checkDistinguishing() {
     	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
-		CLDRFile english = cldrFactory.make("en", true);
+    	Set cldrFiles = cldrFactory.getAvailableLanguages();
+    	Set distinguishing = new TreeSet();
+    	Set nondistinguishing = new TreeSet();
+    	XPathParts parts = new XPathParts();
+		for (Iterator it = cldrFiles.iterator(); it.hasNext();) {
+			CLDRFile cldrFile = cldrFactory.make(it.next().toString(), false);
+			if (cldrFile.isNonInheriting()) continue;
+			for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
+				String path = (String) it2.next();
+				String fullPath = cldrFile.getFullXPath(path);
+				if (path.equals(fullPath)) continue;
+				parts.set(fullPath);
+				for (int i = 0; i < parts.size(); ++i) {
+					Map m = parts.getAttributes(i);
+					if (m.size() == 0) continue;
+					String element = parts.getElement(i);
+					for (Iterator mit = m.keySet().iterator(); mit.hasNext();) {
+						String attribute = (String) mit.next();
+						if (CLDRFile.isDistinguishing(element, attribute)) {
+							distinguishing.add(attribute + "\tD\t" + element);
+						} else {
+							nondistinguishing.add(attribute + "\tN\t" + element);
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Distinguishing");
+		for (Iterator it = distinguishing.iterator(); it.hasNext();) {
+			System.out.println(it.next());
+		}
+		System.out.println();
+		System.out.println("Non-Distinguishing");
+		for (Iterator it = nondistinguishing.iterator(); it.hasNext();) {
+			System.out.println(it.next());
+		}
+	}
+
+
+
+	private static void showEnglish() {
+    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    	String requestedLocale = "en";
+		CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
 		CLDRFile.Status status = new CLDRFile.Status();
-		for (Iterator it = english.iterator(); it.hasNext();) {
-			String path = (String) it.next();
-			String locale = english.getSourceLocaleID(path, status);
-			if (!locale.equals("en") || !status.pathWhereFound.equals(path)) {
-				System.out.println(path + "\t" + locale + "\t" + status.pathWhereFound + "\t");
+		for (Iterator it = cldrFile.iterator(); it.hasNext();) {
+			String requestedPath = (String) it.next();
+			String localeWhereFound = cldrFile.getSourceLocaleID(requestedPath, status);
+			if (!localeWhereFound.equals(requestedLocale) || !status.pathWhereFound.equals(requestedPath)) {
+				System.out.println("requested path:\t" + requestedPath
+						+ "\tfound locale:\t" + localeWhereFound
+						+ "\tsame?\t" + localeWhereFound.equals(requestedLocale)
+						+ "\tfound path:\t" + status.pathWhereFound
+						+ "\tsame?\t" + status.pathWhereFound.equals(requestedPath)
+						);
 			}
 		}
 	}
+    private static void checkPrivateUse() {
+    	Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    	String requestedLocale = "en";
+		CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
+		CLDRFile.Status status = new CLDRFile.Status();
+		StandardCodes sc = StandardCodes.make();
+		XPathParts parts = new XPathParts();
+		Set careAbout = new HashSet(Arrays.asList(new String[]{"language", "script", "territory", "variant"}));
+		HashMap foundItems = new HashMap();
+		TreeSet problems = new TreeSet();
+		for (Iterator it = cldrFile.iterator("", new UTF16.StringComparator(true,false, 0)); it.hasNext();) {
+			String requestedPath = (String) it.next();
+			parts.set(requestedPath);
+			String element = parts.getElement(-1);
+			if (!careAbout.contains(element)) continue;
+			String type = parts.getAttributeValue(-1,"type");
+			if (type == null) continue;
+			Set foundSet = (Set)foundItems.get(element);
+			if (foundSet == null) foundItems.put(element, foundSet =new TreeSet());
+			foundSet.add(type);
+
+			List data = sc.getFullData(element, type);
+			if (data == null) {
+				problems.add("No RFC3066bis data for: " + element + "\t" + type + "\t" + cldrFile.getStringValue(requestedPath));
+				continue;
+			}
+			if (isPrivateOrDeprecated(data)) {
+				problems.add("Private/Deprecated Data for: " + element + "\t" + type + "\t"
+						+ cldrFile.getStringValue(requestedPath) + "\t" + data);
+			}
+			//String canonical_value = (String)data.get(2);
+		}
+		for (Iterator it = problems.iterator(); it.hasNext();) {
+			System.out.println(it.next());
+		}
+		for (Iterator it = careAbout.iterator(); it.hasNext();) {
+			String element = (String) it.next();
+			Set real = sc.getAvailableCodes(element);
+			Set notFound = new TreeSet(real);
+			notFound.removeAll((Set)foundItems.get(element));
+			for (Iterator it2 = notFound.iterator(); it2.hasNext();) {
+				String type = (String) it2.next();
+				List data = sc.getFullData(element, type);
+				if (isPrivateOrDeprecated(data)) continue;
+				System.out.println("Missing Translation for: " + element + "\t" + type + "\t"
+						+ "\t" + data);
+			}
+		}
+	}
+
+    static boolean isPrivateOrDeprecated(List data) {
+    	if (data.toString().indexOf("PRIVATE") >= 0) {
+    		return true;
+    	}
+    	if ("PRIVATE USE".equals(data.get(0))) return true;
+    	if (data.size() < 3) return false;
+    	if (data.get(2) == null) return false;
+    	if (data.get(2).toString().length() != 0) return true;
+    	return false;
+    }
+    
 	static void testPopulous() {
         Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make("supplementalData", false);

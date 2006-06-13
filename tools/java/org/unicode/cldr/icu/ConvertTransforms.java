@@ -68,6 +68,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println();
 			index.println("root {");
 			index.println("\tRuleBasedTransliteratorIDs {");
+			addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
+			addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
+			addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
 			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
 				String id = (String) idIterator.next();
 				if (id.equals("All")) continue;
@@ -154,21 +157,45 @@ public class ConvertTransforms extends CLDRConverterTool{
 		if (direction.equals("both") || direction.equals("forward")) {
 			index.println("\t\t" + id + " {");
 			index.println("\t\t\t" + status + " {");
-			index.println("\t\t\t\tresource:process(transliterator){\"" + filename + "\"}");
-			index.println("\t\t\t\tdirection{\"FORWARD\"}");
+			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
+			index.println("\t\t\t\tdirection {\"FORWARD\"}");
 			index.println("\t\t\t}");
 			index.println("\t\t}");
 		}
-		if (direction.equals("both") || direction.equals("backward")) {
-			
-			index.println("\t\t" + rid + "{");
+		if (direction.equals("both") || direction.equals("backward")) {		
+			index.println("\t\t" + rid + " {");
 			index.println("\t\t\t" + status + " {");
-			index.println("\t\t\t\tresource:process(transliterator){\"" + filename + "\"}");
-			index.println("\t\t\t\tdirection{\"BACKWARD\"}");
+			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
+			index.println("\t\t\t\tdirection {\"BACKWARD\"}");
+			index.println("\t\t\t}");
+			index.println("\t\t}");
 		}
 		index.println();
 		return filename;
 	}
+	
+	void addAlias(PrintWriter index, String aliasSource, String aliasTarget, String aliasVariant, String originalSource, String originalTarget, String originalVariant) {
+//        Spacedhan-Han {
+//            alias {"null"}
+//        }
+		addAlias(index, getName(aliasSource, aliasTarget, aliasVariant), getName(originalSource, originalTarget, originalVariant));
+		addAlias(index, getName(aliasTarget, aliasSource, aliasVariant), getName(originalTarget, originalSource, originalVariant));
+	}
+
+	private void addAlias(PrintWriter index, String alias, String original) {
+		index.println("\t\t" + alias + " {");
+		index.println("\t\t\talias" + " {\"" + original + "\"}");
+		index.println("\t\t}");
+	}
+	
+	String getName(String source, String target, String variant) {
+		String id = source + "-" + target;
+		if (variant != null && variant.length() != 0) {
+			id += "/" + variant;
+		}
+		return id;
+	}
+	
 	
 	// fixData ONLY NEEDED TO FIX FILE PROBLEM
 	

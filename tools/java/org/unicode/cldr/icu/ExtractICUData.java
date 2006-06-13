@@ -50,6 +50,7 @@ import com.ibm.icu.util.UResourceBundle;
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
 		generateTransliterators();
+		System.out.println("Done");
 	}
 	
 	static Set skipLines = new HashSet(Arrays.asList(new String[]{
@@ -60,7 +61,7 @@ public class ExtractICUData {
 			"#--------------------------------------------------------------------"
 	}));
 	static Set skipFiles = new HashSet(Arrays.asList(new String[]{
-			"Any_Accents",
+			//"Any_Accents",
 			"el",
 			"en",
 			"root"
@@ -71,11 +72,16 @@ public class ExtractICUData {
 		CLDRFile accumulatedItems = CLDRFile.makeSupplemental("allItems");
 		getTranslitIndex(accumulatedItems);
 		
-		File translitSource = new File("C:\\ICU\\icu\\source\\data\\translit");
-		List list = new ArrayList(Arrays.asList(translitSource.listFiles()));
+		File translitSource = new File("C:\\cvsdata\\icu\\icu\\source\\data\\translit\\");
+		System.out.println("Source: " + translitSource.getCanonicalPath());
+		File[] fileArray = translitSource.listFiles();
+		List list = new ArrayList(Arrays.asList(fileArray));
 		
-		List extras = Arrays.asList(new String[]{"Arabic_Latin.txt", "CanadianAboriginal_Latin.txt", 
-				"Cyrillic_Latin.txt", "Georgian_Latin.txt", 
+		List extras = Arrays.asList(new String[]{
+				"Arabic_Latin.txt", 
+				"CanadianAboriginal_Latin.txt", 
+				"Cyrillic_Latin.txt", 
+				"Georgian_Latin.txt", 
 				// "Khmer_Latin.txt", "Lao_Latin.txt", "Tibetan_Latin.txt"
 				"Latin_Armenian.txt",
 				"Latin_Ethiopic.txt",
@@ -130,12 +136,12 @@ public class ExtractICUData {
 				addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
 			}
 			
-			PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", outName + ".xml");
+			PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
 			outFile.write(pw);
 			pw.close();
 			
 		}
-		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", "All" + ".xml");
+		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
 		accumulatedItems.write(pw);
 		pw.close();
 	}
@@ -226,7 +232,7 @@ public class ExtractICUData {
 						accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
 					}
 				}
-				PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", outName + ".xml");
+				PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
 				outFile.write(pw);
 				pw.close();				
 			} else {

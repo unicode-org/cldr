@@ -307,7 +307,9 @@ public class CLDRFile implements Freezable {
 		CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml" 
+		pw.println("<!DOCTYPE " 
+				+ (isNonInheriting() ? "supplementalData" : "ldml")  
+				+ " SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml" 
 				+ (isNonInheriting() ? "Supplemental" : "")
 				+ ".dtd\">");
 		/*

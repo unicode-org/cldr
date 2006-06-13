@@ -45,14 +45,16 @@ public class CLDRDBSource extends XMLSource {
     private String tree = "main";
     
     public XPathTable xpt = null;         // XPathTable (shared) that is keyed to this database.
+	static SurveyMain sm = null;
     protected UserRegistry.User user= null; // User this File belongs to (or null)
     protected Connection conn = null;
     /** 
      * called once (at DB setup time) to initialize the database.
      */
     
-    public static void setupDB(java.util.logging.Logger xlogger, Connection sconn, boolean isNew) throws SQLException
+    public static void setupDB(java.util.logging.Logger xlogger, Connection sconn, boolean isNew, SurveyMain sm) throws SQLException
     {
+		CLDRDBSource.sm = sm;
         logger = xlogger; // set static
         if(!isNew) {
             return; // nothing to setup
@@ -127,7 +129,7 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement querySourceActives = null;
         public PreparedStatement insertSource = null;
         public PreparedStatement oxpathFromXpath = null;
-    
+		public PreparedStatement keyNoVotesSet = null;
         public PreparedStatement prepareStatement(String name, String sql) {
             PreparedStatement ps = null;
             try {
@@ -197,7 +199,9 @@ public class CLDRDBSource extends XMLSource {
             keyVettingSet = prepareStatement("keyVettingSet",
                 "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
 			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-				"select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_VET where CLDR_DATA.locale=? AND CLDR_DATA.xpath=CLDR_VET.vote_xpath AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_DATA.xpath)");
+				"select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>4) AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
+			keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
+				"select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_RESULT where CLDR_DATA.locale=? AND CLDR_DATA.locale=CLDR_RESULT.locale AND CLDR_DATA.xpath=CLDR_RESULT.base_xpath AND CLDR_RESULT.type="+Vetting.RES_NO_VOTES);
             querySource = prepareStatement("querySource",
                 "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
 
@@ -637,7 +641,7 @@ public class CLDRDBSource extends XMLSource {
                         rs = stmts.queryValue.executeQuery();
                         
                         if(!rs.next()) {
-//                            System.err.println(" Plan B failed.");
+                            System.err.println(" Plan B failed for "+xpath+":"+path);
                             // NOW return null
                             return null;
                         }
@@ -675,15 +679,51 @@ public class CLDRDBSource extends XMLSource {
      */
     public String getFullPathAtDPath(String path) {
 		if(finalData) {
-			if(path.indexOf("alt=\"proposed")>=0) {
-				return path+"[@draft=\"unconfirmed\"]";
+			// this is going to be a little bit slow.
+			String locale = getLocaleID();
+			int id = xpt.getByXpath(path); // get id..
+			int type[] = new int[1];
+			int base_id = xpt.xpathToBaseXpathId(id);
+			int res = sm.vet.queryResult(locale, base_id, type);
+			if((res!=id) && // l0ser and
+			true /*	!((res<=Vetting.RES_BAD_MAX && (base_id==id)))  */) { // not a fallback from an insufficient/disputed
+				// Did any regular vetters vote for this?
+				int highest =  sm.vet.highestLevelVotedFor(locale,id);
+				
+				String aPath = path;
+				
+				if(xpathThatNeedsOrig(path)) {
+					aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT);
+				}
+				
+				if((type[0]==Vetting.RES_INSUFFICIENT)&&(base_id==id)) { // fallback - no 'provisional' needed.
+					return aPath;
+				}
+				
+				if(highest == -1) {
+					if(type[0]==Vetting.RES_NO_VOTES) {
+						return aPath+"[@draft=\"unconfirmed\"]"; // was probably a draft=true
+					} else {
+						return aPath; // +"[@reference=\"nobody_voted_for:"+id+"!"+res+"at"+base_id+"\"]";
+					}
+				} else if(highest>UserRegistry.VETTER) {
+					return aPath+"[@draft=\"unconfirmed\"]";
+				} else {
+					return aPath+"[@draft=\"provisional\"]";
+				}
 			}
-			if(!xpathThatNeedsOrig(path)) {
-				return path; // TODO: investigate this.
+
+			// not an odd case - a winning item.
+			
+			if(xpathThatNeedsOrig(path)) {
+				return getOrigXpath(xpt.getByXpath(path));
+			} else {
+				return path; // don't need origpath. This is a 'winning' item.
 			}
+		} else {
+			// proposed-  always returns origpath
+			return getOrigXpath(xpt.getByXpath(path));
 		}
-        int pathid = xpt.getByXpath(path); // note: want this to fail, or it will fill xpt with trash.
-        return getOrigXpath(pathid);
     }
     
     public String getOrigXpath(int pathid) {
@@ -698,12 +738,12 @@ public class CLDRDBSource extends XMLSource {
                 ResultSet rs = stmts.oxpathFromXpath.executeQuery();
                 if(!rs.next()) {
                     rs.close();
-                    logger.severe("gfx not found, falling back: " + locale + "/" + xpt.getById(pathid));
+                    logger.severe("gfx not found, falling back: " + locale + " " + xpt.getById(pathid));
                     return xpt.getById(pathid); // not found - should be null?
                 }
                 int result = rs.getInt(1);
                 if(rs.next()) {
-                    logger.severe("gfx returns two results: " + locale + "/" + xpt.getById(pathid));
+                    logger.severe("gfx returns two results: " + locale + " " + xpt.getById(pathid));
                     // fail?? what?
                 }
                 rs.close();
@@ -793,67 +833,68 @@ public class CLDRDBSource extends XMLSource {
     private Set oldKeySet() {
         
         String locale = getLocaleID();
-//        synchronized (conn) {
-            try {
-                ResultSet rs;
-                if(finalData==false) {
-                    stmts.keySet.setString(1,locale);
-                    rs = stmts.keySet.executeQuery();
-                } else {
-                    stmts.keyVettingSet.setString(1,locale);
-                    rs = stmts.keyVettingSet.executeQuery();
-                }
-                
-                // TODO: is there a better way to map a ResultSet into a Set?
-                Set s = new HashSet();
-//                System.err.println("@tlh: " + "BEGIN");
-                while(rs.next()) {
-                    int xpathid = rs.getInt(1);
+		try {
+			ResultSet rs;
+			if(finalData==false) {
+				stmts.keySet.setString(1,locale);
+				rs = stmts.keySet.executeQuery();
+			} else {
+				stmts.keyVettingSet.setString(1,locale);
+				rs = stmts.keyVettingSet.executeQuery();
+			}
+			
+			// TODO: is there a better way to map a ResultSet into a Set?
+			Set s = new HashSet();
+			while(rs.next()) {
+				int xpathid = rs.getInt(1);
 ///*srl*/           if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
-                    
-                    String xpath = (xpt.getById(xpathid));
-/*                    if(-1!=xpath.indexOf("tlh")) {
-                        xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
-                        System.err.println("@tlh: " + xpath);
-                    }
-                    */
-                    if(finalData==true) {
- //                       System.err.println("Path: " +xpath);
-                        if(xpathThatNeedsOrig(xpath)) {
+				
+				String xpath = (xpt.getById(xpathid));
+				if(finalData==true) {
+				
+//                       System.err.println("Path: " +xpath);
+					if(xpathThatNeedsOrig(xpath)) {
 //                            System.err.println("@@ munging xpath:"+xpath+" ("+xpathid+")");
-                            xpath = getOrigXpath(xpathid);
+						xpath = getOrigXpath(xpathid);
 //                            System.err.println("-> "+xpath);
-                        }
-                    }
-                    s.add(xpath); // xpath
-                    //rs.getString(2); // origXpath
-                }
-				rs.close();
-				if(finalData) {
-					// also add provisional and unconfirmed items
-
-					stmts.keyUnconfirmedSet.setString(1,locale);
-					rs = stmts.keyUnconfirmedSet.executeQuery();
-					while(rs.next()) {
-						int xpathid = rs.getInt(1);
-						String xpath = (xpt.getById(xpathid));
-						s.add(xpath+"[@draft=\"unconfirmed\"]");
 					}
-					rs.close();
-					// provisional: "at least one Vetter has voted for it"
-					
-					
-					// unconfirmed: "a Guest Vetter has voted for it"
+			
+				
 				}
-//                System.err.println("@tlh: " + "END");
-                return Collections.unmodifiableSet(s);
-                // TODO: 0
-                // TODO: ???
-            } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-                return null;
-            }
-//        }
+				s.add(xpath); // xpath
+				//rs.getString(2); // origXpath
+			}
+			rs.close();
+			
+			if(finalData) {
+				// also add provisional and unconfirmed items
+
+				// provisional: "at least one Vetter has voted for it"
+				// unconfirmed: "a Guest Vetter has voted for it"
+				stmts.keyUnconfirmedSet.setString(1,locale);
+				rs = stmts.keyUnconfirmedSet.executeQuery();
+				while(rs.next()) {
+					int xpathid = rs.getInt(1);
+					String xpath = (xpt.getById(xpathid));
+					s.add(xpath);
+				}
+				rs.close();
+				
+				// Now, add items that had no votes. 
+				stmts.keyNoVotesSet.setString(1,locale);
+				rs = stmts.keyNoVotesSet.executeQuery();
+				while(rs.next()) {
+					int xpathid = rs.getInt(1);
+					String xpath = (xpt.getById(xpathid));
+					s.add(xpath);
+				}
+				rs.close();
+			}
+			return Collections.unmodifiableSet(s);
+		} catch(SQLException se) {
+			logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+			return null;
+		}
     }
 
     final private boolean xpathThatNeedsOrig(String xpath) {
@@ -863,6 +904,9 @@ public class CLDRDBSource extends XMLSource {
         xpath.endsWith("/weekendStart") ||
         xpath.endsWith("/weekendEnd") ||
         xpath.endsWith("/measurementSystem") ||
+        xpath.endsWith("/singleCountries") ||
+        xpath.endsWith("/abbreviationFallback") ||
+        xpath.endsWith("/preferenceOrdering") ||
         xpath.endsWith("/inList") ||
         xpath.endsWith("/firstDay") ) {
         return true;

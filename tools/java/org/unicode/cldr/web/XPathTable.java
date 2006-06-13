@@ -284,6 +284,16 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.ALT);
         return xpp.toString();
     }
+    public static String removeAttribute(String path, String att) {
+        return removeAttribute(path, new XPathParts(null,null), att);
+    }
+    public static String removeAttribute(String path, XPathParts xpp, String att) {
+        xpp.clear();
+        xpp.initialize(path);
+        Map lastAtts = xpp.getAttributes(-1);
+        lastAtts.remove(att);
+        return xpp.toString();
+    }
     
     public final int xpathToBaseXpathId(String xpath) {
         return getByXpath(xpathToBaseXpath(xpath));

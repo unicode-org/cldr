@@ -704,6 +704,35 @@ public class SurveyMain extends HttpServlet {
             mySrc.doDbUpdate(subCtx, this); // What does this button do?
             ctx.println("<br>(dbupdate took " + aTimer+")");
             ctx.println("<br>");
+		} else if(action.equals("srl_vxport")) {
+			System.err.println("vxport");
+			File inFiles[] = getInFiles();
+			int nrInFiles = inFiles.length;
+			boolean found = false;
+			String theLocale = null;
+			File outdir = new File("./xport/");
+			for(int i=0;(!found) && (i<nrInFiles);i++) {
+			 try{
+				String localeName = inFiles[i].getName();
+				int dot = localeName.indexOf('.');
+				theLocale = localeName.substring(0,dot);
+				System.err.println("#vx "+theLocale);
+				CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale), true);
+				CLDRFile file = makeCLDRFile(dbSource);
+				  OutputStream files = new FileOutputStream(new File(outdir,localeName),false); // Append
+//				  PrintWriter pw = new PrintWriter(files);
+	//            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
+				PrintWriter ow;
+				file.write(ow=WebContext.openUTF8Writer(files));
+				ow.close();
+//				pw.close();
+				files.close();
+				
+				} catch(IOException exception){
+				  System.err.println(exception);
+				  // TODO: log this ... 
+				}
+			}
         } else if(action.equals("load_all")) {
             com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
             logger.info("Loading all..");            
@@ -4794,7 +4823,7 @@ private void doStartupDB()
     }
     // note: make xpt before CLDRDBSource..
     try {
-        CLDRDBSource.setupDB(logger, getDBConnection(), !doesExist);
+        CLDRDBSource.setupDB(logger, getDBConnection(), !doesExist, this);
     } catch (SQLException e) {
         busted("On CLDRDBSource startup: " + unchainSqlException(e));
     }

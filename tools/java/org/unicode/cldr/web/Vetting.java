@@ -235,6 +235,7 @@ public class Vetting {
     PreparedStatement intUpdateNag = null;
     PreparedStatement intUpdateUpdate = null;
     PreparedStatement listBadResults= null;
+	PreparedStatement highestVetter = null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -297,6 +298,8 @@ public class Vetting {
             queryValue = prepareStatement("queryValue",
                 "SELECT value FROM " + CLDRDBSource.CLDR_DATA +
                         " WHERE locale=? AND xpath=?");
+			highestVetter = prepareStatement("highestVetter",
+				"select CLDR_USERS.userlevel from CLDR_VET,CLDR_USERS where CLDR_USERS.id=CLDR_VET.submitter AND CLDR_VET.locale=? AND CLDR_VET.vote_xpath=? ORDER BY CLDR_USERS.userlevel");
         }
     }
     
@@ -761,6 +764,9 @@ public class Vetting {
 				type = RES_ADMIN;
                 resultXpath = adminChad.xpath;
                 fallbackXpath = resultXpath;
+				if(adminChad.removal) {
+					type = RES_REMOVAL; // admin override removal : no special type for this.
+				}
 			}
             if(sawQuorum && (type==-1)) {
                 // We have a winner.
@@ -915,16 +921,22 @@ public class Vetting {
                 queryResult.setInt(2, base_xpath);
 
                 ResultSet rs = queryResult.executeQuery();
+				int rv = -1;
+				
                 if(rs.next()) {
                     type[0] = rs.getInt(2);
                     if(type[0]>RES_BAD_MAX) {
-                        return rs.getInt(1);
+                        rv = rs.getInt(1);
                     } else {
-                        return -1; // F
+                        rv = -1; // F
                     }
-                }
-                type[0]=0;
-                return -1;
+					rs.close();
+                } else {
+					type[0]=0;
+					rv = -1;
+				}
+				rs.close();
+                return rv;
             } catch ( SQLException se ) {
                 type[0]=0; // doesn't matter here..
                 String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
@@ -934,6 +946,28 @@ public class Vetting {
             }
         }
     }
+	
+	int highestLevelVotedFor(String locale, int base_xpath) {
+		int rv=-1;
+        synchronized(conn) {
+            try {
+                highestVetter.setString(1, locale);
+                highestVetter.setInt(2, base_xpath);
+
+                ResultSet rs = highestVetter.executeQuery();
+                if(rs.next()) {
+                    rv = rs.getInt(1);
+                }
+				rs.close();
+                return rv;
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't query voting highest for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+	}
     
     int unvote(String locale, int base_xpath, int submitter) {
         //rmVote;

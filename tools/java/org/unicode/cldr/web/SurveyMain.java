@@ -57,8 +57,9 @@ public class SurveyMain extends HttpServlet {
     // phase?
     public static final boolean phaseSubmit = false; 
     public static final boolean phaseVetting = false;
-    public static final boolean phaseClosed = true;
-    public static final boolean phaseDisputed = true;
+    public static final boolean phaseClosed = false;
+    public static final boolean phaseDisputed = false;
+	public static final boolean phaseReadonly = true;
     /**
     * URL prefix for  help
     */
@@ -1105,7 +1106,9 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
-            if(SurveyMain.phaseVetting 
+            if(SurveyMain.phaseReadonly) {
+				ctx.println("(The SurveyTool is in a read-only state, no changes may be made.)");
+			} else if(SurveyMain.phaseVetting 
                 && UserRegistry.userIsStreet(ctx.session.user)
                 && !UserRegistry.userIsExpert(ctx.session.user)) {
                 ctx.println(" (Note: in the Vetting phase, you may not submit new data.) ");

@@ -741,6 +741,7 @@ public class UserRegistry {
     }
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
+		if(SurveyMain.phaseReadonly) return false;
         return userIsTC(u);
     }
     static final boolean userCanEmailUsers(User u) {
@@ -748,32 +749,39 @@ public class UserRegistry {
     }
     /** can the user modify this particular user? */
     static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
+		if(SurveyMain.phaseReadonly) return false;
         return (  userCanModifyUsers(u) &&
                  (theirId != ADMIN_ID) &&
                  (theirId != u.id) &&
                  (theirLevel >= u.userlevel) );
     }
     static final boolean userCanDeleteUser(User u, int theirId, int theirLevel) {
+		if(SurveyMain.phaseReadonly) return false;
         return (userCanModifyUser(u,theirId,theirLevel) &&
                 theirLevel > u.userlevel); // must be at a lower level
     }
     static final boolean userCanChangeLevel(User u, int theirLevel, int newLevel) {
+		if(SurveyMain.phaseReadonly) return false;
         int ourLevel = u.userlevel;
         return (userCanModifyUser(u, ALL_ID, theirLevel) &&
             (newLevel >= ourLevel) && // new level is equal to or greater than our level
            (newLevel != theirLevel) ); // not existing level 
     }
     static final boolean userCanDoList(User u) {
+		if(SurveyMain.phaseReadonly) return false;
         return (userIsVetter(u));
     }
     static final boolean userCanCreateUsers(User u) {
+		if(SurveyMain.phaseReadonly) return false;
         return (userIsTC(u));
     }
     static final boolean userCanSubmit(User u) {
+		if(SurveyMain.phaseReadonly) return false;
         return((u!=null) && userIsStreet(u));
     }
     
     static final boolean userCanModifyLocale(String uLocale, String locale) {
+		if(SurveyMain.phaseReadonly) return false;
         if(locale.startsWith(uLocale)) {
             int llen = locale.length();
             int ulen = uLocale.length();
@@ -791,6 +799,7 @@ public class UserRegistry {
     }
     
     static final boolean userCanModifyLocale(String localeArray[], String locale) {
+		if(SurveyMain.phaseReadonly) return false;
         if(localeArray.length == 0) {
             return true; // all 
         }
@@ -805,6 +814,7 @@ public class UserRegistry {
     
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
+		if(SurveyMain.phaseReadonly) return false;
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;
@@ -816,6 +826,7 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmitLocale(User u, String locale) {
+		if(SurveyMain.phaseReadonly) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
@@ -824,6 +835,7 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmitAnyLocale(User u) {
+		if(SurveyMain.phaseReadonly) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
@@ -832,6 +844,7 @@ public class UserRegistry {
     }
 
     static final boolean userCanVetLocale(User u, String locale) {
+		if(SurveyMain.phaseReadonly) return false;
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
         return userCanModifyLocale(u,locale);

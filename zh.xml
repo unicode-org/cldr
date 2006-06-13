@@ -526,33 +526,33 @@
 			<script type="Yiii">彝语</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="true">世界</territory>
+			<territory type="001" draft="unconfirmed">世界</territory>
 			<territory type="002">非洲</territory>
-			<territory type="005" draft="true">南美洲</territory>
-			<territory type="009" draft="true">大洋洲</territory>
-			<territory type="011" draft="true">西非</territory>
+			<territory type="005" draft="unconfirmed">南美洲</territory>
+			<territory type="009" draft="unconfirmed">大洋洲</territory>
+			<territory type="011" draft="unconfirmed">西非</territory>
 			<territory type="013">中美洲</territory>
 			<territory type="014">东非</territory>
 			<territory type="015">北非</territory>
 			<territory type="017">中非</territory>
-			<territory type="018" draft="true">南非</territory>
+			<territory type="018" draft="unconfirmed">南非</territory>
 			<territory type="019">美洲</territory>
 			<territory type="021">北美洲</territory>
 			<territory type="029">加勒比海</territory>
 			<territory type="030">东亚</territory>
-			<territory type="035" draft="true">东南亚</territory>
-			<territory type="039" draft="true">南欧</territory>
+			<territory type="035" draft="unconfirmed">东南亚</territory>
+			<territory type="039" draft="unconfirmed">南欧</territory>
 			<territory type="053">澳大利亚和新西兰</territory>
 			<territory type="054">美拉尼西亚</territory>
 			<territory type="057">密克罗尼西亚</territory>
-			<territory type="061" draft="true">玻里尼西亚</territory>
-			<territory type="062" draft="true">中南亚</territory>
+			<territory type="061" draft="unconfirmed">玻里尼西亚</territory>
+			<territory type="062" draft="unconfirmed">中南亚</territory>
 			<territory type="142">亚洲</territory>
-			<territory type="145" draft="true">西亚</territory>
+			<territory type="145" draft="unconfirmed">西亚</territory>
 			<territory type="150">欧洲</territory>
 			<territory type="151">东欧</territory>
 			<territory type="154">北欧</territory>
-			<territory type="155" draft="true">西欧</territory>
+			<territory type="155" draft="unconfirmed">西欧</territory>
 			<territory type="830">海峡群岛</territory>
 			<territory type="833">曼岛</territory>
 			<territory type="AD">安道尔</territory>
@@ -604,7 +604,7 @@
 			<territory type="CN">中国</territory>
 			<territory type="CO">哥伦比亚</territory>
 			<territory type="CR">哥斯达黎加</territory>
-			<territory type="CS" draft="true">塞尔维亚和黑山</territory>
+			<territory type="CS" draft="unconfirmed">塞尔维亚和黑山</territory>
 			<territory type="CU">古巴</territory>
 			<territory type="CV">佛得角</territory>
 			<territory type="CX">圣诞岛</territory>
@@ -736,7 +736,7 @@
 			<territory type="PW">帕劳</territory>
 			<territory type="PY">巴拉圭</territory>
 			<territory type="QA">卡塔尔</territory>
-			<territory type="QO" draft="true">大洋洲边远群岛</territory>
+			<territory type="QO" draft="unconfirmed">大洋洲边远群岛</territory>
 			<territory type="RE">留尼汪</territory>
 			<territory type="RO">罗马尼亚</territory>
 			<territory type="RU">俄罗斯联邦</territory>
@@ -806,11 +806,11 @@
 			<key type="currency">货币</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation" draft="true">繁体中文(Big5)</type>
+			<type type="big5han" key="collation" draft="unconfirmed">繁体中文(Big5)</type>
 			<type type="buddhist" key="calendar">佛教日历</type>
 			<type type="chinese" key="calendar">农历</type>
 			<type type="direct" key="collation">顺序</type>
-			<type type="gb2312han" key="collation" draft="true">简体中文(GB2312)</type>
+			<type type="gb2312han" key="collation" draft="unconfirmed">简体中文(GB2312)</type>
 			<type type="gregorian" key="calendar">公历</type>
 			<type type="hebrew" key="calendar">希伯来日历</type>
 			<type type="islamic" key="calendar">伊斯兰日历</type>
@@ -913,16 +913,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">1季</quarter>
-							<quarter type="2" draft="true">2季</quarter>
-							<quarter type="3" draft="true">3季</quarter>
-							<quarter type="4" draft="true">4季</quarter>
+							<quarter type="1" draft="unconfirmed">1季</quarter>
+							<quarter type="2" draft="unconfirmed">2季</quarter>
+							<quarter type="3" draft="unconfirmed">3季</quarter>
+							<quarter type="4" draft="unconfirmed">4季</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">第1季度</quarter>
-							<quarter type="2" draft="true">第2季度</quarter>
-							<quarter type="3" draft="true">第3季度</quarter>
-							<quarter type="4" draft="true">第4季度</quarter>
+							<quarter type="1" draft="unconfirmed">第1季度</quarter>
+							<quarter type="2" draft="unconfirmed">第2季度</quarter>
+							<quarter type="3" draft="unconfirmed">第3季度</quarter>
+							<quarter type="4" draft="unconfirmed">第4季度</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -930,52 +930,14 @@
 				<pm>下午</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">公元前</era>
-						<era type="1" draft="true">公元</era>
+						<era type="0" draft="unconfirmed">公元前</era>
+						<era type="1" draft="unconfirmed">公元</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">公元前</era>
 						<era type="1">公元</era>
 					</eraAbbr>
 				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed-1" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed-1" draft="true">HH'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">a KK:mm</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed-1" draft="true">a KK'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">a KK:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed-1" draft="true">a KK'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed" draft="true">M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed-1" draft="true">mm'分'ss'秒'SS'毫秒'</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">'第'ww'周'</dateFormatItem>
-						<dateFormatItem id="yyM" alt="proposed" draft="true">yy'年'M'日'</dateFormatItem>
-						<dateFormatItem id="yyMEEEEd" alt="proposed" draft="true">yy'／'M'／'d EEEE,</dateFormatItem>
-						<dateFormatItem id="yyMEEEEd" alt="proposed-1" draft="true">yy'年'M'月'd'日' EEEE,</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">yy'／'M'／'d</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed-1" draft="true">yy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyMdHHmm" alt="proposed" draft="true">yy'年'M'月'd'日'HH'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="yyMdHHmm" alt="proposed-1" draft="true">M'／'d'／'yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyyyM" alt="proposed" draft="true">yyyy'年'M'月'</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed" draft="true">yyyy'年'M'月'd'日''　'EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1" draft="true">yyyy'／'M'／'d EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1-2" draft="true">yyyy'年'M'月'd'日' EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">yyyy '年' MMM d '日'</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">yyyy'年'MMMd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMMdHHmmss" alt="proposed" draft="true">yyyy'年'MM'月'd'日'HH'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM'／'dd'／'yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">yyyy'／'M'／'d</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed-1" draft="true">yyyy '年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed-1-2" draft="true">yyyy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" alt="proposed" draft="true">yyyy'年'QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -1005,7 +967,7 @@
 				<exemplarCity>南极</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="true">昭和</exemplarCity>
+				<exemplarCity draft="unconfirmed">昭和</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
 				<exemplarCity>莫森</exemplarCity>
@@ -1020,7 +982,7 @@
 				<exemplarCity>凯西</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="true">杜蒙杜威勒</exemplarCity>
+				<exemplarCity draft="unconfirmed">杜蒙杜威勒</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>马克默多</exemplarCity>
@@ -1076,7 +1038,7 @@
 				<exemplarCity>霍巴特</exemplarCity>
 			</zone>
 			<zone type="Australia/Lindeman">
-				<exemplarCity draft="true">林德曼</exemplarCity>
+				<exemplarCity draft="unconfirmed">林德曼</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>悉尼</exemplarCity>
@@ -1089,7 +1051,7 @@
 			</zone>
 			<!-- Brazil -->
 			<zone type="America/Eirunepe">
-				<exemplarCity draft="true">埃鲁内佩</exemplarCity>
+				<exemplarCity draft="unconfirmed">埃鲁内佩</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>里奥布郎库</exemplarCity>
@@ -1131,7 +1093,7 @@
 				<exemplarCity>累西腓</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
-				<exemplarCity draft="true">诺农哈</exemplarCity>
+				<exemplarCity draft="unconfirmed">诺农哈</exemplarCity>
 			</zone>
 			<!-- Canada -->
 			<zone type="America/Dawson">
@@ -1159,7 +1121,7 @@
 				<exemplarCity>斯威夫特卡伦特</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity draft="true">坎布里季贝</exemplarCity>
+				<exemplarCity draft="unconfirmed">坎布里季贝</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
 				<exemplarCity>里贾纳</exemplarCity>
@@ -1171,7 +1133,7 @@
 				<exemplarCity>雷尼河</exemplarCity>
 			</zone>
 			<zone type="America/Rankin_Inlet">
-				<exemplarCity draft="true">雷今海口</exemplarCity>
+				<exemplarCity draft="unconfirmed">雷今海口</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>桑德贝</exemplarCity>
@@ -1189,7 +1151,7 @@
 				<exemplarCity>伊基克</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity draft="true">庞贡唐</exemplarCity>
+				<exemplarCity draft="unconfirmed">庞贡唐</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1281,7 +1243,7 @@
 				<exemplarCity>波纳佩岛</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="true">科斯里</exemplarCity>
+				<exemplarCity draft="unconfirmed">科斯里</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1305,10 +1267,10 @@
 				<exemplarCity>戈德霍普</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity draft="true">斯科列斯比桑德</exemplarCity>
+				<exemplarCity draft="unconfirmed">斯科列斯比桑德</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
-				<exemplarCity draft="true">丹麦沙文</exemplarCity>
+				<exemplarCity draft="unconfirmed">丹麦沙文</exemplarCity>
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
@@ -1350,17 +1312,17 @@
 				<exemplarCity>恩德贝里</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="true">克里斯马斯</exemplarCity>
+				<exemplarCity draft="unconfirmed">克里斯马斯</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
-				<exemplarCity draft="true">塔拉瓦岛</exemplarCity>
+				<exemplarCity draft="unconfirmed">塔拉瓦岛</exemplarCity>
 			</zone>
 			<!-- Kazakhstan -->
 			<zone type="Asia/Aqtau">
 				<exemplarCity>阿克套</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity draft="true">奥拉</exemplarCity>
+				<exemplarCity draft="unconfirmed">奥拉</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>阿克托别</exemplarCity>
@@ -1538,7 +1500,7 @@
 			</zone>
 			<!-- United States Minor Outlying Islands -->
 			<zone type="Pacific/Midway">
-				<exemplarCity draft="true">中途岛</exemplarCity>
+				<exemplarCity draft="unconfirmed">中途岛</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>约翰斯顿</exemplarCity>
@@ -1635,7 +1597,7 @@
 				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
-				<exemplarCity draft="true">密诺米尼</exemplarCity>
+				<exemplarCity draft="unconfirmed">密诺米尼</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>诺克斯</exemplarCity>
@@ -2407,10 +2369,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">是:确定</yesstr>
-			<nostr draft="true">否:否定</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|是|确定)</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|否定?)</noexpr>
+			<yesstr draft="unconfirmed">是:确定</yesstr>
+			<nostr draft="unconfirmed">否:否定</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|是|确定)</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|否定?)</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -2431,4 +2393,3 @@ Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermin
 EURO    { "\u6b27\u5143" }
 PREEURO { "\u65e7\u5e01" }
 -->
-

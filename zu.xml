@@ -6,14 +6,17 @@
 		<generation date="$Date$"/>
 		<language type="zu"/>
 	</identity>
+	<characters>
+		<exemplarCharacters>[a-i k-q s-z {bh} {ch} {dl} {gc} {gq} {gx} {hh} {hl} {kh} {kl} {nc} {nq} {nx} {ny} {ph} {qh} {sh} {th} {ts} {tsh} {xh}]</exemplarCharacters>
+	</characters>
 	<delimiters>
-		<quotationStart draft="true">‘</quotationStart>
-		<quotationEnd draft="true">’</quotationEnd>
-		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<quotationStart>‘</quotationStart>
+		<quotationEnd>’</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
 		<alternateQuotationEnd> draft=&quot;true&quot;”</alternateQuotationEnd>
 	</delimiters>
 	<measurement>
-		<measurementSystem type="metric" draft="true"/>
+		<measurementSystem type="metric" draft="unconfirmed"/>
 	</measurement>
 	<dates>
 		<calendars>
@@ -21,118 +24,85 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="true">Jan</month>
-							<month type="2" draft="true">Feb</month>
-							<month type="3" draft="true">Mas</month>
-							<month type="4" draft="true">Apr</month>
-							<month type="5" draft="true">Mey</month>
-							<month type="6" draft="true">Jun</month>
-							<month type="7" draft="true">Jul</month>
-							<month type="8" draft="true">Aga</month>
-							<month type="9" draft="true">Sep</month>
-							<month type="10" draft="true">Okt</month>
-							<month type="11" draft="true">Nov</month>
-							<month type="12" draft="true">Dis</month>
+							<month type="1" draft="unconfirmed">Jan</month>
+							<month type="2" draft="unconfirmed">Feb</month>
+							<month type="3" draft="unconfirmed">Mas</month>
+							<month type="4" draft="unconfirmed">Apr</month>
+							<month type="5" draft="unconfirmed">Mey</month>
+							<month type="6" draft="unconfirmed">Jun</month>
+							<month type="7" draft="unconfirmed">Jul</month>
+							<month type="8" draft="unconfirmed">Aga</month>
+							<month type="9" draft="unconfirmed">Sep</month>
+							<month type="10" draft="unconfirmed">Okt</month>
+							<month type="11" draft="unconfirmed">Nov</month>
+							<month type="12" draft="unconfirmed">Dis</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Januwari</month>
-							<month type="2" draft="true">Februwari</month>
-							<month type="3" draft="true">Mashi</month>
-							<month type="4" draft="true">Apreli</month>
-							<month type="5" draft="true">Meyi</month>
-							<month type="6" draft="true">Juni</month>
-							<month type="7" draft="true">Julayi</month>
-							<month type="8" draft="true">Agasti</month>
-							<month type="9" draft="true">Septemba</month>
-							<month type="10" draft="true">Okthoba</month>
-							<month type="11" draft="true">Novemba</month>
-							<month type="12" draft="true">Disemba</month>
+							<month type="1" draft="unconfirmed">Januwari</month>
+							<month type="2" draft="unconfirmed">Februwari</month>
+							<month type="3" draft="unconfirmed">Mashi</month>
+							<month type="4" draft="unconfirmed">Apreli</month>
+							<month type="5" draft="unconfirmed">Meyi</month>
+							<month type="6" draft="unconfirmed">Juni</month>
+							<month type="7" draft="unconfirmed">Julayi</month>
+							<month type="8" draft="unconfirmed">Agasti</month>
+							<month type="9" draft="unconfirmed">Septemba</month>
+							<month type="10" draft="unconfirmed">Okthoba</month>
+							<month type="11" draft="unconfirmed">Novemba</month>
+							<month type="12" draft="unconfirmed">Disemba</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="true">Son</day>
-							<day type="mon" draft="true">Mso</day>
-							<day type="tue" draft="true">Bil</day>
-							<day type="wed" draft="true">Tha</day>
-							<day type="thu" draft="true">Sin</day>
-							<day type="fri" draft="true">Hla</day>
-							<day type="sat" draft="true">Mgq</day>
+							<day type="sun" draft="unconfirmed">Son</day>
+							<day type="mon" draft="unconfirmed">Mso</day>
+							<day type="tue" draft="unconfirmed">Bil</day>
+							<day type="wed" draft="unconfirmed">Tha</day>
+							<day type="thu" draft="unconfirmed">Sin</day>
+							<day type="fri" draft="unconfirmed">Hla</day>
+							<day type="sat" draft="unconfirmed">Mgq</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="true">Sonto</day>
-							<day type="mon" draft="true">Msombuluko</day>
-							<day type="tue" draft="true">Lwesibili</day>
-							<day type="wed" draft="true">Lwesithathu</day>
-							<day type="thu" draft="true">Lwesine</day>
-							<day type="fri" draft="true">Lwesihlanu</day>
-							<day type="sat" draft="true">Mgqibelo</day>
+							<day type="sun" draft="unconfirmed">Sonto</day>
+							<day type="mon" draft="unconfirmed">Msombuluko</day>
+							<day type="tue" draft="unconfirmed">Lwesibili</day>
+							<day type="wed" draft="unconfirmed">Lwesithathu</day>
+							<day type="thu" draft="unconfirmed">Lwesine</day>
+							<day type="fri" draft="unconfirmed">Lwesihlanu</day>
+							<day type="sat" draft="unconfirmed">Mgqibelo</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1" draft="true"/>
-					<firstDay day="sun" draft="true"/>
+					<minDays count="1" draft="unconfirmed"/>
+					<firstDay day="sun" draft="unconfirmed"/>
 				</week>
-				<am draft="true">AM</am>
-				<pm draft="true">PM</pm>
+				<am draft="unconfirmed">AM</am>
+				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">BC</era>
-						<era type="1" draft="true">AD</era>
+						<era type="0" draft="unconfirmed">BC</era>
+						<era type="1" draft="unconfirmed">AD</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="true">BC</era>
-						<era type="1" draft="true">AD</era>
+						<era type="0" draft="unconfirmed">BC</era>
+						<era type="1" draft="unconfirmed">AD</era>
 					</eraAbbr>
 				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">yy/MM</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">yy/MM/dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMdd" alt="proposed" draft="true">dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">yyyy/MM/dd HH:mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal draft="true">.</decimal>
-			<group draft="true">,</group>
-			<list draft="true">;</list>
+			<decimal alt="proposed-u176-1" draft="provisional">,</decimal>
+			<list>;</list>
 		</symbols>
 		<currencies>
 			<currency type="ZAR">
-				<symbol draft="true">R</symbol>
+				<symbol>R</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

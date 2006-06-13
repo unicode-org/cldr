@@ -12,6 +12,7 @@
 			<language type="arc">Αραμαϊκά</language>
 			<language type="be">Λευκορωσικά</language>
 			<language type="bg">Βουλγαρικά</language>
+			<language type="bn">Μπενγκάλι</language>
 			<language type="bo">Θιβετιανά</language>
 			<language type="bs">Βοσνιακά</language>
 			<language type="ca">Καταλανικά</language>
@@ -33,13 +34,16 @@
 			<language type="ga">Ιρλανδικά</language>
 			<language type="gd">Σκωτικά Κελτικά</language>
 			<language type="grc">Ελληνικά, Αρχαία (έως 1453)</language>
+			<language type="grc" alt="proposed-u145-1" draft="provisional">Αρχαία Ελληνικά</language>
 			<language type="haw">Χαβανεζικά</language>
 			<language type="he">Εβραϊκά</language>
+			<language type="hi">Χίντι</language>
 			<language type="hr">Κροατικά</language>
 			<language type="hu">Ουγγρικά</language>
 			<language type="hy">Αρμενικά</language>
 			<language type="id">Ινδονησιακά</language>
 			<language type="ine">Ινδοευρωπαϊκά (¨Αλλη)</language>
+			<language type="ine" alt="proposed-u145-1" draft="provisional">Ινδοευρωπαϊκά (Άλλα)</language>
 			<language type="ira">Ιρανικά</language>
 			<language type="is">Ισλανδικά</language>
 			<language type="it">Ιταλικά</language>
@@ -58,7 +62,9 @@
 			<language type="nl">Ολλανδικά</language>
 			<language type="no">Νορβηγικά</language>
 			<language type="ota">Τουρκικά, Οθωμανικά (1500-1928)</language>
+			<language type="ota" alt="proposed-u145-1" draft="provisional">Τουρκικά, Οθωμανικά</language>
 			<language type="peo">Αρχαία Περσικά (600-400 π.Χ.)</language>
+			<language type="peo" alt="proposed-u145-1" draft="provisional">Αρχαία Περσικά</language>
 			<language type="phi">Φιλιππινέζικα (Άλλα)</language>
 			<language type="phn">Φοινικικά</language>
 			<language type="pl">Πολωνικά</language>
@@ -74,6 +80,7 @@
 			<language type="sq">Αλβανικά</language>
 			<language type="sr">Σερβικά</language>
 			<language type="sv">Σουηδικά</language>
+			<language type="th">Ταϊλανδικά</language>
 			<language type="tr">Τουρκικά</language>
 			<language type="uk">Ουκρανικά</language>
 			<language type="vi">Βιετναμεζικά</language>
@@ -100,35 +107,38 @@
 			<script type="Zyyy">Κοινό</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="true">Κόσμος</territory>
-			<territory type="002" draft="true">Αφρική</territory>
-			<territory type="005" draft="true">Νότια Αμερική</territory>
-			<territory type="009" draft="true">Ωκεανία</territory>
-			<territory type="011" draft="true">Δυτική Αφρική</territory>
-			<territory type="013" draft="true">Κεντρική Αμερική</territory>
-			<territory type="014" draft="true">Ανατολική Αφρική</territory>
-			<territory type="015" draft="true">Βόρεια Αφρική</territory>
-			<territory type="017" draft="true">Μέση Αφρική</territory>
-			<territory type="018" draft="true">Νότια Αφρική</territory>
-			<territory type="019" draft="true">Αμερική</territory>
-			<territory type="021" draft="true">Βόρεια Αμερική</territory>
-			<territory type="029" draft="true">Καραϊβική</territory>
-			<territory type="030" draft="true">Ανατολική Ασία</territory>
-			<territory type="035" draft="true">Νοτιοανατολική Ασία</territory>
-			<territory type="039" draft="true">Βόρεια Ευρώπη</territory>
-			<territory type="053" draft="true">Αυστραλία και Νέα Ζηλανδία</territory>
-			<territory type="054" draft="true">Μελανησία</territory>
-			<territory type="057" draft="true">Μικρονησία</territory>
-			<territory type="061" draft="true">Πολυνησία</territory>
-			<territory type="062" draft="true">Νότια Κεντρική Ασία</territory>
-			<territory type="142" draft="true">Ασία</territory>
-			<territory type="145" draft="true">Δυτική Ασία</territory>
-			<territory type="150" draft="true">Ευρώπη</territory>
-			<territory type="151" draft="true">Ανατολική Ευρώπη</territory>
-			<territory type="154" draft="true">Βόρεια Ευρώπη</territory>
-			<territory type="155" draft="true">Δυτική Ευρώπη</territory>
-			<territory type="830" draft="true">Νήσοι Καναλιού</territory>
-			<territory type="833" draft="true">Νήσος Man</territory>
+			<territory type="001">Κόσμος</territory>
+			<territory type="002">Αφρική</territory>
+			<territory type="005">Νότια Αμερική</territory>
+			<territory type="009">Ωκεανία</territory>
+			<territory type="011">Δυτική Αφρική</territory>
+			<territory type="013">Κεντρική Αμερική</territory>
+			<territory type="014">Ανατολική Αφρική</territory>
+			<territory type="015">Βόρεια Αφρική</territory>
+			<territory type="017">Μέση Αφρική</territory>
+			<territory type="018">Νότια Αφρική</territory>
+			<territory type="019">Αμερική</territory>
+			<territory type="021">Βόρεια Αμερική</territory>
+			<territory type="029">Καραϊβική</territory>
+			<territory type="030">Ανατολική Ασία</territory>
+			<territory type="034" alt="proposed-u208-1" draft="provisional">Νότια Ασία</territory>
+			<territory type="035">Νοτιοανατολική Ασία</territory>
+			<territory type="039" alt="proposed-u145-1" draft="provisional">Νότια Ευρώπη</territory>
+			<territory type="053">Αυστραλία και Νέα Ζηλανδία</territory>
+			<territory type="054">Μελανησία</territory>
+			<territory type="057" alt="proposed-u145-1" draft="provisional">Περιοχή Μικρονησίας</territory>
+			<territory type="061">Πολυνησία</territory>
+			<territory type="062">Νότια Κεντρική Ασία</territory>
+			<territory type="142">Ασία</territory>
+			<territory type="143" alt="proposed-u208-1" draft="provisional">Κεντρική Ασία</territory>
+			<territory type="145">Δυτική Ασία</territory>
+			<territory type="150">Ευρώπη</territory>
+			<territory type="151">Ανατολική Ευρώπη</territory>
+			<territory type="154">Βόρεια Ευρώπη</territory>
+			<territory type="155">Δυτική Ευρώπη</territory>
+			<territory type="419" alt="proposed-u208-1" draft="provisional">Λατινική Αμερική και Καραϊβική </territory>
+			<territory type="830">Νήσοι Καναλιού</territory>
+			<territory type="833">Νήσος Μαν</territory>
 			<territory type="AD">Ανδόρα</territory>
 			<territory type="AE">Ηνωμένα Αραβικά Εμιράτα</territory>
 			<territory type="AF">Αφγανιστάν</territory>
@@ -144,7 +154,7 @@
 			<territory type="AT">Αυστρία</territory>
 			<territory type="AU">Αυστραλία</territory>
 			<territory type="AW">Αρούμπα</territory>
-			<territory type="AX" draft="true">Νήσοι Aland</territory>
+			<territory type="AX">Νήσοι Aland</territory>
 			<territory type="AZ">Αζερμπαϊτζάν</territory>
 			<territory type="BA">Βοσνία - Ερζεγοβίνη</territory>
 			<territory type="BB">Μπαρμπάντος</territory>
@@ -172,15 +182,17 @@
 			<territory type="CG">Κονγκό</territory>
 			<territory type="CH">Ελβετία</territory>
 			<territory type="CI">Ακτή Ελεφαντόδοντος</territory>
+			<territory type="CI" alt="proposed-u208-1" draft="provisional">Ακτή Ελεφαντοστού</territory>
 			<territory type="CK">Νήσοι Κουκ</territory>
 			<territory type="CL">Χιλή</territory>
 			<territory type="CM">Καμερούν</territory>
 			<territory type="CN">Κίνα</territory>
 			<territory type="CO">Κολομβία</territory>
 			<territory type="CR">Κόστα Ρίκα</territory>
-			<territory type="CS" draft="true">Σερβία και Μαυροβούνιο</territory>
+			<territory type="CS">Σερβία και Μαυροβούνιο</territory>
 			<territory type="CU">Κούβα</territory>
 			<territory type="CV">Νήσοι Πράσινου Ακρωτηρίου</territory>
+			<territory type="CV" alt="proposed-u208-1" draft="provisional">Πράσινο Ακρωτήριο</territory>
 			<territory type="CX">Νήσος Χριστουγέννων</territory>
 			<territory type="CY">Κύπρος</territory>
 			<territory type="CZ">Τσεχία</territory>
@@ -217,6 +229,7 @@
 			<territory type="GQ">Ισημερινή Γουινέα</territory>
 			<territory type="GR">Ελλάδα</territory>
 			<territory type="GS">Νότια Γεωργία και Νήσοι Νότιες Σάντουιτς</territory>
+			<territory type="GS" alt="proposed-u208-1" draft="provisional">Νότια Γεωργία και Νότιες Νήσοι Σάντουιτς</territory>
 			<territory type="GT">Γουατεμάλα</territory>
 			<territory type="GU">Γκουάμ</territory>
 			<territory type="GW">Γουινέα-Μπισάου</territory>
@@ -260,7 +273,7 @@
 			<territory type="LT">Λιθουανία</territory>
 			<territory type="LU">Λουξεμβούργο</territory>
 			<territory type="LV">Λετονία</territory>
-			<territory type="LY" draft="true">Λιβύη</territory>
+			<territory type="LY">Λιβύη</territory>
 			<territory type="MA">Μαρόκο</territory>
 			<territory type="MC">Μονακό</territory>
 			<territory type="MD">Μολδαβία, Δημοκρατία της</territory>
@@ -310,7 +323,7 @@
 			<territory type="PW">Παλάου</territory>
 			<territory type="PY">Παραγουάη</territory>
 			<territory type="QA">Κατάρ</territory>
-			<territory type="QO" draft="true">Περιφερειακή Ωκεανία</territory>
+			<territory type="QO">Περιφερειακή Ωκεανία</territory>
 			<territory type="RE">Ρεϋνιόν</territory>
 			<territory type="RO">Ρουμανία</territory>
 			<territory type="RU">Ρωσία</territory>
@@ -374,6 +387,7 @@
 		<keys>
 			<key type="calendar">Ημερολόγιο</key>
 			<key type="collation">Τακτοποίηση</key>
+			<key type="collation" alt="proposed-u145-1" draft="provisional">Ταξινόμηση</key>
 			<key type="currency">Νόμισμα</key>
 		</keys>
 		<types>
@@ -524,10 +538,10 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1ο τρίμηνο</quarter>
-							<quarter type="2" draft="true">2ο τρίμηνο</quarter>
-							<quarter type="3" draft="true">3ο τρίμηνο</quarter>
-							<quarter type="4" draft="true">4ο τρίμηνο</quarter>
+							<quarter type="1">1ο τρίμηνο</quarter>
+							<quarter type="2">2ο τρίμηνο</quarter>
+							<quarter type="3">3ο τρίμηνο</quarter>
+							<quarter type="4">4ο τρίμηνο</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -546,21 +560,25 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, dd MMMM yyyy</pattern>
+							<pattern alt="proposed-u208-1" draft="provisional">EEEE, d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dd MMMM yyyy</pattern>
+							<pattern alt="proposed-u208-1" draft="provisional">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd MMM yyyy</pattern>
+							<pattern alt="proposed-u208-1" draft="provisional">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
+							<pattern alt="proposed-u208-1" draft="provisional">d/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -588,33 +606,29 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd/MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="provisional">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="provisional">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="provisional">dd/MMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="provisional">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="provisional">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="provisional">EEE, d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd/MM/yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="provisional">EEEE,d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="provisional">d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed" draft="provisional">d/M/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -622,78 +636,78 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<zone type="Africa/Timbuktu">
-				<exemplarCity draft="true">Τιμπουκτού</exemplarCity>
+				<exemplarCity>Τιμπουκτού</exemplarCity>
 			</zone>
 			<!-- Micronesia
 				 United Kingdom
 			-->
 			<zone type="Europe/Belfast">
-				<exemplarCity draft="true">Μπέλφαστ</exemplarCity>
+				<exemplarCity>Μπέλφαστ</exemplarCity>
 			</zone>
 			<!-- Antarctica
 				 Argentina
 			-->
 			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="true">Μπουένος Άιρες</exemplarCity>
+				<exemplarCity>Μπουένος Άιρες</exemplarCity>
 			</zone>
 			<!-- Australia -->
 			<zone type="Australia/Adelaide">
-				<exemplarCity draft="true">Αδελαΐδα</exemplarCity>
+				<exemplarCity>Αδελαΐδα</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
-				<exemplarCity draft="true">Μελβούρνη</exemplarCity>
+				<exemplarCity>Μελβούρνη</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
-				<exemplarCity draft="true">Σύδνεϊ</exemplarCity>
+				<exemplarCity>Σύδνεϊ</exemplarCity>
 			</zone>
 			<!-- Brazil -->
 			<zone type="America/Manaus">
-				<exemplarCity draft="true">Μανάος</exemplarCity>
+				<exemplarCity>Μανάος</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="true">Σάο Πάολο</exemplarCity>
+				<exemplarCity>Σάο Πάολο</exemplarCity>
 			</zone>
 			<!-- Canada -->
 			<zone type="America/Vancouver">
-				<exemplarCity draft="true">Βανκούβερ</exemplarCity>
+				<exemplarCity>Βανκούβερ</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
-				<exemplarCity draft="true">Τορόντο</exemplarCity>
+				<exemplarCity>Τορόντο</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
-				<exemplarCity draft="true">Μόντρεαλ</exemplarCity>
+				<exemplarCity>Μόντρεαλ</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="true">Κινσάσα</exemplarCity>
+				<exemplarCity>Κινσάσα</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="America/Santiago">
-				<exemplarCity draft="true">Σαντιάγκο</exemplarCity>
+				<exemplarCity>Σαντιάγκο</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Shanghai">
-				<exemplarCity draft="true">Σανγκάη</exemplarCity>
+				<exemplarCity>Σανγκάη</exemplarCity>
 			</zone>
 			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="true">Γκαλαπάγκος</exemplarCity>
+				<exemplarCity>Γκαλαπάγκος</exemplarCity>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Κανάρια</exemplarCity>
+				<exemplarCity>Κανάρια</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
-				<exemplarCity draft="true">Μαδρίτη</exemplarCity>
+				<exemplarCity>Μαδρίτη</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<exemplarCity draft="true">Λονδίνο</exemplarCity>
+				<exemplarCity>Λονδίνο</exemplarCity>
 			</zone>
 			<!-- Greenland
 				 Indonesia
 			-->
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="true">Τζακάρτα</exemplarCity>
+				<exemplarCity>Τζακάρτα</exemplarCity>
 			</zone>
 			<!-- Kiribati
 				 Kazakhstan
@@ -701,105 +715,105 @@
 				 Mali
 			-->
 			<zone type="Africa/Bamako">
-				<exemplarCity draft="true">Μπαμάκο</exemplarCity>
+				<exemplarCity>Μπαμάκο</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="true">Ουλάν Μπατόρ</exemplarCity>
+				<exemplarCity>Ουλάν Μπατόρ</exemplarCity>
 			</zone>
 			<!-- Mexico -->
 			<zone type="America/Tijuana">
-				<exemplarCity draft="true">Τιχουάνα</exemplarCity>
+				<exemplarCity>Τιχουάνα</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity draft="true">Πόλη του Μεξικού</exemplarCity>
+				<exemplarCity>Πόλη του Μεξικού</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity draft="true">Κανκούν</exemplarCity>
+				<exemplarCity>Κανκούν</exemplarCity>
 			</zone>
 			<!-- Malaysia -->
 			<zone type="Asia/Kuala_Lumpur">
-				<exemplarCity draft="true">Κουάλα Λουμπούρ</exemplarCity>
+				<exemplarCity>Κουάλα Λουμπούρ</exemplarCity>
 			</zone>
 			<!-- New Zealand -->
 			<zone type="Pacific/Auckland">
-				<exemplarCity draft="true">Όκλαντ</exemplarCity>
+				<exemplarCity>Όκλαντ</exemplarCity>
 			</zone>
 			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
-				<exemplarCity draft="true">Αϊτή</exemplarCity>
+				<exemplarCity>Αϊτή</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="true">Αζόρες</exemplarCity>
+				<exemplarCity>Αζόρες</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="true">Μαδέρα</exemplarCity>
+				<exemplarCity>Μαδέρα</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Λισσαβώνα</exemplarCity>
+				<exemplarCity>Λισσαβώνα</exemplarCity>
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Kaliningrad">
-				<exemplarCity draft="true">Καλλίπολη</exemplarCity>
+				<exemplarCity>Καλλίπολη</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Μόσχα</exemplarCity>
+				<exemplarCity>Μόσχα</exemplarCity>
 			</zone>
 			<zone type="Europe/Samara">
-				<exemplarCity draft="true">Σαμάρα</exemplarCity>
+				<exemplarCity>Σαμάρα</exemplarCity>
 			</zone>
 			<zone type="Asia/Omsk">
-				<exemplarCity draft="true">Ομσκ</exemplarCity>
+				<exemplarCity>Ομσκ</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="true">Νοβοσιμπίρσκ</exemplarCity>
+				<exemplarCity>Νοβοσιμπίρσκ</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="true">Ιρκούτσκ</exemplarCity>
+				<exemplarCity>Ιρκούτσκ</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="true">Βλαδιβοστόκ</exemplarCity>
+				<exemplarCity>Βλαδιβοστόκ</exemplarCity>
 			</zone>
 			<!-- Svalbard and Jan Mayen
 				 Ukraine
 			-->
 			<zone type="Europe/Kiev">
-				<exemplarCity draft="true">Κίεβο</exemplarCity>
+				<exemplarCity>Κίεβο</exemplarCity>
 			</zone>
 			<!-- United States Minor Outlying Islands
 				 United States
 			-->
 			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="true">Χονολουλού</exemplarCity>
+				<exemplarCity>Χονολουλού</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity draft="true">Άνκορατζ</exemplarCity>
+				<exemplarCity>Άνκορατζ</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity draft="true">Λος Άντζελες</exemplarCity>
+				<exemplarCity>Λος Άντζελες</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<exemplarCity draft="true">Φοίνιξ</exemplarCity>
+				<exemplarCity>Φοίνιξ</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<exemplarCity draft="true">Ντένβερ</exemplarCity>
+				<exemplarCity>Ντένβερ</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity draft="true">Σικάγο</exemplarCity>
+				<exemplarCity>Σικάγο</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<exemplarCity draft="true">Ινδιανάπολη</exemplarCity>
+				<exemplarCity>Ινδιανάπολη</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
-				<exemplarCity draft="true">Ντητρόιτ</exemplarCity>
+				<exemplarCity>Ντητρόιτ</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity draft="true">Νέα Υόρκη</exemplarCity>
+				<exemplarCity>Νέα Υόρκη</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
-				<exemplarCity draft="true">Σαμαρκάνδη</exemplarCity>
+				<exemplarCity>Σαμαρκάνδη</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1001,7 +1015,7 @@
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
 				<symbol>£</symbol>
-				<symbol alt="proposed" draft="true">C£</symbol>
+				<symbol alt="proposed" draft="provisional">C£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
@@ -1096,10 +1110,8 @@
 				<displayName>Ekwele Guineana Ισημερινής Γουινέας</displayName>
 			</currency>
 			<currency type="GRD">
-				<displayName>Δρχ</displayName>
-				<displayName alt="proposed" draft="true">Δραχμή Ελλάδας</displayName>
+				<displayName>Δραχμή Ελλάδας</displayName>
 				<symbol>Δρχ</symbol>
-				<symbol alt="proposed" draft="true">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal Γουατεμάλα</displayName>
@@ -1475,7 +1487,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">Νέα Τουρκική Λίρα</displayName>
+				<displayName>Νέα Τουρκική Λίρα</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Δολάριο Τρινιδάδ και Τομπάγκο</displayName>
@@ -1613,10 +1625,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ναι:ν</yesstr>
-			<nostr draft="true">οχι:όχι:ο:ό</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([νΝ]([αΑ][ιΙ])?))</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|([οΟόΌ]([χΧ][ιΙ])?))</noexpr>
+			<yesstr>ναι:ν</yesstr>
+			<nostr>οχι:όχι:ο:ό</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([νΝ]([αΑ][ιΙ])?))</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|([οΟόΌ]([χΧ][ιΙ])?))</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -1657,4 +1669,3 @@ zh_tw { "\u039A\u03B9\u03BD\u03B5\u03B6\u03B9\u03BA\u03AC (\u03A0\u03B1\u03C1\u0
                 "\u039C\u039C", // The lowercase form is "\u03BC\u03BC". Both are valid. It's also been seen as mixed case too.
                 "h:mm a",   // While Greece uses both 12 and 24 hour formats, we use one for consistency due to limitations of current ICU API.
 -->
-

@@ -8,19 +8,32 @@
 		<territory type="NO"/>
 	</identity>
 	<delimiters>
-		<quotationStart draft="true">’</quotationStart>
-		<quotationEnd draft="true">’</quotationEnd>
-		<alternateQuotationStart draft="true">«</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">»</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">’</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">»</alternateQuotationEnd>
 	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="HHmm" alt="proposed-u28-1" draft="provisional">HH.mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed-u28-1" draft="provisional">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-u28-1" draft="provisional">dd. MM</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="proposed-u223-1" draft="unconfirmed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-

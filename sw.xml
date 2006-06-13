@@ -8,7 +8,16 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="de">kijerumani</language>
+			<language type="en">kiingereza</language>
+			<language type="es">kihispania</language>
+			<language type="fr">kifaransa</language>
+			<language type="it">kiitaliano</language>
+			<language type="ja">kijapani</language>
+			<language type="pt">kireno</language>
+			<language type="ru">kirusi</language>
 			<language type="sw">Kiswahili</language>
+			<language type="zh">kichina</language>
 		</languages>
 		<territories>
 			<territory type="AE">Muugano wa Falme za Nchi za Kiarabu</territory>
@@ -93,7 +102,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-z]</exemplarCharacters>
+		<exemplarCharacters>[ a-p r-u w y z {dh} {ng} {ng'} {ny} {sh} {th} ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -103,8 +112,7 @@
 						<monthWidth type="abbreviated">
 							<month type="1">Jan</month>
 							<month type="2">Feb</month>
-							<month type="3">Mar</month>
-							<month type="3" alt="proposed" draft="true">Mac</month>
+							<month type="3" draft="unconfirmed">Mar</month>
 							<month type="4">Apr</month>
 							<month type="5">Mei</month>
 							<month type="6">Jun</month>
@@ -134,16 +142,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">Jpi</day>
-							<day type="sun" alt="proposed" draft="true">Jpl</day>
+							<day type="sun" draft="unconfirmed">Jpi</day>
 							<day type="mon">Jtt</day>
 							<day type="tue">Jnn</day>
 							<day type="wed">Jtn</day>
 							<day type="thu">Alh</day>
-							<day type="fri">Iju</day>
-							<day type="fri" alt="proposed" draft="true">Ijm</day>
-							<day type="sat">Jmo</day>
-							<day type="sat" alt="proposed" draft="true">Jms</day>
+							<day type="fri" draft="unconfirmed">Iju</day>
+							<day type="sat" draft="unconfirmed">Jmo</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Jumapili</day>
@@ -159,16 +164,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">R1</quarter>
-							<quarter type="2" draft="true">R2</quarter>
-							<quarter type="3" draft="true">R3</quarter>
-							<quarter type="4" draft="true">R4</quarter>
+							<quarter type="1" draft="unconfirmed">R1</quarter>
+							<quarter type="2" draft="unconfirmed">R2</quarter>
+							<quarter type="3" draft="unconfirmed">R3</quarter>
+							<quarter type="4" draft="unconfirmed">R4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">robo ya kwanza</quarter>
-							<quarter type="2" draft="true">robo ya pili</quarter>
-							<quarter type="3" draft="true">robo ya tatu</quarter>
-							<quarter type="4" draft="true">robo ya nne</quarter>
+							<quarter type="1" draft="unconfirmed">robo ya kwanza</quarter>
+							<quarter type="2" draft="unconfirmed">robo ya pili</quarter>
+							<quarter type="3" draft="unconfirmed">robo ya tatu</quarter>
+							<quarter type="4" draft="unconfirmed">robo ya nne</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -177,45 +182,14 @@
 				</week>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">Kabla ya Kristo</era>
-						<era type="1" draft="true">Baada ya Kristo</era>
+						<era type="0" draft="unconfirmed">Kabla ya Kristo</era>
+						<era type="1" draft="unconfirmed">Baada ya Kristo</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">KK</era>
 						<era type="1">BK</era>
 					</eraAbbr>
 				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMddKKmm" alt="proposed" draft="true">dd/MM/yy KK:mm a</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE,MMMM dd, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">MMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -238,7 +212,7 @@
 				<symbol>KSh</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName draft="true">Shilingi ya Tanzania</displayName>
+				<displayName draft="unconfirmed">Shilingi ya Tanzania</displayName>
 				<symbol>TSh</symbol>
 			</currency>
 		</currencies>
@@ -253,4 +227,3 @@ Many of these names came from www.geonames.de
 MG { "Madagascar" } // Could also be Buki or Malagasi
             "Saa za Africa Mashariki",  // East African Time
 -->
-

@@ -8,17 +8,17 @@
 		<territory type="IN"/>
 	</identity>
 	<delimiters>
-		<quotationStart draft="true">'</quotationStart>
-		<quotationEnd draft="true">'</quotationEnd>
-		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+		<quotationStart>'</quotationStart>
+		<quotationEnd>'</quotationEnd>
+		<alternateQuotationStart>&quot;</alternateQuotationStart>
+		<alternateQuotationEnd>&quot;</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
-					<weekendStart day="sun" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
+					<weekendStart day="sun" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -91,4 +91,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

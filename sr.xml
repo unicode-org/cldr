@@ -78,17 +78,24 @@
 			<script type="Cher">Чероки</script>
 			<script type="Copt">коптичко писмо</script>
 			<script type="Cyrl">Ћирилица</script>
+			<script type="Cyrs" alt="proposed-u36-1" draft="provisional">ћирилица (црквено словенска варијанта)</script>
 			<script type="Deva">Деванагари</script>
 			<script type="Dsrt">Дезерет</script>
 			<script type="Ethi">етиопско писмо</script>
 			<script type="Geor">грузијско писмо</script>
+			<script type="Glag" alt="proposed-u36-1" draft="provisional">глагољица</script>
 			<script type="Goth">Готика</script>
 			<script type="Grek">грчко писмо</script>
+			<script type="Hans" alt="proposed-u36-1" draft="provisional">поједностављено кинеско писмо</script>
+			<script type="Hant" alt="proposed-u36-1" draft="provisional">традиционално кинеско писмо</script>
 			<script type="Hebr">хебрејско писмо</script>
 			<script type="Hira">Хирагана</script>
 			<script type="Hrkt">Катакана или Хирагана</script>
 			<script type="Kana">Катакана</script>
+			<script type="Khmr" alt="proposed-u36-1" draft="provisional">кмерско писмо</script>
+			<script type="Latf" alt="proposed-u36-1" draft="provisional">латиница (фрактур варијанта)</script>
 			<script type="Latn">Латиница</script>
+			<script type="Runr" alt="proposed-u36-1" draft="provisional">рунско писмо</script>
 		</scripts>
 		<territories>
 			<territory type="001">Свет</territory>
@@ -116,7 +123,7 @@
 			<territory type="145">Западна Азија</territory>
 			<territory type="150">Европа</territory>
 			<territory type="151">Источна Европа</territory>
-			<territory type="154" draft="true">Северна Европа</territory>
+			<territory type="154" draft="unconfirmed">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
 			<territory type="830">Каналска острва</territory>
 			<territory type="833">Острво Ман</territory>
@@ -146,6 +153,7 @@
 			<territory type="BN">Брунеј</territory>
 			<territory type="BO">Боливија</territory>
 			<territory type="BR">Браѕил</territory>
+			<territory type="BR" alt="proposed-u137-1" draft="unconfirmed">Бразил</territory>
 			<territory type="BS">Бахами</territory>
 			<territory type="BT">Бутан</territory>
 			<territory type="BV">Буве</territory>
@@ -362,9 +370,11 @@
 			<key type="currency">Валута</key>
 		</keys>
 		<types>
+			<type type="big5han" key="collation" alt="proposed-u36-1" draft="unconfirmed">традиционални кинески</type>
 			<type type="buddhist" key="calendar">Будистички календар</type>
 			<type type="chinese" key="calendar">Кинески календар</type>
 			<type type="direct" key="collation">Директно сортирање</type>
+			<type type="gb2312han" key="collation" alt="proposed-u36-1" draft="unconfirmed">поједностављени кинески</type>
 			<type type="gregorian" key="calendar">Грегоријански календар</type>
 			<type type="hebrew" key="calendar">Хебрејски календар</type>
 			<type type="islamic" key="calendar">Исламски календар</type>
@@ -467,16 +477,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">К1</quarter>
-							<quarter type="2" draft="true">К2</quarter>
-							<quarter type="3" draft="true">К3</quarter>
-							<quarter type="4" draft="true">К4</quarter>
+							<quarter type="1">К1</quarter>
+							<quarter type="2">К2</quarter>
+							<quarter type="3">К3</quarter>
+							<quarter type="4">К4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">Први квартал године</quarter>
-							<quarter type="2" draft="true">Други квартал године</quarter>
-							<quarter type="3" draft="true">Трећи квартал године</quarter>
-							<quarter type="4" draft="true">Четврти квартал године</quarter>
+							<quarter type="1" alt="proposed-u8-1" draft="provisional">Први квартал</quarter>
+							<quarter type="2" alt="proposed-u8-1" draft="provisional">Други квартал</quarter>
+							<quarter type="3" alt="proposed-u8-1" draft="provisional">Трећи квартал</quarter>
+							<quarter type="4" alt="proposed-u8-1" draft="provisional">Четврти квартал</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -535,31 +545,25 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd.MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd.MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="provisional">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="provisional">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed-u8-1" draft="provisional">mm:ss:SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="provisional">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE dd.MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd.MM.yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-u8-1" draft="provisional">EEEE, d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="provisional">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd.MM.yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -572,7 +576,7 @@
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="true">Киншаса</exemplarCity>
+				<exemplarCity draft="unconfirmed">Киншаса</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
 				<exemplarCity>Лумумбаши</exemplarCity>
@@ -654,11 +658,11 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>Кинески Јуан Ренминби</displayName>
-				<symbol draft="true">У</symbol>
+				<symbol alt="proposed-u8-1" draft="provisional">Y</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Српски Динар</displayName>
-				<symbol draft="true">YUN</symbol>
+				<symbol alt="proposed-u8-1" draft="provisional">CSD</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Немачка марка</displayName>
@@ -753,4 +757,3 @@
 		</messages>
 	</posix>
 </ldml>
-

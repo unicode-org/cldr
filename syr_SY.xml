@@ -11,51 +11,51 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="thu" draft="true"/>
-					<weekendStart day="fri" draft="true"/>
-					<weekendEnd day="sat" draft="true"/>
+					<firstDay day="thu" draft="unconfirmed"/>
+					<weekendStart day="fri" draft="unconfirmed"/>
+					<weekendEnd day="sat" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="true">dd MMMM, yyyy</pattern>
+							<pattern draft="unconfirmed">dd MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">dd MMMM, yyyy</pattern>
+							<pattern draft="unconfirmed">dd MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">dd/MM/yyyy</pattern>
+							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">dd/MM/yyyy</pattern>
+							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss</pattern>
+							<pattern draft="unconfirmed">h:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">h:mm</pattern>
+							<pattern draft="unconfirmed">h:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -66,17 +66,16 @@
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="true">#,##0.###;#,##0.###-</pattern>
+					<pattern draft="unconfirmed">#,##0.###;#,##0.###-</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">¤ #,##0.00;¤ #,##0.00-</pattern>
+					<pattern draft="unconfirmed">¤ #,##0.00;¤ #,##0.00-</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-

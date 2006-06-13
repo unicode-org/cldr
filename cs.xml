@@ -48,6 +48,7 @@
 			<language type="gl">Haličština</language>
 			<language type="gn">Guaranština</language>
 			<language type="gu">Gujaratština</language>
+			<language type="gv">Manština</language>
 			<language type="ha">Hausa</language>
 			<language type="he">Hebrejština</language>
 			<language type="hi">Hindština</language>
@@ -89,8 +90,7 @@
 			<language type="my">Barmština</language>
 			<language type="na">Nauru</language>
 			<language type="ne">Nepálština</language>
-			<language type="nl">Holandština</language>
-			<language type="nl" alt="proposed" draft="true">Nizozemština</language>
+			<language type="nl" draft="provisional">Nizozemština</language>
 			<language type="no">Norština</language>
 			<language type="oc">Occitan</language>
 			<language type="om">Oromo (Afan)</language>
@@ -232,7 +232,7 @@
 			<territory type="CN">Čína</territory>
 			<territory type="CO">Kolumbie</territory>
 			<territory type="CR">Kostarika</territory>
-			<territory type="CS" references="R1">Srbsko a Černá Hora</territory>
+			<territory type="CS">Srbsko a Černá Hora</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kapverdy</territory>
 			<territory type="CX">Vánoční ostrovy</territory>
@@ -421,7 +421,7 @@
 			<territory type="WS">Samoa</territory>
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Mayotte</territory>
-			<territory type="ZA">Jižní Afrika</territory>
+			<territory type="ZA">Jihoafrická republika</territory>
 			<territory type="ZM">Zambie</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
@@ -431,7 +431,7 @@
 			<key type="currency">Měna</key>
 		</keys>
 		<types>
-			<type type="buddhist" key="calendar">Budhistický kalendář</type>
+			<type type="buddhist" key="calendar">Buddhistický kalendář</type>
 			<type type="chinese" key="calendar">Čínský kalendář</type>
 			<type type="gregorian" key="calendar">Gregoriánský kalendář</type>
 			<type type="hebrew" key="calendar">Hebrejský kalendář</type>
@@ -444,12 +444,11 @@
 		<inList casing="titlecase-firstword"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a á b c č d ď e é ě f-i í j-n ň o ó p-r ř s š t ť u ú ů v-y ý z ž]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a á b c č d ď e é ě f-h {ch} i í j-n ň o ó p-r ř s š t ť u ú ů v-y ý z ž]</exemplarCharacters>
+		<exemplarCharacters>[a á b c č d ď e é ě f-h {ch} i í j-n ň o ó p-r ř s š t ť u ú ů v-y ý z ž]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="true">„</quotationStart>
-		<quotationEnd draft="true">“</quotationEnd>
+		<quotationStart>„</quotationStart>
+		<quotationEnd>“</quotationEnd>
 		<alternateQuotationStart>‚</alternateQuotationStart>
 		<alternateQuotationEnd>‘</alternateQuotationEnd>
 	</delimiters>
@@ -460,30 +459,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">1.</month>
-							<month type="1" alt="proposed" draft="true">led</month>
-							<month type="2">2.</month>
-							<month type="2" alt="proposed" draft="true">úno</month>
-							<month type="3">3.</month>
-							<month type="3" alt="proposed" draft="true">bře</month>
-							<month type="4">4.</month>
-							<month type="4" alt="proposed" draft="true">dub</month>
-							<month type="5">5.</month>
-							<month type="5" alt="proposed" draft="true">kvě</month>
-							<month type="6">6.</month>
-							<month type="6" alt="proposed" draft="true">črn</month>
-							<month type="7">7.</month>
-							<month type="7" alt="proposed" draft="true">črc</month>
-							<month type="8">8.</month>
-							<month type="8" alt="proposed" draft="true">srp</month>
-							<month type="9">9.</month>
-							<month type="9" alt="proposed" draft="true">zář</month>
-							<month type="10">10.</month>
-							<month type="10" alt="proposed" draft="true">říj</month>
-							<month type="11">11.</month>
-							<month type="11" alt="proposed" draft="true">lis</month>
-							<month type="12">12.</month>
-							<month type="12" alt="proposed" draft="true">pro</month>
+							<month type="1" draft="provisional">led</month>
+							<month type="2" draft="provisional">úno</month>
+							<month type="3" draft="provisional">bře</month>
+							<month type="4" draft="provisional">dub</month>
+							<month type="5" draft="provisional">kvě</month>
+							<month type="6" draft="provisional">črn</month>
+							<month type="7" draft="provisional">črc</month>
+							<month type="8" draft="provisional">srp</month>
+							<month type="9" draft="provisional">zář</month>
+							<month type="10" draft="provisional">říj</month>
+							<month type="11" draft="provisional">lis</month>
+							<month type="12" draft="provisional">pro</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">l</month>
@@ -517,29 +504,17 @@
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">1.</month>
-							<month type="1" alt="proposed" draft="true">led</month>
 							<month type="2">2.</month>
-							<month type="2" alt="proposed" draft="true">úno</month>
 							<month type="3">3.</month>
-							<month type="3" alt="proposed" draft="true">bře</month>
 							<month type="4">4.</month>
-							<month type="4" alt="proposed" draft="true">dub</month>
 							<month type="5">5.</month>
-							<month type="5" alt="proposed" draft="true">kvě</month>
 							<month type="6">6.</month>
-							<month type="6" alt="proposed" draft="true">črn</month>
 							<month type="7">7.</month>
-							<month type="7" alt="proposed" draft="true">črc</month>
 							<month type="8">8.</month>
-							<month type="8" alt="proposed" draft="true">srp</month>
 							<month type="9">9.</month>
-							<month type="9" alt="proposed" draft="true">zář</month>
 							<month type="10">10.</month>
-							<month type="10" alt="proposed" draft="true">říj</month>
 							<month type="11">11.</month>
-							<month type="11" alt="proposed" draft="true">lis</month>
 							<month type="12">12.</month>
-							<month type="12" alt="proposed" draft="true">pro</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">l</month>
@@ -607,10 +582,10 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1. čtvrtletí</quarter>
-							<quarter type="2" draft="true">2. čtvrtletí</quarter>
-							<quarter type="3" draft="true">3. čtvrtletí</quarter>
-							<quarter type="4" draft="true">4. čtvrtletí</quarter>
+							<quarter type="1">1. čtvrtletí</quarter>
+							<quarter type="2">2. čtvrtletí</quarter>
+							<quarter type="3">3. čtvrtletí</quarter>
+							<quarter type="4">4. čtvrtletí</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -639,27 +614,25 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d.M.yyyy</pattern>
-							<pattern alt="proposed" draft="true">yyyy-MM-dd</pattern>
+							<pattern alt="proposed" draft="provisional">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d.M.yy</pattern>
-							<pattern alt="proposed" draft="true">yy-MM-dd</pattern>
+							<pattern alt="proposed" draft="provisional">yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H:mm:ss z</pattern>
-							<pattern alt="proposed" draft="true">H:mm:ssZZ</pattern>
+							<pattern draft="unconfirmed">H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H:mm:ss z</pattern>
-							<pattern alt="proposed" draft="true">H:mm:ssZZ</pattern>
+							<pattern draft="unconfirmed">H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -675,30 +648,19 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">dd-MM</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE, dd. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE,dd. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd.MM.yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="provisional">MMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">dd-MM</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE, dd. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="provisional">d. MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMd" alt="proposed" draft="provisional">d.M.yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -786,8 +748,7 @@
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japonský standardní čas</standard>
-					<daylight>Japonský standardní čas</daylight>
-					<daylight alt="proposed" draft="true">Japonský letní čas</daylight>
+					<daylight>Japonský letní čas</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -862,8 +823,7 @@
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>Havajský standardní čas</standard>
-					<daylight>Havajský standardní čas</daylight>
-					<daylight alt="proposed" draft="true">Havajský letní čas</daylight>
+					<daylight>Havajský letní čas</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -877,7 +837,9 @@
 				</long>
 				<short>
 					<standard>AST</standard>
+					<standard alt="proposed-u18-1" draft="provisional">AKST</standard>
 					<daylight>ADT</daylight>
+					<daylight alt="proposed-u18-1" draft="provisional">AKDT</daylight>
 				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
@@ -894,7 +856,7 @@
 				<long>
 					<standard>Horský standardní čas</standard>
 					<daylight>Horský standardní čas</daylight>
-					<daylight alt="proposed" draft="true">Horský letní čas</daylight>
+					<daylight alt="proposed-u18-1" draft="provisional">Horský letní čas (Phoenix)</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -904,7 +866,9 @@
 			<zone type="America/Denver">
 				<long>
 					<standard>Horský standardní čas</standard>
+					<standard alt="proposed-u18-1" draft="provisional">Horský standardní čas (Denver)</standard>
 					<daylight>Horský letní čas</daylight>
+					<daylight alt="proposed-u18-1" draft="provisional">Horský letní čas (Denver)</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -925,7 +889,7 @@
 				<long>
 					<standard>Východní standardní čas</standard>
 					<daylight>Východní standardní čas</daylight>
-					<daylight alt="proposed" draft="true">Východní letní čas</daylight>
+					<daylight alt="proposed-u18-1" draft="provisional">Východní letní čas (Indianapolis)</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -935,7 +899,9 @@
 			<zone type="America/New_York">
 				<long>
 					<standard>Východní standardní čas</standard>
+					<standard alt="proposed-u18-1" draft="provisional">Východní standardní čas (New York)</standard>
 					<daylight>Východní letní čas</daylight>
+					<daylight alt="proposed-u18-1" draft="provisional">Východní letní čas (New York)</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1155,7 +1121,7 @@
 			</currency>
 			<currency type="CYP">
 				<displayName>Libra kyperská</displayName>
-				<symbol>£</symbol>
+				<symbol>CYP</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Koruna česká</displayName>
@@ -1451,7 +1417,7 @@
 				<displayName>Rufiyaa</displayName>
 			</currency>
 			<currency type="MWK">
-				<displayName>Kwacha</displayName>
+				<displayName>Kwacha malawská</displayName>
 				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -1595,6 +1561,9 @@
 				<displayName>Koruna slovenská</displayName>
 				<symbol>Sk</symbol>
 			</currency>
+			<currency type="SLL">
+				<displayName alt="proposed-u18-1" draft="provisional">Leone</displayName>
+			</currency>
 			<currency type="SOS">
 				<displayName>Šilink somálský</displayName>
 				<symbol>So. Sh.</symbol>
@@ -1635,6 +1604,9 @@
 			</currency>
 			<currency type="TND">
 				<displayName>Dinár tuniský</displayName>
+			</currency>
+			<currency type="TOP">
+				<displayName alt="proposed-u18-1" draft="provisional">Paʻanga</displayName>
 			</currency>
 			<currency type="TPE">
 				<displayName>Escudo timorské</displayName>
@@ -1754,10 +1726,10 @@
 				<displayName>Dinár jugoslávský nový</displayName>
 			</currency>
 			<currency type="YUM">
-				<displayName>Dinár jugoslávský</displayName>
+				<displayName>Dinár jugoslávský nový</displayName>
 			</currency>
 			<currency type="YUN">
-				<displayName>Dinár jugoslávský</displayName>
+				<displayName>Dinár jugoslávský konvertibilní</displayName>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Rand finanční</displayName>
@@ -1767,7 +1739,7 @@
 				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>Kwacha</displayName>
+				<displayName>Kwacha zambijská</displayName>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zaire nový</displayName>
@@ -1790,7 +1762,9 @@
 		</messages>
 	</posix>
 	<references>
-		<reference type="R1" uri="http://manas.info/staty-sveta/YI.PHP">Státy světa - Serbia and Montenegro</reference>
+		<reference type="R1">Státy světa - Serbia and Montenegro</reference>
+		<reference type="RP1">Czech version (ČSN) of the European Standard ISO 639-2:1998 (reference for languages)</reference>
+		<reference type="RP2">Czech version (ČSN) of the International Standard ISO 4217:2001 (reference for currencies)</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
@@ -1839,4 +1813,3 @@ Comments without bases
 
  Indonesia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
 -->
-

@@ -97,7 +97,7 @@
 			<language type="crh">crimean turkish; crimean tatar</language>
 			<language type="crp">crioulos e pídgins (outros)</language>
 			<language type="cs">tcheco</language>
-			<language type="cs" alt="proposed" draft="true">checo</language>
+			<language type="cs" alt="proposed" draft="provisional">checo</language>
 			<language type="csb">kashubian</language>
 			<language type="cu">eslavo eclesiástico</language>
 			<language type="cus">cuxitas (outros)</language>
@@ -131,7 +131,7 @@
 			<language type="eo">esperanto</language>
 			<language type="es">espanhol</language>
 			<language type="et">estoniano</language>
-			<language type="et" alt="proposed" draft="true">estónio</language>
+			<language type="et" alt="proposed" draft="provisional">estónio</language>
 			<language type="eu">basco</language>
 			<language type="ewo">ewondo</language>
 			<language type="fa">persa</language>
@@ -167,7 +167,7 @@
 			<language type="grc">grego, arcaico (até 1453)</language>
 			<language type="gu">guzerate</language>
 			<language type="gv">manx</language>
-			<language type="gwi" draft="true">gwichʼin</language>
+			<language type="gwi" draft="unconfirmed">gwichʼin</language>
 			<language type="ha">hauçá</language>
 			<language type="hai">haida</language>
 			<language type="haw">havaiano</language>
@@ -310,7 +310,7 @@
 			<language type="nic">niger - kordofanian (other)</language>
 			<language type="niu">niueano</language>
 			<language type="nl">holandês</language>
-			<language type="nl" alt="proposed" draft="true">neerlandês</language>
+			<language type="nl" alt="proposed" draft="provisional">neerlandês</language>
 			<language type="nn">nynorsk norueguês</language>
 			<language type="no">norueguês</language>
 			<language type="nog">nogai</language>
@@ -344,7 +344,7 @@
 			<language type="phn">fenício</language>
 			<language type="pi">páli</language>
 			<language type="pl">polonês</language>
-			<language type="pl" alt="proposed" draft="true">polaco</language>
+			<language type="pl" alt="proposed" draft="provisional">polaco</language>
 			<language type="pon">pohnpeian</language>
 			<language type="pra">idiomas prácrito</language>
 			<language type="pro">provençal, arcaico (até 1500)</language>
@@ -386,7 +386,7 @@
 			<language type="sit">sino-tibetanos (outros)</language>
 			<language type="sk">eslovaco</language>
 			<language type="sl">eslovênio</language>
-			<language type="sl" alt="proposed" draft="true">esloveno</language>
+			<language type="sl" alt="proposed" draft="provisional">esloveno</language>
 			<language type="so">somali</language>
 			<language type="sog">sogdien</language>
 			<language type="son">songai</language>
@@ -573,7 +573,7 @@
 			<territory type="CN">China</territory>
 			<territory type="CO">Colômbia</territory>
 			<territory type="CR">Costa Rica</territory>
-			<territory type="CS" draft="true">Sérvia e Montenegro</territory>
+			<territory type="CS">Sérvia e Montenegro</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Cabo Verde</territory>
 			<territory type="CX">Ilhas Natal</territory>
@@ -878,21 +878,21 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">T1</quarter>
-							<quarter type="2" draft="true">T2</quarter>
-							<quarter type="3" draft="true">T3</quarter>
-							<quarter type="4" draft="true">T4</quarter>
+							<quarter type="1">T1</quarter>
+							<quarter type="2">T2</quarter>
+							<quarter type="3">T3</quarter>
+							<quarter type="4">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1º trimestre</quarter>
-							<quarter type="2" draft="true">2º trimestre</quarter>
-							<quarter type="3" draft="true">3º trimestre</quarter>
-							<quarter type="4" draft="true">4º trimestre</quarter>
+							<quarter type="1">1º trimestre</quarter>
+							<quarter type="2">2º trimestre</quarter>
+							<quarter type="3">3º trimestre</quarter>
+							<quarter type="4">4º trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<week>
-					<firstDay day="mon" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -931,60 +931,44 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd/MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d 'de' MMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="provisional">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd/MM/yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="provisional">EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="provisional">d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd/MM/yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="true">Pólo Sul</exemplarCity>
+				<exemplarCity>Pólo Sul</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="true">Tucumán</exemplarCity>
+				<exemplarCity>Tucumán</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity draft="true">Córdoba</exemplarCity>
+				<exemplarCity>Córdoba</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity draft="true">Cuiabá</exemplarCity>
+				<exemplarCity>Cuiabá</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity draft="true">Belém</exemplarCity>
+				<exemplarCity>Belém</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
-				<exemplarCity draft="true">Araguaína</exemplarCity>
+				<exemplarCity>Araguaína</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="true">São Paulo</exemplarCity>
+				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity draft="true">Maceió</exemplarCity>
+				<exemplarCity>Maceió</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1020,17 +1004,17 @@
 			</zone>
 			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="true">Galápagos</exemplarCity>
+				<exemplarCity>Galápagos</exemplarCity>
 			</zone>
 			<zone type="America/Guayaquil">
-				<exemplarCity draft="true">Guaiaquil</exemplarCity>
+				<exemplarCity>Guaiaquil</exemplarCity>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Canárias</exemplarCity>
+				<exemplarCity>Canárias</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
-				<exemplarCity draft="true">Madri</exemplarCity>
+				<exemplarCity draft="unconfirmed">Madri</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1044,11 +1028,11 @@
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<exemplarCity draft="true">Londres</exemplarCity>
+				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="true">Jacarta</exemplarCity>
+				<exemplarCity>Jacarta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -1084,24 +1068,24 @@
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity draft="true">Cidade do México</exemplarCity>
+				<exemplarCity>Cidade do México</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
-				<exemplarCity draft="true">Mérida</exemplarCity>
+				<exemplarCity>Mérida</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity draft="true">Cancún</exemplarCity>
+				<exemplarCity>Cancún</exemplarCity>
 			</zone>
 			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
-				<exemplarCity draft="true">Taiti</exemplarCity>
+				<exemplarCity>Taiti</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="true">Açores</exemplarCity>
+				<exemplarCity>Açores</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Lisboa</exemplarCity>
+				<exemplarCity>Lisboa</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
@@ -1115,7 +1099,7 @@
 				<exemplarCity>Bucareste</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Moscou</exemplarCity>
+				<exemplarCity draft="unconfirmed">Moscou</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -1168,7 +1152,7 @@
 				</short>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="true">Central</exemplarCity>
+				<exemplarCity>Central</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -1221,7 +1205,7 @@
 			</currency>
 			<currency type="AFN">
 				<displayName>Afegane</displayName>
-				<symbol>AFA</symbol>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Lek Albanês</displayName>
@@ -1952,10 +1936,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">sim:s</yesstr>
-			<nostr draft="true">não:nao:n</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([sS]([iI][mM])?))</yesexpr>
-			<noexpr draft="true">^[nN]([ãÃaA]?[oO])?</noexpr>
+			<yesstr>sim:s</yesstr>
+			<nostr draft="unconfirmed">não:nao:n</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([sS]([iI][mM])?))</yesexpr>
+			<noexpr draft="unconfirmed">^[nN]([ãÃaA]?[oO])?</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -2012,4 +1996,3 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
-

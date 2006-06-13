@@ -8,46 +8,46 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="dv" draft="true">ދިވެހިބަސް</language>
+			<language type="dv" draft="unconfirmed">ދިވެހިބަސް</language>
 		</languages>
 		<territories>
-			<territory type="MV" draft="true">ދިވެހި ރާއްޖެ</territory>
+			<territory type="MV" draft="unconfirmed">ދިވެހި ރާއްޖެ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[\u200C \u200D ހ ޙ ޚ ށ-ރ ޜ ބ-އ ޢ ޣ ވ ޥ މ-ދ ޛ ތ ޘ ޠ ޡ ލ ގ ޤ ޏ ސ ޝ-ޟ ޑ-ޗ ޱ ަ-ް]</exemplarCharacters>
+		<exemplarCharacters>[ހ-ޗ ަ-ް]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D ޙ ޚ ޜ ޢ ޣ ޥ ޛ ޘ ޠ ޡ ޤ ޝ-ޟ ޱ]</exemplarCharacters>
 	</characters>
 	<numbers>
 		<symbols>
-			<list draft="true">،</list>
-			<nativeZeroDigit draft="true">٠</nativeZeroDigit>
+			<list draft="unconfirmed">،</list>
+			<nativeZeroDigit draft="unconfirmed">٠</nativeZeroDigit>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="true">#,##,##0.###</pattern>
+					<pattern draft="unconfirmed">#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="true">#,##,##0%</pattern>
+					<pattern draft="unconfirmed">#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">¤ #,##,##0.00</pattern>
+					<pattern draft="unconfirmed">¤ #,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="MVR">
-				<symbol draft="true">ރ.</symbol>
+				<symbol draft="unconfirmed">ރ.</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

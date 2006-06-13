@@ -10,16 +10,21 @@
 		<languages>
 			<language type="ar">arabski</language>
 			<language type="bg">bułgarski</language>
+			<language type="bn">bengalski</language>
+			<language type="ca">kataloński</language>
 			<language type="cs">czeski</language>
+			<language type="cy">walijski</language>
 			<language type="da">duński</language>
 			<language type="de">niemiecki</language>
 			<language type="el">grecki</language>
 			<language type="en">angielski</language>
 			<language type="es">hiszpański</language>
 			<language type="et">estoński</language>
+			<language type="eu">baskijski</language>
 			<language type="fi">fiński</language>
 			<language type="fr">francuski</language>
 			<language type="he">hebrajski</language>
+			<language type="hi">hindi</language>
 			<language type="hr">chorwacki</language>
 			<language type="hu">węgierski</language>
 			<language type="it">włoski</language>
@@ -27,9 +32,8 @@
 			<language type="ko">koreański</language>
 			<language type="lt">litewski</language>
 			<language type="lv">łotewski</language>
-			<language type="mt" alt="proposed" draft="true">maltański</language>
-			<language type="nl">holenderski</language>
-			<language type="nl" alt="proposed" draft="true">niderlandzki</language>
+			<language type="mt">maltański</language>
+			<language type="nl">niderlandzki</language>
 			<language type="no">norweski</language>
 			<language type="pl">polski</language>
 			<language type="pt">portugalski</language>
@@ -38,6 +42,7 @@
 			<language type="sk">słowacki</language>
 			<language type="sl">słoweński</language>
 			<language type="sv">szwedzki</language>
+			<language type="th">tajski</language>
 			<language type="tr">turecki</language>
 			<language type="zh">chiński</language>
 		</languages>
@@ -85,35 +90,35 @@
 			<script type="Zyyy">Wspólny</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="true">Świat</territory>
-			<territory type="002" draft="true">Afryka</territory>
-			<territory type="005" draft="true">Ameryka Południowa</territory>
-			<territory type="009" draft="true">Oceania</territory>
-			<territory type="011" draft="true">Afryka Zachodnia</territory>
-			<territory type="013" draft="true">Ameryka Środkowa</territory>
-			<territory type="014" draft="true">Afryka Wschodnia</territory>
-			<territory type="015" draft="true">Afryka Północna</territory>
-			<territory type="017" draft="true">Afryka Środkowa</territory>
-			<territory type="018" draft="true">Afryka Południowa</territory>
-			<territory type="019" draft="true">Ameryka</territory>
-			<territory type="021" draft="true">Ameryka Północna</territory>
-			<territory type="029" draft="true">Morze Karaibskie</territory>
-			<territory type="030" draft="true">Azja Wschodnia</territory>
-			<territory type="035" draft="true">Azja Południowo-Wschodnia</territory>
-			<territory type="039" draft="true">Europa Południowa</territory>
-			<territory type="053" draft="true">Australia i Nowa Zelandia</territory>
-			<territory type="054" draft="true">Melanezja</territory>
-			<territory type="057" draft="true">Mikronezja</territory>
-			<territory type="061" draft="true">Polinezja</territory>
-			<territory type="062" draft="true">Azja Południowo-Środkowa</territory>
-			<territory type="142" draft="true">Azja</territory>
-			<territory type="145" draft="true">Azja Zachodnia</territory>
-			<territory type="150" draft="true">Europa</territory>
-			<territory type="151" draft="true">Europa Wschodnia</territory>
-			<territory type="154" draft="true">Europa Północna</territory>
-			<territory type="155" draft="true">Europa Zachodnia</territory>
-			<territory type="830" draft="true">Wyspy Normandzkie</territory>
-			<territory type="833" draft="true">Wyspa Man</territory>
+			<territory type="001">Świat</territory>
+			<territory type="002">Afryka</territory>
+			<territory type="005">Ameryka Południowa</territory>
+			<territory type="009">Oceania</territory>
+			<territory type="011">Afryka Zachodnia</territory>
+			<territory type="013">Ameryka Środkowa</territory>
+			<territory type="014">Afryka Wschodnia</territory>
+			<territory type="015">Afryka Północna</territory>
+			<territory type="017">Afryka Środkowa</territory>
+			<territory type="018">Afryka Południowa</territory>
+			<territory type="019">Ameryka</territory>
+			<territory type="021">Ameryka Północna</territory>
+			<territory type="029" alt="proposed-u94-1" draft="provisional">Karaiby</territory>
+			<territory type="030">Azja Wschodnia</territory>
+			<territory type="035">Azja Południowo-Wschodnia</territory>
+			<territory type="039">Europa Południowa</territory>
+			<territory type="053">Australia i Nowa Zelandia</territory>
+			<territory type="054">Melanezja</territory>
+			<territory type="057">Mikronezja</territory>
+			<territory type="061">Polinezja</territory>
+			<territory type="062" alt="proposed-u94-1" draft="provisional">(empty)</territory>
+			<territory type="142">Azja</territory>
+			<territory type="145">Azja Zachodnia</territory>
+			<territory type="150">Europa</territory>
+			<territory type="151">Europa Wschodnia</territory>
+			<territory type="154">Europa Północna</territory>
+			<territory type="155">Europa Zachodnia</territory>
+			<territory type="830">Wyspy Normandzkie</territory>
+			<territory type="833">Wyspa Man</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Zjednoczone Emiraty Arabskie</territory>
 			<territory type="AF">Afganistan</territory>
@@ -129,7 +134,7 @@
 			<territory type="AT">Austria</territory>
 			<territory type="AU">Australia</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX" draft="true">Wyspy Alandzkie</territory>
+			<territory type="AX">Wyspy Alandzkie</territory>
 			<territory type="AZ">Azerbejdżan</territory>
 			<territory type="BA">Bośnia i Hercegowina</territory>
 			<territory type="BB">Barbados</territory>
@@ -163,7 +168,7 @@
 			<territory type="CN">Chiny</territory>
 			<territory type="CO">Kolumbia</territory>
 			<territory type="CR">Kostaryka</territory>
-			<territory type="CS" draft="true">Serbia i Czarnogóra</territory>
+			<territory type="CS">Serbia i Czarnogóra</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Wyspy Zielonego Przylądka</territory>
 			<territory type="CX">Wyspa Bożego Narodzenia</territory>
@@ -295,7 +300,7 @@
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paragwaj</territory>
 			<territory type="QA">Katar</territory>
-			<territory type="QO" draft="true">Oceania inne</territory>
+			<territory type="QO">Oceania inne</territory>
 			<territory type="RE">Reunion</territory>
 			<territory type="RO">Rumunia</territory>
 			<territory type="RU">Federacja Rosyjska</territory>
@@ -367,10 +372,8 @@
 			<type type="direct" key="collation">porządek bezpośredni</type>
 			<type type="gregorian" key="calendar">Kalendarz gregoriański</type>
 			<type type="hebrew" key="calendar">Kalendarz żydowski</type>
-			<type type="islamic" key="calendar" draft="true">Kalendarz muzułmański (metoda wzrokowa)</type>
-			<type type="islamic" key="calendar" alt="proposed" draft="true">Kalendarz muzułmański</type>
-			<type type="islamic-civil" key="calendar" draft="true">Kalendarz muzułmański (metoda obliczeniowa)</type>
-			<type type="islamic-civil" key="calendar" alt="proposed" draft="true">Kalendarz muzułmański cywilny</type>
+			<type type="islamic" key="calendar">Kalendarz muzułmański</type>
+			<type type="islamic-civil" key="calendar">Kalendarz muzułmański cywilny</type>
 			<type type="japanese" key="calendar">Kalendarz japoński</type>
 			<type type="phonebook" key="collation">porządek książki telefonicznej</type>
 			<type type="pinyin" key="collation">porządek Pinyin</type>
@@ -379,9 +382,8 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a ą b c ć d e ę f-l ł m n ń o ó p-s ś t-z ź ż]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[q v x]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a ą b c ć d e ę f-l ł m n ń o ó p r s ś t u w-z ź ż]</exemplarCharacters>
+		<exemplarCharacters>[a ą b c ć d e ę f-l ł m n ń o ó p r s ś t u w-z ź ż]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q v x]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -479,20 +481,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">N</day>
-							<day type="sun" alt="proposed" draft="true">niedz.</day>
-							<day type="mon">Pn</day>
-							<day type="mon" alt="proposed" draft="true">pon.</day>
-							<day type="tue">Wt</day>
-							<day type="tue" alt="proposed" draft="true">wt.</day>
-							<day type="wed">Śr</day>
-							<day type="wed" alt="proposed" draft="true">śr.</day>
-							<day type="thu">Cz</day>
-							<day type="thu" alt="proposed" draft="true">czw.</day>
-							<day type="fri">Pt</day>
-							<day type="fri" alt="proposed" draft="true">pt.</day>
-							<day type="sat">So</day>
-							<day type="sat" alt="proposed" draft="true">sob.</day>
+							<day type="sun">niedz.</day>
+							<day type="mon">pon.</day>
+							<day type="tue">wt.</day>
+							<day type="wed">śr.</day>
+							<day type="thu">czw.</day>
+							<day type="fri">pt.</day>
+							<day type="sat">sob.</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">niedziela</day>
@@ -519,16 +514,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">K1</quarter>
-							<quarter type="2" draft="true">K2</quarter>
-							<quarter type="3" draft="true">K3</quarter>
-							<quarter type="4" draft="true">K4</quarter>
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">I kwartał</quarter>
-							<quarter type="2" draft="true">II kwartał</quarter>
-							<quarter type="3" draft="true">III kwartał</quarter>
-							<quarter type="4" draft="true">IV kwartał</quarter>
+							<quarter type="1">I kwartał</quarter>
+							<quarter type="2">II kwartał</quarter>
+							<quarter type="3">III kwartał</quarter>
+							<quarter type="4">IV kwartał</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -560,97 +555,92 @@
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yy-MM-dd</pattern>
-							<pattern alt="proposed" draft="true">dd.MM.yy</pattern>
+							<pattern alt="proposed" draft="provisional">dd.MM.yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">dd.MM</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d MMM, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd.MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM, yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">d.M.yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE,dd MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d MMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed-u94-1" draft="provisional">LLLL</dateFormatItem>
+						<dateFormatItem id="MMMdd">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed-u94-1" draft="provisional">EEE, d MMM y</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed-u94-1" draft="provisional">EEE, dd MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed-u94-1" draft="provisional">d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd.MM.yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyMd">d.M.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-u94-1" draft="provisional">EEEE,d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed-u94-1" draft="provisional">EEEE, dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed-u94-1" draft="provisional">EEE, d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-u94-1" draft="provisional">d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd.MM.yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="America/Argentina/ComodRivadavia">
-				<exemplarCity draft="true">Comodoro Rivadavia</exemplarCity>
+				<exemplarCity>Comodoro Rivadavia</exemplarCity>
 			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="true">Stacja Naukowa Rothera</exemplarCity>
+				<exemplarCity>Stacja Naukowa Rothera</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
-				<exemplarCity draft="true">Archipelag Palmera</exemplarCity>
+				<exemplarCity>Archipelag Palmera</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="true">Biegun południowy</exemplarCity>
+				<exemplarCity>Biegun południowy</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="true">Stacja Syowa</exemplarCity>
+				<exemplarCity>Stacja Syowa</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="true">Wybrzeże Mawsona</exemplarCity>
+				<exemplarCity>Wybrzeże Mawsona</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
-				<exemplarCity draft="true">Wostok</exemplarCity>
+				<exemplarCity>Wostok</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="true">Dumont d'Urville</exemplarCity>
+				<exemplarCity>Dumont d'Urville</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="true">Mc Murdo</exemplarCity>
+				<exemplarCity>Mc Murdo</exemplarCity>
 			</zone>
 			<!-- Argentina
 				 Australia
 			-->
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="true">Wyspa Lord Howe</exemplarCity>
+				<exemplarCity>Wyspa Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity draft="true">St. John's</exemplarCity>
+				<exemplarCity>St. John's</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="true">Kinszasa</exemplarCity>
+				<exemplarCity>Kinszasa</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="true">Lubumbaszi</exemplarCity>
+				<exemplarCity>Lubumbaszi</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
-				<exemplarCity draft="true">Wschodni</exemplarCity>
-				<exemplarCity alt="proposed" draft="true">Wyspy Wielkanocne</exemplarCity>
+				<exemplarCity>Wyspy Wielkanocne</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Kashgar">
-				<exemplarCity draft="true">Kaszgar</exemplarCity>
+				<exemplarCity>Kaszgar</exemplarCity>
 			</zone>
 			<!-- Brazil
 				 Canada
@@ -658,27 +648,27 @@
 				 China
 			-->
 			<zone type="Asia/Urumqi">
-				<exemplarCity draft="true">Urumczi</exemplarCity>
+				<exemplarCity>Urumczi</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
-				<exemplarCity draft="true">Czunking</exemplarCity>
+				<exemplarCity>Czunking</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<exemplarCity draft="true">Szanghaj</exemplarCity>
+				<exemplarCity>Szanghaj</exemplarCity>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Wyspy Kanaryjskie</exemplarCity>
+				<exemplarCity>Wyspy Kanaryjskie</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
-				<exemplarCity draft="true">Madryt</exemplarCity>
+				<exemplarCity>Madryt</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<exemplarCity draft="true">Londyn</exemplarCity>
+				<exemplarCity>Londyn</exemplarCity>
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="true">Dżakarta</exemplarCity>
+				<exemplarCity>Dżakarta</exemplarCity>
 			</zone>
 			<!-- Ecuador
 				 Spain
@@ -690,37 +680,37 @@
 				 Kazakhstan
 			-->
 			<zone type="Asia/Aqtau">
-				<exemplarCity draft="true">Aktau</exemplarCity>
+				<exemplarCity>Aktau</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity draft="true">Uralsk</exemplarCity>
+				<exemplarCity>Uralsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
-				<exemplarCity draft="true">Aktiubińsk</exemplarCity>
+				<exemplarCity>Aktiubińsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
-				<exemplarCity draft="true">Kyzył Orda</exemplarCity>
+				<exemplarCity>Kyzył Orda</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
-				<exemplarCity draft="true">Ałma Ata</exemplarCity>
+				<exemplarCity>Ałma Ata</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">
-				<exemplarCity draft="true">Howd</exemplarCity>
+				<exemplarCity>Howd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="true">Ułan Bator</exemplarCity>
+				<exemplarCity>Ułan Bator</exemplarCity>
 			</zone>
 			<!-- Marshall Islands
 				 Mali
 				 Mongolia
 			-->
 			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="true">Czojbalsan</exemplarCity>
+				<exemplarCity>Czojbalsan</exemplarCity>
 			</zone>
 			<!-- Mexico -->
 			<zone type="America/Mexico_City">
-				<exemplarCity draft="true">Meksyk</exemplarCity>
+				<exemplarCity>Meksyk</exemplarCity>
 				<!-- Malaysia
 					 New Zealand
 					 French Polynesia
@@ -731,67 +721,67 @@
 				-->
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity draft="true">Kuczing</exemplarCity>
+				<exemplarCity>Kuczing</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="true">Azory</exemplarCity>
+				<exemplarCity>Azory</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="true">Madera</exemplarCity>
+				<exemplarCity>Madera</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Lizbona</exemplarCity>
+				<exemplarCity>Lizbona</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Moskwa</exemplarCity>
+				<exemplarCity>Moskwa</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="true">Jekaterynburg</exemplarCity>
+				<exemplarCity>Jekaterynburg</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
-				<exemplarCity draft="true">Nowosybirsk</exemplarCity>
+				<exemplarCity>Nowosybirsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="true">Krasnojarsk</exemplarCity>
+				<exemplarCity>Krasnojarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
-				<exemplarCity draft="true">Irkuck</exemplarCity>
+				<exemplarCity>Irkuck</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="true">Jakuck</exemplarCity>
+				<exemplarCity>Jakuck</exemplarCity>
 			</zone>
 			<zone type="Asia/Vladivostok">
-				<exemplarCity draft="true">Władywostok</exemplarCity>
+				<exemplarCity>Władywostok</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="true">Sachalin</exemplarCity>
+				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="true">Kamczatka</exemplarCity>
+				<exemplarCity>Kamczatka</exemplarCity>
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="true">Użgorod</exemplarCity>
+				<exemplarCity>Użgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
-				<exemplarCity draft="true">Kijów</exemplarCity>
+				<exemplarCity>Kijów</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
-				<exemplarCity draft="true">Symferopol</exemplarCity>
+				<exemplarCity>Symferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="true">Zaporoże</exemplarCity>
+				<exemplarCity>Zaporoże</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity draft="true">Nowy Jork</exemplarCity>
+				<exemplarCity>Nowy Jork</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
-				<exemplarCity draft="true">Samarkanda</exemplarCity>
+				<exemplarCity>Samarkanda</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
-				<exemplarCity draft="true">Taszkient</exemplarCity>
+				<exemplarCity>Taszkient</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -887,13 +877,11 @@
 				<displayName>frank belgijski (finansowy)</displayName>
 			</currency>
 			<currency type="BGL">
-				<displayName draft="true">lew bułgarski</displayName>
-				<displayName alt="proposed" draft="true">lewa bułgarskie</displayName>
-				<symbol draft="true">lev</symbol>
+				<displayName>lew bułgarski</displayName>
+				<symbol>lev</symbol>
 			</currency>
 			<currency type="BGN">
-				<displayName draft="true">nowy lew bułgarski</displayName>
-				<displayName alt="proposed" draft="true">nowe lewa bułgarskie</displayName>
+				<displayName>nowy lew bułgarski</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>dinar bahrański</displayName>
@@ -1491,7 +1479,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">nowa lira turecka</displayName>
+				<displayName>nowa lira turecka</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>dolar Trynidadu i Tobago</displayName>
@@ -1612,10 +1600,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">tak:t</yesstr>
-			<nostr draft="true">nie:n</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([tT]([aA][kK])?))</yesexpr>
-			<noexpr draft="true">^[nN]([oO]|[iI][eE])?</noexpr>
+			<yesstr>tak:t</yesstr>
+			<nostr>nie:n</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([tT]([aA][kK])?))</yesexpr>
+			<noexpr draft="unconfirmed">^[nN]([oO]|[iI][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -1656,4 +1644,3 @@ Comments without bases
  Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
 -->
-

@@ -106,7 +106,7 @@
 			<territory type="CN">Trung Quốc</territory>
 			<territory type="CO">Cô-lôm-bi-a</territory>
 			<territory type="CR">Cốt-xta Ri-ca</territory>
-			<territory type="CS" draft="true">Séc-bia</territory>
+			<territory type="CS">Séc-bia</territory>
 			<territory type="CU">Cu Ba</territory>
 			<territory type="CV">Cáp-ve</territory>
 			<territory type="CY">Síp</territory>
@@ -382,10 +382,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">сó:co:c</yesstr>
-			<nostr draft="true">không:khong:k</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([cC][óÓoO]?))</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|([kK]([hH][ôÔoO][nN][gG])?))</noexpr>
+			<yesstr draft="unconfirmed">сó:co:c</yesstr>
+			<nostr draft="unconfirmed">không:khong:k</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([cC][óÓoO]?))</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|([kK]([hH][ôÔoO][nN][gG])?))</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -411,4 +411,3 @@ It is difficult to decide whether Ti\u1EBFng should precede the translation, but
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name
 -->
-

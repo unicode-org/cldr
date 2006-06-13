@@ -15,9 +15,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á b-e é f-i í j-n ñ o ó p-u ú ü v-z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[j k w y]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a á b-e é f-i í l-n ñ o ó p-u ú ü v x z]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a á b-e é f-i í j-n ñ o ó p-u ú ü v-z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -79,50 +77,19 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">T1</quarter>
-							<quarter type="2" draft="true">T2</quarter>
-							<quarter type="3" draft="true">T3</quarter>
-							<quarter type="4" draft="true">T4</quarter>
+							<quarter type="1" draft="unconfirmed">T1</quarter>
+							<quarter type="2" draft="unconfirmed">T2</quarter>
+							<quarter type="3" draft="unconfirmed">T3</quarter>
+							<quarter type="4" draft="unconfirmed">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1er trimestre</quarter>
-							<quarter type="2" draft="true">2on trimestre</quarter>
-							<quarter type="3" draft="true">3er trimestre</quarter>
-							<quarter type="4" draft="true">4rt trimestre</quarter>
+							<quarter type="1" draft="unconfirmed">1er trimestre</quarter>
+							<quarter type="2" draft="unconfirmed">2on trimestre</quarter>
+							<quarter type="3" draft="unconfirmed">3er trimestre</quarter>
+							<quarter type="4" draft="unconfirmed">4rt trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd/MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMd" alt="proposed" draft="true">d/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d 'de' MMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -141,4 +108,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

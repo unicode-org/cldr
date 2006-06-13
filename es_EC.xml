@@ -46,43 +46,33 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd/MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d 'de' MMM 'de' yy</dateFormatItem>
-						<dateFormatItem id="yyMMd" alt="proposed" draft="true">d/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d 'de' MMMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d 'de' MMM 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="provisional">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed" draft="provisional">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed" draft="provisional">dd/MMM</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="provisional">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="provisional">ww</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="provisional">EEE d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem id="yyMMd" alt="proposed" draft="provisional">d/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="provisional">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd/MM/yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="provisional">d 'de' MMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="provisional">dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd/MM/yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal draft="true">.</decimal>
-			<group draft="true">,</group>
-		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -97,4 +87,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

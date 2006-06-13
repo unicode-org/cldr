@@ -104,7 +104,7 @@
 			<territory type="054">Melanezija</territory>
 			<territory type="057">Micronezija</territory>
 			<territory type="061">Polinezija</territory>
-			<territory type="062">Južno-centralna Azija</territory>
+			<territory type="062">Južna Azija</territory>
 			<territory type="142">Azija</territory>
 			<territory type="145">Zapadna Azija</territory>
 			<territory type="150">Europa</territory>
@@ -140,7 +140,7 @@
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
 			<territory type="BM">Bermuda</territory>
-			<territory type="BN">Brunei Darussalam</territory>
+			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivija</territory>
 			<territory type="BR">Brazil</territory>
 			<territory type="BS">Bahami</territory>
@@ -508,16 +508,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">1kv</quarter>
-							<quarter type="2" draft="true">2kv</quarter>
-							<quarter type="3" draft="true">3kv</quarter>
-							<quarter type="4" draft="true">4kv</quarter>
+							<quarter type="1">1kv</quarter>
+							<quarter type="2">2kv</quarter>
+							<quarter type="3">3kv</quarter>
+							<quarter type="4">4kv</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1. kvartal</quarter>
-							<quarter type="2" draft="true">2. kvartal</quarter>
-							<quarter type="3" draft="true">3. kvartal</quarter>
-							<quarter type="4" draft="true">4. kvartal</quarter>
+							<quarter type="1">1. kvartal</quarter>
+							<quarter type="2">2. kvartal</quarter>
+							<quarter type="3">3. kvartal</quarter>
+							<quarter type="4">4. kvartal</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -526,9 +526,15 @@
 				</week>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">Prije Krista</era>
-						<era type="1" draft="true">Poslije Krista</era>
+						<era type="0">Prije Krista</era>
+						<era type="0" alt="proposed-u8-1" draft="provisional">Prije nove ere</era>
+						<era type="1">Poslije Krista</era>
+						<era type="1" alt="proposed-u8-1" draft="provisional">Nove ere</era>
 					</eraNames>
+					<eraAbbr>
+						<era type="0">pr.n.e.</era>
+						<era type="1">AD</era>
+					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -554,32 +560,28 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">yy.MM</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE yy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd.MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">yy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy.MM.dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">yy.MM.dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">yyyy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy.MM.dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">yyyy.MM.dd HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd">MMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="yyMM">yy.MM</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd">EEE yy.MMM d</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd">EEE dd.MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">yy.MMM d</dateFormatItem>
+						<dateFormatItem id="yyMMdd">yy.MM.dd</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm">yy.MM.dd HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">EEEE,yyyy.MMMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd">EEE yyyy.MMMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd">yyyy.MMMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">yyyy.MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd">yyyy.MM.dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss">yyyy.MM.dd HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -852,7 +854,7 @@
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuna</displayName>
-                 <symbol draft="true">Kn</symbol>
+				<symbol>Kn</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haitian Gourde</displayName>
@@ -1268,4 +1270,3 @@ zh_tw { "kineski (tradicionalni)" }
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
-

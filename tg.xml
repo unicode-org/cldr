@@ -6,17 +6,32 @@
 		<generation date="$Date$"/>
 		<language type="tg"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="de">Немисӣ</language>
+			<language type="en">Англисӣ</language>
+			<language type="fr">Фаронсавӣ</language>
+			<language type="zh">Чинӣ</language>
+		</languages>
+		<scripts>
+			<script type="Arab">Арабӣ</script>
+		</scripts>
+		<territories>
+			<territory type="AF">Афғонистан</territory>
+		</territories>
+	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[а-я]</exemplarCharacters>
+		<exemplarCharacters>[а-х ч ш ъ э-я ё ғ ӣ қ ӯ ҳ ҷ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ц щ ы ь]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="true">«</quotationStart>
-		<quotationEnd draft="true">»</quotationEnd>
-		<alternateQuotationStart draft="true">«</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">„</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">«</quotationStart>
+		<quotationEnd draft="unconfirmed">»</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">„</alternateQuotationEnd>
 	</delimiters>
 	<measurement>
-		<measurementSystem type="metric" draft="true"/>
+		<measurementSystem type="metric" draft="unconfirmed"/>
 	</measurement>
 	<dates>
 		<calendars>
@@ -24,71 +39,71 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="true">Янв</month>
-							<month type="2" draft="true">Фев</month>
-							<month type="3" draft="true">Мар</month>
-							<month type="4" draft="true">Апр</month>
-							<month type="5" draft="true">Май</month>
-							<month type="6" draft="true">Июн</month>
-							<month type="7" draft="true">Июл</month>
-							<month type="8" draft="true">Авг</month>
-							<month type="9" draft="true">Сен</month>
-							<month type="10" draft="true">Окт</month>
-							<month type="11" draft="true">Ноя</month>
-							<month type="12" draft="true">Дек</month>
+							<month type="1" draft="unconfirmed">Янв</month>
+							<month type="2" draft="unconfirmed">Фев</month>
+							<month type="3" draft="unconfirmed">Мар</month>
+							<month type="4" draft="unconfirmed">Апр</month>
+							<month type="5" draft="unconfirmed">Май</month>
+							<month type="6" draft="unconfirmed">Июн</month>
+							<month type="7" draft="unconfirmed">Июл</month>
+							<month type="8" draft="unconfirmed">Авг</month>
+							<month type="9" draft="unconfirmed">Сен</month>
+							<month type="10" draft="unconfirmed">Окт</month>
+							<month type="11" draft="unconfirmed">Ноя</month>
+							<month type="12" draft="unconfirmed">Дек</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Январ</month>
-							<month type="2" draft="true">Феврал</month>
-							<month type="3" draft="true">Март</month>
-							<month type="4" draft="true">Апрел</month>
-							<month type="5" draft="true">Май</month>
-							<month type="6" draft="true">Июн</month>
-							<month type="7" draft="true">Июл</month>
-							<month type="8" draft="true">Август</month>
-							<month type="9" draft="true">Сентябр</month>
-							<month type="10" draft="true">Октябр</month>
-							<month type="11" draft="true">Ноябр</month>
-							<month type="12" draft="true">Декабр</month>
+							<month type="1" draft="unconfirmed">Январ</month>
+							<month type="2" draft="unconfirmed">Феврал</month>
+							<month type="3" draft="unconfirmed">Март</month>
+							<month type="4" draft="unconfirmed">Апрел</month>
+							<month type="5" draft="unconfirmed">Май</month>
+							<month type="6" draft="unconfirmed">Июн</month>
+							<month type="7" draft="unconfirmed">Июл</month>
+							<month type="8" draft="unconfirmed">Август</month>
+							<month type="9" draft="unconfirmed">Сентябр</month>
+							<month type="10" draft="unconfirmed">Октябр</month>
+							<month type="11" draft="unconfirmed">Ноябр</month>
+							<month type="12" draft="unconfirmed">Декабр</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="true">Яшб</day>
-							<day type="mon" draft="true">Дшб</day>
-							<day type="tue" draft="true">Сшб</day>
-							<day type="wed" draft="true">Чшб</day>
-							<day type="thu" draft="true">Пшб</day>
-							<day type="fri" draft="true">Ҷмъ</day>
-							<day type="sat" draft="true">Шнб</day>
+							<day type="sun" draft="unconfirmed">Яшб</day>
+							<day type="mon" draft="unconfirmed">Дшб</day>
+							<day type="tue" draft="unconfirmed">Сшб</day>
+							<day type="wed" draft="unconfirmed">Чшб</day>
+							<day type="thu" draft="unconfirmed">Пшб</day>
+							<day type="fri" draft="unconfirmed">Ҷмъ</day>
+							<day type="sat" draft="unconfirmed">Шнб</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="true">Якшанбе</day>
-							<day type="mon" draft="true">Душанбе</day>
-							<day type="tue" draft="true">Сешанбе</day>
-							<day type="wed" draft="true">Чоршанбе</day>
-							<day type="thu" draft="true">Панҷшанбе</day>
-							<day type="fri" draft="true">Ҷумъа</day>
-							<day type="sat" draft="true">Шанбе</day>
+							<day type="sun" draft="unconfirmed">Якшанбе</day>
+							<day type="mon" draft="unconfirmed">Душанбе</day>
+							<day type="tue" draft="unconfirmed">Сешанбе</day>
+							<day type="wed" draft="unconfirmed">Чоршанбе</day>
+							<day type="thu" draft="unconfirmed">Панҷшанбе</day>
+							<day type="fri" draft="unconfirmed">Ҷумъа</day>
+							<day type="sat" draft="unconfirmed">Шанбе</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1" draft="true"/>
-					<firstDay day="sun" draft="true"/>
+					<minDays count="1" draft="unconfirmed"/>
+					<firstDay day="sun" draft="unconfirmed"/>
 				</week>
-				<am draft="true">пе. чо.</am>
-				<pm draft="true">па. чо.</pm>
+				<am draft="unconfirmed">пе. чо.</am>
+				<pm draft="unconfirmed">па. чо.</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">Пеш аз милод</era>
-						<era type="1" draft="true">ПаМ</era>
+						<era type="0" draft="unconfirmed">Пеш аз милод</era>
+						<era type="1" draft="unconfirmed">ПаМ</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="true">ПеМ</era>
-						<era type="1" draft="true">ПаМ</era>
+						<era type="0" draft="unconfirmed">ПеМ</era>
+						<era type="1" draft="unconfirmed">ПаМ</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -96,16 +111,18 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal draft="true">.</decimal>
-			<group draft="true">,</group>
-			<list draft="true">;</list>
+			<decimal draft="unconfirmed">.</decimal>
+			<group draft="unconfirmed">,</group>
+			<list draft="unconfirmed">;</list>
 		</symbols>
 		<currencies>
 			<currency type="TJS">
-				<displayName draft="true">Сомонӣ</displayName>
-				<symbol draft="true">сом</symbol>
+				<displayName draft="unconfirmed">Сомонӣ</displayName>
+				<symbol draft="unconfirmed">сом</symbol>
 			</currency>
 		</currencies>
 	</numbers>
+	<references>
+		<reference type="RP1">Фарҳанги Англисӣ-Тоҷикӣ (Ҷамшедов &amp; Розӣ)</reference>
+	</references>
 </ldml>
-

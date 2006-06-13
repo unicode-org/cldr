@@ -77,7 +77,7 @@
 			<language type="cai">Central American Indian (Other)</language>
 			<language type="car">Carib</language>
 			<language type="cau">Caucasian (Other)</language>
-			<language type="cch" draft="true">Atsam</language>
+			<language type="cch">Atsam</language>
 			<language type="ce">Chechen</language>
 			<language type="ceb">Cebuano</language>
 			<language type="cel">Celtic (Other)</language>
@@ -113,7 +113,6 @@
 			<language type="de">German</language>
 			<language type="del">Delaware</language>
 			<language type="den">Slave</language>
-			<language type="den" alt="proposed" draft="true">Slavey</language>
 			<language type="dgr">Dogrib</language>
 			<language type="din">Dinka</language>
 			<language type="doi">Dogri</language>
@@ -205,7 +204,7 @@
 			<language type="ine">Indo-European (Other)</language>
 			<language type="inh">Ingush</language>
 			<language type="io">Ido</language>
-			<language type="ira">Iranian</language>
+			<language type="ira">Iranian (Other)</language>
 			<language type="iro">Iroquoian languages</language>
 			<language type="is">Icelandic</language>
 			<language type="it">Italian</language>
@@ -219,13 +218,13 @@
 			<language type="kaa">Kara-Kalpak</language>
 			<language type="kab">Kabyle</language>
 			<language type="kac">Kachin</language>
-			<language type="kaj" draft="true">Jju</language>
+			<language type="kaj">Jju</language>
 			<language type="kam">Kamba</language>
 			<language type="kar">Karen</language>
 			<language type="kaw">Kawi</language>
 			<language type="kbd">Kabardian</language>
-			<language type="kcg" draft="true">Tyap</language>
-			<language type="kfo" draft="true">Koro</language>
+			<language type="kcg">Tyap</language>
+			<language type="kfo">Koro</language>
 			<language type="kg">Kongo</language>
 			<language type="kha">Khasi</language>
 			<language type="khi">Khoisan (Other)</language>
@@ -362,8 +361,8 @@
 			<language type="pon">Pohnpeian</language>
 			<language type="pra">Prakrit Languages</language>
 			<language type="pro">Old Provençal</language>
-			<language type="ps">Pashto (Pushto)</language>
-			<language type="ps" alt="variant" draft="true">Pushto</language>
+			<language type="ps">Pashto</language>
+			<language type="ps" alt="variant">Pushto</language>
 			<language type="pt">Portuguese</language>
 			<language type="qu">Quechua</language>
 			<language type="raj">Rajasthani</language>
@@ -511,7 +510,7 @@
 			<script type="Bugi">Buginese</script>
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Unified Canadian Aboriginal Symbols</script>
-			<script type="Cham" references="R1">Cham</script>
+			<script type="Cham">Cham</script>
 			<script type="Cher">Cherokee</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
@@ -592,7 +591,7 @@
 			<script type="Tfng">Tifinagh (Berber)</script>
 			<script type="Tglg">Tagalog</script>
 			<script type="Thaa">Thaana</script>
-			<script type="Thai" references="R1">Thai</script>
+			<script type="Thai">Thai</script>
 			<script type="Tibt">Tibetan</script>
 			<script type="Ugar">Ugaritic</script>
 			<script type="Vaii">Vai</script>
@@ -622,7 +621,7 @@
 			<territory type="029">Caribbean</territory>
 			<territory type="030">Eastern Asia</territory>
 			<territory type="034">Southern Asia</territory>
-			<territory type="035">South-eastern Asia</territory>
+			<territory type="035">South-Eastern Asia</territory>
 			<territory type="039">Southern Europe</territory>
 			<territory type="053">Australia and New Zealand</territory>
 			<territory type="054">Melanesia</territory>
@@ -723,7 +722,7 @@
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">French Guiana</territory>
-			<territory type="GG" alt="proposed" draft="true">Guernsey</territory>
+			<territory type="GG">Guernsey</territory>
 			<territory type="GH">Ghana</territory>
 			<territory type="GI">Gibraltar</territory>
 			<territory type="GL">Greenland</territory>
@@ -737,7 +736,7 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong S.A.R., China</territory>
+			<territory type="HK">Hong Kong SAR China</territory>
 			<territory type="HM">Heard Island and McDonald Islands</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Croatia</territory>
@@ -753,7 +752,7 @@
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Iceland</territory>
 			<territory type="IT">Italy</territory>
-			<territory type="JE" alt="proposed" draft="true">Jersey</territory>
+			<territory type="JE">Jersey</territory>
 			<territory type="JM">Jamaica</territory>
 			<territory type="JO">Jordan</territory>
 			<territory type="JP">Japan</territory>
@@ -790,7 +789,7 @@
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolia</territory>
-			<territory type="MO">Macao S.A.R., China</territory>
+			<territory type="MO">Macao SAR China</territory>
 			<territory type="MP">Northern Mariana Islands</territory>
 			<territory type="MQ">Martinique</territory>
 			<territory type="MR">Mauritania</territory>
@@ -1101,34 +1100,19 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">MM/dd/yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddKKmm" alt="proposed" draft="true">MM/dd/yy KK:mm a</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">M/d/yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">EEEE,MMMM dd, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">MMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">MM/dd/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM/dd/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed-u133-2" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss" alt="proposed-u133-2" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd">MMM dd</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm:ss</dateFormatItem>
+						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd">EEE, MMM d, yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">MMM d, yy</dateFormatItem>
+						<dateFormatItem id="yyMd">M/d/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1308,7 +1292,6 @@
 				<short>
 					<generic>AKT</generic>
 					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
 				</short>
 			</zone>
 			<!-- Note: zones that don't use daylight time need further work -->
@@ -1429,11 +1412,10 @@
 				<displayName>Aruban Guilder</displayName>
 			</currency>
 			<currency type="AZM">
-				<displayName>Azerbaijanian Manat</displayName>
-				<displayName alt="proposed" draft="true">Azerbaijanian Manat (1993-2006)</displayName>
+				<displayName>Azerbaijanian Manat (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
-				<displayName alt="proposed" draft="true">Azerbaijanian Manat</displayName>
+				<displayName>Azerbaijanian Manat</displayName>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosnia-Herzegovina Dinar</displayName>
@@ -1975,7 +1957,7 @@
 			</currency>
 			<currency type="PHP">
 				<displayName>Philippine Peso</displayName>
-				<symbol draft="true">Php</symbol>
+				<symbol>Php</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistan Rupee</displayName>
@@ -2007,9 +1989,8 @@
 				<symbol>=0#Old lei|1#Old leu|1&lt;Old lei</symbol>
 			</currency>
 			<currency type="RON">
-				<!-- See the National Bank of Romania for details http://www.bnro.ro/def_en.htm -->
-				<displayName alt="proposed" draft="true">Romanian Leu</displayName>
-				<symbol alt="proposed" draft="true">=0#lei|1#leu|1&lt;lei</symbol>
+				<displayName>Romanian Leu</displayName>
+				<symbol>=0#lei|1#leu|1&lt;lei</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russian Ruble</displayName>
@@ -2274,8 +2255,14 @@
 		</currencies>
 	</numbers>
 	<references>
-		<reference type="R1">Reference used only to prevent minimalization.</reference>
+		<reference type="R01" draft="unconfirmed"/>
+		<reference type="R02" draft="provisional"/>
+		<reference type="R03">UN Geographical Names</reference>
+		<reference type="R1">Special reference used only to prevent minimalization</reference>
+		<reference type="RP1">The Unicode Standard 4.0</reference>
+		<reference type="RP2">The Economist Style Guide</reference>
 	</references>
 </ldml>
+<!-- Comments without bases
 
-
+ See the National Bank of Romania for details http://www.bnro.ro/def_en.htm 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/displayName[@alt="proposed"] -->

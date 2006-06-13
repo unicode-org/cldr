@@ -7,5 +7,173 @@
 		<language type="ku"/>
 		<territory type="TR"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ar" alt="proposed-u142-1" draft="unconfirmed">erebî</language>
+			<language type="en" alt="proposed-u142-1" draft="unconfirmed">îngilîzî</language>
+			<language type="ja" alt="proposed-u142-1" draft="unconfirmed">japonî</language>
+			<language type="ku" alt="proposed-u142-1" draft="unconfirmed">kurdî</language>
+		</languages>
+		<scripts>
+			<script type="Arab" alt="proposed-u142-1" draft="unconfirmed">erebî</script>
+		</scripts>
+		<territories>
+			<territory type="001" alt="proposed-u142-1" draft="unconfirmed">Cîhan</territory>
+			<territory type="TR" alt="proposed-u142-1" draft="unconfirmed">Tirkiye</territory>
+		</territories>
+		<keys>
+			<key type="calendar" alt="proposed-u142-1" draft="unconfirmed">salname</key>
+			<key type="collation" alt="proposed-u142-1" draft="unconfirmed">rêzkirin</key>
+		</keys>
+		<types>
+			<type type="gregorian" key="calendar" alt="proposed-u142-1" draft="unconfirmed">mîladî</type>
+			<type type="islamic" key="calendar" alt="proposed-u142-1" draft="unconfirmed">hîcrî</type>
+		</types>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters alt="proposed-u142-1" draft="unconfirmed">[a-c ç d e ê f-i î h-s ş t u û v-z]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" alt="proposed-u142-1" draft="unconfirmed">çil</month>
+							<month type="2" alt="proposed-u142-1" draft="unconfirmed">sib</month>
+							<month type="3" alt="proposed-u142-1" draft="unconfirmed">adr</month>
+							<month type="4" alt="proposed-u142-1" draft="unconfirmed">nîs</month>
+							<month type="5" alt="proposed-u142-1" draft="unconfirmed">gul</month>
+							<month type="6" alt="proposed-u142-1" draft="unconfirmed">hez</month>
+							<month type="7" alt="proposed-u142-1" draft="unconfirmed">tîr</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" alt="proposed-u142-1" draft="unconfirmed">çile</month>
+							<month type="2" alt="proposed-u142-1" draft="unconfirmed">sibat</month>
+							<month type="3" alt="proposed-u142-1" draft="unconfirmed">adar</month>
+							<month type="4" alt="proposed-u142-1" draft="unconfirmed">nîsan</month>
+							<month type="5" alt="proposed-u142-1" draft="unconfirmed">gulan</month>
+							<month type="6" alt="proposed-u142-1" draft="unconfirmed">hezîran</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" alt="proposed-u142-1" draft="unconfirmed">ç</month>
+							<month type="2" alt="proposed-u142-1" draft="unconfirmed">s</month>
+							<month type="3" alt="proposed-u142-1" draft="unconfirmed">a</month>
+							<month type="4" alt="proposed-u142-1" draft="unconfirmed">n</month>
+							<month type="5" alt="proposed-u142-1" draft="unconfirmed">g</month>
+							<month type="6" alt="proposed-u142-1" draft="unconfirmed">h</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" alt="proposed-u142-1" draft="unconfirmed">yş</day>
+							<day type="mon" alt="proposed-u142-1" draft="unconfirmed">dş</day>
+							<day type="tue" alt="proposed-u142-1" draft="unconfirmed">sş</day>
+							<day type="wed" alt="proposed-u142-1" draft="unconfirmed">çş</day>
+							<day type="thu" alt="proposed-u142-1" draft="unconfirmed">pş</day>
+							<day type="fri" alt="proposed-u142-1" draft="unconfirmed">în</day>
+							<day type="sat" alt="proposed-u142-1" draft="unconfirmed">ş</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" alt="proposed-u142-1" draft="unconfirmed">yekşem</day>
+							<day type="mon" alt="proposed-u142-1" draft="unconfirmed">duşem</day>
+							<day type="tue" alt="proposed-u142-1" draft="unconfirmed">şê</day>
+							<day type="wed" alt="proposed-u142-1" draft="unconfirmed">çarşem</day>
+							<day type="thu" alt="proposed-u142-1" draft="unconfirmed">pêncşem</day>
+							<day type="fri" alt="proposed-u142-1" draft="unconfirmed">în</day>
+							<day type="sat" alt="proposed-u142-1" draft="unconfirmed">şemî</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" alt="proposed-u142-1" draft="unconfirmed">y</day>
+							<day type="mon" alt="proposed-u142-1" draft="unconfirmed">d</day>
+							<day type="tue" alt="proposed-u142-1" draft="unconfirmed">s</day>
+							<day type="wed" alt="proposed-u142-1" draft="unconfirmed">ç</day>
+							<day type="thu" alt="proposed-u142-1" draft="unconfirmed">p</day>
+							<day type="fri" alt="proposed-u142-1" draft="unconfirmed">în</day>
+							<day type="sat" alt="proposed-u142-1" draft="unconfirmed">ş</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" alt="proposed-u142-1" draft="unconfirmed">Ç1</quarter>
+							<quarter type="2" alt="proposed-u142-1" draft="unconfirmed">Ç2</quarter>
+							<quarter type="3" alt="proposed-u142-1" draft="unconfirmed">Ç3</quarter>
+							<quarter type="4" alt="proposed-u142-1" draft="unconfirmed">Ç4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" alt="proposed-u142-1" draft="unconfirmed">Ç1</quarter>
+							<quarter type="2" alt="proposed-u142-1" draft="unconfirmed">Ç2</quarter>
+							<quarter type="3" alt="proposed-u142-1" draft="unconfirmed">Ç3</quarter>
+							<quarter type="4" alt="proposed-u142-1" draft="unconfirmed">Ç4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<am alt="proposed-u142-1" draft="unconfirmed">BN</am>
+				<pm alt="proposed-u142-1" draft="unconfirmed">PN</pm>
+				<eras>
+					<eraAbbr>
+						<era type="0" alt="proposed-u142-1" draft="unconfirmed">BZ</era>
+						<era type="1" alt="proposed-u142-1" draft="unconfirmed">PZ</era>
+					</eraAbbr>
+				</eras>
+				<fields>
+					<field type="year">
+						<displayName alt="proposed-u142-2" draft="unconfirmed">sal</displayName>
+					</field>
+					<field type="month">
+						<displayName alt="proposed-u142-2" draft="unconfirmed">meh</displayName>
+					</field>
+					<field type="week">
+						<displayName alt="proposed-u142-2" draft="unconfirmed">hefte</displayName>
+					</field>
+					<field type="day">
+						<displayName alt="proposed-u142-1" draft="unconfirmed">roj</displayName>
+					</field>
+					<field type="hour">
+						<displayName alt="proposed-u142-2" draft="unconfirmed">demjimêr</displayName>
+					</field>
+					<field type="minute">
+						<displayName alt="proposed-u142-1" draft="unconfirmed">xulek</displayName>
+					</field>
+					<field type="second">
+						<displayName alt="proposed-u142-3" draft="unconfirmed">çirke</displayName>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" alt="proposed-u142-1" draft="unconfirmed">muẖerem</month>
+							<month type="2" alt="proposed-u142-1" draft="unconfirmed">sefer</month>
+							<month type="3" alt="proposed-u142-1" draft="unconfirmed">rebîʿulewel</month>
+							<month type="4" alt="proposed-u142-1" draft="unconfirmed">rebîʿulaxer</month>
+							<month type="5" alt="proposed-u142-1" draft="unconfirmed">cemazîyelewel</month>
+							<month type="6" alt="proposed-u142-1" draft="unconfirmed">cemazîyelaxer</month>
+							<month type="7" alt="proposed-u142-1" draft="unconfirmed">receb	</month>
+							<month type="8" alt="proposed-u142-1" draft="unconfirmed">şeʿban	</month>
+							<month type="9" alt="proposed-u142-1" draft="unconfirmed">remezan</month>
+							<month type="10" alt="proposed-u142-1" draft="unconfirmed">şewal	</month>
+							<month type="11" alt="proposed-u142-1" draft="unconfirmed">zîlqeʿde	</month>
+							<month type="12" alt="proposed-u142-1" draft="unconfirmed">zîlẖece</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+		</calendars>
+	</dates>
+	<posix>
+		<messages>
+			<yesstr alt="proposed-u142-1" draft="unconfirmed">erê:e</yesstr>
+			<nostr alt="proposed-u142-1" draft="unconfirmed">na:n</nostr>
+		</messages>
+	</posix>
 </ldml>
-

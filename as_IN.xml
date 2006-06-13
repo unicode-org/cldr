@@ -11,50 +11,50 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
-					<weekendStart day="sun" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
+					<weekendStart day="sun" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="true">EEEE, d MMMM, yyyy</pattern>
+							<pattern>EEEE, d MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">d MMMM, yyyy</pattern>
+							<pattern>d MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">dd-MM-yyyy</pattern>
+							<pattern>dd-MM-yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">d-M-yyyy</pattern>
+							<pattern>d-M-yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">h.mm.ss a z</pattern>
+							<pattern>h.mm.ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">h.mm.ss a z</pattern>
+							<pattern>h.mm.ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">h.mm.ss a</pattern>
+							<pattern draft="unconfirmed">h.mm.ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">h.mm. a</pattern>
+							<pattern>h.mm. a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -65,24 +65,23 @@
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="true">#,##,##0.###</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="true">#,##,##0%</pattern>
+					<pattern>#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">¤ #,##,##0.00</pattern>
+					<pattern>¤ #,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-

@@ -11,7 +11,7 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="sh" draft="true">Srpski jezik</language>
+			<language type="sh" alt="proposed-u8-1" draft="provisional">srpski</language>
 		</languages>
 	</localeDisplayNames>
 	<!-- CALENDAR INFORMATION.  Gregorian Only -->
@@ -21,52 +21,52 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="6" draft="true">juni</month>
-							<month type="7" draft="true">juli</month>
+							<month type="6">juni</month>
+							<month type="7">juli</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="wed" draft="true">sri</day>
+							<day type="wed">sri</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="wed" draft="true">srijeda</day>
+							<day type="wed">srijeda</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<dateFormats>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">dd. MMMM yyyy.</pattern>
+							<pattern>dd. MMMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">yyyy-MM-dd</pattern>
+							<pattern>yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">yy-MM-dd</pattern>
+							<pattern>yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">HH 'časova', mm 'minuta', ss 'sekundi'</pattern>
+							<pattern>HH 'časova', mm 'minuta', ss 'sekundi'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">HH:mm:ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">HH:mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -75,7 +75,7 @@
 		<timeZoneNames>
 			<zone type="Europe/Sarajevo">
 				<long>
-					<standard draft="true">Srednje Evropsko Vrijeme</standard>
+					<standard>Srednje Evropsko Vrijeme</standard>
 				</long>
 			</zone>
 		</timeZoneNames>
@@ -86,15 +86,15 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">#,##0.00 ¤</pattern>
+					<pattern draft="provisional">#,##0.00 km</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<!-- currency id as per ISO4217, three letter alphabetic code -->
 			<currency type="BAM">
-				<displayName draft="true">Konvertibilna Marka</displayName>
-				<symbol draft="true">KM.</symbol>
+				<displayName>Konvertibilna Marka</displayName>
+				<symbol>KM.</symbol>
 				<!-- decimal draft="true">,</decimal
 					 group draft="true">.</group
 				-->
@@ -102,4 +102,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

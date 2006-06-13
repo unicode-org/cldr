@@ -151,11 +151,14 @@
 			<language type="zu">जुलू</language>
 		</languages>
 		<territories>
+			<territory type="BR">ब्राजील</territory>
+			<territory type="DE">जमिन</territory>
 			<territory type="IN">भारत</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[\u200C \u200D ़ ँ-ः ॑-॔ ०-९ ॐ ऄ-ऋ ॠ ऌ ॡ ऍ-ह ऽ ॽ ा-ॄ ॢ ॣ ॅ-्]</exemplarCharacters>
+		<exemplarCharacters>[़ ँ-ः ०-९ ॐ अ-ऍ ए-ऑ ओ-न प-र ल ळ व-ह ऽ-ॅ े-ॉ ो-्]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -228,38 +231,6 @@
 						<era type="1">सन</era>
 					</eraAbbr>
 				</eras>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="GGGGyMMMMEEEEdd" alt="proposed" draft="true">EEEE,dd MMMM GGGGy</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd-MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd-MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">MM-dd-yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">d-M-yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">MMM, d yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd-MM-yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM-dd-yyyy HH:mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -284,10 +255,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">हां</yesstr>
-			<nostr draft="true">ना</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|हां)</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|ना)</noexpr>
+			<yesstr draft="unconfirmed">हां</yesstr>
+			<nostr draft="unconfirmed">ना</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|हां)</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|ना)</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -298,4 +269,3 @@ jw { "\u091c\u093e\u0935\u0928\u0940\u0938\u094d" } // Use jv instead
 "\ufffd"
 }
 -->
-

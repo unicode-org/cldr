@@ -9,10 +9,10 @@
 		<territory type="CN"/>
 	</identity>
 	<delimiters>
-		<quotationStart draft="true">‘</quotationStart>
-		<quotationEnd draft="true">’</quotationEnd>
-		<alternateQuotationStart draft="true">“</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">‘</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -63,6 +63,74 @@
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="Pacific/Yap">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">雅浦</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">帕默尔</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">复活节</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<daylight>中国夏令时间</daylight>
+				</long>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>加那利</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>库赛埃</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<long>
+					<daylight>日本夏令时间</daylight>
+				</long>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>基里巴斯（圣诞岛）</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">塔拉瓦</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">阿克图</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>乌拉尔</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>夸贾林</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">亚速</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>马德拉</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>诺沃西比尔斯克</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity>萨哈林</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>堪察加</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Jan_Mayen">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">扬马延</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity alt="proposed-u29-1" draft="provisional">威克</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<long>
+					<daylight>夏威夷夏令时间</daylight>
+				</long>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencyFormats>
@@ -74,4 +142,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

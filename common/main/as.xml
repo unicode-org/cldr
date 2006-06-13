@@ -8,14 +8,15 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="as" draft="true">অসমীয়া</language>
+			<language type="as">অসমীয়া</language>
 		</languages>
 		<territories>
-			<territory type="IN" draft="true">ভাৰত</territory>
+			<territory type="IN">ভাৰত</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[\u200C \u200D ় ঁ-ঃ ৲ অ-ঋ ৠ ঌ ৡ এ ঐ ও-ড {ড়} ঢ {ঢ়} ণ ত ৎ থ-ন প-য {য়} ৰ ল ৱ শ-হ ঽ-ৄ ৢ ৣ ে ৈ ো-্ ৗ]</exemplarCharacters>
+		<exemplarCharacters>[় ঁ-ঃ অ-ঋ ৠ ঌ ৡ এ ঐ ও-ড {ড়} ঢ {ঢ়} ণ ত ৎ থ-ন প-য {য়} ৰ ল ৱ শ-হ ঽ-ৄ ৢ ৣ ে ৈ ো-্ ৗ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D ৲]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -23,60 +24,60 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="true">জানু</month>
-							<month type="2" draft="true">ফেব্ৰু</month>
-							<month type="3" draft="true">মাৰ্চ</month>
-							<month type="4" draft="true">এপ্ৰিল</month>
-							<month type="5" draft="true">মে</month>
-							<month type="6" draft="true">জুন</month>
-							<month type="7" draft="true">জুলাই</month>
-							<month type="8" draft="true">আগ</month>
-							<month type="9" draft="true">সেপ্ট</month>
-							<month type="10" draft="true">অক্টো</month>
-							<month type="11" draft="true">নভে</month>
-							<month type="12" draft="true">ডিসে</month>
+							<month type="1">জানু</month>
+							<month type="2">ফেব্ৰু</month>
+							<month type="3">মাৰ্চ</month>
+							<month type="4">এপ্ৰিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগ</month>
+							<month type="9">সেপ্ট</month>
+							<month type="10">অক্টো</month>
+							<month type="11">নভে</month>
+							<month type="12">ডিসে</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">জানুয়াৰী</month>
-							<month type="2" draft="true">ফেব্ৰুয়াৰী</month>
-							<month type="3" draft="true">মাৰ্চ</month>
-							<month type="4" draft="true">এপ্ৰিল</month>
-							<month type="5" draft="true">মে</month>
-							<month type="6" draft="true">জুন</month>
-							<month type="7" draft="true">জুলাই</month>
-							<month type="8" draft="true">আগষ্ট</month>
-							<month type="9" draft="true">সেপ্টেম্বৰ</month>
-							<month type="10" draft="true">অক্টোবৰ</month>
-							<month type="11" draft="true">নভেম্বৰ</month>
-							<month type="12" draft="true">ডিসেম্বৰ</month>
+							<month type="1">জানুয়াৰী</month>
+							<month type="2">ফেব্ৰুয়াৰী</month>
+							<month type="3">মাৰ্চ</month>
+							<month type="4">এপ্ৰিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগষ্ট</month>
+							<month type="9">সেপ্টেম্বৰ</month>
+							<month type="10">অক্টোবৰ</month>
+							<month type="11">নভেম্বৰ</month>
+							<month type="12">ডিসেম্বৰ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="true">ৰবি</day>
-							<day type="mon" draft="true">সোম</day>
-							<day type="tue" draft="true">মঙ্গল</day>
-							<day type="wed" draft="true">বুধ</day>
-							<day type="thu" draft="true">বৃহষ্পতি</day>
-							<day type="fri" draft="true">শুক্ৰ</day>
-							<day type="sat" draft="true">শনি</day>
+							<day type="sun">ৰবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহষ্পতি</day>
+							<day type="fri">শুক্ৰ</day>
+							<day type="sat">শনি</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="true">দেওবাৰ</day>
-							<day type="mon" draft="true">সোমবাৰ</day>
-							<day type="tue" draft="true">মঙ্গলবাৰ</day>
-							<day type="wed" draft="true">বুধবাৰ</day>
-							<day type="thu" draft="true">বৃহষ্পতিবাৰ</day>
-							<day type="fri" draft="true">শুক্ৰবাৰ</day>
-							<day type="sat" draft="true">শনিবাৰ</day>
+							<day type="sun">দেওবাৰ</day>
+							<day type="mon">সোমবাৰ</day>
+							<day type="tue">মঙ্গলবাৰ</day>
+							<day type="wed">বুধবাৰ</day>
+							<day type="thu">বৃহষ্পতিবাৰ</day>
+							<day type="fri">শুক্ৰবাৰ</day>
+							<day type="sat">শনিবাৰ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="true">পূৰ্বা</am>
+				<am>পূৰ্বা</am>
 				<!-- Purbahna পূৰ্বাহ্ণ -->
-				<pm draft="true">অপ</pm>
+				<pm>অপ</pm>
 				<!-- Aparahna অপৰাহ্ণ -->
 			</calendar>
 		</calendars>
@@ -84,23 +85,25 @@
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>
-					<standard draft="true">ভাৰতীয় সময়</standard>
-					<daylight draft="true">ভাৰতীয় সময়</daylight>
+					<standard>ভাৰতীয় সময়</standard>
+					<daylight>ভাৰতীয় সময়</daylight>
 				</long>
 				<short>
-					<standard draft="true">ভা. স.</standard>
-					<daylight draft="true">ভা. স.</daylight>
+					<standard>ভা. স.</standard>
+					<daylight>ভা. স.</daylight>
 				</short>
-				<exemplarCity draft="true">এলাহাৱাদ</exemplarCity>
+				<exemplarCity>এলাহাৱাদ</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
 			<currency type="INR">
-				<symbol draft="true">Rs.</symbol>
+				<symbol>টকা</symbol>
 			</currency>
 		</currencies>
 	</numbers>
+	<references>
+		<reference type="RP1">Assamese Design Guide, IIT Guwahati</reference>
+	</references>
 </ldml>
-

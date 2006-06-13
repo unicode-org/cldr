@@ -8,14 +8,15 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="syr" draft="true">ܣܘܪܝܝܐ</language>
+			<language type="syr" draft="unconfirmed">ܣܘܪܝܝܐ</language>
 		</languages>
 		<territories>
-			<territory type="SY" draft="true">ܣܘܪܝܝܐ</territory>
+			<territory type="SY" draft="unconfirmed">ܣܘܪܝܝܐ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[\u070F\u200C \u200D ܑ ܰ-݊ ܃-܉ ܁ ܂ ܀ ܊-܍ ܐ ܒ ܭ ܓ ܔ ܮ ܖ ܕ ܯ ܗ-ܙ ݍ ܚ-ܟ ݎ ܠ-ܧ ݏ ܨ-ܬ]</exemplarCharacters>
+		<exemplarCharacters>[ܑ ܰ-݊ ܃-܉ ܁ ܂ ܀ ܊-܍ ܐ ܒ-ܔ ܖ ܕ ܗ-ܬ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u070F \u200C \u200D ܭ-ܯ ݍ-ݏ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -23,18 +24,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="true">܏ܟܢ ܏ܒ</month>
-							<month type="2" draft="true">ܫܒܛ</month>
-							<month type="3" draft="true">ܐܕܪ</month>
-							<month type="4" draft="true">ܢܝܣܢ</month>
-							<month type="5" draft="true">ܐܝܪ</month>
-							<month type="6" draft="true">ܚܙܝܪܢ</month>
-							<month type="7" draft="true">ܬܡܘܙ</month>
-							<month type="8" draft="true">ܐܒ</month>
-							<month type="9" draft="true">ܐܝܠܘܠ</month>
-							<month type="10" draft="true">܏ܬܫ ܏ܐ</month>
-							<month type="11" draft="true">܏ܬܫ ܏ܒ</month>
-							<month type="12" draft="true">܏ܟܢ ܏ܐ</month>
+							<month type="1" draft="unconfirmed">܏ܟܢ ܏ܒ</month>
+							<month type="2" draft="unconfirmed">ܫܒܛ</month>
+							<month type="3" draft="unconfirmed">ܐܕܪ</month>
+							<month type="4" draft="unconfirmed">ܢܝܣܢ</month>
+							<month type="5" draft="unconfirmed">ܐܝܪ</month>
+							<month type="6" draft="unconfirmed">ܚܙܝܪܢ</month>
+							<month type="7" draft="unconfirmed">ܬܡܘܙ</month>
+							<month type="8" draft="unconfirmed">ܐܒ</month>
+							<month type="9" draft="unconfirmed">ܐܝܠܘܠ</month>
+							<month type="10" draft="unconfirmed">܏ܬܫ ܏ܐ</month>
+							<month type="11" draft="unconfirmed">܏ܬܫ ܏ܒ</month>
+							<month type="12" draft="unconfirmed">܏ܟܢ ܏ܐ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -44,9 +45,8 @@
 	<numbers>
 		<currencies>
 			<currency type="SYP">
-				<symbol draft="true">ل.س.‏</symbol>
+				<symbol draft="unconfirmed">ل.س.‏</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

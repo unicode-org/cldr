@@ -8,41 +8,42 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar" draft="true">Арабча</language>
-			<language type="de" draft="true">Олмонча</language>
-			<language type="en" draft="true">Инглизча</language>
-			<language type="es" draft="true">Испанча</language>
-			<language type="fr" draft="true">Французча</language>
-			<language type="hi" draft="true">Ҳиндча</language>
-			<language type="it" draft="true">Италянча</language>
-			<language type="ja" draft="true">Японча</language>
-			<language type="pt" draft="true">Португалча</language>
-			<language type="ru" draft="true">Русча</language>
-			<language type="uz" draft="true">Ўзбек</language>
-			<language type="zh" draft="true">Хитойча</language>
+			<language type="ar" draft="unconfirmed">Арабча</language>
+			<language type="de" draft="unconfirmed">Олмонча</language>
+			<language type="en" draft="unconfirmed">Инглизча</language>
+			<language type="es" draft="unconfirmed">Испанча</language>
+			<language type="fr" draft="unconfirmed">Французча</language>
+			<language type="hi" draft="unconfirmed">Ҳиндча</language>
+			<language type="it" draft="unconfirmed">Италянча</language>
+			<language type="ja" draft="unconfirmed">Японча</language>
+			<language type="pt" draft="unconfirmed">Португалча</language>
+			<language type="ru" draft="unconfirmed">Русча</language>
+			<language type="uz" draft="unconfirmed">Ўзбек</language>
+			<language type="zh" draft="unconfirmed">Хитойча</language>
 		</languages>
 		<scripts>
-			<script type="Arab" draft="true">Араб</script>
-			<script type="Cyrl" draft="true">Кирил</script>
-			<script type="Latn" draft="true">Лотин</script>
+			<script type="Arab" draft="unconfirmed">Араб</script>
+			<script type="Cyrl" draft="unconfirmed">Кирил</script>
+			<script type="Latn" draft="unconfirmed">Лотин</script>
 		</scripts>
 		<territories>
-			<territory type="AF" draft="true">Афғонистон</territory>
-			<territory type="BR" draft="true">Бразилия</territory>
-			<territory type="CN" draft="true">Хитой</territory>
-			<territory type="DE" draft="true">Олмония</territory>
-			<territory type="FR" draft="true">Франция</territory>
-			<territory type="GB" draft="true">Бирлашган Қироллик</territory>
-			<territory type="IN" draft="true">Ҳиндистон</territory>
-			<territory type="IT" draft="true">Италия</territory>
-			<territory type="JP" draft="true">Япония</territory>
-			<territory type="RU" draft="true">Россия</territory>
-			<territory type="US" draft="true">Қўшма Штатлар</territory>
-			<territory type="UZ" draft="true">Ўзбекистон</territory>
+			<territory type="AF" draft="unconfirmed">Афғонистон</territory>
+			<territory type="BR" draft="unconfirmed">Бразилия</territory>
+			<territory type="CN" draft="unconfirmed">Хитой</territory>
+			<territory type="DE" draft="unconfirmed">Олмония</territory>
+			<territory type="FR" draft="unconfirmed">Франция</territory>
+			<territory type="GB" draft="unconfirmed">Бирлашган Қироллик</territory>
+			<territory type="IN" draft="unconfirmed">Ҳиндистон</territory>
+			<territory type="IT" draft="unconfirmed">Италия</territory>
+			<territory type="JP" draft="unconfirmed">Япония</territory>
+			<territory type="RU" draft="unconfirmed">Россия</territory>
+			<territory type="US" draft="unconfirmed">Қўшма Штатлар</territory>
+			<territory type="UZ" draft="unconfirmed">Ўзбекистон</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[а-е ё ж-и і й к қ л-у ў ф х ҳ ц-ь ѣ э-я ѳ ѵ]</exemplarCharacters>
+		<exemplarCharacters>[а-е ё ж-х ч ш ъ э-я ў қ ғ ҳ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ц щ ы ь]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -50,100 +51,81 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="true">Янв</month>
-							<month type="2" draft="true">Фев</month>
-							<month type="3" draft="true">Мар</month>
-							<month type="4" draft="true">Апр</month>
-							<month type="5" draft="true">Май</month>
-							<month type="6" draft="true">Июн</month>
-							<month type="7" draft="true">Июл</month>
-							<month type="8" draft="true">Авг</month>
-							<month type="9" draft="true">Сен</month>
-							<month type="10" draft="true">Окт</month>
-							<month type="11" draft="true">Ноя</month>
-							<month type="12" draft="true">Дек</month>
+							<month type="1" draft="unconfirmed">Янв</month>
+							<month type="2" draft="unconfirmed">Фев</month>
+							<month type="3" draft="unconfirmed">Мар</month>
+							<month type="4" draft="unconfirmed">Апр</month>
+							<month type="5" draft="unconfirmed">Май</month>
+							<month type="6" draft="unconfirmed">Июн</month>
+							<month type="7" draft="unconfirmed">Июл</month>
+							<month type="8" draft="unconfirmed">Авг</month>
+							<month type="9" draft="unconfirmed">Сен</month>
+							<month type="10" draft="unconfirmed">Окт</month>
+							<month type="11" draft="unconfirmed">Ноя</month>
+							<month type="12" draft="unconfirmed">Дек</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Муҳаррам</month>
-							<month type="1" alt="proposed" draft="true">Январь</month>
-							<month type="2" draft="true">Сафар</month>
-							<month type="2" alt="proposed" draft="true">Февраль</month>
-							<month type="3" draft="true">Рабиул-аввал</month>
-							<month type="3" alt="proposed" draft="true">Март</month>
-							<month type="4" draft="true">Рабиул-охир</month>
-							<month type="4" alt="proposed" draft="true">Апрель</month>
-							<month type="5" draft="true">Жумодиул-уло</month>
-							<month type="5" alt="proposed" draft="true">Май</month>
-							<month type="6" draft="true">Жумодиул-ухро</month>
-							<month type="6" alt="proposed" draft="true">Июнь</month>
-							<month type="7" draft="true">Ражаб</month>
-							<month type="7" alt="proposed" draft="true">Июль</month>
-							<month type="8" draft="true">Шаъбон</month>
-							<month type="8" alt="proposed" draft="true">Август</month>
-							<month type="9" draft="true">Рамазон</month>
-							<month type="9" alt="proposed" draft="true">Сентябрь</month>
-							<month type="10" draft="true">Шаввол</month>
-							<month type="10" alt="proposed" draft="true">Октябрь</month>
-							<month type="11" draft="true">Зил-қаъда</month>
-							<month type="11" alt="proposed" draft="true">Ноябрь</month>
-							<month type="12" draft="true">Зил-ҳижжа</month>
-							<month type="12" alt="proposed" draft="true">Декабрь</month>
+							<month type="1" draft="unconfirmed">Муҳаррам</month>
+							<month type="2" draft="unconfirmed">Сафар</month>
+							<month type="3" draft="unconfirmed">Рабиул-аввал</month>
+							<month type="4" draft="unconfirmed">Рабиул-охир</month>
+							<month type="5" draft="unconfirmed">Жумодиул-уло</month>
+							<month type="6" draft="unconfirmed">Жумодиул-ухро</month>
+							<month type="7" draft="unconfirmed">Ражаб</month>
+							<month type="8" draft="unconfirmed">Шаъбон</month>
+							<month type="9" draft="unconfirmed">Рамазон</month>
+							<month type="10" draft="unconfirmed">Шаввол</month>
+							<month type="11" draft="unconfirmed">Зил-қаъда</month>
+							<month type="12" draft="unconfirmed">Зил-ҳижжа</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="true">Я</month>
-							<month type="2" draft="true">Ф</month>
-							<month type="3" draft="true">М</month>
-							<month type="4" draft="true">А</month>
-							<month type="5" draft="true">М</month>
-							<month type="6" draft="true">И</month>
-							<month type="7" draft="true">И</month>
-							<month type="8" draft="true">А</month>
-							<month type="9" draft="true">С</month>
-							<month type="10" draft="true">О</month>
-							<month type="11" draft="true">Н</month>
-							<month type="12" draft="true">Д</month>
+							<month type="1" draft="unconfirmed">Я</month>
+							<month type="2" draft="unconfirmed">Ф</month>
+							<month type="3" draft="unconfirmed">М</month>
+							<month type="4" draft="unconfirmed">А</month>
+							<month type="5" draft="unconfirmed">М</month>
+							<month type="6" draft="unconfirmed">И</month>
+							<month type="7" draft="unconfirmed">И</month>
+							<month type="8" draft="unconfirmed">А</month>
+							<month type="9" draft="unconfirmed">С</month>
+							<month type="10" draft="unconfirmed">О</month>
+							<month type="11" draft="unconfirmed">Н</month>
+							<month type="12" draft="unconfirmed">Д</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="true">Якш</day>
-							<day type="mon" draft="true">Душ</day>
-							<day type="tue" draft="true">Сеш</day>
-							<day type="wed" draft="true">Чор</day>
-							<day type="thu" draft="true">Пай</day>
-							<day type="fri" draft="true">Жум</day>
-							<day type="sat" draft="true">Шан</day>
+							<day type="sun" draft="unconfirmed">Якш</day>
+							<day type="mon" draft="unconfirmed">Душ</day>
+							<day type="tue" draft="unconfirmed">Сеш</day>
+							<day type="wed" draft="unconfirmed">Чор</day>
+							<day type="thu" draft="unconfirmed">Пай</day>
+							<day type="fri" draft="unconfirmed">Жум</day>
+							<day type="sat" draft="unconfirmed">Шан</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="true">якшанба</day>
-							<day type="sun" alt="proposed" draft="true">Якшанба</day>
-							<day type="mon" draft="true">душанба</day>
-							<day type="mon" alt="proposed" draft="true">Душанба</day>
-							<day type="tue" draft="true">сешанба</day>
-							<day type="tue" alt="proposed" draft="true">Сешанба</day>
-							<day type="wed" draft="true">чоршанба</day>
-							<day type="wed" alt="proposed" draft="true">Чоршанба</day>
-							<day type="thu" draft="true">пайшанба</day>
-							<day type="thu" alt="proposed" draft="true">Пайшанба</day>
-							<day type="fri" draft="true">жума</day>
-							<day type="fri" alt="proposed" draft="true">Жума</day>
-							<day type="sat" draft="true">шанба</day>
-							<day type="sat" alt="proposed" draft="true">Шанба</day>
+							<day type="sun" draft="unconfirmed">якшанба</day>
+							<day type="mon" draft="unconfirmed">душанба</day>
+							<day type="tue" draft="unconfirmed">сешанба</day>
+							<day type="wed" draft="unconfirmed">чоршанба</day>
+							<day type="thu" draft="unconfirmed">пайшанба</day>
+							<day type="fri" draft="unconfirmed">жума</day>
+							<day type="sat" draft="unconfirmed">шанба</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="true">Я</day>
-							<day type="mon" draft="true">Д</day>
-							<day type="tue" draft="true">С</day>
-							<day type="wed" draft="true">Ч</day>
-							<day type="thu" draft="true">П</day>
-							<day type="fri" draft="true">Ж</day>
-							<day type="sat" draft="true">Ш</day>
+							<day type="sun" draft="unconfirmed">Я</day>
+							<day type="mon" draft="unconfirmed">Д</day>
+							<day type="tue" draft="unconfirmed">С</day>
+							<day type="wed" draft="unconfirmed">Ч</day>
+							<day type="thu" draft="unconfirmed">П</day>
+							<day type="fri" draft="unconfirmed">Ж</day>
+							<day type="sat" draft="unconfirmed">Ш</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -152,39 +134,38 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal draft="true">,</decimal>
-			<group draft="true"> </group>
+			<decimal draft="unconfirmed">,</decimal>
+			<group draft="unconfirmed"> </group>
 		</symbols>
 		<currencies>
 			<currency type="BRL">
-				<displayName draft="true">Бразил реали</displayName>
+				<displayName draft="unconfirmed">Бразил реали</displayName>
 			</currency>
 			<currency type="CNY">
-				<displayName draft="true">Хитой юани</displayName>
+				<displayName draft="unconfirmed">Хитой юани</displayName>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="true">Евро</displayName>
+				<displayName draft="unconfirmed">Евро</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="true">Инглиз фунт стерлинги</displayName>
+				<displayName draft="unconfirmed">Инглиз фунт стерлинги</displayName>
 			</currency>
 			<currency type="INR">
-				<displayName draft="true">Ҳинд рупияси</displayName>
+				<displayName draft="unconfirmed">Ҳинд рупияси</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="true">Япон йенаси</displayName>
+				<displayName draft="unconfirmed">Япон йенаси</displayName>
 			</currency>
 			<currency type="RUB">
-				<displayName draft="true">Рус рубли</displayName>
+				<displayName draft="unconfirmed">Рус рубли</displayName>
 			</currency>
 			<currency type="USD">
-				<displayName draft="true">АҚШ доллари</displayName>
+				<displayName draft="unconfirmed">АҚШ доллари</displayName>
 			</currency>
 			<currency type="UZS">
-				<displayName draft="true">Ўзбекистон сўм</displayName>
-				<symbol draft="true">сўм</symbol>
+				<displayName draft="unconfirmed">Ўзбекистон сўм</displayName>
+				<symbol draft="unconfirmed">сўм</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

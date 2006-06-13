@@ -8,23 +8,27 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="aa">アファール語</language>
+			<language type="aa">アファル語</language>
 			<language type="ab">アブハズ語</language>
 			<language type="ace">アチェー語</language>
 			<language type="ach">アチョリ語</language>
 			<language type="ada">アダングメ語</language>
 			<language type="ady">アディゲ語</language>
 			<language type="ae">アヴェスタ語</language>
+			<language type="ae" alt="proposed-u82-1" draft="provisional">アベスタ語</language>
 			<language type="af">アフリカーンス語</language>
 			<language type="afa">セム・ハム諸語</language>
 			<language type="afh">アフリヒリ語</language>
+			<language type="ain">アイヌ語</language>
 			<language type="ak">アカン語</language>
 			<language type="akk">アッカド語</language>
 			<language type="ale">アレウト語</language>
 			<language type="alg">アルゴンキアン語族</language>
+			<language type="alt">南アルタイ語</language>
 			<language type="am">アムハラ語</language>
 			<language type="an">アラゴン語</language>
-			<language type="ang">古期英語</language>
+			<language type="ang">古代英語</language>
+			<language type="ang" alt="proposed-u82-1" draft="provisional">古英語</language>
 			<language type="apa">アパッチ語族</language>
 			<language type="ar">アラビア語</language>
 			<language type="arc">アラム語</language>
@@ -37,6 +41,7 @@
 			<language type="ath">アサパスカン語族</language>
 			<language type="aus">オーストラリア語族</language>
 			<language type="av">アヴァル語</language>
+			<language type="av" alt="proposed-u82-1" draft="provisional">アバル語</language>
 			<language type="awa">アワディー語</language>
 			<language type="ay">アイマラ語</language>
 			<language type="az">アゼルバイジャン語</language>
@@ -57,7 +62,7 @@
 			<language type="bi">ビスラマ語</language>
 			<language type="bik">ビコル語</language>
 			<language type="bin">ビニ語</language>
-			<language type="bla" draft="true">シクシカ語</language>
+			<language type="bla">シクシカ語</language>
 			<language type="bm">バンバラ語</language>
 			<language type="bn">ベンガル語</language>
 			<language type="bnt">バントゥ諸語</language>
@@ -81,7 +86,7 @@
 			<language type="chb">チブチャ語</language>
 			<language type="chg">チャガタイ語</language>
 			<language type="chk">チューク語</language>
-			<language type="chm" draft="true">マリ語</language>
+			<language type="chm">マリ語</language>
 			<language type="chn">ビーチ・ラ・マー 等</language>
 			<language type="cho">チョクトー語</language>
 			<language type="chp">チペワイアン語</language>
@@ -97,10 +102,11 @@
 			<language type="crh">クリミア・タタール語</language>
 			<language type="crp">その他の混成語・混合語</language>
 			<language type="cs">チェコ語</language>
-			<language type="csb" draft="true">カシューブ語</language>
+			<language type="csb">カシューブ語</language>
 			<language type="cu">教会スラブ語</language>
 			<language type="cus">クシュ諸語</language>
 			<language type="cv">チュヴァシュ語</language>
+			<language type="cv" alt="proposed-u82-1" draft="provisional">チュバシュ語</language>
 			<language type="cy">ウェールズ語</language>
 			<language type="da">デンマーク語</language>
 			<language type="dak">ダコタ語</language>
@@ -108,17 +114,17 @@
 			<language type="day">ダヤク語</language>
 			<language type="de">ドイツ語</language>
 			<language type="del">デラウェア語</language>
-			<language type="den" draft="true">スレイビー語</language>
+			<language type="den">スレイビー語</language>
 			<language type="dgr">ドグリブ語</language>
 			<language type="din">ディンカ語</language>
 			<language type="doi">ドグリ語</language>
 			<language type="dra">ドラヴィダ諸語</language>
-			<language type="dsb" draft="true">低ソルビア語</language>
+			<language type="dsb">低ソルビア語</language>
 			<language type="dua">ドゥアラ語</language>
 			<language type="dum">中世オランダ語</language>
-			<language type="dv">ディヴェヒ語</language>
+			<language type="dv">ディベヒ語</language>
 			<language type="dyu">デゥウラ語</language>
-			<language type="dz">ブータン語</language>
+			<language type="dz">ゾンカ語</language>
 			<language type="ee">エウェ語</language>
 			<language type="efi">エフィック語</language>
 			<language type="egy">古代エジプト語</language>
@@ -127,6 +133,7 @@
 			<language type="elx">エラム語</language>
 			<language type="en">英語</language>
 			<language type="enm">中世英語</language>
+			<language type="enm" alt="proposed-u82-1" draft="provisional">中英語</language>
 			<language type="eo">エスペラント語</language>
 			<language type="es">スペイン語</language>
 			<language type="et">エストニア語</language>
@@ -134,406 +141,475 @@
 			<language type="ewo">エウォンド語</language>
 			<language type="fa">ペルシア語</language>
 			<language type="fan">ファング語</language>
-			<language type="fat" draft="true">ファンティー語</language>
+			<language type="fat">ファンティー語</language>
 			<language type="ff">フラニ語</language>
 			<language type="fi">フィンランド語</language>
-			<language type="fiu" draft="true">フィン・ウゴル諸語</language>
+			<language type="fil">フィリピノ語</language>
+			<language type="fiu">フィン・ウゴル諸語</language>
 			<language type="fj">フィジー語</language>
 			<language type="fo">フェロー語</language>
-			<language type="fon" draft="true">フォン語</language>
+			<language type="fon">フォン語</language>
 			<language type="fr">フランス語</language>
-			<language type="frm" draft="true">中世フランス語 (約1400-1600)</language>
-			<language type="fro" draft="true">古フランス語 (842-約1400)</language>
-			<language type="fur" draft="true">フリウリ語</language>
+			<language type="frm">中期フランス語</language>
+			<language type="fro">古フランス語</language>
+			<language type="fur">フリウリ語</language>
 			<language type="fy">フリジア語</language>
 			<language type="ga">アイルランド語</language>
-			<language type="gaa" draft="true">ガ語</language>
-			<language type="gay" draft="true">ガヨ語</language>
-			<language type="gba" draft="true">バヤ語</language>
+			<language type="gaa">ガ語</language>
+			<language type="gay">ガヨ語</language>
+			<language type="gba">バヤ語</language>
 			<language type="gd">スコットランド・ゲール語</language>
-			<language type="gem" draft="true">ゲルマン諸語</language>
+			<language type="gem">ゲルマン諸語</language>
 			<language type="gez">ゲエズ語</language>
-			<language type="gil" draft="true">キリバス語</language>
+			<language type="gil">キリバス語</language>
 			<language type="gl">ガリシア語</language>
-			<language type="gmh" draft="true">中高ドイツ語 (約1050-1500)</language>
-			<language type="gn">グワラニ語</language>
-			<language type="goh" draft="true">古高ドイツ語 (約750-1050)</language>
-			<language type="gon" draft="true">ゴーンディー語</language>
-			<language type="gor" draft="true">ゴロンタロ語</language>
-			<language type="got" draft="true">ゴート語</language>
-			<language type="grb" draft="true">グレボ語</language>
-			<language type="grc" draft="true">古代ギリシャ語 (1453まで)</language>
+			<language type="gmh">中高ドイツ語</language>
+			<language type="gn">グアラニー語</language>
+			<language type="goh">古高ドイツ語</language>
+			<language type="gon">ゴーンディー語</language>
+			<language type="gor">ゴロンタロ語</language>
+			<language type="got">ゴート語</language>
+			<language type="grb">グレボ語</language>
+			<language type="grc">古代ギリシャ語 </language>
 			<language type="gu">グジャラート語</language>
 			<language type="gv">マン島語</language>
-			<language type="gwi" draft="true">クチン語</language>
+			<language type="gwi">グウィッチン語</language>
 			<language type="ha">ハウサ語</language>
-			<language type="hai" draft="true">ハイダ語</language>
+			<language type="hai">ハイダ語</language>
 			<language type="haw">ハワイ語</language>
 			<language type="he">ヘブライ語</language>
 			<language type="hi">ヒンディー語</language>
-			<language type="hil" draft="true">ヒリガイノン語</language>
-			<language type="him" draft="true">ヒマチャル語</language>
-			<language type="hit" draft="true">ヒッタイト語</language>
-			<language type="hmn" draft="true">フモン語</language>
+			<language type="hil">ヒリガイノン語</language>
+			<language type="him">ヒマチャル語</language>
+			<language type="hit">ヒッタイト語</language>
+			<language type="hmn">フモン語</language>
 			<language type="ho">ヒリモトゥ語</language>
 			<language type="hr">クロアチア語</language>
-			<language type="hsb" draft="true">上ソルビア語</language>
+			<language type="hsb">上ソルビア語</language>
 			<language type="ht">ハイチ語</language>
 			<language type="hu">ハンガリー語</language>
-			<language type="hup" draft="true">アタパスカ語</language>
+			<language type="hup">アタパスカ語</language>
 			<language type="hy">アルメニア語</language>
 			<language type="hz">ヘレロ語</language>
-			<language type="ia">国際語</language>
-			<language type="iba" draft="true">イバン語</language>
+			<language type="ia">インターリングア語</language>
+			<language type="iba">イバン語</language>
 			<language type="id">インドネシア語</language>
-			<language type="ie">国際語</language>
+			<language type="ie">インターリング語</language>
 			<language type="ig">イボ語</language>
 			<language type="ii">四川イ語</language>
-			<language type="ijo" draft="true">イジョー語</language>
+			<language type="ijo">イジョー語</language>
 			<language type="ik">イヌピアック語</language>
-			<language type="ilo" draft="true">イロカノ語</language>
-			<language type="inc" draft="true">インド諸語</language>
-			<language type="ine" draft="true">印欧諸語</language>
-			<language type="inh" draft="true">イングシ語</language>
+			<language type="ilo">イロカノ語</language>
+			<language type="inc">インド諸語</language>
+			<language type="ine">印欧諸語</language>
+			<language type="inh">イングシ語</language>
 			<language type="io">イド語</language>
-			<language type="ira" draft="true">イラン語</language>
-			<language type="iro" draft="true">イロコイ語族</language>
+			<language type="ira">イラン語</language>
+			<language type="iro">イロコイ語族</language>
 			<language type="is">アイスランド語</language>
 			<language type="it">イタリア語</language>
 			<language type="iu">イヌクウティトット語</language>
 			<language type="ja">日本語</language>
-			<language type="jbo" draft="true">Lojban語</language>
-			<language type="jpr" draft="true">ユダヤ・ペルシア語</language>
-			<language type="jrb" draft="true">ユダヤ・アラビア語</language>
+			<language type="jbo" alt="proposed-u82-1" draft="provisional">ロジバン語</language>
+			<language type="jpr">ユダヤ・ペルシア語</language>
+			<language type="jrb">ユダヤ・アラビア語</language>
 			<language type="jv">ジャワ語</language>
 			<language type="ka">グルジア語</language>
-			<language type="kaa" draft="true">カラ・カルパク語</language>
-			<language type="kab" draft="true">カビル語</language>
-			<language type="kac" draft="true">カチン語</language>
-			<language type="kam" draft="true">カンバ語</language>
-			<language type="kar" draft="true">カレン語</language>
-			<language type="kaw" draft="true">カウィ語</language>
-			<language type="kbd" draft="true">カバルド語</language>
+			<language type="kaa">カラ・カルパク語</language>
+			<language type="kab">カビル語</language>
+			<language type="kac">カチン語</language>
+			<language type="kam">カンバ語</language>
+			<language type="kar">カレン語</language>
+			<language type="kaw">カウィ語</language>
+			<language type="kbd">カバルド語</language>
 			<language type="kg">コンゴ語</language>
-			<language type="kha" draft="true">カシ語</language>
-			<language type="khi" draft="true">コイサン諸語</language>
-			<language type="kho" draft="true">コータン語</language>
+			<language type="kha">カシ語</language>
+			<language type="khi">コイサン諸語</language>
+			<language type="kho">コータン語</language>
 			<language type="ki">キクユ語</language>
 			<language type="kj">クアニャマ語</language>
 			<language type="kk">カザフ語</language>
 			<language type="kl">グリーンランド語</language>
-			<language type="km">カンボジア語</language>
-			<language type="kmb" draft="true">キンブンドゥ語</language>
+			<language type="km">クメール語</language>
+			<language type="kmb">キンブンドゥ語</language>
 			<language type="kn">カンナダ語</language>
 			<language type="ko">韓国語</language>
 			<language type="kok">コンカニ語</language>
-			<language type="kos" draft="true">コシャエ語</language>
-			<language type="kpe" draft="true">クペレ語</language>
+			<language type="kos">コシャエ語</language>
+			<language type="kpe">クペレ語</language>
 			<language type="kr">カヌリ語</language>
-			<language type="krc" draft="true">カラチャイ語</language>
-			<language type="kro" draft="true">クルー語</language>
-			<language type="kru" draft="true">クルク語</language>
+			<language type="krc">カラチャイ語</language>
+			<language type="kro">クルー語</language>
+			<language type="kru">クルク語</language>
 			<language type="ks">カシミール語</language>
 			<language type="ku">クルド語</language>
-			<language type="kum" draft="true">クムク語</language>
-			<language type="kut" draft="true">クテナイ語</language>
+			<language type="kum">クムク語</language>
+			<language type="kut">クテナイ語</language>
 			<language type="kv">コミ語</language>
 			<language type="kw">コーンウォール語</language>
 			<language type="ky">キルギス語</language>
 			<language type="la">ラテン語</language>
-			<language type="lad" draft="true">ラジノ語</language>
-			<language type="lah" draft="true">ラフンダー語</language>
-			<language type="lam" draft="true">ランバ語</language>
+			<language type="lad">ラジノ語</language>
+			<language type="lah">ラフンダー語</language>
+			<language type="lam">ランバ語</language>
 			<language type="lb">ルクセンブルク語</language>
-			<language type="lez" draft="true">レズギ語</language>
+			<language type="lez">レズギ語</language>
 			<language type="lg">ガンダ語</language>
 			<language type="li">リンブルフ語</language>
 			<language type="ln">リンガラ語</language>
 			<language type="lo">ラオ語</language>
-			<language type="lol" draft="true">モンゴ語</language>
-			<language type="loz" draft="true">ロズィ語</language>
+			<language type="lol">モンゴ語</language>
+			<language type="loz">ロズィ語</language>
 			<language type="lt">リトアニア語</language>
 			<language type="lu">ルバ・カタンガ語</language>
-			<language type="lua" draft="true">ルバ・ルルア語</language>
-			<language type="lui" draft="true">ルイセーニョ語</language>
-			<language type="lun" draft="true">ルンダ語</language>
-			<language type="luo" draft="true">ルオ語</language>
-			<language type="lus" draft="true">ルシャイ語</language>
+			<language type="lua">ルバ・ルルア語</language>
+			<language type="lui">ルイセーニョ語</language>
+			<language type="lun">ルンダ語</language>
+			<language type="luo">ルオ語</language>
+			<language type="lus">ルシャイ語</language>
 			<language type="lv">ラトビア語</language>
-			<language type="mad" draft="true">マドゥラ語</language>
-			<language type="mag" draft="true">マガヒー語</language>
-			<language type="mai" draft="true">マイティリー語</language>
-			<language type="mak" draft="true">マカッサル語</language>
-			<language type="man" draft="true">マンディンゴ語</language>
+			<language type="mad">マドゥラ語</language>
+			<language type="mag">マガヒー語</language>
+			<language type="mai">マイティリー語</language>
+			<language type="mak">マカッサル語</language>
+			<language type="man">マンディンゴ語</language>
 			<language type="map">オーストロネシア諸語</language>
-			<language type="mas" draft="true">マサイ語</language>
-			<language type="mdf" draft="true">モクシャ語</language>
-			<language type="mdr" draft="true">マンダル語</language>
-			<language type="men" draft="true">メンデ語</language>
-			<language type="mg">マラガシー語</language>
-			<language type="mga" draft="true">中期アイルランド語 (900-1200)</language>
+			<language type="mas">マサイ語</language>
+			<language type="mdf">モクシャ語</language>
+			<language type="mdr">マンダル語</language>
+			<language type="men">メンデ語</language>
+			<language type="mg">マダガスカル語</language>
+			<language type="mga">中期アイルランド語</language>
 			<language type="mh">マーシャル語</language>
 			<language type="mi">マオリ語</language>
-			<language type="mic" draft="true">ミクマク語</language>
-			<language type="min" draft="true">ミナンカバウ語</language>
-			<language type="mis" draft="true">その他の言語</language>
+			<language type="mic">ミクマク語</language>
+			<language type="min">ミナンカバウ語</language>
+			<language type="mis">その他の言語</language>
 			<language type="mk">マケドニア語</language>
-			<language type="mkh" draft="true">モン・クメール諸語</language>
+			<language type="mkh">モン・クメール諸語</language>
 			<language type="ml">マラヤーラム語</language>
 			<language type="mn">モンゴル語</language>
-			<language type="mnc" draft="true">満州語</language>
-			<language type="mni" draft="true">マニプル語</language>
-			<language type="mno" draft="true">マノボ語族</language>
+			<language type="mnc">満州語</language>
+			<language type="mni">マニプル語</language>
+			<language type="mno">マノボ語族</language>
 			<language type="mo">モルダビア語</language>
-			<language type="moh" draft="true">モーホーク語</language>
-			<language type="mos" draft="true">モシ語</language>
+			<language type="moh">モーホーク語</language>
+			<language type="mos">モシ語</language>
 			<language type="mr">マラーティー語</language>
-			<language type="ms">マライ語</language>
-			<language type="ms" alt="proposed" draft="true">マレー語</language>
+			<language type="ms">マレー語</language>
 			<language type="mt">マルタ語</language>
-			<language type="mul" draft="true">複数言語</language>
-			<language type="mun" draft="true">ムンダ語族</language>
+			<language type="mul" draft="unconfirmed">複数言語</language>
+			<language type="mun">ムンダ語族</language>
 			<language type="mus">クリーク語</language>
-			<language type="mwr" draft="true">マールワーリー語</language>
+			<language type="mwl">ミランダ語</language>
+			<language type="mwr">マールワーリー語</language>
 			<language type="my">ビルマ語</language>
-			<language type="myn" draft="true">マヤ語</language>
+			<language type="myn">マヤ語族</language>
 			<language type="myv">エルジャ語</language>
 			<language type="na">ナウル語</language>
-			<language type="nah" draft="true">ナワトル語</language>
-			<language type="nai" draft="true">北米インディアン諸語</language>
-			<language type="nap" draft="true">ナポリ語</language>
-			<language type="nb">ノルウェー語 (ボクモール)</language>
+			<language type="nah">ナワトル語</language>
+			<language type="nai">北米インディアン諸語</language>
+			<language type="nap">ナポリ語</language>
+			<language type="nb">ノルウェー語 (ブークモール)</language>
 			<language type="nd">北ンデベレ語</language>
-			<language type="nds" draft="true">低地ドイツ語、低地サクソン語</language>
+			<language type="nds">低地ドイツ語、低地サクソン語</language>
 			<language type="ne">ネパール語</language>
-			<language type="new" draft="true">ネワール語</language>
+			<language type="new">ネワール語</language>
 			<language type="ng">ンドンガ語</language>
-			<language type="nia" draft="true">ニアス語</language>
-			<language type="nic" draft="true">ニジェール・コルドファン諸語</language>
-			<language type="niu" draft="true">ニウーエイ語</language>
+			<language type="nia">ニアス語</language>
+			<language type="nic">ニジェール・コルドファン諸語</language>
+			<language type="niu">ニウーエイ語</language>
 			<language type="nl">オランダ語</language>
-			<language type="nn">ノルウェー語 (ニューノルスク)</language>
+			<language type="nn">ノルウェー語 (ニーノシュク)</language>
 			<language type="no">ノルウェー語</language>
-			<language type="nog" draft="true">ノガイ語</language>
-			<language type="non" draft="true">古ノルド語</language>
+			<language type="nog">ノガイ語</language>
+			<language type="non">古ノルド語</language>
 			<language type="nr">南ンデベレ語</language>
-			<language type="nso" draft="true">北セソト語</language>
-			<language type="nub" draft="true">ヌビア語族</language>
+			<language type="nso">北部ソト語</language>
+			<language type="nub">ヌビア語族</language>
 			<language type="nv">ナバホ語</language>
+			<language type="nwc">古典ネワール語</language>
 			<language type="ny">ニャンジャ語、チチェワ語、チェワ語</language>
-			<language type="nym" draft="true">ニャムウェジ語</language>
-			<language type="nyn" draft="true">ニャンコレ語</language>
-			<language type="nyo" draft="true">ニョロ語</language>
-			<language type="nzi" draft="true">ンゼマ語</language>
-			<language type="oc">プロヴァンス語</language>
+			<language type="nym">ニャムウェジ語</language>
+			<language type="nyn">ニャンコレ語</language>
+			<language type="nyo">ニョロ語</language>
+			<language type="nzi">ンゼマ語</language>
+			<language type="oc">オック語 (1500以降)、プロバンス語</language>
 			<language type="oj">オブジワ語</language>
-			<language type="om">ガラ語</language>
+			<language type="om">オロモ語</language>
 			<language type="or">オリヤー語</language>
 			<language type="os">オセト語</language>
-			<language type="osa" draft="true">オセージ語</language>
-			<language type="ota" draft="true">オスマントルコ語 (1500-1928)</language>
-			<language type="oto" draft="true">オトミ語族</language>
+			<language type="osa">オセージ語</language>
+			<language type="ota">オスマントルコ語</language>
+			<language type="oto">オトミ語族</language>
 			<language type="pa">パンジャブ語</language>
-			<language type="paa" draft="true">パプア諸語</language>
-			<language type="pag" draft="true">パンガシナン語</language>
-			<language type="pal" draft="true">パフラヴィ語</language>
-			<language type="pam" draft="true">パンパンガ語</language>
-			<language type="pap" draft="true">パピアメント語</language>
-			<language type="pau" draft="true">パラオ語</language>
-			<language type="peo" draft="true">古代ペルシア語 (約600-400 B.C.)</language>
-			<language type="phi" draft="true">フィリピン諸語</language>
-			<language type="phn" draft="true">フェニキア語</language>
+			<language type="paa">パプア諸語</language>
+			<language type="pag">パンガシナン語</language>
+			<language type="pal">パフラヴィ語</language>
+			<language type="pam">パンパンガ語</language>
+			<language type="pap">パピアメント語</language>
+			<language type="pau">パラオ語</language>
+			<language type="peo">古代ペルシア語</language>
+			<language type="phi">フィリピン諸語</language>
+			<language type="phn">フェニキア語</language>
 			<language type="pi">パーリ語</language>
 			<language type="pl">ポーランド語</language>
-			<language type="pon" draft="true">ポンペイ語</language>
-			<language type="pra" draft="true">プラークリット語族</language>
-			<language type="pro" draft="true">古期プロバンス語 (1500まで)</language>
-			<language type="ps">パシュトー語</language>
+			<language type="pon">ポンペイ語</language>
+			<language type="pra">プラークリット語族</language>
+			<language type="pro">古期プロバンス語</language>
+			<language type="pro" alt="proposed-u232-1" draft="provisional">古期プロヴァンス語</language>
+			<language type="ps">パシュトゥー語</language>
 			<language type="pt">ポルトガル語</language>
 			<language type="qu">ケチュア語</language>
-			<language type="raj" draft="true">ラージャスターン語</language>
-			<language type="rap" draft="true">ラパヌイ語</language>
-			<language type="rar" draft="true">ラロトガ語</language>
+			<language type="raj">ラージャスターン語</language>
+			<language type="rap">ラパヌイ語</language>
+			<language type="rar">ラロトガ語</language>
 			<language type="rm">レト＝ロマン語</language>
-			<language type="rm" alt="proposed" draft="true">レト・ロマン語</language>
-			<language type="rn">ルンジ語</language>
+			<language type="rm" alt="proposed" draft="provisional">レト・ロマン語</language>
+			<language type="rn">ルンディ語</language>
 			<language type="ro">ルーマニア語</language>
-			<language type="roa" draft="true">ロマンス諸語</language>
-			<language type="rom" draft="true">ロマーニー語</language>
+			<language type="roa">ロマンス諸語</language>
+			<language type="rom">ロマーニー語</language>
+			<language type="root" alt="proposed-u82-1" draft="provisional">ルート語</language>
 			<language type="ru">ロシア語</language>
+			<language type="rup">アルーマニア語</language>
 			<language type="rw">ルワンダ語</language>
 			<language type="sa">サンスクリット語</language>
-			<language type="sad" draft="true">サンダウェ語</language>
-			<language type="sah" draft="true">ヤクート語</language>
-			<language type="sai" draft="true">南米インディアン諸語</language>
-			<language type="sal" draft="true">セイリッシュ語族</language>
-			<language type="sam" draft="true">サマリア・アラム語</language>
-			<language type="sas" draft="true">ササク語</language>
-			<language type="sat" draft="true">サンターリー語</language>
+			<language type="sad">サンダウェ語</language>
+			<language type="sah">ヤクート語</language>
+			<language type="sai">南米インディアン諸語</language>
+			<language type="sal">セイリッシュ語族</language>
+			<language type="sam">サマリア・アラム語</language>
+			<language type="sas">ササク語</language>
+			<language type="sat">サンターリー語</language>
 			<language type="sc">サルデーニャ語</language>
-			<language type="sco" draft="true">スコットランド語</language>
+			<language type="scn">シチリア語</language>
+			<language type="sco">スコットランド語</language>
 			<language type="sd">シンド語</language>
 			<language type="se">北サーミ語</language>
-			<language type="sel" draft="true">セリクプ語</language>
-			<language type="sem" draft="true">セム諸語</language>
+			<language type="sel">セリクプ語</language>
+			<language type="sem">セム諸語</language>
 			<language type="sg">サンゴ語</language>
-			<language type="sga" draft="true">古期アイルランド語 (900まで)</language>
-			<language type="sgn" draft="true">手まね言語</language>
+			<language type="sga">古期アイルランド語</language>
+			<language type="sgn">手まね言語</language>
 			<language type="sh">セルボ＝クロアチア語</language>
-			<language type="sh" alt="proposed" draft="true">セルボ・クロアチア語</language>
-			<language type="shn" draft="true">シャン語</language>
+			<language type="sh" alt="proposed" draft="provisional">セルボ・クロアチア語</language>
+			<language type="shn">シャン語</language>
 			<language type="si">シンハラ語</language>
 			<language type="sid">シダモ語</language>
-			<language type="sio" draft="true">スー語族</language>
-			<language type="sit" draft="true">シナ・チベット諸語</language>
+			<language type="sio">スー語族</language>
+			<language type="sit">シナ・チベット諸語</language>
 			<language type="sk">スロバキア語</language>
 			<language type="sl">スロベニア語</language>
-			<language type="sla" draft="true">スラブ諸語</language>
+			<language type="sla">スラブ諸語</language>
 			<language type="sm">サモア語</language>
-			<language type="sma" draft="true">南サーミ語</language>
-			<language type="smi" draft="true">サーミ諸語</language>
-			<language type="smj" draft="true">ルレ・サーミ語</language>
-			<language type="smn" draft="true">イナリ・サーミ語</language>
-			<language type="sms" draft="true">スコルト・サーミ語</language>
+			<language type="sma">南サーミ語</language>
+			<language type="smi">サーミ諸語</language>
+			<language type="smj">ルレ・サーミ語</language>
+			<language type="smn">イナリ・サーミ語</language>
+			<language type="sms">スコルト・サーミ語</language>
 			<language type="sn">ショナ語</language>
-			<language type="snk" draft="true">ソニンケ語</language>
+			<language type="snk">ソニンケ語</language>
 			<language type="so">ソマリ語</language>
-			<language type="sog" draft="true">ソグド語</language>
-			<language type="son" draft="true">ソンガイ語</language>
+			<language type="sog">ソグド語</language>
+			<language type="son">ソンガイ語</language>
 			<language type="sq">アルバニア語</language>
 			<language type="sr">セルビア語</language>
-			<language type="srr" draft="true">セレル語</language>
+			<language type="srn">スリナム語</language>
+			<language type="srr">セレル語</language>
 			<language type="ss">シスワティ語</language>
-			<language type="ssa" draft="true">ナイル・サハラ諸語</language>
-			<language type="st">南セソト語</language>
+			<language type="ssa">ナイル・サハラ諸語</language>
+			<language type="st">南部ソト語</language>
 			<language type="su">スンダ語</language>
-			<language type="suk" draft="true">スクマ語</language>
-			<language type="sus" draft="true">スス語</language>
-			<language type="sux" draft="true">シュメール語</language>
+			<language type="suk">スクマ語</language>
+			<language type="sus">スス語</language>
+			<language type="sux">シュメール語</language>
 			<language type="sv">スウェーデン語</language>
 			<language type="sw">スワヒリ語</language>
 			<language type="syr">シリア語</language>
 			<language type="ta">タミール語</language>
-			<language type="tai" draft="true">タイ諸語</language>
+			<language type="tai">タイ諸語</language>
 			<language type="te">テルグ語</language>
-			<language type="tem" draft="true">テムネ語</language>
-			<language type="ter" draft="true">テレーノ語</language>
-			<language type="tet" draft="true">テトゥン語</language>
+			<language type="tem">テムネ語</language>
+			<language type="ter">テレーノ語</language>
+			<language type="tet">テトゥン語</language>
 			<language type="tg">タジク語</language>
 			<language type="th">タイ語</language>
 			<language type="ti">ティグリニア語</language>
+			<language type="ti" alt="proposed-u82-1" draft="provisional">ティグリニャ語</language>
 			<language type="tig">ティグレ語</language>
-			<language type="tiv" draft="true">ティブ語</language>
+			<language type="tiv" draft="unconfirmed">ティブ語</language>
 			<language type="tk">トルクメン語</language>
-			<language type="tkl" draft="true">トケラウ語</language>
+			<language type="tkl">トケラウ語</language>
 			<language type="tl">タガログ語</language>
-			<language type="tli" draft="true">トリンギット語</language>
-			<language type="tmh" draft="true">タマシェク語</language>
+			<language type="tlh">クリンゴン語</language>
+			<language type="tli">トリンギット語</language>
+			<language type="tmh">タマシェク語</language>
 			<language type="tn">ツワナ語</language>
 			<language type="to">トンガ語</language>
-			<language type="tog" draft="true">トンガ語 (ニアサ)</language>
-			<language type="tpi" draft="true">トク・ピシン語</language>
+			<language type="tog">トンガ語 (ニアサ)</language>
+			<language type="tpi">トク・ピシン語</language>
 			<language type="tr">トルコ語</language>
 			<language type="ts">ツォンガ語</language>
-			<language type="tsi" draft="true">チムシュ語</language>
+			<language type="tsi">チムシュ語</language>
 			<language type="tt">タタール語</language>
-			<language type="tum" draft="true">トゥンブカ語</language>
-			<language type="tup" draft="true">トゥピ語族</language>
+			<language type="tum">トゥンブカ語</language>
+			<language type="tup">トゥピ語族</language>
 			<language type="tut">アルタイ諸語</language>
-			<language type="tvl" draft="true">ツバル語</language>
-			<language type="tw">トゥイ語</language>
+			<language type="tvl">ツバル語</language>
+			<language type="tw">トウィ語</language>
 			<language type="ty">タヒチ語</language>
-			<language type="tyv" draft="true">トゥヴァ語</language>
-			<language type="udm" draft="true">ウドムルト語</language>
+			<language type="tyv">トゥヴァ語</language>
+			<language type="tyv" alt="proposed-u82-1" draft="provisional">トゥバ語</language>
+			<language type="udm">ウドムルト語</language>
 			<language type="ug">ウイグル語</language>
-			<language type="uga" draft="true">ウガリト語</language>
+			<language type="uga">ウガリト語</language>
 			<language type="uk">ウクライナ語</language>
-			<language type="umb" draft="true">ウンブンドゥ語</language>
-			<language type="und" draft="true">非確定</language>
+			<language type="umb">ウンブンドゥ語</language>
+			<language type="und" draft="unconfirmed">非確定</language>
 			<language type="ur">ウルドゥー語</language>
 			<language type="uz">ウズベク語</language>
-			<language type="vai" draft="true">ヴァイ語</language>
+			<language type="vai">ヴァイ語</language>
+			<language type="vai" alt="proposed-u82-1" draft="provisional">バイ語</language>
 			<language type="ve">ベンダ語</language>
 			<language type="vi">ベトナム語</language>
 			<language type="vo">ボラピュク語</language>
-			<language type="vot" draft="true">ボート語</language>
+			<language type="vot">ボート語</language>
 			<language type="wa">ワロン語</language>
-			<language type="wak" draft="true">ワカシ語族</language>
-			<language type="wal" draft="true">ワッラモ語</language>
-			<language type="war" draft="true">ワライ語</language>
-			<language type="was" draft="true">ワショ語</language>
-			<language type="wen" draft="true">ソルビア語族</language>
+			<language type="wak">ワカシ語族</language>
+			<language type="wal">ワッラモ語</language>
+			<language type="war">ワライ語</language>
+			<language type="was">ワショ語</language>
+			<language type="wen">ソルビア語族</language>
 			<language type="wo">ウォロフ語</language>
-			<language type="xal" draft="true">カルムイク語</language>
+			<language type="xal">カルムイク語</language>
 			<language type="xh">コサ語</language>
-			<language type="yao" draft="true">ヤオ語</language>
-			<language type="yap" draft="true">ヤップ語</language>
+			<language type="xh" alt="proposed-u82-1" draft="provisional">コーサ語</language>
+			<language type="yao">ヤオ語</language>
+			<language type="yap">ヤップ語</language>
 			<language type="yi">イディッシュ語</language>
 			<language type="yo">ヨルバ語</language>
-			<language type="ypk" draft="true">ユピック語族</language>
+			<language type="ypk">ユピック語族</language>
 			<language type="za">チワン語</language>
-			<language type="zap" draft="true">ザポテック語</language>
-			<language type="zen" draft="true">ゼナガ語</language>
+			<language type="zap">ザポテック語</language>
+			<language type="zen">ゼナガ語</language>
 			<language type="zh">中国語</language>
-			<language type="znd" draft="true">ザンデ語</language>
+			<language type="znd">ザンデ語</language>
 			<language type="zu">ズールー語</language>
-			<language type="zun" draft="true">ズニ語</language>
+			<language type="zun">ズニ語</language>
 		</languages>
 		<scripts>
 			<script type="Arab">アラビア文字</script>
 			<script type="Armn">アルメニア文字</script>
+			<script type="Bali">バリ文字</script>
+			<script type="Batk">バタク文字</script>
 			<script type="Beng">ベンガル文字</script>
+			<script type="Blis">ブリスシンボル</script>
 			<script type="Bopo">注音字母</script>
+			<script type="Brah">ブラーフミー文字</script>
 			<script type="Brai">ブライユ点字</script>
+			<script type="Bugi">ブギス文字</script>
 			<script type="Buhd">ブヒッド文字</script>
 			<script type="Cans">統合カナダ先住民記号</script>
+			<script type="Cham">チャム文字</script>
 			<script type="Cher">チェロキー文字</script>
+			<script type="Cirt">キアス文字</script>
 			<script type="Copt">コプト文字</script>
 			<script type="Cprt">キプロス文字</script>
 			<script type="Cyrl">キリル文字</script>
+			<script type="Cyrs">キリル文字 (古代教会スラブ語の文字)</script>
 			<script type="Deva">デーバナーガリー文字</script>
 			<script type="Dsrt">デセレット文字</script>
+			<script type="Dsrt" alt="proposed-u82-1" draft="provisional">デザレット文字</script>
+			<script type="Egyd">エジプト民衆文字</script>
+			<script type="Egyh">エジプト神官文字</script>
+			<script type="Egyp">エジプト聖刻文字</script>
 			<script type="Ethi">エチオピア文字</script>
+			<script type="Geok" alt="proposed-u82-1" draft="provisional">クツリ文字 (アソンタブルリとヌスフリ)</script>
 			<script type="Geor">グルジア文字</script>
+			<script type="Glag">グラゴール文字</script>
 			<script type="Goth">ゴート文字</script>
 			<script type="Grek">ギリシャ文字</script>
 			<script type="Gujr">グジャラート文字</script>
 			<script type="Guru">グルムキー文字</script>
-			<script type="Hang">ハングル文字</script>
+			<script type="Hang">ハングル</script>
 			<script type="Hani">漢字</script>
 			<script type="Hano">ハヌノオ文字</script>
 			<script type="Hans">簡体字</script>
 			<script type="Hant">繁体字</script>
 			<script type="Hebr">ヘブライ文字</script>
 			<script type="Hira">ひらがな</script>
-			<script type="Ital">古代イタリア文字</script>
+			<script type="Hmng">パハウ・フモン文字</script>
+			<script type="Hrkt">カタカナとひらがな</script>
+			<script type="Hung">古代ハンガリー文字</script>
+			<script type="Inds">インダス文字 (ハラッパ文字)</script>
+			<script type="Ital" draft="provisional">古代イタリアの文字</script>
+			<script type="Java">ジャワ文字</script>
+			<script type="Kali" alt="proposed-u82-1" draft="provisional">カヤー文字</script>
 			<script type="Kana">カタカナ</script>
-			<script type="Khmr">カンボジア文字</script>
+			<script type="Khar">カローシュティー文字</script>
+			<script type="Khmr">クメール文字</script>
 			<script type="Knda">カンナダ文字</script>
 			<script type="Laoo">ラオ文字</script>
+			<script type="Latf" alt="proposed-u82-1" draft="provisional">ラテン文字 (ドイツ文字)</script>
+			<script type="Latg" alt="proposed-u82-1" draft="provisional">ラテン文字 (ゲール語の文字)</script>
 			<script type="Latn">ラテン文字</script>
+			<script type="Lepc">レプチャ文字 (ロン文字)</script>
 			<script type="Limb">リンブ文字</script>
+			<script type="Limb" alt="proposed-u82-1" draft="provisional">リンブー文字</script>
+			<script type="Lina" alt="proposed-u82-1" draft="provisional">線文字A</script>
 			<script type="Linb">線文字B</script>
+			<script type="Mand">マンダ文字</script>
+			<script type="Maya">マヤ象形文字</script>
+			<script type="Mero">メロエ文字</script>
 			<script type="Mlym">マラヤーラム文字</script>
 			<script type="Mong">モンゴル文字</script>
 			<script type="Mymr">ミャンマー文字</script>
-			<script type="Ogam">オガム</script>
+			<script type="Nkoo" alt="proposed-u82-1" draft="provisional">インコ文字</script>
+			<script type="Ogam">オガム文字</script>
+			<script type="Orkh">オルホン文字</script>
 			<script type="Orya">オリヤー文字</script>
 			<script type="Osma">オスマニア文字</script>
+			<script type="Osma" alt="proposed-u82-1" draft="provisional">ソマリ文字</script>
+			<script type="Perm" alt="proposed-u82-1" draft="provisional">古ペルミック文字</script>
+			<script type="Phag">パスパ文字</script>
+			<script type="Phnx">フェニキア文字</script>
+			<script type="Plrd" alt="proposed-u82-1" draft="provisional">ポラード音声記号</script>
+			<script type="Qaai" alt="proposed-u82-1" draft="provisional">系統</script>
+			<script type="Roro">ロンゴロンゴ文字</script>
 			<script type="Runr">ルーン文字</script>
+			<script type="Sara">サラティ文字</script>
 			<script type="Shaw">ショー文字</script>
+			<script type="Shaw" alt="proposed-u82-1" draft="provisional">バーナード・ショーの文字</script>
 			<script type="Sinh">シンハラ文字</script>
+			<script type="Sylo">シロティ・ナグリ文字</script>
 			<script type="Syrc">シリア文字</script>
+			<script type="Syre">シリア文字 (エストランゲロ文字)</script>
+			<script type="Syrj">シリア文字 (東方シリア文字)</script>
+			<script type="Syrn">シリア文字 (西方シリア文字)</script>
 			<script type="Tagb">タグバンワ文字</script>
 			<script type="Tale">タイレ文字</script>
+			<script type="Tale" alt="proposed-u82-1" draft="provisional">タイ・ナ文字</script>
+			<script type="Talu">新タイ・ルー文字</script>
 			<script type="Taml">タミール文字</script>
 			<script type="Telu">テルグ文字</script>
+			<script type="Teng">テングワール文字</script>
+			<script type="Tfng">ティフナグ文字 (ベルベル文字)</script>
 			<script type="Tglg">タガログ文字</script>
 			<script type="Thaa">ターナ文字</script>
 			<script type="Thai">タイ文字</script>
 			<script type="Tibt">チベット文字</script>
 			<script type="Ugar">ウガリト文字</script>
+			<script type="Vaii">ヴァイ文字</script>
+			<script type="Vaii" alt="proposed-u82-1" draft="provisional">バイ文字</script>
+			<script type="Visp" alt="proposed-u82-1" draft="provisional">視話法</script>
+			<script type="Xpeo">古代ペルシア文字</script>
+			<script type="Xsux" alt="proposed-u82-1" draft="provisional">シュメール＝アッカド語楔形文字</script>
 			<script type="Yiii">イ文字</script>
+			<script type="Yiii" alt="proposed-u82-1" draft="provisional">彝 (イ) 文字</script>
+			<script type="Zxxx">口承言語のコード</script>
+			<script type="Zyyy">共通コード</script>
+			<script type="Zzzz" alt="proposed-u82-1" draft="provisional">コード化されていない文字のコード</script>
 		</scripts>
 		<territories>
 			<territory type="001">世界</territory>
@@ -545,24 +621,28 @@
 			<territory type="014">東アフリカ</territory>
 			<territory type="015">北アフリカ</territory>
 			<territory type="017">中部アフリカ</territory>
-			<territory type="018">南アフリカ</territory>
+			<territory type="018">南部アフリカ</territory>
 			<territory type="019">アメリカ大陸</territory>
 			<territory type="021">北アメリカ</territory>
 			<territory type="029">カリブ海</territory>
 			<territory type="030">東アジア</territory>
+			<territory type="034">南アジア</territory>
 			<territory type="035">東南アジア</territory>
 			<territory type="039">南ヨーロッパ</territory>
-			<territory type="053">オーストラリアおよびニュージーランド</territory>
+			<territory type="053">オーストラリア・ニュージーランド</territory>
 			<territory type="054">メラネシア</territory>
-			<territory type="057">ミクロネシア</territory>
+			<territory type="057">ミクロネシア地域</territory>
 			<territory type="061">ポリネシア</territory>
 			<territory type="062">南中央アジア</territory>
 			<territory type="142">アジア</territory>
+			<territory type="143">中央アジア</territory>
 			<territory type="145">西アジア</territory>
 			<territory type="150">ヨーロッパ</territory>
 			<territory type="151">東ヨーロッパ</territory>
 			<territory type="154">北ヨーロッパ</territory>
 			<territory type="155">西ヨーロッパ</territory>
+			<territory type="172">独立国家共同体</territory>
+			<territory type="419">ラテンアメリカ・カリブ地域</territory>
 			<territory type="830">チャネル諸島</territory>
 			<territory type="833">マン島</territory>
 			<territory type="AD">アンドラ</territory>
@@ -591,7 +671,7 @@
 			<territory type="BH">バーレーン</territory>
 			<territory type="BI">ブルンジ</territory>
 			<territory type="BJ">ベニン</territory>
-			<territory type="BM">バーミューダ</territory>
+			<territory type="BM">バミューダ</territory>
 			<territory type="BN">ブルネイ</territory>
 			<territory type="BO">ボリビア</territory>
 			<territory type="BR">ブラジル</territory>
@@ -603,11 +683,11 @@
 			<territory type="BZ">ベリーズ</territory>
 			<territory type="CA">カナダ</territory>
 			<territory type="CC">ココス (キーリング) 諸島</territory>
-			<territory type="CD">コンゴ民主共和国</territory>
+			<territory type="CD">コンゴ民主共和国 (キンシャサ)</territory>
 			<territory type="CF">中央アフリカ共和国</territory>
-			<territory type="CG">コンゴ</territory>
+			<territory type="CG">コンゴ共和国 (ブラザビル)</territory>
 			<territory type="CH">スイス</territory>
-			<territory type="CI">コートジボアール</territory>
+			<territory type="CI">コートジボワール</territory>
 			<territory type="CK">クック諸島</territory>
 			<territory type="CL">チリ</territory>
 			<territory type="CM">カメルーン</territory>
@@ -619,7 +699,7 @@
 			<territory type="CV">カーボベルデ</territory>
 			<territory type="CX">クリスマス島</territory>
 			<territory type="CY">キプロス</territory>
-			<territory type="CZ">チェコ</territory>
+			<territory type="CZ">チェコ共和国</territory>
 			<territory type="DE">ドイツ</territory>
 			<territory type="DJ">ジブチ</territory>
 			<territory type="DK">デンマーク</territory>
@@ -654,11 +734,11 @@
 			<territory type="GR">ギリシャ</territory>
 			<territory type="GS">南ジョージア島・南サンドイッチ諸島</territory>
 			<territory type="GT">グアテマラ</territory>
-			<territory type="GU">グアム島</territory>
+			<territory type="GU">グアム</territory>
 			<territory type="GW">ギニアビサウ</territory>
 			<territory type="GY">ガイアナ</territory>
 			<territory type="HK">中華人民共和国香港特別行政区</territory>
-			<territory type="HM">ハード・アンド・マクドナルド・アイランズ</territory>
+			<territory type="HM">ハード島・マクドナルド諸島</territory>
 			<territory type="HN">ホンジュラス</territory>
 			<territory type="HR">クロアチア</territory>
 			<territory type="HT">ハイチ</territory>
@@ -738,10 +818,10 @@
 			<territory type="PH">フィリピン</territory>
 			<territory type="PK">パキスタン</territory>
 			<territory type="PL">ポーランド</territory>
-			<territory type="PM">サンピエール・エ・ミクロン島</territory>
+			<territory type="PM">サンピエール島・ミクロン島</territory>
 			<territory type="PN">ピトケアン島</territory>
 			<territory type="PR">プエルトリコ</territory>
-			<territory type="PS">パレスチナ</territory>
+			<territory type="PS">パレスチナ領土</territory>
 			<territory type="PT">ポルトガル</territory>
 			<territory type="PW">パラオ</territory>
 			<territory type="PY">パラグアイ</territory>
@@ -753,11 +833,11 @@
 			<territory type="RW">ルワンダ</territory>
 			<territory type="SA">サウジアラビア</territory>
 			<territory type="SB">ソロモン諸島</territory>
-			<territory type="SC">セイシェル</territory>
+			<territory type="SC">セーシェル</territory>
 			<territory type="SD">スーダン</territory>
 			<territory type="SE">スウェーデン</territory>
 			<territory type="SG">シンガポール</territory>
-			<territory type="SH">セントヘレナ島</territory>
+			<territory type="SH">セントヘレナ</territory>
 			<territory type="SI">スロベニア</territory>
 			<territory type="SJ">スバールバル諸島・ヤンマイエン島</territory>
 			<territory type="SK">スロバキア</territory>
@@ -772,7 +852,7 @@
 			<territory type="SZ">スワジランド</territory>
 			<territory type="TC">タークス諸島・カイコス諸島</territory>
 			<territory type="TD">チャド</territory>
-			<territory type="TF">仏南方領</territory>
+			<territory type="TF">フランス領極南諸島 </territory>
 			<territory type="TG">トーゴ</territory>
 			<territory type="TH">タイ</territory>
 			<territory type="TJ">タジキスタン</territory>
@@ -792,15 +872,15 @@
 			<territory type="US">アメリカ合衆国</territory>
 			<territory type="UY">ウルグアイ</territory>
 			<territory type="UZ">ウズベキスタン</territory>
-			<territory type="VA">ローマ教皇庁 (バチカン市国)</territory>
+			<territory type="VA">バチカン市国</territory>
 			<territory type="VC">セントビンセント・グレナディーン諸島</territory>
 			<territory type="VE">ベネズエラ</territory>
-			<territory type="VG">英領バージン諸島</territory>
-			<territory type="VI">米領バージン諸島</territory>
+			<territory type="VG">イギリス領ヴァージン諸島</territory>
+			<territory type="VI">アメリカ領ヴァージン諸島</territory>
 			<territory type="VN">ベトナム</territory>
 			<territory type="VU">バヌアツ</territory>
-			<territory type="WF">ウォリス・フトーナ</territory>
-			<territory type="WS">西サモア</territory>
+			<territory type="WF">ウォリス・フツナ</territory>
+			<territory type="WS">サモア</territory>
 			<territory type="YE">イエメン</territory>
 			<territory type="YT">マヨット島</territory>
 			<territory type="ZA">南アフリカ</territory>
@@ -808,25 +888,34 @@
 			<territory type="ZW">ジンバブエ</territory>
 		</territories>
 		<variants>
+			<variant type="1901" alt="proposed-u82-1" draft="provisional">伝統的ドイツ語正字法</variant>
+			<variant type="1996" alt="proposed-u82-1" draft="provisional">1996 年ドイツ語正字法</variant>
+			<variant type="NEDIS">ナティゾーネ方言</variant>
+			<variant type="POLYTONI">ポリトニック</variant>
 			<variant type="POSIX">コンピュータ</variant>
 			<variant type="REVISED">改訂版</variant>
+			<variant type="ROZAJ" alt="proposed-u82-1" draft="provisional">レシアン</variant>
+			<variant type="SAAHO" alt="proposed-u82-1" draft="provisional">サホ語</variant>
 		</variants>
 		<keys>
-			<key type="calendar">暦</key>
-			<key type="collation">照合順番</key>
+			<key type="calendar">暦法</key>
+			<key type="collation">照合</key>
 			<key type="currency">通貨</key>
 		</keys>
 		<types>
-			<type type="buddhist" key="calendar">仏暦</type>
+			<type type="big5han" key="collation">繁体字中国語 (Big5)</type>
+			<type type="buddhist" key="calendar">タイ仏教暦</type>
 			<type type="chinese" key="calendar">中国暦</type>
-			<type type="direct" key="collation">直接著錄</type>
-			<type type="gregorian" key="calendar">グレゴリオ暦</type>
-			<type type="hebrew" key="calendar">ヘブライ暦</type>
+			<type type="direct" key="collation" draft="unconfirmed">直接著錄</type>
+			<type type="gb2312han" key="collation">簡体字中国語 (GB2312)</type>
+			<type type="gregorian" key="calendar">西暦 (グレゴリオ暦)</type>
+			<type type="hebrew" key="calendar">ユダヤ暦</type>
 			<type type="islamic" key="calendar">イスラム暦</type>
 			<type type="islamic-civil" key="calendar">太陽イスラム暦</type>
+			<type type="islamic-civil" key="calendar" alt="proposed-u82-1" draft="provisional">常用イスラム暦</type>
 			<type type="japanese" key="calendar">和暦</type>
 			<type type="phonebook" key="collation">電話帳方式</type>
-			<type type="pinyin" key="collation">拼音順</type>
+			<type type="pinyin" key="collation" draft="unconfirmed">拼音順</type>
 			<type type="stroke" key="collation">画数順</type>
 			<type type="traditional" key="collation">旧式</type>
 		</types>
@@ -855,18 +944,18 @@
 							<month type="12">12 月</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">1月</month>
-							<month type="2">2月</month>
-							<month type="3">3月</month>
-							<month type="4">4月</month>
-							<month type="5">5月</month>
-							<month type="6">6月</month>
-							<month type="7">7月</month>
-							<month type="8">8月</month>
-							<month type="9">9月</month>
-							<month type="10">10月</month>
-							<month type="11">11月</month>
-							<month type="12">12月</month>
+							<month type="1">1 月</month>
+							<month type="2">2 月</month>
+							<month type="3">3 月</month>
+							<month type="4">4 月</month>
+							<month type="5">5 月</month>
+							<month type="6">6 月</month>
+							<month type="7">7 月</month>
+							<month type="8">8 月</month>
+							<month type="9">9 月</month>
+							<month type="10">10 月</month>
+							<month type="11">11 月</month>
+							<month type="12">12 月</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -906,10 +995,10 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">第１四半期</quarter>
-							<quarter type="2" draft="true">第２四半期</quarter>
-							<quarter type="3" draft="true">第３四半期</quarter>
-							<quarter type="4" draft="true">第４四半期</quarter>
+							<quarter type="1">第 1 四半期</quarter>
+							<quarter type="2">第 2 四半期</quarter>
+							<quarter type="3">第 3 四半期</quarter>
+							<quarter type="4">第 4 四半期</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -917,8 +1006,8 @@
 				<pm>午後</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">紀元前</era>
-						<era type="1" draft="true">西暦</era>
+						<era type="0">紀元前</era>
+						<era type="1">西暦</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">紀元前</era>
@@ -966,27 +1055,20 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="GGGGyMd" alt="proposed" draft="true">GGGGy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hmm" alt="proposed" draft="true">H'時'mm'分'</dateFormatItem>
-						<dateFormatItem id="Hmm" alt="proposed-1" draft="true">H:mm</dateFormatItem>
-						<dateFormatItem id="Hmmss" alt="proposed" draft="true">H'時'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="Kmm" alt="proposed" draft="true">a K:mm</dateFormatItem>
-						<dateFormatItem id="Kmmss" alt="proposed" draft="true">a K:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" alt="proposed" draft="true">M'月'</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM.dd</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed" draft="true">M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww 1</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">yy/MM</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">yy/MM/dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">yy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed-1" draft="true">yy/M/d</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">yy'年' QQQQ</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">yyyy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMdHmm" alt="proposed" draft="true">yyyy/M/d H:mm</dateFormatItem>
+						<dateFormatItem id="GGGGyMd">GGGGy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hmm">H:mm</dateFormatItem>
+						<dateFormatItem id="M">M'月'</dateFormatItem>
+						<dateFormatItem id="MMdd">MM.dd</dateFormatItem>
+						<dateFormatItem id="Md">M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="yyMM">yy/MM</dateFormatItem>
+						<dateFormatItem id="yyMMdd">yy/MM/dd</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm">yy/MM/dd HH:mm</dateFormatItem>
+						<dateFormatItem id="yyMd">yy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd">yyyy/MM/dd</dateFormatItem>
+						<dateFormatItem id="yyyyMd">yyyy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="yyyyMdHmm">yyyy/M/d H:mm</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1381,6 +1463,9 @@
 			<zone type="Australia/Broken_Hill">
 				<exemplarCity>オーストラリア/ブロークンヒル</exemplarCity>
 			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>カリー</exemplarCity>
+			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>オーストラリア/メルボルン</exemplarCity>
 			</zone>
@@ -1491,6 +1576,10 @@
 			<zone type="America/Nipigon">
 				<exemplarCity>アメリカ/ニピゴン</exemplarCity>
 			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>コーラルハーバー</exemplarCity>
+				<exemplarCity alt="proposed-u82-1" draft="provisional">コーラル ハーバー</exemplarCity>
+			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>アメリカ/トロント</exemplarCity>
 			</zone>
@@ -1502,6 +1591,9 @@
 			</zone>
 			<zone type="America/Pangnirtung">
 				<exemplarCity>アメリカ/パンナータング</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>モンクトン</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1526,8 +1618,8 @@
 					<daylight>ニューファンドランド島夏時間</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
 				</short>
 				<exemplarCity>セントジョンズ</exemplarCity>
 			</zone>
@@ -1558,7 +1650,7 @@
 			<zone type="Asia/Shanghai">
 				<long>
 					<standard>中国標準時</standard>
-					<daylight>中国標準時</daylight>
+					<daylight>中国夏時間</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1649,11 +1741,11 @@
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>日本標準時</standard>
-					<daylight>日本標準時</daylight>
+					<daylight>日本夏時間</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
@@ -1868,11 +1960,11 @@
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>ハワイ標準時</standard>
-					<daylight>ハワイ標準時</daylight>
+					<daylight>ハワイ夏時間</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<daylight>HDT</daylight>
 				</short>
 				<exemplarCity>ホノルル</exemplarCity>
 			</zone>
@@ -1949,6 +2041,13 @@
 			<zone type="America/Menominee">
 				<exemplarCity>アメリカ/メノミニー</exemplarCity>
 			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>ビンセンス</exemplarCity>
+				<exemplarCity alt="proposed-u82-1" draft="provisional">ビンセンズ</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>ピーターズバーグ</exemplarCity>
+			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>アメリカ/ノクス</exemplarCity>
 			</zone>
@@ -1991,7 +2090,7 @@
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
-				<exemplarCity draft="true">サマルカンド</exemplarCity>
+				<exemplarCity draft="unconfirmed">サマルカンド</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>アジア/タシケント</exemplarCity>
@@ -2012,6 +2111,7 @@
 			<currency type="AFN">
 				<displayName>アフガニー</displayName>
 				<symbol>Af</symbol>
+				<symbol alt="proposed-u82-1" draft="provisional">AFN </symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>アルバニア レク</displayName>
@@ -2023,7 +2123,7 @@
 				<displayName>オランダ領アンティル ギルダー</displayName>
 			</currency>
 			<currency type="AOA">
-				<displayName>クワンザ (AOA)</displayName>
+				<displayName>クワンザ</displayName>
 			</currency>
 			<currency type="AOK">
 				<displayName>クワンザ (1977-1990)</displayName>
@@ -2042,6 +2142,9 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>アルゼンチン ペソ</displayName>
+			</currency>
+			<currency type="ATS">
+				<displayName>オーストリア シリング</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>オーストラリア ドル</displayName>
@@ -2074,7 +2177,7 @@
 				<displayName>ベルギー フラン (BEL)</displayName>
 			</currency>
 			<currency type="BGL">
-				<displayName>ブルガリア レフ (BGL)</displayName>
+				<displayName>ブルガリア レフ</displayName>
 			</currency>
 			<currency type="BGN">
 				<displayName>ブルガリア 新レフ</displayName>
@@ -2092,7 +2195,7 @@
 				<displayName>ブルネイ ドル</displayName>
 			</currency>
 			<currency type="BOB">
-				<displayName>ボリビアノ</displayName>
+				<displayName>ボリビアーノ</displayName>
 			</currency>
 			<currency type="BOP">
 				<displayName>ボリビア ペソ</displayName>
@@ -2101,19 +2204,19 @@
 				<displayName>ボリビア Mvdol</displayName>
 			</currency>
 			<currency type="BRB">
-				<displayName>ブラジル 新クルゼイロ (BRB、1967-1986)</displayName>
+				<displayName>ブラジル 新クルゼイロ (1967-1986)</displayName>
 			</currency>
 			<currency type="BRC">
-				<displayName>ブラジル クルゼイロ (BRC)</displayName>
+				<displayName>ブラジル クルゼイロ</displayName>
 			</currency>
 			<currency type="BRE">
-				<displayName>ブラジル クルゼイロ (BRE、1990-1993)</displayName>
+				<displayName>ブラジル クルゼイロ (1990-1993)</displayName>
 			</currency>
 			<currency type="BRL">
 				<displayName>ブラジル レアル</displayName>
 			</currency>
 			<currency type="BRN">
-				<displayName>ブラジル 新クルゼイロ (BRN)</displayName>
+				<displayName>ブラジル 新クルゼイロ</displayName>
 			</currency>
 			<currency type="BRR">
 				<displayName>ブラジル クルゼイロ レアル</displayName>
@@ -2131,7 +2234,7 @@
 				<displayName>ボツワナ プラ</displayName>
 			</currency>
 			<currency type="BYB">
-				<displayName>ベラルーシ ルーブル (BYB、1994-1999)</displayName>
+				<displayName>ベラルーシ ルーブル (1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>ベラルーシ ルーブル</displayName>
@@ -2145,8 +2248,14 @@
 			<currency type="CDF">
 				<displayName>コンゴ フラン</displayName>
 			</currency>
+			<currency type="CHE">
+				<displayName>WIR ユーロ</displayName>
+			</currency>
 			<currency type="CHF">
 				<displayName>スイス フラン</displayName>
+			</currency>
+			<currency type="CHW">
+				<displayName>WIR フラン</displayName>
 			</currency>
 			<currency type="CLF">
 				<displayName>チリ ウニダ デ フォメント</displayName>
@@ -2156,16 +2265,23 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>中国人民元</displayName>
-				<symbol>中国 元</symbol>
+				<symbol>元</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>コロンビア ペソ</displayName>
 			</currency>
+			<currency type="COU">
+				<displayName>レアル (UVR)</displayName>
+				<displayName alt="proposed-u82-1" draft="provisional">UVR レアル</displayName>
+			</currency>
 			<currency type="CRC">
 				<displayName>コスタリカ コロン</displayName>
 			</currency>
+			<currency type="CSD">
+				<displayName>セルビアン ディナール</displayName>
+			</currency>
 			<currency type="CSK">
-				<displayName>チェコスロバキア コルナ (CSK)</displayName>
+				<displayName>チェコスロバキア コルナ</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>キューバ ペソ</displayName>
@@ -2209,8 +2325,17 @@
 			<currency type="EGP">
 				<displayName>エジプト ポンド</displayName>
 			</currency>
+			<currency type="EQE">
+				<displayName>エクウェレ</displayName>
+			</currency>
 			<currency type="ERN">
 				<displayName>エリトリア ナクファ</displayName>
+			</currency>
+			<currency type="ESA">
+				<displayName alt="proposed-u82-1" draft="provisional">スペインペセタ</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName alt="proposed-u82-1" draft="provisional">スペインペセタ (特別預金勘定)</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>スペイン ペセタ</displayName>
@@ -2307,7 +2432,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName>インド ルピー</displayName>
-				<symbol>インド ルピー</symbol>
+				<symbol>INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>イラク ディナール</displayName>
@@ -2328,7 +2453,7 @@
 				<displayName>ヨルダン ディナール</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName>円</displayName>
+				<displayName>日本円</displayName>
 				<symbol>￥</symbol>
 			</currency>
 			<currency type="KES">
@@ -2374,14 +2499,23 @@
 			<currency type="LSL">
 				<displayName>レソト ロティ</displayName>
 			</currency>
+			<currency type="LSM">
+				<displayName>マロティ</displayName>
+			</currency>
 			<currency type="LTL">
 				<displayName>リトアニア リタス</displayName>
 			</currency>
 			<currency type="LTT">
 				<displayName>リトアニア タロナ</displayName>
 			</currency>
+			<currency type="LUC">
+				<displayName alt="proposed-u82-1" draft="provisional">ルクセンブルク 兌換フラン</displayName>
+			</currency>
 			<currency type="LUF">
 				<displayName>ルクセンブルグ フラン</displayName>
+			</currency>
+			<currency type="LUL">
+				<displayName alt="proposed-u82-1" draft="provisional">ルクセンブルク 金融フラン</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>ラトビア ラッツ</displayName>
@@ -2439,13 +2573,13 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>マラウィ クワチャ</displayName>
-				<symbol>MK</symbol>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>メキシコ ペソ</displayName>
 			</currency>
 			<currency type="MXP">
-				<displayName>メキシコ ペソ (MXP、1861-1992)</displayName>
+				<displayName>メキシコ ペソ (1861-1992)</displayName>
 			</currency>
 			<currency type="MXV">
 				<displayName>メキシコ UDI</displayName>
@@ -2521,6 +2655,9 @@
 			</currency>
 			<currency type="QAR">
 				<displayName>カタール リアル</displayName>
+			</currency>
+			<currency type="RHD">
+				<displayName>ローデシア ドル</displayName>
 			</currency>
 			<currency type="ROL">
 				<displayName>ルーマニア レイ</displayName>
@@ -2690,13 +2827,14 @@
 				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
-				<displayName>特別引き出し権 (Special Drawing Rights)</displayName>
+				<displayName>特別引き出し権</displayName>
 			</currency>
 			<currency type="XEU">
 				<displayName>ヨーロッパ通貨単位</displayName>
 			</currency>
 			<currency type="XFO">
-				<displayName>フランス フラン (XFO)</displayName>
+				<displayName>フランス金フラン</displayName>
+				<displayName alt="proposed-u82-2" draft="provisional">フランス フラン (XFO)</displayName>
 			</currency>
 			<currency type="XFU">
 				<displayName>フランス UIC フラン</displayName>
@@ -2714,13 +2852,14 @@
 				<displayName>イエメン リアル</displayName>
 			</currency>
 			<currency type="YUD">
-				<displayName>ユーゴスラビア ディナール (YUD)</displayName>
+				<displayName>ユーゴスラビア ディナール</displayName>
 			</currency>
 			<currency type="YUM">
 				<displayName>ユーゴスラビア スーパー ディナール</displayName>
 			</currency>
 			<currency type="YUN">
 				<displayName>ユーゴスラビア 新ディナール (YUN)</displayName>
+				<displayName alt="proposed-u82-1" draft="provisional">ユーゴスラビア 新ディナール</displayName>
 			</currency>
 			<currency type="ZAL">
 				<displayName>南アフリカ ランド (ZAL)</displayName>
@@ -2741,12 +2880,15 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">はい:ハイ</yesstr>
-			<nostr draft="true">いいえ:イイエ</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ)</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ)</noexpr>
+			<yesstr draft="unconfirmed">はい:ハイ</yesstr>
+			<nostr draft="unconfirmed">いいえ:イイエ</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ)</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ)</noexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="RP1" draft="unconfirmed">National Diet Library publication</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ja.txt?only_with_tag=final-update-LDML
@@ -2790,4 +2932,3 @@ zh_tw { "\u4e2d\u56fd\u8a9e (\u7e41\u4f53\u5b57)" }
 Qaai { "Inherited" } // PUA
 Zyyy { "Common" } // This may need to become "undetermined script"
 -->
-

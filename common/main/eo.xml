@@ -192,7 +192,7 @@
 			<territory type="CN">Ĉinujo</territory>
 			<territory type="CO">Kolombio</territory>
 			<territory type="CR">Kostariko</territory>
-			<territory type="CS" draft="true">Serbujo</territory>
+			<territory type="CS" draft="unconfirmed">Serbujo</territory>
 			<territory type="CU">Kubo</territory>
 			<territory type="CV">Kabo-Verdo</territory>
 			<territory type="CY">Kipro</territory>
@@ -376,9 +376,8 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-c ĉ d-g ĝ h ĥ i j ĵ k-s ŝ t u ŭ v-z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[q w-y]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a-c ĉ d-g ĝ h ĥ i j ĵ k-p r s ŝ t u ŭ v z]</exemplarCharacters>
+		<exemplarCharacters>[a-c ĉ d-g ĝ h ĥ i j ĵ k-p r s ŝ t u ŭ v z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GjMtkHmslTDUSnahKzJdugAZvcL</localizedPatternChars>
@@ -441,16 +440,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">K1</quarter>
-							<quarter type="2" draft="true">K2</quarter>
-							<quarter type="3" draft="true">K3</quarter>
-							<quarter type="4" draft="true">K4</quarter>
+							<quarter type="1" draft="unconfirmed">K1</quarter>
+							<quarter type="2" draft="unconfirmed">K2</quarter>
+							<quarter type="3" draft="unconfirmed">K3</quarter>
+							<quarter type="4" draft="unconfirmed">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1a kvaronjaro</quarter>
-							<quarter type="2" draft="true">2a kvaronjaro</quarter>
-							<quarter type="3" draft="true">3a kvaronjaro</quarter>
-							<quarter type="4" draft="true">4a kvaronjaro</quarter>
+							<quarter type="1" draft="unconfirmed">1a kvaronjaro</quarter>
+							<quarter type="2" draft="unconfirmed">2a kvaronjaro</quarter>
+							<quarter type="3" draft="unconfirmed">3a kvaronjaro</quarter>
+							<quarter type="4" draft="unconfirmed">4a kvaronjaro</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -523,4 +522,3 @@ MO { "Makao" } // missing S.A.R. China
 Data comes from http://www.bertilow.com/lanlin/iso.php
         "Latn",  // ISO 15924 Name
 -->
-

@@ -8,15 +8,33 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="de" alt="proposed-u152-1" draft="unconfirmed">Գերմաներեն</language>
+			<language type="en" alt="proposed-u152-1" draft="unconfirmed">Անգլերեն</language>
+			<language type="es" alt="proposed-u152-1" draft="unconfirmed">Իսպաներեն</language>
+			<language type="fr" alt="proposed-u152-1" draft="unconfirmed">Ֆրանսերեն</language>
 			<language type="hy">Հայերէն</language>
+			<language type="hy" alt="proposed-u152-1" draft="unconfirmed">Հայերեն</language>
+			<language type="it" alt="proposed-u152-1" draft="unconfirmed">Իտալերեն</language>
+			<language type="ja" alt="proposed-u152-1" draft="unconfirmed">Ճապոներեն</language>
+			<language type="pt" alt="proposed-u152-1" draft="unconfirmed">Պորտուգալերեն</language>
+			<language type="ru" alt="proposed-u152-1" draft="unconfirmed">Ռուսերեն</language>
+			<language type="zh" alt="proposed-u152-1" draft="unconfirmed">Չինարեն</language>
 		</languages>
 		<territories>
+			<territory type="001" alt="proposed-u152-1" draft="unconfirmed">Աշխարհ</territory>
+			<territory type="002" alt="proposed-u152-1" draft="unconfirmed">Աֆրիկա</territory>
+			<territory type="005" alt="proposed-u152-1" draft="unconfirmed">Հարավային Ամերիկա</territory>
+			<territory type="011" alt="proposed-u152-1" draft="unconfirmed">Արևմտյան Աֆրիկա</territory>
+			<territory type="014" alt="proposed-u152-1" draft="unconfirmed">Արևելյան Աֆրիկա</territory>
+			<territory type="015" alt="proposed-u152-1" draft="unconfirmed">Հյուսիսային Աֆրիկա</territory>
+			<territory type="018" alt="proposed-u152-1" draft="unconfirmed">Հարավային Աֆրիկա</territory>
 			<territory type="AD">Անդորա</territory>
 			<territory type="AE">Միացյալ Արաբական Էմիրաթներ</territory>
 			<territory type="AF">Աֆղանստան</territory>
 			<territory type="AG">Անտիգուա-Բարբուդա</territory>
 			<territory type="AL">Ալբանիա</territory>
 			<territory type="AM">Հայաստանի Հանրապետութիւն</territory>
+			<territory type="AM" alt="proposed-u152-1" draft="unconfirmed">Հայաստան</territory>
 			<territory type="AO">Անգոլա</territory>
 			<territory type="AR">Արգենտինա</territory>
 			<territory type="AT">Ավստրիա</territory>
@@ -38,6 +56,7 @@
 			<territory type="BT">Բուտան</territory>
 			<territory type="BW">Բոտսվանա</territory>
 			<territory type="BY">Բելոռուս</territory>
+			<territory type="BY" alt="proposed-u152-1" draft="unconfirmed">Բելառուս</territory>
 			<territory type="BZ">Բելիզ</territory>
 			<territory type="CA">Կանադա</territory>
 			<territory type="CF">Կենտրոնական Աֆրիկյան Հանրապետություն</territory>
@@ -49,7 +68,7 @@
 			<territory type="CN">Չինաստան</territory>
 			<territory type="CO">Կոլումբիա</territory>
 			<territory type="CR">Կոստա-Ռիկա</territory>
-			<territory type="CS" draft="true">Սերբիա</territory>
+			<territory type="CS" alt="proposed-u152-1" draft="unconfirmed">Սերբիա և Մոնտենեգրո</territory>
 			<territory type="CU">Կուբա</territory>
 			<territory type="CV">Կաբո-Վերդե</territory>
 			<territory type="CY">Կիպրոս</territory>
@@ -64,6 +83,7 @@
 			<territory type="EE">Էստոնիա</territory>
 			<territory type="EG">Եգիպտոս</territory>
 			<territory type="EH">Արեվմտյան Սահարա</territory>
+			<territory type="EH" alt="proposed-u152-1" draft="unconfirmed">Արևմտյան Սահարա</territory>
 			<territory type="ER">Էրիտրեա</territory>
 			<territory type="ES">Իսպանիա</territory>
 			<territory type="ET">Եթովպիա</territory>
@@ -73,6 +93,7 @@
 			<territory type="FR">Ֆրանսիա</territory>
 			<territory type="GA">Գաբոն</territory>
 			<territory type="GB">Մեծ Բրիտանիա</territory>
+			<territory type="GB" alt="proposed-u152-1" draft="unconfirmed">Միացյալ Թագավորություն</territory>
 			<territory type="GD">Գրենադա</territory>
 			<territory type="GE">Վրաստան</territory>
 			<territory type="GH">Գանա</territory>
@@ -191,6 +212,7 @@
 			<territory type="UA">Ուկրաինա</territory>
 			<territory type="UG">Ուգանդա</territory>
 			<territory type="US">Ամէրիկայի Միացյալ Նահանգնէր</territory>
+			<territory type="US" alt="proposed-u152-1" draft="unconfirmed">Միացյալ Նահանգներ</territory>
 			<territory type="UY">Ուրուգվայ</territory>
 			<territory type="UZ">Ուզբեկստան</territory>
 			<territory type="VA">Վատիկան</territory>
@@ -206,7 +228,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[֊ ՝ ՜ ՞ ՚ ՛ ՟ ա-ե և զ-մ ﬔ ﬕ ﬗ ﬓ յ-վ ﬖ տ-ֆ ՙ]</exemplarCharacters>
+		<exemplarCharacters>[֊ ՝ ՜ ՞ ՚ ՛ ՟ ա-ե և զ-մ յ-վ տ-ֆ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -346,4 +368,3 @@ currencies
                 "\u0545\u2024\u054F\u2024",            // 3.D.
                 "\u0546\u2024\u0554\u2024"             // N.K.
 -->
-

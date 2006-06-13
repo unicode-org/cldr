@@ -7,5 +7,83 @@
 		<language type="se"/>
 		<territory type="FI"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ođđajage</month>
+							<month type="2">guovva</month>
+							<month type="3">njukča</month>
+							<month type="4">cuoŋo</month>
+							<month type="5">miesse</month>
+							<month type="6">geasse</month>
+							<month type="7">suoidne</month>
+							<month type="8">borge</month>
+							<month type="9">čakča</month>
+							<month type="10">golggot</month>
+							<month type="11">skábma</month>
+							<month type="12">juovla</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ođđajagemánnu</month>
+							<month type="2">guovvamánnu</month>
+							<month type="3">njukčamánnu</month>
+							<month type="4">cuoŋománnu</month>
+							<month type="5">miessemánnu</month>
+							<month type="6">geassemánnu</month>
+							<month type="7">suoidnemánnu</month>
+							<month type="8">borgemánnu</month>
+							<month type="9">čakčamánnu</month>
+							<month type="10">golggotmánnu</month>
+							<month type="11">skábmamánnu</month>
+							<month type="12">juovlamánnu</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">O</month>
+							<month type="2">G</month>
+							<month type="3">N</month>
+							<month type="4">C</month>
+							<month type="5">M</month>
+							<month type="6">G</month>
+							<month type="7">S</month>
+							<month type="8">B</month>
+							<month type="9">Č</month>
+							<month type="10">G</month>
+							<month type="11">S</month>
+							<month type="12">J</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">D</day>
+							<day type="wed">G</day>
+							<day type="thu">D</day>
+							<day type="fri">B</day>
+							<day type="sat">L</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<group> </group>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+	</numbers>
 </ldml>
-

@@ -18,10 +18,12 @@
 			<language type="af">Afrikaans</language>
 			<language type="afa">Afro-Aziatisch (overige)</language>
 			<language type="afh">Afrihili</language>
+			<language type="ain">Ainu</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadisch</language>
 			<language type="ale">Aleut</language>
 			<language type="alg">Algonkium-talen</language>
+			<language type="alt" alt="proposed-u10-1" draft="provisional">Zuid-Altai</language>
 			<language type="am">Amhaars</language>
 			<language type="an">Aragonees</language>
 			<language type="ang">Engels, oud (ca. 450-1100)</language>
@@ -137,6 +139,7 @@
 			<language type="fat">Fanti</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Fins</language>
+			<language type="fil">Filipijns</language>
 			<language type="fiu">Finoegrische talen (overige)</language>
 			<language type="fj">Fijisch</language>
 			<language type="fo">Faeröers</language>
@@ -293,6 +296,7 @@
 			<language type="mul">Meerdere talen</language>
 			<language type="mun">Munda-talen</language>
 			<language type="mus">Creek</language>
+			<language type="mwl">Mirandees</language>
 			<language type="mwr">Marwari</language>
 			<language type="my">Birmees</language>
 			<language type="myn">Mayan-talen</language>
@@ -319,6 +323,7 @@
 			<language type="nso">Noord-Sotho</language>
 			<language type="nub">Nubische talen</language>
 			<language type="nv">Navajo</language>
+			<language type="nwc">Klassiek Newari</language>
 			<language type="ny">Nyanja</language>
 			<language type="nym">Nyamwezi</language>
 			<language type="nyn">Nyankole</language>
@@ -358,7 +363,9 @@
 			<language type="ro">Roemeens</language>
 			<language type="roa">Romaans (overige)</language>
 			<language type="rom">Romani</language>
+			<language type="root">Root</language>
 			<language type="ru">Russisch</language>
+			<language type="rup">Aromaniaans</language>
 			<language type="rw">Kinyarwanda</language>
 			<language type="sa">Sanskrit</language>
 			<language type="sad">Sandawe</language>
@@ -369,6 +376,7 @@
 			<language type="sas">Sasak</language>
 			<language type="sat">Santali</language>
 			<language type="sc">Sardinisch</language>
+			<language type="scn">Siciliaans</language>
 			<language type="sco">Schots</language>
 			<language type="sd">Sindhi</language>
 			<language type="se">Noord-Samisch</language>
@@ -399,9 +407,11 @@
 			<language type="son">Songhai</language>
 			<language type="sq">Albanees</language>
 			<language type="sr">Servisch</language>
+			<language type="srn">Sranantongo</language>
+			<language type="srn" alt="proposed-u10-1" draft="provisional">Sranan Tongo</language>
 			<language type="srr">Serer</language>
 			<language type="ss">Swati</language>
-			<language type="ssa" draft="true">Nilo-Saharam (overige)</language>
+			<language type="ssa" alt="proposed-u10-1" draft="provisional">Nilo-Saharaans (overige)</language>
 			<language type="st">Sotho, zuid</language>
 			<language type="su">Sundanees</language>
 			<language type="suk">Sukuma</language>
@@ -424,6 +434,7 @@
 			<language type="tk">Turkmeens</language>
 			<language type="tkl">Tokelau</language>
 			<language type="tl">Tagalog</language>
+			<language type="tlh">Klingon</language>
 			<language type="tli">Tlingit</language>
 			<language type="tmh">Tamashek</language>
 			<language type="tn">Tswana</language>
@@ -479,19 +490,31 @@
 		<scripts>
 			<script type="Arab">Arabisch</script>
 			<script type="Armn">Armeens</script>
+			<script type="Bali">Balinees</script>
+			<script type="Batk">Batak</script>
 			<script type="Beng">Bengalees</script>
+			<script type="Blis">Blissymbolen</script>
 			<script type="Bopo">Bopomofo</script>
+			<script type="Brah">Brahmi</script>
 			<script type="Brai">Braille</script>
+			<script type="Bugi">Buginees</script>
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Verenigde Canadese Aboriginal-symbolen</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Cirt">Cirth</script>
 			<script type="Copt">Koptisch</script>
 			<script type="Cprt">Cyprisch</script>
 			<script type="Cyrl">Cyrillisch</script>
+			<script type="Cyrs">Cyrillisch (Oudkerkslavische variant)</script>
 			<script type="Deva">Devanagari</script>
 			<script type="Dsrt">Deseret</script>
+			<script type="Egyd">Egyptisch (demotisch)</script>
+			<script type="Egyh">Egyptisch (hiëratisch)</script>
+			<script type="Egyp" alt="proposed-u10-1" draft="provisional">Egyptisch (hiërogliefen)</script>
 			<script type="Ethi">Ethiopisch</script>
+			<script type="Geok">Khutsuri (Asomtavruli en Nuskhuri)</script>
 			<script type="Geor">Georgisch</script>
+			<script type="Glag">Glagolitisch</script>
 			<script type="Goth">Gothisch</script>
 			<script type="Grek">Grieks</script>
 			<script type="Gujr">Gujarati</script>
@@ -503,34 +526,70 @@
 			<script type="Hant">Traditioneel Han</script>
 			<script type="Hebr">Hebreeuws</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Hmng">Pahawh Hmong</script>
+			<script type="Hrkt">Katakana of Hiragana</script>
+			<script type="Hung">Oudhongaars</script>
+			<script type="Inds">Indus (Harappan)</script>
 			<script type="Ital">Oud-italisch</script>
+			<script type="Java">Javaans</script>
+			<script type="Kali">Kayah Li</script>
 			<script type="Kana">Katakana</script>
+			<script type="Khar">Kharoshthi</script>
 			<script type="Khmr">Khmer</script>
 			<script type="Knda">Kannada</script>
 			<script type="Laoo">Lao</script>
+			<script type="Latf">Latijn (Fraktur-variant)</script>
+			<script type="Latg">Latijn (Gaelic variant)</script>
 			<script type="Latn">Latijn</script>
+			<script type="Lepc">Lepcha (Róng)</script>
 			<script type="Limb">Limbu</script>
+			<script type="Lina">Lineair A</script>
 			<script type="Linb">Lineair B</script>
+			<script type="Mand">Mandaeans</script>
+			<script type="Maya">Mayahiërogliefen</script>
+			<script type="Mero">Meroïtisch</script>
 			<script type="Mlym">Malayalam</script>
 			<script type="Mong">Mongools</script>
 			<script type="Mymr">Myanmar</script>
+			<script type="Nkoo">N’Ko</script>
 			<script type="Ogam">Ogham</script>
+			<script type="Orkh">Orkhon</script>
 			<script type="Orya">Oriya</script>
 			<script type="Osma">Osmanya</script>
+			<script type="Perm">Oudpermisch</script>
+			<script type="Phag">Phags-pa</script>
+			<script type="Phnx">Foenicisch</script>
+			<script type="Plrd">Pollard-fonetisch</script>
+			<script type="Qaai">Overgeërfd</script>
+			<script type="Roro">Rongorongo</script>
 			<script type="Runr">Runic</script>
+			<script type="Sara">Sarati</script>
 			<script type="Shaw">Shavian</script>
 			<script type="Sinh">Sinhala</script>
+			<script type="Sylo">Syloti Nagri</script>
 			<script type="Syrc">Syriac</script>
+			<script type="Syre" alt="proposed-u10-1" draft="provisional">Aramees (Estrangelo-variant)</script>
+			<script type="Syrj" alt="proposed-u10-1" draft="provisional">Aramees (Westelijke variant)</script>
+			<script type="Syrn" alt="proposed-u10-1" draft="provisional">Aramees (Oostelijke variant)</script>
 			<script type="Tagb">Tagbanwa</script>
 			<script type="Tale">Tai Le</script>
+			<script type="Talu">Tai Lue (nieuw)</script>
 			<script type="Taml">Tamil</script>
 			<script type="Telu">Telugu</script>
+			<script type="Teng">Tengwar</script>
+			<script type="Tfng">Tifinagh (Berber)</script>
 			<script type="Tglg">Tagalog</script>
 			<script type="Thaa">Thaana</script>
 			<script type="Tibt">Tibetaans</script>
 			<script type="Ugar">Ugaritisch</script>
+			<script type="Vaii">Vai</script>
+			<script type="Visp">Zichtbare spraak</script>
+			<script type="Xpeo">Oudperzisch</script>
+			<script type="Xsux">Sumero-Akkadian Cuneiform</script>
 			<script type="Yiii">Yi</script>
+			<script type="Zxxx">Code voor ongeschreven talen</script>
 			<script type="Zyyy">Algemeen</script>
+			<script type="Zzzz">Code voor ongecodeerde schriftsystemen</script>
 		</scripts>
 		<territories>
 			<territory type="001">Wereld</territory>
@@ -547,6 +606,7 @@
 			<territory type="021">Noord-Amerika</territory>
 			<territory type="029">Caribisch gebied</territory>
 			<territory type="030">Oost-Azië</territory>
+			<territory type="034">Zuid-Azië</territory>
 			<territory type="035">Zuidoost-Azië</territory>
 			<territory type="039">Zuid-Europa</territory>
 			<territory type="053">Australië en Nieuw-Zeeland</territory>
@@ -555,11 +615,13 @@
 			<territory type="061">Polynesië</territory>
 			<territory type="062">Zuidelijk Centraal-Azië</territory>
 			<territory type="142">Azië</territory>
+			<territory type="143">Centraal-Azië</territory>
 			<territory type="145">West-Azië</territory>
 			<territory type="150">Europa</territory>
 			<territory type="151">Oost-Europa</territory>
 			<territory type="154">Noord-Europa</territory>
 			<territory type="155">West-Europa</territory>
+			<territory type="419">Latijns-Amerika en het Caribisch gebied</territory>
 			<territory type="830">Kanaaleilanden</territory>
 			<territory type="833">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
@@ -601,8 +663,10 @@
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Cocoseilanden</territory>
 			<territory type="CD">Congo, Democratische Republiek</territory>
+			<territory type="CD" alt="proposed-u10-1" draft="provisional">Congo-Kinshasa</territory>
 			<territory type="CF">Centraal-Afrikaanse Republiek</territory>
 			<territory type="CG">Congo</territory>
+			<territory type="CG" alt="proposed-u10-1" draft="provisional">Congo-Brazzaville</territory>
 			<territory type="CH">Zwitserland</territory>
 			<territory type="CI">Ivoorkust</territory>
 			<territory type="CK">Cookeilanden</territory>
@@ -633,7 +697,7 @@
 			<territory type="FI">Finland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandeilanden</territory>
-			<territory type="FM">Micronesia, Federale Staten van</territory>
+			<territory type="FM">Micronesia</territory>
 			<territory type="FO">Faeröer</territory>
 			<territory type="FR">Frankrijk</territory>
 			<territory type="GA">Gabon</territory>
@@ -655,7 +719,7 @@
 			<territory type="GW">Guinee-Bissau</territory>
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">Hongkong S.A.R. van China</territory>
-			<territory type="HM">Heardeiland en McDonaldeiland</territory>
+			<territory type="HM">Heard- en McDonaldeilanden</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Kroatië</territory>
 			<territory type="HT">Haïti</territory>
@@ -664,7 +728,7 @@
 			<territory type="IE">Ierland</territory>
 			<territory type="IL">Israël</territory>
 			<territory type="IN">India</territory>
-			<territory type="IO">Brits Territorium in de Indische Oceaan</territory>
+			<territory type="IO">Britse Gebieden in de Indische Oceaan</territory>
 			<territory type="IQ">Irak</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">IJsland</territory>
@@ -696,10 +760,10 @@
 			<territory type="LY">Libië</territory>
 			<territory type="MA">Marokko</territory>
 			<territory type="MC">Monaco</territory>
-			<territory type="MD">Republiek Moldavië</territory>
+			<territory type="MD">Moldavië</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Marshalleilanden</territory>
-			<territory type="MK">Macedonië, Republiek</territory>
+			<territory type="MK">Macedonië</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolië</territory>
@@ -746,7 +810,7 @@
 			<territory type="QO">Oceanië (overige)</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Roemenië</territory>
-			<territory type="RU">Russische Federatie</territory>
+			<territory type="RU">Rusland</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SA">Saoedi-Arabië</territory>
 			<territory type="SB">Salomonseilanden</territory>
@@ -805,7 +869,13 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<variants>
-			<variant type="REVISED">Gewijzigd</variant>
+			<variant type="1901">Traditionele Duitse ortografie</variant>
+			<variant type="1996">Duitse ortografie van 1996</variant>
+			<variant type="NEDIS">Natisone (dialect)</variant>
+			<variant type="POLYTONI">Polytonaal</variant>
+			<variant type="REVISED">Gewijzigde ortografie</variant>
+			<variant type="ROZAJ">Resiaans</variant>
+			<variant type="SAAHO">Saho</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Kalender</key>
@@ -813,9 +883,11 @@
 			<key type="currency">Munteenheid</key>
 		</keys>
 		<types>
+			<type type="big5han" key="collation">Traditioneel Chinees</type>
 			<type type="buddhist" key="calendar">Boeddhistische kalender</type>
 			<type type="chinese" key="calendar">Chinese kalender</type>
 			<type type="direct" key="collation">Directe volgorde</type>
+			<type type="gb2312han" key="collation">Vereenvoudigd Chinees</type>
 			<type type="gregorian" key="calendar">Gregoriaanse kalender</type>
 			<type type="hebrew" key="calendar">Joodse kalender</type>
 			<type type="islamic" key="calendar">Islamitische kalender</type>
@@ -824,13 +896,23 @@
 			<type type="phonebook" key="collation">Telefoonboekvolgorde</type>
 			<type type="pinyin" key="collation">Pinyinvolgorde</type>
 			<type type="stroke" key="collation">Streekvolgorde</type>
-			<type type="traditional" key="collation">Traditioneelvolgorde</type>
+			<type type="traditional" key="collation">Traditionele volgorde</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US" alt="proposed-u10-1" draft="provisional">Amerikaans</measurementSystemName>
+			<measurementSystemName type="metric">Metriek</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á ä b-e é ë f-i í ï ĳ j-o ó ö p-u ú ü v-z]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a á ä b-e é ë f-i í ï {ij} j-o ó ö p-u ú ü v-y ÿ z]</exemplarCharacters>
+		<exemplarCharacters>[a á ä b-e é ë f-i í ï {ij} j-o ó ö p-u ú ü v-y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[å ã ç ñ ô]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart>‘</quotationStart>
+		<quotationEnd>’</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -918,16 +1000,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">K1</quarter>
-							<quarter type="2" draft="true">K2</quarter>
-							<quarter type="3" draft="true">K3</quarter>
-							<quarter type="4" draft="true">K4</quarter>
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1ste kwartaal</quarter>
-							<quarter type="2" draft="true">2de kwartaal</quarter>
-							<quarter type="3" draft="true">3de kwartaal</quarter>
-							<quarter type="4" draft="true">4de kwartaal</quarter>
+							<quarter type="1" draft="provisional">1e kwartaal</quarter>
+							<quarter type="2" draft="provisional">2e kwartaal</quarter>
+							<quarter type="3" draft="provisional">3e kwartaal</quarter>
+							<quarter type="4" draft="provisional">4e kwartaal</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -950,68 +1032,91 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d-MMM-yyyy</pattern>
+							<pattern>d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-M-yy</pattern>
+							<pattern>dd-MM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H:mm:ss' uur' z</pattern>
+							<pattern>HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H:mm:ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>H:mm:ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>H:mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd-MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd-MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMd" alt="proposed" draft="true">d-MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd-MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd-MM-yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd-MM-yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd-MM-yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="yyMM">MM-yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd">EEE d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd" alt="proposed-u10-2" draft="provisional">EEE dd MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMd">d-MM-yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd">dd-MM-yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm">dd-MM-yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd">EEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd">d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd">dd-MM-yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss">dd-MM-yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName>Tijdperk</displayName>
+					</field>
+					<field type="year">
+						<displayName>Jaar</displayName>
+					</field>
+					<field type="month">
+						<displayName>Maand</displayName>
+					</field>
+					<field type="day">
+						<displayName>Dag</displayName>
+					</field>
+					<field type="weekday">
+						<displayName>Dag van de week</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName alt="proposed-u10-2" draft="provisional">Dagdeel</displayName>
+					</field>
+					<field type="hour">
+						<displayName>Uur</displayName>
+					</field>
+					<field type="minute">
+						<displayName>Minuut</displayName>
+					</field>
+					<field type="second">
+						<displayName>Seconde</displayName>
+					</field>
+				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1131,6 +1236,7 @@
 					<standard>CTT</standard>
 					<daylight>CDT</daylight>
 				</short>
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Sjanghai</exemplarCity>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
@@ -1171,6 +1277,7 @@
 					<daylight>JST</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Tokio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1193,6 +1300,7 @@
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexico Stad</exemplarCity>
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Mexico-stad</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>Mérida</exemplarCity>
@@ -1231,6 +1339,30 @@
 			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskou</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Jekaterinenburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Krasnojarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Irkoetsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Jakoetsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Sachalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Kamtsjatka</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Oezjhorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity alt="proposed-u10-1" draft="provisional">Zaporizja</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -1488,11 +1620,17 @@
 				<symbol>Can$</symbol>
 			</currency>
 			<currency type="CDF">
-				<displayName>Congolese franc congolais</displayName>
+				<displayName>Congolese franc</displayName>
+			</currency>
+			<currency type="CHE">
+				<displayName>WIR euro</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>Zwitserse franc</displayName>
 				<symbol>SwF</symbol>
+			</currency>
+			<currency type="CHW">
+				<displayName>WIR franc</displayName>
 			</currency>
 			<currency type="CLF">
 				<displayName>Chileense unidades de fomento</displayName>
@@ -1509,9 +1647,15 @@
 				<displayName>Colombiaanse peso</displayName>
 				<symbol>Col$</symbol>
 			</currency>
+			<currency type="COU">
+				<displayName>Unidad de Valor Real</displayName>
+			</currency>
 			<currency type="CRC">
 				<displayName>Costaricaanse colón</displayName>
 				<symbol>C</symbol>
+			</currency>
+			<currency type="CSD">
+				<displayName>Servische dinar</displayName>
 			</currency>
 			<currency type="CSK">
 				<displayName>Tsjechoslowaakse harde koruna</displayName>
@@ -1567,6 +1711,12 @@
 			<currency type="ERN">
 				<displayName>Eritrese nakfa</displayName>
 			</currency>
+			<currency type="ESA">
+				<displayName>Spaanse peseta (account A)</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName>Spaanse peseta (convertibele account)</displayName>
+			</currency>
 			<currency type="ESP">
 				<displayName>Spaanse peseta</displayName>
 			</currency>
@@ -1575,7 +1725,7 @@
 				<symbol>Br</symbol>
 			</currency>
 			<currency type="EUR">
-				<displayName>Euro</displayName>
+				<displayName>euro</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finse markka</displayName>
@@ -1627,7 +1777,7 @@
 				<symbol>Q</symbol>
 			</currency>
 			<currency type="GWE">
-				<displayName>Portuguees-Guinese escudo</displayName>
+				<displayName>Portugees-Guinese escudo</displayName>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinee-Bissause peso</displayName>
@@ -1641,7 +1791,7 @@
 				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
-				<displayName>Hodurese lempira</displayName>
+				<displayName>Hondurese lempira</displayName>
 				<symbol>L</symbol>
 			</currency>
 			<currency type="HRD">
@@ -1756,8 +1906,14 @@
 			<currency type="LTT">
 				<displayName>Litouwse talonas</displayName>
 			</currency>
+			<currency type="LUC">
+				<displayName>Luxemburgse convertibele franc</displayName>
+			</currency>
 			<currency type="LUF">
 				<displayName>Luxemburgse frank</displayName>
+			</currency>
+			<currency type="LUL">
+				<displayName>Luxemburgse financiële franc</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>Letse lats</displayName>
@@ -2087,6 +2243,9 @@
 			<currency type="XAF">
 				<displayName>CFA-franc BEAC</displayName>
 			</currency>
+			<currency type="XAG">
+				<displayName>Zilver</displayName>
+			</currency>
 			<currency type="XAU">
 				<displayName>Goud</displayName>
 			</currency>
@@ -2124,6 +2283,18 @@
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
 				<symbol>CFPF</symbol>
+			</currency>
+			<currency type="XPT">
+				<displayName>Platina</displayName>
+			</currency>
+			<currency type="XRE">
+				<displayName>RINET-fondsen</displayName>
+			</currency>
+			<currency type="XTS">
+				<displayName>Valutacode voor testdoeleinden</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName>Geen valuta</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemenitische dinar</displayName>
@@ -2167,8 +2338,8 @@
 		<messages>
 			<yesstr>ja:j</yesstr>
 			<nostr>nee:n</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([jJ][aA]?))</yesexpr>
-			<noexpr draft="true">^[nN]([oO]|[eE][eE])?</noexpr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([jJ][aA]?))</yesexpr>
+			<noexpr draft="unconfirmed">^[nN]([oO]|[eE][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -2245,4 +2416,3 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
-

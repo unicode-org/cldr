@@ -11,49 +11,49 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="true">d MMMM yyyy</pattern>
+							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">d MMMM yyyy</pattern>
+							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">dd.MM.yyyy</pattern>
+							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">dd.MM.yyyy</pattern>
+							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss</pattern>
+							<pattern draft="unconfirmed">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss</pattern>
+							<pattern draft="unconfirmed">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss</pattern>
+							<pattern draft="unconfirmed">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -64,10 +64,9 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">#,##0.00¤</pattern>
+					<pattern draft="unconfirmed">#,##0.00¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-

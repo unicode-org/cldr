@@ -13,48 +13,47 @@
 	</identity>
 	<numbers>
 		<symbols>
-			<list draft="true">དང་</list>
-			<percentSign draft="true">བརྒ་ཆཱ</percentSign>
-			<nativeZeroDigit draft="true">༠</nativeZeroDigit>
-			<infinity draft="true">གྲངས་མེད</infinity>
-			<nan draft="true">ཨང་མད</nan>
+			<list draft="unconfirmed">དང་</list>
+			<percentSign draft="unconfirmed">བརྒ་ཆཱ</percentSign>
+			<nativeZeroDigit draft="unconfirmed">༠</nativeZeroDigit>
+			<infinity draft="unconfirmed">གྲངས་མེད</infinity>
+			<nan draft="unconfirmed">ཨང་མད</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<!-- number grouping same as India (thousands, lakhs, crores, etc.) -->
-					<pattern draft="true">#,##,##0.###</pattern>
+					<pattern draft="unconfirmed">#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<default type="long" draft="true"/>
+			<default type="long" draft="unconfirmed"/>
 			<scientificFormatLength type="long">
 				<scientificFormat>
-					<pattern draft="true">#E+00</pattern>
+					<pattern draft="unconfirmed">#E+00</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength type="long">
 				<percentFormat>
-					<pattern draft="true">#,##,##0 %</pattern>
+					<pattern draft="unconfirmed">#,##,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength type="long">
 				<currencyFormat>
-					<pattern draft="true">¤#,##,##0.00</pattern>
+					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="BTN">
-				<displayName draft="true">དངུལ་ཀྲམ་</displayName>
-				<symbol draft="true">Nu</symbol>
+				<displayName draft="unconfirmed">དངུལ་ཀྲམ་</displayName>
+				<symbol draft="unconfirmed">Nu</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
-

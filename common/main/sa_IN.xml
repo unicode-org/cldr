@@ -11,50 +11,50 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
-					<weekendStart day="sun" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
+					<weekendStart day="sun" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="true">EEEE d MMMM yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">d MMMM yyyy</pattern>
+							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">dd-MM-yyyy</pattern>
+							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">d-MM-yy</pattern>
+							<pattern draft="unconfirmed">d-MM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">hh:mm:ss a z</pattern>
+							<pattern draft="unconfirmed">hh:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">hh:mm:ss a z</pattern>
+							<pattern draft="unconfirmed">hh:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">hh:mm:ss a</pattern>
+							<pattern draft="unconfirmed">hh:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">hh:mm a</pattern>
+							<pattern draft="unconfirmed">hh:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -62,4 +62,3 @@
 		</calendars>
 	</dates>
 </ldml>
-

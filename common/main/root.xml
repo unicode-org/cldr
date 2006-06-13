@@ -13,11 +13,11 @@
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<layout>
-		<orientation draft="true"/>
+		<orientation draft="unconfirmed"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="true">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -106,78 +106,78 @@
 			</calendar>
 			<calendar type="coptic">
 				<months>
-					<default type="format" draft="true"/>
+					<default type="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="true"/>
+						<default type="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Tout</month>
+							<month type="1" draft="unconfirmed">Tout</month>
 							<!-- from ICU data -->
-							<month type="2" draft="true">Baba</month>
-							<month type="3" draft="true">Hator</month>
-							<month type="4" draft="true">Kiahk</month>
-							<month type="5" draft="true">Toba</month>
-							<month type="6" draft="true">Amshir</month>
-							<month type="7" draft="true">Baramhat</month>
-							<month type="8" draft="true">Baramouda</month>
-							<month type="9" draft="true">Bashans</month>
-							<month type="10" draft="true">Paona</month>
-							<month type="11" draft="true">Epep</month>
-							<month type="12" draft="true">Mesra</month>
-							<month type="13" draft="true">Nasie</month>
+							<month type="2" draft="unconfirmed">Baba</month>
+							<month type="3" draft="unconfirmed">Hator</month>
+							<month type="4" draft="unconfirmed">Kiahk</month>
+							<month type="5" draft="unconfirmed">Toba</month>
+							<month type="6" draft="unconfirmed">Amshir</month>
+							<month type="7" draft="unconfirmed">Baramhat</month>
+							<month type="8" draft="unconfirmed">Baramouda</month>
+							<month type="9" draft="unconfirmed">Bashans</month>
+							<month type="10" draft="unconfirmed">Paona</month>
+							<month type="11" draft="unconfirmed">Epep</month>
+							<month type="12" draft="unconfirmed">Mesra</month>
+							<month type="13" draft="unconfirmed">Nasie</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="true">ERA0</era>
+						<era type="0" draft="unconfirmed">ERA0</era>
 						<!-- to be replaced -->
-						<era type="1" draft="true">ERA1</era>
+						<era type="1" draft="unconfirmed">ERA1</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats" draft="true"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats" draft="unconfirmed"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" draft="true"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats" draft="unconfirmed"/>
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats" draft="true"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats" draft="unconfirmed"/>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
-					<default type="format" draft="true"/>
+					<default type="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="true"/>
+						<default type="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Meskerem</month>
+							<month type="1" draft="unconfirmed">Meskerem</month>
 							<!-- from ICU data -->
-							<month type="2" draft="true">Tekemt</month>
-							<month type="3" draft="true">Hedar</month>
-							<month type="4" draft="true">Tahsas</month>
-							<month type="5" draft="true">Ter</month>
-							<month type="6" draft="true">Yekatit</month>
-							<month type="7" draft="true">Megabit</month>
-							<month type="8" draft="true">Miazia</month>
-							<month type="9" draft="true">Genbot</month>
-							<month type="10" draft="true">Sene</month>
-							<month type="11" draft="true">Hamle</month>
-							<month type="12" draft="true">Nehasse</month>
-							<month type="13" draft="true">Pagumen</month>
+							<month type="2" draft="unconfirmed">Tekemt</month>
+							<month type="3" draft="unconfirmed">Hedar</month>
+							<month type="4" draft="unconfirmed">Tahsas</month>
+							<month type="5" draft="unconfirmed">Ter</month>
+							<month type="6" draft="unconfirmed">Yekatit</month>
+							<month type="7" draft="unconfirmed">Megabit</month>
+							<month type="8" draft="unconfirmed">Miazia</month>
+							<month type="9" draft="unconfirmed">Genbot</month>
+							<month type="10" draft="unconfirmed">Sene</month>
+							<month type="11" draft="unconfirmed">Hamle</month>
+							<month type="12" draft="unconfirmed">Nehasse</month>
+							<month type="13" draft="unconfirmed">Pagumen</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="true">ERA0</era>
+						<era type="0" draft="unconfirmed">ERA0</era>
 						<!-- to be replaced -->
-						<era type="1" draft="true">ERA1</era>
+						<era type="1" draft="unconfirmed">ERA1</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -268,24 +268,24 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">Q1</quarter>
-							<quarter type="2" draft="true">Q2</quarter>
-							<quarter type="3" draft="true">Q3</quarter>
-							<quarter type="4" draft="true">Q4</quarter>
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">Q1</quarter>
-							<quarter type="2" draft="true">Q2</quarter>
-							<quarter type="3" draft="true">Q3</quarter>
-							<quarter type="4" draft="true">Q4</quarter>
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<week>
 					<minDays count="1"/>
 					<firstDay day="sun"/>
-					<weekendStart day="sat" draft="true"/>
-					<weekendEnd day="sun" draft="true"/>
+					<weekendStart day="sat" draft="unconfirmed"/>
+					<weekendEnd day="sun" draft="unconfirmed"/>
 				</week>
 				<am>AM</am>
 				<pm>PM</pm>
@@ -411,7 +411,7 @@
 						<displayName>Minute</displayName>
 					</field>
 					<field type="second">
-						<displayName draft="true">Second</displayName>
+						<displayName>Second</displayName>
 					</field>
 					<field type="zone">
 						<displayName>Zone</displayName>
@@ -745,10 +745,10 @@
 						<era type="235">Heisei</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="232" draft="true">M</era>
-						<era type="233" draft="true">T</era>
-						<era type="234" draft="true">S</era>
-						<era type="235" draft="true">H</era>
+						<era type="232" draft="unconfirmed">M</era>
+						<era type="233" draft="unconfirmed">T</era>
+						<era type="234" draft="unconfirmed">S</era>
+						<era type="235" draft="unconfirmed">H</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -783,31 +783,31 @@
 			</calendar>
 			<calendar type="persian">
 				<months>
-					<default type="format" draft="true"/>
+					<default type="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="true"/>
+						<default type="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="true">Farvardin</month>
-							<month type="2" draft="true">Ordibehesht</month>
-							<month type="3" draft="true">Khordad</month>
-							<month type="4" draft="true">Tir</month>
-							<month type="5" draft="true">Mordad</month>
-							<month type="6" draft="true">Shahrivar</month>
-							<month type="7" draft="true">Mehr</month>
-							<month type="8" draft="true">Aban</month>
-							<month type="9" draft="true">Azar</month>
-							<month type="10" draft="true">Dey</month>
-							<month type="11" draft="true">Bahman</month>
-							<month type="12" draft="true">Esfand</month>
+							<month type="1">Farvardin</month>
+							<month type="2">Ordibehesht</month>
+							<month type="3">Khordad</month>
+							<month type="4">Tir</month>
+							<month type="5">Mordad</month>
+							<month type="6">Shahrivar</month>
+							<month type="7">Mehr</month>
+							<month type="8">Aban</month>
+							<month type="9">Azar</month>
+							<month type="10">Dey</month>
+							<month type="11">Bahman</month>
+							<month type="12">Esfand</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="true">AP</era>
+						<era type="0">AP</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -827,9 +827,9 @@
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
-			<abbreviationFallback type="standard" draft="true"/>
-			<preferenceOrdering type="" draft="true"/>
-			<singleCountries list="Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti" draft="true"/>
+			<abbreviationFallback type="standard" draft="unconfirmed"/>
+			<preferenceOrdering type="" draft="unconfirmed"/>
+			<singleCountries list="Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti" draft="unconfirmed"/>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -898,7 +898,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName>INR</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
+				<symbol>0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>ITL</displayName>
@@ -1009,4 +1009,3 @@ codes not translations
 NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
 EURO    { "EURO" }      // EURO variant display name
 -->
-

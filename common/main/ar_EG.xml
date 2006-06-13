@@ -7,27 +7,31 @@
 		<language type="ar"/>
 		<territory type="EG"/>
 	</identity>
+	<localeDisplayNames>
+		<scripts>
+			<script type="Ital" alt="proposed-u131-1" draft="provisional">الأيطالية القديمة</script>
+		</scripts>
+	</localeDisplayNames>
 	<delimiters>
-		<quotationStart draft="true">‘</quotationStart>
-		<quotationEnd draft="true">’</quotationEnd>
-		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">‘</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">&quot;</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">&quot;</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<weekendStart day="fri" draft="true"/>
-					<weekendEnd day="sat" draft="true"/>
+					<weekendStart day="fri" draft="unconfirmed"/>
+					<weekendEnd day="sat" draft="unconfirmed"/>
 				</week>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">قبل الميلاد</era>
-						<era type="1" draft="true">ميلادي</era>
+						<era type="0" draft="unconfirmed">قبل الميلاد</era>
+						<era type="1" draft="unconfirmed">ميلادي</era>
 					</eraNames>
 				</eras>
 			</calendar>
 		</calendars>
 	</dates>
 </ldml>
-

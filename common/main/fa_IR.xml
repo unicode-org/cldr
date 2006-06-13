@@ -17,46 +17,17 @@
 			<calendar type="islamic">
 				<week>
 					<minDays count="1"/>
-					<firstDay day="sat" draft="true"/>
+					<firstDay day="sat" draft="unconfirmed"/>
 				</week>
 			</calendar>
 			<calendar type="persian">
 				<week>
 					<minDays count="1"/>
-					<firstDay day="sat" draft="true"/>
+					<firstDay day="sat" draft="unconfirmed"/>
 				</week>
 			</calendar>
 		</calendars>
 	</dates>
-	<numbers>
-		<symbols>
-			<decimal>٫</decimal>
-			<group>٬</group>
-			<percentSign>٪</percentSign>
-			<nativeZeroDigit>۰</nativeZeroDigit>
-		</symbols>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###;−#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>%#,##0</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern>#,##0.00 ¤;−#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
-	</numbers>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa_IR.txt?only_with_tag=final-update-LDML
@@ -64,4 +35,3 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa_IR.txt?only_
 Created by Roozbeh Pournader <roozbeh@sharif.edu>
                 7,      // Saturday
 -->
-

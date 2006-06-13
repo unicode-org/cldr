@@ -285,7 +285,7 @@
 			<territory type="CN">Cina</territory>
 			<territory type="CO">Kolombia</territory>
 			<territory type="CR">Kosta Rika</territory>
-			<territory type="CS" draft="true">Serbia</territory>
+			<territory type="CS" draft="unconfirmed">Serbia</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Tanjung Verde</territory>
 			<territory type="CX">Pulau Christmas</territory>
@@ -474,7 +474,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-z]</exemplarCharacters>
+		<exemplarCharacters>[ a-p r-u w y {ng} {ny} ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -536,53 +536,22 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">K1</quarter>
-							<quarter type="2" draft="true">K2</quarter>
-							<quarter type="3" draft="true">K3</quarter>
-							<quarter type="4" draft="true">K4</quarter>
+							<quarter type="1" draft="unconfirmed">K1</quarter>
+							<quarter type="2" draft="unconfirmed">K2</quarter>
+							<quarter type="3" draft="unconfirmed">K3</quarter>
+							<quarter type="4" draft="unconfirmed">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">kuartal pertama</quarter>
-							<quarter type="2" draft="true">kuartal kedua</quarter>
-							<quarter type="3" draft="true">kuartal ketiga</quarter>
-							<quarter type="4" draft="true">kuartal keempat</quarter>
+							<quarter type="1" draft="unconfirmed">kuartal pertama</quarter>
+							<quarter type="2" draft="unconfirmed">kuartal kedua</quarter>
+							<quarter type="3" draft="unconfirmed">kuartal ketiga</quarter>
+							<quarter type="4" draft="unconfirmed">kuartal keempat</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<week>
-					<firstDay day="mon" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
 				</week>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd/MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd/MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMdd" alt="proposed" draft="true">dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd/MM/yyyy HH:mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -606,10 +575,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ya:y</yesstr>
-			<nostr draft="true">tidak:t</nostr>
-			<yesexpr draft="true">^[yY](([eE][sS])|[aA])?</yesexpr>
-			<noexpr draft="true">^(([nN][oO]?)|([tT]([iI][dD][aA][kK])?))</noexpr>
+			<yesstr draft="unconfirmed">ya:y</yesstr>
+			<nostr draft="unconfirmed">tidak:t</nostr>
+			<yesexpr draft="unconfirmed">^[yY](([eE][sS])|[aA])?</yesexpr>
+			<noexpr draft="unconfirmed">^(([nN][oO]?)|([tT]([iI][dD][aA][kK])?))</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -626,4 +595,3 @@ AmPmMarkers{}
 Eras{}
 localPatternChars{}
 -->
-

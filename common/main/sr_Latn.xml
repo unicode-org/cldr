@@ -30,7 +30,7 @@
 			<language type="fr">Francuski</language>
 			<language type="ga">Irski</language>
 			<language type="he">Hebrejski</language>
-			<language type="hi" draft="true">Hindi</language>
+			<language type="hi">Hindi</language>
 			<language type="hr">Hrvatski</language>
 			<language type="hu">Mađarski</language>
 			<language type="hy">Armenski</language>
@@ -79,17 +79,22 @@
 			<script type="Cher">Čeroki</script>
 			<script type="Copt">koptičko pismo</script>
 			<script type="Cyrl">Ćirilica</script>
+			<script type="Cyrs">ćirilica (crkveno slovenska varijanta)</script>
 			<script type="Deva">Devanagari</script>
 			<script type="Dsrt">Dezeret</script>
 			<script type="Ethi">etiopsko pismo</script>
 			<script type="Geor">gruzijsko pismo</script>
+			<script type="Glag">glagoljica</script>
 			<script type="Goth">Gotika</script>
 			<script type="Grek">grčko pismo</script>
 			<script type="Hebr">hebrejsko pismo</script>
 			<script type="Hira">Hiragana</script>
 			<script type="Hrkt">Katakana ili Hiragana</script>
 			<script type="Kana">Katakana</script>
+			<script type="Khmr">kmersko pismo</script>
+			<script type="Latf">Latinica (Fraktur varijanta)</script>
 			<script type="Latn">Latinica</script>
+			<script type="Runr">runsko pismo</script>
 		</scripts>
 		<territories>
 			<territory type="001">Svet</territory>
@@ -369,9 +374,11 @@
 			<key type="currency">Valuta</key>
 		</keys>
 		<types>
+			<type type="big5han" key="collation">Tradicionalni kineski</type>
 			<type type="buddhist" key="calendar">Budistički kalendar</type>
 			<type type="chinese" key="calendar">Kineski kalendar</type>
 			<type type="direct" key="collation">Direktno sortiranje</type>
+			<type type="gb2312han" key="collation">Pojednostavljeni kineski</type>
 			<type type="gregorian" key="calendar">Gregorijanski kalendar</type>
 			<type type="hebrew" key="calendar">Hebrejski kalendar</type>
 			<type type="islamic" key="calendar">Islamski kalendar</type>
@@ -385,7 +392,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-c ć č d đ {dž} e-l {lj} m n {nj} o p r s š t-v z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[q w-y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -474,23 +481,23 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">K1</quarter>
-							<quarter type="2" draft="true">K2</quarter>
-							<quarter type="3" draft="true">K3</quarter>
-							<quarter type="4" draft="true">K4</quarter>
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">Prvi kvartal godine</quarter>
-							<quarter type="2" draft="true">Drugi kvartal godine</quarter>
-							<quarter type="3" draft="true">Treći kvartal godine</quarter>
-							<quarter type="4" draft="true">Četvrti kvartal godine</quarter>
+							<quarter type="1" draft="provisional">Prvi kvartal</quarter>
+							<quarter type="2" draft="provisional">Drugi kvartal</quarter>
+							<quarter type="3" draft="provisional">Treći kvartal</quarter>
+							<quarter type="4" draft="provisional">Četvrti kvartal</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">Pre Hrista</era>
-						<era type="1" draft="true">Posle Hrista</era>
+						<era type="0" draft="provisional">Pre nove ere</era>
+						<era type="1" draft="provisional">Nove ere</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p. n. e.</era>
@@ -511,31 +518,28 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">dd.MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="true">EEE, d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd.MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="KKmm" alt="proposed" draft="provisional">KK:mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
+						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd">dd.MMM</dateFormatItem>
+						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="provisional">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd">EEE, d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEdd">EEE dd.MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm">dd.MM.yy HH:mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="provisional">EEEE,d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd">EEE, d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd">d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="provisional">d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss">dd.MM.yyyy HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -548,6 +552,10 @@
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinšasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>Lumumbaši</exemplarCity>
+				<exemplarCity alt="proposed-u27-1" draft="provisional">Lubumbashi</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Shanghai">
@@ -613,7 +621,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>Kineski Juan Renminbi</displayName>
-				<symbol draft="true">U</symbol>
+				<symbol>U</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Srpski Dinar</displayName>
@@ -704,4 +712,3 @@
 		</messages>
 	</posix>
 </ldml>
-

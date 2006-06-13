@@ -11,8 +11,8 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
-					<weekendStart day="sun" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
+					<weekendStart day="sun" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -63,4 +63,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

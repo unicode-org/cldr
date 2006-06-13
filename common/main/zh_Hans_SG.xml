@@ -24,10 +24,10 @@
 		</territories>
 	</localeDisplayNames>
 	<delimiters>
-		<quotationStart draft="true">‘</quotationStart>
-		<quotationEnd draft="true">’</quotationEnd>
-		<alternateQuotationStart draft="true">“</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">‘</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -76,45 +76,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed-1" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed-1" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">a KK:mm</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed-1" draft="true">a KK'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">a KK:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed-1" draft="true">a KK'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed" draft="true">M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="Md" alt="proposed-1" draft="true">M'月，'d'日'</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed-1" draft="true">mm'分'ss'秒'SS'毫秒'</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">'第'ww'周'</dateFormatItem>
-						<dateFormatItem id="yyM" alt="proposed" draft="true">yy'年'M'日'</dateFormatItem>
-						<dateFormatItem id="yyMEEEEd" alt="proposed" draft="true">yy/M/d EEEE,</dateFormatItem>
-						<dateFormatItem id="yyMEEEEd" alt="proposed-1" draft="true">yy'年'M'月'd'日' EEEE,</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">yy'年'MMM'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">yy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed-1" draft="true">yy/M/d</dateFormatItem>
-						<dateFormatItem id="yyMdHHmm" alt="proposed" draft="true">yy'年'M'月'd'日'HH'时'mm'分'</dateFormatItem>
-						<dateFormatItem id="yyMdHHmm" alt="proposed-1" draft="true">M/d/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">yy'年'QQQQ</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed" draft="true">yyyy'年，'M'月，'d'日，'EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1" draft="true">yyyy'年'M'月'd'日''　'EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd" alt="proposed-1-2" draft="true">yyyy/M/d EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">yyyy'年'MMM'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMMdHHmmss" alt="proposed" draft="true">yyyy'年'MM'月'd'日'HH'时'mm'分'ss'秒'</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">MM/dd/yyyy HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="true">yyyy '年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed-1" draft="true">yyyy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed-1-2" draft="true">yyyy/M/d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -127,5 +88,7 @@
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
+	<references>
+		<reference type="RP1"> Chinese (Simplified Han, Singapore): languages: &quot;Root&quot; propose &quot;Root&quot;</reference>
+	</references>
 </ldml>
-

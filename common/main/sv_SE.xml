@@ -7,17 +7,129 @@
 		<language type="sv"/>
 		<territory type="SE"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="afa">afroasiatiskt (annat)</language>
+			<language type="cpe">kreol- och pidginspråk, engelskbaserade (övriga)</language>
+			<language type="cpf">kreol- och pidginspråk, franskbaserade (övriga)</language>
+			<language type="cpp">kreol- och pidginspråk, portugisiskbaserade (övriga)</language>
+			<language type="crh">krimturkiska, krimtatariska</language>
+			<language type="crp">kreol- och pidginspråk (annat)</language>
+			<language type="enm">medelengelska (ca 1100-1500)</language>
+			<language type="gil">gilbertesiska, kiribati</language>
+			<language type="gmh">medelhögtyska (ca 1050-1500)</language>
+			<language type="gn">guarani</language>
+			<language type="goh">fornhögtyska (ca 750-1050)</language>
+			<language type="iro">irokesiska språk</language>
+			<language type="khi">khoisanska (annat)</language>
+			<language type="km">kambodjanska, khmeriska</language>
+			<language type="kn">kanaresiska, kannada</language>
+			<language type="lol">lolo, mongo</language>
+			<language type="mga">medeliriska (ca 900-1200)</language>
+			<language type="nah">nahuatl, aztekiska</language>
+			<language type="nds">lågtyska, lågsaxiska</language>
+			<language type="oc">provensalska (efter 1500), occitanska</language>
+			<language type="oj">odjibwa, chippewa</language>
+			<language type="phn">kananeiska, feniciska</language>
+			<language type="ps">pashto, afghanska</language>
+			<language type="rw">rwanda, kinjarwanda</language>
+			<language type="sit">sinotibetanskt (annat)</language>
+			<language type="smi">samiska språk (övriga)</language>
+			<language type="sn">shona, manshona</language>
+		</languages>
+		<territories>
+			<territory type="UM">USA:s yttre öar</territory>
+		</territories>
+		<types>
+			<type type="stroke" key="collation">streckordning</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US">Tumsystem</measurementSystemName>
+			<measurementSystemName type="metric">Metriskt system</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
 	<delimiters>
 		<quotationStart>’</quotationStart>
 		<quotationEnd>’</quotationEnd>
 		<alternateQuotationStart>”</alternateQuotationStart>
 		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">1:a kvartalet</quarter>
+							<quarter type="2">2:a kvartalet</quarter>
+							<quarter type="3">3:e kvartalet</quarter>
+							<quarter type="4">4:e kvartalet</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dateFormats>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>EEE d MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="HHmm">HH.mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="KKmm">KK.mm a</dateFormatItem>
+						<dateFormatItem id="KKmmss">KK.mm.ss a</dateFormatItem>
+						<dateFormatItem id="MMMdd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMdd">d/MM</dateFormatItem>
+						<dateFormatItem id="mmssSS">mm.ss,SS</dateFormatItem>
+						<dateFormatItem id="yyMM">MMM '-yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd">EEE d MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">d MMM '-yy</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm">yy-MM-dd HH.mm</dateFormatItem>
+						<dateFormatItem id="yyQQQQ">QQQQ yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEd">EEE d MMMM </dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss">yyyy-MM-dd HH.mm.ss</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName>era</displayName>
+					</field>
+					<field type="year">
+						<displayName>år</displayName>
+					</field>
+					<field type="month">
+						<displayName>månad</displayName>
+					</field>
+					<field type="week">
+						<displayName>vecka</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName>tidsvisning</displayName>
+					</field>
+					<field type="hour">
+						<displayName>timme</displayName>
+					</field>
+					<field type="minute">
+						<displayName>minut</displayName>
+					</field>
+					<field type="second">
+						<displayName>sekund</displayName>
+					</field>
+					<field type="zone">
+						<displayName>tidszon</displayName>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern references="R3">#,##0 %</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -30,4 +142,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

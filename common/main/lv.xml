@@ -23,12 +23,11 @@
 			<language type="hr">horvātu</language>
 			<language type="hu">ungāru</language>
 			<language type="it">itāliešu</language>
-			<language type="it" alt="proposed" draft="true">itāļu</language>
 			<language type="ja">japāņu</language>
 			<language type="ko">korejiešu</language>
 			<language type="lt">lietuviešu</language>
 			<language type="lv">latviešu</language>
-			<language type="mt" alt="proposed" draft="true">maltiešu</language>
+			<language type="mt" alt="proposed" draft="unconfirmed">maltiešu</language>
 			<language type="nl">holandiešu</language>
 			<language type="no">norvēģu</language>
 			<language type="pl">poļu</language>
@@ -90,7 +89,7 @@
 			<territory type="CN">Ķīna</territory>
 			<territory type="CO">Kolumbija</territory>
 			<territory type="CR">Kostarika</territory>
-			<territory type="CS" draft="true">Serbija un Melnkalne</territory>
+			<territory type="CS">Serbija un Melnkalne</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kaboverde</territory>
 			<territory type="CX">Ziemsvētku sala</territory>
@@ -259,7 +258,7 @@
 			<territory type="TR">Turcija</territory>
 			<territory type="TT">Trinidāda un Tobāgo</territory>
 			<territory type="TV">Tuvalu</territory>
-			<territory type="TW" draft="true">Taivāna</territory>
+			<territory type="TW">Taivāna</territory>
 			<territory type="TZ">Tanzānija</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
@@ -284,9 +283,8 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a ā b c č d e ē f g ģ h i ī y j k ķ l ļ m n ņ o ō p-r ŗ s š t u ū v-x z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[y q w x]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a ā b c č d e ē f g ģ h i ī y j k ķ l ļ m n ņ o ō p r ŗ s š t u ū v-x z ž]</exemplarCharacters>
+		<exemplarCharacters>[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[y q w x]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -349,16 +347,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="true">C1</quarter>
-							<quarter type="2" draft="true">C2</quarter>
-							<quarter type="3" draft="true">C3</quarter>
-							<quarter type="4" draft="true">C4</quarter>
+							<quarter type="1">C1</quarter>
+							<quarter type="2">C2</quarter>
+							<quarter type="3">C3</quarter>
+							<quarter type="4">C4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1. ceturksnis</quarter>
-							<quarter type="2" draft="true">2. ceturksnis</quarter>
-							<quarter type="3" draft="true">3. ceturksnis</quarter>
-							<quarter type="4" draft="true">4. ceturksnis</quarter>
+							<quarter type="1" draft="unconfirmed">1. ceturksnis</quarter>
+							<quarter type="2" draft="unconfirmed">2. ceturksnis</quarter>
+							<quarter type="3" draft="unconfirmed">3. ceturksnis</quarter>
+							<quarter type="4" draft="unconfirmed">4. ceturksnis</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -367,8 +365,8 @@
 				</week>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">pirms mūsu ēras</era>
-						<era type="1" draft="true">mūsu ērā</era>
+						<era type="0" draft="unconfirmed">pirms mūsu ēras</era>
+						<era type="1" draft="unconfirmed">mūsu ērā</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">pmē</era>
@@ -399,34 +397,11 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="true">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="true">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="true">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="true">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="true">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="true">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="true">dd-MM</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="true">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="true">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="true">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="true">EEE dd MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMMEEEd" alt="proposed" draft="true">EEE, d. MMMM, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="true">d. MMM, yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="true">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="true">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="true">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd" alt="proposed" draft="true">d.M.yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" alt="proposed" draft="true">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="true">EEEE,MMMM d, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed" draft="true">dd. EEEE,MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="true">EEE, d. MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="true">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="true">d. MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="true">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="true">d. MMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="true">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="true">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="true">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" alt="proposed" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" alt="proposed" draft="unconfirmed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="mmssSS" alt="proposed" draft="unconfirmed">mm:ss,SS</dateFormatItem>
+						<dateFormatItem id="ww" alt="proposed" draft="unconfirmed">ww</dateFormatItem>
+						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="unconfirmed">yyyy-MM-dd</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -445,10 +420,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ājā:ja:j</yesstr>
-			<nostr draft="true">nē:ne:n</nostr>
-			<yesexpr draft="true">^(([yY]([eE][sS])?)|([jJ][āĀaA]?))</yesexpr>
-			<noexpr draft="true">^[nN][oOēĒeE]?</noexpr>
+			<yesstr draft="unconfirmed">ājā:ja:j</yesstr>
+			<nostr draft="unconfirmed">nē:ne:n</nostr>
+			<yesexpr draft="unconfirmed">^(([yY]([eE][sS])?)|([jJ][āĀaA]?))</yesexpr>
+			<noexpr draft="unconfirmed">^[nN][oOēĒeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>
@@ -466,4 +441,3 @@ zh_tw { "\u0137\u012Bnie\u0161u (tradicion\u0101l\u0101)" }
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
-

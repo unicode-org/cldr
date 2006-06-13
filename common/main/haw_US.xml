@@ -8,10 +8,10 @@
 		<territory type="US"/>
 	</identity>
 	<measurement>
-		<measurementSystem type="US" draft="true"/>
+		<measurementSystem type="US" draft="unconfirmed"/>
 		<paperSize>
-			<height draft="true">279</height>
-			<width draft="true">216</width>
+			<height draft="unconfirmed">279</height>
+			<width draft="unconfirmed">216</width>
 		</paperSize>
 	</measurement>
 	<dates>
@@ -20,44 +20,44 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="true">EEEE, d MMMM yyyy</pattern>
+							<pattern>EEEE, d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="true">d MMMM yyyy</pattern>
+							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="true">d MMM yyyy</pattern>
+							<pattern>d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="true">d/M/yy</pattern>
+							<pattern>d/M/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a z</pattern>
+							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a z</pattern>
+							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">h:mm:ss a</pattern>
+							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">h:mm a</pattern>
+							<pattern>h:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -68,10 +68,9 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="true">¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-

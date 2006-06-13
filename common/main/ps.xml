@@ -41,6 +41,9 @@
 			<language type="uz">ازبکي</language>
 			<language type="zh">چیني</language>
 		</languages>
+		<scripts>
+			<script type="Arab">عربي</script>
+		</scripts>
 		<territories>
 			<territory type="AF">افغانستان</territory>
 			<territory type="AL">البانیه</territory>
@@ -67,7 +70,6 @@
 			<territory type="GN">ګیانا</territory>
 			<territory type="GR">یونان</territory>
 			<territory type="GT">ګواتیمالا</territory>
-			<territory type="HK" draft="true">هانکانګ</territory>
 			<territory type="HN">هانډوراس</territory>
 			<territory type="HU">مجارستان</territory>
 			<territory type="ID">اندونیزیا</territory>
@@ -109,10 +111,11 @@
 		</territories>
 	</localeDisplayNames>
 	<layout>
-		<orientation characters="right-to-left"/>
+		<orientation/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[َ ِ ُ ً ٍ ٌ ّ ْ ٔ ٰ \u200C \u200D آ ا أ ء ب پ ت ټ ث ج ځ چ څ ح-د ډ ذ ر ړ ز ژ ږ س ش ښ ص-غ ف ق ک ګ ل-ن ڼ ه ة و ؤ ی ي ې ۍ ئ]</exemplarCharacters>
+		<exemplarCharacters>[َ ِ ُ ً ٍ ٌ ّ ْ ٔ ٰ آ ا أ ء ب پ ت ټ ث ج ځ چ څ ح-د ډ ذ ر ړ ز ژ ږ س ش ښ ص-غ ف ق ک ګ ل-ن ڼ ه ة و ؤ ی ي ې ۍ ئ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C \u200D]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -120,18 +123,8 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">جنو</month>
-							<month type="2">فبر</month>
-							<month type="3">مار</month>
-							<month type="4">اپر</month>
 							<month type="5">مـی</month>
 							<month type="6">جون</month>
-							<month type="7">جول</month>
-							<month type="8">اګس</month>
-							<month type="9">سپت</month>
-							<month type="10">اکت</month>
-							<month type="11">نوم</month>
-							<month type="12">دسم</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوري</month>
@@ -151,15 +144,6 @@
 				</months>
 				<days>
 					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">ی.</day>
-							<day type="mon">د.</day>
-							<day type="tue">س.</day>
-							<day type="wed">چ.</day>
-							<day type="thu">پ.</day>
-							<day type="fri">ج.</day>
-							<day type="sat">ش.</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">یکشنبه</day>
 							<day type="mon">دوشنبه</day>
@@ -224,29 +208,59 @@
 					</timeFormatLength>
 				</timeFormats>
 			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">وری</month>
+							<month type="2">غویی</month>
+							<month type="3">غبرګولی</month>
+							<month type="4">چنګاښ</month>
+							<month type="5">زمری</month>
+							<month type="6">وږی</month>
+							<month type="7">تله</month>
+							<month type="8">لړم</month>
+							<month type="9">لیندۍ</month>
+							<month type="10">مرغومی</month>
+							<month type="11">سلواغه</month>
+							<month type="12">کب</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">وری</month>
+							<month type="2">غویی</month>
+							<month type="3">غبرګولی</month>
+							<month type="4">چنګاښ</month>
+							<month type="5">زمری</month>
+							<month type="6">وږی</month>
+							<month type="7">تله</month>
+							<month type="8">لړم</month>
+							<month type="9">لیندۍ</month>
+							<month type="10">مرغومی</month>
+							<month type="11">سلواغه</month>
+							<month type="12">کب</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<regionFormat>د {0} په وخت</regionFormat>
 			<zone type="Asia/Kabul">
-				<long>
-					<standard>د افغانستان په وخت</standard>
-					<daylight>د افغانستان په وخت</daylight>
-				</long>
-				<short>
-					<standard>AFT</standard>
-					<daylight>AFT</daylight>
-				</short>
 				<exemplarCity>کابل</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
-			<currency type="AFA">
+			<currency type="AFN">
 				<displayName>افغانۍ</displayName>
-				<symbol>افغانۍ</symbol>
+				<symbol>؋</symbol>
 			</currency>
 		</currencies>
 	</numbers>
+	<references>
+		<reference type="RP1">Computer Locale Requirements for Afghanistan</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ps.txt?only_with_tag=final-update-LDML
@@ -263,4 +277,3 @@ iw  { "\u0639\u0628\u0631\u064a" }
 FIXME: check all these with PED.
                         "\u0645\u06cc", // MoE and PED say "\u0645\u06d0"
 -->
-

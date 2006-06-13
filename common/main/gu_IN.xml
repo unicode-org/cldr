@@ -8,17 +8,17 @@
 		<territory type="IN"/>
 	</identity>
 	<delimiters>
-		<quotationStart draft="true">'</quotationStart>
-		<quotationEnd draft="true">'</quotationEnd>
-		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+		<quotationStart>'</quotationStart>
+		<quotationEnd>'</quotationEnd>
+		<alternateQuotationStart>&quot;</alternateQuotationStart>
+		<alternateQuotationEnd>&quot;</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="mon" draft="true"/>
-					<weekendStart day="sun" draft="true"/>
+					<firstDay day="mon" draft="unconfirmed"/>
+					<weekendStart day="sun" draft="unconfirmed"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -90,6 +90,9 @@
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
+	<references>
+		<reference type="RP1">TDIL Vishwabharat magazine with Gujarati data, April 2002</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/gu_IN.txt?only_with_tag=final-update-LDML
@@ -99,4 +102,3 @@ DateTimeElements:intvector {
 1
 }
 -->
-

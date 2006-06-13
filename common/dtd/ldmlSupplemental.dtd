@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.28 $
-    $Date: 2006-06-09 10:40:55 $
+    $Revision: 1.29 $
+    $Date: 2006-06-13 18:41:55 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
@@ -87,6 +87,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST firstDay draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST firstDay references CDATA #IMPLIED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
+<!ATTLIST firstDay references CDATA #IMPLIED >
 
 <!ELEMENT weekendStart EMPTY >
 <!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >

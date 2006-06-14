@@ -144,7 +144,7 @@ public class Segmenter {
 		String result = "";
 		for (int i = 0; i < rules.size(); ++i) {
 			if (i != 0) result += "\r\n";
-			result += orders.get(i) + ") " + ((Rule)rules.get(i)).toString(showResolved);
+			result += orders.get(i) + ")\t" + ((Rule)rules.get(i)).toString(showResolved);
 		}
 		return result;
 	}
@@ -273,12 +273,24 @@ public class Segmenter {
 		
 		public Builder(UnicodeProperty.Factory factory) {
 			propFactory = factory;
-			symbolTable = propFactory.getXSymbolTable();
+			symbolTable = new MyXSymbolTable(); // propFactory.getXSymbolTable();
 			htmlRules.put(new Double(BREAK_SOT), "sot ÷");
 			htmlRules.put(new Double(BREAK_EOT), "÷ eot");
 			htmlRules.put(new Double(BREAK_ANY), "÷ Any");
 		}
 		
+		// copied to make independent of ICU4J internals
+        private class MyXSymbolTable extends UnicodeSet.XSymbolTable {
+            public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+            	if (false) System.out.println(propertyName + "=" + propertyValue);
+            	UnicodeProperty prop = propFactory.getProperty(propertyName);
+            	if (prop == null) return false;
+            	result.clear();
+            	UnicodeSet x = prop.getSet(propertyValue, result);
+                return x.size() != 0;
+            }
+        }
+
 		public String toString(String testName, String indent) {
 			
 			StringBuffer result = new StringBuffer();
@@ -585,7 +597,7 @@ public class Segmenter {
 			List result = new ArrayList();
 			for (Iterator it = htmlRules.keySet().iterator(); it.hasNext();) {
 				Object key = it.next();
-				result.add(key + ") " + htmlRules.get(key));
+				result.add(key + ")\t" + htmlRules.get(key));
 			}
 			return result;
 		}
@@ -730,10 +742,10 @@ public class Segmenter {
 			
 			"# LB 13  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
 			"# Using customization 7.",
-			"13.01) [^$NL] × $CL",
+			"13.01) [^$NU] × $CL",
 			"13.02) × $EX",
-			"13.03) [^$NL] × $IS",
-			"13.04) [^$NL] × $SY",
+			"13.03) [^$NU] × $IS",
+			"13.04) [^$NU] × $SY",
 			"#LB 14  Do not break after ‘[’, even after spaces.",
 			"14) $OP $SP* ×",
 			"# LB 15  Do not break within ‘\"[’, even with intervening spaces.",
@@ -777,6 +789,7 @@ public class Segmenter {
 			"25.02) ( $OP | $HY ) × $NU",
 			"25.03) $NU × ($NU | $SY | $IS)",
 			"25.04) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS | $CL)",
+			"25.05) $NU ($NU | $SY | $IS)* $CL? × ($PO | $PR)",
 			
 			"#LB 26 Do not break a Korean syllable.",
 			"26.01) $JL  × $JL | $JV | $H2 | $H3",

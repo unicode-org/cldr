@@ -52,7 +52,7 @@
       <tr>
         <td valign="top" class="navColCell" width="1em">&nbsp;</td>
         <td valign="top" class="navColCell"><a href="#resolution_procedure">
-		<span style="background-color: #FFFF00">Resolution Procedure</span></a></td>
+		Resolution Procedure</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell">&nbsp;</td>
@@ -169,10 +169,10 @@
           <p>It is important to note that CLDR is a Repository, not a Registration. That is, 
           contributors should not expect that their contributions will simply be adopted into the 
           repository; instead, it will be vetted against the best available information.</p>
-          <p>All inputs will be open, and recorded in a bug/feature request database<span style="background-color: #FFFF00"> 
-			or the </span><b>
+          <p>All inputs will be open, and recorded in a bug/feature request database 
+			or the <b>
 			<a href="http://unicode.org/cldr/apps/survey/">
-			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Changes in 
+			Survey Tool</a></b>. Changes in 
           response to items the database may be entered into the repository snapshot over time by 
           the maintainers of the repository, but the final approval of the release of any version of CLDR is up to the decision of the CLDR-TC. For more information, see the
           <a href="procedures.html">CLDR-TC Procedures</a>.</p>
@@ -189,8 +189,8 @@
           <h2><a name="data_vetting_process"></a>3. Data Vetting Process</h2>
           <p>Once data for a country and language has been received, the data from the different 
           sources will be compared to show agreements and differences. Initial data contributions 
-          are normally marked as &quot;draft<span style="background-color: #FFFF00">=provisional</span>&quot;; this 
-			<span style="background-color: #FFFF00">may</span> be changed once the data is vetted.</p>
+          are normally marked as &quot;draft=provisional&quot;; this 
+			may be changed once the data is vetted.</p>
           <p>Note that there are two types of data in the repository:</p>
           <p>a) Comparison data: The contributor can be an individual or an organization. Data from 
           a software platform or product, is normally gathered by calling public APIs, to ensure 
@@ -209,198 +209,184 @@
           amendment of common data. In particular, national standards organizations are encouraged 
           to be involved in the data vetting process.</p>
           <h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
-          <p><span style="background-color: #FFFF00">The following procedure 
-			will be used when resolving differences in submitted data.</span></p>
-			<p><span style="background-color: #FFFF00">There are multiple levels 
+          <p>The following procedure 
+			will be used when resolving differences in submitted data.</p>
+			<p>There are multiple levels 
 			of access and control:<br>
 			<br>
-			<i>Committee Vetters</i></span><i><span style="background-color: #FFFF00"> (Technical 
-			Committee members) </span></i></p>
+			<i>Committee Vetters (Technical 
+			Committee members) </i></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">Can vet and submit 
-				data for all locales </span></li>
-				<li><span style="background-color: #FFFF00">Can manage users in 
-				their organization</span></li>
-				<li><span style="background-color: #FFFF00">Can see the email 
-				addresses for all vetters </span></li>
+				<li>Can vet and submit 
+				data for all locales </li>
+				<li>Can manage users in 
+				their organization</li>
+				<li>Can see the email 
+				addresses for all vetters </li>
 			</ul>
-			<p><i><span style="background-color: #FFFF00">Regular and Expert Vetter</span></i></p>
+			<p><i>Regular and Expert Vetter</i></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">Can vet and submit 
-				data for a particular set of locales</span></li>
-				<li><span style="background-color: #FFFF00">Cannot manage other 
-				users.</span></li>
-				<li><span style="background-color: #FFFF00">Can see the email 
-				addresses for submitted data in their locales. </span></li>
+				<li>Can vet and submit 
+				data for a particular set of locales</li>
+				<li>Cannot manage other 
+				users.</li>
+				<li>Can see the email 
+				addresses for submitted data in their locales. </li>
 			</ul>
-			<p><i><span style="background-color: #FFFF00">Guest Vetters</span></i></p>
+			<p><i>Guest Vetters</i></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">Can vet and submit 
-				data for a particular set of locales</span></li>
-				<li><span style="background-color: #FFFF00">Cannot manage other 
-				users. </span></li>
-				<li><span style="background-color: #FFFF00">Cannot see email 
-				addresses.</span></li>
+				<li>Can vet and submit 
+				data for a particular set of locales</li>
+				<li>Cannot manage other 
+				users. </li>
+				<li>Cannot see email 
+				addresses.</li>
 			</ul>
-			<p><span style="background-color: #FFFF00">A </span><i>
-			<span style="background-color: #FFFF00">locale group</span></i><span style="background-color: #FFFF00"> 
+			<p>A <i>
+			locale group</i> 
 			is the set of all locales that share the same first field. For 
 			example, en plus anything that starts with &quot;en_&quot;. The group of 
 			non-guest vetters who are authorized for a locale group is called the
-			</span><i><span style="background-color: #FFFF00">interest group</span></i><span style="background-color: #FFFF00"> 
+			<i>interest group</i> 
 			for the locale.<br>
 			<br>
 			Fields with multiple proposals where some non-guest vetters do not 
-			agree on a single proposal are called </span><i>
-			<span style="background-color: #FFFF00">conflicted</span></i><span style="background-color: #FFFF00">. 
-			Correspondingly, a locale with any conflicted fields is a </span><i>
-			<span style="background-color: #FFFF00">conflicted locale</span></i><span style="background-color: #FFFF00">; 
-			a locale group with any conflicted locales is a </span><i>
-			<span style="background-color: #FFFF00">conflicted locale group</span></i><span style="background-color: #FFFF00">.
-			</span></p>
-			<p><span style="background-color: #FFFF00">The <i>draft</i> 
-			attribute in the data can have 3 states:</span></p>
+			agree on a single proposal are called <i>
+			conflicted</i>. 
+			Correspondingly, a locale with any conflicted fields is a <i>
+			conflicted locale</i>; 
+			a locale group with any conflicted locales is a <i>
+			conflicted locale group</i>.
+			</p>
+			<p>The <i>draft</i> 
+			attribute in the data can have 3 states:</p>
 			<ul>
-				<li><i><span style="background-color: #FFFF00; font-weight:700">unconfirmed</span></i><span style="background-color: #FFFF00"><i><b>:</b></i> 
+				<li><i><span style="font-weight:700">unconfirmed</span><b>:</b></i> 
 				entered by guest vetter without other confirmation, or 
-				conflicted. (Equals CLDR 1.3 draft value of <b> <i>true.</i></b>)</span></li>
-				<li><b><i><span style="background-color: #FFFF00">provisional</span></i></b><span style="background-color: #FFFF00"><i><b>:</b></i> 
+				conflicted. (Equals CLDR 1.3 draft value of <b> <i>true.</i></b>)</li>
+				<li><b><i>provisional</i></b><i><b>:</b></i> 
 				entered by regular vetter (or above), without conflict, but not 
 				yet approved. 
 				Implementations may choose to accept the provisional data, 
-				especially if there is no translated alternative.</span></li>
-				<li><i><b><span style="background-color: #FFFF00">approved</span></b></i><span style="background-color: #FFFF00"><i><b>:</b>
-				</i>approved by the Technical Committee, as described by the 
+				especially if there is no translated alternative.</li>
+				<li><i><b>approved:</b> </i>approved by the Technical Committee, as described by the 
 				resolution process below. This does not mean that 
 				the data is guaranteed to be error-free -- this is the best 
 				judgment of the committee. (Equals the CLDR 1.3 draft value 
-				of </span><i>
-				<span style="background-color: #FFFF00; font-weight:700">false</span></i><span style="background-color: #FFFF00">, 
-				or an absent <i>draft</i> attribute.)</span></li>
+				of <i>
+				<span style="font-weight:700">false</span></i>, 
+				or an absent <i>draft</i> attribute.)</li>
 			</ul>
-			<p><span style="background-color: #FFFF00">In the vetting phase:</span></p>
+			<p>In the vetting phase:</p>
 			<ul>
-				<li><span style="background-color: #FFFF00">Any vetter, 
+				<li>Any vetter, 
 				including guest vetters, can see a summary of all the 
-				conflicted fields for a given locale group.</span></li>
-				<li><span style="background-color: #FFFF00">Vetters can change 
-				their preferred value (a vote). </span></li>
-				<li><span style="background-color: #FFFF00">Anyone on the 
+				conflicted fields for a given locale group.</li>
+				<li>Vetters can change 
+				their preferred value (a vote). </li>
+				<li>Anyone on the 
 				interest group is notified (batched daily) if 
-				a vote is changed.</span></li>
-				<li><span style="background-color: #FFFF00">For each conflicted 
+				a vote is changed.</li>
+				<li>For each conflicted 
 				locale group, periodically (weekly at first, then daily) an 
 				email is sent to the interest group summarizing all the 
 				conflicted fields. The email will encourage the interest group 
 				to resolve any conflicts. The interest group will also have 
 				access to all the vetters&#39; emails for the locale group, to 
-				ask questions and resolve issues.</span></li>
-				<li><span style="background-color: #FFFF00">Normally the &quot;change 
-				to&quot; button is frozen during the </span>
-				<span id="mail-highlight-id" style="background-color: yellow;">
-				vetting process</span><span style="background-color: #FFFF00">, 
+				ask questions and resolve issues.</li>
+				<li>Normally the &quot;change 
+				to&quot; button is frozen during the 
+				<span id="mail-highlight-id">
+				vetting process</span>, 
 				except for committee and expert vetters. However, when a field 
-				has any proposals, the &quot;change to&quot; button is enabled for non-guest vetters.</span></li>
+				has any proposals, the &quot;change to&quot; button is enabled for non-guest vetters.</li>
 			</ul>
-			<p><span style="background-color: #FFFF00">At the end of the </span>
-			<span id="mail-highlight-id" style="background-color: yellow;">
+			<p>At the end of the 
+			<span id="mail-highlight-id">
 			vetting process:</span></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">All non-conflicted 
-				fields that meet a quorum are normally approved.</span></li>
-				<li><span style="background-color: #FFFF00">Once a field is 
+				<li>All non-conflicted 
+				fields that meet a quorum are normally approved.</li>
+				<li>Once a field is 
 				approved, the other proposals for that 
 				field are removed (or made into alternates, according to Technical Committee 
-				decision).</span></li>
-				<li><span style="background-color: #FFFF00">The quorum is at 
+				decision).</li>
+				<li>The quorum is at 
 				least one expert vetter, or at least two regular vetters from different 
-				organizations.</span></li>
-				<li><span style="background-color: #FFFF00">If the quorum is not 
+				organizations.</li>
+				<li>If the quorum is not 
 				met, then the data remains, marked as draft=&quot;unconfirmed&quot; if it 
 				has no votes, or draft=&quot;provisional&quot; if it has at least one 
-				vote.</span></li>
-				<li><span style="background-color: #FFFF00">The Technical Committee 
+				vote.</li>
+				<li>The Technical Committee 
 				may decide to make a particular conflicted field <i>approved</i>, or 
 				have it remain conflicted 
 				(thus
-				<i>provisional </i>or<i> unconfirmed</i>).</span></li>
-				<li><span style="background-color: #FFFF00">The Technical 
-				Committee is ultimately responsible for resolving any issues.</span></li>
+				<i>provisional </i>or<i> unconfirmed</i>).</li>
+				<li>The Technical 
+				Committee is ultimately responsible for resolving any issues.</li>
 			</ul>
-			<p><span style="background-color: #FFFF00">This process can be 
+			<p>This process can be 
 			fine-tuned by the Technical Committee as needed, to resolve any 
-			problems that turn up.</span></p>
-			<p><span style="font-weight: 700; background-color: #FFFF00">Notes:</span></p>
+			problems that turn up.</p>
+			<p><span style="font-weight: 700; ">Notes:</span></p>
 			<ul>
-				<li><span style="background-color: #FFFF00">If data has a formal 
+				<li>If data has a formal 
 				problem, it can be fixed directly (in CVS) without going through 
-				the above process. Examples include:</span><ul>
-					<li><span style="background-color: #FFFF00">syntactic 
+				the above process. Examples include:<ul>
+					<li>syntactic 
 					problems in pattern, extra trailing spaces, inconsistent 
 					decimals, mechanical sweeps to change attributes, 
 					translatable characters not quoted in patterns, changing &#39; 
 					(punctuation mark) to curly apostrophe or s-cedilla to 
 					s-comma-below, removing disallowed exemplar characters 
 					(non-letter, number, mark, uppercase when there is a 
-					lowercase).</span></li>
-					<li><span style="background-color: #FFFF00">These are 
-					changed in-place, without changing the draft status.</span></li>
+					lowercase).</li>
+					<li>These are 
+					changed in-place, without changing the draft status.</li>
 				</ul>
 				</li>
-				<li><span style="background-color: #FFFF00">Bulk submissions of 
+				<li>Bulk submissions of 
 				new data can be done directly (CVS), with all new data marked 
 				draft=&quot;unconfirmed&quot;, but only where the data passes the 
-				CheckCLDR console tests.</span></li>
-				<li><span style="background-color: #FFFF00">
-				Linguistically-sensitive data should always go through the 
-				survey tool. Examples include:</span><ul>
-					<li><span style="background-color: #FFFF00">names of months, 
+				CheckCLDR console tests.</li>
+				<li>Linguistically-sensitive data should always go through the 
+				survey tool. Examples include:<ul>
+					<li>names of months, 
 					territories, number formats, changing ascii apostrophe to 
 					U+02BC modifier letter apostrophe or U+02BB modifier letter 
 					turned comma, or U+02BD modifier letter reversed comma, 
-					adding/removing normal exemplar characters.</span></li>
+					adding/removing normal exemplar characters.</li>
 				</ul>
 				</li>
-				<li><span style="background-color: #FFFF00">The survey tool does 
+				<li>The survey tool does 
 				not currently handle all CLDR data. For data it doesn&#39;t cover, 
 				the regular bug system should be used to submit new data or ask 
-				for revisions of this data. In particular:</span><ul>
-					<li><span style="background-color: #FFFF00">Collation, 
+				for revisions of this data. In particular:<ul>
+					<li>Collation, 
 					transforms, or text segmentation, which are more complex.
-					</span>
 					<ul>
-						<li><span style="background-color: #FFFF00">For 
-						collation data, see the comparison charts at </span>
+						<li>For 
+						collation data, see the comparison charts at 
 						<a href="http://www.unicode.org/cldr/comparison_charts.html">
-						<span style="background-color: #FFFF00">
-						http://www.unicode.org/cldr/comparison_charts.html</span></a><span style="background-color: #FFFF00"> 
-						or the XML data at </span>
+						http://www.unicode.org/cldr/comparison_charts.html</a> 
+						or the XML data at 
 						<a href="http://unicode.org/cldr/data/common/collation/">
-						<span style="background-color: #FFFF00">
-						http://unicode.org/cldr/data/common/collation/</span></a><span style="background-color: #FFFF00">
-						</span></li>
-						<li><span style="background-color: #FFFF00">For 
-						transforms, see the XML data at </span>
+						http://unicode.org/cldr/data/common/collation/</a> </li>
+						<li>For 
+						transforms, see the XML data at 
 						<a href="http://unicode.org/cldr/data/common/transforms/">
-						<span style="background-color: #FFFF00">
-						http://unicode.org/cldr/data/common/transforms/</span></a><span style="background-color: #FFFF00">
-						</span></li>
+						http://unicode.org/cldr/data/common/transforms/</a> </li>
 					</ul>
 					</li>
-					<li><span style="background-color: #FFFF00">Non-linguistic 
-					locale data:</span><ul>
-						<li><span style="background-color: #FFFF00">XML data:
-						</span>
+					<li>Non-linguistic 
+					locale data:<ul>
+						<li>XML data:
 						<a href="http://unicode.org/cldr/data/common/supplemental/">
-						<span style="background-color: #FFFF00">
-						http://unicode.org/cldr/data/common/supplemental/</span></a><span style="background-color: #FFFF00">
-						</span></li>
-						<li><span style="background-color: #FFFF00">HTML view:
-						</span>
+						http://unicode.org/cldr/data/common/supplemental/</a> </li>
+						<li>HTML view:
 						<a href="http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html">
-						<span style="background-color: #FFFF00">
-						http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</span></a><span style="background-color: #FFFF00">
-						</span></li>
+						http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</a> </li>
 					</ul>
 					</li>
 				</ul>
@@ -422,10 +408,10 @@
           follows.</p>
           <h2>4. <a name="public_feedback">Public Feedback Process</a></h2>
           <p>The public can supply formal feedback into CLDR by filing a
-          <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a><span style="background-color: #FFFF00"> 
-			or via the </span><b>
+          <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a> 
+			or via the <b>
 			<a href="http://unicode.org/cldr/apps/survey/">
-			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Anyone can also 
+			Survey Tool</a></b>. Anyone can also 
           asked to be added to a list that will receive notification of new CLDR bugs, so they can 
           track issues if they want. Anyone will also be able to reply to any bug/rfe, to add 
           comments (this latter feature is not yet functional, but will be soon).</p>
@@ -444,10 +430,10 @@
           <a href="http://www.unicode.org/consortium/distlist.html">Mail Lists</a> to subscribe).</p>
           <p>People should, however, be aware that changes and updates to CLDR will only be taken in 
           response to complete, specific bug reports as described on
-          <a href="filing_bug_reports.html">Filing Bug Reports</a><span style="background-color: #FFFF00"> 
-			or via the </span><b>
+          <a href="filing_bug_reports.html">Filing Bug Reports</a> 
+			or via the <b>
 			<a href="http://unicode.org/cldr/apps/survey/">
-			<span style="background-color: #FFFF00">Survey Tool</span></a></b>. Discussion on public mailing 
+			Survey Tool</a></b>. Discussion on public mailing 
           lists is <i>not</i> monitored; no actions will be taken in response to such discussion -- 
           only in response to filed bugs. The process of checking and entering data takes time and 
           effort; so even when bugs/RFEs are accepted, it may take some time before they are in a 
@@ -505,7 +491,7 @@
           <h2><a name="officers"></a>7. Officers</h2>
           <p>The current Technical Committee Officers are:</p>
           <ul>
-            <li>Chair: Mark Davis (<span style="background-color: #FFFF00">Google</span>)</li>
+            <li>Chair: Mark Davis (Google)</li>
             <li>Vice-Chair: Deborah Goldsmith (Apple)</li>
           </ul>
         </blockquote>

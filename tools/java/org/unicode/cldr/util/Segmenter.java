@@ -30,6 +30,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.text.UnicodeSet.XSymbolTable;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
+import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
 
 /**
  * Ordered list of rules, with variables resolved before building. Use Builder to make.
@@ -402,7 +403,7 @@ public class Segmenter {
 				} else {
 					String name2 = name;
 					if (name2.startsWith("$")) name2 = name2.substring(1);
-					samples.composeWith(valueSet, name2, myComposer);
+					composeWith(samples, valueSet, name2, myComposer);
 					if (SHOW_SAMPLES) {
 						System.out.println("Samples for: " + name + " = " + value);
 						System.out.println("\t" + valueSet);
@@ -419,6 +420,17 @@ public class Segmenter {
 			variables.put(name, value);
 			return this;
 		}
+		
+	    public static UnicodeMap composeWith(UnicodeMap target, UnicodeSet set, Object value, Composer composer) {
+	    	for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
+	    		int i = it.codepoint;
+	    		Object v1 = target.getValue(i);
+	    		Object v3 = composer.compose(i, v1, value);
+	    		if (v1 != v3 && (v1 == null || !v1.equals(v3))) target.put(i, v3);
+	    	}
+	    	return target;
+	    }
+
 		private void findRegexProblem(String value) {
 			UnicodeSet us = new UnicodeSet(value);
 			// progressively get larger and larger set

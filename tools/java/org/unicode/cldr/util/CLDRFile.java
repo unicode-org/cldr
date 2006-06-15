@@ -1147,7 +1147,12 @@ private boolean isSupplemental;
     	
 		private static String stripAfter(String input, String qName) {
 			int pos = findLastSlash(input);
-			if (qName != null) assert input.substring(pos+1).startsWith(qName);
+			if (qName != null) {
+				//assert input.substring(pos+1).startsWith(qName);
+				if (!input.substring(pos+1).startsWith(qName)) {
+					throw new IllegalArgumentException("Internal Error: should never get here.");
+				}
+			}
 			return input.substring(0,pos);
 		}
 		

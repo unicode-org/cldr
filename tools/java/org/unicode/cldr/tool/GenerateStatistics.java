@@ -407,7 +407,9 @@ class GenerateStatistics {
 				pw = BagFormatter.openUTF8Reader(dir, localeName + ".xml");
 				while (true) {
 					String line = pw.readLine();
-					assert (line != null); // should never get here
+					if (line == null) {
+						throw new IllegalArgumentException("Internal Error: should never get here.");
+					}
 					if (line.indexOf("<ldml") >= 0) {
 						if (line.indexOf("draft") >= 0) {
 							check = TRUE;

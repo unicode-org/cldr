@@ -436,7 +436,9 @@ public class GenerateCldrTests {
 				pw = BagFormatter.openUTF8Reader(dir, localeName + ".xml");
 				while (true) {
 					String line = pw.readLine();
-					assert (line != null); // should never get here
+					if (line == null) {
+						throw new IllegalArgumentException("Internal Error: should never get here.");
+					}
 					if (line.indexOf("<ldml") >= 0) {
 						if (line.indexOf("draft") >= 0) {
 							check = TRUE;
@@ -807,7 +809,9 @@ public class GenerateCldrTests {
     private static DateFormat getDateFormat(ULocale locale, int i, int k) {
         Locale olocale = locale.toLocale(); // TODO replace once fixed!!
         DateFormat df;
-        assert(olocale == null);
+		if (olocale != null) {
+			throw new IllegalArgumentException("Internal Error: should never get here.");
+		}
         if (DateFormatValues[k] == -1) df = DateFormat.getDateInstance(DateFormatValues[i], olocale);
         else if (DateFormatValues[i] == -1) df = DateFormat.getTimeInstance(DateFormatValues[k], olocale);
         else df = DateFormat.getDateTimeInstance(DateFormatValues[i], DateFormatValues[k], olocale);

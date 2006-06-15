@@ -30,4 +30,17 @@ This document describes how to update CLDR when this happens.
 [TBD]
 
 3. Do the following to update to a new timezone database.
-[TBD]
+- Download the latest version of the data from ftp://elsie.nci.nih.gov/pub/
+- Unpack, and copy contents into ...org\unicode\cldr\util\data
+- Check in just the ones that are already checked in (eg check in 'africa', but not 'factory')
+- Run TestMetadata to check whether the known IDs are ok.
+- If there are any differences, then 
+ - Edit supplementalMetadata.xml
+  - Add any truely new ids to $tzid
+  - Add any withdrawn ids to aliases
+ - Edit supplementalData.txt
+  - Add any renames of old names to that list.
+  - Update other links, multizone, etc.
+- Edit common/main/root.xml to add new names that need better root names (unusual circumstances)
+
+ 

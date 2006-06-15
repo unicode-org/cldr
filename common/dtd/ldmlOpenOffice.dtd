@@ -77,10 +77,11 @@ openOffice:collationOptions?) >
 <!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes (true|false) #REQUIRED>
 <!ELEMENT openOffice:currencyId  (#PCDATA)>
 
-<!ELEMENT openOffice:separators ( openOffice:dateSeparator,
-openOffice:timeSeparator, openOffice:longDateDayOfWeekSeparator,
-openOffice:longDateDaySeparator, openOffice:longDateMonthSeparator,
-openOffice:longDateYearSeparator, openOffice:time100SecSeparator) >
+<!-- separators are not always defined in OO.org data so make optional -->
+<!ELEMENT openOffice:separators ( openOffice:dateSeparator?,
+openOffice:timeSeparator?, openOffice:longDateDayOfWeekSeparator?,
+openOffice:longDateDaySeparator?, openOffice:longDateMonthSeparator?,
+openOffice:longDateYearSeparator?, openOffice:time100SecSeparator?) >
 <!ELEMENT openOffice:dateSeparator (#PCDATA)>
 <!ELEMENT openOffice:timeSeparator (#PCDATA)>
 <!ELEMENT openOffice:longDateDayOfWeekSeparator (#PCDATA)>

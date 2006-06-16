@@ -64,7 +64,12 @@ public class POSIXLocale {
         String SearchLocation = "//ldml/characters/exemplarCharacters";
         Node n = LDMLUtilities.getNode(doc,SearchLocation);
         UnicodeSet ExemplarCharacters = new UnicodeSet(LDMLUtilities.getNodeValue(n));
-        repertoire.addAll(ExemplarCharacters);
+        UnicodeSetIterator ec = new UnicodeSetIterator(ExemplarCharacters);
+        while ( ec.next() )
+        {
+           if ( (ec.codepoint != UnicodeSetIterator.IS_STRING) && (ec.codepoint <= 0x10ffff) )
+           repertoire.add(ec.codepoint);
+        }
         UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
         UnicodeSetIterator cf = new UnicodeSetIterator(CaseFoldedExemplars);
         while ( cf.next() )

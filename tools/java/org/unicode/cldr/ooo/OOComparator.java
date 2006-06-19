@@ -25,15 +25,34 @@ public class OOComparator
         public Vector m_files = new Vector();  //the files belonging to the locale m_locale;
     };
     
+    private class TableInfo   //holds optional details to go in talble headers
+    {
+        public int index ;  //index in m_XMLfiles or m_XMLdirs
+        public String name;   //title to use in comparison table like "OO.org" or "CLDR""
+        public String url;    //url to link to from talbe header like http://l10n.openoffice.org/nonav/source/browse/*checkout*/l10n/i18npool/source/localedata/data/zu_ZA.xml?rev=SRC680_m151
+    
+        TableInfo (int index, String name, String url )
+        {
+            this.index = index;
+            this.name = name;
+            this.url = url;
+        }
+    
+    }
+    
+    private static final String STRING_SEPARATOR = ",";
+    
     private static final int OPT_SINGLE = 0x001;
     private static final int OPT_BULK = 0x002;
     private static final int OPT_UNRESOLVED_REFS = 0x004;  //means refs are not resolved in conversion to LDML so don't compare "ref" attributes
+    private static final int OPT_SOLUTIONS = 0x008;    //add a solutions column to talbe
     private static final int OPT_INVALID = 0x4000;
     private static final int OPT_UNKNOWN = 0x8000;
     
     private static final String OPT_SINGLE_STR = "-single";
     private static final String OPT_BULK_STR = "-bulk";
-    private static final String OPT_SHOW_REFS = "-show_refs";
+    private static final String OPT_SHOW_REFS_STR = "-show_refs";
+    private static final String OPT_SOLUTIONS_STR = "-solutions";
     
     private static final String MISSING_ATT = "(missing_att)";
     private static final String MISSING_ELEM = "(missing_element)";
@@ -44,6 +63,7 @@ public class OOComparator
     
     private Vector m_XMLfiles = new Vector();  //holds names incl. paths of files to compare
     private Vector m_XMLdirs = new Vector();   //holds names incl. paths of dirs whose contents are to be compared
+    private Vector m_TableInfo = new Vector ();   //holds optional info to be written at top of tables
     private int m_ArgsCounter = 0;  //counts the number of input files or folder specified
     private int m_CurrNumFiles = 0;
     
@@ -78,17 +98,25 @@ public class OOComparator
         System.err.println("USAGE:");
         System.err.println("  OOComparator [-single / -bulk] file or directory list");
         System.err.println("     compares the contents of 2 or more OO XML: files and writes the ");
-        System.err.println("     differences to a HTMl file");
+        System.err.println("     differences to a HTML file");
+        System.err.println("  Each argument can take the folllowing format : \"file or directory,name,url\" ");
+        System.err.println("      where the 2nd and 3rd parts are optional  ");
         System.err.println("");
         System.err.println("OPTIONS:");
-        System.err.println("  -single : specifies 2 or more locales in OpenOffice.org format to be compared");
-        System.err.println("  -bulk   : specifies 2 or more dirs containing locales in OpenOffice.org format to be compared");
+        System.err.println("  "+OPT_SINGLE_STR + "    : specifies 2 or more locales in OpenOffice.org format to be compared");
+        System.err.println("  "+OPT_BULK_STR + "      : specifies 2 or more dirs containing locales in OpenOffice.org format to be compared");
+        System.err.println("  "+OPT_SHOW_REFS_STR + " :");
+        System.err.println("  "+OPT_SOLUTIONS_STR + " : adds a solutions column to table");
         System.err.println("");
         System.err.println("EXAMPLES:");
-        System.err.println("  OOComparator -single dir1/it_IT.xml dir2/it_IT.xml dir3/it_IT.xml ....");
+        System.err.println("  OOComparator -solutions -single dir1/it_IT.xml dir2/it_IT.xml dir3/it_IT.xml ....");
         System.err.println("    write the differences to it_IT.html");
         System.err.println("  OOComparator -bulk  dir1 dir2 dir3....");
         System.err.println("    write the differences to Bulk.html");
+        System.err.println("  OOComparator -single dir1/it_IT.xml;OOo;http://l10n.openoffice.org/location/it_IT.xml?rev=SRC680_m151 dir2/it_IT.xml dir3/it_IT.xml ....");
+        System.err.println("    write the differences to it_IT.html adding the header \"OOo\" and link http://l10n.openoffice.org/location/he_IL.xml?rev=SRC680_m151 to the table");
+        System.err.println("  OOComparator -bulk dir1;OOo;http://l10n.openoffice.org/location/LOCALE?rev=SRC680_m151 dir2;CLDR ....");
+        System.err.println("    the string \"LOCALE\" will be replaced by the tool with the appropriate locale name");
     }
     
     private void processArgs(String[] args)
@@ -138,7 +166,9 @@ public class OOComparator
         int opts = 0;
         
         if (options.length ==0)
+        {
             opts = OPT_UNKNOWN;
+        }
         else
         {
             for (int k=0; k < options.length; k++)
@@ -146,18 +176,39 @@ public class OOComparator
                 if (options[k].compareTo(OPT_SINGLE_STR) == 0)
                 {
                     opts += OPT_SINGLE;
-                    for (int i = 1; i < options.length; i++)
+                    for (int i = k+1; i < options.length; i++)
                     {
-                        File file = new File(options[i]);
+                        String data = options[i];
+                        String filename = "";
+                        //parse the optional ; separated string of format filename;name;url
+                        String parts[] = data.split(STRING_SEPARATOR);
+                        filename = parts[0];   //can be relative or absolute path incl. filename
+   
+                        File file = new File(filename);
                         if ( (!file.exists()) || (!file.isFile()) )
                         {
                             // Just skip over this file.  Continue processing.
-                            printWarning("The file " + options[i] + " could not be found.");
+                            printWarning("The file " + filename + " could not be found.");
                         }
                         else
                         {
-                            m_XMLfiles.add( (String) file.getAbsolutePath() );
+                            String absfile = file.getAbsolutePath();
+                            m_XMLfiles.add ( absfile );
                             m_ArgsCounter++;
+                            
+                            //deal with table headers
+                            int index = m_XMLfiles.size()-1;
+                            String name = "File"+index;
+                            String url = absfile;
+                            TableInfo ti = null;
+                            if (parts.length == 3)  
+                                ti = new TableInfo(index, parts[1], parts[2]);
+                            else if (parts.length == 2)
+                               ti = new TableInfo(index, parts[1], url);
+                            else   //it's 1
+                               ti = new TableInfo(index, name, url);
+                            m_TableInfo.add(ti);
+                        //        System.err.println(Integer.toString(m_XMLfiles.size()-1) + "  " +  parts[1] + "  " +  parts[2]);
                         }
                     }
                 }
@@ -166,7 +217,13 @@ public class OOComparator
                     opts += OPT_BULK;
                     for (int i = 1; i < options.length; i++)
                     {
-                        File file = new File(options[i]);
+                        String data = options[i];
+                        String filename = "";
+                        //parse the optional ; separated string of format filename;name;url
+                        String parts[] = data.split(STRING_SEPARATOR);
+                        filename = parts[0];   //can be relative or absolute path incl. filename
+
+                        File file = new File (filename);
                         if ( (!file.exists()) || (!file.isDirectory()) )
                         {
                             // Just skip over this file.  Continue processing.
@@ -174,15 +231,29 @@ public class OOComparator
                         }
                         else
                         {
-                            m_XMLdirs.add((String) file.getAbsolutePath());
+                            String absdir = file.getAbsolutePath();
+                            m_XMLdirs.add (absdir);
                             m_ArgsCounter++;
+                            
+                            //deal with table headers
+                            int index = m_XMLdirs.size()-1;
+                            String name = "File"+index;
+                            String url = absdir;
+                            TableInfo ti = null;
+                            if (parts.length == 3)  
+                                ti = new TableInfo(index, parts[1], parts[2]);
+                            else if (parts.length == 2)
+                               ti = new TableInfo(index, parts[1], url);
+                            else   //it's 1
+                               ti = new TableInfo(index, name, url);
+                            m_TableInfo.add(ti);
                         }
                     }
                 }
-                else  if (options[k].compareTo(OPT_SHOW_REFS) == 0)
-                {
+                else  if (options[k].compareTo(OPT_SHOW_REFS_STR) == 0)
                     opts += OPT_UNRESOLVED_REFS;
-                }
+                else  if (options[k].compareTo(OPT_SOLUTIONS_STR) == 0)
+                    opts += OPT_SOLUTIONS;
             }
         }
         return opts;
@@ -195,17 +266,20 @@ public class OOComparator
         writer.print("<html>\n"+
                 "    <head>\n"+
                 "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n"+
+                "        <style type=\"text/css\">\n"+
+                "            <!--\n" +
+                "            table        { border-spacing: 0; border-collapse: collapse; width:100%; \n" +
+                "                           border: 1px solid black }\n" +
+                "            td, th       { border-spacing: 0; border-collapse: collapse; color: black; \n" +
+                "                           vertical-align: top; border: 1px solid black }\n" +
+                "            .small       { font-size:75%; } \n" +
+                "            th.file0     { background: #ffcc00 } \n" +  
+                "            th.file1     { background: #ffff99 } \n" +
+                "            th.solutions { background: #ffcc99 } \n" +                
+                "            -->\n" +
+                "        </style>"+
                 "    </head>\n"+
-                "    <style>\n"+
-                "         <!--\n" +
-                "         table        { border-spacing: 0; border-collapse: collapse; width:100%; \n" +
-                "                        border: 1px solid black }\n" +
-                "         td, th       { border-spacing: 0; border-collapse: collapse; color: black; \n" +
-                "                        vertical-align: top; border: 1px solid black }\n" +
-                "         .small       { font-size:75%; } \n" +
-                "         -->\n" +
-                "     </style>"+
-                "     <body bgcolor=\"#FFFFFF\"> \n" +
+                "    <body bgcolor=\"#FFFFFF\"> \n" +
                 "        <p><b>LOCALE DATA AUDIT</b></p>");
         
         writer.print("        <p>Created on: " + cal.getTime() +"</p>\n");
@@ -235,14 +309,16 @@ public class OOComparator
         String localeStr = localeToString(locale);
         String displayLang = locale.getDisplayLanguage();
         String dispCountry = locale.getDisplayCountry();
-        String displayName = localeStr+" ("+displayLang+"_"+dispCountry + ")";
-        
+        //sometimes locales are language only like interlingua
+        String displayName = "<a name=\"" + localeStr + "\" href=\"#" + localeStr + "\">" + localeStr + "</a>" + " (" + displayLang + (dispCountry.equals("")==false ? ("_"+dispCountry) : "") + ")";    
+
         writer.println( "<p><b>" + m_TotalNumLocales + "&nbsp;&nbsp;&nbsp;" + displayName+ "</b></p>");
         writer.println( "<p class=\"small\">");
-        for (int i = 0; i < XMLfiles.size(); i++)
-        {
-            writer.println( "File"+i+": <a href=\""+XMLfiles.get(i)+"\">"+XMLfiles.get(i)+"</a><br />");
-        }
+  // not really needed
+  //      for (int i = 0; i < XMLfiles.size(); i++)
+  //      {
+  //          writer.println( "File"+i+": <a href=\""+XMLfiles.get(i)+"\">"+XMLfiles.get(i)+"</a><br />");
+  //      }
         writer.println( "</p>");
         
         writer.println("<table>");
@@ -251,19 +327,37 @@ public class OOComparator
                 "                <th width=10%>ParentNode</th>\n"+
                 "                <th width=10%>Name</th>\n"+
                 "                <th width=10%>ID</th>\n");
-        
+                
         for (int i=0; i < m_CurrNumFiles; i++)
         {
-            //String name = Integer.toString(i);
-            //writer.print("                <th>File " + name + "</th>");
-            writer.print( "                <th bgcolor=\"");
+            //set the cell colour
+            writer.print( "                <th class=\"");   
+            if (i % 2 == 0)  
+                writer.print("file0\"");
+            else  
+                writer.print("file1\"");   
             
-            if (i % 2 == 0)
-                writer.print("#FFCC00");
-            else
-                writer.print("#FFFF99");
-            writer.print( "\"><a href=\""+XMLfiles.get(i)+"\">File"+i+"</a></th>");
+            String column_name = ""; 
+            String href = "";
+            for (int j=0; i < m_TableInfo.size(); j++)
+            {
+                if ( ((TableInfo)m_TableInfo.elementAt(j)).index == i)
+                {
+                    column_name = ((TableInfo)m_TableInfo.elementAt(j)).name;
+                    href = ((TableInfo)m_TableInfo.elementAt(j)).url;
+                    href = href.replace ("LOCALE", localeStr+".xml");
+                    
+                    //deal with bulk comparison case
+                    if (href.indexOf(".xml")==-1) href = (String) XMLfiles.get(i);
+                    break;
+                }
+            }
+            writer.println( "\"><a href=\"" + href + "\">" + column_name + "</a></th>");
         }
+        
+        if  ((m_iOptions & OPT_SOLUTIONS) != 0)
+            writer.println( "                <th class=\"solutions\">Solutions</th>");     
+        writer.println( "            </tr>");
     }
     
     
@@ -278,7 +372,7 @@ public class OOComparator
     {
         if (XMLfiles.size() < 2)
         {
-            printError(XMLfiles.size() + " files were specified for comparison.  Minimum of two required.");
+            printWarning(XMLfiles.size() + " file was specified for comparison for " + locale.toString() + ".  Minimum of two required.");
             return;
         }
         m_CurrNumFiles = XMLfiles.size();
@@ -305,14 +399,57 @@ public class OOComparator
             printError(m_XMLdirs.size() + " directories were specified for comparison.  Minimum of two required.");
             return;
         }
-        
-        //PN made this change to print out in alphabetical order
-        Vector locales = new Vector();
+
+        TreeMap locales = new TreeMap();  //TreeMap isorte in ascending order key=locale String , value = LocaleFiles inst
         XMLFileFilter filter = new XMLFileFilter();
         Enumeration enDirs = m_XMLdirs.elements();
         while (enDirs.hasMoreElements())
         {
-            String dirName = (String) enDirs.nextElement();
+            String dirName = (String) enDirs.nextElement();  //=dir1, dir2, dir3 etc
+            File dir = new File(dirName);
+            File[] files = dir.listFiles(filter);
+            for (int i = 0; i < files.length; i++)  
+            { //create a LocaleFiles inst for each locale and add to inst all fully qualified filenames belonging to that locale
+                Locale locale = extractLocale(files[i].getAbsolutePath() );
+                String localeStr = localeToString (locale);
+                
+                boolean bFound = false;
+                for (int j=0; j < locales.size(); j++)
+                {
+                    LocaleFiles lf = (LocaleFiles) locales.get(localeStr);
+                    if ((lf != null) && (lf.m_locale.equals(locale)))
+                    {
+                        lf.m_files.add(files[i].getAbsolutePath());
+                        bFound = true;
+                        break;
+                    }
+                }
+                
+                if (bFound == false)
+                {   //create a new entry for this locale and add the file location
+                    LocaleFiles lf = new LocaleFiles();
+                    lf.m_locale = locale;
+                    lf.m_files.add(files[i].getAbsolutePath());
+                    locales.put(localeStr, lf);
+                }
+            }
+        }
+        
+        Collection col = locales.values ();
+        Iterator it = col.iterator ();
+        while (it.hasNext ())
+        {
+            LocaleFiles lf = (LocaleFiles) it.next ();
+            doSingleComparison(writer, (Vector) lf.m_files, (Locale) lf.m_locale);
+            
+        }
+        
+     /*           Vector locales = new Vector();
+        XMLFileFilter filter = new XMLFileFilter();
+        Enumeration enDirs = m_XMLdirs.elements();
+        while (enDirs.hasMoreElements())
+        {
+            String dirName = (String) enDirs.nextElement();  //=dir1, dir2, dir3 etc
             File dir = new File(dirName);
             // Get list of all xml files in the directory.
             File[] files = dir.listFiles(filter);
@@ -350,7 +487,7 @@ public class OOComparator
             {
                 doSingleComparison(writer, localeFiles, locale);
             }
-        }
+        }*/
     }
     
     private void compareData(PrintWriter writer, Vector XMLfiles, Locale locale)
@@ -1167,7 +1304,7 @@ public class OOComparator
         m_DiffCounter++;  // overall statistic
         
         writer.println("<tr>");
-        writer.println("<td>" + number + "</td>");
+        writer.println("<td><a name=\"" + number + "\" href=\"#" + number + "\">" + number + "</a></td>");
         writer.println("<td>" + parentNode + "</td>");
         writer.println("<td>" + name + "</td>");
         writer.println("<td>" + id + "</td>");
@@ -1199,7 +1336,7 @@ public class OOComparator
         if (filename == null)
             return  null;
         
-        //assumes that all files are of type xx_YY.xml
+        Locale locale = null;
         
         int iLastSlash = filename.lastIndexOf('/');
         int iLastPeriod = filename.lastIndexOf('.');
@@ -1211,14 +1348,14 @@ public class OOComparator
         {
             lang = loc.substring(0, loc.indexOf('_'));
             country = loc.substring(loc.indexOf('_')+1, loc.length());
+            locale = new Locale(lang, country);
         }
         else
         {
             lang = loc.substring(0, loc.length());
-            country = loc.substring(0, loc.length());
+            locale = new Locale(lang);
         }
         
-        Locale locale = new Locale(lang, country);
         return locale;
         
     }
@@ -1228,7 +1365,18 @@ public class OOComparator
         if (locale == null)
             return "";
         
-        String loc = locale.getLanguage() + "_" + locale.getCountry();
+        //sometimes the country is not specified (like ia - interlingua)
+        String loc = locale.getLanguage();
+        
+        //deal with legacy lang codes
+        if (loc.equals("in")) loc = "id";
+        if (loc.equals("iw")) loc = "he";
+        if (loc.equals("ji")) loc = "yi";
+        if (loc.equals("jw")) loc = "jv";
+        
+        String country = locale.getCountry();
+        
+        loc = loc + (locale.getCountry().equals("")==false ? ("_" + country) : "");
         return loc;
     }
     

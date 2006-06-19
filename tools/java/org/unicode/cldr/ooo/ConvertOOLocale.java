@@ -30,16 +30,17 @@ public class ConvertOOLocale
     private static final int OPT_DEST_DIR = 0x0100;  //specify the dest dir where output is written
     private static final int OPT_DTD_DIR = 0x0200;   //specify the folder where ALL the dtds are located
     private static final int OPT_CLDR_VER = 0x0400;
+    private static final int OPT_CLDR_ONLY = 0x0800;  //only geenrate standard CLDR LDML data from OO.o, no specials
     private static final int OPT_INVALID = 0x4000;
     
     private static final String SINGLE = "-single";
     private static final String BULK = "-bulk";
     private static final String DATE_TIME = "-date_time";  //will convert to CLDR compliant date/time syntax
-    private static final String RES_REFS = "-res_refs";  //resolve all refs fully, otherwise only
-    //resolve those for non OO specific element categories
+    private static final String RES_REFS = "-res_refs";  //resolve all refs fully, otherwise only resolve those for non OO.0 specific element categories
     private static final String DEST_DIR = "-dest_dir";
     private static final String DTD_DIR  = "-dtd_dir";
     private static final String CLDR_VER  = "-cldr_ver";
+    private static final String CLDR_ONLY  = "-cldr_only";
     
     private static final String USER_OPTIONS[] =
     {
@@ -50,6 +51,7 @@ public class ConvertOOLocale
         DEST_DIR,
         DTD_DIR,
         CLDR_VER,
+        CLDR_ONLY
     };
     
     private String m_inFile = null;
@@ -57,14 +59,13 @@ public class ConvertOOLocale
     private LDMLLocaleWriterForOO m_LDMLLocaleWriterForOO = null;
     private String m_localeStr = null;
     
-    //if true => write date, time in LDML else write in OO format
-    private boolean m_bConvertDateTime = false;
-    
     private int m_iOptions = 0;
     
     private String m_dest_dir = "main";
     private String m_dtd_dir = null;
     private String m_cldr_ver = "1.3";    //default if not specified on CLI
+    private boolean m_bConvertDateTime = false;  //if true => write date, time in LDML else write in OO format
+    private boolean m_bWriteCLDROnly = false;   //if true don't write any speecials to LDML
     
     /** Creates a new instance of convertOOLocale */
     public ConvertOOLocale(String [] options)
@@ -185,7 +186,10 @@ public class ConvertOOLocale
                 && (j < (options.length-1)))
                 {
                     m_cldr_ver = options [++j];
-                }                
+                }            
+                
+                if (option.compareTo(CLDR_ONLY)==0)
+                    m_bWriteCLDROnly = true;
             }
         }
         return result;
@@ -201,13 +205,14 @@ public class ConvertOOLocale
         System.err.println("  ConvertOOLocalw [-single inFile] | [-bulk inDir]  [-date_time] [-res_refs] [-dest_dir] [-dtd_dir] [-cldr_ver]");
         System.err.println("");
         System.err.println("OPTIONS:");
-        System.err.println("  -single    : converty the specified file");
-        System.err.println("  -bulk      : convert all xml files in the specified directory");
-        System.err.println("  -date_time : convert date/time format strings to be LDML compliant");
-        System.err.println("  -res_refs  : resolve fully all OpenOffice.org XML refs");
-        System.err.println("  -dest_dir  : the dir where output is written (it will be created if non existant) (dafault=./main) ");
-        System.err.println("  -dtd_dir   : the location of the dtds (ldml.dtd and ldmlOpenOffice.dtd)");
-        System.err.println("  -cldr_ver  : the CLDR version (default =1.3) this is used to determine the URL of the DTD if -dtd_dir not specified");
+        System.err.println("  " + SINGLE + "    : converty the specified file");
+        System.err.println("  " + BULK + "      : convert all xml files in the specified directory");
+        System.err.println("  " + DATE_TIME + " : convert date/time format strings to be LDML compliant");
+        System.err.println("  " + RES_REFS + "  : resolve fully all OpenOffice.org XML refs");
+        System.err.println("  " + DEST_DIR + "  : the dir where output is written (it will be created if non existant) (dafault=./main) ");
+        System.err.println("  " + DTD_DIR + "   : the location of the dtds (ldml.dtd and ldmlOpenOffice.dtd)");
+        System.err.println("  " + CLDR_VER + "  : the CLDR version (default =1.3) this is used to determine the URL of the DTD if -dtd_dir not specified");
+        System.err.println("  " + CLDR_ONLY + " : only write data that can be mapped to CLDR. Used for importing new locales into CLDR.");
         System.err.println("");
         System.err.println("EXAMPLES:");
         System.err.println("  ConvertOOLocale -single OOFileName.xml");
@@ -229,19 +234,21 @@ public class ConvertOOLocale
         
         //create instance of LDMLLocaleWriterForOO which does the writing to file
         PrintStream ps = Utilities.setLocaleWriter2(m_localeStr, null, m_dest_dir);
-        m_LDMLLocaleWriterForOO = new LDMLLocaleWriterForOO(ps);
+        m_LDMLLocaleWriterForOO = new LDMLLocaleWriterForOO(ps, m_bWriteCLDROnly);
         
         Hashtable aliases = OOToLDMLMapper.mapRefs(reader.m_Refs2);
         m_LDMLLocaleWriterForOO.setAliases(aliases);
         
         //start writing the LDML
-        m_LDMLLocaleWriterForOO.open(XMLNamespace.OPEN_OFFICE, m_dtd_dir, "ldmlOpenOffice.dtd", m_cldr_ver);
+        String ns = null;
+        if (m_bWriteCLDROnly == false) ns = XMLNamespace.OPEN_OFFICE;  // don't write OO.o dtd line if importing new locale to CLDR
+        m_LDMLLocaleWriterForOO.open(ns, m_dtd_dir, "ldmlOpenOffice.dtd", m_cldr_ver);
         
         Hashtable data = new Hashtable();
         
         //###### write identity ######
-        data.put(LDMLConstants.VERSION + " " + LDMLConstants.NUMBER, "1.2");
-        data.put(LDMLConstants.GENERATION, "Generated from ConvertOOLocale");
+        data.put(LDMLConstants.VERSION + " " + LDMLConstants.NUMBER, "$Revision$");  //this is the CVS version not the CLDR version
+    //    data.put(LDMLConstants.GENERATION, "Generated from ConvertOOLocale");  //comment is superflous and would need to be removed for importing new locales inot CLDR
         if (reader.m_LangId!=null)
             data.put(LDMLConstants.LANGUAGE + " " + LDMLConstants.TYPE, reader.m_LangId);
         if (reader.m_Country_CountryID!=null)
@@ -483,6 +490,10 @@ public class ConvertOOLocale
         // in ldml for OO start with lower case
         //MapFirstCharToLowerCase not needed for containers with no attrib names in them
         
+        Hashtable OOsymbols = new Hashtable();
+        OOsymbols = OOToLDMLMapper.MapOOSymbols(reader.m_Separators);
+        if (OOsymbols != null) data.put(LDMLConstants.SYMBOLS, OOsymbols);
+
         Hashtable forbiddenChars = OOToLDMLMapper.MapFirstCharToLowerCase(reader.m_ForbiddenChars);
         if (forbiddenChars != null) data.put(OpenOfficeLDMLConstants.FORBIDDEN_CHARACTERS, forbiddenChars);
         

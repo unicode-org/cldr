@@ -3,7 +3,7 @@
  *************************************************************************/
 
 /* converts LDML to OpenOffice.org XML format
- * there are 2 ways to use this app :
+ * there are 3 ways to use this app :
  * 1. Conversion back to OpenOffice.org XML of OO data which was previously converted to LDML,
  *    this is a simple round trip conversion which is useful for testing the tools
  * 2. Conversion to OO XML of OpenOffice.org specific data from 1 above merged with CLDR standard data,
@@ -297,7 +297,6 @@ public class LDMLToOOConverter
             return false;
         }
           
-        
         // Begin write process by creating a printstream which will output
         // text to the specified file location.
         PrintStream ps = setLocaleWriter(locale, null, out_file);
@@ -307,10 +306,10 @@ public class LDMLToOOConverter
         Hashtable aliases = new Hashtable();
         // Place the hashtable in the writer object.
         writer.setAliases(aliases);
-        
+
         // Start m_infilenamewriting the OpenOffice XML
         writer.open(reader_ooo_ldml.m_LocaleInfo);   //write the OO version back to OO not the CLDR version
-        
+
         // Data hashtable that only contains some of the data at any one time;
         // it's reset for each section of the XML file being created.
         Hashtable data = new Hashtable();
@@ -484,7 +483,7 @@ public class LDMLToOOConverter
         //###### write LC_CALENDAR ######
         data.clear();
         
-        //workaround : lots of calendar issues, see comments at top fo this file
+        //workaround : lots of calendar issues, see comments at top of this file
         if ((locale.compareTo("ja_JP")==0) || (locale.compareTo("ko_KR")==0))
         {
             reader_cldr_temp = reader_cldr;

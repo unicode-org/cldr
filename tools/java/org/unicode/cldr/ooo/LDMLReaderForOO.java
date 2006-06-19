@@ -100,7 +100,7 @@ public class LDMLReaderForOO
     public String m_CollationRefLocale = null;
     public Vector m_Collators = null;  // vector of hashtables
     public Vector m_CollationOptions = null; // vector of string
-    public Hashtable m_CollationDefaultName = null;
+//    public Hashtable m_CollationDefaultName = null;
     
     public String m_SearchRefLocale = null;
     public Vector m_SearchOptions = null; // vector of string
@@ -293,19 +293,19 @@ public class LDMLReaderForOO
         if (versionDTD != null) m_LocaleInfo.put(OpenOfficeLDMLConstants.VERSION_DTD, versionDTD);
              
         // Get default language & territory names, specific to OpenOffice.
-        if (m_LangID !=null) m_LangDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_LangID, LDMLConstants.SPECIAL, LDMLConstants.LANGUAGES);
-        if (m_TerritoryID !=null) m_TerritoryDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_TerritoryID, LDMLConstants.SPECIAL, LDMLConstants.TERRITORIES);
+        if (m_LangID !=null) m_LangDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.TYPE, m_LangID, LDMLConstants.SPECIAL, LDMLConstants.LANGUAGES);
+        if (m_TerritoryID !=null) m_TerritoryDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.TYPE, m_TerritoryID, LDMLConstants.SPECIAL, LDMLConstants.TERRITORIES);
         m_PlatformID = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.PLATFORM_ID);
         m_Variant = m_domWrapper.getAttributeFromElement(LDMLConstants.IDENTITY, LDMLConstants.VARIANT, LDMLConstants.TYPE);
         
         //#######  <LC_CTYPE> sub-elements   #########
-        m_DateSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR);
-        m_TimeSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR);
-        m_Time100SecSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR);
-        m_LongDateDayOfWeekSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
-        m_LongDateDaySeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR);
-        m_LongDateMonthSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR);
-        m_LongDateYearSeparator = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR);
+        m_DateSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR); 
+        m_TimeSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR);
+        m_Time100SecSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR);
+        m_LongDateDayOfWeekSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
+        m_LongDateDaySeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR);
+        m_LongDateMonthSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR);
+        m_LongDateYearSeparator = m_domWrapper.getTextFromElement(/*LDMLConstants.SPECIAL,*/ XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR);
                
         //#######  <LC_FORMAT> sub-elements   #########
         // replaceFrom, replaceTo attributes of LC_FORMAT.

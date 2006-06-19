@@ -17,10 +17,12 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
     private Hashtable m_Aliases = null;   //key = eleement name, data = value of "ref" attribute
     
     private Vector m_flexDateTimePatterns = null;  //holds all date/time patterns for writing to availableFormats
+    private boolean m_bWriteCLDROnly = false;
     
-    public LDMLLocaleWriterForOO(PrintStream out)
+    public LDMLLocaleWriterForOO(PrintStream out, boolean bWriteCLDROnly)
     {
         super(out);
+        m_bWriteCLDROnly = bWriteCLDROnly;
     }
     
     public LDMLLocaleWriterForOO(PrintStream out, PrintStream err)
@@ -37,6 +39,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
     
     public void writeLocaleDisplaynames(Hashtable data)
     {
+        if (m_bWriteCLDROnly == true) return;   //this method writes OO.o specials only
+        
         if ((data == null) || (data.size()==0))
         {
             Logging.Log1("No LDML localeDisplayNames data to write ");
@@ -72,7 +76,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             println(LDMLConstants.LANGUAGES_C);
         }
         else
-            Logging.Log3("\tNo language DefaultName to write ");
+            Logging.Log3("Element localeDisplayNames/languages/special/openOffice:defaultName not written ");
         
         
         if ((territory_type != null) && (territory_type.compareTo("")!=0))
@@ -94,7 +98,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             println(LDMLConstants.TERRITORIES_C);
         }
         else
-            Logging.Log3("\tNo territory DefaultName to write ");
+            Logging.Log3("Element localeDisplayNames/territories/special/openOffice:defaultName not written ");
         
         outdent();
         println(LDMLConstants.LDN_C);
@@ -165,7 +169,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 println("<" + LDMLConstants.DEFAULT + " " + LDMLConstants.TYPE + "=\"" + deflt_calendar + "\"/>");
         }
         else
-            Logging.Log3("\tNo default calendar type to write ");
+            Logging.Log3("No default calendar type to write ");
         
         for (int i=0; i < calendars.size()-1; i++)   //-1 as last entry is a special entry=pos of defauult calendar
         {
@@ -193,12 +197,12 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 if (abbrMonthsI != null)
                     writeMonthWidth(abbrMonthsI, LDMLConstants.ABBREVIATED);
                 else
-                    Logging.Log3("\tNo abbreviated months to write for calendar : " + calendar);
+                    Logging.Log3("No abbreviated months to write for calendar : " + calendar);
                 
                 if (wideMonthsI != null)
                     writeMonthWidth(wideMonthsI, LDMLConstants.WIDE);
                 else
-                    Logging.Log3("\tNo wide to write for calendar : " + calendar);
+                    Logging.Log3("No wide to write for calendar : " + calendar);
                 
                 outdent();
                 println(LDMLConstants.MONTH_CONTEXT_C);
@@ -206,7 +210,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 println(LDMLConstants.MONTHS_C);
             }
             else
-                Logging.Log3("\tNo abbreviated or wide months to write for calendar : " + calendar);
+                Logging.Log3("No abbreviated or wide months to write for calendar : " + calendar);
             
             //days
             Hashtable abbrDaysI = null;
@@ -228,12 +232,12 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 if (abbrDaysI != null)
                     writeDayWidth(abbrDaysI, LDMLConstants.ABBREVIATED);
                 else
-                    Logging.Log3("\tNo abbreviated Days to write for calendar : " + calendar);
+                    Logging.Log3("No abbreviated Days to write for calendar : " + calendar);
                 
                 if (wideDaysI != null)
                     writeDayWidth(wideDaysI, LDMLConstants.WIDE);
                 else
-                    Logging.Log3("\tNo wide Days to write for calendar : " + calendar);
+                    Logging.Log3("No wide Days to write for calendar : " + calendar);
                 
                 outdent();
                 println(LDMLConstants.DAY_CONTEXT_C);
@@ -241,7 +245,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 println(LDMLConstants.DAYS_C);
             }
             else
-                Logging.Log3("\tNo abbreviated or wide Days to write for calendar : " + calendar);
+                Logging.Log3("No abbreviated or wide Days to write for calendar : " + calendar);
             
             //quarters
             Hashtable abbrQuartersI = null;
@@ -313,7 +317,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                     println(LDMLConstants.ERANAMES_C);
                 }
                 else
-                    Logging.Log3("\tNo wide eras to write for calendar : " + calendar);
+                    Logging.Log3("No wide eras to write for calendar : " + calendar);
                 
                 if (abbrErasI != null)
                 {
@@ -324,21 +328,24 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                     println(LDMLConstants.ERAABBR_C);
                 }
                 else
-                    Logging.Log3("\tNo abbreviated eras to write for calendar : " + calendar);
+                    Logging.Log3("No abbreviated eras to write for calendar : " + calendar);
                 
                 outdent();
                 println(LDMLConstants.ERAS_C);
             }
             else
-                Logging.Log3("\tNo eras to write for calendar : " + calendar);
+                Logging.Log3("No eras to write for calendar : " + calendar);
             
             
-            //only write special Format elements once
-            if (i==0)
+            
+            if (m_bWriteCLDROnly == false)   //below writes OO.o specials only
             {
-                writeFormats(formatElements_date, formatCodes_date, formatDefaultNames_date, LDMLConstants.DATE_FORMATS, LDMLConstants.DFL, LDMLConstants.DATE_FORMAT, calendar);
-                writeFormats(formatElements_time, formatCodes_time, formatDefaultNames_time, LDMLConstants.TIME_FORMATS, LDMLConstants.TFL, LDMLConstants.TIME_FORMAT, calendar);
-                writeFormats(formatElements_date_time, formatCodes_date_time, formatDefaultNames_date_time, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.DTFL, LDMLConstants.DATE_TIME_FORMAT, calendar);
+                if (i==0)  //only write special Format elements once
+                {
+                    writeFormats(formatElements_date, formatCodes_date, formatDefaultNames_date, LDMLConstants.DATE_FORMATS, LDMLConstants.DFL, LDMLConstants.DATE_FORMAT, calendar);
+                    writeFormats(formatElements_time, formatCodes_time, formatDefaultNames_time, LDMLConstants.TIME_FORMATS, LDMLConstants.TFL, LDMLConstants.TIME_FORMAT, calendar);
+                    writeFormats(formatElements_date_time, formatCodes_date_time, formatDefaultNames_date_time, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.DTFL, LDMLConstants.DATE_TIME_FORMAT, calendar);
+                }
             }
             
             outdent();
@@ -392,10 +399,13 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         
         writeSymbols(symbols);
         
-        writeFormats(formatElements_fn, formatCodes_fn, formatDefaultNames_fn, LDMLConstants.DECIMAL_FORMATS, LDMLConstants.DECFL, LDMLConstants.DECIMAL_FORMAT, null);
-        writeFormats(formatElements_sn, formatCodes_sn, formatDefaultNames_sn, LDMLConstants.SCIENTIFIC_FORMATS, LDMLConstants.SCIFL, LDMLConstants.SCIENTIFIC_FORMAT, null);
-        writeFormats(formatElements_pn, formatCodes_pn, formatDefaultNames_pn, LDMLConstants.PERCENT_FORMATS, LDMLConstants.PERFL, LDMLConstants.PERCENT_FORMAT, null);
-        writeFormats(formatElements_c, formatCodes_c, formatDefaultNames_c, LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURFL, LDMLConstants.CURRENCY_FORMAT, null);
+        if (m_bWriteCLDROnly == false)   //below writes OO.o specials only
+        {
+            writeFormats(formatElements_fn, formatCodes_fn, formatDefaultNames_fn, LDMLConstants.DECIMAL_FORMATS, LDMLConstants.DECFL, LDMLConstants.DECIMAL_FORMAT, null);
+            writeFormats(formatElements_sn, formatCodes_sn, formatDefaultNames_sn, LDMLConstants.SCIENTIFIC_FORMATS, LDMLConstants.SCIFL, LDMLConstants.SCIENTIFIC_FORMAT, null);
+            writeFormats(formatElements_pn, formatCodes_pn, formatDefaultNames_pn, LDMLConstants.PERCENT_FORMATS, LDMLConstants.PERFL, LDMLConstants.PERCENT_FORMAT, null);
+            writeFormats(formatElements_c, formatCodes_c, formatDefaultNames_c, LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURFL, LDMLConstants.CURRENCY_FORMAT, null);
+        }
         
         writeCurrencies(currencies, symbols);
         outdent();
@@ -406,6 +416,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
     //special
     public void writeSpecial(Hashtable data)
     {
+        if (m_bWriteCLDROnly == true) return;   //this method writes OO.o specials only
+        
         if ((data == null) || (data.size()==0))
         {
             Logging.Log1("No LDML Special data to write ");
@@ -413,6 +425,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         
         Hashtable localeInfo = (Hashtable) data.get(OpenOfficeLDMLConstants.LOCALE);
+        Hashtable OOsymbols = (Hashtable) data.get(LDMLConstants.SYMBOLS);
         Hashtable forbiddenChars = (Hashtable) data.get(OpenOfficeLDMLConstants.FORBIDDEN_CHARACTERS);
         Hashtable reservedWords = (Hashtable) data.get(OpenOfficeLDMLConstants.RESERVED_WORDS);
         Vector numLevels = (Vector) data.get(OpenOfficeLDMLConstants.NUMBERING_LEVELS);
@@ -441,6 +454,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         specials.add(OpenOfficeLDMLConstants.INDEX);
         specials.add(OpenOfficeLDMLConstants.COLLATIONS);
         specials.add(OpenOfficeLDMLConstants.FORMAT);
+        specials.add(LDMLConstants.SYMBOLS);
         for (int i=0; i < specials.size(); i++)
         {
             if (m_Aliases.containsKey(specials.elementAt(i))==true)
@@ -452,6 +466,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         
         //see is there anything to write
         if (((localeInfo==null) || (localeInfo.size()==0))
+        && ((OOsymbols==null) || (OOsymbols.size()==0))
         && ((forbiddenChars==null) || (forbiddenChars.size()==0))
         && ((reservedWords==null) ||  (reservedWords.size()==0))
         && ((numLevels==null) || (numLevels.size()==0))
@@ -476,6 +491,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         indent();
         
         writeLocale(localeInfo);
+        writeOOSymbols (OOsymbols);
         writeForbiddenChars(forbiddenChars);
         writeReservedWords(reservedWords);
         writeNumberingLevels(numLevels);
@@ -523,7 +539,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS, false);
             }
             else
-                Logging.Log3("\tNo LDML Special forbiddenLineBeginCharacters to write ");
+                Logging.Log3("No LDML Special forbiddenLineBeginCharacters to write ");
             
             if (forLineEndChars != null)
             {
@@ -533,7 +549,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.FORBIDDEN_LINE_END_CHARACTERS, false);
             }
             else
-                Logging.Log3("\tNo LDML Special forbiddenLineEndCharacters to write ");
+                Logging.Log3("No LDML Special forbiddenLineEndCharacters to write ");
             
             outdent();
             printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.FORBIDDEN_CHARACTERS, false);
@@ -582,7 +598,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.TRUE_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:trueWord to write ");
+                Logging.Log3("No LDML Special reservedWords:trueWord to write ");
             
             if (falseWord != null)
             {
@@ -591,7 +607,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.FALSE_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:falseWord to write ");
+                Logging.Log3("No LDML Special reservedWords:falseWord to write ");
             
             if (q1Word != null)
             {
@@ -600,7 +616,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_1_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q1Word to write ");
+                Logging.Log3("No LDML Special reservedWords:q1Word to write ");
             
             if (q2Word != null)
             {
@@ -609,7 +625,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_2_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q2Word to write ");
+                Logging.Log3("No LDML Special reservedWords:q2Word to write ");
             
             if (q3Word != null)
             {
@@ -618,7 +634,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_3_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q3Word to write ");
+                Logging.Log3("No LDML Special reservedWords:q3Word to write ");
             
             if (q4Word != null)
             {
@@ -627,7 +643,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_4_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q4Word to write ");
+                Logging.Log3("No LDML Special reservedWords:q4Word to write ");
             
             if (aboveWord != null)
             {
@@ -636,7 +652,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.ABOVE_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:aboveWord to write ");
+                Logging.Log3("No LDML Special reservedWords:aboveWord to write ");
             
             if (belowWord != null)
             {
@@ -645,7 +661,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.BELOW_WORD, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:belowWord to write ");
+                Logging.Log3("No LDML Special reservedWords:belowWord to write ");
             
             if (q1Abbr != null)
             {
@@ -654,7 +670,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q1Abbr to write ");
+                Logging.Log3("No LDML Special reservedWords:q1Abbr to write ");
             
             if (q2Abbr != null)
             {
@@ -663,7 +679,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q2Abbr to write ");
+                Logging.Log3("No LDML Special reservedWords:q2Abbr to write ");
             
             if (q3Abbr != null)
             {
@@ -672,7 +688,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q3Abbr to write ");
+                Logging.Log3("No LDML Special reservedWords:q3Abbr to write ");
             
             if (q4Abbr != null)
             {
@@ -681,7 +697,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, false);
             }
             else
-                Logging.Log3("\tNo LDML Special reservedWords:q4Abbr to write ");
+                Logging.Log3("No LDML Special reservedWords:q4Abbr to write ");
             
             outdent();
             printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.RESERVED_WORDS, false);
@@ -892,7 +908,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 }
             }
             else
-                Logging.Log3("\tNo LDML Special indexKeys to write ");
+                Logging.Log3("No LDML Special indexKeys to write ");
             
             
             if (unicodeScript != null)
@@ -905,7 +921,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 }
             }
             else
-                Logging.Log3("\tNo LDML Special unicodeScript to write ");
+                Logging.Log3("No LDML Special unicodeScript to write ");
             
             if (followPageWord != null)
             {
@@ -917,7 +933,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 }
             }
             else
-                Logging.Log3("\tNo LDML Special followPageWord to write ");
+                Logging.Log3("No LDML Special followPageWord to write ");
             
             outdent();
             printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.INDEX, false);
@@ -955,7 +971,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 }
             }
             else
-                Logging.Log3("\tNo LDML Special collators to write ");
+                Logging.Log3("No LDML Special collators to write ");
             
             if (collationOptions != null)
             {
@@ -971,7 +987,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.COLLATION_OPTIONS, false);
             }
             else
-                Logging.Log3("\tNo LDML Special collationOptions to write ");
+                Logging.Log3("No LDML Special collationOptions to write ");
             
             outdent();
             printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.COLLATIONS, false);
@@ -1012,7 +1028,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             currency.remove(LDMLConstants.DEFAULT);
         }
         else
-            Logging.Log3("\tNo LDML default currency to write ");
+            Logging.Log3("No LDML default currency to write ");
         
         Enumeration keys = currency.keys();
         Enumeration values = currency.elements();
@@ -1023,7 +1039,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             if (intlCurrCode != null)
                 table.put(LDMLConstants.TYPE, intlCurrCode);
             else
-                Logging.Log3("\tNo LDML intl currency code to write ");
+                Logging.Log3("No LDML intl currency code to write ");
             
             print(LDMLConstants.CURRENCY, table, true, true, true);
             indent();
@@ -1032,13 +1048,13 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             if (name != null)
                 println(LDMLConstants.DISPLAY_NAME_O + name + LDMLConstants.DISPLAY_NAME_C);
             else
-                Logging.Log3("\tNo LDML currency displayName to write ");
+                Logging.Log3("No LDML currency displayName to write ");
             
             String symbol = (String) symbols.get(intlCurrCode);
             if (symbol != null)
                 println(LDMLConstants.SYMBOL_O + symbol + LDMLConstants.SYMBOL_C);
             else
-                Logging.Log3("\tNo LDML currency symbol to write ");
+                Logging.Log3("No LDML currency symbol to write ");
             
             //OO's LC_TYPE's DecimalSeparator and ThousandSeparator are used for numbers and currencies
             //TODO look at this later ...
@@ -1049,38 +1065,41 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             
             
             //special
-            Hashtable value = (Hashtable) values.nextElement();
-            String usedInCompFormatcodes = (String) value.get(OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES);
-            String id = (String) ids.get(intlCurrCode);
-            if ((usedInCompFormatcodes != null) || (id != null))
+            if (m_bWriteCLDROnly == false)//below  writes OO.o specials only
             {
-                println("<" + LDMLConstants.SPECIAL + " " + LDMLConstants.XMLNS + ":" + XMLNamespace.OPEN_OFFICE + "=\"" + XMLNamespace.OPEN_OFFICE_WWW + "\">" );
-                indent();
-                String uicfc = "";
-                if (usedInCompFormatcodes != null)
-                    uicfc = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES + "=\"" + usedInCompFormatcodes;
-                else
-                    Logging.Log3("\tNo LDML Special currency usedInCompFormatcodes to write ");
-                
-                println("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY + uicfc + "\">");
-                
-                if (id != null)
+                Hashtable value = (Hashtable) values.nextElement();
+                String usedInCompFormatcodes = (String) value.get(OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES);
+                String id = (String) ids.get(intlCurrCode);
+                if ((usedInCompFormatcodes != null) || (id != null))
                 {
+                    println("<" + LDMLConstants.SPECIAL + " " + LDMLConstants.XMLNS + ":" + XMLNamespace.OPEN_OFFICE + "=\"" + XMLNamespace.OPEN_OFFICE_WWW + "\">" );
                     indent();
-                    printNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, true);
-                    print(id);
-                    printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, false);
+                    String uicfc = "";
+                    if (usedInCompFormatcodes != null)
+                        uicfc = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES + "=\"" + usedInCompFormatcodes;
+                    else
+                        Logging.Log3("No LDML Special currency usedInCompFormatcodes to write ");
+                    
+                    println("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY + uicfc + "\">");
+                    
+                    if (id != null)
+                    {
+                        indent();
+                        printNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, true);
+                        print(id);
+                        printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, false);
+                        outdent();
+                    }
+                    else
+                        Logging.Log3("No LDML Special currency currencyId to write ");
+                    
+                    printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY, false);
                     outdent();
+                    println(LDMLConstants.SPECIAL_C);
                 }
                 else
-                    Logging.Log3("\tNo LDML Special currency currencyId to write ");
-                
-                printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY, false);
-                outdent();
-                println(LDMLConstants.SPECIAL_C);
+                    Logging.Log3("No LDML Special currency usedInCompFormatcodes or currencyId to write ");
             }
-            else
-                Logging.Log3("\tNo LDML Special currency usedInCompFormatcodes or currencyId to write ");
             
             outdent();
             println(LDMLConstants.CURRENCY_C);
@@ -1102,109 +1121,115 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         String decimal = (String) data.get(LDMLConstants.DECIMAL);
         String group = (String) data.get(LDMLConstants.GROUP);
         String list = (String) data.get(LDMLConstants.LIST);
-        
-        String dateSeparator = (String) data.get(OpenOfficeLDMLConstants.DATE_SEPARATOR);
-        String timeSeparator = (String) data.get( OpenOfficeLDMLConstants.TIME_SEPARATOR);
-        String time100SecSeparator = (String) data.get( OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR);
-        String longDateDayOfWeekSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
-        String longDateDaySeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR);
-        String longDateMnothSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR);
-        String longDateYearSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR);
-        
+          
         println(LDMLConstants.SYMBOLS_O);
         indent();
         
         if (decimal != null)
             println(LDMLConstants.DECIMAL_O + decimal + LDMLConstants.DECIMAL_C);
         else
-            Logging.Log3("\tNo LDML decimal symbol to write ");
+            Logging.Log3("No LDML decimal symbol to write ");
         
         if (group != null)
             println(LDMLConstants.GROUP_O + group + LDMLConstants.GROUP_C);
         else
-            Logging.Log3("\tNo LDML group symbol to write ");
+            Logging.Log3("No LDML group symbol to write ");
         
         if (list != null)
             println(LDMLConstants.LIST_O + list + LDMLConstants.LIST_C);
         else
-            Logging.Log3("\tNo LDML list symbol to write ");
+            Logging.Log3("No LDML list symbol to write ");
         
-        if ((dateSeparator!=null) || (timeSeparator!=null) || (time100SecSeparator!=null)
-        || (longDateDayOfWeekSeparator!=null) || (longDateDaySeparator!=null) || (longDateMnothSeparator!=null)
-        || (longDateYearSeparator!=null))
-        {
-            println("<" + LDMLConstants.SPECIAL + " " + LDMLConstants.XMLNS + ":" + XMLNamespace.OPEN_OFFICE + "=\"" + XMLNamespace.OPEN_OFFICE_WWW + "\">" );
-            indent();
-            
-            if (dateSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR + ">");
-                print(dateSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special dateSeparator symbol to write ");
-            
-            if (timeSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR + ">");
-                print(timeSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special timeSeparator symbol to write ");
-            
-            if (time100SecSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR + ">");
-                print(time100SecSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special time100SecSeparator symbol to write ");
-            
-            if (longDateDayOfWeekSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">");
-                print(longDateDayOfWeekSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special longDateDayOfWeekSeparator symbol to write ");
-            
-            if (longDateDaySeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR + ">");
-                print(longDateDaySeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special longDateDaySeparator symbol to write ");
-            
-            if (longDateMnothSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR + ">");
-                print(longDateMnothSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special longDateMnothSeparator symbol to write ");
-            
-            if (longDateYearSeparator !=null)
-            {
-                print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR + ">");
-                print(longDateYearSeparator);
-                println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR + ">");
-            }
-            else
-                Logging.Log3("\tNo LDML Special longDateYearSeparator symbol to write ");
-            
-            outdent();
-            println(LDMLConstants.SPECIAL_C);
-        }
         outdent();
         println(LDMLConstants.SYMBOLS_C);
         
+    }
+    
+    protected void writeOOSymbols(Hashtable data)
+    {
+        if ((data == null) || (data.size()==0))
+        {
+            Logging.Log1("No OO.o symbols data to write ");
+            return;
+        }
+        
+        printlnNS (XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.SEPARATORS, true);
+        indent();
+        
+        String dateSeparator = (String) data.get(OpenOfficeLDMLConstants.DATE_SEPARATOR);
+        String timeSeparator = (String) data.get( OpenOfficeLDMLConstants.TIME_SEPARATOR);
+        String longDateDayOfWeekSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
+        String longDateDaySeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR);
+        String longDateMnothSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR);
+        String longDateYearSeparator = (String) data.get( OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR);
+        String time100SecSeparator = (String) data.get( OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR);
+        
+        if (dateSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR + ">");
+            print(dateSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DATE_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special dateSeparator symbol to write ");
+        
+        if (timeSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR + ">");
+            print(timeSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special timeSeparator symbol to write ");
+        
+        if (longDateDayOfWeekSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">");
+            print(longDateDayOfWeekSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special longDateDayOfWeekSeparator symbol to write ");
+        
+        if (longDateDaySeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR + ">");
+            print(longDateDaySeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_DAY_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special longDateDaySeparator symbol to write ");
+        
+        if (longDateMnothSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR + ">");
+            print(longDateMnothSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_MONTH_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special longDateMnothSeparator symbol to write ");
+        
+        if (longDateYearSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR + ">");
+            print(longDateYearSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LONG_DATE_YEAR_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special longDateYearSeparator symbol to write ");
+        
+        if (time100SecSeparator !=null)
+        {
+            print("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR + ">");
+            print(time100SecSeparator);
+            println("</" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR + ">");
+        }
+        else
+            Logging.Log3("No LDML Special time100SecSeparator symbol to write ");
+        
+         
+        outdent();
+        printlnNS (XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.SEPARATORS, false);        
     }
     
     /* method will handle dateFormat, timeFormat, dateTimeFormat, currencyformat, decimalFormat, scientificFormat,
@@ -1234,9 +1259,9 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
       //   }
         
         //get the "long", "medium" and "short"
-        writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.LONG, fmtLength, fmt);
-        writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.MEDIUM, fmtLength, fmt);
-        writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.SHORT, fmtLength, fmt);
+        writeFormatLengths(formatElements, patterns, defaultNames, OpenOfficeLDMLConstants.LONG, fmtLength, fmt);
+        writeFormatLengths(formatElements, patterns, defaultNames, OpenOfficeLDMLConstants.MEDIUM, fmtLength, fmt);
+        writeFormatLengths(formatElements, patterns, defaultNames, OpenOfficeLDMLConstants.SHORT, fmtLength, fmt);
 
         if (fmts.compareTo (LDMLConstants.DATE_TIME_FORMATS) == 0)
         {
@@ -1260,7 +1285,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         if (def != null)
             println("<" + LDMLConstants.DEFAULT + " " + LDMLConstants.TYPE + "=\"" + def + "\"/>");
         else
-            Logging.Log4("\tNo LDML Special default to write for " + fmtLength + " " + type);
+            Logging.Log4("No LDML Special default to write for " + fmtLength + " " + type);
         
         Enumeration keys = formatElements.keys();
         Enumeration data = formatElements.elements();
@@ -1297,7 +1322,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                             println(LDMLConstants.PATTERN_C);
                         }
                         else
-                            Logging.Log3("\tNo LDML Special pattern to write for " + fmt + " " + key);
+                            Logging.Log3("No LDML Special pattern to write for " + fmt + " " + key);
                                      
                         String defaultName = (String) defaultNames.get(key);
                         if (defaultName == null)
@@ -1446,7 +1471,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             attribs.remove(OpenOfficeLDMLConstants.REF);   //an y reffed data has already been written
         
         if (attribs.size()==0)
-            Logging.Log3("\tNo LDML Special format replaceTo or replaceFrom data to write" );
+            Logging.Log3("No LDML Special format replaceTo or replaceFrom data to write" );
         
         printNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.FORMAT, attribs, true, false, true);
     }
@@ -1465,19 +1490,19 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         if (str != null)
             print(" " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION_DTD + "=\"" + str + "\"");
         else
-            Logging.Log1("\tNo " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION_DTD + " to write" );
+            Logging.Log1("No " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION_DTD + " to write" );
         
         str = (String) data.get(OpenOfficeLDMLConstants.ALLOW_UPDATE_FROM_CLDR);
         if (str != null)
             print(" " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.ALLOW_UPDATE_FROM_CLDR + "=\"" + str + "\"");
         else
-            Logging.Log1("\tNo " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.ALLOW_UPDATE_FROM_CLDR + " to write" );
+            Logging.Log1("No " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.ALLOW_UPDATE_FROM_CLDR + " to write" );
             
         str = (String) data.get(OpenOfficeLDMLConstants.VERSION);
         if (str != null)
             print(" " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION + "=\"" + str + "\"");
         else
-            Logging.Log1("\tNo " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION + " to write" );
+            Logging.Log1("No " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.VERSION + " to write" );
       
         println ("/>");
     }

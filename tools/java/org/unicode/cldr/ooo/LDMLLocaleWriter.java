@@ -42,28 +42,14 @@ public class LDMLLocaleWriter extends XMLWriter
     // nsDTD = name of dtd file for the namespace, must be specified
     public boolean open(String namespace, String dtdLocation, String nsDTD, String cldrVersion)
     {
-        if ((nsDTD == null) || (nsDTD.compareTo("")==0))
-        {
-            Logging.LogError("namespace must be specified");
-            return false;
-        }
-        
         println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-        
-        String defaultVersion = "1.3";
         
         //do ldml.dtd stuff
         String dtd = "<!DOCTYPE ldml SYSTEM \"";
         if ((dtdLocation != null) && (dtdLocation.compareTo("")!=0))
-        {
             dtd = dtd + dtdLocation + "/ldml.dtd\"";
-        }
         else
-        {
-            if ((cldrVersion == null) || (cldrVersion.compareTo("")==0))
-                cldrVersion = defaultVersion;
             dtd = dtd + "http://www.unicode.org/cldr/dtd/" +  cldrVersion + "/ldml.dtd\"";
-        }
         
         //do <namespace.dtd> stuff
         if ((namespace == null) || (namespace.compareTo("")==0))
@@ -78,8 +64,6 @@ public class LDMLLocaleWriter extends XMLWriter
             }
             else
             {
-                if ((cldrVersion == null) || (cldrVersion.compareTo("")==0))
-                    cldrVersion = defaultVersion;
                 dtd = dtd + "\n" + "[\n" + "\t<!ENTITY % " + namespace + " SYSTEM \"http://www.unicode.org/cldr/dtd/" + cldrVersion + "/" + nsDTD + "\">\n%" + namespace +";\n]\n>" ;
             }
         }
@@ -120,8 +104,18 @@ public class LDMLLocaleWriter extends XMLWriter
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH) + 1 ;  //Calendar first month is 0
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        String date = year + "-" + month + "-" + day;
+        String date = year + "/" + month + "/" + day;
         return date;
+    }
+    
+        public String getTime()
+    {
+        Calendar cal = Calendar.getInstance();
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int min = cal.get(Calendar.MINUTE) ;  
+        int sec = cal.get(Calendar.SECOND);
+        String time = hour + ":" + min + ":" + sec;
+        return time;
     }
     
     protected void writeIdentity(Locale locale, String message)
@@ -136,13 +130,13 @@ public class LDMLLocaleWriter extends XMLWriter
         println(LDMLConstants.IDENTITY_O);
         indent();
         
-        String version = "1.2";
+        String version = "$Revision$";  //tihs is the CVS version not the CLDR version
         String msgStr = "";
         if (message != null) msgStr = message;
         String versionStr = "<" + LDMLConstants.VERSION + " " + LDMLConstants.NUMBER + "=\"" + version + "\">" + msgStr + LDMLConstants.VERSION_C;
         println(versionStr);
         
-        String generationStr = "<" + LDMLConstants.GENERATION + " " + LDMLConstants.DATE + "=\"" + getDate() + "\"/>";
+        String generationStr = "<" + LDMLConstants.GENERATION + " " + LDMLConstants.DATE + "=\"$Date$\"/>";
         println(generationStr);
         
         String language = "<" + LDMLConstants.LANGUAGE + " " + LDMLConstants.TYPE + " = \"" + lang + "\"/>";
@@ -172,7 +166,7 @@ public class LDMLLocaleWriter extends XMLWriter
         
         String version_number = (String) data.get(LDMLConstants.VERSION + " " + LDMLConstants.NUMBER);
         
-        //the generation info is written under version element as generation element is empty , a bit strange .....
+        //the generation comment is written under version element as generation element is empty
         String generation_info = (String) data.get(LDMLConstants.GENERATION);
         
         String language_type = (String) data.get(LDMLConstants.LANGUAGE + " " + LDMLConstants.TYPE);
@@ -196,7 +190,7 @@ public class LDMLLocaleWriter extends XMLWriter
             println(versionStr);
         }
         
-        String generationStr = "<" + LDMLConstants.GENERATION + " " + LDMLConstants.DATE + "=\"" + getDate() + "\"/>";
+        String generationStr = "<" + LDMLConstants.GENERATION + " " + LDMLConstants.DATE + "=\"$Date$\"/>";
         println(generationStr);
         
         if (language_type != null)
@@ -783,9 +777,9 @@ public class LDMLLocaleWriter extends XMLWriter
             String datum = (String) data.nextElement();
             
             //prepend namespace name to attrib name except where attrib name is a std one like "default"
-            if ((key.compareTo(LDMLConstants.DEFAULT)==0) || (key.compareTo(LDMLConstants.TYPE)==0))
-                str = str + " " + key + "=\"" + datum +"\"";
-            else
+     //       if ((key.compareTo(LDMLConstants.DEFAULT)==0) || (key.compareTo(LDMLConstants.TYPE)==0))
+     //           str = str + " " + key + "=\"" + datum +"\"";
+     //       else
                 str = str + " " + namespace + ":" + key + "=\"" + datum +"\"";
         }
         
@@ -818,9 +812,9 @@ public class LDMLLocaleWriter extends XMLWriter
             String datum = (String) data.nextElement();
             
             //prepend namespace name to attrib name except where attrib name is a std one like "default"
-            if ((key.compareTo(LDMLConstants.DEFAULT)==0) || (key.compareTo(LDMLConstants.TYPE)==0))
-                str = str + " " + key + "=\"" + datum +"\"";
-            else
+      //      if ((key.compareTo(LDMLConstants.DEFAULT)==0) || (key.compareTo(LDMLConstants.TYPE)==0))
+      //          str = str + " " + key + "=\"" + datum +"\"";
+      //      else
                 str = str + " " + namespace + ":" + key + "=\"" + datum +"\"";
         }
         

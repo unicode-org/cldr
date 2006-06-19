@@ -94,6 +94,7 @@ public class OOConstants
     public static final String UNICODE_SCRIPT           = "UnicodeScript";
     public static final String FOLLOW_PAGE_WORD         = "FollowPageWord";
     public static final String PHONETIC                 = "phonetic";
+    public static final String MODULE                   = "module";
     public static final String TRANSLITERATION          = "Transliteration";
     public static final String FORBIDDEN_CHARACTERS     = "ForbiddenCharacters";
     public static final String RESERVED_WORDS            = "ReservedWords";

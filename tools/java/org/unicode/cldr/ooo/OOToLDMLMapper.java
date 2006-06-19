@@ -481,25 +481,37 @@ public class OOToLDMLMapper
             return null;
         
         Hashtable LDMLData = new Hashtable();
-        
-        String dateSeparator = (String) OOData.get(OOConstants.DATE_SEPARATOR);
-        if (dateSeparator != null) LDMLData.put(OpenOfficeLDMLConstants.DATE_SEPARATOR, dateSeparator);
-        
+               
         String thousandSeparator = (String) OOData.get( OOConstants.THOUSAND_SEPARATOR);
         if (thousandSeparator != null) LDMLData.put(LDMLConstants.GROUP, thousandSeparator);
         
         String decimalSeparator = (String) OOData.get( OOConstants.DECIMAL_SEPARATOR);
         if (decimalSeparator != null) LDMLData.put(LDMLConstants.DECIMAL, decimalSeparator);
+               
+        String listSeparator = (String) OOData.get( OOConstants.LIST_SEPARATOR);
+        if (listSeparator != null) LDMLData.put(LDMLConstants.LIST, listSeparator);
+               
+        return LDMLData;
+    }
+    
+     //symbols held in Hashtable, key = OOConstant element name, value = element value
+    //return same values but mapped to LDMLConstants
+    public static Hashtable MapOOSymbols(Hashtable OOData)
+    {
+        if ((OOData == null) || (OOData.size()==0))
+            return null;
         
+        Hashtable LDMLData = new Hashtable();
+        
+        String dateSeparator = (String) OOData.get(OOConstants.DATE_SEPARATOR);
+        if (dateSeparator != null) LDMLData.put(OpenOfficeLDMLConstants.DATE_SEPARATOR, dateSeparator);
+             
         String timeSeparator = (String) OOData.get( OOConstants.TIME_SEPARATOR);
         if (timeSeparator != null) LDMLData.put(OpenOfficeLDMLConstants.TIME_SEPARATOR, timeSeparator);
         
         String time100SecSeparator = (String) OOData.get( OOConstants.TIME_100SEC_SEPARATOR);
         if (time100SecSeparator != null) LDMLData.put(OpenOfficeLDMLConstants.TIME_100SEC_SEPARATOR, time100SecSeparator);
-        
-        String listSeparator = (String) OOData.get( OOConstants.LIST_SEPARATOR);
-        if (listSeparator != null) LDMLData.put(LDMLConstants.LIST, listSeparator);
-        
+               
         String longDateDayOfWeekSeparator = (String) OOData.get( OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
         if (longDateDayOfWeekSeparator != null) LDMLData.put(OpenOfficeLDMLConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR, longDateDayOfWeekSeparator);
         

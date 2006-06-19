@@ -55,12 +55,12 @@ public class LDMLToOOMapper
                 // will not be written, as required attribute would be missing
                 // in the output formatElement.
                 
-                defaultKey = (String) innerLDML.get(LDMLConstants.DEFAULT);
+                defaultKey = (String) innerLDML.get(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT);
                 if ((defaultKey != null) && (defaultKey.length()>0))
                     formatElementAttribs.put(OOConstants.DEFAULT, defaultKey);
                 defaultKey = null;
                 
-                type = (String) innerLDML.get(LDMLConstants.TYPE);
+                type = (String) innerLDML.get(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TYPE);
                 if ((type != null) && (type.length()>0))
                     formatElementAttribs.put(OOConstants.TYPE, type);
                 type = null;
@@ -126,6 +126,12 @@ public class LDMLToOOMapper
                     collationElement.remove(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.UNOID);
                     collationElement.put(OOConstants.UNOID,  unoid);
                 }
+                String def = (String) collationElement.get(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT);
+                if (def != null)
+                {
+                    collationElement.remove(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT);
+                    collationElement.put(OOConstants.DEFAULT,  def);
+                }
             }
         }//end while
     }
@@ -133,6 +139,7 @@ public class LDMLToOOMapper
     /*
      *OpenOffice:unoid => unoid
      *OpenOffice:phonetic => phonetic
+     *OpenOffice:module => module
      */
     public static void MapIndexKeys(Vector inIndexKeys)
     {
@@ -160,6 +167,22 @@ public class LDMLToOOMapper
                     {
                         attribs.remove(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.PHONETIC);
                         attribs.put(OOConstants.PHONETIC, phonetic);
+                    }
+                    
+                   //module
+                    String module = (String) attribs.get(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.MODULE);
+                    if ((module != null) && (module.length()>0))
+                    {
+                        attribs.remove(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.MODULE);
+                        attribs.put(OOConstants.MODULE, module);
+                    }      
+                    
+                    //default
+                    String def = (String) attribs.get(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT);
+                    if (def != null)
+                    {
+                        attribs.remove(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT);
+                        attribs.put(OOConstants.DEFAULT,  def);
                     }
                 }
             }

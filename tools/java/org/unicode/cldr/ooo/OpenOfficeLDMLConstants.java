@@ -84,6 +84,7 @@ public class OpenOfficeLDMLConstants
     public static final String UNICODE_SCRIPT           = "unicodeScript";
     public static final String FOLLOW_PAGE_WORD         = "followPageWord";
     public static final String PHONETIC                 = "phonetic";
+    public static final String MODULE                   = "module";
     
     public static final String DEFAULT_NAME             = "defaultName";
     
@@ -103,4 +104,14 @@ public class OpenOfficeLDMLConstants
     public static final String LOCALE                    = "locale";
     public static final String VERSION_DTD              = "versionDTD";
     public static final String ALLOW_UPDATE_FROM_CLDR   = "allowUpdateFromCLDR";
+    
+    public static final String LONG                     = "long";
+    public static final String MEDIUM                   = "medium";
+    public static final String SHORT                    = "short";
+    
+    public static final String TRUE                     = "true";
+    public static final String FALSE                    = "false";
+    
+   public static final String TYPE                       = "type";
+   public static final String DEFAULT                    = "default";
 }

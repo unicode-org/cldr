@@ -18,7 +18,7 @@
 			<language type="af">afrikaans</language>
 			<language type="afa">afro-asiatica (altra lingua)</language>
 			<language type="afh">afrihili</language>
-			<language type="ain">ainu</language>
+			<language type="ain" references="RP2">ainu</language>
 			<language type="ak">akan</language>
 			<language type="akk">accado</language>
 			<language type="ale">aleuto</language>
@@ -134,7 +134,7 @@
 			<language type="eu">basco</language>
 			<language type="ewo">ewondo</language>
 			<language type="fa">persiano</language>
-			<language type="fan">fang</language>
+			<language type="fan" references="RP2">fang</language>
 			<language type="fat">fanti</language>
 			<language type="ff">fulah</language>
 			<language type="fi">finlandese</language>
@@ -293,7 +293,7 @@
 			<language type="mul">multilingua</language>
 			<language type="mun">munda (altra lingua)</language>
 			<language type="mus">creek</language>
-			<language type="mwl">mirandese</language>
+			<language type="mwl" references="RP2">mirandese</language>
 			<language type="mwr">marwari</language>
 			<language type="my">birmano</language>
 			<language type="myn">lingue maya</language>
@@ -302,7 +302,7 @@
 			<language type="nah">nahuatl</language>
 			<language type="nai">indiano del Nord America (altra lingua)</language>
 			<language type="nap">napoletano</language>
-			<language type="nb" draft="provisional">norvegese bokmal</language>
+			<language type="nb" references="RP1" draft="provisional">norvegese bokmal</language>
 			<language type="nd">ndebele del nord</language>
 			<language type="nds">basso tedesco; basso sassone</language>
 			<language type="ne">nepalese</language>
@@ -359,7 +359,7 @@
 			<language type="roa">lingua romanza (altra lingua)</language>
 			<language type="rom">romani</language>
 			<language type="ru">russo</language>
-			<language type="rup">arumeno</language>
+			<language type="rup" references="RP3">arumeno</language>
 			<language type="rw">kinyarwanda</language>
 			<language type="sa">sanscrito</language>
 			<language type="sad">sandawe</language>
@@ -425,7 +425,7 @@
 			<language type="tk">turcomanno</language>
 			<language type="tkl">tokelau</language>
 			<language type="tl">tagalog</language>
-			<language type="tlh">klingon</language>
+			<language type="tlh" references="RP2">klingon</language>
 			<language type="tli">tlingit</language>
 			<language type="tmh">tamashek</language>
 			<language type="tn">tswana</language>
@@ -438,7 +438,7 @@
 			<language type="tt">tatarico</language>
 			<language type="tum">tumbuka</language>
 			<language type="tup">lingue tupi</language>
-			<language type="tut">altaica (altra lingua)</language>
+			<language type="tut" references="RP2">altaica (altra lingua)</language>
 			<language type="tvl">tuvalu</language>
 			<language type="tw">ci</language>
 			<language type="ty">taitiano</language>
@@ -453,7 +453,7 @@
 			<language type="uz">usbeco</language>
 			<language type="ve">venda</language>
 			<language type="vi">vietnamita</language>
-			<language type="vo">volapük</language>
+			<language type="vo" references="RP2">volapük</language>
 			<language type="vot">voto</language>
 			<language type="wa">vallone</language>
 			<language type="wak">lingue wakash</language>
@@ -496,8 +496,8 @@
 			<script type="Copt">copto</script>
 			<script type="Cprt">cipriota</script>
 			<script type="Cyrl">cirillico</script>
-			<script type="Cyrs">cirillico (variante antica chiesa slavonica)</script>
-			<script type="Cyrs" alt="proposed-u207-1" draft="provisional">cirillico</script>
+			<script type="Cyrs" references="RP4">cirillico (variante antica chiesa slavonica)</script>
+			<script type="Cyrs" references="RP4" alt="proposed-u207-1" draft="provisional">cirillico</script>
 			<script type="Deva">devanagari</script>
 			<script type="Dsrt">deseret</script>
 			<script type="Egyd">egiziano demotico</script>
@@ -506,7 +506,7 @@
 			<script type="Ethi">etiope</script>
 			<script type="Geok">kutsuri</script>
 			<script type="Geor">georgiano</script>
-			<script type="Glag">glagolitico</script>
+			<script type="Glag" references="RP2">glagolitico</script>
 			<script type="Goth">gotico</script>
 			<script type="Grek">greco</script>
 			<script type="Gujr">gujarati</script>
@@ -558,37 +558,37 @@
 			<script type="Zyyy">comune</script>
 		</scripts>
 		<territories>
-			<territory type="001">Mondo</territory>
-			<territory type="002">Africa</territory>
-			<territory type="005">America del Sud</territory>
-			<territory type="009">Oceania</territory>
-			<territory type="011">Africa occidentale</territory>
-			<territory type="013">America centrale</territory>
-			<territory type="014">Africa orientale</territory>
-			<territory type="015">Africa del Nord</territory>
-			<territory type="017">Africa centrale</territory>
-			<territory type="018">Africa del Sud</territory>
-			<territory type="019">Americhe</territory>
-			<territory type="021">America del Nord</territory>
-			<territory type="029">Caraibi</territory>
+			<territory type="001" references="RP4">Mondo</territory>
+			<territory type="002" references="RP4">Africa</territory>
+			<territory type="005" references="RP4">America del Sud</territory>
+			<territory type="009" references="RP4">Oceania</territory>
+			<territory type="011" references="RP4">Africa occidentale</territory>
+			<territory type="013" references="RP4">America centrale</territory>
+			<territory type="014" references="RP4">Africa orientale</territory>
+			<territory type="015" references="RP4">Africa del Nord</territory>
+			<territory type="017" references="RP4">Africa centrale</territory>
+			<territory type="018" references="RP4">Africa del Sud</territory>
+			<territory type="019" references="RP4">Americhe</territory>
+			<territory type="021" references="RP4">America del Nord</territory>
+			<territory type="029" references="RP4">Caraibi</territory>
 			<territory type="030">Asia orientale</territory>
 			<territory type="030" alt="proposed-u166-1" draft="provisional">Africa orientale</territory>
-			<territory type="034">Asia del Sud</territory>
-			<territory type="035">Asia sudorientale</territory>
-			<territory type="039">Europa del Sud</territory>
-			<territory type="053">Australia e Nuova Zelanda</territory>
-			<territory type="054">Melanesia</territory>
-			<territory type="057">Micronesia</territory>
-			<territory type="061">Polinesia</territory>
-			<territory type="142">Asia</territory>
-			<territory type="143">Asia centrale</territory>
-			<territory type="145">Asia occidentale</territory>
-			<territory type="150">Europa</territory>
-			<territory type="151">Europa orientale</territory>
-			<territory type="154">Europa del Nord</territory>
-			<territory type="155">Europa occidentale</territory>
-			<territory type="172">Comunità di Stati Indipendenti</territory>
-			<territory type="419">America Latina e Caraibi</territory>
+			<territory type="034" references="RP4">Asia del Sud</territory>
+			<territory type="035" references="RP4">Asia sudorientale</territory>
+			<territory type="039" references="RP4">Europa del Sud</territory>
+			<territory type="053" references="RP4">Australia e Nuova Zelanda</territory>
+			<territory type="054" references="RP4">Melanesia</territory>
+			<territory type="057" references="RP4">Micronesia</territory>
+			<territory type="061" references="RP4">Polinesia</territory>
+			<territory type="142" references="RP4">Asia</territory>
+			<territory type="143" references="RP4">Asia centrale</territory>
+			<territory type="145" references="RP4">Asia occidentale</territory>
+			<territory type="150" references="RP4">Europa</territory>
+			<territory type="151" references="RP4">Europa orientale</territory>
+			<territory type="154" references="RP4">Europa del Nord</territory>
+			<territory type="155" references="RP4">Europa occidentale</territory>
+			<territory type="172" references="RP4">Comunità di Stati Indipendenti</territory>
+			<territory type="419" references="RP4">America Latina e Caraibi</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Emirati Arabi Uniti</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -769,7 +769,7 @@
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Qatar</territory>
-			<territory type="QO">Oceania lontana</territory>
+			<territory type="QO" references="RP2">Oceania lontana</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Romania</territory>
 			<territory type="RU">Federazione Russa</territory>

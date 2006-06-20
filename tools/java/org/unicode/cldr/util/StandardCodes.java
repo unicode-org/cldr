@@ -671,6 +671,13 @@ public class StandardCodes {
 		    			+ (i == 0 ? "" : i < 0 ? "" + i : "+" + i),
 		    			pieces);
 		    }
+		    // add Unknown
+		    List pieces = new ArrayList();
+	    	pieces.add(new Double(0)); // lat
+	    	pieces.add(new Double(0)); // long
+	    	pieces.add(NO_COUNTRY); // country
+	    	zoneData.put("Etc/Unknown", pieces);
+
 		    zoneData = (Map) Utility.protectCollection(zoneData); // protect for later
 		    
             
@@ -745,9 +752,12 @@ public class StandardCodes {
 		    	in.close();
 		    }
 		    // add in stuff that should be links
-		    linkedItems.add("Etc/UTC", "Etc/GMT");
-		    linkedItems.add("Etc/UCT", "Etc/GMT");
-		    linkedItems.add("Navajo", "America/Shiprock");
+		    for (int i = 0; i < ADD_ZONE_ALIASES_DATA.length; ++i) {
+		    	linkedItems.add(ADD_ZONE_ALIASES_DATA[i][0], ADD_ZONE_ALIASES_DATA[i][1]);
+		    }
+//		    linkedItems.add("Etc/UTC", "Etc/GMT");
+//		    linkedItems.add("Etc/UCT", "Etc/GMT");
+//		    linkedItems.add("Navajo", "America/Shiprock");
 
 		    Set isCanonical = zoneData.keySet();
 
@@ -917,7 +927,39 @@ public class StandardCodes {
     private static Map FIX_UNSTABLE_TZIDS;
     private static Map RESTORE_UNSTABLE_TZIDS;
     private static Set SKIP_LINKS = new HashSet(Arrays.asList(new String[]{"Navajo", "America/Shiprock"}));
-
+    
+    private static String[][] ADD_ZONE_ALIASES_DATA = {
+		{"Etc/UTC", "Etc/GMT"},
+		{"Etc/UCT", "Etc/GMT"},
+		{"Navajo", "America/Shiprock"},
+		// extras added in 2006g
+		{"SystemV/AST4ADT", "America/Halifax"},
+		{"SystemV/EST5EDT", "America/New_York"},
+		{"EST5EDT", "America/New_York"},	
+		{"SystemV/CST6CDT", "America/Chicago"},
+		{"CST6CDT", "America/Chicago"},		
+		{"SystemV/MST7MDT", "America/Denver"},
+		{"MST7MDT", "America/Denver"},	
+		{"SystemV/PST8PDT", "America/Los_Angeles"},
+		{"PST8PDT", "America/Los_Angeles"},
+		{"SystemV/YST9YDT", "America/Anchorage"},
+		{"SystemV/AST4", "America/Puerto_Rico"},
+		{"SystemV/EST5", "America/Indianapolis"},
+		{"EST", "America/Indianapolis"},
+		{"SystemV/CST6", "America/Regina"},
+		{"SystemV/MST7", "America/Phoenix"},
+		{"MST", "America/Phoenix"},
+		{"SystemV/PST8", "Pacific/Pitcairn"},
+		{"SystemV/YST9", "Pacific/Gambier"},
+		{"SystemV/HST10", "Pacific/Honolulu"},
+		{"HST", "Pacific/Honolulu"},
+    };
+    static String[] FIX_DEPRECATED_ZONE_DATA = {
+    	"Africa/Timbuktu",
+    	"America/Argentina/ComodRivadavia",
+    	"Europe/Belfast",
+    	"Pacific/Yap"
+    	};
     static {
     	String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
     			{"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
@@ -930,6 +972,10 @@ public class StandardCodes {
     	};
     	FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
     	RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA, new HashMap(), true);
+    }
+    
+    public List getDeprecatedZoneIDs() {
+    	return Arrays.asList(FIX_DEPRECATED_ZONE_DATA);
     }
     
     private List DELETED3166 = Collections.unmodifiableList(Arrays.asList(new String[] {

@@ -135,7 +135,7 @@
 			<language type="et">viro</language>
 			<language type="eu">baski</language>
 			<language type="ewo">ewondo</language>
-			<language type="fa">farsi; persia</language>
+			<language type="fa" references="R1">farsi; persia</language>
 			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
 			<language type="ff">fulani</language>
@@ -170,7 +170,7 @@
 			<language type="grb">grebo</language>
 			<language type="grc">muinaiskreikka</language>
 			<language type="gsw">sveitsinsaksa</language>
-			<language type="gu">gudžarati</language>
+			<language type="gu" references="R1">gudžarati</language>
 			<language type="gv">manx</language>
 			<language type="gwi">gwitšin</language>
 			<language type="ha">hausa</language>
@@ -506,7 +506,7 @@
 			<script type="Cans">Kanadan alkuperäiskansojen yhtenäistetty tavukirjoitus</script>
 			<script type="Cham">tšamilainen</script>
 			<script type="Cher">cherokeelainen</script>
-			<script type="Cirt">cirth</script>
+			<script type="Cirt" references="RP1">cirth</script>
 			<script type="Copt">koptilainen</script>
 			<script type="Cprt">muinaiskyproslainen</script>
 			<script type="Cyrl">kyrillinen</script>
@@ -568,7 +568,7 @@
 			<script type="Qaai">peritty</script>
 			<script type="Roro">rongorongo</script>
 			<script type="Runr">riimukirjoitus</script>
-			<script type="Sara">sarati</script>
+			<script type="Sara" references="RP1">sarati</script>
 			<script type="Shaw">shaw’lainen</script>
 			<script type="Sinh">sinhalilainen</script>
 			<script type="Sylo">syloti nagri</script>
@@ -581,7 +581,7 @@
 			<script type="Talu">uusi tailuelainen</script>
 			<script type="Taml">tamililainen</script>
 			<script type="Telu">telugulainen</script>
-			<script type="Teng">tengwar</script>
+			<script type="Teng" references="RP1">tengwar</script>
 			<script type="Tfng">tifinagh</script>
 			<script type="Tglg">tagalogilainen</script>
 			<script type="Thaa">thaana</script>
@@ -1152,7 +1152,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">tišrí</month>
+							<month type="1" references="R2">tišrí</month>
 							<month type="2">hešván</month>
 							<month type="3">kislév</month>
 							<month type="4">tevét</month>
@@ -1167,7 +1167,7 @@
 							<month type="13">elúl</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">tišríkuu</month>
+							<month type="1" references="R2">tišríkuu</month>
 							<month type="2">hešvánkuu</month>
 							<month type="3">kislévkuu</month>
 							<month type="4">tevétkuu</month>
@@ -1188,30 +1188,30 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1">muharram</month>
-							<month type="1" alt="proposed-u7-1" draft="provisional">muharramkuu</month>
-							<month type="2">safar</month>
-							<month type="2" alt="proposed-u7-1" draft="provisional">safarkuu</month>
-							<month type="3">rabi’ al-awwal</month>
-							<month type="3" alt="proposed-u7-1" draft="provisional">rabi’ al-awwal -kuu</month>
-							<month type="4">rabi’ al-akhir</month>
-							<month type="4" alt="proposed-u7-1" draft="provisional">rabi’ al-akhir -kuu</month>
-							<month type="5">džumada-l-ula</month>
-							<month type="5" alt="proposed-u7-1" draft="provisional">džumada-l-ula-kuu</month>
-							<month type="6">džumada-l-akhira</month>
-							<month type="6" alt="proposed-u7-1" draft="provisional">džumada-l-akhira-kuu</month>
-							<month type="7">radžab</month>
-							<month type="7" alt="proposed-u7-1" draft="provisional">radžabkuu</month>
-							<month type="8">ša’ban</month>
-							<month type="8" alt="proposed-u7-1" draft="provisional">ša’bankuu</month>
-							<month type="9">ramadan</month>
-							<month type="9" alt="proposed-u7-1" draft="provisional">ramadankuu</month>
-							<month type="10">šawwal</month>
-							<month type="10" alt="proposed-u7-1" draft="provisional">šawwalkuu</month>
-							<month type="11">dhu-l-qa’da</month>
-							<month type="11" alt="proposed-u7-1" draft="provisional">dhu-l-qa’da-kuu</month>
-							<month type="12">dhu-l-hiddža</month>
-							<month type="12" alt="proposed-u7-1" draft="provisional">dhu-l-hiddža-kuu</month>
+							<month type="1" references="R2">muharram</month>
+							<month type="1" references="R2" alt="proposed-u7-1" draft="provisional">muharramkuu</month>
+							<month type="2" references="R2">safar</month>
+							<month type="2" references="R2" alt="proposed-u7-1" draft="provisional">safarkuu</month>
+							<month type="3" references="R2">rabi’ al-awwal</month>
+							<month type="3" references="R2" alt="proposed-u7-1" draft="provisional">rabi’ al-awwal -kuu</month>
+							<month type="4" references="R2">rabi’ al-akhir</month>
+							<month type="4" references="R2" alt="proposed-u7-1" draft="provisional">rabi’ al-akhir -kuu</month>
+							<month type="5" references="R2">džumada-l-ula</month>
+							<month type="5" references="R2" alt="proposed-u7-1" draft="provisional">džumada-l-ula-kuu</month>
+							<month type="6" references="R2">džumada-l-akhira</month>
+							<month type="6" references="R2" alt="proposed-u7-1" draft="provisional">džumada-l-akhira-kuu</month>
+							<month type="7" references="R2">radžab</month>
+							<month type="7" references="R2" alt="proposed-u7-1" draft="provisional">radžabkuu</month>
+							<month type="8" references="R2">ša’ban</month>
+							<month type="8" references="R2" alt="proposed-u7-1" draft="provisional">ša’bankuu</month>
+							<month type="9" references="R2">ramadan</month>
+							<month type="9" references="R2" alt="proposed-u7-1" draft="provisional">ramadankuu</month>
+							<month type="10" references="R2">šawwal</month>
+							<month type="10" references="R2" alt="proposed-u7-1" draft="provisional">šawwalkuu</month>
+							<month type="11" references="R2">dhu-l-qa’da</month>
+							<month type="11" references="R2" alt="proposed-u7-1" draft="provisional">dhu-l-qa’da-kuu</month>
+							<month type="12" references="R2">dhu-l-hiddža</month>
+							<month type="12" references="R2" alt="proposed-u7-1" draft="provisional">dhu-l-hiddža-kuu</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1701,7 +1701,7 @@
 				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
-				<displayName>Kolumbian unidad de valor real</displayName>
+				<displayName references="RP2">Kolumbian unidad de valor real</displayName>
 				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
@@ -1709,7 +1709,7 @@
 				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
-				<displayName>Serbian dinaari</displayName>
+				<displayName references="RP2">Serbian dinaari</displayName>
 				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
@@ -2278,7 +2278,7 @@
 				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
-				<displayName>Surinamin dollari</displayName>
+				<displayName references="RP2">Surinamin dollari</displayName>
 				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">

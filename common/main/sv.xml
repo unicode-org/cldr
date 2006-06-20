@@ -734,7 +734,7 @@
 			<territory type="833">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
-			<territory type="AF">Afghanistan</territory>
+			<territory type="AF" references="R1">Afghanistan</territory>
 			<territory type="AG">Antigua och Barbuda</territory>
 			<territory type="AI">Anguilla</territory>
 			<territory type="AL">Albanien</territory>
@@ -961,8 +961,8 @@
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM">USAs yttre öar</territory>
-			<territory type="US">USA</territory>
+			<territory type="UM" references="R2">USAs yttre öar</territory>
+			<territory type="US" references="R3">USA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikanstaten</territory>
@@ -1085,19 +1085,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
-							<day type="sun" alt="proposed" draft="provisional">sön</day>
+							<day type="sun" references="R4" alt="proposed" draft="provisional">sön</day>
 							<day type="mon">må</day>
-							<day type="mon" alt="proposed" draft="provisional">mån</day>
+							<day type="mon" references="R4" alt="proposed" draft="provisional">mån</day>
 							<day type="tue">ti</day>
-							<day type="tue" alt="proposed" draft="provisional">tis</day>
+							<day type="tue" references="R4" alt="proposed" draft="provisional">tis</day>
 							<day type="wed">on</day>
-							<day type="wed" alt="proposed" draft="provisional">ons</day>
+							<day type="wed" references="R4" alt="proposed" draft="provisional">ons</day>
 							<day type="thu">to</day>
-							<day type="thu" alt="proposed" draft="provisional">tors</day>
+							<day type="thu" references="R4" alt="proposed" draft="provisional">tors</day>
 							<day type="fri">fr</day>
-							<day type="fri" alt="proposed" draft="provisional">fre</day>
+							<day type="fri" references="R4" alt="proposed" draft="provisional">fre</day>
 							<day type="sat">lö</day>
-							<day type="sat" alt="proposed" draft="provisional">lör</day>
+							<day type="sat" references="R4" alt="proposed" draft="provisional">lör</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">söndag</day>
@@ -1158,14 +1158,14 @@
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>EEEE d MMM yyyy</pattern>
-							<pattern alt="proposed-u219-1" draft="provisional">EEEE',' d':e' MMM'.,' yyyy</pattern>
+							<pattern references="R3">EEEE d MMM yyyy</pattern>
+							<pattern references="R3" alt="proposed-u219-1" draft="provisional">EEEE',' d':e' MMM'.,' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM yyyy</pattern>
-							<pattern alt="proposed-u219-1" draft="provisional">d':e' MMM'.,' yyyy</pattern>
+							<pattern references="R3">d MMM yyyy</pattern>
+							<pattern references="R3" alt="proposed-u219-1" draft="provisional">d':e' MMM'.,' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1624,12 +1624,12 @@
 				<displayName>Azerbajdzjansk manat</displayName>
 			</currency>
 			<currency type="BAD">
-				<displayName>Bosnisk-hercegovinsk dinar</displayName>
-				<symbol>BAD</symbol>
+				<displayName references="R5">Bosnisk-hercegovinsk dinar</displayName>
+				<symbol references="R5">BAD</symbol>
 			</currency>
 			<currency type="BAM">
-				<displayName>Konvertibel bosnisk-hercegovinsk mark</displayName>
-				<symbol>KM</symbol>
+				<displayName references="R5">Konvertibel bosnisk-hercegovinsk mark</displayName>
+				<symbol references="R5">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadisk dollar</displayName>
@@ -1964,8 +1964,8 @@
 				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
-				<displayName>Cayman-dollar</displayName>
-				<symbol>KYD</symbol>
+				<displayName references="R5">Cayman-dollar</displayName>
+				<symbol references="R5">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakisk tenge</displayName>

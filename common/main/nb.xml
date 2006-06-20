@@ -687,8 +687,8 @@
 			<territory type="BE">Belgia</territory>
 			<territory type="BF">Burkina Faso</territory>
 			<territory type="BG">Bulgaria</territory>
-			<territory type="BH">Bahrain</territory>
-			<territory type="BH" alt="proposed-u124-1" draft="unconfirmed">Bahrein</territory>
+			<territory type="BH" references="RP4">Bahrain</territory>
+			<territory type="BH" references="RP4" alt="proposed-u124-1" draft="unconfirmed">Bahrein</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
 			<territory type="BM">Bermuda</territory>
@@ -965,18 +965,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">jan.</month>
-							<month type="2">feb.</month>
-							<month type="3">mars</month>
-							<month type="4">april</month>
-							<month type="5">mai</month>
-							<month type="6">juni</month>
-							<month type="7">juli</month>
-							<month type="8">aug.</month>
-							<month type="9">sep.</month>
-							<month type="10">okt.</month>
-							<month type="11">nov.</month>
-							<month type="12">des.</month>
+							<month type="1" references="R1">jan.</month>
+							<month type="2" references="R1">feb.</month>
+							<month type="3" references="R1">mars</month>
+							<month type="4" references="R1">april</month>
+							<month type="5" references="R1">mai</month>
+							<month type="6" references="R1">juni</month>
+							<month type="7" references="R1">juli</month>
+							<month type="8" references="R1">aug.</month>
+							<month type="9" references="R1">sep.</month>
+							<month type="10" references="R1">okt.</month>
+							<month type="11" references="R1">nov.</month>
+							<month type="12" references="R1">des.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -1013,13 +1013,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">sø.</day>
-							<day type="mon">ma.</day>
-							<day type="tue">ti.</day>
-							<day type="wed">on.</day>
-							<day type="thu">to.</day>
-							<day type="fri">fr.</day>
-							<day type="sat">lø.</day>
+							<day type="sun" references="R1">sø.</day>
+							<day type="mon" references="R1">ma.</day>
+							<day type="tue" references="R1">ti.</day>
+							<day type="wed" references="R1">on.</day>
+							<day type="thu" references="R1">to.</day>
+							<day type="fri" references="R1">fr.</day>
+							<day type="sat" references="R1">lø.</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">søndag</day>
@@ -1117,10 +1117,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH.mm</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed" draft="unconfirmed">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH.mm.ss</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="unconfirmed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" references="RP1">HH.mm</dateFormatItem>
+						<dateFormatItem id="HHmm" references="RP1" alt="proposed" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" references="RP1">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="HHmmss" references="RP1" alt="proposed" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMdd" alt="proposed" draft="provisional">dd. MMMM</dateFormatItem>
 						<dateFormatItem id="mmssSS" alt="proposed" draft="unconfirmed">mm:ss,SS</dateFormatItem>
@@ -1130,7 +1130,7 @@
 						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE dd. MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed-u28-1" draft="provisional">dd.MM.yy HH.mm</dateFormatItem>
+						<dateFormatItem id="yyMMddHHmm" references="R1" alt="proposed-u28-1" draft="provisional">dd.MM.yy HH.mm</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-u28-1" draft="provisional">EEEE d. MMMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed-u28-1" draft="provisional">EEEE dd. MMMM yyyy</dateFormatItem>
@@ -1139,7 +1139,7 @@
 						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="provisional">d. MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMdd">dd.MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="unconfirmed">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">dd.MM.yyyy HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="yyyyMMddHHmmss" references="R1">dd.MM.yyyy HH.mm.ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>

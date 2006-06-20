@@ -42,7 +42,7 @@
 			<language type="zh">چیني</language>
 		</languages>
 		<scripts>
-			<script type="Arab">عربي</script>
+			<script type="Arab" references="RP1">عربي</script>
 		</scripts>
 		<territories>
 			<territory type="AF">افغانستان</territory>
@@ -212,39 +212,39 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">وری</month>
-							<month type="2">غویی</month>
-							<month type="3">غبرګولی</month>
-							<month type="4">چنګاښ</month>
-							<month type="5">زمری</month>
-							<month type="6">وږی</month>
-							<month type="7">تله</month>
-							<month type="8">لړم</month>
-							<month type="9">لیندۍ</month>
-							<month type="10">مرغومی</month>
-							<month type="11">سلواغه</month>
-							<month type="12">کب</month>
+							<month type="1" references="RP1">وری</month>
+							<month type="2" references="RP1">غویی</month>
+							<month type="3" references="RP1">غبرګولی</month>
+							<month type="4" references="RP1">چنګاښ</month>
+							<month type="5" references="RP1">زمری</month>
+							<month type="6" references="RP1">وږی</month>
+							<month type="7" references="RP1">تله</month>
+							<month type="8" references="RP1">لړم</month>
+							<month type="9" references="RP1">لیندۍ</month>
+							<month type="10" references="RP1">مرغومی</month>
+							<month type="11" references="RP1">سلواغه</month>
+							<month type="12" references="RP1">کب</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">وری</month>
-							<month type="2">غویی</month>
-							<month type="3">غبرګولی</month>
-							<month type="4">چنګاښ</month>
-							<month type="5">زمری</month>
-							<month type="6">وږی</month>
-							<month type="7">تله</month>
-							<month type="8">لړم</month>
-							<month type="9">لیندۍ</month>
-							<month type="10">مرغومی</month>
-							<month type="11">سلواغه</month>
-							<month type="12">کب</month>
+							<month type="1" references="RP1">وری</month>
+							<month type="2" references="RP1">غویی</month>
+							<month type="3" references="RP1">غبرګولی</month>
+							<month type="4" references="RP1">چنګاښ</month>
+							<month type="5" references="RP1">زمری</month>
+							<month type="6" references="RP1">وږی</month>
+							<month type="7" references="RP1">تله</month>
+							<month type="8" references="RP1">لړم</month>
+							<month type="9" references="RP1">لیندۍ</month>
+							<month type="10" references="RP1">مرغومی</month>
+							<month type="11" references="RP1">سلواغه</month>
+							<month type="12" references="RP1">کب</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<regionFormat>د {0} په وخت</regionFormat>
+			<regionFormat references="RP1">د {0} په وخت</regionFormat>
 			<zone type="Asia/Kabul">
 				<exemplarCity>کابل</exemplarCity>
 			</zone>
@@ -254,7 +254,7 @@
 		<currencies>
 			<currency type="AFN">
 				<displayName>افغانۍ</displayName>
-				<symbol>؋</symbol>
+				<symbol references="RP1">؋</symbol>
 			</currency>
 		</currencies>
 	</numbers>

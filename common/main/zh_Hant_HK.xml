@@ -123,12 +123,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日' EEEE</pattern>
+							<pattern references="R1">yyyy'年'M'月'd'日' EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'</pattern>
+							<pattern references="R1">yyyy'年'M'月'd'日'</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

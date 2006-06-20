@@ -70,7 +70,7 @@ Now Verify
 - Paste the $tzid into supplementalData.xml
 - CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION
 
-A. If any IDs changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
+A. If any IDs in zone.tab changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
    AND rerun CountItems.genSupplementalZoneData()
    Eg {"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
    (the format is new name to old name)

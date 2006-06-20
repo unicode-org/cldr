@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.29 $
-    $Date: 2006-06-13 18:41:55 $
+    $Revision: 1.30 $
+    $Date: 2006-06-20 23:31:26 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
@@ -131,6 +131,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT zoneFormatting ( zoneItem* ) >
 <!ATTLIST zoneFormatting multizone NMTOKENS #REQUIRED >
+<!ATTLIST zoneFormatting tzidVersion CDATA #IMPLIED >
 <!ATTLIST zoneFormatting references CDATA #IMPLIED >
 
 <!ELEMENT zoneItem EMPTY >
@@ -204,7 +205,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST attributeValues type NMTOKEN #IMPLIED >
 <!ATTLIST attributeValues order NMTOKEN #IMPLIED >
 
-<!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias* ) >
+<!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias*, zoneAlias* ) >
 <!ATTLIST alias draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
 <!ELEMENT languageAlias EMPTY >
@@ -222,6 +223,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #IMPLIED >
 <!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
+
+<!ELEMENT zoneAlias EMPTY >
+<!ATTLIST zoneAlias type CDATA #IMPLIED >
+<!ATTLIST zoneAlias replacement CDATA #IMPLIED >
 
 <!ELEMENT deprecated ( deprecatedItems* ) >
 <!ATTLIST deprecated draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

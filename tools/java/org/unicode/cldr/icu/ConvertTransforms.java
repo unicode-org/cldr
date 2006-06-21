@@ -1,6 +1,5 @@
 package org.unicode.cldr.icu;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,7 +60,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
 		Set ids = cldrFactory.getAvailable();
 		PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
-		doHeader(index);
+		doRBHeader(index);
 		try {
 			index.println("// File: root.txt");
 			index.println("// Generated from CLDR: " + new Date());
@@ -69,7 +68,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println("root {");
 			index.println("\tRuleBasedTransliteratorIDs {");
 			addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
-			addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
+			//addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
 			addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
 			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
 				String id = (String) idIterator.next();
@@ -114,7 +113,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 				filename = addIndexInfo(index, path);
 				if (filename == null) return; // not a transform file!
 				output = BagFormatter.openUTF8Writer(outputDirectory, filename);
-				doHeader(output);
+				doRuleHeader(output);
 				output.println("# File: " + id + ".txt");
 				output.println("# Generated from CLDR: " + new Date());
 				output.println("#");
@@ -123,7 +122,10 @@ public class ConvertTransforms extends CLDRConverterTool{
 			if (path.indexOf("/comment") >= 0) {
 				if (!skipComments) output.println(value);
 			} else if (path.indexOf("/tRule") >= 0) {
-				output.println(value);
+				 if(skipComments){
+                     value = value.replaceFirst(";\\s+#.*",";");
+                 }
+                output.println(value);
 			} else {
 				throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
 			}
@@ -161,8 +163,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println("\t\t\t\tdirection {\"FORWARD\"}");
 			index.println("\t\t\t}");
 			index.println("\t\t}");
-		}
-		if (direction.equals("both") || direction.equals("backward")) {		
+           
+		}else if (direction.equals("both") || direction.equals("backward")) {		
 			index.println("\t\t" + rid + " {");
 			index.println("\t\t\t" + status + " {");
 			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
@@ -198,7 +200,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 	
 	
 	// fixData ONLY NEEDED TO FIX FILE PROBLEM
-	
+	/*
 	private void fixData(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		File dir = new File(inputDirectory);
 		File[] files = dir.listFiles();
@@ -218,18 +220,28 @@ public class ConvertTransforms extends CLDRConverterTool{
 			output.close();
 		}
 	}
-
-	private void doHeader(PrintWriter output) {
+	*/
+	private void doRuleHeader(PrintWriter output) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy"); 
 		output.print('\uFEFF');
-		output.println("// ***************************************************************************");
-		output.println("// *");
-		output.println("// *  Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
-		output.println("// *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
-		output.println("// *");
-		output.println("// ***************************************************************************");
+        output.println("#--------------------------------------------------------------------");
+        output.println("# ");
+        output.println("#  Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
+        output.println("#  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
+        output.println("# ");
+        output.println("#--------------------------------------------------------------------");
 	}
 
+    private void doRBHeader(PrintWriter output) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy"); 
+        output.print('\uFEFF');
+        output.println("// ******************************************************************");
+        output.println("// * ");
+        output.println("// * Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
+        output.println("// * Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
+        output.println("// * ");
+        output.println("// ******************************************************************");
+    }
     public void processArgs(String[] args) {
         // TODO Auto-generated method stub
         UOption.parseArgs(args, options);

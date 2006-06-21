@@ -87,6 +87,7 @@ public class LDMLUtilities {
         //System.err.println("In getFullyResolvedLDML "+sourceDir + " " + locale);
         try{
             full = parse(sourceDir+File.separator+ "root.xml", ignoreRoot);
+            full = resolveAliases(full, sourceDir, "root", ignoreDraft, stack);  //PN
            /*
             * Debugging
             *
@@ -105,7 +106,6 @@ public class LDMLUtilities {
             locale = locale.substring(0,index);
         }
         if(locale.equals("root")){
-            full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
             return full;
         }
         String[] constituents = locale.split("_");
@@ -128,6 +128,9 @@ public class LDMLUtilities {
             if(file.exists()){
                 isAvailable = true;
                 doc = parse(fileName, ignoreUnavailable);
+                 //resolve aliases now, as source="locale""
+                doc = resolveAliases(doc, sourceDir, loc, ignoreDraft, stack);
+
                 /*
                  * Debugging
                  *
@@ -170,8 +173,6 @@ public class LDMLUtilities {
         
         // get the real locale name
         locale = getLocaleName(full);
-        // Resolve the aliases once the data is built
-        full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
 
        if(DEBUG){
            try {
@@ -758,7 +759,7 @@ public class LDMLUtilities {
         while((parentNode = node.getParentNode())!=null){
             String draft = getAttributeValue(parentNode, LDMLConstants.DRAFT);
             if(draft!=null ){
-                if(draft.equals("true")){
+                if(draft.equals("true") || draft.equals("provisional") || draft.equals("unconfirmed")){
                     return true;
                 }else{
                     return false;
@@ -771,7 +772,7 @@ public class LDMLUtilities {
     public static boolean isNodeDraft(Node node){
         String draft = getAttributeValue(node, LDMLConstants.DRAFT);
         if(draft!=null ){
-            if(draft.equals("true")){
+            if(draft.equals("true") || draft.equals("provisional") || draft.equals("unconfirmed")){
                 return true;
             }else{
                 return false;
@@ -785,7 +786,7 @@ public class LDMLUtilities {
         while(current!=null && current.getNodeType()== Node.ELEMENT_NODE){
             draft = getAttributeValue(current, LDMLConstants.DRAFT);
             if(draft!=null){
-                if(draft.equals("true")){
+                if(draft.equals("true") || draft.equals("provisional") || draft.equals("unconfirmed")){
                     return true;
                 }else{
                     return false;
@@ -801,7 +802,7 @@ public class LDMLUtilities {
         while(current!=null && current.getNodeType()== Node.ELEMENT_NODE){
             draft = getAttributeValue(current, LDMLConstants.DRAFT);
             if(draft!=null){
-                if(draft.equals("true")){
+                if(draft.equals("true") || draft.equals("provisional") || draft.equals("unconfirmed")){
                     return true;
                 }else{
                     return false;

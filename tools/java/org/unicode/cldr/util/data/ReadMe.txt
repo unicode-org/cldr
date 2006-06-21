@@ -47,12 +47,13 @@ This document describes how to update CLDR when this happens.
             <currency iso4217="TRY" from="2005-01-01"/>
   
 - Changing currency.
-  If the currency goes out of use in a country, then change a line, such as:
+  If the currency goes out of use in a country, then add the last day of use, such as:
   
             <region iso3166="TR">
-              <currency iso4217="TRL" from="1922-11-01" to="2005-12-31"/>
-              =>
               <currency iso4217="TRL" from="1922-11-01"/>
+              =>
+            <region iso3166="TR">
+              <currency iso4217="TRL" from="1922-11-01" to="2005-12-31"/>
   
 [TBD]
 

@@ -31,7 +31,7 @@ This document describes how to update CLDR when this happens.
   
 - Adding a currency:
   
-  Add the currency to supplementalMetadata.txt, in 
+  Add the currency to supplementalMetadata.xml, in 
   <variable id="$currency" type="choice">ADP AED AFA AFN .... ZAL ZAR ZMK ZRN ZRZ ZWD</variable>
   
   In SupplementalData:
@@ -39,12 +39,12 @@ This document describes how to update CLDR when this happens.
           <fractions>
             <info iso4217="ADP" digits="0" rounding="0"/>
             ...
-  Add the code to the test file /util/data/ISO4217.txt
-  		currency	|	TRY	|	new Turkish Lira	|	TR	|	TURKEY	|	C
-  
   For each country in which it comes into use, add a line for when it becomes valid
           <region iso3166="TR">
             <currency iso4217="TRY" from="2005-01-01"/>
+
+  Add the code to the test file /util/data/ISO4217.txt
+  		currency	|	TRY	|	new Turkish Lira	|	TR	|	TURKEY	|	C
   
 - Changing currency.
   If the currency goes out of use in a country, then add the last day of use, such as:

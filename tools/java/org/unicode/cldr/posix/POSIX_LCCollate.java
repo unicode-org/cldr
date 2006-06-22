@@ -86,10 +86,11 @@ public class POSIX_LCCollate {
         UnicodeSetIterator it = new UnicodeSetIterator(tailored);
         while ( it.next() )
         {
-           if ( it.codepoint != UnicodeSetIterator.IS_STRING )
+           if ( it.codepoint != UnicodeSetIterator.IS_STRING && it.codepoint < 0xffff )
               chars.add(it.codepoint);
         }
      }
+
      allItems = new SortedBag(col);
      contractions = new SortedBag(col);
 

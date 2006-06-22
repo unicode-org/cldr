@@ -67,14 +67,14 @@ public class POSIXLocale {
         UnicodeSetIterator ec = new UnicodeSetIterator(ExemplarCharacters);
         while ( ec.next() )
         {
-           if ( (ec.codepoint != UnicodeSetIterator.IS_STRING) && (ec.codepoint <= 0x10ffff) )
+           if ( (ec.codepoint != UnicodeSetIterator.IS_STRING) && (ec.codepoint <= 0x00ffff) )
            repertoire.add(ec.codepoint);
         }
         UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
         UnicodeSetIterator cf = new UnicodeSetIterator(CaseFoldedExemplars);
         while ( cf.next() )
         {
-           if ( (cf.codepoint != UnicodeSetIterator.IS_STRING) && (cf.codepoint <= 0x10ffff) )
+           if ( (cf.codepoint != UnicodeSetIterator.IS_STRING) && (cf.codepoint <= 0x00ffff) )
            repertoire.add(cf.codepoint);
         }
 
@@ -82,7 +82,7 @@ public class POSIXLocale {
         int PreviousScript = UScript.INVALID_CODE;
         while ( it.next() )
         {
-           if ( (it.codepoint != UnicodeSetIterator.IS_STRING) && (it.codepoint <= 0x10ffff) )
+           if ( (it.codepoint != UnicodeSetIterator.IS_STRING) && (it.codepoint <= 0x00ffff) )
            {
               int Script = UScript.getScript(it.codepoint);
               if ( Script != UScript.COMMON && 
@@ -92,7 +92,12 @@ public class POSIXLocale {
                    Script != PreviousScript ) // Hopefully this speeds up the process...
               {
                  UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT,Script);
-                 repertoire.addAll(ThisScript);
+                 UnicodeSetIterator ts = new UnicodeSetIterator(ThisScript);
+                 while ( ts.next() ) 
+                 {
+                    if ( (ts.codepoint != UnicodeSetIterator.IS_STRING) && (ts.codepoint <= 0x00ffff) )
+                       repertoire.add(ts.codepoint);
+                 }
                  PreviousScript = Script;
               }
            } 

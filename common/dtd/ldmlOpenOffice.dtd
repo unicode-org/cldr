@@ -48,16 +48,23 @@ openOffice:quarter4Abbreviation?)>
 <!-- order is significant! -->
 <!ELEMENT openOffice:trueWord (#PCDATA)>
 <!ELEMENT openOffice:falseWord (#PCDATA)>
+
+<!-- START_DEPRECATED -->
 <!ELEMENT openOffice:quarter1Word (#PCDATA)>
 <!ELEMENT openOffice:quarter2Word (#PCDATA)>
 <!ELEMENT openOffice:quarter3Word (#PCDATA)>
 <!ELEMENT openOffice:quarter4Word (#PCDATA)>
+<!-- END_DEPRECATED -->
+
 <!ELEMENT openOffice:aboveWord (#PCDATA)>
 <!ELEMENT openOffice:belowWord (#PCDATA)>
-<!ELEMENT openOffice:quarter1Abbreviation (#PCDATA)>    <!-- "Q1" (quarter), "T1" (trimestre), ... -->
+
+<!-- START_DEPRECATED -->
+<!ELEMENT openOffice:quarter1Abbreviation (#PCDATA)>   
 <!ELEMENT openOffice:quarter2Abbreviation (#PCDATA)>
 <!ELEMENT openOffice:quarter3Abbreviation (#PCDATA)>
 <!ELEMENT openOffice:quarter4Abbreviation (#PCDATA)>
+<!-- END_DEPRECATED -->
 
 <!ELEMENT openOffice:collations (openOffice:collator*,
 openOffice:collationOptions?) >

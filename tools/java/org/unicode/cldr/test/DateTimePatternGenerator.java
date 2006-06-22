@@ -28,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -91,7 +92,7 @@ public class DateTimePatternGenerator {
         public int status;
         public String conflictingPattern;
     }
-    
+    static Transliterator fromHex = Transliterator.getInstance("hex-any");
     /**
      * Adds a pattern to the generator. If the pattern has the same skeleton as an existing pattern,
      * and the override parameter is set, then the previous value is overriden. Otherwise, the previous
@@ -100,6 +101,10 @@ public class DateTimePatternGenerator {
      * @param override when existing values are to be overridden use true, otherwise use false.
      */
     public DateTimePatternGenerator add(String pattern, boolean override, PatternInfo returnInfo) {
+    	if (pattern.indexOf("\\u") >= 0) {
+    		String oldPattern = pattern;
+    		pattern = fromHex.transliterate(pattern);
+    	}
         DateTimeMatcher matcher = new DateTimeMatcher().set(pattern, fp);
         String previousValue = (String)skeleton2pattern.get(matcher);
         if (previousValue != null) {
@@ -439,6 +444,14 @@ public class DateTimePatternGenerator {
         return newPattern.toString();
     }
     
+    public static String repeat(String s, int count) {
+    	StringBuffer result = new StringBuffer();
+    	for (int i = 0; i < count; ++i) {
+    		result.append(s);
+    	}
+    	return result.toString();
+    }
+    
     String getFields(String pattern) {
         fp.set(pattern);
         StringBuffer newPattern = new StringBuffer();
@@ -598,6 +611,10 @@ public class DateTimePatternGenerator {
         }
         
         DateTimeMatcher set(String pattern, FormatParser fp) {
+        	if (pattern.indexOf("\\u") >= 0) {
+        		String oldPattern = pattern;
+        		pattern = fromHex.transliterate(pattern);
+        	}
             for (int i = 0; i < TYPE_LIMIT; ++i) {
                 type[i] = NONE;
                 original[i] = "";
@@ -722,11 +739,11 @@ public class DateTimePatternGenerator {
         }
     }
 
-    static class FormatParser {
+    static public class FormatParser {
         private List items = new ArrayList();
         private char quoteChar = '\'';
         
-        FormatParser set(String string) {
+        public FormatParser set(String string) {
             items.clear();
             if (string.length() == 0) return this;
             //int start = 1;
@@ -802,19 +819,58 @@ public class DateTimePatternGenerator {
         private boolean isVariableField(char last) {
             return last <= 'z' && last >= 'A' && (last >= 'a' || last <= 'Z');
         }
+        /**
+         * Returns modifiable list
+         * @return
+         */
         public List getItems() {
-            return Collections.unmodifiableList(items);
+            return items;
         }
+        public String toString() {
+        	StringBuffer result = new StringBuffer();
+        	for (Iterator it = items.iterator(); it.hasNext();) {
+        		result.append(it.next().toString());
+        	}
+        	return result.toString();
+        }
+        
+		public boolean hasDateAndTimeFields() {
+			int foundMask = 0;
+            for (Iterator it = items.iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof VariableField) {
+                    String s = item.toString();
+                    int canonicalIndex = getCanonicalIndex(s);
+                    if (canonicalIndex < 0) {
+                        throw new IllegalArgumentException("Illegal field:\t"
+                                + s);
+                    }
+                    int type = types[canonicalIndex][1];
+                    foundMask |= 1 << type;    
+                }
+            }
+			boolean isDate = (foundMask & DATE_MASK) != 0;
+			boolean isTime = (foundMask & TIME_MASK) != 0;
+			return isDate && isTime;
+		}
     }
     
-    static class VariableField {
-        String string;
-        VariableField(String string) {
+    public static class VariableField {
+        private String string;
+        public VariableField(String string) {
             this.string = string;
         }
         public String toString() {
             return string;
         }
     }
+
+	public boolean isSingleField(String skeleton) {
+		char first = skeleton.charAt(0);
+		for (int i = 2; i < skeleton.length(); ++i) {
+			if (skeleton.charAt(i) != first) return false;
+		}
+		return true;
+	}
 
 }

@@ -147,7 +147,7 @@ public class CLDRTest extends TestFmwk {
 				String pattern = getCanonicalPattern(value, type, isPOSIX);
 				if (!pattern.equals(value)) {
 					String draft = "";
-					if (item.getFullXPath(xpath).indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
+					if (item.getFullXPath(xpath).indexOf("[@draft=\"unconfirmed\"]") >= 0) draft = " [draft]";
 					assertEquals(getLocaleAndName(locale) + draft + " " + TYPE_NAME[type] + " pattern incorrect", pattern, value);
 				}
 			}
@@ -266,10 +266,10 @@ public class CLDRTest extends TestFmwk {
 						&& vc.fullxpath.equals(parentCLDR.getStringValue(xpath)))) {
 					String draft = "";
 					if (true) {
-						if (vc.fullxpath.indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
+						if (vc.fullxpath.indexOf("[@draft=\"unconfirmed\"]") >= 0) draft = " [draft]";
 					} else {
 						p.set(vc.fullxpath);
-						if (p.containsAttributeValue("draft","true")) draft = " [draft]";
+						if (p.containsAttributeValue("draft","unconfirmed")) draft = " [draft]";
 					}
 					String count = (vc.count == size ? "" : vc.count + "/") + size;
 					warnln(getLocaleAndName(parent) + draft +
@@ -307,7 +307,7 @@ public class CLDRTest extends TestFmwk {
 				}
 				if (SKIP_DRAFT) {
 					String fullxpath = plain.getFullXPath(xpath);
-					if (fullxpath.indexOf("[@draft=\"true\"") > 0) continue;
+					if (fullxpath.indexOf("[@draft=\"unconfirmed\"") > 0) continue;
 				}
 				if (xpath.startsWith("//ldml/posix/messages")) continue;
 				String value = plain.getStringValue(xpath);

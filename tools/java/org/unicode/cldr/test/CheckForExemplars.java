@@ -79,7 +79,7 @@ public class CheckForExemplars extends CheckCLDR {
 		if (exemplars.containsAll(value)) return this;
 		UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
 		String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+		CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
 			.setMessage("Not in exemplars: \u200E{0}\u200E", new Object[]{fixedMissing});
 		result.add(item);
 		return this;

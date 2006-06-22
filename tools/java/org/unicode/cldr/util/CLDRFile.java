@@ -783,7 +783,7 @@ private boolean isSupplemental;
     
     static XPathParts nondraftParts = new XPathParts(null,null);
     
-    private static String getNondraftNonaltXPath(String xpath) {
+    public static String getNondraftNonaltXPath(String xpath) {
     	if (xpath.indexOf("draft=\"") < 0 && xpath.indexOf("alt=\"") < 0 ) return xpath;
     	synchronized (nondraftParts) {
 	    	XPathParts parts = new XPathParts(null,null).set(xpath);
@@ -1092,13 +1092,14 @@ private boolean isSupplemental;
 	    		for (int i = 0; i < attributes.getLength(); ++i) {    			
 	    			String attribute = attributes.getQName(i);
 	    			String value = attributes.getValue(i);
+	    			
 	    			//if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
 	    			//ldmlComparator.addValue(value);
 	    			// special fix to remove version
 	    			if (qName.equals("ldml") && attribute.equals("version")) {
 	    				// do nothing!
 	    			} else {
-	    				attributeOrder.put(attribute, value);
+	    				putAndFixDeprecatedAttribute(attribute, value);
 	    			}
 	    		}
 	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
@@ -1120,11 +1121,19 @@ private boolean isSupplemental;
             lastActiveLeafNode = null;
     		Log.logln(LOG_PROGRESS, "currentFullXPath\t" + currentFullXPath);
     	}
+
+		private void putAndFixDeprecatedAttribute(String attribute, String value) {
+			if (attribute.equals("draft")) {
+				if (value.equals("true")) value = "approved";
+				else if (value.equals("false")) value = "unconfirmed";
+			}
+			attributeOrder.put(attribute, value);
+		}
     	
 		private void pop(String qName) {
 			Log.logln(LOG_PROGRESS, "pop\t" + qName);
             if (lastChars.length() != 0 || justPopped == false) {
-                if (includeDraft || currentFullXPath.indexOf("[@draft=\"true\"]") < 0) {
+                if (includeDraft || currentFullXPath.indexOf("[@draft=\"unconfirmed\"]") < 0) {
                     if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
                         System.out.println(currentFullXPath);
                     }
@@ -1484,7 +1493,7 @@ private boolean isSupplemental;
 	 */
 	public boolean isDraft() {
 		String item = (String) iterator().next();
-		return item.startsWith("//ldml[@draft=\"true\"]");
+		return item.startsWith("//ldml[@draft=\"unconfirmed\"]");
 	}
 	
 //	public Collection keySet(Matcher regexMatcher, Collection output) {
@@ -2029,7 +2038,7 @@ private boolean isSupplemental;
     		String path = (String) it.next();
     		//Value v = (Value) getXpath_value().get(path);
     		//if (!(v instanceof StringValue)) continue;
-    		parts.set(dataSource.getFullPath(path)).addAttribute("draft", "true");
+    		parts.set(dataSource.getFullPath(path)).addAttribute("draft", "unconfirmed");
     		dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
     	}
 		return this;
@@ -2099,6 +2108,9 @@ private boolean isSupplemental;
                     // note: we only need to clean up items that are NOT on the last element,
                     // so we go up to size() - 1.
 
+                    
+                    // note: each successive item overrides the previous one. That's intended
+                    
                     for (int i = 0; i < distinguishingParts.size() - 1; ++i) {
                     	// String element = distinguishingParts.getElement(i);
                     	//if (atomicElements.contains(element)) break;

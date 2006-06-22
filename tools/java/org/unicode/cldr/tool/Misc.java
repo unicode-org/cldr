@@ -1045,7 +1045,7 @@ public class Misc {
 			log2.println("<localeDisplayNames><territories>");
 			for (Iterator it = missing[0].iterator(); it.hasNext();) {
 				String key = (String)it.next();
-				log2.println("\t<territory type=\"" + key + "\" draft=\"true\">"+ 
+				log2.println("\t<territory type=\"" + key + "\" draft=\"unconfirmed\">"+ 
 						TransliteratorUtilities.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key, false))
 						+ "</territory>");
 			}
@@ -1068,7 +1068,7 @@ public class Misc {
 					lastCountry = country;
 					log2.println("\t<!-- " + country + "-->");
 				}
-				log2.println("\t<zone type=\"" + key + "\"><exemplarCity draft=\"true\">"
+				log2.println("\t<zone type=\"" + key + "\"><exemplarCity draft=\"unconfirmed\">"
 						+ TransliteratorUtilities.toXML.transliterate("TODO " + getName(english,key,null))
 						+ "</exemplarCity></zone>");
 			}

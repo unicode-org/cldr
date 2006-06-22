@@ -68,7 +68,7 @@ Now Verify
   NOTE: should move into separate file to make this more turn-key
 - Paste the zoneItems into supplementalData.xml
   Add the version number, <zoneFormatting multizone="001 ... UZ" tzidVersion="2006g">
-- Paste the $tzid into supplementalData.xml
+- Paste the $tzid into supplementalMetadata.xml
 - CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION
 
 A. If any IDs in zone.tab changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
@@ -90,7 +90,7 @@ B. If there are any $tzid's that are in the last version that are not in the cur
   2. ID is no longer in zone.tab (after fixing "A"), but is still linked.
   In that case, there will still be a zoneItem as an alias, eg
   			<zoneItem type="Africa/Bamako" territory="ML" aliases="Africa/Timbuktu"/>
-  - Add to supplementalMetaData. Use the zoneItem info
+  - Add to supplementalMetadata. Use the zoneItem info
   	 <zoneAlias type="Africa/Timbuktu" replacement="Pacific/Honolulu"/>
   - Add to CountItems.FIX_DEPRECATED_ZONE_DATA. Example:
       	"Africa/Timbuktu",

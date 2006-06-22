@@ -34,8 +34,8 @@ public class CheckZones extends CheckCLDR {
 		try {
 			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck(), true);
 		} catch (RuntimeException e) {
-			e.printStackTrace();
-			throw new InternalError("Couldn't create TimezoneFormatter");
+			possibleErrors.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+					.setMessage("Checking zones: " + e.getMessage()));
 		}
 		return this;
 	}

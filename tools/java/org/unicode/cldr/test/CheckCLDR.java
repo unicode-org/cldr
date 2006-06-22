@@ -54,10 +54,12 @@ abstract public class CheckCLDR {
 	private CLDRFile resolvedCldrFileToCheck;
 	private static CLDRFile displayInformation;
 	
-	static boolean SHOW_LOCALE = false;
+	static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     public static boolean SHOW_TIMES = false;
     public static boolean showStackTrace = false;
+    public static boolean errorsOnly = false;
+    public static String finalErrorType = CheckStatus.errorType;
     
 	/**
 	 * Here is where the list of all checks is found. 
@@ -103,20 +105,22 @@ abstract public class CheckCLDR {
     DATE_FORMATS = 6,
     ORGANIZATION = 7,
     SHOWALL = 8,
-    PRETTY = 9
+    PRETTY = 9,
+    ERRORS_ONLY = 10
     ;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
         UOption.create("coverage", 'c', UOption.REQUIRES_ARG),
-        UOption.create("examples", 'e', UOption.NO_ARG),
+        UOption.create("examples", 'x', UOption.NO_ARG),
         UOption.create("file_filter", 'f', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("date_formats", 'd', UOption.NO_ARG),
         UOption.create("organization", 'o', UOption.REQUIRES_ARG),
         UOption.create("showall", 's', UOption.NO_ARG),
         UOption.create("pretty", 'p', UOption.NO_ARG),
+        UOption.create("errors_only", 'e', UOption.NO_ARG),
     };
     
     private static String[] HelpMessage = {
@@ -125,9 +129,10 @@ abstract public class CheckCLDR {
     	"-c xxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
     	"-t xxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
     	"-o xxx \t Organization (for coverage tests): ibm, google, ....",
-    	"-e \t Turn on examples (actually a summary of the demo)",
+    	"-x \t Turn on examples (actually a summary of the demo)",
     	"-d \t Turn on special date format checks",
     	"-s \t Show all paths",
+    	"-e \t Show errors only",
     	};
 
 	/**
@@ -149,7 +154,9 @@ abstract public class CheckCLDR {
         	return;
         }
         String factoryFilter = options[FILE_FILTER].value; 
-        String checkFilter = options[TEST_FILTER].value; 
+        String checkFilter = options[TEST_FILTER].value;
+        errorsOnly = options[ERRORS_ONLY].doesOccur;
+        if (errorsOnly) finalErrorType = CheckStatus.warningType;
         
         SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
         boolean showAll = options[SHOWALL].doesOccur; 
@@ -182,6 +189,7 @@ abstract public class CheckCLDR {
         System.out.println("coverage level: " + coverageLevel);
         System.out.println("checking dates: " + checkFlexibleDates);
         System.out.println("show all: " + showAll);
+        System.out.println("errors only?: " + errorsOnly);
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
@@ -291,6 +299,7 @@ abstract public class CheckCLDR {
 						CheckStatus status = (CheckStatus) it3.next();
 						String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
 						String statusType = status.getType();
+						if (errorsOnly && !statusType.equals(status.errorType)) continue;
 						pathShower.showHeader(path, value);
 						
 						//System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
@@ -350,12 +359,16 @@ abstract public class CheckCLDR {
 		boolean showEnglish;
 		String splitChar = "/";
 
-		static String lead = "****************************************";
+		static final String lead = "****************************************";
 		
 		public void set(String localeID) {
 			this.localeID = localeID;
 			newLocale = true;
-			showEnglish = localeID.equals(CheckCLDR.displayInformation.getLocaleID());
+			LocaleIDParser localeIDParser = new LocaleIDParser();
+			showEnglish = !localeIDParser.set(localeID).getLanguageScript().equals("en");
+			//localeID.equals(CheckCLDR.displayInformation.getLocaleID());
+			lastPath = null;
+			lastSplitPath = null;
 		}
 		public void setDisplayInformation(CLDRFile displayInformation) {
             CheckCLDR.setDisplayInformation(displayInformation); 
@@ -378,7 +391,12 @@ abstract public class CheckCLDR {
 				if (i == splitPath.length - 1) {
 					System.out.print("\tValue:\t" + value);				
 					if (showEnglish) {
-						System.out.print("\tEnglish Value: " + CheckCLDR.displayInformation.getStringValue(path));	
+						String englishValue = CheckCLDR.displayInformation.getStringValue(path);
+						if (englishValue == null) {
+							String path2 = CLDRFile.getNondraftNonaltXPath(path);
+							englishValue = CheckCLDR.displayInformation.getStringValue(path2);
+						}
+						System.out.print("\t[English: " + englishValue + "]");	
 					}
 				} else {
 					System.out.print(":");

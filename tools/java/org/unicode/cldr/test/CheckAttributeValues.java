@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
-
+//import com.ibm.icu.dev.test.util.VariableReplacer;
 
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.impl.CollectionUtilities.ObjectMatcher;
@@ -32,6 +32,7 @@ public class CheckAttributeValues extends CheckCLDR {
     static Map element_attribute_validity = new TreeMap();
     static Map common_attribute_validity = new TreeMap();
     static Map variables = new TreeMap();
+//    static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above -- to do later.
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
     static Map code_type_replacement = new TreeMap();
@@ -99,6 +100,7 @@ public class CheckAttributeValues extends CheckCLDR {
         String result = (String) type_replacement.get(attributeValue);
         return result;
     }
+  
     
     LocaleIDParser localeIDParser = new LocaleIDParser();
     
@@ -153,11 +155,15 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.equals("attributes")) {
                 // skip for now
             } else if (lastElement.equals("variable")) {
+//            	String oldValue = value;
+//            	value = variableReplacer.replace(value);
+//            	if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
                 Map attributes = parts.getAttributes(-1);
                 MatcherPattern mp = getMatcherPattern(value, attributes, path);
                 if (mp != null) {
                     String id = (String) attributes.get("id");
                     variables.put(id, mp);
+//                    variableReplacer.add(id, value);
                 }
             } else if (lastElement.equals("attributeValues")) {
                 try {

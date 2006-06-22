@@ -91,7 +91,7 @@ public class CheckDates extends CheckCLDR {
 				int end = getFirstGraphemeClusterBoundary(value);
 				if (end != value.length()) {
 					result.add(new CheckStatus()
-                            .setCause(this).setType(CheckStatus.errorType)
+                            .setCause(this).setType(CheckCLDR.finalErrorType)
 								.setMessage(
 										"Illegal narrow value. Must be only one grapheme cluster \u200E{0}\u200E~\u200E{1}\u200E",
 										new Object[]{value.substring(0,end), value.substring(end)}));
@@ -178,7 +178,7 @@ public class CheckDates extends CheckCLDR {
 			}
 			// TODO fix this up.
 			if (path.indexOf("/timeFormat") >= 0 && y.toPattern().indexOf("v") < 0) {
-				CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+				CheckStatus item = new CheckStatus().setType(CheckCLDR.finalErrorType)
 				.setMessage("Need full zone (v) in full format", new Object[]{});			
 				result.add(item);			
 			}

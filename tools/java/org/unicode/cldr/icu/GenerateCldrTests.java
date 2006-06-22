@@ -1181,7 +1181,7 @@ public class GenerateCldrTests {
             if (attributes == null) continue;
             for (int i = 0; i < attributes.getLength(); ++i) {
                 Node attribute = attributes.item(i);
-                if (attribute.getNodeName().equals("draft") && attribute.getNodeValue().equals("true")) return true;
+                if (attribute.getNodeName().equals("draft") && attribute.getNodeValue().equals("unconfirmed")) return true;
             }
         }
         return false;

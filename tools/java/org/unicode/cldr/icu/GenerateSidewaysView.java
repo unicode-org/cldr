@@ -819,7 +819,7 @@ public class GenerateSidewaysView {
                 {"type", "key", "<any element name having 'type' attribute>"},
                 {"key", "type", "<any element name having 'type' attribute>"},
 
-                {ANYSTRING, "draft", new String[] {"true", "false*"}},
+                {ANYSTRING, "draft", new String[] {"true", "approved", "provisional", "unconfirmed", "false*"}},
                 {ANYSTRING, "alt", new String[] {"proposed", "variant"}},
                 {ANYSTRING, "references", "<list of references>"},
                 {ANYSTRING, "standard", "<list of standards>"},

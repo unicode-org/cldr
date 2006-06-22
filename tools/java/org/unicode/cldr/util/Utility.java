@@ -138,7 +138,9 @@ public class Utility {
             	if (line2 == null) return LINES_SAME;
             	return LINES_DIFFERENT;          	
             }
-            if (line2 == null) return LINES_DIFFERENT;
+            if (line2 == null) {
+            	return LINES_DIFFERENT;
+            }
             
             // now check equality
 			if (line1.equals(line2)) return LINES_SAME;
@@ -203,8 +205,13 @@ public class Utility {
 			        if ((skip & LineComparer.SKIP_FIRST) == 0) line1 = br1.readLine();
 			        if ((skip & LineComparer.SKIP_SECOND) == 0) line2 = br2.readLine();
 			        if (line1 == null && line2 == null) return true;
+			        if (line1 == null || line2 == null) {
+			        	// System.out.println("debug");
+			        }
 			        skip = lineComparer.compare(line1, line2);
-			        if (skip == LineComparer.LINES_DIFFERENT) break;
+			        if (skip == LineComparer.LINES_DIFFERENT) {
+			        	break;
+			        }
 			    }
 			    failureLines[0] = line1 != null ? line1 : "<end of file>";
 			    failureLines[1] = line2 != null ? line2 : "<end of file>";

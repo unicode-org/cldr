@@ -36,7 +36,8 @@ public class CheckExemplars extends CheckCLDR {
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/exemplarCharacters") < 0) return this;
-        checkExemplar(value, result);
+		boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
+        checkExemplar(value, result, isAuxiliary);
         if (options.get("submission") == null) return this;
         // check relation to auxiliary set
         try {       	
@@ -68,7 +69,7 @@ public class CheckExemplars extends CheckCLDR {
  		return this;
 	}
 
-	private void checkExemplar(String v, List result) {
+	private void checkExemplar(String v, List result, boolean isAuxiliary) {
 		if (v == null) return;
 		UnicodeSet exemplar1;
     	try {
@@ -98,7 +99,7 @@ public class CheckExemplars extends CheckCLDR {
 	    			new Object[]{fixedExemplar1}));
     		}
     	} else if (!isRoot && exemplar1.size() == 0) {
-   			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+   			result.add(new CheckStatus().setCause(this).setType(isAuxiliary ? CheckCLDR.finalErrorType : CheckStatus.errorType)
    					.setMessage("Exemplar set must not be empty.")
    					.setHTMLMessage("Exemplar set must not be empty:" +
    					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			

@@ -523,7 +523,7 @@ public class LDMLUtilities {
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);
-            appendXPathAttribute(child,xpath, false, true);
+            appendXPathAttribute(child,xpath, true /*PN false*/, true);
             Node nodeInSource = null;
             
             if(childName.indexOf(":")>-1){ 
@@ -1092,6 +1092,25 @@ public class LDMLUtilities {
         }
         return null;
     }
+    
+    private static final Node getNonAltNodeIfPossible(NodeList list)
+    {
+        // A nonalt node is one which .. does not have alternate
+        // attribute set
+        Node node =null;
+        for(int i =0; i<list.getLength(); i++)
+        {
+            node = list.item(i);
+            if(/*!isDraft(node, xpath)&& */!isAlternate(node))
+            {
+                return node;
+            }
+        }
+        if (list.getLength()>0)
+            return list.item(0);   //if all have alt=.... then return the first one
+        return null;
+    }
+        
     public static Node getNonAltNodeLike(Node parent, Node child){
         StringBuffer childXpath = new StringBuffer(child.getNodeName());
         appendXPathAttribute(child,childXpath,true/*ignore alt*/,true/*ignore draft*/);
@@ -1167,7 +1186,8 @@ public class LDMLUtilities {
             int len = nl.getLength();
             //TODO watch for attribute "alt"
             if(len>1){
-                Node best = getNonAltNode(nl);
+                //PN Node best = getNonAltNode(nl);
+                Node best = getNonAltNodeIfPossible(nl); //PN
                 if(best != null) {
                     //System.err.println("Chose best node from " + xpath);
                     return best;

@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.78 $
-$Date: 2006-06-23 18:38:25 $
+$Revision: 1.79 $
+$Date: 2006-06-23 18:40:30 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -262,8 +262,8 @@ $Date: 2006-06-23 18:38:25 $
 <!ATTLIST width alt CDATA #IMPLIED >
 
 <!ELEMENT measurementSystem (special*) >
-<!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED > <!-- deprecated in favor of choice -->
-<!ATTLIST measurementSystem choice ( metric | US | UK ) #REQUIRED >
+<!ATTLIST measurementSystem type ( metric | US | UK ) #IMPLIED > <!-- deprecated in favor of choice -->
+<!ATTLIST measurementSystem choice ( metric | US | UK ) #IMPLIED >
 <!ATTLIST measurementSystem draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystem standard CDATA #IMPLIED >
 <!ATTLIST measurementSystem references CDATA #IMPLIED >

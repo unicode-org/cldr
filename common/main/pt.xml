@@ -986,8 +986,8 @@
 					<daylight>Horário de Verão de Terra Nova</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
@@ -1116,10 +1116,6 @@
 					<standard>Horário Padrão do Alasca</standard>
 					<daylight>Horário de Verão do Alasca</daylight>
 				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
@@ -1165,14 +1161,6 @@
 				</short>
 			</zone>
 			<zone type="America/Indianapolis">
-				<long>
-					<standard>Horário Padrão Oriental</standard>
-					<daylight>Horário Padrão Oriental</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
 				<exemplarCity>Indianápolis</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
@@ -1881,9 +1869,6 @@
 			</currency>
 			<currency type="XDR">
 				<displayName>Direitos Especiais de Giro</displayName>
-			</currency>
-			<currency type="XEU">
-				<displayName>Unidade Monetária Européia</displayName>
 			</currency>
 			<currency type="XFO">
 				<displayName>Franco-ouro francês</displayName>

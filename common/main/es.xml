@@ -584,7 +584,7 @@
 			<territory type="039">Europa meridional</territory>
 			<territory type="053">Australia y Nueva Zelanda</territory>
 			<territory type="054">Melanesia</territory>
-			<territory type="057">Micronesia</territory>
+			<territory type="057">Micronesia [057]</territory>
 			<territory type="061">Polinesia</territory>
 			<territory type="142">Asia</territory>
 			<territory type="143">Asia central</territory>
@@ -1099,7 +1099,6 @@
 				</long>
 				<short>
 					<standard>CNT</standard>
-					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
@@ -1114,7 +1113,6 @@
 				</long>
 				<short>
 					<standard>CTT</standard>
-					<daylight>CDT</daylight>
 				</short>
 			</zone>
 			<zone type="Pacific/Galapagos">
@@ -1224,8 +1222,8 @@
 					<daylight>Hora de verano de Alaska</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
 				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
@@ -1270,14 +1268,6 @@
 				</short>
 			</zone>
 			<zone type="America/Indianapolis">
-				<long>
-					<standard>Hora estándar oriental</standard>
-					<daylight>Hora estándar oriental</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
 				<exemplarCity>Indianápolis</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
@@ -1546,7 +1536,6 @@
 			</currency>
 			<currency type="ECS">
 				<displayName>sucre ecuatoriano</displayName>
-				<symbol>S/</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>unidad de valor constante (UVC) ecuatoriana</displayName>
@@ -2009,7 +1998,6 @@
 			</currency>
 			<currency type="SVC">
 				<displayName>colón salvadoreño</displayName>
-				<symbol draft="unconfirmed">C</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>libra siria</displayName>

@@ -514,9 +514,10 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-1" draft="provisional">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="provisional">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="provisional">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -637,3 +638,4 @@ af { "Afrikaanse" } // adjective form
         "Latn",  // ISO 15924 Name 
 localPatternChars{}
 -->
+

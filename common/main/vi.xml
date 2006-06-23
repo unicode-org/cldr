@@ -357,6 +357,10 @@
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM-yyyy</dateFormatItem>
+					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -409,3 +413,4 @@ It is difficult to decide whether Ti\u1EBFng should precede the translation, but
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name
 -->
+

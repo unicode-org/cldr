@@ -100,6 +100,13 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy 'ж.'</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -127,3 +134,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/kk.txt?only_wit
 \u049B should be removed if it's not in the native language and country names.
                 2, // monday is the first day of the week
 -->
+

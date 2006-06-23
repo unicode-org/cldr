@@ -908,6 +908,14 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d 'ta’' MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" alt="proposed-666" draft="provisional">MMM yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName>Epoka</displayName>
@@ -968,8 +976,9 @@
 		<messages>
 			<yesstr>iva:i</yesstr>
 			<nostr>le:l</nostr>
-			<!-- allow English yes also -->
-			<!-- allow English no also -->
+			<!-- allow English yes also
+				 allow English no also
+			-->
 		</messages>
 	</posix>
 	<references>
@@ -1028,3 +1037,4 @@ TRUE:  'V' 'v' 'veru'
 NO:  'L' 'l' 'le'
 FALSE:  'F' 'f' 'falz'
 -->
+

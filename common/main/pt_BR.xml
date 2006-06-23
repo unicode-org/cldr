@@ -132,8 +132,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-u168-1" draft="provisional">dd-MM-yy</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -321,3 +321,4 @@ NumberPatterns {
 "#E0",
 }
 -->
+

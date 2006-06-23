@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -1274,19 +1274,11 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMM" alt="proposed-u73-1" draft="provisional">LLLL</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed-u73-1" draft="provisional">d MMM</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed-u73-1" draft="provisional">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" references="RP6" alt="proposed-u73-2" draft="provisional">QQQQ yyyy 'р.'</dateFormatItem>
-						<dateFormatItem id="yyyyLLLL" alt="proposed-u73-1" draft="provisional">LLLL yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE, d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed-u73-1" draft="provisional">EEEE, dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed-u73-1" draft="provisional">EEE, d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed-u73-1" draft="provisional">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-u73-1" draft="provisional">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-u73-1" draft="provisional">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed-u73-1" draft="provisional">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-666" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed-666" draft="provisional">QQQQ yyyy 'р.'</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -3057,3 +3049,4 @@ jw { "\u042F\u0432\u0430\u043D\u0441\u043A\u0438\u0439" } // Use jv instead
 uk { "\u0443\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430" } // Old value
         "Cyrl"      // ISO 15924 Name
 -->
+

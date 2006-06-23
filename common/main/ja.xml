@@ -1055,20 +1055,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="GGGGyMd">GGGGy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hmm">H:mm</dateFormatItem>
-						<dateFormatItem id="M">M'月'</dateFormatItem>
-						<dateFormatItem id="MMdd">MM.dd</dateFormatItem>
-						<dateFormatItem id="Md">M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="yyMM">yy/MM</dateFormatItem>
-						<dateFormatItem id="yyMMdd">yy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">yy/MM/dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd">yy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">yyyy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyyyMd">yyyy'年'M'月'd'日'</dateFormatItem>
-						<dateFormatItem id="yyyyMdHmm">yyyy/M/d H:mm</dateFormatItem>
+						<dateFormatItem id="GGGGyMd" draft="provisional">GGGGy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM/dd</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy/MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2930,3 +2920,4 @@ zh_tw { "\u4e2d\u56fd\u8a9e (\u7e41\u4f53\u5b57)" }
 Qaai { "Inherited" } // PUA
 Zyyy { "Common" } // This may need to become "undetermined script"
 -->
+

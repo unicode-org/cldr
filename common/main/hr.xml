@@ -560,28 +560,16 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMM">yy.MM</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE yy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd">EEE dd.MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">yy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyMMdd">yy.MM.dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">yy.MM.dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE,yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd">EEE yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd">yyyy.MMMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">yyyy.MMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">yyyy.MM.dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">yyyy.MM.dd HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">MMMM dd</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM.dd</dateFormatItem>
+						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE yy.MMM d</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy.MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">yyyy. MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1268,3 +1256,4 @@ zh_tw { "kineski (tradicionalni)" }
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
+

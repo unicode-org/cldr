@@ -957,24 +957,9 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Hm">H'시' m'분'</dateFormatItem>
-						<dateFormatItem id="Hms">H'시' m'분' s'초'</dateFormatItem>
-						<dateFormatItem id="Km">a K'시' m'분'</dateFormatItem>
-						<dateFormatItem id="Kms">a K'시' m'분' s'초'</dateFormatItem>
-						<dateFormatItem id="M">M'월'</dateFormatItem>
-						<dateFormatItem id="Md">M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="msSS">m:s.SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed-1" draft="provisional">'제'ww'주'</dateFormatItem>
-						<dateFormatItem id="yyM">yy'년' M'월'</dateFormatItem>
-						<dateFormatItem id="yyMEEEEd">yy'년' M'월' d'일' EEEE,</dateFormatItem>
-						<dateFormatItem id="yyMEEEd">yy'년' M'월' d'일' (EEE)</dateFormatItem>
-						<dateFormatItem id="yyMd">yy'년' M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="yyMdHm">yy'년' M'월' d'일' H'시' m'분'</dateFormatItem>
-						<dateFormatItem id="yyyyM">yyyy'년' M'월'</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEEd">yyyy'년' M'월' d'일' EEEE,</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEd">yyyy'년' M'월' d'일' (EEE)</dateFormatItem>
-						<dateFormatItem id="yyyyMd">yyyy'년' M'월' d'일'</dateFormatItem>
-						<dateFormatItem id="yyyyMdHms">yyyy'년' M'월' d'일' H'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="Hms" draft="provisional">H'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM. dd</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy. MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1898,3 +1883,4 @@ ro { "\ub85c\ub9c8\uc5b4" } // From translation center
 EURO    { "\uc720\ub85c" }
 PREEURO { "\uc720\ub85c \uc774\uc804" }
 -->
+

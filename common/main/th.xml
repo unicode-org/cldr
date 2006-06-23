@@ -1140,16 +1140,11 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">dd/MM/yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">dd/MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">d/M</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2593,3 +2588,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/th.txt?only_wit
 
 jw { "\u0e0a\u0e27\u0e32" } // Use jv instead
 -->
+

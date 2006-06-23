@@ -207,6 +207,15 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">M/d</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">د yyyy د MMMM</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -277,3 +286,4 @@ iw  { "\u0639\u0628\u0631\u064a" }
 FIXME: check all these with PED.
                         "\u0645\u06cc", // MoE and PED say "\u0645\u06d0"
 -->
+

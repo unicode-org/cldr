@@ -545,25 +545,12 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed" draft="provisional">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed" draft="provisional">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed-u8-1" draft="provisional">mm:ss:SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="provisional">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE dd.MMM yy</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-u8-1" draft="provisional">EEEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-1" draft="provisional">d. MMM. yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM.yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -755,3 +742,4 @@
 		</messages>
 	</posix>
 </ldml>
+

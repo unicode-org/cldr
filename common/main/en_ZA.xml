@@ -51,7 +51,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM/dd</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -61,3 +64,4 @@
 		<reference type="RP1" uri="isbn:0-19-571804-6">South African Concise Oxford Dictionary 1999</reference>
 	</references>
 </ldml>
+

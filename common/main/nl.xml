@@ -1065,27 +1065,12 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMM">MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed-u10-2" draft="provisional">EEE dd MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMd">d-MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd-MM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">dd-MM-yy HH:mm</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd-MM</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM-yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd">EEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">dd-MM-yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">dd-MM-yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2414,3 +2399,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

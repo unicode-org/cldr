@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -1079,37 +1079,12 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">H.mm</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed" draft="unconfirmed">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmm" alt="proposed-u7-1" draft="provisional">HH.mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">H.mm.ss</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="unconfirmed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed-u7-1" draft="provisional">HH.mm.ss</dateFormatItem>
-						<dateFormatItem id="KKmm">H.mm</dateFormatItem>
-						<dateFormatItem id="KKmmss">H.mm.ss</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd">d.M.</dateFormatItem>
-						<dateFormatItem id="MMdd">d.M.</dateFormatItem>
-						<dateFormatItem id="mmssSS">m.ss,SS</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="unconfirmed">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed-u7-1" draft="provisional">mm.ss,SS</dateFormatItem>
-						<dateFormatItem id="ww">w</dateFormatItem>
-						<dateFormatItem id="yyMM">MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd">EEE d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMdd">d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">d.M.yyyy H.mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE, d. MMMM'ta' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd">EEEE d. MMMM'ta' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE d. MMMM'ta' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd">d. MMMM'ta' yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">yyyy-MM-dd HH:MM:SS</dateFormatItem>
-						<dateFormatItem id="yyyyMd">d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">d.M</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEd" alt="proposed-666" draft="provisional">EEE d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM'ta 'yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed-666" draft="provisional">QQQQ yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2599,3 +2574,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

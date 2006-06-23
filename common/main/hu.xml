@@ -818,18 +818,11 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMd" alt="proposed" draft="provisional">MMM d.</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="provisional">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">yy'. 'MMM d.</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd" alt="proposed" draft="provisional">yyyy'. 'MMM d., EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed" draft="provisional">yyyy'. 'MMMM d., EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">yyyy'. 'MMMM d., EEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">yyyy'. 'MMMM d.</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="provisional">yyyy'. 'MMM d.</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="provisional">yyyy'. 'M'. 'd.</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">MMMM d.</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM.dd.</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy.MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">yyyy. MMMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2448,3 +2441,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

@@ -553,9 +553,8 @@
 				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="unconfirmed">mm:ss.SS</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1510,3 +1509,4 @@ The range qaa-qtz is reserved for local use.
         zu  { "Súlúis" } //??
 many others could go in here if desired
 -->
+

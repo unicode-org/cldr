@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -999,31 +999,13 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="KKmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMM">LLLL</dateFormatItem>
-						<dateFormatItem id="MMMdd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
-						<dateFormatItem id="YYYYLLLL">LLLL yyyy</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd">EEE dd MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd">d.M.yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yyyy 'г.'</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE, d MMMM, yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd">EEEE, dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd">EEE, d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMd" alt="proposed-666" draft="provisional">d MMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE, d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyyyLLLL" alt="proposed-666" draft="provisional">LLLL yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed-666" draft="provisional">QQQQ yyyy 'г.'</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2513,3 +2495,4 @@ lv { "\u041B\u0430\u0442\u0432\u0438\u0439\u0441\u043A\u0438\u0439" } // Old val
         "Cyrl"      // ISO 15924 Name 
 Currency display names
 -->
+

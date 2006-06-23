@@ -918,9 +918,10 @@
 					<availableFormats>
 						<dateFormatItem id="HHmm" alt="proposed" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" alt="proposed" draft="unconfirmed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="unconfirmed">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="unconfirmed">ww</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="unconfirmed">yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d. MMMM</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">d.M</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1582,3 +1583,4 @@ CS { "Serb\u00eda og Svartfjallaland" } // TODO: if we allow this, then SP must 
 MM { "B\u00farma" } // Burma? Should be Myanmar?
         "Latn",  // ISO 15924 Name
 -->
+

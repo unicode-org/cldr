@@ -60,6 +60,14 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -79,3 +87,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ms_MY.txt?only_
 *   Generated from Universal Locales for Linux Project
            weekend:intvector { //Saturday - half day in some offices:Sunday
 -->
+

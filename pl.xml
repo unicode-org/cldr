@@ -560,30 +560,14 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed" draft="provisional">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMM" alt="proposed-u94-1" draft="provisional">LLLL</dateFormatItem>
-						<dateFormatItem id="MMMdd">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed-u94-1" draft="provisional">EEE, d MMM y</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed-u94-1" draft="provisional">EEE, dd MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed-u94-1" draft="provisional">d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyMd">d.M.yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd" alt="proposed-u94-1" draft="provisional">EEEE,d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdd" alt="proposed-u94-1" draft="provisional">EEEE, dd MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed-u94-1" draft="provisional">EEE, d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed-u94-1" draft="provisional">d MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">dd.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss" alt="proposed" draft="provisional">dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1635,3 +1619,4 @@ Comments without bases
  Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
 -->
+

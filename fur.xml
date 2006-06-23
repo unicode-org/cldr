@@ -669,6 +669,14 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMd" alt="proposed-666" draft="provisional">d/MM</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-666" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy </dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName alt="proposed-u122-2" draft="unconfirmed">ere</displayName>
@@ -866,3 +874,4 @@
 		<reference type="RP1" uri="http://en.wikipedia.org/wiki/Friulian#Writing_systems">Wikipedia on Friulian writing</reference>
 	</references>
 </ldml>
+

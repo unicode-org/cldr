@@ -350,6 +350,13 @@
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM/dd</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-666" draft="provisional">yy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">yyyy MMMM</dateFormatItem>
+					</availableFormats>
 					<appendItems>
 						<appendItem request="A">{0} ({2}: {1})</appendItem>
 						<appendItem request="D">{0} ({2}: {1})</appendItem>
@@ -1007,3 +1014,4 @@ codes not translations
 NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
 EURO    { "EURO" }      // EURO variant display name
 -->
+

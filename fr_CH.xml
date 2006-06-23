@@ -31,22 +31,14 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="mmssSS" alt="proposed" draft="provisional">mm:ss.SS</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMd" alt="proposed" draft="provisional">d.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed-1" draft="provisional">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm" alt="proposed" draft="provisional">dd.MM.yy HH:mm</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed-1" draft="provisional">dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -66,3 +58,4 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
+

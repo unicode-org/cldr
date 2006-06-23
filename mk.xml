@@ -399,6 +399,14 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="Mdd" alt="proposed-666" draft="provisional">dd.M</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -1046,3 +1054,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mk.txt?only_wit
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
+

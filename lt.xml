@@ -492,30 +492,13 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hm">H 'val.' m 'min.'</dateFormatItem>
-						<dateFormatItem id="Hmm">H'.'mm 'val.'</dateFormatItem>
-						<dateFormatItem id="Hmmss">H 'val.' mm 'min.' ss 'sek.'</dateFormatItem>
-						<dateFormatItem id="Hms">H 'h' m 'min' s 's'</dateFormatItem>
-						<dateFormatItem id="KKmm">KK:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss">KK:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd">MMM-dd</dateFormatItem>
-						<dateFormatItem id="MMdd">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss,SS</dateFormatItem>
-						<dateFormatItem id="ww" alt="proposed" draft="provisional">ww</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed" draft="provisional">yy-MM</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd">yy MMM dd EEE</dateFormatItem>
-						<dateFormatItem id="yyMMdd">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyMMddHHmm">yy-MM-dd HH:mm</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEd">yyyy 'm.' MMM d 'd.' EEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">yyyy 'm.' MMMM d 'd.' EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEdd">yyyy MMMM dd EEE</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd">yyyy 'metų' MMMM d 'diena'</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMdd">yyyy 'm.' MMMM dd 'd.'</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMddHHmmss">yyyy-MM-dd HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMdd" draft="provisional">MMM-dd</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM.dd</dateFormatItem>
+						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy.MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -644,3 +627,4 @@ zh_tw { "Kin\u0173 (tadicin\u0117)" }
 Currency display names
                 4, // "Minimal Days in First Week"   Lithuania follows ISO 8601
 -->
+

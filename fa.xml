@@ -933,35 +933,14 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="GGGGyyyyMMMMEEEEd" references="R6">EEEE d MMMM yyyy GGGG</dateFormatItem>
-						<dateFormatItem id="GGGGyyyyMMMMd" references="R6">d MMMM yyyy GGGG</dateFormatItem>
-						<dateFormatItem id="GyyyyMMMMd" references="R6">d MMMM yyyy G</dateFormatItem>
-						<dateFormatItem id="HHmm" references="R6">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmZ" references="R6">HH:mm (Z)</dateFormatItem>
-						<dateFormatItem id="HHmmss" references="R6">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="HHmmssSS" references="R6">HH:mm:ss٫SS</dateFormatItem>
-						<dateFormatItem id="HHmmssSSZ" references="R6">HH:mm:ss٫SS (Z)</dateFormatItem>
-						<dateFormatItem id="HHmmssZ" references="R6">HH:mm:ss (Z)</dateFormatItem>
-						<dateFormatItem id="Hmm" references="R6">H:mm</dateFormatItem>
-						<dateFormatItem id="HmmZ" references="R6">H:mm (Z)</dateFormatItem>
-						<dateFormatItem id="Hmmss" references="R6">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="HmmssSS" references="R6">H:mm:ss٫SS</dateFormatItem>
-						<dateFormatItem id="HmmssSSZ" references="R6">H:mm:ss٫SS (Z)</dateFormatItem>
-						<dateFormatItem id="HmmssZ" references="R6">H:mm:ss (Z)</dateFormatItem>
-						<dateFormatItem id="LLLLd">d LLLL</dateFormatItem>
-						<dateFormatItem id="MMMMd">d LLLL</dateFormatItem>
-						<dateFormatItem id="vvvv">vvvv</dateFormatItem>
-						<dateFormatItem id="yyMMMM">MMMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" references="R6">yy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyMd" references="R6">yy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEEdHmmss" references="R6">EEEE d MMMM yyyy، ساعت H:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" references="R6">d MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMdHmmss" references="R6">d MMMM yyyy، ساعت H:mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" references="R6">yyyy/MM/dd</dateFormatItem>
-						<dateFormatItem id="yyyyMd" references="R6">yyyy/M/d</dateFormatItem>
-						<dateFormatItem id="zzzz" references="R6">zzzz</dateFormatItem>
+						<dateFormatItem id="GGGGyyyyMMMMd" references="R6" draft="provisional">d MMMM yyyy GGGG</dateFormatItem>
+						<dateFormatItem id="HHmmZ" references="R6" draft="provisional">HH:mm (Z)</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">M/d</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" draft="provisional">EEEE d MMMM yyyy</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="E" references="R6">{1} {0}</appendItem>
@@ -1674,3 +1653,4 @@ Currency display names
 The Afghani symbol doesn't exist in Unicode. So we use the long name
 ZR { "\u0632\u0626\u06cc\u0631" } // Zaire is now the Democratic Republic of Congo (CD)
 -->
+

@@ -1100,19 +1100,13 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="KKmm" alt="proposed-u133-2" draft="provisional">hh:mm a</dateFormatItem>
-						<dateFormatItem id="KKmmss" alt="proposed-u133-2" draft="provisional">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="MMMM">MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd">MMM dd</dateFormatItem>
-						<dateFormatItem id="mmssSS">mm:ss</dateFormatItem>
-						<dateFormatItem id="ww">ww</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">MMM d, yy</dateFormatItem>
-						<dateFormatItem id="yyMd">M/d/yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">MMMM d</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">M/d</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2265,4 +2259,6 @@
 </ldml>
 <!-- Comments without bases
 
- See the National Bank of Romania for details http://www.bnro.ro/def_en.htm 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/displayName[@alt="proposed"] -->
+ See the National Bank of Romania for details http://www.bnro.ro/def_en.htm 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/displayName[@alt="proposed"] 
+-->
+

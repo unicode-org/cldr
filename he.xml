@@ -695,6 +695,12 @@
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+					</availableFormats>
 				</dateTimeFormats>
 				<fields>
 					<field type="era">
@@ -1647,3 +1653,4 @@ Currency display names
 International Calendars Data.
                         "\u05D6\u05D5 \u05D0\u05DC-QI'DAH",                                             // Dhu al-Qi'dah  (NEED TRANSLATION!!)
 -->
+

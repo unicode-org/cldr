@@ -32,6 +32,14 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -50,3 +58,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

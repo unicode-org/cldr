@@ -275,6 +275,14 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-666" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -329,3 +337,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/so.txt?only_wit
 *    Department of Linguistics and Translation, Universite de Montreal, Montreal
        "Latn",  // ISO 15924 Name
 -->
+

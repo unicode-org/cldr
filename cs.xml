@@ -648,19 +648,11 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMdd" alt="proposed" draft="provisional">MMM dd</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed" draft="provisional">dd-MM</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEdd" alt="proposed" draft="provisional">EEE, dd. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed" draft="provisional">d. MMM yy</dateFormatItem>
-						<dateFormatItem id="yyMMdd" alt="proposed" draft="provisional">yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEEEd" alt="proposed" draft="provisional">EEE, d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" alt="proposed" draft="provisional">d. MMMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" alt="proposed" draft="provisional">d. MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMdd" alt="proposed" draft="provisional">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMd" alt="proposed" draft="provisional">d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-666" draft="provisional">d. MMMM</dateFormatItem>
+						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">d.M</dateFormatItem>
+						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1811,3 +1803,4 @@ Comments without bases
 
  Indonesia 	 - was on: //ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
 -->
+

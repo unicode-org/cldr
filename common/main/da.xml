@@ -1652,8 +1652,8 @@
 					<daylight alt="proposed-u165-1" draft="provisional">St. Johns, sommertid</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
@@ -1668,10 +1668,6 @@
 					<daylight>Kinesisk normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Shanghai, sommertid</daylight>
 				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
@@ -1771,8 +1767,8 @@
 					<daylight alt="proposed-u165-1" draft="provisional">Alaska, sommertid</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
 				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
@@ -1825,15 +1821,9 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<standard>Eastern-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Indianapolis, normaltid</standard>
-					<daylight>Eastern-normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Indianapolis, sommertid</daylight>
 				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
 			</zone>
 			<zone type="America/New_York">
 				<long>
@@ -1865,7 +1855,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="provisional">#.##0,00 ¤</pattern>
+					<pattern draft="provisional">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

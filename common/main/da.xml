@@ -51,6 +51,7 @@
 			<language type="ay">Aymara</language>
 			<language type="ay" alt="proposed-u219-1" draft="provisional">aymara</language>
 			<language type="az">aserbajdsjansk</language>
+			<language type="az" alt="proposed-u165-1" draft="provisional">Aserbajdsjansk</language>
 			<language type="ba">bashkir</language>
 			<language type="bad">banda</language>
 			<language type="bai" references="R1">bamilekiske sprog</language>
@@ -1418,7 +1419,7 @@
 	<characters>
 		<exemplarCharacters>[a-z æ ø å]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á é í ó ú ý]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-u219-1" draft="unconfirmed">[á é í ñ ó ú ý ü ǽ ǿ ǻ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-u219-1" draft="unconfirmed">[á é í ñ ó ú ü ý ǽ ǿ ǻ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="provisional">”</quotationStart>
@@ -1549,11 +1550,13 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
+							<pattern alt="proposed" draft="provisional">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/yy</pattern>
+							<pattern alt="proposed" draft="provisional">dd/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1649,8 +1652,8 @@
 					<daylight alt="proposed-u165-1" draft="provisional">St. Johns, sommertid</daylight>
 				</long>
 				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
+					<standard>CNT</standard>
+					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
@@ -1665,6 +1668,10 @@
 					<daylight>Kinesisk normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Shanghai, sommertid</daylight>
 				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
@@ -1764,8 +1771,8 @@
 					<daylight alt="proposed-u165-1" draft="provisional">Alaska, sommertid</daylight>
 				</long>
 				<short>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
 				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
@@ -1818,9 +1825,15 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
+					<standard>Eastern-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Indianapolis, normaltid</standard>
+					<daylight>Eastern-normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Indianapolis, sommertid</daylight>
 				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EST</daylight>
+				</short>
 			</zone>
 			<zone type="America/New_York">
 				<long>
@@ -1852,7 +1865,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="provisional">#.##0,00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

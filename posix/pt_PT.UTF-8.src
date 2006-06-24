@@ -5863,7 +5863,7 @@ LC_NUMERIC
 
 decimal_point     "<COMMA>"
 thousands_sep     "<FULL_STOP>"
-grouping          3
+grouping          -1
 
 END LC_NUMERIC
 
@@ -5917,18 +5917,18 @@ day     "<d><o><m><i><n><g><o>";/
         "<s><e><x><t><a><HYPHEN-MINUS><f><e><i><r><a>";/
         "<s><LATIN_SMALL_LETTER_A_WITH_ACUTE><b><a><d><o>"
 
-abmon   "<j><a><n><e><i><r><o>";/
-        "<f><e><v><e><r><e><i><r><o>";/
-        "<m><a><r><LATIN_SMALL_LETTER_C_WITH_CEDILLA><o>";/
-        "<a><b><r><i><l>";/
-        "<m><a><i><o>";/
-        "<j><u><n><h><o>";/
-        "<j><u><l><h><o>";/
-        "<a><g><o><s><t><o>";/
-        "<s><e><t><e><m><b><r><o>";/
-        "<o><u><t><u><b><r><o>";/
-        "<n><o><v><e><m><b><r><o>";/
-        "<d><e><z><e><m><b><r><o>"
+abmon   "<j><a><n>";/
+        "<f><e><v>";/
+        "<m><a><r>";/
+        "<a><b><r>";/
+        "<m><a><i>";/
+        "<j><u><n>";/
+        "<j><u><l>";/
+        "<a><g><o>";/
+        "<s><e><t>";/
+        "<o><u><t>";/
+        "<n><o><v>";/
+        "<d><e><z>"
 
 mon     "<j><a><n><e><i><r><o>";/
         "<f><e><v><e><r><e><i><r><o>";/

@@ -5901,41 +5901,41 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+abday   "<y><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
+        "<d><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
+        "<s><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
+        "<p><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
+        "<LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><n>";/
+        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA>"
 
-day     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+day     "<y><e><k><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
+        "<d><u><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
+        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA><LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><a><r><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
+        "<p><LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX><n><c><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
+        "<LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><n>";/
+        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX>"
 
-abmon   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
+abmon   "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><i><l>";/
+        "<s><i><b>";/
+        "<a><d><r>";/
+        "<n><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><s>";/
+        "<g><u><l>";/
+        "<h><e><z>";/
+        "<t><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><r>";/
         "<eight>";/
         "<nine>";/
         "<one><zero>";/
         "<one><one>";/
         "<one><two>"
 
-mon     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
+mon     "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><i><l><e>";/
+        "<s><i><b><a><t>";/
+        "<a><d><a><r>";/
+        "<n><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><s><a><n>";/
+        "<g><u><l><a><n>";/
+        "<h><e><z><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><r><a><n>";/
         "<seven>";/
         "<eight>";/
         "<nine>";/
@@ -5949,7 +5949,7 @@ t_fmt    "%H:%M:%S"
 
 d_t_fmt  "%Y %B %e %H:%M:%S %Z"
 
-am_pm    "<A><M>";"<P><M>"
+am_pm    "<B><N>";"<P><N>"
 
 t_fmt_ampm  ""
 
@@ -5958,13 +5958,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:YES:Y"
+yesstr   "er<LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX>:e:ER<LATIN_CAPITAL_LETTER_E_WITH_CIRCUMFLEX>:E:yes:y:YES:Y"
 
-nostr    "no:n:NO:N"
+nostr    "na:n:NA:N:no:n:NO:N"
 
-yesexpr  "^(([yY]([eE][sS])?))"
+yesexpr  "^(([eE]([rR][<LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX><LATIN_CAPITAL_LETTER_E_WITH_CIRCUMFLEX>])?)|([yY]([eE][sS])?))"
 
-noexpr   "^(([nN]([oO])?))"
+noexpr   "^(([nN]([aA])?)|([nN]([oO])?))"
 
 
 END LC_MESSAGES

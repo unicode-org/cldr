@@ -4045,6 +4045,7 @@ LC_COLLATE
 *************
 
 collating-element <A-A> from "<A><A>"
+collating-element <a-A> from "<a><A>"
 collating-element <A-a> from "<A><a>"
 collating-element <a-a> from "<a><a>"
 
@@ -4062,6 +4063,7 @@ collating-symbol <X0029>
 collating-symbol <X003D>
 collating-symbol <X0041>
 collating-symbol <X0048>
+collating-symbol <X0049>
 collating-symbol <X004D>
 collating-symbol <X005D>
 collating-symbol <X006D>
@@ -4072,6 +4074,7 @@ collating-symbol <X0086>
 collating-symbol <X0087>
 collating-symbol <X0088>
 collating-symbol <X0089>
+collating-symbol <X008A>
 collating-symbol <X008D>
 collating-symbol <X008F>
 collating-symbol <X0090>
@@ -4414,6 +4417,7 @@ order_start forward;forward;forward;forward
 <X003D>
 <X0041>
 <X0048>
+<X0049>
 <X004D>
 <X005D>
 <X006D>
@@ -4424,6 +4428,7 @@ order_start forward;forward;forward;forward
 <X0087>
 <X0088>
 <X0089>
+<X008A>
 <X008D>
 <X008F>
 <X0090>
@@ -5820,8 +5825,9 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LIGATURE_OE>                                "<X5B6F><X0500>";<X0089>;"<X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                 "<X5B6F><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
 <ANGSTROM_SIGN>                                          "<X5B6F><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
-<A-A>                                                    "<X5B6F><X0600>";<X0005>;"<X0089><X00C0>";IGNORE
-<A-a>                                                    "<X5B6F><X0600>";<X0005>;"<X0048><X00C0>";IGNORE
+<A-A>                                                    "<X5B6F><X0600>";<X0005>;"<X008A><X00C0>";IGNORE
+<a-A>                                                    "<X5B6F><X0600>";<X0005>;"<X0048><X00C0>";IGNORE
+<A-a>                                                    "<X5B6F><X0600>";<X0005>;"<X0049><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                   "<X5B6F><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
 <a-a>                                                    "<X5B6F><X0600>";<X0005>;"<X0007><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>       "<X5B6F><X0600>";"<X0005><X008D>";"<X0086><X00C0><X0005>";IGNORE
@@ -5894,7 +5900,7 @@ mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<FULL_STOP>"
 mon_grouping          3
 positive_sign         ""
-negative_sign         "<HYPHEN-MINUS>"
+negative_sign         "<MINUS_SIGN>"
 int_frac_digits       2
 frac_digits           2
 p_cs_precedes         1
@@ -5933,18 +5939,18 @@ day     "<s><LATIN_SMALL_LETTER_O_WITH_STROKE><n><d><a><g>";/
         "<f><r><e><d><a><g>";/
         "<l><LATIN_SMALL_LETTER_O_WITH_STROKE><r><d><a><g>"
 
-abmon   "<j><a><n><u><a><r>";/
-        "<f><e><b><r><u><a><r>";/
-        "<m><a><r><t><s>";/
-        "<a><p><r><i><l>";/
+abmon   "<j><a><n>";/
+        "<f><e><b>";/
+        "<m><a><r>";/
+        "<a><p><r>";/
         "<m><a><j>";/
-        "<j><u><n><i>";/
-        "<j><u><l><i>";/
-        "<a><u><g><u><s><t>";/
-        "<s><e><p><t><e><m><b><e><r>";/
-        "<o><k><t><o><b><e><r>";/
-        "<n><o><v><e><m><b><e><r>";/
-        "<d><e><c><e><m><b><e><r>"
+        "<j><u><n>";/
+        "<j><u><l>";/
+        "<a><u><g>";/
+        "<s><e><p>";/
+        "<o><k><t>";/
+        "<n><o><v>";/
+        "<d><e><c>"
 
 mon     "<j><a><n><u><a><r>";/
         "<f><e><b><r><u><a><r>";/

@@ -668,7 +668,6 @@ collating-symbol <X050B>
 collating-symbol <X050D>
 collating-symbol <X050F>
 collating-symbol <X0600>
-collating-symbol <X0700>
 collating-symbol <X0764>
 collating-symbol <X076A>
 collating-symbol <X0782>
@@ -753,6 +752,7 @@ collating-symbol <X7338>
 collating-symbol <X733A>
 collating-symbol <X733C>
 collating-symbol <X733E>
+collating-symbol <X733F>
 collating-symbol <X7340>
 collating-symbol <X7342>
 collating-symbol <X7344>
@@ -782,7 +782,6 @@ collating-symbol <X7372>
 collating-symbol <X7374>
 collating-symbol <X7376>
 collating-symbol <X7378>
-collating-symbol <X737A>
 collating-symbol <X737C>
 collating-symbol <X737E>
 collating-symbol <X7380>
@@ -802,6 +801,7 @@ collating-symbol <X7398>
 collating-symbol <X739A>
 collating-symbol <X739C>
 collating-symbol <X739E>
+collating-symbol <X73A0>
 collating-symbol <X73A2>
 collating-symbol <X73A4>
 
@@ -824,7 +824,6 @@ order_start forward;forward;forward;forward
 <X050D>
 <X050F>
 <X0600>
-<X0700>
 <X0764>
 <X076A>
 <X0782>
@@ -909,6 +908,7 @@ order_start forward;forward;forward;forward
 <X733A>
 <X733C>
 <X733E>
+<X733F>
 <X7340>
 <X7342>
 <X7344>
@@ -938,7 +938,6 @@ order_start forward;forward;forward;forward
 <X7374>
 <X7376>
 <X7378>
-<X737A>
 <X737C>
 <X737E>
 <X7380>
@@ -958,6 +957,7 @@ order_start forward;forward;forward;forward
 <X739A>
 <X739C>
 <X739E>
+<X73A0>
 <X73A2>
 <X73A4>
 
@@ -1117,6 +1117,9 @@ order_start forward;forward;forward;forward
 <TELUGU_LETTER_O>              <X733A>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_OO>             <X733C>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_AU>             <X733E>;<X0005>;<X0005>;IGNORE
+<TELUGU_SIGN_ANUSVARA>         "<X733F><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
+<TELUGU_SIGN_CANDRABINDU>      "<X733F><X0500>";<X0005>;"<X0005><X00C0>";IGNORE
+<TELUGU_SIGN_VISARGA>          "<X733F><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
 <TELUGU_LETTER_KA>             <X7340>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_KHA>            <X7342>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_GA>             <X7344>;<X0005>;<X0005>;IGNORE
@@ -1146,16 +1149,12 @@ order_start forward;forward;forward;forward
 <TELUGU_LETTER_RA>             <X7374>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_RRA>            <X7376>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_LA>             <X7378>;<X0005>;<X0005>;IGNORE
-<TELUGU_LETTER_LLA>            <X737A>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_VA>             <X737C>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_SHA>            <X737E>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_SSA>            <X7380>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_SA>             <X7382>;<X0005>;<X0005>;IGNORE
 <TELUGU_LETTER_HA>             <X7384>;<X0005>;<X0005>;IGNORE
-<TELUGU_SIGN_CANDRABINDU>      "<X7385><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
-<TELUGU_SIGN_ANUSVARA>         "<X7385><X0500>";<X0005>;"<X0005><X00C0>";IGNORE
-<TELUGU_SIGN_VISARGA>          "<X7385><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
-<TELUGU_SIGN_VIRAMA>           "<X7385><X0700>";<X0005>;"<X0005><X00C0>";IGNORE
+<TELUGU_LETTER_LLA>            <X7385>;<X0005>;<X0005>;IGNORE
 <TELUGU_VOWEL_SIGN_AA>         <X7386>;<X0005>;<X0005>;IGNORE
 <TELUGU_VOWEL_SIGN_I>          <X7388>;<X0005>;<X0005>;IGNORE
 <TELUGU_VOWEL_SIGN_II>         <X738A>;<X0005>;<X0005>;IGNORE
@@ -1169,6 +1168,7 @@ order_start forward;forward;forward;forward
 <TELUGU_VOWEL_SIGN_O>          <X739A>;<X0005>;<X0005>;IGNORE
 <TELUGU_VOWEL_SIGN_OO>         <X739C>;<X0005>;<X0005>;IGNORE
 <TELUGU_VOWEL_SIGN_AU>         <X739E>;<X0005>;<X0005>;IGNORE
+<TELUGU_SIGN_VIRAMA>           <X73A0>;<X0005>;<X0005>;IGNORE
 <TELUGU_LENGTH_MARK>           <X73A2>;<X0005>;<X0005>;IGNORE
 <TELUGU_AI_LENGTH_MARK>        <X73A4>;<X0005>;<X0005>;IGNORE
 UNDEFINED                      IGNORE;IGNORE;IGNORE;...

@@ -4044,12 +4044,6 @@ END LC_CTYPE
 LC_COLLATE
 *************
 
-collating-element <c-h> from "<c><h>"
-collating-element <C-h> from "<C><h>"
-collating-element <C-H> from "<C><H>"
-collating-element <l-l> from "<l><l>"
-collating-element <L-l> from "<L><l>"
-collating-element <L-L> from "<L><L>"
 
 
 * Define collation weights as symbols
@@ -4063,16 +4057,12 @@ collating-symbol <X0027>
 collating-symbol <X0029>
 collating-symbol <X003D>
 collating-symbol <X0041>
-collating-symbol <X0046>
-collating-symbol <X0047>
 collating-symbol <X004D>
 collating-symbol <X005D>
 collating-symbol <X006D>
 collating-symbol <X0075>
 collating-symbol <X007D>
 collating-symbol <X0085>
-collating-symbol <X0087>
-collating-symbol <X0089>
 collating-symbol <X008D>
 collating-symbol <X008F>
 collating-symbol <X0091>
@@ -4167,7 +4157,6 @@ collating-symbol <X2B6A>
 collating-symbol <X2B6C>
 collating-symbol <X2B6E>
 collating-symbol <X2C00>
-collating-symbol <X2D04>
 collating-symbol <X2D60>
 collating-symbol <X2D62>
 collating-symbol <X2D64>
@@ -4240,7 +4229,6 @@ collating-symbol <X3D62>
 collating-symbol <X3D64>
 collating-symbol <X3D66>
 collating-symbol <X3E00>
-collating-symbol <X3F04>
 collating-symbol <X3F60>
 collating-symbol <X3F62>
 collating-symbol <X3F64>
@@ -4414,16 +4402,12 @@ order_start forward;backward;forward;forward
 <X0029>
 <X003D>
 <X0041>
-<X0046>
-<X0047>
 <X004D>
 <X005D>
 <X006D>
 <X0075>
 <X007D>
 <X0085>
-<X0087>
-<X0089>
 <X008D>
 <X008F>
 <X0091>
@@ -4518,7 +4502,6 @@ order_start forward;backward;forward;forward
 <X2B6C>
 <X2B6E>
 <X2C00>
-<X2D04>
 <X2D60>
 <X2D62>
 <X2D64>
@@ -4591,7 +4574,6 @@ order_start forward;backward;forward;forward
 <X3D64>
 <X3D66>
 <X3E00>
-<X3F04>
 <X3F60>
 <X3F62>
 <X3F64>
@@ -4956,9 +4938,6 @@ order_start forward;backward;forward;forward
 <LATIN_CAPITAL_LETTER_C_WITH_DOT_ABOVE>                  <X2C00>;"<X0005><X00A3>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_C_WITH_CEDILLA>                      <X2C00>;"<X0005><X00A7>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_C_WITH_CEDILLA>                    <X2C00>;"<X0005><X00A7>";"<X008F><X0005>";IGNORE
-<c-h>                                                    <X2D04>;<X0005>;<X0005>;IGNORE
-<C-h>                                                    <X2D04>;<X0005>;<X0046>;IGNORE
-<C-H>                                                    <X2D04>;<X0005>;<X0087>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_C>                           <X2D60>;<X0005>;<X0005>;IGNORE
 <LATIN_SMALL_LETTER_C_WITH_STROKE>                       <X2D62>;<X0005>;<X0005>;IGNORE
 <LATIN_CAPITAL_LETTER_C_WITH_STROKE>                     <X2D62>;<X0005>;<X008F>;IGNORE
@@ -5297,9 +5276,6 @@ order_start forward;backward;forward;forward
 <LATIN_CAPITAL_LETTER_LJ>                                "<X3E00><X3A00>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
 <LATIN_SMALL_LETTER_LS_DIGRAPH>                          "<X3E00><X4C00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_SMALL_LETTER_LZ_DIGRAPH>                          "<X3E00><X5A00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
-<l-l>                                                    <X3F04>;<X0005>;<X0005>;IGNORE
-<L-l>                                                    <X3F04>;<X0005>;<X0047>;IGNORE
-<L-L>                                                    <X3F04>;<X0005>;<X0089>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_L>                           <X3F60>;<X0005>;<X0005>;IGNORE
 <MODIFIER_LETTER_SMALL_CAPITAL_L>                        <X3F60>;<X0005>;<X0027>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_L_WITH_STROKE>               <X3F62>;<X0005>;<X0005>;IGNORE
@@ -5937,18 +5913,18 @@ day     "<d><i><u><m><e><n><g><e>";/
         "<d><i><v><e><n><d><r><e><s>";/
         "<d><i><s><s><a><b><t><e>"
 
-abmon   "<g><e><n><e><r>";/
-        "<f><e><b><r><e><r>";/
+abmon   "<g><e><n><FULL_STOP>";/
+        "<f><e><b><r><FULL_STOP>";/
         "<m><a><r><LATIN_SMALL_LETTER_C_WITH_CEDILLA>";/
-        "<a><b><r><i><l>";/
+        "<a><b><r><FULL_STOP>";/
         "<m><a><i><g>";/
         "<j><u><n><y>";/
-        "<j><u><l><i><o><l>";/
-        "<a><g><o><s><t>";/
-        "<s><e><t><e><m><b><r><e>";/
-        "<o><c><t><u><b><r><e>";/
-        "<n><o><v><e><m><b><r><e>";/
-        "<d><e><s><e><m><b><r><e>"
+        "<j><u><l><FULL_STOP>";/
+        "<a><g><FULL_STOP>";/
+        "<s><e><t><FULL_STOP>";/
+        "<o><c><t><FULL_STOP>";/
+        "<n><o><v><FULL_STOP>";/
+        "<d><e><s><FULL_STOP>"
 
 mon     "<g><e><n><e><r>";/
         "<f><e><b><r><e><r>";/

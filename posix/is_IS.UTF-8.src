@@ -5935,18 +5935,18 @@ day     "<s><u><n><n><u><d><a><g><u><r>";/
         "<f><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><s><t><u><d><a><g><u><r>";/
         "<l><a><u><g><a><r><d><a><g><u><r>"
 
-abmon   "<j><a><n><LATIN_SMALL_LETTER_U_WITH_ACUTE><a><r>";/
-        "<f><e><b><r><LATIN_SMALL_LETTER_U_WITH_ACUTE><a><r>";/
-        "<m><a><r><s>";/
-        "<a><p><r><LATIN_SMALL_LETTER_I_WITH_ACUTE><l>";/
+abmon   "<j><a><n>";/
+        "<f><e><b>";/
+        "<m><a><r>";/
+        "<a><p><r>";/
         "<m><a><LATIN_SMALL_LETTER_I_WITH_ACUTE>";/
-        "<j><LATIN_SMALL_LETTER_U_WITH_ACUTE><n><LATIN_SMALL_LETTER_I_WITH_ACUTE>";/
-        "<j><LATIN_SMALL_LETTER_U_WITH_ACUTE><l><LATIN_SMALL_LETTER_I_WITH_ACUTE>";/
-        "<LATIN_SMALL_LETTER_A_WITH_ACUTE><g><LATIN_SMALL_LETTER_U_WITH_ACUTE><s><t>";/
-        "<s><e><p><t><e><m><b><e><r>";/
-        "<o><k><t><LATIN_SMALL_LETTER_O_WITH_ACUTE><b><e><r>";/
-        "<n><LATIN_SMALL_LETTER_O_WITH_ACUTE><v><e><m><b><e><r>";/
-        "<d><e><s><e><m><b><e><r>"
+        "<j><LATIN_SMALL_LETTER_U_WITH_ACUTE><n>";/
+        "<j><LATIN_SMALL_LETTER_U_WITH_ACUTE><l>";/
+        "<LATIN_SMALL_LETTER_A_WITH_ACUTE><g><LATIN_SMALL_LETTER_U_WITH_ACUTE>";/
+        "<s><e><p>";/
+        "<o><k><t>";/
+        "<n><LATIN_SMALL_LETTER_O_WITH_ACUTE><v>";/
+        "<d><e><s>"
 
 mon     "<j><a><n><LATIN_SMALL_LETTER_U_WITH_ACUTE><a><r>";/
         "<f><e><b><r><LATIN_SMALL_LETTER_U_WITH_ACUTE><a><r>";/
@@ -5976,11 +5976,11 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "j<LATIN_SMALL_LETTER_A_WITH_ACUTE>:ja:j:J<LATIN_CAPITAL_LETTER_A_WITH_ACUTE>:JA:J:yes:y:YES:Y"
+yesstr   "j<LATIN_SMALL_LETTER_A_WITH_ACUTE>:j:J<LATIN_CAPITAL_LETTER_A_WITH_ACUTE>:J:yes:y:YES:Y"
 
 nostr    "nei:n:NEI:N:no:n:NO:N"
 
-yesexpr  "^(([jJ]([<LATIN_SMALL_LETTER_A_WITH_ACUTE><LATIN_CAPITAL_LETTER_A_WITH_ACUTE>])?)|([jJ]([aA])?)|([yY]([eE][sS])?))"
+yesexpr  "^(([jJ]([<LATIN_SMALL_LETTER_A_WITH_ACUTE><LATIN_CAPITAL_LETTER_A_WITH_ACUTE>])?)|([yY]([eE][sS])?))"
 
 noexpr   "^(([nN]([eE][iI])?)|([nN]([oO])?))"
 

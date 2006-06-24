@@ -5888,7 +5888,7 @@ mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
 positive_sign         ""
-negative_sign         "<HYPHEN-MINUS>"
+negative_sign         "<MINUS_SIGN>"
 int_frac_digits       2
 frac_digits           2
 p_cs_precedes         0
@@ -5911,13 +5911,13 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<s><LATIN_SMALL_LETTER_O_WITH_DIAERESIS>";/
-        "<m><LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>";/
-        "<t><i>";/
-        "<o><n>";/
-        "<t><o>";/
-        "<f><r>";/
-        "<l><LATIN_SMALL_LETTER_O_WITH_DIAERESIS>"
+abday   "<s><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><n>";/
+        "<m><LATIN_SMALL_LETTER_A_WITH_RING_ABOVE><n>";/
+        "<t><i><s>";/
+        "<o><n><s>";/
+        "<t><o><r><s>";/
+        "<f><r><e>";/
+        "<l><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><r>"
 
 day     "<s><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><n><d><a><g>";/
         "<m><LATIN_SMALL_LETTER_A_WITH_RING_ABOVE><n><d><a><g>";/
@@ -5927,18 +5927,18 @@ day     "<s><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><n><d><a><g>";/
         "<f><r><e><d><a><g>";/
         "<l><LATIN_SMALL_LETTER_O_WITH_DIAERESIS><r><d><a><g>"
 
-abmon   "<j><a><n><u><a><r><i>";/
-        "<f><e><b><r><u><a><r><i>";/
-        "<m><a><r><s>";/
-        "<a><p><r><i><l>";/
+abmon   "<j><a><n>";/
+        "<f><e><b>";/
+        "<m><a><r>";/
+        "<a><p><r>";/
         "<m><a><j>";/
-        "<j><u><n><i>";/
-        "<j><u><l><i>";/
-        "<a><u><g><u><s><t><i>";/
-        "<s><e><p><t><e><m><b><e><r>";/
-        "<o><k><t><o><b><e><r>";/
-        "<n><o><v><e><m><b><e><r>";/
-        "<d><e><c><e><m><b><e><r>"
+        "<j><u><n>";/
+        "<j><u><l>";/
+        "<a><u><g>";/
+        "<s><e><p>";/
+        "<o><k><t>";/
+        "<n><o><v>";/
+        "<d><e><c>"
 
 mon     "<j><a><n><u><a><r><i>";/
         "<f><e><b><r><u><a><r><i>";/
@@ -5955,9 +5955,9 @@ mon     "<j><a><n><u><a><r><i>";/
 
 d_fmt    "%Y-%m-%d"
 
-t_fmt    "%H.%M.%S"
+t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%A %e %b %Y %H.%M.%S %Z"
+d_t_fmt  "%A, %e:e %b., %Y %H:%M:%S %Z"
 
 am_pm    "<f><m>";"<e><m>"
 

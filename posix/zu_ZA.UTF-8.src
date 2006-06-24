@@ -5861,7 +5861,7 @@ END LC_COLLATE
 LC_NUMERIC
 *************
 
-decimal_point     "<FULL_STOP>"
+decimal_point     "<COMMA>"
 thousands_sep     "<COMMA>"
 grouping          3
 
@@ -5874,7 +5874,7 @@ LC_MONETARY
 
 int_curr_symbol       "<Z><A><R><space>"
 currency_symbol       "<R>"
-mon_decimal_point     "<FULL_STOP>"
+mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<COMMA>"
 mon_grouping          3
 positive_sign         ""
@@ -5917,18 +5917,18 @@ day     "<S><o><n><t><o>";/
         "<L><w><e><s><i><h><l><a><n><u>";/
         "<M><g><q><i><b><e><l><o>"
 
-abmon   "<J><a><n><u><w><a><r><i>";/
-        "<F><e><b><r><u><w><a><r><i>";/
-        "<M><a><s><h><i>";/
-        "<A><p><r><e><l><i>";/
-        "<M><e><y><i>";/
-        "<J><u><n><i>";/
-        "<J><u><l><a><y><i>";/
-        "<A><g><a><s><t><i>";/
-        "<S><e><p><t><e><m><b><a>";/
-        "<O><k><t><h><o><b><a>";/
-        "<N><o><v><e><m><b><a>";/
-        "<D><i><s><e><m><b><a>"
+abmon   "<J><a><n>";/
+        "<F><e><b>";/
+        "<M><a><s>";/
+        "<A><p><r>";/
+        "<M><e><y>";/
+        "<J><u><n>";/
+        "<J><u><l>";/
+        "<A><g><a>";/
+        "<S><e><p>";/
+        "<O><k><t>";/
+        "<N><o><v>";/
+        "<D><i><s>"
 
 mon     "<J><a><n><u><w><a><r><i>";/
         "<F><e><b><r><u><w><a><r><i>";/

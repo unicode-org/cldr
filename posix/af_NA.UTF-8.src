@@ -5901,13 +5901,13 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<S><o>";/
-        "<M><a>";/
-        "<D><i>";/
-        "<W><o>";/
-        "<D><o>";/
-        "<V><r>";/
-        "<S><a>"
+abday   "<S><o><FULL_STOP>";/
+        "<M><a><FULL_STOP>";/
+        "<D><i><FULL_STOP>";/
+        "<W><o><FULL_STOP>";/
+        "<D><o><FULL_STOP>";/
+        "<V><r><FULL_STOP>";/
+        "<S><a><FULL_STOP>"
 
 day     "<S><o><n><d><a><g>";/
         "<M><a><a><n><d><a><g>";/
@@ -5917,18 +5917,18 @@ day     "<S><o><n><d><a><g>";/
         "<V><r><y><d><a><g>";/
         "<S><a><t><e><r><d><a><g>"
 
-abmon   "<J><a><n><u><a><r><i><e>";/
-        "<F><e><b><r><u><a><r><i><e>";/
-        "<M><a><a><r><t>";/
-        "<A><p><r><i><l>";/
+abmon   "<J><a><n><FULL_STOP>";/
+        "<F><e><b><FULL_STOP>";/
+        "<M><r><t><FULL_STOP>";/
+        "<A><p><r><FULL_STOP>";/
         "<M><e><i>";/
-        "<J><u><n><i><e>";/
-        "<J><u><l><i><e>";/
-        "<A><u><g><u><s><t><u><s>";/
-        "<S><e><p><t><e><m><b><e><r>";/
-        "<O><k><t><o><b><e><r>";/
-        "<N><o><v><e><m><b><e><r>";/
-        "<D><e><s><e><m><b><e><r>"
+        "<J><u><n><FULL_STOP>";/
+        "<J><u><l><FULL_STOP>";/
+        "<A><u><g><FULL_STOP>";/
+        "<S><e><p><FULL_STOP>";/
+        "<O><k><t><FULL_STOP>";/
+        "<N><o><v><FULL_STOP>";/
+        "<D><e><s><FULL_STOP>"
 
 mon     "<J><a><n><u><a><r><i><e>";/
         "<F><e><b><r><u><a><r><i><e>";/
@@ -5943,11 +5943,11 @@ mon     "<J><a><n><u><a><r><i><e>";/
         "<N><o><v><e><m><b><e><r>";/
         "<D><e><s><e><m><b><e><r>"
 
-d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
+d_fmt    "%Y-%m-%d"
 
 t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%Y %B %e %H:%M:%S %Z"
+d_t_fmt  "%e %B %Y %H:%M:%S %Z"
 
 am_pm    "<v><m><FULL_STOP>";"<n><m><FULL_STOP>"
 
@@ -5958,13 +5958,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:YES:Y"
+yesstr   "ja:j:JA:J:yes:y:YES:Y"
 
-nostr    "no:n:NO:N"
+nostr    "nee:n:NEE:N:no:n:NO:N"
 
-yesexpr  "^(([yY]([eE][sS])?))"
+yesexpr  "^(([jJ]([aA])?)|([yY]([eE][sS])?))"
 
-noexpr   "^(([nN]([oO])?))"
+noexpr   "^(([nN]([eE][eE])?)|([nN]([oO])?))"
 
 
 END LC_MESSAGES

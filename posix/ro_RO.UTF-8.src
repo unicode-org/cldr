@@ -4164,7 +4164,6 @@ collating-symbol <X2D62>
 collating-symbol <X2D64>
 collating-symbol <X2D66>
 collating-symbol <X2E00>
-collating-symbol <X2F04>
 collating-symbol <X2F60>
 collating-symbol <X2F62>
 collating-symbol <X2F64>
@@ -4354,7 +4353,6 @@ collating-symbol <X5800>
 collating-symbol <X5960>
 collating-symbol <X5962>
 collating-symbol <X5A00>
-collating-symbol <X5B04>
 collating-symbol <X5B60>
 collating-symbol <X5B62>
 collating-symbol <X5B64>
@@ -4516,7 +4514,6 @@ order_start forward;forward;forward;forward
 <X2D64>
 <X2D66>
 <X2E00>
-<X2F04>
 <X2F60>
 <X2F62>
 <X2F64>
@@ -4706,7 +4703,6 @@ order_start forward;forward;forward;forward
 <X5960>
 <X5962>
 <X5A00>
-<X5B04>
 <X5B60>
 <X5B62>
 <X5B64>
@@ -4977,6 +4973,8 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_D_WITH_CIRCUMFLEX_BELOW>           <X2E00>;"<X0005><X00D0><X00CD>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_D_WITH_LINE_BELOW>                   <X2E00>;"<X0005><X00D1><X0011>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_D_WITH_LINE_BELOW>                 <X2E00>;"<X0005><X00D1><X0011>";"<X008F><X0005><X00C0>";IGNORE
+<LATIN_SMALL_LETTER_D_WITH_STROKE>                       <X2E00>;"<X0005><X00D1><X0041>";"<X0005><X0005><X00C0>";IGNORE
+<LATIN_CAPITAL_LETTER_D_WITH_STROKE>                     <X2E00>;"<X0005><X00D1><X0041>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_ETH>                                 <X2E00>;"<X0005><X00E2><X0075>";"<X0009><X0009><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_ETH>                               <X2E00>;"<X0005><X00E2><X0075>";"<X0093><X0009><X00C0>";IGNORE
 <MODIFIER_LETTER_SMALL_ETH>                              <X2E00>;"<X0005><X00E2><X0075>";"<X0027><X0027><X00C0>";IGNORE
@@ -4990,8 +4988,6 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_DZ_WITH_CARON>                     "<X2E00><X5A00>";"<X0005><X0005><X0097>";"<X0093><X0093><X003D>";IGNORE
 <LATIN_SMALL_LETTER_DZ_DIGRAPH_WITH_CURL>                "<X2E00><X5B6C>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_SMALL_LETTER_DEZH_DIGRAPH>                        "<X2E00><X5B70>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
-<LATIN_SMALL_LETTER_D_WITH_STROKE>                       <X2F04>;<X0005>;<X0005>;IGNORE
-<LATIN_CAPITAL_LETTER_D_WITH_STROKE>                     <X2F04>;<X0005>;<X0086>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_D>                           <X2F60>;<X0005>;<X0005>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_ETH>                         <X2F62>;<X0005>;<X0005>;IGNORE
 <LATIN_SMALL_LETTER_D_WITH_MIDDLE_TILDE>                 <X2F64>;<X0005>;<X0005>;IGNORE
@@ -5799,13 +5795,13 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_Z_WITH_CIRCUMFLEX>                 <X5A00>;"<X0005><X0093>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_Z_WITH_CARON>                        <X5A00>;"<X0005><X0097>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_CARON>                      <X5A00>;"<X0005><X0097>";"<X008F><X0005>";IGNORE
+<LATIN_SMALL_LETTER_Z_WITH_DOT_ABOVE>                    <X5A00>;"<X0005><X00A3>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_Z_WITH_DOT_ABOVE>                  <X5A00>;"<X0005><X00A3>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_Z_WITH_DOT_BELOW>                    <X5A00>;"<X0005><X00D0><X004D>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_DOT_BELOW>                  <X5A00>;"<X0005><X00D0><X004D>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_Z_WITH_LINE_BELOW>                   <X5A00>;"<X0005><X00D1><X0011>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_LINE_BELOW>                 <X5A00>;"<X0005><X00D1><X0011>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_TURNED_DELTA>                        "<X5A00><X5400>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
-<LATIN_SMALL_LETTER_Z_WITH_DOT_ABOVE>                    <X5B04>;<X0005>;<X0005>;IGNORE
-<LATIN_CAPITAL_LETTER_Z_WITH_DOT_ABOVE>                  <X5B04>;<X0005>;<X0086>;IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_Z>                           <X5B60>;<X0005>;<X0005>;IGNORE
 <LATIN_SMALL_LETTER_Z_WITH_STROKE>                       <X5B62>;<X0005>;<X0005>;IGNORE
 <LATIN_CAPITAL_LETTER_Z_WITH_STROKE>                     <X5B62>;<X0005>;<X008F>;IGNORE
@@ -5927,18 +5923,18 @@ day     "<d><u><m><i><n><i><c><LATIN_SMALL_LETTER_A_WITH_BREVE>";/
         "<v><i><n><e><r><i>";/
         "<s><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><m><b><LATIN_SMALL_LETTER_A_WITH_BREVE><t><LATIN_SMALL_LETTER_A_WITH_BREVE>"
 
-abmon   "<i><a><n><u><a><r><i><e>";/
-        "<f><e><b><r><u><a><r><i><e>";/
-        "<m><a><r><t><i><e>";/
-        "<a><p><r><i><l><i><e>";/
-        "<m><a><i>";/
-        "<i><u><n><i><e>";/
-        "<i><u><l><i><e>";/
-        "<a><u><g><u><s><t>";/
-        "<s><e><p><t><e><m><b><r><i><e>";/
-        "<o><c><t><o><m><b><r><i><e>";/
-        "<n><o><i><e><m><b><r><i><e>";/
-        "<d><e><c><e><m><b><r><i><e>"
+abmon   "<I><a><n>";/
+        "<F><e><b>";/
+        "<M><a><r>";/
+        "<A><p><r>";/
+        "<M><a><i>";/
+        "<I><u><n>";/
+        "<I><u><l>";/
+        "<A><u><g>";/
+        "<S><e><p>";/
+        "<O><c><t>";/
+        "<N><o><v>";/
+        "<D><e><c>"
 
 mon     "<i><a><n><u><a><r><i><e>";/
         "<f><e><b><r><u><a><r><i><e>";/

@@ -652,8 +652,6 @@ LC_COLLATE
 *************
 
 collating-element <ORIYA_LETTER_KA-ORIYA_SIGN_VIRAMA-ORIYA_LETTER_SSA> from "<ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_SSA>"
-collating-element <ORIYA_LETTER_DDA-ORIYA_SIGN_NUKTA> from "<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
-collating-element <ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> from "<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
 
 
 * Define collation weights as symbols
@@ -661,8 +659,11 @@ collating-element <ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> from "<ORIYA_LETTER_DDHA>
 collating-symbol <X0001>
 collating-symbol <X0005>
 collating-symbol <X0059>
+collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X00C0>
+collating-symbol <X00D1>
+collating-symbol <X00D9>
 collating-symbol <X00E3>
 collating-symbol <X0400>
 collating-symbol <X0500>
@@ -672,7 +673,6 @@ collating-symbol <X050B>
 collating-symbol <X050D>
 collating-symbol <X050F>
 collating-symbol <X0600>
-collating-symbol <X0700>
 collating-symbol <X0764>
 collating-symbol <X076A>
 collating-symbol <X0782>
@@ -682,7 +682,6 @@ collating-symbol <X07C2>
 collating-symbol <X07C8>
 collating-symbol <X07F2>
 collating-symbol <X07FA>
-collating-symbol <X0800>
 collating-symbol <X0813>
 collating-symbol <X086D>
 collating-symbol <X087B>
@@ -692,7 +691,6 @@ collating-symbol <X0893>
 collating-symbol <X0895>
 collating-symbol <X0897>
 collating-symbol <X0899>
-collating-symbol <X0900>
 collating-symbol <X0927>
 collating-symbol <X0929>
 collating-symbol <X0931>
@@ -700,18 +698,13 @@ collating-symbol <X0935>
 collating-symbol <X0937>
 collating-symbol <X093D>
 collating-symbol <X093F>
-collating-symbol <X0A00>
 collating-symbol <X0AB5>
-collating-symbol <X0B00>
-collating-symbol <X0C00>
 collating-symbol <X0C79>
 collating-symbol <X0C81>
 collating-symbol <X0C83>
 collating-symbol <X0C85>
 collating-symbol <X0C89>
 collating-symbol <X0C8F>
-collating-symbol <X0D00>
-collating-symbol <X0E00>
 collating-symbol <X253C>
 collating-symbol <X257A>
 collating-symbol <X257C>
@@ -763,6 +756,7 @@ collating-symbol <X7134>
 collating-symbol <X7136>
 collating-symbol <X7138>
 collating-symbol <X713A>
+collating-symbol <X713B>
 collating-symbol <X713C>
 collating-symbol <X713E>
 collating-symbol <X7140>
@@ -792,6 +786,8 @@ collating-symbol <X716E>
 collating-symbol <X7172>
 collating-symbol <X7174>
 collating-symbol <X7176>
+collating-symbol <X7178>
+collating-symbol <X717A>
 collating-symbol <X717C>
 collating-symbol <X717E>
 collating-symbol <X7180>
@@ -808,6 +804,7 @@ collating-symbol <X7192>
 collating-symbol <X7194>
 collating-symbol <X7196>
 collating-symbol <X7198>
+collating-symbol <X719A>
 collating-symbol <X719C>
 collating-symbol <X719E>
 
@@ -819,8 +816,11 @@ order_start forward;forward;forward;forward
 <X0001>
 <X0005>
 <X0059>
+<X0087>
 <X008F>
 <X00C0>
+<X00D1>
+<X00D9>
 <X00E3>
 <X0400>
 <X0500>
@@ -830,7 +830,6 @@ order_start forward;forward;forward;forward
 <X050D>
 <X050F>
 <X0600>
-<X0700>
 <X0764>
 <X076A>
 <X0782>
@@ -840,7 +839,6 @@ order_start forward;forward;forward;forward
 <X07C8>
 <X07F2>
 <X07FA>
-<X0800>
 <X0813>
 <X086D>
 <X087B>
@@ -850,7 +848,6 @@ order_start forward;forward;forward;forward
 <X0895>
 <X0897>
 <X0899>
-<X0900>
 <X0927>
 <X0929>
 <X0931>
@@ -858,18 +855,13 @@ order_start forward;forward;forward;forward
 <X0937>
 <X093D>
 <X093F>
-<X0A00>
 <X0AB5>
-<X0B00>
-<X0C00>
 <X0C79>
 <X0C81>
 <X0C83>
 <X0C85>
 <X0C89>
 <X0C8F>
-<X0D00>
-<X0E00>
 <X253C>
 <X257A>
 <X257C>
@@ -921,6 +913,7 @@ order_start forward;forward;forward;forward
 <X7136>
 <X7138>
 <X713A>
+<X713B>
 <X713C>
 <X713E>
 <X7140>
@@ -950,6 +943,8 @@ order_start forward;forward;forward;forward
 <X7172>
 <X7174>
 <X7176>
+<X7178>
+<X717A>
 <X717C>
 <X717E>
 <X7180>
@@ -966,6 +961,7 @@ order_start forward;forward;forward;forward
 <X7194>
 <X7196>
 <X7198>
+<X719A>
 <X719C>
 <X719E>
 
@@ -999,6 +995,7 @@ order_start forward;forward;forward;forward
 <END_OF_MEDIUM>               IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
 <ENQUIRY>                     IGNORE;IGNORE;IGNORE;<ENQUIRY>
 <NULL>                        IGNORE;IGNORE;IGNORE;<NULL>
+<ORIYA_SIGN_NUKTA>            IGNORE;"<X00D9><X00D1>";"<X0005><X00C0>";IGNORE
 <tab>                         <X0507>;<X0005>;<X0005>;IGNORE
 <newline>                     <X0509>;<X0005>;<X0005>;IGNORE
 <vertical-tab>                <X050B>;<X0005>;<X0005>;IGNORE
@@ -1124,6 +1121,9 @@ order_start forward;forward;forward;forward
 <ORIYA_LETTER_AI>             <X7136>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_O>              <X7138>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_AU>             <X713A>;<X0005>;<X0005>;IGNORE
+<ORIYA_SIGN_ANUSVARA>         "<X713B><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_CANDRABINDU>      "<X713B><X0500>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_SIGN_VISARGA>          "<X713B><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
 <ORIYA_LETTER_KA>             <X713C>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_KHA>            <X713E>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_GA>             <X7140>;<X0005>;<X0005>;IGNORE
@@ -1137,7 +1137,9 @@ order_start forward;forward;forward;forward
 <ORIYA_LETTER_TTA>            <X7150>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_TTHA>           <X7152>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_DDA>            <X7154>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_RRA>            <X7154>;"<X0005><X00D9><X00D1>";"<X0005><X0005><X00C0>";IGNORE
 <ORIYA_LETTER_DDHA>           <X7156>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_RHA>            <X7156>;"<X0005><X00D9><X00D1>";"<X0005><X0005><X00C0>";IGNORE
 <ORIYA_LETTER_NNA>            <X7158>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_TA>             <X715A>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_THA>            <X715C>;<X0005>;<X0005>;IGNORE
@@ -1150,26 +1152,17 @@ order_start forward;forward;forward;forward
 <ORIYA_LETTER_BHA>            <X716A>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_MA>             <X716C>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_YA>             <X716E>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_YYA>            <X716E>;<X0087>;<X0005>;IGNORE
 <ORIYA_LETTER_RA>             <X7172>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_LA>             <X7174>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_LLA>            <X7176>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_VA>             <X7178>;<X0005>;<X0005>;IGNORE
+<ORIYA_LETTER_WA>             <X717A>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_SHA>            <X717C>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_SSA>            <X717E>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_SA>             <X7180>;<X0005>;<X0005>;IGNORE
 <ORIYA_LETTER_HA>             <X7182>;<X0005>;<X0005>;IGNORE
-<ORIYA_LETTER_KA-ORIYA_SIGN_VIRAMA-ORIYA_LETTER_SSA> "<X7183><X0400>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_DDA-ORIYA_SIGN_NUKTA> "<X7183><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_RRA>            "<X7183><X0500>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_DDHA-ORIYA_SIGN_NUKTA> "<X7183><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_RHA>            "<X7183><X0600>";<X0005>;"<X0005><X00C0>";"<ORIYA_LETTER_DDHA><ORIYA_SIGN_NUKTA>"
-<ORIYA_LETTER_YYA>            "<X7183><X0700>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_WA>             "<X7183><X0800>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_LETTER_VA>             "<X7183><X0900>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_ANUSVARA>         "<X7183><X0A00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_VISARGA>          "<X7183><X0B00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_CANDRABINDU>      "<X7183><X0C00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_VIRAMA>           "<X7183><X0D00>";<X0005>;"<X0005><X00C0>";IGNORE
-<ORIYA_SIGN_NUKTA>            "<X7183><X0E00>";<X0005>;"<X0005><X00C0>";IGNORE
+<ORIYA_LETTER_KA-ORIYA_SIGN_VIRAMA-ORIYA_LETTER_SSA> <X7183>;<X0005>;<X0005>;IGNORE
 <ORIYA_SIGN_AVAGRAHA>         <X7184>;<X0005>;<X0005>;IGNORE
 <ORIYA_VOWEL_SIGN_AA>         <X7186>;<X0005>;<X0005>;IGNORE
 <ORIYA_VOWEL_SIGN_I>          <X7188>;<X0005>;<X0005>;IGNORE
@@ -1181,6 +1174,7 @@ order_start forward;forward;forward;forward
 <ORIYA_VOWEL_SIGN_AI>         <X7194>;<X0005>;<X0005>;IGNORE
 <ORIYA_VOWEL_SIGN_O>          <X7196>;<X0005>;<X0005>;IGNORE
 <ORIYA_VOWEL_SIGN_AU>         <X7198>;<X0005>;<X0005>;IGNORE
+<ORIYA_SIGN_VIRAMA>           <X719A>;<X0005>;<X0005>;IGNORE
 <ORIYA_AI_LENGTH_MARK>        <X719C>;<X0005>;<X0005>;IGNORE
 <ORIYA_AU_LENGTH_MARK>        <X719E>;<X0005>;<X0005>;IGNORE
 UNDEFINED                     IGNORE;IGNORE;IGNORE;...
@@ -1248,18 +1242,18 @@ day     "<ORIYA_LETTER_RA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_BA>
         "<ORIYA_LETTER_SHA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>";/
         "<ORIYA_LETTER_SHA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_BA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA>"
 
-abmon   "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
-        "<ORIYA_LETTER_PHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_BA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_YYA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
-        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_CA>";/
-        "<ORIYA_LETTER_A><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_LA>";/
-        "<ORIYA_LETTER_MA><ORIYA_VOWEL_SIGN_E>";/
-        "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_NA>";/
-        "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_LA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_I>";/
-        "<ORIYA_LETTER_A><ORIYA_LETTER_GA><ORIYA_LETTER_SSA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA>";/
-        "<ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_PA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
-        "<ORIYA_LETTER_A><ORIYA_LETTER_KA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_TTA><ORIYA_VOWEL_SIGN_O><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
-        "<ORIYA_LETTER_NA><ORIYA_LETTER_BHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>";/
-        "<ORIYA_LETTER_DDA><ORIYA_VOWEL_SIGN_I><ORIYA_LETTER_SA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_MA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_BA><ORIYA_LETTER_RA>"
+abmon   "<one>";/
+        "<two>";/
+        "<three>";/
+        "<four>";/
+        "<five>";/
+        "<six>";/
+        "<seven>";/
+        "<eight>";/
+        "<nine>";/
+        "<one><zero>";/
+        "<one><one>";/
+        "<one><two>"
 
 mon     "<ORIYA_LETTER_JA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_NA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/
         "<ORIYA_LETTER_PHA><ORIYA_VOWEL_SIGN_E><ORIYA_LETTER_BA><ORIYA_SIGN_VIRAMA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_U><ORIYA_LETTER_YYA><ORIYA_VOWEL_SIGN_AA><ORIYA_LETTER_RA><ORIYA_VOWEL_SIGN_II>";/

@@ -28,7 +28,7 @@
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZvcL</localizedPatternChars>
 		<calendars>
-			<default type="gregorian"/>
+			<default choice="gregorian"/>
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
@@ -37,7 +37,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy G</pattern>
@@ -68,7 +68,7 @@
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
-					<default type="medium"/>
+					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE y'x'G-Ml-d</pattern>
@@ -99,9 +99,9 @@
 			</calendar>
 			<calendar type="coptic">
 				<months>
-					<default type="format" draft="unconfirmed"/>
+					<default choice="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="unconfirmed"/>
+						<default choice="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
@@ -142,9 +142,9 @@
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
-					<default type="format" draft="unconfirmed"/>
+					<default choice="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="unconfirmed"/>
+						<default choice="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
@@ -185,9 +185,9 @@
 			</calendar>
 			<calendar type="gregorian">
 				<months>
-					<default type="format"/>
+					<default choice="format"/>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default choice="wide"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
@@ -224,9 +224,9 @@
 					</monthContext>
 				</months>
 				<days>
-					<default type="format"/>
+					<default choice="format"/>
 					<dayContext type="format">
-						<default type="wide"/>
+						<default choice="wide"/>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -292,7 +292,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, yyyy MMMM dd</pattern>
@@ -315,7 +315,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default choice="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
@@ -413,9 +413,9 @@
 			</calendar>
 			<calendar type="hebrew">
 				<months>
-					<default type="format"/>
+					<default choice="format"/>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default choice="wide"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
@@ -448,9 +448,9 @@
 			</calendar>
 			<calendar type="islamic">
 				<months>
-					<default type="format"/>
+					<default choice="format"/>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default choice="wide"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
@@ -745,7 +745,7 @@
 					</eraNarrow>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, y G</pattern>
@@ -776,9 +776,9 @@
 			</calendar>
 			<calendar type="persian">
 				<months>
-					<default type="format" draft="unconfirmed"/>
+					<default choice="format" draft="unconfirmed"/>
 					<monthContext type="format">
-						<default type="wide" draft="unconfirmed"/>
+						<default choice="wide" draft="unconfirmed"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']" draft="unconfirmed"/>
 						</monthWidth>
@@ -820,8 +820,8 @@
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
-			<abbreviationFallback type="standard" draft="unconfirmed"/>
-			<preferenceOrdering type="" draft="unconfirmed"/>
+			<abbreviationFallback choice="standard" draft="unconfirmed"/>
+			<preferenceOrdering choice="" draft="unconfirmed"/>
 			<singleCountries list="Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti" draft="unconfirmed"/>
 		</timeZoneNames>
 	</dates>

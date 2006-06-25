@@ -948,6 +948,12 @@
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>科摩罗（群岛）</exemplarCity>
 			</zone>
+			<zone type="America/Indiana/Indianapolis">
+				<exemplarCity>印地安那州/印第安纳波利斯</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Louisville">
+				<exemplarCity>路易斯维尔</exemplarCity>
+			</zone>
 			<!-- United Kingdom -->
 			<zone type="Europe/Belfast">
 				<exemplarCity>贝尔法斯特</exemplarCity>
@@ -1158,6 +1164,10 @@
 					<standard>大西洋标准时间</standard>
 					<daylight>大西洋夏令时间</daylight>
 				</long>
+				<short>
+					<standard draft="provisional">大西洋标准时间</standard>
+					<daylight draft="provisional">大西洋夏令时间</daylight>
+				</short>
 				<!-- <short>
 					 <standard>AST</standard>
 					 <daylight>ADT</daylight>
@@ -1176,6 +1186,10 @@
 					<standard>纽芬兰标准时间</standard>
 					<daylight>纽芬兰夏令时间</daylight>
 				</long>
+				<short>
+					<standard>NST 纽芬兰标准时间</standard>
+					<daylight>NDT 纽芬兰夏令时间</daylight>
+				</short>
 				<!-- <short>
 					 <standard>CNT</standard>
 					 <daylight>CDT</daylight>
@@ -1534,6 +1548,10 @@
 					<standard>阿拉斯加标准时间</standard>
 					<daylight>阿拉斯加夏令时间</daylight>
 				</long>
+				<short>
+					<standard>阿拉斯加标准时间</standard>
+					<daylight>阿拉斯加夏令时间</daylight>
+				</short>
 				<!-- <short>
 					 <standard>AST</standard>
 					 <daylight>ADT</daylight>
@@ -1594,6 +1612,9 @@
 					<standard>中央标准时间</standard>
 					<daylight>中央夏令时间</daylight>
 				</long>
+				<short>
+					<standard draft="provisional">中部标准时间</standard>
+				</short>
 				<!-- <short>
 					 <standard>CST</standard>
 					 <daylight>CDT</daylight>
@@ -1615,6 +1636,10 @@
 					<standard>东部标准时间</standard>
 					<daylight>东部标准时间</daylight>
 				</long>
+				<short>
+					<standard draft="provisional">东部标准时间</standard>
+					<daylight references="RP22">EDT</daylight>
+				</short>
 				<!-- <short>
 					 <standard>EST</standard>
 					 <daylight>EST</daylight>
@@ -1639,6 +1664,10 @@
 					<standard>东部标准时间</standard>
 					<daylight>东部夏令时间</daylight>
 				</long>
+				<short>
+					<standard draft="provisional">东部标准时间</standard>
+					<daylight draft="provisional">东部夏令时间</daylight>
+				</short>
 				<!-- <short>
 					 <standard>EST</standard>
 					 <daylight>EDT</daylight>
@@ -2380,6 +2409,9 @@
 			<nostr draft="unconfirmed">否:否定</nostr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1" uri="http://www.info.gov.hk/info/holiday_c.htm">二零零五年公眾假期刊登憲報</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh.txt?only_with_tag=final-update-LDML

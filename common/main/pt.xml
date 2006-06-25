@@ -934,6 +934,7 @@
 						<dateFormatItem id="HHmm" alt="proposed" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" alt="proposed" draft="provisional">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMd" alt="proposed-666" draft="provisional">d/MMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">dd-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">MM-yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" alt="proposed-666" draft="provisional">MMM/yyyy</dateFormatItem>
@@ -1921,6 +1922,10 @@
 			<nostr draft="unconfirmed">não:nao:n</nostr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="RP1">the changes on “code lists” and “other items” are based on results of google searches within Portugal pages </reference>
+		<reference type="RP2" uri="http://ec.europa.eu/comm/translation/currencies/pttable1.htm">EU Currency and Country List</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt.txt?only_with_tag=final-update-LDML

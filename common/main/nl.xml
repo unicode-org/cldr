@@ -1068,6 +1068,7 @@
 						<dateFormatItem id="MMdd" draft="provisional">dd-MM</dateFormatItem>
 						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM-yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE d MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" alt="proposed" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -2324,6 +2325,10 @@
 			<nostr>nee:n</nostr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="RP1" uri="http://ec.europa.eu/comm/translation/currencies/nltable1.htm">LANDNAMEN EN MUNTEENHEDEN (EU Country list)</reference>
+		<reference type="RP2" uri="http://taalunieversum.org/taal/aardrijkskundige_namen/">Nederlandse Taalnunie</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nl.txt?only_with_tag=final-update-LDML

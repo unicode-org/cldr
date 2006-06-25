@@ -1030,6 +1030,10 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat" draft="unconfirmed"/>
+				</week>
 				<eras>
 					<eraNames>
 						<era type="0" references="R6">هجری قمری</era>
@@ -1085,8 +1089,26 @@
 							<month type="11">ب</month>
 							<month type="12">ا</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">حمل</month>
+							<month type="2">ثور</month>
+							<month type="3">جوزا</month>
+							<month type="4">سرطان</month>
+							<month type="5">اسد</month>
+							<month type="6">سنبله</month>
+							<month type="7">میزان</month>
+							<month type="8">عقرب</month>
+							<month type="9">قوس</month>
+							<month type="10">جدی</month>
+							<month type="11">دلو</month>
+							<month type="12">حوت</month>
+						</monthWidth>
 					</monthContext>
 				</months>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat" draft="unconfirmed"/>
+				</week>
 				<eras>
 					<eraNames>
 						<era type="0" references="R6">هجری شمسی</era>

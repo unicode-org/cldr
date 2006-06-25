@@ -342,5 +342,36 @@
 			</zone>
 		</timeZoneNames>
 	</dates>
+	<numbers>
+		<decimalFormats>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern draft="unconfirmed">#,##,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<default type="long" draft="unconfirmed"/>
+			<scientificFormatLength type="long">
+				<scientificFormat>
+					<pattern draft="unconfirmed">#E+00</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength type="long">
+				<percentFormat>
+					<pattern draft="unconfirmed">#,##,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength type="long">
+				<currencyFormat>
+					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>
 

@@ -882,7 +882,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="long" draft="unconfirmed"/>
+					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern references="R6">EEEE d MMMM yyyy GGGG</pattern>
@@ -1043,7 +1043,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="long" draft="unconfirmed"/>
+					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern references="R6">yyyy/M/d G</pattern>
@@ -1118,7 +1118,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium" draft="unconfirmed"/>
+					<default choice="medium" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern references="R6">EEEE d MMMM yyyy</pattern>

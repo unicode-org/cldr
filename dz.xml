@@ -178,7 +178,7 @@
 	<characters>
 		<exemplarCharacters>[ཀ ྐ ཁ ྑ ག ྒ ང ྔ ཅ-ཇ ྗ ཉ ྙ ཏ ྟ ཐ ད ྡ ན ྣ པ ྤ ཕ བ ྦ མ ྨ ཙ ྩ ཚ ཛ ྫ ཝ ྭ ཞ-ཡ ྱ ར ྲ ལ ླ ཤ ྵ ས ཧ ྷ ཨ ི ུ ེ ོ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ཊ-ཌ ཎ ཥ]</exemplarCharacters>
-		<mapping type="utf-8" registry="iana" draft="unconfirmed"/>
+		<mapping choice="utf-8" registry="iana" draft="unconfirmed"/>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">&quot;</quotationStart>
@@ -265,7 +265,7 @@
 				<am draft="unconfirmed">སྔ་ཆ་</am>
 				<pm draft="unconfirmed">ཕྱི་ཆ་</pm>
 				<dateFormats>
-					<default type="long" draft="unconfirmed"/>
+					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
@@ -288,7 +288,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="long" draft="unconfirmed"/>
+					<default choice="long" draft="unconfirmed"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern draft="unconfirmed">ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzzz</pattern>
@@ -311,7 +311,7 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default type="long" draft="unconfirmed"/>
+					<default choice="long" draft="unconfirmed"/>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1} {0}</pattern>
@@ -351,7 +351,7 @@
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<default type="long" draft="unconfirmed"/>
+			<default choice="long" draft="unconfirmed"/>
 			<scientificFormatLength type="long">
 				<scientificFormat>
 					<pattern draft="unconfirmed">#E+00</pattern>

@@ -82,6 +82,7 @@ openOffice:collationOptions?) >
 
 <!ELEMENT openOffice:currency (openOffice:currencyId)>
 <!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes (true|false) #REQUIRED>
+<!ATTLIST openOffice:currency openOffice:legacyOnly (true|false) #IMPLIED >
 <!ELEMENT openOffice:currencyId  (#PCDATA)>
 
 <!-- separators are not always defined in OO.org data so make optional -->

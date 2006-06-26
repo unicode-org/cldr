@@ -444,7 +444,6 @@
 			<territory type="SA" alt="proposed-u122-1" draft="unconfirmed">Arabie Saudide</territory>
 			<territory type="SB" alt="proposed-u122-1" draft="unconfirmed">Isulis Salomon</territory>
 			<territory type="SC" alt="proposed-u122-1" draft="unconfirmed">Seychelles </territory>
-			<territory type="SD" alt="proposed-u122-1" draft="unconfirmed">Seychelles </territory>
 			<territory type="SE" alt="proposed-u122-1" draft="unconfirmed">Svezie</territory>
 			<territory type="SG" alt="proposed-u122-1" draft="unconfirmed">Singapore </territory>
 			<territory type="SH" alt="proposed-u122-1" draft="unconfirmed">Sante Eline</territory>
@@ -740,14 +739,14 @@
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern alt="proposed-u122-1" draft="unconfirmed">#,###.##</pattern>
+					<pattern alt="proposed-u122-1" draft="unconfirmed">#,##0.00</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern alt="proposed-u122-1" draft="unconfirmed"># ##0,00 ¤</pattern>
+					<pattern alt="proposed-u122-1" draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

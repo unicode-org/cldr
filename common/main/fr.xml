@@ -431,7 +431,6 @@
 			<language type="non">vieux norrois</language>
 			<language type="nr">ndébélé du Sud</language>
 			<language type="nr" alt="proposed-u148-1" draft="unconfirmed">ndébélé méridional</language>
-			<language type="nso">sotho du Sud</language>
 			<language type="nso" alt="proposed-u150-1" draft="provisional">sotho du Nord</language>
 			<language type="nub">langues nubiennes</language>
 			<language type="nub" alt="proposed-u169-1" draft="provisional">nubiennes, langues</language>
@@ -1371,8 +1370,6 @@
 				</long>
 				<short>
 					<generic>HC</generic>
-					<standard>HNC</standard>
-					<daylight>HAC</daylight>
 				</short>
 			</zone>
 			<zone type="America/Montreal">
@@ -1560,7 +1557,6 @@
 					<daylight>Heure avancée d’Hawaï</daylight>
 				</long>
 				<short>
-					<generic>HT</generic>
 					<standard>HST</standard>
 					<daylight>HDT</daylight>
 				</short>
@@ -1589,18 +1585,6 @@
 					<daylight>HAP (ÉUA)</daylight>
 				</short>
 			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<generic>Heure des Rocheuses (ÉUA)</generic>
-					<standard>Heure normale des Rocheuses (ÉUA)</standard>
-					<daylight>Heure avancée des Rocheuses (ÉUA)</daylight>
-				</long>
-				<short>
-					<generic>HR (ÉUA)</generic>
-					<standard>HNR (ÉUA)</standard>
-					<daylight>HAR (ÉUA)</daylight>
-				</short>
-			</zone>
 			<zone type="America/Denver">
 				<long>
 					<generic>Heure des Rocheuses (ÉUA)</generic>
@@ -1623,18 +1607,6 @@
 					<generic>HC (ÉUA)</generic>
 					<standard>HNC (ÉUA)</standard>
 					<daylight>HAC (ÉUA)</daylight>
-				</short>
-			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<generic>Heure de l’Est (ÉUA)</generic>
-					<standard>Heure normale de l’Est (ÉUA)</standard>
-					<daylight>Heure avancée de l’Est (ÉUA)</daylight>
-				</long>
-				<short>
-					<generic>HE (ÉUA)</generic>
-					<standard>HNE (ÉUA)</standard>
-					<daylight>HAE (ÉUA)</daylight>
 				</short>
 			</zone>
 			<zone type="America/Detroit">
@@ -1681,8 +1653,7 @@
 				<displayName>dirham des Émirats arabes unis</displayName>
 			</currency>
 			<currency type="AFA">
-				<displayName>afghani</displayName>
-				<symbol alt="proposed-u148-1" draft="provisional">Af</symbol>
+				<displayName>afghani [AFA]</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>afghani</displayName>
@@ -1788,7 +1759,7 @@
 				<displayName>nouveau cruzeiro (1967-1986)</displayName>
 			</currency>
 			<currency type="BRC">
-				<displayName>cruzeiro</displayName>
+				<displayName>cruzado</displayName>
 			</currency>
 			<currency type="BRE">
 				<displayName>cruzeiro (1990-1993)</displayName>
@@ -1811,7 +1782,7 @@
 				<symbol>Nu</symbol>
 			</currency>
 			<currency type="BUK">
-				<displayName>kyat</displayName>
+				<displayName>kyat [BUK]</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>pula</displayName>
@@ -1866,7 +1837,7 @@
 				<displayName>dinar serbe</displayName>
 			</currency>
 			<currency type="CSK">
-				<displayName>couronne tchèque</displayName>
+				<displayName>couronne tchèque [CSK]</displayName>
 				<displayName alt="proposed-u148-1" draft="unconfirmed">couronne forte tchécoslovaque</displayName>
 				<displayName alt="proposed-u169-1" draft="provisional">couronne forte tchèque</displayName>
 			</currency>
@@ -2184,7 +2155,7 @@
 				<displayName references="RP8" alt="proposed-u169-1" draft="provisional">rufiyaa</displayName>
 			</currency>
 			<currency type="MWK">
-				<displayName>kwacha</displayName>
+				<displayName>kwacha [MWK]</displayName>
 				<displayName references="RP9" alt="proposed-u169-1" draft="provisional">kwacha du Malawi</displayName>
 			</currency>
 			<currency type="MXN">

@@ -72,7 +72,7 @@
 			<language type="nia" references="RP1">尼亚斯文</language>
 			<language type="nic" references="RP1">其他尼日尔科尔多凡语系</language>
 			<language type="nub">努比亚语系</language>
-			<language type="nwc" references="RP1">尼瓦尔文</language>
+			<language type="nwc" references="RP1">尼瓦尔文 Classical Newari</language>
 			<language type="ny" references="RP1">尼扬贾文；齐切瓦文；切瓦文</language>
 			<language type="nyo">尼约罗文</language>
 			<language type="nzi">恩济马文</language>
@@ -308,9 +308,6 @@
 					<daylight references="RP21">GDT</daylight>
 				</short>
 			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity>亚库塔特</exemplarCity>
-			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>艾德克</exemplarCity>
 			</zone>
@@ -323,31 +320,20 @@
 					<daylight>阿拉斯加夏令时间</daylight>
 				</short>
 			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>亚库塔特</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<short>
 					<standard draft="provisional">太平洋标准时间</standard>
 					<daylight draft="provisional">太平洋夏令时间</daylight>
 				</short>
 			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<daylight>山区夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">山区标准时间</standard>
-					<daylight references="RP23">MDT</daylight>
-				</short>
-				<exemplarCity>菲尼克斯</exemplarCity>
-			</zone>
+      <!--
 			<zone type="America/Denver">
 				<short>
 					<standard draft="provisional">山区标准时间</standard>
 					<daylight draft="provisional">山区夏令时间</daylight>
 				</short>
 			</zone>
+      -->
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>北达科他</exemplarCity>
 			</zone>
@@ -619,9 +605,11 @@
 			<currency type="MKD">
 				<displayName references="RP7">马其顿戴代纳尔</displayName>
 			</currency>
+      <!--
 			<currency type="MMK">
 				<displayName references="RP7">缅元</displayName>
 			</currency>
+      -->
 			<currency type="MOP">
 				<symbol references="RP7">MOP</symbol>
 			</currency>

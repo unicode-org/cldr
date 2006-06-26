@@ -943,9 +943,7 @@
 						<dateFormatItem id="yyyyMMMMEEEEd" draft="provisional">EEEE d MMMM yyyy</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="E" references="R6">{1} {0}</appendItem>
-						<appendItem request="c" references="R6">{1} {0}</appendItem>
-						<appendItem request="e" references="R6">{1} {0}</appendItem>
+						<appendItem request="Day-Of-Week" references="R6">{1} {0}</appendItem>
 					</appendItems>
 				</dateTimeFormats>
 				<fields>

@@ -13,7 +13,7 @@ $element=[a-zA-Z0-9]+;
 'characters/exemplarCharacters' > 'misc|exemplarCharacters-standard';
 'delimiters/'(.*) > 'misc|delimiters-' $1;
 
-'dates/calendars/calendar[@type="' ($avalue) '"]' > 'calendar|' $1 | '$%%';
+'dates/calendars/calendar[@type="' ($avalue) '"]' > 'calendar-' $1 | '$%%';
 
 '$%%/eras/era' ($element) '/era[@type="' ([0-9]) '"]' > '|era|' 00 $2 '-' $1;
 '$%%/eras/era' ($element) '/era[@type="' ([0-9][0-9]) '"]' > '|era|' 0$2 '-' $1;
@@ -62,8 +62,8 @@ $element=[a-zA-Z0-9]+;
 
 'numbers/symbols/' (.*) > 'number|symbol-' $1;
 'numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="standard"]/pattern[@type="standard"]' > 'number|' $1 '-pattern';
-'numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > 'number|spacing-before-currency-' $1;
-'numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > 'number|spacing-after-currency-' $1;
+'numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > 'number|before-' $1;
+'numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > 'number|after-' $1;
 
 'posix/messages/' (.*) > 'misc|posix-' $1;
 

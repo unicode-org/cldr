@@ -29,6 +29,7 @@ import java.util.TreeSet;
 
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -88,7 +89,7 @@ public class DateTimePatternGenerator {
      * It is used because Java doesn't have real output parameters. It is treated like a struct (eg Point), so all fields are public.
      */
     public static final class PatternInfo { // struct for return information
-        public static final int OK = 0, CONFLICT = 1; // status values
+        public static final int OK = 0, BASE_CONFLICT = 1, CONFLICT = 2; // status values
         public int status;
         public String conflictingPattern;
     }
@@ -106,6 +107,13 @@ public class DateTimePatternGenerator {
     		pattern = fromHex.transliterate(pattern);
     	}
         DateTimeMatcher matcher = new DateTimeMatcher().set(pattern, fp);
+        String basePattern = matcher.getBasePattern();
+        String previousPatternWithSameBase = (String)basePattern_pattern.get(basePattern);
+        if (previousPatternWithSameBase != null) {
+            returnInfo.status = PatternInfo.BASE_CONFLICT;
+            returnInfo.conflictingPattern = previousPatternWithSameBase;
+            if (!override) return this;
+        }
         String previousValue = (String)skeleton2pattern.get(matcher);
         if (previousValue != null) {
             returnInfo.status = PatternInfo.CONFLICT;
@@ -115,6 +123,7 @@ public class DateTimePatternGenerator {
         returnInfo.status = PatternInfo.OK;
         returnInfo.conflictingPattern = "";
         skeleton2pattern.put(matcher, pattern);
+        basePattern_pattern.put(basePattern, pattern);
         return this;
     }
     
@@ -126,6 +135,17 @@ public class DateTimePatternGenerator {
     public String getSkeleton(String pattern) {
     	current.set(pattern, fp);
     	return current.toString();
+    }
+
+    /**
+     * Utility to return a unique base skeleton from a given pattern. This is the same as the skeleton, except that differences
+     * in length are minimized.
+     * @param pattern Input pattern, such as "dd/MMM"
+     * @return skeleton, such as "MMMdd"
+     */
+    public String getBaseSkeleton(String pattern) {
+    	current.set(pattern, fp);
+    	return current.getBasePattern();
     }
 
     /**
@@ -144,6 +164,13 @@ public class DateTimePatternGenerator {
             result.put(item.toString(), pattern);
         }
         return result;
+    }
+    /**
+     * Return a list of all the base skeletons (in canonical form) from this class */
+    public Set getBaseSkeletons(Set result) {
+    	if (result == null) result = new HashSet();
+    	result.addAll(basePattern_pattern.keySet());
+    	return result;
     }
 
     /**
@@ -286,6 +313,7 @@ public class DateTimePatternGenerator {
     // ========= PRIVATES ============
     
     private Map skeleton2pattern = new TreeMap(); // items are in priority order
+    private Map basePattern_pattern = new TreeMap(); // items are in priority order
     private String decimal = "?";
     private String dateTimeFormat = "{0} {1}";
     private String[] appendItemFormats = new String[TYPE_LIMIT];
@@ -422,6 +450,9 @@ public class DateTimePatternGenerator {
             } else {
                 String field = ((VariableField) item).string;
                 int canonicalIndex = getCanonicalIndex(field);
+                if (canonicalIndex < 0) {
+                    continue; // don't adjust
+                }
                 int type = types[canonicalIndex][1];
                 if (fixFractionalSeconds && type == SECOND) {
                     String newField = inputRequest.original[FRACTIONAL_SECOND];
@@ -598,6 +629,7 @@ public class DateTimePatternGenerator {
         //private String pattern = null;
         private int[] type = new int[TYPE_LIMIT];
         private String[] original = new String[TYPE_LIMIT];
+        private String[] baseOriginal = new String[TYPE_LIMIT];
 
         // just for testing; fix to make multi-threaded later
         // private static FormatParser fp = new FormatParser();
@@ -610,7 +642,15 @@ public class DateTimePatternGenerator {
             return result.toString();
         }
         
-        DateTimeMatcher set(String pattern, FormatParser fp) {
+        public String getBasePattern() {
+            StringBuffer result = new StringBuffer();
+            for (int i = 0; i < TYPE_LIMIT; ++i) {
+                if (baseOriginal[i].length() != 0) result.append(baseOriginal[i]);
+            }
+            return result.toString();
+		}
+
+		DateTimeMatcher set(String pattern, FormatParser fp) {
         	if (pattern.indexOf("\\u") >= 0) {
         		String oldPattern = pattern;
         		pattern = fromHex.transliterate(pattern);
@@ -618,6 +658,7 @@ public class DateTimePatternGenerator {
             for (int i = 0; i < TYPE_LIMIT; ++i) {
                 type[i] = NONE;
                 original[i] = "";
+                baseOriginal[i] = "";
             }
             fp.set(pattern);
             for (Iterator it = fp.getFields(new ArrayList()).iterator(); it.hasNext();) {
@@ -635,6 +676,11 @@ public class DateTimePatternGenerator {
                             + original[typeValue] + ", " + field + "\t in " + pattern);
                 }
                 original[typeValue] = field;
+                char repeatChar = (char)row[0];
+                int repeatCount = row[3];
+                if (repeatCount > 3) repeatCount = 3; // hack to discard differences
+                if ("GEzvQ".indexOf(repeatChar) >= 0) repeatCount = 1;
+                baseOriginal[typeValue] = repeat(String.valueOf(repeatChar),repeatCount);
                 int subTypeValue = row[2];
                 if (subTypeValue > 0) subTypeValue += field.length();
                 type[typeValue] = (byte) subTypeValue;
@@ -760,7 +806,13 @@ public class DateTimePatternGenerator {
                 }
                 boolean chIsVar = !inQuote && isVariableField(ch);
                 // break between ASCII letter and any non-equal letter
-                if (ch == last && lastIsVar == chIsVar) continue;
+                if (lastIsVar == chIsVar) {
+                	if (lastIsVar) {
+                		if (ch == last) continue; // only break variables if letter changes
+                	} else {
+                		continue; // always continue literals 
+                	}
+                }
                 String part = string.substring(lastPos, i);
                 if (lastIsVar) {
                     items.add(new VariableField(part));
@@ -827,9 +879,12 @@ public class DateTimePatternGenerator {
             return items;
         }
         public String toString() {
+        	return toString(0, items.size());
+        }
+        public String toString(int start, int limit) {
         	StringBuffer result = new StringBuffer();
-        	for (Iterator it = items.iterator(); it.hasNext();) {
-        		result.append(it.next().toString());
+            for (int i = start; i < limit; ++i) {
+        		result.append(items.get(i).toString());
         	}
         	return result.toString();
         }
@@ -839,19 +894,98 @@ public class DateTimePatternGenerator {
             for (Iterator it = items.iterator(); it.hasNext();) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
-                    String s = item.toString();
-                    int canonicalIndex = getCanonicalIndex(s);
-                    if (canonicalIndex < 0) {
-                        throw new IllegalArgumentException("Illegal field:\t"
-                                + s);
-                    }
-                    int type = types[canonicalIndex][1];
+                	int type = getType(item);
                     foundMask |= 1 << type;    
                 }
             }
 			boolean isDate = (foundMask & DATE_MASK) != 0;
 			boolean isTime = (foundMask & TIME_MASK) != 0;
 			return isDate && isTime;
+		}
+		
+		static UnicodeSet alpha = new UnicodeSet("[:alphabetic:]");
+		
+		public List getAutoPatterns(String value, List result) {
+			if (result == null) result = new ArrayList();
+			int fieldCount = 0;
+			int minField = Integer.MAX_VALUE;
+			int maxField = Integer.MIN_VALUE;
+            for (Iterator it = items.iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof VariableField) {
+                	try {
+	                    int type = getType(item);
+	                    if (minField > type) minField = type;
+	                    if (maxField < type) maxField = type;
+	               	 	if (type == ZONE || type == DAYPERIOD || type == WEEKDAY) return result; // skip anything with zones                    
+	                    fieldCount++;
+                	} catch (Exception e) {
+                		return result; // if there are any funny fields, return
+                	}
+                }
+            }
+            if (fieldCount < 3) return result; // skip
+            // trim from start
+            // trim first field IF there are no letters around it
+            // and it is either the min or the max field
+            // first field is either 0 or 1
+            for (int i = 0; i < items.size(); ++i) {
+                Object item = items.get(i);
+                if (item instanceof VariableField) {
+                	 int type = getType(item);
+                	 if (type != minField && type != maxField) break;
+
+                	 if (i > 0) {
+                		 Object previousItem = items.get(0);
+                		 if (alpha.containsSome(previousItem.toString())) break;
+                	 }
+                	 int start = i+1;
+                	 if (start < items.size()) {
+                		 Object nextItem = items.get(start);
+                		 if (nextItem instanceof String) {
+                			 if (alpha.containsSome(nextItem.toString())) break;
+                			 start++; // otherwise skip over string
+                		 }
+                	 }
+                	 result.add(toString(start, items.size()));
+                	 break;
+                }
+            }
+            // now trim from end
+            for (int i = items.size()-1; i >= 0; --i) {
+                Object item = items.get(i);
+                if (item instanceof VariableField) {
+                	 int type = getType(item);
+                	 if (type != minField && type != maxField) break;
+                	 if (i < items.size() - 1) {
+                		 Object previousItem = items.get(items.size() - 1);
+                		 if (alpha.containsSome(previousItem.toString())) break;
+                	 }
+                	 int end = i-1;
+                	 if (end > 0) {
+                		 Object nextItem = items.get(end);
+                		 if (nextItem instanceof String) {
+                			 if (alpha.containsSome(nextItem.toString())) break;
+                			 end--; // otherwise skip over string
+                		 }
+                	 }
+                	 result.add(toString(0, end+1));
+                	 break;
+                }
+            }
+
+			return result;
+		}
+		
+		private int getType(Object item) {
+			String s = item.toString();
+			int canonicalIndex = getCanonicalIndex(s);
+			if (canonicalIndex < 0) {
+			    throw new IllegalArgumentException("Illegal field:\t"
+			            + s);
+			}
+			int type = types[canonicalIndex][1];
+			return type;
 		}
     }
     

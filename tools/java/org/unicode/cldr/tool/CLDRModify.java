@@ -33,6 +33,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -231,7 +232,9 @@ public class CLDRModify {
 					String parent = CLDRFile.getParent(test);
 					if (parent != null) {
 						CLDRFile toRemove = cldrFactory.make(parent, true);
-						k.removeDuplicates(toRemove, COMMENT_REMOVALS);
+						// remove the items that are language codes, script codes, or region codes
+						// since they may be real translations.
+						k.removeDuplicates(toRemove, COMMENT_REMOVALS, XMLSource.getPathsAllowingDuplicates());
 					}
 				}
 				//System.out.println(CLDRFile.getAttributeOrder());
@@ -414,6 +417,11 @@ public class CLDRModify {
 		public abstract void handlePath(String xpath);
 		public void handleEnd() {}
 		
+
+		public void show(String reason, String detail) {
+			System.out.println("%" + localeID + "\t" + reason + "\tConsidering " + detail);
+		}
+
 		public void retain(String path, String reason) {
 			System.out.println("%" + localeID + "\t" + reason + "\tRetaining: " + cldrFileToFilter.getStringValue(path) + "\t at: " + path);
 		}
@@ -433,7 +441,7 @@ public class CLDRModify {
 				remove(oldFullPath);
 			}
 			toBeReplaced.add(newFullPath, newValue);
-			System.out.println("%" + localeID + "\t" + reason + "\tAdding: " + newValue + "\t at: " + newFullPath);
+			System.out.println("%" + localeID + "\t" + reason + "\tAdding/Replacing: " + newValue + "\t at: " + newFullPath);
 		}
 		public CLDRFile getReplacementFile() {
 			return toBeReplaced;
@@ -503,24 +511,11 @@ public class CLDRModify {
 	
 	
 	static {
-		fixList.add('c', "fix CS (Don't use!)", new CLDRFilter() {
+		fixList.add('y', "remove deprecated", new CLDRFilter() {
 			public void handlePath(String xpath) {
-				if (!xpath.startsWith("//ldml/localeDisplayNames/territories/territory")) return;
-				String type = parts.set(xpath).findAttributeValue("territory", "type");
-				if ("CS".equals(type) || "SP".equals(type)) {
-					String v = cldrFileToFilter.getStringValue(xpath);
-					String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-					fullparts.set(fullXPath);
-					if (type.equals("CS")) {
-						parts.setAttribute("territory", "type", "200");
-						fullparts.setAttribute("territory", "type", "200");
-					} else {
-						parts.setAttribute("territory", "type", "CS");
-						fullparts.setAttribute("territory", "type", "CS");
-						parts.setAttribute("territory", "draft", "unconfirmed");
-						fullparts.setAttribute("territory", "draft", "unconfirmed");
-					}
-					replace(xpath, fullparts.toString(), v);
+				if (xpath.startsWith("//ldml/measurement/measurementSystem")
+						|| xpath.startsWith("//ldml/measurement/paperSize")) {
+					remove(xpath, "Removing deprecated");
 				}
 			}		
 		});
@@ -589,7 +584,7 @@ public class CLDRModify {
 			}
 		});
 
-		fixList.add('x', "remove illegal codes", new CLDRFilter() {
+		fixList.add('v', "remove illegal codes", new CLDRFilter() {
 
 			/*		Set legalCurrencies;
 			}
@@ -649,6 +644,7 @@ public class CLDRModify {
 					if (!fixedValue.equals(value)) {
 						System.out.println("Changing: " + value);
 					}
+					fixedValue = "[" + fixedValue + "]"; // add parens in case forgotten
 					UnicodeSet s1 = new UnicodeSet(fixedValue).removeAll(uppercase);
 					UnicodeSet s = new UnicodeSet();
 					for (usi.reset(s1); usi.next(); ) {
@@ -704,16 +700,27 @@ public class CLDRModify {
 				}
 			}
 			public void handleEnd() {
-				if (dateFormatItems.size() == 0) return; // nothing to do
+				//if (dateFormatItems.size() == 0) return; // nothing to do
 				
 				// now add all the standard patterns
+				// algorithmically construct items from the standard formats
+				
 				Set standardSkeletons = new HashSet();
+				List items = new ArrayList();
 				for (Iterator it = standardFormats.iterator(); it.hasNext();) {
 					String xpath = (String) it.next();
 					String value = cldrFileToFilter.getStringValue(xpath);
 					dtpg.add(value, false, patternInfo);
 					standardSkeletons.add(dtpg.getSkeleton(value));
-					retain(xpath, "(std)");
+					fp.set(value);
+					items.clear();
+					fp.getAutoPatterns(value, items);
+					for (int i = 0; i < items.size(); ++i) {
+						String autoItem = (String)items.get(i);
+						dtpg.add(autoItem, false, patternInfo);
+						if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
+					}
+					retain(xpath, "-(std)");
 				}
 
 				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
@@ -780,8 +787,10 @@ public class CLDRModify {
 //						replace(oldFullPath, fullPath, value, reason);
 //					}
 				}
-				Map skeleton_patterns = dtpg.getSkeletons(null);
+				
 				// make a minimal set
+				Map skeleton_patterns = dtpg.getSkeletons(null);
+
 				Collection redundants = dtpg.getRedundants(null);
 				for (Iterator it = redundants.iterator(); it.hasNext();) {
 					String skeleton = dtpg.getSkeleton((String) it.next());
@@ -794,9 +803,10 @@ public class CLDRModify {
 				// Now add them all back in. Preserve old paths if possible
 				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
 					String xpath = (String) it.next();
-					String value = cldrFileToFilter.getStringValue(xpath);
-					String fullPath = cldrFileToFilter.getFullXPath(xpath);
-					parts.set(fullPath);
+					String oldValue = cldrFileToFilter.getStringValue(xpath);
+					String oldFullPath = cldrFileToFilter.getFullXPath(xpath);
+					String newFullPath = oldFullPath;
+					parts.set(newFullPath);
 					Map attributes = parts.getAttributes(-1);
 					String id = (String)attributes.get("id");
 					String newValue = (String) skeleton_patterns.get(id);
@@ -804,16 +814,22 @@ public class CLDRModify {
 						remove(xpath, "redundant");
 						continue;
 					}
-					if (value.equals(newValue)) {
+					String draft = (String)attributes.get("draft");
+					if (draft == null || draft.equals("approved")) {
+						attributes.put("draft", "provisional");
+						newFullPath = parts.toString();
+					}
+					if (oldValue.equals(newValue) && newFullPath.equals(oldFullPath)) {
 						retain(xpath, "-");
 						skeleton_patterns.remove(id);
 						continue; // skip, they are the same
 					}
 					// not redundant, but altered
-					replace(fullPath, fullPath, newValue, "fixed");
+					replace(oldFullPath, newFullPath, newValue, "fixed");
 					skeleton_patterns.remove(id);
 				}
-				// parts retains the right path, except for the id and the alt
+				parts.set("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/" +
+						"dateFormatItem");
 				Map attributes = parts.getAttributes(-1);
 				attributes.put("alt", "proposed-666");
 				attributes.put("draft", "provisional");
@@ -954,7 +970,7 @@ public class CLDRModify {
 		});
 		
 		fixList.add('i', "fix Identical Children");
-		fixList.add('v', "check attribute validity");
+		fixList.add('o', "check attribute validity");
 	}
 	
 	// references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
@@ -972,16 +988,20 @@ public class CLDRModify {
 	 */
 	static void fixIdenticalChildren(CLDRFile.Factory cldrFactory, CLDRFile k, CLDRFile replacements) {
 		String key = k.getLocaleID();
+		if (key.equals("root")) return;
 		Set availableChildren = cldrFactory.getAvailableWithParent(key, true);
 		if (availableChildren.size() == 0) return;
 		Set skipPaths = new HashSet();
 		Map haveSameValues = new TreeMap();
 		CLDRFile resolvedFile = cldrFactory.make(key, true);
-		CollectionUtilities.addAll(k.iterator(), skipPaths);
+		// get only those paths that are not in "root"
+		CollectionUtilities.addAll(resolvedFile.iterator(), skipPaths);
+		
+		// first, collect all the paths
 		for (Iterator it1 = availableChildren.iterator(); it1.hasNext();) {
 			String locale = (String)it1.next();
 			if (locale.indexOf("POSIX") >= 0) continue;
-			CLDRFile item = cldrFactory.make(locale, true);
+			CLDRFile item = cldrFactory.make(locale, false);
 			for (Iterator it2 = item.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (skipPaths.contains(xpath)) continue;
@@ -989,6 +1009,7 @@ public class CLDRModify {
 				if (xpath.indexOf("/identity") >= 0) continue;
 				if (xpath.startsWith("//ldml/numbers/currencies/currency")) continue;
 				if (xpath.indexOf("[@alt") >= 0) continue;
+				if (xpath.indexOf("/alias") >= 0) continue;
 				
 				// must be string vale
 				ValuePair v1 = new ValuePair();
@@ -1008,8 +1029,8 @@ public class CLDRModify {
 		for (Iterator it = haveSameValues.keySet().iterator(); it.hasNext();) {
 			String xpath = (String) it.next();
 			ValuePair v = (ValuePair) haveSameValues.get(xpath);
-			if (v.value.equals(resolvedFile.getStringValue(xpath))
-					&& v.fullxpath.equals(resolvedFile.getFullXPath(xpath))) continue;
+			//if (v.value.equals(resolvedFile.getStringValue(xpath))
+			//		&& v.fullxpath.equals(resolvedFile.getFullXPath(xpath))) continue;
 			replacements.add(v.fullxpath, v.value);
 		}
 	}
@@ -1084,7 +1105,7 @@ public class CLDRModify {
 					String path = (String)it3.next();
 					System.out.println(path + " =\t " + k.getStringValue(path));
 				}
-				System.out.println("Additions:");
+				System.out.println("Additions/Replacements:");
 				System.out.println(replacements);
 			}
 		}

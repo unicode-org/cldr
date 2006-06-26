@@ -80,7 +80,7 @@ public class Utility {
 	static final boolean DEBUG_SHOW_BAT = false;
 	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
 	public static final String BASE_DIRECTORY = "../../";	// get up to <CLDR>
-	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/data";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
     public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
 	public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
@@ -228,7 +228,7 @@ public class Utility {
     	String tzadir = UTIL_DATA_DIR;
 		// HACK around lack of Armenian, Ethiopic				
 		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
-		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
+		//TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
 		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
 		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Arabic-Latin");	
 		// needed

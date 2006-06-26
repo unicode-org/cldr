@@ -101,8 +101,9 @@ public class GenerateSidewaysView {
     }
 
 
-    public static void main(String[] args) throws SAXException, IOException {   	
+    public static void main(String[] args) throws SAXException, IOException {
     	startTime = System.currentTimeMillis();
+        Utility.registerExtraTransliterators();
         UOption.parseArgs(args, options);
         Factory cldrFactory = CLDRFile.Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         Set alllocales = cldrFactory.getAvailable();
@@ -142,7 +143,6 @@ public class GenerateSidewaysView {
         }
 
         System.out.println("Printing files");
-        Utility.registerExtraTransliterators();
     	Transliterator toLatin = Transliterator.getInstance("any-latin");
     	Transliterator toHTML = TransliteratorUtilities.toHTML;
     	UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
@@ -159,7 +159,11 @@ public class GenerateSidewaysView {
         	for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
             	String value = (String)it2.next();
             	String outValue = toHTML.transliterate(value);
-            	String transValue = toLatin.transliterate(value);
+            	String transValue = value;
+				try {
+					transValue = toLatin.transliterate(value);
+				} catch (RuntimeException e) {
+				}
             	if (!transValue.equals(value)) {
             		outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
             	}

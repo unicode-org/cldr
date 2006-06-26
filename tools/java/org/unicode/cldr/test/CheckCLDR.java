@@ -80,6 +80,7 @@ abstract public class CheckCLDR {
             .add(new CheckNew())
 			.add(new CheckNumbers())
             .add(new CheckZones())
+            .add(new CheckAlt())
 		;
 	}
 	
@@ -222,14 +223,22 @@ abstract public class CheckCLDR {
 
 			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);
 			checkCldr.setCldrFileToCheck(file, options, result);
+			
+            subtotalCount.clear();
+
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
+				CheckStatus status = (CheckStatus) it3.next();
+				String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+				String statusType = status.getType();
+
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
-				System.out.println(it3.next().toString());
+				System.out.println(statusString);
+				if (errorsOnly && !statusType.equals(status.errorType)) continue;
+				subtotalCount.add(status.type, 1);
 			}
 			paths.clear();
 			CollectionUtilities.addAll(file.iterator(), paths);
 			UnicodeSet missingExemplars = new UnicodeSet();
-            subtotalCount.clear();
             if (checkFlexibleDates) {
                 fset.set(file);
             }

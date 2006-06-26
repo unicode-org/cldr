@@ -964,7 +964,7 @@ public class Misc {
 		
 		PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale + "_timezonelist.xml");
 		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).cloneAsThawed();
-		desiredLocaleFile.removeDuplicates(resolvedRoot, false);
+		desiredLocaleFile.removeDuplicates(resolvedRoot, false, new HashMap());
 		
 		CLDRFile english = cldrFactory.make("en", true);
 		Collator col = Collator.getInstance(new ULocale(locale));

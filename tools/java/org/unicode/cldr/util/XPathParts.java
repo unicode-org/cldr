@@ -607,7 +607,7 @@ public class XPathParts {
 					}
 				}
 				result.append(prefix).append(attribute).append("=\"")
-						.append(value).append(postfix);
+						.append(TransliteratorUtilities.toHTML.transliterate(value)).append(postfix);
 			}
 			return this;
 		}

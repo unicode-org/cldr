@@ -6,7 +6,7 @@ This document describes how to update CLDR when this happens.
 (which updates language codes, script codes, and territory codes):
 
 - Go to http://www.iana.org/assignments/language-subtag-registry
-  (you can set up a watch for changes in this page with WatchThatPage.org)
+  (you can set up a watch for changes in this page with http://www.watchthatpage.com)
 - Copy into org.unicode.cldr.util.data
 - Diff with the old copy (via CVS)
 - Any new codes need a corresponding update in supplementalMetadata.xml
@@ -25,7 +25,7 @@ This document describes how to update CLDR when this happens.
 2. Do the following to update to new currency codes.
 
 - Go to http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
-  (you can set up a watch for changes in this page with WatchThatPage.org)
+  (you can set up a watch for changes in this page with http://www.watchthatpage.com)
   WARNING: this needs to be checked periodically, since ISO does not keep accurate histories.
   Best is to get on the notification list.
   
@@ -55,7 +55,9 @@ This document describes how to update CLDR when this happens.
             <region iso3166="TR">
               <currency iso4217="TRL" from="1922-11-01" to="2005-12-31"/>
   
-[TBD]
+- Edit common/main/en.xml to add the new names (or change old ones) based on the descriptions.
+  If there is a collision between a new and old name, the old one typically changes to
+  "old X" or "X (1983-2003)".
 
 3. NEW TIMEZONE DATABASE
 - Do the following to update to a new timezone database.

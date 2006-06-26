@@ -177,8 +177,21 @@ class FlexibleDateFromCLDR {
         }
 
         if (path.indexOf("pattern") < 0 && path.indexOf("dateFormatItem") < 0) return;
-        if (path.indexOf("dateTimeFormatLength") > 0) return;
-         try {
+        // set the am/pm preference
+        if (path.indexOf("timeFormatLength[@type=\"short\"]") >= 0) {
+        	fp.set(value);
+        	for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+        		Object item = it.next();
+        		if (item instanceof DateTimePatternGenerator.VariableField) {
+        			if (item.toString().charAt(0) == 'h') {
+        				isPreferred12Hour = true;
+        			}
+        		}
+        	}
+        }
+        if (path.indexOf("dateTimeFormatLength") > 0) return; // exclude {1} {0}
+        // add to generator
+        try {
             gen.add(value, false, patternInfo);
             switch (patternInfo.status) {
             case PatternInfo.CONFLICT:
@@ -189,6 +202,10 @@ class FlexibleDateFromCLDR {
             failureMap.put(path, e.getMessage());
         }
     }
+	DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
+
+    boolean isPreferred12Hour = false;
+    
     static private String[] DISPLAY_NAME_MAP = {
         "era", "year", "quarter", "month", "week", "week_in_month", "weekday", 
         "day", "day_of_year", "day_of_week_in_month", "dayperiod", 
@@ -216,4 +233,8 @@ class FlexibleDateFromCLDR {
     public Object getFailurePath(Object path) {
         return failureMap.get(path);
     }
+	public boolean preferred12Hour() {
+		// TODO Auto-generated method stub
+		return isPreferred12Hour;
+	}
 }

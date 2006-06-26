@@ -30,6 +30,7 @@ import com.ibm.icu.util.Freezable;
 public abstract class XMLSource implements Freezable {
 	public static final String CODE_FALLBACK_ID = "code-fallback";
 	private transient XPathParts parts = new XPathParts(null, null);
+	private static Map allowDuplicates = new HashMap();
 
 	private String localeID;
 	private boolean nonInheriting;
@@ -100,13 +101,22 @@ public abstract class XMLSource implements Freezable {
 	 * @param xpath
 	 * @param value
 	 */
-	public void putValueAtPath(String xpath, String value) {
+	public String putValueAtPath(String xpath, String value) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath, nonInheriting);	
 		putValueAtDPath(distinguishingXPath, value);
 		if (!fixedPath[0].equals(distinguishingXPath)) {
 			putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
 		}
+		return distinguishingXPath;
+	}
+	
+	/**
+	 * Gets those paths that allow duplicates
+	 */
+	
+	public static Map getPathsAllowingDuplicates() {
+		return allowDuplicates;
 	}
 	
 	/**
@@ -681,6 +691,7 @@ public abstract class XMLSource implements Freezable {
                 { "stroke", "collation" },
                 { "traditional", "collation" } };
 		static XMLSource constructedItems = new SimpleXMLSource(null, null);
+		
 		static {
 			StandardCodes sc = StandardCodes.make();
 			Map countries_zoneSet = sc.getCountryToZoneSet();
@@ -710,7 +721,10 @@ public abstract class XMLSource implements Freezable {
 					//String path = prefix + code + postfix;
 					String fullpath = CLDRFile.getKey(typeNo, code);
 					//System.out.println(fullpath + "\t=> " + code);
-					constructedItems.putValueAtPath(fullpath, value);
+					String distinguishingPath = constructedItems.putValueAtPath(fullpath, value);
+					if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {
+						allowDuplicates.put(distinguishingPath, code);
+					}
 				}
 			}
             for (int i = 0; i < keyDisplayNames.length; ++i) {
@@ -727,6 +741,7 @@ public abstract class XMLSource implements Freezable {
                         typeDisplayNames[i][0]);
             }
 			constructedItems.freeze();
+			allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
 	    	//System.out.println("constructedItems: " + constructedItems);
 		}
 		public XMLSource make(String localeID) {

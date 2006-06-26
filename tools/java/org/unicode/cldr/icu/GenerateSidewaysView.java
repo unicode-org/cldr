@@ -836,12 +836,12 @@ public class GenerateSidewaysView {
                 {"settings", "numeric", new String[] {"on", "off"}},
                 {"reset", "before", new String[] {"primary", "secondary", "tertiary"}},
 
-                {"default", "type", "<any type value legal for one of the peer elements>"},
+                {"default", "choice", "<any type value legal for one of the peer elements>"},
                 {"mapping", "registry", "<any charset registry, iana preferred>"},
-                {"mapping", "type", "<any valid charset from the given registry>"},
+                {"mapping", "choice", "<any valid charset from the given registry>"},
 
-                {"abbreviationFallback", "type", new String[] {"standard", "GMT"}},
-                {"preferenceOrdering", "type", "<space-delimited list of timezone IDs>"},
+                {"abbreviationFallback", "choice", new String[] {"standard", "GMT"}},
+                {"preferenceOrdering", "choice", "<space-delimited list of timezone IDs>"},
                 {"exemplarCharacters", "type", new String[] {"standard", "auxiliary"}},
 
                 {"decimalFormatLength", "type", new String[] {"full", "long", "medium", "short"}},

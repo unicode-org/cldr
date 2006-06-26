@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -9,6 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
@@ -60,6 +63,7 @@ public class CheckDates extends CheckCLDR {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
+		flexInfo = new FlexibleDateFromCLDR(); // ought to just clear(), but not available.
         flexInfo.set(resolved);
 
         // load decimal path specially
@@ -69,7 +73,7 @@ public class CheckDates extends CheckCLDR {
         }
 
         // load gregorian appendItems
-        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems"); it.hasNext();) {
+        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
             String path = (String) it.next();
             String value = resolved.getStringValue(path);
             String fullPath = resolved.getFullXPath(path);
@@ -78,10 +82,38 @@ public class CheckDates extends CheckCLDR {
         
         redundants.clear();
         flexInfo.getRedundants(redundants);
-		return this;
+        Set baseSkeletons = flexInfo.gen.getBaseSkeletons(new TreeSet());
+        Set notCovered = new TreeSet(neededFormats);
+        if (flexInfo.preferred12Hour()) {
+        	notCovered.addAll(neededHours12);
+        } else {
+        	notCovered.addAll(neededHours24);
+        }
+        notCovered.removeAll(baseSkeletons);
+        if (notCovered.size() != 0) {
+        	possibleErrors.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        			.setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
+        }
+        return this;
 	}
+
+	Set neededFormats = new TreeSet(Arrays.asList(new String[]{
+			"yM", "yMMM", "yMd", "yMMMd", "Md", "MMMd","yQ"
+			}));
+	Set neededHours12 = new TreeSet(Arrays.asList(new String[]{
+			"hm", "hms"
+			}));
+	Set neededHours24 = new TreeSet(Arrays.asList(new String[]{
+			"Hm", "Hms"
+			}));
+	/**
+hour+minute, hour+minute+second (12 & 24)
+year+month, year+month+day (numeric & string)
+month+day (numeric & string)
+year+quarter
+	 */
 	BreakIterator bi;
-    FlexibleDateFromCLDR flexInfo = new FlexibleDateFromCLDR();
+    FlexibleDateFromCLDR flexInfo;
     Collection redundants = new HashSet();
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {

@@ -21,6 +21,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -630,8 +631,9 @@ private boolean isSupplemental;
     
     /**
      * Removes all items with same value
+     * @param keepList TODO
      */
-    public CLDRFile removeDuplicates(CLDRFile other, boolean butComment) {
+    public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, Map keepList) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	boolean first = true;
     	for (Iterator it = other.iterator(); it.hasNext();) {
@@ -640,6 +642,10 @@ private boolean isSupplemental;
     		if (currentValue == null) continue;
     		String otherValue = other.dataSource.getValueAtPath(xpath);
     		if (!currentValue.equals(otherValue)) continue;
+    		String keepValue = (String) keepList.get(xpath);
+    		if (keepValue != null && keepValue.equals(currentValue)) {
+    			continue;
+    		}
     		String currentFullXPath = dataSource.getFullPath(xpath);
     		String otherFullXPath = other.dataSource.getFullPath(xpath);
     		if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) continue;
@@ -1099,7 +1105,7 @@ private boolean isSupplemental;
 	    			if (qName.equals("ldml") && attribute.equals("version")) {
 	    				// do nothing!
 	    			} else {
-	    				putAndFixDeprecatedAttribute(attribute, value);
+	    				putAndFixDeprecatedAttribute(qName, attribute, value);
 	    			}
 	    		}
 	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
@@ -1122,13 +1128,22 @@ private boolean isSupplemental;
     		Log.logln(LOG_PROGRESS, "currentFullXPath\t" + currentFullXPath);
     	}
 
-		private void putAndFixDeprecatedAttribute(String attribute, String value) {
+		private void putAndFixDeprecatedAttribute(String element, String attribute, String value) {
 			if (attribute.equals("draft")) {
 				if (value.equals("true")) value = "approved";
 				else if (value.equals("false")) value = "unconfirmed";
 			}
+			if (attribute.equals("type")) {
+				if (changedTypes.contains(element)) {
+					attribute = "choice";
+				}
+			}
 			attributeOrder.put(attribute, value);
 		}
+		
+		private static Set changedTypes = new HashSet(Arrays.asList(new String[]{
+				"abbreviationFallback",
+				"default", "mapping", "measurementSystem", "preferenceOrdering"}));
     	
 		private void pop(String qName) {
 			Log.logln(LOG_PROGRESS, "pop\t" + qName);
@@ -1766,7 +1781,7 @@ private boolean isSupplemental;
 			.setErrorOnMissing(false).freeze();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator()
-			.add(new String[] { "_q", "type", 
+			.add(new String[] { "_q", "type", "choice",
 							// always after
 						    "key", "registry", "source", "target",
 							"path", "day", "date", "version", "count", "lines",
@@ -2088,10 +2103,7 @@ private boolean isSupplemental;
         }
         private static Map distinguishingMap = new HashMap();
         private static Map normalizedPathMap = new HashMap();
-        private static XPathParts distinguishingParts;
-        static { 
-            distinguishingParts = new XPathParts(attributeOrdering,null);
-        }
+        private static XPathParts distinguishingParts = new XPathParts(attributeOrdering, null);
         
         public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
             synchronized (distinguishingMap) {
@@ -2174,6 +2186,26 @@ private boolean isSupplemental;
                 return result;
             }
         }
+
+		public Collection getNonDistinguishingAttributes(String fullPath, Collection result, Set skipList) {
+			if (result == null) result = new LinkedHashSet();
+			else result.clear();
+            synchronized (distinguishingMap) {
+                distinguishingParts.set(fullPath);
+                for (int i = 0; i < distinguishingParts.size(); ++i) {
+                	String element = distinguishingParts.getElement(i);
+                	//if (atomicElements.contains(element)) break;
+                    Map attributes = distinguishingParts.getAttributes(i);
+                    for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+                    	String attribute = (String) it.next();
+                    	if (!isDistinguishing(element,attribute) && !skipList.contains(attribute)) {
+                    		result.add(attribute + "=" + attributes.get(attribute));
+                    	}
+                    }
+                }
+            }
+            return result;
+		}
     }
 
 
@@ -2194,6 +2226,10 @@ private boolean isSupplemental;
 
 	public boolean isEmpty() {
 		return !dataSource.iterator().hasNext();
+	}
+
+	public Collection getNonDistinguishingAttributes(String fullPath, Collection result, Set skipList) {
+    	return distinguishedXPath.getNonDistinguishingAttributes(fullPath, result, skipList);
 	}
    
 }

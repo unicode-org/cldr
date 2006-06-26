@@ -81,6 +81,7 @@ openOffice:collationOptions?) >
 <!ELEMENT openOffice:searchOptions (openOffice:transliterationModules+) >
 
 <!ELEMENT openOffice:currency (openOffice:currencyId)>
+<!ATTLIST openOffice:currency openOffice:default (true|false) #REQUIRED>
 <!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes (true|false) #REQUIRED>
 <!ATTLIST openOffice:currency openOffice:legacyOnly (true|false) #IMPLIED >
 <!ELEMENT openOffice:currencyId  (#PCDATA)>

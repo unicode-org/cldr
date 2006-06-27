@@ -472,8 +472,12 @@ public class XPathParts {
 	
 	public String toString(int limit) {
 		String result = "/";
-		for (int i = 0; i < limit; ++i) {
-			result += ((Element)elements.get(i)).toString(XPATH_STYLE);
+		try {
+			for (int i = 0; i < limit; ++i) {
+				result += ((Element)elements.get(i)).toString(XPATH_STYLE);
+			}
+		} catch (RuntimeException e) {
+			throw e;
 		}
 		return result;
 	}
@@ -606,8 +610,12 @@ public class XPathParts {
 						}
 					}
 				}
-				result.append(prefix).append(attribute).append("=\"")
-						.append(TransliteratorUtilities.toHTML.transliterate(value)).append(postfix);
+				try {
+					result.append(prefix).append(attribute).append("=\"")
+							.append(TransliteratorUtilities.toHTML.transliterate(value)).append(postfix);
+				} catch (RuntimeException e) {
+					throw e; // for debugging
+				}
 			}
 			return this;
 		}
@@ -776,6 +784,10 @@ public class XPathParts {
 	 * Returns -1 if parent isn't really a parent, 0 if they are identical, and 1 if parent is a proper parent
 	 */
 	public static int isSubLocale(String parent, String possibleSublocale) {
+		if (parent.equals("root")) {
+			if (parent.equals(possibleSublocale)) return 0;
+			return 1;
+		}
 		if (parent.length() > possibleSublocale.length()) return -1;
 		if (!possibleSublocale.startsWith(parent)) return -1;
 		if (parent.length() == possibleSublocale.length()) return 0;

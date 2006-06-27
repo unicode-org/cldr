@@ -231,9 +231,9 @@ abstract public class CheckCLDR {
 				String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
 				String statusType = status.getType();
 
+				if (errorsOnly && !statusType.equals(status.errorType)) continue;
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 				System.out.println(statusString);
-				if (errorsOnly && !statusType.equals(status.errorType)) continue;
 				subtotalCount.add(status.type, 1);
 			}
 			paths.clear();

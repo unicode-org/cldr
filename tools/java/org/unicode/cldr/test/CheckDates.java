@@ -91,7 +91,7 @@ public class CheckDates extends CheckCLDR {
         }
         notCovered.removeAll(baseSkeletons);
         if (notCovered.size() != 0) {
-        	possibleErrors.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        	possibleErrors.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
         			.setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         }
         return this;
@@ -133,6 +133,10 @@ year+quarter
                     || path.indexOf("/dateFormatItem") >= 0) {
 				checkPattern(path, fullPath, value, result);
 			}
+		} catch (ParseException e) {
+			CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+			.setMessage("Error in creating date format {0}", new Object[]{e});    	
+			result.add(item);
 		} catch (Exception e) {
 			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 			.setMessage("Error in creating date format {0}", new Object[]{e});    	

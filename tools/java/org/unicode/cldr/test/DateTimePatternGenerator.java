@@ -27,6 +27,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.Utility;
+
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -475,13 +477,13 @@ public class DateTimePatternGenerator {
         return newPattern.toString();
     }
     
-    public static String repeat(String s, int count) {
-    	StringBuffer result = new StringBuffer();
-    	for (int i = 0; i < count; ++i) {
-    		result.append(s);
-    	}
-    	return result.toString();
-    }
+//    public static String repeat(String s, int count) {
+//    	StringBuffer result = new StringBuffer();
+//    	for (int i = 0; i < count; ++i) {
+//    		result.append(s);
+//    	}
+//    	return result.toString();
+//    }
     
     String getFields(String pattern) {
         fp.set(pattern);
@@ -680,7 +682,7 @@ public class DateTimePatternGenerator {
                 int repeatCount = row[3];
                 if (repeatCount > 3) repeatCount = 3; // hack to discard differences
                 if ("GEzvQ".indexOf(repeatChar) >= 0) repeatCount = 1;
-                baseOriginal[typeValue] = repeat(String.valueOf(repeatChar),repeatCount);
+                baseOriginal[typeValue] = Utility.repeat(String.valueOf(repeatChar),repeatCount);
                 int subTypeValue = row[2];
                 if (subTypeValue > 0) subTypeValue += field.length();
                 type[typeValue] = (byte) subTypeValue;

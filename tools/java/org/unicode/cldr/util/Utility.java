@@ -614,5 +614,16 @@ public class Utility {
             }
         }
     }
+
+	public static int countInstances(String source, String substring) {
+		int count = 0;
+		int pos = 0;
+		while (true) {
+			pos = source.indexOf(substring, pos) + 1;
+			if (pos <= 0) break;
+			count++;
+		}
+		return count;
+	}
 	
 }

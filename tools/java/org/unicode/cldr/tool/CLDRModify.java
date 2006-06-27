@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -512,10 +513,30 @@ public class CLDRModify {
 	
 	static {
 		fixList.add('y', "remove deprecated", new CLDRFilter() {
+			Map remapAppend = CollectionUtilities.asMap(new String[][] {
+					{"G", "Era"}, {"y", "Year"}, {"Q", "Quarter"}, {"M", "Month"}, {"w", "Week"}, {"E", "Day-Of-Week"}, {"d", "Day"}, {"H", "Hour"}, {"m", "Minute"}, {"s", "Second"}, {"v", "Timezone"}
+			});
 			public void handlePath(String xpath) {
 				if (xpath.startsWith("//ldml/measurement/measurementSystem")
 						|| xpath.startsWith("//ldml/measurement/paperSize")) {
 					remove(xpath, "Removing deprecated");
+				}
+				if (xpath.indexOf("/week/") >= 0) {
+					remove(xpath, "Removing deprecated");
+				}
+				if (false && xpath.indexOf("appendItems") >= 0) { // never do again
+					String fullPath = cldrFileToFilter.getFullXPath(xpath);
+					parts.set(fullPath);
+					Map attributes = parts.findAttributes("appendItem");
+					String remapped = (String) remapAppend.get(attributes.get("request"));
+					if (remapped == null) {
+						remove(xpath, "unwanted appendItem");
+					} else {
+						attributes.put("request", remapped);
+						String newFullPath = parts.toString();
+						String value = cldrFileToFilter.getStringValue(xpath);
+						replace(fullPath,newFullPath,value);			
+					}
 				}
 			}		
 		});
@@ -527,7 +548,7 @@ public class CLDRModify {
 			}		
 		});
 		
-		fixList.add('s', "fix stand-alone narrows", new CLDRFilter() {
+		if (false) fixList.add('s', "fix stand-alone narrows", new CLDRFilter() {
 			public void handlePath(String xpath) {
 				if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
 				parts.set(xpath);
@@ -852,7 +873,7 @@ public class CLDRModify {
 						if (first == 'k') replacement = "H";
 						else if (first == 'K') replacement = "h";
 						if (replacement != null) {
-							field = new DateTimePatternGenerator.VariableField(DateTimePatternGenerator.repeat(replacement, field.toString().length()));	
+							field = new DateTimePatternGenerator.VariableField(Utility.repeat(replacement, field.toString().length()));	
 							fields.set(i, field);
 						}	
 					}

@@ -954,6 +954,7 @@ private boolean isSupplemental;
 	     */
 	    public Set getAvailableWithParent(String parent, boolean isProper) {
 	    	Set result = new TreeSet();
+	    	
 	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
 	    		String s = (String) it.next();
 	    		int relation = XPathParts.isSubLocale(parent, s);

@@ -1074,12 +1074,12 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Md" alt="proposed-666" draft="provisional">d.M</dateFormatItem>
-						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm.ss</dateFormatItem>
-						<dateFormatItem id="yyyyM" alt="proposed-666" draft="provisional">M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMEEEd" alt="proposed-666" draft="provisional">EEE d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM'ta 'yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" alt="proposed-666" draft="provisional">QQQQ yyyy</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">d.M</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="provisional">M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEd" draft="provisional">EEE d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM'ta 'yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1269,8 +1269,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-					<standard alt="proposed-u164-1" draft="provisional">Greenwichin normaaliaika</standard>
-					<daylight alt="proposed-u164-1" draft="provisional">Greenwichin kesäaika</daylight>
+					<standard draft="provisional">Greenwichin normaaliaika</standard>
+					<daylight draft="provisional">Greenwichin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>

@@ -266,7 +266,7 @@
 			<language type="lua">luba-lulua</language>
 			<language type="lui" draft="unconfirmed">luiseno</language>
 			<language type="lun">lunda</language>
-			<language type="luo" alt="proposed-u219-1" draft="provisional">doluo</language>
+			<language type="luo" draft="provisional">doluo</language>
 			<language type="lus">lushai</language>
 			<language type="lv">lettiska</language>
 			<language type="mad">maduresiska</language>
@@ -372,7 +372,7 @@
 			<language type="ro">rumänska</language>
 			<language type="roa">romanskt språk (annat)</language>
 			<language type="rom">romani</language>
-			<language type="root" alt="proposed-u219-1" draft="provisional">rot</language>
+			<language type="root" draft="provisional">rot</language>
 			<language type="ru">ryska</language>
 			<language type="rup">arumänska</language>
 			<language type="rw">rwanda; kinjarwanda</language>
@@ -996,7 +996,7 @@
 			<type type="traditional" key="collation">kinesiska i traditionell ordning</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" alt="proposed-u219-1" draft="unconfirmed">imperiska enheter</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">imperiska enheter</measurementSystemName>
 			<measurementSystemName type="metric" draft="provisional">SI-enheter</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
@@ -1173,14 +1173,14 @@
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH.mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH.mm.ss</dateFormatItem>
-						<dateFormatItem id="MMMd" alt="proposed-666" draft="provisional">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="provisional">d MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
-						<dateFormatItem id="hhmm" alt="proposed-666" draft="provisional">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" alt="proposed-666" draft="provisional">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm.ss</dateFormatItem>
-						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" alt="proposed-666" draft="provisional">MMM yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" alt="proposed-666" draft="provisional">QQQQ',' yyyy</dateFormatItem>
+						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="provisional">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ',' yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1235,7 +1235,7 @@
 			</zone>
 			<!-- Argentina -->
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity alt="proposed-u219-1" draft="provisional">Argentina/Rio Gallegos</exemplarCity>
+				<exemplarCity draft="provisional">Argentina/Rio Gallegos</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
 				<exemplarCity>Brasilien/Belem</exemplarCity>
@@ -1494,8 +1494,8 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<minusSign alt="proposed-u219-1" draft="provisional">−</minusSign>
-			<nan alt="proposed-u219-1" draft="provisional">¤¤¤</nan>
+			<minusSign draft="provisional">−</minusSign>
+			<nan draft="provisional">¤¤¤</nan>
 		</symbols>
 		<percentFormats>
 			<percentFormatLength>
@@ -1507,7 +1507,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern alt="proposed-u219-3" draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="provisional">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

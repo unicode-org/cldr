@@ -23,11 +23,11 @@
 						<monthWidth type="abbreviated">
 							<month type="1" draft="provisional">јан</month>
 							<month type="2" draft="provisional">феб</month>
-							<month type="3" alt="proposed-u8-1" draft="provisional">мар</month>
+							<month type="3" draft="provisional">мар</month>
 							<month type="4" draft="provisional">апр</month>
 							<month type="5" draft="provisional">мај</month>
 							<month type="6" draft="provisional">јун</month>
-							<month type="7" alt="proposed-u8-1" draft="provisional">јул</month>
+							<month type="7" draft="provisional">јул</month>
 							<month type="8" draft="provisional">авг</month>
 							<month type="9" draft="provisional">сеп</month>
 							<month type="10" draft="provisional">окт</month>
@@ -91,11 +91,11 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" alt="proposed-666" draft="provisional">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" alt="proposed-666" draft="provisional">MM-dd</dateFormatItem>
-						<dateFormatItem id="mmss" alt="proposed-666" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMM" alt="proposed-666" draft="provisional">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" alt="proposed-666" draft="provisional">MMMM yyyy.</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -114,7 +114,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern alt="proposed-u8-1" draft="provisional">#,##0.00 км</pattern>
+					<pattern draft="provisional">#,##0.00 км</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

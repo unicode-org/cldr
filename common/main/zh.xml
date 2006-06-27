@@ -60,8 +60,8 @@
 			<language type="bm">班巴拉文</language>
 			<language type="bn">孟加拉文</language>
 			<language type="bnt">班图文</language>
-      <language type="bnt" draft="provisional" alt="true">班图诸语言 (其他)</language>
-      <language type="bo">西藏文</language>
+			<language type="bnt" alt="true" draft="provisional">班图诸语言 (其他)</language>
+			<language type="bo">西藏文</language>
 			<language type="br">布里多尼文</language>
 			<language type="bra">布拉杰文</language>
 			<language type="bs">波斯尼亚文</language>
@@ -110,11 +110,11 @@
 			<language type="del">特拉瓦印第安人文</language>
 			<language type="den">司雷夫文</language>
 			<language type="dgr">多格来文 Dogrib</language>
-      <language type="dgr" draft="provisional" alt="true">多格里布语</language>
-      <language type="din">丁卡文</language>
+			<language type="dgr" alt="true" draft="provisional">多格里布语</language>
+			<language type="din">丁卡文</language>
 			<language type="doi">多格来文 Dogri</language>
-      <language type="doi" draft="provisional" alt="true">多格拉语</language>
-      <language type="dra">其他德拉维语系</language>
+			<language type="doi" alt="true" draft="provisional">多格拉语</language>
+			<language type="dra">其他德拉维语系</language>
 			<language type="dsb">下塞尔维亚文</language>
 			<language type="dua">都阿拉文</language>
 			<language type="dum">中古荷兰文</language>
@@ -181,12 +181,12 @@
 			<language type="hy">亚美尼亚文</language>
 			<language type="hz">赫雷罗文</language>
 			<language type="ia">拉丁国际文 Interlingua</language>
-      <language type="ia" draft="provisional" alt="true">国际语A</language>
+			<language type="ia" alt="true" draft="provisional">国际语A</language>
 			<language type="iba">伊班文</language>
 			<language type="id">印度尼西亚文</language>
 			<language type="ie">拉丁国际文 Interlingue</language>
-      <language type="ie" draft="provisional" alt="true">国际语E</language>
-      <language type="ig">伊格博文</language>
+			<language type="ie" alt="true" draft="provisional">国际语E</language>
+			<language type="ig">伊格博文</language>
 			<language type="ii">四川话</language>
 			<language type="ijo">伊乔文</language>
 			<language type="ik">依奴皮维克文</language>
@@ -1589,12 +1589,10 @@
 					<standard>山区标准时间 Phoenix</standard>
 					<daylight>山区夏令时间 Phoenix</daylight>
 				</long>
-        <!--
-				<short>
+				<!-- <short>
 					<standard>MST</standard>
 					<daylight>MST</daylight>
-				</short>
-        -->
+				</short> -->
 				<exemplarCity>凤凰城</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
@@ -1643,16 +1641,14 @@
 					<standard>东部标准时间 Indianapolis</standard>
 					<daylight draft="unconfirmed">东部夏时制 Indianapolis</daylight>
 				</long>
-        <!--
-				<short>
+				<!-- <short>
 					<standard draft="provisional">东部标准时间</standard>
 					<daylight references="RP22">EDT</daylight>
 				</short>
 				<short>
 					 <standard>EST</standard>
 					 <daylight>EST</daylight>
-					 </short>
-				-->
+					 </short> -->
 				<exemplarCity>印地安纳波利斯</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
@@ -1794,8 +1790,8 @@
 				<displayName>巴西克鲁赛罗 (1967-1986)</displayName>
 			</currency>
 			<currency type="BRC">
-        <displayName>巴西克鲁塞罗 Brazilian Cruzado</displayName>
-				<displayName draft="provisional" alt="true">巴希克鲁塞罗</displayName>
+				<displayName>巴西克鲁塞罗 Brazilian Cruzado</displayName>
+				<displayName alt="true" draft="provisional">巴希克鲁塞罗</displayName>
 			</currency>
 			<currency type="BRE">
 				<displayName>巴西克鲁塞罗 (1990-1993)</displayName>

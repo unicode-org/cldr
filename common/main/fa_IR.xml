@@ -7,27 +7,6 @@
 		<language type="fa"/>
 		<territory type="IR"/>
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<week>
-					<firstDay day="sat"/>
-				</week>
-			</calendar>
-			<calendar type="islamic">
-				<week>
-					<minDays count="1"/>
-					<firstDay day="sat" draft="unconfirmed"/>
-				</week>
-			</calendar>
-			<calendar type="persian">
-				<week>
-					<minDays count="1"/>
-					<firstDay day="sat" draft="unconfirmed"/>
-				</week>
-			</calendar>
-		</calendars>
-	</dates>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa_IR.txt?only_with_tag=final-update-LDML

@@ -1191,11 +1191,12 @@
 				<long>
 					<standard>Atlantic-standaardtijd</standard>
 					<daylight>Atlantic-zomertijd</daylight>
+					<!-- <short>
+						 <standard>AST</standard>
+						 <daylight>ADT</daylight>
+						 </short>
+					-->
 				</long>
-				<!-- <short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short> -->
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
@@ -1203,9 +1204,10 @@
 					<daylight>Newfoundland-zomertijd</daylight>
 				</long>
 				<!-- <short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short> -->
+					 <standard>CNT</standard>
+					 <daylight>CDT</daylight>
+					 </short>
+				-->
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<!-- Chile -->
@@ -1218,9 +1220,10 @@
 					<daylight>Chinese standaardtijd</daylight>
 				</long>
 				<!-- <short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short> -->
+					 <standard>CTT</standard>
+					 <daylight>CDT</daylight>
+					 </short>
+				-->
 				<exemplarCity alt="proposed-u10-1" draft="provisional">Sjanghai</exemplarCity>
 			</zone>
 			<!-- Spain -->
@@ -1363,11 +1366,12 @@
 				<long>
 					<standard>Alaska-standaardtijd</standard>
 					<daylight>Alaska-zomertijd</daylight>
+					<!-- <short>
+						 <standard>AST</standard>
+						 <daylight>ADT</daylight>
+						 </short>
+					-->
 				</long>
-				<!-- <short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short> -->
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
@@ -1410,15 +1414,15 @@
 				</short>
 			</zone>
 			<!-- <zone type="America/Indianapolis">
-				<long>
-					<standard>Eastern-standaardtijd</standard>
-					<daylight>Eastern-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
-			</zone>
+				 <long>
+				 <standard>Eastern-standaardtijd</standard>
+				 <daylight>Eastern-standaardtijd</daylight>
+				 </long>
+				 <short>
+				 <standard>EST</standard>
+				 <daylight>EST</daylight>
+				 </short>
+				 </zone>
 			-->
 			<zone type="America/New_York">
 				<long>

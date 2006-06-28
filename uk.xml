@@ -196,8 +196,7 @@
 			<language type="ia">Інтерлінгва</language>
 			<language type="iba" references="RP4" draft="provisional">Ібанська</language>
 			<language type="id">Індонезійська</language>
-			<language type="ie">Інтерлінгва</language>
-			<language type="ie" alt="proposed-u174-1" draft="provisional">Інтерлінгве</language>
+			<language type="ie" draft="provisional">Інтерлінгве</language>
 			<language type="ig" references="RP4" draft="provisional">Ігбо</language>
 			<language type="ii" references="RP4" draft="provisional">Сичуань</language>
 			<language type="ijo" references="RP4" draft="provisional">Іджо</language>
@@ -653,7 +652,7 @@
 			<territory type="039">Південна Європа</territory>
 			<territory type="053">Австралія та Нова Зеландія</territory>
 			<territory type="054">Меланезія</territory>
-			<territory type="057">Мікронезія</territory>
+			<!-- <territory type="057">Мікронезія (Region)</territory>  "Micronesian Region" -->
 			<territory type="061">Полінезія</territory>
 			<territory type="062">Південно-Центральна Азія</territory>
 			<territory type="142">Азія</territory>
@@ -757,8 +756,8 @@
 			<territory type="FJ">Фіджі</territory>
 			<territory type="FK">Фолклендські Острови (Мальвіни)</territory>
 			<territory type="FK" alt="proposed-u174-1" draft="provisional">Фолклендські Острови (Мальвінські)</territory>
-			<territory type="FM">Мікронезія</territory>
-			<territory type="FM" alt="proposed-u174-1" draft="provisional">Мікронезія, Федеративні Штати</territory>
+			<territory type="FM">Мікронезія</territory> <!-- see "057" -->
+			<territory type="FM" alt="variant" draft="provisional">Мікронезія, Федеративні Штати</territory>
 			<territory type="FO">Фарерські острови</territory>
 			<territory type="FR">Франція</territory>
 			<territory type="GA">Габон</territory>
@@ -1390,12 +1389,6 @@
 			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>Комодоро-Ривадавія</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Indianapolis">
-				<exemplarCity draft="provisional">Індіанаполіс</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Louisville">
-				<exemplarCity draft="provisional">Луїсвілль</exemplarCity>
 			</zone>
 			<!-- United Kingdom -->
 			<zone type="Europe/Belfast">
@@ -2065,6 +2058,7 @@
 			<currency type="BEC">
 				<displayName>Бельгійський франк (конвертований)</displayName>
 				<displayName alt="proposed-u174-3" draft="provisional">Конвертований франк</displayName>
+				<displayName alt="proposed-x" draft="unconfirmed">Бельгійський Конвертований франк</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>Бельгійський франк</displayName>
@@ -2342,7 +2336,8 @@
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Сілі</displayName>
 			</currency>
 			<currency type="GQE">
-				<displayName references="RP3" draft="provisional">Еквеле</displayName>
+				<displayName references="RP3" draft="provisional">Еквеле</displayName> <!-- bad: doesn't reference territory -->
+				<displayName alt="proposed-x" draft="unconfirmed">Еквеле (Екваторіальна Ґвінея)</displayName> <!-- ekvele (Equatorial Guinea) -->
 			</currency>
 			<currency type="GRD">
 				<displayName>Грецька драхма</displayName>
@@ -2378,7 +2373,7 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Хорватський динар</displayName>
-				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Динар</displayName>
+				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Динар</displayName> <!-- should mention Territory -->
 			</currency>
 			<currency type="HRK">
 				<displayName>Хорватська куна</displayName>
@@ -2511,6 +2506,7 @@
 			</currency>
 			<currency type="LUC">
 				<displayName references="RP3" draft="provisional">Конвертований франк</displayName>
+				<displayName alt="proposed-x" draft="unconfirmed">Люксембурзький Конвертований франк</displayName> <!-- Luxemburzki Konvertovani Frank -->
 			</currency>
 			<currency type="LUF">
 				<displayName>Люксембурзький франк</displayName>
@@ -2518,6 +2514,7 @@
 			</currency>
 			<currency type="LUL">
 				<displayName references="RP3" draft="provisional">Фінансовий франк</displayName>
+				<displayName alt="proposed-x" draft="unconfirmed">Люксембурґський Фінансовий франк</displayName> <!-- Luxemborg Financial Frank -->
 			</currency>
 			<currency type="LVL">
 				<displayName>Латвійський лат</displayName>
@@ -2587,7 +2584,8 @@
 			</currency>
 			<currency type="MWK">
 				<displayName>Малавійська квача</displayName>
-				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName>
+				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName>  <!-- bad: doesn't mention territory -->
+				<displayName alt="proposed-x" draft="unconfirmed">Квача (Малаві)</displayName>  <!-- Kvatsa (Malavi) -->
 				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -2996,7 +2994,8 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Замбійська квача</displayName>
-				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName>
+				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName> <!-- bad: doesn't mention territory -->
+				<displayName alt="proposed-x" draft="unconfirmed">Квача (Замбія)</displayName> <!-- Kvatsa (Zambia) -->
 			</currency>
 			<currency type="ZRN">
 				<displayName>Заїрський новий заїр</displayName>

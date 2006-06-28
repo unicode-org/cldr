@@ -1249,10 +1249,6 @@
 					<daylight>Atlantic, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Halifax, sommartid</daylight>
 				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
@@ -1274,10 +1270,6 @@
 					<standard>Kina, normaltid</standard>
 					<daylight>Kina, normaltid</daylight>
 				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
@@ -1403,10 +1395,6 @@
 					<standard>Alaska, normaltid</standard>
 					<daylight>Alaska, sommartid</daylight>
 				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 				<exemplarCity>Alaska/Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
@@ -1435,9 +1423,7 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-					<standard>Mountain, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Denver, normaltid</standard>
-					<daylight>Mountain, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Denver, sommartid</daylight>
 				</long>
 				<short>
@@ -1455,22 +1441,12 @@
 					<daylight>Central, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Chicago, sommartid</daylight>
 				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<standard>Eastern, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Indanapolis, normaltid</standard>
-					<daylight>Eastern, normaltid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Indianapolis, normaltid</daylight>
 				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
 			</zone>
 			<zone type="America/New_York">
 				<long>

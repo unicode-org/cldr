@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -598,7 +598,7 @@
 			<territory type="014">แอฟริกาตะวันออก</territory>
 			<territory type="015">แอฟริกาเหนือ</territory>
 			<territory type="017">แอฟริกากลาง</territory>
-			<territory type="018">แอฟริกาใต้</territory>
+			<territory type="018">แอฟริกาใต้ [018]</territory>
 			<territory type="019">อเมริกา</territory>
 			<territory type="021">อเมริกาเหนือ</territory>
 			<territory type="029">แคริเบียน</territory>
@@ -608,7 +608,7 @@
 			<territory type="039">ยุโรปใต้</territory>
 			<territory type="053">ออสเตรเลียและนิวซีแลนด์</territory>
 			<territory type="054">เมลานีเซีย</territory>
-			<territory type="057">ไมโครนีเซีย</territory>
+			<territory type="057">ไมโครนีเซีย [057]</territory>
 			<territory type="061">โปลินีเซีย</territory>
 			<territory type="062">เอเชียกลางตอนใต้</territory>
 			<territory type="142">เอเชีย</territory>
@@ -1170,12 +1170,14 @@
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>โคมอดริวาดาเวีย</exemplarCity>
 			</zone>
+            <!--
 			<zone type="America/Indiana/Indianapolis">
 				<exemplarCity references="RP3">อินเดียแนโพลิส</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Louisville">
 				<exemplarCity>หลุยส์วิลล์</exemplarCity>
 			</zone>
+            -->
 			<!-- Micronesia
 				 United Kingdom
 			-->
@@ -1874,7 +1876,7 @@
 				<displayName>กัลทรัมภูฏาน</displayName>
 			</currency>
 			<currency type="BUK">
-				<displayName>จัคพม่า</displayName>
+				<displayName>จัคพม่า [BUK]</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>พูลาบอตสวานา</displayName>
@@ -2040,9 +2042,11 @@
 			<currency type="GTQ">
 				<displayName>เควตซัลกัวเตมาลา</displayName>
 			</currency>
+            <!--
 			<currency type="GWE">
 				<displayName>เอสคูโดโปรตุเกส</displayName>
 			</currency>
+            -->
 			<currency type="GWP">
 				<displayName>เปโซกีนีบิสเซา</displayName>
 			</currency>
@@ -2159,13 +2163,13 @@
 				<displayName>ทาโลนัสลิทัวเนีย</displayName>
 			</currency>
 			<currency type="LUC">
-				<displayName>ฟรังก์ลักเซมเบิร์ก</displayName>
+				<displayName>ฟรังก์ลักเซมเบิร์ก [LUC]</displayName>
 			</currency>
 			<currency type="LUF">
 				<displayName>ฟรังก์ลักเซมเบิร์ก</displayName>
 			</currency>
 			<currency type="LUL">
-				<displayName>ฟรังก์ลักเซมเบิร์ก</displayName>
+				<displayName>ฟรังก์ลักเซมเบิร์ก  [LUL]</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>ลัตส์ลัตเวีย</displayName>
@@ -2298,7 +2302,7 @@
 				<displayName>ซลอตีโปแลนด์</displayName>
 			</currency>
 			<currency type="PLZ">
-				<displayName>ซลอตีโปแลนด์</displayName>
+				<displayName>ซลอตีโปแลนด์ [PLZ]</displayName>
 			</currency>
 			<currency type="PTE">
 				<displayName>เอสคูโดโปรตุเกส</displayName>
@@ -2477,10 +2481,10 @@
 				<displayName>หน่วยโมเนทารียุโรป</displayName>
 			</currency>
 			<currency type="XBC">
-				<displayName>หน่วยบัญชียุโรป</displayName>
+				<displayName>หน่วยบัญชียุโรป [XBC]</displayName>
 			</currency>
 			<currency type="XBD">
-				<displayName>หน่วยบัญชียุโรป</displayName>
+				<displayName>หน่วยบัญชียุโรป [XBD]</displayName>
 			</currency>
 			<currency type="XCD">
 				<displayName>ดอลลาร์แคริบเบียนตะวันออก</displayName>

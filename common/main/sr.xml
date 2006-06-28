@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -116,7 +116,7 @@
 			<territory type="039">Јужна Европа</territory>
 			<territory type="053">Аустралија и Нови Зеланд</territory>
 			<territory type="054">Меланезија</territory>
-			<territory type="057">Микронезија</territory>
+			<territory type="057">Микронезијски регион</territory>
 			<territory type="061">Полинезија</territory>
 			<territory type="062">Јужно-централна Азија</territory>
 			<territory type="142">Азија</territory>
@@ -360,7 +360,7 @@
 			<territory type="WS">Самоа</territory>
 			<territory type="YE">Јемен</territory>
 			<territory type="YT">Мајоте</territory>
-			<territory type="ZA">Јужна Африка</territory>
+			<territory type="ZA">Јужноафричка Република</territory>
 			<territory type="ZM">Замбија</territory>
 			<territory type="ZW">Зимбабве</territory>
 		</territories>
@@ -578,12 +578,8 @@
 			<zone type="Europe/Belgrade">
 				<long>
 					<standard>Централно Европско Време</standard>
-					<daylight>Централно Европско Време</daylight>
+					<daylight>Централно Европско Летње Време</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CET</daylight>
-				</short>
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Moscow">

@@ -17,19 +17,16 @@
 		</languages>
 		<territories>
 			<territory type="013" draft="provisional">Centraal-Amerika </territory>
-			<territory type="034" draft="provisional">Zuid-Azië</territory>
 			<territory type="143" draft="provisional">Centraal-Azië </territory>
 			<territory type="172">Gemenebest van Onafhankelijke Staten</territory>
 			<territory type="419" draft="provisional">Latijns-Amerika en de Caraïben</territory>
 			<territory type="833">Het Eiland Man</territory>
 			<territory type="KG" draft="provisional">Kirgizië</territory>
 			<territory type="MV" draft="provisional">Malediven</territory>
-			<territory type="RU" draft="provisional">Rusland</territory>
 			<territory type="SB" draft="provisional">Salomoneilanden  </territory>
 			<territory type="TZ" draft="provisional">Tanzanië</territory>
 		</territories>
 		<types>
-			<type type="gb2312han" key="collation">Vereenvoudigd Chinees</type>
 			<type type="traditional" key="collation">Traditioneel</type>
 		</types>
 	</localeDisplayNames>
@@ -48,32 +45,12 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMMd" draft="provisional">d-MMM</dateFormatItem>
 						<dateFormatItem id="MMd" draft="provisional">d/MM</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="provisional">MMM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -111,9 +88,5 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<references>
-		<reference type="RP1" uri="http://ec.europa.eu/comm/translation/currencies/nltable1.htm">LANDNAMEN EN MUNTEENHEDEN (EU Country list)</reference>
-		<reference type="RP2" uri="http://taalunieversum.org/taal/aardrijkskundige_namen/">Nederlandse Taalnunie</reference>
-	</references>
 </ldml>
 

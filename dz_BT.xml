@@ -19,36 +19,6 @@
 			<infinity draft="unconfirmed">གྲངས་མེད</infinity>
 			<nan draft="unconfirmed">ཨང་མད</nan>
 		</symbols>
-		<decimalFormats>
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<!-- number grouping same as India (thousands, lakhs, crores, etc.) -->
-					<pattern draft="unconfirmed">#,##,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<default choice="long" draft="unconfirmed"/>
-			<scientificFormatLength type="long">
-				<scientificFormat>
-					<pattern draft="unconfirmed">#E+00</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength type="long">
-				<percentFormat>
-					<pattern draft="unconfirmed">#,##,##0 %</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength type="long">
-				<currencyFormat>
-					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencies>
 			<currency type="BTN">
 				<displayName draft="unconfirmed">དངུལ་ཀྲམ་</displayName>
@@ -57,4 +27,7 @@
 		</currencies>
 	</numbers>
 </ldml>
+<!-- Comments without bases
+
+ number grouping same as India (thousands, lakhs, crores, etc.) 	 - was on: //ldml/numbers/decimalFormats/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="standard"] -->
 

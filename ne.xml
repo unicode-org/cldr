@@ -18,7 +18,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<default choice="gregorian" draft="unconfirmed"/>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -76,12 +75,6 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">Q1</quarter>
-							<quarter type="2" draft="unconfirmed">Q2</quarter>
-							<quarter type="3" draft="unconfirmed">Q3</quarter>
-							<quarter type="4" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="unconfirmed">पहिलो सत्र</quarter>
 							<quarter type="2" draft="unconfirmed">दोस्रो सत्र</quarter>
@@ -106,11 +99,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal draft="unconfirmed">.</decimal>
-			<group draft="unconfirmed">,</group>
-			<list draft="unconfirmed">;</list>
-		</symbols>
 		<currencies>
 			<currency type="NPR">
 				<symbol draft="unconfirmed">रू</symbol>

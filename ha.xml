@@ -10,12 +10,6 @@
 		<exemplarCharacters>[a b ɓ c d ɗ e-k ƙ l-o r s {sh} t {ts} u w y z ʼ {ʼy}]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à â é è ê í ì î ó ò ô p q {r̃} ú ù û v x ƴ]</exemplarCharacters>
 	</characters>
-	<delimiters>
-		<quotationStart draft="unconfirmed">“</quotationStart>
-		<quotationEnd draft="unconfirmed">”</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -73,8 +67,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Gabanin Miladi</era>
@@ -89,15 +81,9 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal draft="unconfirmed">.</decimal>
-			<group draft="unconfirmed">,</group>
-			<list draft="unconfirmed">;</list>
-		</symbols>
 		<currencies>
 			<currency type="GHC">
 				<displayName draft="unconfirmed">Sidi</displayName>
-				<symbol draft="unconfirmed">GHC</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName draft="unconfirmed">Neira</displayName>

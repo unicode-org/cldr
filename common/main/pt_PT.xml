@@ -179,8 +179,6 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM/dd</dateFormatItem>
 						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE, d 'de' MMM 'de' yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd" draft="provisional">d 'de' MMM 'de' yy</dateFormatItem>
@@ -253,20 +251,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="provisional">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="provisional">#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -283,7 +267,6 @@
 			</currency>
 			<currency type="AFN">
 				<displayName draft="provisional">Afeghani</displayName>
-				<symbol draft="provisional">AFN</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName draft="provisional">Florim das Antilhas Holandesa</displayName>
@@ -412,10 +395,6 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<references>
-		<reference type="RP1">the changes on “code lists” and “other items” are based on results of google searches within Portugal pages </reference>
-		<reference type="RP2" uri="http://ec.europa.eu/comm/translation/currencies/pttable1.htm">EU Currency and Country List</reference>
-	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt_PT.txt?only_with_tag=final-update-LDML

@@ -10,12 +10,6 @@
 		<exemplarCharacters references="RP1">[a-p r-u w ŵ y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" references="RP1">[q v x]</exemplarCharacters>
 	</characters>
-	<delimiters>
-		<quotationStart draft="unconfirmed">“</quotationStart>
-		<quotationEnd draft="unconfirmed">”</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -73,8 +67,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">BC</era>
@@ -89,11 +81,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-		</symbols>
 		<currencies>
 			<currency type="MWK">
 				<displayName draft="unconfirmed">Malawian Kwacha</displayName>

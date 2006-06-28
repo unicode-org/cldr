@@ -18,7 +18,6 @@
 	</delimiters>
 	<dates>
 		<calendars>
-			<default choice="gregorian"/>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -74,8 +73,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">BC</era>
@@ -90,11 +87,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal draft="unconfirmed">.</decimal>
-			<group draft="unconfirmed">,</group>
-			<list draft="unconfirmed">;</list>
-		</symbols>
 		<currencies>
 			<currency type="ZAR">
 				<symbol draft="unconfirmed">R</symbol>

@@ -17,9 +17,7 @@
 			<language type="crp">kreol- och pidginspråk (annat)</language>
 			<language type="enm">medelengelska (ca 1100-1500)</language>
 			<language type="gil">gilbertesiska, kiribati</language>
-			<language type="gmh">medelhögtyska (ca 1050-1500)</language>
 			<language type="gn">guarani</language>
-			<language type="goh">fornhögtyska (ca 750-1050)</language>
 			<language type="iro">irokesiska språk</language>
 			<language type="khi">khoisanska (annat)</language>
 			<language type="km">kambodjanska, khmeriska</language>
@@ -57,16 +55,6 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">1:a kvartalet</quarter>
-							<quarter type="2">2:a kvartalet</quarter>
-							<quarter type="3">3:e kvartalet</quarter>
-							<quarter type="4">4:e kvartalet</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="long">
 						<dateFormat>
@@ -76,10 +64,7 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" draft="provisional">HH.mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="MMMMEEEd" draft="provisional">EEE d MMMM </dateFormatItem>
-						<dateFormatItem id="MMMd" draft="provisional">d MMM</dateFormatItem>
 						<dateFormatItem id="MMd" draft="provisional">d/MM</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="provisional">hh.mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh.mm.ss a</dateFormatItem>
@@ -87,32 +72,8 @@
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>år</displayName>
-					</field>
-					<field type="month">
-						<displayName>månad</displayName>
-					</field>
-					<field type="week">
-						<displayName>vecka</displayName>
-					</field>
 					<field type="dayperiod">
 						<displayName>tidsvisning</displayName>
-					</field>
-					<field type="hour">
-						<displayName>timme</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>tidszon</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -126,13 +87,6 @@
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 	</numbers>
 </ldml>
 

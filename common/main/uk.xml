@@ -196,7 +196,7 @@
 			<language type="ia">Інтерлінгва</language>
 			<language type="iba" references="RP4" draft="provisional">Ібанська</language>
 			<language type="id">Індонезійська</language>
-			<language type="ie" draft="provisional">Інтерлінгве</language>
+			<language type="ie">Інтерлінгве</language>
 			<language type="ig" references="RP4" draft="provisional">Ігбо</language>
 			<language type="ii" references="RP4" draft="provisional">Сичуань</language>
 			<language type="ijo" references="RP4" draft="provisional">Іджо</language>
@@ -2038,9 +2038,8 @@
 				<displayName>Азербайджанський манат</displayName>
 			</currency>
 			<currency type="BAD">
-				<displayName>Динар Боснії і Гецоговини</displayName>
+				<displayName>Динар (Боснія і Герцеговина)</displayName>
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Динар</displayName>
-				<displayName alt="proposed-x" draft="unconfirmed">Динар (Боснія і Герцеговина)</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Конвертована марка Боснії і Герцоговини</displayName>
@@ -2336,8 +2335,8 @@
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Сілі</displayName>
 			</currency>
 			<currency type="GQE">
+				<displayName>Еквеле (Екваторіальна Ґвінея)</displayName> <!-- ekvele (Equatorial Guinea) -->
 				<displayName references="RP3" draft="provisional">Еквеле</displayName> <!-- problem: doesn't reference territory -->
-				<displayName alt="proposed-x" draft="unconfirmed">Еквеле (Екваторіальна Ґвінея)</displayName> <!-- ekvele (Equatorial Guinea) -->
 			</currency>
 			<currency type="GRD">
 				<displayName>Грецька драхма</displayName>
@@ -2505,16 +2504,16 @@
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Талон</displayName>
 			</currency>
 			<currency type="LUC">
+				<displayName>Люксембурґський франк (Конвертований)</displayName> <!-- Luxemburzki Konvertovani Frank -->
 				<displayName references="RP3" draft="provisional">Конвертований франк</displayName>
-				<displayName alt="proposed-x" draft="unconfirmed">Люксембурґський франк (Конвертований)</displayName> <!-- Luxemburzki Konvertovani Frank -->
 			</currency>
 			<currency type="LUF">
 				<displayName>Люксембурзький франк</displayName>
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Люксембурґський франк</displayName>
 			</currency>
 			<currency type="LUL">
+				<displayName>Люксембурґський франк (Фінансовий)</displayName> <!-- Luxemborg Financial Frank -->
 				<displayName references="RP3" draft="provisional">Фінансовий франк</displayName>
-				<displayName alt="proposed-x" draft="unconfirmed">Люксембурґський франк (Фінансовий)</displayName> <!-- Luxemborg Financial Frank -->
 			</currency>
 			<currency type="LVL">
 				<displayName>Латвійський лат</displayName>
@@ -2583,9 +2582,8 @@
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Руфія</displayName>
 			</currency>
 			<currency type="MWK">
-				<displayName>Малавійська квача</displayName>
+				<displayName>Квача (Малаві)</displayName>  <!-- Kvatsa (Malavi) -->
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName>  <!-- problem: doesn't mention territory -->
-				<displayName alt="proposed-x" draft="unconfirmed">Квача (Малаві)</displayName>  <!-- Kvatsa (Malavi) -->
 				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
@@ -2993,9 +2991,8 @@
 				<symbol>R</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>Замбійська квача</displayName>
+				<displayName>Квача (Замбія)</displayName> <!-- Kvatsa (Zambia) -->
 				<displayName references="RP3" alt="proposed-u174-1" draft="provisional">Квача</displayName> <!-- problem: doesn't mention territory -->
-				<displayName alt="proposed-x" draft="unconfirmed">Квача (Замбія)</displayName> <!-- Kvatsa (Zambia) -->
 			</currency>
 			<currency type="ZRN">
 				<displayName>Заїрський новий заїр</displayName>
@@ -3028,9 +3025,7 @@
 		<reference type="RP7" uri="http://www.logon.org/ukrainian/S/P156.htm">Єврейський календар</reference>
 	</references>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/uk.txt?only_with_tag=final-update-LDML
-
+<!-- 
 eras {    // Old value
 "\u0434\u043E \u043D.\u0435.",
 "\u043F\u0456\u0441\u043B\u044F \u043D.\u0435.",

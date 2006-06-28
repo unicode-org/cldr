@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
@@ -334,7 +334,7 @@
 			<territory type="014">Doğu Afrika</territory>
 			<territory type="015">Kuzey Afrika</territory>
 			<territory type="017">Orta Afrika</territory>
-			<territory type="018">Güney Afrika</territory>
+			<territory type="018">Güney Afrika [018]</territory>
 			<territory type="018" alt="proposed-u51-2" draft="provisional">Afrika'nın Güneyi</territory>
 			<territory type="019">Amerika</territory>
 			<territory type="021">Kuzey Amerika</territory>
@@ -1120,7 +1120,6 @@
 			<zone type="America/Indianapolis">
 				<long>
 					<standard>Doğu Standart Saati</standard>
-					<daylight>Doğu Standart Saati</daylight>
 					<daylight alt="proposed-u51-2" draft="provisional">Doğu (Indianapolis) Yaz Saati</daylight>
 				</long>
 			</zone>
@@ -1668,7 +1667,6 @@
 				<symbol>Lm</symbol>
 			</currency>
 			<currency type="MTP">
-				<displayName>Malta Lirası</displayName>
 				<displayName alt="proposed-u51-1" draft="provisional">Malta Sterlingi</displayName>
 			</currency>
 			<currency type="MUR">
@@ -1958,8 +1956,7 @@
 				<displayName>Birleşik Avrupa Birimi</displayName>
 			</currency>
 			<currency type="XBB">
-				<displayName>Avrupa Para Birimi</displayName>
-				<displayName alt="proposed-u51-1" draft="provisional">Avrupa Para Birimi (EMU)</displayName>
+				<displayName draft="provisional">Avrupa Para Birimi (EMU)</displayName>
 			</currency>
 			<currency type="XBC">
 				<displayName>Avrupa Hesap Birimi (XBC)</displayName>

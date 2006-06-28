@@ -276,7 +276,7 @@
 			<territory type="054">Меланезия</territory>
 			<territory type="057">Микронезия</territory>
 			<territory type="061">Полинезия</territory>
-			<territory type="062">Южна Азия</territory>
+			<territory type="062">Южна Азия [062]</territory>
 			<territory type="142">Азия</territory>
 			<territory type="143">Централна Азия</territory>
 			<territory type="145">Западна Азия</territory>
@@ -469,7 +469,7 @@
 			<territory type="PW">Палау</territory>
 			<territory type="PY">Парагвай</territory>
 			<territory type="QA">Катар</territory>
-			<territory type="QO">Океания</territory>
+			<territory type="QO">Океания [QO]</territory>
 			<territory type="QO" alt="proposed-u129-1" draft="unconfirmed">Далечна Океания</territory>
 			<territory type="RE">Реюниън</territory>
 			<territory type="RO">Румъния</territory>
@@ -992,10 +992,6 @@
 					<standard>Часова зона Нюфаундленд</standard>
 					<daylight>Лятна часова зона Нюфаундленд</daylight>
 				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
 				<exemplarCity>Сейнт Джоунс</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
@@ -1027,10 +1023,6 @@
 					<standard>Китайска часова зона</standard>
 					<daylight>Китайска часова зона</daylight>
 				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
 				<exemplarCity>Шанхай</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
@@ -1349,9 +1341,7 @@
 					<daylight>Лятна часова зона Аляска</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
 					<standard alt="proposed-u195-1" draft="provisional">AKST</standard>
-					<daylight>ADT</daylight>
 					<daylight alt="proposed-u195-1" draft="provisional">AKDT</daylight>
 				</short>
 				<exemplarCity>Анкоридж</exemplarCity>
@@ -1426,13 +1416,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<standard>Американска източна часова зона</standard>
 					<daylight>Американска източна часова зона</daylight>
 				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
 				<exemplarCity>Индианополис</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">

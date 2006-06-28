@@ -199,7 +199,7 @@ public class CLDRDBSource extends XMLSource {
             keyVettingSet = prepareStatement("keyVettingSet",
                 "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
 			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-				"select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>4) AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
+				"select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
 			keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
 				"select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_RESULT where CLDR_DATA.locale=? AND CLDR_DATA.locale=CLDR_RESULT.locale AND CLDR_DATA.xpath=CLDR_RESULT.base_xpath AND CLDR_RESULT.type="+Vetting.RES_NO_VOTES);
             querySource = prepareStatement("querySource",
@@ -679,21 +679,46 @@ public class CLDRDBSource extends XMLSource {
      */
     public String getFullPathAtDPath(String path) {
 		if(finalData) {
+			String aPath = path;
+			// note: we don't call: getOrigXpath(xpt.getByXpath(path))  here, because 'path' may not have an orig xpath. 
+			
 			// this is going to be a little bit slow.
 			String locale = getLocaleID();
 			int id = xpt.getByXpath(path); // get id..
 			int type[] = new int[1];
 			int base_id = xpt.xpathToBaseXpathId(id);
 			int res = sm.vet.queryResult(locale, base_id, type);
+
+			// extract the 'reference' (and any others?)
+			{
+				XPathParts xpp = new XPathParts(null,null);
+				xpp.clear();
+				if(res>=0) {
+					xpp.initialize(getOrigXpath(res));
+				} else {
+					xpp.initialize(getOrigXpath(xpt.getByXpath(path)));
+				}
+				
+				Map lastAtts = xpp.getAttributes(-1);
+				for(Iterator i = lastAtts.keySet().iterator();i.hasNext();) {
+				    String attName = i.next().toString();
+				    if( !attName.equals(LDMLConstants.DRAFT) &&
+				        !CLDRFile.isDistinguishing(xpp.getElement(-1),attName)) {
+					String att = (String)lastAtts.get(attName);
+					if(att!=null) { 
+						aPath = aPath + "[@"+attName+"=\""+att+"\"]";
+					}
+				    }
+				}
+			}
+
 			if((res!=id) && // l0ser and
 			true /*	!((res<=Vetting.RES_BAD_MAX && (base_id==id)))  */) { // not a fallback from an insufficient/disputed
 				// Did any regular vetters vote for this?
 				int highest =  sm.vet.highestLevelVotedFor(locale,id);
-				
-				String aPath = path;
-				
+								
 				if(xpathThatNeedsOrig(path)) {
-					aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT);
+					aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT); // original- minus draft. (Draft will be re-added later.)
 				}
 				
 				if((type[0]==Vetting.RES_INSUFFICIENT)&&(base_id==id)) { // fallback - no 'provisional' needed.
@@ -718,7 +743,7 @@ public class CLDRDBSource extends XMLSource {
 			if(xpathThatNeedsOrig(path)) {
 				return getOrigXpath(xpt.getByXpath(path));
 			} else {
-				return path; // don't need origpath. This is a 'winning' item.
+				return aPath; // don't need origpath. This is a 'winning' item.
 			}
 		} else {
 			// proposed-  always returns origpath
@@ -738,7 +763,7 @@ public class CLDRDBSource extends XMLSource {
                 ResultSet rs = stmts.oxpathFromXpath.executeQuery();
                 if(!rs.next()) {
                     rs.close();
-                    logger.severe("gfx not found, falling back: " + locale + " " + xpt.getById(pathid));
+                    logger.severe("gfx not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
                     return xpt.getById(pathid); // not found - should be null?
                 }
                 int result = rs.getInt(1);
@@ -901,6 +926,7 @@ public class CLDRDBSource extends XMLSource {
      if(xpath.endsWith("/minDays") ||
         xpath.endsWith("/default") ||
         xpath.endsWith("/alias") ||
+        xpath.endsWith("/orientation") ||
         xpath.endsWith("/weekendStart") ||
         xpath.endsWith("/weekendEnd") ||
         xpath.endsWith("/measurementSystem") ||

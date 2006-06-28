@@ -741,7 +741,6 @@ public class UserRegistry {
     }
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
-		if(SurveyMain.phaseReadonly) return false;
         return userIsTC(u);
     }
     static final boolean userCanEmailUsers(User u) {
@@ -749,30 +748,25 @@ public class UserRegistry {
     }
     /** can the user modify this particular user? */
     static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
-		if(SurveyMain.phaseReadonly) return false;
         return (  userCanModifyUsers(u) &&
                  (theirId != ADMIN_ID) &&
                  (theirId != u.id) &&
                  (theirLevel >= u.userlevel) );
     }
     static final boolean userCanDeleteUser(User u, int theirId, int theirLevel) {
-		if(SurveyMain.phaseReadonly) return false;
         return (userCanModifyUser(u,theirId,theirLevel) &&
                 theirLevel > u.userlevel); // must be at a lower level
     }
     static final boolean userCanChangeLevel(User u, int theirLevel, int newLevel) {
-		if(SurveyMain.phaseReadonly) return false;
         int ourLevel = u.userlevel;
         return (userCanModifyUser(u, ALL_ID, theirLevel) &&
             (newLevel >= ourLevel) && // new level is equal to or greater than our level
            (newLevel != theirLevel) ); // not existing level 
     }
     static final boolean userCanDoList(User u) {
-		if(SurveyMain.phaseReadonly) return false;
         return (userIsVetter(u));
     }
     static final boolean userCanCreateUsers(User u) {
-		if(SurveyMain.phaseReadonly) return false;
         return (userIsTC(u));
     }
     static final boolean userCanSubmit(User u) {

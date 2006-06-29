@@ -157,7 +157,7 @@ public class ExtractICUData {
 //		fixedLine = fixedLine.replaceAll("<>", "\u2194");
 //		fixedLine = fixedLine.replaceAll("<", "\u2190");
 //		fixedLine = fixedLine.replaceAll(">", "\u2192");
-//		fixedLine = fixedLine.replaceAll("&", "§");
+//		fixedLine = fixedLine.replaceAll("&", "\u00A7");
 		fixedLine = fixLine.transliterate(line);
 		return fixedLine;
 	}
@@ -166,7 +166,7 @@ public class ExtractICUData {
 		"'<>' > '\u2194';" +
 		"'<' > '\u2190';" +
 		"'>' > '\u2192';" +
-		"'&' > '§';" +
+		"'&' > '\u00A7';" +
 		"('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
 		"('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
 		"([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"

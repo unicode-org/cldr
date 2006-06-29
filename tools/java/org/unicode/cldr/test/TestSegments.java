@@ -103,7 +103,7 @@ public class TestSegments {
 						showingBreaks += '|';
 					} 
 					if (DEBUG_SHOW_MATCHES && rl.getBreakRule() >= 0) {
-						showingBreaks += "«" + Segmenter.nf.format(rl.getBreakRule()) + "»";
+						showingBreaks += "\u00AB" + Segmenter.nf.format(rl.getBreakRule()) + "\u00BB";
 					}
 					if (k < line.length()) showingBreaks += line.charAt(k);
 				}
@@ -228,17 +228,17 @@ public class TestSegments {
 	
 	static final String[][] tests = {{
 		"QuickCheck",
-		"1) ÷ b",
-		"2) × .",
-		"0.5) a ×",
+		"1) \u00F7 b",
+		"2) \u00D7 .",
+		"0.5) a \u00D7",
 		"test",
 		"abcbdb"
 	},{
 		"QuickCheck2",
 		"$Letter=\\p{Alphabetic}",
 		"$Digit=\\p{Digit}",
-		"1) $Digit × $Digit",
-		"2) $Letter × $Letter",
+		"1) $Digit \u00D7 $Digit",
+		"2) $Letter \u00D7 $Letter",
 		"test",
 		"The quick 100 brown foxes."
 	},{

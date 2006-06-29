@@ -2,7 +2,7 @@
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
 	<transforms>
-		<transform source="Latin" target="ConjoiningJamo" direction="both">
+		<transform source="Latin" target="ConjoiningJamo" direction="both" visibility="internal">
 			<comment>#- N.B. DO NOT put any filters, NFD, etc. here -- those are aliased in</comment>
 			<comment>#- the INDEX file.  This transliterator is, by itself, not</comment>
 			<comment>#- instantiated.  It is used as a part of Latin-Jamo, Latin-Hangul, or</comment>

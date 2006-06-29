@@ -3,7 +3,7 @@
 <supplementalData version="1.4">
 	<transforms>
 		<transform source="Latin" target="Thai" direction="forward">
-			<tRule>::[[:Latin:][:Mn:][:Me:] \u0020 ;0-9|~§«»ʹʹ‡ˌ];</tRule>
+			<tRule>::[[:Latin:][:Mn:][:Me:] \u0020\u0026 ;0-9|~«»ʹʹ‡ˌ];</tRule>
 			<tRule>::NFD;</tRule>
 			<tRule>::Latin-ThaiLogical;</tRule>
 			<tRule>::ThaiLogical-Thai;</tRule>

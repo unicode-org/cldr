@@ -11,8 +11,8 @@
 			<tRule>:: [[[:Greek:][:Mn:][:Me:]] [\:-;?·;·]] ;</tRule>
 			<tRule>::NFD (NFC) ;</tRule>
 			<comment># Useful variables</comment>
-			<tRule>$lower = [[:latin:][:greek:] § [:Ll:]] ;</tRule>
-			<tRule>$upper = [[:latin:][:greek:] § [:Lu:]] ;</tRule>
+			<tRule>$lower = [[:latin:][:greek:] &amp; [:Ll:]] ;</tRule>
+			<tRule>$upper = [[:latin:][:greek:] &amp; [:Lu:]] ;</tRule>
 			<tRule>$accent = [[:Mn:][:Me:]] ;</tRule>
 			<tRule>$macron = ̄ ;</tRule>
 			<tRule>$ddot = ̈ ;</tRule>

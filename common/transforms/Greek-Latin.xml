@@ -17,13 +17,13 @@
 			<comment># ὨΣ ὩΣ ὪΣ ὫΣ</comment>
 			<comment># Ạ, ạ, Ẹ, ẹ, Ọ, ọ</comment>
 			<comment># Useful variables</comment>
-			<tRule>$lower = [[:latin:][:greek:] § [:Ll:]];</tRule>
-			<tRule>$glower = [[:greek:] § [:Ll:]];</tRule>
-			<tRule>$upper = [[:latin:][:greek:] § [:Lu:]] ;</tRule>
+			<tRule>$lower = [[:latin:][:greek:] &amp; [:Ll:]];</tRule>
+			<tRule>$glower = [[:greek:] &amp; [:Ll:]];</tRule>
+			<tRule>$upper = [[:latin:][:greek:] &amp; [:Lu:]] ;</tRule>
 			<tRule>$accent = [:M:] ;</tRule>
-			<comment># NOTE: restrict to just the Greek § Latin accents that we care about</comment>
+			<comment># NOTE: restrict to just the Greek &amp; Latin accents that we care about</comment>
 			<comment># TODO: broaden out once interation is fixed</comment>
-			<tRule>$accentMinus = [ [̀-ͅ] § [:M:] - [̸]] ;</tRule>
+			<tRule>$accentMinus = [ [̀-ͅ] &amp; [:M:] - [̸]] ;</tRule>
 			<tRule>$macron = ̄ ;</tRule>
 			<tRule>$ddot = ̈ ;</tRule>
 			<tRule>$ddotmac = [$ddot$macron];</tRule>
@@ -94,7 +94,7 @@
 			<tRule>| $1 $rough ← H ([AEIOUY] $ddot? $evowel2 $macron?) ;</tRule>
 			<tRule>| $1 $rough ← H ([AEIOUY] $macron? $ddot?) ;</tRule>
 			<comment># titlecase, have to fix individually</comment>
-			<comment># in the future, we should add §uppercase() to make this easier</comment>
+			<comment># in the future, we should add &amp;uppercase() to make this easier</comment>
 			<tRule>| A $1 $rough ← H a ($macron  $ddot? $evowel2_i $macron?) ;</tRule>
 			<tRule>| E $1 $rough ← H e ($macron  $ddot? $evowel2_i $macron?) ;</tRule>
 			<tRule>| I $1 $rough ← H i ($macron  $ddot? $evowel2_i $macron?) ;</tRule>

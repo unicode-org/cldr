@@ -12,7 +12,7 @@
 			<comment># Remove any other spaces between thai letters</comment>
 			<tRule>← $thai { ' ' } $thai;</tRule>
 			<comment># Now vowels</comment>
-			<tRule>$thai_reversing = [[:Logical_Order_Exception:] § $thai];</tRule>
+			<tRule>$thai_reversing = [[:Logical_Order_Exception:] &amp; $thai];</tRule>
 			<tRule>$thai_non_reversing = [$thai - $thai_reversing ];</tRule>
 			<tRule>( $thai_reversing ) ( $thai_non_reversing ) → $2 $1;</tRule>
 			<comment># other direction</comment>

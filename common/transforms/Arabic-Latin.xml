@@ -18,7 +18,7 @@
 			<tRule>$disambig2 =  ̰ ;</tRule>
 			<tRule>$under =  ̣ ;</tRule>
 			<tRule>$descender = ˌ;</tRule>
-			<tRule>$notAbove = [[:^ccc=0:]§[:^ccc=230:]];</tRule>
+			<tRule>$notAbove = [[:^ccc=0:]&amp;[:^ccc=230:]];</tRule>
 			<comment># non-letters</comment>
 			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
 			<tRule>٬ ↔ ',' $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>

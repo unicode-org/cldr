@@ -943,6 +943,12 @@
 						<era type="1">公元</era>
 					</eraAbbr>
 				</eras>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md" draft="provisional">M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="provisional">yyyy'年'M'月'</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -954,15 +960,16 @@
 				<exemplarCity>科摩罗（群岛）</exemplarCity>
 			</zone>
 			<!-- <zone type="America/Indiana/Indianapolis">
-				<exemplarCity>印地安那州/印第安纳波利斯</exemplarCity>
-			</zone>
-			
+				 <exemplarCity>印地安那州/印第安纳波利斯</exemplarCity>
+				 </zone>
 
-			<zone type="America/Kentucky/Louisville">
-				<exemplarCity>路易斯维尔</exemplarCity>
-			</zone>
-			
- United Kingdom -->
+
+				 <zone type="America/Kentucky/Louisville">
+				 <exemplarCity>路易斯维尔</exemplarCity>
+				 </zone>
+
+				 United Kingdom
+			-->
 			<zone type="Europe/Belfast">
 				<exemplarCity>贝尔法斯特</exemplarCity>
 			</zone>

@@ -114,4 +114,6 @@ public class OpenOfficeLDMLConstants
     
    public static final String TYPE                       = "type";
    public static final String DEFAULT                    = "default";
+   
+   public static final String LEGACY_ONLY                = "legacyOnly";
 }

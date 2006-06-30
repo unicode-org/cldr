@@ -976,88 +976,58 @@ public class OOLocaleWriter extends XMLWriter
         
     }
     
-    public void WriteLC_CURRENCY(Vector ldmlCurrTypes, String ldmlDefaultCurr, Hashtable ldmlCurrDisplayNames,
-            Hashtable ldmlCurrSymbols, Hashtable ldmlCurrIDs, Hashtable ldmlCurrCompatibleFormatCodes,
-            supplementalData suppData, boolean bRoundTrip)
+    public void WriteLC_CURRENCY(Vector currencyData_cldr, Vector currencyData_ooo,
+            supplementalData suppData, boolean bRoundTrip, String territory)
     {
-        if ((ldmlCurrTypes == null) || (ldmlCurrTypes.size()==0))
+        if ((currencyData_cldr == null && currencyData_ooo == null) || (currencyData_cldr.size()==0 && currencyData_ooo.size()==0))
             return;
+        
+        Vector validCurrs = suppData.getCurrencies(territory);  // validCurrs[0] = the default one
         
         println("<" + OOConstants.LC_CURRENCY + ">");
         indent();
         
-        // loop through the different currencies types
-        
-        Enumeration currsEnum = ldmlCurrTypes.elements();
-        while (currsEnum.hasMoreElements())
+        //just write back the OOO codes, 
+        // but for default currency take the display name and symbol from cldr and decimal places from supplemental
+        for (int i=0; i < currencyData_ooo.size(); i++)
         {
-            String currencyType = (String) currsEnum.nextElement();
+            //inner_ooo order : CurrencyID,symbol,code,name, blank ,default, usedInCompatibleFormatCode, legacyOnly (if defined)
+            Vector inner_ooo = (Vector) currencyData_ooo.elementAt(i);
+            String code = (String)inner_ooo.elementAt(2);
+            String deflt = (String)inner_ooo.elementAt(5);
+            String symbol = (String)inner_ooo.elementAt(1);
+            String name = (String)inner_ooo.elementAt(3);
+   //         System.err.println ("Writer id="+(String)inner_ooo.elementAt(0) + " symbol="+ symbol + " code=" + code + " name="+ name + " blank=" + (String)inner_ooo.elementAt(4) + "deflt=" + deflt + "uicfc="+(String)inner_ooo.elementAt(6));
             
-            StringBuffer currStr = new StringBuffer("<" + OOConstants.CURRENCY);
-            
-            // is default?
-            if ((ldmlDefaultCurr != null) && (ldmlDefaultCurr.length()>0))
-            {
-                if (ldmlDefaultCurr.compareTo(currencyType)==0)
-                    currStr.append(" " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE + "\"");
-                else
-                    currStr.append(" " + OOConstants.DEFAULT + "=\"" + OOConstants.FALSE + "\"");
+            if ((deflt.equals (OOConstants.TRUE))    //use CLDR's symbol and displayName for default currency only
+            && (bRoundTrip == false))
+            { 
+                for (int j=0; j < currencyData_cldr.size(); j++)
+                {  //inner_cldr order : blank ,symbol,code,name, 
+                    Vector inner_cldr = (Vector) currencyData_cldr.elementAt(j);
+                    if (inner_cldr.elementAt(2).equals(code))
+                    {
+                        symbol = (String) inner_cldr.elementAt(1);
+                        name = (String)inner_cldr.elementAt(3);
+                        break;
+                    }
+                }
             }
-            
-            // is used in compatible format codes?
-            if ((ldmlCurrCompatibleFormatCodes != null) && (ldmlCurrCompatibleFormatCodes.size()>0))
-            {
-                String isUsedComp = (String) ldmlCurrCompatibleFormatCodes.get(currencyType);
-                String isUsedCompVal = "";
-                if ((isUsedComp != null) && (isUsedComp.compareTo(OOConstants.TRUE)==0)) // no true word in LDMLConstants.
-                    isUsedCompVal = OOConstants.TRUE;
-                else
-                    isUsedCompVal = OOConstants.FALSE;
-                currStr.append(" " + OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL + "=\"" + isUsedCompVal + "\"");
-            }
-            
-            // deal with attributes
-            currStr.append(">");
-            println(currStr.toString());
+
+            String def = " " + OOConstants.DEFAULT + "=\"" + deflt + "\"";
+            String uicfc = " " + OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL + "=\"" + (String)inner_ooo.elementAt(6) + "\"";
+            String legacy ="";
+            if (inner_ooo.size()>7) legacy = " " + OOConstants.LEGACY_ONLY + "=\"" + (String)inner_ooo.elementAt(7) + "\"";
+            println("<" + OOConstants.CURRENCY + def + uicfc + legacy + ">");
             indent();
-            
-            String currID = "";
-            if (bRoundTrip == true)  //write back OO data
-            {
-                currID = currencyType;  //don't use the OO currencyID as data can be in conflict
-                if ((ldmlCurrIDs != null) && (ldmlCurrIDs.size()>0))
-                    currID = (String) ldmlCurrIDs.get(currencyType);
-                if (currID == null) currID = "";
-            }
-            else
-                currID = currencyType;  //don't use the OO currencyID as data can be in conflict
-            println("<" + OOConstants.CURRENCY_ID + ">" + currID + "</" + OOConstants.CURRENCY_ID + ">");
-            
-            String currSymbol =  "";
-            if ((ldmlCurrSymbols != null) && (ldmlCurrSymbols.size()>0))
-            {
-                currSymbol = (String) ldmlCurrSymbols.get(currencyType);
-                currSymbol = escapeXML(currSymbol);  //some symbols have specials
-            }
-            if (currSymbol == null) currSymbol = currencyType; //if it's N/A then put = code
-            println("<" + OOConstants.CURRENCY_SYMBOL + ">" + currSymbol + "</" + OOConstants.CURRENCY_SYMBOL + ">");
-            
-            println("<" + OOConstants.BANK_SYMBOL + ">" + currencyType + "</" + OOConstants.BANK_SYMBOL + ">");
-            
-            String currName =  "";
-            if ((ldmlCurrDisplayNames != null) && (ldmlCurrDisplayNames.size()>0))
-                currName = (String) ldmlCurrDisplayNames.get(currencyType);
-            if (currName == null)
-                currName = currencyType;
-            println("<" + OOConstants.CURRENCY_NAME + ">" + currName + "</" + OOConstants.CURRENCY_NAME + ">");
-            
-            // Get DecimalPlaces from suppData.
-            if (suppData != null)
-            {
-                int decimalPlaces = suppData.getDigits(currencyType);
-                println("<" + OOConstants.DECIMAL_PLACES + ">" + decimalPlaces + "</" + OOConstants.DECIMAL_PLACES + ">");
-            }
-            
+            println("<" + OOConstants.CURRENCY_ID  + ">" + (String)inner_ooo.elementAt(0) + "</" + OOConstants.CURRENCY_ID  + ">");
+            println("<" + OOConstants.CURRENCY_SYMBOL  + ">" + symbol + "</" + OOConstants.CURRENCY_SYMBOL  + ">");
+            println("<" + OOConstants.BANK_SYMBOL  + ">" + code + "</" + OOConstants.BANK_SYMBOL  + ">"); 
+            println("<" + OOConstants.CURRENCY_NAME  + ">" + name + "</" + OOConstants.CURRENCY_NAME  + ">");
+               
+            //take decimal places from supplementalData.xml for all OO.o currencies
+            String digits = Integer.toString (suppData.getDigits(code));
+            println("<" + OOConstants.DECIMAL_PLACES  + ">" + digits + "</" + OOConstants.DECIMAL_PLACES  + ">");  
             outdent();
             println("</" + OOConstants.CURRENCY + ">");
         }
@@ -1065,6 +1035,7 @@ public class OOLocaleWriter extends XMLWriter
         outdent();
         println("</" + OOConstants.LC_CURRENCY + ">");
     }
+    
     
     public void WriteLC_TRANSLITERATIONS(Vector transliterations, String ref)
     {

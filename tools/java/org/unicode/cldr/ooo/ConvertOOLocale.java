@@ -305,6 +305,16 @@ public class ConvertOOLocale
             if (wideQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.WIDE, wideQuarters);
             Hashtable abbrQuarters = OOToLDMLMapper.MapAbbrQuarters(reader.m_ReservedWords);
             if (abbrQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.ABBREVIATED, abbrQuarters);
+        
+            //don't write to OO.org specials
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_1_WORD);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_2_WORD);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_3_WORD);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_4_WORD);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_1_ABBREVIATION);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_2_ABBREVIATION);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_3_ABBREVIATION);
+            reader.m_ReservedWords.remove (OOConstants.QUARTER_4_ABBREVIATION);
         }
         
         Hashtable abbrEras = OOToLDMLMapper.MapEras(reader.m_AbbrEras);
@@ -386,7 +396,8 @@ public class ConvertOOLocale
         
         //fill a vector of flexible date time patterns
     // flex data time new in 1.4 standard
-        if (Float.parseFloat(m_cldr_ver) > 1.3999)
+        //TODO : fix the ids to be pattenr skeleton not sequential number
+/*        if (Float.parseFloat(m_cldr_ver) > 1.3999)
         {
             Vector flexDateTimePatterms = new Vector();
             Collection coll = flexDate.values();
@@ -396,7 +407,7 @@ public class ConvertOOLocale
             coll = flexDateTime.values();
             flexDateTimePatterms.addAll(coll);
             data.put(LDMLConstants.AVAIL_FMTS, flexDateTimePatterms);
-        }
+        }*/
         
         m_LDMLLocaleWriterForOO.writeDates(data);
         data.clear();
@@ -405,14 +416,8 @@ public class ConvertOOLocale
         Hashtable symbols = new Hashtable();
         symbols = OOToLDMLMapper.MapSymbols(reader.m_Separators);
         if (symbols != null) data.put(LDMLConstants.SYMBOLS, symbols);
-        
-        Hashtable currencies = new Hashtable();
-        Hashtable currency = OOToLDMLMapper.MapCurrency(reader.m_Currency);
-        if (currency != null) currencies.put(LDMLConstants.CURRENCY, currency);
-        if (reader.m_CurrencyID != null) currencies.put(LDMLConstants.ID, reader.m_CurrencyID);
-        if (reader.m_CurrencySymbol != null)  currencies.put(LDMLConstants.SYMBOL, reader.m_CurrencySymbol);
-        if (reader.m_CurrencyName != null) currencies.put(LDMLConstants.DISPLAY_NAME, reader.m_CurrencyName);
-        data.put(LDMLConstants.CURRENCIES, currencies);
+             
+        data.put(LDMLConstants.CURRENCIES, reader.m_CurrencyData);
         
         //get the FIXED_NUMBER FormatElements
         //OO dtd also mentions FRACTION_NUMBER but its not used in any XML files

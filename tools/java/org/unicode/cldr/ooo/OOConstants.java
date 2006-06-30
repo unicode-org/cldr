@@ -210,4 +210,6 @@ public class OOConstants
     //new constants
     public static final String VERSION_DTD              = "versionDTD";
     public static final String ALLOW_UPDATE_FROM_CLDR   = "allowUpdateFromCLDR";
+   
+   public static final String LEGACY_ONLY                = "legacyOnly";
 }

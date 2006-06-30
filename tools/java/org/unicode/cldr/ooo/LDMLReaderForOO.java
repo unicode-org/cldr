@@ -4,7 +4,7 @@
 
 package org.unicode.cldr.ooo;
 
-import org.w3c.dom.Document;
+import org.w3c.dom.*;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import java.io.*;
@@ -16,6 +16,8 @@ import java.util.*;
  */
 public class LDMLReaderForOO
 {
+    private double m_cldr_ver = 0.0;  //read it from docType info in xml file
+    
     private String m_filename = null;
     private Document m_doc = null;
     private DOMWrapper m_domWrapper = null;
@@ -120,20 +122,20 @@ public class LDMLReaderForOO
     public Hashtable m_AbbrEras = null;
     public Hashtable m_StartOfWeeks = null;
     public Hashtable m_MinDays = null;
-    
-    public Vector m_CurrenciesAtts = null;   //simple Vector of currency types
-    public Hashtable m_CurrDisplayNames = null;
-    public String m_DefaultCurr = null;
-    public Hashtable m_CurrSymbols = null;  //key =code, val = symbol
-    public Hashtable m_CurrIDs = null;
-    public Hashtable m_CurrCompatibleFormatCodes = null;
+    public Hashtable m_AbbrQuarters = null;   //for cldr 1.4+ read from cldr else read from OO.o special
+    public Hashtable m_WideQuarters = null;
+       
+    // inner holds data in following order : CurrencyID,symbol,code,name, blank ,default, usedInCompatibleFormatCode, legacyOnly (if defined)
+    public Vector m_CurrencyData_ooo = new Vector ();   //Vector of vectors
+   // inner holds data in following order : blank ,symbol,code,name, 
+    public Vector m_CurrencyData_cldr = new Vector ();   //Vector of vectors, will hold data for all currencies not jsut those used in the locale
     
     public String m_TransliterationRefLocale = null;
     public Vector m_TransliterationAtts = null;
     
     public String m_ReservedRefLocale = null;
-    public Hashtable m_ReservedWords = null;
-    
+    public Hashtable m_ReservedWords = null;   //without quarters 
+     
     public String m_ForbiddenRefLocale = null;
     public String m_ForbiddenLineBeg = null;
     public String m_ForbiddenLineEnd = null;
@@ -162,11 +164,22 @@ public class LDMLReaderForOO
         if (bIsCLDR == true)  //apply inheritance from language and root locales as well as resolving aliases
         {
             String sourceDir = m_filename.substring(0, m_filename.lastIndexOf('/'));
-            m_doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, true, true, true, false /*don't ignore draft*/);
+            // if params 3,4,5 = false then any errors will cause exception to be thrown
+            m_doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false, false /*ignoreDraft*/);
         }
         else
-            m_doc = LDMLUtilities.parse(m_filename, true);
+            m_doc = LDMLUtilities.parse(m_filename, false /*if false throw exception*/);
         
+        //get the version
+        String sysId = m_doc.getDoctype().getSystemId();
+        String ver = (sysId.substring(sysId.indexOf("/dtd/") + 5, sysId.indexOf("/ldml.dtd")));
+        Double d = new Double(ver);
+        m_cldr_ver = d.doubleValue();
+    }
+    
+    public double getCLDRVersion ()
+    {
+        return m_cldr_ver;
     }
     
    /* parse the LDML XML document to store its data in memory.
@@ -266,18 +279,50 @@ public class LDMLReaderForOO
         m_EraNames = m_domWrapper.getTextFromAllElementsWithGGParent(LDMLConstants.ERA, LDMLConstants.TYPE, LDMLConstants.ERANAMES, LDMLConstants.ERAS, LDMLConstants.CALENDAR, LDMLConstants.TYPE);
         m_AbbrEras = m_domWrapper.getTextFromAllElementsWithGGParent(LDMLConstants.ERA, LDMLConstants.TYPE, LDMLConstants.ERAABBR, LDMLConstants.ERAS, LDMLConstants.CALENDAR, LDMLConstants.TYPE);
         
+        //Quarters is in cldr 1.4
+        if (m_cldr_ver > 1.399)
+        {    
+            m_AbbrQuarters = m_domWrapper.getTextFromAllElementsWithGGGParent(LDMLConstants.QUARTER, LDMLConstants.TYPE, LDMLConstants.QUARTER_WIDTH, LDMLConstants.TYPE, 
+                LDMLConstants.ABBREVIATED, LDMLConstants.QUARTER_CONTEXT, LDMLConstants.QUARTERS, 
+                LDMLConstants.CALENDAR, LDMLConstants.TYPE, LDMLConstants.TYPE, LDMLConstants.FORMAT);
+
+            m_WideQuarters = m_domWrapper.getTextFromAllElementsWithGGGParent(LDMLConstants.QUARTER, LDMLConstants.TYPE, LDMLConstants.QUARTER_WIDTH, LDMLConstants.TYPE,
+                    LDMLConstants.WIDE, LDMLConstants.QUARTER_CONTEXT, LDMLConstants.QUARTERS,
+                    LDMLConstants.CALENDAR, LDMLConstants.TYPE, LDMLConstants.TYPE, LDMLConstants.FORMAT);
+        }
+        
         m_StartOfWeeks = m_domWrapper.getAttributeFromElementsAndGPAttrib(LDMLConstants.WEEK, LDMLConstants.FIRSTDAY, LDMLConstants.DAY, LDMLConstants.TYPE);
         m_MinDays = m_domWrapper.getAttributeFromElementsAndGPAttrib(LDMLConstants.WEEK, LDMLConstants.MINDAYS, LDMLConstants.COUNT, LDMLConstants.TYPE);
         
-        //#######  <LC_CURRENCY> sub-elements   #########
-        m_DefaultCurr = m_domWrapper.getAttributeFromElement(LDMLConstants.CURRENCIES, LDMLConstants.DEFAULT, LDMLConstants.TYPE);
-        // to extract Currency Type attribute
-        m_CurrenciesAtts = m_domWrapper.getAttrsFromElement(LDMLConstants.CURRENCY, LDMLConstants.TYPE);       
-
-        m_CurrDisplayNames = m_domWrapper.getTextFromElementsAndParentAttrib(LDMLConstants.CURRENCY, LDMLConstants.DISPLAY_NAME, LDMLConstants.TYPE);
-        m_CurrSymbols = m_domWrapper.getTextFromElementsAndParentAttrib(LDMLConstants.CURRENCY, LDMLConstants.SYMBOL, LDMLConstants.TYPE);
+        //#######  <LC_CURRENCY> sub-elements   #########                
+        String SearchLocation = "//ldml/numbers/currencies/currency"; 
+        NodeList nl_code = LDMLUtilities.getNodeList (m_doc, SearchLocation);
+        for (int i=0; i < nl_code.getLength(); i++)
+        {
+            Vector inner = new Vector ();
+            String code = LDMLUtilities.getAttributeValue (nl_code.item(i), LDMLConstants.TYPE);
+            String symbol = null;
+            String name = null;
+            
+         //   String str = SearchLocation + "[@type=" + code + "\"]/symbol";
+        //    System.err.println (str);
+            Node n = LDMLUtilities.getNode (m_doc, SearchLocation + "[@type=\"" + code + "\"]/symbol");
+            if (n !=null) symbol = LDMLUtilities.getNodeValue (n);
+            n = LDMLUtilities.getNode (m_doc, SearchLocation + "[@type=\"" + code + "\"]/displayName");
+            if (n !=null) name = LDMLUtilities.getNodeValue (n);
+            
+            if (symbol !=null && name != null)
+            {
+                inner.add(0, "blank");   //dummy data so as to keep currency data is asame location : in OO.o vector pos 0 = currencyId
+                inner.add(1, symbol);
+                inner.add(2, code);
+                inner.add(3, name);
+       //       System.err.println("CLDR : symbol=" + symbol + " code=" + code + " name=" + name );
+                m_CurrencyData_cldr.add(inner);
+            }
+        }        
         
-        
+        // new dateFormatItems
         m_DateFormatItems = m_domWrapper.getTextFromAllElements (LDMLConstants.AVAIL_FMTS, LDMLConstants.DATE_FMT_ITEM);
     }
     
@@ -383,12 +428,41 @@ public class LDMLReaderForOO
             m_IndexKeys = m_domWrapper.getAttributesAndTextFromAllElements(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.INDEX, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.INDEX_KEY);
             m_IndexUnicodeScript = m_domWrapper.getTextFromAllElements(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.INDEX, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.UNICODE_SCRIPT);
             m_IndexFollowPageWord = m_domWrapper.getTextFromAllElements(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.INDEX, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.FOLLOW_PAGE_WORD);
+        }     
+        
+        //currency
+        String SearchLocation = "//ldml/numbers/currencies/currency"; 
+        NodeList ns = LDMLUtilities.getNodeList (m_doc, SearchLocation + "/special");
+        NodeList nl_id = LDMLUtilities.getNodeList (m_doc, SearchLocation + "/special/openOffice:currency/openOffice:currencyId", ns.item(0));
+        NodeList nl_symbol = LDMLUtilities.getNodeList (m_doc, SearchLocation + "/symbol");
+        NodeList nl_code = LDMLUtilities.getNodeList (m_doc, SearchLocation);
+        NodeList nl_name = LDMLUtilities.getNodeList (m_doc, SearchLocation + "/displayName");
+        NodeList nl_attrs = LDMLUtilities.getNodeList (m_doc, SearchLocation + "/special/openOffice:currency", ns.item(0));  //default,usedInCompatibelFormatCodes,legacyOnly
+        for (int i=0; i < nl_code.getLength(); i++)
+        {
+            Vector inner = new Vector ();
+            String id = LDMLUtilities.getNodeValue (nl_id.item(i));
+            inner.add (0, id);
+            String symbol = LDMLUtilities.getNodeValue (nl_symbol.item(i));
+            inner.add (1, symbol);
+            String code = LDMLUtilities.getAttributeValue (nl_code.item(i), LDMLConstants.TYPE);
+            inner.add (2, code);
+            String name = LDMLUtilities.getNodeValue (nl_name.item(i));
+            inner.add (3, name); 
+            //4 = decimal 
+            inner.add (4, "blank");   //dummy data so as to keep currency data is asame location
+            String def = LDMLUtilities.getAttributeValue (nl_attrs.item(i), "openOffice:"+OOConstants.DEFAULT);
+            inner.add (5, def);
+            String uicfc = LDMLUtilities.getAttributeValue (nl_attrs.item(i), "openOffice:"+OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL);
+            inner.add (6, uicfc);
+            String legacyOnly = LDMLUtilities.getAttributeValue (nl_attrs.item(i), "openOffice:"+OOConstants.LEGACY_ONLY);
+            if (legacyOnly != null) inner.add (7, legacyOnly);   //only optional one
+            
+      //      System.err.println ("OOo  : id=" + id + " symbol=" + symbol + " code=" + code + " name=" + name + " default=" + def + " usedInComp...=" + uicfc);
+            m_CurrencyData_ooo.add (inner);
         }
         
-        // USE: getTextFromAllElementsWithGGParent(String element,                                                                        String parent,                                                     String gparent,        String ggparent,        String ggparentAttribute)
-        m_CurrIDs = m_domWrapper.getTextFromAllElementsWithGGParent(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY_ID, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY, LDMLConstants.SPECIAL, LDMLConstants.CURRENCY, LDMLConstants.TYPE);
-        //getAttributeFromElementsAndGPAttrib(                                         String parentElement,  String element,                                                    String elementAttrib,                                                               String grandParentAttrib)
-        m_CurrCompatibleFormatCodes = m_domWrapper.getAttributeFromElementsAndGPAttrib(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES, LDMLConstants.TYPE);
+        
         
         //#######  <LC_TRANSLITERATION> sub-elements   #########
         m_TransliterationRefLocale = m_domWrapper.getAttributeValue(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TRANSLITERATIONS, XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.REF);
@@ -401,31 +475,39 @@ public class LDMLReaderForOO
         if (m_ReservedRefLocale == null)
         {
             m_ReservedWords = new Hashtable();
+            
             String text;
             text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.TRUE_WORD);
             if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.TRUE_WORD, text);
             text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.FALSE_WORD);
             if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.FALSE_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_1_WORD);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_1_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_2_WORD);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_2_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_3_WORD);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_3_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_4_WORD);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_4_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.ABOVE_WORD);
+            
+            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.ABOVE_WORD); 
             if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.ABOVE_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.BELOW_WORD);
+           text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.BELOW_WORD);
             if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.BELOW_WORD, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, text);
-            text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION);
-            if (text != null) m_ReservedWords.put(OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, text);
+            
+            //Quarters is in cldr 1.4
+            if (m_cldr_ver < 1.399)
+            {
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_1_WORD);
+                if (text != null) m_WideQuarters.put(OpenOfficeLDMLConstants.QUARTER_1_WORD, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_2_WORD);
+                if (text != null) m_WideQuarters.put(OpenOfficeLDMLConstants.QUARTER_2_WORD, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_3_WORD);
+                if (text != null) m_WideQuarters.put(OpenOfficeLDMLConstants.QUARTER_3_WORD, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_4_WORD);
+                if (text != null) m_WideQuarters.put(OpenOfficeLDMLConstants.QUARTER_4_WORD, text);
+ 
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION);
+                if (text != null) m_AbbrQuarters.put(OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION);
+                if (text != null) m_AbbrQuarters.put(OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION);
+                if (text != null) m_AbbrQuarters.put(OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, text);
+                text = m_domWrapper.getTextFromElement(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION);
+                if (text != null) m_AbbrQuarters.put(OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, text);
+            }
         }
         
         m_ForbiddenRefLocale = m_domWrapper.getAttributeValue(XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.FORBIDDEN_CHARACTERS, OpenOfficeLDMLConstants.REF);

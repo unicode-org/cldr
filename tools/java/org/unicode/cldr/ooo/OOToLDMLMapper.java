@@ -452,24 +452,26 @@ public class OOToLDMLMapper
         if ((OOData == null) || (OOData.size()==0))
             return null;
         
-        String defaultCurr = null;
+   //     String defaultCurr = null;
         
-        Enumeration keys = OOData.keys();
+  /*      Enumeration keys = OOData.keys();
         Enumeration data = OOData.elements();
         while (keys.hasMoreElements()==true)
         {
             String intlCurrCode = (String) keys.nextElement();
             Hashtable inner = (Hashtable) data.nextElement();
+            System.err.println (inner.size());
+            
             String deflt = (String) inner.get(OOConstants.DEFAULT);
             if ((deflt != null) && (deflt.compareTo(OOConstants.TRUE)==0))
             {
                 defaultCurr = intlCurrCode;
                 break;
             }
-        }
+        }*/
         Hashtable currency = MapFirstCharToLowerCase2(OOData);  //make attrib names lower case
-        if (defaultCurr != null)
-            currency.put(LDMLConstants.DEFAULT, defaultCurr);
+  //      if (defaultCurr != null)
+ //           currency.put(LDMLConstants.DEFAULT, defaultCurr);
         return currency;
     }
     

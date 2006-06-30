@@ -5,9 +5,9 @@
 package org.unicode.cldr.ooo;
 
 import org.unicode.cldr.util.LDMLUtilities;
-import org.w3c.dom.Document;
 import java.io.*;
 import java.util.*;
+import org.w3c.dom.*;
 
 /**
  *
@@ -15,6 +15,7 @@ import java.util.*;
  */
 public class OOLocaleReader
 {
+    
     private String m_filename = null;
     private Document m_doc = null;
     private DOMWrapper m_domWrapper = null;
@@ -88,13 +89,10 @@ public class OOLocaleReader
     public Hashtable m_StartDayOfWeek = null;
     public Hashtable m_MinDaysInFirstweek = null;
     
-    //LC_CURRENCY
-    public Hashtable m_Currency = null;   //Hashtable of Hashtables outer key=intl curr code, inner key=currency attr, value=currency attr value
-    public Hashtable m_CurrencyID = null; //key=intl currency code, value=CurrencyID
-    public Hashtable m_CurrencySymbol = null; //key=intl currency code, value=CurrencySymbol
-    public Hashtable m_CurrencyName = null; //key=intl currency code, value=CurrencyName
-    public Hashtable m_CurrencyDecimalPlaces = null; //key=intl currency code, value=DecimalPlaces
-    
+    //LC_CURRENCY -  in OO.o can no longer use code as unique identifier
+    // inner holds data in following order : CurrencyID,CurrencySymbol,BankSymbol,CurrencyName,DecimalPlaces,default, usedInCompatibleFormatCode, legacyOnly (if defined)
+    public Vector m_CurrencyData = new Vector ();   //Vector of vectors
+      
     //LC_TRANSLITERATION
     public Vector m_Transliterations = null;  //Vector of Hashtables (key=attr name, value=attr value)
     
@@ -289,13 +287,42 @@ public class OOLocaleReader
         
         
         // #######  LC_CURRENCY sub-elements   #########
-        checkForRef(OOConstants.LC_CURRENCY);
-        m_Currency = m_domWrapper.getParentAttribsOfElement(OOConstants.CURRENCY, OOConstants.BANK_SYMBOL);
-        m_CurrencyID = m_domWrapper.getTextFromElement(OOConstants.CURRENCY, OOConstants.BANK_SYMBOL, OOConstants.CURRENCY_ID);
-        m_CurrencySymbol = m_domWrapper.getTextFromElement(OOConstants.CURRENCY, OOConstants.BANK_SYMBOL, OOConstants.CURRENCY_SYMBOL);
-        m_CurrencyName = m_domWrapper.getTextFromElement(OOConstants.CURRENCY, OOConstants.BANK_SYMBOL, OOConstants.CURRENCY_NAME);
-        m_CurrencyDecimalPlaces = m_domWrapper.getTextFromElement(OOConstants.CURRENCY, OOConstants.BANK_SYMBOL, OOConstants.DECIMAL_PLACES);
-        m_domWrapper.resetDoc(m_doc);
+        Document doc = m_doc;
+        String refFilename = getRef(OOConstants.LC_CURRENCY);
+        if (refFilename != null)
+            doc = LDMLUtilities.parse(refFilename, true);
+            
+        String SearchLocation = "//Locale/LC_CURRENCY/Currency"; 
+        NodeList nl = LDMLUtilities.getNodeList (doc, SearchLocation);
+        NodeList nl_id = LDMLUtilities.getNodeList (doc, "//Locale/LC_CURRENCY/Currency/CurrencyID");
+        NodeList nl_symbol = LDMLUtilities.getNodeList (doc, "//Locale/LC_CURRENCY/Currency/CurrencySymbol");
+        NodeList nl_code = LDMLUtilities.getNodeList (doc, "//Locale/LC_CURRENCY/Currency/BankSymbol");
+        NodeList nl_name = LDMLUtilities.getNodeList (doc, "//Locale/LC_CURRENCY/Currency/CurrencyName");
+        NodeList nl_decimal = LDMLUtilities.getNodeList (doc, "//Locale/LC_CURRENCY/Currency/DecimalPlaces");
+        for (int i=0; i < nl.getLength(); i++)
+        {
+            Vector inner = new Vector ();
+            String id = LDMLUtilities.getNodeValue (nl_id.item(i));
+            inner.add (0, id);
+            String symbol = LDMLUtilities.getNodeValue (nl_symbol.item(i));
+            inner.add (1, symbol);
+            String code = LDMLUtilities.getNodeValue (nl_code.item(i));
+            inner.add (2, code);
+            String name = LDMLUtilities.getNodeValue (nl_name.item(i));
+            inner.add (3, name);
+            String decimal = LDMLUtilities.getNodeValue (nl_decimal.item(i));
+            inner.add (4, decimal);
+            
+            String def = LDMLUtilities.getAttributeValue (nl.item(i), OOConstants.DEFAULT);
+            inner.add (5, def);
+            String uicfc = LDMLUtilities.getAttributeValue (nl.item(i), OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL);
+            inner.add (6, uicfc);
+            String legacyOnly = LDMLUtilities.getAttributeValue (nl.item(i), OOConstants.LEGACY_ONLY);
+            if (legacyOnly != null) inner.add (7, legacyOnly);   //only optional one
+            
+    //        System.err.println (id + " " + symbol + " " + code + " " + name + " " + decimal + " " + def + " " + uicfc);
+            m_CurrencyData.add (inner);
+        }  
         
         //####### LC_TRANSLITERATION sub-elements   #########
         if (bResolveRefs == true) checkForRef(OOConstants.LC_TRANSLITERATION);
@@ -316,6 +343,11 @@ public class OOLocaleReader
         if (miscData!=null) m_ReservedWords.put(OOConstants.TRUE_WORD, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.FALSE_WORD);
         if (miscData!=null) m_ReservedWords.put(OOConstants.FALSE_WORD, miscData);
+        
+        miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.ABOVE_WORD);
+        if (miscData!=null) m_ReservedWords.put(OOConstants.ABOVE_WORD, miscData);
+        miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.BELOW_WORD);
+        if (miscData!=null) m_ReservedWords.put(OOConstants.BELOW_WORD, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.QUARTER_1_WORD);
         if (miscData!=null) m_ReservedWords.put(OOConstants.QUARTER_1_WORD, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.QUARTER_2_WORD);
@@ -324,10 +356,6 @@ public class OOLocaleReader
         if (miscData!=null)  m_ReservedWords.put(OOConstants.QUARTER_3_WORD, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.QUARTER_4_WORD);
         if (miscData!=null) m_ReservedWords.put(OOConstants.QUARTER_4_WORD, miscData);
-        miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.ABOVE_WORD);
-        if (miscData!=null) m_ReservedWords.put(OOConstants.ABOVE_WORD, miscData);
-        miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.BELOW_WORD);
-        if (miscData!=null) m_ReservedWords.put(OOConstants.BELOW_WORD, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.QUARTER_1_ABBREVIATION);
         if (miscData!=null) m_ReservedWords.put(OOConstants.QUARTER_1_ABBREVIATION, miscData);
         miscData = m_domWrapper.getTextFromElement(OOConstants.RESERVED_WORDS, OOConstants.QUARTER_2_ABBREVIATION);

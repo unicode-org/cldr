@@ -279,7 +279,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 outdent();
                 println(LDMLConstants.QUARTERS_C);
             }
-            else
+            else if (calendar.equals (LDMLConstants.GREGORIAN))
                 Logging.Log3("No abbreviated or wide Quarters to write for calendar : " + calendar);
             
             
@@ -369,7 +369,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         
         Hashtable symbols = (Hashtable) data.get(LDMLConstants.SYMBOLS);
-        Hashtable currencies = (Hashtable) data.get(LDMLConstants.CURRENCIES);
+        Vector currencies = (Vector) data.get(LDMLConstants.CURRENCIES);
         
         Hashtable formatElements_fn = (Hashtable) data.get(LDMLConstants.DECIMAL_FORMATS);
         Hashtable formatCodes_fn = (Hashtable) data.get(LDMLConstants.DECIMAL_FORMATS + " " + LDMLConstants.PATTERN);
@@ -615,8 +615,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q1Word);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_1_WORD, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q1Word to write ");
+        //    else
+        //        Logging.Log3("No LDML Special reservedWords:q1Word to write ");
             
             if (q2Word != null)
             {
@@ -624,8 +624,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q2Word);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_2_WORD, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q2Word to write ");
+        //    else
+       //         Logging.Log3("No LDML Special reservedWords:q2Word to write ");
             
             if (q3Word != null)
             {
@@ -633,8 +633,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q3Word);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_3_WORD, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q3Word to write ");
+       //     else
+      //          Logging.Log3("No LDML Special reservedWords:q3Word to write ");
             
             if (q4Word != null)
             {
@@ -642,8 +642,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q4Word);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_4_WORD, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q4Word to write ");
+    //        else
+    //            Logging.Log3("No LDML Special reservedWords:q4Word to write ");
             
             if (aboveWord != null)
             {
@@ -669,8 +669,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q1Abbr);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q1Abbr to write ");
+      //      else
+      //          Logging.Log3("No LDML Special reservedWords:q1Abbr to write ");
             
             if (q2Abbr != null)
             {
@@ -678,8 +678,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q2Abbr);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q2Abbr to write ");
+       //     else
+       //         Logging.Log3("No LDML Special reservedWords:q2Abbr to write ");
             
             if (q3Abbr != null)
             {
@@ -687,8 +687,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q3Abbr);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q3Abbr to write ");
+       //     else
+       //         Logging.Log3("No LDML Special reservedWords:q3Abbr to write ");
             
             if (q4Abbr != null)
             {
@@ -696,8 +696,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(q4Abbr);
                 printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, false);
             }
-            else
-                Logging.Log3("No LDML Special reservedWords:q4Abbr to write ");
+     //       else
+     //           Logging.Log3("No LDML Special reservedWords:q4Abbr to write ");
             
             outdent();
             printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.RESERVED_WORDS, false);
@@ -994,25 +994,10 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
     }
     
-    
-    public void writeCurrencies(Hashtable data, Hashtable separators)
+   
+    public void writeCurrencies(Vector data /*Vector of vectors*/, Hashtable separators)
     {
         if ((data==null) || (data.size()==0))
-        {
-            Logging.Log1("No LDML currency data to write ");
-            return;
-        }
-        
-        //key to all maps is intl curr symbol
-        Hashtable currency = (Hashtable) data.get(LDMLConstants.CURRENCY);  //Hashtable of Hashtables
-        Hashtable ids = (Hashtable) data.get(LDMLConstants.ID);  //Hashtable of Strings
-        Hashtable symbols = (Hashtable) data.get(LDMLConstants.SYMBOL);  //Hashtable of Strings
-        Hashtable names = (Hashtable) data.get(LDMLConstants.DISPLAY_NAME);  //Hashtable of Strings
-        
-        String decimal = (String) separators.get(LDMLConstants.DECIMAL);
-        String group = (String) separators.get(LDMLConstants.GROUP);
-        
-        if ((currency == null) || (currency.size()==0))
         {
             Logging.Log1("No LDML currency data to write ");
             return;
@@ -1021,95 +1006,44 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         println(LDMLConstants.CURRENCIES_O);
         indent();
         
-        String defaultCurr = (String) currency.get(LDMLConstants.DEFAULT);
-        if (defaultCurr != null)
+        for (int i=0; i < data.size(); i++)
         {
-            println("<" + LDMLConstants.DEFAULT + " " + LDMLConstants.TYPE + "=\"" + defaultCurr + "\"/>");
-            currency.remove(LDMLConstants.DEFAULT);
-        }
-        else
-            Logging.Log3("No LDML default currency to write ");
-        
-        Enumeration keys = currency.keys();
-        Enumeration values = currency.elements();
-        while (keys.hasMoreElements()==true)
-        {
-            Hashtable table = new Hashtable();
-            String intlCurrCode = (String) keys.nextElement();
-            if (intlCurrCode != null)
-                table.put(LDMLConstants.TYPE, intlCurrCode);
-            else
-                Logging.Log3("No LDML intl currency code to write ");
-            
-            print(LDMLConstants.CURRENCY, table, true, true, true);
+            Vector inner = (Vector) data.elementAt(i);
+           // inner holds data in following order : CurrencyID,CurrencySymbol,BankSymbol,CurrencyName,DecimalPlaces,default, usedInCompatibleFormatCode, legacyOnly (if defined)
+            println("<" + LDMLConstants.CURRENCY + " " + LDMLConstants.TYPE + "=\"" + (String) inner.elementAt(2) + "\">");
             indent();
-            
-            String name = (String) names.get(intlCurrCode);
-            if (name != null)
-                println(LDMLConstants.DISPLAY_NAME_O + name + LDMLConstants.DISPLAY_NAME_C);
-            else
-                Logging.Log3("No LDML currency displayName to write ");
-            
-            String symbol = (String) symbols.get(intlCurrCode);
-            if (symbol != null)
-                println(LDMLConstants.SYMBOL_O + symbol + LDMLConstants.SYMBOL_C);
-            else
-                Logging.Log3("No LDML currency symbol to write ");
-            
-            //OO's LC_TYPE's DecimalSeparator and ThousandSeparator are used for numbers and currencies
-            //TODO look at this later ...
-            //        if (decimal != null)
-            //            println(LDMLConstants.DECIMAL_O + decimal + LDMLConstants.DECIMAL_C);
-            //        if (group != null)
-            //            println(LDMLConstants.GROUP_O + group + LDMLConstants.GROUP_C);
-            
-            
-            //special
+            println(LDMLConstants.DISPLAY_NAME_O + (String) inner.elementAt(3) + LDMLConstants.DISPLAY_NAME_C);
+            println(LDMLConstants.SYMBOL_O + (String) inner.elementAt(1) + LDMLConstants.SYMBOL_C);
             if (m_bWriteCLDROnly == false)//below  writes OO.o specials only
             {
-                Hashtable value = (Hashtable) values.nextElement();
-                String usedInCompFormatcodes = (String) value.get(OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES);
-                String id = (String) ids.get(intlCurrCode);
-                if ((usedInCompFormatcodes != null) || (id != null))
-                {
-                    println("<" + LDMLConstants.SPECIAL + " " + LDMLConstants.XMLNS + ":" + XMLNamespace.OPEN_OFFICE + "=\"" + XMLNamespace.OPEN_OFFICE_WWW + "\">" );
-                    indent();
-                    String uicfc = "";
-                    if (usedInCompFormatcodes != null)
-                        uicfc = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES + "=\"" + usedInCompFormatcodes;
-                    else
-                        Logging.Log3("No LDML Special currency usedInCompFormatcodes to write ");
-                    
-                    println("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY + uicfc + "\">");
-                    
-                    if (id != null)
-                    {
-                        indent();
-                        printNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, true);
-                        print(id);
-                        printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, false);
-                        outdent();
-                    }
-                    else
-                        Logging.Log3("No LDML Special currency currencyId to write ");
-                    
-                    printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY, false);
-                    outdent();
-                    println(LDMLConstants.SPECIAL_C);
-                }
-                else
-                    Logging.Log3("No LDML Special currency usedInCompFormatcodes or currencyId to write ");
+                String id = (String) inner.elementAt(0);
+                String def = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.DEFAULT + "=\"" + (String) inner.elementAt(5) + "\"";
+                String uicfc = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.USED_IN_COMP_FORMAT_CODES + "=\"" + (String) inner.elementAt(6) + "\"";
+                String legacy = "";  //it's optional #IMPLIED=false
+                if (inner.size() > 7) legacy = " " + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.LEGACY_ONLY + "=\"" + (String) inner.elementAt(7) + "\"";
+                
+               println("<" + LDMLConstants.SPECIAL + " " + LDMLConstants.XMLNS + ":" + XMLNamespace.OPEN_OFFICE + "=\"" + XMLNamespace.OPEN_OFFICE_WWW + "\">" );
+               indent();
+               println("<" + XMLNamespace.OPEN_OFFICE + ":" + OpenOfficeLDMLConstants.CURRENCY + def + uicfc + legacy + ">");
+               indent ();
+               printNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, true);
+               print(id);
+               printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY_ID, false);
+               outdent();
+               printlnNS(XMLNamespace.OPEN_OFFICE, OpenOfficeLDMLConstants.CURRENCY, false);
+               outdent();
+               println(LDMLConstants.SPECIAL_C);
             }
-            
             outdent();
             println(LDMLConstants.CURRENCY_C);
         }
         
         outdent();
         println(LDMLConstants.CURRENCIES_C);
-    }
-    
-    
+        
+        }
+
+        
     protected void writeSymbols(Hashtable data)
     {
         if ((data == null) || (data.size()==0))

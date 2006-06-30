@@ -202,6 +202,50 @@ public class DOMWrapper
         }
         return allElementAttributes;
     }
+  
+ 
+    //get the values of attribute1 and attribute2
+    //return Hashtable, key = attribute1, value = attribute2
+    public Hashtable getAndMapAttributes(String element, String attribute1, String attribute2)
+    {
+        Hashtable data = new Hashtable();
+        
+        if ((element == null) || (attribute1 == null) || (attribute2 == null))
+            return null;
+        
+        NodeList nl = m_Doc.getElementsByTagName(element);
+        for (int i=0; i < nl.getLength(); i++)
+        {
+            Hashtable attributes = new Hashtable();
+            String attributeValue = null;
+            
+            Node node = nl.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE)
+            {
+                NamedNodeMap attrMap = node.getAttributes();
+                String key=null, value=null;
+                for (int j=0; j < attrMap.getLength(); j++)
+                {
+                    Node attrNode = attrMap.item(j);
+                    if (attrNode.getNodeName().equals(attribute1))
+                        key = attrNode.getNodeValue();
+
+                    if (attrNode.getNodeName().equals(attribute2))
+                        value = attrNode.getNodeValue();
+                }
+                if (key!=null && value !=null) 
+                {
+            //        System.err.println (key + "   " + value);
+                    //deal with identical keys by concatenating 
+                    String val = (String) data.get (key);
+                    if (val != null)
+                        value = val + " " + value;
+                    data.put(key, value);   
+                }
+            }
+        }
+        return data;
+    }
     
  /* get the value of attribName belonging to element provided element's parent matches parentElement
   * and provided parentElement has an attribute = attribName whose value = parentAttribValue
@@ -360,7 +404,7 @@ public class DOMWrapper
     }
         
         /* get values of attribName for all elements identified by "element"
-         * returns vecotr of all these attrib values
+         * returns vector of all these attrib values
          */
     public Vector getAttrsFromElement(String element, String attribName)
     {
@@ -1553,7 +1597,7 @@ public class DOMWrapper
     //           <currency iso4217="EUR">
     //              <alternate iso4217="GRD"/>
     //  would give key = "GR", vector[0] = "EUR", vector[1] = "GRD"
-    public Hashtable getAttribsFrom_El_parent_GP(String el, String elAttr, String parEl, String parAttr, String gpEl, String gpAttr)
+/*    public Hashtable getAttribsFrom_El_parent_GP(String el, String elAttr, String parEl, String parAttr, String gpEl, String gpAttr)
     {
         if ((el==null) || (elAttr==null) || (parEl==null) || (parAttr==null) || (gpEl==null) || (gpAttr==null))
             return null;
@@ -1584,7 +1628,7 @@ public class DOMWrapper
             }
         }
         return table;
-    }
+    }*/
     
     //retireve data from element attrib, identified by parent element and parent atrtrib
     // and puts res in Hashtable of Vectors where :
@@ -1594,7 +1638,7 @@ public class DOMWrapper
     //           <currency iso4217="EUR">
     //           <currency iso4217="GRD"/>
     //  would give key = "GR", vector[0] = "EUR", vector[1] = "GRD"
-    public Hashtable getAttribsFrom_El_parent(String el, String elAttr, String parEl, String parAttr)
+/*    public Hashtable getAttribsFrom_El_parent(String el, String elAttr, String parEl, String parAttr)
     {
         if ((el==null) || (elAttr==null) || (parEl==null) || (parAttr==null))
             return null;
@@ -1611,5 +1655,7 @@ public class DOMWrapper
             table.put(iso3166REgions.elementAt(i), iso4217currencies);
         }
         return table;
-    }
+    }*/
+    
+ 
 }

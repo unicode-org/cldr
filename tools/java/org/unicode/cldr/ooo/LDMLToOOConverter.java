@@ -19,13 +19,25 @@
  * - wide eras               (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
  *
  * Design Decisions :
- * - CurrencyID             the OO.o data is used, if unavailable the ISO code is used
- * - finish ....
+ *    - wide era data is sourced from CLDR if it's 1.4 or later
+      - delimiters (quotations) are sourced from CLDR 1if it's 1.4 or later
+      - quarters are sourced from CLDR if it's 1.4 or later
+      - minDays, firstDay and measurementSystem are read from supplemental.xml if it's 1.4 or later. 
+             As this data is country based, for language only locales like ia, the Rest Of World value will be used.
+      - Currency :
+	- conflicts in default currency between OO.o and CLDR are written to currency.txt. 
+	- If CLDR and OO.o disagree on the default curency code, use the Oo.o one anyway, it's too complicated to handle all the cases here. The default currency should be resolved manually by referring to currency.txt
+	- non default currencies are taken from Oo.o
+	- symbols and displayName of the default currency (only) come from CLDR
+	- decimal places of all currencies come from CLDR
+	- all other data is from OO.o
+	- added handling of legacyOnly attribute
  *
  * 
  * - workarounds (look for "workaround" in processSingle () ) :
  *      - zh_TW ROC eras    (not in CLDR 1.3, probably in 1.4)
  *      - eo Currency       (Esperanto doesn't have a currency but OO.o wants it so just write back the Oo.o currency)
+ *      - ia Currency       (Interlinguao doesn't have a currency but OO.o wants it so just write back the Oo.o currency)
  *      - ka_GE             (CLDR 1.3 data incomplete so jsut write back OO.o data regardless)
  *      - ja_JP             use OO.o data for calendars as :
  *                              OO.o needs English days,months for gregorian and English months for gengou calendars
@@ -33,7 +45,8 @@
  *      - ko_KR             use OO.o data for calendars as :
  *                               OO.o gregorian calendar needs English months
  *                               OO.o has hanja calendar, no such thing in CLDR so use OO.o data
- *
+ *     - ia, eo            for lang only locales, use minDays, startDay of OO.o 
+ *                              as there is no country so CLDR can't rpovide this data
  */
 
 package org.unicode.cldr.ooo;
@@ -58,6 +71,9 @@ import com.ibm.icu.dev.tool.UOption;
 
 public class LDMLToOOConverter
 {
+    // the version is read from cldr locale dtd specifier and determines 
+    // whether certain data is read from OO.o or cldr i.e. there was no stable delimiter data in cldr prior to 1.4
+    private double m_cldr_ver = 0.0;  
     
     private supplementalData m_suppData = null;
     private static final String suppDataFileName = "supplementalData.xml";
@@ -250,7 +266,6 @@ public class LDMLToOOConverter
             return false;
         }
         
-        
         LDMLReaderForOO reader_ooo_ldml = null;
         LDMLReaderForOO reader_cldr = null;
         LDMLReaderForOO reader_cldr_temp = null;  //used for OO.o specific workarounds
@@ -259,6 +274,8 @@ public class LDMLToOOConverter
         {
             reader_cldr = new LDMLReaderForOO(cldr_file); 
             reader_cldr.readDocument(cldrLocale, true);
+            m_cldr_ver = reader_cldr.getCLDRVersion ();
+
             if (reader_cldr.readInXML(true) == false)
             {
                 printWarning("Failed to read CLDR file: " + cldr_file);
@@ -282,7 +299,6 @@ public class LDMLToOOConverter
             
            //workaround CLDR 1.3 is incomplete for ka_GE so just write back OO.o data
            if (locale.compareTo("ka_GE")==0)  m_bRoundTrip = true;
-            
             if (m_bRoundTrip == true) reader_cldr = reader_ooo_ldml;
             
         }
@@ -316,7 +332,7 @@ public class LDMLToOOConverter
 
         //###### write LC_INFO ######
         //data.put(OOContants.Version, reader.m_Version);
-        //use the OO.o data , CLDR should be same for lang + territory anyway, but defaultNames are alle nglish in OO.o
+        //use the OO.o data , CLDR should be same for lang + territory anyway, but defaultNames are all english in OO.o
         if (reader_ooo_ldml.m_LangDefaultName != null) data.put(OOConstants.LANGUAGE, reader_ooo_ldml.m_LangDefaultName);
         if (reader_ooo_ldml.m_LangID != null) data.put(OOConstants.LANG_ID, reader_ooo_ldml.m_LangID);
         if (reader_ooo_ldml.m_TerritoryDefaultName != null) data.put(OOConstants.COUNTRY, reader_ooo_ldml.m_TerritoryDefaultName);
@@ -357,14 +373,21 @@ public class LDMLToOOConverter
         
         // Markers
         Hashtable markers = new Hashtable();
-        if (reader_ooo_ldml.m_QuotationStart != null)
-            markers.put(OOConstants.QUOTATION_START, reader_ooo_ldml.m_QuotationStart);
-        if (reader_ooo_ldml.m_QuotationEnd != null)
-            markers.put(OOConstants.QUOTATION_END, reader_ooo_ldml.m_QuotationEnd);
-        if (reader_ooo_ldml.m_DoubleQuotationStart != null)
-            markers.put(OOConstants.DOUBLE_QUOTATION_START, reader_ooo_ldml.m_DoubleQuotationStart);
-        if (reader_ooo_ldml.m_DoubleQuotationEnd != null)
-            markers.put(OOConstants.DOUBLE_QUOTATION_END, reader_ooo_ldml.m_DoubleQuotationEnd);
+        //markers are now stable in cldr 1.4+
+        LDMLReaderForOO markerReader = null;
+        if (m_cldr_ver > 1.399) 
+            markerReader = reader_cldr;
+        else
+            markerReader = reader_ooo_ldml;
+        
+        if (markerReader.m_QuotationStart != null)
+            markers.put(OOConstants.QUOTATION_START, markerReader.m_QuotationStart);
+        if (markerReader.m_QuotationEnd != null)
+            markers.put(OOConstants.QUOTATION_END, markerReader.m_QuotationEnd);
+        if (markerReader.m_DoubleQuotationStart != null)
+            markers.put(OOConstants.DOUBLE_QUOTATION_START, markerReader.m_DoubleQuotationStart);
+        if (markerReader.m_DoubleQuotationEnd != null)
+            markers.put(OOConstants.DOUBLE_QUOTATION_END, markerReader.m_DoubleQuotationEnd);
         if (markers.size()>0)
             data.put(OOConstants.MARKERS, markers);
         
@@ -375,13 +398,16 @@ public class LDMLToOOConverter
             data.put(OOConstants.TIME_PM, reader_cldr.m_TimePM);
         
         // MeasurementSystem
-        if (reader_cldr.m_MeasurementSystem != null)
+        String ms = null;
+        if (m_cldr_ver > 1.399)
         {
-            String ms = LDMLToOOMapper.MapMeasurementSystem(reader_cldr.m_MeasurementSystem);
-            if ((ms != null) && (ms.length()>0))
-                data.put(OOConstants.MEASUREMENT_SYSTEM, ms);
+            ms = m_suppData.getMessSys(reader_ooo_ldml.m_TerritoryID);
         }
-        
+        else if (reader_cldr.m_MeasurementSystem != null)
+            ms = LDMLToOOMapper.MapMeasurementSystem(reader_cldr.m_MeasurementSystem);
+        if ((ms != null) && (ms.length()>0))
+            data.put(OOConstants.MEASUREMENT_SYSTEM, ms);
+
         if ((data != null) && (data.size()>0))
             writer.writeLC_CTYPE(data);
         
@@ -494,7 +520,8 @@ public class LDMLToOOConverter
         LDMLToOOMapper.MapCalendar(reader_cldr.m_CalendarTypes, outCalendarTypes, locale);
         if (outCalendarTypes.size()>0)
             data.put(OOConstants.UNOID, outCalendarTypes);
-        String defaultCalendar = LDMLToOOMapper.MapDefaultCalendar(reader_cldr.m_CalendarDefaultAttribs);
+        //use the OO.o for default calendar , it's always gregorian anyway
+        String defaultCalendar = LDMLToOOMapper.MapDefaultCalendar(reader_ooo_ldml.m_CalendarDefaultAttribs);
         if ((defaultCalendar != null) && (defaultCalendar.length()>0))
             data.put(OOConstants.DEFAULT, defaultCalendar);
 
@@ -518,29 +545,55 @@ public class LDMLToOOConverter
             Hashtable fullMonths = LDMLToOOMapper.MapMonths(reader_cldr.m_FullMonths, locale);
             data.put(OOConstants.MONTHS_OF_YEAR + "." + OOConstants.DEFAULT_FULL_NAME, fullMonths);
         }
-        // Eras   //workaround on long `era names until CLDR gets updated
-        if  ( ((reader_ooo_ldml.m_EraNames != null) && (reader_ooo_ldml.m_EraNames.size()>0)) || ((reader_cldr.m_AbbrEras != null) && (reader_cldr.m_AbbrEras.size()>0)) )
+        
+        // Eras   wide era names are in CLDR 1.4+
+        LDMLReaderForOO wideEraReader = null;
+        if (m_cldr_ver > 1.399) 
+            wideEraReader = reader_cldr;
+        else
+            wideEraReader = reader_ooo_ldml;
+        if  (((wideEraReader.m_EraNames != null) && (reader_ooo_ldml.m_EraNames.size()>0)) || ((reader_cldr.m_AbbrEras != null) && (reader_cldr.m_AbbrEras.size()>0)) )
         {
             Hashtable eras = null;
-            //workaround : CLDR deosn't have ROC calendar yet
-            if (locale.compareTo("zh_TW")==0)
+            if (locale.compareTo("zh_TW")==0)   //workaround : CLDR deosn't have ROC calendar yet
                 eras = LDMLToOOMapper.MapEras(reader_ooo_ldml.m_EraNames, reader_ooo_ldml.m_AbbrEras, locale);
             else
-                eras = LDMLToOOMapper.MapEras(reader_ooo_ldml.m_EraNames, reader_cldr.m_AbbrEras, locale);
-            if ((eras != null) && (eras.size()>0)) data.put(OOConstants.ERAS, eras);    
+                eras = LDMLToOOMapper.MapEras(wideEraReader.m_EraNames, reader_cldr.m_AbbrEras, locale);
+            
+            if ((eras != null) && (eras.size()>0)) data.put(OOConstants.ERAS, eras);
         }
         
-        if ((reader_cldr.m_StartOfWeeks != null) && (reader_cldr.m_StartOfWeeks.size() >0))
+        Hashtable startOfWeeks = null;
+        if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") )
+        {   //there is no startOfWeek or moinDays for lang only locales, so use OO.org
+            startOfWeeks = LDMLToOOMapper.MapStartOfWeeks(reader_ooo_ldml.m_StartOfWeeks, locale); 
+        }  
+        else if (m_cldr_ver > 1.399)
         {
-            Hashtable startOfWeeks = LDMLToOOMapper.MapStartOfWeeks(reader_cldr.m_StartOfWeeks, locale);
-            if (startOfWeeks != null) data.put(OOConstants.START_DAY_OF_WEEK, startOfWeeks);
+            String firstDay = m_suppData.getFirstDay(reader_ooo_ldml.m_TerritoryID);
+            startOfWeeks = new Hashtable();
+            startOfWeeks.put(OOConstants.GREGORIAN, firstDay);
         }
+        else if ((reader_cldr.m_StartOfWeeks != null) && (reader_cldr.m_StartOfWeeks.size() >0))
+            startOfWeeks = LDMLToOOMapper.MapStartOfWeeks(reader_cldr.m_StartOfWeeks, locale); 
+        if (startOfWeeks != null) 
+            data.put(OOConstants.START_DAY_OF_WEEK, startOfWeeks);
         
-        if ((reader_cldr.m_MinDays != null) && (reader_cldr.m_MinDays.size() >0))
-        {
-            Hashtable minDays = LDMLToOOMapper.MapMinDays(reader_cldr.m_MinDays, locale);
-            if (minDays != null) data.put(OOConstants.MINIMAL_DAYS_IN_FIRST_WEEK, minDays);
+        Hashtable minDays = null;
+        if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") )
+        {   //there is no startOfWeek or moinDays for lang only locales, so use OO.org
+            minDays = LDMLToOOMapper.MapMinDays(reader_ooo_ldml.m_MinDays, locale);
         }
+        else if (m_cldr_ver > 1.399)
+        {
+            String min = m_suppData.getMinDays(reader_ooo_ldml.m_TerritoryID);
+            minDays = new Hashtable ();
+            minDays.put (OOConstants.GREGORIAN, min);
+        }
+        else if ((reader_cldr.m_MinDays != null) && (reader_cldr.m_MinDays.size() >0))
+            minDays = LDMLToOOMapper.MapMinDays(reader_cldr.m_MinDays, locale);
+        if (minDays != null) 
+            data.put(OOConstants.MINIMAL_DAYS_IN_FIRST_WEEK, minDays);
         
         if (data.size()>0)
             writer.writeLC_CALENDAR(data);
@@ -553,35 +606,22 @@ public class LDMLToOOConverter
         //###### write LC_CURRENCY ######
         data.clear();
         
-        // workaround eo in CLDR has no currency but fdoes in OO.o
-        if ((locale.compareTo("eo")==0)|| (locale.compareTo("eo_EO")==0))  
+        // START_WORKAROUND: language only locales (ia,eo) don't have currency in CLDR  but do in OO.o 
+        if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") )
         {
             reader_cldr_temp = reader_cldr;
             reader_cldr = reader_ooo_ldml;
             m_bRoundTrip = true;  //it's a round trip on the currency data
+        }  
+        writer.WriteLC_CURRENCY(reader_cldr.m_CurrencyData_cldr, reader_ooo_ldml.m_CurrencyData_ooo, m_suppData, m_bRoundTrip, reader_ooo_ldml.m_TerritoryID);
+        diagnostics (reader_ooo_ldml,  reader_cldr,  locale);      
+        //END_WORKAROUND
+        if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") )
+        {
+            reader_cldr = reader_cldr_temp;
+            m_bRoundTrip = false;
         }
         
-        if ((reader_cldr!= null) && (reader_cldr.m_CurrenciesAtts != null) && (reader_cldr.m_CurrenciesAtts.size()>0))
-        {
-            //validCurrencyTypes will list only the valid currencies for this locale, the first entry is the default
-            Vector validCurrencyTypes = LDMLToOOMapper.ExtractLDMLCurrencyTypes(reader_cldr.m_CurrenciesAtts, m_suppData, locale, m_bRoundTrip);
-            String defCurr = null;
-            if (m_bRoundTrip == true)
-            {  //we ignore CLDR stuff as it's not available so just write back out the OO LDML currency data
-                defCurr = reader_ooo_ldml.m_DefaultCurr;
-            }
-            else
-            {
-                if ((validCurrencyTypes != null) && (validCurrencyTypes.size()>0))
-                    defCurr = (String) validCurrencyTypes.elementAt(0);
-            }
-            
-            writer.WriteLC_CURRENCY(validCurrencyTypes, defCurr , reader_cldr.m_CurrDisplayNames, reader_cldr.m_CurrSymbols, reader_ooo_ldml.m_CurrIDs, reader_ooo_ldml.m_CurrCompatibleFormatCodes, m_suppData, m_bRoundTrip);
-            m_bRoundTrip = false;  //reset it
-        }
- 
-        if ((locale.compareTo("eo")==0)|| (locale.compareTo("eo_EO")==0))   //end of workaround
-            reader_cldr = reader_cldr_temp;
         
         //###### write LC_TRANSLITERATIONS ######
         Vector transliterations = null;
@@ -594,6 +634,7 @@ public class LDMLToOOConverter
         //###### write LC_MISC ######
         data.clear();
         String ref = null;
+                
         if ((reader_ooo_ldml.m_ReservedRefLocale != null) && (reader_ooo_ldml.m_ReservedRefLocale.length() > 0))
             ref = reader_ooo_ldml.m_ReservedRefLocale;
         else if ((reader_ooo_ldml.m_ForbiddenRefLocale != null) && (reader_ooo_ldml.m_ForbiddenRefLocale.length() > 0))
@@ -601,6 +642,14 @@ public class LDMLToOOConverter
         if ((reader_ooo_ldml.m_ReservedWords != null) && (reader_ooo_ldml.m_ReservedWords.size()>0))
         {
             Hashtable reservedWords = LDMLToOOMapper.MapReservedWords(reader_ooo_ldml.m_ReservedWords);
+            
+            //quarters are kept separately noe that they are in 1.4
+            //theyt are stored in LDMLReaderForOO.m_abbrQuarters and m_abbrQuarters regardless of where they are read from 
+            if (m_bRoundTrip == false) 
+                LDMLToOOMapper.MapQuarters(reservedWords, reader_cldr.m_AbbrQuarters, reader_cldr.m_WideQuarters);
+            else
+                LDMLToOOMapper.MapQuarters(reservedWords, reader_ooo_ldml.m_AbbrQuarters, reader_ooo_ldml.m_WideQuarters);
+            
             if ((reservedWords != null) && (reservedWords.size()>0))
                 data.put(OOConstants.RESERVED_WORDS, reservedWords);
             
@@ -745,6 +794,49 @@ public class LDMLToOOConverter
         }
         return cldrLocale;
         
+    }
+    
+    private void diagnostics (LDMLReaderForOO reader_ooo_ldml, LDMLReaderForOO reader_cldr, String locale )
+    {    //print OO.o vs CLDR currency conflicts to separate file, if no conflict print nothing
+        if (locale.indexOf("_") < 0)
+            return;   //lang only locale has no currency
+        
+        try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter("currency.txt",true));
+            out.write(locale + " :\n");
+            
+            //if CLDR and OO.o disagree on default curr code print the details
+            String cldr_def_code = (String)m_suppData.getCurrencies(reader_ooo_ldml.m_TerritoryID).elementAt(0);
+            String ooo_def_code = "";
+            for (int i=0; i < reader_ooo_ldml.m_CurrencyData_ooo.size(); i++)
+            {
+                Vector v = (Vector) reader_ooo_ldml.m_CurrencyData_ooo.elementAt(i);
+                if (((String)v.elementAt(5)).equals("true"))
+                {
+                    ooo_def_code = (String) v.elementAt(2);
+                    break;
+                }
+            }
+            if (!cldr_def_code.equals(ooo_def_code))
+            {
+                out.write("\tDefault=true  :  CLDR = " +  cldr_def_code  + "    OO.org = " + ooo_def_code + "\n");
+                for (int i=0; i < reader_cldr.m_CurrencyData_cldr.size(); i++)
+                {
+                    Vector v = (Vector) reader_cldr.m_CurrencyData_cldr.elementAt(i);
+                    if (((String)v.elementAt(2)).equals(cldr_def_code))
+                    {
+                        out.write("\t\t CLDR iso4217 code = " +  cldr_def_code  + "  Symbol = " + (String)v.elementAt(1)
+                        + "  Display Name = " + (String) v.elementAt(3) + "\n");
+                        break;
+                    }
+                }
+            }
+            out.close();
+        }
+        catch (IOException e)
+        {
+        }
     }
 }
 

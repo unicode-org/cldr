@@ -562,12 +562,8 @@ public class OOComparator
         
         
         // LC_CURRENCY
-        cntDiff = compareUniqueElemAtts(writer, cntDiff, OOConstants.CURRENCY, readers, "m_Currency");
-        cntDiff = compareHashtableofStrings(writer, cntDiff, OOConstants.CURRENCY, OOConstants.CURRENCY_ID, readers, "m_CurrencyID");
-        cntDiff = compareHashtableofStrings(writer, cntDiff, OOConstants.CURRENCY, OOConstants.CURRENCY_SYMBOL, readers, "m_CurrencySymbol");
-        cntDiff = compareHashtableofStrings(writer, cntDiff, OOConstants.CURRENCY, OOConstants.CURRENCY_NAME, readers, "m_CurrencyName");
-        cntDiff = compareHashtableofStrings(writer, cntDiff, OOConstants.CURRENCY, OOConstants.DECIMAL_PLACES, readers, "m_CurrencyDecimalPlaces");
-        
+        cntDiff = compareCurrencies (writer, cntDiff, OOConstants.CURRENCY, readers);
+       
         cntDiff = compareUniqueElemAtts(writer, cntDiff, OOConstants.TRANSLITERATION, readers, "m_Transliterations", OOConstants.UNOID);
         
         // LC_MISC
@@ -1270,6 +1266,152 @@ public class OOComparator
         
         //cntDiff = compareAttValues(writer, cntDiff, parent, hashtables, keys, attributes);
         
+        return cntDiff;
+    }
+    
+    
+        // Given 2+ OOLocaleReader ojects, compare a specified string variable.
+    private int compareCurrencies(PrintWriter writer, int cntDiff, String parent, OOLocaleReader[] readers)
+    {
+        boolean diff = false;
+        
+        int max = 0;
+        for (int i = 0; i < m_CurrNumFiles; i++)
+        {
+            //m_CurrencyData  is a vector of vectors, find out which OO file ahs the most currencies defined, should be the same
+            if ( readers[i].m_CurrencyData.size () > max)
+                max = readers[i].m_CurrencyData.size ();
+        }
+
+        // inner vector holds data in following order : CurrencyID,symbol,code,name, blank ,default, usedInCompatibleFormatCode, legacyOnly (if defined) 
+        String[] values = new String[m_CurrNumFiles];
+        for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(0);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.CURRENCY_ID, code, values);
+                cntDiff++;
+            }
+        }    
+            
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(1);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.CURRENCY_SYMBOL, code, values);
+                cntDiff++;
+            }
+        }            
+        
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.CURRENCY, code, values);
+                cntDiff++;
+            }
+        }     
+        
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(3);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.CURRENCY_NAME, code, values);
+                cntDiff++;
+            }
+        }    
+        
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(5);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.DEFAULT, code, values);
+                cntDiff++;
+            }
+        }    
+        
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                code = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(2);
+                values[i] = (String) ((Vector)readers[i].m_CurrencyData.elementAt(j)).elementAt(6);
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL, code, values);
+                cntDiff++;
+            }
+        }    
+        
+        //legacyOnly is optional attribute
+        values = new String[m_CurrNumFiles];
+         for (int j=0; j < max; j++)
+        {  //each OO.o file has multiple currencies
+            String code = "";
+            for (int i = 0; i < m_CurrNumFiles; i++)
+            {
+                Vector v = (Vector) readers[i].m_CurrencyData.elementAt(j);
+                code = (String) v.elementAt(2);
+                if (v.size() >7) values[i] = (String) v.elementAt(7);   //it's optional'
+                diff = strDiff(values[0], values[i]);
+                if (diff) break;  //found a difference print all
+            }
+            if (diff)
+            {
+                printHTMLRow(writer, cntDiff, parent, OOConstants.LEGACY_ONLY, code, values);
+                cntDiff++;
+            }
+        }    
+
         return cntDiff;
     }
     

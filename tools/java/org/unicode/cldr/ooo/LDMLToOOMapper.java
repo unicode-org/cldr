@@ -625,7 +625,14 @@ public class LDMLToOOMapper
         Vector ldmlCurrencyTypes = null;
         String region = getRegion(localeStr);
         if (bRoundTrip == false)
-            return suppData.getCurrencies (region);   //all currencies past and present for the region
+        {
+            //just return currenct and most recent deprecated currency (if any) , OO.o not interested in older ones
+            Vector all = suppData.getCurrencies (region);   //all currencies past and present for the region
+            Vector v = new Vector ();
+            if (all.size()>0) v.add (all.elementAt(0));
+            if (all.size()>1) v.add (all.elementAt(1));
+            return v;   
+        }
         else   
             return ldmlCurrencies;
     }
@@ -660,19 +667,40 @@ public class LDMLToOOMapper
         Hashtable mappedWords = new Hashtable();
         addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.TRUE_WORD, OOConstants.TRUE_WORD);
         addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.FALSE_WORD, OOConstants.FALSE_WORD);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_1_WORD, OOConstants.QUARTER_1_WORD);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_2_WORD, OOConstants.QUARTER_2_WORD);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_3_WORD, OOConstants.QUARTER_3_WORD);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_4_WORD, OOConstants.QUARTER_4_WORD);
+   //     addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_1_WORD, OOConstants.QUARTER_1_WORD);
+   //     addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_2_WORD, OOConstants.QUARTER_2_WORD);
+   //     addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_3_WORD, OOConstants.QUARTER_3_WORD);
+  //      addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_4_WORD, OOConstants.QUARTER_4_WORD);
         addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.ABOVE_WORD, OOConstants.ABOVE_WORD);
         addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.BELOW_WORD, OOConstants.BELOW_WORD);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, OOConstants.QUARTER_1_ABBREVIATION);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, OOConstants.QUARTER_2_ABBREVIATION);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, OOConstants.QUARTER_3_ABBREVIATION);
-        addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, OOConstants.QUARTER_4_ABBREVIATION);
+  //      addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION, OOConstants.QUARTER_1_ABBREVIATION);
+  //      addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION, OOConstants.QUARTER_2_ABBREVIATION);
+  //      addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION, OOConstants.QUARTER_3_ABBREVIATION);
+  //      addReservedWord(mappedWords, reservedWords, OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION, OOConstants.QUARTER_4_ABBREVIATION);
         
         return mappedWords;
     }
+    
+    //add abbr and wide quarters to reservedWords table
+  // abbrQuarters/wideQuarters = Hashtable of Hasdhtables, outer key = calendar type (i.e. gregorian) , inner key = quarter type (1-4)
+    public static void MapQuarters(Hashtable mappedWords, Hashtable abbrQuarters, Hashtable wideQuarters)
+    {
+        if (mappedWords == null || abbrQuarters==null || wideQuarters==null )
+            return;
+        
+        Hashtable abQ = (Hashtable) abbrQuarters.get (LDMLConstants.GREGORIAN);
+        addReservedWord(mappedWords, abQ, LDMLConstants.Q_1, OOConstants.QUARTER_1_ABBREVIATION);
+        addReservedWord(mappedWords, abQ, LDMLConstants.Q_2, OOConstants.QUARTER_2_ABBREVIATION);
+        addReservedWord(mappedWords, abQ, LDMLConstants.Q_3, OOConstants.QUARTER_3_ABBREVIATION);
+        addReservedWord(mappedWords, abQ, LDMLConstants.Q_4, OOConstants.QUARTER_4_ABBREVIATION);
+  
+        Hashtable wideQ = (Hashtable) wideQuarters.get (LDMLConstants.GREGORIAN);
+        addReservedWord(mappedWords, wideQ, LDMLConstants.Q_1, OOConstants.QUARTER_1_WORD);
+        addReservedWord(mappedWords, wideQ, LDMLConstants.Q_2, OOConstants.QUARTER_2_WORD);
+        addReservedWord(mappedWords, wideQ, LDMLConstants.Q_3, OOConstants.QUARTER_3_WORD);
+        addReservedWord(mappedWords, wideQ, LDMLConstants.Q_4, OOConstants.QUARTER_4_WORD);
+        
+     }
     
     // called from MapReservedWords.
     private static void addReservedWord(Hashtable mappedWords, Hashtable ldmlWords, String ldmlKey, String ooKey)

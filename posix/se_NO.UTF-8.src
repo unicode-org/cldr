@@ -5881,16 +5881,16 @@ positive_sign         ""
 negative_sign         "<MINUS_SIGN>"
 int_frac_digits       2
 frac_digits           2
-p_cs_precedes         1
-p_sep_by_space        1
-n_cs_precedes         1
-n_sep_by_space        1
+p_cs_precedes         0
+p_sep_by_space        0
+n_cs_precedes         0
+n_sep_by_space        0
 p_sign_posn           1
 n_sign_posn           1
-int_p_cs_precedes     1
-int_p_sep_by_space    1
-int_n_cs_precedes     1
-int_n_sep_by_space    1
+int_p_cs_precedes     0
+int_p_sep_by_space    0
+int_n_cs_precedes     0
+int_n_sep_by_space    0
 int_p_sign_posn       1
 int_n_sign_posn       1
 
@@ -5901,47 +5901,47 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+abday   "<s><o><t><n>";/
+        "<v><u><o><s>";/
+        "<m><a><LATIN_SMALL_LETTER_ENG>";/
+        "<g><a><s><k>";/
+        "<d><u><o><r>";/
+        "<b><e><a><r>";/
+        "<l><LATIN_SMALL_LETTER_A_WITH_ACUTE><v>"
 
-day     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+day     "<s><o><t><n><a><b><e><a><i><v><i>";/
+        "<v><u><o><s><s><LATIN_SMALL_LETTER_A_WITH_ACUTE><r><g><a>";/
+        "<m><a><LATIN_SMALL_LETTER_ENG><LATIN_SMALL_LETTER_ENG><e><b><LATIN_SMALL_LETTER_A_WITH_ACUTE><r><g><a>";/
+        "<g><a><s><k><a><v><a><h><k><k><u>";/
+        "<d><u><o><r><a><s><d><a><t>";/
+        "<b><e><a><r><j><a><d><a><t>";/
+        "<l><LATIN_SMALL_LETTER_A_WITH_ACUTE><v><v><a><r><d><a><t>"
 
-abmon   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+abmon   "<o><LATIN_SMALL_LETTER_D_WITH_STROKE><LATIN_SMALL_LETTER_D_WITH_STROKE><j>";/
+        "<g><u><o><v>";/
+        "<n><j><u><k>";/
+        "<c><u><o>";/
+        "<m><i><e><s>";/
+        "<g><e><a><s>";/
+        "<s><u><o><i>";/
+        "<b><o><r><g>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CARON><a><k><LATIN_SMALL_LETTER_C_WITH_CARON>";/
+        "<g><o><l><g>";/
+        "<s><k><LATIN_SMALL_LETTER_A_WITH_ACUTE><b>";/
+        "<j><u><o><v>"
 
-mon     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+mon     "<o><LATIN_SMALL_LETTER_D_WITH_STROKE><LATIN_SMALL_LETTER_D_WITH_STROKE><a><j><a><g><e><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<g><u><o><v><v><a><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<n><j><u><k><LATIN_SMALL_LETTER_C_WITH_CARON><a><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<c><u><o><LATIN_SMALL_LETTER_ENG><o><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<m><i><e><s><s><e><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<g><e><a><s><s><e><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<s><u><o><i><d><n><e><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<b><o><r><g><e><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CARON><a><k><LATIN_SMALL_LETTER_C_WITH_CARON><a><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<g><o><l><g><g><o><t><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<s><k><LATIN_SMALL_LETTER_A_WITH_ACUTE><b><m><a><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>";/
+        "<j><u><o><v><l><a><m><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><n><u>"
 
 d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
 
@@ -5958,13 +5958,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:YES:Y"
+yesstr   "jo:JO:yes:y:YES:Y"
 
-nostr    "no:n:NO:N"
+nostr    "ii:II:no:n:NO:N"
 
-yesexpr  "^(([yY]([eE][sS])?))"
+yesexpr  "^(([jJ]([oO])?)|([yY]([eE][sS])?))"
 
-noexpr   "^(([nN]([oO])?))"
+noexpr   "^(([iI]([iI])?)|([nN]([oO])?))"
 
 
 END LC_MESSAGES

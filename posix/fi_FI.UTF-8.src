@@ -5862,7 +5862,7 @@ LC_NUMERIC
 *************
 
 decimal_point     "<COMMA>"
-thousands_sep     "<space>"
+thousands_sep     "<NO-BREAK_SPACE>"
 grouping          3
 
 END LC_NUMERIC
@@ -5875,7 +5875,7 @@ LC_MONETARY
 int_curr_symbol       "<E><U><R><space>"
 currency_symbol       "<EURO_SIGN>"
 mon_decimal_point     "<COMMA>"
-mon_thousands_sep     "<space>"
+mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"

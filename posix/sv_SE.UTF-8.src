@@ -5955,13 +5955,13 @@ mon     "<j><a><n><u><a><r><i>";/
 
 d_fmt    "%Y-%m-%d"
 
-t_fmt    "%H:%M:%S"
+t_fmt    "%H.%M.%S"
 
-d_t_fmt  "%a %e %b %Y %H:%M:%S %Z"
+d_t_fmt  "%a %e %b %Y %H.%M.%S %Z"
 
 am_pm    "<f><m>";"<e><m>"
 
-t_fmt_ampm  "%I.%M.%S %p"
+t_fmt_ampm  ""
 
 END LC_TIME
 *************

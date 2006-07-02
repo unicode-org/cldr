@@ -21,6 +21,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -2188,8 +2189,8 @@ private boolean isSupplemental;
             }
         }
 
-		public Collection getNonDistinguishingAttributes(String fullPath, Collection result, Set skipList) {
-			if (result == null) result = new LinkedHashSet();
+		public Map getNonDistinguishingAttributes(String fullPath, Map result, Set skipList) {
+			if (result == null) result = new LinkedHashMap();
 			else result.clear();
             synchronized (distinguishingMap) {
                 distinguishingParts.set(fullPath);
@@ -2200,7 +2201,7 @@ private boolean isSupplemental;
                     for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
                     	String attribute = (String) it.next();
                     	if (!isDistinguishing(element,attribute) && !skipList.contains(attribute)) {
-                    		result.add(attribute + "=" + attributes.get(attribute));
+                    		result.put(attribute, attributes.get(attribute));
                     	}
                     }
                 }
@@ -2229,7 +2230,7 @@ private boolean isSupplemental;
 		return !dataSource.iterator().hasNext();
 	}
 
-	public Collection getNonDistinguishingAttributes(String fullPath, Collection result, Set skipList) {
+	public Map getNonDistinguishingAttributes(String fullPath, Map result, Set skipList) {
     	return distinguishedXPath.getNonDistinguishingAttributes(fullPath, result, skipList);
 	}
    

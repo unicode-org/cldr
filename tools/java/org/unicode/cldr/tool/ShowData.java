@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -51,7 +52,7 @@ public class ShowData {
 		UOption.HELP_H(),
 		UOption.HELP_QUESTION_MARK(),
 		UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "main/charts/locales/"),
+		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "main/charts/summary/"),
 		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 	};
 	
@@ -66,6 +67,7 @@ public class ShowData {
 	static Factory cldrFactory;
 	
 	public static void main(String[] args) throws Exception {
+        double deltaTime = System.currentTimeMillis();
         try {
     		UOption.parseArgs(args, options);
     		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
@@ -79,14 +81,25 @@ public class ShowData {
         	
         	english = (CLDRFile) cldrFactory.make("en", true);
         	CLDRFile.Status status = new CLDRFile.Status();
+        	LocaleIDParser localeIDParser = new LocaleIDParser();
 
-			List nonDistinguishingAttributes = new ArrayList();
+			Map nonDistinguishingAttributes = new LinkedHashMap();
+			CLDRFile parent = null;
+			
 			for (Iterator it = locales.iterator(); it.hasNext();) {				
 				String locale = (String) it.next();
 				if (locale.startsWith("supplem") || locale.startsWith("character")) continue;
+				boolean doResolved = localeIDParser.set(locale).getRegion().length() == 0;
+				String languageSubtag = localeIDParser.getLanguage();
+				boolean isLanguageLocale = locale.equals(languageSubtag);
 				
-				CLDRFile file = (CLDRFile) cldrFactory.make(locale, true);
-				if (file.isNonInheriting()) continue; // for now, skip supplementals				
+				CLDRFile file = (CLDRFile) cldrFactory.make(locale, doResolved);
+				if (file.isNonInheriting()) continue; // for now, skip supplementals
+				boolean showParent = !isLanguageLocale;
+				if (showParent) {
+					parent = (CLDRFile) cldrFactory.make(localeIDParser.getParent(locale), true);
+				}
+				boolean showEnglish = !languageSubtag.equals("en");
 				
 				// put into set of simpler paths
 				// and filter if necessary
@@ -96,7 +109,11 @@ public class ShowData {
 				prettySet.clear();
             	for (Iterator it2 = file.iterator(); it2.hasNext();) {
             		String path = (String)it2.next();
-					if (path.indexOf("/alias") >= 0) {
+					if (false && path.indexOf("/alias") >= 0) {
+						skippedCount++;
+						continue; // skip code fllback
+					}
+					if (path.indexOf("/identity") >= 0) {
 						skippedCount++;
 						continue; // skip code fllback
 					}
@@ -106,11 +123,12 @@ public class ShowData {
             	
 				PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, locale + ".html");
 				pw.println("<html><head>");
+				pw.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
 				pw.println("<style type='text/css'>");
 				pw.println("<!--");
-				pw.println(".e {background-color: #FFFF00}");
+				pw.println(".e {background-color: #EEEEEE}");
 				pw.println(".i {background-color: #FFFFCC}");
-				pw.println(".v {background-color: #DDDDDD}");
+				pw.println(".v {background-color: #FFFF00}");
 				pw.println(".a {background-color: #9999FF}");
 				pw.println(".ah {background-color: #FF99FF}");
 				pw.println(".h {background-color: #FF9999}");
@@ -133,44 +151,73 @@ public class ShowData {
 				pw.println("</p><p>");
 				showChildren(pw, locale);
 				pw.println("</p>");
-				pw.println("<p>Aliased/Inherited: <a href='" + locale + ".html?hide'>Hide</a> <a href='" + locale + ".html'>Show </a></p>");
+				if (doResolved) {
+					pw.println("<p>Aliased/Inherited: <a href='" + locale + ".html?hide'>Hide</a> <a href='" + locale + ".html'>Show </a></p>");
+				}
 				pw.println("<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">");
 
-				pw.println("<tr><th>No</th><th colSpan=3>Path</th><th>Native</th><th>English</th><th>Nat. Att.</th><th>Eng. Att.</th><tr>");
+				pw.println("<tr><th>No</th><th colSpan=3>Path</th>" +
+						(showEnglish ? "<th>English</th>" : "") +
+						(showParent ? "<th>Parent</th>" : "") +
+						"<th>Native</th>" +
+						"<th>D?</th>" +
+						//"<th>Nat. Att.</th>" +
+						//(showEnglish ? "<th>Eng. Att.</th>" : "") +
+						//(showParent ? "<th>Par. Att.</th>" : "") +
+						"<tr>");
 
 				int count = 0;
 				String[] oldParts = new String[4];
 				for (Iterator it2 = prettySet.iterator(); it2.hasNext();) {
 					String prettyPath = (String) it2.next();
 					String path = prettyPathMaker.getOriginal(prettyPath);
-					boolean showEnglish = path.indexOf("/references") < 0;
+					boolean zeroOutEnglish = path.indexOf("/references") < 0;
 					
 					String source = file.getSourceLocaleID(path, status);
 					boolean isAliased = !status.pathWhereFound.equals(path);
 					if (isAliased) {
 						aliasedCount++;
+						continue;
 					}
 					boolean isInherited = !source.equals(locale);
 					if (isInherited) {
 						inheritedCount++;
 					}
 
+					StringBuffer tempDraftRef = new StringBuffer();
 					String value = file.getStringValue(path);
-					String englishValue = english.getStringValue(path);
-					if (!showEnglish || englishValue == null) englishValue = "";
 					String fullPath = file.getFullXPath(path);
-					String nda = "";
-					if (!fullPath.equals(path)) {
-						file.getNonDistinguishingAttributes(fullPath, nonDistinguishingAttributes, skipList);
-						if (nonDistinguishingAttributes.size() != 0) nda = nonDistinguishingAttributes.toString();
-						nda = nda.replaceAll("[/]", "/\u200B");
+					String nda = getNda(skipList, nonDistinguishingAttributes, file, path, fullPath, tempDraftRef);
+					String draftRef = tempDraftRef.toString();
+					if (nda.length() != 0) {
+						if (value.length() != 0) value += "; ";
+						value += nda;
 					}
-					String englishFullPath = english.getFullXPath(path);
-					String englishNda = "";
-					if (showEnglish && englishFullPath != null && !englishFullPath.equals(path)) {
-						file.getNonDistinguishingAttributes(englishFullPath, nonDistinguishingAttributes, skipList);
-						if (nonDistinguishingAttributes.size() != 0) englishNda = nonDistinguishingAttributes.toString();
-						englishNda = englishNda.replaceAll("([=/.?_&])", "$1\u200B");
+
+					String englishValue = null;
+					String englishFullPath = null;
+					String englishNda = null;
+					if (zeroOutEnglish) { 
+						englishValue = englishFullPath = englishNda = "";
+					} if (showEnglish && null != (englishValue = english.getStringValue(path))) {				
+						englishFullPath = english.getFullXPath(path);
+						englishNda = getNda(skipList, nonDistinguishingAttributes, file, path, englishFullPath, tempDraftRef);
+						if (englishNda.length() != 0) {
+							if (englishValue.length() != 0) englishValue += "; ";
+							englishValue += englishNda;
+						}
+					}
+					
+					String parentFullPath = null;
+					String parentNda = null;
+					String parentValue = null;
+					if (showParent && (null != (parentValue = parent.getStringValue(path)))) {
+						parentFullPath = parent.getFullXPath(path);
+						parentNda = getNda(skipList, nonDistinguishingAttributes, parent, path, parentFullPath, tempDraftRef);
+						if (parentNda.length() != 0) {
+							if (parentValue.length() != 0) parentValue += "; ";
+							parentValue += parentNda;
+						}
 					}
 					prettyPath = TransliteratorUtilities.toHTML.transliterate(prettyPathMaker.getOutputForm(prettyPath));
 					String[] pathParts = prettyPath.split("[|]");
@@ -198,27 +245,67 @@ public class ShowData {
 					pw.println((isAliased || isInherited ? "<tr class='xx'><td" : "<tr><td") + statusClass + ">" + (++count) 
 							+ prettyPath
 							//+ "</td><td>" + TransliteratorUtilities.toHTML.transliterate(lastElement)
-							+ (value.length() == 0 ? "</td><td>n/a" : "</td><td class='v'>" + TransliteratorUtilities.toHTML.transliterate(value))
-							+ (englishValue.length() == 0 ? "</td><td>n/a" 
-									: englishValue.equals(value) ? "</td><td class='i'>==" 
-											: "</td><td class='e'>" + TransliteratorUtilities.toHTML.transliterate(englishValue))
-							+ "</td><td>" + (nda.length() == 0 ? "&nbsp;" : TransliteratorUtilities.toHTML.transliterate(nda))
-							+ (englishNda.length() == 0 ? "</td><td>n/a" 
-									: englishNda.equals(nda) ? "</td><td class='i'>==" 
-											: "</td><td class='e'>" + TransliteratorUtilities.toHTML.transliterate(englishNda))
-							
+							+ showValue(showEnglish, englishValue, value)
+							+ showValue(showParent, parentValue, value)
+							+ (value == null ? "</td><td>n/a" : "</td><td class='v'>" + TransliteratorUtilities.toHTML.transliterate(value))
+							+ (draftRef.length() == 0 ? "</td><td>&nbsp;" : "</td><td class='v'>" + TransliteratorUtilities.toHTML.transliterate(draftRef))
+							//+ "</td><td>" + (nda == null ? "&nbsp;" : TransliteratorUtilities.toHTML.transliterate(nda))
+							//+ showValue(showEnglish, englishNda, nda)
+							//+ showValue(showParent, parentNda, nda)
 							+ "</td></tr>");
 				}
 				pw.println("</table>");
 				pw.println("<p class='a'>Aliased items: " + aliasedCount + "</p>");
 				pw.println("<p class='h'>Inherited items: " + inheritedCount + "</p>");
-				if (skippedCount != 0) pw.println("<p>Fallback items skipped: " + skippedCount + "</p>");
+				if (skippedCount != 0) pw.println("<p>Omitted items: " + skippedCount + "</p>");
 				pw.println("</body></html>");
 				pw.close();
 			}
         } finally{
+            deltaTime = System.currentTimeMillis() - deltaTime;
+            System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
             System.out.println("Done");
         }
+	}
+
+	private static String showValue(boolean showEnglish, String englishValue, String value) {
+		return !showEnglish ? ""
+				: englishValue == null ? "</td><td>n/a" 
+				: englishValue.length() == 0 ? "</td><td>&nbsp;" 
+				: englishValue.equals(value) ? "</td><td>=" 
+				: "</td><td class='e'>" + TransliteratorUtilities.toHTML.transliterate(englishValue);
+	}
+
+	private static String getNda(Set skipList, Map nonDistinguishingAttributes, CLDRFile file, String path, String parentFullPath, StringBuffer draftRef) {
+		draftRef.setLength(0);
+		if (parentFullPath != null && !parentFullPath.equals(path)) {
+			file.getNonDistinguishingAttributes(parentFullPath, nonDistinguishingAttributes, skipList);
+			if (nonDistinguishingAttributes.size() != 0) {
+				String parentNda = "";
+				for (Iterator it = nonDistinguishingAttributes.keySet().iterator(); it.hasNext();) {
+					String key = (String) it.next();
+					if (key.equals("draft")) {
+						if (draftRef.length() != 0) draftRef.append(",");
+						draftRef.append("d");
+					} else if (key.equals("alt")) {
+						if (draftRef.length() != 0) draftRef.append(",");
+						draftRef.append("a");
+					} else if (key.equals("references")) {
+						if (draftRef.length() != 0) draftRef.append(",");
+						draftRef.append(nonDistinguishingAttributes.get(key));
+					} else {
+						if (parentNda.length() != 0) parentNda += ", ";
+						parentNda += key + "=" + nonDistinguishingAttributes.get(key);
+					}
+				}
+				if (parentNda.length() != 0) {
+					parentNda = parentNda.replaceAll("[/]", "/\u200B");
+					parentNda = "[" + parentNda + "]";
+				}
+				return parentNda;
+			}
+		}
+		return "";
 	}
 
 	private static void showLinks(PrintWriter pw, String locale) {

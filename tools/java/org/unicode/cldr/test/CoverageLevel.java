@@ -62,6 +62,7 @@ public class CoverageLevel {
         public static final Level 
         	UNDETERMINED = new Level(0, "none", "none"),
         	POSIX = new Level(20,"posix", "G4"),
+        	MINIMAL = new Level(30,"minimal", "G3.5"),
         	BASIC = new Level(40,"basic", "G3"),
             MODERATE = new Level(60, "moderate", "G2"),
             MODERN = new Level(80, "modern", "G1"),
@@ -200,15 +201,30 @@ public class CoverageLevel {
         zone_level.clear();
         calendar_level.clear();
 
+        
         language_level.putAll(base_language_level);
-        language_level.put(language, CoverageLevel.Level.BASIC);
 
         script_level.putAll(base_script_level);
-        putAll(script_level, (Set) language_scripts.get(language), CoverageLevel.Level.BASIC);
+        try {
+			Set scriptsForLanguage = (Set) language_scripts.get(language);
+			if (scriptsForLanguage != null && scriptsForLanguage.size() > 1) {
+				putAll(script_level, scriptsForLanguage, CoverageLevel.Level.MINIMAL);
+			}
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
         
         territory_level.putAll(base_territory_level);
-        putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.BASIC);
-        
+        putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.MINIMAL);
+
+        {
+            language_level.put(language, CoverageLevel.Level.MINIMAL);
+	        String script = parser.getScript();
+	        if (script != null) script_level.put(script, CoverageLevel.Level.MINIMAL);
+	        String territory = parser.getRegion();
+	        if (territory != null) territory_level.put(territory, CoverageLevel.Level.MINIMAL);
+        }
+
         // special cases for EU
         if (euroLanguages.contains(language)) {
             setIfBetter(language_level, euroLanguages, CoverageLevel.Level.MODERATE, true);
@@ -218,10 +234,12 @@ public class CoverageLevel {
         setIfBetter(territory_level, territoryContainment, CoverageLevel.Level.MODERATE, true);
         
         // set currencies, timezones according to territory level
+        // HOWEVER, make the currency level at most BASIC
         putAll(currency_level, modernCurrencies, CoverageLevel.Level.MODERN);
         for (Iterator it = territory_level.keySet().iterator(); it.hasNext();) {
             String territory = (String) it.next();
             CoverageLevel.Level level = (CoverageLevel.Level) territory_level.get(territory);
+            if (level.compareTo(CoverageLevel.Level.BASIC) < 0) level = CoverageLevel.Level.BASIC;
             Set currencies = (Set) territory_currency.get(territory);
             setIfBetter(currency_level, currencies, level, false);
             Set timezones = (Set) territory_timezone.get(territory);
@@ -464,10 +482,28 @@ public class CoverageLevel {
     private void initPosixCoverage(String localeID, CLDRFile supplementalData){
         parser.set(localeID);
         //String language = parser.getLanguage();
-        String territory = parser.getLanguage();
+        String territory = parser.getRegion();
+        String language = parser.getLanguage();
+        String script = parser.getScript();
         //String scpt = parser.getScript();
         
-        String currencySymbol = supplementalData.getStringValue("//supplementalData/currencyData/region[@iso3166='"+territory+"']/currency");
+        // we have to have the name for our own locale
+//        posixCoverage.put("//ldml/localeDisplayNames/languages/language[@type=\""+language+"\"]", Level.POSIX);
+//        if (script != null) {
+//        	posixCoverage.put("//ldml/localeDisplayNames/scripts/script[@type=\""+language+"\"]", Level.POSIX);
+//        }
+//        if (territory != null) {
+//        	posixCoverage.put("//ldml/localeDisplayNames/territories/territory[@type=\""+language+"\"]", Level.POSIX);
+//        }
+        // TODO fix version
+        // this won't actually work. Values in the file are of the form:
+        
+        //      supplementalData[@version="1.4"]/currencyData/region[@iso3166="MG"]/currency[@from="1983-11-01"][@iso4217="MGA"]
+        //Need to walk through the file and pick out a from/to values that are valid for now. May be multiple also!!
+        String currencySymbol = supplementalData.getStringValue("//supplementalData[@version=\"1.4\"]/currencyData/region[@iso3166=\""+territory+"\"]/currency");
+//        if (currencySymbol == null) {
+//        	throw new IllegalArgumentException("Internal Error: can't find currency for region: " + territory);
+//        }
         //String fractions = supplementalData.getStringValue("//supplementalData/currencyData/fractions/info[@iso4217='"+currencySymbol+"']");
         posixCoverage.put("//ldml/posix/messages/yesstr", Level.POSIX);
         posixCoverage.put("//ldml/posix/messages/nostr", Level.POSIX);

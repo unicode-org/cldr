@@ -213,15 +213,16 @@ abstract public class CheckCLDR {
 			String localeID = (String) it.next();
             if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
-            boolean onlyLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
+            boolean isLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
             options.clear();
-            if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true");
+            if (!isLanguageLocale) options.put("CheckCoverage.skip","true");
             if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
             if (organization != null) options.put("CoverageLevel.localeType", organization);
+            if (true) options.put("submission", "true");
             
             //options.put("CheckCoverage.requiredLevel","comprehensive");
 
-			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);
+			CLDRFile file = cldrFactory.make(localeID, isLanguageLocale);
 			checkCldr.setCldrFileToCheck(file, options, result);
 			
             subtotalCount.clear();
@@ -407,6 +408,7 @@ abstract public class CheckCLDR {
 						}
 						System.out.print("\t[English: " + englishValue + "]");	
 					}
+					System.out.print("\tLocale:\t" + localeID);				
 				} else {
 					System.out.print(":");
 				}

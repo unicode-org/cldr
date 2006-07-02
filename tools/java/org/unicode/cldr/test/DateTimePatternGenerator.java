@@ -234,36 +234,36 @@ public class DateTimePatternGenerator {
      * supply a LinkedHashSet. If null, a collection is allocated.
      * @return the collection with added elements.
      */
-    public Collection getRedundants(Collection output) {
-    	if (output == null) output = new LinkedHashSet();
-        for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
-            DateTimeMatcher current = (DateTimeMatcher) it.next();
-            String pattern = (String) skeleton2pattern.get(current);
-            if (CANONICAL_SET.contains(pattern)) continue;
-            skipMatcher = current;
-            String trial = getBestPattern(current.toString());
-            if (trial.equals(pattern)) {
-                output.add(pattern);
-            }
-        }
-        if (false) { // ordered
-        DateTimePatternGenerator results = new DateTimePatternGenerator();
-        PatternInfo pinfo = new PatternInfo();
-        for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
-            DateTimeMatcher current = (DateTimeMatcher) it.next();
-            String pattern = (String) skeleton2pattern.get(current);
-            if (CANONICAL_SET.contains(pattern)) continue;
-            //skipMatcher = current;
-            String trial = results.getBestPattern(current.toString());
-            if (trial.equals(pattern)) {
-                output.add(pattern);
-            } else {
-                results.add(pattern, false, pinfo);
-            }
-        }
-        }
-        return output;
-    }
+	public Collection getRedundants(Collection output) {
+		if (output == null) output = new LinkedHashSet();
+		for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
+			DateTimeMatcher current = (DateTimeMatcher) it.next();
+			String pattern = (String) skeleton2pattern.get(current);
+			if (CANONICAL_SET.contains(pattern)) continue;
+			skipMatcher = current;
+			String trial = getBestPattern(current.toString());
+			if (trial.equals(pattern)) {
+				output.add(pattern);
+			}
+		}
+		if (false) { // ordered
+			DateTimePatternGenerator results = new DateTimePatternGenerator();
+			PatternInfo pinfo = new PatternInfo();
+			for (Iterator it = skeleton2pattern.keySet().iterator(); it.hasNext();) {
+				DateTimeMatcher current = (DateTimeMatcher) it.next();
+				String pattern = (String) skeleton2pattern.get(current);
+				if (CANONICAL_SET.contains(pattern)) continue;
+				//skipMatcher = current;
+				String trial = results.getBestPattern(current.toString());
+				if (trial.equals(pattern)) {
+					output.add(pattern);
+				} else {
+					results.add(pattern, false, pinfo);
+				}
+			}
+		}
+		return output;
+	}
     
     /** Field numbers, used for AppendItem functions
      */
@@ -1003,7 +1003,7 @@ public class DateTimePatternGenerator {
 
 	public boolean isSingleField(String skeleton) {
 		char first = skeleton.charAt(0);
-		for (int i = 2; i < skeleton.length(); ++i) {
+		for (int i = 1; i < skeleton.length(); ++i) {
 			if (skeleton.charAt(i) != first) return false;
 		}
 		return true;

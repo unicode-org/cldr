@@ -1,5 +1,6 @@
 package org.unicode.cldr.icu;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,6 +18,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
 
 public class ConvertTransforms extends CLDRConverterTool{
 	
@@ -60,15 +62,12 @@ public class ConvertTransforms extends CLDRConverterTool{
 		Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
 		Set ids = cldrFactory.getAvailable();
 		PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
-		doRBHeader(index);
+		doHeader(index, "//", "root.txt");
 		try {
-			index.println("// File: root.txt");
-			index.println("// Generated from CLDR: " + new Date());
-			index.println();
 			index.println("root {");
 			index.println("\tRuleBasedTransliteratorIDs {");
 			addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
-			//addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
+			addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
 			addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
 			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
 				String id = (String) idIterator.next();
@@ -110,22 +109,24 @@ public class ConvertTransforms extends CLDRConverterTool{
 			String path = (String) it.next();
 			String value = cldrFile.getStringValue(path);
 			if (first) {
-				filename = addIndexInfo(index, path);
+				filename = addIndexInfo(index, path, id);
 				if (filename == null) return; // not a transform file!
 				output = BagFormatter.openUTF8Writer(outputDirectory, filename);
-				doRuleHeader(output);
-				output.println("# File: " + id + ".txt");
-				output.println("# Generated from CLDR: " + new Date());
-				output.println("#");
+				doHeader(output, "#", filename);
 				first = false;
 			}
 			if (path.indexOf("/comment") >= 0) {
-				if (!skipComments) output.println(value);
+				if (!skipComments) {
+					if (!value.trim().startsWith("#")) value = value + "# ";
+					output.println(value);
+				}
 			} else if (path.indexOf("/tRule") >= 0) {
-				 if(skipComments){
-                     value = value.replaceFirst(";\\s+#.*",";");
-                 }
-                output.println(value);
+				//value = replaceUnquoted(value,"\u00A7", "&");
+				value = value.replace('\u2192', '>');
+				value = value.replace('\u2190', '<');
+				value = value.replaceAll("\u2194", "<>");
+				value=fixup.transliterate(value);
+				output.println(value);
 			} else {
 				throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
 			}
@@ -133,9 +134,37 @@ public class ConvertTransforms extends CLDRConverterTool{
 		output.close();
 	}
 	
+	static Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
+
+	private String replaceUnquoted(String value, String toReplace, String replacement) {
+		// hack for now
+		int pos = 0;
+		while (true) {
+			pos = value.indexOf(toReplace, pos);
+			if (pos < 0) break;
+			if (hasOddNumberOfQuotesBefore(value,pos)) {
+				pos += toReplace.length();
+			}
+			value = value.substring(0,pos) + replacement + value.substring(pos+toReplace.length());
+			pos += replacement.length();
+		}
+		return value;
+	}
+	
+	private boolean hasOddNumberOfQuotesBefore(String value, int pos) {
+		int pos2 = 0;
+		int count = 0;
+		while (true) {
+			pos2 = value.indexOf('\'', pos2+1);
+			if (pos2 < 0) break;
+			count ++;
+		}
+		return (count & 1) != 0;
+	}
+
 	static XPathParts parts = new XPathParts();
 	
-	private String addIndexInfo(PrintWriter index, String path) {
+	private String addIndexInfo(PrintWriter index, String path, String transID) {
 		parts.set(path);
 		Map attributes = parts.findAttributes("transform");
 		if (attributes == null) return null; // error, not a transform file
@@ -143,6 +172,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 		String target = (String) attributes.get("target");
 		String variant = (String) attributes.get("variant");
 		String direction = (String) attributes.get("direction");
+		// HACK
+		if (transID.indexOf("InterIndic") >= 0) direction = "forward";
+		// END HACK
 		String visibility = (String) attributes.get("visibility");
 		
 		String status = "internal".equals(visibility) ? "internal" : "file";
@@ -157,15 +189,17 @@ public class ConvertTransforms extends CLDRConverterTool{
 		}
 		filename += ".txt";
 		if (direction.equals("both") || direction.equals("forward")) {
+			System.out.println("\t" + id + "\t" +  filename + "\t" + "FORWARD");
 			index.println("\t\t" + id + " {");
 			index.println("\t\t\t" + status + " {");
 			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
 			index.println("\t\t\t\tdirection {\"FORWARD\"}");
 			index.println("\t\t\t}");
 			index.println("\t\t}");
-           
-		}else if (direction.equals("both") || direction.equals("backward")) {		
-			index.println("\t\t" + rid + " {");
+		}
+		if (direction.equals("both") || direction.equals("backward")) {		
+			System.out.println("\t" + id + "\t" +  filename + "\t" + "BACKWARD"); 
+			index.println("\t\t" + id + " {");
 			index.println("\t\t\t" + status + " {");
 			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
 			index.println("\t\t\t\tdirection {\"BACKWARD\"}");
@@ -200,7 +234,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 	
 	
 	// fixData ONLY NEEDED TO FIX FILE PROBLEM
-	/*
+	
 	private void fixData(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		File dir = new File(inputDirectory);
 		File[] files = dir.listFiles();
@@ -220,28 +254,22 @@ public class ConvertTransforms extends CLDRConverterTool{
 			output.close();
 		}
 	}
-	*/
-	private void doRuleHeader(PrintWriter output) {
+
+	private void doHeader(PrintWriter output, String quoteSymbol, String filename) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy"); 
 		output.print('\uFEFF');
-        output.println("#--------------------------------------------------------------------");
-        output.println("# ");
-        output.println("#  Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
-        output.println("#  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
-        output.println("# ");
-        output.println("#--------------------------------------------------------------------");
+		output.println(quoteSymbol + " ***************************************************************************");
+		output.println(quoteSymbol + " *");
+		output.println(quoteSymbol + " *  Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
+		output.println(quoteSymbol + " *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
+		output.println(quoteSymbol + " *");
+		output.println(quoteSymbol + " ***************************************************************************");
+		output.println(quoteSymbol + " File: " + filename);
+		output.println(quoteSymbol + " Generated from CLDR: " + new Date());
+		output.println(quoteSymbol + "");
+
 	}
 
-    private void doRBHeader(PrintWriter output) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy"); 
-        output.print('\uFEFF');
-        output.println("// ******************************************************************");
-        output.println("// * ");
-        output.println("// * Copyright (C) 2004-"+ sdf.format(new Date()) + ", International Business Machines");
-        output.println("// * Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
-        output.println("// * ");
-        output.println("// ******************************************************************");
-    }
     public void processArgs(String[] args) {
         // TODO Auto-generated method stub
         UOption.parseArgs(args, options);

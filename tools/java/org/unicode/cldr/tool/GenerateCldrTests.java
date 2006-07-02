@@ -128,7 +128,8 @@ public class GenerateCldrTests {
     }
 
 	public static void main(String[] args) throws Exception {
-        UOption.parseArgs(args, options);
+		double deltaTime = System.currentTimeMillis();
+		UOption.parseArgs(args, options);
         Log.setLog(options[LOGDIR].value + "log.txt");
         //log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {
@@ -151,6 +152,8 @@ public class GenerateCldrTests {
             t.generate(options[MATCH].value);
         } finally {
             Log.close();
+            deltaTime = System.currentTimeMillis() - deltaTime;
+            System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
             System.out.println("Done");
         }
     }

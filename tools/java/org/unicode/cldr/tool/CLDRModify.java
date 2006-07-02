@@ -37,6 +37,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
@@ -684,7 +685,31 @@ public class CLDRModify {
 			}
 		});
 		
-		fixList.add('z', "fix ZZ", new CLDRFilter() {
+		fixList.add('w', "fix alt='...proposed' when there is no alternative", new CLDRFilter() {
+			private XPathParts parts = new XPathParts();
+			public void handlePath(String xpath) {
+				if (xpath.indexOf("proposed") < 0) return;
+				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+				String newFullXPath = parts.set(fullXPath).removeProposed().toString();
+				// now see if there is an uninherited value
+				String value = cldrFileToFilter.getStringValue(xpath);
+				String baseValue = cldrFileToFilter.getStringValue(newFullXPath);
+				if (baseValue != null) {
+					// if the value AND the fullxpath are the same as what we have, then delete
+					if (value.equals(baseValue)) {
+						String baseFullXPath = cldrFileToFilter.getFullXPath(newFullXPath);
+						if (baseFullXPath.equals(newFullXPath)) {
+							remove(xpath, "alt=base");
+						}
+					}
+					return; // there is, so skip
+				}
+				// there isn't, so modify
+				replace(fullXPath, newFullXPath, value);
+			}
+		});
+		
+		if (false) fixList.add('z', "fix ZZ", new CLDRFilter() {
 			public void handlePath(String xpath) {
 				if (xpath.indexOf("/exemplarCharacters") < 0) return;
 				String value = cldrFileToFilter.getStringValue(xpath);
@@ -713,7 +738,10 @@ public class CLDRModify {
 
 			// <dateFormatItem id="KKmm" alt="proposed-u133-2" draft="provisional">hh:mm a</dateFormatItem>
 			public void handlePath(String xpath) {
-				if (xpath.indexOf("/dateFormatItem") >= 0) dateFormatItems.add(xpath);
+				if (xpath.indexOf("/dateFormatItem") >= 0) {
+					System.out.println(cldrFileToFilter.getStringValue(xpath) + "\t" + xpath);
+					dateFormatItems.add(xpath);
+				}
 				if (xpath.indexOf("gregorian") >= 0 && xpath.indexOf("pattern") >= 0) {
 					if (xpath.indexOf("dateFormat") >= 0 || xpath.indexOf("timeFormat") >= 0) {
 						standardFormats.add(xpath);
@@ -733,13 +761,15 @@ public class CLDRModify {
 					String value = cldrFileToFilter.getStringValue(xpath);
 					dtpg.add(value, false, patternInfo);
 					standardSkeletons.add(dtpg.getSkeleton(value));
-					fp.set(value);
-					items.clear();
-					fp.getAutoPatterns(value, items);
-					for (int i = 0; i < items.size(); ++i) {
-						String autoItem = (String)items.get(i);
-						dtpg.add(autoItem, false, patternInfo);
-						if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
+					if (false) { // code for adding guesses
+						fp.set(value);
+						items.clear();
+						fp.getAutoPatterns(value, items);
+						for (int i = 0; i < items.size(); ++i) {
+							String autoItem = (String)items.get(i);
+							dtpg.add(autoItem, false, patternInfo);
+							if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
+						}
 					}
 					retain(xpath, "-(std)");
 				}
@@ -819,7 +849,8 @@ public class CLDRModify {
 				}
 				// remove all the standard IDs
 				for (Iterator it = standardSkeletons.iterator(); it.hasNext();) {
-					skeleton_patterns.remove(it.next());
+					String standardSkeleton = (String) it.next();
+					skeleton_patterns.remove(standardSkeleton);
 				}
 				// Now add them all back in. Preserve old paths if possible
 				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
@@ -852,7 +883,7 @@ public class CLDRModify {
 				parts.set("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/" +
 						"dateFormatItem");
 				Map attributes = parts.getAttributes(-1);
-				attributes.put("alt", "proposed-666");
+				//attributes.put("alt", "proposed-666");
 				attributes.put("draft", "provisional");
 				for (Iterator it = skeleton_patterns.keySet().iterator(); it.hasNext();) {
 					String skeleton = (String)it.next();

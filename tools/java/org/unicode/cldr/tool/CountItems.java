@@ -102,8 +102,9 @@ public class CountItems {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws Exception {
-        try {
-            // countItems();
+		double deltaTime = System.currentTimeMillis();
+		try {
+            countItems();
             
             
             //getZoneEquivalences();
@@ -111,9 +112,11 @@ public class CountItems {
             
             //getPatternBlocks();
             //showExemplars();
-            genSupplementalZoneData(false);
+            //genSupplementalZoneData(false);
             //showZoneInfo();
         } finally{
+            deltaTime = System.currentTimeMillis() - deltaTime;
+            System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
             System.out.println("Done");
         }
 	}
@@ -525,6 +528,7 @@ public class CountItems {
 		Set temp = new HashSet();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
+			if (CLDRFile.isSupplementalName(locale)) continue;
 			CLDRFile item = cldrFactory.make(locale, false);
 			
 			temp.clear();

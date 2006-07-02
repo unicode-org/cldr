@@ -36,6 +36,10 @@ public class CheckCoverage extends CheckCLDR {
         // for now, skip all but localeDisplayNames
         if (skip) return this;
         if (options.get("submission") == null) return this;
+        
+        if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
+        	System.out.println("debug: " + value);
+        }
 
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
         
@@ -54,7 +58,7 @@ public class CheckCoverage extends CheckCLDR {
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+            result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
             System.out.println(level + "\t" + path);

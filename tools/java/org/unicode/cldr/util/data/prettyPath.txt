@@ -47,13 +47,13 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/week/' ($element) > '|week|' $1;
 
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('sun') '"]' > '|day|1-sunday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('mon') '"]' > '|day|2-monday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('tue') '"]' > '|day|3-tuesday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('wed') '"]' > '|day|4-wednesday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('thu') '"]' > '|day|5-thursday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('fri') '"]' > '|day|6-friday-' $1 '-' $2;
-'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('sat') '"]' > '|day|7-saturday-' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('sun') '"]' > '|day|1-sunday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('mon') '"]' > '|day|2-monday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('tue') '"]' > '|day|3-tuesday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('wed') '"]' > '|day|4-wednesday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('thu') '"]' > '|day|5-thursday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('fri') '"]' > '|day|6-friday:' $1 '-' $2;
+'$%%/days/dayContext[@type="' ($avalue) '"]/dayWidth[@type="' ($avalue) '"]/day[@type="' ('sat') '"]' > '|day|7-saturday:' $1 '-' $2;
 
 '$%%/quarters/quarterContext[@type="' ($avalue) '"]/quarterWidth[@type="' ($avalue) '"]/quarter[@type="' ($avalue) '"]' > '|quarter|' $3 '-' $1 '-' $2;
 
@@ -73,12 +73,14 @@ $element=[a-zA-Z0-9]+;
 '$%%/dateFormats/alias' > '|date|alias';
 '$%%/timeFormats/alias' > '|time|alias';
 
+'$%%/fields/field[@type="' ($avalue) '"]/relative[@type="' ($avalue) '"]' > '|fields|' $1 ':' $2 ;
+
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/exemplarCity' > 'names|zone|' $1;
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/' ($element) '/' ($element) > 'names|zone|' $1 '-' $2 '-' $3;
 '/dates/timeZoneNames/' (.*) > 'time|zone|' $1;
 
-'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > 'names|currency|' $1 '-' $2;
-'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > 'names|currency|' $1 '-' $2 '-' $3;
+'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > 'names|currency|' $1 ':' $2 '-' $3;
+'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > 'names|currency|' $1 ':' $2;
 
 '/numbers/symbols/' (.*) > 'number|symbol|' $1;
 '/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > 'number|pattern|' $1 '-' $2;
@@ -87,13 +89,14 @@ $element=[a-zA-Z0-9]+;
 
 '/posix/messages/' (.*) > 'misc|posix|' $1;
 
+'[@alt="proposed' ($avalue) '"]' > '/' \u200B 'alt'; # remove!
 '[@alt="' ($avalue) '"]' > '/' \u200B 'alt-' $1;
 
 '/alias' > 'whole|file|alias';
 '/characters/mapping[@registry="' ($element) '"]' > 'charset|registry|' $1;
 '/layout/inList' > 'layout|inList|casing';
 
-'/numbers/scientificFormats/default' > 'numbers|scientificFormats/default';
+'/numbers/scientificFormats/default' > 'numbers|scientificFormats|default';
 '$%%/dateTimeFormats/default' > '|date+time|default';
 
 (.*) > '?%%' $1;

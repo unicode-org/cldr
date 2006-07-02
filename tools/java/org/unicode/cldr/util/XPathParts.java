@@ -803,4 +803,27 @@ public class XPathParts {
 		m.put(attributeName, attributeValue);
 		return this;
 	}
+	
+	public XPathParts removeProposed() {
+		for (int i = 0; i < elements.size(); ++i) {
+			Element element = (Element) elements.get(i);
+			if (element.attributes == null) continue;
+			for (Iterator it = element.attributes.keySet().iterator(); it.hasNext();) {
+				String attribute = (String) it.next();
+				if (!attribute.equals("alt")) continue;
+				String attributeValue = (String) element.attributes.get(attribute);
+				int pos = attributeValue.indexOf("proposed");
+				if (pos < 0) break;
+				if (pos > 0 && attributeValue.charAt(pos-1) == '-') --pos; // backup for "...-proposed"
+				if (pos == 0) {
+					element.attributes.remove(attribute);
+					break;
+				}			
+				attributeValue = attributeValue.substring(0,pos); // strip it off
+				element.attributes.put(attribute, attributeValue);
+				break; // there is only one alt!
+			}
+		}
+		return this;
+	}
 }

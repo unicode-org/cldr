@@ -46,7 +46,7 @@ public class CheckAlt extends CheckCLDR {
 		return this;
 	}
 
-	private String removeProposed(String path) {
+	public String removeProposed(String path) {
 		parts.set(path);
 		for (int i = 0; i < parts.size(); ++i) {
 			Map attributes = parts.getAttributes(i);

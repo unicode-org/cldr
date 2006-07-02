@@ -625,5 +625,62 @@ public class Utility {
 		}
 		return count;
 	}
+
+	public static void registerTransliteratorFromFile(String id, String dir, String filename) {
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.FORWARD);
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE);
+	}
+	
+	public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction) {
+		try {
+			if (filename == null) {
+				filename = id.replace('-', '_');
+				filename = filename.replace('/', '_');
+				filename += ".txt";
+			}
+			BufferedReader br = BagFormatter.openUTF8Reader(dir, filename);
+			StringBuffer buffer = new StringBuffer();
+			while (true) {
+				String line = br.readLine();
+				if (line == null) break;
+				if (line.length() > 0 && line.charAt(0) == '\uFEFF') line = line.substring(1);
+				if (line.startsWith("//")) continue;
+				buffer.append(line).append("\r\n");
+			}
+			br.close();
+			String rules = buffer.toString();
+			Transliterator t;
+			int pos = id.indexOf('-');
+			String rid;
+			if (pos < 0) {
+				rid = id + "-Any";
+				id = "Any-" + id;
+			} else {
+				rid = id.substring(pos+1) + "-" + id.substring(0, pos);
+			}
+			if (direction == Transliterator.FORWARD) {
+				Transliterator.unregister(id);
+				t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);
+				Transliterator.registerInstance(t);
+				System.out.println("Registered new Transliterator: " + id);
+			}
+	
+			/*String test = "\u049A\u0430\u0437\u0430\u049B";
+			System.out.println(t.transliterate(test));
+			t = Transliterator.getInstance(id);
+			System.out.println(t.transliterate(test));
+			*/
+	
+			if (direction == Transliterator.REVERSE) {
+				Transliterator.unregister(rid);
+				t = Transliterator.createFromRules(rid, rules, Transliterator.REVERSE);
+				Transliterator.registerInstance(t);
+				System.out.println("Registered new Transliterator: " + rid);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new IllegalArgumentException("Can't open " + dir + ", " + id);
+		}
+	}
 	
 }

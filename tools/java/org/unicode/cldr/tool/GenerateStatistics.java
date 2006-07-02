@@ -67,9 +67,10 @@ class GenerateStatistics {
 		
 		for (Iterator it = contents.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
-			System.out.println("Collecting info for:\t" + Utility.replace(localeID,"_","\t"));
+			if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (localeID.equals("root"))
 				continue; // skip root
+			System.out.println("Collecting info for:\t" + Utility.replace(localeID,"_","\t"));
 			boolean draft = false; // dc.isDraft(localeName);
 			if (draft) {
 				draftLocaleCount++;
@@ -129,6 +130,9 @@ class GenerateStatistics {
 		
 		for (Iterator it = contents.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
+			if (CLDRFile.isSupplementalName(localeID)) {
+				continue;
+			}
 			// if there is a lang_script, then remove everything starting with lang that doesn't have "a" script
 			String lang = ltp.set(localeID).getLanguage();
 			String territory = ltp.set(localeID).getRegion();
@@ -148,6 +152,9 @@ class GenerateStatistics {
 
 		for (Iterator it = contents.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
+			if (CLDRFile.isSupplementalName(localeID)) {
+				continue;
+			}
 			// if there is a lang_script, then remove everything starting with lang that doesn't have "a" script
 			String lang = ltp.set(localeID).getLanguage();
 			if (!toRemove.contains(lang)) continue;
@@ -228,8 +235,13 @@ class GenerateStatistics {
 
 					if (transliterate && NON_LATIN.containsSome(localName)
 							&& !lang.equals("ja")) {
-						String transName = fixedTitleCase("en",
-								toLatin.transliterate(localName));
+						String transName = localName;
+						try {
+							transName = fixedTitleCase("en",
+									toLatin.transliterate(localName));
+						} catch (RuntimeException e) {
+							System.out.println("\t" + e.getMessage());
+						}
 						if (NON_LATIN.containsSome(transName)) {
 							Log.logln("Can't transliterate " + localName
 									+ ": " + transName);

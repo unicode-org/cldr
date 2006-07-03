@@ -9,7 +9,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 
 /**
  *
- * reads supplementalData.dtd into memory
+ * reads supplementalData.xml into memory
  */
 
 import java.util.*;
@@ -33,50 +33,35 @@ public class supplementalData
     //key = metric or US, value = string of 2 letter iso country codes i.e. <"1", "GB IE US IT"> territory=001 => all otheers
     private Hashtable m_measSys = new Hashtable();
     
-    private DOMWrapper m_domWrapper = null;
     private Document m_doc = null;
+    
+    private supplementalMetadata m_supplementalMetadata = null;
    
     /** Creates a new instance of supplementalData */
-    public supplementalData( String filename)
+    public supplementalData( String dir  /*dir containing supplemeentalData.xml*/)
     {
+        String filename = dir + "/" + "supplementalData.xml";
+        
         File file = new File(filename);
         if (file.exists())
         {
             System.err.println ("INFO: reading " + filename + "   this may take a couple of minutes.....");
             m_doc = LDMLUtilities.parse(filename, true);
-            m_domWrapper = new DOMWrapper(m_doc);
-         
-            //check the version , backwards compatability was broken between 1.2 and 1.3 for curencies in region
-            String version = m_domWrapper.getAttributeFromElement(LDMLConstants.SUPPLEMENTAL_DATA, LDMLConstants.VERSION);
-            try
-            {
-                if (Float.compare (Float.parseFloat(version),  (float)1.3) < 0)
-                    System.err.println ("WARNING: Wrong version of supplementalData.xml (" + version + ") , must use 1.3 or later, currency info will be incorrect as a result");
-            }
-            catch (NumberFormatException e)
-            {
-                    System.err.println ("WARNING: Unable to read version of supplementalData.xml, currency info may be incorrect");                
-            }
             
             //get the fractions
             readFractions ();
-        
-            //get the currency codes by region
-         //  1.2 m_currencuiesInRegion = domWrapper.getAttribsFrom_El_parent_GP (LDMLConstants.ALTERNATE, LDMLConstants.ISO_4217, 
-         //                           LDMLConstants.CURRENCY, LDMLConstants.ISO_4217, 
-         //                           LDMLConstants.REGION, LDMLConstants.ISO_3166);
-   
-            //1.3+
-            readCurrencies ();
- 
+            // for cldr before 1.3 this won't work as currency data was stored differently
+            readCurrencies (); 
             readMinDays ();
             readFirstDay ();
-            readMeasSys ();
-            
+            readMeasSys ();        
            System.err.println ("INFO: finished reading " + filename);
         }
         else
-            System.err.println ("WARNING: supplementalData.xml not found");
+            System.err.println ("WARNING: " + filename + " not found");
+        
+        // we need tohe metadata for legacy territories
+        m_supplementalMetadata = new supplementalMetadata (dir);
     }
     
     
@@ -132,6 +117,9 @@ public class supplementalData
                 {
                     if ((cal_to==null || cal_to.after (today)) && currs.size()==0)
                     {  //found the current currency
+                        if (country.equals("CS") && curr.equals("EUR"))
+                            continue;   //CS has double circulation, prefer CSD to EUR as it is most widely used
+
                         currs.add (0, curr);
                         continue;
                     }
@@ -271,10 +259,12 @@ public class supplementalData
     //get the valid currencies for the region
     //returned Vector[0] = default , Vector[1] -> Vector[n] = legacy
     public Vector getCurrencies (String region)
-    {
+    {        
         if (region == null)
             return null;
         
+        region = m_supplementalMetadata.getCurrentTerritory (region);
+       
         Vector currs = null;
         Object obj = m_currencuiesInRegion.get(region);
         if (obj != null)
@@ -288,6 +278,8 @@ public class supplementalData
         if ((region == null) | (currency == null))
             return false;
         
+        region = m_supplementalMetadata.getCurrentTerritory (region);
+
         boolean bIsValid = false;
         Vector currs = getCurrencies (region);
         if ((currs != null) && (currs.size()>0))
@@ -301,13 +293,15 @@ public class supplementalData
     }
         
         
-    private String getTerritory (Hashtable table, String terr)
+    private String getTerritory (Hashtable table, String region)
     {
         if (table==null)
             return null;
-        if (terr==null)  //lang only locales will return the ROW value
-            terr="";
-                
+        if (region==null)  //lang only locales will return the ROW value
+            region="";
+         
+        region = m_supplementalMetadata.getCurrentTerritory (region);
+
         String key =null;
         String row =null;  //rest of world 001
         Set s = table.keySet();
@@ -315,7 +309,7 @@ public class supplementalData
         for (int i=0; i < keys.length; i++)
         {
             String terrs = (String) table.get (keys[i]);
-            if (terrs.indexOf(terr) > -1)
+            if (terrs.indexOf(region) > -1)
                 return (String) keys[i];
             
             if (terrs.equals("001"))
@@ -326,18 +320,18 @@ public class supplementalData
         return row;
     }
     
-    public String getMinDays(String terr)
+    public String getMinDays(String region)
     {
-        return getTerritory(m_minDays, terr);
+        return getTerritory(m_minDays, region);
     }
     
-    public String getFirstDay(String terr)
+    public String getFirstDay(String region)
     {
-        return getTerritory(m_firstDay, terr);
+        return getTerritory(m_firstDay, region);
     }
     
-    public String getMessSys(String terr)
+    public String getMessSys(String region)
     {
-        return getTerritory(m_measSys, terr);
+        return getTerritory(m_measSys, region);
     }
 }

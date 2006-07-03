@@ -321,6 +321,13 @@ public class OOComparator
   //      }
         writer.println( "</p>");
         
+         if (XMLfiles.size() < 2)
+        {
+            printWarning(XMLfiles.size() + " file was specified for comparison for " + locale.toString() + ".  Minimum of two required.");
+            writer.println("Skipping comaprison as only " + Integer.toString (XMLfiles.size()) + " file available for comparison");
+            return;
+        }
+        
         writer.println("<table>");
         writer.print(  "            <tr>\n" +
                 "                <th width=10%>N.</th>\n"+
@@ -370,11 +377,6 @@ public class OOComparator
     
     private void doSingleComparison(PrintWriter writer, Vector XMLfiles, Locale locale)
     {
-        if (XMLfiles.size() < 2)
-        {
-            printWarning(XMLfiles.size() + " file was specified for comparison for " + locale.toString() + ".  Minimum of two required.");
-            return;
-        }
         m_CurrNumFiles = XMLfiles.size();
         
         m_TotalNumLocales++;
@@ -444,50 +446,6 @@ public class OOComparator
             
         }
         
-     /*           Vector locales = new Vector();
-        XMLFileFilter filter = new XMLFileFilter();
-        Enumeration enDirs = m_XMLdirs.elements();
-        while (enDirs.hasMoreElements())
-        {
-            String dirName = (String) enDirs.nextElement();  //=dir1, dir2, dir3 etc
-            File dir = new File(dirName);
-            // Get list of all xml files in the directory.
-            File[] files = dir.listFiles(filter);
-            // For each of the files, detect the locale.
-            for (int i = 0; i < files.length; i++)
-            {
-                Locale locale = extractLocale(files[i].getAbsolutePath() );
-                boolean bFound = false;
-                for (int j=0; j < locales.size(); j++)
-                {
-                    LocaleFiles lf = (LocaleFiles) locales.elementAt(j);
-                    if ( lf.m_locale.equals(locale))
-                    {
-                        lf.m_files.add(files[i].getAbsolutePath());
-                        bFound = true;
-                        break;
-                    }
-                }
-                
-                if (bFound == false)
-                {
-                    LocaleFiles lf = new LocaleFiles();
-                    lf.m_locale = locale;
-                    lf.m_files.add(files[i].getAbsolutePath());
-                    locales.add(i, lf);
-                }
-            }
-        }
-        
-        for (int i=locales.size()-1; i >= 0; i--)  //File.list() usually returns in inverse alphabetical order, although no order is guaranteed
-        {
-            Locale locale = (Locale) ((LocaleFiles)locales.elementAt(i)).m_locale;
-            Vector localeFiles = (Vector) ((LocaleFiles) locales.elementAt(i)).m_files;
-            if (localeFiles.size()>1)
-            {
-                doSingleComparison(writer, localeFiles, locale);
-            }
-        }*/
     }
     
     private void compareData(PrintWriter writer, Vector XMLfiles, Locale locale)

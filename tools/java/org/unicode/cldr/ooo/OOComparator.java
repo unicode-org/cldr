@@ -324,7 +324,7 @@ public class OOComparator
          if (XMLfiles.size() < 2)
         {
             printWarning(XMLfiles.size() + " file was specified for comparison for " + locale.toString() + ".  Minimum of two required.");
-            writer.println("Skipping comaprison as only " + Integer.toString (XMLfiles.size()) + " file available for comparison");
+            writer.println("Skipped as only " + Integer.toString (XMLfiles.size()) + " file available for comparison");
             return;
         }
         

@@ -11,14 +11,10 @@
  * 3. Conversion of CLDR data only to OpenOffice.org format.
  *    this is the step to perform when generating a brand new OpenOffice.org locale
  *
- * for step 2 above these is some data which comes from the OO.o LDML which may migrate to CLDR in the future :
- * - LC_INFO                 (country and lang IDs should be same anyway, DefaultNames are onlo info so leave the Oo.o ones)
- * - quarters                (new in CLDR 1.4)
- * - date and time formats   (new in CLDR 1.4)
- * - delimiters              (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
- * - wide eras               (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
  *
  * Design Decisions :
+ *    - LC_INFO (country and lang IDs should be same anyway, DefaultNames are only info so leave the Oo.o ones
+ *    - if locale not found in CLDR, then jsut write back the OO.o locale
  *    - wide era data is NOT sourced from CLDR yet as there are too many gaps
       - delimiters (quotations) are NOT source yet from cldr 1.4 although most data looks reasonable, await 1 more release
       - quarters are are NOT source yet from cldr 1.4 although most data looks reasonable, await 1 more release
@@ -32,12 +28,13 @@
 	- decimal places of all currencies come from CLDR
 	- all other data is from OO.o
 	- added handling of legacyOnly attribute
- *
+ *   - if no CLDR lcoale found , write back the OO.o data
+ *   - if round trip then don't read measurementSystem, StartDay or FirstDay from supplemental, just write back the Oo.o data
+ *        (NB : OO.o "Metri" is mapped to CLDR "metric" in OO->LDML mapper
  * 
  * - workarounds (look for "workaround" in processSingle () ) :
  *      - zh_TW ROC eras    (not in CLDR 1.3, probably in 1.4)
  *      - eo,eu,ia  Currency   don't have a currency but OO.o wants it so just write back the Oo.o currency)
- *      - ka_GE             (CLDR 1.3 data incomplete so jsut write back OO.o data regardless)
  *      - ja_JP             use OO.o data for calendars as :
  *                              OO.o needs English days,months for gregorian and English months for gengou calendars
  *                              OO.o gengou calendar has a DUMMY era, no such thing in CLDR
@@ -46,7 +43,7 @@
  *                               OO.o has hanja calendar, no such thing in CLDR so use OO.o data
  *     - ia, eo ,eu           for lang only locales, use minDays, startDay of OO.o 
  *                              as there is no country so CLDR can't rpovide this data
- *      sr_CS                has dual circulation, CSD & EUR, prefer CSD as it more widely used
+ *      sr_CS                has dual circulation currency, CSD & EUR, prefer CSD as it more widely used
  */
 
 package org.unicode.cldr.ooo;
@@ -88,7 +85,8 @@ public class LDMLToOOConverter
             OOO_LDML_DIR = 4,
             CLDR_DIR = 5,
             SUPP_DIR = 6,
-            OUT_DIR = 7;
+            OUT_DIR = 7,
+            SKIP_IF_NO_CLDR = 8;   //skip this locale if it doesn't exsit in CLDR, makes it easier to look at comparison charts
     
     private static final UOption[] m_options = {
         UOption.HELP_H(),
@@ -99,6 +97,7 @@ public class LDMLToOOConverter
                 UOption.create("cldr_dir", 'c', UOption.REQUIRES_ARG).setDefault(null),
                 UOption.create("supp_dir", 's', UOption.REQUIRES_ARG).setDefault(null),
                 UOption.create("out_dir", 't', UOption.REQUIRES_ARG).setDefault(null),
+                UOption.create("skip_if_no_cldr", 'k', UOption.NO_ARG),
     };
     
     public static void main(String[] args)
@@ -271,6 +270,7 @@ public class LDMLToOOConverter
         
         if ((cldr_file != null) && (cldr_f.exists()))
         {
+           
             reader_cldr = new LDMLReaderForOO(cldr_file); 
             reader_cldr.readDocument(cldrLocale, true);
             m_cldr_ver = reader_cldr.getCLDRVersion ();
@@ -282,6 +282,12 @@ public class LDMLToOOConverter
         }
         else
         {
+            if (m_options[SKIP_IF_NO_CLDR].doesOccur)
+            {
+                printWarning ("No such CLDR locale, no output written");
+                return false;
+            }
+            printWarning ("No such CLDR locale, writing back the OO.o data");
             m_bRoundTrip = true;   //so read everything from the OO LDML
         }
         
@@ -294,12 +300,7 @@ public class LDMLToOOConverter
             {
                 printWarning("Failed to read OpenOffice.org LDML file: " + ooo_ldml_file);
                 return false;
-            }
-            
-           //workaround CLDR 1.3 is incomplete for ka_GE so just write back OO.o data
-     //      if (locale.compareTo("ka_GE")==0)  m_bRoundTrip = true;
-     //       if (m_bRoundTrip == true) reader_cldr = reader_ooo_ldml;
-            
+            }          
         }
         else
         {   //read it form CLDR only i.e. 
@@ -312,6 +313,10 @@ public class LDMLToOOConverter
             return false;
         }
           
+        
+        if (m_bRoundTrip == true)
+            reader_cldr = reader_ooo_ldml;
+        
         // Begin write process by creating a printstream which will output
         // text to the specified file location.
         PrintStream ps = setLocaleWriter(locale, null, out_file);
@@ -399,11 +404,9 @@ public class LDMLToOOConverter
         
         // MeasurementSystem
         String ms = null;
-        if (m_cldr_ver > 1.399)
-        {
+        if (m_cldr_ver > 1.399 && m_bRoundTrip == false)
             ms = m_suppData.getMessSys(reader_ooo_ldml.m_TerritoryID);
-        }
-        else if (reader_cldr.m_MeasurementSystem != null)
+        else if (reader_cldr.m_MeasurementSystem != null)   //reader_cldr = reader_ooo_ldml if it's round trip'
             ms = LDMLToOOMapper.MapMeasurementSystem(reader_cldr.m_MeasurementSystem);
         if ((ms != null) && (ms.length()>0))
             data.put(OOConstants.MEASUREMENT_SYSTEM, ms);
@@ -569,7 +572,7 @@ public class LDMLToOOConverter
         {   //there is no startOfWeek or moinDays for lang only locales, so use OO.org
             startOfWeeks = LDMLToOOMapper.MapStartOfWeeks(reader_ooo_ldml.m_StartOfWeeks, locale); 
         }  
-        else if (m_cldr_ver > 1.399)
+        else if (m_cldr_ver > 1.399 && m_bRoundTrip == false)
         {
             String firstDay = m_suppData.getFirstDay(reader_ooo_ldml.m_TerritoryID);
             startOfWeeks = new Hashtable();
@@ -585,7 +588,7 @@ public class LDMLToOOConverter
         {   //there is no startOfWeek or moinDays for lang only locales, so use OO.org
             minDays = LDMLToOOMapper.MapMinDays(reader_ooo_ldml.m_MinDays, locale);
         }
-        else if (m_cldr_ver > 1.399)
+        else if (m_cldr_ver > 1.399 && m_bRoundTrip == false)
         {
             String min = m_suppData.getMinDays(reader_ooo_ldml.m_TerritoryID);
             minDays = new Hashtable ();
@@ -718,6 +721,7 @@ public class LDMLToOOConverter
         System.err.println("  -o         the folder containing OpenOffice.org data in LDML format");
         System.err.println("  -s         the folder containing CLDR's supplementalData.xml (this is needed)");
         System.err.println("  -t         the folder where output is written for bulk conversion (mandatory)");
+        System.err.println("  -k         write no output if this locale dores not occur in CLDR");
         System.err.println("  -help      (this document) usage of LDMLToOOConverter");
         System.err.println("");
         

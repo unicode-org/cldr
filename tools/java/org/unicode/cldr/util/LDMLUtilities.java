@@ -59,7 +59,7 @@ public class LDMLUtilities {
 
     public static final int XML = 0,
                             TXT = 1;
-private static final boolean DEBUG = true;
+private static final boolean DEBUG = false;
     /**
      * Creates a fully resolved locale starting with root and 
      * @param sourceDir

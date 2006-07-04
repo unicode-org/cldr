@@ -59,7 +59,7 @@ public class LDMLUtilities {
 
     public static final int XML = 0,
                             TXT = 1;
-    private static final boolean DEBUG = false;
+private static final boolean DEBUG = true;
     /**
      * Creates a fully resolved locale starting with root and 
      * @param sourceDir
@@ -87,7 +87,6 @@ public class LDMLUtilities {
         //System.err.println("In getFullyResolvedLDML "+sourceDir + " " + locale);
         try{
             full = parse(sourceDir+File.separator+ "root.xml", ignoreRoot);
-            full = resolveAliases(full, sourceDir, "root", ignoreDraft, stack);  //PN
            /*
             * Debugging
             *
@@ -106,6 +105,7 @@ public class LDMLUtilities {
             locale = locale.substring(0,index);
         }
         if(locale.equals("root")){
+            full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
             return full;
         }
         String[] constituents = locale.split("_");
@@ -128,8 +128,6 @@ public class LDMLUtilities {
             if(file.exists()){
                 isAvailable = true;
                 doc = parse(fileName, ignoreUnavailable);
-                 //resolve aliases now, as source="locale""
-                doc = resolveAliases(doc, sourceDir, loc, ignoreDraft, stack);
 
                 /*
                  * Debugging
@@ -173,6 +171,8 @@ public class LDMLUtilities {
         
         // get the real locale name
         locale = getLocaleName(full);
+       // Resolve the aliases once the data is built
+        full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
 
        if(DEBUG){
            try {
@@ -523,7 +523,7 @@ public class LDMLUtilities {
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);
-            appendXPathAttribute(child,xpath, true /*PN false*/, true);
+            appendXPathAttribute(child,xpath, false, true);
             Node nodeInSource = null;
             
             if(childName.indexOf(":")>-1){ 
@@ -654,6 +654,24 @@ public class LDMLUtilities {
        String type = null;
        for(int i=0; i < array.length ; i++){
            Node node = array[i];
+           
+           //stop inherited aliases from overwriting valid locale data
+           //ldml.dtd does not allow alias to have any sibling elements
+           boolean bFoundSibling = false;
+           Node n = node.getNextSibling();
+           while (n != null)
+           {
+               if (n.getNodeType() == Node.ELEMENT_NODE)
+               {
+             //      System.err.println ("it's an element node " + n.getNodeName () + "  " + n.getNodeValue());
+                   bFoundSibling = true;
+                   break;
+               }
+               n = n.getNextSibling();
+           }
+           if (bFoundSibling == true) 
+               continue;
+                      
            //initialize the stack for every alias!
            stack = new HashMap();
            if(node==null){

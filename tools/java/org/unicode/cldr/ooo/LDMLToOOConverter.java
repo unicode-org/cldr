@@ -31,6 +31,7 @@
  *   - if no CLDR lcoale found , write back the OO.o data
  *   - if round trip then don't read measurementSystem, StartDay or FirstDay from supplemental, just write back the Oo.o data
  *        (NB : OO.o "Metri" is mapped to CLDR "metric" in OO->LDML mapper
+ *   - handles currency symbol choice like INR
  * 
  * - workarounds (look for "workaround" in processSingle () ) :
  *      - zh_TW ROC eras    (not in CLDR 1.3, probably in 1.4)
@@ -287,7 +288,7 @@ public class LDMLToOOConverter
                 printWarning ("No such CLDR locale, no output written");
                 return false;
             }
-            printWarning ("No such CLDR locale, writing back the OO.o data");
+            printWarning ("Not using CLDR data, writing back the OO.o data");
             m_bRoundTrip = true;   //so read everything from the OO LDML
         }
         

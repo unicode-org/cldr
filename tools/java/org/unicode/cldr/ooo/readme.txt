@@ -57,6 +57,9 @@ CLDR_JAR=../../../../cldr.jar
 # create dtd cache dir
 mkdir $CER_DIR
 
+#remove old cached DTDs to keep DTD up to date
+rm  $CER_DIR/*.dtd
+
 # create dirs for storing tools output
 mkdir $DEST_DIR
 mkdir $OO_DATE_OUT_DIR
@@ -95,7 +98,4 @@ java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_
 
 
 
-
-#remove cache dir to keep DTD up to date
-rm -r $CER_DIR
 

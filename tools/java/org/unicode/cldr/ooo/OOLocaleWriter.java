@@ -1008,6 +1008,7 @@ public class OOLocaleWriter extends XMLWriter
                     if (inner_cldr.elementAt(2).equals(code))
                     {
                         symbol = (String) inner_cldr.elementAt(1);
+                        symbol = extractSymbolFromChoice (symbol); //deal with choice pattern if any
                         name = (String)inner_cldr.elementAt(3);
                         break;
                     }
@@ -1248,5 +1249,26 @@ public class OOLocaleWriter extends XMLWriter
         outData = outData.replaceAll("'", "&apos;");
         outData = outData.replaceAll("\"", "&quot;");
         return outData;
+    }
+    
+    //deal with choise pattenr like INR 
+    protected String extractSymbolFromChoice (String currString)
+    {     
+        if ( currString.indexOf("|") >= 0 )
+        {
+            String [] choices = currString.split("\\u007c");
+            for ( int i = choices.length - 1 ; i >= 0 ; i-- )
+            {
+                String [] numvalue = choices[i].split("[<\\u2264]",2);
+                Float num = Float.valueOf(numvalue[0]);
+                Float ten = new Float(10);
+                if ( num.compareTo(ten) <= 0 || i == 0 )
+                {
+                    currString = numvalue[1];
+                    i = 0;
+                }
+            }
+        }
+        return currString;
     }
 }

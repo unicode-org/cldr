@@ -104,7 +104,7 @@ public class POSIX_LCTime {
          else
          {
             t_fmt_ampm = "";
-            SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='KKmmss']";
+            SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='hhmmss']";
             try
             {
                 n = LDMLUtilities.getNode(doc, SearchLocation);

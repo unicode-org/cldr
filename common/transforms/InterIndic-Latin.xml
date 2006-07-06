@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
-<supplementalData version="1.4">
+<supplementalData>
 	<transforms>
-		<transform source="InterIndic" target="Latin" direction="both" visibility="internal">
+		<transform source="InterIndic" target="Latin" direction="forward" visibility="internal">
 			<comment># InterIndic-Latin</comment>
 			<comment>#\u0E00 reserved</comment>
 			<comment>#consonants</comment>
@@ -494,3 +494,4 @@
 		</transform>
 	</transforms>
 </supplementalData>
+

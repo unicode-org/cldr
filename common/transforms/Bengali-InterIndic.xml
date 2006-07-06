@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
-<supplementalData version="1.4">
+<supplementalData>
 	<transforms>
-		<transform source="Bengali" target="InterIndic" direction="both" visibility="internal">
+		<transform source="Bengali" target="InterIndic" direction="forward" visibility="internal">
 			<comment># Bengali-InterIndic</comment>
 			<tRule>ো→\uE04B; # VOWEL SIGN O</tRule>
 			<tRule>ৌ→\uE04C; # VOWEL SIGN AU</tRule>
@@ -103,3 +103,4 @@
 		</transform>
 	</transforms>
 </supplementalData>
+

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
-<supplementalData version="1.4">
+<supplementalData>
 	<transforms>
-		<transform source="InterIndic" target="Tamil" direction="both" visibility="internal">
+		<transform source="InterIndic" target="Tamil" direction="forward" visibility="internal">
 			<comment># InterIndic-Tamil</comment>
 			<comment>#:: NFD (NFC) ;</comment>
 			<tRule>\uE001→ஂ; # FALLBACK SIGN CANDRABINDU</tRule>
@@ -146,3 +146,4 @@
 		</transform>
 	</transforms>
 </supplementalData>
+

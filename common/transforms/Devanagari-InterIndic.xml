@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
-<supplementalData version="1.4">
+<supplementalData>
 	<transforms>
-		<transform source="Devanagari" target="InterIndic" direction="both" visibility="internal">
+		<transform source="Devanagari" target="InterIndic" direction="forward" visibility="internal">
 			<comment># Devanagari-InterIndic</comment>
 			<comment># :: NFD;</comment>
 			<comment>#Rules for Decomposed characters</comment>
@@ -116,3 +116,4 @@
 		</transform>
 	</transforms>
 </supplementalData>
+

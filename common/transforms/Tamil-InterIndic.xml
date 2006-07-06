@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
-<supplementalData version="1.4">
+<supplementalData>
 	<transforms>
-		<transform source="Tamil" target="InterIndic" direction="both" visibility="internal">
+		<transform source="Tamil" target="InterIndic" direction="forward" visibility="internal">
 			<comment># Tamil-InterIndic</comment>
 			<comment>#:: NFD (NFC) ;</comment>
 			<tRule>ொ→\uE04A;# VOWEL SIGN O</tRule>
@@ -74,3 +74,4 @@
 		</transform>
 	</transforms>
 </supplementalData>
+

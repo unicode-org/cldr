@@ -5961,7 +5961,7 @@ d_t_fmt  "%a %e %b %Y %H.%M.%S %Z"
 
 am_pm    "<f><m>";"<e><m>"
 
-t_fmt_ampm  ""
+t_fmt_ampm  "%I.%M.%S %p"
 
 END LC_TIME
 *************

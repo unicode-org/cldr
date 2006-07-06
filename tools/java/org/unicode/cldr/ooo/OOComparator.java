@@ -73,6 +73,8 @@ public class OOComparator
     
     private int cntDiff = 0;  //counter for conflicts
     
+    private Hashtable m_DiffsPerLocale = new Hashtable ();   //key = # conflicts, value = # of locales with this number of conflicts
+    
     /** Creates a new instance of OOComparator */
     public OOComparator()
     {
@@ -377,8 +379,7 @@ public class OOComparator
     
     private void doSingleComparison(PrintWriter writer, Vector XMLfiles, Locale locale)
     {
-        m_CurrNumFiles = XMLfiles.size();
-        
+        m_CurrNumFiles = XMLfiles.size();       
         m_TotalNumLocales++;
         
         String loc = localeToString(locale);
@@ -441,10 +442,12 @@ public class OOComparator
         Iterator it = col.iterator ();
         while (it.hasNext ())
         {
+            int diffs_before = cntDiff;
             LocaleFiles lf = (LocaleFiles) it.next ();
             doSingleComparison(writer, (Vector) lf.m_files, (Locale) lf.m_locale);
-            
+            printSummaryPart1 (cntDiff-diffs_before, m_TotalNumLocales, lf.m_locale);
         }
+        printSummaryPart2();
         
     }
     
@@ -1480,6 +1483,64 @@ public class OOComparator
         return loc;
     }
     
+    private void printSummaryPart1 (int diffs, int counter, Locale locale)
+    {
+        //print summary of conflicts to summary.txt
+        try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter("summary.txt",true));
+            out.write (Integer.toString(counter) + "  " + localeToString(locale) + "  Conflicts = " + Integer.toString(diffs) + "\n");
+            out.close();
+        }
+        catch (IOException e)
+        {
+        }   
+        
+        //count locales with 0,1, 2 etc conflicts
+        Integer key = new Integer(diffs);
+    //    Integer value = new Integer (1);
+        if (m_DiffsPerLocale.get(key) != null)
+        {
+            //increment the value already in table
+           Integer val = (Integer) m_DiffsPerLocale.get(key);
+           m_DiffsPerLocale.remove (key);
+           int v = val.intValue();
+           m_DiffsPerLocale.put (key, new Integer (++v));
+        }
+        else
+            m_DiffsPerLocale.put (key, new Integer (1));
+        
+    }
+    
+    private void printSummaryPart2 ()
+    {
+        //print summary of conflicts to summary.txt
+        try
+        {
+            int total_locales = 0;
+            int total_conflicts = 0;
+            BufferedWriter out = new BufferedWriter(new FileWriter("summary.txt",true));
+            out.write ("\n\n# Conflicts" + "  # Locales\n");
+            Enumeration en = m_DiffsPerLocale.keys();
+            while (en.hasMoreElements()) 
+            {
+                Integer num_conflicts = (Integer) en.nextElement();
+                Integer num_locales = (Integer) m_DiffsPerLocale.get(num_conflicts);
+                out.write ("  " + num_conflicts.toString() + "          " + num_locales.toString() + "\n");   
+                total_conflicts += num_conflicts.intValue() * num_locales.intValue();
+                total_locales += num_locales.intValue();
+            }
+            out.write ("\nTOTAL CONFLICTS = " + Integer.toString(total_conflicts) );
+            out.write ("\nTOTAL LOCALES   = " + Integer.toString(total_locales) );
+            out.write ("\nCreated on: " + cal.getTime());
+            out.write ("\n===================================================\n");
+            out.close();
+        }
+        catch (IOException e)
+        {
+        }       
+    }
+    
     protected class XMLFileFilter implements FileFilter
     {
         // Accept a file if its name ends in .xml.  However, it does not validate
@@ -1493,4 +1554,5 @@ public class OOComparator
             return accepted;
         }
     }
+    
 }

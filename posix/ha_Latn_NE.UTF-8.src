@@ -5,7 +5,7 @@ escape_char /
 * POSIX Locale                                                                                  *
 * Generated automatically from the Unicode Character Database and Common Locale Data Repository *
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
-* Locale Name : ku_TR   Codeset : UTF-8
+* Locale Name : ha_Latn_NE   Codeset : UTF-8
 *************************************************************************************************
 
 *************
@@ -1050,7 +1050,8 @@ alpha	<LATIN_LETTER_TWO_WITH_STROKE>;/
 	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z_WITH_CARON>;/
 	<LATIN_CAPITAL_LETTER_L_WITH_SMALL_LETTER_J>;/
 	<LATIN_CAPITAL_LETTER_N_WITH_SMALL_LETTER_J>;/
-	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>
+	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>;/
+	<MODIFIER_LETTER_APOSTROPHE>
 
 space	<tab>;/
 	<newline>;/
@@ -1678,6 +1679,7 @@ graph	<EXCLAMATION_MARK>;/
 	<MODIFIER_LETTER_SMALL_CAPITAL_INVERTED_R>;/
 	<MODIFIER_LETTER_SMALL_W>;/
 	<MODIFIER_LETTER_SMALL_Y>;/
+	<MODIFIER_LETTER_APOSTROPHE>;/
 	<MODIFIER_LETTER_SMALL_GAMMA>;/
 	<MODIFIER_LETTER_SMALL_L>;/
 	<MODIFIER_LETTER_SMALL_S>;/
@@ -2759,6 +2761,7 @@ print	<space>;/
 	<MODIFIER_LETTER_SMALL_CAPITAL_INVERTED_R>;/
 	<MODIFIER_LETTER_SMALL_W>;/
 	<MODIFIER_LETTER_SMALL_Y>;/
+	<MODIFIER_LETTER_APOSTROPHE>;/
 	<MODIFIER_LETTER_SMALL_GAMMA>;/
 	<MODIFIER_LETTER_SMALL_L>;/
 	<MODIFIER_LETTER_SMALL_S>;/
@@ -5834,6 +5837,7 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_TONE_SIX>                          <X5B88>;<X0005>;<X008F>;IGNORE
 <LATIN_LETTER_GLOTTAL_STOP>                              <X5B8A>;<X0005>;<X0005>;IGNORE
 <LATIN_CAPITAL_LETTER_GLOTTAL_STOP>                      <X5B8A>;<X0005>;<X008F>;IGNORE
+<MODIFIER_LETTER_APOSTROPHE>                             <X5B8E>;<X0005>;<X0005>;IGNORE
 <LATIN_SMALL_LETTER_N_PRECEDED_BY_APOSTROPHE>            "<X5B8E><X4200>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_LETTER_PHARYNGEAL_VOICED_FRICATIVE>               <X5B94>;<X0005>;<X0005>;IGNORE
 <MODIFIER_LETTER_SMALL_REVERSED_GLOTTAL_STOP>            <X5B94>;<X0005>;<X0027>;IGNORE
@@ -5872,15 +5876,15 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<T><R><Y><space>"
-currency_symbol       "<T><R><Y>"
+int_curr_symbol       "<X><O><F><space>"
+currency_symbol       "<C><F><A>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
-int_frac_digits       2
-frac_digits           2
+int_frac_digits       0
+frac_digits           0
 p_cs_precedes         1
 p_sep_by_space        1
 n_cs_precedes         1
@@ -5901,47 +5905,47 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<y><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
-        "<d><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
-        "<s><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
-        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
-        "<p><LATIN_SMALL_LETTER_S_WITH_CEDILLA>";/
-        "<LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><n>";/
-        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA>"
+abday   "<L><a><h>";/
+        "<L><i><t>";/
+        "<T><a><l>";/
+        "<L><a><r>";/
+        "<A><l><h>";/
+        "<J><u><m>";/
+        "<A><s><a>"
 
-day     "<y><e><k><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
-        "<d><u><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
-        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA><LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX>";/
-        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><a><r><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
-        "<p><LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX><n><c><LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m>";/
-        "<LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><n>";/
-        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA><e><m><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX>"
+day     "<L><a><h><a><d><i>";/
+        "<L><i><t><t><i><n><i><n>";/
+        "<T><a><l><a><t><a>";/
+        "<L><a><r><a><b><a>";/
+        "<A><l><h><a><m><i><s>";/
+        "<J><u><m><m><a><APOSTROPHE><a>";/
+        "<A><s><a><b><a><r>"
 
-abmon   "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><i><l>";/
-        "<s><i><b>";/
-        "<a><d><r>";/
-        "<n><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><s>";/
-        "<g><u><l>";/
-        "<h><e><z>";/
-        "<t><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><r>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+abmon   "<J><a><n>";/
+        "<F><a><b>";/
+        "<M><a><r>";/
+        "<A><f><r>";/
+        "<M><a><y>";/
+        "<Y><u><n>";/
+        "<Y><u><l>";/
+        "<A><g><u>";/
+        "<S><a><t>";/
+        "<O><k><t>";/
+        "<N><u><w>";/
+        "<D><i><s>"
 
-mon     "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><i><l><e>";/
-        "<s><i><b><a><t>";/
-        "<a><d><a><r>";/
-        "<n><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><s><a><n>";/
-        "<g><u><l><a><n>";/
-        "<h><e><z><LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX><r><a><n>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+mon     "<J><a><n><a><i><r><u>";/
+        "<F><a><b><r><a><i><r><u>";/
+        "<M><a><r><i><s>";/
+        "<A><f><r><i><l><u>";/
+        "<M><a><y><u>";/
+        "<Y><u><n><i>";/
+        "<Y><u><l><i>";/
+        "<A><g><u><s><t><a>";/
+        "<S><a><t><u><m><b><a>";/
+        "<O><k><t><o><b><a>";/
+        "<N><u><w><a><m><b><a>";/
+        "<D><i><s><a><m><b><a>"
 
 d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
 
@@ -5949,7 +5953,7 @@ t_fmt    "%H:%M:%S"
 
 d_t_fmt  "%Y %B %e %H:%M:%S %Z"
 
-am_pm    "<B><N>";"<P><N>"
+am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
@@ -5958,13 +5962,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "er<LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX>:e:ER<LATIN_CAPITAL_LETTER_E_WITH_CIRCUMFLEX>:E:yes:y:YES:Y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "na:n:NA:N:no:n:NO:N"
+nostr    "no:n:NO:N"
 
-yesexpr  "^(([eE]([rR][<LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX><LATIN_CAPITAL_LETTER_E_WITH_CIRCUMFLEX>])?)|([yY]([eE][sS])?))"
+yesexpr  "^(([yY]([eE][sS])?))"
 
-noexpr   "^(([nN]([aA])?)|([nN]([oO])?))"
+noexpr   "^(([nN]([oO])?))"
 
 
 END LC_MESSAGES

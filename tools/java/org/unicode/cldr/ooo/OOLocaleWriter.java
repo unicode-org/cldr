@@ -16,11 +16,13 @@ import java.util.*;
 public class OOLocaleWriter extends XMLWriter
 {
     private Hashtable m_Aliases;
+    private boolean m_bTemplate = false;   //if true then write template OO.o locale from CLDR
     
     /** Creates a new instance of OOLocaleWriter */
-    public OOLocaleWriter(PrintStream out)
+    public OOLocaleWriter(PrintStream out, boolean bTemplate)
     {
         super(out);
+        m_bTemplate = bTemplate;    
     }
     
     public OOLocaleWriter(PrintStream out, PrintStream err)
@@ -52,11 +54,11 @@ public class OOLocaleWriter extends XMLWriter
         if (str != null)
             localeStrBuff.append(" " + OOConstants.VERSION_DTD + "=\"" + str + "\"");
         
-        str = (String) localeInfo.get(OOConstants.ALLOW_UPDATE_FROM_CLDR);
+        str = m_bTemplate==false ? (String) localeInfo.get(OOConstants.ALLOW_UPDATE_FROM_CLDR) : OOConstants.YES_NO;
         if (str != null)
             localeStrBuff.append(" " + OOConstants.ALLOW_UPDATE_FROM_CLDR + "=\"" + str + "\"");
         
-        str = (String) localeInfo.get(OOConstants.VERSION);
+        str = m_bTemplate==false ? (String) localeInfo.get(OOConstants.VERSION) : OOConstants.NO_DATA;
         if (str != null)
             localeStrBuff.append(" " + OOConstants.VERSION + "=\"" + str + "\"");
         
@@ -108,11 +110,8 @@ public class OOLocaleWriter extends XMLWriter
         String langID = (String) data.get(OOConstants.LANG_ID);
         println("<" + OOConstants.LANG_ID + ">" + langID + "</" + OOConstants.LANG_ID + ">");
         
-        String language = (String) data.get(OOConstants.LANGUAGE);
-        if ((language != null) && (language.length()>0))
-        {
-            println("<" + OOConstants.DEFAULT_NAME + ">" + language + "</" + OOConstants.DEFAULT_NAME + ">");
-        }
+        String language = m_bTemplate==false ? (String) data.get(OOConstants.LANGUAGE) : OOConstants.NO_DATA;
+        if (language != null) println("<" + OOConstants.DEFAULT_NAME + ">" + language + "</" + OOConstants.DEFAULT_NAME + ">");
         outdent();
         println("</" + OOConstants.LANGUAGE + ">");
         
@@ -125,35 +124,30 @@ public class OOLocaleWriter extends XMLWriter
         if (countryID != null)
             println("<" + OOConstants.COUNTRY_ID + ">" + countryID + "</" + OOConstants.COUNTRY_ID + ">");
         else
-            println("<" + OOConstants.COUNTRY_ID + "/>");  //mandatory element in OO locale.dtd
+            println("<" + OOConstants.COUNTRY_ID + "/>");  //mandatory element in OO locale.dtd but some locales have no country like ia.xml
         
-        String country = (String) data.get(OOConstants.COUNTRY);
-        if ((country != null) && (country.length()>0))
-            println("<" + OOConstants.DEFAULT_NAME + ">" + country + "</" + OOConstants.DEFAULT_NAME + ">");
-        else
-            println("<" + OOConstants.DEFAULT_NAME + "/>");   //mandatory element in OO locale.dtd
-        
+        String country = m_bTemplate==false ? (String) data.get(OOConstants.COUNTRY) : OOConstants.NO_DATA;
+        if (country != null) 
+            println("<" + OOConstants.DEFAULT_NAME + ">" + country + "</" + OOConstants.DEFAULT_NAME + ">");    
+       else
+            println("<" + OOConstants.DEFAULT_NAME + "/>");  //mandatory element in OO locale.dtd but some locales have no country like ia.xml
         outdent();
         println("</" + OOConstants.COUNTRY + ">");
         
         // Platform
-        String platformID = (String) data.get(OOConstants.PLATFORM_ID);
+        String platformID = m_bTemplate==false ? (String) data.get(OOConstants.PLATFORM_ID) : OOConstants.NO_DATA;
         if (platformID != null)
         {
             println("<" + OOConstants.PLATFORM + ">");
             indent();
-            
             println("<" + OOConstants.PLATFORM_ID + ">" + platformID + "</" + OOConstants.PLATFORM_ID + ">");
-            
             outdent();
             println("</" + OOConstants.PLATFORM + ">");
         }
         
         // Variant
-        String variant = (String) data.get(OOConstants.VARIANT);
-        if (variant != null)
-            println("<" + OOConstants.VARIANT + ">" + variant + "</" + OOConstants.VARIANT + ">");
-        
+        String variant = m_bTemplate==false ? (String) data.get(OOConstants.VARIANT) : OOConstants.NO_DATA;
+        if (variant != null) println("<" + OOConstants.VARIANT + ">" + variant + "</" + OOConstants.VARIANT + ">");
         outdent();
         println("</" + OOConstants.LC_INFO + ">");
     }
@@ -180,14 +174,14 @@ public class OOLocaleWriter extends XMLWriter
             indent();
             
             //if data not present then print <element/> as these are mandatory in Oo locale.dtd
-            String dateSeparator = (String) Separators.get(OOConstants.DATE_SEPARATOR);
+            String dateSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.DATE_SEPARATOR) : OOConstants.NO_DATA;
             if ((dateSeparator != null) && (dateSeparator.length()>0))
                 println("<" + OOConstants.DATE_SEPARATOR + ">" + dateSeparator + "</" + OOConstants.DATE_SEPARATOR + ">");
             else
                 println("<" + OOConstants.DATE_SEPARATOR + "/>");
             
             String thousandSeparator = (String) Separators.get(OOConstants.THOUSAND_SEPARATOR);
-            if ((thousandSeparator != null) && (thousandSeparator.length()>0))
+             if ((thousandSeparator != null) && (thousandSeparator.length()>0))
                 println("<" + OOConstants.THOUSAND_SEPARATOR + ">" + thousandSeparator + "</" + OOConstants.THOUSAND_SEPARATOR + ">");
             else
                 println("<" + OOConstants.THOUSAND_SEPARATOR + "/>");
@@ -198,13 +192,13 @@ public class OOLocaleWriter extends XMLWriter
             else
                 println("<" + OOConstants.DECIMAL_SEPARATOR + "/>");
             
-            String timeSeparator = (String) Separators.get(OOConstants.TIME_SEPARATOR);
+            String timeSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.TIME_SEPARATOR) : OOConstants.NO_DATA;
             if ((timeSeparator != null) && (timeSeparator.length()>0))
                 println("<" + OOConstants.TIME_SEPARATOR + ">" + timeSeparator + "</" + OOConstants.TIME_SEPARATOR + ">");
             else
                 println("<" + OOConstants.TIME_SEPARATOR + "/>");
             
-            String time100SecSeparator = (String) Separators.get(OOConstants.TIME_100SEC_SEPARATOR);
+            String time100SecSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.TIME_100SEC_SEPARATOR) : OOConstants.NO_DATA;
             if ((time100SecSeparator != null) && (time100SecSeparator.length()>0))
                 println("<" + OOConstants.TIME_100SEC_SEPARATOR + ">" + time100SecSeparator + "</" + OOConstants.TIME_100SEC_SEPARATOR + ">");
             else
@@ -216,25 +210,25 @@ public class OOLocaleWriter extends XMLWriter
             else
                 println("<" + OOConstants.LIST_SEPARATOR + "/>");
             
-            String longDateDayOfWeekSeparator = (String) Separators.get(OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR);
+            String longDateDayOfWeekSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR) : OOConstants.NO_DATA;
             if ((longDateDayOfWeekSeparator != null) && (longDateDayOfWeekSeparator.length()>0))
                 println("<" + OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">" + longDateDayOfWeekSeparator + "</" + OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + ">");
             else
                 println("<" + OOConstants.LONG_DATE_DAY_OF_WEEK_SEPARATOR + "/>");
             
-            String longDateDaySeparator = (String) Separators.get(OOConstants.LONG_DATE_DAY_SEPARATOR);
+            String longDateDaySeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.LONG_DATE_DAY_SEPARATOR) : OOConstants.NO_DATA;
             if ((longDateDaySeparator != null) && (longDateDaySeparator.length()>0))
                 println("<" + OOConstants.LONG_DATE_DAY_SEPARATOR + ">" + longDateDaySeparator + "</" + OOConstants.LONG_DATE_DAY_SEPARATOR + ">");
             else
                 println("<" + OOConstants.LONG_DATE_DAY_SEPARATOR + "/>");
             
-            String longDateMonthSeparator = (String) Separators.get(OOConstants.LONG_DATE_MONTH_SEPARATOR);
+            String longDateMonthSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.LONG_DATE_MONTH_SEPARATOR) : OOConstants.NO_DATA;
             if ((longDateMonthSeparator != null) && (longDateMonthSeparator.length()>0))
                 println("<" + OOConstants.LONG_DATE_MONTH_SEPARATOR + ">" + longDateMonthSeparator + "</" + OOConstants.LONG_DATE_MONTH_SEPARATOR + ">");
             else
                 println("<" + OOConstants.LONG_DATE_MONTH_SEPARATOR + "/>");
             
-            String longDateYearSeparator = (String) Separators.get(OOConstants.LONG_DATE_YEAR_SEPARATOR);
+            String longDateYearSeparator = m_bTemplate==false ? (String) Separators.get(OOConstants.LONG_DATE_YEAR_SEPARATOR) : OOConstants.NO_DATA;
             if ((longDateYearSeparator != null) && (longDateYearSeparator.length()>0))
                 println("<" + OOConstants.LONG_DATE_YEAR_SEPARATOR + ">" + longDateYearSeparator + "</" + OOConstants.LONG_DATE_YEAR_SEPARATOR + ">");
             else
@@ -254,12 +248,15 @@ public class OOLocaleWriter extends XMLWriter
             String quotationStart = (String) Markers.get(OOConstants.QUOTATION_START);
             if ((quotationStart != null) && (quotationStart.length()>0))
                 println("<" + OOConstants.QUOTATION_START + ">" + quotationStart + "</" + OOConstants.QUOTATION_START + ">");
+
             String quotationEnd = (String) Markers.get(OOConstants.QUOTATION_END);
             if ((quotationEnd != null) && (quotationEnd.length()>0))
                 println("<" + OOConstants.QUOTATION_END + ">" + quotationEnd + "</" + OOConstants.QUOTATION_END + ">");
+            
             String doubleQuotationStart = (String) Markers.get(OOConstants.DOUBLE_QUOTATION_START);
             if ((doubleQuotationStart != null) && (doubleQuotationStart.length()>0))
                 println("<" + OOConstants.DOUBLE_QUOTATION_START + ">" + doubleQuotationStart + "</" + OOConstants.DOUBLE_QUOTATION_START + ">");
+            
             String doubleQuotationEnd = (String) Markers.get(OOConstants.DOUBLE_QUOTATION_END);
             if ((doubleQuotationEnd != null) && (doubleQuotationEnd.length()>0))
                 println("<" + OOConstants.DOUBLE_QUOTATION_END + ">" + doubleQuotationEnd + "</" + OOConstants.DOUBLE_QUOTATION_END + ">");
@@ -637,7 +634,7 @@ public class OOLocaleWriter extends XMLWriter
                     {
                         // Print out data relevant to this calendar. e.g. gregorian.
                         StringBuffer calTag = new StringBuffer("<" + OOConstants.CALENDAR + " " + OOConstants.UNOID + "=\"" + calendarType + "\"");
-                        if ((defaultCal != null) && (defaultCal.compareTo(calendarType)==0))
+                        if (defaultCal != null && defaultCal.compareTo(calendarType)==0)
                             calTag.append(" " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE + "\"");
                         else
                             calTag.append(" " + OOConstants.DEFAULT + "=\"" + OOConstants.FALSE + "\"");
@@ -987,50 +984,74 @@ public class OOLocaleWriter extends XMLWriter
         println("<" + OOConstants.LC_CURRENCY + ">");
         indent();
         
-        //just write back the OOO codes, 
-        // but for default currency take the display name and symbol from cldr and decimal places from supplemental
-        for (int i=0; i < currencyData_ooo.size(); i++)
-        {
-            //inner_ooo order : CurrencyID,symbol,code,name, blank ,default, usedInCompatibleFormatCode, legacyOnly (if defined)
-            Vector inner_ooo = (Vector) currencyData_ooo.elementAt(i);
-            String code = (String)inner_ooo.elementAt(2);
-            String deflt = (String)inner_ooo.elementAt(5);
-            String symbol = (String)inner_ooo.elementAt(1);
-            String name = (String)inner_ooo.elementAt(3);
-   //         System.err.println ("Writer id="+(String)inner_ooo.elementAt(0) + " symbol="+ symbol + " code=" + code + " name="+ name + " blank=" + (String)inner_ooo.elementAt(4) + "deflt=" + deflt + "uicfc="+(String)inner_ooo.elementAt(6));
+        if (m_bTemplate == true)
+        {   //just write out the CLDR default currency, in pos=0 of Vector
+            Vector inner_cldr = (Vector) currencyData_cldr.elementAt(0);
+            String code = (String)inner_cldr.elementAt(2);
+            String symbol = (String)inner_cldr.elementAt(1);
+            String name = (String)inner_cldr.elementAt(3);
+            String def = " " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE + "\"";
+            String uicfc = " " + OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL + "=\"" + OOConstants.TRUE_FALSE + "\"";
             
-            if ((deflt.equals (OOConstants.TRUE))    //use CLDR's symbol and displayName for default currency only
-            && (bRoundTrip == false))
-            { 
-                for (int j=0; j < currencyData_cldr.size(); j++)
-                {  //inner_cldr order : blank ,symbol,code,name, 
-                    Vector inner_cldr = (Vector) currencyData_cldr.elementAt(j);
-                    if (inner_cldr.elementAt(2).equals(code))
-                    {
-                        symbol = (String) inner_cldr.elementAt(1);
-                        symbol = extractSymbolFromChoice (symbol); //deal with choice pattern if any
-                        name = (String)inner_cldr.elementAt(3);
-                        break;
-                    }
-                }
-            }
-
-            String def = " " + OOConstants.DEFAULT + "=\"" + deflt + "\"";
-            String uicfc = " " + OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL + "=\"" + (String)inner_ooo.elementAt(6) + "\"";
-            String legacy ="";
-            if (inner_ooo.size()>7) legacy = " " + OOConstants.LEGACY_ONLY + "=\"" + (String)inner_ooo.elementAt(7) + "\"";
-            println("<" + OOConstants.CURRENCY + def + uicfc + legacy + ">");
+            println("<" + OOConstants.CURRENCY + def + uicfc + ">");
             indent();
-            println("<" + OOConstants.CURRENCY_ID  + ">" + (String)inner_ooo.elementAt(0) + "</" + OOConstants.CURRENCY_ID  + ">");
+            println("<" + OOConstants.CURRENCY_ID  + ">" + code + "</" + OOConstants.CURRENCY_ID  + ">");
             println("<" + OOConstants.CURRENCY_SYMBOL  + ">" + symbol + "</" + OOConstants.CURRENCY_SYMBOL  + ">");
-            println("<" + OOConstants.BANK_SYMBOL  + ">" + code + "</" + OOConstants.BANK_SYMBOL  + ">"); 
+            println("<" + OOConstants.BANK_SYMBOL  + ">" + code + "</" + OOConstants.BANK_SYMBOL  + ">");
             println("<" + OOConstants.CURRENCY_NAME  + ">" + name + "</" + OOConstants.CURRENCY_NAME  + ">");
-               
-            //take decimal places from supplementalData.xml for all OO.o currencies
-            String digits = Integer.toString (suppData.getDigits(code));
-            println("<" + OOConstants.DECIMAL_PLACES  + ">" + digits + "</" + OOConstants.DECIMAL_PLACES  + ">");  
+            String digits = Integer.toString(suppData.getDigits(code));
+            println("<" + OOConstants.DECIMAL_PLACES  + ">" + digits + "</" + OOConstants.DECIMAL_PLACES  + ">");
             outdent();
             println("</" + OOConstants.CURRENCY + ">");
+            
+        }
+        else
+        {
+            //just write back the OOO codes,
+            // but for default currency take the display name and symbol from cldr and decimal places from supplemental
+            for (int i=0; i < currencyData_ooo.size(); i++)
+            {
+                //inner_ooo order : CurrencyID,symbol,code,name, blank ,default, usedInCompatibleFormatCode, legacyOnly (if defined)
+                Vector inner_ooo = (Vector) currencyData_ooo.elementAt(i);
+                String code = (String)inner_ooo.elementAt(2);
+                String deflt = (String)inner_ooo.elementAt(5);
+                String symbol = (String)inner_ooo.elementAt(1);
+                String name = (String)inner_ooo.elementAt(3);
+                //         System.err.println ("Writer id="+(String)inner_ooo.elementAt(0) + " symbol="+ symbol + " code=" + code + " name="+ name + " blank=" + (String)inner_ooo.elementAt(4) + "deflt=" + deflt + "uicfc="+(String)inner_ooo.elementAt(6));
+                
+                if ((deflt.equals(OOConstants.TRUE))    //use CLDR's symbol and displayName for default currency only
+                && (bRoundTrip == false))
+                {
+                    for (int j=0; j < currencyData_cldr.size(); j++)
+                    {  //inner_cldr order : blank ,symbol,code,name,
+                        Vector inner_cldr = (Vector) currencyData_cldr.elementAt(j);
+                        if (inner_cldr.elementAt(2).equals(code))
+                        {
+                            symbol = (String) inner_cldr.elementAt(1);
+                            symbol = extractSymbolFromChoice(symbol); //deal with choice pattern if any
+                            name = (String)inner_cldr.elementAt(3);
+                            break;
+                        }
+                    }
+                }
+                
+                String def = " " + OOConstants.DEFAULT + "=\"" + deflt + "\"";
+                String uicfc = " " + OOConstants.USED_IN_COMPARTIBLE_FORMATCODES_SMALL + "=\"" + (String)inner_ooo.elementAt(6) + "\"";
+                String legacy ="";
+                if (inner_ooo.size()>7) legacy = " " + OOConstants.LEGACY_ONLY + "=\"" + (String)inner_ooo.elementAt(7) + "\"";
+                println("<" + OOConstants.CURRENCY + def + uicfc + legacy + ">");
+                indent();
+                println("<" + OOConstants.CURRENCY_ID  + ">" + (String)inner_ooo.elementAt(0) + "</" + OOConstants.CURRENCY_ID  + ">");
+                println("<" + OOConstants.CURRENCY_SYMBOL  + ">" + symbol + "</" + OOConstants.CURRENCY_SYMBOL  + ">");
+                println("<" + OOConstants.BANK_SYMBOL  + ">" + code + "</" + OOConstants.BANK_SYMBOL  + ">");
+                println("<" + OOConstants.CURRENCY_NAME  + ">" + name + "</" + OOConstants.CURRENCY_NAME  + ">");
+                
+                //take decimal places from supplementalData.xml for all OO.o currencies
+                String digits = Integer.toString(suppData.getDigits(code));
+                println("<" + OOConstants.DECIMAL_PLACES  + ">" + digits + "</" + OOConstants.DECIMAL_PLACES  + ">");
+                outdent();
+                println("</" + OOConstants.CURRENCY + ">");
+            }
         }
         
         outdent();
@@ -1078,21 +1099,21 @@ public class OOLocaleWriter extends XMLWriter
             String forbiddenLineBeg = (String) data.get(OOConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS);
             String forbiddenLineEnd = (String) data.get(OOConstants.FORBIDDEN_LINE_END_CHARACTERS);
             
-            if (((forbiddenLineBeg != null) && (forbiddenLineBeg.length()>0)) || ((forbiddenLineEnd != null) && (forbiddenLineEnd.length()>0)))
+            if (((forbiddenLineBeg != null) && (forbiddenLineBeg.length()>0)) || ((forbiddenLineEnd != null) && (forbiddenLineEnd.length()>0)) || (m_bTemplate==true))
             {
                 println("<" + OOConstants.FORBIDDEN_CHARACTERS + ">");
                 indent();
                 
-                if ((forbiddenLineBeg != null) && (forbiddenLineBeg.length()>0))
-                {
-                    forbiddenLineBeg = escapeXML(forbiddenLineBeg);
-                    println("<" + OOConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS + ">" + forbiddenLineBeg + "</" + OOConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS + ">");
-                }
-                if ((forbiddenLineEnd != null) && (forbiddenLineEnd.length()>0))
-                {
-                    forbiddenLineEnd = escapeXML(forbiddenLineEnd);
-                    println("<" + OOConstants.FORBIDDEN_LINE_END_CHARACTERS + ">" + forbiddenLineEnd + "</" + OOConstants.FORBIDDEN_LINE_END_CHARACTERS + ">");
-                }
+          //      if ((forbiddenLineBeg != null) && (forbiddenLineBeg.length()>0))
+         //       {
+                    String flb = m_bTemplate==false ? escapeXML(forbiddenLineBeg) : OOConstants.NO_DATA_Q;
+                    if (flb!=null && flb.length()>0) println("<" + OOConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS + ">" + flb + "</" + OOConstants.FORBIDDEN_LINE_BEGIN_CHARACTERS + ">");
+          //      }
+         //       if ((forbiddenLineEnd != null) && (forbiddenLineEnd.length()>0))
+         //       {
+                    String fle = m_bTemplate==false ? escapeXML(forbiddenLineEnd) : OOConstants.NO_DATA_Q;
+                    if (fle!=null && fle.length()>0) println("<" + OOConstants.FORBIDDEN_LINE_END_CHARACTERS + ">" + fle + "</" + OOConstants.FORBIDDEN_LINE_END_CHARACTERS + ">");
+          //      }
                 
                 outdent();
                 println("</" + OOConstants.FORBIDDEN_CHARACTERS + ">");
@@ -1129,6 +1150,8 @@ public class OOLocaleWriter extends XMLWriter
     private void writeReservedWord(Hashtable reservedWords, String ooKey)
     {
         String reservedWord = (String) reservedWords.get(ooKey);
+        if (reservedWord == null && m_bTemplate == true)
+            reservedWord = OOConstants.NO_DATA;
         if ((reservedWord != null) && (reservedWord.length()>0))
             println("<" + ooKey + ">" + reservedWord + "</" + ooKey + ">");
     }
@@ -1270,5 +1293,185 @@ public class OOLocaleWriter extends XMLWriter
             }
         }
         return currString;
+    }
+    
+    protected String getDataString (Hashtable data, String id, boolean bTemplate, boolean bMandatory)
+    {
+        String str = (String) data.get(id);
+        if (bTemplate == true)
+            str = OOConstants.NO_DATA;
+         
+        if (str==null && bMandatory==true)
+           str = "";
+ 
+       return str;
+    }
+    
+    public void writeLC_FORMAT_template ()
+    {
+        println("<" + OOConstants.LC_FORMAT + " " + OOConstants.REPLACE_FROM_SMALL + "=\"" + OOConstants.NO_DATA + "\" " + OOConstants.REPLACE_TO_SMALL + "=\"" + OOConstants.NO_DATA  + "\">");
+        indent();
+
+        for (int i=0; i <= 47; i++)
+        {
+            if (i==10 || i==11)  //10,11,48,49 reserved according to locale.dtd
+                continue;
+            
+            String msgid = "";
+            String usage = "";
+            int start = 0;
+            if (i <=5)  //it's FIXED
+            {
+                start = 0;
+                msgid = "Fixed";
+                usage = OOConstants.FEU_FIXED_NUMBER;
+            }
+            else if (i >=6 && i <=7 )  //it's SCIENTIFIC
+            {
+                start = 6;
+                msgid = "Scientific";
+                usage = OOConstants.FEU_SCIENTIFIC_NUMBER;
+            }
+            else if (i >=8 && i <=9 )  //it's PERCENT
+            {
+                start = 8;
+                msgid = "Percent";
+                usage = OOConstants.FEU_PERCENT_NUMBER;
+            }
+            else if (i >=12 && i <=17 )  //it's CURRENCY
+            {
+                start = 12;
+                msgid = "Currency";
+                usage = OOConstants.FEU_CURRENCY;
+            }
+            else if (i >=18 && i <=38 )  //it's DATE (typically)
+            {
+                start = 18;
+                msgid = "Date";
+                usage = OOConstants.FEU_DATE;
+            }
+            else if (i >=39 && i <=45 )  //it's TIME (typically)
+            {
+                start = 39;
+                msgid = "Time";
+                usage = OOConstants.FEU_TIME;
+            }
+            else if (i >=46 && i <=47 )  //it's SCIENTIFIC
+            {
+                start = 46;
+                msgid = "DateTime";
+                usage = OOConstants.FEU_DATE_TIME;
+            }
+            if (msgid.equals("Date"))  //these are not in order , all others seem to be
+                msgid = msgid + "Formatskey" + "1-21";
+            else
+                msgid = msgid + "Formatskey" + Integer.toString(i-start +1);
+            
+            String fi = Integer.toString (i);
+            
+            println ("<" + OOConstants.FORMAT_ELEMENT + " " + OOConstants.MSGID + "=\"" + msgid + "\"" +
+               " " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE_FALSE + "\"" +     
+               " " + OOConstants.TYPE + "=\"" + OOConstants.LONG_MEDIUM_SHORT + "\"" +
+               " " + OOConstants.USAGE + "=\"" + usage + "\"" +
+               " " + OOConstants.FORMAT_INDEX + "=\"" + fi + "\">");
+            indent ();
+            println("<" + OOConstants.FORMAT_CODE + ">" + OOConstants.NO_DATA + "</" + OOConstants.FORMAT_CODE + ">");
+            println("<" + OOConstants.DEFAULT_NAME + ">" + OOConstants.NO_DATA_Q + "</" + OOConstants.DEFAULT_NAME + ">");
+            outdent();
+            println("</" + OOConstants.FORMAT_ELEMENT + ">");
+        }
+        println("</" + OOConstants.LC_FORMAT + ">");
+    }
+    
+    public void writeLC_COLLATION_template ()
+    {
+        println("<" + OOConstants.LC_COLLATION + ">");
+        indent ();
+        println("<" + OOConstants.COLLATOR + " " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE_FALSE + "\" " + OOConstants.UNOID + "=\"" + OOConstants.NO_DATA + "\"/>");
+        println("<" + OOConstants.COLLATION_OPTIONS + ">");
+        indent ();
+        println("<" + OOConstants.TRANSLITERATION_MODULES + ">" + OOConstants.NO_DATA + "</" + OOConstants.TRANSLITERATION_MODULES + ">");
+        outdent ();
+        println("</" + OOConstants.COLLATION_OPTIONS + ">");
+        outdent ();
+        println("</" + OOConstants.LC_COLLATION + ">");
+    }
+    
+   public void  writeLC_SEARCH_template ()
+   {
+       println("<" + OOConstants.LC_SEARCH + ">");
+       indent();
+       println("<" + OOConstants.SEARCH_OPTIONS + ">");
+       indent();
+       println("<" + OOConstants.TRANSLITERATION_MODULES + ">" + OOConstants.NO_DATA + "</" + OOConstants.TRANSLITERATION_MODULES + ">");
+       outdent();
+       println("</" + OOConstants.SEARCH_OPTIONS + ">");
+       outdent();
+       println("</" + OOConstants.LC_SEARCH + ">");
+   }
+      
+   
+    public void writeLC_INDEX_template ()
+    {
+        println("<" + OOConstants.LC_INDEX + ">");
+        indent ();
+        println("<" + OOConstants.INDEX_KEY + " " + OOConstants.DEFAULT + "=\"" + OOConstants.TRUE_FALSE + "\" " + 
+                OOConstants.PHONETIC + "=\"" + OOConstants.TRUE_FALSE + "\" " + OOConstants.UNOID + "=\"" + OOConstants.NO_DATA + "\">" +
+                OOConstants.NO_DATA + "</" + OOConstants.INDEX_KEY + ">");
+        for (int i=0; i<2; i++)  //usually but not always have 2
+            println("<" + OOConstants.UNICODE_SCRIPT + ">" + OOConstants.NO_DATA + "</" + OOConstants.UNICODE_SCRIPT + ">");
+        for (int i=0; i<2; i++)  //pretty much always have 8
+            println("<" + OOConstants.FOLLOW_PAGE_WORD + ">" + OOConstants.NO_DATA + "</" + OOConstants.FOLLOW_PAGE_WORD + ">");
+        outdent();
+        println("</" + OOConstants.LC_INDEX + ">");
+    }
+    
+    public void writeLC_TRANSLITERATIONS_template ()
+    {
+        String tr = OOConstants.TRANS_UL + "|" + OOConstants.TRANS_LU + "|" + OOConstants.TRANS_IC;
+        println("<" + OOConstants.LC_TRANSLITERATION + ">");
+        indent ();
+        for (int i=0; i<3; i++)  //usually but not always have 2
+            println("<" + OOConstants.TRANSLITERATION + " " + OOConstants.UNOID + "=\"" + tr + "\"/>"); 
+        outdent(); 
+        println("</" + OOConstants.LC_TRANSLITERATION + ">");
+    }
+   
+    public void writeLC_NumberingLevel_template()
+    {
+        println("<" + OOConstants.LC_NUMBERING_LEVEL + ">");
+        indent ();
+    
+        for (int i=0; i < 8; i++)   //always 8
+            println("<" + OOConstants.NUMBERING_LEVEL + " " + OOConstants.NUM_TYPE + "=\"" + OOConstants.NO_DATA + "\" " +
+                OOConstants.PREFIX + "=\"" + OOConstants.NO_DATA + "\" " + OOConstants.SUFFIX + "=\"" + OOConstants.NO_DATA + "\"/>"); 
+        outdent();
+        println("</" + OOConstants.LC_NUMBERING_LEVEL + ">");
+    }
+    
+    public void writeLC_OutlineNumberingLevel_template()
+    {
+        println("<" + OOConstants.LC_OUTLINE_NUMBERING_LEVEL + ">");
+        indent ();
+        for (int i=0; i < 8; i++)   //always 8
+        {
+            println("<" + OOConstants.OUTLINE_STYLE + ">");
+            indent();
+            for (int j=0; j < 8; j++)   //always 8
+                println("<" + OOConstants.OUTLUNE_NUMBERING_LEVEL + " " + OOConstants.PREFIX + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.NUM_TYPE + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.SUFFIX + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.BULLET_CHAR + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.BULLET_FONT_NAME + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.PARENT_NUMBERING + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.LEFT_MARGIN + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.SYMBOL_TEXT_DISTANCE + "=\"" + OOConstants.NO_DATA + "\" " +
+                        OOConstants.FIRST_LINE_OFFSET + "=\"" + OOConstants.NO_DATA + "\"/>");
+            outdent();
+            println("</" + OOConstants.OUTLINE_STYLE + ">");
+        }
+        
+        outdent();
+        println("</" + OOConstants.LC_OUTLINE_NUMBERING_LEVEL + ">");
     }
 }

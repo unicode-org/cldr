@@ -77,7 +77,9 @@ public class LDMLToOOConverter
    
     private boolean m_bRoundTrip = false;  //false means reading some data from CLDR DB and
     //and OO stuff from OO files, true means it's all coming from the OO file
-        
+     
+    private boolean m_bTemplate = false;   //geenrate new OO.o template file with cldr data filled in
+            
     private static final int
             HELP1 = 0,
             HELP2 = 1,
@@ -87,7 +89,8 @@ public class LDMLToOOConverter
             CLDR_DIR = 5,
             SUPP_DIR = 6,
             OUT_DIR = 7,
-            SKIP_IF_NO_CLDR = 8;   //skip this locale if it doesn't exsit in CLDR, makes it easier to look at comparison charts
+            SKIP_IF_NO_CLDR = 8,   //skip this locale if it doesn't exsit in CLDR, makes it easier to look at comparison charts
+            TEMPLATE = 9;   //generate an OO.o template file with CLDR data where available and empty OO.o specific elements
     
     private static final UOption[] m_options = {
         UOption.HELP_H(),
@@ -99,6 +102,7 @@ public class LDMLToOOConverter
                 UOption.create("supp_dir", 's', UOption.REQUIRES_ARG).setDefault(null),
                 UOption.create("out_dir", 't', UOption.REQUIRES_ARG).setDefault(null),
                 UOption.create("skip_if_no_cldr", 'k', UOption.NO_ARG),
+                UOption.create("template", 'e', UOption.NO_ARG),
     };
     
     public static void main(String[] args)
@@ -304,7 +308,7 @@ public class LDMLToOOConverter
             }          
         }
         else
-        {   //read it form CLDR only i.e. 
+        {   //read it form CLDR only i.e.    do we need this ??
             reader_ooo_ldml = reader_cldr;
         }
 
@@ -314,14 +318,15 @@ public class LDMLToOOConverter
             return false;
         }
           
-        
         if (m_bRoundTrip == true)
             reader_cldr = reader_ooo_ldml;
         
         // Begin write process by creating a printstream which will output
         // text to the specified file location.
         PrintStream ps = setLocaleWriter(locale, null, out_file);
-        OOLocaleWriter writer = new OOLocaleWriter(ps);
+        
+        m_bTemplate = m_options[TEMPLATE].doesOccur ? true:false;
+        OOLocaleWriter writer = new OOLocaleWriter(ps, m_bTemplate);
         
         // set up the mapping between LDML and OpenOffice XML formats
         Hashtable aliases = new Hashtable();
@@ -384,6 +389,9 @@ public class LDMLToOOConverter
   //      if (m_cldr_ver > 1.399) 
   //          markerReader = reader_cldr;
  //       else
+        if (m_bTemplate == true)
+            markerReader = reader_cldr;
+        else
             markerReader = reader_ooo_ldml;
         
         if (markerReader.m_QuotationStart != null)
@@ -426,6 +434,10 @@ public class LDMLToOOConverter
         if (reader_ooo_ldml.m_FormatRefLocale != null)
         {
             writer.writeLC_FORMATRef(reader_ooo_ldml.m_FormatReplaceFrom, reader_ooo_ldml.m_FormatReplaceTo, reader_ooo_ldml.m_FormatRefLocale);
+        }
+        else if (m_bTemplate == true)
+        {
+            writer.writeLC_FORMAT_template ();
         }
         else
         {
@@ -482,33 +494,46 @@ public class LDMLToOOConverter
         }
         
         //###### write LC_COLLATION ######
-        data.clear();
-        if ((reader_ooo_ldml.m_Collators != null) && (reader_ooo_ldml.m_Collators.size()>0))
+        if (m_bTemplate == true)
+            writer.writeLC_COLLATION_template ();
+        else
         {
-            LDMLToOOMapper.MapCollators(reader_ooo_ldml.m_Collators);
-            data.put(OOConstants.COLLATOR, reader_ooo_ldml.m_Collators);
+            data.clear();
+            if ((reader_ooo_ldml.m_Collators != null) && (reader_ooo_ldml.m_Collators.size()>0))
+            {
+                LDMLToOOMapper.MapCollators(reader_ooo_ldml.m_Collators);
+                data.put(OOConstants.COLLATOR, reader_ooo_ldml.m_Collators);
+            }
+            if ((reader_ooo_ldml.m_CollationOptions != null) && (reader_ooo_ldml.m_CollationOptions.size()>0))
+                data.put(OOConstants.COLLATION_OPTIONS, reader_ooo_ldml.m_CollationOptions);
+            
+            writer.writeLC_COLLATION(data, reader_ooo_ldml.m_CollationRefLocale);
         }
-        if ((reader_ooo_ldml.m_CollationOptions != null) && (reader_ooo_ldml.m_CollationOptions.size()>0))
-            data.put(OOConstants.COLLATION_OPTIONS, reader_ooo_ldml.m_CollationOptions);
-        
-        writer.writeLC_COLLATION(data, reader_ooo_ldml.m_CollationRefLocale);
         
         //###### write LC_SEARCH ######
-        writer.writeLC_SEARCH(reader_ooo_ldml.m_SearchOptions, reader_ooo_ldml.m_SearchRefLocale);
+        if (m_bTemplate == true)
+            writer.writeLC_SEARCH_template ();
+        else
+            writer.writeLC_SEARCH(reader_ooo_ldml.m_SearchOptions, reader_ooo_ldml.m_SearchRefLocale);
         
         //###### write LC_INDEX ######
-        data.clear();
-        if ((reader_ooo_ldml.m_IndexKeys != null) && (reader_ooo_ldml.m_IndexKeys.size() > 0))
+        if (m_bTemplate == true)
+            writer.writeLC_INDEX_template ();
+        else
         {
-            LDMLToOOMapper.MapIndexKeys(reader_ooo_ldml.m_IndexKeys);
-            data.put(OOConstants.INDEX_KEY, reader_ooo_ldml.m_IndexKeys);
+            data.clear();
+            if ((reader_ooo_ldml.m_IndexKeys != null) && (reader_ooo_ldml.m_IndexKeys.size() > 0))
+            {
+                LDMLToOOMapper.MapIndexKeys(reader_ooo_ldml.m_IndexKeys);
+                data.put(OOConstants.INDEX_KEY, reader_ooo_ldml.m_IndexKeys);
+            }
+            if ((reader_ooo_ldml.m_IndexUnicodeScript != null) && (reader_ooo_ldml.m_IndexUnicodeScript.size() > 0))
+                data.put(OOConstants.UNICODE_SCRIPT, reader_ooo_ldml.m_IndexUnicodeScript);
+            if ((reader_ooo_ldml.m_IndexFollowPageWord != null) && (reader_ooo_ldml.m_IndexFollowPageWord.size() > 0))
+                data.put(OOConstants.FOLLOW_PAGE_WORD, reader_ooo_ldml.m_IndexFollowPageWord);
+            
+            writer.writeLC_INDEX(data, reader_ooo_ldml.m_IndexRefLocale);
         }
-        if ((reader_ooo_ldml.m_IndexUnicodeScript != null) && (reader_ooo_ldml.m_IndexUnicodeScript.size() > 0))
-            data.put(OOConstants.UNICODE_SCRIPT, reader_ooo_ldml.m_IndexUnicodeScript);
-        if ((reader_ooo_ldml.m_IndexFollowPageWord != null) && (reader_ooo_ldml.m_IndexFollowPageWord.size() > 0))
-            data.put(OOConstants.FOLLOW_PAGE_WORD, reader_ooo_ldml.m_IndexFollowPageWord);
-        
-        writer.writeLC_INDEX(data, reader_ooo_ldml.m_IndexRefLocale);
         
         //###### write LC_CALENDAR ######
         data.clear();
@@ -524,11 +549,13 @@ public class LDMLToOOConverter
         LDMLToOOMapper.MapCalendar(reader_cldr.m_CalendarTypes, outCalendarTypes, locale);
         if (outCalendarTypes.size()>0)
             data.put(OOConstants.UNOID, outCalendarTypes);
+        
         //use the OO.o for default calendar , it's always gregorian anyway
-        String defaultCalendar = LDMLToOOMapper.MapDefaultCalendar(reader_ooo_ldml.m_CalendarDefaultAttribs);
-        if ((defaultCalendar != null) && (defaultCalendar.length()>0))
-            data.put(OOConstants.DEFAULT, defaultCalendar);
-
+        //String defaultCalendar = LDMLToOOMapper.MapDefaultCalendar(reader_ooo_ldml.m_CalendarDefaultAttribs);
+        //if ((defaultCalendar != null) && (defaultCalendar.length()>0))
+       //     data.put(OOConstants.DEFAULT, defaultCalendar);
+       data.put(OOConstants.DEFAULT, OOConstants.GREGORIAN);   //default calendar is semi-deprecated from CLDR
+        
         if ((reader_cldr.m_AbbrDays != null) && (reader_cldr.m_AbbrDays.size()>0))
         {
             Hashtable abbrDays = LDMLToOOMapper.MapDays(reader_cldr.m_AbbrDays, locale);
@@ -556,6 +583,10 @@ public class LDMLToOOConverter
      //   if (m_cldr_ver > 1.399) 
      //       wideEraReader = reader_cldr;
      //   else
+        
+        if (m_bTemplate == true)
+            wideEraReader = reader_cldr;
+        else
             wideEraReader = reader_ooo_ldml;
         if  (((wideEraReader.m_EraNames != null) && (reader_ooo_ldml.m_EraNames.size()>0)) || ((reader_cldr.m_AbbrEras != null) && (reader_cldr.m_AbbrEras.size()>0)) )
         {
@@ -611,15 +642,16 @@ public class LDMLToOOConverter
         //###### write LC_CURRENCY ######
         data.clear();
         
-        // START_WORKAROUND: language only locales (ia,eo) don't have currency in CLDR  but do in OO.o 
+        // START_WORKAROUND: language only locales (ia,eo) don't have currency in CLDR  but do in OO.o
         if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") || locale.substring(0,2).equals("eu"))
         {
             reader_cldr_temp = reader_cldr;
             reader_cldr = reader_ooo_ldml;
             m_bRoundTrip = true;  //it's a round trip on the currency data
-        }  
+        }
+        
         writer.WriteLC_CURRENCY(reader_cldr.m_CurrencyData_cldr, reader_ooo_ldml.m_CurrencyData_ooo, m_suppData, m_bRoundTrip, reader_ooo_ldml.m_TerritoryID);
-        diagnostics (reader_ooo_ldml,  reader_cldr,  locale);      
+        diagnostics(reader_ooo_ldml,  reader_cldr,  locale);
         //END_WORKAROUND
         if (locale.substring(0,2).equals("eo") || locale.substring(0,2).equals("ia") || locale.substring(0,2).equals("eu") )
         {
@@ -629,31 +661,42 @@ public class LDMLToOOConverter
         
         
         //###### write LC_TRANSLITERATIONS ######
-        Vector transliterations = null;
-        if ((reader_ooo_ldml.m_TransliterationAtts != null) && (reader_ooo_ldml.m_TransliterationAtts.size()>0))
+        if (m_bTemplate == true)
+            writer.writeLC_TRANSLITERATIONS_template ();
+        else
         {
-            transliterations = LDMLToOOMapper.MapTransliterations(reader_ooo_ldml.m_TransliterationAtts);
+            Vector transliterations = null;
+            if ((reader_ooo_ldml.m_TransliterationAtts != null) && (reader_ooo_ldml.m_TransliterationAtts.size()>0))
+            {
+                transliterations = LDMLToOOMapper.MapTransliterations(reader_ooo_ldml.m_TransliterationAtts);
+            }
+            writer.WriteLC_TRANSLITERATIONS(transliterations, reader_ooo_ldml.m_TransliterationRefLocale);
         }
-        writer.WriteLC_TRANSLITERATIONS(transliterations, reader_ooo_ldml.m_TransliterationRefLocale);
         
         //###### write LC_MISC ######
         data.clear();
         String ref = null;
-                
+        
         if ((reader_ooo_ldml.m_ReservedRefLocale != null) && (reader_ooo_ldml.m_ReservedRefLocale.length() > 0))
             ref = reader_ooo_ldml.m_ReservedRefLocale;
         else if ((reader_ooo_ldml.m_ForbiddenRefLocale != null) && (reader_ooo_ldml.m_ForbiddenRefLocale.length() > 0))
             ref = reader_ooo_ldml.m_ForbiddenRefLocale;
-        if ((reader_ooo_ldml.m_ReservedWords != null) && (reader_ooo_ldml.m_ReservedWords.size()>0))
+        if ((reader_ooo_ldml.m_ReservedWords != null && reader_ooo_ldml.m_ReservedWords.size()>0) || m_bTemplate==true)
         {
             Hashtable reservedWords = LDMLToOOMapper.MapReservedWords(reader_ooo_ldml.m_ReservedWords);
             
             //quarters are kept separately noe that they are in 1.4
-            //theyt are stored in LDMLReaderForOO.m_abbrQuarters and m_abbrQuarters regardless of where they are read from 
-           //still sue OO.o data for quarters as there are some gaps in CLDR
-       //     if (m_bRoundTrip == false) 
-       //         LDMLToOOMapper.MapQuarters(reservedWords, reader_cldr.m_AbbrQuarters, reader_cldr.m_WideQuarters);
-       //     else
+            //theyt are stored in LDMLReaderForOO.m_abbrQuarters and m_abbrQuarters regardless of where they are read from
+            //still sue OO.o data for quarters as there are some gaps in CLDR
+            //     if (m_bRoundTrip == false)
+            //         LDMLToOOMapper.MapQuarters(reservedWords, reader_cldr.m_AbbrQuarters, reader_cldr.m_WideQuarters);
+            //     else
+            if (m_bTemplate == true)
+            {
+                reservedWords = new Hashtable();
+                LDMLToOOMapper.MapQuarters(reservedWords, reader_cldr.m_AbbrQuarters, reader_cldr.m_WideQuarters);
+            }
+            else
                 LDMLToOOMapper.MapQuarters(reservedWords, reader_ooo_ldml.m_AbbrQuarters, reader_ooo_ldml.m_WideQuarters);
             
             if ((reservedWords != null) && (reservedWords.size()>0))
@@ -669,21 +712,31 @@ public class LDMLToOOConverter
         writer.WriteLC_MISC(data, ref);
         
         //###### write LC_NumberingLevel ######
-        Vector numberingLevelsAttsOO = null;
-        if ((reader_ooo_ldml.m_NumberingLevelAtts != null) && (reader_ooo_ldml.m_NumberingLevelAtts.size()>0))
+        if (m_bTemplate == true)
+            writer.writeLC_NumberingLevel_template ();
+        else
         {
-            numberingLevelsAttsOO = LDMLToOOMapper.MapNumberingLevels(reader_ooo_ldml.m_NumberingLevelAtts);
+            Vector numberingLevelsAttsOO = null;
+            if ((reader_ooo_ldml.m_NumberingLevelAtts != null) && (reader_ooo_ldml.m_NumberingLevelAtts.size()>0))
+            {
+                numberingLevelsAttsOO = LDMLToOOMapper.MapNumberingLevels(reader_ooo_ldml.m_NumberingLevelAtts);
+            }
+            writer.WriteLC_NumberingLevel(numberingLevelsAttsOO, reader_ooo_ldml.m_NumberingRefLocale);
         }
-        writer.WriteLC_NumberingLevel(numberingLevelsAttsOO, reader_ooo_ldml.m_NumberingRefLocale);
         
         //###### write LC_OutlineNumberingLevel ######
-        Vector outlineNumberingLevelsOO = null;
-        if ((reader_ooo_ldml.m_OutlineNumberingLevels != null) && (reader_ooo_ldml.m_OutlineNumberingLevels.size()>0))
+        if (m_bTemplate == true)
+            writer.writeLC_OutlineNumberingLevel_template ();
+        else
         {
-            outlineNumberingLevelsOO = LDMLToOOMapper.MapOutlineNumberingLevels(reader_ooo_ldml.m_OutlineNumberingLevels);
+            Vector outlineNumberingLevelsOO = null;
+            if ((reader_ooo_ldml.m_OutlineNumberingLevels != null) && (reader_ooo_ldml.m_OutlineNumberingLevels.size()>0))
+            {
+                outlineNumberingLevelsOO = LDMLToOOMapper.MapOutlineNumberingLevels(reader_ooo_ldml.m_OutlineNumberingLevels);
+            }
+            writer.WriteLC_OutlineNumberingLevel(outlineNumberingLevelsOO, reader_ooo_ldml.m_OutlineNumberingRefLocale);
         }
-        writer.WriteLC_OutlineNumberingLevel(outlineNumberingLevelsOO, reader_ooo_ldml.m_OutlineNumberingRefLocale);
-  
+        
         writer.close();
         System.err.println("Writing :  " + out_file);
         
@@ -722,7 +775,8 @@ public class LDMLToOOConverter
         System.err.println("  -o         the folder containing OpenOffice.org data in LDML format");
         System.err.println("  -s         the folder containing CLDR's supplementalData.xml (this is needed)");
         System.err.println("  -t         the folder where output is written for bulk conversion (mandatory)");
-        System.err.println("  -k         write no output if this locale dores not occur in CLDR");
+        System.err.println("  -k         write no output if this locale does not occur in CLDR");
+        System.err.println("  -e         generate OO.o template file for new locales (OO.o specific elements are empty)");
         System.err.println("  -help      (this document) usage of LDMLToOOConverter");
         System.err.println("");
         

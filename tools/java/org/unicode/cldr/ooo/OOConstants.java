@@ -9,6 +9,16 @@ package org.unicode.cldr.ooo;
  */
 public class OOConstants
 {
+    //for geenrating templates
+    public static final String NO_DATA             = "NA";  //use for writing template OO.o locales from CLDR
+    public static final String NO_DATA_Q           = "NA?";
+    public static final String NO_DATA_P           = "NA+";
+    public static final String NO_DATA_A            = "NA*";
+    public static final String TRUE_FALSE           = "true"; //true|false";
+    public static final String LONG_MEDIUM_SHORT    = "long"; //long|medium|short";
+    public static final String YES_NO               = "yes"; //yes|no";
+    
+    
     public static final String UNOID                    = "unoid";
     public static final String MSGID                    = "msgid";
     public static final String REF                      = "ref";
@@ -206,6 +216,10 @@ public class OOConstants
     public static final String FEU_TIME                  = "TIME";
     public static final String FEU_DATE_TIME             = "DATE_TIME";
     
+    //Transliteration eleemnts and attrs , possible values
+    public static final String TRANS_UL                 = "UPPERCASE_LOWERCASE";
+    public static final String TRANS_LU                 = "LOWERCASE_UPPERCASE";
+    public static final String TRANS_IC                 = "IGNORE_CASE";
     
     //new constants
     public static final String VERSION_DTD              = "versionDTD";

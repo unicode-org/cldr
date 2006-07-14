@@ -251,7 +251,6 @@ public class CLDRFile implements Freezable {
     		fis = new StripUTF8BOMInputStream(fis);
     		CLDRFile result = make(localeName);
 			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, includeDraft);
-            result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental);
 
             // now fill it.
             
@@ -263,6 +262,10 @@ public class CLDRFile implements Freezable {
 			InputSource is = new InputSource(fis);
 			is.setSystemId(fileName);
 			xmlReader.parse(is);
+			if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
+				throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
+			}
+            result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
 			return result;
     	} catch (SAXParseException e) {
     		System.out.println(CLDRFile.showSAX(e));
@@ -1060,15 +1063,13 @@ private boolean isSupplemental;
     	private CLDRFile target;
     	private String lastActiveLeafNode;
     	private String lastLeafNode;
-    	private boolean isSupplemental;
+    	private int  isSupplemental = -1;
 		private int orderedCounter;
     	
     	MyDeclHandler(CLDRFile target, boolean includeDraft) {
     		this.target = target;
             this.includeDraft = includeDraft;
-    		isSupplemental = isSupplementalName(target.getLocaleID());
-    		if (!isSupplemental) attributeOrder = new TreeMap(attributeOrdering);
-    		else attributeOrder = new TreeMap();
+    		//attributeOrder = new TreeMap(attributeOrdering);
      	}
     		
     	private String show(Attributes attributes) {
@@ -1104,7 +1105,7 @@ private boolean isSupplemental;
 	    			//if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
 	    			//ldmlComparator.addValue(value);
 	    			// special fix to remove version
-	    			if (qName.equals("ldml") && attribute.equals("version")) {
+	    			if (attribute.equals("version") && (qName.equals("ldml") || qName.equals("supplementalData"))) {
 	    				// do nothing!
 	    			} else {
 	    				putAndFixDeprecatedAttribute(qName, attribute, value);
@@ -1209,6 +1210,11 @@ private boolean isSupplemental;
         				+ "\tattributes " + show(attributes)
 						);
         		try {
+        			if (isSupplemental < 0) { // set by first element
+        				if (qName.equals("ldml")) isSupplemental = 0;
+        				else if (qName.equals("supplementalData")) isSupplemental = 1;
+        				else throw new IllegalArgumentException("File is neither ldml or supplementalData!");
+        			}
             		push(qName, attributes);                    
                 } catch (RuntimeException e) {
                     e.printStackTrace();
@@ -1729,79 +1735,15 @@ private boolean isSupplemental;
 	
 	static MapComparator elementOrdering = (MapComparator) new MapComparator()
 			.add(
-					new String[] { "ldml", "identity", "alias",
-							"localeDisplayNames", "layout", "characters",
-							"delimiters", "measurement", "dates", "numbers",
-							"collations", "posix", "segmentations",
-							"references", "version", "generation", "language",
-							"script", "territory", "variant", "languages",
-							"scripts", "territories", "variants", "keys",
-							"types", "measurementSystemNames", "key", "type",
-							"measurementSystemName", "orientation", "inList",
-							"exemplarCharacters", "mapping", "quotationStart",
-							"quotationEnd", "alternateQuotationStart",
-							"alternateQuotationEnd", "measurementSystem",
-							"paperSize", "height", "width",
-							"localizedPatternChars", "calendars",
-							"timeZoneNames", "months", "monthNames",
-							"monthAbbr", "days", "dayNames", "dayAbbr",
-							"quarters", "week", "am", "pm", "eras",
-							"dateFormats", "timeFormats", "dateTimeFormats",
-							"fields", "month", "day", "quarter", "minDays",
-							"firstDay", "weekendStart", "weekendEnd",
-							"eraNames", "eraAbbr", "era", "pattern",
-							"displayName", "dateFormatItem", "appendItem",
-							"hourFormat", "hoursFormat", "gmtFormat",
-							"regionFormat", "fallbackFormat",
-							"abbreviationFallback", "preferenceOrdering",
-							"singleCountries", "default", "calendar",
-							"monthContext", "monthWidth", "dayContext",
-							"dayWidth", "quarterContext", "quarterWidth",
-							"dateFormatLength", "dateFormat",
-							"timeFormatLength", "timeFormat",
-							"dateTimeFormatLength", "availableFormats",
-							"appendItems", "dateTimeFormat", "zone", "long",
-							"short", "exemplarCity", "generic", "standard",
-							"daylight", "field", "relative", "symbols",
-							"decimalFormats", "scientificFormats",
-							"percentFormats", "currencyFormats", "currencies",
-							"decimalFormatLength", "decimalFormat",
-							"scientificFormatLength", "scientificFormat",
-							"percentFormatLength", "percentFormat",
-							"currencySpacing", "currencyFormatLength",
-							"beforeCurrency", "afterCurrency", "currencyMatch",
-							"surroundingMatch", "insertBetween",
-							"currencyFormat", "currency", "symbol", "decimal",
-							"group", "list", "percentSign", "nativeZeroDigit",
-							"patternDigit", "plusSign", "minusSign",
-							"exponential", "perMille", "infinity", "nan",
-							"collation", "messages", "yesstr", "nostr",
-							"yesexpr", "noexpr", "segmentation", "variables",
-							"segmentRules", "special", "variable", "rule", "comment",
-							// collation
-							"base", "settings", "suppress_contractions", "optimize", "rules"})
-			.setErrorOnMissing(false).freeze();
+					"ldml alternate attributeOrder attributes character character-fallback comment context cp deprecatedItems elementOrder first_variable fractions identity info languageAlias languageCoverage last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing mapTimezones mapZone reference region scriptAlias scriptCoverage serialElements substitute suppress tRule territoryAlias territoryCoverage timezoneCoverage transform validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters field generic height hourFormat hoursFormat gmtFormat key languages localeDisplayNames layout localizedPatternChars calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames version generation currencyData language script territory territoryContainment languageData calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers collations posix segmentations references transforms metadata weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone special zoneAlias zoneFormatting zoneItem supplementalData"
+					.split("\\s+"))
+			.setErrorOnMissing(false)
+			.freeze();
 	
-	static MapComparator attributeOrdering = (MapComparator) new MapComparator()
-			.add(new String[] { "_q", "type", "choice",
-							// always after
-						    "key", "registry", "source", "target",
-							"path", "day", "date", "version", "count", "lines",
-							"characters", "before", "iso4217", "from", "to", "number",
-							"time", "casing", "list", "uri",
-							"digits", "rounding", "iso3166", "hex",
-							"id", "request",
-							"direction",
-							// collation stuff
-							"alternate", "backwards", "caseFirst", "caseLevel",
-							"hiraganaQuarternary", "hiraganaQuaternary",
-							"normalization", "numeric", "strength",
-							// always near the end
-							"validSubLocales", "standard", "references",
-							"elements","element","attributes","attribute",
-                            "scripts", "mostPopulousTerritory", "territories", 
-							// these are always at the end
-							"alt", "draft", }).setErrorOnMissing(false)
+	static MapComparator attributeOrdering =
+		(MapComparator) new MapComparator()
+			.add("_q type id choice key registry source target path day date version count lines characters iso4217 before from to number time casing list uri digits rounding iso3166 hex request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary variableTop normalization numeric strength validSubLocales elements element attributes attribute aliases attributeValue contains multizone order other replacement scripts services territories territory tzidVersion value values variant variants visibility standard references alt draft".split("\\s+"))
+			.setErrorOnMissing(false)
 			.freeze();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).freeze();
 	/*
@@ -2002,6 +1944,7 @@ private boolean isSupplemental;
 				{"pattern", "type", "standard"},
 				{"currency", "type", "standard"},
 				{"collation", "type", "standard"},
+				{"transform", "visibility", "external"},
 				{"*", "_q", "*"},
 		};
 		Map tempmain = asMap(data, true);

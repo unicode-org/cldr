@@ -197,7 +197,7 @@ public class CLDRModify {
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
 				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
-				if (k.isNonInheriting()) continue; // for now, skip supplementals
+				// if (k.isNonInheriting()) continue; // for now, skip supplementals
 				if (DEBUG_PATHS != null) {
 					System.out.println("Debug1 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}
@@ -542,10 +542,18 @@ public class CLDRModify {
 			}		
 		});
 		
-		fixList.add('e', "remove id=\"[error']\"", new CLDRFilter() {
+		fixList.add('e', "fix Interindic", new CLDRFilter() {
 			public void handlePath(String xpath) {
-				if (xpath.indexOf("id=\"[error]\"") < 0) return;
-				remove(xpath);
+				if (xpath.indexOf("=\"InterIndic\"") < 0) return;
+				String v = cldrFileToFilter.getStringValue(xpath);
+				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+				fullparts.set(fullXPath);
+				Map attributes = fullparts.findAttributes("transform");
+				String oldValue = (String) attributes.get("direction");
+				if ("both".equals(oldValue)) {
+					attributes.put("direction", "forward");
+					replace(xpath, fullparts.toString(), v);
+				}
 			}		
 		});
 		

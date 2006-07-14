@@ -1,28 +1,31 @@
 ﻿$avalue=[^"]*;
 $element=[a-zA-Z0-9]+;
 '//ldml' > ;
-'/localeDisplayNames/languages/' ($element) '[@type="' ($avalue) '"]' > 'names|' $1 '|' $2;
-'/localeDisplayNames/scripts/' ($element) '[@type="' ($avalue) '"]' > 'names|' $1 '|' $2;
-'/localeDisplayNames/territories/' ($element) '[@type="' ($avalue) '"]' > 'names|' $1 '|' $2;
-'/localeDisplayNames/variants/' ($element) '[@type="' ($avalue) '"]' > 'names|' $1 '|' $2;
-'/localeDisplayNames/keys/' ($element) '[@type="' ($avalue) '"]' > 'names|type|' $2;
-'/localeDisplayNames/types/' ($element) '[@type="' ($avalue) '"]'  '[@key="' ($avalue) '"]' > 'names|' $1 '|' $3 '-' $2;
+'/localeDisplayNames/languages/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
+'/localeDisplayNames/scripts/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
+'/localeDisplayNames/territories/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
+'/localeDisplayNames/variants/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
+'/localeDisplayNames/keys/' ($element) '[@type="' ($avalue) '"]' > '0-names|type|' $2;
+'/localeDisplayNames/types/' ($element) '[@type="' ($avalue) '"]'  '[@key="' ($avalue) '"]' > '0-names|' $1 '|' $3 '-' $2;
 
-'/layout/orientation' > 'misc|layout|orientation';
-'/characters/exemplarCharacters[@type="auxiliary"]' > 'misc|exemplarCharacters|1-auxiliary';
-'/characters/exemplarCharacters' > 'misc|exemplarCharacters|2-standard';
-'/delimiters/'(.*) > 'misc|delimiters|' $1;
+'/localeDisplayNames/languages/alias' > '0-names|language|alias';
+'/localeDisplayNames/territories/alias' > '0-names|territory|alias';
+
+'/layout/orientation' > '1-misc|layout|orientation';
+'/characters/exemplarCharacters[@type="auxiliary"]' > '1-misc|exemplarCharacters|1-auxiliary';
+'/characters/exemplarCharacters' > '1-misc|exemplarCharacters|2-standard';
+'/delimiters/'(.*) > '1-misc|delimiters|' $1;
 
 '/dates/calendars/calendar[@type="' ($avalue) '"]' > 'calendar-' $1 | '$%%';
-'/dates/calendars/default' > 'calendar|default|value';
-'/dates/localizedPatternChars' > 'deprecated|pattern|dateChars';
+'/dates/calendars/default' > '1-misc|calendar|default';
+'/dates/localizedPatternChars' > '1-misc|deprecated|localizedPatternChars';
 
 '/identity/' ($element) '[@type="' ($avalue) '"]' > 'identity|' $1 '|' $2;
 '/identity/' ($element) > 'identity|info|' $1;
 # /identity/generation
 # identity|info|territory?%%[@type="DJ"]
 
-'/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="' ($avalue) '"]' > 'names|measurement-system|' $1;
+'/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="' ($avalue) '"]' > '0-names|measurement-system|' $1;
 '/references/reference[@type="' ($avalue) '"]' > 'references|reference|' $1;
 
 '$%%/eras/era' ($element) '/era[@type="' ([0-9]) '"]' > '|era|' 00 $2 '-' $1;
@@ -75,26 +78,26 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/fields/field[@type="' ($avalue) '"]/relative[@type="' ($avalue) '"]' > '|fields|' $1 ':' $2 ;
 
-'/dates/timeZoneNames/zone[@type="' ($avalue) '"]/exemplarCity' > 'names|zone|' $1;
-'/dates/timeZoneNames/zone[@type="' ($avalue) '"]/' ($element) '/' ($element) > 'names|zone|' $1 '-' $2 '-' $3;
-'/dates/timeZoneNames/' (.*) > 'time|zone|' $1;
+'/dates/timeZoneNames/zone[@type="' ($avalue) '"]/exemplarCity' > '0-names|zone|' $1;
+'/dates/timeZoneNames/zone[@type="' ($avalue) '"]/' ($element) '/' ($element) > '0-names|zone|' $1 '-' $2 '-' $3;
+'/dates/timeZoneNames/' (.*) > '3-time-zone|formatting|' $1;
 
-'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > 'names|currency|' $1 ':' $2 '-' $3;
-'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > 'names|currency|' $1 ':' $2;
+'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > '0-names|currency|' $1 ':' $2 '-' $3;
+'/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > '0-names|currency|' $1 ':' $2;
 
-'/numbers/symbols/' (.*) > 'number|symbol|' $1;
-'/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > 'number|pattern|' $1 '-' $2;
-'/numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > 'number|before|' $1;
-'/numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > 'number|after|' $1;
+'/numbers/symbols/' (.*) > '2-number|symbol|' $1;
+'/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1 '-' $2;
+'/numbers/currencyFormats/currencySpacing/beforeCurrency/' (.*) > '2-number|match|before-' $1;
+'/numbers/currencyFormats/currencySpacing/afterCurrency/' (.*) > '2-number|match|after-' $1;
 
-'/posix/messages/' (.*) > 'misc|posix|' $1;
+'/posix/messages/' (.*) > '1-misc|posix|' $1;
 
 '[@alt="proposed' ($avalue) '"]' > '/' \u200B 'alt'; # remove!
 '[@alt="' ($avalue) '"]' > '/' \u200B 'alt-' $1;
 
 '/alias' > 'whole|file|alias';
-'/characters/mapping[@registry="' ($element) '"]' > 'charset|registry|' $1;
-'/layout/inList' > 'layout|inList|casing';
+'/characters/mapping[@registry="' ($element) '"]' > '1-misc|charset-registry|' $1;
+'/layout/inList' > '1-misc|inList|casing';
 
 '/numbers/scientificFormats/default' > 'numbers|scientificFormats|default';
 '$%%/dateTimeFormats/default' > '|date+time|default';

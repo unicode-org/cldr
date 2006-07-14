@@ -228,8 +228,13 @@ public class GenerateCldrTests {
     LanguageTagParser ltp = new LanguageTagParser();
     
     private void addLocale(String locale) {
-        String lang = ltp.set(locale).getLanguage();
-        if (lang.length() == 0) return; // skip root
+        String lang;
+        try {
+            lang = ltp.set(locale).getLanguage();
+            if (lang.length() == 0) return; // skip root
+        } catch (RuntimeException e) {
+            return; // illegal locale name, must be supplemental
+        }
         //ULocale parent = new ULocale(lang);
         //System.out.println(item + ", " + parent);
         parentToLocales.add(new ULocale(lang), new ULocale(locale));

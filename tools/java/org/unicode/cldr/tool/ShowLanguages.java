@@ -288,9 +288,16 @@ public class ShowLanguages {
                         name = "(none)";
                     } else if (element.equals("language")) {
                         name = getName(replacement, false);
+                    } else if (element.equals("zone")) {
+                        element = "timezone";
+                        name = replacement + "*";
                     } else {
                         int typeCode = CLDRFile.typeNameToCode(element);
-                        name = getName(typeCode, replacement, false);
+                        if (typeCode >= 0) {
+                            name = getName(typeCode, replacement, false);
+                        } else {
+                            name = "*" + replacement;
+                        }
                     }
                     aliases.add(new String[] {element, type, name});
                     continue;

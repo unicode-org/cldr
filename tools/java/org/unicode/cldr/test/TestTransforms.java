@@ -28,7 +28,7 @@ import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms {
-	static String target = "C:\\cvsdata\\unicode\\cldr\\dropbox\\gen\\transforms\\";
+	static String target = "C:\\cvsdata\\unicode\\cldr\\dropbox\\gen\\icu-transforms\\";
 	static Matcher getId = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*").matcher("");
 	static Matcher getSource = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
 	

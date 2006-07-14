@@ -58,7 +58,9 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 	}
 	
 	PrintWriter log = null;
-	Map element_childComparator = new LinkedHashMap();
+	Set elementOrderings = new LinkedHashSet(); // set of orderings
+	Set allDefinedElements = new LinkedHashSet();
+
 	boolean showReason = false;
 	Object DONE = new Object(); // marker
 	
@@ -74,10 +76,9 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 		List orderingList = new ArrayList();
 		orderingList.add("ldml");
 		if (log != null) log.println("structure: ");
-		for (Iterator it = element_childComparator.keySet().iterator(); it.hasNext();) {
-			Object key = it.next();
-			Object value = element_childComparator.get(key);
-			log.println(key + "=\t" + value);
+		for (Iterator it = elementOrderings.iterator(); it.hasNext();) {
+			Object value = it.next();
+			log.println(value);
 		}
 		while (true) {
 			Object first = getFirst();
@@ -96,11 +97,15 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 				for (Iterator it = orderingList.iterator(); it.hasNext();) if (log != null) log.print("\t" + it.next());
 				if (log != null) log.println();
 				if (log != null) log.println("Items:");
-				for (Iterator it =  element_childComparator.keySet().iterator(); it.hasNext();) showRow(it.next(), true);
+				//for (Iterator it =  element_childComparator.keySet().iterator(); it.hasNext();) showRow(it.next(), true);
 				if (log != null) log.println();
 				break;
 			}
 		}
+		Set missing = new TreeSet(allDefinedElements);
+		missing.removeAll(orderingList);
+		orderingList.addAll(missing);
+
 		// finish up
 		if (log != null) log.println("Successful Ordering");
 		log.print("Attributes: ");
@@ -133,8 +138,8 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 			log.println();
 		}
 		
-		log.println(getJavaList(orderingList));
-		log.println(getJavaList(CLDRFile.elementOrdering.getOrder()));
+		log.println("New Element Ordering: " + getJavaList(orderingList));
+		log.println("Old Element Ordering: " +getJavaList(CLDRFile.elementOrdering.getOrder()));
 		
 		log.println("Old Size: " + CLDRFile.elementOrdering.getOrder().size());
 		Set temp = new HashSet(CLDRFile.elementOrdering.getOrder());
@@ -172,13 +177,13 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 	private String getJavaList(Collection orderingList) {
 		boolean first2 = true;
 		StringBuffer result = new StringBuffer();
-		result.append("{");
+		result.append('"');
 		for (Iterator it = orderingList.iterator(); it.hasNext();) {
 			if (first2) first2 = false;
-			else result.append(", ");
-			result.append("\"" + it.next().toString() + "\"");
+			else result.append(" ");
+			result.append(it.next().toString());
 		}
-		result.append("}");
+		result.append('"');
 		return result.toString();
 	}
 	
@@ -186,68 +191,66 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 	 * @param parent
 	 * @param skipEmpty TODO
 	 */
-	private void showRow(Object parent, boolean skipEmpty) {
-		List items = (List) element_childComparator.get(parent);
-		if (skipEmpty && items.size() == 0) return;
-		if (log != null) log.print(parent);
-		for (Iterator it2 = items.iterator(); it2.hasNext();) if (log != null) log.print("\t" + it2.next());
-		if (log != null) log.println();
-	}
+//	private void showRow(Object parent, boolean skipEmpty) {
+//		List items = (List) element_childComparator.get(parent);
+//		if (skipEmpty && items.size() == 0) return;
+//		if (log != null) log.print(parent);
+//		for (Iterator it2 = items.iterator(); it2.hasNext();) if (log != null) log.print("\t" + it2.next());
+//		if (log != null) log.println();
+//	}
 	
 	/**
 	 * @param orderingList
 	 */
 	private Object getFirst() {
-		Set keys = element_childComparator.keySet();
-		Set failures = new HashSet();
-		boolean allZero = true;
-		for (Iterator it = keys.iterator(); it.hasNext();) {
-			List list = (List) element_childComparator.get(it.next());
+		Set firstItems = new TreeSet();
+		Set nonFirstItems = new TreeSet();
+		for (Iterator it = elementOrderings.iterator(); it.hasNext();) {
+			List list = (List) it.next();
 			if (list.size() != 0) {
-				allZero = false;
-				Object possibleFirst = list.get(0);
-				if (!failures.contains(possibleFirst) && isNeverNotFirst(possibleFirst)) {
-					// we survived the guantlet. add to ordering list, remove from the mappings
-					removeEverywhere(possibleFirst);
-					return possibleFirst;
-				} else {
-					failures.add(possibleFirst);
-				}
+				firstItems.add(list.get(0));
+				for (int i = 1; i < list.size(); ++i) {
+					nonFirstItems.add(list.get(i));
+				}	
 			}
 		}
-		if (allZero) return DONE;
-		return null;
+		if (firstItems.size() == 0 && nonFirstItems.size() == 0) return DONE;
+		firstItems.removeAll(nonFirstItems);
+		if (firstItems.size() == 0) return null; // failure
+		Object result = firstItems.iterator().next();
+		removeEverywhere(result);
+		return result;
 	}
 	/**
 	 * @param possibleFirst
 	 */
 	private void removeEverywhere(Object possibleFirst) {
 		// and remove from all the lists
-		for (Iterator it2 = element_childComparator.keySet().iterator(); it2.hasNext();) {
-			List list2 = (List) element_childComparator.get(it2.next());
+		for (Iterator it2 = elementOrderings.iterator(); it2.hasNext();) {
+			List list2 = (List) it2.next();
 			if (SHOW_PROGRESS && list2.contains(possibleFirst)) {
 				if (log != null) log.println("Removing " + possibleFirst + " from " + list2);
 			}
-			list2.remove(possibleFirst);
+			while (list2.remove(possibleFirst)); // repeat until returns false
 		}
 	}
 	
-	private boolean isNeverNotFirst(Object possibleFirst) {
-		if (showReason) if (log != null) log.println("Trying: " + possibleFirst);
-		for (Iterator it2 = element_childComparator.keySet().iterator(); it2.hasNext();) {
-			Object key = it2.next();
-			List list2 = (List) element_childComparator.get(key);
-			int pos = list2.indexOf(possibleFirst);
-			if (pos > 0) {
-				if (showReason) {
-					if (log != null) log.print("Failed at:\t");
-					showRow(key, false);
-				}
-				return false;
-			}
-		}
-		return true;
-	}
+//	private boolean isNeverNotFirst(Object possibleFirst) {
+//		if (showReason) if (log != null) log.println("Trying: " + possibleFirst);
+//		for (Iterator it2 = element_childComparator.keySet().iterator(); it2.hasNext();) {
+//			Object key = it2.next();
+//			List list2 = (List) element_childComparator.get(key);
+//			int pos = list2.indexOf(possibleFirst);
+//			if (pos > 0) {
+//				if (showReason) {
+//					if (log != null) log.print("Failed at:\t");
+//					showRow(key, false);
+//				}
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
 	
 	static final Set ELEMENT_SKIP_LIST = new HashSet(Arrays.asList(new String[] {
 			"collation", "base", "settings", "suppress_contractions", "optimize", "rules", "reset",
@@ -258,9 +261,13 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 	
 	// refine later; right now, doesn't handle multiple elements well.
 	public void elementDecl(String name, String model) throws SAXException {
-		if (ELEMENT_SKIP_LIST.contains(name)) return;
+		//if (ELEMENT_SKIP_LIST.contains(name)) return;
+		if (name.indexOf("contractions") >= 0 || model.indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
+			System.out.println("debug");
+		}
+		allDefinedElements.add(name);
 		if (log != null) log.println("Element\t" + name + "\t" + model);
-		String[] list = model.split("[^A-Z0-9a-z]");
+		String[] list = model.split("[^-_A-Z0-9a-z]+");
 		List mc = new ArrayList();
 		/*if (name.equals("currency")) {
 		 mc.add("alias");
@@ -273,7 +280,7 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 			if (SUBELEMENT_SKIP_LIST.contains(list[i])) continue;
 			//if (log != null) log.print("\t" + list[i]);
 			if (mc.contains(list[i])) {
-				if (log != null) log.println("Duplicate attribute " + name + ", " + list[i]
+				System.out.println("Duplicate element in definition of  " + name + ":\t" + list[i]
 				                                                                         + ":\t" + Arrays.asList(list)
 				                                                                         + ":\t" + mc
 				);    
@@ -281,12 +288,13 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 				mc.add(list[i]);
 			}
 		}
+		allDefinedElements.addAll(mc);
 
 			if (mc.size() < 1) {
 				log.println("\tSKIPPING\t" + name + "\t" + mc);
 			} else {
 				log.println("\t" + name + "\t" + mc);
-				element_childComparator.put(name, mc);
+				elementOrderings.add(mc);
 			}
 
 		//if (log != null) log.println();

@@ -65,8 +65,8 @@ public class PrettyPath {
  	}
 
 	public String getOutputForm(String prettyPath) {
-		return matcher.reset(prettyPath).replaceAll("|");
+		return matcher.reset(prettyPath).replaceAll("");
 	}
 	
-	private static Matcher matcher = Pattern.compile("[|]([0-9]+-)?").matcher("");
+	private static Matcher matcher = Pattern.compile("(?<=(^|[|]))([0-9]+-)?").matcher("");
 }

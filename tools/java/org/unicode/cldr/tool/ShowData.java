@@ -67,6 +67,9 @@ public class ShowData {
 	static Factory cldrFactory;
 	
 	public static void main(String[] args) throws Exception {
+        //String p = prettyPathMaker.getPrettyPath("//ldml/characters/exemplarCharacters[@alt=\"proposed-u151-4\"]");
+        //String q = prettyPathMaker.getOriginal(p);
+        
         double deltaTime = System.currentTimeMillis();
         try {
     		UOption.parseArgs(args, options);
@@ -113,6 +116,10 @@ public class ShowData {
 						skippedCount++;
 						continue; // skip code fllback
 					}
+                    if (path.indexOf("[@alt=\"proposed") >= 0) {
+                        skippedCount++;
+                        continue; // skip code fllback
+                   }
 					if (path.indexOf("/identity") >= 0) {
 						skippedCount++;
 						continue; // skip code fllback

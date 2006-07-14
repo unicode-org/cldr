@@ -35,7 +35,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		UOption.HELP_H(),
 		UOption.HELP_QUESTION_MARK(),
 		UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY + "transforms/"),
-		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "transforms/"),
+		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "icu-transforms/"),
 		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 		UOption.create("commentSkip", 'c', UOption.NO_ARG),
 	};
@@ -173,7 +173,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		String variant = (String) attributes.get("variant");
 		String direction = (String) attributes.get("direction");
 		// HACK
-		if (transID.indexOf("InterIndic") >= 0) direction = "forward";
+		//if (transID.indexOf("InterIndic") >= 0) direction = "forward";
 		// END HACK
 		String visibility = (String) attributes.get("visibility");
 		

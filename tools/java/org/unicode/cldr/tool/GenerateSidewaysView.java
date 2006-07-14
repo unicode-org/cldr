@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: Mark Davis
-**********************************************************************
-*/
+ **********************************************************************
+ * Copyright (c) 2002-2004, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
@@ -47,267 +47,311 @@ import com.ibm.icu.util.ULocale;
  * @author medavis
  */
 /*
-Notes:
-http://xml.apache.org/xerces2-j/faq-grammars.html#faq-3
-http://developers.sun.com/dev/coolstuff/xml/readme.html
-http://lists.xml.org/archives/xml-dev/200007/msg00284.html
-http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
+ Notes:
+ http://xml.apache.org/xerces2-j/faq-grammars.html#faq-3
+ http://developers.sun.com/dev/coolstuff/xml/readme.html
+ http://lists.xml.org/archives/xml-dev/200007/msg00284.html
+ http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class GenerateSidewaysView {
-    // debug flags
-    static final boolean DEBUG = false;
-    static final boolean DEBUG2 = false;
-    static final boolean DEBUG_SHOW_ADD = false;
-    static final boolean DEBUG_ELEMENT = false;
-    static final boolean DEBUG_SHOW_BAT = false;
-
-    static final boolean FIX_ZONE_ALIASES = true;
-
-    private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        SOURCEDIR = 2,
-        DESTDIR = 3,
-        MATCH = 4,
-        SKIP = 5,
-        TZADIR = 6,
-        NONVALIDATING = 7,
-        SHOW_DTD = 8,
-		TRANSLIT = 9;
-
-    private static final String NEWLINE = "\n";
-
-    private static final UOption[] options = {
-            UOption.HELP_H(),
-            UOption.HELP_QUESTION_MARK(),
-            UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-            UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "charts\\by_type\\"),
-            UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
-            UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
-            UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
-            UOption.create("nonvalidating", 'n', UOption.NO_ARG),
-            UOption.create("dtd", 'w', UOption.NO_ARG),
-            UOption.create("transliterate", 'y', UOption.NO_ARG),
-    };
-    private static String timeZoneAliasDir = null;
-    private static Map path_value_locales = new TreeMap();
-    private static XPathParts parts = new XPathParts(null, null);
-    private static long startTime = System.currentTimeMillis();
+  // debug flags
+  static final boolean DEBUG = false;
+  static final boolean DEBUG2 = false;
+  static final boolean DEBUG_SHOW_ADD = false;
+  static final boolean DEBUG_ELEMENT = false;
+  static final boolean DEBUG_SHOW_BAT = false;
+  static boolean usePrettyPath = true;
+  
+  static final boolean FIX_ZONE_ALIASES = true;
+  
+  private static final int
+  HELP1 = 0,
+  HELP2 = 1,
+  SOURCEDIR = 2,
+  DESTDIR = 3,
+  MATCH = 4,
+  SKIP = 5,
+  TZADIR = 6,
+  NONVALIDATING = 7,
+  SHOW_DTD = 8,
+  TRANSLIT = 9;
+  
+  private static final String NEWLINE = "\n";
+  
+  private static final UOption[] options = {
+    UOption.HELP_H(),
+    UOption.HELP_QUESTION_MARK(),
+    UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
+    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "charts\\by_type\\"),
+    UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
+    UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
+    UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
+    UOption.create("nonvalidating", 'n', UOption.NO_ARG),
+    UOption.create("dtd", 'w', UOption.NO_ARG),
+    UOption.create("transliterate", 'y', UOption.NO_ARG),
+  };
+  private static String timeZoneAliasDir = null;
+  private static Map path_value_locales = new TreeMap();
+  private static XPathParts parts = new XPathParts(null, null);
+  private static long startTime = System.currentTimeMillis();
+  
+  static RuleBasedCollator standardCollation = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+  static {
+    standardCollation.setStrength(Collator.IDENTICAL);
+    standardCollation.setNumericCollation(true);
+  }
+  
+  private static CLDRFile english;
+  
+  public static void main(String[] args) throws SAXException, IOException {
+    startTime = System.currentTimeMillis();
+    Utility.registerExtraTransliterators();
+    UOption.parseArgs(args, options);
+    Factory cldrFactory = CLDRFile.Factory.make(options[SOURCEDIR].value, options[MATCH].value);
+    english = cldrFactory.make("en", true);
+    loadInformation(cldrFactory);
+    String oldMain = "";
+    PrintWriter out = null;
     
-    static RuleBasedCollator standardCollation = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-    static {
-    	standardCollation.setStrength(Collator.IDENTICAL);
-        standardCollation.setNumericCollation(true);
+    System.out.println("Getting types");
+    String[] partial = {""};
+    Set types = new TreeSet();
+    for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	
+      String path = (String)it.next();
+      String main = getFileName(path, partial);
+      if (!main.equals(oldMain)) {
+        oldMain = main;
+        types.add(main);
+      }
     }
-
-
-    public static void main(String[] args) throws SAXException, IOException {
-    	startTime = System.currentTimeMillis();
-        Utility.registerExtraTransliterators();
-        UOption.parseArgs(args, options);
-        Factory cldrFactory = CLDRFile.Factory.make(options[SOURCEDIR].value, options[MATCH].value);
-        Set alllocales = cldrFactory.getAvailable();
-        String[] postFix = new String[]{""};
-        // gather all information
-        // TODO tweek for value-laden attributes
-        for (Iterator it = alllocales.iterator(); it.hasNext();) {
-        	String localeID = (String) it.next();
-        	System.out.println("Loading: " + localeID);
-        	CLDRFile cldrFile = cldrFactory.make(localeID, localeID.equals("root"));
-        	for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
-        		String path = (String) it2.next();
-        		String cleanPath = fixPath(path, postFix);
-    			String fullPath = cldrFile.getFullXPath(path);
-        		String value = getValue(cldrFile, path, fullPath);
-        		if (fullPath.indexOf("[@draft=") >= 0) postFix[0] = "*";
-        		Map value_locales = (Map) path_value_locales.get(cleanPath);
-        		if (value_locales == null ) path_value_locales.put(cleanPath, value_locales = new TreeMap(standardCollation));
-        		Set locales = (Set) value_locales.get(value);
-        		if (locales == null) value_locales.put(value, locales = new TreeSet());
-        		locales.add(localeID + postFix[0]);
-        	}
+    
+    System.out.println("Printing files");
+    Transliterator toLatin = Transliterator.getInstance("any-latin");
+    Transliterator toHTML = TransliteratorUtilities.toHTML;
+    UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
+    
+    for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	
+      String path = (String)it.next();
+      String main = getFileName(path, partial);
+      if (!main.equals(oldMain)) {
+        oldMain = main;
+        out = start(out, main, types);
+      }
+      String key = partial[0];
+      if (usePrettyPath) {
+          String originalPath = prettyPath.getOriginal(path);
+          String englishValue = english.getStringValue (originalPath);
+          if (englishValue != null) key += " (English: " + englishValue + ")";
+      }
+      out.println("<tr><th colSpan='2' class='path'>" + toHTML.transliterate(key) + "</th><tr>");
+      Map value_locales = (Map) path_value_locales.get(path);
+      for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
+        String value = (String)it2.next();
+        String outValue = toHTML.transliterate(value);
+        String transValue = value;
+        try {
+          transValue = toLatin.transliterate(value);
+        } catch (RuntimeException e) {
         }
-        String oldMain = "";
-        PrintWriter out = null;
-        
-        System.out.println("Getting types");
-        String[] partial = {""};
-        Set types = new TreeSet();
-        for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	
-        	String path = (String)it.next();
-        	String main = getFileName(path, partial);
-        	if (!main.equals(oldMain)) {
-        		oldMain = main;
-         		types.add(main);
-        	}
+        if (!transValue.equals(value)) {
+          outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
         }
-
-        System.out.println("Printing files");
-    	Transliterator toLatin = Transliterator.getInstance("any-latin");
-    	Transliterator toHTML = TransliteratorUtilities.toHTML;
-    	UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
-    	
-        for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	
-        	String path = (String)it.next();
-        	String main = getFileName(path, partial);
-        	if (!main.equals(oldMain)) {
-        		oldMain = main;
-         		out = start(out, main, types);
-        	}
-        	out.println("<tr><th colSpan='2' class='path'>" + toHTML.transliterate(partial[0]) + "</th><tr>");
-        	Map value_locales = (Map) path_value_locales.get(path);
-        	for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
-            	String value = (String)it2.next();
-            	String outValue = toHTML.transliterate(value);
-            	String transValue = value;
-				try {
-					transValue = toLatin.transliterate(value);
-				} catch (RuntimeException e) {
-				}
-            	if (!transValue.equals(value)) {
-            		outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
-            	}
-            	String valueClass = " class='value'";
-            	if (BIDI_R.containsSome(value)) {
-            		valueClass = " class='rtl_value'";
-            	}
-            	out.println("<tr><th" + valueClass + ">" + outValue + "</th><td>");
-            	Set locales = (Set) value_locales.get(value);
-            	boolean first = true;
-            	for (Iterator it3 = locales.iterator(); it3.hasNext();) {
-                	String locale = (String)it3.next();
-                	if (first) first = false;
-                	else out.print(" ");
-                	if (locale.endsWith("*")) {
-                		locale = locale.substring(0,locale.length()-1);
-                		out.print("<i>\u00B7" + locale + "\u00B7</i>");
-                	} else {
-                		out.print("\u00B7" + locale + "\u00B7");         
-                	}
-            	}
-            	out.println("</td><tr>");
-        	}
+        String valueClass = " class='value'";
+        if (BIDI_R.containsSome(value)) {
+          valueClass = " class='rtl_value'";
         }
-        finish(out);
-        System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
-        		.format((System.currentTimeMillis()-startTime)/1000.0));
+        out.println("<tr><th" + valueClass + ">" + outValue + "</th><td>");
+        Set locales = (Set) value_locales.get(value);
+        boolean first = true;
+        for (Iterator it3 = locales.iterator(); it3.hasNext();) {
+          String locale = (String)it3.next();
+          if (first) first = false;
+          else out.print(" ");
+          if (locale.endsWith("*")) {
+            locale = locale.substring(0,locale.length()-1);
+            out.print("<i>\u00B7" + locale + "\u00B7</i>");
+          } else {
+            out.print("\u00B7" + locale + "\u00B7");         
+          }
+        }
+        out.println("</td><tr>");
+      }
     }
-
-    /**
-	 * 
-	 */
-	private static String fixPath(String path, String[] localePrefix) {
-		localePrefix[0] = "";
-		if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
-			localePrefix[0] = "*";
-			path = removeAttributes(path, skipSet);
-		}
-		return path;
-	}
-	
-	private static String removeAttributes(String xpath, Set skipAttributes) {
-    	XPathParts parts = new XPathParts(null,null).set(xpath);
-    	removeAttributes(parts, skipAttributes);
-    	return parts.toString();
+    finish(out);
+    System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
+        .format((System.currentTimeMillis()-startTime)/1000.0));
+  }
+  
+  private static void loadInformation(Factory cldrFactory) {
+    Set alllocales = cldrFactory.getAvailable();
+    String[] postFix = new String[]{""};
+    // gather all information
+    // TODO tweek for value-laden attributes
+    for (Iterator it = alllocales.iterator(); it.hasNext();) {
+      String localeID = (String) it.next();
+      System.out.println("Loading: " + localeID);
+      CLDRFile cldrFile = cldrFactory.make(localeID, localeID.equals("root"));
+      if (cldrFile.isNonInheriting()) continue;
+      for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
+        String path = (String) it2.next();
+        if (path.indexOf("/alias") >= 0) continue;
+        if (path.indexOf("/identity") >= 0) continue;
+        if (path.indexOf("/references") >= 0) continue;
+        String cleanPath = fixPath(path, postFix);
+        String fullPath = cldrFile.getFullXPath(path);
+        String value = getValue(cldrFile, path, fullPath);
+        if (fullPath.indexOf("[@draft=") >= 0) postFix[0] = "*";
+        Map value_locales = (Map) path_value_locales.get(cleanPath);
+        if (value_locales == null ) path_value_locales.put(cleanPath, value_locales = new TreeMap(standardCollation));
+        Set locales = (Set) value_locales.get(value);
+        if (locales == null) value_locales.put(value, locales = new TreeSet());
+        locales.add(localeID + postFix[0]);
+      }
     }
-
-	/**
-	 * 
-	 */
-	private static void removeAttributes(XPathParts parts, Set skipAttributes) {
-		for (int i = 0; i < parts.size(); ++i) {
-    		String element = parts.getElement(i);
-    		Map attributes = parts.getAttributes(i);
-    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    			String attribute = (String) it.next();
-    			if (skipAttributes.contains(attribute)) it.remove();
-    		}
-    	}
-	}
-
-	static Set skipSet = new HashSet(Arrays.asList(new String[]{"draft", "alt"}));
-	/**
-	 * 
-	 */
-	private static String getValue(CLDRFile cldrFile, String path, String fullPath) {
-		String value = cldrFile.getStringValue(path);
-		if (value == null) {
-			System.out.println("Null value for " + path);
-			return value;
-		}
-		if (value.length() == 0) {
-			parts.set(fullPath);
-			removeAttributes(parts, skipSet);
-			int limit = parts.size();
-			value = parts.toString(limit-1, limit);
-		}
-		return value;
-	}
-
-	/**
-	 * 
-	 */
-	private static String getFileName(String path, String[] partial) {
-		parts.set(path);
-		int start = 1;
-		String main = parts.getElement(start);
-		if (main.equals("localeDisplayNames")
-				|| main.equals("dates")
-				|| main.equals("numbers")) {
-			start = 2;
-			String part2 = parts.getElement(start);
-			main += "_" + part2;
-			if (part2.equals("calendars")) {
-				start = 3;
-				Map m = parts.getAttributes(start);
-				part2 = (String) m.get("type");
-				main += "_" + part2;				
-			}
-		}
-		partial[0] = parts.toString(start + 1, parts.size());
-		return main;
-	}
-
-	/**
-	 * 
-	 */
-	private static PrintWriter start(PrintWriter out, String main, Set types) throws IOException {
-   		finish(out);
-   		String title = "CLDR Sideways Data for ";
-		out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
-		out.println("<html><head>");
-		out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
-		out.println("<title>" + title  + main + "</title>");
-		out.println("<link rel='stylesheet' type='text/css' href='by_type.css'>");
-		/*
-		out.println("<style>");
-		out.println("<!--");
-		out.println(".path        { background-color: #00FF00 }");
-		out.println("td,th        { text-align:left; vertical-align:top; border: 1px solid blue; padding: 2 }");
-		out.println("table        { border-collapse: collapse }");
-		out.println("-->");
-		out.println("</style>");
-		*/
-		out.println("</head><body><h1>" + title + "<i>" +  main + "</i></h1><p>");
-		boolean first = true;
-		for (Iterator it = types.iterator(); it.hasNext();) {
-			String fileName = (String) it.next();
-			if (first) first = false;
-			else out.println(" | ");
-			out.println("<a href='" + fileName + 
-					".html'>" + fileName +
-					"</a>");
-		}
-		out.println("</p><table>");
-		return out;
-	}
-
-	/**
-	 * 
-	 */
-	private static void finish(PrintWriter out) {
-		if (out == null) return;
-		out.println("</table></body></html>");
-		out.close();
-	}
+  }
+  
+  static org.unicode.cldr.util.PrettyPath prettyPath = new org.unicode.cldr.util.PrettyPath();
+  /**
+   * 
+   */
+  private static String fixPath(String path, String[] localePrefix) {
+    localePrefix[0] = "";
+    if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
+      localePrefix[0] = "*";
+      path = removeAttributes(path, skipSet);
+    }
+    if (usePrettyPath) path = prettyPath.getPrettyPath(path);
+    return path;
+  }
+  
+  private static String removeAttributes(String xpath, Set skipAttributes) {
+    XPathParts parts = new XPathParts(null,null).set(xpath);
+    removeAttributes(parts, skipAttributes);
+    return parts.toString();
+  }
+  
+  /**
+   * 
+   */
+  private static void removeAttributes(XPathParts parts, Set skipAttributes) {
+    for (int i = 0; i < parts.size(); ++i) {
+      String element = parts.getElement(i);
+      Map attributes = parts.getAttributes(i);
+      for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+        String attribute = (String) it.next();
+        if (skipAttributes.contains(attribute)) it.remove();
+      }
+    }
+  }
+  
+  static Set skipSet = new HashSet(Arrays.asList(new String[]{"draft", "alt"}));
+  /**
+   * 
+   */
+  private static String getValue(CLDRFile cldrFile, String path, String fullPath) {
+    String value = cldrFile.getStringValue(path);
+    if (value == null) {
+      System.out.println("Null value for " + path);
+      return value;
+    }
+    if (value.length() == 0) {
+      parts.set(fullPath);
+      removeAttributes(parts, skipSet);
+      int limit = parts.size();
+      value = parts.toString(limit-1, limit);
+    }
+    return value;
+  }
+  
+  /**
+   * 
+   */
+  private static String getFileName(String path, String[] partial) {
+    if (usePrettyPath) {
+      path = prettyPath.getOutputForm(path);
+      int pos = path.lastIndexOf('|');
+      partial[0] = path.substring(pos+1);
+      return path.substring(0,pos).replace('|','.');
+    }
+    parts.set(path);
+    int start = 1;
+    String main = parts.getElement(start);
+    if (main.equals("localeDisplayNames")
+        || main.equals("dates")
+        || main.equals("numbers")) {
+      start = 2;
+      String part2 = parts.getElement(start);
+      main += "_" + part2;
+      if (part2.equals("calendars")) {
+        start = 3;
+        Map m = parts.getAttributes(start);
+        part2 = (String) m.get("type");
+        main += "_" + part2;				
+      }
+    }
+    partial[0] = parts.toString(start + 1, parts.size());
+    return main;
+  }
+  
+  /**
+   * 
+   */
+  private static PrintWriter start(PrintWriter out, String main, Set types) throws IOException {
+    finish(out);
+    String title = "CLDR Sideways Data for ";
+    out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
+    out.println("<html><head>");
+    out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+    out.println("<title>" + title  + main + "</title>");
+    out.println("<link rel='stylesheet' type='text/css' href='by_type.css'>");
+    /*
+     out.println("<style>");
+     out.println("<!--");
+     out.println(".path        { background-color: #00FF00 }");
+     out.println("td,th        { text-align:left; vertical-align:top; border: 1px solid blue; padding: 2 }");
+     out.println("table        { border-collapse: collapse }");
+     out.println("-->");
+     out.println("</style>");
+     */
+    out.println("</head><body><h1>" + title + "<i>" +  main + "</i></h1><blockquote><p>");
+    boolean first = true;
+    String lastMain = "";
+    for (Iterator it = types.iterator(); it.hasNext();) {
+      String fileName = (String) it.next();
+      int breakPos = fileName.indexOf('.');
+      if (breakPos >= 0) {
+        String mainName = fileName.substring(0,breakPos);
+        String subName = fileName.substring(breakPos+1);
+        if (!mainName.equals(lastMain)) {
+          if (lastMain.length() != 0) {
+            out.print("<br>");
+          }
+          out.println("<b>" + mainName + "</b>: ");
+          lastMain = mainName;
+        } else {
+          out.println(" | ");
+        }
+        out.println("<a href='" + fileName + 
+            ".html'>" + subName +
+        "</a>");
+        continue;
+      }
+      if (first) first = false;
+      else out.println(" | ");
+      out.println("<a href='" + fileName + 
+          ".html'>" + fileName +
+      "</a>");
+    }
+    out.println("</p></blockquote><table>");
+    return out;
+  }
+  
+  /**
+   * 
+   */
+  private static void finish(PrintWriter out) {
+    if (out == null) return;
+    out.println("</table></body></html>");
+    out.close();
+  }
 }

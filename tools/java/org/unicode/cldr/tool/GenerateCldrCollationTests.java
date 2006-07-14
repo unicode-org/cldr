@@ -94,7 +94,13 @@ public class GenerateCldrCollationTests {
         for (Iterator it = locales.iterator(); it.hasNext();) {
         	String locale = (String) it.next();
         	if (ulocale_rules.get(locale) != null) continue;
-        	ulocale_rules.put(locale, ulocale_rules.get(GenerateCldrTests.getParent(locale)));
+            String parent = GenerateCldrTests.getParent(locale);
+            if (parent == null) continue;
+        	try {
+                ulocale_rules.put(locale, ulocale_rules.get(parent));
+            } catch (RuntimeException e) {
+                throw e;
+            }
         }
     }
 

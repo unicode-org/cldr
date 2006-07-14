@@ -10,13 +10,13 @@ package org.unicode.cldr.ooo;
 public class OOConstants
 {
     //for geenrating templates
-    public static final String NO_DATA             = "NA";  //use for writing template OO.o locales from CLDR
-    public static final String NO_DATA_Q           = "NA?";
-    public static final String NO_DATA_P           = "NA+";
-    public static final String NO_DATA_A            = "NA*";
-    public static final String TRUE_FALSE           = "true"; //true|false";
-    public static final String LONG_MEDIUM_SHORT    = "long"; //long|medium|short";
-    public static final String YES_NO               = "yes"; //yes|no";
+    public static final String NO_DATA             = "<NA>";  //use for writing template OO.o locales from CLDR
+    public static final String NO_DATA_Q           = "<NA?>";
+    public static final String NO_DATA_P           = "<NA+>";
+    public static final String NO_DATA_A            = "<NA*>";
+    public static final String TRUE_FALSE           = "true|false";
+    public static final String LONG_MEDIUM_SHORT    = "long|medium|short";
+    public static final String YES_NO               = "yes|no";
     
     
     public static final String UNOID                    = "unoid";

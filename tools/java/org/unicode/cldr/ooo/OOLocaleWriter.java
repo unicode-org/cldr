@@ -135,7 +135,7 @@ public class OOLocaleWriter extends XMLWriter
         println("</" + OOConstants.COUNTRY + ">");
         
         // Platform
-        String platformID = m_bTemplate==false ? (String) data.get(OOConstants.PLATFORM_ID) : OOConstants.NO_DATA;
+        String platformID = m_bTemplate==false ? (String) data.get(OOConstants.PLATFORM_ID) : OOConstants.NO_DATA_Q;
         if (platformID != null)
         {
             println("<" + OOConstants.PLATFORM + ">");
@@ -146,7 +146,7 @@ public class OOLocaleWriter extends XMLWriter
         }
         
         // Variant
-        String variant = m_bTemplate==false ? (String) data.get(OOConstants.VARIANT) : OOConstants.NO_DATA;
+        String variant = m_bTemplate==false ? (String) data.get(OOConstants.VARIANT) : OOConstants.NO_DATA_Q;
         if (variant != null) println("<" + OOConstants.VARIANT + ">" + variant + "</" + OOConstants.VARIANT + ">");
         outdent();
         println("</" + OOConstants.LC_INFO + ">");
@@ -1309,7 +1309,7 @@ public class OOLocaleWriter extends XMLWriter
     
     public void writeLC_FORMAT_template ()
     {
-        println("<" + OOConstants.LC_FORMAT + " " + OOConstants.REPLACE_FROM_SMALL + "=\"" + OOConstants.NO_DATA + "\" " + OOConstants.REPLACE_TO_SMALL + "=\"" + OOConstants.NO_DATA  + "\">");
+        println("<" + OOConstants.LC_FORMAT + " " + OOConstants.REPLACE_FROM_SMALL + "=\"" + OOConstants.NO_DATA_Q + "\" " + OOConstants.REPLACE_TO_SMALL + "=\"" + OOConstants.NO_DATA_Q  + "\">");
         indent();
 
         for (int i=0; i <= 47; i++)

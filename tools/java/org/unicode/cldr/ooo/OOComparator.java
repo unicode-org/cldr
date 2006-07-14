@@ -354,7 +354,7 @@ public class OOComparator
                 {
                     column_name = ((TableInfo)m_TableInfo.elementAt(j)).name;
                     href = ((TableInfo)m_TableInfo.elementAt(j)).url;
-                    href = href.replace ("LOCALE", localeStr+".xml");
+                    href = href.replaceAll("LOCALE", localeStr+".xml");
                     
                     //deal with bulk comparison case
                     if (href.indexOf(".xml")==-1) href = (String) XMLfiles.get(i);

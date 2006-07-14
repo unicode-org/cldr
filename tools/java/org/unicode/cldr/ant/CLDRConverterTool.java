@@ -284,43 +284,47 @@ public abstract class CLDRConverterTool {
                          */
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
-                        if(exc.preferAlt!=null){
-                            // the current xpath does not have the alt attribute set
+                        boolean altExc = false, draftExc = false;
+                        if(exc.preferAlt==null && altVal==null){
+                            altExc = true;
+                        }else if(exc.preferAlt==null && altVal!=null){
+                            altExc = true;
+                        }else if(exc.preferAlt!=null && altVal==null){
+                            altExc = false;
+                        }else{
+                            //the current xpath does not have the alt attribute set
                             // since the list is sorted we can be sure that if the
                             // next xpath matches the the current one then additional
                             // alt attribute should be set
-                            if(altVal==null){
-                                // now check if next xpath contains alt attribute
-                                String nxp = (String) xpathList.get(i+1);
-                                XPathParts nparts = (new XPathParts(null, null)).set(nxp);
-                                Map nattr = nparts.getAttributes(parts.size()-1);
-                                // make sure the type attribute is the same
-                                if(parts.isLike(nparts)){
-                                    altVal = (String)nattr.get(LDMLConstants.ALT);
-                                    if(altVal.matches(exc.preferAlt)){
-                                        draftVal = (String)nattr.get(LDMLConstants.DRAFT);
-                                        xpath = nxp;
-                                        i++;
-                                    }
-                                }
-                            }else{
+                            // now check if next xpath contains alt attribute
+                            String nxp = (String) xpathList.get(i+1);
+                            XPathParts nparts = (new XPathParts(null, null)).set(nxp);
+                            Map nattr = nparts.getAttributes(parts.size()-1);
+                            // make sure the type attribute is the same
+                            if(parts.isLike(nparts)){
+                                altVal = (String)nattr.get(LDMLConstants.ALT);
                                 if(altVal.matches(exc.preferAlt)){
-                                    include = false;
+                                    draftVal = (String)nattr.get(LDMLConstants.DRAFT);
+                                    xpath = nxp;
+                                    i++;
+                                    altExc = true;
                                 }
                             }
                         }
-                        if(exc.draft!=null){
-                            if(   draftVal==null && 
-                                 (exc.draft.equals("false")|| exc.draft.equals(".*")) 
-                               ){
-                                include = false;
-                            }else if(draftVal!=null && draftVal.matches(exc.draft)){
-                                include = false;
-                            }else{
-                                include = true;
+                        if(exc.draft==null && draftVal==null){
+                            draftExc = true;
+                        }else if(exc.draft!=null && draftVal==null){
+                            if((exc.draft.equals("false")|| exc.draft.equals(".*")) ){
+                                draftExc = true;
                             }
+                        }else if(exc.draft==null && draftVal!=null){
+                            draftExc = false;
                         }else{
-                            //draft attribute not specified so exclude by default
+                            if(draftVal.matches(exc.draft)){
+                                draftExc = true;    
+                            }
+                        }
+                        if(altExc==true && draftExc==true){
                             include = false;
                         }
                     } 
@@ -368,46 +372,51 @@ public abstract class CLDRConverterTool {
                          */
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
-                        if(inc.preferAlt!=null){
+                        boolean altInc = false;
+                        if(inc.preferAlt==null && altVal==null){
+                            altInc = true;
+                        }else if(inc.preferAlt==null && altVal!=null){
+                             altInc = false;
+                        }else if(inc.preferAlt!=null && altVal==null){
                             // the current xpath does not have the alt attribute set
                             // since the list is sorted we can be sure that if the
                             // next xpath matches the the current one then additional
                             // alt attribute should be set
-                            if(altVal==null){
-                                // now check if next xpath contains alt attribute
-                                String nxp = (String) xpathList.get(i+1);
-                                XPathParts nparts = (new XPathParts(null, null)).set(nxp);
-                                Map nattr = nparts.getAttributes(parts.size()-1);
-                                // make sure the type attribute is the same
-                                if(parts.isLike(nparts)){
-                                    altVal = (String)nattr.get(LDMLConstants.ALT);
-                                    if(altVal.matches(inc.preferAlt)){
-                                        draftVal = (String)nattr.get(LDMLConstants.DRAFT);
-                                        xpath = nxp;
-                                        i++;
-                                    }
-                                }
-                            }else{
+                            // now check if next xpath contains alt attribute
+                            String nxp = (String) xpathList.get(i+1);
+                            XPathParts nparts = (new XPathParts(null, null)).set(nxp);
+                            Map nattr = nparts.getAttributes(parts.size()-1);
+                            // make sure the type attribute is the same
+                            if(parts.isLike(nparts)){
+                                altVal = (String)nattr.get(LDMLConstants.ALT);
                                 if(altVal.matches(inc.preferAlt)){
-                                    include = true;
+                                    draftVal = (String)nattr.get(LDMLConstants.DRAFT);
+                                    xpath = nxp;
+                                    i++;
+                                    altInc = true;
                                 }
                             }
-                        }
-                        if(inc.draft!=null){
-                            if(   draftVal==null && 
-                                 (inc.draft.equals("false")|| inc.draft.equals(".*")) 
-                               ){
-                                include = true;
-                            }else if(draftVal!=null && draftVal.matches(inc.draft)){
-                                if(!(inc.preferAlt!=null && include==false)){
-                                    include = true;
-                                }
-                            }else{
-                                include = false;
+                        }else{
+                            if(altVal.matches(inc.preferAlt)){
+                                altInc = true;
                             }
                         }
-                        if(inc.preferAlt==null && altVal!=null){
-                            include = false;
+                        boolean draftInc = false;
+                        if(inc.draft==null && draftVal==null){
+                            draftInc = true;
+                        }else if(inc.draft!=null && draftVal==null){
+                            if((inc.draft.equals("false")|| inc.draft.equals(".*")) ){
+                                draftInc = true;
+                            }
+                        }else if(inc.draft==null && draftVal!=null){
+                            draftInc = false;
+                        }else{
+                            if(draftVal.matches(inc.draft)){
+                                draftInc = true;
+                            }
+                        }
+                        if(altInc==true && draftInc==true){
+                            include = true;
                         }
                     }       
                 }else{

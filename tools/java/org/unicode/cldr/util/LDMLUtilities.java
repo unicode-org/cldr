@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -25,7 +26,6 @@ import org.apache.xalan.serialize.Serializer;
 import org.apache.xalan.serialize.SerializerFactory;
 import org.apache.xalan.templates.OutputProperties;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
@@ -47,7 +47,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.unicode.cldr.icu.LDMLConstants;
 
 /**
  * @author ram
@@ -59,7 +58,7 @@ public class LDMLUtilities {
 
     public static final int XML = 0,
                             TXT = 1;
-private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     /**
      * Creates a fully resolved locale starting with root and 
      * @param sourceDir
@@ -94,7 +93,18 @@ private static final boolean DEBUG = false;
             if(list.length>0){
                 System.err.println("Aliases not resolved!. list.getLength() returned "+ list.length);
             }*/
-            
+          
+            if(DEBUG){
+                try {
+                     java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
+                             new  java.io.FileOutputStream("./" + File.separator 
+                                     + "root_debug.xml"), "UTF-8");
+                     LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                     writer.flush();
+                } catch (IOException e) {
+                     //throw the exceptionaway .. this is for debugging
+                }
+            }
         }catch(RuntimeException ex){
             if(!ignoreRoot){
                 throw ex;
@@ -127,7 +137,7 @@ private static final boolean DEBUG = false;
             File file = new File(fileName);
             if(file.exists()){
                 isAvailable = true;
-                doc = parse(fileName, ignoreUnavailable);
+                doc = parseAndResolveAlias(fileName, loc, ignoreUnavailable);
 
                 /*
                  * Debugging
@@ -142,6 +152,17 @@ private static final boolean DEBUG = false;
                 }else{
                     StringBuffer xpath = new StringBuffer();
                     mergeLDMLDocuments(full, doc, xpath, loc, sourceDir, ignoreDraft, false);
+                    if(DEBUG){
+                        try {
+                             java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
+                                     new  java.io.FileOutputStream("./" + File.separator + loc
+                                             + "_debug.xml"), "UTF-8");
+                             LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                             writer.flush();
+                        } catch (IOException e) {
+                             //throw the exceptionaway .. this is for debugging
+                        }
+                    }
                 }
                 /*
                  * debugging
@@ -523,7 +544,7 @@ private static final boolean DEBUG = false;
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);
-            appendXPathAttribute(child,xpath, false, true);
+            appendXPathAttribute(child,xpath, false, false);
             Node nodeInSource = null;
             
             if(childName.indexOf(":")>-1){ 
@@ -636,6 +657,42 @@ private static final boolean DEBUG = false;
     }
     /**
      * 
+     * @param n1
+     * @param n2 preferred list
+     * @param xpath
+     * @return
+     */
+    private static Node[]  mergeNodeLists(Object[] n1, Object[] n2, String xpath1, String xpath2){
+        StringBuffer xp1 = new StringBuffer(xpath1);
+        StringBuffer xp2 = new StringBuffer(xpath2);
+        int l1=xp1.length(), l2=xp2.length();
+        HashMap map = new HashMap();
+        if(n2==null|| n2.length==0){
+            Node[] na = new Node[n1.length];
+            for(int i=0;i<n1.length;i++){
+                na[i]=(Node)n1[i];
+            }
+            return na;
+        }
+        for(int i=0; i<n1.length; i++){
+            appendXPathAttribute((Node)n1[i], xp1);
+            map.put(xp1.toString(), n1[i]);
+            xp1.setLength(l1);
+        }
+        for(int i=0; i<n2.length; i++){
+            appendXPathAttribute((Node)n2[i], xp2);
+            map.put(xp2.toString(), n2[i]);
+            xp2.setLength(l2);
+        }
+        Object[] arr =  map.values().toArray();
+        Node[] na = new Node[arr.length];
+        for(int i=0;i<arr.length;i++){
+            na[i]=(Node)arr[i];
+        }
+        return na;
+    }
+    /**
+     * 
      * @param fullyResolvedDoc
      * @param sourceDir
      * @param thisLocale
@@ -643,7 +700,6 @@ private static final boolean DEBUG = false;
     // TODO guard against circular aliases
     public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale,boolean ignoreDraft, HashMap stack){
        Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
-       
        
        // resolve all the aliases by iterating over
        // the list of nodes
@@ -654,7 +710,7 @@ private static final boolean DEBUG = false;
        String type = null;
        for(int i=0; i < array.length ; i++){
            Node node = array[i];
-           
+           /*
            //stop inherited aliases from overwriting valid locale data
            //ldml.dtd does not allow alias to have any sibling elements
            boolean bFoundSibling = false;
@@ -671,7 +727,7 @@ private static final boolean DEBUG = false;
            }
            if (bFoundSibling == true) 
                continue;
-                      
+           */           
            //initialize the stack for every alias!
            stack = new HashMap();
            if(node==null){
@@ -698,7 +754,12 @@ private static final boolean DEBUG = false;
                
            }
            stack.put(key, "");
-           if(source!=null && !source.equals(thisLocale)&&  !source.equals(LDMLConstants.LOCALE)){
+           if(source.equals(LDMLConstants.LOCALE)){
+             
+               Object[] aliasList = getChildNodeListAsArray(getNode(parent, path), false);
+               Object[] childList = getChildNodeListAsArray(parent, true);
+               replacementList = mergeNodeLists(aliasList, childList, path, getAbsoluteXPath(parent, null));
+           }else if(source!=null && !source.equals(thisLocale)){
                // if source is defined then path should not be 
                // relative 
                if(path.indexOf("..")>0){
@@ -869,6 +930,24 @@ private static final boolean DEBUG = false;
             }
         }
         return false; 
+    }
+    public static boolean isLocaleAlias(Document doc){
+        NodeList elements = doc.getElementsByTagName(LDMLConstants.IDENTITY);
+        if(elements.getLength()==1){
+            Node id = elements.item(0);
+            Node sib = id;
+            while((sib =sib.getNextSibling())!=null){
+                if(sib.getNodeType()!=Node.ELEMENT_NODE){
+                    continue;
+                }
+                if(sib.getNodeName().equals(LDMLConstants.ALIAS)){
+                    return true;
+                }
+            }
+        }else{
+            System.out.println("Error: elements returned more than 1 identity element!");
+        }
+        return false;
     }
     /**
      * Determines if the whole locale is marked draft. To accomplish this
@@ -1047,6 +1126,26 @@ private static final boolean DEBUG = false;
             throw new RuntimeException(ex.getMessage());
         } 
     }
+
+    private static Object[] getChildNodeListAsArray( Node parent, boolean exceptAlias){
+
+        NodeList list = parent.getChildNodes();
+        int length = list.getLength();
+        
+        ArrayList al = new ArrayList();
+        for(int i=0; i<length; i++){
+            Node item  = list.item(i);
+            if(item.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            if(exceptAlias && item.getNodeName().equals(LDMLConstants.ALIAS)){
+               continue; 
+            }
+            al.add(item);
+        }
+        return al.toArray();
+        
+    }
     public static Node[] toNodeArray( NodeList list){
         int length = list.getLength();
         if(length>0){
@@ -1074,6 +1173,7 @@ private static final boolean DEBUG = false;
             throw new RuntimeException(ex.getMessage());
         } 
     }
+    
     /**
      * Fetches the list of nodes that match the given xpath
      * @param doc
@@ -1473,7 +1573,44 @@ private static final boolean DEBUG = false;
         }
         return null;
     }
-
+    
+    /**
+     * Parse & resolve file level alias
+     */
+    public static Document parseAndResolveAlias(String filename, String locale, boolean ignoreError)throws RuntimeException {
+        // Force filerefs to be URI's if needed: note this is independent of any other files
+        String docURI = filenameToURL(filename);
+        Document doc = parse(new InputSource(docURI),filename,ignoreError);
+        NodeList elements = doc.getElementsByTagName(LDMLConstants.IDENTITY);
+        if(elements.getLength()==1){
+            Node id = elements.item(0);
+            Node sib = id;
+            while((sib =sib.getNextSibling())!=null){
+                if(sib.getNodeType()!=Node.ELEMENT_NODE){
+                    continue;
+                }
+                if(sib.getNodeName().equals(LDMLConstants.ALIAS)){
+                    String source = LDMLUtilities.getAttributeValue(sib, LDMLConstants.SOURCE);
+                    //String fn = filename.substring(0,filename.lastIndexOf(File.separator)+1)+source+".xml";
+                    resolveAliases(doc,filename.substring(0,filename.lastIndexOf(File.separator)+1),locale, false, null);
+                }
+            }
+        }else{
+            System.out.println("Error: elements returned more than 1 identity element!");
+        }
+        if(DEBUG){
+            try {
+                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
+                         new  java.io.FileOutputStream("./" + File.separator + locale
+                                 + "_debug_1.xml"), "UTF-8");
+                 LDMLUtilities.printDOMTree(doc, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                 writer.flush();
+            } catch (IOException e) {
+                 //throw the exceptionaway .. this is for debugging
+            }
+        }
+        return doc;
+    }
     /**
      * Simple worker method to parse filename to a Document.  
      *

@@ -121,6 +121,7 @@ public class LDMLConstants {
     public static final String ABBREVIATED     = "abbreviated";
     public static final String WIDE            = "wide";
     public static final String CURRENCY        = "currency";
+    public static final String CHOICE          = "choice";
     public static final String DECIMAL_FORMATS = "decimalFormats";
     public static final String SCIENTIFIC_FORMATS  = "scientificFormats";
     public static final String CURRENCY_FORMATS    = "currencyFormats";

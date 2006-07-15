@@ -50,10 +50,10 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
         <td class="navColCell" valign="top"><a href="#General">General</a></td>
       </tr>
       <tr>
-        <td class="navColCell" valign="top"><a href="#Minimum_Data">Minimum Data</a></td>
+        <td class="navColCell" valign="top"><a href="#Special_Considerations">Special Considerations</a></td>
       </tr>
       <tr>
-        <td class="navColCell" valign="top"><a href="#Collation">Collation</a> (Sorting)</td>
+        <td class="navColCell" valign="top"><a href="#Minimum_Data">Minimum Data</a></td>
       </tr>
       <tr>
         <td class="navColCell" valign="top"><a href="#Exemplar">Exemplar Characters</a></td>
@@ -69,7 +69,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
         <td class="navColCell" valign="top"><a href="#Dates">Dates</a></td>
       </tr>
       <tr>
-        <td class="navColCell" valign="top"><a href="#Special_Considerations">Special Considerations</a></td>
+        <td class="navColCell" valign="top"><a href="#Collation">Collation</a> (Sorting)</td>
       </tr>
       <tr>
         <td class="navColTitle">CLDR</td>
@@ -150,30 +150,40 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
           Locale Data Repository. It is intended to clarify the meaning of some of the data in the 
           CLDR for localizers and other people reading the CLDR comparison charts. The references 
           given below are to the LDML specification.</p>
-          <blockquote>
-            <p><b>Note:</b>
-			Most 
-			proposed data (new or corrections) should be entered via the 
-			<a href="http://unicode.org/cldr/apps/survey/">
-			Survey Tool</a>. 
-			For instructions on usage, see 
-			<a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">
-			Survey Tool Instructions</a>.
-			For the schedule for the next release, see <a href="index.html">CLDR Project</a>.</p>
-          </blockquote>
+          <p>Most 
+			proposed data (new or corrections) will be entered via the
+			<a href="http://unicode.org/cldr/apps/survey/">Survey Tool</a>. 
+			There is much more detailed information on formats in the Survey 
+			Tool Wikis:</p>
+			<ul>
+				<li><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">
+				SurveyToolHelp</a></li>
+				<li><a href="http://www.unicode.org/cldr/wiki?WalkThrough">
+				WalkThrough</a> </li>
+				<li>plus the &quot;Page Instructions&quot; on each Survey Tool page, such 
+				as
+				<a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/characters">
+				characters</a> </li>
+			</ul>
+			<p>The survey tool also provides examples of more complicated fields 
+			like number formats, such as on
+			<a href="http://unicode.org/cldr/apps/survey?_=fr&x=numbers">numbers</a>.</p>
+			<p>This page, and the Wikis mentioned above, may be enhanced at any 
+			time. For notification of changes, see
+			<a href="http://www.unicode.org/consortium/distlist.html#1">
+			Notification Services</a>.</p>
           <h2><a name="General">General</a></h2>
           <p>The locale data should be in the customary form for the target language, in the form 
           that is in most common usage. For example, for the territory name in English one would use 
           &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The 
           United Kingdom of Great Britain and Northern Ireland&quot;.</p>
           <p>As with all of the CLDR data, the language locale should contain the most broadly used 
-          data for that language; specific region locales will <i>only</i> contain data where they 
+          data for that language, and should be appropriate for the most 
+			populous region; other specific region locales should only contain data where they 
           need to override individual items, when the inherited language locale data would not be 
           customary in that region.</p>
-          <p>The formats are described in the <a href="http://www.unicode.org/reports/tr35/">UTS 
-          #35: LDML</a> specification; in addition, there is a link at the top of the page to the
-          <a href="http://ibm.com/software/globalization/icu/demo/locales">ICU Locale Explorer</a>, 
-          where the results of different formats can be viewed. Note that some fields are expected 
+          <p>The formats are described detail in the <i><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
+        Locale Data Markup Language (LDML)</a></i> specification. Note that some fields are expected 
           to be in English, since they indicate internal IDs and <i>not</i> translated text, such as 
           the layout orientation, which has the value &quot;top-to-bottom&quot;.</p>
           <blockquote>
@@ -187,19 +197,227 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               <li>this will also give the NFC form of the text, which is preferred.</li>
             </ol>
           </blockquote>
+          <h2><a name="Special_Considerations">Special Considerations</a></h2>
+          <h3><a name="BIDI">BIDI Ordering</a></h3>
+          <blockquote>
+            <p>In the comparison charts, the ordering of characters for BIDI languages is up to the 
+            browser. The ordering may differ from the typical ordering in context, so may be helpful 
+            to copy the text from the charts and paste into typical environments to ensure that the 
+            ordering is correct. This is especially the case for date, time and number formats.</p>
+          </blockquote>
+          <h3><span><a name="Character_Repertoire">Character Repertoire</a></span></h3>
+          <blockquote>
+            <p><span>The data in the locale repository should contain the most appropriate choice of 
+            characters for the representation of the text. It may thus include Unicode characters 
+            that are not included in a given legacy character set. In particular, the data may 
+            contain curly quotes and apostrophes (such as in “can’t”), and similar characters such 
+            as the letter modifiers in ʻōlelo Hawaiʻi.</span></p>
+            <p><span>These characters provide more distinctions than are available with the generic 
+            ASCII repertoire. They may be “downcast” to the best available characters when the data 
+            is imported into systems with a more limited repertoire of supported characters. 
+			(Downcasting information is provided in the
+			<a href="http://unicode.org/cldr/data/common/supplemental/characters.xml">
+			characters.xml</a> file;
+			<a href="http://www.unicode.org/charts/normalization/">Unicode 
+			normalization</a> may also be used to downcast.)</span></p>
+          </blockquote>
+          <h3><span>Hong Kong, Macau</span></h3>
+          <blockquote>
+            <p><span>The territory codes HK and MO are to be translated with the native equivalent 
+            of “Hong Kong SAR China” and “Macao SAR China”, respectively. SAR stands for “Special 
+            Administrative Region” and can be represented with acronym in the target language.</span></p>
+          </blockquote>
           <h2><span><a name="Minimum_Data">Minimum Recommended Localization Data</a></span></h2>
-          <p>Please see <i>
-			<a href="http://unicode.org/reports/tr35/tr35-6.html#Coverage_Levels">
-			Appendix M: Coverage Levels</a></i> in <i>UTS#35: Locale Data Markup 
+          <blockquote>
+			<p>Please see <i>
+			<a href="http://unicode.org/reports/tr35/tr35-6.html#Coverage_Levels">Appendix M: Coverage Levels</a></i> in 
+			<i>UTS#35: Locale Data Markup 
 			Language (LDML)</i>. </p>
+			</blockquote>
+          <h2><a name="Exemplar">Exemplar Characters</a></h2>
+          <blockquote>
+          <p>Please see <i>
+			<a href="http://unicode.org/reports/tr35/tr35-6.html#Character_Elements">
+			Section 5.6 Character Elements</a></i> in <i>UTS#35: Locale Data 
+			Markup Language (LDML)</i>. </p>
+          </blockquote>
+          <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 
+          Currencies, Time Zones</h2>
+          <blockquote>
+            <p>These items are perhaps the simplest to translate. The type values that can be used 
+            for each are found in Appendix K: <span>
+            <a href="http://www.unicode.org/reports/tr35/#valid_attribute_values">Valid Attribute 
+            Values</a></span></p>
+            <p>The typical behavior if any particular translation is not available is to display the 
+            corresponding code, such as an ISO or RFC 3066 code. Thus if there is no localization of 
+            FR (France), then the string &quot;FR&quot; will appear.</p>
+            <p>The names must, however, be unique within a given category: thus one cannot use the 
+            same translated name for the following two:<br>
+&nbsp; <i>&lt;territory type=&quot;CD&quot;&gt;Democratic Republic of the Congo&lt;/territory&gt;</i><br>
+            <i>&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;</i></p>
+            <p>Whatever is most typically used to distinguish these in the target language can be 
+            used, for example, one could have the translated equivalents of the following:<br>
+            <br>
+            <i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (Kinshasa)&lt;/territory&gt;<br>
+&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo (Brazzaville)&lt;/territory&gt;</i></p>
+            <p>or</p>
+            <p><i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (formerly Zaire)&lt;/territory&gt;<br>
+&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;<br>
+            </i><br>
+            Typically one should only use such parenthesized additions if the name would either not 
+            be unique or not be recognizable to a large group of people. Only if the name would not 
+            be recognizable to a large number of people should there be an alternative name.</p>
+            <p>For a list of the kinds of IDs that can be localized, see the
+            <a href="diff/main/en_US.html">English-US locale data</a>, which has 
+			all territories, languages, and scripts that can be translated. It 
+			does not contain all currency symbols and timezones names, since for 
+			many of these the standard code suffices for English. However, many 
+			of these will require translation for non-Latin scripts.</p>
+            <p>Because these lists are long, frequency of usage in the target language 
+			is used as a guide: it 
+            is clearly more important to have an accurate name for &quot;Russian&quot; or &quot;Arabic&quot; than it is 
+            to have an accurate name for &quot;Middle Irish&quot;.</p>
+          </blockquote>
+          <h3>Languages</h3>
+          <blockquote>
+            <p>The translations for the names of the other languages should be cased according to how the language name would appear in the middle 
+            of a sentence or in a list, especially a menu or pull-down list. If the user of this data is going to use the name at the 
+            beginning of a sentence, the developer (not the translator) will title case the word. 
+            For example, English will translate fr to be &quot;French&quot;, but Spanish will translate fr to 
+            be &quot;francés&quot;. If the titlecasing is not simple, an 
+			alternate name can be included.</p>
+          </blockquote>
+          <h3>Scripts</h3>
+          <blockquote>
+            <p>A script is the set of characters used to display a language. For 
+            example, English is written with the Latin script, and the ISO-15924 code for Latin is 
+            &quot;Latn&quot;.</p>
+          </blockquote>
+          <blockquote>
+            <p>Some language can be written in more than one script. For example, the Serbian 
+            language can be written in the Latin or Cyrillic scripts, and Uzbek can be written with 
+            Cyrillic, Latin or Arabic scripts.</p>
+          </blockquote>
+          <h3>Currencies</h3>
+          <blockquote>
+            <p>There are two items that can be translated. One part is the 
+			display currency symbol (e.g. the $ for the US dollar), and the 
+			other part is the display name (e.g. the &quot;US Dollar&quot; for $).</p>
+          </blockquote>
+          <h3>Time Zones</h3>
+          <blockquote>
+            <p>A time zone uses the Olson IDs, such as <i>America/Los Angeles</i>. These IDs provide not 
+            only the information as to the offset from GMT (UTC), but also the daylight savings 
+            information. Thus, for example, America/Phoenix is distinct from America/Denver because 
+            they have different daylight savings time behavior. There are many cases where there is 
+            no modern difference between two IDs; they are only distinguished in the past. For 
+            example, America/Chicago and America/Indianapolis are currently the same, but differed 
+            in the past.</p>
+            <p>For more information, see <i>
+			<a href="http://www.unicode.org/reports/tr35/#Time_Zone_Fallback">Appendix J: <span>Time Zone 
+            Fallback</span></a></i></p>
+          </blockquote>
+          <h2 align="left"><a name="Numbers">Numbers</a></h2>
+          <blockquote>
+            <p>There are different formats for different types of numbers. For example, here are 
+            some patterns (using the unlocalized symbols) with the corresponding text. While the 
+            format is localized, the <b> <i>characters to specify the format pattern</i></b> are not 
+            localized. That is, the decimal point <i>always</i> is represented by a &quot;.&quot;, and the grouping 
+            separator (thousands, etc.) is <i>always</i> represented by a &quot;,&quot;.</p>
+            <p>The <a href="#NumberElements">NumberElements</a> resource affects how these patterns 
+            are interpreted in a localized context. Here are some examples, based on the French 
+            locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the 
+            thousands separator should go. A &quot;0&quot; indicates zero-padding: if the number is too short, 
+            a zero (in the locale&#39;s numeric set) will go there. A &quot;#&quot; indicates no padding: if the 
+            number is too short, nothing goes there. A &quot;¤&quot; shows where the currency sign will go. 
+            The following illustrates the effects of different patterns for the French locale, with 
+            the number &quot;1234.567&quot;</p>
+            <table border="1" cellspacing="0" cellpadding="4">
+              <tr>
+                <th width="33%">Pattern</th>
+                <th width="33%">Text</th>
+              </tr>
+              <tr>
+                <td width="33%">#,###.##</td>
+                <td width="33%">1&nbsp;234,57</td>
+              </tr>
+              <tr>
+                <td width="33%">#,###.###</td>
+                <td width="33%">1&nbsp;234,567</td>
+              </tr>
+              <tr>
+                <td width="33%">####.#####</td>
+                <td width="33%">1234,567</td>
+              </tr>
+              <tr>
+                <td width="33%">####.0000#</td>
+                <td width="33%">1234,5670</td>
+              </tr>
+              <tr>
+                <td width="33%">00000.0000</td>
+                <td width="33%">01234,5670</td>
+              </tr>
+              <tr>
+                <td width="33%">#&nbsp;##0,00 ¤</td>
+                <td width="33%">1&nbsp;234,57 €</td>
+              </tr>
+            </table>
+          	<p>For more information, see <i>
+			<a href="http://www.unicode.org/reports/tr35/#Number_Format_Patterns">Appendix G:
+			<span>Number Format 
+          Patterns</span></a><span>.</span></i></p>
+          </blockquote>
+          <h2><a name="Dates">Dates</a></h2>
+          <blockquote>
+			<p>The main source of information is see 
+			<a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">
+			<i>Appendix F: </i><i><span>Date Format Patterns</span></a></i><span>, 
+          so be sure to read through that information. There are a couple of troublesome areas:</span></p>
+			</blockquote>
+          <h3><span>Narrow Month / Day Names</span></h3>
+          <blockquote>
+            <p><span>They are the shortest possible names (in terms of width in common fonts), and 
+            are not guaranteed to be unique. Think of what you might find on a credit-card-sized 
+            wallet or checkbook calendar, such as in English: <i>S M T W T F S</i></span></p>
+            <p><span><span>It is probably an error if a narrow field includes more than one Unicode 
+            base character.</span></span></p>
+          </blockquote>
+          <h3>AM / PM</h3>
+          <blockquote>
+            <p>Even for territories where the customary date format only has a 24 hour format, both 
+            the am and pm localized strings must be present and must be distinct from one another. 
+            Note that as long as the 24 hour format is used, these strings will normally never be 
+            used, but for testing and unusual circumstances they must be present.</p>
+          </blockquote>
+          <h3>Eras</h3>
+          <blockquote>
+            <p>There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and &quot;AD&quot;. These 
+            values can be translated into other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot; for Spanish, 
+            but there are no other eras in the Gregorian calendar. Other calendars have a different 
+            numbers of eras. Care should be taken when translating the era names for a specific 
+            calendar.</p>
+          </blockquote>
+          <h3>Week of Year</h3>
+          <blockquote>
+            <p>Values calculated for the Week of Year field range from 1 to 53. Week 1 for a year is 
+            the first week of that year that contains at least the minimum days in a week days. 
+            Weeks between week 1 of one year and week 1 of the following year are numbered 
+            sequentially from 2 to 52 or 53 (if needed). For example, January 1, 1998 was a 
+            Thursday. If the first day of the week is MONDAY and the minimum days in a week is 4 
+            (these are the values reflecting ISO 8601 and many national standards), then week 1 of 
+            1998 starts on December 29, 1997, and ends on January 4, 1998. However, if the first day 
+            of the week is SUNDAY, then week 1 of 1998 starts on January 4, 1998, and ends on 
+            January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</p>
+            <p>Values are similarly calculated for the Week of Month.</p>
+          </blockquote>
           <h2><a name="Collation">Collation</a> (Sorting Sequence)</h2>
           <blockquote>
             <p>The exact collation sequence for a given language may be difficult to determine. The 
             base ordering of characters can be fairly straightforward, but there are quite a few 
             other complications involved. </p>
-            <p><span>Most standards that specify collation, such as DIN or CS, are not </span><span>
-            targeted</span><span> at algorithmic sorting, and are not fully complete algorithmic 
-            specifications. For example, </span><span>CSN</span><span> 97 6030 requires 
+            <p><span>Most standards that specify collation, such as DIN or CS, are not 
+            targeted at algorithmic sorting, and are not fully complete algorithmic 
+            specifications. For example, CSN 97 6030 requires 
             transliteration of foreign scripts, but there are many choices as to how to 
             transliterate, and the exact mechanism is not specified. It also specifies that 
             geometric shapes are sorted by the number of vertices and edges, which is, at a minimum, 
@@ -266,7 +484,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               effect until the next primary difference.
               <p>So suppose that &quot;ccs&quot; is to behave as if it were &quot;cscs&quot;, and take case differences 
               into account. You might try to do this with the rules on the left:</p>
-              <table border="1" cellspacing="0" cellpadding="4">
+              <table border="1" cellspacing="0" cellpadding="4" id="table1">
                 <tr>
                   <th width="50%" align="left">Rules (Wrong)</th>
                   <th width="50%" align="left">Actual Effect</th>
@@ -288,7 +506,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               each item acts like it expands compared to the previous item. So CCS, for example, 
               will act like it expands to CSCScs!</p>
               <p>What you actually want is the following:</p>
-              <table border="1" cellspacing="0" cellpadding="4">
+              <table border="1" cellspacing="0" cellpadding="4" id="table2">
                 <tr>
                   <th width="50%" align="left">Rules (Right)</th>
                   <th width="50%" align="left">Actual Effect</th>
@@ -344,240 +562,6 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
 				are handled like other instances where contractions should be 
 				blocked.</li>
             </ol>
-          </blockquote>
-          <h2><a name="Exemplar">Exemplar Characters</a></h2>
-          <blockquote>
-          <p>Please see <i>
-			<a href="http://unicode.org/reports/tr35/tr35-6.html#Character_Elements">
-			Section 5.6 Character Elements</a></i> in <i>UTS#35: Locale Data 
-			Markup Language (LDML)</i>. </p>
-          </blockquote>
-          <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 
-          Currencies, Time Zones</h2>
-          <blockquote>
-            <p>These items are perhaps the simplest to translate. The type values that can be used 
-            for each are found in Appendix K: <span>
-            <a href="http://www.unicode.org/reports/tr35/#valid_attribute_values">Valid Attribute 
-            Values</a></span></p>
-            <p>The typical behavior if any particular translation is not available is to display the 
-            corresponding code, such as an ISO or RFC 3166 code. Thus if there is no localization of 
-            FR (France), then the string &quot;FR&quot; will appear.</p>
-            <p>The names must, however, be unique within a given category: thus one cannot use the 
-            same translated name for the following two:<br>
-&nbsp; <i>&lt;territory type=&quot;CD&quot;&gt;Democratic Republic of the Congo&lt;/territory&gt;</i><br>
-            <i>&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;</i></p>
-            <p>Whatever is most typically used to distinguish these in the target language can be 
-            used, for example, one could have the translated equivalents of the following:<br>
-            <br>
-            <i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (Kinshasa)&lt;/territory&gt;<br>
-&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo (Brazzaville)&lt;/territory&gt;</i></p>
-            <p>or</p>
-            <p><i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (formerly Zaire)&lt;/territory&gt;<br>
-&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;<br>
-            </i><br>
-            Typically one should only use such parenthesized additions if the name would either not 
-            be unique or not be recognizable to a large group of people. Only if the name would not 
-            be recognizable to a large number of people should there be an alternative name.</p>
-            <p>For a list of the kinds of IDs that can be localized, see the
-            <a href="diff/main/en_US.html">English-US locale data</a>, which has all territories, 
-            languages, and scripts that can be translated. It does not contain all currencies and 
-            timezones.</p>
-            <p>Because these lists are long, it may be more difficult to collect all the data at 
-            once. If that is the case, we suggest first providing translations of at least the 
-            elements that are most familiar to people with the target language. This might be, for 
-            example, the territories, languages, scripts, and (modern) currencies for:</p>
-            <ol>
-              <li>Territories having the target language as an official language</li>
-              <li>G7 + BRIC territories: US, Canada, Japan, UK, France, Germany, Italy; Brazil, 
-              Russia, India, China</li>
-              <li>Territories adjacent to the territories in #1</li>
-            </ol>
-            <p>Beyond that, one should use frequency of usage in the target language as a guide: it 
-            is clearly more important to have an accurate name for &quot;Russian&quot; or &quot;Arabic&quot; than it is 
-            to have an accurate name for &quot;Middle Irish&quot;.</p>
-          </blockquote>
-          <h3>Languages</h3>
-          <blockquote>
-            <p>The language codes are based on <a href="http://lcweb.loc.gov/standards/iso639-2/">
-            ISO-639</a>. The translations for the names of the other languages in the current given 
-            language should be cased according to how the language name would appear in the middle 
-            of a sentence or in a list. If the user of this data is going to use the name at the 
-            beginning of a sentence, the developer (not the translator) will title case the word. 
-            For example, English will translate fr to be &quot;French&quot;, but Spanish will translate fr to 
-            be &quot;francés&quot;.</p>
-            <p><b>Note: </b>In CLDR 1.1, the time periods are included in the English translations 
-            of languages (from the ISO names), such as the following:</p>
-            <p><i>&nbsp; &lt;language type=&quot;gmh&quot;&gt;German, Middle High (ca.1050-1500)&lt;/language&gt;<br>
-&nbsp; &lt;language type=&quot;goh&quot;&gt;German, Old High (ca.750-1050)&lt;/language&gt;</i></p>
-            <p>We will probably be converting those to XML comments, so it is not recommended to 
-            keep those parentheticals in the translation unless there is no good term for describing 
-            the differences between codes such as gmh and goh in the target language.</p>
-          </blockquote>
-          <h3>Scripts</h3>
-          <blockquote>
-            <p>The script codes are based on <a href="http://www.evertype.com/standards/iso15924/">
-            ISO-15924</a>. A script is the set of characters used to display a language. For 
-            example, English is written with the Latin script, and the ISO-15924 code for Latin is 
-            &quot;Latn&quot;.</p>
-          </blockquote>
-          <blockquote>
-            <p>Some language can be written in more than one script. For example, the Serbian 
-            language can be written in the Latin or Cyrillic scripts, and Uzbek can be written with 
-            Cyrillic, Latin or Arabic scripts.</p>
-          </blockquote>
-          <h3>Territories</h3>
-          <blockquote>
-            <p>The region codes are based on
-            <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/">ISO-3166</a>. These region 
-            codes include countries, territories and some other places of interest around the world.</p>
-          </blockquote>
-          <h3>Currencies</h3>
-          <blockquote>
-            <p>The currency codes are based on
-            <a href="http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html">ISO 
-            4217 Currency Codes</a>. However, there are some significant problems with the available 
-            data for 4217: see <a href="http://www.unicode.org/consortium/positions.html#3stability">
-            Availability and Stability of ISO 4217</a>. There are two things can be translated here. 
-            One part is the display currency symbol (e.g. the $ for the US dollar), and the other 
-            part is the display name (e.g. the &quot;US Dollar&quot; for $). The ISO-4217 code is used as the 
-            key for these translations.</p>
-          </blockquote>
-          <h3>Time Zones</h3>
-          <blockquote>
-            <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs provide not 
-            only the information as to the offset from GMT (UTC), but also the daylight savings 
-            information. Thus, for example, America/Phoenix is distinct from America/Denver because 
-            they have different daylight savings time behavior. There are many cases where there is 
-            no modern difference between two IDs; they are only distinguished in the past. For 
-            example, America/Chicago and America/Indianapolis are currently the same, but differed 
-            in the past.</p>
-            <p>Most territories do not span multiple time zones, and may not have localized names 
-            for particular time zones. In that case, probably the best localizations are something 
-            of a form like &quot;New York Time&quot;.</p>
-            <p>The fields are long and short (abbreviated) versions of:</p>
-            <ul>
-              <li>generic time zone name, e.g. <span style="COLOR: blue">Pacific Time</span></li>
-              <li>summer/daylight savings time, e.g. <span style="COLOR: blue">Pacific </span>
-              <span style="color: blue">Daylight </span><span style="COLOR: blue">Time</span></li>
-              <li>standard time, e.g. <span style="COLOR: blue">Pacific Standard Time</span></li>
-            </ul>
-            <p>For more information, see Appendix J:
-            <a href="http://www.unicode.org/reports/tr35/#Time_Zone_Fallback"><span>Time Zone 
-            Fallback</span></a></p>
-          </blockquote>
-          <h2 align="left"><a name="Numbers">Numbers</a></h2>
-          <blockquote>
-            <p>There are different formats for different types of numbers. For example, here are 
-            some patterns (using the unlocalized symbols) with the corresponding text. While the 
-            format is localized, the <i>characters to specify the format pattern</i> are not 
-            localized. That is, the decimal point always is represented by a &quot;.&quot;, and the grouping 
-            separator (thousands, etc.) is always represented by a &quot;,&quot;.</p>
-            <p>The <a href="#NumberElements">NumberElements</a> resource affects how these patterns 
-            are interpreted in a localized context. Here are some examples, based on the French 
-            locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the 
-            thousands separator should go. A &quot;0&quot; indicates zero-padding: if the number is too short, 
-            a zero (in the locale&#39;s numeric set) will go there. A &quot;#&quot; indicates no padding: if the 
-            number is too short, nothing goes there. A &quot;¤&quot; shows where the currency sign will go. 
-            The following illustrates the effects of different patterns for the French locale, with 
-            the number &quot;1234.567&quot;</p>
-            <table border="1" cellspacing="0" cellpadding="4">
-              <tr>
-                <th width="33%">Pattern</th>
-                <th width="33%">Text</th>
-              </tr>
-              <tr>
-                <td width="33%">#,###.##</td>
-                <td width="33%">1&nbsp;234,57</td>
-              </tr>
-              <tr>
-                <td width="33%">#,###.###</td>
-                <td width="33%">1&nbsp;234,567</td>
-              </tr>
-              <tr>
-                <td width="33%">####.#####</td>
-                <td width="33%">1234,567</td>
-              </tr>
-              <tr>
-                <td width="33%">####.0000#</td>
-                <td width="33%">1234,5670</td>
-              </tr>
-              <tr>
-                <td width="33%">00000.0000</td>
-                <td width="33%">01234,5670</td>
-              </tr>
-              <tr>
-                <td width="33%">#&nbsp;##0,00 ¤</td>
-                <td width="33%">1&nbsp;234,57 €</td>
-              </tr>
-            </table>
-          </blockquote>
-          <p>For more information, see Appendix G:
-          <a href="http://www.unicode.org/reports/tr35/#Number_Format_Patterns"><span>Number Format 
-          Patterns</span></a></p>
-          <h2><a name="Dates">Dates</a></h2>
-          <p>The main source of information is see Appendix F: <span>
-          <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date Format Patterns</a>, 
-          so be sure to read through that information. There are a couple of troublesome areas:</span></p>
-          <h3><span>Narrow Month / Day Names</span></h3>
-          <blockquote>
-            <p><span>They are the shortest possible names (in terms of width in common fonts), and 
-            are not guaranteed to be unique. Think of what you might find on a credit-card-sized 
-            wallet or checkbook calendar, such as in English: <i>S M T W T F S</i></span></p>
-            <p><span><span>It is probably an error if a narrow field includes more than one Unicode 
-            base character.</span></span></p>
-          </blockquote>
-          <h3>AM / PM</h3>
-          <blockquote>
-            <p>Even for territories where the customary date format only has a 24 hour format, both 
-            the am and pm localized strings must be present and must be distinct from one another. 
-            Note that as long as the 24 hour format is used, these strings will normally never be 
-            used, but for testing and unusual circumstances they must be present.</p>
-          </blockquote>
-          <h3>Eras</h3>
-          <blockquote>
-            <p>There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and &quot;AD&quot;. These 
-            values can be translated into other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot; for Spanish, 
-            but there are no other eras in the Gregorian calendar. Other calendars have a different 
-            numbers of eras. Care should be taken when translating the era names for a specific 
-            calendar.</p>
-          </blockquote>
-          <h3>Week of Year</h3>
-          <blockquote>
-            <p>Values calculated for the Week of Year field range from 1 to 53. Week 1 for a year is 
-            the first week of that year that contains at least the minimum days in a week days. 
-            Weeks between week 1 of one year and week 1 of the following year are numbered 
-            sequentially from 2 to 52 or 53 (if needed). For example, January 1, 1998 was a 
-            Thursday. If the first day of the week is MONDAY and the minimum days in a week is 4 
-            (these are the values reflecting ISO 8601 and many national standards), then week 1 of 
-            1998 starts on December 29, 1997, and ends on January 4, 1998. However, if the first day 
-            of the week is SUNDAY, then week 1 of 1998 starts on January 4, 1998, and ends on 
-            January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</p>
-            <p>Values are similarly calculated for the Week of Month.</p>
-          </blockquote>
-          <h2><a name="Special_Considerations">Special Considerations</a></h2>
-          <h3><a name="BIDI">BIDI Ordering</a></h3>
-          <blockquote>
-            <p>In the comparison charts, the ordering of characters for BIDI languages is up to the 
-            browser. The ordering may differ from the typical ordering in context, so may be helpful 
-            to copy the text from the charts and paste into typical environments to ensure that the 
-            ordering is correct. This is especially the case for date, time and number formats.</p>
-          </blockquote>
-          <h3><span><a name="Character_Repertoire">Character Repertoire</a></span></h3>
-          <blockquote>
-            <p><span>The data in the locale repository should contain the most appropriate choice of 
-            characters for the representation of the text. It may thus include Unicode characters 
-            that are not included in a given legacy character set. In particular, the data may 
-            contain curly quotes and apostrophes (such as in “can’t”), and similar characters such 
-            as the letter modifiers in ʻōlelo Hawaiʻi.</span></p>
-            <p><span>These characters provide more distinctions than are available with the generic 
-            ASCII repertoire. They may be “downcast” to the best available characters when the data 
-            is imported into systems with a more limited repertoire of supported characters.</span></p>
-          </blockquote>
-          <h3><span>Hong Kong, Macau</span></h3>
-          <blockquote>
-            <p><span>The territory codes HK and MO are to be translated with the native equivalent 
-            of “Hong Kong SAR China” and “Macao SAR China”, respectively. SAR stands for “Special 
-            Administrative Region” and can be represented with acronym in the target language.</span></p>
           </blockquote>
         </blockquote>
         </td>

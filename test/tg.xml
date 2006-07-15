@@ -1,0 +1,1174 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.4' base='tg'>
+ <!-- Tajik [Tajik] -->
+  <number 
+locales='tg tg_TJ'>
+<!-- Tajik [Tajik]; Tajik (Tajikistan) [Tajik (Tajikistan)] -->
+   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='tg'>
+<!-- Tajik [Tajik] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 GMT+00:00</result>
+   <result timeType='full'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00/01/31</result>
+   <result timeType='short'>00/01/31 00:00</result>
+   <result timeType='medium'>00/01/31 00:00:00</result>
+   <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1900 Янв 31</result>
+   <result draft='false'>1900 Январ 31</result>
+   <result timeType='short' draft='true'>1900 Янв 31 00:00</result>
+   <result draft='false'>1900 Январ 31 00:00</result>
+   <result timeType='medium' draft='true'>1900 Янв 31 00:00:00</result>
+   <result draft='false'>1900 Январ 31 00:00:00</result>
+   <result timeType='long' draft='true'>1900 Янв 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1900 Янв 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1900 Январ 31</result>
+   <result draft='false'>1900 1 31</result>
+   <result timeType='short' draft='true'>1900 Январ 31 00:00</result>
+   <result draft='false'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>1900 Январ 31 00:00:00</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Чоршанбе, 1900 Январ 31</result>
+   <result draft='false'>4, 1900 1 31</result>
+   <result timeType='short' draft='true'>Чоршанбе, 1900 Январ 31 00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>Чоршанбе, 1900 Январ 31 00:00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>Чоршанбе, 1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>Чоршанбе, 1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 GMT+00:00</result>
+   <result timeType='full'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>09/02/28</result>
+   <result timeType='short'>09/02/28 00:00</result>
+   <result timeType='medium'>09/02/28 00:00:01</result>
+   <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1909 Фев 28</result>
+   <result draft='false'>1909 Феврал 28</result>
+   <result timeType='short' draft='true'>1909 Фев 28 00:00</result>
+   <result draft='false'>1909 Феврал 28 00:00</result>
+   <result timeType='medium' draft='true'>1909 Фев 28 00:00:01</result>
+   <result draft='false'>1909 Феврал 28 00:00:01</result>
+   <result timeType='long' draft='true'>1909 Фев 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1909 Фев 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1909 Феврал 28</result>
+   <result draft='false'>1909 2 28</result>
+   <result timeType='short' draft='true'>1909 Феврал 28 00:00</result>
+   <result draft='false'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>1909 Феврал 28 00:00:01</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Якшанбе, 1909 Феврал 28</result>
+   <result draft='false'>1, 1909 2 28</result>
+   <result timeType='short' draft='true'>Якшанбе, 1909 Феврал 28 00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>Якшанбе, 1909 Феврал 28 00:00:01</result>
+   <result draft='false'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>Якшанбе, 1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>Якшанбе, 1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='either'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 GMT+00:00</result>
+   <result timeType='full'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18/03/26</result>
+   <result timeType='short'>18/03/26 00:59</result>
+   <result timeType='medium'>18/03/26 00:59:59</result>
+   <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1918 Мар 26</result>
+   <result draft='false'>1918 Март 26</result>
+   <result timeType='short' draft='true'>1918 Мар 26 00:59</result>
+   <result draft='false'>1918 Март 26 00:59</result>
+   <result timeType='medium' draft='true'>1918 Мар 26 00:59:59</result>
+   <result draft='false'>1918 Март 26 00:59:59</result>
+   <result timeType='long' draft='true'>1918 Мар 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1918 Мар 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1918 Март 26</result>
+   <result draft='false'>1918 3 26</result>
+   <result timeType='short' draft='true'>1918 Март 26 00:59</result>
+   <result draft='false'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>1918 Март 26 00:59:59</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Сешанбе, 1918 Март 26</result>
+   <result draft='false'>3, 1918 3 26</result>
+   <result timeType='short' draft='true'>Сешанбе, 1918 Март 26 00:59</result>
+   <result draft='false'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>Сешанбе, 1918 Март 26 00:59:59</result>
+   <result draft='false'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>Сешанбе, 1918 Март 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>Сешанбе, 1918 Март 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='either'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 GMT+00:00</result>
+   <result timeType='full'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>32/04/24</result>
+   <result timeType='short'>32/04/24 01:00</result>
+   <result timeType='medium'>32/04/24 01:00:00</result>
+   <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1932 Апр 24</result>
+   <result draft='false'>1932 Апрел 24</result>
+   <result timeType='short' draft='true'>1932 Апр 24 01:00</result>
+   <result draft='false'>1932 Апрел 24 01:00</result>
+   <result timeType='medium' draft='true'>1932 Апр 24 01:00:00</result>
+   <result draft='false'>1932 Апрел 24 01:00:00</result>
+   <result timeType='long' draft='true'>1932 Апр 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1932 Апр 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1932 Апрел 24</result>
+   <result draft='false'>1932 4 24</result>
+   <result timeType='short' draft='true'>1932 Апрел 24 01:00</result>
+   <result draft='false'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>1932 Апрел 24 01:00:00</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Якшанбе, 1932 Апрел 24</result>
+   <result draft='false'>1, 1932 4 24</result>
+   <result timeType='short' draft='true'>Якшанбе, 1932 Апрел 24 01:00</result>
+   <result draft='false'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>Якшанбе, 1932 Апрел 24 01:00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>Якшанбе, 1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>Якшанбе, 1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='either'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 GMT+00:00</result>
+   <result timeType='full'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>45/05/20</result>
+   <result timeType='short'>45/05/20 01:00</result>
+   <result timeType='medium'>45/05/20 01:00:01</result>
+   <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1945 Май 20</result>
+   <result timeType='short'>1945 Май 20 01:00</result>
+   <result timeType='medium'>1945 Май 20 01:00:01</result>
+   <result timeType='long'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1945 Май 20</result>
+   <result draft='false'>1945 5 20</result>
+   <result timeType='short' draft='true'>1945 Май 20 01:00</result>
+   <result draft='false'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>1945 Май 20 01:00:01</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Якшанбе, 1945 Май 20</result>
+   <result draft='false'>1, 1945 5 20</result>
+   <result timeType='short' draft='true'>Якшанбе, 1945 Май 20 01:00</result>
+   <result draft='false'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>Якшанбе, 1945 Май 20 01:00:01</result>
+   <result draft='false'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>Якшанбе, 1945 Май 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>Якшанбе, 1945 Май 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='either'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 GMT+00:00</result>
+   <result timeType='full'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>52/06/18</result>
+   <result timeType='short'>52/06/18 11:59</result>
+   <result timeType='medium'>52/06/18 11:59:59</result>
+   <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1952 Июн 18</result>
+   <result timeType='short'>1952 Июн 18 11:59</result>
+   <result timeType='medium'>1952 Июн 18 11:59:59</result>
+   <result timeType='long'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1952 Июн 18</result>
+   <result draft='false'>1952 6 18</result>
+   <result timeType='short' draft='true'>1952 Июн 18 11:59</result>
+   <result draft='false'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>1952 Июн 18 11:59:59</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Чоршанбе, 1952 Июн 18</result>
+   <result draft='false'>4, 1952 6 18</result>
+   <result timeType='short' draft='true'>Чоршанбе, 1952 Июн 18 11:59</result>
+   <result draft='false'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>Чоршанбе, 1952 Июн 18 11:59:59</result>
+   <result draft='false'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>Чоршанбе, 1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>Чоршанбе, 1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 GMT+00:00</result>
+   <result timeType='full'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>73/07/16</result>
+   <result timeType='short'>73/07/16 12:00</result>
+   <result timeType='medium'>73/07/16 12:00:00</result>
+   <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1973 Июл 16</result>
+   <result timeType='short'>1973 Июл 16 12:00</result>
+   <result timeType='medium'>1973 Июл 16 12:00:00</result>
+   <result timeType='long'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1973 Июл 16</result>
+   <result draft='false'>1973 7 16</result>
+   <result timeType='short' draft='true'>1973 Июл 16 12:00</result>
+   <result draft='false'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>1973 Июл 16 12:00:00</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Душанбе, 1973 Июл 16</result>
+   <result draft='false'>2, 1973 7 16</result>
+   <result timeType='short' draft='true'>Душанбе, 1973 Июл 16 12:00</result>
+   <result draft='false'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>Душанбе, 1973 Июл 16 12:00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>Душанбе, 1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>Душанбе, 1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 GMT+00:00</result>
+   <result timeType='full'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>99/08/14</result>
+   <result timeType='short'>99/08/14 12:00</result>
+   <result timeType='medium'>99/08/14 12:00:01</result>
+   <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1999 Авг 14</result>
+   <result draft='false'>1999 Август 14</result>
+   <result timeType='short' draft='true'>1999 Авг 14 12:00</result>
+   <result draft='false'>1999 Август 14 12:00</result>
+   <result timeType='medium' draft='true'>1999 Авг 14 12:00:01</result>
+   <result draft='false'>1999 Август 14 12:00:01</result>
+   <result timeType='long' draft='true'>1999 Авг 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1999 Авг 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1999 Август 14</result>
+   <result draft='false'>1999 8 14</result>
+   <result timeType='short' draft='true'>1999 Август 14 12:00</result>
+   <result draft='false'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>1999 Август 14 12:00:01</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Шанбе, 1999 Август 14</result>
+   <result draft='false'>7, 1999 8 14</result>
+   <result timeType='short' draft='true'>Шанбе, 1999 Август 14 12:00</result>
+   <result draft='false'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>Шанбе, 1999 Август 14 12:00:01</result>
+   <result draft='false'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>Шанбе, 1999 Август 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>Шанбе, 1999 Август 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='either'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 GMT+00:00</result>
+   <result timeType='full'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00/09/12</result>
+   <result timeType='short'>00/09/12 22:59</result>
+   <result timeType='medium'>00/09/12 22:59:59</result>
+   <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>2000 Сен 12</result>
+   <result draft='false'>2000 Сентябр 12</result>
+   <result timeType='short' draft='true'>2000 Сен 12 22:59</result>
+   <result draft='false'>2000 Сентябр 12 22:59</result>
+   <result timeType='medium' draft='true'>2000 Сен 12 22:59:59</result>
+   <result draft='false'>2000 Сентябр 12 22:59:59</result>
+   <result timeType='long' draft='true'>2000 Сен 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2000 Сен 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2000 Сентябр 12</result>
+   <result draft='false'>2000 9 12</result>
+   <result timeType='short' draft='true'>2000 Сентябр 12 22:59</result>
+   <result draft='false'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>2000 Сентябр 12 22:59:59</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Сешанбе, 2000 Сентябр 12</result>
+   <result draft='false'>3, 2000 9 12</result>
+   <result timeType='short' draft='true'>Сешанбе, 2000 Сентябр 12 22:59</result>
+   <result draft='false'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>Сешанбе, 2000 Сентябр 12 22:59:59</result>
+   <result draft='false'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>Сешанбе, 2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>Сешанбе, 2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 GMT+00:00</result>
+   <result timeType='full'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01/10/08</result>
+   <result timeType='short'>01/10/08 23:00</result>
+   <result timeType='medium'>01/10/08 23:00:00</result>
+   <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>2001 Окт 8</result>
+   <result draft='false'>2001 Октябр 8</result>
+   <result timeType='short' draft='true'>2001 Окт 8 23:00</result>
+   <result draft='false'>2001 Октябр 8 23:00</result>
+   <result timeType='medium' draft='true'>2001 Окт 8 23:00:00</result>
+   <result draft='false'>2001 Октябр 8 23:00:00</result>
+   <result timeType='long' draft='true'>2001 Окт 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>2001 Окт 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2001 Октябр 8</result>
+   <result draft='false'>2001 10 8</result>
+   <result timeType='short' draft='true'>2001 Октябр 8 23:00</result>
+   <result draft='false'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='true'>2001 Октябр 8 23:00:00</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='true'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Душанбе, 2001 Октябр 08</result>
+   <result draft='false'>2, 2001 10 08</result>
+   <result timeType='short' draft='true'>Душанбе, 2001 Октябр 08 23:00</result>
+   <result draft='false'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='true'>Душанбе, 2001 Октябр 08 23:00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long' draft='true'>Душанбе, 2001 Октябр 08 23:00:00 GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>Душанбе, 2001 Октябр 08 23:00:00 GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 GMT+00:00</result>
+   <result timeType='full'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04/11/04</result>
+   <result timeType='short'>04/11/04 23:00</result>
+   <result timeType='medium'>04/11/04 23:00:01</result>
+   <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>2004 Ноя 4</result>
+   <result draft='false'>2004 Ноябр 4</result>
+   <result timeType='short' draft='true'>2004 Ноя 4 23:00</result>
+   <result draft='false'>2004 Ноябр 4 23:00</result>
+   <result timeType='medium' draft='true'>2004 Ноя 4 23:00:01</result>
+   <result draft='false'>2004 Ноябр 4 23:00:01</result>
+   <result timeType='long' draft='true'>2004 Ноя 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>2004 Ноя 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2004 Ноябр 4</result>
+   <result draft='false'>2004 11 4</result>
+   <result timeType='short' draft='true'>2004 Ноябр 4 23:00</result>
+   <result draft='false'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='true'>2004 Ноябр 4 23:00:01</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='true'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Панҷшанбе, 2004 Ноябр 04</result>
+   <result draft='false'>5, 2004 11 04</result>
+   <result timeType='short' draft='true'>Панҷшанбе, 2004 Ноябр 04 23:00</result>
+   <result draft='false'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='true'>Панҷшанбе, 2004 Ноябр 04 23:00:01</result>
+   <result draft='false'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long' draft='true'>Панҷшанбе, 2004 Ноябр 04 23:00:01 GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>Панҷшанбе, 2004 Ноябр 04 23:00:01 GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='either'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 GMT+00:00</result>
+   <result timeType='full'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>10/12/01</result>
+   <result timeType='short'>10/12/01 23:59</result>
+   <result timeType='medium'>10/12/01 23:59:59</result>
+   <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>2010 Дек 1</result>
+   <result draft='false'>2010 Декабр 1</result>
+   <result timeType='short' draft='true'>2010 Дек 1 23:59</result>
+   <result draft='false'>2010 Декабр 1 23:59</result>
+   <result timeType='medium' draft='true'>2010 Дек 1 23:59:59</result>
+   <result draft='false'>2010 Декабр 1 23:59:59</result>
+   <result timeType='long' draft='true'>2010 Дек 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2010 Дек 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2010 Декабр 1</result>
+   <result draft='false'>2010 12 1</result>
+   <result timeType='short' draft='true'>2010 Декабр 1 23:59</result>
+   <result draft='false'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='true'>2010 Декабр 1 23:59:59</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='true'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>Чоршанбе, 2010 Декабр 01</result>
+   <result draft='false'>4, 2010 12 01</result>
+   <result timeType='short' draft='true'>Чоршанбе, 2010 Декабр 01 23:59</result>
+   <result draft='false'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='true'>Чоршанбе, 2010 Декабр 01 23:59:59</result>
+   <result draft='false'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long' draft='true'>Чоршанбе, 2010 Декабр 01 23:59:59 GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>Чоршанбе, 2010 Декабр 01 23:59:59 GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+  </date>
+  <date 
+locales='tg_TJ'>
+<!-- Tajik (Tajikistan) [Tajik (Tajikistan)] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 GMT+00:00</result>
+   <result timeType='full'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00/01/31</result>
+   <result timeType='short'>00/01/31 00:00</result>
+   <result timeType='medium'>00/01/31 00:00:00</result>
+   <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1900 Янв 31</result>
+   <result timeType='short'>1900 Янв 31 00:00</result>
+   <result timeType='medium'>1900 Янв 31 00:00:00</result>
+   <result timeType='long'>1900 Янв 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>1900 Янв 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1900 Январ 31</result>
+   <result timeType='short'>1900 Январ 31 00:00</result>
+   <result timeType='medium'>1900 Январ 31 00:00:00</result>
+   <result timeType='long'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Чоршанбе, 1900 Январ 31</result>
+   <result timeType='short'>Чоршанбе, 1900 Январ 31 00:00</result>
+   <result timeType='medium'>Чоршанбе, 1900 Январ 31 00:00:00</result>
+   <result timeType='long'>Чоршанбе, 1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>Чоршанбе, 1900 Январ 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 GMT+00:00</result>
+   <result timeType='full'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>09/02/28</result>
+   <result timeType='short'>09/02/28 00:00</result>
+   <result timeType='medium'>09/02/28 00:00:01</result>
+   <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1909 Фев 28</result>
+   <result timeType='short'>1909 Фев 28 00:00</result>
+   <result timeType='medium'>1909 Фев 28 00:00:01</result>
+   <result timeType='long'>1909 Фев 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1909 Фев 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1909 Феврал 28</result>
+   <result timeType='short'>1909 Феврал 28 00:00</result>
+   <result timeType='medium'>1909 Феврал 28 00:00:01</result>
+   <result timeType='long'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Якшанбе, 1909 Феврал 28</result>
+   <result timeType='short'>Якшанбе, 1909 Феврал 28 00:00</result>
+   <result timeType='medium'>Якшанбе, 1909 Феврал 28 00:00:01</result>
+   <result timeType='long'>Якшанбе, 1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>Якшанбе, 1909 Феврал 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 GMT+00:00</result>
+   <result timeType='full'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18/03/26</result>
+   <result timeType='short'>18/03/26 00:59</result>
+   <result timeType='medium'>18/03/26 00:59:59</result>
+   <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1918 Мар 26</result>
+   <result timeType='short'>1918 Мар 26 00:59</result>
+   <result timeType='medium'>1918 Мар 26 00:59:59</result>
+   <result timeType='long'>1918 Мар 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>1918 Мар 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1918 Март 26</result>
+   <result timeType='short'>1918 Март 26 00:59</result>
+   <result timeType='medium'>1918 Март 26 00:59:59</result>
+   <result timeType='long'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>1918 Март 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Сешанбе, 1918 Март 26</result>
+   <result timeType='short'>Сешанбе, 1918 Март 26 00:59</result>
+   <result timeType='medium'>Сешанбе, 1918 Март 26 00:59:59</result>
+   <result timeType='long'>Сешанбе, 1918 Март 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>Сешанбе, 1918 Март 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 GMT+00:00</result>
+   <result timeType='full'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>32/04/24</result>
+   <result timeType='short'>32/04/24 01:00</result>
+   <result timeType='medium'>32/04/24 01:00:00</result>
+   <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1932 Апр 24</result>
+   <result timeType='short'>1932 Апр 24 01:00</result>
+   <result timeType='medium'>1932 Апр 24 01:00:00</result>
+   <result timeType='long'>1932 Апр 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1932 Апр 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1932 Апрел 24</result>
+   <result timeType='short'>1932 Апрел 24 01:00</result>
+   <result timeType='medium'>1932 Апрел 24 01:00:00</result>
+   <result timeType='long'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Якшанбе, 1932 Апрел 24</result>
+   <result timeType='short'>Якшанбе, 1932 Апрел 24 01:00</result>
+   <result timeType='medium'>Якшанбе, 1932 Апрел 24 01:00:00</result>
+   <result timeType='long'>Якшанбе, 1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>Якшанбе, 1932 Апрел 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 GMT+00:00</result>
+   <result timeType='full'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>45/05/20</result>
+   <result timeType='short'>45/05/20 01:00</result>
+   <result timeType='medium'>45/05/20 01:00:01</result>
+   <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1945 Май 20</result>
+   <result timeType='short'>1945 Май 20 01:00</result>
+   <result timeType='medium'>1945 Май 20 01:00:01</result>
+   <result timeType='long'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1945 Май 20</result>
+   <result timeType='short'>1945 Май 20 01:00</result>
+   <result timeType='medium'>1945 Май 20 01:00:01</result>
+   <result timeType='long'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 Май 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Якшанбе, 1945 Май 20</result>
+   <result timeType='short'>Якшанбе, 1945 Май 20 01:00</result>
+   <result timeType='medium'>Якшанбе, 1945 Май 20 01:00:01</result>
+   <result timeType='long'>Якшанбе, 1945 Май 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>Якшанбе, 1945 Май 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 GMT+00:00</result>
+   <result timeType='full'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>52/06/18</result>
+   <result timeType='short'>52/06/18 11:59</result>
+   <result timeType='medium'>52/06/18 11:59:59</result>
+   <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1952 Июн 18</result>
+   <result timeType='short'>1952 Июн 18 11:59</result>
+   <result timeType='medium'>1952 Июн 18 11:59:59</result>
+   <result timeType='long'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1952 Июн 18</result>
+   <result timeType='short'>1952 Июн 18 11:59</result>
+   <result timeType='medium'>1952 Июн 18 11:59:59</result>
+   <result timeType='long'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Чоршанбе, 1952 Июн 18</result>
+   <result timeType='short'>Чоршанбе, 1952 Июн 18 11:59</result>
+   <result timeType='medium'>Чоршанбе, 1952 Июн 18 11:59:59</result>
+   <result timeType='long'>Чоршанбе, 1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>Чоршанбе, 1952 Июн 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 GMT+00:00</result>
+   <result timeType='full'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>73/07/16</result>
+   <result timeType='short'>73/07/16 12:00</result>
+   <result timeType='medium'>73/07/16 12:00:00</result>
+   <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1973 Июл 16</result>
+   <result timeType='short'>1973 Июл 16 12:00</result>
+   <result timeType='medium'>1973 Июл 16 12:00:00</result>
+   <result timeType='long'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1973 Июл 16</result>
+   <result timeType='short'>1973 Июл 16 12:00</result>
+   <result timeType='medium'>1973 Июл 16 12:00:00</result>
+   <result timeType='long'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Душанбе, 1973 Июл 16</result>
+   <result timeType='short'>Душанбе, 1973 Июл 16 12:00</result>
+   <result timeType='medium'>Душанбе, 1973 Июл 16 12:00:00</result>
+   <result timeType='long'>Душанбе, 1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>Душанбе, 1973 Июл 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 GMT+00:00</result>
+   <result timeType='full'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>99/08/14</result>
+   <result timeType='short'>99/08/14 12:00</result>
+   <result timeType='medium'>99/08/14 12:00:01</result>
+   <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>1999 Авг 14</result>
+   <result timeType='short'>1999 Авг 14 12:00</result>
+   <result timeType='medium'>1999 Авг 14 12:00:01</result>
+   <result timeType='long'>1999 Авг 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>1999 Авг 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1999 Август 14</result>
+   <result timeType='short'>1999 Август 14 12:00</result>
+   <result timeType='medium'>1999 Август 14 12:00:01</result>
+   <result timeType='long'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>1999 Август 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Шанбе, 1999 Август 14</result>
+   <result timeType='short'>Шанбе, 1999 Август 14 12:00</result>
+   <result timeType='medium'>Шанбе, 1999 Август 14 12:00:01</result>
+   <result timeType='long'>Шанбе, 1999 Август 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>Шанбе, 1999 Август 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 GMT+00:00</result>
+   <result timeType='full'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00/09/12</result>
+   <result timeType='short'>00/09/12 22:59</result>
+   <result timeType='medium'>00/09/12 22:59:59</result>
+   <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>2000 Сен 12</result>
+   <result timeType='short'>2000 Сен 12 22:59</result>
+   <result timeType='medium'>2000 Сен 12 22:59:59</result>
+   <result timeType='long'>2000 Сен 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>2000 Сен 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2000 Сентябр 12</result>
+   <result timeType='short'>2000 Сентябр 12 22:59</result>
+   <result timeType='medium'>2000 Сентябр 12 22:59:59</result>
+   <result timeType='long'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Сешанбе, 2000 Сентябр 12</result>
+   <result timeType='short'>Сешанбе, 2000 Сентябр 12 22:59</result>
+   <result timeType='medium'>Сешанбе, 2000 Сентябр 12 22:59:59</result>
+   <result timeType='long'>Сешанбе, 2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>Сешанбе, 2000 Сентябр 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 GMT+00:00</result>
+   <result timeType='full'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01/10/08</result>
+   <result timeType='short'>01/10/08 23:00</result>
+   <result timeType='medium'>01/10/08 23:00:00</result>
+   <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>2001 Окт 8</result>
+   <result timeType='short'>2001 Окт 8 23:00</result>
+   <result timeType='medium'>2001 Окт 8 23:00:00</result>
+   <result timeType='long'>2001 Окт 8 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2001 Окт 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2001 Октябр 8</result>
+   <result timeType='short'>2001 Октябр 8 23:00</result>
+   <result timeType='medium'>2001 Октябр 8 23:00:00</result>
+   <result timeType='long'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2001 Октябр 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Душанбе, 2001 Октябр 08</result>
+   <result timeType='short'>Душанбе, 2001 Октябр 08 23:00</result>
+   <result timeType='medium'>Душанбе, 2001 Октябр 08 23:00:00</result>
+   <result timeType='long'>Душанбе, 2001 Октябр 08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>Душанбе, 2001 Октябр 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 GMT+00:00</result>
+   <result timeType='full'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04/11/04</result>
+   <result timeType='short'>04/11/04 23:00</result>
+   <result timeType='medium'>04/11/04 23:00:01</result>
+   <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>2004 Ноя 4</result>
+   <result timeType='short'>2004 Ноя 4 23:00</result>
+   <result timeType='medium'>2004 Ноя 4 23:00:01</result>
+   <result timeType='long'>2004 Ноя 4 23:00:01 GMT+00:00</result>
+   <result timeType='full'>2004 Ноя 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2004 Ноябр 4</result>
+   <result timeType='short'>2004 Ноябр 4 23:00</result>
+   <result timeType='medium'>2004 Ноябр 4 23:00:01</result>
+   <result timeType='long'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result timeType='full'>2004 Ноябр 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Панҷшанбе, 2004 Ноябр 04</result>
+   <result timeType='short'>Панҷшанбе, 2004 Ноябр 04 23:00</result>
+   <result timeType='medium'>Панҷшанбе, 2004 Ноябр 04 23:00:01</result>
+   <result timeType='long'>Панҷшанбе, 2004 Ноябр 04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>Панҷшанбе, 2004 Ноябр 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 GMT+00:00</result>
+   <result timeType='full'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>10/12/01</result>
+   <result timeType='short'>10/12/01 23:59</result>
+   <result timeType='medium'>10/12/01 23:59:59</result>
+   <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>2010 Дек 1</result>
+   <result timeType='short'>2010 Дек 1 23:59</result>
+   <result timeType='medium'>2010 Дек 1 23:59:59</result>
+   <result timeType='long'>2010 Дек 1 23:59:59 GMT+00:00</result>
+   <result timeType='full'>2010 Дек 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2010 Декабр 1</result>
+   <result timeType='short'>2010 Декабр 1 23:59</result>
+   <result timeType='medium'>2010 Декабр 1 23:59:59</result>
+   <result timeType='long'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result timeType='full'>2010 Декабр 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>Чоршанбе, 2010 Декабр 01</result>
+   <result timeType='short'>Чоршанбе, 2010 Декабр 01 23:59</result>
+   <result timeType='medium'>Чоршанбе, 2010 Декабр 01 23:59:59</result>
+   <result timeType='long'>Чоршанбе, 2010 Декабр 01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>Чоршанбе, 2010 Декабр 01 23:59:59 GMT+00:00</result>
+  </date>
+  <zoneFields 
+locales='tg tg_TJ'>
+<!-- Tajik [Tajik]; Tajik (Tajikistan) [Tajik (Tajikistan)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
+  <collation 
+locales='tg tg_TJ'>
+<!-- Tajik [Tajik]; Tajik (Tajikistan) [Tajik (Tajikistan)] -->
+   <result draft='either'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xа
+xА
+Xа
+XА
+xаx
+xАx
+xб
+xБ
+Xб
+XБ
+xбx
+xБx
+xв
+xВ
+Xв
+XВ
+xвx
+xВx
+xг
+xГ
+Xг
+XГ
+xгx
+xГx
+xғ
+xҒ
+Xғ
+XҒ
+xғx
+xҒx
+xд
+xД
+Xд
+XД
+xдx
+xДx
+xе
+xЕ
+Xе
+XЕ
+xё
+xЁ
+Xё
+XЁ
+xеx
+xЕx
+xёx
+xЁx
+xж
+xЖ
+Xж
+XЖ
+xжx
+xЖx
+xз
+xЗ
+Xз
+XЗ
+xзx
+xЗx
+xи
+xИ
+Xи
+XИ
+xӣ
+xӢ
+Xӣ
+XӢ
+xиx
+xИx
+xӣx
+xӢx
+xй
+xЙ
+Xй
+XЙ
+xйx
+xЙx
+xк
+xК
+Xк
+XК
+xкx
+xКx
+xқ
+xҚ
+Xқ
+XҚ
+xқx
+xҚx
+xл
+xЛ
+Xл
+XЛ
+xлx
+xЛx
+xм
+xМ
+Xм
+XМ
+xмx
+xМx
+xн
+xН
+Xн
+XН
+xнx
+xНx
+xо
+xО
+Xо
+XО
+xоx
+xОx
+xп
+xП
+Xп
+XП
+xпx
+xПx
+xр
+xР
+Xр
+XР
+xрx
+xРx
+xс
+xС
+Xс
+XС
+xсx
+xСx
+xт
+xТ
+Xт
+XТ
+xтx
+xТx
+xу
+xУ
+Xу
+XУ
+xӯ
+xӮ
+Xӯ
+XӮ
+xуx
+xУx
+xӯx
+xӮx
+xф
+xФ
+Xф
+XФ
+xфx
+xФx
+xх
+xХ
+Xх
+XХ
+xхx
+xХx
+xҳ
+xҲ
+Xҳ
+XҲ
+xҳx
+xҲx
+xц
+xЦ
+Xц
+XЦ
+xцx
+xЦx
+xч
+xЧ
+Xч
+XЧ
+xчx
+xЧx
+xҷ
+xҶ
+Xҷ
+XҶ
+xҷx
+xҶx
+xш
+xШ
+Xш
+XШ
+xшx
+xШx
+xщ
+xЩ
+Xщ
+XЩ
+xщx
+xЩx
+xъ
+xЪ
+Xъ
+XЪ
+xъx
+xЪx
+xы
+xЫ
+Xы
+XЫ
+xыx
+xЫx
+xь
+xЬ
+Xь
+XЬ
+xьx
+xЬx
+xэ
+xЭ
+Xэ
+XЭ
+xэx
+xЭx
+xю
+xЮ
+Xю
+XЮ
+xюx
+xЮx
+xя
+xЯ
+Xя
+XЯ
+xяx
+xЯx
+</result>
+  </collation>
+ </cldrTest>

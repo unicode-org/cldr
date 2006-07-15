@@ -8,52 +8,52 @@ locales='nn nn_NO'>
 <!-- Norwegian Nynorsk [norsk nynorsk]; Norwegian Nynorsk (Norway) [norsk nynorsk (Noreg)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
+   <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
-   <result numberType='percent'>1%</result>
+   <result numberType='percent'>1 %</result>
    <result numberType='scientific'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
+   <result numberType='percent'>-1 %</result>
    <result numberType='scientific'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
+   <result numberType='percent'>100 %</result>
    <result numberType='scientific'>1E0</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
+   <result numberType='percent'>-100 %</result>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
-   <result numberType='percent'>12 346%</result>
+   <result numberType='percent'>12 346 %</result>
    <result numberType='scientific'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12 346%</result>
+   <result numberType='percent'>-12 346 %</result>
    <result numberType='scientific'>-1,23456E2</result>
    <result input='123456.78' numberType='integer'>123 457</result>
    <result numberType='decimal'>123 456,78</result>
-   <result numberType='percent'>12 345 678%</result>
+   <result numberType='percent'>12 345 678 %</result>
    <result numberType='scientific'>1,2345678E5</result>
    <result input='-123456.78' numberType='integer'>-123 457</result>
    <result numberType='decimal'>-123 456,78</result>
-   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='percent'>-12 345 678 %</result>
    <result numberType='scientific'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
+   <result numberType='percent'>∞ %</result>
    <result numberType='scientific'>∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
+   <result numberType='percent'>-∞ %</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='nn nn_NO'>
@@ -438,19 +438,15 @@ locales='nn nn_NO'>
    <result field='ZZZZ'>GMT+03.00</result>
    <result field='z'>GMT+03.00</result>
    <result field='zzzz'>GMT+03.00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Moskva (Den russiske føderasjon)</result>
-   <result draft='false'>Moscow (Den russiske føderasjon)</result>
-   <result field='vvvv' draft='true'>Moskva (Den russiske føderasjon)</result>
-   <result draft='false'>Moscow (Den russiske føderasjon)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
+   <result field='v' parse='Europe/Moscow'>Moskva (Den russiske føderasjon)</result>
+   <result field='vvvv'>Moskva (Den russiske føderasjon)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04.00</result>
    <result field='z'>GMT+04.00</result>
    <result field='zzzz'>GMT+04.00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Moskva (Den russiske føderasjon)</result>
-   <result draft='false'>Moscow (Den russiske føderasjon)</result>
-   <result field='vvvv' draft='true'>Moskva (Den russiske føderasjon)</result>
-   <result draft='false'>Moscow (Den russiske føderasjon)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='Europe/Moscow'>Moskva (Den russiske føderasjon)</result>
+   <result field='vvvv'>Moskva (Den russiske føderasjon)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03.00</result>
    <result field='z'>GMT-03.00</result>
    <result field='zzzz'>GMT-03.00</result>
@@ -486,6 +482,10 @@ xa
 xA
 Xa
 XA
+xá
+xÁ
+Xá
+XÁ
 xà
 xÀ
 Xà
@@ -494,12 +494,32 @@ xǎ
 xǍ
 Xǎ
 XǍ
+xå
+xÅ
+Xå
+XÅ
+xä
+xÄ
+Xä
+XÄ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
 xax
 xAx
+xáx
+xÁx
 xàx
 xÀx
 xǎx
 xǍx
+xåx
+xÅx
+xäx
+xÄx
 xb
 xB
 Xb
@@ -510,8 +530,20 @@ xc
 xC
 Xc
 XC
+xč
+xČ
+Xč
+XČ
+xç
+xÇ
+Xç
+XÇ
 xcx
 xCx
+xčx
+xČx
+xçx
+xÇx
 xd
 xD
 Xd
@@ -520,16 +552,10 @@ xđ
 xĐ
 Xđ
 XĐ
-xð
-xÐ
-Xð
-XÐ
 xdx
 xDx
 xđx
 xĐx
-xðx
-xÐx
 xe
 xE
 Xe
@@ -538,10 +564,22 @@ xé
 xÉ
 Xé
 XÉ
+xè
+xÈ
+Xè
+XÈ
+xê
+xÊ
+Xê
+XÊ
 xex
 xEx
 xéx
 xÉx
+xèx
+xÈx
+xêx
+xÊx
 xf
 xF
 Xf
@@ -594,8 +632,26 @@ xn
 xN
 Xn
 XN
+xń
+xŃ
+Xń
+XŃ
+xñ
+xÑ
+Xñ
+XÑ
 xnx
 xNx
+xńx
+xŃx
+xñx
+xÑx
+xŋ
+xŊ
+Xŋ
+XŊ
+xŋx
+xŊx
 xo
 xO
 Xo
@@ -604,16 +660,34 @@ xó
 xÓ
 Xó
 XÓ
+xò
+xÒ
+Xò
+XÒ
 xô
 xÔ
 Xô
 XÔ
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
 xox
 xOx
 xóx
 xÓx
+xòx
+xÒx
 xôx
 xÔx
+xöx
+xÖx
+xøx
+xØx
 xp
 xP
 Xp
@@ -636,26 +710,38 @@ xs
 xS
 Xs
 XS
+xš
+xŠ
+Xš
+XŠ
 xsx
 xSx
+xšx
+xŠx
 xt
 xT
 Xt
 XT
-xþ
-xÞ
-Xþ
-XÞ
-xþx
-xÞx
 xtx
 xTx
+xŧ
+xŦ
+Xŧ
+XŦ
+xŧx
+xŦx
 xu
 xU
 Xu
 XU
+xü
+xÜ
+Xü
+XÜ
 xux
 xUx
+xüx
+xÜx
 xv
 xV
 Xv
@@ -678,74 +764,20 @@ xy
 xY
 Xy
 XY
-xü
-xÜ
-Xü
-XÜ
-xű
-xŰ
-Xű
-XŰ
 xyx
 xYx
-xüx
-xÜx
-xűx
-xŰx
 xz
 xZ
 Xz
 XZ
+xž
+xŽ
+Xž
+XŽ
 xzx
 xZx
-xæ
-xÆ
-Xæ
-XÆ
-xä
-xÄ
-Xä
-XÄ
-xę
-xĘ
-Xę
-XĘ
-xæx
-xÆx
-xäx
-xÄx
-xęx
-xĘx
-xø
-xØ
-Xø
-XØ
-xö
-xÖ
-Xö
-XÖ
-xő
-xŐ
-Xő
-XŐ
-xœ
-xŒ
-Xœ
-XŒ
-xøx
-xØx
-xöx
-xÖx
-xőx
-xŐx
-xœx
-xŒx
-xå
-xÅ
-Xå
-XÅ
-xåx
-xÅx
+xžx
+xŽx
 </result>
   </collation>
  </cldrTest>

@@ -50,10 +50,10 @@ locales='iu'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='iu'>
@@ -67,22 +67,32 @@ locales='iu'>
    <result timeType='medium'>00/01/31 00:00:00</result>
    <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
    <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1900 Jan 31</result>
-   <result timeType='short'>1900 Jan 31 00:00</result>
-   <result timeType='medium'>1900 Jan 31 00:00:00</result>
-   <result timeType='long'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1900 January 31</result>
-   <result timeType='short'>1900 January 31 00:00</result>
-   <result timeType='medium'>1900 January 31 00:00:00</result>
-   <result timeType='long'>1900 January 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 January 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Wednesday, 1900 January 31</result>
-   <result timeType='short'>Wednesday, 1900 January 31 00:00</result>
-   <result timeType='medium'>Wednesday, 1900 January 31 00:00:00</result>
-   <result timeType='long'>Wednesday, 1900 January 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>Wednesday, 1900 January 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result dateType='medium' timeType='none'>1900 ᔭᓐᓄᐊᓕ 31</result>
+   <result timeType='short'>1900 ᔭᓐᓄᐊᓕ 31 00:00</result>
+   <result timeType='medium'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00</result>
+   <result timeType='long'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1900 ᔭᓐᓄᐊᓕ 31</result>
+   <result draft='false'>1900 1 31</result>
+   <result timeType='short' draft='true'>1900 ᔭᓐᓄᐊᓕ 31 00:00</result>
+   <result draft='false'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᐱᖓᑦᓯᖅ, 1900 ᔭᓐᓄᐊᓕ 31</result>
+   <result draft='false'>4, 1900 1 31</result>
+   <result timeType='short' draft='true'>ᐱᖓᑦᓯᖅ, 1900 ᔭᓐᓄᐊᓕ 31 00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>ᐱᖓᑦᓯᖅ, 1900 ᔭᓐᓄᐊᓕ 31 00:00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>ᐱᖓᑦᓯᖅ, 1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᐱᖓᑦᓯᖅ, 1900 ᔭᓐᓄᐊᓕ 31 00:00:00 GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -91,22 +101,32 @@ locales='iu'>
    <result timeType='medium'>09/02/28 00:00:01</result>
    <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
    <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1909 Feb 28</result>
-   <result timeType='short'>1909 Feb 28 00:00</result>
-   <result timeType='medium'>1909 Feb 28 00:00:01</result>
-   <result timeType='long'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1909 February 28</result>
-   <result timeType='short'>1909 February 28 00:00</result>
-   <result timeType='medium'>1909 February 28 00:00:01</result>
-   <result timeType='long'>1909 February 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 February 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sunday, 1909 February 28</result>
-   <result timeType='short'>Sunday, 1909 February 28 00:00</result>
-   <result timeType='medium'>Sunday, 1909 February 28 00:00:01</result>
-   <result timeType='long'>Sunday, 1909 February 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>Sunday, 1909 February 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result dateType='medium' timeType='none'>1909 ᕕᕝᕗᐊᓕ 28</result>
+   <result timeType='short'>1909 ᕕᕝᕗᐊᓕ 28 00:00</result>
+   <result timeType='medium'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01</result>
+   <result timeType='long'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1909 ᕕᕝᕗᐊᓕ 28</result>
+   <result draft='false'>1909 2 28</result>
+   <result timeType='short' draft='true'>1909 ᕕᕝᕗᐊᓕ 28 00:00</result>
+   <result draft='false'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓈᑦᓰᖑᔭ, 1909 ᕕᕝᕗᐊᓕ 28</result>
+   <result draft='false'>1, 1909 2 28</result>
+   <result timeType='short' draft='true'>ᓈᑦᓰᖑᔭ, 1909 ᕕᕝᕗᐊᓕ 28 00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>ᓈᑦᓰᖑᔭ, 1909 ᕕᕝᕗᐊᓕ 28 00:00:01</result>
+   <result draft='false'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>ᓈᑦᓰᖑᔭ, 1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓈᑦᓰᖑᔭ, 1909 ᕕᕝᕗᐊᓕ 28 00:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='either'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -115,22 +135,32 @@ locales='iu'>
    <result timeType='medium'>18/03/26 00:59:59</result>
    <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
    <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1918 Mar 26</result>
-   <result timeType='short'>1918 Mar 26 00:59</result>
-   <result timeType='medium'>1918 Mar 26 00:59:59</result>
-   <result timeType='long'>1918 Mar 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Mar 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1918 March 26</result>
-   <result timeType='short'>1918 March 26 00:59</result>
-   <result timeType='medium'>1918 March 26 00:59:59</result>
-   <result timeType='long'>1918 March 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 March 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Tuesday, 1918 March 26</result>
-   <result timeType='short'>Tuesday, 1918 March 26 00:59</result>
-   <result timeType='medium'>Tuesday, 1918 March 26 00:59:59</result>
-   <result timeType='long'>Tuesday, 1918 March 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>Tuesday, 1918 March 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result dateType='medium' timeType='none'>1918 ᒫᑦᓯ 26</result>
+   <result timeType='short'>1918 ᒫᑦᓯ 26 00:59</result>
+   <result timeType='medium'>1918 ᒫᑦᓯ 26 00:59:59</result>
+   <result timeType='long'>1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1918 ᒫᑦᓯ 26</result>
+   <result draft='false'>1918 3 26</result>
+   <result timeType='short' draft='true'>1918 ᒫᑦᓯ 26 00:59</result>
+   <result draft='false'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>1918 ᒫᑦᓯ 26 00:59:59</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 1918 ᒫᑦᓯ 26</result>
+   <result draft='false'>3, 1918 3 26</result>
+   <result timeType='short' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 1918 ᒫᑦᓯ 26 00:59</result>
+   <result draft='false'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 1918 ᒫᑦᓯ 26 00:59:59</result>
+   <result draft='false'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 1918 ᒫᑦᓯ 26 00:59:59 GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='either'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -139,22 +169,32 @@ locales='iu'>
    <result timeType='medium'>32/04/24 01:00:00</result>
    <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
    <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1932 Apr 24</result>
-   <result timeType='short'>1932 Apr 24 01:00</result>
-   <result timeType='medium'>1932 Apr 24 01:00:00</result>
-   <result timeType='long'>1932 Apr 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 Apr 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1932 April 24</result>
-   <result timeType='short'>1932 April 24 01:00</result>
-   <result timeType='medium'>1932 April 24 01:00:00</result>
-   <result timeType='long'>1932 April 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 April 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sunday, 1932 April 24</result>
-   <result timeType='short'>Sunday, 1932 April 24 01:00</result>
-   <result timeType='medium'>Sunday, 1932 April 24 01:00:00</result>
-   <result timeType='long'>Sunday, 1932 April 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>Sunday, 1932 April 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result dateType='medium' timeType='none'>1932 ᐊᐃᑉᐳᓗ 24</result>
+   <result timeType='short'>1932 ᐊᐃᑉᐳᓗ 24 01:00</result>
+   <result timeType='medium'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00</result>
+   <result timeType='long'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1932 ᐊᐃᑉᐳᓗ 24</result>
+   <result draft='false'>1932 4 24</result>
+   <result timeType='short' draft='true'>1932 ᐊᐃᑉᐳᓗ 24 01:00</result>
+   <result draft='false'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓈᑦᓰᖑᔭ, 1932 ᐊᐃᑉᐳᓗ 24</result>
+   <result draft='false'>1, 1932 4 24</result>
+   <result timeType='short' draft='true'>ᓈᑦᓰᖑᔭ, 1932 ᐊᐃᑉᐳᓗ 24 01:00</result>
+   <result draft='false'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>ᓈᑦᓰᖑᔭ, 1932 ᐊᐃᑉᐳᓗ 24 01:00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>ᓈᑦᓰᖑᔭ, 1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓈᑦᓰᖑᔭ, 1932 ᐊᐃᑉᐳᓗ 24 01:00:00 GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='either'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -163,22 +203,32 @@ locales='iu'>
    <result timeType='medium'>45/05/20 01:00:01</result>
    <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
    <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1945 May 20</result>
-   <result timeType='short'>1945 May 20 01:00</result>
-   <result timeType='medium'>1945 May 20 01:00:01</result>
-   <result timeType='long'>1945 May 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 May 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1945 May 20</result>
-   <result timeType='short'>1945 May 20 01:00</result>
-   <result timeType='medium'>1945 May 20 01:00:01</result>
-   <result timeType='long'>1945 May 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 May 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sunday, 1945 May 20</result>
-   <result timeType='short'>Sunday, 1945 May 20 01:00</result>
-   <result timeType='medium'>Sunday, 1945 May 20 01:00:01</result>
-   <result timeType='long'>Sunday, 1945 May 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>Sunday, 1945 May 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result dateType='medium' timeType='none'>1945 ᒪᐃ 20</result>
+   <result timeType='short'>1945 ᒪᐃ 20 01:00</result>
+   <result timeType='medium'>1945 ᒪᐃ 20 01:00:01</result>
+   <result timeType='long'>1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1945 ᒪᐃ 20</result>
+   <result draft='false'>1945 5 20</result>
+   <result timeType='short' draft='true'>1945 ᒪᐃ 20 01:00</result>
+   <result draft='false'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>1945 ᒪᐃ 20 01:00:01</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓈᑦᓰᖑᔭ, 1945 ᒪᐃ 20</result>
+   <result draft='false'>1, 1945 5 20</result>
+   <result timeType='short' draft='true'>ᓈᑦᓰᖑᔭ, 1945 ᒪᐃ 20 01:00</result>
+   <result draft='false'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>ᓈᑦᓰᖑᔭ, 1945 ᒪᐃ 20 01:00:01</result>
+   <result draft='false'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>ᓈᑦᓰᖑᔭ, 1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓈᑦᓰᖑᔭ, 1945 ᒪᐃ 20 01:00:01 GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='either'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -187,22 +237,32 @@ locales='iu'>
    <result timeType='medium'>52/06/18 11:59:59</result>
    <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
    <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1952 Jun 18</result>
-   <result timeType='short'>1952 Jun 18 11:59</result>
-   <result timeType='medium'>1952 Jun 18 11:59:59</result>
-   <result timeType='long'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1952 June 18</result>
-   <result timeType='short'>1952 June 18 11:59</result>
-   <result timeType='medium'>1952 June 18 11:59:59</result>
-   <result timeType='long'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Wednesday, 1952 June 18</result>
-   <result timeType='short'>Wednesday, 1952 June 18 11:59</result>
-   <result timeType='medium'>Wednesday, 1952 June 18 11:59:59</result>
-   <result timeType='long'>Wednesday, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>Wednesday, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result dateType='medium' timeType='none'>1952 ᔫᓂ 18</result>
+   <result timeType='short'>1952 ᔫᓂ 18 11:59</result>
+   <result timeType='medium'>1952 ᔫᓂ 18 11:59:59</result>
+   <result timeType='long'>1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1952 ᔫᓂ 18</result>
+   <result draft='false'>1952 6 18</result>
+   <result timeType='short' draft='true'>1952 ᔫᓂ 18 11:59</result>
+   <result draft='false'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>1952 ᔫᓂ 18 11:59:59</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᐱᖓᑦᓯᖅ, 1952 ᔫᓂ 18</result>
+   <result draft='false'>4, 1952 6 18</result>
+   <result timeType='short' draft='true'>ᐱᖓᑦᓯᖅ, 1952 ᔫᓂ 18 11:59</result>
+   <result draft='false'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>ᐱᖓᑦᓯᖅ, 1952 ᔫᓂ 18 11:59:59</result>
+   <result draft='false'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>ᐱᖓᑦᓯᖅ, 1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᐱᖓᑦᓯᖅ, 1952 ᔫᓂ 18 11:59:59 GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='either'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -211,22 +271,32 @@ locales='iu'>
    <result timeType='medium'>73/07/16 12:00:00</result>
    <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
    <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1973 Jul 16</result>
-   <result timeType='short'>1973 Jul 16 12:00</result>
-   <result timeType='medium'>1973 Jul 16 12:00:00</result>
-   <result timeType='long'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1973 July 16</result>
-   <result timeType='short'>1973 July 16 12:00</result>
-   <result timeType='medium'>1973 July 16 12:00:00</result>
-   <result timeType='long'>1973 July 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 July 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Monday, 1973 July 16</result>
-   <result timeType='short'>Monday, 1973 July 16 12:00</result>
-   <result timeType='medium'>Monday, 1973 July 16 12:00:00</result>
-   <result timeType='long'>Monday, 1973 July 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>Monday, 1973 July 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result dateType='medium' timeType='none'>1973 ᔪᓚᐃ 16</result>
+   <result timeType='short'>1973 ᔪᓚᐃ 16 12:00</result>
+   <result timeType='medium'>1973 ᔪᓚᐃ 16 12:00:00</result>
+   <result timeType='long'>1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1973 ᔪᓚᐃ 16</result>
+   <result draft='false'>1973 7 16</result>
+   <result timeType='short' draft='true'>1973 ᔪᓚᐃ 16 12:00</result>
+   <result draft='false'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>1973 ᔪᓚᐃ 16 12:00:00</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓇᒡᒐᔾᔭᐅ, 1973 ᔪᓚᐃ 16</result>
+   <result draft='false'>2, 1973 7 16</result>
+   <result timeType='short' draft='true'>ᓇᒡᒐᔾᔭᐅ, 1973 ᔪᓚᐃ 16 12:00</result>
+   <result draft='false'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>ᓇᒡᒐᔾᔭᐅ, 1973 ᔪᓚᐃ 16 12:00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>ᓇᒡᒐᔾᔭᐅ, 1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓇᒡᒐᔾᔭᐅ, 1973 ᔪᓚᐃ 16 12:00:00 GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='either'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -235,22 +305,32 @@ locales='iu'>
    <result timeType='medium'>99/08/14 12:00:01</result>
    <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
    <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1999 Aug 14</result>
-   <result timeType='short'>1999 Aug 14 12:00</result>
-   <result timeType='medium'>1999 Aug 14 12:00:01</result>
-   <result timeType='long'>1999 Aug 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 Aug 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1999 August 14</result>
-   <result timeType='short'>1999 August 14 12:00</result>
-   <result timeType='medium'>1999 August 14 12:00:01</result>
-   <result timeType='long'>1999 August 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 August 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Saturday, 1999 August 14</result>
-   <result timeType='short'>Saturday, 1999 August 14 12:00</result>
-   <result timeType='medium'>Saturday, 1999 August 14 12:00:01</result>
-   <result timeType='long'>Saturday, 1999 August 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>Saturday, 1999 August 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result dateType='medium' timeType='none'>1999 ᐊᐅᒡᒍᓯ 14</result>
+   <result timeType='short'>1999 ᐊᐅᒡᒍᓯ 14 12:00</result>
+   <result timeType='medium'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01</result>
+   <result timeType='long'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1999 ᐊᐅᒡᒍᓯ 14</result>
+   <result draft='false'>1999 8 14</result>
+   <result timeType='short' draft='true'>1999 ᐊᐅᒡᒍᓯ 14 12:00</result>
+   <result draft='false'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓈᑦᓰᖑᔭᓕᖅᕿ, 1999 ᐊᐅᒡᒍᓯ 14</result>
+   <result draft='false'>7, 1999 8 14</result>
+   <result timeType='short' draft='true'>ᓈᑦᓰᖑᔭᓕᖅᕿ, 1999 ᐊᐅᒡᒍᓯ 14 12:00</result>
+   <result draft='false'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>ᓈᑦᓰᖑᔭᓕᖅᕿ, 1999 ᐊᐅᒡᒍᓯ 14 12:00:01</result>
+   <result draft='false'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>ᓈᑦᓰᖑᔭᓕᖅᕿ, 1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓈᑦᓰᖑᔭᓕᖅᕿ, 1999 ᐊᐅᒡᒍᓯ 14 12:00:01 GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='either'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -259,22 +339,32 @@ locales='iu'>
    <result timeType='medium'>00/09/12 22:59:59</result>
    <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
    <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2000 Sep 12</result>
-   <result timeType='short'>2000 Sep 12 22:59</result>
-   <result timeType='medium'>2000 Sep 12 22:59:59</result>
-   <result timeType='long'>2000 Sep 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Sep 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2000 September 12</result>
-   <result timeType='short'>2000 September 12 22:59</result>
-   <result timeType='medium'>2000 September 12 22:59:59</result>
-   <result timeType='long'>2000 September 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 September 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Tuesday, 2000 September 12</result>
-   <result timeType='short'>Tuesday, 2000 September 12 22:59</result>
-   <result timeType='medium'>Tuesday, 2000 September 12 22:59:59</result>
-   <result timeType='long'>Tuesday, 2000 September 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>Tuesday, 2000 September 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result dateType='medium' timeType='none'>2000 ᓰᑦᑏᕝᕙ 12</result>
+   <result timeType='short'>2000 ᓰᑦᑏᕝᕙ 12 22:59</result>
+   <result timeType='medium'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59</result>
+   <result timeType='long'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2000 ᓰᑦᑏᕝᕙ 12</result>
+   <result draft='false'>2000 9 12</result>
+   <result timeType='short' draft='true'>2000 ᓰᑦᑏᕝᕙ 12 22:59</result>
+   <result draft='false'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 2000 ᓰᑦᑏᕝᕙ 12</result>
+   <result draft='false'>3, 2000 9 12</result>
+   <result timeType='short' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 2000 ᓰᑦᑏᕝᕙ 12 22:59</result>
+   <result draft='false'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 2000 ᓰᑦᑏᕝᕙ 12 22:59:59</result>
+   <result draft='false'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓇᒡᒐᔾᔭᐅᓕᖅᑭ, 2000 ᓰᑦᑏᕝᕙ 12 22:59:59 GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='either'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -283,22 +373,32 @@ locales='iu'>
    <result timeType='medium'>01/10/08 23:00:00</result>
    <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
    <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2001 Oct 8</result>
-   <result timeType='short'>2001 Oct 8 23:00</result>
-   <result timeType='medium'>2001 Oct 8 23:00:00</result>
-   <result timeType='long'>2001 Oct 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 Oct 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2001 October 8</result>
-   <result timeType='short'>2001 October 8 23:00</result>
-   <result timeType='medium'>2001 October 8 23:00:00</result>
-   <result timeType='long'>2001 October 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 October 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Monday, 2001 October 08</result>
-   <result timeType='short'>Monday, 2001 October 08 23:00</result>
-   <result timeType='medium'>Monday, 2001 October 08 23:00:00</result>
-   <result timeType='long'>Monday, 2001 October 08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>Monday, 2001 October 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result dateType='medium' timeType='none'>2001 ᐆᑦᑑᕝᕙ 8</result>
+   <result timeType='short'>2001 ᐆᑦᑑᕝᕙ 8 23:00</result>
+   <result timeType='medium'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00</result>
+   <result timeType='long'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2001 ᐆᑦᑑᕝᕙ 8</result>
+   <result draft='false'>2001 10 8</result>
+   <result timeType='short' draft='true'>2001 ᐆᑦᑑᕝᕙ 8 23:00</result>
+   <result draft='false'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='true'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='true'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>2001 ᐆᑦᑑᕝᕙ 8 23:00:00 GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓇᒡᒐᔾᔭᐅ, 2001 ᐆᑦᑑᕝᕙ 08</result>
+   <result draft='false'>2, 2001 10 08</result>
+   <result timeType='short' draft='true'>ᓇᒡᒐᔾᔭᐅ, 2001 ᐆᑦᑑᕝᕙ 08 23:00</result>
+   <result draft='false'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='true'>ᓇᒡᒐᔾᔭᐅ, 2001 ᐆᑦᑑᕝᕙ 08 23:00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long' draft='true'>ᓇᒡᒐᔾᔭᐅ, 2001 ᐆᑦᑑᕝᕙ 08 23:00:00 GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓇᒡᒐᔾᔭᐅ, 2001 ᐆᑦᑑᕝᕙ 08 23:00:00 GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='either'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -307,22 +407,32 @@ locales='iu'>
    <result timeType='medium'>04/11/04 23:00:01</result>
    <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
    <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2004 Nov 4</result>
-   <result timeType='short'>2004 Nov 4 23:00</result>
-   <result timeType='medium'>2004 Nov 4 23:00:01</result>
-   <result timeType='long'>2004 Nov 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Nov 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2004 November 4</result>
-   <result timeType='short'>2004 November 4 23:00</result>
-   <result timeType='medium'>2004 November 4 23:00:01</result>
-   <result timeType='long'>2004 November 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 November 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Thursday, 2004 November 04</result>
-   <result timeType='short'>Thursday, 2004 November 04 23:00</result>
-   <result timeType='medium'>Thursday, 2004 November 04 23:00:01</result>
-   <result timeType='long'>Thursday, 2004 November 04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>Thursday, 2004 November 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result dateType='medium' timeType='none'>2004 ᓅᕙᐃᕝᕙ 4</result>
+   <result timeType='short'>2004 ᓅᕙᐃᕝᕙ 4 23:00</result>
+   <result timeType='medium'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01</result>
+   <result timeType='long'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01 GMT+00:00</result>
+   <result timeType='full'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2004 ᓅᕙᐃᕝᕙ 4</result>
+   <result draft='false'>2004 11 4</result>
+   <result timeType='short' draft='true'>2004 ᓅᕙᐃᕝᕙ 4 23:00</result>
+   <result draft='false'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='true'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='true'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>2004 ᓅᕙᐃᕝᕙ 4 23:00:01 GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᓯᑕᒻᒥᖅ, 2004 ᓅᕙᐃᕝᕙ 04</result>
+   <result draft='false'>5, 2004 11 04</result>
+   <result timeType='short' draft='true'>ᓯᑕᒻᒥᖅ, 2004 ᓅᕙᐃᕝᕙ 04 23:00</result>
+   <result draft='false'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='true'>ᓯᑕᒻᒥᖅ, 2004 ᓅᕙᐃᕝᕙ 04 23:00:01</result>
+   <result draft='false'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long' draft='true'>ᓯᑕᒻᒥᖅ, 2004 ᓅᕙᐃᕝᕙ 04 23:00:01 GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᓯᑕᒻᒥᖅ, 2004 ᓅᕙᐃᕝᕙ 04 23:00:01 GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='either'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -331,21 +441,31 @@ locales='iu'>
    <result timeType='medium'>10/12/01 23:59:59</result>
    <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
    <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2010 Dec 1</result>
-   <result timeType='short'>2010 Dec 1 23:59</result>
-   <result timeType='medium'>2010 Dec 1 23:59:59</result>
-   <result timeType='long'>2010 Dec 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Dec 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2010 December 1</result>
-   <result timeType='short'>2010 December 1 23:59</result>
-   <result timeType='medium'>2010 December 1 23:59:59</result>
-   <result timeType='long'>2010 December 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 December 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Wednesday, 2010 December 01</result>
-   <result timeType='short'>Wednesday, 2010 December 01 23:59</result>
-   <result timeType='medium'>Wednesday, 2010 December 01 23:59:59</result>
-   <result timeType='long'>Wednesday, 2010 December 01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>Wednesday, 2010 December 01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>2010 ᑏᓰᕝᕙ 1</result>
+   <result timeType='short'>2010 ᑏᓰᕝᕙ 1 23:59</result>
+   <result timeType='medium'>2010 ᑏᓰᕝᕙ 1 23:59:59</result>
+   <result timeType='long'>2010 ᑏᓰᕝᕙ 1 23:59:59 GMT+00:00</result>
+   <result timeType='full'>2010 ᑏᓰᕝᕙ 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>2010 ᑏᓰᕝᕙ 1</result>
+   <result draft='false'>2010 12 1</result>
+   <result timeType='short' draft='true'>2010 ᑏᓰᕝᕙ 1 23:59</result>
+   <result draft='false'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='true'>2010 ᑏᓰᕝᕙ 1 23:59:59</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='true'>2010 ᑏᓰᕝᕙ 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>2010 ᑏᓰᕝᕙ 1 23:59:59 GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ᐱᖓᑦᓯᖅ, 2010 ᑏᓰᕝᕙ 01</result>
+   <result draft='false'>4, 2010 12 01</result>
+   <result timeType='short' draft='true'>ᐱᖓᑦᓯᖅ, 2010 ᑏᓰᕝᕙ 01 23:59</result>
+   <result draft='false'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='true'>ᐱᖓᑦᓯᖅ, 2010 ᑏᓰᕝᕙ 01 23:59:59</result>
+   <result draft='false'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long' draft='true'>ᐱᖓᑦᓯᖅ, 2010 ᑏᓰᕝᕙ 01 23:59:59 GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ᐱᖓᑦᓯᖅ, 2010 ᑏᓰᕝᕙ 01 23:59:59 GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
 locales='iu'>
@@ -462,7 +582,7 @@ locales='iu'>
   <collation 
 locales='iu'>
 <!-- Inuktitut [Inuktitut] -->
-   <result draft='true'>
+   <result draft='either'>
 x 
 X 
 x x
@@ -805,23 +925,6 @@ xᖥx
 xᖦ
 Xᖦ
 xᖦx
-</result>
-   <result draft='false'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
 </result>
   </collation>
  </cldrTest>

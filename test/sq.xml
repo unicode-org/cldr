@@ -50,10 +50,10 @@ locales='sq sq_AL'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='sq sq_AL'>
@@ -426,19 +426,15 @@ locales='sq sq_AL'>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London' draft='true'>Mbretëria e Bashkuar</result>
-   <result draft='false'>GB</result>
-   <result field='vvvv' draft='true'>Mbretëria e Bashkuar</result>
-   <result draft='false'>GB</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
+   <result field='v' parse='Europe/London'>Mbretëria e Bashkuar</result>
+   <result field='vvvv'>Mbretëria e Bashkuar</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London' draft='true'>Mbretëria e Bashkuar</result>
-   <result draft='false'>GB</result>
-   <result field='vvvv' draft='true'>Mbretëria e Bashkuar</result>
-   <result draft='false'>GB</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
+   <result field='v' parse='Europe/London'>Mbretëria e Bashkuar</result>
+   <result field='vvvv'>Mbretëria e Bashkuar</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
@@ -498,42 +494,42 @@ xc
 xC
 Xc
 XC
-xcx
-xCx
 xç
 xÇ
 Xç
 XÇ
+xcx
+xCx
 xçx
 xÇx
 xd
 xD
 Xd
 XD
-xdH
-XdH
-xdHx
-xdx
-xDx
 xdh
+xdH
 xDh
 xDH
 Xdh
+XdH
 XDh
 XDH
 xdhx
+xdHx
 xDhx
 xDHx
+xdx
+xDx
 xe
 xE
 Xe
 XE
-xex
-xEx
 xë
 xË
 Xë
 XË
+xex
+xEx
 xëx
 xËx
 xf
@@ -546,21 +542,25 @@ xg
 xG
 Xg
 XG
-xgJ
-XgJ
-xgJx
-xgx
-xGx
 xgj
+xgJ
 xGj
 xGJ
 Xgj
+XgJ
 XGj
 XGJ
 xgjx
+xgJx
 xGjx
 xGJx
+xgx
+xGx
+xh
 xH
+Xh
+XH
+xhx
 xHx
 xi
 xI
@@ -584,20 +584,20 @@ xl
 xL
 Xl
 XL
-xlL
-XlL
-xlLx
-xlx
-xLx
 xll
+xlL
 xLl
 xLL
 Xll
+XlL
 XLl
 XLL
 xllx
+xlLx
 xLlx
 xLLx
+xlx
+xLx
 xm
 xM
 Xm
@@ -608,20 +608,20 @@ xn
 xN
 Xn
 XN
-xnJ
-XnJ
-xnJx
-xnx
-xNx
 xnj
+xnJ
 xNj
 xNJ
 Xnj
+XnJ
 XNj
 XNJ
 xnjx
+xnJx
 xNjx
 xNJx
+xnx
+xNx
 xo
 xO
 Xo
@@ -644,56 +644,56 @@ xr
 xR
 Xr
 XR
-xrR
-XrR
-xrRx
-xrx
-xRx
 xrr
+xrR
 xRr
 xRR
 Xrr
+XrR
 XRr
 XRR
 xrrx
+xrRx
 xRrx
 xRRx
+xrx
+xRx
 xs
 xS
 Xs
 XS
-xsH
-XsH
-xsHx
-xsx
-xSx
 xsh
+xsH
 xSh
 xSH
 Xsh
+XsH
 XSh
 XSH
 xshx
+xsHx
 xShx
 xSHx
+xsx
+xSx
 xt
 xT
 Xt
 XT
-xtH
-XtH
-xtHx
-xtx
-xTx
 xth
+xtH
 xTh
 xTH
 Xth
+XtH
 XTh
 XTH
 xthx
+xtHx
 xThx
 xTHx
+xtx
+xTx
 xu
 xU
 Xu
@@ -716,20 +716,20 @@ xx
 xX
 Xx
 XX
-xxH
-XxH
-xxHx
-xxx
-xXx
 xxh
+xxH
 xXh
 xXH
 Xxh
+XxH
 XXh
 XXH
 xxhx
+xxHx
 xXhx
 xXHx
+xxx
+xXx
 xy
 xY
 Xy
@@ -740,24 +740,20 @@ xz
 xZ
 Xz
 XZ
-xzH
-XzH
-xzHx
-xzx
-xZx
 xzh
+xzH
 xZh
 xZH
 Xzh
+XzH
 XZh
 XZH
 xzhx
+xzHx
 xZhx
 xZHx
-xh
-Xh
-XH
-xhx
+xzx
+xZx
 </result>
   </collation>
  </cldrTest>

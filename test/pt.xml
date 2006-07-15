@@ -50,10 +50,10 @@ locales='pt pt_BR pt_PT'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='pt'>
@@ -932,8 +932,8 @@ locales='pt_PT'>
    <result timeType='full'>quarta-feira, 1 de dezembro de 2010 23H59m59s GMT+00:00</result>
   </date>
   <zoneFields 
-locales='pt pt_BR'>
-<!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)] -->
+locales='pt'>
+<!-- Portuguese [português] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
@@ -1035,6 +1035,118 @@ locales='pt pt_BR'>
    <result field='vvvv' draft='true'>Moscou (Rússia)</result>
    <result draft='false'>Moscow (Rússia)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
+  <zoneFields 
+locales='pt_BR'>
+<!-- Portuguese (Brazil) [português (Brasil)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z' parse='America/Los_Angeles'>PST</result>
+   <result field='zzzz'>Horário Padrão do Pacífico</result>
+   <result field='v'>Los Angeles (Estados Unidos)</result>
+   <result field='vvvv'>Los Angeles (Estados Unidos)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z' parse='America/Los_Angeles'>PDT</result>
+   <result field='zzzz'>Horário de Verão do Pacífico</result>
+   <result field='v'>Los Angeles (Estados Unidos)</result>
+   <result field='vvvv'>Los Angeles (Estados Unidos)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Cuba</result>
+   <result field='vvvv'>Cuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Cuba</result>
+   <result field='vvvv'>Cuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Austrália)</result>
+   <result field='vvvv'>Sydney (Austrália)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Austrália)</result>
+   <result field='vvvv'>Sydney (Austrália)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Austrália)</result>
+   <result field='vvvv'>Sydney (Austrália)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Austrália)</result>
+   <result field='vvvv'>Sydney (Austrália)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>Reino Unido</result>
+   <result field='vvvv'>Reino Unido</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>Reino Unido</result>
+   <result field='vvvv'>Reino Unido</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscou (Rússia)</result>
+   <result field='vvvv'>Moscou (Rússia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscou (Rússia)</result>
+   <result field='vvvv'>Moscou (Rússia)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>

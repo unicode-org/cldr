@@ -4,8 +4,8 @@
  <cldrTest version='1.4' base='ur'>
  <!-- Urdu [اردو] -->
   <number 
-locales='ur ur_PK'>
-<!-- Urdu [اردو]; Urdu (Pakistan) [اردو (پاکستان)] -->
+locales='ur ur_IN ur_PK'>
+<!-- Urdu [اردو]; Urdu (India) [اردو (IN)]; Urdu (Pakistan) [اردو (پاکستان)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -50,14 +50,14 @@ locales='ur ur_PK'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='ur ur_PK'>
-<!-- Urdu [اردو]; Urdu (Pakistan) [اردو (پاکستان)] -->
+locales='ur ur_IN ur_PK'>
+<!-- Urdu [اردو]; Urdu (India) [اردو (IN)]; Urdu (Pakistan) [اردو (پاکستان)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -348,8 +348,8 @@ locales='ur ur_PK'>
    <result timeType='full'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='ur ur_PK'>
-<!-- Urdu [اردو]; Urdu (Pakistan) [اردو (پاکستان)] -->
+locales='ur ur_IN ur_PK'>
+<!-- Urdu [اردو]; Urdu (India) [اردو (IN)]; Urdu (Pakistan) [اردو (پاکستان)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -460,9 +460,9 @@ locales='ur ur_PK'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='ur ur_PK'>
-<!-- Urdu [اردو]; Urdu (Pakistan) [اردو (پاکستان)] -->
-   <result draft='true'>
+locales='ur ur_IN ur_PK'>
+<!-- Urdu [اردو]; Urdu (India) [اردو (IN)]; Urdu (Pakistan) [اردو (پاکستان)] -->
+   <result draft='either'>
 x 
 X 
 x x
@@ -622,23 +622,6 @@ xیx
 xے
 Xے
 xےx
-</result>
-   <result draft='false'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
 </result>
   </collation>
  </cldrTest>

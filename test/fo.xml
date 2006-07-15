@@ -50,10 +50,10 @@ locales='fo fo_FO'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='fo fo_FO'>
@@ -486,9 +486,12 @@ xá
 xÁ
 Xá
 XÁ
-xaA
-XaA
-xaAx
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
 xax
 xAx
 xáx
@@ -509,18 +512,12 @@ xd
 xD
 Xd
 XD
-xđ
-xĐ
-Xđ
-XĐ
 xð
 xÐ
 Xð
 XÐ
 xdx
 xDx
-xđx
-xĐx
 xðx
 xÐx
 xe
@@ -597,10 +594,16 @@ xó
 xÓ
 Xó
 XÓ
+xø
+xØ
+Xø
+XØ
 xox
 xOx
 xóx
 xÓx
+xøx
+xØx
 xp
 xP
 Xp
@@ -629,12 +632,6 @@ xt
 xT
 Xt
 XT
-xþ
-xÞ
-Xþ
-XÞ
-xþx
-xÞx
 xtx
 xTx
 xu
@@ -675,85 +672,16 @@ xý
 xÝ
 Xý
 XÝ
-xü
-xÜ
-Xü
-XÜ
-xű
-xŰ
-Xű
-XŰ
 xyx
 xYx
 xýx
 xÝx
-xüx
-xÜx
-xűx
-xŰx
 xz
 xZ
 Xz
 XZ
 xzx
 xZx
-xæ
-xÆ
-Xæ
-XÆ
-xä
-xÄ
-Xä
-XÄ
-xę
-xĘ
-Xę
-XĘ
-xæx
-xÆx
-xäx
-xÄx
-xęx
-xĘx
-xø
-xØ
-Xø
-XØ
-xö
-xÖ
-Xö
-XÖ
-xő
-xŐ
-Xő
-XŐ
-xœ
-xŒ
-Xœ
-XŒ
-xøx
-xØx
-xöx
-xÖx
-xőx
-xŐx
-xœx
-xŒx
-xå
-xÅ
-xaa
-xAa
-xAA
-Xå
-XÅ
-Xaa
-XAa
-XAA
-xåx
-xÅx
-xaax
-xAax
-xAAx
 </result>
   </collation>
  </cldrTest>

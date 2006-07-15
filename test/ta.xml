@@ -50,10 +50,10 @@ locales='ta ta_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='ta'>
@@ -755,96 +755,21 @@ locales='ta ta_IN'>
 locales='ta ta_IN'>
 <!-- Tamil [தமிழ்]; Tamil (India) [தமிழ் (இந்தியா)] -->
    <result draft='either'>
-x‍
-x‌
-x‍
-X‌
-X‍
-X‌
-xஂ
-Xஂ
 x 
 X 
 x x
 x.
 X.
 x.x
-x௳
-X௳
-x௳x
-x௴
-X௴
-x௴x
-x௵
-X௵
-x௵x
-x௶
-X௶
-x௶x
-x௷
-X௷
-x௷x
-x௸
-X௸
-x௸x
-x௺
-X௺
-x௺x
-x௰
-X௰
-x௰x
-x௱
-X௱
-x௱x
-x௲
-X௲
-x௲x
-x௹
-X௹
-x௹x
 x0
 X0
-x௦
-X௦
 x0x
-x௦x
-x௧
-X௧
 x12
 X12
 x12x
-x௧x
 x2
 X2
-x௨
-X௨
 x2x
-x௨x
-x௩
-X௩
-x௩x
-x௪
-X௪
-x௪x
-x௫
-X௫
-x௫x
-x௬
-X௬
-x௬x
-x௭
-X௭
-x௭x
-x௮
-X௮
-x௮x
-x௯
-X௯
-x௯x
-x‌x
-x‍x
-x‌x
-xஂx
 xஃ
 Xஃ
 xஃx
@@ -941,9 +866,6 @@ xழx
 xவ
 Xவ
 xவx
-xஶ
-Xஶ
-xஶx
 xஷ
 Xஷ
 xஷx
@@ -989,9 +911,6 @@ xௌx
 x்
 X்
 x்x
-xௗ
-Xௗ
-xௗx
 </result>
   </collation>
  </cldrTest>

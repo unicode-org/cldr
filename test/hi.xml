@@ -50,10 +50,10 @@ locales='hi'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <number 
 locales='hi_IN'>
@@ -102,10 +102,10 @@ locales='hi_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='hi'>
@@ -770,14 +770,14 @@ locales='hi hi_IN'>
    <result field='ZZZZ'>GMT+००:००</result>
    <result field='z'>GMT+००:००</result>
    <result field='zzzz'>GMT+००:००</result>
-   <result field='v' parse='Europe/London'>GB</result>
-   <result field='vvvv'>GB</result>
+   <result field='v' parse='Europe/London'>ब्रितन</result>
+   <result field='vvvv'>ब्रितन</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
    <result field='ZZZZ'>GMT+०१:००</result>
    <result field='z'>GMT+०१:००</result>
    <result field='zzzz'>GMT+०१:००</result>
-   <result field='v' parse='Europe/London'>GB</result>
-   <result field='vvvv'>GB</result>
+   <result field='v' parse='Europe/London'>ब्रितन</result>
+   <result field='vvvv'>ब्रितन</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+०३:००</result>
    <result field='z'>GMT+०३:००</result>
@@ -813,24 +813,20 @@ x‍
 X‌
 X‍
 X‌
+x़
+X़
+xँ
+Xँ
+xं
+Xं
+xः
+Xः
 x 
 X 
 x x
 x.
 X.
 x.x
-xॐ
-Xॐ
-xॐx
-x।
-X।
-x।x
-x॥
-X॥
-x॥x
-x॰
-X॰
-x॰x
 x0
 X0
 x०
@@ -873,327 +869,13 @@ x९x
 x‌x
 x‍x
 x‌x
-xऄ
-Xऄ
-xऄx
-xअ
-Xअ
-xअx
-xआ
-Xआ
-xआx
-xइ
-Xइ
-xइx
-xई
-Xई
-xईx
-xउ
-Xउ
-xउx
-xऊ
-Xऊ
-xऊx
-xऋ
-Xऋ
-xऋx
-xॠ
-Xॠ
-xॠx
-xऌ
-Xऌ
-xऌx
-xॡ
-Xॡ
-xॡx
-xऍ
-Xऍ
-xऍx
-xऎ
-Xऎ
-xऎx
-xए
-Xए
-xएx
-xऐ
-Xऐ
-xऐx
-xऑ
-Xऑ
-xऑx
-xऒ
-Xऒ
-xऒx
-xओ
-Xओ
-xओx
-xऔ
-Xऔ
-xऔx
-xक
-Xक
-xकx
-xक़
-Xक़
-xक़x
-xख
-Xख
-xखx
-xख़
-Xख़
-xख़x
-xग
-Xग
-xगx
-xग़
-Xग़
-xग़x
-xघ
-Xघ
-xघx
-xङ
-Xङ
-xङx
-xच
-Xच
-xचx
-xछ
-Xछ
-xछx
-xज
-Xज
-xजx
-xज़
-Xज़
-xज़x
-xझ
-Xझ
-xझx
-xञ
-Xञ
-xञx
-xट
-Xट
-xटx
-xठ
-Xठ
-xठx
-xड
-Xड
-xडx
-xड़
-Xड़
-xड़x
-xढ
-Xढ
-xढx
-xढ़
-Xढ़
-xढ़x
-xण
-Xण
-xणx
-xत
-Xत
-xतx
-xथ
-Xथ
-xथx
-xद
-Xद
-xदx
-xध
-Xध
-xधx
-xन
-Xन
-xनx
-xऩ
-Xऩ
-xऩx
-xप
-Xप
-xपx
-xफ
-Xफ
-xफx
-xफ़
-Xफ़
-xफ़x
-xब
-Xब
-xबx
-xभ
-Xभ
-xभx
-xम
-Xम
-xमx
-xय
-Xय
-xयx
-xय़
-Xय़
-xय़x
-xर
-Xर
-xरx
-xऱ
-Xऱ
-xऱx
-xल
-Xल
-xलx
-xळ
-Xळ
-xळx
-xऴ
-Xऴ
-xऴx
-xव
-Xव
-xवx
-xश
-Xश
-xशx
-xष
-Xष
-xषx
-xस
-Xस
-xसx
-xह
-Xह
-xहx
-x़
-X़
 x़x
-xँ
-Xँ
 xँx
-xं
-Xं
 xंx
-xः
-Xः
 xःx
-x॑
-X॑
-x॑x
-x॒
-X॒
-x॒x
-x॓
-X॓
-x॓x
-x॔
-X॔
-x॔x
-xऽ
-Xऽ
-xऽx
-x्
-X्
-x्x
-xॽ
-Xॽ
-xॽx
-xा
-Xा
-xाx
-xि
-Xि
-xिx
-xी
-Xी
-xीx
-xु
-Xु
-xुx
-xू
-Xू
-xूx
-xृ
-Xृ
-xृx
-xॄ
-Xॄ
-xॄx
-xॢ
-Xॢ
-xॢx
-xॣ
-Xॣ
-xॣx
-xॅ
-Xॅ
-xॅx
-xॆ
-Xॆ
-xॆx
-xे
-Xे
-xेx
-xै
-Xै
-xैx
-xॉ
-Xॉ
-xॉx
-xॊ
-Xॊ
-xॊx
-xो
-Xो
-xोx
-xौ
-Xौ
-xौx
-</result>
-  </collation>
-  <collation 
-locales='hi@collation=direct hi_IN@collation=direct'>
-<!-- Hindi (Collation=Direct Order) [हिंदी (collation=direct)]; Hindi (India, Collation=Direct Order) [हिंदी (भारत, collation=direct)] -->
-   <result draft='either'>
-x‍
-x‌
-x‍
-X‌
-X‍
-X‌
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-x‌x
-x‍x
-x‌x
-xऄ
-Xऄ
-xऄx
-xॽ
-Xॽ
-xॽx
-xँ
-Xँ
-xँx
-xं
-Xं
-xंx
-xः
-Xः
-xःx
+xॐ
+Xॐ
+xॐx
 xअ
 Xअ
 xअx
@@ -1221,9 +903,6 @@ xऌx
 xऍ
 Xऍ
 xऍx
-xऎ
-Xऎ
-xऎx
 xए
 Xए
 xएx
@@ -1233,9 +912,6 @@ xऐx
 xऑ
 Xऑ
 xऑx
-xऒ
-Xऒ
-xऒx
 xओ
 Xओ
 xओx
@@ -1302,9 +978,6 @@ xधx
 xन
 Xन
 xनx
-xऩ
-Xऩ
-xऩx
 xप
 Xप
 xपx
@@ -1326,18 +999,12 @@ xयx
 xर
 Xर
 xरx
-xऱ
-Xऱ
-xऱx
 xल
 Xल
 xलx
 xळ
 Xळ
 xळx
-xऴ
-Xऴ
-xऴx
 xव
 Xव
 xवx
@@ -1353,9 +1020,6 @@ xसx
 xह
 Xह
 xहx
-x़
-X़
-x़x
 xऽ
 Xऽ
 xऽx
@@ -1383,9 +1047,6 @@ xॄx
 xॅ
 Xॅ
 xॅx
-xॆ
-Xॆ
-xॆx
 xे
 Xे
 xेx
@@ -1395,9 +1056,6 @@ xैx
 xॉ
 Xॉ
 xॉx
-xॊ
-Xॊ
-xॊx
 xो
 Xो
 xोx
@@ -1407,96 +1065,6 @@ xौx
 x्
 X्
 x्x
-xॐ
-Xॐ
-xॐx
-x॑
-X॑
-x॑x
-x॒
-X॒
-x॒x
-x॓
-X॓
-x॓x
-x॔
-X॔
-x॔x
-xक़
-Xक़
-xक़x
-xख़
-Xख़
-xख़x
-xग़
-Xग़
-xग़x
-xज़
-Xज़
-xज़x
-xड़
-Xड़
-xड़x
-xढ़
-Xढ़
-xढ़x
-xफ़
-Xफ़
-xफ़x
-xय़
-Xय़
-xय़x
-xॠ
-Xॠ
-xॠx
-xॡ
-Xॡ
-xॡx
-xॢ
-Xॢ
-xॢx
-xॣ
-Xॣ
-xॣx
-x।
-X।
-x।x
-x॥
-X॥
-x॥x
-x०
-X०
-x०x
-x१
-X१
-x१x
-x२
-X२
-x२x
-x३
-X३
-x३x
-x४
-X४
-x४x
-x५
-X५
-x५x
-x६
-X६
-x६x
-x७
-X७
-x७x
-x८
-X८
-x८x
-x९
-X९
-x९x
-x॰
-X॰
-x॰x
 </result>
   </collation>
  </cldrTest>

@@ -4,8 +4,8 @@
  <cldrTest version='1.4' base='bg'>
  <!-- Bulgarian [Български] -->
   <number 
-locales='bg bg_BG'>
-<!-- Bulgarian [Български]; Bulgarian (Bulgaria) [Български (България)] -->
+locales='bg'>
+<!-- Bulgarian [Български] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -50,10 +50,62 @@ locales='bg bg_BG'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <number 
+locales='bg_BG'>
+<!-- Bulgarian (Bulgaria) [Български (България)] -->
+   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12345678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12345678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='bg bg_BG'>
@@ -366,35 +418,27 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
+   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
+   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
+   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
-   <result draft='false'>Buenos Aires (Аржентина)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
+   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>Гриинуич-0500</result>
    <result field='z'>Гриинуич-0500</result>
    <result field='zzzz'>Гриинуич-0500</result>
@@ -410,35 +454,27 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич+1100</result>
    <result field='z'>Гриинуич+1100</result>
    <result field='zzzz'>Гриинуич+1100</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
+   <result field='vvvv'>Сидни (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>Гриинуич+1000</result>
    <result field='z'>Гриинуич+1000</result>
    <result field='zzzz'>Гриинуич+1000</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
+   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
+   <result field='vvvv'>Сидни (Австралия)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>Гриинуич+1100</result>
    <result field='z'>Гриинуич+1100</result>
    <result field='zzzz'>Гриинуич+1100</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
+   <result field='vvvv'>Сидни (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>Гриинуич+1000</result>
    <result field='z'>Гриинуич+1000</result>
    <result field='zzzz'>Гриинуич+1000</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
-   <result draft='false'>Sydney (Австралия)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
+   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
+   <result field='vvvv'>Сидни (Австралия)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>Гриинуич+0000</result>
    <result field='z'>Гриинуич+0000</result>
    <result field='zzzz'>Гриинуич+0000</result>
@@ -454,19 +490,15 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич+0300</result>
    <result field='z'>Гриинуич+0300</result>
    <result field='zzzz'>Гриинуич+0300</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Руска Федерация)</result>
-   <result draft='false'>Moscow (Руска Федерация)</result>
-   <result field='vvvv' draft='true'>Москва (Руска Федерация)</result>
-   <result draft='false'>Moscow (Руска Федерация)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
+   <result field='v' parse='Europe/Moscow'>Москва (Руска Федерация)</result>
+   <result field='vvvv'>Москва (Руска Федерация)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>Гриинуич+0400</result>
    <result field='z'>Гриинуич+0400</result>
    <result field='zzzz'>Гриинуич+0400</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Руска Федерация)</result>
-   <result draft='false'>Moscow (Руска Федерация)</result>
-   <result field='vvvv' draft='true'>Москва (Руска Федерация)</result>
-   <result draft='false'>Moscow (Руска Федерация)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='Europe/Moscow'>Москва (Руска Федерация)</result>
+   <result field='vvvv'>Москва (Руска Федерация)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
@@ -498,12 +530,36 @@ x12x
 x2
 X2
 x2x
+xi
+xI
+Xi
+XI
+xix
+xIx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xx
+xX
+Xx
+XX
+xxx
+xXx
 xа
 xА
 Xа
 XА
+xа̀
+xА̀
+Xа̀
+XА̀
 xаx
 xАx
+xа̀x
+xА̀x
 xб
 xБ
 Xб
@@ -532,8 +588,14 @@ xе
 xЕ
 Xе
 XЕ
+xѐ
+xЀ
+Xѐ
+XЀ
 xеx
 xЕx
+xѐx
+xЀx
 xж
 xЖ
 Xж
@@ -550,12 +612,18 @@ xи
 xИ
 Xи
 XИ
+xѝ
+xЍ
+Xѝ
+XЍ
+xиx
+xИx
+xѝx
+xЍx
 xй
 xЙ
 Xй
 XЙ
-xиx
-xИx
 xйx
 xЙx
 xк
@@ -586,8 +654,14 @@ xо
 xО
 Xо
 XО
+xо̀
+xО̀
+Xо̀
+XО̀
 xоx
 xОx
+xо̀x
+xО̀x
 xп
 xП
 Xп
@@ -616,8 +690,14 @@ xу
 xУ
 Xу
 XУ
+xу̀
+xУ̀
+Xу̀
+XУ̀
 xуx
 xУx
+xу̀x
+xУ̀x
 xф
 xФ
 Xф
@@ -658,14 +738,14 @@ xъ
 xЪ
 Xъ
 XЪ
+xъ̀
+xЪ̀
+Xъ̀
+XЪ̀
 xъx
 xЪx
-xы
-xЫ
-Xы
-XЫ
-xыx
-xЫx
+xъ̀x
+xЪ̀x
 xь
 xЬ
 Xь
@@ -682,14 +762,26 @@ xю
 xЮ
 Xю
 XЮ
+xю̀
+xЮ̀
+Xю̀
+XЮ̀
 xюx
 xЮx
+xю̀x
+xЮ̀x
 xя
 xЯ
 Xя
 XЯ
+xя̀
+xЯ̀
+Xя̀
+XЯ̀
 xяx
 xЯx
+xя̀x
+xЯ̀x
 xѫ
 xѪ
 Xѫ

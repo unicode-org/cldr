@@ -50,10 +50,10 @@ locales='cy cy_GB'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='cy'>
@@ -640,8 +640,8 @@ locales='cy_GB'>
    <result timeType='full'>Dydd Mercher, 01 Rhagfyr 2010 23:59:59 GMT+0000</result>
   </date>
   <zoneFields 
-locales='cy cy_GB'>
-<!-- Welsh [Cymraeg]; Welsh (United Kingdom) [Cymraeg (Prydain Fawr)] -->
+locales='cy'>
+<!-- Welsh [Cymraeg] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
@@ -779,12 +779,122 @@ locales='cy cy_GB'>
    <result field='v'>GMT-0300</result>
    <result field='vvvv'>GMT-0300</result>
   </zoneFields>
+  <zoneFields 
+locales='cy_GB'>
+<!-- Welsh (United Kingdom) [Cymraeg (Prydain Fawr)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-0800</result>
+   <result field='z'>GMT-0800</result>
+   <result field='zzzz'>GMT-0800</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Yr Unol Daleithiau)</result>
+   <result field='vvvv'>Los Angeles (Yr Unol Daleithiau)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-0700</result>
+   <result field='z'>GMT-0700</result>
+   <result field='zzzz'>GMT-0700</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Yr Unol Daleithiau)</result>
+   <result field='vvvv'>Los Angeles (Yr Unol Daleithiau)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Yr Ariannin)</result>
+   <result field='vvvv'>Buenos Aires (Yr Ariannin)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Yr Ariannin)</result>
+   <result field='vvvv'>Buenos Aires (Yr Ariannin)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Yr Ariannin)</result>
+   <result field='vvvv'>Buenos Aires (Yr Ariannin)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Yr Ariannin)</result>
+   <result field='vvvv'>Buenos Aires (Yr Ariannin)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-0500</result>
+   <result field='z'>GMT-0500</result>
+   <result field='zzzz'>GMT-0500</result>
+   <result field='v' parse='America/Havana'>Ciwba</result>
+   <result field='vvvv'>Ciwba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-0400</result>
+   <result field='z'>GMT-0400</result>
+   <result field='zzzz'>GMT-0400</result>
+   <result field='v' parse='America/Havana'>Ciwba</result>
+   <result field='vvvv'>Ciwba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+1100</result>
+   <result field='z'>GMT+1100</result>
+   <result field='zzzz'>GMT+1100</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstralia)</result>
+   <result field='vvvv'>Sydney (Awstralia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+1000</result>
+   <result field='z'>GMT+1000</result>
+   <result field='zzzz'>GMT+1000</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstralia)</result>
+   <result field='vvvv'>Sydney (Awstralia)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+1100</result>
+   <result field='z'>GMT+1100</result>
+   <result field='zzzz'>GMT+1100</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstralia)</result>
+   <result field='vvvv'>Sydney (Awstralia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+1000</result>
+   <result field='z'>GMT+1000</result>
+   <result field='zzzz'>GMT+1000</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstralia)</result>
+   <result field='vvvv'>Sydney (Awstralia)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+0000</result>
+   <result field='z'>GMT+0000</result>
+   <result field='zzzz'>GMT+0000</result>
+   <result field='v' parse='Europe/London'>Prydain Fawr</result>
+   <result field='vvvv'>Prydain Fawr</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+0100</result>
+   <result field='z'>GMT+0100</result>
+   <result field='zzzz'>GMT+0100</result>
+   <result field='v' parse='Europe/London'>Prydain Fawr</result>
+   <result field='vvvv'>Prydain Fawr</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+0300</result>
+   <result field='z'>GMT+0300</result>
+   <result field='zzzz'>GMT+0300</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rwsia)</result>
+   <result field='vvvv'>Moscow (Rwsia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+0400</result>
+   <result field='z'>GMT+0400</result>
+   <result field='zzzz'>GMT+0400</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rwsia)</result>
+   <result field='vvvv'>Moscow (Rwsia)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v'>GMT-0300</result>
+   <result field='vvvv'>GMT-0300</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v'>GMT-0300</result>
+   <result field='vvvv'>GMT-0300</result>
+  </zoneFields>
   <collation 
 locales='cy cy_GB'>
 <!-- Welsh [Cymraeg]; Welsh (United Kingdom) [Cymraeg (Prydain Fawr)] -->
    <result draft='either'>
-x́
-X́
 x 
 X 
 x x
@@ -840,12 +950,36 @@ xc
 xC
 Xc
 XC
+xch
+xcH
+xCh
+xCH
+Xch
+XcH
+XCh
+XCH
+xchx
+xcHx
+xChx
+xCHx
 xcx
 xCx
 xd
 xD
 Xd
 XD
+xdd
+xdD
+xDd
+xDD
+Xdd
+XdD
+XDd
+XDD
+xddx
+xdDx
+xDdx
+xDDx
 xdx
 xDx
 xe
@@ -882,6 +1016,18 @@ xf
 xF
 Xf
 XF
+xff
+xfF
+xFf
+xFF
+Xff
+XfF
+XFf
+XFF
+xffx
+xfFx
+xFfx
+xFFx
 xfx
 xFx
 xg
@@ -942,6 +1088,18 @@ xl
 xL
 Xl
 XL
+xll
+xlL
+xLl
+xLL
+Xll
+XlL
+XLl
+XLL
+xllx
+xlLx
+xLlx
+xLLx
 xlx
 xLx
 xm
@@ -954,6 +1112,18 @@ xn
 xN
 Xn
 XN
+xng
+xnG
+xNg
+xNG
+Xng
+XnG
+XNg
+XNG
+xngx
+xnGx
+xNgx
+xNGx
 xnx
 xNx
 xo
@@ -990,6 +1160,18 @@ xp
 xP
 Xp
 XP
+xph
+xpH
+xPh
+xPH
+Xph
+XpH
+XPh
+XPH
+xphx
+xpHx
+xPhx
+xPHx
 xpx
 xPx
 xq
@@ -1002,6 +1184,18 @@ xr
 xR
 Xr
 XR
+xrh
+xrH
+xRh
+xRH
+Xrh
+XrH
+XRh
+XRH
+xrhx
+xrHx
+xRhx
+xRHx
 xrx
 xRx
 xs
@@ -1014,6 +1208,18 @@ xt
 xT
 Xt
 XT
+xth
+xtH
+xTh
+xTH
+Xth
+XtH
+XTh
+XTH
+xthx
+xtHx
+xThx
+xTHx
 xtx
 xTx
 xu
@@ -1056,6 +1262,10 @@ xw
 xW
 Xw
 XW
+xẃ
+xẂ
+Xẃ
+XẂ
 xẁ
 xẀ
 Xẁ
@@ -1070,6 +1280,8 @@ Xẅ
 XẄ
 xwx
 xWx
+xẃx
+xẂx
 xẁx
 xẀx
 xŵx
@@ -1080,7 +1292,6 @@ xx
 xX
 Xx
 XX
-x́x
 xxx
 xXx
 xy

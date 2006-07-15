@@ -50,10 +50,10 @@ locales='lt lt_LT'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='lt lt_LT'>
@@ -354,14 +354,14 @@ locales='lt lt_LT'>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Jungtinės Valstijos)</result>
-   <result field='vvvv'>Los Angeles (Jungtinės Valstijos)</result>
+   <result field='v' parse='America/Los_Angeles'>Los Andželas (Jungtinės Valstijos)</result>
+   <result field='vvvv'>Los Andželas (Jungtinės Valstijos)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Jungtinės Valstijos)</result>
-   <result field='vvvv'>Los Angeles (Jungtinės Valstijos)</result>
+   <result field='v' parse='America/Los_Angeles'>Los Andželas (Jungtinės Valstijos)</result>
+   <result field='vvvv'>Los Andželas (Jungtinės Valstijos)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -463,8 +463,6 @@ locales='lt lt_LT'>
 locales='lt lt_LT'>
 <!-- Lithuanian [Lietuvių]; Lithuanian (Lithuania) [Lietuvių (Lietuva)] -->
    <result draft='either'>
-ẋ
-Ẋ
 x 
 X 
 x x
@@ -502,12 +500,12 @@ xc
 xC
 Xc
 XC
-xcx
-xCx
 xč
 xČ
 Xč
 XČ
+xcx
+xCx
 xčx
 xČx
 xd
@@ -520,20 +518,20 @@ xe
 xE
 Xe
 XE
-xę
-xĘ
-Xę
-XĘ
 xė
 xĖ
 Xė
 XĖ
+xę
+xĘ
+Xę
+XĘ
 xex
 xEx
-xęx
-xĘx
 xėx
 xĖx
+xęx
+xĘx
 xf
 xF
 Xf
@@ -564,12 +562,6 @@ xix
 xIx
 xįx
 xĮx
-xy
-xY
-Xy
-XY
-xyx
-xYx
 xj
 xJ
 Xj
@@ -628,12 +620,12 @@ xs
 xS
 Xs
 XS
-xsx
-xSx
 xš
 xŠ
 Xš
 XŠ
+xsx
+xSx
 xšx
 xŠx
 xt
@@ -676,19 +668,24 @@ xx
 xX
 Xx
 XX
-ẋx
 xxx
 xXx
+xy
+xY
+Xy
+XY
+xyx
+xYx
 xz
 xZ
 Xz
 XZ
-xzx
-xZx
 xž
 xŽ
 Xž
 XŽ
+xzx
+xZx
 xžx
 xŽx
 </result>

@@ -6,43 +6,79 @@
   <number 
 locales='or'>
 <!-- Oriya [ଓଡ଼ିଆ] -->
-   <result input='0.0' numberType='integer' draft='either'>୦</result>
-   <result numberType='decimal'>୦</result>
-   <result numberType='percent'>୦%</result>
-   <result numberType='scientific'>୦E୦</result>
-   <result input='0.01' numberType='integer'>୦</result>
-   <result numberType='decimal'>୦.୦୧</result>
-   <result numberType='percent'>୧%</result>
-   <result numberType='scientific'>୧E-୨</result>
-   <result input='-0.01' numberType='integer'>-୦</result>
-   <result numberType='decimal'>-୦.୦୧</result>
-   <result numberType='percent'>-୧%</result>
-   <result numberType='scientific'>-୧E-୨</result>
-   <result input='1.0' numberType='integer'>୧</result>
-   <result numberType='decimal'>୧</result>
-   <result numberType='percent'>୧୦୦%</result>
-   <result numberType='scientific'>୧E୦</result>
-   <result input='-1.0' numberType='integer'>-୧</result>
-   <result numberType='decimal'>-୧</result>
-   <result numberType='percent'>-୧୦୦%</result>
-   <result numberType='scientific'>-୧E୦</result>
-   <result input='123.456' numberType='integer'>୧୨୩</result>
-   <result numberType='decimal'>୧୨୩.୪୫୬</result>
-   <result numberType='percent'>୧୨,୩୪୬%</result>
-   <result numberType='scientific'>୧.୨୩୪୫୬E୨</result>
-   <result input='-123.456' numberType='integer'>-୧୨୩</result>
-   <result numberType='decimal'>-୧୨୩.୪୫୬</result>
-   <result numberType='percent'>-୧୨,୩୪୬%</result>
-   <result numberType='scientific'>-୧.୨୩୪୫୬E୨</result>
-   <result input='123456.78' numberType='integer'>୧୨୩,୪୫୭</result>
-   <result numberType='decimal'>୧୨୩,୪୫୬.୭୮</result>
-   <result numberType='percent'>୧୨,୩୪୫,୬୭୮%</result>
-   <result numberType='scientific'>୧.୨୩୪୫୬୭୮E୫</result>
-   <result input='-123456.78' numberType='integer'>-୧୨୩,୪୫୭</result>
-   <result numberType='decimal'>-୧୨୩,୪୫୬.୭୮</result>
-   <result numberType='percent'>-୧୨,୩୪୫,୬୭୮%</result>
-   <result numberType='scientific'>-୧.୨୩୪୫୬୭୮E୫</result>
-   <result input='Infinity' numberType='integer'>∞</result>
+   <result input='0.0' numberType='integer' draft='true'>୦</result>
+   <result draft='false'>0</result>
+   <result numberType='decimal' draft='true'>୦</result>
+   <result draft='false'>0</result>
+   <result numberType='percent' draft='true'>୦%</result>
+   <result draft='false'>0%</result>
+   <result numberType='scientific' draft='true'>୦E୦</result>
+   <result draft='false'>0E0</result>
+   <result input='0.01' numberType='integer' draft='true'>୦</result>
+   <result draft='false'>0</result>
+   <result numberType='decimal' draft='true'>୦.୦୧</result>
+   <result draft='false'>0.01</result>
+   <result numberType='percent' draft='true'>୧%</result>
+   <result draft='false'>1%</result>
+   <result numberType='scientific' draft='true'>୧E-୨</result>
+   <result draft='false'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='true'>-୦</result>
+   <result draft='false'>-0</result>
+   <result numberType='decimal' draft='true'>-୦.୦୧</result>
+   <result draft='false'>-0.01</result>
+   <result numberType='percent' draft='true'>-୧%</result>
+   <result draft='false'>-1%</result>
+   <result numberType='scientific' draft='true'>-୧E-୨</result>
+   <result draft='false'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='true'>୧</result>
+   <result draft='false'>1</result>
+   <result numberType='decimal' draft='true'>୧</result>
+   <result draft='false'>1</result>
+   <result numberType='percent' draft='true'>୧୦୦%</result>
+   <result draft='false'>100%</result>
+   <result numberType='scientific' draft='true'>୧E୦</result>
+   <result draft='false'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='true'>-୧</result>
+   <result draft='false'>-1</result>
+   <result numberType='decimal' draft='true'>-୧</result>
+   <result draft='false'>-1</result>
+   <result numberType='percent' draft='true'>-୧୦୦%</result>
+   <result draft='false'>-100%</result>
+   <result numberType='scientific' draft='true'>-୧E୦</result>
+   <result draft='false'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='true'>୧୨୩</result>
+   <result draft='false'>123</result>
+   <result numberType='decimal' draft='true'>୧୨୩.୪୫୬</result>
+   <result draft='false'>123.456</result>
+   <result numberType='percent' draft='true'>୧୨,୩୪୬%</result>
+   <result draft='false'>12,346%</result>
+   <result numberType='scientific' draft='true'>୧.୨୩୪୫୬E୨</result>
+   <result draft='false'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='true'>-୧୨୩</result>
+   <result draft='false'>-123</result>
+   <result numberType='decimal' draft='true'>-୧୨୩.୪୫୬</result>
+   <result draft='false'>-123.456</result>
+   <result numberType='percent' draft='true'>-୧୨,୩୪୬%</result>
+   <result draft='false'>-12,346%</result>
+   <result numberType='scientific' draft='true'>-୧.୨୩୪୫୬E୨</result>
+   <result draft='false'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='true'>୧୨୩,୪୫୭</result>
+   <result draft='false'>123,457</result>
+   <result numberType='decimal' draft='true'>୧୨୩,୪୫୬.୭୮</result>
+   <result draft='false'>123,456.78</result>
+   <result numberType='percent' draft='true'>୧୨,୩୪୫,୬୭୮%</result>
+   <result draft='false'>12,345,678%</result>
+   <result numberType='scientific' draft='true'>୧.୨୩୪୫୬୭୮E୫</result>
+   <result draft='false'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='true'>-୧୨୩,୪୫୭</result>
+   <result draft='false'>-123,457</result>
+   <result numberType='decimal' draft='true'>-୧୨୩,୪୫୬.୭୮</result>
+   <result draft='false'>-123,456.78</result>
+   <result numberType='percent' draft='true'>-୧୨,୩୪୫,୬୭୮%</result>
+   <result draft='false'>-12,345,678%</result>
+   <result numberType='scientific' draft='true'>-୧.୨୩୪୫୬୭୮E୫</result>
+   <result draft='false'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='either'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
@@ -50,10 +86,10 @@ locales='or'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <number 
 locales='or_IN'>
@@ -86,14 +122,20 @@ locales='or_IN'>
    <result numberType='decimal'>-୧୨୩.୪୫୬</result>
    <result numberType='percent'>-୧୨,୩୪୬%</result>
    <result numberType='scientific'>-୧.୨୩୪୫୬E୨</result>
-   <result input='123456.78' numberType='integer'>୧,୨୩,୪୫୭</result>
-   <result numberType='decimal'>୧,୨୩,୪୫୬.୭୮</result>
-   <result numberType='percent'>୧,୨୩,୪୫,୬୭୮%</result>
-   <result numberType='scientific'>୧.୨୩୪୫୬୭୮E୫</result>
-   <result input='-123456.78' numberType='integer'>-୧,୨୩,୪୫୭</result>
-   <result numberType='decimal'>-୧,୨୩,୪୫୬.୭୮</result>
-   <result numberType='percent'>-୧,୨୩,୪୫,୬୭୮%</result>
-   <result numberType='scientific'>-୧.୨୩୪୫୬୭୮E୫</result>
+   <result input='123456.78' numberType='integer' draft='true'>୧,୨୩,୪୫୭</result>
+   <result draft='false'>୧୨୩,୪୫୭</result>
+   <result numberType='decimal' draft='true'>୧,୨୩,୪୫୬.୭୮</result>
+   <result draft='false'>୧୨୩,୪୫୬.୭୮</result>
+   <result numberType='percent' draft='true'>୧,୨୩,୪୫,୬୭୮%</result>
+   <result draft='false'>୧୨,୩୪୫,୬୭୮%</result>
+   <result numberType='scientific' draft='either'>୧.୨୩୪୫୬୭୮E୫</result>
+   <result input='-123456.78' numberType='integer' draft='true'>-୧,୨୩,୪୫୭</result>
+   <result draft='false'>-୧୨୩,୪୫୭</result>
+   <result numberType='decimal' draft='true'>-୧,୨୩,୪୫୬.୭୮</result>
+   <result draft='false'>-୧୨୩,୪୫୬.୭୮</result>
+   <result numberType='percent' draft='true'>-୧,୨୩,୪୫,୬୭୮%</result>
+   <result draft='false'>-୧୨,୩୪୫,୬୭୮%</result>
+   <result numberType='scientific' draft='either'>-୧.୨୩୪୫୬୭୮E୫</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -102,598 +144,1174 @@ locales='or_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='or'>
 <!-- Oriya [ଓଡ଼ିଆ] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>୦୦:୦୦</result>
-   <result timeType='medium'>୦୦:୦୦:୦୦</result>
-   <result timeType='long'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୦/୦୧/୩୧</result>
-   <result timeType='short'>୦୦/୦୧/୩୧ ୦୦:୦୦</result>
-   <result timeType='medium'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦</result>
-   <result timeType='long'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୦୦ 1 ୩୧</result>
-   <result timeType='short'>୧୯୦୦ 1 ୩୧ ୦୦:୦୦</result>
-   <result timeType='medium'>୧୯୦୦ 1 ୩୧ ୦୦:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୦୦ 1 ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୦୦ 1 ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
-   <result timeType='short'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
-   <result timeType='medium'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
-   <result timeType='short'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
-   <result timeType='medium'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
-   <result timeType='long'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>୦୦:୦୦</result>
-   <result timeType='medium'>୦୦:୦୦:୦୧</result>
-   <result timeType='long'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୯/୦୨/୨୮</result>
-   <result timeType='short'>୦୯/୦୨/୨୮ ୦୦:୦୦</result>
-   <result timeType='medium'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧</result>
-   <result timeType='long'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୦୯ 2 ୨୮</result>
-   <result timeType='short'>୧୯୦୯ 2 ୨୮ ୦୦:୦୦</result>
-   <result timeType='medium'>୧୯୦୯ 2 ୨୮ ୦୦:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୦୯ 2 ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୦୯ 2 ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
-   <result timeType='short'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
-   <result timeType='medium'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
-   <result timeType='short'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
-   <result timeType='medium'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
-   <result timeType='long'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>୦୦:୫୯</result>
-   <result timeType='medium'>୦୦:୫୯:୫୯</result>
-   <result timeType='long'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୮/୦୩/୨୬</result>
-   <result timeType='short'>୧୮/୦୩/୨୬ ୦୦:୫୯</result>
-   <result timeType='medium'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯</result>
-   <result timeType='long'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୧୮ 3 ୨୬</result>
-   <result timeType='short'>୧୯୧୮ 3 ୨୬ ୦୦:୫୯</result>
-   <result timeType='medium'>୧୯୧୮ 3 ୨୬ ୦୦:୫୯:୫୯</result>
-   <result timeType='long'>୧୯୧୮ 3 ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୧୮ 3 ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
-   <result timeType='short'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
-   <result timeType='medium'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
-   <result timeType='long'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
-   <result timeType='short'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
-   <result timeType='medium'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
-   <result timeType='long'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>୦୧:୦୦</result>
-   <result timeType='medium'>୦୧:୦୦:୦୦</result>
-   <result timeType='long'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୩୨/୦୪/୨୪</result>
-   <result timeType='short'>୩୨/୦୪/୨୪ ୦୧:୦୦</result>
-   <result timeType='medium'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦</result>
-   <result timeType='long'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୩୨ 4 ୨୪</result>
-   <result timeType='short'>୧୯୩୨ 4 ୨୪ ୦୧:୦୦</result>
-   <result timeType='medium'>୧୯୩୨ 4 ୨୪ ୦୧:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୩୨ 4 ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୩୨ 4 ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
-   <result timeType='short'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
-   <result timeType='medium'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
-   <result timeType='short'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
-   <result timeType='medium'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
-   <result timeType='long'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>୦୧:୦୦</result>
-   <result timeType='medium'>୦୧:୦୦:୦୧</result>
-   <result timeType='long'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୪୫/୦୫/୨୦</result>
-   <result timeType='short'>୪୫/୦୫/୨୦ ୦୧:୦୦</result>
-   <result timeType='medium'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧</result>
-   <result timeType='long'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୪୫ 5 ୨୦</result>
-   <result timeType='short'>୧୯୪୫ 5 ୨୦ ୦୧:୦୦</result>
-   <result timeType='medium'>୧୯୪୫ 5 ୨୦ ୦୧:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୪୫ 5 ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୪୫ 5 ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୪୫ ମେ ୨୦</result>
-   <result timeType='short'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
-   <result timeType='medium'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର, ୧୯୪୫ ମେ ୨୦</result>
-   <result timeType='short'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
-   <result timeType='medium'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
-   <result timeType='long'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>୧୧:୫୯</result>
-   <result timeType='medium'>୧୧:୫୯:୫୯</result>
-   <result timeType='long'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୫୨/୦୬/୧୮</result>
-   <result timeType='short'>୫୨/୦୬/୧୮ ୧୧:୫୯</result>
-   <result timeType='medium'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯</result>
-   <result timeType='long'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୫୨ 6 ୧୮</result>
-   <result timeType='short'>୧୯୫୨ 6 ୧୮ ୧୧:୫୯</result>
-   <result timeType='medium'>୧୯୫୨ 6 ୧୮ ୧୧:୫୯:୫୯</result>
-   <result timeType='long'>୧୯୫୨ 6 ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୫୨ 6 ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୫୨ ଜୁନ ୧୮</result>
-   <result timeType='short'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
-   <result timeType='medium'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
-   <result timeType='long'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮</result>
-   <result timeType='short'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
-   <result timeType='medium'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
-   <result timeType='long'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>୧୨:୦୦</result>
-   <result timeType='medium'>୧୨:୦୦:୦୦</result>
-   <result timeType='long'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୭୩/୦୭/୧୬</result>
-   <result timeType='short'>୭୩/୦୭/୧୬ ୧୨:୦୦</result>
-   <result timeType='medium'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦</result>
-   <result timeType='long'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୭୩ 7 ୧୬</result>
-   <result timeType='short'>୧୯୭୩ 7 ୧୬ ୧୨:୦୦</result>
-   <result timeType='medium'>୧୯୭୩ 7 ୧୬ ୧୨:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୭୩ 7 ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୭୩ 7 ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୭୩ ଜୁଲାଇ ୧୬</result>
-   <result timeType='short'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
-   <result timeType='medium'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
-   <result timeType='long'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬</result>
-   <result timeType='short'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
-   <result timeType='medium'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
-   <result timeType='long'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>୧୨:୦୦</result>
-   <result timeType='medium'>୧୨:୦୦:୦୧</result>
-   <result timeType='long'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୯୯/୦୮/୧୪</result>
-   <result timeType='short'>୯୯/୦୮/୧୪ ୧୨:୦୦</result>
-   <result timeType='medium'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧</result>
-   <result timeType='long'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୯୯୯ 8 ୧୪</result>
-   <result timeType='short'>୧୯୯୯ 8 ୧୪ ୧୨:୦୦</result>
-   <result timeType='medium'>୧୯୯୯ 8 ୧୪ ୧୨:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୯୯ 8 ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୯୯ 8 ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
-   <result timeType='short'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
-   <result timeType='medium'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
-   <result timeType='long'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
-   <result timeType='short'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
-   <result timeType='medium'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
-   <result timeType='long'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>୨୨:୫୯</result>
-   <result timeType='medium'>୨୨:୫୯:୫୯</result>
-   <result timeType='long'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୦/୦୯/୧୨</result>
-   <result timeType='short'>୦୦/୦୯/୧୨ ୨୨:୫୯</result>
-   <result timeType='medium'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯</result>
-   <result timeType='long'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୦୦୦ 9 ୧୨</result>
-   <result timeType='short'>୨୦୦୦ 9 ୧୨ ୨୨:୫୯</result>
-   <result timeType='medium'>୨୦୦୦ 9 ୧୨ ୨୨:୫୯:୫୯</result>
-   <result timeType='long'>୨୦୦୦ 9 ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୦ 9 ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
-   <result timeType='short'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
-   <result timeType='medium'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
-   <result timeType='long'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
-   <result timeType='short'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
-   <result timeType='medium'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
-   <result timeType='long'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>୨୩:୦୦</result>
-   <result timeType='medium'>୨୩:୦୦:୦୦</result>
-   <result timeType='long'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୧/୧୦/୦୮</result>
-   <result timeType='short'>୦୧/୧୦/୦୮ ୨୩:୦୦</result>
-   <result timeType='medium'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦</result>
-   <result timeType='long'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୦୦୧ 10 ୮</result>
-   <result timeType='short'>୨୦୦୧ 10 ୮ ୨୩:୦୦</result>
-   <result timeType='medium'>୨୦୦୧ 10 ୮ ୨୩:୦୦:୦୦</result>
-   <result timeType='long'>୨୦୦୧ 10 ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୧ 10 ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୦୦୧ ଅକ୍ଟୋବର ୮</result>
-   <result timeType='short'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦</result>
-   <result timeType='medium'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦</result>
-   <result timeType='long'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮</result>
-   <result timeType='short'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦</result>
-   <result timeType='medium'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦</result>
-   <result timeType='long'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>୨୩:୦୦</result>
-   <result timeType='medium'>୨୩:୦୦:୦୧</result>
-   <result timeType='long'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୪/୧୧/୦୪</result>
-   <result timeType='short'>୦୪/୧୧/୦୪ ୨୩:୦୦</result>
-   <result timeType='medium'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧</result>
-   <result timeType='long'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୦୦୪ 11 ୪</result>
-   <result timeType='short'>୨୦୦୪ 11 ୪ ୨୩:୦୦</result>
-   <result timeType='medium'>୨୦୦୪ 11 ୪ ୨୩:୦୦:୦୧</result>
-   <result timeType='long'>୨୦୦୪ 11 ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୪ 11 ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୦୦୪ ନଭେମ୍ବର ୪</result>
-   <result timeType='short'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦</result>
-   <result timeType='medium'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧</result>
-   <result timeType='long'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪</result>
-   <result timeType='short'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦</result>
-   <result timeType='medium'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧</result>
-   <result timeType='long'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>୨୩:୫୯</result>
-   <result timeType='medium'>୨୩:୫୯:୫୯</result>
-   <result timeType='long'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୦/୧୨/୦୧</result>
-   <result timeType='short'>୧୦/୧୨/୦୧ ୨୩:୫୯</result>
-   <result timeType='medium'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯</result>
-   <result timeType='long'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୦୧୦ 12 ୧</result>
-   <result timeType='short'>୨୦୧୦ 12 ୧ ୨୩:୫୯</result>
-   <result timeType='medium'>୨୦୧୦ 12 ୧ ୨୩:୫୯:୫୯</result>
-   <result timeType='long'>୨୦୧୦ 12 ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୧୦ 12 ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୦୧୦ ଡିସେମ୍ବର ୧</result>
-   <result timeType='short'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯</result>
-   <result timeType='medium'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯</result>
-   <result timeType='long'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧</result>
-   <result timeType='short'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯</result>
-   <result timeType='medium'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯</result>
-   <result timeType='long'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='true'>୦୦:୦୦</result>
+   <result draft='false'>00:00</result>
+   <result timeType='medium' draft='true'>୦୦:୦୦:୦୦</result>
+   <result draft='false'>00:00:00</result>
+   <result timeType='long' draft='true'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୦/୦୧/୩୧</result>
+   <result draft='false'>00/01/31</result>
+   <result timeType='short' draft='true'>୦୦/୦୧/୩୧ ୦୦:୦୦</result>
+   <result draft='false'>00/01/31 00:00</result>
+   <result timeType='medium' draft='true'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦</result>
+   <result draft='false'>00/01/31 00:00:00</result>
+   <result timeType='long' draft='true'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>00/01/31 00:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>00/01/31 00:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result draft='false'>1900 ଜାନୁଆରୀ 31</result>
+   <result timeType='short' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result draft='false'>1900 ଜାନୁଆରୀ 31 00:00</result>
+   <result timeType='medium' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result draft='false'>1900 ଜାନୁଆରୀ 31 00:00:00</result>
+   <result timeType='long' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1900 ଜାନୁଆରୀ 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1900 ଜାନୁଆରୀ 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result draft='false'>1900 1 31</result>
+   <result timeType='short' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result draft='false'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result draft='false'>4, 1900 1 31</result>
+   <result timeType='short' draft='true'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result draft='false'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result draft='false'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+୦୦:୦୦</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='true'>୦୦:୦୦</result>
+   <result draft='false'>00:00</result>
+   <result timeType='medium' draft='true'>୦୦:୦୦:୦୧</result>
+   <result draft='false'>00:00:01</result>
+   <result timeType='long' draft='true'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୯/୦୨/୨୮</result>
+   <result draft='false'>09/02/28</result>
+   <result timeType='short' draft='true'>୦୯/୦୨/୨୮ ୦୦:୦୦</result>
+   <result draft='false'>09/02/28 00:00</result>
+   <result timeType='medium' draft='true'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧</result>
+   <result draft='false'>09/02/28 00:00:01</result>
+   <result timeType='long' draft='true'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>09/02/28 00:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>09/02/28 00:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result draft='false'>1909 ଫେବ୍ରୁୟାରୀ 28</result>
+   <result timeType='short' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result draft='false'>1909 ଫେବ୍ରୁୟାରୀ 28 00:00</result>
+   <result timeType='medium' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result draft='false'>1909 ଫେବ୍ରୁୟାରୀ 28 00:00:01</result>
+   <result timeType='long' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1909 ଫେବ୍ରୁୟାରୀ 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1909 ଫେବ୍ରୁୟାରୀ 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result draft='false'>1909 2 28</result>
+   <result timeType='short' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result draft='false'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result draft='false'>1, 1909 2 28</result>
+   <result timeType='short' draft='true'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result draft='false'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result draft='false'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+୦୦:୦୦</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='true'>୦୦:୫୯</result>
+   <result draft='false'>00:59</result>
+   <result timeType='medium' draft='true'>୦୦:୫୯:୫୯</result>
+   <result draft='false'>00:59:59</result>
+   <result timeType='long' draft='true'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>00:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୮/୦୩/୨୬</result>
+   <result draft='false'>18/03/26</result>
+   <result timeType='short' draft='true'>୧୮/୦୩/୨୬ ୦୦:୫୯</result>
+   <result draft='false'>18/03/26 00:59</result>
+   <result timeType='medium' draft='true'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯</result>
+   <result draft='false'>18/03/26 00:59:59</result>
+   <result timeType='long' draft='true'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>18/03/26 00:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>18/03/26 00:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result draft='false'>1918 ମାର୍ଚ୍ଚ 26</result>
+   <result timeType='short' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result draft='false'>1918 ମାର୍ଚ୍ଚ 26 00:59</result>
+   <result timeType='medium' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result draft='false'>1918 ମାର୍ଚ୍ଚ 26 00:59:59</result>
+   <result timeType='long' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1918 ମାର୍ଚ୍ଚ 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1918 ମାର୍ଚ୍ଚ 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result draft='false'>1918 3 26</result>
+   <result timeType='short' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result draft='false'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result draft='false'>3, 1918 3 26</result>
+   <result timeType='short' draft='true'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result draft='false'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result draft='false'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+୦୦:୦୦</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='true'>୦୧:୦୦</result>
+   <result draft='false'>01:00</result>
+   <result timeType='medium' draft='true'>୦୧:୦୦:୦୦</result>
+   <result draft='false'>01:00:00</result>
+   <result timeType='long' draft='true'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>01:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>01:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୩୨/୦୪/୨୪</result>
+   <result draft='false'>32/04/24</result>
+   <result timeType='short' draft='true'>୩୨/୦୪/୨୪ ୦୧:୦୦</result>
+   <result draft='false'>32/04/24 01:00</result>
+   <result timeType='medium' draft='true'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦</result>
+   <result draft='false'>32/04/24 01:00:00</result>
+   <result timeType='long' draft='true'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>32/04/24 01:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>32/04/24 01:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result draft='false'>1932 ଅପ୍ରେଲ 24</result>
+   <result timeType='short' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result draft='false'>1932 ଅପ୍ରେଲ 24 01:00</result>
+   <result timeType='medium' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result draft='false'>1932 ଅପ୍ରେଲ 24 01:00:00</result>
+   <result timeType='long' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1932 ଅପ୍ରେଲ 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1932 ଅପ୍ରେଲ 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result draft='false'>1932 4 24</result>
+   <result timeType='short' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result draft='false'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result draft='false'>1, 1932 4 24</result>
+   <result timeType='short' draft='true'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result draft='false'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result draft='false'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+୦୦:୦୦</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='true'>୦୧:୦୦</result>
+   <result draft='false'>01:00</result>
+   <result timeType='medium' draft='true'>୦୧:୦୦:୦୧</result>
+   <result draft='false'>01:00:01</result>
+   <result timeType='long' draft='true'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>01:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>01:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୪୫/୦୫/୨୦</result>
+   <result draft='false'>45/05/20</result>
+   <result timeType='short' draft='true'>୪୫/୦୫/୨୦ ୦୧:୦୦</result>
+   <result draft='false'>45/05/20 01:00</result>
+   <result timeType='medium' draft='true'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧</result>
+   <result draft='false'>45/05/20 01:00:01</result>
+   <result timeType='long' draft='true'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>45/05/20 01:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>45/05/20 01:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୪୫ ମେ ୨୦</result>
+   <result draft='false'>1945 ମେ 20</result>
+   <result timeType='short' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result draft='false'>1945 ମେ 20 01:00</result>
+   <result timeType='medium' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result draft='false'>1945 ମେ 20 01:00:01</result>
+   <result timeType='long' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1945 ମେ 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1945 ମେ 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୪୫ ମେ ୨୦</result>
+   <result draft='false'>1945 5 20</result>
+   <result timeType='short' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result draft='false'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର, ୧୯୪୫ ମେ ୨୦</result>
+   <result draft='false'>1, 1945 5 20</result>
+   <result timeType='short' draft='true'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result draft='false'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result draft='false'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+୦୦:୦୦</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='true'>୧୧:୫୯</result>
+   <result draft='false'>11:59</result>
+   <result timeType='medium' draft='true'>୧୧:୫୯:୫୯</result>
+   <result draft='false'>11:59:59</result>
+   <result timeType='long' draft='true'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>11:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>11:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୫୨/୦୬/୧୮</result>
+   <result draft='false'>52/06/18</result>
+   <result timeType='short' draft='true'>୫୨/୦୬/୧୮ ୧୧:୫୯</result>
+   <result draft='false'>52/06/18 11:59</result>
+   <result timeType='medium' draft='true'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯</result>
+   <result draft='false'>52/06/18 11:59:59</result>
+   <result timeType='long' draft='true'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>52/06/18 11:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>52/06/18 11:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୫୨ ଜୁନ ୧୮</result>
+   <result draft='false'>1952 ଜୁନ 18</result>
+   <result timeType='short' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result draft='false'>1952 ଜୁନ 18 11:59</result>
+   <result timeType='medium' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result draft='false'>1952 ଜୁନ 18 11:59:59</result>
+   <result timeType='long' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1952 ଜୁନ 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1952 ଜୁନ 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୫୨ ଜୁନ ୧୮</result>
+   <result draft='false'>1952 6 18</result>
+   <result timeType='short' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result draft='false'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮</result>
+   <result draft='false'>4, 1952 6 18</result>
+   <result timeType='short' draft='true'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result draft='false'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result draft='false'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+୦୦:୦୦</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦</result>
+   <result draft='false'>12:00</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୦</result>
+   <result draft='false'>12:00:00</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>12:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>12:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୭୩/୦୭/୧୬</result>
+   <result draft='false'>73/07/16</result>
+   <result timeType='short' draft='true'>୭୩/୦୭/୧୬ ୧୨:୦୦</result>
+   <result draft='false'>73/07/16 12:00</result>
+   <result timeType='medium' draft='true'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦</result>
+   <result draft='false'>73/07/16 12:00:00</result>
+   <result timeType='long' draft='true'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>73/07/16 12:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>73/07/16 12:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result draft='false'>1973 ଜୁଲାଇ 16</result>
+   <result timeType='short' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result draft='false'>1973 ଜୁଲାଇ 16 12:00</result>
+   <result timeType='medium' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result draft='false'>1973 ଜୁଲାଇ 16 12:00:00</result>
+   <result timeType='long' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1973 ଜୁଲାଇ 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1973 ଜୁଲାଇ 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result draft='false'>1973 7 16</result>
+   <result timeType='short' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result draft='false'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result draft='false'>2, 1973 7 16</result>
+   <result timeType='short' draft='true'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result draft='false'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result draft='false'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+୦୦:୦୦</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦</result>
+   <result draft='false'>12:00</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୧</result>
+   <result draft='false'>12:00:01</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>12:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>12:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୯୯/୦୮/୧୪</result>
+   <result draft='false'>99/08/14</result>
+   <result timeType='short' draft='true'>୯୯/୦୮/୧୪ ୧୨:୦୦</result>
+   <result draft='false'>99/08/14 12:00</result>
+   <result timeType='medium' draft='true'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧</result>
+   <result draft='false'>99/08/14 12:00:01</result>
+   <result timeType='long' draft='true'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>99/08/14 12:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>99/08/14 12:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result draft='false'>1999 ଅଗଷ୍ଟ 14</result>
+   <result timeType='short' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result draft='false'>1999 ଅଗଷ୍ଟ 14 12:00</result>
+   <result timeType='medium' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result draft='false'>1999 ଅଗଷ୍ଟ 14 12:00:01</result>
+   <result timeType='long' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1999 ଅଗଷ୍ଟ 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1999 ଅଗଷ୍ଟ 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result draft='false'>1999 8 14</result>
+   <result timeType='short' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result draft='false'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result draft='false'>7, 1999 8 14</result>
+   <result timeType='short' draft='true'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result draft='false'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result draft='false'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+୦୦:୦୦</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='true'>୨୨:୫୯</result>
+   <result draft='false'>22:59</result>
+   <result timeType='medium' draft='true'>୨୨:୫୯:୫୯</result>
+   <result draft='false'>22:59:59</result>
+   <result timeType='long' draft='true'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>22:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>22:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୦/୦୯/୧୨</result>
+   <result draft='false'>00/09/12</result>
+   <result timeType='short' draft='true'>୦୦/୦୯/୧୨ ୨୨:୫୯</result>
+   <result draft='false'>00/09/12 22:59</result>
+   <result timeType='medium' draft='true'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯</result>
+   <result draft='false'>00/09/12 22:59:59</result>
+   <result timeType='long' draft='true'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>00/09/12 22:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>00/09/12 22:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result draft='false'>2000 ସେପ୍ଟେମ୍ବର 12</result>
+   <result timeType='short' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result draft='false'>2000 ସେପ୍ଟେମ୍ବର 12 22:59</result>
+   <result timeType='medium' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result draft='false'>2000 ସେପ୍ଟେମ୍ବର 12 22:59:59</result>
+   <result timeType='long' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2000 ସେପ୍ଟେମ୍ବର 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2000 ସେପ୍ଟେମ୍ବର 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result draft='false'>2000 9 12</result>
+   <result timeType='short' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result draft='false'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result draft='false'>3, 2000 9 12</result>
+   <result timeType='short' draft='true'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result draft='false'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result draft='false'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+୦୦:୦୦</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='true'>୨୩:୦୦</result>
+   <result draft='false'>23:00</result>
+   <result timeType='medium' draft='true'>୨୩:୦୦:୦୦</result>
+   <result draft='false'>23:00:00</result>
+   <result timeType='long' draft='true'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୧/୧୦/୦୮</result>
+   <result draft='false'>01/10/08</result>
+   <result timeType='short' draft='true'>୦୧/୧୦/୦୮ ୨୩:୦୦</result>
+   <result draft='false'>01/10/08 23:00</result>
+   <result timeType='medium' draft='true'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦</result>
+   <result draft='false'>01/10/08 23:00:00</result>
+   <result timeType='long' draft='true'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>01/10/08 23:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>01/10/08 23:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮</result>
+   <result draft='false'>2001 ଅକ୍ଟୋବର 8</result>
+   <result timeType='short' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦</result>
+   <result draft='false'>2001 ଅକ୍ଟୋବର 8 23:00</result>
+   <result timeType='medium' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦</result>
+   <result draft='false'>2001 ଅକ୍ଟୋବର 8 23:00:00</result>
+   <result timeType='long' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2001 ଅକ୍ଟୋବର 8 23:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2001 ଅକ୍ଟୋବର 8 23:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮</result>
+   <result draft='false'>2001 10 8</result>
+   <result timeType='short' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦</result>
+   <result draft='false'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮</result>
+   <result draft='false'>2, 2001 10 08</result>
+   <result timeType='short' draft='true'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦</result>
+   <result draft='false'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='true'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦</result>
+   <result draft='false'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long' draft='true'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+୦୦:୦୦</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='true'>୨୩:୦୦</result>
+   <result draft='false'>23:00</result>
+   <result timeType='medium' draft='true'>୨୩:୦୦:୦୧</result>
+   <result draft='false'>23:00:01</result>
+   <result timeType='long' draft='true'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୪/୧୧/୦୪</result>
+   <result draft='false'>04/11/04</result>
+   <result timeType='short' draft='true'>୦୪/୧୧/୦୪ ୨୩:୦୦</result>
+   <result draft='false'>04/11/04 23:00</result>
+   <result timeType='medium' draft='true'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧</result>
+   <result draft='false'>04/11/04 23:00:01</result>
+   <result timeType='long' draft='true'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>04/11/04 23:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>04/11/04 23:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪</result>
+   <result draft='false'>2004 ନଭେମ୍ବର 4</result>
+   <result timeType='short' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦</result>
+   <result draft='false'>2004 ନଭେମ୍ବର 4 23:00</result>
+   <result timeType='medium' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧</result>
+   <result draft='false'>2004 ନଭେମ୍ବର 4 23:00:01</result>
+   <result timeType='long' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>2004 ନଭେମ୍ବର 4 23:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>2004 ନଭେମ୍ବର 4 23:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪</result>
+   <result draft='false'>2004 11 4</result>
+   <result timeType='short' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦</result>
+   <result draft='false'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪</result>
+   <result draft='false'>5, 2004 11 04</result>
+   <result timeType='short' draft='true'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦</result>
+   <result draft='false'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='true'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧</result>
+   <result draft='false'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long' draft='true'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+୦୦:୦୦</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='true'>୨୩:୫୯</result>
+   <result draft='false'>23:59</result>
+   <result timeType='medium' draft='true'>୨୩:୫୯:୫୯</result>
+   <result draft='false'>23:59:59</result>
+   <result timeType='long' draft='true'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>23:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୦/୧୨/୦୧</result>
+   <result draft='false'>10/12/01</result>
+   <result timeType='short' draft='true'>୧୦/୧୨/୦୧ ୨୩:୫୯</result>
+   <result draft='false'>10/12/01 23:59</result>
+   <result timeType='medium' draft='true'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯</result>
+   <result draft='false'>10/12/01 23:59:59</result>
+   <result timeType='long' draft='true'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>10/12/01 23:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>10/12/01 23:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧</result>
+   <result draft='false'>2010 ଡିସେମ୍ବର 1</result>
+   <result timeType='short' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯</result>
+   <result draft='false'>2010 ଡିସେମ୍ବର 1 23:59</result>
+   <result timeType='medium' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯</result>
+   <result draft='false'>2010 ଡିସେମ୍ବର 1 23:59:59</result>
+   <result timeType='long' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2010 ଡିସେମ୍ବର 1 23:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2010 ଡିସେମ୍ବର 1 23:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧</result>
+   <result draft='false'>2010 12 1</result>
+   <result timeType='short' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯</result>
+   <result draft='false'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧</result>
+   <result draft='false'>4, 2010 12 01</result>
+   <result timeType='short' draft='true'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯</result>
+   <result draft='false'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯</result>
+   <result draft='false'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long' draft='true'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+୦୦:୦୦</result>
   </date>
   <date 
 locales='or_IN'>
 <!-- Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>୧୨:୦୦ AM</result>
-   <result timeType='medium'>୧୨:୦୦:୦୦ AM</result>
-   <result timeType='long'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୩୧-୦୧-୦୦</result>
-   <result timeType='short'>୩୧-୦୧-୦୦ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM</result>
-   <result timeType='long'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୩୧-୦୧-୧୯୦୦</result>
-   <result timeType='short'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
-   <result timeType='long'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୩୧ ଜାନୁଆରୀ ୧୯୦୦</result>
-   <result timeType='short'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
-   <result timeType='long'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦</result>
-   <result timeType='short'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
-   <result timeType='long'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>୧୨:୦୦ AM</result>
-   <result timeType='medium'>୧୨:୦୦:୦୧ AM</result>
-   <result timeType='long'>୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୨୮-୦୨-୦୯</result>
-   <result timeType='short'>୨୮-୦୨-୦୯ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୮-୦୨-୧୯୦୯</result>
-   <result timeType='short'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯</result>
-   <result timeType='short'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯</result>
-   <result timeType='short'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦ AM</result>
-   <result timeType='medium'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
-   <result timeType='long'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>୧୨:୫୯ AM</result>
-   <result timeType='medium'>୧୨:୫୯:୫୯ AM</result>
-   <result timeType='long'>୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୨୬-୦୩-୧୮</result>
-   <result timeType='short'>୨୬-୦୩-୧୮ ୧୨:୫୯ AM</result>
-   <result timeType='medium'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM</result>
-   <result timeType='long'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୬-୦୩-୧୯୧୮</result>
-   <result timeType='short'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯ AM</result>
-   <result timeType='medium'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
-   <result timeType='long'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮</result>
-   <result timeType='short'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯ AM</result>
-   <result timeType='medium'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
-   <result timeType='long'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮</result>
-   <result timeType='short'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯ AM</result>
-   <result timeType='medium'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
-   <result timeType='long'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>୧:୦୦ AM</result>
-   <result timeType='medium'>୧:୦୦:୦୦ AM</result>
-   <result timeType='long'>୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୨୪-୦୪-୩୨</result>
-   <result timeType='short'>୨୪-୦୪-୩୨ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM</result>
-   <result timeType='long'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୪-୦୪-୧୯୩୨</result>
-   <result timeType='short'>୨୪-୦୪-୧୯୩୨ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM</result>
-   <result timeType='long'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୪ ଅପ୍ରେଲ ୧୯୩୨</result>
-   <result timeType='short'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM</result>
-   <result timeType='long'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨</result>
-   <result timeType='short'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦ AM</result>
-   <result timeType='medium'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM</result>
-   <result timeType='long'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>୧:୦୦ AM</result>
-   <result timeType='medium'>୧:୦୦:୦୧ AM</result>
-   <result timeType='long'>୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୨୦-୦୫-୪୫</result>
-   <result timeType='short'>୨୦-୦୫-୪୫ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୨୦-୦୫-୧୯୪୫</result>
-   <result timeType='short'>୨୦-୦୫-୧୯୪୫ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୨୦ ମେ ୧୯୪୫</result>
-   <result timeType='short'>୨୦ ମେ ୧୯୪୫ ୧:୦୦ AM</result>
-   <result timeType='medium'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM</result>
-   <result timeType='long'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ରବିବାର ୨୦ ମେ ୧୯୪୫</result>
-   <result timeType='short'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦ AM</result>
-   <result timeType='medium'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM</result>
-   <result timeType='long'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>୧୧:୫୯ AM</result>
-   <result timeType='medium'>୧୧:୫୯:୫୯ AM</result>
-   <result timeType='long'>୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୮-୦୬-୫୨</result>
-   <result timeType='short'>୧୮-୦୬-୫୨ ୧୧:୫୯ AM</result>
-   <result timeType='medium'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM</result>
-   <result timeType='long'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୮-୦୬-୧୯୫୨</result>
-   <result timeType='short'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯ AM</result>
-   <result timeType='medium'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
-   <result timeType='long'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୮ ଜୁନ ୧୯୫୨</result>
-   <result timeType='short'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯ AM</result>
-   <result timeType='medium'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
-   <result timeType='long'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨</result>
-   <result timeType='short'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯ AM</result>
-   <result timeType='medium'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
-   <result timeType='long'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୨:୦୦:୦୦ PM</result>
-   <result timeType='long'>୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୬-୦୭-୭୩</result>
-   <result timeType='short'>୧୬-୦୭-୭୩ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM</result>
-   <result timeType='long'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୬-୦୭-୧୯୭୩</result>
-   <result timeType='short'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
-   <result timeType='long'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୬ ଜୁଲାଇ ୧୯୭୩</result>
-   <result timeType='short'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
-   <result timeType='long'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩</result>
-   <result timeType='short'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
-   <result timeType='long'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୨:୦୦:୦୧ PM</result>
-   <result timeType='long'>୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୪-୦୮-୯୯</result>
-   <result timeType='short'>୧୪-୦୮-୯୯ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM</result>
-   <result timeType='long'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୪-୦୮-୧୯୯୯</result>
-   <result timeType='short'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
-   <result timeType='long'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯</result>
-   <result timeType='short'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
-   <result timeType='long'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯</result>
-   <result timeType='short'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦ PM</result>
-   <result timeType='medium'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
-   <result timeType='long'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>୧୦:୫୯ PM</result>
-   <result timeType='medium'>୧୦:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୧୨-୦୯-୦୦</result>
-   <result timeType='short'>୧୨-୦୯-୦୦ ୧୦:୫୯ PM</result>
-   <result timeType='medium'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୧୨-୦୯-୨୦୦୦</result>
-   <result timeType='short'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯ PM</result>
-   <result timeType='medium'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦</result>
-   <result timeType='short'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯ PM</result>
-   <result timeType='medium'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦</result>
-   <result timeType='short'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯ PM</result>
-   <result timeType='medium'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
-   <result timeType='long'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>୧୧:୦୦ PM</result>
-   <result timeType='medium'>୧୧:୦୦:୦୦ PM</result>
-   <result timeType='long'>୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୮-୧୦-୦୧</result>
-   <result timeType='short'>୦୮-୧୦-୦୧ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM</result>
-   <result timeType='long'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୦୮-୧୦-୨୦୦୧</result>
-   <result timeType='short'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
-   <result timeType='long'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୮ ଅକ୍ଟୋବର ୨୦୦୧</result>
-   <result timeType='short'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
-   <result timeType='long'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧</result>
-   <result timeType='short'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
-   <result timeType='long'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>୧୧:୦୦ PM</result>
-   <result timeType='medium'>୧୧:୦୦:୦୧ PM</result>
-   <result timeType='long'>୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୪-୧୧-୦୪</result>
-   <result timeType='short'>୦୪-୧୧-୦୪ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM</result>
-   <result timeType='long'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୦୪-୧୧-୨୦୦୪</result>
-   <result timeType='short'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
-   <result timeType='long'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୪ ନଭେମ୍ବର ୨୦୦୪</result>
-   <result timeType='short'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
-   <result timeType='long'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪</result>
-   <result timeType='short'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦ PM</result>
-   <result timeType='medium'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
-   <result timeType='long'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>୧୧:୫୯ PM</result>
-   <result timeType='medium'>୧୧:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='short' timeType='none'>୦୧-୧୨-୧୦</result>
-   <result timeType='short'>୦୧-୧୨-୧୦ ୧୧:୫୯ PM</result>
-   <result timeType='medium'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM</result>
-   <result timeType='long'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='medium' timeType='none'>୦୧-୧୨-୨୦୧୦</result>
-   <result timeType='short'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯ PM</result>
-   <result timeType='medium'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
-   <result timeType='long'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='long' timeType='none'>୧ ଡିସେମ୍ବର ୨୦୧୦</result>
-   <result timeType='short'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯ PM</result>
-   <result timeType='medium'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
-   <result timeType='long'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result dateType='full' timeType='none'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦</result>
-   <result timeType='short'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯ PM</result>
-   <result timeType='medium'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
-   <result timeType='long'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
-   <result timeType='full'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦ AM</result>
+   <result draft='false'>୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୦ AM</result>
+   <result draft='false'>୦୦:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୩୧-୦୧-୦୦</result>
+   <result draft='false'>୦୦/୦୧/୩୧</result>
+   <result timeType='short' draft='true'>୩୧-୦୧-୦୦ ୧୨:୦୦ AM</result>
+   <result draft='false'>୦୦/୦୧/୩୧ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM</result>
+   <result draft='false'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୩୧-୦୧-୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦/୦୧/୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୩୧-୦୧-୧୯୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result timeType='short' draft='true'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦ AM</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୩୧-୦୧-୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୩୧ ଜାନୁଆରୀ ୧୯୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result timeType='short' draft='true'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦ AM</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧</result>
+   <result timeType='short' draft='true'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦ AM</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର ୩୧ ଜାନୁଆରୀ ୧୯୦୦ ୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୦୦ ଜାନୁଆରୀ ୩୧ ୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦ AM</result>
+   <result draft='false'>୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୧ AM</result>
+   <result draft='false'>୦୦:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୨୮-୦୨-୦୯</result>
+   <result draft='false'>୦୯/୦୨/୨୮</result>
+   <result timeType='short' draft='true'>୨୮-୦୨-୦୯ ୧୨:୦୦ AM</result>
+   <result draft='false'>୦୯/୦୨/୨୮ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM</result>
+   <result draft='false'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୮-୦୨-୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୯/୦୨/୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୮-୦୨-୧୯୦୯</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result timeType='short' draft='true'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦ AM</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୮-୦୨-୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result timeType='short' draft='true'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦ AM</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯</result>
+   <result draft='false'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮</result>
+   <result timeType='short' draft='true'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦</result>
+   <result timeType='medium' draft='true'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର ୨୮ ଫେବ୍ରୁୟାରୀ ୧୯୦୯ ୧୨:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୦୯ ଫେବ୍ରୁୟାରୀ ୨୮ ୦୦:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='true'>୧୨:୫୯ AM</result>
+   <result draft='false'>୦୦:୫୯</result>
+   <result timeType='medium' draft='true'>୧୨:୫୯:୫୯ AM</result>
+   <result draft='false'>୦୦:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୨୬-୦୩-୧୮</result>
+   <result draft='false'>୧୮/୦୩/୨୬</result>
+   <result timeType='short' draft='true'>୨୬-୦୩-୧୮ ୧୨:୫୯ AM</result>
+   <result draft='false'>୧୮/୦୩/୨୬ ୦୦:୫୯</result>
+   <result timeType='medium' draft='true'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୬-୦୩-୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୮/୦୩/୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୬-୦୩-୧୯୧୮</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result timeType='short' draft='true'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯ AM</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result timeType='medium' draft='true'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୬-୦୩-୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result timeType='short' draft='true'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯ AM</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result timeType='medium' draft='true'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬</result>
+   <result timeType='short' draft='true'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯ AM</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯</result>
+   <result timeType='medium' draft='true'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ମଙ୍ଗଳବାର ୨୬ ମାର୍ଚ୍ଚ ୧୯୧୮ ୧୨:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୧୯୧୮ ମାର୍ଚ୍ଚ ୨୬ ୦୦:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='true'>୧:୦୦ AM</result>
+   <result draft='false'>୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୧:୦୦:୦୦ AM</result>
+   <result draft='false'>୦୧:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୨୪-୦୪-୩୨</result>
+   <result draft='false'>୩୨/୦୪/୨୪</result>
+   <result timeType='short' draft='true'>୨୪-୦୪-୩୨ ୧:୦୦ AM</result>
+   <result draft='false'>୩୨/୦୪/୨୪ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM</result>
+   <result draft='false'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୪-୦୪-୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୩୨/୦୪/୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୪-୦୪-୧୯୩୨</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result timeType='short' draft='true'>୨୪-୦୪-୧୯୩୨ ୧:୦୦ AM</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୪-୦୪-୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୪ ଅପ୍ରେଲ ୧୯୩୨</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result timeType='short' draft='true'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦ AM</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨</result>
+   <result draft='false'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪</result>
+   <result timeType='short' draft='true'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର ୨୪ ଅପ୍ରେଲ ୧୯୩୨ ୧:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୩୨ ଅପ୍ରେଲ ୨୪ ୦୧:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='true'>୧:୦୦ AM</result>
+   <result draft='false'>୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୧:୦୦:୦୧ AM</result>
+   <result draft='false'>୦୧:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୨୦-୦୫-୪୫</result>
+   <result draft='false'>୪୫/୦୫/୨୦</result>
+   <result timeType='short' draft='true'>୨୦-୦୫-୪୫ ୧:୦୦ AM</result>
+   <result draft='false'>୪୫/୦୫/୨୦ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM</result>
+   <result draft='false'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦-୦୫-୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୪୫/୦୫/୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୨୦-୦୫-୧୯୪୫</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦</result>
+   <result timeType='short' draft='true'>୨୦-୦୫-୧୯୪୫ ୧:୦୦ AM</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦-୦୫-୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୨୦ ମେ ୧୯୪୫</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦</result>
+   <result timeType='short' draft='true'>୨୦ ମେ ୧୯୪୫ ୧:୦୦ AM</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ରବିବାର ୨୦ ମେ ୧୯୪୫</result>
+   <result draft='false'>ରବିବାର, ୧୯୪୫ ମେ ୨୦</result>
+   <result timeType='short' draft='true'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦</result>
+   <result timeType='medium' draft='true'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM</result>
+   <result draft='false'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ରବିବାର ୨୦ ମେ ୧୯୪୫ ୧:୦୦:୦୧ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ରବିବାର, ୧୯୪୫ ମେ ୨୦ ୦୧:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='true'>୧୧:୫୯ AM</result>
+   <result draft='false'>୧୧:୫୯</result>
+   <result timeType='medium' draft='true'>୧୧:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୧:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୮-୦୬-୫୨</result>
+   <result draft='false'>୫୨/୦୬/୧୮</result>
+   <result timeType='short' draft='true'>୧୮-୦୬-୫୨ ୧୧:୫୯ AM</result>
+   <result draft='false'>୫୨/୦୬/୧୮ ୧୧:୫୯</result>
+   <result timeType='medium' draft='true'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM</result>
+   <result draft='false'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୮-୦୬-୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୫୨/୦୬/୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୮-୦୬-୧୯୫୨</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮</result>
+   <result timeType='short' draft='true'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯ AM</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result timeType='medium' draft='true'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୮-୦୬-୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୮ ଜୁନ ୧୯୫୨</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮</result>
+   <result timeType='short' draft='true'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯ AM</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result timeType='medium' draft='true'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮</result>
+   <result timeType='short' draft='true'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯ AM</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର ୧୮ ଜୁନ ୧୯୫୨ ୧୧:୫୯:୫୯ AM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୧୯୫୨ ଜୁନ ୧୮ ୧୧:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦ PM</result>
+   <result draft='false'>୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୦ PM</result>
+   <result draft='false'>୧୨:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୬-୦୭-୭୩</result>
+   <result draft='false'>୭୩/୦୭/୧୬</result>
+   <result timeType='short' draft='true'>୧୬-୦୭-୭୩ ୧୨:୦୦ PM</result>
+   <result draft='false'>୭୩/୦୭/୧୬ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM</result>
+   <result draft='false'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୬-୦୭-୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୭୩/୦୭/୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୬-୦୭-୧୯୭୩</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result timeType='short' draft='true'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦ PM</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୬-୦୭-୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୬ ଜୁଲାଇ ୧୯୭୩</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result timeType='short' draft='true'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦ PM</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩</result>
+   <result draft='false'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬</result>
+   <result timeType='short' draft='true'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦ PM</result>
+   <result draft='false'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM</result>
+   <result draft='false'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ସୋମବାର ୧୬ ଜୁଲାଇ ୧୯୭୩ ୧୨:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ସୋମବାର, ୧୯୭୩ ଜୁଲାଇ ୧୬ ୧୨:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='true'>୧୨:୦୦ PM</result>
+   <result draft='false'>୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୨:୦୦:୦୧ PM</result>
+   <result draft='false'>୧୨:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୪-୦୮-୯୯</result>
+   <result draft='false'>୯୯/୦୮/୧୪</result>
+   <result timeType='short' draft='true'>୧୪-୦୮-୯୯ ୧୨:୦୦ PM</result>
+   <result draft='false'>୯୯/୦୮/୧୪ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM</result>
+   <result draft='false'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୪-୦୮-୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୯୯/୦୮/୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୪-୦୮-୧୯୯୯</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result timeType='short' draft='true'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦ PM</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୪-୦୮-୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result timeType='short' draft='true'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦ PM</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯</result>
+   <result draft='false'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪</result>
+   <result timeType='short' draft='true'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦ PM</result>
+   <result draft='false'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦</result>
+   <result timeType='medium' draft='true'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM</result>
+   <result draft='false'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ଶନିବାର ୧୪ ଅଗଷ୍ଟ ୧୯୯୯ ୧୨:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ଶନିବାର, ୧୯୯୯ ଅଗଷ୍ଟ ୧୪ ୧୨:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='true'>୧୦:୫୯ PM</result>
+   <result draft='false'>୨୨:୫୯</result>
+   <result timeType='medium' draft='true'>୧୦:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୨:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୧୨-୦୯-୦୦</result>
+   <result draft='false'>୦୦/୦୯/୧୨</result>
+   <result timeType='short' draft='true'>୧୨-୦୯-୦୦ ୧୦:୫୯ PM</result>
+   <result draft='false'>୦୦/୦୯/୧୨ ୨୨:୫୯</result>
+   <result timeType='medium' draft='true'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM</result>
+   <result draft='false'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨-୦୯-୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୦/୦୯/୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୧୨-୦୯-୨୦୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result timeType='short' draft='true'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯ PM</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result timeType='medium' draft='true'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨-୦୯-୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result timeType='short' draft='true'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯ PM</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result timeType='medium' draft='true'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨</result>
+   <result timeType='short' draft='true'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯ PM</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯</result>
+   <result timeType='medium' draft='true'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ମଙ୍ଗଳବାର ୧୨ ସେପ୍ଟେମ୍ବର ୨୦୦୦ ୧୦:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ମଙ୍ଗଳବାର, ୨୦୦୦ ସେପ୍ଟେମ୍ବର ୧୨ ୨୨:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='true'>୧୧:୦୦ PM</result>
+   <result draft='false'>୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୧୧:୦୦:୦୦ PM</result>
+   <result draft='false'>୨୩:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୮-୧୦-୦୧</result>
+   <result draft='false'>୦୧/୧୦/୦୮</result>
+   <result timeType='short' draft='true'>୦୮-୧୦-୦୧ ୧୧:୦୦ PM</result>
+   <result draft='false'>୦୧/୧୦/୦୮ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM</result>
+   <result draft='false'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୮-୧୦-୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୧/୧୦/୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୦୮-୧୦-୨୦୦୧</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮</result>
+   <result timeType='short' draft='true'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦ PM</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୮-୧୦-୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୮ ଅକ୍ଟୋବର ୨୦୦୧</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮</result>
+   <result timeType='short' draft='true'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦ PM</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୧ ଅକ୍ଟୋବର ୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧</result>
+   <result draft='false'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮</result>
+   <result timeType='short' draft='true'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦ PM</result>
+   <result draft='false'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM</result>
+   <result draft='false'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦</result>
+   <result timeType='long' draft='true'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ସୋମବାର ୮ ଅକ୍ଟୋବର ୨୦୦୧ ୧୧:୦୦:୦୦ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ସୋମବାର, ୨୦୦୧ ଅକ୍ଟୋବର ୦୮ ୨୩:୦୦:୦୦ GMT+୦୦:୦୦</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='true'>୧୧:୦୦ PM</result>
+   <result draft='false'>୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୧୧:୦୦:୦୧ PM</result>
+   <result draft='false'>୨୩:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୪-୧୧-୦୪</result>
+   <result draft='false'>୦୪/୧୧/୦୪</result>
+   <result timeType='short' draft='true'>୦୪-୧୧-୦୪ ୧୧:୦୦ PM</result>
+   <result draft='false'>୦୪/୧୧/୦୪ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM</result>
+   <result draft='false'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୪-୧୧-୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୦୪/୧୧/୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୦୪-୧୧-୨୦୦୪</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪</result>
+   <result timeType='short' draft='true'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦ PM</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୪-୧୧-୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୪ ନଭେମ୍ବର ୨୦୦୪</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪</result>
+   <result timeType='short' draft='true'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦ PM</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୦୪ ନଭେମ୍ବର ୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪</result>
+   <result draft='false'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪</result>
+   <result timeType='short' draft='true'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦ PM</result>
+   <result draft='false'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦</result>
+   <result timeType='medium' draft='true'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM</result>
+   <result draft='false'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧</result>
+   <result timeType='long' draft='true'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ଗୁରୁବାର ୪ ନଭେମ୍ବର ୨୦୦୪ ୧୧:୦୦:୦୧ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ଗୁରୁବାର, ୨୦୦୪ ନଭେମ୍ବର ୦୪ ୨୩:୦୦:୦୧ GMT+୦୦:୦୦</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='true'>୧୧:୫୯ PM</result>
+   <result draft='false'>୨୩:୫୯</result>
+   <result timeType='medium' draft='true'>୧୧:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୩:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='short' timeType='none' draft='true'>୦୧-୧୨-୧୦</result>
+   <result draft='false'>୧୦/୧୨/୦୧</result>
+   <result timeType='short' draft='true'>୦୧-୧୨-୧୦ ୧୧:୫୯ PM</result>
+   <result draft='false'>୧୦/୧୨/୦୧ ୨୩:୫୯</result>
+   <result timeType='medium' draft='true'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM</result>
+   <result draft='false'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୧-୧୨-୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୧୦/୧୨/୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='medium' timeType='none' draft='true'>୦୧-୧୨-୨୦୧୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧</result>
+   <result timeType='short' draft='true'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯ PM</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯</result>
+   <result timeType='medium' draft='true'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୦୧-୧୨-୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='long' timeType='none' draft='true'>୧ ଡିସେମ୍ବର ୨୦୧୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧</result>
+   <result timeType='short' draft='true'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯ PM</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯</result>
+   <result timeType='medium' draft='true'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>୨୦୧୦ ଡିସେମ୍ବର ୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result dateType='full' timeType='none' draft='true'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦</result>
+   <result draft='false'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧</result>
+   <result timeType='short' draft='true'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯ PM</result>
+   <result draft='false'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯</result>
+   <result timeType='medium' draft='true'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM</result>
+   <result draft='false'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯</result>
+   <result timeType='long' draft='true'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
+   <result timeType='full' draft='true'>ବୁଧବାର ୧ ଡିସେମ୍ବର ୨୦୧୦ ୧୧:୫୯:୫୯ PM GMT+୦୦:୦୦</result>
+   <result draft='false'>ବୁଧବାର, ୨୦୧୦ ଡିସେମ୍ବର ୦୧ ୨୩:୫୯:୫୯ GMT+୦୦:୦୦</result>
   </date>
   <zoneFields 
-locales='or or_IN'>
-<!-- Oriya [ଓଡ଼ିଆ]; Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
+locales='or'>
+<!-- Oriya [ଓଡ଼ିଆ] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ' draft='true'>GMT-୦୮:୦୦</result>
    <result draft='false'>GMT-08:00</result>
@@ -861,19 +1479,142 @@ locales='or or_IN'>
    <result field='vvvv' draft='true'>GMT-୦୩:୦୦</result>
    <result draft='false'>GMT-03:00</result>
   </zoneFields>
+  <zoneFields 
+locales='or_IN'>
+<!-- Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-୦୮:୦୦</result>
+   <result field='z'>GMT-୦୮:୦୦</result>
+   <result field='zzzz'>GMT-୦୮:୦୦</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-୦୭:୦୦</result>
+   <result field='z'>GMT-୦୭:୦୦</result>
+   <result field='zzzz'>GMT-୦୭:୦୦</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-୦୫:୦୦</result>
+   <result field='z'>GMT-୦୫:୦୦</result>
+   <result field='zzzz'>GMT-୦୫:୦୦</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-୦୪:୦୦</result>
+   <result field='z'>GMT-୦୪:୦୦</result>
+   <result field='zzzz'>GMT-୦୪:୦୦</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+୧୧:୦୦</result>
+   <result field='z'>GMT+୧୧:୦୦</result>
+   <result field='zzzz'>GMT+୧୧:୦୦</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+୧୦:୦୦</result>
+   <result field='z'>GMT+୧୦:୦୦</result>
+   <result field='zzzz'>GMT+୧୦:୦୦</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+୧୧:୦୦</result>
+   <result field='z'>GMT+୧୧:୦୦</result>
+   <result field='zzzz'>GMT+୧୧:୦୦</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+୧୦:୦୦</result>
+   <result field='z'>GMT+୧୦:୦୦</result>
+   <result field='zzzz'>GMT+୧୦:୦୦</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+୦୦:୦୦</result>
+   <result field='z'>GMT+୦୦:୦୦</result>
+   <result field='zzzz'>GMT+୦୦:୦୦</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+୦୧:୦୦</result>
+   <result field='z'>GMT+୦୧:୦୦</result>
+   <result field='zzzz'>GMT+୦୧:୦୦</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+୦୩:୦୦</result>
+   <result field='z'>GMT+୦୩:୦୦</result>
+   <result field='zzzz'>GMT+୦୩:୦୦</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+୦୪:୦୦</result>
+   <result field='z'>GMT+୦୪:୦୦</result>
+   <result field='zzzz'>GMT+୦୪:୦୦</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v'>GMT-୦୩:୦୦</result>
+   <result field='vvvv'>GMT-୦୩:୦୦</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
+   <result field='z'>GMT-୦୩:୦୦</result>
+   <result field='zzzz'>GMT-୦୩:୦୦</result>
+   <result field='v'>GMT-୦୩:୦୦</result>
+   <result field='vvvv'>GMT-୦୩:୦୦</result>
+  </zoneFields>
   <collation 
 locales='or or_IN'>
 <!-- Oriya [ଓଡ଼ିଆ]; Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result draft='true'>
+   <result draft='either'>
+x‍
+x‌
+x‍
+X‌
+X‍
+X‌
+x଼
+X଼
+xଁ
+Xଁ
+xଂ
+Xଂ
+xଃ
+Xଃ
 x 
 X 
 x x
 x.
 X.
 x.x
-x୰
-X୰
-x୰x
 x0
 X0
 x0x
@@ -883,6 +1624,13 @@ x12x
 x2
 X2
 x2x
+x‌x
+x‍x
+x‌x
+x଼x
+xଁx
+xଂx
+xଃx
 xଅ
 Xଅ
 xଅx
@@ -904,15 +1652,6 @@ xଊx
 xଋ
 Xଋ
 xଋx
-xୠ
-Xୠ
-xୠx
-xଌ
-Xଌ
-xଌx
-xୡ
-Xୡ
-xୡx
 xଏ
 Xଏ
 xଏx
@@ -1003,6 +1742,9 @@ xମx
 xଯ
 Xଯ
 xଯx
+xୟ
+Xୟ
+xୟx
 xର
 Xର
 xରx
@@ -1012,6 +1754,12 @@ xଲx
 xଳ
 Xଳ
 xଳx
+xଵ
+Xଵ
+xଵx
+xୱ
+Xୱ
+xୱx
 xଶ
 Xଶ
 xଶx
@@ -1024,42 +1772,6 @@ xସx
 xହ
 Xହ
 xହx
-xକ୍ଷ
-Xକ୍ଷ
-xକ୍ଷx
-xଡ଼
-Xଡ଼
-xଡ଼x
-xଢ଼
-Xଢ଼
-xଢ଼x
-xୟ
-Xୟ
-xୟx
-xୱ
-Xୱ
-xୱx
-xଵ
-Xଵ
-xଵx
-xଂ
-Xଂ
-xଂx
-xଃ
-Xଃ
-xଃx
-xଁ
-Xଁ
-xଁx
-x୍
-X୍
-x୍x
-x଼
-X଼
-x଼x
-xଽ
-Xଽ
-xଽx
 xା
 Xା
 xାx
@@ -1090,62 +1802,9 @@ xୋx
 xୌ
 Xୌ
 xୌx
-xୖ
-Xୖ
-xୖx
-xୗ
-Xୗ
-xୗx
-</result>
-   <result draft='false'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-xକ୍ଷ
-Xକ୍ଷ
-xକ୍ଷx
-xଡ଼
-Xଡ଼
-xଡ଼x
-xଢ଼
-Xଢ଼
-xଢ଼x
-xୟ
-Xୟ
-xୟx
-xୱ
-Xୱ
-xୱx
-xଵ
-Xଵ
-xଵx
-xଂ
-Xଂ
-xଂx
-xଃ
-Xଃ
-xଃx
-xଁ
-Xଁ
-xଁx
 x୍
 X୍
 x୍x
-x଼
-X଼
-x଼x
 </result>
   </collation>
  </cldrTest>

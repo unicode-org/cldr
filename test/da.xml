@@ -8,176 +8,176 @@ locales='da da_DK'>
 <!-- Danish [Dansk]; Danish (Denmark) [Dansk (Danmark)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
+   <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
-   <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
+   <result numberType='percent'>1 %</result>
+   <result numberType='scientific'>1E−2</result>
+   <result input='-0.01' numberType='integer'>−0</result>
+   <result numberType='decimal'>−0,01</result>
+   <result numberType='percent'>−1 %</result>
+   <result numberType='scientific'>−1E−2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
+   <result numberType='percent'>100 %</result>
    <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
+   <result input='-1.0' numberType='integer'>−1</result>
+   <result numberType='decimal'>−1</result>
+   <result numberType='percent'>−100 %</result>
+   <result numberType='scientific'>−1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
-   <result numberType='percent'>12.346%</result>
+   <result numberType='percent'>12.346 %</result>
    <result numberType='scientific'>1,23456E2</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12.346%</result>
-   <result numberType='scientific'>-1,23456E2</result>
+   <result input='-123.456' numberType='integer'>−123</result>
+   <result numberType='decimal'>−123,456</result>
+   <result numberType='percent'>−12.346 %</result>
+   <result numberType='scientific'>−1,23456E2</result>
    <result input='123456.78' numberType='integer'>123.457</result>
    <result numberType='decimal'>123.456,78</result>
-   <result numberType='percent'>12.345.678%</result>
+   <result numberType='percent'>12.345.678 %</result>
    <result numberType='scientific'>1,2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123.457</result>
-   <result numberType='decimal'>-123.456,78</result>
-   <result numberType='percent'>-12.345.678%</result>
-   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>−123.457</result>
+   <result numberType='decimal'>−123.456,78</result>
+   <result numberType='percent'>−12.345.678 %</result>
+   <result numberType='scientific'>−1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
+   <result numberType='percent'>∞ %</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='-Infinity' numberType='integer'>−∞</result>
+   <result numberType='decimal'>−∞</result>
+   <result numberType='percent'>−∞ %</result>
+   <result numberType='scientific'>−∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='da da_DK'>
 <!-- Danish [Dansk]; Danish (Denmark) [Dansk (Danmark)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0.00</result>
-   <result timeType='medium'>0.00.00</result>
-   <result timeType='long'>0.00.00 GMT+00:00</result>
-   <result timeType='full'>0.00.00 GMT+00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00.00</result>
+   <result timeType='medium'>00.00.00</result>
+   <result timeType='long'>00.00.00 GMT+00:00</result>
+   <result timeType='full'>00.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
-   <result timeType='short'>31/01/00 0.00</result>
-   <result timeType='medium'>31/01/00 0.00.00</result>
-   <result timeType='long'>31/01/00 0.00.00 GMT+00:00</result>
-   <result timeType='full'>31/01/00 0.00.00 GMT+00:00</result>
+   <result timeType='short'>31/01/00 00.00</result>
+   <result timeType='medium'>31/01/00 00.00.00</result>
+   <result timeType='long'>31/01/00 00.00.00 GMT+00:00</result>
+   <result timeType='full'>31/01/00 00.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>31/01/1900</result>
-   <result timeType='short'>31/01/1900 0.00</result>
-   <result timeType='medium'>31/01/1900 0.00.00</result>
-   <result timeType='long'>31/01/1900 0.00.00 GMT+00:00</result>
-   <result timeType='full'>31/01/1900 0.00.00 GMT+00:00</result>
+   <result timeType='short'>31/01/1900 00.00</result>
+   <result timeType='medium'>31/01/1900 00.00.00</result>
+   <result timeType='long'>31/01/1900 00.00.00 GMT+00:00</result>
+   <result timeType='full'>31/01/1900 00.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>31. jan 1900</result>
-   <result timeType='short'>31. jan 1900 0.00</result>
-   <result timeType='medium'>31. jan 1900 0.00.00</result>
-   <result timeType='long'>31. jan 1900 0.00.00 GMT+00:00</result>
-   <result timeType='full'>31. jan 1900 0.00.00 GMT+00:00</result>
+   <result timeType='short'>31. jan 1900 00.00</result>
+   <result timeType='medium'>31. jan 1900 00.00.00</result>
+   <result timeType='long'>31. jan 1900 00.00.00 GMT+00:00</result>
+   <result timeType='full'>31. jan 1900 00.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>onsdag den 31. januar 1900</result>
-   <result timeType='short'>onsdag den 31. januar 1900 0.00</result>
-   <result timeType='medium'>onsdag den 31. januar 1900 0.00.00</result>
-   <result timeType='long'>onsdag den 31. januar 1900 0.00.00 GMT+00:00</result>
-   <result timeType='full'>onsdag den 31. januar 1900 0.00.00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0.00</result>
-   <result timeType='medium'>0.00.01</result>
-   <result timeType='long'>0.00.01 GMT+00:00</result>
-   <result timeType='full'>0.00.01 GMT+00:00</result>
+   <result timeType='short'>onsdag den 31. januar 1900 00.00</result>
+   <result timeType='medium'>onsdag den 31. januar 1900 00.00.00</result>
+   <result timeType='long'>onsdag den 31. januar 1900 00.00.00 GMT+00:00</result>
+   <result timeType='full'>onsdag den 31. januar 1900 00.00.00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
+   <result timeType='medium'>00.00.01</result>
+   <result timeType='long'>00.00.01 GMT+00:00</result>
+   <result timeType='full'>00.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>28/02/09</result>
-   <result timeType='short'>28/02/09 0.00</result>
-   <result timeType='medium'>28/02/09 0.00.01</result>
-   <result timeType='long'>28/02/09 0.00.01 GMT+00:00</result>
-   <result timeType='full'>28/02/09 0.00.01 GMT+00:00</result>
+   <result timeType='short'>28/02/09 00.00</result>
+   <result timeType='medium'>28/02/09 00.00.01</result>
+   <result timeType='long'>28/02/09 00.00.01 GMT+00:00</result>
+   <result timeType='full'>28/02/09 00.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>28/02/1909</result>
-   <result timeType='short'>28/02/1909 0.00</result>
-   <result timeType='medium'>28/02/1909 0.00.01</result>
-   <result timeType='long'>28/02/1909 0.00.01 GMT+00:00</result>
-   <result timeType='full'>28/02/1909 0.00.01 GMT+00:00</result>
+   <result timeType='short'>28/02/1909 00.00</result>
+   <result timeType='medium'>28/02/1909 00.00.01</result>
+   <result timeType='long'>28/02/1909 00.00.01 GMT+00:00</result>
+   <result timeType='full'>28/02/1909 00.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>28. feb 1909</result>
-   <result timeType='short'>28. feb 1909 0.00</result>
-   <result timeType='medium'>28. feb 1909 0.00.01</result>
-   <result timeType='long'>28. feb 1909 0.00.01 GMT+00:00</result>
-   <result timeType='full'>28. feb 1909 0.00.01 GMT+00:00</result>
+   <result timeType='short'>28. feb 1909 00.00</result>
+   <result timeType='medium'>28. feb 1909 00.00.01</result>
+   <result timeType='long'>28. feb 1909 00.00.01 GMT+00:00</result>
+   <result timeType='full'>28. feb 1909 00.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>søndag den 28. februar 1909</result>
-   <result timeType='short'>søndag den 28. februar 1909 0.00</result>
-   <result timeType='medium'>søndag den 28. februar 1909 0.00.01</result>
-   <result timeType='long'>søndag den 28. februar 1909 0.00.01 GMT+00:00</result>
-   <result timeType='full'>søndag den 28. februar 1909 0.00.01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0.59</result>
-   <result timeType='medium'>0.59.59</result>
-   <result timeType='long'>0.59.59 GMT+00:00</result>
-   <result timeType='full'>0.59.59 GMT+00:00</result>
+   <result timeType='short'>søndag den 28. februar 1909 00.00</result>
+   <result timeType='medium'>søndag den 28. februar 1909 00.00.01</result>
+   <result timeType='long'>søndag den 28. februar 1909 00.00.01 GMT+00:00</result>
+   <result timeType='full'>søndag den 28. februar 1909 00.00.01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
+   <result timeType='medium'>00.59.59</result>
+   <result timeType='long'>00.59.59 GMT+00:00</result>
+   <result timeType='full'>00.59.59 GMT+00:00</result>
    <result dateType='short' timeType='none'>26/03/18</result>
-   <result timeType='short'>26/03/18 0.59</result>
-   <result timeType='medium'>26/03/18 0.59.59</result>
-   <result timeType='long'>26/03/18 0.59.59 GMT+00:00</result>
-   <result timeType='full'>26/03/18 0.59.59 GMT+00:00</result>
+   <result timeType='short'>26/03/18 00.59</result>
+   <result timeType='medium'>26/03/18 00.59.59</result>
+   <result timeType='long'>26/03/18 00.59.59 GMT+00:00</result>
+   <result timeType='full'>26/03/18 00.59.59 GMT+00:00</result>
    <result dateType='medium' timeType='none'>26/03/1918</result>
-   <result timeType='short'>26/03/1918 0.59</result>
-   <result timeType='medium'>26/03/1918 0.59.59</result>
-   <result timeType='long'>26/03/1918 0.59.59 GMT+00:00</result>
-   <result timeType='full'>26/03/1918 0.59.59 GMT+00:00</result>
+   <result timeType='short'>26/03/1918 00.59</result>
+   <result timeType='medium'>26/03/1918 00.59.59</result>
+   <result timeType='long'>26/03/1918 00.59.59 GMT+00:00</result>
+   <result timeType='full'>26/03/1918 00.59.59 GMT+00:00</result>
    <result dateType='long' timeType='none'>26. mar 1918</result>
-   <result timeType='short'>26. mar 1918 0.59</result>
-   <result timeType='medium'>26. mar 1918 0.59.59</result>
-   <result timeType='long'>26. mar 1918 0.59.59 GMT+00:00</result>
-   <result timeType='full'>26. mar 1918 0.59.59 GMT+00:00</result>
+   <result timeType='short'>26. mar 1918 00.59</result>
+   <result timeType='medium'>26. mar 1918 00.59.59</result>
+   <result timeType='long'>26. mar 1918 00.59.59 GMT+00:00</result>
+   <result timeType='full'>26. mar 1918 00.59.59 GMT+00:00</result>
    <result dateType='full' timeType='none'>tirsdag den 26. marts 1918</result>
-   <result timeType='short'>tirsdag den 26. marts 1918 0.59</result>
-   <result timeType='medium'>tirsdag den 26. marts 1918 0.59.59</result>
-   <result timeType='long'>tirsdag den 26. marts 1918 0.59.59 GMT+00:00</result>
-   <result timeType='full'>tirsdag den 26. marts 1918 0.59.59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1.00</result>
-   <result timeType='medium'>1.00.00</result>
-   <result timeType='long'>1.00.00 GMT+00:00</result>
-   <result timeType='full'>1.00.00 GMT+00:00</result>
+   <result timeType='short'>tirsdag den 26. marts 1918 00.59</result>
+   <result timeType='medium'>tirsdag den 26. marts 1918 00.59.59</result>
+   <result timeType='long'>tirsdag den 26. marts 1918 00.59.59 GMT+00:00</result>
+   <result timeType='full'>tirsdag den 26. marts 1918 00.59.59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
+   <result timeType='medium'>01.00.00</result>
+   <result timeType='long'>01.00.00 GMT+00:00</result>
+   <result timeType='full'>01.00.00 GMT+00:00</result>
    <result dateType='short' timeType='none'>24/04/32</result>
-   <result timeType='short'>24/04/32 1.00</result>
-   <result timeType='medium'>24/04/32 1.00.00</result>
-   <result timeType='long'>24/04/32 1.00.00 GMT+00:00</result>
-   <result timeType='full'>24/04/32 1.00.00 GMT+00:00</result>
+   <result timeType='short'>24/04/32 01.00</result>
+   <result timeType='medium'>24/04/32 01.00.00</result>
+   <result timeType='long'>24/04/32 01.00.00 GMT+00:00</result>
+   <result timeType='full'>24/04/32 01.00.00 GMT+00:00</result>
    <result dateType='medium' timeType='none'>24/04/1932</result>
-   <result timeType='short'>24/04/1932 1.00</result>
-   <result timeType='medium'>24/04/1932 1.00.00</result>
-   <result timeType='long'>24/04/1932 1.00.00 GMT+00:00</result>
-   <result timeType='full'>24/04/1932 1.00.00 GMT+00:00</result>
+   <result timeType='short'>24/04/1932 01.00</result>
+   <result timeType='medium'>24/04/1932 01.00.00</result>
+   <result timeType='long'>24/04/1932 01.00.00 GMT+00:00</result>
+   <result timeType='full'>24/04/1932 01.00.00 GMT+00:00</result>
    <result dateType='long' timeType='none'>24. apr 1932</result>
-   <result timeType='short'>24. apr 1932 1.00</result>
-   <result timeType='medium'>24. apr 1932 1.00.00</result>
-   <result timeType='long'>24. apr 1932 1.00.00 GMT+00:00</result>
-   <result timeType='full'>24. apr 1932 1.00.00 GMT+00:00</result>
+   <result timeType='short'>24. apr 1932 01.00</result>
+   <result timeType='medium'>24. apr 1932 01.00.00</result>
+   <result timeType='long'>24. apr 1932 01.00.00 GMT+00:00</result>
+   <result timeType='full'>24. apr 1932 01.00.00 GMT+00:00</result>
    <result dateType='full' timeType='none'>søndag den 24. april 1932</result>
-   <result timeType='short'>søndag den 24. april 1932 1.00</result>
-   <result timeType='medium'>søndag den 24. april 1932 1.00.00</result>
-   <result timeType='long'>søndag den 24. april 1932 1.00.00 GMT+00:00</result>
-   <result timeType='full'>søndag den 24. april 1932 1.00.00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1.00</result>
-   <result timeType='medium'>1.00.01</result>
-   <result timeType='long'>1.00.01 GMT+00:00</result>
-   <result timeType='full'>1.00.01 GMT+00:00</result>
+   <result timeType='short'>søndag den 24. april 1932 01.00</result>
+   <result timeType='medium'>søndag den 24. april 1932 01.00.00</result>
+   <result timeType='long'>søndag den 24. april 1932 01.00.00 GMT+00:00</result>
+   <result timeType='full'>søndag den 24. april 1932 01.00.00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
+   <result timeType='medium'>01.00.01</result>
+   <result timeType='long'>01.00.01 GMT+00:00</result>
+   <result timeType='full'>01.00.01 GMT+00:00</result>
    <result dateType='short' timeType='none'>20/05/45</result>
-   <result timeType='short'>20/05/45 1.00</result>
-   <result timeType='medium'>20/05/45 1.00.01</result>
-   <result timeType='long'>20/05/45 1.00.01 GMT+00:00</result>
-   <result timeType='full'>20/05/45 1.00.01 GMT+00:00</result>
+   <result timeType='short'>20/05/45 01.00</result>
+   <result timeType='medium'>20/05/45 01.00.01</result>
+   <result timeType='long'>20/05/45 01.00.01 GMT+00:00</result>
+   <result timeType='full'>20/05/45 01.00.01 GMT+00:00</result>
    <result dateType='medium' timeType='none'>20/05/1945</result>
-   <result timeType='short'>20/05/1945 1.00</result>
-   <result timeType='medium'>20/05/1945 1.00.01</result>
-   <result timeType='long'>20/05/1945 1.00.01 GMT+00:00</result>
-   <result timeType='full'>20/05/1945 1.00.01 GMT+00:00</result>
+   <result timeType='short'>20/05/1945 01.00</result>
+   <result timeType='medium'>20/05/1945 01.00.01</result>
+   <result timeType='long'>20/05/1945 01.00.01 GMT+00:00</result>
+   <result timeType='full'>20/05/1945 01.00.01 GMT+00:00</result>
    <result dateType='long' timeType='none'>20. maj 1945</result>
-   <result timeType='short'>20. maj 1945 1.00</result>
-   <result timeType='medium'>20. maj 1945 1.00.01</result>
-   <result timeType='long'>20. maj 1945 1.00.01 GMT+00:00</result>
-   <result timeType='full'>20. maj 1945 1.00.01 GMT+00:00</result>
+   <result timeType='short'>20. maj 1945 01.00</result>
+   <result timeType='medium'>20. maj 1945 01.00.01</result>
+   <result timeType='long'>20. maj 1945 01.00.01 GMT+00:00</result>
+   <result timeType='full'>20. maj 1945 01.00.01 GMT+00:00</result>
    <result dateType='full' timeType='none'>søndag den 20. maj 1945</result>
-   <result timeType='short'>søndag den 20. maj 1945 1.00</result>
-   <result timeType='medium'>søndag den 20. maj 1945 1.00.01</result>
-   <result timeType='long'>søndag den 20. maj 1945 1.00.01 GMT+00:00</result>
-   <result timeType='full'>søndag den 20. maj 1945 1.00.01 GMT+00:00</result>
+   <result timeType='short'>søndag den 20. maj 1945 01.00</result>
+   <result timeType='medium'>søndag den 20. maj 1945 01.00.01</result>
+   <result timeType='long'>søndag den 20. maj 1945 01.00.01 GMT+00:00</result>
+   <result timeType='full'>søndag den 20. maj 1945 01.00.01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
    <result timeType='long'>11.59.59 GMT+00:00</result>
@@ -463,303 +463,231 @@ locales='da da_DK'>
 locales='da da_DK'>
 <!-- Danish [Dansk]; Danish (Denmark) [Dansk (Danmark)] -->
    <result draft='either'>
-X 
 x 
+X 
 x x
-X.
 x.
+X.
 x.x
-X0
 x0
+X0
 x0x
-X12
 x12
+X12
 x12x
-X2
 x2
+X2
 x2x
-XA
-Xa
-xA
 xa
-XÁ
-Xá
-xÁ
+xA
+Xa
+XA
 xá
-XaA
-xaA
-xaAx
-xAx
-xax
-xÁx
-xáx
-XB
-Xb
-xB
-xb
-xBx
-xbx
-XC
-Xc
-xC
-xc
-xCx
-xcx
-XD
-Xd
-xD
-xd
-XĐ
-Xđ
-xĐ
-xđ
-XÐ
-Xð
-xÐ
-xð
-xDx
-xdx
-xĐx
-xđx
-xÐx
-xðx
-XE
-Xe
-xE
-xe
-XÉ
-Xé
-xÉ
-xé
-xEx
-xex
-xÉx
-xéx
-XF
-Xf
-xF
-xf
-xFx
-xfx
-XG
-Xg
-xG
-xg
-xGx
-xgx
-XH
-Xh
-xH
-xh
-xHx
-xhx
-XI
-Xi
-xI
-xi
-XÍ
-Xí
-xÍ
-xí
-xIx
-xix
-xÍx
-xíx
-XJ
-Xj
-xJ
-xj
-xJx
-xjx
-XK
-Xk
-xK
-xk
-xKx
-xkx
-XL
-Xl
-xL
-xl
-xLx
-xlx
-XM
-Xm
-xM
-xm
-xMx
-xmx
-XN
-Xn
-xN
-xn
-xNx
-xnx
-XO
-Xo
-xO
-xo
-XÓ
-Xó
-xÓ
-xó
-xOx
-xox
-xÓx
-xóx
-XP
-Xp
-xP
-xp
-xPx
-xpx
-XQ
-Xq
-xQ
-xq
-xQx
-xqx
-XR
-Xr
-xR
-xr
-xRx
-xrx
-XS
-Xs
-xS
-xs
-xSx
-xsx
-XT
-Xt
-xT
-xt
-XÞ
-Xþ
-xÞ
-xþ
-xÞx
-xþx
-xTx
-xtx
-XU
-Xu
-xU
-xu
-XÚ
-Xú
-xÚ
-xú
-xUx
-xux
-xÚx
-xúx
-XV
-Xv
-xV
-xv
-xVx
-xvx
-XW
-Xw
-xW
-xw
-xWx
-xwx
-XX
-Xx
-xX
-xx
-xXx
-xxx
-XY
-Xy
-xY
-xy
-XÝ
-Xý
-xÝ
-xý
-XÜ
-Xü
-xÜ
-xü
-XŰ
-Xű
-xŰ
-xű
-xYx
-xyx
-xÝx
-xýx
-xÜx
-xüx
-xŰx
-xűx
-XZ
-Xz
-xZ
-xz
-xZx
-xzx
-XÆ
-Xæ
-xÆ
-xæ
-XÄ
-Xä
-xÄ
-xä
-XĘ
-Xę
-xĘ
-xę
-xÆx
-xæx
-xÄx
-xäx
-xĘx
-xęx
-XØ
-Xø
-xØ
-xø
-XÖ
-Xö
-xÖ
-xö
-XŐ
-Xő
-xŐ
-xő
-XŒ
-Xœ
-xŒ
-xœ
-xØx
-xøx
-xÖx
-xöx
-xŐx
-xőx
-xŒx
-xœx
-XÅ
-XAA
-XAa
-Xå
-Xaa
-xÅ
-xAA
-xAa
+xÁ
+Xá
+XÁ
 xå
-xaa
-xÅx
-xAAx
-xAax
+xÅ
+Xå
+XÅ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
+xax
+xAx
+xáx
+xÁx
 xåx
-xaax
+xÅx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xcx
+xCx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xex
+xEx
+xéx
+xÉx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xi
+xI
+Xi
+XI
+xí
+xÍ
+Xí
+XÍ
+xix
+xIx
+xíx
+xÍx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xnx
+xNx
+xo
+xO
+Xo
+XO
+xó
+xÓ
+Xó
+XÓ
+xø
+xØ
+Xø
+XØ
+xox
+xOx
+xóx
+xÓx
+xøx
+xØx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xú
+xÚ
+Xú
+XÚ
+xux
+xUx
+xúx
+xÚx
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xý
+xÝ
+Xý
+XÝ
+xyx
+xYx
+xýx
+xÝx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
 </result>
   </collation>
  </cldrTest>

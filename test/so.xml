@@ -50,10 +50,10 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='so so_DJ so_ET so_KE so_SO'>
@@ -348,8 +348,8 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='full'>Arbaco, Bisha Laba iyo Tobnaad 01, 2010 11:59:59 gn</result>
   </date>
   <zoneFields 
-locales='so so_DJ so_ET so_KE so_SO'>
-<!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
+locales='so'>
+<!-- Somali [Soomaali] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -439,6 +439,118 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result field='vvvv' draft='true'>United Kingdom</result>
    <result draft='false'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Ruush)</result>
+   <result field='vvvv'>Moscow (Ruush)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Ruush)</result>
+   <result field='vvvv'>Moscow (Ruush)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
+  <zoneFields 
+locales='so_DJ so_ET so_KE so_SO'>
+<!-- Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result field='vvvv'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result field='vvvv'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>

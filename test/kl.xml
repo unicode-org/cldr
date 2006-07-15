@@ -50,10 +50,10 @@ locales='kl kl_GL'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='kl'>
@@ -782,16 +782,28 @@ xâ
 xÂ
 Xâ
 XÂ
+xå
+xÅ
+Xå
+XÅ
 xã
 xÃ
 Xã
 XÃ
+xæ
+xÆ
+Xæ
+XÆ
+xæx
+xÆx
 xax
 xAx
 xáx
 xÁx
 xâx
 xÂx
+xåx
+xÅx
 xãx
 xÃx
 xb
@@ -810,20 +822,8 @@ xd
 xD
 Xd
 XD
-xđ
-xĐ
-Xđ
-XĐ
-xð
-xÐ
-Xð
-XÐ
 xdx
 xDx
-xđx
-xĐx
-xðx
-xÐx
 xe
 xE
 Xe
@@ -894,9 +894,6 @@ xk
 xK
 Xk
 XK
-xk&amp;apos;
-Xk&amp;apos;
-xk&amp;apos;x
 xkx
 xKx
 xl
@@ -925,10 +922,16 @@ xô
 xÔ
 Xô
 XÔ
+xø
+xØ
+Xø
+XØ
 xox
 xOx
 xôx
 xÔx
+xøx
+xØx
 xp
 xP
 Xp
@@ -939,14 +942,11 @@ xq
 xQ
 Xq
 XQ
-xĸ
-xK&amp;apos;
-Xĸ
-XK&amp;apos;
 xqx
 xQx
+xĸ
+Xĸ
 xĸx
-xK&amp;apos;x
 xr
 xR
 Xr
@@ -963,12 +963,6 @@ xt
 xT
 Xt
 XT
-xþ
-xÞ
-Xþ
-XÞ
-xþx
-xÞx
 xtx
 xTx
 xu
@@ -1017,74 +1011,14 @@ xy
 xY
 Xy
 XY
-xü
-xÜ
-Xü
-XÜ
-xű
-xŰ
-Xű
-XŰ
 xyx
 xYx
-xüx
-xÜx
-xűx
-xŰx
 xz
 xZ
 Xz
 XZ
 xzx
 xZx
-xæ
-xÆ
-Xæ
-XÆ
-xä
-xÄ
-Xä
-XÄ
-xę
-xĘ
-Xę
-XĘ
-xæx
-xÆx
-xäx
-xÄx
-xęx
-xĘx
-xø
-xØ
-Xø
-XØ
-xö
-xÖ
-Xö
-XÖ
-xő
-xŐ
-Xő
-XŐ
-xœ
-xŒ
-Xœ
-XŒ
-xøx
-xØx
-xöx
-xÖx
-xőx
-xŐx
-xœx
-xŒx
-xå
-xÅ
-Xå
-XÅ
-xåx
-xÅx
 </result>
   </collation>
  </cldrTest>

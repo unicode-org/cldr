@@ -50,14 +50,580 @@ locales='lo lo_LA'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+locales='lo'>
+<!-- Lao [Lao] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='true'>0:00</result>
+   <result draft='false'>00:00</result>
+   <result timeType='medium' draft='true'>0:00:00</result>
+   <result draft='false'>00:00:00</result>
+   <result timeType='long' draft='true'>0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>31/1/1900</result>
+   <result draft='false'>00/01/31</result>
+   <result timeType='short' draft='true'>31/1/1900, 0:00</result>
+   <result draft='false'>00/01/31 00:00</result>
+   <result timeType='medium' draft='true'>31/1/1900, 0:00:00</result>
+   <result draft='false'>00/01/31 00:00:00</result>
+   <result timeType='long' draft='true'>31/1/1900, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>00/01/31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>31/1/1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>00/01/31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>31 ມ.ກ. 1900</result>
+   <result draft='false'>1900 ມັງກອນ 31</result>
+   <result timeType='short' draft='true'>31 ມ.ກ. 1900, 0:00</result>
+   <result draft='false'>1900 ມັງກອນ 31 00:00</result>
+   <result timeType='medium' draft='true'>31 ມ.ກ. 1900, 0:00:00</result>
+   <result draft='false'>1900 ມັງກອນ 31 00:00:00</result>
+   <result timeType='long' draft='true'>31 ມ.ກ. 1900, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1900 ມັງກອນ 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>31 ມ.ກ. 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1900 ມັງກອນ 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>31 ມັງກອນ 1900</result>
+   <result draft='false'>1900 1 31</result>
+   <result timeType='short' draft='true'>31 ມັງກອນ 1900, 0:00</result>
+   <result draft='false'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>31 ມັງກອນ 1900, 0:00:00</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>31 ມັງກອນ 1900, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>31 ມັງກອນ 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900</result>
+   <result draft='false'>4, 1900 1 31</result>
+   <result timeType='short' draft='true'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0:00</result>
+   <result draft='false'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='true'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0:00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long' draft='true'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='true'>0:00</result>
+   <result draft='false'>00:00</result>
+   <result timeType='medium' draft='true'>0:00:01</result>
+   <result draft='false'>00:00:01</result>
+   <result timeType='long' draft='true'>0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>28/2/1909</result>
+   <result draft='false'>09/02/28</result>
+   <result timeType='short' draft='true'>28/2/1909, 0:00</result>
+   <result draft='false'>09/02/28 00:00</result>
+   <result timeType='medium' draft='true'>28/2/1909, 0:00:01</result>
+   <result draft='false'>09/02/28 00:00:01</result>
+   <result timeType='long' draft='true'>28/2/1909, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>09/02/28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>28/2/1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>09/02/28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>28 ກ.ພ. 1909</result>
+   <result draft='false'>1909 ກຸມພາ 28</result>
+   <result timeType='short' draft='true'>28 ກ.ພ. 1909, 0:00</result>
+   <result draft='false'>1909 ກຸມພາ 28 00:00</result>
+   <result timeType='medium' draft='true'>28 ກ.ພ. 1909, 0:00:01</result>
+   <result draft='false'>1909 ກຸມພາ 28 00:00:01</result>
+   <result timeType='long' draft='true'>28 ກ.ພ. 1909, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1909 ກຸມພາ 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>28 ກ.ພ. 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1909 ກຸມພາ 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>28 ກຸມພາ 1909</result>
+   <result draft='false'>1909 2 28</result>
+   <result timeType='short' draft='true'>28 ກຸມພາ 1909, 0:00</result>
+   <result draft='false'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>28 ກຸມພາ 1909, 0:00:01</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>28 ກຸມພາ 1909, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>28 ກຸມພາ 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909</result>
+   <result draft='false'>1, 1909 2 28</result>
+   <result timeType='short' draft='true'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0:00</result>
+   <result draft='false'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='true'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0:00:01</result>
+   <result draft='false'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long' draft='true'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='true'>0:59</result>
+   <result draft='false'>00:59</result>
+   <result timeType='medium' draft='true'>0:59:59</result>
+   <result draft='false'>00:59:59</result>
+   <result timeType='long' draft='true'>0 ໂມງ 59ນາທີ</result>
+   <result draft='false'>00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>26/3/1918</result>
+   <result draft='false'>18/03/26</result>
+   <result timeType='short' draft='true'>26/3/1918, 0:59</result>
+   <result draft='false'>18/03/26 00:59</result>
+   <result timeType='medium' draft='true'>26/3/1918, 0:59:59</result>
+   <result draft='false'>18/03/26 00:59:59</result>
+   <result timeType='long' draft='true'>26/3/1918, 0 ໂມງ 59ນາທີ</result>
+   <result draft='false'>18/03/26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>26/3/1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>18/03/26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>26 ມີ.ນ. 1918</result>
+   <result draft='false'>1918 ມີນາ 26</result>
+   <result timeType='short' draft='true'>26 ມີ.ນ. 1918, 0:59</result>
+   <result draft='false'>1918 ມີນາ 26 00:59</result>
+   <result timeType='medium' draft='true'>26 ມີ.ນ. 1918, 0:59:59</result>
+   <result draft='false'>1918 ມີນາ 26 00:59:59</result>
+   <result timeType='long' draft='true'>26 ມີ.ນ. 1918, 0 ໂມງ 59ນາທີ</result>
+   <result draft='false'>1918 ມີນາ 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>26 ມີ.ນ. 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>1918 ມີນາ 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>26 ມີນາ 1918</result>
+   <result draft='false'>1918 3 26</result>
+   <result timeType='short' draft='true'>26 ມີນາ 1918, 0:59</result>
+   <result draft='false'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>26 ມີນາ 1918, 0:59:59</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>26 ມີນາ 1918, 0 ໂມງ 59ນາທີ</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>26 ມີນາ 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918</result>
+   <result draft='false'>3, 1918 3 26</result>
+   <result timeType='short' draft='true'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0:59</result>
+   <result draft='false'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='true'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0:59:59</result>
+   <result draft='false'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long' draft='true'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0 ໂມງ 59ນາທີ</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='true'>1:00</result>
+   <result draft='false'>01:00</result>
+   <result timeType='medium' draft='true'>1:00:00</result>
+   <result draft='false'>01:00:00</result>
+   <result timeType='long' draft='true'>1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>24/4/1932</result>
+   <result draft='false'>32/04/24</result>
+   <result timeType='short' draft='true'>24/4/1932, 1:00</result>
+   <result draft='false'>32/04/24 01:00</result>
+   <result timeType='medium' draft='true'>24/4/1932, 1:00:00</result>
+   <result draft='false'>32/04/24 01:00:00</result>
+   <result timeType='long' draft='true'>24/4/1932, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>32/04/24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>24/4/1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>32/04/24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>24 ມ.ສ.. 1932</result>
+   <result draft='false'>1932 ເມສາ 24</result>
+   <result timeType='short' draft='true'>24 ມ.ສ.. 1932, 1:00</result>
+   <result draft='false'>1932 ເມສາ 24 01:00</result>
+   <result timeType='medium' draft='true'>24 ມ.ສ.. 1932, 1:00:00</result>
+   <result draft='false'>1932 ເມສາ 24 01:00:00</result>
+   <result timeType='long' draft='true'>24 ມ.ສ.. 1932, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1932 ເມສາ 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>24 ມ.ສ.. 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1932 ເມສາ 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>24 ເມສາ 1932</result>
+   <result draft='false'>1932 4 24</result>
+   <result timeType='short' draft='true'>24 ເມສາ 1932, 1:00</result>
+   <result draft='false'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>24 ເມສາ 1932, 1:00:00</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>24 ເມສາ 1932, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>24 ເມສາ 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932</result>
+   <result draft='false'>1, 1932 4 24</result>
+   <result timeType='short' draft='true'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1:00</result>
+   <result draft='false'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='true'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1:00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long' draft='true'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='true'>1:00</result>
+   <result draft='false'>01:00</result>
+   <result timeType='medium' draft='true'>1:00:01</result>
+   <result draft='false'>01:00:01</result>
+   <result timeType='long' draft='true'>1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>20/5/1945</result>
+   <result draft='false'>45/05/20</result>
+   <result timeType='short' draft='true'>20/5/1945, 1:00</result>
+   <result draft='false'>45/05/20 01:00</result>
+   <result timeType='medium' draft='true'>20/5/1945, 1:00:01</result>
+   <result draft='false'>45/05/20 01:00:01</result>
+   <result timeType='long' draft='true'>20/5/1945, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>45/05/20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>20/5/1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>45/05/20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>20 ພ.ພ. 1945</result>
+   <result draft='false'>1945 ພຶດສະພາ 20</result>
+   <result timeType='short' draft='true'>20 ພ.ພ. 1945, 1:00</result>
+   <result draft='false'>1945 ພຶດສະພາ 20 01:00</result>
+   <result timeType='medium' draft='true'>20 ພ.ພ. 1945, 1:00:01</result>
+   <result draft='false'>1945 ພຶດສະພາ 20 01:00:01</result>
+   <result timeType='long' draft='true'>20 ພ.ພ. 1945, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1945 ພຶດສະພາ 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>20 ພ.ພ. 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1945 ພຶດສະພາ 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>20 ພຶດສະພາ 1945</result>
+   <result draft='false'>1945 5 20</result>
+   <result timeType='short' draft='true'>20 ພຶດສະພາ 1945, 1:00</result>
+   <result draft='false'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>20 ພຶດສະພາ 1945, 1:00:01</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>20 ພຶດສະພາ 1945, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>20 ພຶດສະພາ 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945</result>
+   <result draft='false'>1, 1945 5 20</result>
+   <result timeType='short' draft='true'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1:00</result>
+   <result draft='false'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='true'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1:00:01</result>
+   <result draft='false'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long' draft='true'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='either'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long' draft='true'>11 ໂມງ 59ນາທີ</result>
+   <result draft='false'>11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>18/6/1952</result>
+   <result draft='false'>52/06/18</result>
+   <result timeType='short' draft='true'>18/6/1952, 11:59</result>
+   <result draft='false'>52/06/18 11:59</result>
+   <result timeType='medium' draft='true'>18/6/1952, 11:59:59</result>
+   <result draft='false'>52/06/18 11:59:59</result>
+   <result timeType='long' draft='true'>18/6/1952, 11 ໂມງ 59ນາທີ</result>
+   <result draft='false'>52/06/18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>18/6/1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>52/06/18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>18 ມິ.ຖ. 1952</result>
+   <result draft='false'>1952 ມິຖຸນາ 18</result>
+   <result timeType='short' draft='true'>18 ມິ.ຖ. 1952, 11:59</result>
+   <result draft='false'>1952 ມິຖຸນາ 18 11:59</result>
+   <result timeType='medium' draft='true'>18 ມິ.ຖ. 1952, 11:59:59</result>
+   <result draft='false'>1952 ມິຖຸນາ 18 11:59:59</result>
+   <result timeType='long' draft='true'>18 ມິ.ຖ. 1952, 11 ໂມງ 59ນາທີ</result>
+   <result draft='false'>1952 ມິຖຸນາ 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>18 ມິ.ຖ. 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>1952 ມິຖຸນາ 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>18 ມິຖຸນາ 1952</result>
+   <result draft='false'>1952 6 18</result>
+   <result timeType='short' draft='true'>18 ມິຖຸນາ 1952, 11:59</result>
+   <result draft='false'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>18 ມິຖຸນາ 1952, 11:59:59</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>18 ມິຖຸນາ 1952, 11 ໂມງ 59ນາທີ</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>18 ມິຖຸນາ 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952</result>
+   <result draft='false'>4, 1952 6 18</result>
+   <result timeType='short' draft='true'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11:59</result>
+   <result draft='false'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='true'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11:59:59</result>
+   <result draft='false'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long' draft='true'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11 ໂມງ 59ນາທີ</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long' draft='true'>12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>16/7/1973</result>
+   <result draft='false'>73/07/16</result>
+   <result timeType='short' draft='true'>16/7/1973, 12:00</result>
+   <result draft='false'>73/07/16 12:00</result>
+   <result timeType='medium' draft='true'>16/7/1973, 12:00:00</result>
+   <result draft='false'>73/07/16 12:00:00</result>
+   <result timeType='long' draft='true'>16/7/1973, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>73/07/16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>16/7/1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>73/07/16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>16 ກ.ລ. 1973</result>
+   <result draft='false'>1973 ກໍລະກົດ 16</result>
+   <result timeType='short' draft='true'>16 ກ.ລ. 1973, 12:00</result>
+   <result draft='false'>1973 ກໍລະກົດ 16 12:00</result>
+   <result timeType='medium' draft='true'>16 ກ.ລ. 1973, 12:00:00</result>
+   <result draft='false'>1973 ກໍລະກົດ 16 12:00:00</result>
+   <result timeType='long' draft='true'>16 ກ.ລ. 1973, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1973 ກໍລະກົດ 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>16 ກ.ລ. 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1973 ກໍລະກົດ 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>16 ກໍລະກົດ 1973</result>
+   <result draft='false'>1973 7 16</result>
+   <result timeType='short' draft='true'>16 ກໍລະກົດ 1973, 12:00</result>
+   <result draft='false'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>16 ກໍລະກົດ 1973, 12:00:00</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>16 ກໍລະກົດ 1973, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>16 ກໍລະກົດ 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973</result>
+   <result draft='false'>2, 1973 7 16</result>
+   <result timeType='short' draft='true'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12:00</result>
+   <result draft='false'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='true'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12:00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long' draft='true'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long' draft='true'>12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>14/8/1999</result>
+   <result draft='false'>99/08/14</result>
+   <result timeType='short' draft='true'>14/8/1999, 12:00</result>
+   <result draft='false'>99/08/14 12:00</result>
+   <result timeType='medium' draft='true'>14/8/1999, 12:00:01</result>
+   <result draft='false'>99/08/14 12:00:01</result>
+   <result timeType='long' draft='true'>14/8/1999, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>99/08/14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>14/8/1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>99/08/14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>14 ສ.ຫ. 1999</result>
+   <result draft='false'>1999 ສິງຫາ 14</result>
+   <result timeType='short' draft='true'>14 ສ.ຫ. 1999, 12:00</result>
+   <result draft='false'>1999 ສິງຫາ 14 12:00</result>
+   <result timeType='medium' draft='true'>14 ສ.ຫ. 1999, 12:00:01</result>
+   <result draft='false'>1999 ສິງຫາ 14 12:00:01</result>
+   <result timeType='long' draft='true'>14 ສ.ຫ. 1999, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1999 ສິງຫາ 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>14 ສ.ຫ. 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1999 ສິງຫາ 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>14 ສິງຫາ 1999</result>
+   <result draft='false'>1999 8 14</result>
+   <result timeType='short' draft='true'>14 ສິງຫາ 1999, 12:00</result>
+   <result draft='false'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>14 ສິງຫາ 1999, 12:00:01</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>14 ສິງຫາ 1999, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>14 ສິງຫາ 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999</result>
+   <result draft='false'>7, 1999 8 14</result>
+   <result timeType='short' draft='true'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12:00</result>
+   <result draft='false'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='true'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12:00:01</result>
+   <result draft='false'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long' draft='true'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12 ໂມງ 0ນາທີ</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='either'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long' draft='true'>22 ໂມງ 59ນາທີ</result>
+   <result draft='false'>22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>12/9/2000</result>
+   <result draft='false'>00/09/12</result>
+   <result timeType='short' draft='true'>12/9/2000, 22:59</result>
+   <result draft='false'>00/09/12 22:59</result>
+   <result timeType='medium' draft='true'>12/9/2000, 22:59:59</result>
+   <result draft='false'>00/09/12 22:59:59</result>
+   <result timeType='long' draft='true'>12/9/2000, 22 ໂມງ 59ນາທີ</result>
+   <result draft='false'>00/09/12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>12/9/2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>00/09/12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>12 ກ.ຍ. 2000</result>
+   <result draft='false'>2000 ກັນຍາ 12</result>
+   <result timeType='short' draft='true'>12 ກ.ຍ. 2000, 22:59</result>
+   <result draft='false'>2000 ກັນຍາ 12 22:59</result>
+   <result timeType='medium' draft='true'>12 ກ.ຍ. 2000, 22:59:59</result>
+   <result draft='false'>2000 ກັນຍາ 12 22:59:59</result>
+   <result timeType='long' draft='true'>12 ກ.ຍ. 2000, 22 ໂມງ 59ນາທີ</result>
+   <result draft='false'>2000 ກັນຍາ 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>12 ກ.ຍ. 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>2000 ກັນຍາ 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>12 ກັນຍາ 2000</result>
+   <result draft='false'>2000 9 12</result>
+   <result timeType='short' draft='true'>12 ກັນຍາ 2000, 22:59</result>
+   <result draft='false'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>12 ກັນຍາ 2000, 22:59:59</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>12 ກັນຍາ 2000, 22 ໂມງ 59ນາທີ</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>12 ກັນຍາ 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000</result>
+   <result draft='false'>3, 2000 9 12</result>
+   <result timeType='short' draft='true'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22:59</result>
+   <result draft='false'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='true'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22:59:59</result>
+   <result draft='false'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long' draft='true'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22 ໂມງ 59ນາທີ</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long' draft='true'>23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>8/10/2001</result>
+   <result draft='false'>01/10/08</result>
+   <result timeType='short' draft='true'>8/10/2001, 23:00</result>
+   <result draft='false'>01/10/08 23:00</result>
+   <result timeType='medium' draft='true'>8/10/2001, 23:00:00</result>
+   <result draft='false'>01/10/08 23:00:00</result>
+   <result timeType='long' draft='true'>8/10/2001, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>01/10/08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>8/10/2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>01/10/08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>8 ຕ.ລ. 2001</result>
+   <result draft='false'>2001 ຕຸລາ 8</result>
+   <result timeType='short' draft='true'>8 ຕ.ລ. 2001, 23:00</result>
+   <result draft='false'>2001 ຕຸລາ 8 23:00</result>
+   <result timeType='medium' draft='true'>8 ຕ.ລ. 2001, 23:00:00</result>
+   <result draft='false'>2001 ຕຸລາ 8 23:00:00</result>
+   <result timeType='long' draft='true'>8 ຕ.ລ. 2001, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2001 ຕຸລາ 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>8 ຕ.ລ. 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>2001 ຕຸລາ 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>8 ຕຸລາ 2001</result>
+   <result draft='false'>2001 10 8</result>
+   <result timeType='short' draft='true'>8 ຕຸລາ 2001, 23:00</result>
+   <result draft='false'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='true'>8 ຕຸລາ 2001, 23:00:00</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='true'>8 ຕຸລາ 2001, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>8 ຕຸລາ 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001</result>
+   <result draft='false'>2, 2001 10 08</result>
+   <result timeType='short' draft='true'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23:00</result>
+   <result draft='false'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='true'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23:00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long' draft='true'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long' draft='true'>23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>4/11/2004</result>
+   <result draft='false'>04/11/04</result>
+   <result timeType='short' draft='true'>4/11/2004, 23:00</result>
+   <result draft='false'>04/11/04 23:00</result>
+   <result timeType='medium' draft='true'>4/11/2004, 23:00:01</result>
+   <result draft='false'>04/11/04 23:00:01</result>
+   <result timeType='long' draft='true'>4/11/2004, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>04/11/04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>4/11/2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>04/11/04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>4 ພ.ຈ. 2004</result>
+   <result draft='false'>2004 ພະຈິກ 4</result>
+   <result timeType='short' draft='true'>4 ພ.ຈ. 2004, 23:00</result>
+   <result draft='false'>2004 ພະຈິກ 4 23:00</result>
+   <result timeType='medium' draft='true'>4 ພ.ຈ. 2004, 23:00:01</result>
+   <result draft='false'>2004 ພະຈິກ 4 23:00:01</result>
+   <result timeType='long' draft='true'>4 ພ.ຈ. 2004, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2004 ພະຈິກ 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>4 ພ.ຈ. 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>2004 ພະຈິກ 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>4 ພະຈິກ 2004</result>
+   <result draft='false'>2004 11 4</result>
+   <result timeType='short' draft='true'>4 ພະຈິກ 2004, 23:00</result>
+   <result draft='false'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='true'>4 ພະຈິກ 2004, 23:00:01</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='true'>4 ພະຈິກ 2004, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>4 ພະຈິກ 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004</result>
+   <result draft='false'>5, 2004 11 04</result>
+   <result timeType='short' draft='true'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23:00</result>
+   <result draft='false'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='true'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23:00:01</result>
+   <result draft='false'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long' draft='true'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23 ໂມງ 0ນາທີ</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='either'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long' draft='true'>23 ໂມງ 59ນາທີ</result>
+   <result draft='false'>23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='true'>1/12/2010</result>
+   <result draft='false'>10/12/01</result>
+   <result timeType='short' draft='true'>1/12/2010, 23:59</result>
+   <result draft='false'>10/12/01 23:59</result>
+   <result timeType='medium' draft='true'>1/12/2010, 23:59:59</result>
+   <result draft='false'>10/12/01 23:59:59</result>
+   <result timeType='long' draft='true'>1/12/2010, 23 ໂມງ 59ນາທີ</result>
+   <result draft='false'>10/12/01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1/12/2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>10/12/01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='true'>1 ທ.ວ. 2010</result>
+   <result draft='false'>2010 ທັນວາ 1</result>
+   <result timeType='short' draft='true'>1 ທ.ວ. 2010, 23:59</result>
+   <result draft='false'>2010 ທັນວາ 1 23:59</result>
+   <result timeType='medium' draft='true'>1 ທ.ວ. 2010, 23:59:59</result>
+   <result draft='false'>2010 ທັນວາ 1 23:59:59</result>
+   <result timeType='long' draft='true'>1 ທ.ວ. 2010, 23 ໂມງ 59ນາທີ</result>
+   <result draft='false'>2010 ທັນວາ 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1 ທ.ວ. 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>2010 ທັນວາ 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='true'>1 ທັນວາ 2010</result>
+   <result draft='false'>2010 12 1</result>
+   <result timeType='short' draft='true'>1 ທັນວາ 2010, 23:59</result>
+   <result draft='false'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='true'>1 ທັນວາ 2010, 23:59:59</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='true'>1 ທັນວາ 2010, 23 ໂມງ 59ນາທີ</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>1 ທັນວາ 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='true'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010</result>
+   <result draft='false'>4, 2010 12 01</result>
+   <result timeType='short' draft='true'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23:59</result>
+   <result draft='false'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='true'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23:59:59</result>
+   <result draft='false'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long' draft='true'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23 ໂມງ 59ນາທີ</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='true'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+  </date>
+  <date 
+locales='lo_LA'>
+<!-- Lao (Laos) [Lao (Laos)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0 ໂມງ 0ນາທີ</result>
@@ -67,21 +633,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>31/1/1900, 0:00:00</result>
    <result timeType='long'>31/1/1900, 0 ໂມງ 0ນາທີ</result>
    <result timeType='full'>31/1/1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>31 Jan 1900</result>
-   <result timeType='short'>31 Jan 1900, 0:00</result>
-   <result timeType='medium'>31 Jan 1900, 0:00:00</result>
-   <result timeType='long'>31 Jan 1900, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>31 Jan 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>31 January 1900</result>
-   <result timeType='short'>31 January 1900, 0:00</result>
-   <result timeType='medium'>31 January 1900, 0:00:00</result>
-   <result timeType='long'>31 January 1900, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>31 January 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Wednesdayທີ  31 January AD 1900</result>
-   <result timeType='short'>Wednesdayທີ  31 January AD 1900, 0:00</result>
-   <result timeType='medium'>Wednesdayທີ  31 January AD 1900, 0:00:00</result>
-   <result timeType='long'>Wednesdayທີ  31 January AD 1900, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Wednesdayທີ  31 January AD 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>31 ມ.ກ. 1900</result>
+   <result timeType='short'>31 ມ.ກ. 1900, 0:00</result>
+   <result timeType='medium'>31 ມ.ກ. 1900, 0:00:00</result>
+   <result timeType='long'>31 ມ.ກ. 1900, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>31 ມ.ກ. 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>31 ມັງກອນ 1900</result>
+   <result timeType='short'>31 ມັງກອນ 1900, 0:00</result>
+   <result timeType='medium'>31 ມັງກອນ 1900, 0:00:00</result>
+   <result timeType='long'>31 ມັງກອນ 1900, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>31 ມັງກອນ 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900</result>
+   <result timeType='short'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0:00</result>
+   <result timeType='medium'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0:00:00</result>
+   <result timeType='long'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນພຸດທີ  31 ມັງກອນ ຄ.ສ. 1900, 0ໂມງ 0ນາທີ 00 ວິນາທີ</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0:00</result>
    <result timeType='medium'>0:00:01</result>
    <result timeType='long'>0 ໂມງ 0ນາທີ</result>
@@ -91,21 +657,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>28/2/1909, 0:00:01</result>
    <result timeType='long'>28/2/1909, 0 ໂມງ 0ນາທີ</result>
    <result timeType='full'>28/2/1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>28 Feb 1909</result>
-   <result timeType='short'>28 Feb 1909, 0:00</result>
-   <result timeType='medium'>28 Feb 1909, 0:00:01</result>
-   <result timeType='long'>28 Feb 1909, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>28 Feb 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>28 February 1909</result>
-   <result timeType='short'>28 February 1909, 0:00</result>
-   <result timeType='medium'>28 February 1909, 0:00:01</result>
-   <result timeType='long'>28 February 1909, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>28 February 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Sundayທີ  28 February AD 1909</result>
-   <result timeType='short'>Sundayທີ  28 February AD 1909, 0:00</result>
-   <result timeType='medium'>Sundayທີ  28 February AD 1909, 0:00:01</result>
-   <result timeType='long'>Sundayທີ  28 February AD 1909, 0 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Sundayທີ  28 February AD 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>28 ກ.ພ. 1909</result>
+   <result timeType='short'>28 ກ.ພ. 1909, 0:00</result>
+   <result timeType='medium'>28 ກ.ພ. 1909, 0:00:01</result>
+   <result timeType='long'>28 ກ.ພ. 1909, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>28 ກ.ພ. 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>28 ກຸມພາ 1909</result>
+   <result timeType='short'>28 ກຸມພາ 1909, 0:00</result>
+   <result timeType='medium'>28 ກຸມພາ 1909, 0:00:01</result>
+   <result timeType='long'>28 ກຸມພາ 1909, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>28 ກຸມພາ 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909</result>
+   <result timeType='short'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0:00</result>
+   <result timeType='medium'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0:00:01</result>
+   <result timeType='long'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນອາທິດທີ  28 ກຸມພາ ຄ.ສ. 1909, 0ໂມງ 0ນາທີ 01 ວິນາທີ</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0:59</result>
    <result timeType='medium'>0:59:59</result>
    <result timeType='long'>0 ໂມງ 59ນາທີ</result>
@@ -115,21 +681,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>26/3/1918, 0:59:59</result>
    <result timeType='long'>26/3/1918, 0 ໂມງ 59ນາທີ</result>
    <result timeType='full'>26/3/1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>26 Mar 1918</result>
-   <result timeType='short'>26 Mar 1918, 0:59</result>
-   <result timeType='medium'>26 Mar 1918, 0:59:59</result>
-   <result timeType='long'>26 Mar 1918, 0 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>26 Mar 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>26 March 1918</result>
-   <result timeType='short'>26 March 1918, 0:59</result>
-   <result timeType='medium'>26 March 1918, 0:59:59</result>
-   <result timeType='long'>26 March 1918, 0 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>26 March 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Tuesdayທີ  26 March AD 1918</result>
-   <result timeType='short'>Tuesdayທີ  26 March AD 1918, 0:59</result>
-   <result timeType='medium'>Tuesdayທີ  26 March AD 1918, 0:59:59</result>
-   <result timeType='long'>Tuesdayທີ  26 March AD 1918, 0 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>Tuesdayທີ  26 March AD 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>26 ມີ.ນ. 1918</result>
+   <result timeType='short'>26 ມີ.ນ. 1918, 0:59</result>
+   <result timeType='medium'>26 ມີ.ນ. 1918, 0:59:59</result>
+   <result timeType='long'>26 ມີ.ນ. 1918, 0 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>26 ມີ.ນ. 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>26 ມີນາ 1918</result>
+   <result timeType='short'>26 ມີນາ 1918, 0:59</result>
+   <result timeType='medium'>26 ມີນາ 1918, 0:59:59</result>
+   <result timeType='long'>26 ມີນາ 1918, 0 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>26 ມີນາ 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918</result>
+   <result timeType='short'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0:59</result>
+   <result timeType='medium'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0:59:59</result>
+   <result timeType='long'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>ວັນອັງຄານທີ  26 ມີນາ ຄ.ສ. 1918, 0ໂມງ 59ນາທີ 59 ວິນາທີ</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:00</result>
    <result timeType='long'>1 ໂມງ 0ນາທີ</result>
@@ -139,21 +705,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>24/4/1932, 1:00:00</result>
    <result timeType='long'>24/4/1932, 1 ໂມງ 0ນາທີ</result>
    <result timeType='full'>24/4/1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>24 Apr 1932</result>
-   <result timeType='short'>24 Apr 1932, 1:00</result>
-   <result timeType='medium'>24 Apr 1932, 1:00:00</result>
-   <result timeType='long'>24 Apr 1932, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>24 Apr 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>24 April 1932</result>
-   <result timeType='short'>24 April 1932, 1:00</result>
-   <result timeType='medium'>24 April 1932, 1:00:00</result>
-   <result timeType='long'>24 April 1932, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>24 April 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Sundayທີ  24 April AD 1932</result>
-   <result timeType='short'>Sundayທີ  24 April AD 1932, 1:00</result>
-   <result timeType='medium'>Sundayທີ  24 April AD 1932, 1:00:00</result>
-   <result timeType='long'>Sundayທີ  24 April AD 1932, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Sundayທີ  24 April AD 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>24 ມ.ສ.. 1932</result>
+   <result timeType='short'>24 ມ.ສ.. 1932, 1:00</result>
+   <result timeType='medium'>24 ມ.ສ.. 1932, 1:00:00</result>
+   <result timeType='long'>24 ມ.ສ.. 1932, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>24 ມ.ສ.. 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>24 ເມສາ 1932</result>
+   <result timeType='short'>24 ເມສາ 1932, 1:00</result>
+   <result timeType='medium'>24 ເມສາ 1932, 1:00:00</result>
+   <result timeType='long'>24 ເມສາ 1932, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>24 ເມສາ 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932</result>
+   <result timeType='short'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1:00</result>
+   <result timeType='medium'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1:00:00</result>
+   <result timeType='long'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນອາທິດທີ  24 ເມສາ ຄ.ສ. 1932, 1ໂມງ 0ນາທີ 00 ວິນາທີ</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:01</result>
    <result timeType='long'>1 ໂມງ 0ນາທີ</result>
@@ -163,21 +729,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>20/5/1945, 1:00:01</result>
    <result timeType='long'>20/5/1945, 1 ໂມງ 0ນາທີ</result>
    <result timeType='full'>20/5/1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>20 May 1945</result>
-   <result timeType='short'>20 May 1945, 1:00</result>
-   <result timeType='medium'>20 May 1945, 1:00:01</result>
-   <result timeType='long'>20 May 1945, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>20 May 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>20 May 1945</result>
-   <result timeType='short'>20 May 1945, 1:00</result>
-   <result timeType='medium'>20 May 1945, 1:00:01</result>
-   <result timeType='long'>20 May 1945, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>20 May 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Sundayທີ  20 May AD 1945</result>
-   <result timeType='short'>Sundayທີ  20 May AD 1945, 1:00</result>
-   <result timeType='medium'>Sundayທີ  20 May AD 1945, 1:00:01</result>
-   <result timeType='long'>Sundayທີ  20 May AD 1945, 1 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Sundayທີ  20 May AD 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>20 ພ.ພ. 1945</result>
+   <result timeType='short'>20 ພ.ພ. 1945, 1:00</result>
+   <result timeType='medium'>20 ພ.ພ. 1945, 1:00:01</result>
+   <result timeType='long'>20 ພ.ພ. 1945, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>20 ພ.ພ. 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>20 ພຶດສະພາ 1945</result>
+   <result timeType='short'>20 ພຶດສະພາ 1945, 1:00</result>
+   <result timeType='medium'>20 ພຶດສະພາ 1945, 1:00:01</result>
+   <result timeType='long'>20 ພຶດສະພາ 1945, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>20 ພຶດສະພາ 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945</result>
+   <result timeType='short'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1:00</result>
+   <result timeType='medium'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1:00:01</result>
+   <result timeType='long'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນອາທິດທີ  20 ພຶດສະພາ ຄ.ສ. 1945, 1ໂມງ 0ນາທີ 01 ວິນາທີ</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11 ໂມງ 59ນາທີ</result>
@@ -187,21 +753,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>18/6/1952, 11:59:59</result>
    <result timeType='long'>18/6/1952, 11 ໂມງ 59ນາທີ</result>
    <result timeType='full'>18/6/1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>18 Jun 1952</result>
-   <result timeType='short'>18 Jun 1952, 11:59</result>
-   <result timeType='medium'>18 Jun 1952, 11:59:59</result>
-   <result timeType='long'>18 Jun 1952, 11 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>18 Jun 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>18 June 1952</result>
-   <result timeType='short'>18 June 1952, 11:59</result>
-   <result timeType='medium'>18 June 1952, 11:59:59</result>
-   <result timeType='long'>18 June 1952, 11 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>18 June 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Wednesdayທີ  18 June AD 1952</result>
-   <result timeType='short'>Wednesdayທີ  18 June AD 1952, 11:59</result>
-   <result timeType='medium'>Wednesdayທີ  18 June AD 1952, 11:59:59</result>
-   <result timeType='long'>Wednesdayທີ  18 June AD 1952, 11 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>Wednesdayທີ  18 June AD 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>18 ມິ.ຖ. 1952</result>
+   <result timeType='short'>18 ມິ.ຖ. 1952, 11:59</result>
+   <result timeType='medium'>18 ມິ.ຖ. 1952, 11:59:59</result>
+   <result timeType='long'>18 ມິ.ຖ. 1952, 11 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>18 ມິ.ຖ. 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>18 ມິຖຸນາ 1952</result>
+   <result timeType='short'>18 ມິຖຸນາ 1952, 11:59</result>
+   <result timeType='medium'>18 ມິຖຸນາ 1952, 11:59:59</result>
+   <result timeType='long'>18 ມິຖຸນາ 1952, 11 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>18 ມິຖຸນາ 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952</result>
+   <result timeType='short'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11:59</result>
+   <result timeType='medium'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11:59:59</result>
+   <result timeType='long'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>ວັນພຸດທີ  18 ມິຖຸນາ ຄ.ສ. 1952, 11ໂມງ 59ນາທີ 59 ວິນາທີ</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12 ໂມງ 0ນາທີ</result>
@@ -211,21 +777,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>16/7/1973, 12:00:00</result>
    <result timeType='long'>16/7/1973, 12 ໂມງ 0ນາທີ</result>
    <result timeType='full'>16/7/1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>16 Jul 1973</result>
-   <result timeType='short'>16 Jul 1973, 12:00</result>
-   <result timeType='medium'>16 Jul 1973, 12:00:00</result>
-   <result timeType='long'>16 Jul 1973, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>16 Jul 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>16 July 1973</result>
-   <result timeType='short'>16 July 1973, 12:00</result>
-   <result timeType='medium'>16 July 1973, 12:00:00</result>
-   <result timeType='long'>16 July 1973, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>16 July 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Mondayທີ  16 July AD 1973</result>
-   <result timeType='short'>Mondayທີ  16 July AD 1973, 12:00</result>
-   <result timeType='medium'>Mondayທີ  16 July AD 1973, 12:00:00</result>
-   <result timeType='long'>Mondayທີ  16 July AD 1973, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Mondayທີ  16 July AD 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>16 ກ.ລ. 1973</result>
+   <result timeType='short'>16 ກ.ລ. 1973, 12:00</result>
+   <result timeType='medium'>16 ກ.ລ. 1973, 12:00:00</result>
+   <result timeType='long'>16 ກ.ລ. 1973, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>16 ກ.ລ. 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>16 ກໍລະກົດ 1973</result>
+   <result timeType='short'>16 ກໍລະກົດ 1973, 12:00</result>
+   <result timeType='medium'>16 ກໍລະກົດ 1973, 12:00:00</result>
+   <result timeType='long'>16 ກໍລະກົດ 1973, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>16 ກໍລະກົດ 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973</result>
+   <result timeType='short'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12:00</result>
+   <result timeType='medium'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12:00:00</result>
+   <result timeType='long'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນຈັນທີ  16 ກໍລະກົດ ຄ.ສ. 1973, 12ໂມງ 0ນາທີ 00 ວິນາທີ</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12 ໂມງ 0ນາທີ</result>
@@ -235,21 +801,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>14/8/1999, 12:00:01</result>
    <result timeType='long'>14/8/1999, 12 ໂມງ 0ນາທີ</result>
    <result timeType='full'>14/8/1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>14 Aug 1999</result>
-   <result timeType='short'>14 Aug 1999, 12:00</result>
-   <result timeType='medium'>14 Aug 1999, 12:00:01</result>
-   <result timeType='long'>14 Aug 1999, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>14 Aug 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>14 August 1999</result>
-   <result timeType='short'>14 August 1999, 12:00</result>
-   <result timeType='medium'>14 August 1999, 12:00:01</result>
-   <result timeType='long'>14 August 1999, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>14 August 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Saturdayທີ  14 August AD 1999</result>
-   <result timeType='short'>Saturdayທີ  14 August AD 1999, 12:00</result>
-   <result timeType='medium'>Saturdayທີ  14 August AD 1999, 12:00:01</result>
-   <result timeType='long'>Saturdayທີ  14 August AD 1999, 12 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Saturdayທີ  14 August AD 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>14 ສ.ຫ. 1999</result>
+   <result timeType='short'>14 ສ.ຫ. 1999, 12:00</result>
+   <result timeType='medium'>14 ສ.ຫ. 1999, 12:00:01</result>
+   <result timeType='long'>14 ສ.ຫ. 1999, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>14 ສ.ຫ. 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>14 ສິງຫາ 1999</result>
+   <result timeType='short'>14 ສິງຫາ 1999, 12:00</result>
+   <result timeType='medium'>14 ສິງຫາ 1999, 12:00:01</result>
+   <result timeType='long'>14 ສິງຫາ 1999, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>14 ສິງຫາ 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999</result>
+   <result timeType='short'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12:00</result>
+   <result timeType='medium'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12:00:01</result>
+   <result timeType='long'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນເສົາທີ  14 ສິງຫາ ຄ.ສ. 1999, 12ໂມງ 0ນາທີ 01 ວິນາທີ</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22 ໂມງ 59ນາທີ</result>
@@ -259,21 +825,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>12/9/2000, 22:59:59</result>
    <result timeType='long'>12/9/2000, 22 ໂມງ 59ນາທີ</result>
    <result timeType='full'>12/9/2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>12 Sep 2000</result>
-   <result timeType='short'>12 Sep 2000, 22:59</result>
-   <result timeType='medium'>12 Sep 2000, 22:59:59</result>
-   <result timeType='long'>12 Sep 2000, 22 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>12 Sep 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>12 September 2000</result>
-   <result timeType='short'>12 September 2000, 22:59</result>
-   <result timeType='medium'>12 September 2000, 22:59:59</result>
-   <result timeType='long'>12 September 2000, 22 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>12 September 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Tuesdayທີ  12 September AD 2000</result>
-   <result timeType='short'>Tuesdayທີ  12 September AD 2000, 22:59</result>
-   <result timeType='medium'>Tuesdayທີ  12 September AD 2000, 22:59:59</result>
-   <result timeType='long'>Tuesdayທີ  12 September AD 2000, 22 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>Tuesdayທີ  12 September AD 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>12 ກ.ຍ. 2000</result>
+   <result timeType='short'>12 ກ.ຍ. 2000, 22:59</result>
+   <result timeType='medium'>12 ກ.ຍ. 2000, 22:59:59</result>
+   <result timeType='long'>12 ກ.ຍ. 2000, 22 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>12 ກ.ຍ. 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>12 ກັນຍາ 2000</result>
+   <result timeType='short'>12 ກັນຍາ 2000, 22:59</result>
+   <result timeType='medium'>12 ກັນຍາ 2000, 22:59:59</result>
+   <result timeType='long'>12 ກັນຍາ 2000, 22 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>12 ກັນຍາ 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000</result>
+   <result timeType='short'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22:59</result>
+   <result timeType='medium'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22:59:59</result>
+   <result timeType='long'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>ວັນອັງຄານທີ  12 ກັນຍາ ຄ.ສ. 2000, 22ໂມງ 59ນາທີ 59 ວິນາທີ</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23 ໂມງ 0ນາທີ</result>
@@ -283,21 +849,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>8/10/2001, 23:00:00</result>
    <result timeType='long'>8/10/2001, 23 ໂມງ 0ນາທີ</result>
    <result timeType='full'>8/10/2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>8 Oct 2001</result>
-   <result timeType='short'>8 Oct 2001, 23:00</result>
-   <result timeType='medium'>8 Oct 2001, 23:00:00</result>
-   <result timeType='long'>8 Oct 2001, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>8 Oct 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>8 October 2001</result>
-   <result timeType='short'>8 October 2001, 23:00</result>
-   <result timeType='medium'>8 October 2001, 23:00:00</result>
-   <result timeType='long'>8 October 2001, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>8 October 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Mondayທີ  8 October AD 2001</result>
-   <result timeType='short'>Mondayທີ  8 October AD 2001, 23:00</result>
-   <result timeType='medium'>Mondayທີ  8 October AD 2001, 23:00:00</result>
-   <result timeType='long'>Mondayທີ  8 October AD 2001, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Mondayທີ  8 October AD 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>8 ຕ.ລ. 2001</result>
+   <result timeType='short'>8 ຕ.ລ. 2001, 23:00</result>
+   <result timeType='medium'>8 ຕ.ລ. 2001, 23:00:00</result>
+   <result timeType='long'>8 ຕ.ລ. 2001, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>8 ຕ.ລ. 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>8 ຕຸລາ 2001</result>
+   <result timeType='short'>8 ຕຸລາ 2001, 23:00</result>
+   <result timeType='medium'>8 ຕຸລາ 2001, 23:00:00</result>
+   <result timeType='long'>8 ຕຸລາ 2001, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>8 ຕຸລາ 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001</result>
+   <result timeType='short'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23:00</result>
+   <result timeType='medium'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23:00:00</result>
+   <result timeType='long'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນຈັນທີ  8 ຕຸລາ ຄ.ສ. 2001, 23ໂມງ 0ນາທີ 00 ວິນາທີ</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23 ໂມງ 0ນາທີ</result>
@@ -307,21 +873,21 @@ locales='lo lo_LA'>
    <result timeType='medium'>4/11/2004, 23:00:01</result>
    <result timeType='long'>4/11/2004, 23 ໂມງ 0ນາທີ</result>
    <result timeType='full'>4/11/2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>4 Nov 2004</result>
-   <result timeType='short'>4 Nov 2004, 23:00</result>
-   <result timeType='medium'>4 Nov 2004, 23:00:01</result>
-   <result timeType='long'>4 Nov 2004, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>4 Nov 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>4 November 2004</result>
-   <result timeType='short'>4 November 2004, 23:00</result>
-   <result timeType='medium'>4 November 2004, 23:00:01</result>
-   <result timeType='long'>4 November 2004, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>4 November 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Thursdayທີ  4 November AD 2004</result>
-   <result timeType='short'>Thursdayທີ  4 November AD 2004, 23:00</result>
-   <result timeType='medium'>Thursdayທີ  4 November AD 2004, 23:00:01</result>
-   <result timeType='long'>Thursdayທີ  4 November AD 2004, 23 ໂມງ 0ນາທີ</result>
-   <result timeType='full'>Thursdayທີ  4 November AD 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>4 ພ.ຈ. 2004</result>
+   <result timeType='short'>4 ພ.ຈ. 2004, 23:00</result>
+   <result timeType='medium'>4 ພ.ຈ. 2004, 23:00:01</result>
+   <result timeType='long'>4 ພ.ຈ. 2004, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>4 ພ.ຈ. 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>4 ພະຈິກ 2004</result>
+   <result timeType='short'>4 ພະຈິກ 2004, 23:00</result>
+   <result timeType='medium'>4 ພະຈິກ 2004, 23:00:01</result>
+   <result timeType='long'>4 ພະຈິກ 2004, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>4 ພະຈິກ 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004</result>
+   <result timeType='short'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23:00</result>
+   <result timeType='medium'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23:00:01</result>
+   <result timeType='long'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23 ໂມງ 0ນາທີ</result>
+   <result timeType='full'>ວັນພະຫັດທີ  4 ພະຈິກ ຄ.ສ. 2004, 23ໂມງ 0ນາທີ 01 ວິນາທີ</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23 ໂມງ 59ນາທີ</result>
@@ -331,25 +897,25 @@ locales='lo lo_LA'>
    <result timeType='medium'>1/12/2010, 23:59:59</result>
    <result timeType='long'>1/12/2010, 23 ໂມງ 59ນາທີ</result>
    <result timeType='full'>1/12/2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='medium' timeType='none'>1 Dec 2010</result>
-   <result timeType='short'>1 Dec 2010, 23:59</result>
-   <result timeType='medium'>1 Dec 2010, 23:59:59</result>
-   <result timeType='long'>1 Dec 2010, 23 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>1 Dec 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='long' timeType='none'>1 December 2010</result>
-   <result timeType='short'>1 December 2010, 23:59</result>
-   <result timeType='medium'>1 December 2010, 23:59:59</result>
-   <result timeType='long'>1 December 2010, 23 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>1 December 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
-   <result dateType='full' timeType='none'>Wednesdayທີ  1 December AD 2010</result>
-   <result timeType='short'>Wednesdayທີ  1 December AD 2010, 23:59</result>
-   <result timeType='medium'>Wednesdayທີ  1 December AD 2010, 23:59:59</result>
-   <result timeType='long'>Wednesdayທີ  1 December AD 2010, 23 ໂມງ 59ນາທີ</result>
-   <result timeType='full'>Wednesdayທີ  1 December AD 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='medium' timeType='none'>1 ທ.ວ. 2010</result>
+   <result timeType='short'>1 ທ.ວ. 2010, 23:59</result>
+   <result timeType='medium'>1 ທ.ວ. 2010, 23:59:59</result>
+   <result timeType='long'>1 ທ.ວ. 2010, 23 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>1 ທ.ວ. 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='long' timeType='none'>1 ທັນວາ 2010</result>
+   <result timeType='short'>1 ທັນວາ 2010, 23:59</result>
+   <result timeType='medium'>1 ທັນວາ 2010, 23:59:59</result>
+   <result timeType='long'>1 ທັນວາ 2010, 23 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>1 ທັນວາ 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
+   <result dateType='full' timeType='none'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010</result>
+   <result timeType='short'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23:59</result>
+   <result timeType='medium'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23:59:59</result>
+   <result timeType='long'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23 ໂມງ 59ນາທີ</result>
+   <result timeType='full'>ວັນພຸດທີ  1 ທັນວາ ຄ.ສ. 2010, 23ໂມງ 59ນາທີ 59 ວິນາທີ</result>
   </date>
   <zoneFields 
-locales='lo lo_LA'>
-<!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
+locales='lo'>
+<!-- Lao [Lao] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -491,10 +1057,122 @@ locales='lo lo_LA'>
    <result field='v'>GMT-03:00</result>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
+  <zoneFields 
+locales='lo_LA'>
+<!-- Lao (Laos) [Lao (Laos)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (ສະຫະລັດອາເມລິກາ)</result>
+   <result field='vvvv'>Los Angeles (ສະຫະລັດອາເມລິກາ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (ສະຫະລັດອາເມລິກາ)</result>
+   <result field='vvvv'>Los Angeles (ສະຫະລັດອາເມລິກາ)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result field='vvvv'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result field='vvvv'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result field='vvvv'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result field='vvvv'>Buenos Aires (ອາເຈນຕິນາ່)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>ຄິວບາ</result>
+   <result field='vvvv'>ຄິວບາ</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>ຄິວບາ</result>
+   <result field='vvvv'>ຄິວບາ</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (ອົອດສະຕາລີ)</result>
+   <result field='vvvv'>Sydney (ອົອດສະຕາລີ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (ອົອດສະຕາລີ)</result>
+   <result field='vvvv'>Sydney (ອົອດສະຕາລີ)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (ອົອດສະຕາລີ)</result>
+   <result field='vvvv'>Sydney (ອົອດສະຕາລີ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (ອົອດສະຕາລີ)</result>
+   <result field='vvvv'>Sydney (ອົອດສະຕາລີ)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>ສະຫະລາດຊະອານາຈັກ</result>
+   <result field='vvvv'>ສະຫະລາດຊະອານາຈັກ</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>ສະຫະລາດຊະອານາຈັກ</result>
+   <result field='vvvv'>ສະຫະລາດຊະອານາຈັກ</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (ລັດເຊຍ)</result>
+   <result field='vvvv'>Moscow (ລັດເຊຍ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (ລັດເຊຍ)</result>
+   <result field='vvvv'>Moscow (ລັດເຊຍ)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='lo lo_LA'>
 <!-- Lao [Lao]; Lao (Laos) [Lao (Laos)] -->
-   <result draft='true'>
+   <result draft='either'>
 x​
 X​
 x່
@@ -708,23 +1386,6 @@ xໃx
 xໄ
 Xໄ
 xໄx
-</result>
-   <result draft='false'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
 </result>
   </collation>
  </cldrTest>

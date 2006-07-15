@@ -50,10 +50,10 @@ locales='sk sk_SK'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
   </number>
   <date 
 locales='sk sk_SK'>
@@ -486,14 +486,14 @@ xá
 xÁ
 Xá
 XÁ
-xax
-xAx
-xáx
-xÁx
 xä
 xÄ
 Xä
 XÄ
+xax
+xAx
+xáx
+xÁx
 xäx
 xÄx
 xb
@@ -506,15 +506,24 @@ xc
 xC
 Xc
 XC
-xcH
-XcH
-xcHx
-xcx
-xCx
 xč
 xČ
 Xč
 XČ
+xch
+xcH
+xCh
+xCH
+Xch
+XcH
+XCh
+XCH
+xchx
+xcHx
+xChx
+xCHx
+xcx
+xCx
 xčx
 xČx
 xd
@@ -529,12 +538,6 @@ xdx
 xDx
 xďx
 xĎx
-xđ
-xĐ
-Xđ
-XĐ
-xđx
-xĐx
 xe
 xE
 Xe
@@ -565,15 +568,6 @@ Xh
 XH
 xhx
 xHx
-xch
-xCh
-xCH
-Xch
-XCh
-XCH
-xchx
-xChx
-xCHx
 xi
 xI
 Xi
@@ -616,12 +610,6 @@ xĺx
 xĹx
 xľx
 xĽx
-xł
-xŁ
-Xł
-XŁ
-xłx
-xŁx
 xm
 xM
 Xm
@@ -648,14 +636,14 @@ xó
 xÓ
 Xó
 XÓ
-xox
-xOx
-xóx
-xÓx
 xô
 xÔ
 Xô
 XÔ
+xox
+xOx
+xóx
+xÓx
 xôx
 xÔx
 xp
@@ -682,22 +670,16 @@ xrx
 xRx
 xŕx
 xŔx
-xř
-xŘ
-Xř
-XŘ
-xřx
-xŘx
 xs
 xS
 Xs
 XS
-xsx
-xSx
 xš
 xŠ
 Xš
 XŠ
+xsx
+xSx
 xšx
 xŠx
 xt
@@ -758,20 +740,14 @@ xz
 xZ
 Xz
 XZ
-xzx
-xZx
 xž
 xŽ
 Xž
 XŽ
+xzx
+xZx
 xžx
 xŽx
-xż
-xŻ
-Xż
-XŻ
-xżx
-xŻx
 </result>
   </collation>
  </cldrTest>

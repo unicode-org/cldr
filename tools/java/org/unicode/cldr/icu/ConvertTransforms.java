@@ -66,9 +66,11 @@ public class ConvertTransforms extends CLDRConverterTool{
 		try {
 			index.println("root {");
 			index.println("    RuleBasedTransliteratorIDs {");
-			addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
-			addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
-			addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
+            addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
+            addAlias(index, "el", "Latin", "", "Greek", "Latin", "UNGEGN");
+			addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
+            addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
+            addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
 			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
 				String id = (String) idIterator.next();
 				if (id.equals("All")) continue;
@@ -104,6 +106,12 @@ public class ConvertTransforms extends CLDRConverterTool{
 		PrintWriter output = null;
 		String filename = null;
 		CLDRFile cldrFile = cldrFactory.make(id, false);
+        if (cldrFile.getDtdVersion().equals("1.4")) {
+            if (id.indexOf("Ethiopic") >= 0 || id.indexOf("CanadianAboriginal") >= 0) {
+               System.err.println("Skipping file for 1.4" + id);
+                return;
+            }
+        }
 		boolean first = true;
 		for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
 			String path = (String) it.next();
@@ -198,7 +206,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println("        }");
 		}
 		if (direction.equals("both") || direction.equals("backward")) {		
-			System.out.println("    " + id + "    " +  filename + "    " + "REVERSE"); 
+			System.out.println("    " + rid + "    " +  filename + "    " + "REVERSE"); 
 			index.println("        " + rid + " {");
 			index.println("            " + status + " {");
 			index.println("                resource:process(transliterator) {\"" + filename + "\"}");
@@ -215,7 +223,6 @@ public class ConvertTransforms extends CLDRConverterTool{
 //            alias {"null"}
 //        }
 		addAlias(index, getName(aliasSource, aliasTarget, aliasVariant), getName(originalSource, originalTarget, originalVariant));
-		addAlias(index, getName(aliasTarget, aliasSource, aliasVariant), getName(originalTarget, originalSource, originalVariant));
 	}
 
 	private void addAlias(PrintWriter index, String alias, String original) {

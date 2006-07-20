@@ -65,7 +65,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		doHeader(index, "//", "root.txt");
 		try {
 			index.println("root {");
-			index.println("\tRuleBasedTransliteratorIDs {");
+			index.println("    RuleBasedTransliteratorIDs {");
 			addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
 			addAlias(index, "Latin", "ConjoiningJamo", "", "Latin", "Jamo", "");
 			addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
@@ -79,21 +79,21 @@ public class ConvertTransforms extends CLDRConverterTool{
 					throw e;
 				}
 			}
-			index.println("\t}");
-			index.println("\tTransliteratorNamePattern {");
-			index.println("\t\t// Format for the display name of a Transliterator.");
-			index.println("\t\t// This is the language-neutral form of this resource.");
-			index.println("\t\t\"{0,choice,0#|1#{1}|2#{1}-{2}}\" // Display name");
-			index.println("\t}");
-			index.println("\t// Transliterator display names");
-			index.println("\t// This is the English form of this resource.");
-			index.println("\t\"%Translit%Hex\"         { \"%Translit%Hex\" }");
-			index.println("\t\"%Translit%UnicodeName\" { \"%Translit%UnicodeName\" }");
-			index.println("\t\"%Translit%UnicodeChar\" { \"%Translit%UnicodeChar\" }");
-			index.println("\tTransliterateLATIN{        ");
-			index.println("\t\"\",");
-			index.println("\t\"\"");
-			index.println("\t}");
+			index.println("    }");
+			index.println("    TransliteratorNamePattern {");
+			index.println("        // Format for the display name of a Transliterator.");
+			index.println("        // This is the language-neutral form of this resource.");
+			index.println("        \"{0,choice,0#|1#{1}|2#{1}-{2}}\" // Display name");
+			index.println("    }");
+			index.println("    // Transliterator display names");
+			index.println("    // This is the English form of this resource.");
+			index.println("    \"%Translit%Hex\"         { \"%Translit%Hex\" }");
+			index.println("    \"%Translit%UnicodeName\" { \"%Translit%UnicodeName\" }");
+			index.println("    \"%Translit%UnicodeChar\" { \"%Translit%UnicodeChar\" }");
+			index.println("    TransliterateLATIN{        ");
+			index.println("    \"\",");
+			index.println("    \"\"");
+			index.println("    }");
 			index.println("}");
 		} finally {
 			index.close();
@@ -189,22 +189,22 @@ public class ConvertTransforms extends CLDRConverterTool{
 		}
 		filename += ".txt";
 		if (direction.equals("both") || direction.equals("forward")) {
-			System.out.println("\t" + id + "\t" +  filename + "\t" + "FORWARD");
-			index.println("\t\t" + id + " {");
-			index.println("\t\t\t" + status + " {");
-			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
-			index.println("\t\t\t\tdirection {\"FORWARD\"}");
-			index.println("\t\t\t}");
-			index.println("\t\t}");
+			System.out.println("    " + id + "    " +  filename + "    " + "FORWARD");
+			index.println("        " + id + " {");
+			index.println("            " + status + " {");
+			index.println("                resource:process(transliterator) {\"" + filename + "\"}");
+			index.println("                direction {\"FORWARD\"}");
+			index.println("            }");
+			index.println("        }");
 		}
 		if (direction.equals("both") || direction.equals("backward")) {		
-			System.out.println("\t" + id + "\t" +  filename + "\t" + "BACKWARD"); 
-			index.println("\t\t" + id + " {");
-			index.println("\t\t\t" + status + " {");
-			index.println("\t\t\t\tresource:process(transliterator) {\"" + filename + "\"}");
-			index.println("\t\t\t\tdirection {\"BACKWARD\"}");
-			index.println("\t\t\t}");
-			index.println("\t\t}");
+			System.out.println("    " + id + "    " +  filename + "    " + "REVERSE"); 
+			index.println("        " + rid + " {");
+			index.println("            " + status + " {");
+			index.println("                resource:process(transliterator) {\"" + filename + "\"}");
+			index.println("                direction {\"REVERSE\"}");
+			index.println("            }");
+			index.println("        }");
 		}
 		index.println();
 		return filename;
@@ -219,9 +219,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 	}
 
 	private void addAlias(PrintWriter index, String alias, String original) {
-		index.println("\t\t" + alias + " {");
-		index.println("\t\t\talias" + " {\"" + original + "\"}");
-		index.println("\t\t}");
+		index.println("        " + alias + " {");
+		index.println("            alias" + " {\"" + original + "\"}");
+		index.println("        }");
 	}
 	
 	String getName(String source, String target, String variant) {

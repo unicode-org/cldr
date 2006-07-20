@@ -68,7 +68,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println("    RuleBasedTransliteratorIDs {");
             addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
             addAlias(index, "el", "Latin", "", "Greek", "Latin", "UNGEGN");
-			addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
+			//addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
 			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
@@ -108,7 +108,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		CLDRFile cldrFile = cldrFactory.make(id, false);
         if (cldrFile.getDtdVersion().equals("1.4")) {
             if (id.indexOf("Ethiopic") >= 0 || id.indexOf("CanadianAboriginal") >= 0) {
-               System.err.println("Skipping file for 1.4" + id);
+               System.out.println("WARNING: Skipping file for 1.4" + id);
                 return;
             }
         }

@@ -42,7 +42,7 @@ public class GenerateCldrCollationTests {
     }
 
     public RuleBasedCollator getInstance(ULocale locale) {
-        return (RuleBasedCollator) ulocale_rules.get(locale);
+         return (RuleBasedCollator) ulocale_rules.get(locale);
     }
 
     void show() {
@@ -79,6 +79,8 @@ public class GenerateCldrCollationTests {
             }
         }
         // now generate the @-style locales
+       ulocale_rules.put(ULocale.ROOT, Collator.getInstance(ULocale.ROOT));
+
         for (Iterator it = locale_types_rules.keySet().iterator(); it.hasNext(); ) {
             String locale = (String) it.next();
             Map types_rules = (Map) locale_types_rules.get(locale);

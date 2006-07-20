@@ -757,13 +757,19 @@ public class GenerateCldrTests {
 			
 			Collator col = cldrCollations.getInstance(locale); // Collator.getInstance(locale);
 
-			UnicodeSet tailored = col.getTailoredSet();
-			if (locale.getLanguage().equals("zh")) {
-				tailored.addAll(new UnicodeSet("[[a-z]-[v]]"));
-				Log.logln("HACK for Pinyin");
-			}
-			tailored = createCaseClosure(tailored);
-			tailored = nfc(tailored);
+			UnicodeSet tailored = new UnicodeSet();
+            if (col != null) {
+                tailored = col.getTailoredSet();
+                if (locale.getLanguage().equals("zh")) {
+                    tailored.addAll(new UnicodeSet("[[a-z]-[v]]"));
+                    Log.logln("HACK for Pinyin");
+                }
+                tailored = createCaseClosure(tailored);
+                tailored = nfc(tailored);
+            } else {
+                System.out.println("No collation for: " + locale);
+                col = cldrCollations.getInstance(ULocale.ROOT);
+            }
 			//System.out.println(tailored.toPattern(true));
 
 			UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE, includeDraft);

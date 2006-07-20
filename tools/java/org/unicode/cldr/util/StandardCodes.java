@@ -1084,7 +1084,7 @@ public class StandardCodes {
 		{"variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True"},
 		{"variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True"},
         {"variant", "SAAHO", "Description", "Dialect", "CLDR", "True"},            
-        {"region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True"},            
+        //{"region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True"},            
         {"region", "QU", "Description", "European Union", "CLDR", "True"},            
 		//{"region", "003", "Description", "North America", "CLDR", "True"},			   
 		//{"region", "062", "Description", "South-central Asia", "CLDR", "True"},			   

@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Utility;
@@ -102,6 +103,7 @@ public class GenerateSidewaysView {
   }
   
   private static CLDRFile english;
+  private static  DataShower dataShower = new DataShower();
   
   public static void main(String[] args) throws SAXException, IOException {
     startTime = System.currentTimeMillis();
@@ -147,20 +149,20 @@ public class GenerateSidewaysView {
       Map value_locales = (Map) path_value_locales.get(path);
       for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
         String value = (String)it2.next();
-        String outValue = toHTML.transliterate(value);
-        String transValue = value;
-        try {
-          transValue = toLatin.transliterate(value);
-        } catch (RuntimeException e) {
-        }
-        if (!transValue.equals(value)) {
-          outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
-        }
+//        String outValue = toHTML.transliterate(value);
+//        String transValue = value;
+//        try {
+//          transValue = toLatin.transliterate(value);
+//        } catch (RuntimeException e) {
+//        }
+//        if (!transValue.equals(value)) {
+//          outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
+//        }
         String valueClass = " class='value'";
-        if (BIDI_R.containsSome(value)) {
+        if (dataShower.getBidiStyle(value).length() != 0) {
           valueClass = " class='rtl_value'";
         }
-        out.println("<tr><th" + valueClass + ">" + outValue + "</th><td>");
+        out.println("<tr><th" + valueClass + ">" + dataShower.getPrettyValue(value) + "</th><td class='td'>");
         Set locales = (Set) value_locales.get(value);
         boolean first = true;
         for (Iterator it3 = locales.iterator(); it3.hasNext();) {
@@ -293,27 +295,26 @@ public class GenerateSidewaysView {
     return main;
   }
   
+  static String[] headerAndFooter = new String[2];
+
   /**
    * 
    */
   private static PrintWriter start(PrintWriter out, String main, Set types) throws IOException {
     finish(out);
-    String title = "CLDR Sideways Data for ";
     out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
-    out.println("<html><head>");
-    out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
-    out.println("<title>" + title  + main + "</title>");
-    out.println("<link rel='stylesheet' type='text/css' href='by_type.css'>");
-    /*
-     out.println("<style>");
-     out.println("<!--");
-     out.println(".path        { background-color: #00FF00 }");
-     out.println("td,th        { text-align:left; vertical-align:top; border: 1px solid blue; padding: 2 }");
-     out.println("table        { border-collapse: collapse }");
-     out.println("-->");
-     out.println("</style>");
-     */
-    out.println("</head><body><h1>" + title + "<i>" +  main + "</i></h1><blockquote><p>");
+
+
+    ShowData.getChartTemplate("By-Type Chart: " + main,
+    english.getDtdVersion(), 
+    "",
+    //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
+//    "<style type='text/css'>\r\n" +
+//    "h1 {margin-bottom:1em}\r\n" +
+//    "</style>\r\n",
+    headerAndFooter);
+    out.println(headerAndFooter[0]);
+    out.println("<blockquote><p>");
     boolean first = true;
     String lastMain = "";
     for (Iterator it = types.iterator(); it.hasNext();) {
@@ -342,7 +343,7 @@ public class GenerateSidewaysView {
           ".html'>" + fileName +
       "</a>");
     }
-    out.println("</p></blockquote><table>");
+    out.println("</p></blockquote><table class='table'>");
     return out;
   }
   
@@ -351,7 +352,8 @@ public class GenerateSidewaysView {
    */
   private static void finish(PrintWriter out) {
     if (out == null) return;
-    out.println("</table></body></html>");
+    out.println("</table>");
+    out.println(headerAndFooter[1]);
     out.close();
   }
 }

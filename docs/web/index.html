@@ -14,7 +14,7 @@
 <!--
 .major     {font-size:95%; font-family: Arial, Geneva, sans-serif; color: #808080; font-weight:bold; }
 .minor     {font-size:85%; font-family: Arial, Geneva, sans-serif; color: #808080; font-weight:400; }
-table           { margin-top: 1.5em; margin-bottom: 0.5em }
+.table2           { margin-top: 1.5em; margin-bottom: 0.5em }
 -->
 </style>
 </head>
@@ -124,7 +124,7 @@ table           { margin-top: 1.5em; margin-bottom: 0.5em }
     <table>
       <tr>
         <td class="contents" valign="top">
-        <blockquote>
+        <div class="body">
           <h1>Common Locale Data Repository (CLDR) Project</h1>
           <h2><a name="Introduction">Introduction</a></h2>
           <table class="sidebar" align="right">
@@ -178,9 +178,7 @@ table           { margin-top: 1.5em; margin-bottom: 0.5em }
           normal process for changing locale repository data is described in <a href="process.html">
           CLDR Process</a>. For information about joining the Unicode Consortium, see
           <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a>.</p>
-        </blockquote>
-        <blockquote>
-          <h2><a name="History">Acknowledgments</a></h2>
+                  <h2><a name="History">Acknowledgments</a></h2>
           <p>The first CLDR version under the sponsorship of the Unicode Consortium was version 1.1. 
           The CLDR project was originally developed under the sponsorship of the Linux Application 
           Development Environment (aka LADE) Workgroup of the
@@ -201,72 +199,118 @@ table           { margin-top: 1.5em; margin-bottom: 0.5em }
 			Acknowledgments</a> section of&nbsp; <i><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
         Locale Data Markup Language (LDML)</a></i>. Many other people have made 
 			significant contributions to CLDR and LDML, including the following:</p>
-  <table cellpadding="4" cellspacing="0" class="noborder" border="0" id="table1">
+  <table class="table2" cellpadding="4" cellspacing="0" class="noborder" border="0" id="table1">
     <tr>
-      <td class="noborder" width="33%" valign="top">Mati Allouche (מתתיהו &nbsp;אלוש),<br>
-      Tarek Abou Aly (<span lang="AR-SA" dir="rtl">طارق أبو على </span>),<br>
-      Patrick Andries,<br>
-      Shu Bei (舒蓓),<br>
-      Philips Benjamin,<br>
-      Ernest v.d. Boogaard,<br>
-      Avery Chan,<br>
-      Alexis Cheng,<br>
-      Séamus Ó Ciardhuáin,<br>
-      Helena Shih Chapman,<br>
-      Irina Chausova,<br>
-      Lee Collins,<br>
-      Angelo Dalli,<br>
-      Simon Dean,<br>
-      Jeno Demeczky,<br>
-      Sivaraj Doddannan,<br>
-      Eva Albertsdotter Enblom,<br>
-      Behdad Esfahbod (بهداد اسفهبد),<br>
-      Michael Everson,<br>
-      Doug Ewell,<br>
-      Doug Felt,</td>
+      <td class="noborder" width="33%" valign="top">Mati Allouche (מתתיהו אלוש),
+		<br>
+		Tarek Abou Aly (طارق أبو على),<br>
+		Patrick Andries,<br>
+		Pantelis Assimakopoulos,<br>
+		Dwayne Bailey,<br>
+		James Ballentine,<br>
+		Alberto Barbati,<br>
+		Shu Bei (舒蓓),<br>
+		Philips Benjamin,<br>
+		Ernest v.d. Boogaard,<br>
+		Alejandra Canoura Pérez,<br>
+		Avery Chan,<br>
+		Alexis Cheng (&#x912D;&#x5B97;&#x582F;),<br>
+		Séamus Ó Ciardhuáin,<br>
+		Helena Shih Chapman (&#x65BD;&#x5C19;&#x541F;),<br>
+		Irina Chausova,<br>
+		Lee Collins,<br>
+		Angelo Dalli,<br>
+		Natalie Davitashvili (ნატალია დავითაშვილი),<br>
+		Simon Dean,<br>
+		Andrea Decorte,<br>
+		Jeno Demeczky,<br>
+		Puri Rodríguez Díaz<br>
+		Ivailo Djilianov (Ивайло Джилянов),<br>
+		Sivaraj Doddannan,<br>
+		Thomas Dujardin,<br>
+		Peter Edberg,<br>
+		John Emmons<br>
+		Eva Albertsdotter Enblom,<br>
+		Behdad Esfahbod (بهداد اسفهبد),<br>
+		Michael Everson,<br>
+		Doug Ewell,<br>
+		Ahmad Farrag (أحمد فرّاج)<br>
+		Doug Felt,<br>
+		Elsebeth Flarup,<br>
+&nbsp;</td>
       <td class="noborder" width="33%" valign="top">Tom Garland,<br>
-      Yun Fang Ge (葛云芳),<br>
+		Mark Garrett,<br>
+		Yun Fang Ge (葛云芳),<br>
+		Deborah Goldsmith,<br>
+		Cristina Gonçalves<br>
 		Hélène Guillerme,<br>
-      Mine Halici,<br>
-      Yannis Haralambous (Γιάννης Χαραλάμπους),<br>
-      Andy Heninger,<br>
-      Hideki Hiura,<br>
-      Jarkko Hietaniemi,<br>
-      Denis Jacquerye,<br>
-      Alexander Kachur (Александр Качур),<br>
-      Kent Karlsson,<br>
-      Walter Keutgen,<br>
-      Akio Kido,<br>
-      Yuri Kirghisov,<br>
-      Troy Korjuslommi,<br>
-      Rici Lake,<br>
-      Antoine Leca,<br>
-      Peter Linsley,<br>
-      Alan Liu,<br>
-      Eric Mader,</td>
-      <td class="noborder" width="33%" valign="top">Sasha Maric (Саша Марић),<br>
-      Eric Muller,<br>
-		Kentaroh Noji (野地　健太郎),<br>
-      Sandra O&#39;Donnell,<br>
-      Charles Pau,<br>
-      Behdad Pournader (بهداد پورنادر),<br>
-      Åke Persson,<br>
-      Eike Rathke,<br>
-      Vytautas Rekus,<br>
-      George Rhoten,<br>
-      Jonathan Rosenne (יונתן רוזן),<br>
-      Markus Scherer,<br>
-      Dale Schultz,<br>
-      Javier Sola,<br>
-      Baldev Soor,<br>
-      Michael Twomey,<br>
-      Dick Veerhar,<br>
-      Philippe Verdy,<br>
-      Jarosław Włodarczyk,<br>
-      Daniel Yacob</td>
+		Mine Halici,<br>
+		Chris Hansten,<br>
+		Yannis Haralambous (Γιάννης Χαραλάμπους),<br>
+		Andy Heninger,<br>
+		Hideki Hiura,<br>
+		Susan Maria Howard,<br>
+		Jarkko Hietaniemi,<br>
+		Denis Jacquerye,<br>
+		Jama Musse Jama,<br>
+		Waris Abdukerim Janbaz (ۋارىس ئابدۇكېرىم جانباز),<br>
+		Alexander Kachur (Александр Качур),<br>
+		Kent Karlsson,<br>
+		Walter Keutgen,<br>
+		Rob Kiely,<br>
+		Akio Kido,<br>
+		Yuri Kirghisov,<br>
+		Troy Korjuslommi,<br>
+		Nicha Kumchokpattaraporn (ณิชชา กำโชคภัทรพร),<br>
+		Rici Lake,<br>
+		Antoine Leca,<br>
+		Calvin Lee (李灝),<br>
+		Peter Linsley,<br>
+		Alan Liu,<br>
+		Audun Lona,<br>
+		Eric Mader,<br>
+		Sasha Maric (Саша Марић),<br>
+		Dary Mihova (Дари Михова),<br>
+		Sonia Mokrani,<br>
+		Eric Muller,</td>
+      <td class="noborder" width="33%" valign="top">Kentaroh Noji (野地　健太郎),<br>
+		Peter Nugent,<br>
+		Sandra O&#39;Donnell,<br>
+		Alberto Escudero-Pascual<br>
+		Charles Pau (&#x9C8D;&#x666F;&#x8D85;),<br>
+		Søren Thing Pedersen,<br>
+		Åke Persson,<br>
+		Radi Pipev (Ради Пипев),<br>
+		Behdad Pournader (بهداد پورنادر),<br>
+		Alexey Proskuryakov (Алексей Проскуряков),<br>
+		Samphan Raruenrom (สัมพันธ์ ระรื่ืนรมย์),<br>
+		Eike Rathke,<br>
+		Vytautas Rekus,<br>
+		George Rhoten,<br>
+		Charles Riley,<br>
+		Jonathan Rosenne (יונתן רוזן),<br>
+		Markus Scherer,<br>
+		Dale Schultz,<br>
+		Theresa Hieatt-Smith,<br>
+		Javier Sola,<br>
+		Baldev Soor,<br>
+		Suwit Srivilairith (สุวิทย์ ศรีวิไลฤทธิ์),<br>
+		Jolanta Szczerba,<br>
+		Anna Taranova (Анна Таранова),<br>
+		Michael Twomey,<br>
+		Dacijus Turauskas,<br>
+		Yoshito Umaoka (馬岡 由人)<br>
+		Dick Veerhar,<br>
+		Philippe Verdy,<br>
+		Raghuram Viswanadha (రఘురామ్ విశ్వనాథ),<br>
+		Vladimir Weinstein (Владимир Вајнштајн),<br>
+		Jarosław Włodarczyk,<br>
+		Friedel Wolff,<br>
+		Simos Xenitellis (Σίμος Ξενιτέλλης),<br>
+		Daniel Yacob</td>
     </tr>
   </table>
-        </blockquote>
+        
         </td>
       </tr>
     </table>

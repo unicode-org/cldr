@@ -66,8 +66,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 		try {
 			index.println("root {");
 			index.println("    RuleBasedTransliteratorIDs {");
-            addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
-            addAlias(index, "el", "Latin", "", "Greek", "Latin", "UNGEGN");
+            //addAlias(index, "Latin", "el", "", "Latin", "Greek", "UNGEGN");
+            //addAlias(index, "el", "Latin", "", "Greek", "Latin", "UNGEGN");
 			//addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");

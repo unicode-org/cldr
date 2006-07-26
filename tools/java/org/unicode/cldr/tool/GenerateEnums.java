@@ -7,6 +7,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -15,9 +16,11 @@ import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,14 +45,36 @@ public class GenerateEnums {
     private CLDRFile english = factory.make("en",false);
     private CLDRFile supplementalMetadata = factory.make("supplementalMetadata", false);
     private CLDRFile supplementalData = factory.make("supplementalData", false);
+    private TreeSet unlimitedCurrencyCodes;
     
     public static void main(String[] args) throws IOException {
         GenerateEnums gen = new GenerateEnums();
-        gen.loadRegionData();
+        gen.loadCLDRData();
+        gen.showCurrencies();
         gen.printInfo();
         gen.printAdditionalInfo();
     }
     
+    private void showCurrencies() {
+        System.out.println();
+        System.out.println("Currency Data");
+        System.out.println();
+        compareSets("currencies from sup.data", currencyCodes, "valid currencies", validCurrencyCodes);
+        Set both = new TreeSet(currencyCodes);
+        both.addAll(validCurrencyCodes);
+        for (Iterator it = both.iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            String englishName = english.getName(CLDRFile.CURRENCY_NAME, code, false);
+            System.out.println(
+                    code
+                    + "\t" + englishName
+                    + "\t" + (validCurrencyCodes.contains(code) ? currencyCodes.contains(code) ? "" : "valid-only" : "supp-only")
+                    + "\t" + (unlimitedCurrencyCodes.contains(code) ? "" : "unused")
+                    );
+        }
+        
+    }
+
     private void printAdditionalInfo() {
         System.out.println();
         System.out.println("Data for RegionUtilties");
@@ -86,7 +111,7 @@ public class GenerateEnums {
 
     static NumberFormat threeDigit = new DecimalFormat("000");
     
-    public  void loadRegionData() throws IOException {
+    public  void loadCLDRData() throws IOException {
         BufferedReader codes = Utility.getUTF8Data("territory_codes.txt");
         while (true) {
             String line = codes.readLine();
@@ -188,7 +213,42 @@ public class GenerateEnums {
         addContains("001", startingFromWorld);
         compareSets("World", startingFromWorld, "CLDR", cldrCodes);
 
-        
+        DateFormat[] simpleFormats = {new SimpleDateFormat("yyyy-MM-dd"),
+                new SimpleDateFormat("yyyy-MM"),
+                new SimpleDateFormat("yyyy"),
+        };
+        Date today = new Date();
+        Date longAgo = new Date(1000-1900,1,1);
+        currencyCodes = new TreeSet();
+        unlimitedCurrencyCodes = new TreeSet();
+        for (Iterator it = supplementalData.iterator("//supplementalData/currencyData/region"); it.hasNext();) {
+            String path = (String)it.next();
+            parts.set(path);
+            String code = parts.findAttributeValue("currency", "iso4217");
+            String to = parts.findAttributeValue("currency", "to");
+            main:
+            if (to == null) {
+                unlimitedCurrencyCodes.add(code);
+            } else {
+                for (int i = 0; i < simpleFormats.length; ++i) {
+                    try {
+                        Date foo = simpleFormats[i].parse(to);
+                        if (foo.compareTo(longAgo) < 0) {
+                            System.out.println("Date Error: can't parse " + to);
+                            break main;
+                        } else  if (foo.compareTo(today) >= 0) {
+                            unlimitedCurrencyCodes.add(code);
+                        }
+                        break main;
+                    } catch (ParseException e) { }
+                }
+                System.out.println("Date Error: can't parse " + to);
+            }
+            currencyCodes.add(code);
+        }
+        String validCurrencies = supplementalMetadata.getStringValue("//supplementalData/metadata/validity/variable[@id=\"$currency\"]", true).trim();
+        validCurrencyCodes = new TreeSet(Arrays.asList(validCurrencies.split("\\s+")));
+
 //            Set availableCodes = new TreeSet(sc.getAvailableCodes("territory"));
 //            availableCodes.add("003");
 //            for (Iterator it = availableCodes.iterator(); it.hasNext();) {
@@ -263,6 +323,8 @@ public class GenerateEnums {
             //{"155","Western Europe"},
             
             });
+    private Set<String> currencyCodes;
+    private Set<String> validCurrencyCodes;
         
     /**
      * does stuff

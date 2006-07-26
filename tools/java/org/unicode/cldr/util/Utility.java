@@ -628,11 +628,11 @@ public class Utility {
 	}
 
 	public static void registerTransliteratorFromFile(String id, String dir, String filename) {
-		registerTransliteratorFromFile(id, dir, filename, Transliterator.FORWARD);
-		registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE);
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.FORWARD, true);
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE, true);
 	}
 	
-	public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction) {
+	public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction, boolean reverseID) {
 		try {
 			if (filename == null) {
 				filename = id.replace('-', '_');
@@ -659,6 +659,8 @@ public class Utility {
 			} else {
 				rid = id.substring(pos+1) + "-" + id.substring(0, pos);
 			}
+            if (!reverseID) rid = id;
+            
 			if (direction == Transliterator.FORWARD) {
 				Transliterator.unregister(id);
 				t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);

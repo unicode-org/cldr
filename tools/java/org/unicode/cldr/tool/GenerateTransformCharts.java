@@ -7,12 +7,14 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.SimpleEquivalenceClass;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.Transliterator;
@@ -42,32 +44,42 @@ public class GenerateTransformCharts {
     "[\u09D7\u0B56-\u0B57\u0BD7\u0C56\u0CD5-\u0CD6\u0D57\u0C55\u0CD5]");
 
     static         String testString = "\u0946\u093E";
+    private static boolean useICU = true;
+    
+    // Latin    Arabic  Bengali     Cyrillic    Devanagari  Greek   Greek/UNGEGN    Gujarati    Gurmukhi    Hangul  Hebrew  Hiragana    Kannada     Katakana    Malayalam   Oriya   Tamil   Telugu  Thai
 
 
     public static void main(String[] args) throws IOException {
         System.out.println("Start");
-        populateScriptInfo();
-        
-        EquivClass equivalenceClass = new EquivClass(new UTF16.StringComparator(true,false,0)); // new ReverseComparator());
-        Transliterator anyToLatin = Transliterator.getInstance("any-latin");
+        try {
+            if (true) {
+                showLatin();
+                return;
+            }
+            populateScriptInfo();
+            
+            SimpleEquivalenceClass equivalenceClass = new SimpleEquivalenceClass(new UTF16.StringComparator(true,false,0)); // new ReverseComparator());
+            Transliterator anyToLatin = Transliterator.getInstance("any-latin");
 
-        UnicodeSet failNorm = new UnicodeSet();
-        // Collator sc = Collator.getInstance(ULocale.ENGLISH);
-        // sc.setStrength(Collator.IDENTICAL);
-        Comparator sc = new UTF16.StringComparator(true, false, 0);
-        Set latinFail = new TreeSet(new ArrayComparator(new Comparator[] { sc, sc, sc }));
+            UnicodeSet failNorm = new UnicodeSet();
+            // Collator sc = Collator.getInstance(ULocale.ENGLISH);
+            // sc.setStrength(Collator.IDENTICAL);
+            Comparator sc = new UTF16.StringComparator(true, false, 0);
+            Set latinFail = new TreeSet(new ArrayComparator(new Comparator[] { sc, sc, sc }));
 
-        getEquivalentCharacters(equivalenceClass, latinFail);
+            getEquivalentCharacters(equivalenceClass, latinFail);
+            
+            printChart(equivalenceClass, anyToLatin, failNorm, latinFail);
+        } finally {
+            System.out.println("Done");
+        }
         
-        printChart(equivalenceClass, anyToLatin, failNorm, latinFail);
-        System.out.println("Done");
     }
 
-    private static void printChart(EquivClass equivalenceClass, Transliterator anyToLatin, UnicodeSet failNorm, Set latinFail) throws IOException {
+    private static void printChart(SimpleEquivalenceClass equivalenceClass, Transliterator anyToLatin, UnicodeSet failNorm, Set latinFail) throws IOException {
         // collect equivalents
         PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "gen/charts/transforms/", "transChart.html");
-        pw
-                .println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+        pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         pw.println("<title>Indic Transliteration Chart</title><style>");
         pw.println("td { text-align: Center; font-size: 200% }");
         pw.println("tt { font-size: 50% }");
@@ -156,7 +168,7 @@ public class GenerateTransformCharts {
         pw.close();
     }
 
-    private static void getEquivalentCharacters(EquivClass equivalenceClass, Set latinFail) {
+    private static void getEquivalentCharacters(SimpleEquivalenceClass equivalenceClass, Set latinFail) {
         UnicodeSet failures = new UnicodeSet();
         for (int i = 0; i < indicScripts.length; ++i) {
             if (indicScripts[i] == UScript.LATIN)
@@ -256,8 +268,185 @@ public class GenerateTransformCharts {
     private static Transliterator getTransliterator(String source, String target) {
         String id = source + '-' + target;
         if (id.indexOf("InterIndic") >= 0) id = "NFD; " + id + "; NFC";
-        if (true) return Transliterator.getInstance(id);
+        if (useICU) return Transliterator.getInstance(id);
         return CLDRTransforms.getInstance(id);
+    }
+    
+    private static void showLatin() throws IOException {
+        ParsedTransformID parsedID = new ParsedTransformID();
+        UnicodeSet stuffToSkip = new UnicodeSet("[[:HangulSyllableType=LVT:][:HangulSyllableType=LV:][:NFKD_QuickCheck=No:][\\U00010000-\\U0010FFFF]]");
+
+        Set s = getAvailableTransliterators();
+        Set ids = new TreeSet();
+        Map id_unmapped = new HashMap();
+        Map id_noRoundTrip = new HashMap();
+        Set latinItems = new TreeSet(Collator.getInstance(ULocale.ENGLISH));
+        
+        // gather info
+        for (Iterator i = s.iterator(); i.hasNext();) {
+            String id = (String)i.next();
+            UnicodeSet unmapped = new UnicodeSet();
+            id_unmapped.put(id, unmapped);
+            UnicodeSet noRoundTrip = new UnicodeSet();
+            id_noRoundTrip.put(id, noRoundTrip);
+            parsedID.set(id);
+            if (!parsedID.target.equals("Latin")) continue;
+            if (parsedID.source.equals("Han")) continue;
+            String script = parsedID.source;
+            int scriptCode = UScript.getCodeFromName(script);
+            if (scriptCode < 0) {
+                System.out.println("Skipping id: " + script);
+                continue;
+            }
+            ids.add(id);
+            String scriptName = UScript.getShortName(scriptCode);
+            UnicodeSet targetSet = new UnicodeSet("[:script=" + scriptName + ":]");
+            targetSet.removeAll(stuffToSkip);
+
+            Transliterator native_latin = getTransliterator(parsedID.source, parsedID.target);
+            Transliterator latin_native = getTransliterator(parsedID.target, parsedID.source);
+            for (UnicodeSetIterator it = new UnicodeSetIterator(targetSet); it.next();) {
+                String source = it.getString();
+                String target = native_latin.transliterate(source);
+                if (source.equals(target)) {
+                    unmapped.add(source);
+                    continue;
+                }
+                if (target.length() != 0) {
+                    latinItems.add(target);
+                }
+                String back = latin_native.transliterate(target);
+                if (!source.equals(back)) {
+                    noRoundTrip.add(source);
+                }
+            }
+        }
+        
+        PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "gen/charts/transforms/", "transLatin.html");
+        pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+        pw.println("<title>Latin Transliteration Chart</title><style>");
+        pw.println("td { text-align: Center; font-size: 200% }");
+        pw.println("tt { font-size: 50% }");
+        pw.println("td.miss { background-color: #CCCCFF }");
+        pw.println("td.none { background-color: #FFCCCC }");
+        pw.println("</style></head><body bgcolor='#FFFFFF'>");
+
+        pw.println("<table border='1' cellspacing='0'>");
+        pw.println("<tr><th>Latin</th>");       
+        for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+            parsedID.set((String)it2.next());
+            pw.println("<th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) + "</th>");       
+        }
+        pw.println("</tr>");
+        
+        UnicodeSet sourceSet = new UnicodeSet();
+        UnicodeSet targetSet = new UnicodeSet();
+        
+        for (Iterator it = latinItems.iterator(); it.hasNext();) {
+            String target = (String)it.next();
+            pw.println("<tr>");
+            showCell(pw, target, "");
+            for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+                String id = (String)it2.next();
+                parsedID.set(id);
+                Transliterator native_latin = getTransliterator(parsedID.source, parsedID.target);
+                Transliterator latin_native = getTransliterator(parsedID.target, parsedID.source);
+
+                String source = latin_native.transliterate(target);
+                // if some character is not transliterated, suppress
+                if (sourceSet.clear().addAll(source).containsSome(targetSet.clear().addAll(target))) {
+                    showCell(pw, "", "");
+                    continue;
+                }
+                String back = native_latin.transliterate(source);
+
+                String classString = target.equals(back) ? "" : " class='miss'";
+                showCell(pw, source, classString);
+            }
+            pw.println("</tr>");
+        }
+        pw.println("</table>");
+        
+        pw.println("<h2>Unmapped</h2>");
+        pw.println("<table border='1' cellspacing='0'>");
+        for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+            String id = (String)it2.next();
+            UnicodeSet unmapped = (UnicodeSet) id_unmapped.get(id);
+            if (unmapped.size() == 0) continue;
+            pw.println("<tr>");       
+            parsedID.set(id);
+            pw.println("<th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) + "</th>");
+             for (UnicodeSetIterator it = new UnicodeSetIterator(unmapped); it.next();) {
+                String source = it.getString();
+                showCell(pw, source, " class='missing'");
+            }           
+            pw.println("</tr>");
+        }
+        pw.println("</table>");
+        
+        pw.println("<h2>No Round Trip</h2>");
+        pw.println("<table border='1' cellspacing='0'>");
+        for (Iterator it2 = ids.iterator(); it2.hasNext();) {
+            String id = (String)it2.next();
+            UnicodeSet noRoundTrip = (UnicodeSet) id_noRoundTrip.get(id);
+            if (noRoundTrip.size() == 0) continue;
+            pw.println("<tr>");       
+            parsedID.set(id);
+            pw.println("<th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) + "</th>");
+             for (UnicodeSetIterator it = new UnicodeSetIterator(noRoundTrip); it.next();) {
+                String source = it.getString();
+                showCell(pw, source, " class='missing'");
+            }           
+            pw.println("</tr>");
+        }
+        pw.println("</table>");
+        
+        pw.println("</body></html>");
+        pw.close();
+    }
+    
+    private static class TranslitStatus {
+        String source;
+        String back;
+
+        public TranslitStatus(String source, String back) {
+            this.source = source;
+            this.back = back;
+        }
+    }
+    
+    public static class ParsedTransformID {
+        public String source;
+        public String target;
+        public String variant;
+        public void set(String id) {
+            variant = null;
+            int pos = id.indexOf('-');
+            if (pos < 0) {
+                source = "Any";
+                target = id;
+                return;
+            }
+            source = id.substring(0,pos);
+            int pos2 = id.indexOf('/', pos);
+            if (pos2 < 0) {
+                target = id.substring(pos+1);
+                return;
+            }
+            target = id.substring(pos+1, pos2);
+            variant = id.substring(pos2+1);
+        }
+    }
+    
+    private static Set getAvailableTransliterators() {
+        if (useICU ) {
+            Set results = new HashSet();
+            for (Enumeration e = Transliterator.getAvailableIDs(); e.hasMoreElements();) {
+                results.add(e.nextElement());
+            }
+            return results;
+        }
+        else return CLDRTransforms.getAvailableTransforms();
     }
 
     private static void showCell(PrintWriter pw, String item, String classString) {
@@ -355,62 +544,5 @@ public class GenerateTransformCharts {
         }
     }
 
-    static class EquivClass {
-        EquivClass(Comparator c) {
-            comparator = c;
-        }
 
-        private HashMap itemToSet = new HashMap();
-
-        private Comparator comparator;
-
-        void add(Object a, Object b) {
-            Set sa = (Set) itemToSet.get(a);
-            Set sb = (Set) itemToSet.get(b);
-            if (sa == null && sb == null) { // new set!
-                Set s = new TreeSet(comparator);
-                s.add(a);
-                s.add(b);
-                itemToSet.put(a, s);
-                itemToSet.put(b, s);
-            } else if (sa == null) {
-                sb.add(a);
-            } else if (sb == null) {
-                sa.add(b);
-            } else { // merge sets, dumping sb
-                sa.addAll(sb);
-                Iterator it = sb.iterator();
-                while (it.hasNext()) {
-                    itemToSet.put(it.next(), sa);
-                }
-            }
-        }
-
-        private class MyIterator implements Iterator {
-            private Iterator it;
-
-            MyIterator(Comparator comp) {
-                TreeSet values = new TreeSet(comp);
-                values.addAll(itemToSet.values());
-                it = values.iterator();
-            }
-
-            public boolean hasNext() {
-                return it.hasNext();
-            }
-
-            public Object next() {
-                return it.next();
-            }
-
-            public void remove() {
-                throw new IllegalArgumentException("can't remove");
-            }
-        }
-
-        public Iterator getSetIterator(Comparator comp) {
-            return new MyIterator(comp);
-        }
-
-    }
 }

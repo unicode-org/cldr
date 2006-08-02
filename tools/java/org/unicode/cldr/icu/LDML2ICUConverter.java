@@ -241,7 +241,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             locName = locName.substring(0,index);
         }
         
-        System.out.print("Processing: "+xmlfileName);
+        System.out.println("Processing: "+xmlfileName);
         //printInfo("Parsing: "+xmlfileName);
         String icuSpecialFile ="";
         if(specialsDir!=null){
@@ -3449,48 +3449,56 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         //TODO figure out what to do for alias
         Node parent = root.getParentNode();
-        ArrayList list = new ArrayList();
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",  xpath));
-        //TODO guard this against possible failure
-        list.add(getVettedNode(parent, "dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type='standard']/pattern", xpath));
-
-        if(list.size()<9){
-            throw new RuntimeException("Did not get expected output for Date and Time patterns!!");
+        String[] paths = new String[]{
+                "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",
+                "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",
+                "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern",
+                "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern",
+                "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern",
+                "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern",
+                "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern",
+                "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",
+                "dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type='standard']/pattern",
+        };
+        int saveLen = xpath.length();
+        Node[] nodes = new Node[paths.length];
+        boolean someNonDraft = false;
+        for(int i=0; i < paths.length; i++){
+            nodes[i] = getVettedNode(root, paths[i], xpath);
+            if(nodes[i]!=null){
+                someNonDraft = true;
+            }
         }
-        ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
-        arr.name = DTP;
-        ICUResourceWriter.Resource current = null;
-        for(int i= 0; i<list.size(); i++){
-            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-            Node temp = (Node)list.get(i);
-            if(temp==null){
-                System.err.println("WARNING: Some elements of DateTimePatterns resource are marked draft producing this resource. "+xpath.toString());
-                arr.first=null;
-                break;
-            }
-            str.val = LDMLUtilities.getNodeValue(temp);
-            if(str.val!=null){
-                if(current==null){
-                    current = arr.first = str;
-                }else{
-                    current.next = str;
-                    current = current.next;
+        if(someNonDraft == true){
+            ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
+            arr.name = DTP;
+            ICUResourceWriter.Resource current = null;
+            for(int i= 0; i<nodes.length; i++){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                Node temp = nodes[i];
+                if(temp==null){
+                    xpath.append("/");
+                    xpath.append(paths[i]);
+                    temp = LDMLUtilities.getNode(fullyResolvedDoc,  xpath.toString());
+                    xpath.setLength(saveLen);
                 }
-            }else{
-                throw new RuntimeException("the node value for Date and Time patterns is null!!");
-            }
-        }	   
-
-       if(arr.first!=null){
-            return arr;
-       }
+                str.val = LDMLUtilities.getNodeValue(temp);
+                if(str.val!=null){
+                    if(current==null){
+                        current = arr.first = str;
+                    }else{
+                        current.next = str;
+                        current = current.next;
+                    }
+                }else{
+                    throw new RuntimeException("the node value for Date and Time patterns is null!!");
+                }
+            }	   
+    
+           if(arr.first!=null){
+                return arr;
+           }
+        }
         return null;
     }
     private ICUResourceWriter.Resource parseFlexibleFormats(Node root, StringBuffer xpath){
@@ -3680,45 +3688,55 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return null;
         }
 
-        //TODO figure out what to do for alias
-        ArrayList list = new ArrayList();
-        list.add(getVettedNode(root, "decimal", xpath));
-        list.add(getVettedNode(root, "group", xpath));
-        list.add(getVettedNode(root, "list", xpath));
-        list.add(getVettedNode(root, "percentSign", xpath));
-        list.add(getVettedNode(root, "nativeZeroDigit", xpath));
-        list.add(getVettedNode(root, "patternDigit", xpath));
-        list.add(getVettedNode(root, "minusSign", xpath));
-        list.add(getVettedNode(root, "exponential", xpath));
-        list.add(getVettedNode(root, "perMille", xpath));
-        list.add(getVettedNode(root, "infinity", xpath));
-        list.add(getVettedNode(root, "nan", xpath));
-        list.add(getVettedNode(root, "plusSign", xpath));
-
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = NUMBER_ELEMENTS;
         ICUResourceWriter.Resource current = null;
-        for(int i= 0; i<list.size(); i++){
-            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-            Node temp = (Node)list.get(i);
-            if(temp==null){
-                System.err.println("WARNING: Did not get expected output for symbols. Not producing the resource.");
-                arr.first=null;
-                return null;
-            }
-            str.val = LDMLUtilities.getNodeValue(temp);
-            if(str.val!=null){
-                if(current==null){
-                    current = arr.first = str;
-                }else{
-                    current.next = str;
-                    current = current.next;
-                }
-            }else{
-                throw new RuntimeException("the node value for Date and Time patterns is null!!");
+        String[] paths = new String[]{
+                LDMLConstants.DECIMAL,
+                LDMLConstants.GROUP,
+                LDMLConstants.LIST,
+                LDMLConstants.PERCENT_SIGN,
+                LDMLConstants.NATIVE_ZERO_SIGN,
+                LDMLConstants.PATTERN_DIGIT,
+                LDMLConstants.MINUS_SIGN,
+                LDMLConstants.EXPONENTIAL,
+                LDMLConstants.PER_MILLE,
+                LDMLConstants.INFINITY,
+                LDMLConstants.NAN,
+                LDMLConstants.PLUS_SIGN
+        };
+        Node[] nodes = new Node[paths.length];
+        boolean someNonDraft = false;
+        for(int i=0; i<paths.length; i++){
+            nodes[i] = getVettedNode(root, paths[i], xpath);
+            if(nodes[i]!=null){
+                someNonDraft = true;
             }
         }
-
+        int saveLen =xpath.length();
+        if(someNonDraft==true){
+            for(int i= 0; i<nodes.length; i++){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                Node temp =nodes[i];
+                if(temp==null){
+                    xpath.append("/");
+                    xpath.append(paths[i]);
+                    temp = LDMLUtilities.getNode(fullyResolvedDoc,  xpath.toString());
+                    xpath.setLength(saveLen);
+                }
+                str.val = LDMLUtilities.getNodeValue(temp);
+                if(str.val!=null){
+                    if(current==null){
+                        current = arr.first = str;
+                    }else{
+                        current.next = str;
+                        current = current.next;
+                    }
+                }else{
+                    throw new RuntimeException("the node value for Date and Time patterns is null!!");
+                }
+            }
+        }
         xpath.delete(savedLength, xpath.length());
 
         if(arr.first!=null){
@@ -3727,45 +3745,56 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
 
     }
+
     private ICUResourceWriter.Resource parseNumberFormats(Node root, StringBuffer xpath){
 
         //      here we dont add stuff to XPATH since we are querying the parent
         //      with the hardcoded XPATHS!
 
         //TODO figure out what to do for alias, draft and alt elements
+        String[] paths = new String[]{
+                "decimalFormats/decimalFormatLength/decimalFormat[@type='standard']/pattern",
+                "currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern",
+                "percentFormats/percentFormatLength/percentFormat[@type='standard']/pattern",
+                "scientificFormats/scientificFormatLength/scientificFormat[@type='standard']/pattern"
+        };
         Node parent = root.getParentNode();
-        ArrayList list = new ArrayList();
-        list.add(getVettedNode(parent, "decimalFormats/decimalFormatLength/decimalFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "percentFormats/percentFormatLength/percentFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "scientificFormats/scientificFormatLength/scientificFormat[@type='standard']/pattern",  xpath));
-
+        Node[] nodes = new Node[paths.length];
+        boolean someNonDraft = false;
+        for(int i=0; i<paths.length;i++){
+            nodes[i] = getVettedNode(parent, paths[i],  xpath);
+            if(nodes[i]!=null){
+                someNonDraft = true;
+            }
+        }
+        int saveLen = xpath.length();
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = NUMBER_PATTERNS;
         ICUResourceWriter.Resource current = null;
-        for(int i= 0; i<list.size(); i++){
-            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-            Node temp = (Node)list.get(i);
-            if(temp==null){
-                //the resource is not fully populated even in the parent
-                // dont write the resource
-                printWarning(fileName,"Did not get expected output for number patterns. Not producing the resource.");
-                return null;
-                //throw new RuntimeException("Did not get expected output for number patterns!!");
-            }
-            str.val = LDMLUtilities.getNodeValue(temp);
-            if(str.val!=null){
-                if(current==null){
-                    current = arr.first = str;
-                }else{
-                    current.next = str;
-                    current = current.next;
+        if(someNonDraft){
+            for(int i= 0; i<nodes.length; i++){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                Node temp = nodes[i];
+                if(temp==null){
+                    //fetch from parent
+                    xpath.append("/");
+                    xpath.append(paths[i]);
+                    temp = LDMLUtilities.getNode(fullyResolvedDoc, xpath.toString());
+                    xpath.setLength(saveLen);
                 }
-            }else{
-                throw new RuntimeException("the node value for number patterns is null!!");
+                str.val = LDMLUtilities.getNodeValue(temp);
+                if(str.val!=null){
+                    if(current==null){
+                        current = arr.first = str;
+                    }else{
+                        current.next = str;
+                        current = current.next;
+                    }
+                }else{
+                    throw new RuntimeException("the node value for number patterns is null!!");
+                }
             }
         }
-
         if(arr.first!=null){
             return arr;
         }

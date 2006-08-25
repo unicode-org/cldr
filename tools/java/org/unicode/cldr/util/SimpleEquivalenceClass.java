@@ -5,15 +5,18 @@ package org.unicode.cldr.util;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 public  class SimpleEquivalenceClass {
     
     public SimpleEquivalenceClass(Comparator c) {
         comparator = c;
+        itemToSet = new TreeMap(c);
     }
     
-    private HashMap itemToSet = new HashMap();
+    private Map itemToSet;
     
     private Comparator comparator;
     
@@ -43,9 +46,12 @@ public  class SimpleEquivalenceClass {
         private Iterator it;
         
         MyIterator(Comparator comp) {
+            if (comp == null) it = itemToSet.values().iterator();
+            else {
             TreeSet values = new TreeSet(comp);
             values.addAll(itemToSet.values());
             it = values.iterator();
+            }
         }
         
         public boolean hasNext() {
@@ -65,4 +71,7 @@ public  class SimpleEquivalenceClass {
         return new MyIterator(comp);
     }
     
+    public String toString() {
+        return itemToSet.values().toString();
+    }
 }

@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='cch'>
- <!-- cch [cch] -->
+ <!-- Atsam [Atsam] -->
   <number 
 locales='cch cch_NG'>
-<!-- cch [cch]; cch (Nigeria) [cch (Nigeria)] -->
+<!-- Atsam [Atsam]; Atsam (Nigeria) [Atsam (Nigeria)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='cch cch_NG'>
   </number>
   <date 
 locales='cch'>
-<!-- cch [cch] -->
+<!-- Atsam [Atsam] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -529,7 +529,7 @@ locales='cch'>
   </date>
   <date 
 locales='cch_NG'>
-<!-- cch (Nigeria) [cch (Nigeria)] -->
+<!-- Atsam (Nigeria) [Atsam (Nigeria)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -821,7 +821,7 @@ locales='cch_NG'>
   </date>
   <zoneFields 
 locales='cch cch_NG'>
-<!-- cch [cch]; cch (Nigeria) [cch (Nigeria)] -->
+<!-- Atsam [Atsam]; Atsam (Nigeria) [Atsam (Nigeria)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -933,7 +933,7 @@ locales='cch cch_NG'>
   </zoneFields>
   <collation 
 locales='cch'>
-<!-- cch [cch] -->
+<!-- Atsam [Atsam] -->
    <result draft='true'>
 x 
 X 
@@ -1328,7 +1328,7 @@ x2x
   </collation>
   <collation 
 locales='cch_NG'>
-<!-- cch (Nigeria) [cch (Nigeria)] -->
+<!-- Atsam (Nigeria) [Atsam (Nigeria)] -->
    <result draft='either'>
 x 
 X 

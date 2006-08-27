@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='kcg'>
- <!-- kcg [kcg] -->
+ <!-- Tyap [Tyap] -->
   <number 
 locales='kcg kcg_NG'>
-<!-- kcg [kcg]; kcg (Nigeria) [kcg (Nigeria)] -->
+<!-- Tyap [Tyap]; Tyap (Nigeria) [Tyap (Nigeria)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='kcg kcg_NG'>
   </number>
   <date 
 locales='kcg'>
-<!-- kcg [kcg] -->
+<!-- Tyap [Tyap] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -529,7 +529,7 @@ locales='kcg'>
   </date>
   <date 
 locales='kcg_NG'>
-<!-- kcg (Nigeria) [kcg (Nigeria)] -->
+<!-- Tyap (Nigeria) [Tyap (Nigeria)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -821,7 +821,7 @@ locales='kcg_NG'>
   </date>
   <zoneFields 
 locales='kcg kcg_NG'>
-<!-- kcg [kcg]; kcg (Nigeria) [kcg (Nigeria)] -->
+<!-- Tyap [Tyap]; Tyap (Nigeria) [Tyap (Nigeria)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -933,7 +933,7 @@ locales='kcg kcg_NG'>
   </zoneFields>
   <collation 
 locales='kcg'>
-<!-- kcg [kcg] -->
+<!-- Tyap [Tyap] -->
    <result draft='true'>
 x 
 X 
@@ -1343,7 +1343,7 @@ x2x
   </collation>
   <collation 
 locales='kcg_NG'>
-<!-- kcg (Nigeria) [kcg (Nigeria)] -->
+<!-- Tyap (Nigeria) [Tyap (Nigeria)] -->
    <result draft='either'>
 x 
 X 

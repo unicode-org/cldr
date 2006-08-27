@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='ps'>
- <!-- Pashto (Pushto) [پښتو] -->
+ <!-- Pashto [پښتو] -->
   <number 
 locales='ps'>
-<!-- Pashto (Pushto) [پښتو] -->
+<!-- Pashto [پښتو] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='ps'>
   </number>
   <number 
 locales='ps_AF'>
-<!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto (Afghanistan) [پښتو (افغانستان)] -->
    <result input='0.0' numberType='integer' draft='either'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>۰٪</result>
@@ -109,7 +109,7 @@ locales='ps_AF'>
   </number>
   <date 
 locales='ps'>
-<!-- Pashto (Pushto) [پښتو] -->
+<!-- Pashto [پښتو] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 (GMT+00:00)</result>
@@ -401,7 +401,7 @@ locales='ps'>
   </date>
   <date 
 locales='ps_AF'>
-<!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto (Afghanistan) [پښتو (افغانستان)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>۰:۰۰</result>
    <result timeType='medium'>۰:۰۰:۰۰</result>
    <result timeType='long'>۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
@@ -693,7 +693,7 @@ locales='ps_AF'>
   </date>
   <zoneFields 
 locales='ps'>
-<!-- Pashto (Pushto) [پښتو] -->
+<!-- Pashto [پښتو] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -805,7 +805,7 @@ locales='ps'>
   </zoneFields>
   <zoneFields 
 locales='ps_AF'>
-<!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto (Afghanistan) [پښتو (افغانستان)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-۰۸:۰۰</result>
    <result field='z'>GMT-۰۸:۰۰</result>
@@ -917,26 +917,20 @@ locales='ps_AF'>
   </zoneFields>
   <collation 
 locales='ps ps_AF'>
-<!-- Pashto (Pushto) [پښتو]; Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
+<!-- Pashto [پښتو]; Pashto (Afghanistan) [پښتو (افغانستان)] -->
    <result draft='either'>
-x‍
-x‌
-x‍
-X‌
-X‍
-X‌
-xً
-Xً
-xٌ
-Xٌ
-xٍ
-Xٍ
 xَ
 Xَ
-xُ
-Xُ
 xِ
 Xِ
+xُ
+Xُ
+xً
+Xً
+xٍ
+Xٍ
+xٌ
+Xٌ
 xّ
 Xّ
 xْ
@@ -947,7 +941,13 @@ xٰ
 Xٰ
 x 
 X 
+x‌
+X‌
+x‍
+X‍
 x x
+x‌x
+x‍x
 x.
 X.
 x.x
@@ -960,97 +960,109 @@ x12x
 x2
 X2
 x2x
-x‌x
-x‍x
-x‌x
-xًx
-xٌx
-xٍx
 xَx
-xُx
 xِx
+xُx
+xًx
+xٍx
+xٌx
 xّx
 xْx
 xٔx
 xٰx
-xء
-Xء
-xءx
 xآ
 Xآ
 xآx
-xأ
-Xأ
-xأx
-xؤ
-Xؤ
-xؤx
-xئ
-Xئ
-xئx
 xا
 Xا
+xأ
+Xأ
+xٲ
+Xٲ
+xٱ
+Xٱ
+xإ
+Xإ
+xٳ
+Xٳ
 xاx
+xأx
+xٲx
+xٱx
+xإx
+xٳx
+xء
+Xء
+xءx
 xب
 Xب
 xبx
 xپ
 Xپ
 xپx
-xة
-Xة
-xةx
 xت
 Xت
 xتx
+xټ
+Xټ
+xٹ
+Xٹ
+xټx
+xٹx
 xث
 Xث
 xثx
-xټ
-Xټ
-xټx
 xج
 Xج
 xجx
+xځ
+Xځ
+xحٔ
+Xحٔ
+xځx
+xحٔx
 xچ
 Xچ
 xچx
+xڅ
+Xڅ
+xڅx
 xح
 Xح
 xحx
 xخ
 Xخ
 xخx
-xځ
-Xځ
-xځx
-xڅ
-Xڅ
-xڅx
 xد
 Xد
 xدx
+xډ
+Xډ
+xڈ
+Xڈ
+xډx
+xڈx
 xذ
 Xذ
 xذx
-xډ
-Xډ
-xډx
 xر
 Xر
 xرx
+xړ
+Xړ
+xڑ
+Xڑ
+xړx
+xڑx
 xز
 Xز
 xزx
-xړ
-Xړ
-xړx
-xږ
-Xږ
-xږx
 xژ
 Xژ
 xژx
+xږ
+Xږ
+xږx
 xس
 Xس
 xسx
@@ -1086,10 +1098,19 @@ Xق
 xقx
 xک
 Xک
+xڪ
+Xڪ
+xك
+Xك
 xکx
+xڪx
+xكx
 xګ
 Xګ
+xگ
+Xگ
 xګx
+xگx
 xل
 Xل
 xلx
@@ -1101,25 +1122,73 @@ Xن
 xنx
 xڼ
 Xڼ
+xڻ
+Xڻ
 xڼx
+xڻx
 xه
+xۀ
+xهٔ
 Xه
+Xۀ
+Xهٔ
+xە
+Xە
+xہ
+Xہ
+xھ
+Xھ
+xة
+Xة
+xۃ
+Xۃ
 xهx
+xۀx
+xهٔx
+xەx
+xہx
+xھx
+xةx
+xۃx
 xو
 Xو
+xؤ
+Xؤ
+xۇ
+Xۇ
+xۉ
+Xۉ
 xوx
-xي
-Xي
-xيx
+xؤx
+xۇx
+xۉx
 xی
 Xی
-xیx
-xۍ
-Xۍ
-xۍx
+xى
+Xى
+xے
+Xے
+xي
+Xي
 xې
 Xې
+xۍ
+Xۍ
+xیٔ
+xىٔ
+xئ
+Xیٔ
+Xىٔ
+Xئ
+xیx
+xىx
+xےx
+xيx
 xېx
+xۍx
+xیٔx
+xىٔx
+xئx
 </result>
   </collation>
  </cldrTest>

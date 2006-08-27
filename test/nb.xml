@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='nb'>
- <!-- Norwegian Bokmål [norsk bokmål] -->
+ <!-- Norwegian Bokmål [bokmål] -->
   <number 
 locales='nb nb_NO'>
-<!-- Norwegian Bokmål [norsk bokmål]; Norwegian Bokmål (Norway) [norsk bokmål (Norge)] -->
+<!-- Norwegian Bokmål [bokmål]; Norwegian Bokmål (Norway) [bokmål (Norge)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
@@ -57,7 +57,7 @@ locales='nb nb_NO'>
   </number>
   <date 
 locales='nb nb_NO'>
-<!-- Norwegian Bokmål [norsk bokmål]; Norwegian Bokmål (Norway) [norsk bokmål (Norge)] -->
+<!-- Norwegian Bokmål [bokmål]; Norwegian Bokmål (Norway) [bokmål (Norge)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result timeType='long'>00.00.00 GMT+00:00</result>
@@ -349,7 +349,7 @@ locales='nb nb_NO'>
   </date>
   <zoneFields 
 locales='nb nb_NO'>
-<!-- Norwegian Bokmål [norsk bokmål]; Norwegian Bokmål (Norway) [norsk bokmål (Norge)] -->
+<!-- Norwegian Bokmål [bokmål]; Norwegian Bokmål (Norway) [bokmål (Norge)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -461,7 +461,7 @@ locales='nb nb_NO'>
   </zoneFields>
   <collation 
 locales='nb nb_NO'>
-<!-- Norwegian Bokmål [norsk bokmål]; Norwegian Bokmål (Norway) [norsk bokmål (Norge)] -->
+<!-- Norwegian Bokmål [bokmål]; Norwegian Bokmål (Norway) [bokmål (Norge)] -->
    <result draft='either'>
 x 
 X 
@@ -494,20 +494,6 @@ xǎ
 xǍ
 Xǎ
 XǍ
-xå
-xÅ
-Xå
-XÅ
-xä
-xÄ
-Xä
-XÄ
-xæ
-xÆ
-Xæ
-XÆ
-xæx
-xÆx
 xax
 xAx
 xáx
@@ -516,10 +502,6 @@ xàx
 xÀx
 xǎx
 xǍx
-xåx
-xÅx
-xäx
-xÄx
 xb
 xB
 Xb
@@ -552,10 +534,16 @@ xđ
 xĐ
 Xđ
 XĐ
+xð
+xÐ
+Xð
+XÐ
 xdx
 xDx
 xđx
 xĐx
+xðx
+xÐx
 xe
 xE
 Xe
@@ -668,14 +656,6 @@ xô
 xÔ
 Xô
 XÔ
-xö
-xÖ
-Xö
-XÖ
-xø
-xØ
-Xø
-XØ
 xox
 xOx
 xóx
@@ -684,10 +664,6 @@ xòx
 xÒx
 xôx
 xÔx
-xöx
-xÖx
-xøx
-xØx
 xp
 xP
 Xp
@@ -722,6 +698,12 @@ xt
 xT
 Xt
 XT
+xþ
+xÞ
+Xþ
+XÞ
+xþx
+xÞx
 xtx
 xTx
 xŧ
@@ -734,14 +716,8 @@ xu
 xU
 Xu
 XU
-xü
-xÜ
-Xü
-XÜ
 xux
 xUx
-xüx
-xÜx
 xv
 xV
 Xv
@@ -764,8 +740,20 @@ xy
 xY
 Xy
 XY
+xü
+xÜ
+Xü
+XÜ
+xű
+xŰ
+Xű
+XŰ
 xyx
 xYx
+xüx
+xÜx
+xűx
+xŰx
 xz
 xZ
 Xz
@@ -778,6 +766,54 @@ xzx
 xZx
 xžx
 xŽx
+xæ
+xÆ
+Xæ
+XÆ
+xä
+xÄ
+Xä
+XÄ
+xę
+xĘ
+Xę
+XĘ
+xæx
+xÆx
+xäx
+xÄx
+xęx
+xĘx
+xø
+xØ
+Xø
+XØ
+xö
+xÖ
+Xö
+XÖ
+xő
+xŐ
+Xő
+XŐ
+xœ
+xŒ
+Xœ
+XŒ
+xøx
+xØx
+xöx
+xÖx
+xőx
+xŐx
+xœx
+xŒx
+xå
+xÅ
+Xå
+XÅ
+xåx
+xÅx
 </result>
   </collation>
  </cldrTest>

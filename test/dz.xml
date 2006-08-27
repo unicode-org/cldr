@@ -8,72 +8,48 @@ locales='dz'>
 <!-- Dzongkha [Dzongkha] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent' draft='true'>0 %</result>
-   <result draft='false'>0%</result>
-   <result numberType='scientific' draft='true'>0E+00</result>
-   <result draft='false'>0E0</result>
-   <result input='0.01' numberType='integer' draft='either'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0.01</result>
-   <result numberType='percent' draft='true'>1 %</result>
-   <result draft='false'>1%</result>
-   <result numberType='scientific' draft='true'>1E-02</result>
-   <result draft='false'>1E-2</result>
-   <result input='-0.01' numberType='integer' draft='either'>-0</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0.01</result>
-   <result numberType='percent' draft='true'>-1 %</result>
-   <result draft='false'>-1%</result>
-   <result numberType='scientific' draft='true'>-1E-02</result>
-   <result draft='false'>-1E-2</result>
-   <result input='1.0' numberType='integer' draft='either'>1</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent' draft='true'>100 %</result>
-   <result draft='false'>100%</result>
-   <result numberType='scientific' draft='true'>1E+00</result>
-   <result draft='false'>1E0</result>
-   <result input='-1.0' numberType='integer' draft='either'>-1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
-   <result numberType='percent' draft='true'>-100 %</result>
-   <result draft='false'>-100%</result>
-   <result numberType='scientific' draft='true'>-1E+00</result>
-   <result draft='false'>-1E0</result>
-   <result input='123.456' numberType='integer' draft='either'>123</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123.456</result>
-   <result numberType='percent' draft='true'>12,346 %</result>
-   <result draft='false'>12,346%</result>
-   <result numberType='scientific' draft='true'>1.23456E+02</result>
-   <result draft='false'>1.23456E2</result>
-   <result input='-123.456' numberType='integer' draft='either'>-123</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123.456</result>
-   <result numberType='percent' draft='true'>-12,346 %</result>
-   <result draft='false'>-12,346%</result>
-   <result numberType='scientific' draft='true'>-1.23456E+02</result>
-   <result draft='false'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer' draft='true'>1,23,457</result>
-   <result draft='false'>123,457</result>
-   <result numberType='decimal' draft='true'>1,23,456.78</result>
-   <result draft='false'>123,456.78</result>
-   <result numberType='percent' draft='true'>1,23,45,678 %</result>
-   <result draft='false'>12,345,678%</result>
-   <result numberType='scientific' draft='true'>1.2345678E+05</result>
-   <result draft='false'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer' draft='true'>-1,23,457</result>
-   <result draft='false'>-123,457</result>
-   <result numberType='decimal' draft='true'>-1,23,456.78</result>
-   <result draft='false'>-123,456.78</result>
-   <result numberType='percent' draft='true'>-1,23,45,678 %</result>
-   <result draft='false'>-12,345,678%</result>
-   <result numberType='scientific' draft='true'>-1.2345678E+05</result>
-   <result draft='false'>-1.2345678E5</result>
-   <result input='Infinity' numberType='integer' draft='either'>∞</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent' draft='true'>∞ %</result>
-   <result draft='false'>∞%</result>
-   <result numberType='scientific' draft='either'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
-   <result numberType='percent' draft='true'>-∞ %</result>
-   <result draft='false'>-∞%</result>
-   <result numberType='scientific' draft='either'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
    <result input='NaN' numberType='integer'>NaN</result>
    <result numberType='decimal'>NaN</result>
    <result numberType='percent'>NaN</result>
@@ -86,88 +62,88 @@ locales='dz_BT'>
    <result draft='false'>0</result>
    <result numberType='decimal' draft='true'>༠</result>
    <result draft='false'>0</result>
-   <result numberType='percent' draft='true'>༠ བ</result>
-   <result draft='false'>0 %</result>
-   <result numberType='scientific' draft='true'>༠E+༠༠</result>
-   <result draft='false'>0E+00</result>
+   <result numberType='percent' draft='true'>༠བ</result>
+   <result draft='false'>0%</result>
+   <result numberType='scientific' draft='true'>༠E༠</result>
+   <result draft='false'>0E0</result>
    <result input='0.01' numberType='integer' draft='true'>༠</result>
    <result draft='false'>0</result>
    <result numberType='decimal' draft='true'>༠.༠༡</result>
    <result draft='false'>0.01</result>
-   <result numberType='percent' draft='true'>༡ བ</result>
-   <result draft='false'>1 %</result>
-   <result numberType='scientific' draft='true'>༡E-༠༢</result>
-   <result draft='false'>1E-02</result>
+   <result numberType='percent' draft='true'>༡བ</result>
+   <result draft='false'>1%</result>
+   <result numberType='scientific' draft='true'>༡E-༢</result>
+   <result draft='false'>1E-2</result>
    <result input='-0.01' numberType='integer' draft='true'>-༠</result>
    <result draft='false'>-0</result>
    <result numberType='decimal' draft='true'>-༠.༠༡</result>
    <result draft='false'>-0.01</result>
-   <result numberType='percent' draft='true'>-༡ བ</result>
-   <result draft='false'>-1 %</result>
-   <result numberType='scientific' draft='true'>-༡E-༠༢</result>
-   <result draft='false'>-1E-02</result>
+   <result numberType='percent' draft='true'>-༡བ</result>
+   <result draft='false'>-1%</result>
+   <result numberType='scientific' draft='true'>-༡E-༢</result>
+   <result draft='false'>-1E-2</result>
    <result input='1.0' numberType='integer' draft='true'>༡</result>
    <result draft='false'>1</result>
    <result numberType='decimal' draft='true'>༡</result>
    <result draft='false'>1</result>
-   <result numberType='percent' draft='true'>༡༠༠ བ</result>
-   <result draft='false'>100 %</result>
-   <result numberType='scientific' draft='true'>༡E+༠༠</result>
-   <result draft='false'>1E+00</result>
+   <result numberType='percent' draft='true'>༡༠༠བ</result>
+   <result draft='false'>100%</result>
+   <result numberType='scientific' draft='true'>༡E༠</result>
+   <result draft='false'>1E0</result>
    <result input='-1.0' numberType='integer' draft='true'>-༡</result>
    <result draft='false'>-1</result>
    <result numberType='decimal' draft='true'>-༡</result>
    <result draft='false'>-1</result>
-   <result numberType='percent' draft='true'>-༡༠༠ བ</result>
-   <result draft='false'>-100 %</result>
-   <result numberType='scientific' draft='true'>-༡E+༠༠</result>
-   <result draft='false'>-1E+00</result>
+   <result numberType='percent' draft='true'>-༡༠༠བ</result>
+   <result draft='false'>-100%</result>
+   <result numberType='scientific' draft='true'>-༡E༠</result>
+   <result draft='false'>-1E0</result>
    <result input='123.456' numberType='integer' draft='true'>༡༢༣</result>
    <result draft='false'>123</result>
    <result numberType='decimal' draft='true'>༡༢༣.༤༥༦</result>
    <result draft='false'>123.456</result>
-   <result numberType='percent' draft='true'>༡༢,༣༤༦ བ</result>
-   <result draft='false'>12,346 %</result>
-   <result numberType='scientific' draft='true'>༡.༢༣༤༥༦E+༠༢</result>
-   <result draft='false'>1.23456E+02</result>
+   <result numberType='percent' draft='true'>༡༢,༣༤༦བ</result>
+   <result draft='false'>12,346%</result>
+   <result numberType='scientific' draft='true'>༡.༢༣༤༥༦E༢</result>
+   <result draft='false'>1.23456E2</result>
    <result input='-123.456' numberType='integer' draft='true'>-༡༢༣</result>
    <result draft='false'>-123</result>
    <result numberType='decimal' draft='true'>-༡༢༣.༤༥༦</result>
    <result draft='false'>-123.456</result>
-   <result numberType='percent' draft='true'>-༡༢,༣༤༦ བ</result>
-   <result draft='false'>-12,346 %</result>
-   <result numberType='scientific' draft='true'>-༡.༢༣༤༥༦E+༠༢</result>
-   <result draft='false'>-1.23456E+02</result>
-   <result input='123456.78' numberType='integer' draft='true'>༡,༢༣,༤༥༧</result>
-   <result draft='false'>1,23,457</result>
-   <result numberType='decimal' draft='true'>༡,༢༣,༤༥༦.༧༨</result>
-   <result draft='false'>1,23,456.78</result>
-   <result numberType='percent' draft='true'>༡,༢༣,༤༥,༦༧༨ བ</result>
-   <result draft='false'>1,23,45,678 %</result>
-   <result numberType='scientific' draft='true'>༡.༢༣༤༥༦༧༨E+༠༥</result>
-   <result draft='false'>1.2345678E+05</result>
-   <result input='-123456.78' numberType='integer' draft='true'>-༡,༢༣,༤༥༧</result>
-   <result draft='false'>-1,23,457</result>
-   <result numberType='decimal' draft='true'>-༡,༢༣,༤༥༦.༧༨</result>
-   <result draft='false'>-1,23,456.78</result>
-   <result numberType='percent' draft='true'>-༡,༢༣,༤༥,༦༧༨ བ</result>
-   <result draft='false'>-1,23,45,678 %</result>
-   <result numberType='scientific' draft='true'>-༡.༢༣༤༥༦༧༨E+༠༥</result>
-   <result draft='false'>-1.2345678E+05</result>
+   <result numberType='percent' draft='true'>-༡༢,༣༤༦བ</result>
+   <result draft='false'>-12,346%</result>
+   <result numberType='scientific' draft='true'>-༡.༢༣༤༥༦E༢</result>
+   <result draft='false'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='true'>༡༢༣,༤༥༧</result>
+   <result draft='false'>123,457</result>
+   <result numberType='decimal' draft='true'>༡༢༣,༤༥༦.༧༨</result>
+   <result draft='false'>123,456.78</result>
+   <result numberType='percent' draft='true'>༡༢,༣༤༥,༦༧༨བ</result>
+   <result draft='false'>12,345,678%</result>
+   <result numberType='scientific' draft='true'>༡.༢༣༤༥༦༧༨E༥</result>
+   <result draft='false'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='true'>-༡༢༣,༤༥༧</result>
+   <result draft='false'>-123,457</result>
+   <result numberType='decimal' draft='true'>-༡༢༣,༤༥༦.༧༨</result>
+   <result draft='false'>-123,456.78</result>
+   <result numberType='percent' draft='true'>-༡༢,༣༤༥,༦༧༨བ</result>
+   <result draft='false'>-12,345,678%</result>
+   <result numberType='scientific' draft='true'>-༡.༢༣༤༥༦༧༨E༥</result>
+   <result draft='false'>-1.2345678E5</result>
    <result input='Infinity' numberType='integer' draft='true'>གྲངས་མེད</result>
    <result draft='false'>∞</result>
    <result numberType='decimal' draft='true'>གྲངས་མེད</result>
    <result draft='false'>∞</result>
-   <result numberType='percent' draft='true'>གྲངས་མེད བ</result>
-   <result draft='false'>∞ %</result>
+   <result numberType='percent' draft='true'>གྲངས་མེདབ</result>
+   <result draft='false'>∞%</result>
    <result numberType='scientific' draft='true'>གྲངས་མེད</result>
    <result draft='false'>∞</result>
    <result input='-Infinity' numberType='integer' draft='true'>-གྲངས་མེད</result>
    <result draft='false'>-∞</result>
    <result numberType='decimal' draft='true'>-གྲངས་མེད</result>
    <result draft='false'>-∞</result>
-   <result numberType='percent' draft='true'>-གྲངས་མེད བ</result>
-   <result draft='false'>-∞ %</result>
+   <result numberType='percent' draft='true'>-གྲངས་མེདབ</result>
+   <result draft='false'>-∞%</result>
    <result numberType='scientific' draft='true'>-གྲངས་མེད</result>
    <result draft='false'>-∞</result>
    <result input='NaN' numberType='integer' draft='true'>ཨང་མད</result>
@@ -1653,12 +1629,60 @@ locales='dz_BT'>
 locales='dz dz_BT'>
 <!-- Dzongkha [Dzongkha]; Dzongkha (Bhutan) [Dzongkha (Bhutan)] -->
    <result draft='either'>
+x྄
+X྄
+xཱ
+Xཱ
+x༹
+X༹
+xཿ
+Xཿ
+x྅
+X྅
+xྈ
+Xྈ
+xྉ
+Xྉ
+xྊ
+Xྊ
+xྋ
+Xྋ
 x 
 X 
 x x
 x.
 X.
 x.x
+xༀ
+Xༀ
+xༀx
+x་
+x༌
+X་
+X༌
+x།
+X།
+x༎
+X༎
+x༏
+X༏
+x༐
+X༐
+x༑
+X༑
+x༔
+X༔
+x༴
+X༴
+x་x
+x༌x
+x།x
+x༎x
+x༏x
+x༐x
+x༑x
+x༔x
+x༴x
 x0
 X0
 x0x
@@ -1668,183 +1692,1305 @@ x12x
 x2
 X2
 x2x
+x྄x
+xཱx
+x༹x
+xཿx
+x྅x
+xྈx
+xྉx
+xྊx
+xྋx
 xཀ
 Xཀ
+xྈྐ
+Xྈྐ
 xཀx
-xྐ
-Xྐ
-xྐx
+xྈྐx
+xདཀ
+Xདཀ
+xདཀx
+xབཀ
+Xབཀ
+xབཀx
+xརྐ
+Xརྐ
+xརྐx
+xལྐ
+Xལྐ
+xལྐx
+xསྐ
+Xསྐ
+xསྐx
+xབརྐ
+Xབརྐ
+xབརྐx
+xབསྐ
+Xབསྐ
+xབསྐx
 xཁ
 Xཁ
+xྈྑ
+Xྈྑ
 xཁx
-xྑ
-Xྑ
-xྑx
+xྈྑx
+xམཁ
+Xམཁ
+xམཁx
+xའཁ
+Xའཁ
+xའཁx
 xག
 Xག
 xགx
-xྒ
-Xྒ
-xྒx
+xདགག
+Xདགག
+xདགགx
+xདགཊ
+xདགཌ
+Xདགཊ
+Xདགཌ
+xདགཊx
+xདགཌx
+xདགང
+Xདགང
+xདགངx
+xདགད
+Xདགད
+xདགདx
+xདགབ
+Xདགབ
+xདགབx
+xདགཝ
+Xདགཝ
+xདགཝx
+xདགའ
+Xདགའ
+xདགའx
+xདགར
+Xདགར
+xདགརx
+xདགལ
+Xདགལ
+xདགལx
+xདགས
+Xདགས
+xདགསx
+xདགུ
+Xདགུ
+xདགུx
+xདགེ
+Xདགེ
+xདགེx
+xདགོ
+Xདགོ
+xདགོx
+xདགྱ
+Xདགྱ
+xདགྱx
+xདགྲ
+Xདགྲ
+xདགྲx
+xབགག
+Xབགག
+xབགགx
+xབགཊ
+xབགཌ
+Xབགཊ
+Xབགཌ
+xབགཊx
+xབགཌx
+xབགད
+Xབགད
+xབགདx
+xབགམ
+xབགཾ
+Xབགམ
+Xབགཾ
+xབགམx
+xབགཾx
+xབགཝ
+Xབགཝ
+xབགཝx
+xབགའ
+Xབགའ
+xབགའx
+xབགར
+Xབགར
+xབགརx
+xབགེ
+Xབགེ
+xབགེx
+xབགོ
+Xབགོ
+xབགོx
+xབགྱ
+Xབགྱ
+xབགྱx
+xབགྲ
+Xབགྲ
+xབགྲx
+xབགླ
+Xབགླ
+xབགླx
+xམགར
+Xམགར
+xམགརx
+xམགལ
+Xམགལ
+xམགལx
+xམགུ
+Xམགུ
+xམགུx
+xམགེ
+Xམགེ
+xམགེx
+xམགོ
+Xམགོ
+xམགོx
+xམགྱ
+Xམགྱ
+xམགྱx
+xམགྲ
+Xམགྲ
+xམགྲx
+xའགག
+Xའགག
+xའགགx
+xའགཊ
+xའགཌ
+Xའགཊ
+Xའགཌ
+xའགཊx
+xའགཌx
+xའགང
+Xའགང
+xའགངx
+xའགད
+Xའགད
+xའགདx
+xའགན
+Xའགན
+xའགནx
+xའགབ
+Xའགབ
+xའགབx
+xའགམ
+xའགཾ
+Xའགམ
+Xའགཾ
+xའགམx
+xའགཾx
+xའགའ
+Xའགའ
+xའགའx
+xའགར
+Xའགར
+xའགརx
+xའགལ
+Xའགལ
+xའགལx
+xའགས
+Xའགས
+xའགསx
+xའགི
+Xའགི
+xའགིx
+xའགུ
+Xའགུ
+xའགུx
+xའགེ
+Xའགེ
+xའགེx
+xའགོ
+Xའགོ
+xའགོx
+xའགྱ
+Xའགྱ
+xའགྱx
+xའགྲ
+Xའགྲ
+xའགྲx
+xརྒ
+Xརྒ
+xརྒx
+xལྒ
+Xལྒ
+xལྒx
+xསྒ
+Xསྒ
+xསྒx
+xབརྒ
+Xབརྒ
+xབརྒx
+xབསྒ
+Xབསྒ
+xབསྒx
 xང
 Xང
 xངx
-xྔ
-Xྔ
-xྔx
+xདངག
+Xདངག
+xདངགx
+xདངཊ
+xདངཌ
+Xདངཊ
+Xདངཌ
+xདངཊx
+xདངཌx
+xདངང
+Xདངང
+xདངངx
+xདངན
+Xདངན
+xདངནx
+xདངར
+Xདངར
+xདངརx
+xདངུ
+Xདངུ
+xདངུx
+xདངོ
+Xདངོ
+xདངོx
+xམངག
+Xམངག
+xམངགx
+xམངཊ
+xམངཌ
+Xམངཊ
+Xམངཌ
+xམངཊx
+xམངཌx
+xམངན
+Xམངན
+xམངནx
+xམངའ
+Xམངའ
+xམངའx
+xམངར
+Xམངར
+xམངརx
+xམངལ
+Xམངལ
+xམངལx
+xམངོ
+Xམངོ
+xམངོx
+xརྔ
+Xརྔ
+xརྔx
+xལྔ
+Xལྔ
+xལྔx
+xསྔ
+Xསྔ
+xསྔx
+xབརྔ
+Xབརྔ
+xབརྔx
+xབསྔ
+Xབསྔ
+xབསྔx
 xཅ
 Xཅ
 xཅx
+xགཅ
+Xགཅ
+xགཅx
+xབཅ
+Xབཅ
+xབཅx
+xལྕ
+Xལྕ
+xལྕx
+xབལྕ
+Xབལྕ
+xབལྕx
 xཆ
 Xཆ
 xཆx
+xམཆ
+Xམཆ
+xམཆx
+xའཆ
+Xའཆ
+xའཆx
 xཇ
 Xཇ
 xཇx
-xྗ
-Xྗ
-xྗx
+xམཇ
+Xམཇ
+xམཇx
+xའཇ
+Xའཇ
+xའཇx
+xརྗ
+Xརྗ
+xརྗx
+xལྗ
+Xལྗ
+xལྗx
+xབརྗ
+Xབརྗ
+xབརྗx
 xཉ
 Xཉ
+xྋྙ
+Xྋྙ
 xཉx
-xྙ
-Xྙ
-xྙx
-xཊ
-Xཊ
-xཊx
-xཋ
-Xཋ
-xཋx
-xཌ
-Xཌ
-xཌx
-xཎ
-Xཎ
-xཎx
+xྋྙx
+xགཉ
+Xགཉ
+xགཉx
+xམཉ
+Xམཉ
+xམཉx
+xརྙ
+Xརྙ
+xརྙx
+xསྙ
+Xསྙ
+xསྙx
+xབརྙ
+Xབརྙ
+xབརྙx
+xབསྙ
+Xབསྙ
+xབསྙx
 xཏ
+xཊ
 Xཏ
+Xཊ
 xཏx
-xྟ
-Xྟ
-xྟx
+xཊx
+xགཏ
+Xགཏ
+xགཏx
+xབཏ
+Xབཏ
+xབཏx
+xརྟ
+Xརྟ
+xརྟx
+xལྟ
+Xལྟ
+xལྟx
+xསྟ
+Xསྟ
+xསྟx
+xབརྟ
+Xབརྟ
+xབརྟx
+xབལྟ
+Xབལྟ
+xབལྟx
+xབསྟ
+Xབསྟ
+xབསྟx
 xཐ
+xཋ
 Xཐ
+Xཋ
 xཐx
+xཋx
+xམཐ
+Xམཐ
+xམཐx
+xའཐ
+Xའཐ
+xའཐx
 xད
+xཌ
 Xད
+Xཌ
 xདx
-xྡ
-Xྡ
-xྡx
+xཌx
+xགདག
+Xགདག
+xགདགx
+xགདཊ
+xགདཌ
+Xགདཊ
+Xགདཌ
+xགདཊx
+xགདཌx
+xགདང
+Xགདང
+xགདངx
+xགདན
+Xགདན
+xགདནx
+xགདབ
+Xགདབ
+xགདབx
+xགདམ
+xགདཾ
+Xགདམ
+Xགདཾ
+xགདམx
+xགདཾx
+xགདའ
+Xགདའ
+xགདའx
+xགདར
+Xགདར
+xགདརx
+xགདལ
+Xགདལ
+xགདལx
+xགདས
+Xགདས
+xགདསx
+xགདི
+Xགདི
+xགདིx
+xགདུ
+Xགདུ
+xགདུx
+xགདེ
+Xགདེ
+xགདེx
+xགདོ
+Xགདོ
+xགདོx
+xབདག
+Xབདག
+xབདགx
+xབདཊ
+xབདཌ
+Xབདཊ
+Xབདཌ
+xབདཊx
+xབདཌx
+xབདམ
+xབདཾ
+Xབདམ
+Xབདཾ
+xབདམx
+xབདཾx
+xབདའ
+Xབདའ
+xབདའx
+xབདར
+Xབདར
+xབདརx
+xབདལ
+Xབདལ
+xབདལx
+xབདས
+Xབདས
+xབདསx
+xབདུ
+Xབདུ
+xབདུx
+xབདེ
+Xབདེ
+xབདེx
+xབདོ
+Xབདོ
+xབདོx
+xམདག
+Xམདག
+xམདགx
+xམདཊ
+xམདཌ
+Xམདཊ
+Xམདཌ
+xམདཊx
+xམདཌx
+xམདང
+Xམདང
+xམདངx
+xམདན
+Xམདན
+xམདནx
+xམདའ
+Xམདའ
+xམདའx
+xམདར
+Xམདར
+xམདརx
+xམདུ
+Xམདུ
+xམདུx
+xམདེ
+Xམདེ
+xམདེx
+xམདོ
+Xམདོ
+xམདོx
+xའདག
+Xའདག
+xའདགx
+xའདཊ
+xའདཌ
+Xའདཊ
+Xའདཌ
+xའདཊx
+xའདཌx
+xའདང
+Xའདང
+xའདངx
+xའདད
+Xའདད
+xའདདx
+xའདན
+Xའདན
+xའདནx
+xའདབ
+Xའདབ
+xའདབx
+xའདམ
+xའདཾ
+Xའདམ
+Xའདཾ
+xའདམx
+xའདཾx
+xའདཝ
+Xའདཝ
+xའདཝx
+xའདའ
+Xའདའ
+xའདའx
+xའདར
+Xའདར
+xའདརx
+xའདལ
+Xའདལ
+xའདལx
+xའདས
+Xའདས
+xའདསx
+xའདི
+Xའདི
+xའདིx
+xའདུ
+Xའདུ
+xའདུx
+xའདེ
+Xའདེ
+xའདེx
+xའདོ
+Xའདོ
+xའདོx
+xའདྲ
+Xའདྲ
+xའདྲx
+xརྡ
+Xརྡ
+xརྡx
+xལྡ
+Xལྡ
+xལྡx
+xསྡ
+Xསྡ
+xསྡx
+xབརྡ
+Xབརྡ
+xབརྡx
+xབལྡ
+Xབལྡ
+xབལྡx
+xབསྡ
+Xབསྡ
+xབསྡx
 xན
+xཎ
 Xན
+Xཎ
 xནx
-xྣ
-Xྣ
-xྣx
+xཎx
+xགནག
+Xགནག
+xགནགx
+xགནཊ
+xགནཌ
+Xགནཊ
+Xགནཌ
+xགནཊx
+xགནཌx
+xགནང
+Xགནང
+xགནངx
+xགནད
+Xགནད
+xགནདx
+xགནན
+Xགནན
+xགནནx
+xགནམ
+xགནཾ
+Xགནམ
+Xགནཾ
+xགནམx
+xགནཾx
+xགནཝ
+Xགནཝ
+xགནཝx
+xགནའ
+Xགནའ
+xགནའx
+xགནས
+Xགནས
+xགནསx
+xགནུ
+Xགནུ
+xགནུx
+xགནོ
+Xགནོ
+xགནོx
+xམནག
+Xམནག
+xམནགx
+xམནཊ
+xམནཌ
+Xམནཊ
+Xམནཌ
+xམནཊx
+xམནཌx
+xམནང
+Xམནང
+xམནངx
+xམནན
+Xམནན
+xམནནx
+xམནབ
+Xམནབ
+xམནབx
+xམནམ
+xམནཾ
+Xམནམ
+Xམནཾ
+xམནམx
+xམནཾx
+xམནའ
+Xམནའ
+xམནའx
+xམནར
+Xམནར
+xམནརx
+xམནལ
+Xམནལ
+xམནལx
+xམནུ
+Xམནུ
+xམནུx
+xམནེ
+Xམནེ
+xམནེx
+xམནོ
+Xམནོ
+xམནོx
+xརྣ
+Xརྣ
+xརྣx
+xསྣ
+Xསྣ
+xསྣx
+xབརྣ
+Xབརྣ
+xབརྣx
+xབསྣ
+Xབསྣ
+xབསྣx
 xཔ
 Xཔ
+xྉྤ
+Xྉྤ
 xཔx
-xྤ
-Xྤ
-xྤx
+xྉྤx
+xདཔག
+Xདཔག
+xདཔགx
+xདཔཊ
+xདཔཌ
+Xདཔཊ
+Xདཔཌ
+xདཔཊx
+xདཔཌx
+xདཔང
+Xདཔང
+xདཔངx
+xདཔད
+Xདཔད
+xདཔདx
+xདཔའ
+Xདཔའ
+xདཔའx
+xདཔར
+Xདཔར
+xདཔརx
+xདཔལ
+Xདཔལ
+xདཔལx
+xདཔས
+Xདཔས
+xདཔསx
+xདཔུ
+Xདཔུ
+xདཔུx
+xདཔེ
+Xདཔེ
+xདཔེx
+xདཔོག
+Xདཔོག
+xདཔོགx
+xདཔོང
+Xདཔོང
+xདཔོངx
+xདཔོད
+Xདཔོད
+xདཔོདx
+xདཔོན
+Xདཔོན
+xདཔོནx
+xདཔོར
+Xདཔོར
+xདཔོརx
+xདཔྱ
+Xདཔྱ
+xདཔྱx
+xདཔྲ
+Xདཔྲ
+xདཔྲx
+xལྤ
+Xལྤ
+xལྤx
+xསྤ
+Xསྤ
+xསྤx
 xཕ
 Xཕ
+xྉྥ
+Xྉྥ
 xཕx
+xྉྥx
+xའཕ
+Xའཕ
+xའཕx
 xབ
 Xབ
 xབx
-xྦ
-Xྦ
-xྦx
+xདབག
+Xདབག
+xདབགx
+xདབཊ
+xདབཌ
+Xདབཊ
+Xདབཌ
+xདབཊx
+xདབཌx
+xདབང
+Xདབང
+xདབངx
+xདབད
+Xདབད
+xདབདx
+xདབན
+Xདབན
+xདབནx
+xདབབ
+Xདབབ
+xདབབx
+xདབའ
+Xདབའ
+xདབའx
+xདབར
+Xདབར
+xདབརx
+xདབལ
+Xདབལ
+xདབལx
+xདབས
+Xདབས
+xདབསx
+xདབུ
+Xདབུ
+xདབུx
+xདབེ
+Xདབེ
+xདབེx
+xདབོ
+Xདབོ
+xདབོx
+xདབྱ
+Xདབྱ
+xདབྱx
+xདབྲ
+Xདབྲ
+xདབྲx
+xའབག
+Xའབག
+xའབགx
+xའབཊ
+xའབཌ
+Xའབཊ
+Xའབཌ
+xའབཊx
+xའབཌx
+xའབང
+Xའབང
+xའབངx
+xའབད
+Xའབད
+xའབདx
+xའབན
+Xའབན
+xའབནx
+xའབབ
+Xའབབ
+xའབབx
+xའབམ
+xའབཾ
+Xའབམ
+Xའབཾ
+xའབམx
+xའབཾx
+xའབའ
+Xའབའ
+xའབའx
+xའབར
+Xའབར
+xའབརx
+xའབལ
+Xའབལ
+xའབལx
+xའབི
+Xའབི
+xའབིx
+xའབུ
+Xའབུ
+xའབུx
+xའབེ
+Xའབེ
+xའབེx
+xའབོ
+Xའབོ
+xའབོx
+xའབྱ
+Xའབྱ
+xའབྱx
+xའབྲ
+Xའབྲ
+xའབྲx
+xརྦ
+Xརྦ
+xརྦx
+xལྦ
+Xལྦ
+xལྦx
+xསྦ
+Xསྦ
+xསྦx
 xམ
+xཾ
+xྂ
+xྃ
 Xམ
+Xཾ
+Xྂ
+Xྃ
 xམx
-xྨ
-Xྨ
-xྨx
+xཾx
+xྂx
+xྃx
+xདམག
+Xདམག
+xདམགx
+xདམཊ
+xདམཌ
+Xདམཊ
+Xདམཌ
+xདམཊx
+xདམཌx
+xདམང
+Xདམང
+xདམངx
+xདམན
+Xདམན
+xདམནx
+xདམཝ
+Xདམཝ
+xདམཝx
+xདམའ
+Xདམའ
+xདམའx
+xདམར
+Xདམར
+xདམརx
+xདམས
+Xདམས
+xདམསx
+xདམི
+Xདམི
+xདམིx
+xདམུ
+Xདམུ
+xདམུx
+xདམེ
+Xདམེ
+xདམེx
+xདམོད
+Xདམོད
+xདམོདx
+xདམྱ
+Xདམྱ
+xདམྱx
+xརྨ
+Xརྨ
+xརྨx
+xསྨ
+Xསྨ
+xསྨx
 xཙ
 Xཙ
 xཙx
-xྩ
-Xྩ
-xྩx
+xགཙ
+Xགཙ
+xགཙx
+xབཙ
+Xབཙ
+xབཙx
+xརྩ
+Xརྩ
+xརྩx
+xསྩ
+Xསྩ
+xསྩx
+xབརྩ
+Xབརྩ
+xབརྩx
+xབསྩ
+Xབསྩ
+xབསྩx
 xཚ
 Xཚ
 xཚx
+xམཚ
+Xམཚ
+xམཚx
+xའཚ
+Xའཚ
+xའཚx
 xཛ
 Xཛ
 xཛx
-xྫ
-Xྫ
-xྫx
+xམཛ
+Xམཛ
+xམཛx
+xའཛ
+Xའཛ
+xའཛx
+xརྫ
+Xརྫ
+xརྫx
+xབརྫ
+Xབརྫ
+xབརྫx
 xཝ
 Xཝ
 xཝx
-xྭ
-Xྭ
-xྭx
 xཞ
 Xཞ
 xཞx
+xགཞ
+Xགཞ
+xགཞx
+xབཞ
+Xབཞ
+xབཞx
 xཟ
 Xཟ
 xཟx
+xགཟ
+Xགཟ
+xགཟx
+xབཟ
+Xབཟ
+xབཟx
 xའ
 Xའ
 xའx
 xཡ
 Xཡ
 xཡx
-xྱ
-Xྱ
-xྱx
+xགཡ
+Xགཡ
+xགཡx
 xར
+xཪ
 Xར
+Xཪ
 xརx
-xྲ
-Xྲ
-xྲx
+xཪx
+xབརླ
+Xབརླ
+xབརླx
 xལ
 Xལ
 xལx
-xླ
-Xླ
-xླx
 xཤ
-Xཤ
-xཤx
 xཥ
+Xཤ
 Xཥ
+xཤx
 xཥx
-xྵ
-Xྵ
-xྵx
+xགཤ
+Xགཤ
+xགཤx
+xབཤ
+Xབཤ
+xབཤx
 xས
 Xས
 xསx
+xགསག
+Xགསག
+xགསགx
+xགསཊ
+xགསཌ
+Xགསཊ
+Xགསཌ
+xགསཊx
+xགསཌx
+xགསང
+Xགསང
+xགསངx
+xགསད
+Xགསད
+xགསདx
+xགསན
+Xགསན
+xགསནx
+xགསབ
+Xགསབ
+xགསབx
+xགསའ
+Xགསའ
+xགསའx
+xགསར
+Xགསར
+xགསརx
+xགསལ
+Xགསལ
+xགསལx
+xགསས
+Xགསས
+xགསསx
+xགསི
+Xགསི
+xགསིx
+xགསུ
+Xགསུ
+xགསུx
+xགསེ
+Xགསེ
+xགསེx
+xགསོ
+Xགསོ
+xགསོx
+xབསག
+Xབསག
+xབསགx
+xབསཊ
+xབསཌ
+Xབསཊ
+Xབསཌ
+xབསཊx
+xབསཌx
+xབསང
+Xབསང
+xབསངx
+xབསད
+Xབསད
+xབསདx
+xབསབ
+Xབསབ
+xབསབx
+xབསམ
+xབསཾ
+Xབསམ
+Xབསཾ
+xབསམx
+xབསཾx
+xབསར
+Xབསར
+xབསརx
+xབསལ
+Xབསལ
+xབསལx
+xབསི
+Xབསི
+xབསིx
+xབསུ
+Xབསུ
+xབསུx
+xབསེ
+Xབསེ
+xབསེx
+xབསོ
+Xབསོ
+xབསོx
+xབསྭ
+Xབསྭ
+xབསྭx
+xབསྲ
+Xབསྲ
+xབསྲx
+xབསླ
+Xབསླ
+xབསླx
 xཧ
 Xཧ
 xཧx
-xྷ
-Xྷ
-xྷx
+xལྷ
+Xལྷ
+xལྷx
 xཨ
 Xཨ
 xཨx
 xི
+xྀ
 Xི
+Xྀ
 xིx
+xྀx
 xུ
 Xུ
 xུx
 xེ
+xཻ
 Xེ
+Xཻ
 xེx
+xཻx
 xོ
+xཽ
 Xོ
+Xཽ
 xོx
+xཽx
+xྐ
+Xྐ
+xྐx
+xྑ
+Xྑ
+xྑx
+xྒ
+Xྒ
+xྒx
+xྔ
+Xྔ
+xྔx
+xྕ
+Xྕ
+xྕx
+xྖ
+Xྖ
+xྖx
+xྗ
+Xྗ
+xྗx
+xྙ
+Xྙ
+xྙx
+xྟ
+xྚ
+Xྟ
+Xྚ
+xྟx
+xྚx
+xྠ
+xྛ
+Xྠ
+Xྛ
+xྠx
+xྛx
+xྡ
+xྜ
+Xྡ
+Xྜ
+xྡx
+xྜx
+xྣ
+xྞ
+Xྣ
+Xྞ
+xྣx
+xྞx
+xྤ
+Xྤ
+xྤx
+xྥ
+Xྥ
+xྥx
+xྦ
+Xྦ
+xྦx
+xྨ
+Xྨ
+xྨx
+xྩ
+Xྩ
+xྩx
+xྪ
+Xྪ
+xྪx
+xྫ
+Xྫ
+xྫx
+xྭ
+xྺ
+Xྭ
+Xྺ
+xྭx
+xྺx
+xྮ
+Xྮ
+xྮx
+xྯ
+Xྯ
+xྯx
+xྰ
+Xྰ
+xྰx
+xྱ
+xྻ
+Xྱ
+Xྻ
+xྱx
+xྻx
+xྲ
+xྼ
+Xྲ
+Xྼ
+xྲx
+xྼx
+xཷ
+Xཷ
+xཷx
+xླ
+Xླ
+xླx
+xཹ
+Xཹ
+xཹx
+xྴ
+xྵ
+Xྴ
+Xྵ
+xྴx
+xྵx
+xྶ
+Xྶ
+xྶx
+xྷ
+Xྷ
+xྷx
+xྸ
+Xྸ
+xྸx
 </result>
   </collation>
  </cldrTest>

@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='as'>
- <!-- Assamese [অসমীয়া] -->
+ <!-- Assamese [অসমীয়া] -->
   <number 
 locales='as'>
-<!-- Assamese [অসমীয়া] -->
+<!-- Assamese [অসমীয়া] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='as'>
   </number>
   <number 
 locales='as_IN'>
-<!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
+<!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -109,7 +109,7 @@ locales='as_IN'>
   </number>
   <date 
 locales='as'>
-<!-- Assamese [অসমীয়া] -->
+<!-- Assamese [অসমীয়া] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -401,7 +401,7 @@ locales='as'>
   </date>
   <date 
 locales='as_IN'>
-<!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
+<!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12.00. পূৰ্বা</result>
    <result timeType='medium' draft='true'>12.00.00 পূৰ্বা</result>
    <result draft='false'>00:00:00</result>
@@ -753,7 +753,7 @@ locales='as_IN'>
   </date>
   <zoneFields 
 locales='as as_IN'>
-<!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
+<!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -865,7 +865,7 @@ locales='as as_IN'>
   </zoneFields>
   <collation 
 locales='as as_IN'>
-<!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
+<!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
    <result draft='either'>
 x‍
 x‌
@@ -875,12 +875,6 @@ X‍
 X‌
 x়
 X়
-xঁ
-Xঁ
-xং
-Xং
-xঃ
-Xঃ
 x 
 X 
 x x
@@ -903,9 +897,6 @@ x‌x
 x‍x
 x‌x
 x়x
-xঁx
-xংx
-xঃx
 xঅ
 Xঅ
 xঅx
@@ -948,6 +939,15 @@ xওx
 xঔ
 Xঔ
 xঔx
+xং
+Xং
+xংx
+xঁ
+Xঁ
+xঁx
+xঃ
+Xঃ
+xঃx
 xক
 Xক
 xকx
@@ -999,6 +999,9 @@ xঢ়x
 xণ
 Xণ
 xণx
+xত্‍
+Xত্‍
+xত্‍x
 xত
 Xত
 xতx
@@ -1059,6 +1062,9 @@ xসx
 xহ
 Xহ
 xহx
+xক্ষ
+Xক্ষ
+xক্ষx
 xঽ
 Xঽ
 xঽx

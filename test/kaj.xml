@@ -2,10 +2,10 @@
 <!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
  <cldrTest version='1.4' base='kaj'>
- <!-- kaj [kaj] -->
+ <!-- Jju [Jju] -->
   <number 
 locales='kaj kaj_NG'>
-<!-- kaj [kaj]; kaj (Nigeria) [kaj (Nigeria)] -->
+<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='kaj kaj_NG'>
   </number>
   <date 
 locales='kaj'>
-<!-- kaj [kaj] -->
+<!-- Jju [Jju] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -529,7 +529,7 @@ locales='kaj'>
   </date>
   <date 
 locales='kaj_NG'>
-<!-- kaj (Nigeria) [kaj (Nigeria)] -->
+<!-- Jju (Nigeria) [Jju (Nigeria)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -821,7 +821,7 @@ locales='kaj_NG'>
   </date>
   <zoneFields 
 locales='kaj kaj_NG'>
-<!-- kaj [kaj]; kaj (Nigeria) [kaj (Nigeria)] -->
+<!-- Jju [Jju]; Jju (Nigeria) [Jju (Nigeria)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -933,7 +933,7 @@ locales='kaj kaj_NG'>
   </zoneFields>
   <collation 
 locales='kaj'>
-<!-- kaj [kaj] -->
+<!-- Jju [Jju] -->
    <result draft='true'>
 x 
 X 
@@ -1127,7 +1127,7 @@ x2x
   </collation>
   <collation 
 locales='kaj_NG'>
-<!-- kaj (Nigeria) [kaj (Nigeria)] -->
+<!-- Jju (Nigeria) [Jju (Nigeria)] -->
    <result draft='either'>
 x 
 X 

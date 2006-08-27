@@ -81,9 +81,9 @@ public class TestTransforms {
 						}
 						checkIdFix(id);
 						if (source.equals("FORWARD")) {
-							Utility.registerTransliteratorFromFile(id, target, filename, Transliterator.FORWARD, false);
+							Utility.registerTransliteratorFromFile(id, target, filename, Transliterator.FORWARD);
 						} else {
-							Utility.registerTransliteratorFromFile(id, target, filename, Transliterator.REVERSE, false);
+							Utility.registerTransliteratorFromFile(id, target, filename, Transliterator.REVERSE);
 						}
 						lastId = id;
 						id = null;

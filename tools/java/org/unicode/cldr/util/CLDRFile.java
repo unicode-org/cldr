@@ -82,7 +82,6 @@ public class CLDRFile implements Freezable {
 	
 	private boolean locked;
 	private XMLSource dataSource;
-    private String dtdVersion;
 	
 	public static class SimpleXMLSource extends XMLSource {
 		private HashMap xpath_value = new HashMap(); // TODO change to HashMap, once comparator is gone
@@ -1107,7 +1106,7 @@ private boolean isSupplemental;
 	    			//ldmlComparator.addValue(value);
 	    			// special fix to remove version
 	    			if (attribute.equals("version") && (qName.equals("ldml") || qName.equals("supplementalData"))) {
-                        target.dtdVersion = value;
+	    				// do nothing!
 	    			} else {
 	    				putAndFixDeprecatedAttribute(qName, attribute, value);
 	    			}
@@ -2177,64 +2176,5 @@ private boolean isSupplemental;
 	public Map getNonDistinguishingAttributes(String fullPath, Map result, Set skipList) {
     	return distinguishedXPath.getNonDistinguishingAttributes(fullPath, result, skipList);
 	}
-
-    public String getDtdVersion() {
-        return dtdVersion;
-    }
-
-    public String getStringValue(String path, boolean ignoreOtherLeafAttributes) {
-        String result = getStringValue(path);
-        if (result != null) return result;
-        XPathParts parts = new XPathParts().set(path);
-        Map lastAttributes = parts.getAttributes(parts.size()-1);
-        XPathParts other = new XPathParts();
-        String base = parts.toString(parts.size()-1) + "/" + parts.getElement(parts.size()-1); // trim final element
-        for (Iterator it = iterator(base); it.hasNext();) {
-            String otherPath = (String)it.next();
-            other.set(otherPath);
-            if (other.size() != parts.size()) continue;
-            Map lastOtherAttributes =  other.getAttributes(other.size()-1);
-            if (!contains(lastOtherAttributes, lastAttributes)) continue;
-            if (result == null) {
-                result = getStringValue(otherPath);
-            } else {
-                throw new IllegalArgumentException("Multiple values for path: " + path);
-            }
-        }
-        return result;
-    }
-
-    private boolean contains(Map a, Map b) {
-        for (Iterator it = b.keySet().iterator(); it.hasNext();) {
-            Object key = it.next();
-            Object otherValue = a.get(key);
-            if (otherValue == null) return false;
-            Object value = b.get(key);
-            if (!otherValue.equals(value)) return false;
-        }
-        return true;
-    }
-
-    public String getFullXPath(String path, boolean ignoreOtherLeafAttributes) {
-        String result = getFullXPath(path);
-        if (result != null) return result;
-        XPathParts parts = new XPathParts().set(path);
-        Map lastAttributes = parts.getAttributes(parts.size()-1);
-        XPathParts other = new XPathParts();
-        String base = parts.toString(parts.size()-1) + "/" + parts.getElement(parts.size()-1); // trim final element
-        for (Iterator it = iterator(base); it.hasNext();) {
-            String otherPath = (String)it.next();
-            other.set(otherPath);
-            if (other.size() != parts.size()) continue;
-            Map lastOtherAttributes =  other.getAttributes(other.size()-1);
-            if (!contains(lastOtherAttributes, lastAttributes)) continue;
-            if (result == null) {
-                result = getFullXPath(otherPath);
-            } else {
-                throw new IllegalArgumentException("Multiple values for path: " + path);
-            }
-        }
-        return result;
-    }
    
 }

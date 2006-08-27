@@ -33,10 +33,8 @@ import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.impl.CollectionUtilities;
-import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.TimeZone;
@@ -51,7 +49,7 @@ public class ShowLanguages {
 	public static void main(String[] args) throws IOException {
 		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		english = cldrFactory.make("en", false);
-		printLanguageData(cldrFactory, "index.html");
+		printLanguageData(cldrFactory, "supplemental.html");
 		//cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
 		//printLanguageData(cldrFactory, "language_info2.txt");
 		System.out.println("Done");
@@ -60,7 +58,7 @@ public class ShowLanguages {
 	/**
 	 * 
 	 */
-	private static List anchors = new ArrayList();
+	private static Map anchors = new LinkedHashMap();
 	
 	private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
 		LanguageInfo linfo = new LanguageInfo(cldrFactory);
@@ -72,43 +70,25 @@ public class ShowLanguages {
 		//linfo.printDeprecatedItems(pw);
 		linfo.printCurrency(pw);
 
-        PrintWriter pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Territories"));
-        pw1.println("<tr><th>Language \u2192 Territories");
-        pw1.println("</th><th>Territory \u2192 Language");
-        pw1.println("</th><th>Territories Not Represented");
-        pw1.println("</th><th>Languages Not Represented");
-        pw1.println("</th></tr>");
-        
-		pw1.println("<tr><td>");
-		linfo.print(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
-		pw1.println("</td><td>");
-		linfo.print(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
-        pw1.println("</td><td>");
-        linfo.printMissing(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.TERRITORY_NAME);
-        pw1.println("</td><td>");
-        linfo.printMissing(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
-        pw1.println("</td></tr>");
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.print(pw, "Language \u2192 Territories", CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
+		pw.println("</td><td>");
+		linfo.print(pw, "Territory \u2192 Language", CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
 
-        pw1.close();
-
-        pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Scripts"));
-        
-        pw1.println("<tr><th>Language \u2192 Scripts");
-        pw1.println("</th><th>Script  \u2192 Language");
-        pw1.println("</th><th>Territories Not Represented");
-        pw1.println("</th><th>Languages Not Represented");
-        pw1.println("</th></tr>");
-
-		pw1.println("<tr><td >");
-		linfo.print(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.SCRIPT_NAME);
-		pw1.println("</td><td>");
-		linfo.print(pw1, CLDRFile.SCRIPT_NAME, CLDRFile.LANGUAGE_NAME);
-        pw1.println("</td><td>");
-		linfo.printMissing(pw1, CLDRFile.SCRIPT_NAME, CLDRFile.SCRIPT_NAME);
-		pw1.println("</td><td>");
-		linfo.printMissing(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.SCRIPT_NAME);
-		pw1.println("</td></tr>");
-        pw1.close();
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.print(pw, "Language \u2192 Scripts", CLDRFile.LANGUAGE_NAME, CLDRFile.SCRIPT_NAME);
+		pw.println("</td><td>");
+		linfo.print(pw, "Script \u2192 Language", CLDRFile.SCRIPT_NAME, CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
+		
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.printMissing(pw, "Territories Not Represented", CLDRFile.TERRITORY_NAME);
+		pw.println("</td><td>");
+		linfo.printMissing(pw, "Scripts Not Represented", CLDRFile.SCRIPT_NAME);
+		pw.println("</td><td>");
+		linfo.printMissing(pw, "Languages Not Represented", CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
 		
 		linfo.showCorrespondances();
         
@@ -118,61 +98,24 @@ public class ShowLanguages {
         
 		linfo.printWindows_Tzid(pw);
 		
-        linfo.printCharacters(pw);
-
         linfo.printAliases(pw);
-        
+
 		pw.close();
         
 		String contents = "<ul>";
-		for (Iterator it = anchors.iterator(); it.hasNext();) {
-			String item = (String) it.next();
-			contents += "<li>" + item + "</li>";
+		for (Iterator it = anchors.keySet().iterator(); it.hasNext();) {
+			String title = (String) it.next();
+			String anchor = (String) anchors.get(title);
+			contents += "<li><a href='#" + anchor + "'>" + title + "</a></li>";
 		}
 		contents += "</ul>";
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");
+		df.setTimeZone(TimeZone.getTimeZone("GMT"));
 		String[] replacements = {"%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString()};
 		PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
 		FileUtilities.appendFile("org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
 		pw2.close();
 	}
-    
-    static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");
-    static {
-        df.setTimeZone(TimeZone.getTimeZone("GMT"));
-    }
-
-    static class FormattedFileWriter extends java.io.Writer {
-        private StringWriter out = new StringWriter();
-        private String title;
-        private String filename;
-        public FormattedFileWriter(PrintWriter indexFile, String title) throws IOException {
-            String anchor = FileUtilities.anchorize(title);
-            filename =  anchor + ".html";
-            this.title = title;
-            anchors.add("<a name='" + FileUtilities.anchorize(getTitle()) + "' href='" + getFilename() + "'>" + getTitle() + "</a></caption>");
-            out.write("<div align='center'><table>");
-        }
-        public  String getFilename() {
-            return filename;
-        }
-        public  String getTitle() {
-            return title;
-        }
-        public void close() throws IOException {
-            out.write("</table></div>");
-            PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
-            String[] replacements = {"%header%", "", "%title%", title, "%version%", "1.4", "%date%", df.format(new Date()), "%body%", out.toString()};
-            FileUtilities.appendFile("org/unicode/cldr/tool/chart-template.html", "utf-8", pw2, replacements);
-            pw2.close();
-        }
-        public void write(char[] cbuf, int off, int len) throws IOException {
-            out.write(cbuf, off, len);
-        }
-        public void flush() throws IOException {
-            out.flush();
-        }
-    }
-
 
 	static class LanguageInfo {
 		Map language_scripts = new TreeMap();
@@ -191,7 +134,6 @@ public class ShowLanguages {
 		Set currenciesWithTerritories = new TreeSet();
         Map territoryData = new TreeMap();
         Set territoryTypes = new TreeSet();
-        Map charSubstitutions = new TreeMap(col);
 
 		String defaultDigits = null;
 
@@ -363,29 +305,6 @@ public class ShowLanguages {
                 if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
                 System.out.println("Skipped Element: " + path);                
            }
-            
-            CLDRFile chars = cldrFactory.make("characters", false);
-            int count = 0;
-            for (Iterator it = chars.iterator(); it.hasNext();) {
-                String path = (String) it.next();
-                parts.set(chars.getFullXPath(path));
-                if (parts.getElement(1).equals("version")) continue;
-                if (parts.getElement(1).equals("generation")) continue;
-                String value = parts.getAttributeValue(-2, "value");
-                String substitute = chars.getStringValue(path, true);
-                String nfc = Normalizer.normalize(value, Normalizer.NFC);
-                String nfkc = Normalizer.normalize(value, Normalizer.NFKC);
-                if (substitute.equals(nfc)) {
-                    count++; continue;
-                }
-                if (substitute.equals(nfkc)) {
-                    count++; continue;
-                }
-                Object already = charSubstitutions.get(value);
-                if (already != null) System.out.println("Duplicate value:" + already);
-                charSubstitutions.put(value, substitute);
-            }
-            if (count != 0) System.out.println("Skipped NFKC/NFC items: " + count);
 		}
 
         /**
@@ -428,8 +347,8 @@ public class ShowLanguages {
             }
         }
 		
-		public void showCalendarData(PrintWriter pw0) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data"));
+		public void showCalendarData(PrintWriter pw) {
+            doTitle(pw, "Other Territory Data");
             pw.println("<tr><th class='source'>Territory</th>");
             for (Iterator it = territoryTypes.iterator(); it.hasNext();) {
                 pw.println("<th class='target'>" + it.next() + "</th>");
@@ -444,7 +363,7 @@ public class ShowLanguages {
                 showCountry(pw, country, country, worldData);
             }
             showCountry(pw, worldName, "Other", worldData);
-           pw.close();
+            pw.println("</table></div>");
         }
 
         private void showCountry(PrintWriter pw, String country, String countryTitle, Map worldData) {
@@ -526,12 +445,10 @@ public class ShowLanguages {
 
 
 		/**
-		 * @throws IOException 
 		 * 
 		 */
-		public void printCurrency(PrintWriter index) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Territory \u2192 Currency"));
-			//doTitle(pw, "Territory \u2192 Currency");
+		public void printCurrency(PrintWriter pw) {
+			doTitle(pw, "Territory \u2192 Currency");
 			pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
 			for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
 				String territory = (String)it.next();
@@ -548,12 +465,9 @@ public class ShowLanguages {
 							+ "</td></tr>");
 				}
 			}
-            //doFooter(pw);
-            pw.close();
-            pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info"));
-            
+			pw.println("</table></div>");
 
-			//doTitle(pw, "Currency Format Info");
+			doTitle(pw, "Currency Format Info");
 			pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");
 			Set currencyList = new TreeSet(col);
 			currencyList.addAll(currency_fractions.keySet());
@@ -575,147 +489,93 @@ public class ShowLanguages {
 				}
 				pw.println("</td></tr>");
 			}
-               pw.close();
-               //doFooter(pw);
-
+			pw.println("</table></div>");
 			
-//			if (false) {
-//				doTitle(pw, "Territories Versus Currencies");
-//				pw.println("<tr><th>Territories Without Currencies</th><th>Currencies Without Territories</th></tr>");
-//				pw.println("<tr><td class='target'>");
-//				Set territoriesWithoutCurrencies = new TreeSet();
-//				territoriesWithoutCurrencies.addAll(sc.getGoodAvailableCodes("territory"));
-//				territoriesWithoutCurrencies.removeAll(territoriesWithCurrencies);
-//				territoriesWithoutCurrencies.removeAll(group_contains.keySet());
-//				boolean first = true;
-//				for (Iterator it = territoriesWithoutCurrencies.iterator(); it.hasNext();) {
-//					if (first) first = false;
-//					else pw.print(", ");
-//					pw.print(english.getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));				
-//				}
-//				pw.println("</td><td class='target'>");
-//				Set currenciesWithoutTerritories = new TreeSet();
-//				currenciesWithoutTerritories.addAll(sc.getGoodAvailableCodes("currency"));
-//				currenciesWithoutTerritories.removeAll(currenciesWithTerritories);
-//				first = true;
-//				for (Iterator it = currenciesWithoutTerritories.iterator(); it.hasNext();) {
-//					if (first) first = false;
-//					else pw.print(", ");
-//					pw.print(english.getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));				
-//				}
-//				pw.println("</td></tr>");
-//                   doFooter(pw);
-//			}
+			if (false) {
+				doTitle(pw, "Territories Versus Currencies");
+				pw.println("<tr><th>Territories Without Currencies</th><th>Currencies Without Territories</th></tr>");
+				pw.println("<tr><td class='target'>");
+				Set territoriesWithoutCurrencies = new TreeSet();
+				territoriesWithoutCurrencies.addAll(sc.getGoodAvailableCodes("territory"));
+				territoriesWithoutCurrencies.removeAll(territoriesWithCurrencies);
+				territoriesWithoutCurrencies.removeAll(group_contains.keySet());
+				boolean first = true;
+				for (Iterator it = territoriesWithoutCurrencies.iterator(); it.hasNext();) {
+					if (first) first = false;
+					else pw.print(", ");
+					pw.print(english.getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));				
+				}
+				pw.println("</td><td class='target'>");
+				Set currenciesWithoutTerritories = new TreeSet();
+				currenciesWithoutTerritories.addAll(sc.getGoodAvailableCodes("currency"));
+				currenciesWithoutTerritories.removeAll(currenciesWithTerritories);
+				first = true;
+				for (Iterator it = currenciesWithoutTerritories.iterator(); it.hasNext();) {
+					if (first) first = false;
+					else pw.print(", ");
+					pw.print(english.getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));				
+				}
+				pw.println("</td></tr>");
+				pw.println("</table></div>");
+			}
 		}
 
 		/**
-		 * @throws IOException 
 		 * 
 		 */
-		public void printAliases(PrintWriter index) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Aliases"));
-            
-			//doTitle(pw, "Aliases");
+		public void printAliases(PrintWriter pw) {
+			doTitle(pw, "Aliases");
             pw.println("<tr><th class='source'>" + "Type" + "</th><th class='source'>" + "Code" + "</th><th class='target'>" + "Substitute (if avail)" + "</th></tr>");
 			for (Iterator it = aliases.iterator(); it.hasNext();) {
 				String[] items = (String[])it.next();
 				pw.println("<tr><td class='source'>" + items[0] + "</td><td class='source'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");
 			}
-               //doFooter(pw);
-               pw.close();
+			pw.println("</table></div>");
 		}
 		
 		//deprecatedItems
-//		public void printDeprecatedItems(PrintWriter pw) {
-//			doTitle(pw, "Deprecated Items");
-//			pw.print("<tr><td class='z0'><b>Type</b></td><td class='z1'><b>Elements</b></td><td class='z2'><b>Attributes</b></td><td class='z4'><b>Values</b></td>");
-//			for (Iterator it = deprecatedItems.iterator(); it.hasNext();) {
-//				Map source = (Map)it.next();
-//				Object item;
-//				pw.print("<tr>");
-//				pw.print("<td class='z0'>" + ((item = source.get("type")) != null ? item : "<i>any</i>")  + "</td>");
-//				pw.print("<td class='z1'>" + ((item = source.get("elements")) != null ? item : "<i>any</i>")  + "</td>");
-//				pw.print("<td class='z2'>" + ((item = source.get("attributes")) != null ? item : "<i>any</i>") + "</td>");
-//				pw.print("<td class='z4'>" + ((item = source.get("values")) != null ? item : "<i>any</i>") + "</td>");
-//				pw.print("</tr>");
-//			}
-//               doFooter(pw);
-//		}
+		public void printDeprecatedItems(PrintWriter pw) {
+			doTitle(pw, "Deprecated Items");
+			pw.print("<tr><td class='z0'><b>Type</b></td><td class='z1'><b>Elements</b></td><td class='z2'><b>Attributes</b></td><td class='z4'><b>Values</b></td>");
+			for (Iterator it = deprecatedItems.iterator(); it.hasNext();) {
+				Map source = (Map)it.next();
+				Object item;
+				pw.print("<tr>");
+				pw.print("<td class='z0'>" + ((item = source.get("type")) != null ? item : "<i>any</i>")  + "</td>");
+				pw.print("<td class='z1'>" + ((item = source.get("elements")) != null ? item : "<i>any</i>")  + "</td>");
+				pw.print("<td class='z2'>" + ((item = source.get("attributes")) != null ? item : "<i>any</i>") + "</td>");
+				pw.print("<td class='z4'>" + ((item = source.get("values")) != null ? item : "<i>any</i>") + "</td>");
+				pw.print("</tr>");
+			}
+			pw.println("</table></div>");
+		}
 		
-		public void printWindows_Tzid(PrintWriter index) throws IOException {
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Windows \u2192 Tzid"));
-			//doTitle(pw, "Windows \u2192 Tzid");
+		public void printWindows_Tzid(PrintWriter pw) {
+			doTitle(pw, "Windows \u2192 Tzid");
 			for (Iterator it = windows_tzid.keySet().iterator(); it.hasNext();) {
 				String source = (String)it.next();
 				String target = (String)windows_tzid.get(source);
 				pw.println("<tr><td class='source'>" + source + "</td><td class='target'>" + target + "</td></tr>");
 			}
-               //doFooter(pw);
-               pw.close();
+			pw.println("</table></div>");
 		}
 		
 		//<info iso4217="ADP" digits="0" rounding="0"/>
 
-		public void printContains(PrintWriter index) throws IOException {
+		public void printContains(PrintWriter pw) {
 			String title = "Territory Containment (UN M.49)";
-            
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title));
-			//doTitle(pw, title);
+			doTitle(pw, title);
 			printContains2(pw, "<tr>", "001", 0, true);
-            //doFooter(pw);
-            pw.close();
+			pw.println("</table></div>");
 		}
-        
-        public void printCharacters(PrintWriter index) throws IOException {
-            String title = "Character Fallback Substitutions";
-            
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title));
-            //doTitle(pw, title);
-            pw.println("<tr><th colSpan='3'>Character</th><th colSpan='3'>Substitution (if not in target charset)</th></tr>");
-            for (Iterator it = charSubstitutions.keySet().iterator(); it.hasNext();) {
-                String value = (String)it.next();
-                String substitute = (String)charSubstitutions.get(value);
-                pw.println("<tr><td class='source'>"
-                        + hex(value, ", ") + "</td><td class='source'>"
-                        + value + "</td><td class='source'>"
-                        + UCharacter.getName(value, ", ") + "</td><td class='target'>"
-                        + hex(substitute, ", ") + "</td><td class='target'>"
-                        + substitute + "</td><td class='target'>"
-                        + UCharacter.getName(substitute, ", ") 
-                        + "</td></tr>" );
-                
-            }
-            //doFooter(pw);
-            pw.close();
-        }
-        
-
-        public static String hex(String s, String separator) {
-            StringBuffer result = new StringBuffer();
-            for (int i = 0; i < s.length(); ++i) {
-                if (i != 0) result.append(separator);
-                com.ibm.icu.impl.Utility.hex(s.charAt(i), result);
-            }
-            return result.toString();
-        }
-
-        
 		/**
 		 * 
 		 */
-//		private PrintWriter doTitle(PrintWriter pw, String title) {
-//			//String anchor = FileUtilities.anchorize(title);
-//			pw.println("<div align='center'><table>");
-//			//anchors.put(title, anchor);
-//            //PrintWriter result = null;
-//            //return result;
-//		}
-        
-        
-
-//        private void doFooter(PrintWriter pw) {
-//            pw.println("</table></div>");
-//        }
+		private void doTitle(PrintWriter pw, String title) {
+			String anchor = FileUtilities.anchorize(title);
+			pw.println("<div align='center'><table><caption><a name='" + anchor + "'>" + title + "</a></caption>");
+			anchors.put(title, anchor);
+		}
 
 		public void printContains2(PrintWriter pw, String lead, String start, int depth, boolean isFirst) {
 			String name = depth == 4 ? start : getName(CLDRFile.TERRITORY_NAME, start, false);
@@ -766,10 +626,9 @@ public class ShowLanguages {
 		}
 
 		/**
-		 * @param table TODO
 		 * 
 		 */
-		public void printMissing(PrintWriter pw, int source, int table) {
+		public void printMissing(PrintWriter pw, String title, int source) {
 			Set missingItems = new HashSet();
 			String type = null;
 			if (source == CLDRFile.TERRITORY_NAME) {
@@ -785,8 +644,8 @@ public class ShowLanguages {
 			} else if (source == CLDRFile.LANGUAGE_NAME) {
 				type = "language";
 				missingItems.addAll(sc.getAvailableCodes(type));
-				if (table == CLDRFile.SCRIPT_NAME) missingItems.removeAll(language_scripts.keySet());
-                if (table == CLDRFile.TERRITORY_NAME) missingItems.removeAll(language_territories.keySet());
+				missingItems.removeAll(language_scripts.keySet());
+				missingItems.removeAll(language_territories.keySet());
 			} else  {
 				throw new IllegalArgumentException("Illegal code");
 			}
@@ -801,16 +660,16 @@ public class ShowLanguages {
 				String itemName = getName(source, item, true);
 				missingItemsNamed.add(itemName);
 			}
-            pw.println("<div align='center'><table>");
+			doTitle(pw, title);
 			for (Iterator it = missingItemsNamed.iterator(); it.hasNext();) {
 				pw.println("<tr><td class='target'>" + it.next() + "</td></tr>");
 			}
-            pw.println("</table></div>");
+			pw.println("</table>");
 		}
 
 		// source, eg english.TERRITORY_NAME
 		// target, eg english.LANGUAGE_NAME
-		public void print(PrintWriter pw, int source, int target) {
+		public void print(PrintWriter pw, String title, int source, int target) {
 			Map data = 
 				source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME ? territory_languages
 				: source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.TERRITORY_NAME ? language_territories
@@ -830,9 +689,7 @@ public class ShowLanguages {
 					s.add(languageName);
 				}
 			}
-            
-            pw.println("<div align='center'><table>");
-
+			doTitle(pw, title);
 			for (Iterator it = territory_languageNames.keySet().iterator(); it.hasNext();) {
 				String territoryName = (String) it.next();
 				pw.println("<tr><td class='source' colspan='2'>" + territoryName + "</td></tr>");
@@ -842,8 +699,7 @@ public class ShowLanguages {
 					pw.println("<tr><td>&nbsp;</td><td class='target'>" + languageName + "</td></tr>");
 				}
 			}
-            pw.println("</table></div>");
-
+			pw.println("</table><br>");
 		}
 
 		/**

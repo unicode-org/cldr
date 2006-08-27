@@ -83,8 +83,7 @@ public class Utility {
 	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
     public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
-    public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
-    public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
+	public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
 	public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
     public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
 
@@ -628,11 +627,11 @@ public class Utility {
 	}
 
 	public static void registerTransliteratorFromFile(String id, String dir, String filename) {
-		registerTransliteratorFromFile(id, dir, filename, Transliterator.FORWARD, true);
-		registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE, true);
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.FORWARD);
+		registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE);
 	}
 	
-	public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction, boolean reverseID) {
+	public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction) {
 		try {
 			if (filename == null) {
 				filename = id.replace('-', '_');
@@ -659,8 +658,6 @@ public class Utility {
 			} else {
 				rid = id.substring(pos+1) + "-" + id.substring(0, pos);
 			}
-            if (!reverseID) rid = id;
-            
 			if (direction == Transliterator.FORWARD) {
 				Transliterator.unregister(id);
 				t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);

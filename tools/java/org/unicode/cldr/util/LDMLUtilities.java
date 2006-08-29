@@ -190,6 +190,17 @@ public class LDMLUtilities {
             return null ;
         }
         
+        if(DEBUG){
+            try {
+                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
+                         new  java.io.FileOutputStream("./" + File.separator + locale
+                                 + "_ba_debug.xml"), "UTF-8");
+                 LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                 writer.flush();
+            } catch (IOException e) {
+                 //throw the exceptionaway .. this is for debugging
+            }
+        }
         // get the real locale name
         locale = getLocaleName(full);
        // Resolve the aliases once the data is built
@@ -199,7 +210,7 @@ public class LDMLUtilities {
            try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                         new  java.io.FileOutputStream("./" + File.separator + locale
-                                + "_debug.xml"), "UTF-8");
+                                + "_aa_debug.xml"), "UTF-8");
                 LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
            } catch (IOException e) {
@@ -662,9 +673,9 @@ public class LDMLUtilities {
      * @param xpath
      * @return
      */
-    private static Node[]  mergeNodeLists(Object[] n1, Object[] n2, String xpath1, String xpath2){
-        StringBuffer xp1 = new StringBuffer(xpath1);
-        StringBuffer xp2 = new StringBuffer(xpath2);
+    private static Node[]  mergeNodeLists(Object[] n1, Object[] n2){
+        StringBuffer xp1 = new StringBuffer();
+        StringBuffer xp2 = new StringBuffer();
         int l1=xp1.length(), l2=xp2.length();
         HashMap map = new HashMap();
         if(n2==null|| n2.length==0){
@@ -675,11 +686,13 @@ public class LDMLUtilities {
             return na;
         }
         for(int i=0; i<n1.length; i++){
+            xp1.append(((Node)n1[i]).getNodeName());
             appendXPathAttribute((Node)n1[i], xp1);
             map.put(xp1.toString(), n1[i]);
             xp1.setLength(l1);
         }
         for(int i=0; i<n2.length; i++){
+            xp1.append(((Node)n2[i]).getNodeName());
             appendXPathAttribute((Node)n2[i], xp2);
             map.put(xp2.toString(), n2[i]);
             xp2.setLength(l2);
@@ -758,7 +771,7 @@ public class LDMLUtilities {
              
                Object[] aliasList = getChildNodeListAsArray(getNode(parent, path), false);
                Object[] childList = getChildNodeListAsArray(parent, true);
-               replacementList = mergeNodeLists(aliasList, childList, path, getAbsoluteXPath(parent, null));
+               replacementList = mergeNodeLists(aliasList, childList);
            }else if(source!=null && !source.equals(thisLocale)){
                // if source is defined then path should not be 
                // relative 
@@ -932,6 +945,9 @@ public class LDMLUtilities {
         return false; 
     }
     public static boolean isLocaleAlias(Document doc){
+        return (getAliasNode(doc)!=null);
+    }
+    private static Node getAliasNode(Document doc){
         NodeList elements = doc.getElementsByTagName(LDMLConstants.IDENTITY);
         if(elements.getLength()==1){
             Node id = elements.item(0);
@@ -941,13 +957,13 @@ public class LDMLUtilities {
                     continue;
                 }
                 if(sib.getNodeName().equals(LDMLConstants.ALIAS)){
-                    return true;
+                    return sib;
                 }
             }
         }else{
             System.out.println("Error: elements returned more than 1 identity element!");
         }
-        return false;
+        return null;
     }
     /**
      * Determines if the whole locale is marked draft. To accomplish this

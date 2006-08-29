@@ -453,7 +453,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
          }
     }
     /*
-    private void writeAliasedResource(){
+    private void createAliasedResource(Document doc, String xmlfileName, String icuSpecialFile){
         if(locName==null || writeDeprecated==false){
             return;
         }
@@ -1369,7 +1369,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return currencyMeta;
     }
     private String ldmlVersion = null;
-    private ICUResourceWriter.Resource parseBundle(Node root){
+    private ICUResourceWriter.Resource parseBundle(Document root){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
         StringBuffer xpath = new StringBuffer();
@@ -1471,7 +1471,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
             xpath.delete(savedLength,xpath.length());
         }
-        if(sourceDir.indexOf("main")>0){
+        if(sourceDir.indexOf("main")>0 && !LDMLUtilities.isLocaleAlias(root)){
             ICUResourceWriter.Resource temp = parseWeek();
             if(temp!=null){
                 ICUResourceWriter.Resource greg = findResource(table, LDMLConstants.GREGORIAN);
@@ -3010,7 +3010,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                }
             }
         }
-
+      
         // parse the default node
         Node def = LDMLUtilities.getNode(root,LDMLConstants.DEFAULT, null, null);
         if(def!=null){
@@ -3464,7 +3464,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         Node[] nodes = new Node[paths.length];
         boolean someNonDraft = false;
         for(int i=0; i < paths.length; i++){
-            nodes[i] = getVettedNode(root, paths[i], xpath);
+            nodes[i] = getVettedNode(parent, paths[i], xpath);
             if(nodes[i]!=null){
                 someNonDraft = true;
             }
@@ -5126,7 +5126,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                        && isInDest(n)); // root is implied, will be included elsewhere.
             }
             public boolean isInDest(String n){
-                String name = n.substring(0,n.indexOf('.'));
+                String name = n.substring(0,n.indexOf('.')+1);
                 for(int i=0; i<destFiles.length; i++){
                     String dest = destFiles[i].getName();
                     if(dest.indexOf(name)==0){
@@ -5196,6 +5196,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         // End of parsing all XML files.
 
+        if(emptyLocaleList!=null && emptyLocaleList.size()>0){
+            for(int i=0; i<emptyLocaleList.size(); i++){
+                String loc = (String)emptyLocaleList.get(i);
+                writeSimpleLocale(loc + ".txt", loc, null, null,
+                    "empty locale file for dependency checking");
+                // we do not want these files to show up in installed locales list!
+                generatedAliasFiles.put(loc + ".xml", new File(depF,loc+".xml"));
+            }                        
+        }
         // interpret the deprecated locales list 
         if(aliasMap!=null && aliasMap.size()>0){
             for(Iterator i=aliasMap.keySet().iterator(); i.hasNext();){
@@ -5248,14 +5257,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     fromFiles.remove(source+".xml");
                 }
             }
-        }
-        if(emptyLocaleList!=null && emptyLocaleList.size()>0){
-            for(int i=0; i<emptyLocaleList.size(); i++){
-                String loc = (String)emptyLocaleList.get(i);
-                writeSimpleLocale(loc + ".txt", loc, null, null,
-                    "empty locale file for dependency checking");
-                emptyFromFiles.put(loc + ".xml", new File(depF,loc+".xml"));
-            }                        
         }
         //      Post process: calculate any 'valid sub locales' (empty locales generated due to validSubLocales attribute)
         if(!validSubMap.isEmpty() && sourceDir.indexOf("collation")>-1) {

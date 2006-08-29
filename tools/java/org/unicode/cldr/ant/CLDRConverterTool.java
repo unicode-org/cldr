@@ -104,7 +104,6 @@ public abstract class CLDRConverterTool {
      *          <aliasLocale locale="zh_SG" /> 
      *          <aliasLocale locale="zh_TW" />
      *      </deprecates> 
-     * @param type The type of for aliases. Usually is the name of the tree
      * @param list The list of locales for which the alias locales need to be written.
      */ 
     public void setAliasLocaleList(ArrayList list){
@@ -117,7 +116,6 @@ public abstract class CLDRConverterTool {
      *          <emptyLocale locale="hi_" />
      *          <emptyLocale locale="zh_" />  
      *      </deprecates> 
-     * @param type The type of for aliases. Usually is the name of the tree
      * @param list The list of locales for which the empty locales need to be written.
      */     
     public void setEmptyLocaleList(ArrayList list){
@@ -193,11 +191,26 @@ public abstract class CLDRConverterTool {
          *  
          */
         
+        
+        //fast path
+        String draft = (String)localesMap.get(localeName+".xml");
+        XPathParts parts = new XPathParts(null, null);
+        if(draft!=null){
+            for(int i=0; i<xpathList.size();i++){
+                parts = parts.set((String)xpathList.get(i));
+                Map attr = parts.getAttributes(parts.size()-1);
+                String draftVal = (String)attr.get(LDMLConstants.DRAFT);
+                if(draftVal!=null && !draftVal.matches(draft)){
+                    xpathList.remove(i);
+                }
+            }
+           // return xpathList;
+        }
         if(pathList==null){
             // include everything!
             return xpathList;
         }
-        XPathParts parts = new XPathParts(null, null);
+        
         ArrayList myXPathList = new ArrayList(xpathList.size());
         StandardCodes sc = StandardCodes.make();
         // iterator of xpaths of the current CLDR file being processed

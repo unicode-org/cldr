@@ -79,7 +79,7 @@
             debug="on" deprecation="off"
             encoding="ascii"/>
     </target>
-	<target name="icu" depends="init,util" description="build posix conversion tool">
+	<target name="icu" depends="init, ant-plugin, util" description="build posix conversion tool">
 	        <javac includes="org/unicode/cldr/icu/**/*.java"
 	            excludes="**/CVS/**/*"
 	            srcdir="${src.dir}"

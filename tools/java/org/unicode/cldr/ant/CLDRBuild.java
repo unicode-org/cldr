@@ -475,8 +475,15 @@ public class CLDRBuild extends Task{
         }
     }
     
-    public static class EmptyLocale extends AliasLocale{
-        // all data & methods are identical to AliasLocale class 
+    public static class EmptyLocale extends Task{
+        String locale;
+        String list;
+        public void setLocale(String loc){
+            locale = loc;
+        }
+        public void setList(String list){
+            this.list = list;
+        }
     }
     
     public static class Paths extends Task{

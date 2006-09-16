@@ -195,10 +195,10 @@ public class ICUServiceBuilder {
         if (DateFormatValues[timeIndex] == -1) pattern = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
         else if (DateFormatValues[dateIndex] == -1) pattern = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
         else {
+            String p0 = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
         	String p1 = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
-        	String p2 = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
-        	String p3 = getDateTimePattern(calendar, "dateTime", "");
-        	pattern = MessageFormat.format(p3, new String[]{p2, p1});
+        	String datetimePat = getDateTimePattern(calendar, "dateTime", "");
+        	pattern = MessageFormat.format(datetimePat, new String[]{p0, p1});
         }
 		return pattern;
 	}

@@ -28,7 +28,7 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
-import org.unicode.cldr.test.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
@@ -739,7 +739,7 @@ public class CLDRModify {
 			Set standardFormats = new TreeSet();
 			
 			public void handleStart() {
-				dtpg = new DateTimePatternGenerator(); // should add clear()
+				dtpg = DateTimePatternGenerator.newInstance(); // should add clear()
 				dateFormatItems.clear();
 				standardFormats.clear();
 			}
@@ -951,7 +951,7 @@ public class CLDRModify {
 
 		
 		fixList.add('d', "fix dates",  new CLDRFilter() {
-			DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
+			DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.newInstance();
 			HashMap seenSoFar = new HashMap();
 			
 			public void handleStart() {

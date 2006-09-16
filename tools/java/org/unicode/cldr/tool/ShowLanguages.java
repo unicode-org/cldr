@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -24,6 +25,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -32,6 +35,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -39,13 +43,15 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 
 public class ShowLanguages {
 	static CLDRFile english;
-	static Collator col = Collator.getInstance(new ULocale("en"));
+	static Comparator col = new CollectionUtilities.MultiComparator(
+            new Comparator[]{Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false,0)});
 	static StandardCodes sc = StandardCodes.make();
 	
 	public static void main(String[] args) throws IOException {
@@ -195,7 +201,7 @@ public class ShowLanguages {
 
 		String defaultDigits = null;
 
-		public LanguageInfo(Factory cldrFactory) {
+		public LanguageInfo(Factory cldrFactory) throws IOException {
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 			for (Iterator it = supp.iterator(); it.hasNext();) {
@@ -363,30 +369,29 @@ public class ShowLanguages {
                 if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
                 System.out.println("Skipped Element: " + path);                
            }
-            
+            Log.setLog("characterLog.txt");
             CLDRFile chars = cldrFactory.make("characters", false);
             int count = 0;
-            for (Iterator it = chars.iterator(); it.hasNext();) {
+            for (Iterator it = chars.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
                 String path = (String) it.next();
                 parts.set(chars.getFullXPath(path));
                 if (parts.getElement(1).equals("version")) continue;
                 if (parts.getElement(1).equals("generation")) continue;
                 String value = parts.getAttributeValue(-2, "value");
                 String substitute = chars.getStringValue(path, true);
-                String nfc = Normalizer.normalize(value, Normalizer.NFC);
-                String nfkc = Normalizer.normalize(value, Normalizer.NFKC);
-                if (substitute.equals(nfc)) {
-                    count++; continue;
-                }
-                if (substitute.equals(nfkc)) {
-                    count++; continue;
-                }
-                Object already = charSubstitutions.get(value);
-                if (already != null) System.out.println("Duplicate value:" + already);
-                charSubstitutions.put(value, substitute);
+                addCharSubstitution(value, substitute);
             }
             if (count != 0) System.out.println("Skipped NFKC/NFC items: " + count);
+            Log.close();
 		}
+
+        private void addCharSubstitution(String value, String substitute) {
+            if (substitute.equals(value)) return;
+            LinkedHashSet already = (LinkedHashSet) charSubstitutions.get(value);
+            if (already == null) charSubstitutions.put(value, already=new LinkedHashSet(0));
+            already.add(substitute);
+            Log.logln(hex(value, " ") + "; " + hex(substitute, " "));
+        }
 
         /**
          * 
@@ -671,30 +676,68 @@ public class ShowLanguages {
             
             PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title));
             //doTitle(pw, title);
-            pw.println("<tr><th colSpan='3'>Character</th><th colSpan='3'>Substitution (if not in target charset)</th></tr>");
+            pw.println("<tr><th colSpan='3'>Substitute for character (if not in repertoire)</th><th colSpan='4'>The following (in priority order, first string that <i>is</i> in repertoire)</th></tr>");
+            UnicodeSet chars = new UnicodeSet("[:NFKC_QuickCheck=N:]");
+            for (com.ibm.icu.text.UnicodeSetIterator it = new com.ibm.icu.text.UnicodeSetIterator(chars); it.next();) {
+                String value = it.getString();
+                addCharSubstitution(value,Normalizer.normalize(value, Normalizer.NFC));
+                addCharSubstitution(value,Normalizer.normalize(value, Normalizer.NFKC));
+            }
+            int[] counts = new int[4];
             for (Iterator it = charSubstitutions.keySet().iterator(); it.hasNext();) {
-                String value = (String)it.next();
-                String substitute = (String)charSubstitutions.get(value);
-                pw.println("<tr><td class='source'>"
-                        + hex(value, ", ") + "</td><td class='source'>"
-                        + value + "</td><td class='source'>"
-                        + UCharacter.getName(value, ", ") + "</td><td class='target'>"
-                        + hex(substitute, ", ") + "</td><td class='target'>"
-                        + substitute + "</td><td class='target'>"
-                        + UCharacter.getName(substitute, ", ") 
-                        + "</td></tr>" );
-                
+                String value = (String) it.next();
+                LinkedHashSet substitutes = (LinkedHashSet)charSubstitutions.get(value);
+                String nfc = Normalizer.normalize(value, Normalizer.NFC);
+                String nfkc = Normalizer.normalize(value, Normalizer.NFKC);
+
+                String sourceTag = "<td class='source'>";
+                if (substitutes.size() > 1) {
+                    sourceTag = "<td class='source' rowSpan='" + substitutes.size() + "'>";
+                }
+                boolean first = true;
+                for (Iterator it2 = substitutes.iterator(); it2.hasNext();) {
+                    String substitute = (String) it2.next();
+                    String type = "Explicit";
+                    String targetTag =  "<td class='target3'>";
+                    if (substitute.equals(nfc)) {
+                        type = "NFC";
+                        targetTag = "<td class='target'>";
+                        counts[2]++;
+                    } else if (substitute.equals(nfkc)) {
+                        type = "NFKC";
+                        targetTag = "<td class='target4'>";
+                        counts[3]++;
+                    } else {
+                        counts[0]++;
+                    }
+                    pw.println("<tr>" 
+                            + (!first ? "" :
+                                sourceTag + hex(value, ", ") + "</td>"
+                                + sourceTag + TransliteratorUtilities.toHTML.transliterate(value) + "</td>"
+                                + sourceTag + UCharacter.getName(value, ", ") + "</td>" )
+                            + targetTag + type + "</td>"
+                            + targetTag + hex(substitute, ", ") + "</td>"
+                            + targetTag + TransliteratorUtilities.toHTML.transliterate(substitute) +"</td>" 
+                            + targetTag + UCharacter.getName(substitute, ", ") 
+                             + "</td></tr>" );
+                    first = false;
+                } 
             }
             //doFooter(pw);
             pw.close();
+            for (int i = 0; i < counts.length; ++i) {
+                System.out.println("Count\t" + i + "\t" + counts[i]);
+            }
         }
         
 
         public static String hex(String s, String separator) {
             StringBuffer result = new StringBuffer();
-            for (int i = 0; i < s.length(); ++i) {
+            int cp;
+            for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
+                cp = UTF16.charAt(s, i);
                 if (i != 0) result.append(separator);
-                com.ibm.icu.impl.Utility.hex(s.charAt(i), result);
+                result.append(com.ibm.icu.impl.Utility.hex(cp));
             }
             return result.toString();
         }

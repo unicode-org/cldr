@@ -24,8 +24,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
-import org.unicode.cldr.test.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
@@ -120,7 +121,7 @@ public class FlexibleDateTime {
             	String pattern = (String) it2.next();
             	new SimpleDateFormat(pattern); // check that compiles
             	fp.set(pattern);
-            	String id = fp.getFieldString();
+            	String id = fp.getVariableFieldString();
             	if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " + pattern);
             	if (id.length() == 0) {
                     throw new IllegalArgumentException("Empty id for: " + pattern);
@@ -304,7 +305,7 @@ public class FlexibleDateTime {
                     "GEEEEyyyyMMddHHmmss",
                     "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     };
-            DateTimePatternGenerator fdt = new DateTimePatternGenerator();
+            DateTimePatternGenerator fdt = DateTimePatternGenerator.newInstance();
             add(fdt, list);
             Date now = new Date(99, 11, 23, 1, 2, 3);
             System.out.println("Sample Input: " + now);

@@ -320,7 +320,7 @@ public class GenerateCldrTests {
         	collationLocales.add(it.next().toString());
         }
         // TODO HACK
-        collationLocales.remove("ar_IN");
+        //collationLocales.remove("ar_IN");
         icuServiceBuilder = new ICUServiceBuilder();
 /*        cldrOthers = new GenerateCldrDateTimeTests(options[SOURCEDIR].value + "main" + File.separator, pat, 
         		!options[GenerateCldrTests.NOT_RESOLVED].doesOccur);
@@ -719,7 +719,11 @@ public class GenerateCldrTests {
 				for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
 					rp.set("numberType", icuServiceBuilder.getNumberNames(i));
 					DecimalFormat nf = icuServiceBuilder.getNumberFormat(i);
-					rp.setResult(nf.format(sample));
+                    String formatted = nf.format(sample);
+                    if (formatted.indexOf("NaNNaN") >= 0) {
+                        formatted = nf.format(sample); // for debugging
+                    }
+					rp.setResult(formatted);
 				}
 			}
 			return rp;

@@ -46,11 +46,15 @@ public class GenerateEnums {
     private CLDRFile supplementalMetadata = factory.make("supplementalMetadata", false);
     private CLDRFile supplementalData = factory.make("supplementalData", false);
     private TreeSet unlimitedCurrencyCodes;
+    private Set scripts = new TreeSet();
+    private Set languages = new TreeSet();
     
     public static void main(String[] args) throws IOException {
         GenerateEnums gen = new GenerateEnums();
         gen.loadCLDRData();
         gen.showCurrencies();
+        gen.showLanguages();
+        gen.showScripts();
         gen.printInfo();
         gen.printAdditionalInfo();
     }
@@ -74,10 +78,47 @@ public class GenerateEnums {
         }
         
     }
+    
+    private void showScripts() {
+        System.out.println();
+        System.out.println("Script Data");
+        System.out.println();
+
+        for (Iterator it = scripts.iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            String englishName = english.getName(CLDRFile.SCRIPT_NAME, code, false);
+            if (englishName == null) continue;
+            System.out.println(
+                    "     /**" + englishName
+                    + "*/    " + code
+                    + ","
+                    );
+        }
+        
+    }
+
+    private void showLanguages() {
+        System.out.println();
+        System.out.println("Language Data");
+        System.out.println();
+
+        for (Iterator it = languages.iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            String englishName = english.getName(CLDRFile.LANGUAGE_NAME, code, false);
+            if (englishName == null) continue;
+            System.out.println(
+                    "     /**" + englishName
+                    + "*/    " + code
+                    + ","
+                    );
+        }
+        
+    }
+
 
     private void printAdditionalInfo() {
         System.out.println();
-        System.out.println("Data for RegionUtilties");
+        System.out.println("Data for ISO Region Codes");
         System.out.println();
         //     addInfo(RegionCode.US, 840, "USA", "US", "US/XX", ....); ...  are containees
         Set reordered = new TreeSet(new LengthFirstComparator());
@@ -86,16 +127,40 @@ public class GenerateEnums {
             String region = (String)it.next();
             String cldrName = region.length()<5 ? region : region.substring(2); // fix UN name
             int un = Integer.parseInt((String) enum_UN.get(region)); // get around dumb octal syntax
-            System.out.println("  addInfo(RegionCode." + region
-                    + ", " + un
-                    + ", " + quote(enum_alpha3.get(region))
-                    + ", " + quote(enum_FIPS10.get(region))
-                    + ", " + quote(enum_TLD.get(region))
-                    + ", " + quote(join((List)containment.get(cldrName), "/"))
+//            System.out.println("  add(RegionCode." + region
+//                    + ", " + un
+//                    + ", " + quote(enum_alpha3.get(region))
+//                    + ", " + quote(enum_FIPS10.get(region))
+//                    + ", " + quote(enum_TLD.get(region))
+//                    + ", " + quote(join((List)containment.get(cldrName), "/"))
+//                    + ");"
+//                    );
+            String isoCode = (String) enum_alpha3.get(region);
+            if (isoCode == null) continue;
+            System.out.println("  add("
+                    + quote(isoCode)
+                    + ", " 
+                    + "RegionCode." + region
                     + ");"
                     );
         }
-    }
+
+        System.out.println();
+        System.out.println("Data for M.49 Region Codes");
+        System.out.println();
+    
+        for (Iterator it = reordered.iterator(); it.hasNext();) {
+            String region = (String)it.next();
+            String cldrName = region.length()<5 ? region : region.substring(2); // fix UN name
+            String un = quote((String) enum_UN.get(region)); // get around dumb octal syntax
+            System.out.println("  add("
+                    + un
+                    + ", " 
+                    + "RegionCode." + region
+                    + ");"
+                    );
+        }
+}
     
     private Object join(Collection collection, String separator) {
         if (collection == null) return null;
@@ -248,6 +313,19 @@ public class GenerateEnums {
         }
         String validCurrencies = supplementalMetadata.getStringValue("//supplementalData/metadata/validity/variable[@id=\"$currency\"]", true).trim();
         validCurrencyCodes = new TreeSet(Arrays.asList(validCurrencies.split("\\s+")));
+        
+        values = supplementalMetadata.getStringValue("//supplementalData/metadata/validity/variable[@id=\"$script\"]", true).trim();
+        String[] validScripts = values.split("\\s+");
+        for (int i = 0; i < validScripts.length; ++i) {
+            scripts.add(validScripts[i]);
+        }
+
+        values = supplementalMetadata.getStringValue("//supplementalData/metadata/validity/variable[@id=\"$language\"]", true).trim();
+        String[] validLanguages = values.split("\\s+");
+        for (int i = 0; i < validLanguages.length; ++i) {
+            languages.add(validLanguages[i]);
+        }
+
 
 //            Set availableCodes = new TreeSet(sc.getAvailableCodes("territory"));
 //            availableCodes.add("003");
@@ -323,8 +401,8 @@ public class GenerateEnums {
             //{"155","Western Europe"},
             
             });
-    private Set<String> currencyCodes;
-    private Set<String> validCurrencyCodes;
+    private Set currencyCodes;
+    private Set validCurrencyCodes;
         
     /**
      * does stuff

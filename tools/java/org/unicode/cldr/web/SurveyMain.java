@@ -24,6 +24,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
@@ -3513,7 +3514,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         // handle FFT
                 
         if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
-               DateTimePatternGenerator dateTimePatternGenerator = new DateTimePatternGenerator();
+               DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.newInstance();
                //String id = (String) attributes.get("id");
                String id = null;
                //String oldID = id;

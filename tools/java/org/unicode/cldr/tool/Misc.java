@@ -74,7 +74,8 @@ public class Misc {
 		OBSOLETES = 8,
 		ALIASES = 9,
 		INFO = 10,
-        ZONES = 11
+        ZONES = 11,
+        LANGUAGE_TAGS = 12
 		;
 	
 	private static final UOption[] options = {
@@ -90,6 +91,7 @@ public class Misc {
 	    UOption.create("aliases", 'a', UOption.NO_ARG),
         UOption.create("info", 'i', UOption.NO_ARG),
         UOption.create("zones", 'z', UOption.NO_ARG),
+        UOption.create("langauge-tags", 'l', UOption.NO_ARG),
 	};
 	
 	private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -171,10 +173,14 @@ public class Misc {
 			if (options[ALIASES].doesOccur) {
 				printZoneAliases();
 			}
+      
+      if (options[LANGUAGE_TAGS].doesOccur) {
+        testLanguageTags();
+      }
 
 			// TODO add options for these later
 			//getCities();
-			//testLanguageTags();
+			//
 			//getZoneData();
 			//showLanguageTagCount();
 
@@ -648,16 +654,16 @@ public class Misc {
 				"|sgn-(?:BE-(?:fr|nl)|CH-de)" +
 				"|zh-(?:gan|min(?:-nan)?|wuu|yue)")
 		.add("$lang", "$alpha{2,8}")
-		.add("$extlang", "(?:-$alpha{3})")
-		.add("$script", "(?:-$alpha{4})")
-		.add("$region", "(?:-$alpha{2}|-$digit{3})")
-		.add("$variant", "(?:-$digit$alphanum{3}|-$alphanum{5,8})")
+		.add("$extlang", "(?:-$alpha{3})") // *3("-" 3ALPHA)
+		.add("$script", "(?:-$alpha{4})") // ["-" script],  4ALPHA 
+		.add("$region", "(?:-$alpha{2}|-$digit{3})") // ["-" region],  2ALPHA   / 3DIGIT
+		.add("$variant", "(?:-$digit$alphanum{3}|-$alphanum{5,8})") // *("-" variant), 5*8alphanum  / (DIGIT 3alphanum)
 		.add("$extension", "(?:-[$alphanum&&[^xX]](?:-$alphanum{2,8})+)")
 		.add("$privateuse", "(?:$x(?:-$alphanum{1,8})+)")
 		.add("$privateuse2", "(?:-$privateuse)");
 	static String langTagPattern = langTag.replace(			
 			"($lang)"
-				+ "\r\n\t($extlang*)"
+				+ "\r\n\t($extlang{0,3})"
 				+ "\r\n\t($script?)"
 				+ "\r\n\t($region?)"
 				+ "\r\n\t($variant*)"
@@ -667,43 +673,126 @@ public class Misc {
 			+ "\r\n|($privateuse)"
 			);
 	static String cleanedLangTagPattern = langTagPattern.replaceAll("[\\r\\t\\n\\s]","");
-	static Matcher regexLanguageTag = Pattern.compile(cleanedLangTagPattern).matcher("");
+	static Matcher regexLanguageTagOld = Pattern.compile(cleanedLangTagPattern).matcher("");
 	
-	static String[] groupNames = {"whole", "lang", "extlangs", "script", "region", "variants", "extensions", 
+	static String[] groupNames = {"whole", "lang", "script", "region", "variants", "extensions", 
 			"privateuse", "grandfathered", "privateuse"
 	};
+//  String[] tests = {
+//      "TRUE",
+//      "en",
+//      "en-US", 
+//      "en-Latn", 
+//      "en-Latn-US", 
+//      "en-enx", 
+//      "x-12345678-a", 
+//      "en-enx-eny-enz-latn-us", 
+//      "FALSE",
+//      "en-enx-eny-enz-enw", 
+//      "en-Latn-US-lojban-gaulish",
+//      "en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678",
+//      "en-Latn-001",
+//      "en-gb-oed", // grandfathered
+//      "badtagsfromhere",
+//      "b-fish",
+//      "en-UK-oed",
+//      "en-US-Latn", 
+//  };
+
 	
-	private static void testLanguageTags() {
-		System.out.println(langTagPattern);
-		System.out.println(cleanedLangTagPattern);
+	private static Pattern getBNF(String filename, StringBuffer contents) throws IOException {
+	  BufferedReader in = BagFormatter.openUTF8Reader("", filename);
+	  Utility.VariableReplacer result = new Utility.VariableReplacer();
+	  String variable = null;
+	  StringBuffer definition = new StringBuffer();
+	  for (int count = 1; ; ++count) {
+	    String line = in.readLine();
+	    if (line == null) break;
+	    contents.append(line).append("\r\n");
+	    // remove initial bom, comments
+	    if (line.length() == 0) continue;
+	    if (line.charAt(0) == '\uFEFF') line = line.substring(1);
+	    int hashPos = line.indexOf('#');
+	    if (hashPos >= 0) line = line.substring(0, hashPos);
+      line = line.trim(); // this may seem redundant, but we need it for the test for final ;
+      if (line.length() == 0) continue;
+
+	    String[] lineParts = line.split(";");
+	    for (int i = 0; i < lineParts.length; ++i) {
+	      String linePart = lineParts[i].trim();
+	      if (linePart.length() == 0) continue;
+	      int equalsPos = linePart.indexOf(":=");
+	      if (equalsPos >= 0) {
+	        if (variable != null) {
+            throw new IllegalArgumentException("Missing ';' before " + count + ") " + line);
+          }
+	        variable = linePart.substring(0,equalsPos).trim();
+	        definition.append(linePart.substring(equalsPos+2).trim());
+	      } else { // no equals, so
+  	      if (variable == null) {
+            throw new IllegalArgumentException("Missing ':=' at " + count + ") " + line);
+          }
+  	      definition.append(linePart);
+        }
+        // we are terminated if i is not at the end, or the line ends with a ;
+        if (i < lineParts.length - 1 || line.endsWith(";")) {
+          result.add(variable, result.replace(definition.toString()));
+          variable = null; // signal we have no variable
+          definition.setLength(0);
+        }
+	    }
+	  }
+	  if (variable != null) {
+      throw new IllegalArgumentException("Missing ';' at end");
+    }
+	  String resolved = result.replace("$root");
+    System.out.println("Regex: " + resolved);
+    return Pattern.compile(resolved, Pattern.COMMENTS);
+	}
+  
+	private static void testLanguageTags() throws IOException {
+    StringBuffer contents = new StringBuffer();
+    Pattern pat = getBNF(Utility.UTIL_DATA_DIR + "langtagRegex.txt", contents);
+    Matcher regexLanguageTag = pat.matcher("");
+    System.out.println(contents);
+    
+//		System.out.println(langTagPattern);
+//		System.out.println(cleanedLangTagPattern);
 		StandardCodes sc = StandardCodes.make();
 		Set grandfathered = sc.getAvailableCodes("grandfathered");
-		for (Iterator it = grandfathered.iterator(); it.hasNext();) {
-			System.out.print(it.next() + " | ");
-		}
+//		for (Iterator it = grandfathered.iterator(); it.hasNext();) {
+//			System.out.print(it.next() + " | ");
+//		}
+//    System.out.println();
+    
 		LanguageTagParser ltp = new LanguageTagParser();
-		String[] tests = {
-				"en", 
-				"en-US", 
-				"en-Latn", 
-				"en-Latn-US", 
-				"en-enx-eny-US", 
-				"x-12345678-a", 
-				"en-Latn-US-lojban-gaulish",
-				"en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678",
-				"en-Latn-001",
-				"en-GB-oed", // grandfathered
-				"badtagsfromhere",
-				"b-fish",
-				"en-UK-oed",
-				"en-US-Latn", 
-		};
-		for (int i = 0; i < tests.length; ++i) {
+    boolean expected = true;
+    
+    BufferedReader in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "langtagTest.txt");
+    
+		for (int i = 0; ; ++i) {
+      String test = in.readLine();
+      if (test == null) break;
+
+      // remove initial bom, comments
+      if (test.length() == 0) continue;
+      if (test.charAt(0) == '\uFEFF') test = test.substring(1);
+      int hashPos = test.indexOf('#');
+      if (hashPos >= 0) test = test.substring(0, hashPos);
+      test = test.trim(); // this may seem redundant, but we need it for the test for final ;
+      if (test.length() == 0) continue;
+
+      if (test.equalsIgnoreCase("true")) {
+        expected = true;
+        continue;
+      } else if (test.equalsIgnoreCase("false")) {
+        expected = false;
+        continue;
+      }
 			try {
-				System.out.println("Parsing " + tests[i]);
-				ltp.set(tests[i]);
+				System.out.println("Parsing " + test);
+				ltp.set(test);
 				if (ltp.getLanguage().length() != 0) System.out.println("\tlang:    \t" + ltp.getLanguage() + (ltp.isGrandfathered() ? " (grandfathered)" : ""));
-				if (ltp.getExtlangs().size() != 0) System.out.println("\textlangs:\t" + ltp.getExtlangs());
 				if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
 				if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
 				if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());
@@ -713,8 +802,8 @@ public class Misc {
 				System.out.println("\t" + e.getMessage());
 				System.out.println("\tisValid?\tfalse");
 			}
-			boolean matches = regexLanguageTag.reset(tests[i]).matches();
-			System.out.println("\tregex?\t" + matches);
+			boolean matches = regexLanguageTag.reset(test).matches();
+			System.out.println("\tregex?\t" + matches + (matches != expected ? "\t EXPECTED: " + expected : ""));
 			if (matches) {
 				for (int j = 0; j <= regexLanguageTag.groupCount(); ++j) {
 					String g = regexLanguageTag.group(j);

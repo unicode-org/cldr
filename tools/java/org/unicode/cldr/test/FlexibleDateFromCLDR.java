@@ -34,7 +34,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.unicode.cldr.test.DateTimePatternGenerator.PatternInfo;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.PatternInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
@@ -47,7 +48,7 @@ import com.ibm.icu.text.DateFormat;
  *
  */
 class FlexibleDateFromCLDR {
-    DateTimePatternGenerator gen = new DateTimePatternGenerator();
+    DateTimePatternGenerator gen = DateTimePatternGenerator.newInstance();
     transient XPathParts parts = new XPathParts(null, null);
     private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
             
@@ -90,7 +91,7 @@ class FlexibleDateFromCLDR {
 
     public void set(CLDRFile cldrFile) {
         icuServiceBuilder.setCldrFile(cldrFile);
-        gen = new DateTimePatternGenerator(); // for now
+        gen = DateTimePatternGenerator.newInstance(); // for now
         failureMap.clear();
     }
     /**

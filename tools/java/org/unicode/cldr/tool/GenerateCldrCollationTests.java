@@ -86,6 +86,10 @@ public class GenerateCldrCollationTests {
             Map types_rules = (Map) locale_types_rules.get(locale);
             for (Iterator it2 = types_rules.keySet().iterator(); it2.hasNext(); ) {
                 String type = (String) it2.next();
+                // TODO fix HACK
+                if (type.equals("unihan")) {
+                    if (!locale.startsWith("zh")) continue;
+                }
                 RuleBasedCollator col = (RuleBasedCollator) types_rules.get(type);
                 String name = type.equals("standard") ? locale : locale + "@collation=" + type;
                 ulocale_rules.put(new ULocale(name), col);

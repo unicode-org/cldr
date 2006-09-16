@@ -1,0 +1,116 @@
+TRUE
+en
+en-US
+en-Latn
+en-Latn-US
+en-enx
+x-12345678-a
+en-enx-eny-enz-latn-us
+abcd-Latn
+AaBbCcDd
+AaBbCcDd-x-y-any-x
+ab-x-abc-x-abc 	 # anything goes after x
+ab-x-abc-a-a   	 # ditto
+i-default      	 # grandfathered
+fr 
+fr-Latn
+fr-fra 	 # Extended tag
+fr-Latn-FR
+fr-Latn-419
+fr-FR
+ax-TZ 	 # Not in the registry, but well-formed
+fr-shadok 	 # Variant
+fr-y-myext-myext2
+fra-Latn 	 # ISO 639 can be 3-letters
+fra
+fra-FX
+i-klingon 	 # grandfathered with singleton
+no-bok 	 # grandfathered without singleton
+fr-Lat 	 # Extended
+mn-Cyrl-MN
+mN-cYrL-Mn
+fr-Latn-CA
+en-US
+fr-Latn-CA
+i-enochian 	 # Grand fathered
+x-fr-CH 
+sr-Latn-CS
+es-419
+sl-nedis
+de-CH-1996
+de-Latg-1996
+sl-IT-nedis
+en-a-bbb-x-a-ccc
+de-a-value
+en-Latn-GB-boont-r-extended-sequence-x-private
+en-x-US
+az-Arab-x-AZE-derbend
+es-Latn-CO-x-private
+en-US-boont
+ab-x-abc-x-abc 	 # anything goes after x
+ab-x-abc-a-a 	 # ditto
+i-default 	 # grandfathered
+i-klingon 	 # grandfathered
+en-Latn-US-lojban-gaulish
+en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH
+en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678
+en-Latn-001
+en-gb-oed
+
+
+FALSE
+a--b
+-a
+a-
+en-enx-eny-enz-enw
+overlongone
+b-fish
+en-UK-oed
+en-US-Latn
+abcd-efg
+aabbccddE
+a-foo
+abcdefghi-012345678
+ab-abc-abc-abc-abc
+ab-abcd-abc
+ab-ab-abc
+ab-123-abc
+ab-abcde-abc
+ab-1abc-abc
+ab-ab-abcd
+ab-123-abcd
+ab-abcde-abcd
+ab-1abc-abcd
+ab-a-b
+ab-a-x
+ab--ab
+ab-abc-
+-ab-abc
+ab-a-abc-a-abc
+f
+f-Latn
+fr-Latn-F
+a-value
+en-a-bbb-a-ccc	 # 'a' appears twice 
+tlh-a-b-foo
+i-notexist          	 # grandfathered but not registered: invalid, even if we only test well-formedness
+abcdefghi-012345678
+ab-abc-abc-abc-abc
+ab-abcd-abc
+ab-ab-abc
+ab-123-abc
+a-Hant-ZH
+a1-Hant-ZH
+ab-abcde-abc
+ab-1abc-abc
+ab-ab-abcd
+ab-123-abcd
+ab-abcde-abcd
+ab-1abc-abcd
+ab-a-b
+ab-a-x
+ab--ab
+ab-abc-
+-ab-abc
+ab-c-abc-r-toto-c-abc  	 # 'c' appears twice 
+a-x

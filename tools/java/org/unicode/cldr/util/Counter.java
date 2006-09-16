@@ -29,7 +29,7 @@ public final class Counter {
 
     static public final class RWInteger implements Comparable {
         static int uniqueCount;
-        public int value;
+        public long value;
         private int forceUnique = uniqueCount++;
 
         // public RWInteger() {
@@ -48,13 +48,13 @@ public final class Counter {
         }
     }
 
-    public void add(Object obj, int countValue) {
+    public void add(Object obj, long countValue) {
         RWInteger count = (RWInteger)map.get(obj);
         if (count == null) map.put(obj, count = new RWInteger());
         count.value += countValue;
     }
     
-    public int getCount(Object obj) {
+    public long getCount(Object obj) {
         RWInteger count = (RWInteger) map.get(obj);
         return count == null ? 0 : count.value;
     }
@@ -63,8 +63,8 @@ public final class Counter {
         map.clear();
     }
     
-    public int getTotal() {
-        int count = 0;
+    public long getTotal() {
+        long count = 0;
         for (Iterator it = map.keySet().iterator(); it.hasNext();) {
             count += ((RWInteger) map.get(it.next())).value;
         }

@@ -14,9 +14,8 @@ $x	:= [xX] ;	# private use singleton
 $singleton := [a-w y-z A-W Y-Z] ; # other singleton
 $s	:= [-] ; # separator -- lenient parsers will use [-_]
 
-# Now do the components. The structure is slightly different:
-# these codes include the "-", since it is easier to do the "non-capturing" regex that way.
-# The notation (?:....) is a non-capturing version of (...): so the "?:" can be deleted if someone doesn't care.
+# Now do the components. The structure is slightly different to allow for capturing the right components.
+# The notation (?:....) is a non-capturing version of (...): so the "?:" can be deleted if someone doesn't care about capturing.
 
 $extlang	:= (?: $s $alpha{3} ) ;	# *3("-" 3ALPHA)
 $language	:= (?: $alpha{2,3} $extlang{0,3} | $alpha{4,8} ) ;	# (2*3ALPHA [ extlang ]) / 4ALPHA / 5*8ALPHA
@@ -41,13 +40,13 @@ $privateuse	:= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# ("x"/"X") 1*("-" (1*8alphan
 # Note that these have to be compared case insensitively, requiring (?i) below.
 
 $grandfathered	:=
-		art $s lojban
+	(?: art $s lojban
 	|	cel $s gaulish
 	|	en $s (?: boont | GB $s oed | scouse )
 	|	i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
 	|	no $s (?: bok | nyn)
 	|	sgn $s (?: BE $s fr | BE $s nl | CH $s de)
-	|	zh $s (?: cmn | zh $s cmn $s Hans | cmn $s Hant | gan | guoyu | hakka | min | min $s nan | wuu | xiang | yue) ;
+	|	zh $s (?: cmn | zh $s cmn $s Hans | cmn $s Hant | gan | guoyu | hakka | min | min $s nan | wuu | xiang | yue) );
 
 # Here is the breakdown, with capturing groups for each of these components
 # The language, variants, extensions, grandfathered, and private-use may have interior '-'

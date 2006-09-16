@@ -1,116 +1,120 @@
 TRUE
-en
-en-US
-en-Latn
-en-Latn-US
-en-enx
-x-12345678-a
-en-enx-eny-enz-latn-us
-abcd-Latn
 AaBbCcDd
 AaBbCcDd-x-y-any-x
-ab-x-abc-x-abc 	 # anything goes after x
+abcd-Latn
 ab-x-abc-a-a   	 # ditto
-i-default      	 # grandfathered
-fr 
-fr-Latn
-fr-fra 	 # Extended tag
-fr-Latn-FR
-fr-Latn-419
-fr-FR
+ab-x-abc-a-a 	 # ditto
+ab-x-abc-x-abc 	 # anything goes after x
+ab-x-abc-x-abc 	 # anything goes after x
 ax-TZ 	 # Not in the registry, but well-formed
-fr-shadok 	 # Variant
-fr-y-myext-myext2
-fra-Latn 	 # ISO 639 can be 3-letters
-fra
-fra-FX
-i-klingon 	 # grandfathered with singleton
-no-bok 	 # grandfathered without singleton
-fr-Lat 	 # Extended
-mn-Cyrl-MN
-mN-cYrL-Mn
-fr-Latn-CA
-en-US
-fr-Latn-CA
-i-enochian 	 # Grand fathered
-x-fr-CH 
-sr-Latn-CS
-es-419
-sl-nedis
+az-Arab-x-AZE-derbend
+de-a-value
 de-CH-1996
 de-Latg-1996
-sl-IT-nedis
+en
 en-a-bbb-x-a-ccc
-de-a-value
+en-enx
+en-enx-eny-enz-latn-us
+en-gb-oed
+en-Latn
+en-Latn-001
 en-Latn-GB-boont-r-extended-sequence-x-private
-en-x-US
-az-Arab-x-AZE-derbend
-es-Latn-CO-x-private
-en-US-boont
-ab-x-abc-x-abc 	 # anything goes after x
-ab-x-abc-a-a 	 # ditto
-i-default 	 # grandfathered
-i-klingon 	 # grandfathered
+en-Latn-US
 en-Latn-US-lojban-gaulish
 en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH
 en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678
-en-Latn-001
-en-gb-oed
-
+en-US
+en-US
+en-US-boont
+en-x-US
+es-419
+es-Latn-CO-x-private
+fr 
+fra
+fra-FX
+fra-Latn 	 # ISO 639 can be 3-letters
+fr-FR
+fr-fra 	 # Extended tag
+fr-Lat 	 # Extended
+fr-Latn
+fr-Latn-419
+fr-Latn-CA
+fr-Latn-CA
+fr-Latn-FR
+fr-shadok 	 # Variant
+fr-y-myext-myext2
+i-default      	 # grandfathered
+i-default 	 # grandfathered
+i-enochian 	 # Grand fathered
+i-klingon 	 # grandfathered
+i-klingon 	 # grandfathered with singleton
+mn-Cyrl-MN
+mN-cYrL-Mn
+no-bok 	 # grandfathered without singleton
+sl-IT-nedis
+sl-nedis
+sr-Latn-CS
+x-12345678-a
+x-fr-CH 
 
 FALSE
-a--b
 -a
 a-
-en-enx-eny-enz-enw
-overlongone
-b-fish
-en-UK-oed
-en-US-Latn
-abcd-efg
+a1-Hant-ZH
 aabbccddE
-a-foo
-abcdefghi-012345678
+a--b
+ab-123-abc
+ab-123-abc
+ab-123-abcd
+ab-123-abcd
+ab-1abc-abc
+ab-1abc-abc
+ab-1abc-abcd
+ab-1abc-abcd
+ab--ab
+ab--ab
+ab-a-b
+ab-a-b
+ab-ab-abc
+ab-ab-abc
+ab-ab-abcd
+ab-ab-abcd
+-ab-abc
+-ab-abc
+ab-abc-
+ab-abc-
+ab-abc-abc-abc-abc
 ab-abc-abc-abc-abc
 ab-abcd-abc
-ab-ab-abc
-ab-123-abc
+ab-abcd-abc
 ab-abcde-abc
-ab-1abc-abc
-ab-ab-abcd
-ab-123-abcd
+ab-abcde-abc
 ab-abcde-abcd
-ab-1abc-abcd
-ab-a-b
+ab-abcde-abcd
 ab-a-x
-ab--ab
-ab-abc-
--ab-abc
-ab-a-abc-a-abc
+ab-a-x
+abcd-efg
+abcdefghi-012345678
+abcdefghi-012345678
+a-foo
+a-Hant-ZH
+a-value
+a-x
+b-fish
+en-enx-eny-enz-enw
+en-UK-oed
+en-US-Latn
 f
 f-Latn
 fr-Latn-F
-a-value
-en-a-bbb-a-ccc	 # 'a' appears twice 
+overlongone
 tlh-a-b-foo
+
 i-notexist          	 # grandfathered but not registered: invalid, even if we only test well-formedness
-abcdefghi-012345678
-ab-abc-abc-abc-abc
-ab-abcd-abc
-ab-ab-abc
-ab-123-abc
-a-Hant-ZH
-a1-Hant-ZH
-ab-abcde-abc
-ab-1abc-abc
-ab-ab-abcd
-ab-123-abcd
-ab-abcde-abcd
-ab-1abc-abcd
-ab-a-b
-ab-a-x
-ab--ab
-ab-abc-
--ab-abc
+
+# the following have multiple singletons
+ab-a-abc-a-abc
+en-a-bbb-a-ccc	 # 'a' appears twice 
 ab-c-abc-r-toto-c-abc  	 # 'c' appears twice 
-a-x
+
+

@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -37,7 +38,9 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.BNF;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.Quoter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
@@ -49,6 +52,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 //import com.ibm.icu.impl.Utility;
@@ -699,61 +703,124 @@ public class Misc {
 //      "en-US-Latn", 
 //  };
 
-	
-	private static Pattern getBNF(String filename, StringBuffer contents) throws IOException {
-	  BufferedReader in = BagFormatter.openUTF8Reader("", filename);
-	  Utility.VariableReplacer result = new Utility.VariableReplacer();
-	  String variable = null;
-	  StringBuffer definition = new StringBuffer();
-	  for (int count = 1; ; ++count) {
-	    String line = in.readLine();
-	    if (line == null) break;
-	    contents.append(line).append("\r\n");
-	    // remove initial bom, comments
-	    if (line.length() == 0) continue;
-	    if (line.charAt(0) == '\uFEFF') line = line.substring(1);
-	    int hashPos = line.indexOf('#');
-	    if (hashPos >= 0) line = line.substring(0, hashPos);
-      line = line.trim(); // this may seem redundant, but we need it for the test for final ;
-      if (line.length() == 0) continue;
-
-	    String[] lineParts = line.split(";");
-	    for (int i = 0; i < lineParts.length; ++i) {
-	      String linePart = lineParts[i].trim();
-	      if (linePart.length() == 0) continue;
-	      int equalsPos = linePart.indexOf(":=");
-	      if (equalsPos >= 0) {
-	        if (variable != null) {
-            throw new IllegalArgumentException("Missing ';' before " + count + ") " + line);
-          }
-	        variable = linePart.substring(0,equalsPos).trim();
-	        definition.append(linePart.substring(equalsPos+2).trim());
-	      } else { // no equals, so
-  	      if (variable == null) {
-            throw new IllegalArgumentException("Missing ':=' at " + count + ") " + line);
-          }
-  	      definition.append(linePart);
-        }
-        // we are terminated if i is not at the end, or the line ends with a ;
-        if (i < lineParts.length - 1 || line.endsWith(";")) {
-          result.add(variable, result.replace(definition.toString()));
-          variable = null; // signal we have no variable
-          definition.setLength(0);
-        }
+	static class BNFData {
+    private String rules;
+    private String generationRules;
+    private Pattern pattern;
+    private BNF bnf;
+    
+	  public BNFData setFromFile(String filename) throws IOException {
+	    BufferedReader in = BagFormatter.openUTF8Reader("", filename);
+	    Utility.VariableReplacer result = new Utility.VariableReplacer();
+	    String variable = null;
+	    StringBuffer definition = new StringBuffer();
+      StringBuffer ruleBuffer = new StringBuffer();
+      StringBuffer generationRuleBuffer = new StringBuffer();
+      for (int count = 1; ; ++count) {
+	      String line = in.readLine();
+	      if (line == null) break;
+	      ruleBuffer.append(line).append("\r\n");
+	      // remove initial bom, comments
+	      if (line.length() == 0) continue;
+	      if (line.charAt(0) == '\uFEFF') line = line.substring(1);
+	      int hashPos = line.indexOf('#');
+	      if (hashPos >= 0) line = line.substring(0, hashPos);
+	      line = line.trim(); // this may seem redundant, but we need it for the test for final ;
+	      if (line.length() == 0) continue;
+        generationRuleBuffer.append(line).append("\r\n");
+	      
+	      String[] lineParts = line.split(";");
+	      for (int i = 0; i < lineParts.length; ++i) {
+	        String linePart = lineParts[i].trim();
+	        if (linePart.length() == 0) continue;
+	        int equalsPos = linePart.indexOf('=');
+	        if (equalsPos >= 0) {
+	          if (variable != null) {
+	            throw new IllegalArgumentException("Missing ';' before " + count + ") " + line);
+	          }
+	          variable = linePart.substring(0,equalsPos).trim();
+	          definition.append(linePart.substring(equalsPos+1).trim());
+	        } else { // no equals, so
+	          if (variable == null) {
+	            throw new IllegalArgumentException("Missing ':=' at " + count + ") " + line);
+	          }
+	          definition.append(linePart);
+	        }
+	        // we are terminated if i is not at the end, or the line ends with a ;
+	        if (i < lineParts.length - 1 || line.endsWith(";")) {
+	          result.add(variable, result.replace(definition.toString()));
+	          variable = null; // signal we have no variable
+	          definition.setLength(0);
+	        }
+	      }
 	    }
+	    if (variable != null) {
+	      throw new IllegalArgumentException("Missing ';' at end");
+	    }
+	    String resolved = result.replace("$root").replaceAll("[0-9]+%", "");
+	    System.out.println("Regex: " + resolved);
+      rules = ruleBuffer.toString();
+      generationRules = generationRuleBuffer.toString().replaceAll("\\?:", "").replaceAll("\\(\\?i\\)","");
+	    pattern = Pattern.compile(resolved, Pattern.COMMENTS);
+      return this;
 	  }
-	  if (variable != null) {
-      throw new IllegalArgumentException("Missing ';' at end");
+	  
+	  public BNF getBnf() {
+      if (bnf != null) return bnf;
+	    bnf = new BNF(new Random(2), new Quoter.RuleQuoter())
+      .setMaxRepeat(5)
+	    .addRules(generationRules)
+	    .complete();
+	    return bnf;
+	  }
+
+    public Pattern getPattern() {
+      return pattern;
     }
-	  String resolved = result.replace("$root");
-    System.out.println("Regex: " + resolved);
-    return Pattern.compile(resolved, Pattern.COMMENTS);
+
+    public String getRules() {
+      return rules;
+    }
+
+    public String getGenerationRules() {
+      return generationRules;
+    }
 	}
   
 	private static void testLanguageTags() throws IOException {
-    StringBuffer contents = new StringBuffer();
-    Pattern pat = getBNF(Utility.UTIL_DATA_DIR + "langtagRegex.txt", contents);
+    BNFData bnfData = new BNFData();
+    bnfData.setFromFile(Utility.UTIL_DATA_DIR + "langtagRegex.txt");
+    String contents = bnfData.getRules();
+    Pattern pat = bnfData.getPattern();
     Matcher regexLanguageTag = pat.matcher("");
+
+    BNF bnf = bnfData.getBnf();
+    for (int i = 0; i < 100; ++i) {
+      String trial = bnf.next();
+      System.out.println(trial);
+      if (!regexLanguageTag.reset(trial).matches()) {
+        throw new IllegalArgumentException("Regex generation fails with: " + trial);
+      }
+    }
+    
+    // generate a bunch of ill-formed items. Try to favor ones that might actually cause problems.
+    // TODO make all numeric and all alpha more common
+    System.out.println("*** ILL-FORMED ***");
+    BNF invalidBNF = new BNF(new Random(0), new Quoter.RuleQuoter())
+    .setMaxRepeat(5)
+    .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
+    .addRules("$s = [-_] ;")
+    .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
+    .complete();
+    
+    for (int i = 0; i < 100; ++i) {
+      String trial = invalidBNF.next();
+      if (regexLanguageTag.reset(trial).matches()) {
+        continue;
+      }
+      System.out.println(trial);
+    }
+    
     System.out.println(contents);
     
 //		System.out.println(langTagPattern);
@@ -767,7 +834,7 @@ public class Misc {
     
 		LanguageTagParser ltp = new LanguageTagParser();
     boolean expected = true;
-    
+    int errorCount = 0;
     BufferedReader in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "langtagTest.txt");
     
 		for (int i = 0; ; ++i) {
@@ -782,10 +849,10 @@ public class Misc {
       test = test.trim(); // this may seem redundant, but we need it for the test for final ;
       if (test.length() == 0) continue;
 
-      if (test.equalsIgnoreCase("true")) {
+      if (test.equalsIgnoreCase("WELL-FORMED")) {
         expected = true;
         continue;
-      } else if (test.equalsIgnoreCase("false")) {
+      } else if (test.equalsIgnoreCase("ILL-FORMED")) {
         expected = false;
         continue;
       }
@@ -803,7 +870,8 @@ public class Misc {
 				System.out.println("\tisValid?\tfalse");
 			}
 			boolean matches = regexLanguageTag.reset(test).matches();
-			System.out.println("\tregex?\t" + matches + (matches != expected ? "\t EXPECTED: " + expected : ""));
+      if (matches != expected) ++errorCount;
+			System.out.println("\tregex?\t" + matches + (matches == expected ? "" : "\t EXPECTED: " + expected + " for\t" + test));
 			if (matches) {
 				for (int j = 0; j <= regexLanguageTag.groupCount(); ++j) {
 					String g = regexLanguageTag.group(j);
@@ -812,6 +880,7 @@ public class Misc {
 				}
 			}
 		}
+    System.out.println("Error count: " + errorCount);
 	}
 	
 	private static void getZoneData() {

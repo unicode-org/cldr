@@ -5,58 +5,63 @@
 # It uses Java/Perl syntax instead of the old ABNF
 # The uppercase comments are fragments copied from RFC 4646
 
-# Note: the tool requires that any real ":=" or "#" or ";" in the regex be escaped.
+# Note: the tool requires that any real "=" or "#" or ";" in the regex be escaped.
 
-$alpha	:= [a-z A-Z] ;	# ALPHA
-$digit	:= [0-9] ;	# DIGIT
-$alphanum	:= [a-z A-Z 0-9] ;	# ALPHA / DIGIT
-$x	:= [xX] ;	# private use singleton
-$singleton := [a-w y-z A-W Y-Z] ; # other singleton
-$s	:= [-] ; # separator -- lenient parsers will use [-_]
+$alpha	= [a-z A-Z] ;	# ALPHA
+$digit	= [0-9] ;	# DIGIT
+$alphanum	= [a-z A-Z 0-9] ;	# ALPHA / DIGIT
+$x	= [xX] ;	# private use singleton
+$singleton = [a-w y-z A-W Y-Z] ; # other singleton
+$s	= [-] ; # separator -- lenient parsers will use [-_]
 
 # Now do the components. The structure is slightly different to allow for capturing the right components.
 # The notation (?:....) is a non-capturing version of (...): so the "?:" can be deleted if someone doesn't care about capturing.
 
-$extlang	:= (?: $s $alpha{3} ) ;	# *3("-" 3ALPHA)
-$language	:= (?: $alpha{2,3} $extlang{0,3} | $alpha{4,8} ) ;	# (2*3ALPHA [ extlang ]) / 4ALPHA / 5*8ALPHA
+$extlang	= (?: $s $alpha{3} ) ;	# *3("-" 3ALPHA)
+$language	= (?: $alpha{2,3} $extlang{0,3} | $alpha{4,8} ) ;	# (2*3ALPHA [ extlang ]) / 4ALPHA / 5*8ALPHA
 
-$script	:= (?: $alpha{4} ) ;	# 4ALPHA 
+$script	= (?: $alpha{4} ) ;	# 4ALPHA 
 
-$region	:= (?: $alpha{2} | $digit{3} ) ;	 # 2ALPHA / 3DIGIT
+$region	= (?: $alpha{2} | $digit{3} ) ;	 # 2ALPHA / 3DIGIT
 
-$variantSub	:= (?: $digit $alphanum{3} | $alphanum{5,8} ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
-$variant	:= (?: $variantSub (?: $s $variantSub )* ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
+$variantSub	= (?: $digit $alphanum{3} | $alphanum{5,8} ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
+$variant	= (?: $variantSub (?: $s $variantSub )* ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
 
-$extensionSub	:= (?: $singleton (?: $s $alphanum{2,8} )+ ) ;	# singleton 1*("-" (2*8alphanum))
-$extension	:= (?: $extensionSub (?: $s $extensionSub )* ) ;	# singleton 1*("-" (2*8alphanum))
+$extensionSub	= (?: $singleton (?: $s $alphanum{2,8} )+ ) ;	# singleton 1*("-" (2*8alphanum))
+$extension	= (?: $extensionSub (?: $s $extensionSub )* ) ;	# singleton 1*("-" (2*8alphanum))
 
-$privateuse	:= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# ("x"/"X") 1*("-" (1*8alphanum))
+$privateuse	= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# ("x"/"X") 1*("-" (1*8alphanum))
 
-# Define grandfathered codes, since otherwise the regex is pretty useless.
+# Define certain grandfathered codes, since otherwise the regex is pretty useless.
 # Since these are limited, this is safe even later changes to the registry --
 # the only oddity is that it might change the type of the tag, and thus
 # the results from the capturing groups.
 # http://www.iana.org/assignments/language-subtag-registry
 # Note that these have to be compared case insensitively, requiring (?i) below.
 
-$grandfathered	:=
-	(?: art $s lojban
-	|	cel $s gaulish
-	|	en $s (?: boont | GB $s oed | scouse )
+$grandfathered	= (?: (?i)
+		en $s GB $s oed
 	|	i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
-	|	no $s (?: bok | nyn)
 	|	sgn $s (?: BE $s fr | BE $s nl | CH $s de)
-	|	zh $s (?: cmn | zh $s cmn $s Hans | cmn $s Hant | gan | guoyu | hakka | min | min $s nan | wuu | xiang | yue) );
+);
 
-# Here is the breakdown, with capturing groups for each of these components
+# For well-formedness, we don't need the ones that would otherwise pass, so they are commented out here
+
+#	|	art $s lojban
+#	|	cel $s gaulish
+#	|	en $s (?: boont | GB $s oed | scouse )
+#	|	no $s (?: bok | nyn)
+#	|	zh $s (?: cmn | cmn $s Hans | cmn $s Hant | gan | guoyu | hakka | min | min $s nan | wuu | xiang | yue)
+
+# Here is the final breakdown, with capturing groups for each of these components
 # The language, variants, extensions, grandfathered, and private-use may have interior '-'
  
-$root :=
-	 ($language)
-		(?: $s ($script) )?
-		(?: $s ($region) )?
-		(?: $s ($variant) )?
-		(?: $s ($extension) )?
-		(?: $s ($privateuse) )?
-	|	( (?i) $grandfathered)
-	|	($privateuse) ;
+$root =
+	 (?: ($language)
+		(?: $s ($script) )? 40%
+		(?: $s ($region) )? 40%
+		(?: $s ($variant) )? 10%
+		(?: $s ($extension) )? 5%
+		(?: $s ($privateuse) )? 5% ) 90%
+	|	($grandfathered) 5%
+	|	($privateuse) 5% ;

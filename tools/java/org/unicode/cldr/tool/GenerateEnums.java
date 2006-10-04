@@ -12,7 +12,6 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.ULocale;
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 import java.io.BufferedReader;
 import java.io.IOException;

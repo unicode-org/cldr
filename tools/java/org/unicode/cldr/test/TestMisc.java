@@ -3,7 +3,6 @@ package org.unicode.cldr.test;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Formatter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,7 +20,6 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.text.UTF16;
 
-import sun.security.x509.X400Address;
 
 public class TestMisc {
     public static void main(String[] args) {

@@ -25,7 +25,6 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.XPathParser;
 //import com.ibm.icu.impl.Utility;
 
 import java.util.*;

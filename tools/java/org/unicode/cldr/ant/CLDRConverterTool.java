@@ -233,8 +233,10 @@ public abstract class CLDRConverterTool {
                     if(level.group!=null && !sc.isLocaleInGroup(localeName, level.group, level.org) ){
                         continue;
                     }
-                    CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);   
-                    if(coverageLevel.getCoverageLevel(xpath).equals(cv)){
+                    CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
+                    // only include the xpaths that have the coverage level at least the coverage level 
+                    // specified by the locale
+                    if(coverageLevel.getCoverageLevel(xpath).compareTo(cv)<=0){
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         if(level.draft!=null){
                             if(   draftVal==null && 

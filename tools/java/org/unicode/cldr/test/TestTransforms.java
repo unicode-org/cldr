@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,7 +19,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-import com.ibm.icu.dev.test.translit.TestAll;
+//import com.ibm.icu.dev.test.translit.TestAll;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -28,7 +29,7 @@ import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms {
-	static String target = "C:\\cvsdata\\unicode\\cldr\\dropbox\\gen\\icu-transforms\\";
+	static String target = "C:\\work\\cldr\\dropbox\\gen\\transforms\\";
 	static Matcher getId = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*").matcher("");
 	static Matcher getSource = Pattern.compile("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
 	
@@ -163,9 +164,17 @@ public class TestTransforms {
 //			//Transliterator t = Transliterator.getInstance("Latin-ConjoiningJamo");
 //			//Transliterator t2 = Transliterator.getInstance("ConjoiningJamo-Latin");
 //		}
-		
-
-		TestAll.main(new String[]{"-n"});
+        try{
+    		Class ta = Class.forName("com.ibm.icu.dev.test.translit.TestAll");
+    		Object testAll = ta.newInstance();
+            String[] params = new String[]{"-n"};
+            Method m = ta.getDeclaredMethod("main", new Class[]{String[].class});
+            System.out.println("here");
+            m.invoke(ta, new Object[]{params});
+    		//TestAll.main(new String[]{"-n"});
+        }catch(Exception ex){
+            System.err.println("Could not load TestAll. Encountered exception: " + ex.toString());
+        }
 	}
 	static Matcher translitID = Pattern.compile("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
 	static Map fixedIDs = new TreeMap();

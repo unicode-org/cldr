@@ -18,9 +18,6 @@ ooo 	OpenOffice.org tools for :
 			- Comparing OpenOffice.org data
 web     Web-based code (Survey tool) - for information, see:  data/surveytool/readme.txt
 
-Each one of these should have a readme.txt
-[none has a readme, except ooo]
-
 When you run any of the tools, you probably want to set up a DTD cache; that will speed things up.
 Include the following environment variable to do that.
 [pass to command line of java?]
@@ -31,10 +28,8 @@ directory periodically so that the latest DTDs are downloaded to the machine.
 -----------------
 
 The tools may use ICU4J code for testing, but should use none of the data in ICU4J. 
-[LDML converter uses UnicodeSet which is not in cldrUtil, why have separate utilities.jar?]
 We'll be using the ICU4J test framework also (we looked at JUnit, but it would be 
 really clumsy for the ways in which we'd have to test).
-
 
 To Run the Tools:
 
@@ -44,7 +39,6 @@ http://java.sun.com
    ftp://www.unicode.org/Public/cldr/<release number>/utilities.jar
    ftp://www.unicode.org/Public/cldr/<release number>/icu4j.jar
    ftp://www.unicode.org/Public/cldr/<release number>/cldr.jar
-[utilities.jar and icu4j.jar do not exist here]
 3. Run the tool you are interested in, e.g:
 java -cp <dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter 
 -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
@@ -53,16 +47,21 @@ To Build the Tools:
 
 1. Download and install a Java SDK with version number greater than or equal to 1.4 from
 http://java.sun.com
-[only JDK 1.4.x work, JDK 1.5 does not include org.apache.foo]
+Note: JDK 1.4.x works, JDK 1.5 does not include org.apache.*
 
 2. Download and install the Ant build system with version number greate than or equal to 1.6 from
 http://ant.apache.org
 3. Download the following Jar files:
    ftp://www.unicode.org/Public/cldr/<release number>/utilities.jar
    ftp://www.unicode.org/Public/cldr/<release number>/icu4j.jar 
-4. Set ICU4J_CLASSES environment variable to point to the above jar files.
-   Windows: set ICU4J_CLASSES=<dir>/icu4j.jar;<dir>/utilities.jar
-   Unix: export ICU4J_CLASSES=<dir>/icu4j.jar:<dir>/utilities.jar
+4. Set the required environtment variables
+    o Unix
+        export ICU4J_JAR=<dir>/icu4j.jar
+        export UTILITIES_JAR=<dir>/utilities.jar
+    o Windows
+        set  ICU4J_JAR=<dir>\icu4j.jar
+        set UTILITIES_JAR=<dir>\utilities.jar
+        
 5. Build the tools with the following command:
    <dir>/bin/ant clean all
    
@@ -78,13 +77,23 @@ To Build utilities.jar and icu4j.jar:
    <dir>/bin/ant clean core jar
 4. Build utilities.jar  with the following command:
    <dir>/bin/ant cldrUtil
-[note, currently requires JDK 1.4.x. 1.5 does not include org.apache.foo]
-
+   
 IMPORTANT:
-If you are using Eclipse for building CLDR tools and ICU4J, make sure that you
+o If you are using Eclipse for building CLDR tools and ICU4J, make sure that you
 do not make building of CLDR tools dependent on ICU4J project. In Java Perspective
 open Package Explorer view > Select CLDR project > Right click > Properties > 
 Java Build Path > Projects tab > Uncheck ICU4J. Now go to Libraries tab and click
 the Add External Jars button and add the utilities.jar and icu4j.jar that you
 have downloaded from the instructions above. If you do not do this, you may be breaking
 others when you use classes not in utilities.jar or icu4j.jar and check in the files.
+
+o If you are trying to run org.unicode.cldr.test.TestTransforms then you need to make sure
+   the classes directory of ICU4J with test classes built is in the class path of run configuration
+   of Eclipse
+   Run > Run > Select TestTransforms in left hand pane > Classpath tab > Select "user entries" >
+   Check "Add Folders" radio button > click ok > navigate to ICU4J classes directory and select it >
+   Click OK. 
+   
+   From the command line
+   $ /java/bin/java -cp "classes;$ICU4J_JAR;$UTILITIES_JAR;\work\icu4j\classes" org.unicode.cldr.test.TestTransforms
+   

@@ -7,24 +7,42 @@
         <property name="jarSrc.file" value="cldrsrc.jar"/>
         <!-- Load environment variables -->
         <property environment="env"/>
-        <property name="icu4j.binaries" value="${env.ICU4J_CLASSES}"/>
-
+        
         <path id="build.classpath">
             <pathelement path="${build.dir}"/>
         </path>
         
         <condition property="is.icu4j.classes.set" >
-            <isset property="env.ICU4J_CLASSES" />
+            <or>
+                <isset property="env.ICU4J_CLASSES" />
+                <isset property="env.ICU4J_JAR" />
+            </or>
         </condition > 
-        <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES environment variable."/>
+        <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES or ICU4J_JAR environment variable."/>
         
+        <condition property="is.utilities.classes.set" >
+            <or>
+                <isset property="env.ICU4J_CLASSES" />
+                <isset property="env.UTILITIES_JAR" />
+            </or>
+        </condition > 
+        <fail unless="is.utilities.classes.set" message="Please set the ICU4J_CLASSES or UTILITIES_JAR environment variable."/>        
         <mkdir dir="${build.dir}"/>
+        
+        <path id="project.class.path">
+            <pathelement path="${java.class.path}/"/>
+            <pathelement path="${build.dir}"/>
+            <pathelement path="${env.ICU4J_CLASSES}"/>
+            <pathelement path="${env.CLDR_CLASSES}"/>
+            <pathelement location="${env.ICU4J_JAR}"/>
+            <pathelement location="${env.CLDR_JAR}"/>
+            <pathelement location="${env.UTILITIES_JAR}"/>
+        </path>
         <echo message="java home: ${java.home}"/>
         <echo message="java version: ${java.version}"/>
         <echo message="ant java version: ${ant.java.version}"/>
         <echo message="${ant.version}"/>
-        <echo message="ICU4J_CLASSES is set to = ${icu4j.binaries}"/>
-                
+        <echo message="${project.class.path}"/>
     </target>
 
     <!-- build everything but dist-related stuff -->
@@ -34,8 +52,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -45,8 +62,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -62,8 +78,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -73,8 +88,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -84,8 +98,7 @@
 	            excludes="**/CVS/**/*"
 	            srcdir="${src.dir}"
 	            destdir="${build.dir}"
-	            classpathref="build.classpath"
-	            classpath="${icu4j.binaries}"
+                classpathref="project.class.path"
 	            source="1.4"
 	            debug="on" deprecation="off"
 	            encoding="ascii"/>
@@ -95,8 +108,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -106,8 +118,7 @@
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
-            classpathref="build.classpath"
-            classpath="${icu4j.binaries}"
+            classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
             encoding="ascii"/>
@@ -173,8 +184,7 @@
             
             <pathelement path="${servlet.jar}"/>
 <!--             <pathelement path="${jsp.jar}"/> -->
-            <pathelement path="${icu.jar}"/>
-            <pathelement path="${utilities.jar}"/>
+            <pathelement refid="project.class.path"/>
             <pathelement path="${derby.jar}"/> 
         </path>
 

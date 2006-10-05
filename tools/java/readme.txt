@@ -35,11 +35,12 @@ To Run the Tools:
 
 1. Download and install a JRE with version number greater than or equal to 1.4 from
 http://java.sun.com
-2. Download the following Jar files:
-   ftp://www.unicode.org/Public/cldr/<release number>/utilities.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/icu4j.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/cldr.jar
-3. Run the tool you are interested in, e.g:
+2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
+3. Download the following Jar files:
+   ftp://www.unicode.org/Public/cldr/<release number>/tools/utilities.jar
+   ftp://www.unicode.org/Public/cldr/<release number>/tools/icu4j.jar
+   ftp://www.unicode.org/Public/cldr/<release number>/tools/cldr.jar
+4. Run the tool you are interested in, e.g:
 java -cp <dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter 
 -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
 
@@ -47,14 +48,13 @@ To Build the Tools:
 
 1. Download and install a Java SDK with version number greater than or equal to 1.4 from
 http://java.sun.com
-Note: JDK 1.4.x works, JDK 1.5 does not include org.apache.*
-
-2. Download and install the Ant build system with version number greate than or equal to 1.6 from
+2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
+3. Download and install the Ant build system with version number greate than or equal to 1.6 from
 http://ant.apache.org
-3. Download the following Jar files:
-   ftp://www.unicode.org/Public/cldr/<release number>/utilities.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/icu4j.jar 
-4. Set the required environtment variables
+4. Download the following Jar files:
+   ftp://www.unicode.org/Public/cldr/<release number>/tools/utilities.jar
+   ftp://www.unicode.org/Public/cldr/<release number>/tools/icu4j.jar 
+5. Set the required environtment variables
     o Unix
         export ICU4J_JAR=<dir>/icu4j.jar
         export UTILITIES_JAR=<dir>/utilities.jar
@@ -62,7 +62,7 @@ http://ant.apache.org
         set  ICU4J_JAR=<dir>\icu4j.jar
         set UTILITIES_JAR=<dir>\utilities.jar
         
-5. Build the tools with the following command:
+6. Build the tools with the following command:
    <dir>/bin/ant clean all
    
 For a list of build targets use the following command:

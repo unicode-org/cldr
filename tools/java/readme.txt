@@ -37,14 +37,15 @@ To Run the Tools:
 http://java.sun.com
 2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
 3. Download the following Jar files:
-   ftp://www.unicode.org/Public/cldr/<release number>/tools/utilities.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/tools/icu4j.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/tools/cldr.jar
-4. Run the tool you are interested in, e.g:
+   ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-utilities-1_4.jar
+   ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-1_4.jar
+4. Download ICU4J 3.6 jar from:
+    http://prdownloads.sourceforge.net/icu/icu4j-3_6.jar?download
+5. Run the tool you are interested in, e.g:
 java -cp <dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter 
 -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
 or
-java -cp "<dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar;<dir>/xml-apis.jar;<dir>/xercesImpl.jar;<dir>/xalan.jar"
+java -cp "<dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar;<dir>/xml-apis.jar; <dir>/xercesImpl.jar;<dir>/xalan.jar"
 com.ibm.icu.dev.tool.cldr.LDML2ICUConverter  -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
 
 To Build the Tools:
@@ -55,17 +56,17 @@ http://java.sun.com
 3. Download and install the Ant build system with version number greate than or equal to 1.6 from
 http://ant.apache.org
 4. Download the following Jar files:
-   ftp://www.unicode.org/Public/cldr/<release number>/tools/utilities.jar
-   ftp://www.unicode.org/Public/cldr/<release number>/tools/icu4j.jar 
-5. Set the required environtment variables
+   ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-utilities-1_4.jar
+5. Download ICU4J 3.6 jar from:
+    http://prdownloads.sourceforge.net/icu/icu4j-3_6.jar?download
+6. Set the required environtment variables
     o Unix
         export ICU4J_JAR=<dir>/icu4j.jar
         export UTILITIES_JAR=<dir>/utilities.jar
     o Windows
         set  ICU4J_JAR=<dir>\icu4j.jar
         set UTILITIES_JAR=<dir>\utilities.jar
-        
-6. Build the tools with the following command:
+7. Build the tools with the following command:
    <dir>/bin/ant clean all
    
 For a list of build targets use the following command:

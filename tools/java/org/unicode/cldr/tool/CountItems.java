@@ -104,7 +104,9 @@ public class CountItems {
 	public static void main(String[] args) throws Exception {
 		double deltaTime = System.currentTimeMillis();
 		try {
-            countItems();
+      String methodName = System.getProperty("method");
+      Utility.callMethod(methodName, CountItems.class);
+            //countItems();
             
             
             //getZoneEquivalences();
@@ -121,7 +123,7 @@ public class CountItems {
         }
 	}
     
-    private static void getZoneEquivalences() throws IOException, ParseException {
+    public static void getZoneEquivalences() throws IOException, ParseException {
 //    	String tzid = "America/Argentina/ComodRivadavia";
 //    	TimeZone tz = TimeZone.getTimeZone(tzid);
 //    	int offset = tz.getOffset(new Date().getTime());
@@ -146,14 +148,19 @@ public class CountItems {
         Map zone_countries = sc.getZoneToCounty();
         
         TreeSet country_inflection_names = new TreeSet(ac);
+        PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"inflections.txt");
+
         for (Iterator it = codes.iterator(); it.hasNext();) {
             String zoneID = (String) it.next();
             String country = (String) zone_countries.get(zoneID);
             TimeZone zone = TimeZone.getTimeZone(zoneID);            
             ZoneInflections zip = new ZoneInflections(zone);
+            out.println(zoneID + "\t" + zip);
             country_inflection_names.add(new Object[]{country, zip, zoneID});
         }
-        PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"modernTimezoneEquivalents.html");
+        out.close();
+        
+        out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"modernTimezoneEquivalents.html");
         out.println("<html>" +
         		"<head>" +
         		"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +

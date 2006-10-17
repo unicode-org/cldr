@@ -12,6 +12,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -33,7 +35,10 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.ZoneParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.ZoneParser.RuleLine;
+import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.test.util.BNF;
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -76,7 +81,8 @@ public class Misc {
 		ALIASES = 9,
 		INFO = 10,
         ZONES = 11,
-        LANGUAGE_TAGS = 12
+        LANGUAGE_TAGS = 12,
+        FUNCTION = 13
 		;
 	
 	private static final UOption[] options = {
@@ -93,6 +99,7 @@ public class Misc {
         UOption.create("info", 'i', UOption.NO_ARG),
         UOption.create("zones", 'z', UOption.NO_ARG),
         UOption.create("langauge-tags", 'l', UOption.NO_ARG),
+        UOption.create("function", 'f', UOption.REQUIRES_ARG),
 	};
 	
 	private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -113,8 +120,9 @@ public class Misc {
 
 	/**
 	 * Picks options and executes. Use -h to see options.
+	 * @throws ClassNotFoundException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		try {
 //            Locale someLocale = Locale.FRENCH;
 //            Date someDate = new Date();
@@ -132,6 +140,7 @@ public class Misc {
 	        UOption.parseArgs(args, options);
 	        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
 	        	System.out.println(HELP_TEXT);
+            Utility.showMethods(Misc.class);
 	        	return;
 	        }
 			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", options[MATCH].value);
@@ -182,6 +191,12 @@ public class Misc {
 			// TODO add options for these later
 			//getCities();
 			//
+      if (options[FUNCTION].doesOccur) {
+        String function = options[FUNCTION].value;
+        
+        Utility.callMethod(function, Misc.class);
+      }
+
 			//getZoneData();
 			//showLanguageTagCount();
 
@@ -189,6 +204,41 @@ public class Misc {
 			System.out.println("DONE");
 		}
 	}
+
+//  public static void callMethod(String methodName, Class cls) {
+//    try {
+//      Method method;
+//      try {
+//        method = cls.getMethod(methodName, (Class[]) null);
+//        try {
+//          method.invoke(null, (Object[]) null);
+//        } catch (Exception e) {
+//          e.printStackTrace();              
+//        }
+//      } catch (Exception e) {
+//        System.out.println("No such method: " + methodName);
+//        showMethods(cls);
+//      }
+//    } catch (ClassNotFoundException e) {
+//      e.printStackTrace();
+//    }
+//  }
+//
+//  public static void showMethods(Class cls) throws ClassNotFoundException {
+//    System.out.println("Possible methods are: ");
+//    Method[] methods = cls.getMethods();
+//    Set<String> names = new TreeSet<String>();
+//    for (int i = 0; i < methods.length; ++i) {
+//      if (methods[i].getGenericParameterTypes().length != 0) continue;
+//      int mods = methods[i].getModifiers();
+//      if (!Modifier.isStatic(mods)) continue;
+//      String name = methods[i].getName();
+//      names.add(name);
+//    }
+//    for (Iterator it = names.iterator(); it.hasNext();) {
+//      System.out.println("\t-f" + it.next());
+//    }
+//  }
 	
 	/**
 	 * 
@@ -354,7 +404,6 @@ public class Misc {
 			log.println("td { text-align: center; vertical-align:top }");
 			log.println("th { vertical-align:top }");
 			if (rtl) {
-				//System.out.println("Setting RTL for " + language);
 				rtlLanguages.add(language);
 				log.println("body { direction:rtl }");
 				log.println(".ID {background-color: silver; text-align:right;}");
@@ -880,7 +929,7 @@ public class Misc {
     System.out.println("Error count: " + errorCount);
 	}
 	
-	private static void getZoneData() {
+	public static void getZoneData() {
 		StandardCodes sc = StandardCodes.make();
 		System.out.println("Links: Old->New");
 		Map m = sc.getZoneLinkold_new();
@@ -948,6 +997,7 @@ public class Misc {
 			System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
 					+ getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
 		}
+    
 		System.out.println();
 		System.out.println("RulesID->Rules");
 		m = sc.getZoneRuleID_rules();
@@ -956,7 +1006,104 @@ public class Misc {
 			System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
 					+ getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
 		}
+    
+    System.out.println();
+    System.out.println("ZoneIDs->Abbreviations");
+
+    // now get all the abbreviations
+    //Map rule_abbreviations = getAbbreviations(m);
+    
+    Map ruleID_Rules = sc.getZoneRuleID_rules();
+    Map abb_zones = new TreeMap();
+    m = sc.getZone_rules();
+    for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+      String key = (String) it.next();
+      Set abbreviations = new TreeSet();
+      //rule_abbreviations.put(key, abbreviations);
+      ZoneLine lastZoneLine = null;
+      
+      for (Iterator it2 = ((Collection) m.get(key)).iterator(); it2.hasNext();) {
+        ZoneLine zoneLine = (ZoneLine) it2.next();
+        int thisYear = zoneLine.untilYear;
+        String format = zoneLine.format;
+        if (format.indexOf('/') >= 0) {
+          Collection abb = Arrays.asList(format.split("/"));
+          for (Iterator it3 = abb.iterator(); it3.hasNext();) {
+            add(abbreviations, format.replaceAll("%s", it3.next().toString()), key, lastZoneLine, zoneLine);
+          }
+        } else if (format.indexOf('%') >= 0) {
+          Set abb = getAbbreviations(ruleID_Rules, lastZoneLine, zoneLine);
+          if (abb.size() == 0) {
+            System.out.println("??? Didn't find %s values for " + format + " under " + key 
+                + ";\r\n\tLast:" + lastZoneLine + ";\r\n\tCurrent: " + zoneLine);
+            abb = getAbbreviations(ruleID_Rules, lastZoneLine, zoneLine);
+          }
+
+          if (abb == null) {
+            System.out.println("??? " + zoneLine.rulesSave);
+            add(abbreviations, format, key, lastZoneLine, zoneLine);
+          } else {
+            for (Iterator it3 = abb.iterator(); it3.hasNext();) {
+              add(abbreviations, format.replaceAll("%s", it3.next().toString()), key, lastZoneLine, zoneLine);
+            }
+          }
+        } else {
+          add(abbreviations, format, key, lastZoneLine, zoneLine);
+        }
+        lastZoneLine = zoneLine;
+      }
+      for (Iterator it3 = abbreviations.iterator(); it3.hasNext();) {
+        String abb = (String) it3.next();
+        if (abb.equals("")) {
+          it3.remove();
+          continue;
+        }
+        Set zones = (Set) abb_zones.get(abb);
+        if (zones == null) abb_zones.put(abb, zones = new TreeSet());
+        zones.add(key);
+      }
+      System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
+          + getSeparated(abbreviations, XPathParts.NEWLINE + "\t"));
+    }
+    
+    System.out.println();
+    System.out.println("Abbreviations->ZoneIDs");
+    for (Iterator it = abb_zones.keySet().iterator(); it.hasNext();) {
+      String key = (String) it.next();
+      System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
+          + getSeparated((Collection) abb_zones.get(key), XPathParts.NEWLINE + "\t"));
+    }
+    
+    System.out.println("Types: " + ZoneParser.RuleLine.types);
+    System.out.println("Saves: " + ZoneParser.RuleLine.days);
+    System.out.println("untilDays: " + ZoneParser.ZoneLine.untilDays);
+    System.out.println("rulesSaves: " + ZoneParser.ZoneLine.rulesSaves);
+
 	}
+
+  private static void add(Set abbreviations, String format, String zone, ZoneLine lastZoneLine, ZoneLine zoneLine) {
+    if (format.length() < 3) {
+    System.out.println("??? Format too short: '" + format + "' under " + zone 
+        + ";\r\n\tLast:" + lastZoneLine + ";\r\n\tCurrent: " + zoneLine);
+    return;
+    }
+    abbreviations.add(format);
+  }
+
+  private static Set getAbbreviations(Map rules, ZoneLine lastZoneLine, ZoneLine zoneLine) {
+    Set result = new TreeSet();
+    List ruleList = (List) rules.get(zoneLine.rulesSave);
+    for (Iterator it2 = ruleList.iterator(); it2.hasNext();) {
+      RuleLine ruleLine = (RuleLine) it2.next();
+      int from = ruleLine.fromYear;
+      int to = ruleLine.toYear;
+      // they overlap?
+      if (zoneLine.untilYear >= from && (lastZoneLine == null || lastZoneLine.untilYear <= to)) {
+        result.add(ruleLine.letter == null ? "?!?" : ruleLine.letter);
+      }
+    }
+    return result;
+  }
 	
 	private static String getSeparated(Collection c, String separator) {
 		StringBuffer result = new StringBuffer();

@@ -14,6 +14,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,6 +29,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -420,7 +423,7 @@ public class Utility {
 		} else if (source instanceof Collection) {
 			Collection collection = (Collection) source;
 			ArrayList contents = new ArrayList();
-			contents.addAll(collection);
+			//contents.addAll(collection);
 			for (Iterator it = collection.iterator(); it.hasNext();) {
 				contents.add(protectCollection(it.next()));
 			}
@@ -686,4 +689,38 @@ public class Utility {
 		}
 	}
 	
+  public static void callMethod(String methodName, Class cls) {
+    try {
+      Method method;
+      try {
+        method = cls.getMethod(methodName, (Class[]) null);
+        try {
+          method.invoke(null, (Object[]) null);
+        } catch (Exception e) {
+          e.printStackTrace();              
+        }
+      } catch (Exception e) {
+        System.out.println("No such method: " + methodName);
+        showMethods(cls);
+      }
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void showMethods(Class cls) throws ClassNotFoundException {
+    System.out.println("Possible methods are: ");
+    Method[] methods = cls.getMethods();
+    Set<String> names = new TreeSet<String>();
+    for (int i = 0; i < methods.length; ++i) {
+      if (methods[i].getGenericParameterTypes().length != 0) continue;
+      int mods = methods[i].getModifiers();
+      //if (!Modifier.isStatic(mods)) continue;
+      String name = methods[i].getName();
+      names.add(name);
+    }
+    for (Iterator it = names.iterator(); it.hasNext();) {
+      System.out.println("\t" + it.next());
+    }
+  }
 }

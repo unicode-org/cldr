@@ -8,6 +8,7 @@ This document describes how to update CLDR when this happens.
 - Go to http://www.iana.org/assignments/language-subtag-registry
   (you can set up a watch for changes in this page with http://www.watchthatpage.com)
 - Copy into org.unicode.cldr.util.data
+    - If using Eclipse, refresh the files
 - Diff with the old copy (via CVS)
 - Any new codes need a corresponding update in supplementalMetadata.xml
 	- languages: search for <variable id="$language", add to list

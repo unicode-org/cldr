@@ -269,6 +269,12 @@ The printed version of ISO-4217:2001
         <region iso3166="CR">
             <currency iso4217="CRC" from="1896-10-26"/>
         </region>
+        <region iso3166="CS">
+            <currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/><!-- Montenegro -->
+            <currency iso4217="CSD" from="2002-05-15" to="2006-06-03"/><!-- Serbia -->
+            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
+            <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
+        </region>
         <region iso3166="CU">
             <currency iso4217="CUP" from="1859-01-01"/>
             <!-- currency iso4217="USD" from="1994"/ --><!-- Unofficially used -->
@@ -785,7 +791,6 @@ The printed version of ISO-4217:2001
             <currency iso4217="ROL" from="1952-01-28" to="2006-12-31"/>
         </region>
         <region iso3166="RS">
-            <currency iso4217="EUR" from="2003-02-04"/><!-- Montenegro -->
             <currency iso4217="CSD" from="2002-05-15"/><!-- Serbia -->
             <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
             <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->

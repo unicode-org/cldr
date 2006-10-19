@@ -242,7 +242,14 @@ public class GenerateEnums {
         checkDuplicates(enum_UN);
         checkDuplicates(enum_alpha3);
         Set availableCodes = new TreeSet(sc.getAvailableCodes("territory"));
-        compareSets("RFC", availableCodes, "CLDR", cldrCodes);
+        compareSets("RFC 4646", availableCodes, "CLDR", cldrCodes);
+        Set missing = new TreeSet(availableCodes);
+        missing.removeAll(cldrCodes);
+        // don't care list: "003"
+        missing.remove("003");
+        if (missing.size() != 0) {
+          throw new IllegalArgumentException("Codes in Registry but not in CLDR: " + missing);
+        }
         
         Set UNValues = new TreeSet(enum_UN.values());
 

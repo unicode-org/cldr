@@ -24,6 +24,9 @@ This document describes how to update CLDR when this happens.
 - For territories (regions), add to the territoryContainment in supplementalData.xml
     - The data for that is at the UN site: http://unstats.un.org/unsd/methods/m49/m49regin.htm
     - Grep through that whole file to fix currencies, etc.
+- Update util/data/territory_codes.txt
+    - This step will be different once the data is moved into SupplementalData.xml
+    - Then run GenerateEnums.java, and make sure it completes with no exceptions.
 - Run CheckCLDR -fen
 	- If you missed any codes, you will get error message: "Unexpected Attribute Value"
 - Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html files

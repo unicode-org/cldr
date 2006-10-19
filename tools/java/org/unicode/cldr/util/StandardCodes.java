@@ -713,6 +713,7 @@ public class StandardCodes {
         if (line.length() == 0)
           continue; // skip blanks
         if (line.startsWith("File-Date: ")) {
+          System.out.println("Language Subtag Registry: " + line);
           inRealContent = true;
           continue;
         }

@@ -269,12 +269,6 @@ The printed version of ISO-4217:2001
         <region iso3166="CR">
             <currency iso4217="CRC" from="1896-10-26"/>
         </region>
-        <region iso3166="CS">
-            <currency iso4217="EUR" from="2003-02-04"/><!-- Montenegro -->
-            <currency iso4217="CSD" from="2002-05-15"/><!-- Serbia -->
-            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
-            <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
-        </region>
         <region iso3166="CU">
             <currency iso4217="CUP" from="1859-01-01"/>
             <!-- currency iso4217="USD" from="1994"/ --><!-- Unofficially used -->
@@ -606,6 +600,12 @@ The printed version of ISO-4217:2001
             <!-- currency iso4217="MDR" from="1991-05-23" to="1992-06"/ --><!-- Not listed in the 2001 list -->
             <!-- currency iso4217="SUR" from="1961-01-01" to="1991-05-23"/ -->
         </region>
+        <region iso3166="ME">
+            <currency iso4217="EUR" from="2003-02-04"/><!-- Montenegro -->
+            <currency iso4217="CSD" from="2002-05-15"/><!-- Serbia -->
+            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
+            <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
+        </region>
         <region iso3166="MG">
             <currency iso4217="MGA" from="1983-11-01"/>
             <currency iso4217="MGF" from="1963-07-01" to="2004-12-31"/>
@@ -783,6 +783,12 @@ The printed version of ISO-4217:2001
         <region iso3166="RO">
             <currency iso4217="RON" from="2005-07-01"/>
             <currency iso4217="ROL" from="1952-01-28" to="2006-12-31"/>
+        </region>
+        <region iso3166="RS">
+            <currency iso4217="EUR" from="2003-02-04"/><!-- Montenegro -->
+            <currency iso4217="CSD" from="2002-05-15"/><!-- Serbia -->
+            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
+            <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
         </region>
         <region iso3166="RU">
             <currency iso4217="RUB" from="1999-01-01"/>
@@ -1074,7 +1080,7 @@ XXX	Code for transations where no currency is involved
 		<group type="003" contains="013 021 029"/> <!--North America -->
 		<group type="030" contains="CN HK JP KP KR MN MO TW"/> <!--Eastern Asia -->
 		<group type="035" contains="BN ID KH LA MM BU MY PH SG TH TL TP VN"/> <!--South-Eastern Asia -->
-		<group type="039" contains="AD AL BA ES GI GR HR IT MK MT PT SI SM VA CS YU"/> <!--Southern Europe -->
+		<group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA YU"/> <!--Southern Europe -->
 		<group type="419" contains="005 013 029"/> <!--Latin America and the Caribbean -->
 		<group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
 		<group type="053" contains="AU NF NZ"/> <!--Australia and New Zealand -->
@@ -1106,7 +1112,7 @@ XXX	Code for transations where no currency is involved
 		<language type="bn" scripts="Beng" territories="BD IN"/>
 		<language type="bo" scripts="Tibt" territories="CN IN NP" alt="secondary"/>
 		<language type="bs" scripts="Latn" territories="BA"/>
-		<language type="bs" scripts="Latn" territories="HR CS" alt="secondary"/>
+		<language type="bs" scripts="Latn" territories="HR ME RS" alt="secondary"/>
 		<language type="byn" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="ca" scripts="Latn" territories="AD ES"/>
 		<language type="cch" scripts="Latn" territories="NG"/>
@@ -1160,10 +1166,10 @@ XXX	Code for transations where no currency is involved
 		<language type="hi" scripts="Deva" territories="IN FJ"/>
 		<language type="ho" scripts="Latn" territories="PG"/>
 		<language type="hr" scripts="Latn" territories="BA HR"/>
-		<language type="hr" scripts="Latn" territories="CS" alt="secondary"/>
+		<language type="hr" scripts="Latn" territories="ME RS" alt="secondary"/>
 		<language type="ht" scripts="Latn" territories="HT"/>
 		<language type="hu" scripts="Latn" territories="HU"/>
-		<language type="hu" scripts="Latn" territories="SI CS" alt="secondary"/>
+		<language type="hu" scripts="Latn" territories="SI ME RS" alt="secondary"/>
 		<language type="hy" scripts="Armn" territories="AM"/>
 		<language type="hy" scripts="Armn" territories="AZ GE IR" alt="secondary"/>
 		<language type="ia" scripts="Latn" /> <!-- Reflecting submitted data, cldrbug #1013 -->
@@ -1241,7 +1247,7 @@ XXX	Code for transations where no currency is involved
 		<language type="qu" scripts="Latn" territories="BO PE"/>		
 		<language type="rm" scripts="Latn" territories="CH" alt="secondary"/>
 		<language type="rn" scripts="Latn" territories="BI"/>
-		<language type="ro" scripts="Latn" territories="CS" alt="secondary"/>
+		<language type="ro" scripts="Latn" territories="ME RS" alt="secondary"/>
 		<language type="ro" scripts="Latn" territories="RO"/>
 		<language type="ru" scripts="Cyrl" territories="BY GE KG KZ RU SJ UA"/>
 		<language type="ru" scripts="Cyrl" territories="MD" alt="secondary"/>
@@ -1250,9 +1256,9 @@ XXX	Code for transations where no currency is involved
 		<language type="sd" scripts="Deva Arab" territories="IN PK"/>
 		<language type="se" scripts="Latn" territories="FI NO SE"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="sg" scripts="Latn" territories="CF"/>
-		<language type="sh" scripts="Latn" territories="BA CS YU" alt="secondary"/> <!-- this one is only aliases.. -->
+		<language type="sh" scripts="Latn" territories="BA ME RS YU" alt="secondary"/> <!-- this one is only aliases.. -->
 		<language type="si" scripts="Sinh" territories="LK"/>
-		<language type="sk" scripts="Latn" territories="CS" alt="secondary"/>
+		<language type="sk" scripts="Latn" territories="ME RS" alt="secondary"/>
 		<language type="sk" scripts="Latn" territories="SK"/>
 		<language type="sl" scripts="Latn" territories="SI"/>
 		<language type="sm" scripts="Latn" territories="AS WS"/>
@@ -1264,9 +1270,9 @@ XXX	Code for transations where no currency is involved
 		<language type="so" scripts="Latn" territories="DJ SO"/>
 		<language type="so" scripts="Latn" territories="ET KE" alt="secondary"/>
 		<language type="son" scripts="Latn" territories="BJ ML NE" alt="secondary"/>
-		<language type="sq" scripts="Latn" territories="AL MK CS"/>
+		<language type="sq" scripts="Latn" territories="AL MK ME RS"/>
 		<language type="sid" scripts="Latn" territories="ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="sr" scripts="Cyrl Latn" territories="BA CS"/>
+		<language type="sr" scripts="Cyrl Latn" territories="BA ME RS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="HR" alt="secondary"/>
 		<language type="ss" scripts="Latn" territories="SZ ZA"/>
 		<language type="st" scripts="Latn" territories="LS ZA"/>
@@ -1748,7 +1754,7 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Europe/Amsterdam" territory="NL"/>
 			<zoneItem type="Europe/Andorra" territory="AD"/>
 			<zoneItem type="Europe/Athens" territory="GR"/>
-			<zoneItem type="Europe/Belgrade" territory="CS"/>
+			<zoneItem type="Europe/Belgrade" territory="RS"/>
 			<zoneItem type="Europe/Berlin" territory="DE"/>
 			<zoneItem type="Europe/Bratislava" territory="SK"/>
 			<zoneItem type="Europe/Brussels" territory="BE"/>

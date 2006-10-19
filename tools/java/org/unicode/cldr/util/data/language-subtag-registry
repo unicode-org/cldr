@@ -1,4 +1,4 @@
-File-Date: 2006-03-29
+File-Date: 2006-10-18
 %%
 Type: language
 Subtag: aa
@@ -194,6 +194,8 @@ Suppress-Script: Latn
 Type: language
 Subtag: dv
 Description: Divehi
+Description: Dhivehi
+Description: Maldivian
 Added: 2005-10-16
 Suppress-Script: Thaa
 %%
@@ -2102,6 +2104,12 @@ Description: Norse, Old
 Added: 2005-10-16
 %%
 Type: language
+Subtag: nqo
+Description: N&#x2019;Ko
+Added: 2006-06-05
+Suppress-Script: Nkoo
+%%
+Type: language
 Subtag: nso
 Description: Northern Sotho
 Description: Pedi
@@ -2616,6 +2624,16 @@ Subtag: zxx
 Description: No linguistic content
 Added: 2006-03-08
 %%
+Type: language
+Subtag: zza
+Description: Zaza
+Description: Dimili
+Description: Dimli
+Description: Kirdki
+Description: Kirmanjki
+Description: Zazaki
+Added: 2006-08-24
+%%
 Type: script
 Subtag: Arab
 Description: Arabic
@@ -2675,6 +2693,11 @@ Type: script
 Subtag: Cans
 Description: Unified Canadian Aboriginal Syllabics
 Added: 2005-10-16
+%%
+Type: script
+Subtag: Cari
+Description: Carian
+Added: 2006-07-21
 %%
 Type: script
 Subtag: Cham
@@ -2738,7 +2761,8 @@ Added: 2005-10-16
 %%
 Type: script
 Subtag: Ethi
-Description: Ethiopic (Ge&#x2018;ez)
+Description: Ethiopic (Ge&#x2BB;ez)
+Description: Ethiopic (Ge'ez)
 Added: 2005-10-16
 %%
 Type: script
@@ -2842,6 +2866,11 @@ Description: Javanese
 Added: 2005-10-16
 %%
 Type: script
+Subtag: Jpan
+Description: Japanese (alias for Han + Hiragana + Katakana)
+Added: 2006-07-21
+%%
+Type: script
 Subtag: Kali
 Description: Kayah Li
 Added: 2005-10-16
@@ -2865,6 +2894,11 @@ Type: script
 Subtag: Knda
 Description: Kannada
 Added: 2005-10-16
+%%
+Type: script
+Subtag: Lana
+Description: Lanna
+Added: 2006-07-21
 %%
 Type: script
 Subtag: Laoo
@@ -2907,6 +2941,16 @@ Description: Linear B
 Added: 2005-10-16
 %%
 Type: script
+Subtag: Lyci
+Description: Lycian
+Added: 2006-07-21
+%%
+Type: script
+Subtag: Lydi
+Description: Lydian
+Added: 2006-07-21
+%%
+Type: script
 Subtag: Mand
 Description: Mandaean
 Added: 2005-10-16
@@ -2945,6 +2989,11 @@ Type: script
 Subtag: Ogam
 Description: Ogham
 Added: 2005-10-16
+%%
+Type: script
+Subtag: Olck
+Description: Ol Chiki (Ol Cemet', Ol, Santali)
+Added: 2006-07-21
 %%
 Type: script
 Subtag: Orkh
@@ -2987,6 +3036,13 @@ Description: PRIVATE USE
 Added: 2005-10-16
 %%
 Type: script
+Subtag: Rjng
+Description: Rejang
+Description: Redjang
+Description: Kaganga
+Added: 2006-10-17
+%%
+Type: script
 Subtag: Roro
 Description: Rongorongo
 Added: 2005-10-16
@@ -3002,6 +3058,16 @@ Description: Sarati
 Added: 2005-10-16
 %%
 Type: script
+Subtag: Saur
+Description: Saurashtra
+Added: 2006-07-21
+%%
+Type: script
+Subtag: Sgnw
+Description: SignWriting
+Added: 2006-10-17
+%%
+Type: script
 Subtag: Shaw
 Description: Shavian (Shaw)
 Added: 2005-10-16
@@ -3010,6 +3076,11 @@ Type: script
 Subtag: Sinh
 Description: Sinhala
 Added: 2005-10-16
+%%
+Type: script
+Subtag: Sund
+Description: Sundanese
+Added: 2006-07-21
 %%
 Type: script
 Subtag: Sylo
@@ -3397,6 +3468,8 @@ Type: region
 Subtag: CS
 Description: Serbia and Montenegro
 Added: 2005-10-16
+Deprecated: 2006-10-05
+Comments: see RS for Serbia or ME for Montenegro
 %%
 Type: region
 Subtag: CU
@@ -3540,6 +3613,8 @@ Added: 2005-10-16
 Type: region
 Subtag: GB
 Description: United Kingdom
+Comments: as of 2006-03-29 GB no longer includes the Channel Islands and
+  Isle of Man; see GG, JE, IM
 Added: 2005-10-16
 %%
 Type: region
@@ -3853,6 +3928,11 @@ Description: Moldova, Republic of
 Added: 2005-10-16
 %%
 Type: region
+Subtag: ME
+Description: Montenegro
+Added: 2006-10-05
+%%
+Type: region
 Subtag: MG
 Description: Madagascar
 Added: 2005-10-16
@@ -4102,6 +4182,11 @@ Type: region
 Subtag: RO
 Description: Romania
 Added: 2005-10-16
+%%
+Type: region
+Subtag: RS
+Description: Serbia
+Added: 2006-10-05
 %%
 Type: region
 Subtag: RU
@@ -4590,6 +4675,25 @@ Added: 2005-10-16
 Prefix: de
 %%
 Type: variant
+Subtag: arevela
+Description: Eastern Armenian
+Added: 2006-09-18
+Prefix: hy
+%%
+Type: variant
+Subtag: arevmda
+Description: Western Armenian
+Added: 2006-09-18
+Prefix: hy
+%%
+Type: variant
+Subtag: boont
+Description: Boontling
+Added: 2006-09-18
+Prefix: en
+Comments: Jargon embedded in American English
+%%
+Type: variant
 Subtag: nedis
 Description: Natisone dialect
 Description: Nadiza dialect
@@ -4603,6 +4707,13 @@ Description: Resianic
 Description: Rezijan
 Added: 2005-10-16
 Prefix: sl
+%%
+Type: variant
+Subtag: scouse
+Description: Scouse
+Added: 2006-09-18
+Prefix: en
+Comments: English Liverpudlian dialect known as 'Scouse'
 %%
 Type: grandfathered
 Tag: art-lojban
@@ -4618,23 +4729,13 @@ Description: Gaulish
 Added: 2001-05-25
 %%
 Type: grandfathered
-Tag: en-boont
-Description: Boontling
-Added: 2003-02-14
-%%
-Type: grandfathered
 Tag: en-GB-oed
 Description: English, Oxford English Dictionary spelling
 Added: 2003-07-09
 %%
 Type: grandfathered
-Tag: en-scouse
-Description: Scouse
-Added: 2000-05-25
-%%
-Type: grandfathered
 Tag: i-ami
-Description: 'Amis
+Description: Amis
 Added: 1999-05-25
 %%
 Type: grandfathered
@@ -4866,6 +4967,16 @@ Type: redundant
 Tag: de-DE-1996
 Description: German, German variant, orthography of 1996
 Added: 2001-07-17
+%%
+Type: redundant
+Tag: en-boont
+Description: Boontling
+Added: 2003-02-14
+%%
+Type: redundant
+Tag: en-scouse
+Description: Scouse
+Added: 2000-05-25
 %%
 Type: redundant
 Tag: es-419

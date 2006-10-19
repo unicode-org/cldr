@@ -14,12 +14,20 @@ This document describes how to update CLDR when this happens.
 	- territories: search for <variable id="$territory", add to list
 	- scripts: search for <variable id="$territory", add to list
 - Edit common/main/en.xml to add the new names, based on the Descriptions in the registry file.
+    - The format of the registry is screwy: you can use http://demo.icu-project.org/icu-bin/translit
+      to convert forms like N&#x2019;Ko into N’Ko
 - If the associations to script or territory are known, edit supplementalData.xml
 	- for example, add to <languageData>
 		<language type="gsw" scripts="Latn" territories="CH"/>
+- If the code becomes deprecated, then add to supplementalMetadata under alias
+    - If there is a single replacement add it.
+- For territories (regions), add to the territoryContainment in supplementalData.xml
+    - The data for that is at the UN site: http://unstats.un.org/unsd/methods/m49/m49regin.htm
+    - Grep through that whole file to fix currencies, etc.
 - Run CheckCLDR -fen
 	- If you missed any codes, you will get error message: "Unexpected Attribute Value"
-- Run ShowLanguages to regenerate the supplemental.html file
+- Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html files
+    - Generate them in ...\unicode\cldr\diff\supplemental\...
 	- Post to http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html
 	
 2. Do the following to update to new currency codes.

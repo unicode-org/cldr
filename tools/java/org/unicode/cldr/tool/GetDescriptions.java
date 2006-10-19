@@ -7,6 +7,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -30,6 +31,8 @@ public class GetDescriptions {
   private static Set<String> postCommas = new TreeSet<String>();
 
   private static Map<String,String> descriptionWithoutComments = new TreeMap<String,String>();
+
+  private static Set<String> uninvertedNames = new HashSet<String>();
 
   public static void main(String[] args) throws IOException {
     StandardCodes sc = StandardCodes.make();
@@ -71,6 +74,7 @@ public class GetDescriptions {
           
           String descriptionWithoutComment = preComma;          
           String newDescriptionWithoutComment = preComma;
+          uninvertedNames.add(newDescriptionWithoutComment);
           
           if (postComma.length() != 0) {
             descriptionWithoutComment += ", " + postComma;
@@ -123,6 +127,7 @@ public class GetDescriptions {
     for (String name : name_type_codes.keySet()) {
       boolean privateUse = name.equals("PRIVATE USE");
       Map<String, Set<String>> type_codes = name_type_codes.get(name);
+      Set<String> types = type_codes.keySet();
       for (String type : type_codes.keySet()) {
         String baseCode = null;
         for (String code : type_codes.get(type)) {
@@ -134,7 +139,7 @@ public class GetDescriptions {
           reverse.println(reverseCount++ + "\t" + name + "\t" + type + "\t" + code + "\t@DUPLICATE_IN\t" + "\t" + baseCode);
         }
       }
-      reverseIfPossible(name);
+      reverseIfPossible(name, types);
     }
     reverse.close();
     reverseCount = 1;
@@ -147,29 +152,45 @@ public class GetDescriptions {
     inversions.close();
   }
   
-  static void reverseIfPossible(String name) {
+  static void reverseIfPossible(String name, Set<String> types) {
+    for (String uninvert : uninvertedNames) {
+      if (name.endsWith(uninvert)) {
+        addEnd(name, uninvert, types);
+      }
+      if (name.startsWith(uninvert)) {
+        addStart(name, uninvert, types);
+      }
+    }
     for (String preComma : preCommas) {
       if (name.endsWith(preComma)) {
-        if (name.equals(preComma)) continue;
-        if (!name.endsWith(" "+preComma)) continue;
-        String trial = preComma + ", " + name.substring(0,name.length()-preComma.length()).trim();
-        if (descriptionWithoutComments.keySet().contains(trial)) {
-          continue;
-        }
-        descriptionWithoutComments.put(trial, name + "\t@MISSING");
+        addEnd(name, preComma, types);
       }
     }
     for (String postComma : postCommas) {
       if (name.startsWith(postComma)) {
-        if (name.equals(postComma)) continue;
-        if (!name.startsWith(postComma+" ")) continue;
-        String trial = name.substring(postComma.length()).trim() + ", " + postComma;
-        if (descriptionWithoutComments.keySet().contains(trial)) {
-          continue;
-        }
-        descriptionWithoutComments.put(trial, name + "\t@MISSING");
+        addStart(name, postComma, types);
       }
     }
+  }
+
+  private static void addStart(String name, String postComma, Set<String> types) {
+    if (name.equals(postComma)) return;
+    if (!name.startsWith(postComma+" ")) return;
+    String trial = name.substring(postComma.length()).trim() + ", " + postComma;
+    if (descriptionWithoutComments.keySet().contains(trial)) {
+      return;
+    }
+    descriptionWithoutComments.put(trial, name + "\t@MISSING\t" + types);
+  }
+
+  private static void addEnd(String name, String preComma, Set<String> types) {
+    if (name.equals(preComma)) return;
+    if (!name.endsWith(" "+preComma)) return;
+    String trial = preComma + ", " + name.substring(0,name.length()-preComma.length()).trim();
+    if (descriptionWithoutComments.keySet().contains(trial)) {
+      return;
+    }
+    descriptionWithoutComments.put(trial, name + "\t@MISSING\t" + types);
   }
 
   private static void addTypeNameCode(Map<String,Map<String,Set<String>>> name_type_codes, String type, String code, String newDescriptionWithoutComment) {

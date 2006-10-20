@@ -3,7 +3,7 @@
 <supplementalData>
 	<transforms>
 		<transform source="Latin" target="Jamo" direction="forward">
-			<tRule>::[[:script=Latin:][:M:]];</tRule>
+			<tRule>::[[:script=Latin:][:M:]'];</tRule>
 			<tRule>::NFD;</tRule>
 			<tRule>::Lower;</tRule>
 			<tRule>::Latin-ConjoiningJamo;</tRule>

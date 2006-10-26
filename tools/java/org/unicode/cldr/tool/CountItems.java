@@ -137,11 +137,19 @@ public class CountItems {
     	
     	StandardCodes sc = StandardCodes.make();
         Collection codes = sc.getGoodAvailableCodes("tzid");
+        TreeSet extras = new TreeSet();
+        Map m = sc.getZoneLinkNew_OldSet();
+        for (String code : (Collection<String>)codes) {
+          Collection s = (Collection)m.get(code);
+          if (s == null) continue;
+          extras.addAll(s);
+        }
+        extras.addAll(codes);
         Set icu4jTZIDs = new TreeSet(Arrays.asList(TimeZone.getAvailableIDs()));
         Set diff2 = new TreeSet(icu4jTZIDs);
-        diff2.removeAll(codes);
+        diff2.removeAll(extras);
         System.out.println("icu4jTZIDs - StandardCodes: " + diff2);
-        diff2 = new TreeSet(codes);
+        diff2 = new TreeSet(extras);
         diff2.removeAll(icu4jTZIDs);
         System.out.println("StandardCodes - icu4jTZIDs: " + diff2);
         ArrayComparator ac = new ArrayComparator(new Comparator[] {ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE});
@@ -150,6 +158,9 @@ public class CountItems {
         TreeSet country_inflection_names = new TreeSet(ac);
         PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"inflections.txt");
 
+        TreeMap<Integer,TreeSet<String>> minOffsetMap = new TreeMap<Integer,TreeSet<String>>();
+        TreeMap<Integer,TreeSet<String>> maxOffsetMap = new TreeMap<Integer,TreeSet<String>>();
+
         for (Iterator it = codes.iterator(); it.hasNext();) {
             String zoneID = (String) it.next();
             String country = (String) zone_countries.get(zoneID);
@@ -157,7 +168,18 @@ public class CountItems {
             ZoneInflections zip = new ZoneInflections(zone);
             out.println(zoneID + "\t" + zip);
             country_inflection_names.add(new Object[]{country, zip, zoneID});
+            
+            TreeSet<String> s = minOffsetMap.get(zip.getMinOffset());
+            if (s == null) minOffsetMap.put(zip.getMinOffset(), s = new TreeSet<String>());
+            s.add(zone.getID());
+
+            s = maxOffsetMap.get(zip.getMaxOffset());
+            if (s == null) maxOffsetMap.put(zip.getMaxOffset(), s = new TreeSet<String>());
+            s.add(zone.getID());
+
         }
+        System.out.println("Minimum Offset: " + minOffsetMap);
+        System.out.println("Maximum Offset: " + maxOffsetMap);
         out.close();
         
         out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"modernTimezoneEquivalents.html");
@@ -363,6 +385,10 @@ public class CountItems {
         Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
         countItems(cldrFactory, false);
    }
+    
+    public static void genSupplementalZoneData() {
+      genSupplementalZoneData(false);
+    }
     
     public static void genSupplementalZoneData(boolean skipUnaliased) {
         RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();

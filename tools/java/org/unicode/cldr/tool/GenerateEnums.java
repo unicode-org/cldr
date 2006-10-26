@@ -94,12 +94,13 @@ public class GenerateEnums {
     System.out.println();
 
     showGeneratedCommentStart(CODE_INDENT);
+    Map code_replacements = new TreeMap();
     for (Iterator it = scripts.iterator(); it.hasNext();) {
       String code = (String) it.next();
       String englishName = english.getName(CLDRFile.SCRIPT_NAME, code, false);
       if (englishName == null)
         continue;
-      printRow(code, "script");
+      printRow(code, "script", code_replacements);
       //System.out.println("     /**" + englishName + "*/    " + code + ",");
     }
     showGeneratedCommentEnd(CODE_INDENT);
@@ -415,9 +416,10 @@ public class GenerateEnums {
 
     Set reordered = new TreeSet(new LengthFirstComparator());
     reordered.addAll(enum_UN.keySet());
+    Map<String,String> code_replacements = new TreeMap<String,String>();
     for (Iterator it = reordered.iterator(); it.hasNext();) {
       String region = (String) it.next();
-      printRow(region, "territory");
+      printRow(region, "territory", code_replacements);
     }
     showGeneratedCommentEnd(CODE_INDENT);
 
@@ -442,6 +444,7 @@ public class GenerateEnums {
         continue;
       System.out.println(DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode." + region + ");");
     }
+    doAliases(code_replacements);
     showGeneratedCommentEnd(DATA_INDENT);
     
     System.out.println();
@@ -458,7 +461,31 @@ public class GenerateEnums {
                                                                   // syntax
       System.out.println(DATA_INDENT + "add(" + un + ", " + "RegionCode." + region + ");");
     }
+    doAliases(code_replacements);
+    
+    System.out.println("Plain list");
+    for (Iterator it = reordered.iterator(); it.hasNext();) {
+      String region = (String) it.next();
+      String cldrName = region.length() < 5 ? region : region.substring(2); // fix
+                                                                            // UN
+                                                                            // name
+      String newCode = code_replacements.get(region);
+      if (newCode != null) continue;
+      
+      int un = Integer.parseInt((String) enum_UN.get(region),10); // get around dumb octal
+                                                                  // syntax
+      System.out.println(un + "\t" + region + "\t" + english.getName("territory", region, false));
+    }
+
     showGeneratedCommentEnd(DATA_INDENT);
+  }
+
+  private void doAliases(Map<String, String> code_replacements) {
+    for (String code : code_replacements.keySet()) {
+      String newCode = code_replacements.get(code);
+      if (newCode.length() == 0) newCode = "ZZ";
+      System.out.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", " + "RegionCode." + newCode + ");");
+    }
   }
 
   private void showGeneratedCommentEnd(String indent) {
@@ -526,7 +553,7 @@ public class GenerateEnums {
     return replacement;
   }
   
-  private void printRow(String codeName, String type) {
+  private void printRow(String codeName, String type, Map<String,String> code_replacements) {
     //int numeric = Integer.parseInt((String) enum_UN.get(codeName));
     //String alpha3 = (String) enum_alpha3.get(codeName);
     String cldrName = codeName.length() < 5 ? codeName : codeName.substring(2); // fix UN name
@@ -535,6 +562,7 @@ public class GenerateEnums {
     String prefix = CODE_INDENT + "/** " + englishName; //  + " - " + threeDigit.format(numeric);
     String printedCodeName = codeName;
     if (replacement != null) {
+      code_replacements.put(codeName, replacement);
       System.out.println(prefix);
       prefix = CODE_INDENT + " * @deprecated" + (replacement.length() == 0 ? "" : " see " + replacement);
       printedCodeName = "@Deprecated " + printedCodeName;

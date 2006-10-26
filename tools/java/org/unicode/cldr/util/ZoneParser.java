@@ -591,31 +591,40 @@ public class ZoneParser {
 
   private static Set SKIP_LINKS = new HashSet(Arrays.asList(new String[] {
       "Navajo", "America/Shiprock" }));
+  
+  private static Set PREFERRED_BASES = new HashSet(Arrays.asList(new String[] {
+      "Europe/London" }));
 
   private static String[][] ADD_ZONE_ALIASES_DATA = { { "Etc/UTC", "Etc/GMT" },
-      { "Etc/UCT", "Etc/GMT" }, { "Navajo", "America/Shiprock" },
+      { "Etc/UCT", "Etc/GMT" }, 
+      { "Navajo", "America/Shiprock" },
       // extras added in 2006g
       { "SystemV/AST4ADT", "America/Halifax" },
       { "SystemV/EST5EDT", "America/New_York" },
       { "EST5EDT", "America/New_York" },
       { "SystemV/CST6CDT", "America/Chicago" },
       { "CST6CDT", "America/Chicago" },
-      { "SystemV/MST7MDT", "America/Denver" }, { "MST7MDT", "America/Denver" },
+      { "SystemV/MST7MDT", "America/Denver" },
+      { "MST7MDT", "America/Denver" },
       { "SystemV/PST8PDT", "America/Los_Angeles" },
       { "PST8PDT", "America/Los_Angeles" },
       { "SystemV/YST9YDT", "America/Anchorage" },
       { "SystemV/AST4", "America/Puerto_Rico" },
       { "SystemV/EST5", "America/Indianapolis" },
-      { "EST", "America/Indianapolis" }, { "SystemV/CST6", "America/Regina" },
-      { "SystemV/MST7", "America/Phoenix" }, { "MST", "America/Phoenix" },
+      { "EST", "America/Indianapolis" }, 
+      { "SystemV/CST6", "America/Regina" },
+      { "SystemV/MST7", "America/Phoenix" }, 
+      { "MST", "America/Phoenix" },
       { "SystemV/PST8", "Pacific/Pitcairn" },
       { "SystemV/YST9", "Pacific/Gambier" },
-      { "SystemV/HST10", "Pacific/Honolulu" }, { "HST", "Pacific/Honolulu" }, };
+      { "SystemV/HST10", "Pacific/Honolulu" }, 
+      { "HST", "Pacific/Honolulu" }, };
 
   static String[] FIX_DEPRECATED_ZONE_DATA = { "Africa/Timbuktu",
       "America/Argentina/ComodRivadavia", "Europe/Belfast", "Pacific/Yap" };
   static {
     String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
+        { "America/Atikokan", "America/Coral_Harbour" },
         { "America/Argentina/Buenos_Aires", "America/Buenos_Aires" },
         { "America/Argentina/Catamarca", "America/Catamarca" },
         { "America/Argentina/Cordoba", "America/Cordoba" },
@@ -729,6 +738,7 @@ public class ZoneParser {
             if (zoneID == null) {
               l.remove(0); // "Zone"
               zoneID = (String) l.get(0);
+              if (false) System.out.println("*Link:\t" + zoneID);
               String ntzid = (String) FIX_UNSTABLE_TZIDS.get(zoneID);
               if (ntzid != null)
                 zoneID = ntzid;
@@ -788,6 +798,8 @@ public class ZoneParser {
             if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
               // System.out.println("Original " + old + "\t=>\t" + newOne);
               linkedItems.add(old, newOne);
+              if (false) System.out.println("*Link:\t" + old);
+              if (false) System.out.println("*Link:\t" + newOne);
             }
             /*
              * String conflict = (String) linkold_new.get(old); if (conflict !=
@@ -842,7 +854,17 @@ public class ZoneParser {
           }
         }
         {
-          Object newOne = canonicals.iterator().next();
+          Object newOne;
+          // get the item that we want to hang all the aliases off of.
+          // normally this is the first (alphabetically) one, but
+          // it may be overridden with PREFERRED_BASES
+          Set preferredItems = new HashSet(PREFERRED_BASES);
+          preferredItems.retainAll(canonicals);
+          if (preferredItems.size() > 0) {
+            newOne = preferredItems.iterator().next();
+          } else {
+            newOne = canonicals.iterator().next();
+          }
           for (Iterator it2 = equivalents.iterator(); it2.hasNext();) {
             Object oldOne = it2.next();
             if (canonicals.contains(oldOne))

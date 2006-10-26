@@ -325,31 +325,38 @@
             <!-- deprecated ISO territories in 3066 + CLDR ones (older deprecated ISO codes -->
             <territoryAlias type="BQ" replacement="AQ"/> <!-- CLDR: British Antarctic Territory -->
             <territoryAlias type="BU" replacement="MM"/> <!-- Burma -->
-            <territoryAlias type="CS"/> <!-- Serbia & Montenegro -->
+            <territoryAlias type="CS" replacement="RS CS"/> <!-- Serbia & Montenegro -->
             <territoryAlias type="CT" replacement="KI"/> <!-- CLDR: Canton and Enderbury Islands -->
             <territoryAlias type="DD" replacement="DE"/> <!-- German Democratic Republic -->
-            <territoryAlias type="FQ"/> <!-- CLDR: French Southern and Antarctic Territories (now split between AQ and TF) -->
+            <territoryAlias type="DY" replacement="BJ"/> <!-- CLDR:Benin -->
+            <territoryAlias type="FQ" replacement="AQ TF/> <!-- CLDR: French Southern and Antarctic Territories (now split between AQ and TF) -->
             <territoryAlias type="FX" replacement="FR"/> <!-- Metropolitan France -->
+            <territoryAlias type="HV" replacement="BF"/> <!-- CLDR:Burkina Faso -->
             <territoryAlias type="JT" replacement="UM"/> <!-- CLDR: Johnston Island -->
             <territoryAlias type="MI" replacement="UM"/> <!-- CLDR: Midway Islands -->
+            <territoryAlias type="NH" replacement="VU"/> <!-- CLDR:Vanuatu -->
             <territoryAlias type="NQ" replacement="AQ"/> <!-- CLDR: Dronning Maud Land -->
-            <territoryAlias type="NT"/> <!-- Neutral Zone -->
-            <territoryAlias type="PC" replacement="AQ"/> <!-- CLDR: Pacific Islands Trust Territory (divided into FM, MH, MP, and PW) -->
+            <territoryAlias type="NT" replacement="IQ SA"/> <!-- Neutral Zone -->
+            <territoryAlias type="PC" replacement="FM MH MP PW"/> <!-- CLDR: Pacific Islands Trust Territory (divided into FM, MH, MP, and PW) -->
             <territoryAlias type="PU" replacement="UM"/> <!-- CLDR: U.S. Miscellaneous Pacific Islands -->
             <territoryAlias type="PZ" replacement="PA"/> <!-- CLDR: Panama Canal Zone -->
-            <territoryAlias type="SU"/> <!-- Union of Soviet Socialist Republics -->
+            <territoryAlias type="RH" replacement="ZW"/> <!-- CLDR:Zimbabwe -->
+            <territoryAlias type="SU" replacement="RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ"/> <!-- Union of Soviet Socialist Republics -->
             <territoryAlias type="TP" replacement="TL"/> <!-- East Timor -->
             <territoryAlias type="VD" replacement="VN"/> <!-- CLDR: North Vietnam -->
             <territoryAlias type="WK" replacement="UM"/> <!-- CLDR: Wake Island -->
             <territoryAlias type="YD" replacement="YE"/> <!-- Yemen, Democratic -->
-            <territoryAlias type="YU" replacement="CS"/> <!-- Yugoslavia -->
+            <territoryAlias type="YU" replacement="RS ME"/> <!-- Yugoslavia -->
             <territoryAlias type="ZR" replacement="CD"/> <!-- Zaire -->
-            <territoryAlias type="DY" replacement="BJ"/> <!-- CLDR:Benin -->
-            <territoryAlias type="HV" replacement="BF"/> <!-- CLDR:Burkina Faso -->
-            <territoryAlias type="NH" replacement="VU"/> <!-- CLDR:Vanuatu -->
-            <territoryAlias type="RH" replacement="ZW"/> <!-- CLDR:Zimbabwe -->
-            <territoryAlias type="062" replacement="034"/> <!-- Southern Asia -->
-            <territoryAlias type="200"/> <!-- Czechoslovakia -->
+            <territoryAlias type="062" replacement="034 143"/> <!-- Southern Asia -->
+            <territoryAlias type="200" replacement="CS SK"/> <!-- Czechoslovakia -->
+            <territoryAlias type="230" replacement="ET"/> <!-- Ethiopia (pre-1993) -->
+            <territoryAlias type="280" replacement="DE"/> <!-- West Germany (pre-1990) -->
+            <territoryAlias type="532" replacement="AN"/> <!-- Netherlands Antilles (pre-1986) -->
+            <territoryAlias type="582" replacement="FM MH MP PW"/> <!-- Pacific Islands (Trust Territory - pre-1991) -->
+            <territoryAlias type="830" replacement="JE GG"/> <!-- Channel Islands -->
+            <territoryAlias type="886" replacement="YE"/> <!-- Yemen (pre-1990) -->
+            <territoryAlias type="890" replacement="RS ME SI HR MK BA"/> <!-- Yugoslavia (pre-1992) -->
             <variantAlias type="BOKMAL"/>
             <variantAlias type="NYNORSK"/>
             <variantAlias type="AALAND"/>

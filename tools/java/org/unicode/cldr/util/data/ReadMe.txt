@@ -77,19 +77,18 @@ This document describes how to update CLDR when this happens.
 - Unpack, and copy contents into ...org\unicode\cldr\util\data
 - Check in just the ones that are already checked in (eg check in 'africa', but not 'factory')
 
+A. If any IDs in zone.tab changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
+   AND rerun CountItems.genSupplementalZoneData()
+   Eg {"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
+   (the format is new name to old name)
+
 Now Verify
-- Run CountItems.genSupplementalZoneData() to generate new data.
-  NOTE: should move into separate file to make this more turn-key
+- Run CountItems -Dmethod=genSupplementalZoneData to generate new data.
 - Paste the zoneItems into supplementalData.xml
   Add the version number, <zoneFormatting multizone="001 ... UZ" tzidVersion="2006g">
 - Paste the $tzid into supplementalMetadata.xml
 - CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION
 
-A. If any IDs in zone.tab changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
-   AND rerun CountItems.genSupplementalZoneData()
-   Eg {"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
-   (the format is new name to old name)
-   
 B. If there are any $tzid's that are in the last version that are not in the current,
   find out what "real" alias it should point to. There are 2 types.
   
@@ -109,6 +108,8 @@ B. If there are any $tzid's that are in the last version that are not in the cur
   - Add to CountItems.FIX_DEPRECATED_ZONE_DATA. Example:
       	"Africa/Timbuktu",
   - Rerun CountItems.genSupplementalZoneData()
+  
+C. Sometimes the aliases will be on the wrong element. If so, change PREFERRED_BASES.
 
 When you are all done, there should ONLY be additions to $tzid and zoneItem's.
 

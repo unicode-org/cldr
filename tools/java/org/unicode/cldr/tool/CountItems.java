@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
@@ -467,9 +469,13 @@ public class CountItems {
         System.out.println("\t</timezoneData>");
         System.out.println("</supplementalData>");
         System.out.println();
-        System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + tzid + "</variable>");
+        String sep = "\r\n\t\t\t\t";
+        // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
+        String broken = Utility.breakLines(tzid, sep, Pattern.compile("((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""), 80);
+        assert(tzid.toString().equals(broken.replace(sep," ")));
+        System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
     }
-
+    
     /**
      * 
      */

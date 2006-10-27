@@ -723,4 +723,37 @@ public class Utility {
       System.out.println("\t" + it.next());
     }
   }
+  
+  /**
+   * Breaks lines if they are too long, or if matcher.group(1) != last. Only breaks just before matcher.
+   * @param input
+   * @param separator
+   * @param matcher must match each possible item. The first group is significant; if different, will cause break
+   * @return
+   */
+  static public String breakLines(CharSequence input, String separator, Matcher matcher, int width) {
+    StringBuffer output = new StringBuffer();
+    String lastPrefix = "";
+    int lastEnd = 0;
+    int lastBreakPos = 0;
+    matcher.reset(input);
+    while (true) {
+      boolean match = matcher.find();
+      if (!match) {
+        output.append(input.subSequence(lastEnd, input.length()));
+        break;
+      }
+      String prefix = matcher.group(1);
+      if (!prefix.equals(lastPrefix) || matcher.end() - lastBreakPos > width) { // break before?
+        output.append(separator);
+        lastBreakPos = lastEnd;
+      } else if (lastEnd != 0){
+        output.append(' ');
+      }
+      output.append(input.subSequence(lastEnd, matcher.end()).toString().trim());
+      lastEnd = matcher.end();
+      lastPrefix = prefix;
+    }
+    return output.toString();
+  }
 }

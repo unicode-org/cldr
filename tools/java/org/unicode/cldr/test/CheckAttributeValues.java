@@ -145,9 +145,9 @@ public class CheckAttributeValues extends CheckCLDR {
             parts.set(path);
             String lastElement = parts.getElement(-1);
             if (lastElement.equals("elementOrder")) {
-                elementOrder.addAll(Arrays.asList(value.split("\\s+")));
+                elementOrder.addAll(Arrays.asList(value.trim().split("\\s+")));
             } else if (lastElement.equals("attributeOrder")) {
-                attributeOrder.addAll(Arrays.asList(value.split("\\s+")));
+                attributeOrder.addAll(Arrays.asList(value.trim().split("\\s+")));
             } else if (lastElement.equals("suppress")) {
                 // skip for now
             } else if (lastElement.equals("serialElements")) {
@@ -176,12 +176,12 @@ public class CheckAttributeValues extends CheckCLDR {
                         continue;
                     }
                     String[] attributeList = ((String) attributes
-                            .get("attributes")).split("\\s+");
+                            .get("attributes")).trim().split("\\s+");
                     String elementsString = (String) attributes.get("elements");
                     if (elementsString == null) {
                         addAttributes(attributeList, common_attribute_validity, mp);
                     } else {
-                        String[] elementList = elementsString.split("\\s+");
+                        String[] elementList = elementsString.trim().split("\\s+");
                         for (int i = 0; i < elementList.length; ++i) {
                             String element = elementList[i];
                             // System.out.println("\t" + element);
@@ -217,7 +217,9 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.equals("deprecatedItems")) {
                 // skip for now 
             } else if (lastElement.endsWith("Coverage")) {
-                // skip for now 
+              // skip for now 
+            } else if (lastElement.endsWith("skipDefaultLocale")) {
+              // skip for now 
             } else {
                 System.out.println("Unknown final element: " + path);
             }
@@ -293,7 +295,7 @@ public class CheckAttributeValues extends CheckCLDR {
         result.value = value;
         if ("choice".equals(typeAttribute)
                 || "given".equals(attributes.get("order"))) {
-            result.matcher = new CollectionMatcher().set(new HashSet(Arrays.asList(value.split(" "))));
+            result.matcher = new CollectionMatcher().set(new HashSet(Arrays.asList(value.trim().split("\\s+"))));
         } else if ("regex".equals(typeAttribute)) {
             result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace	
         } else if ("locale".equals(typeAttribute)) {
@@ -372,7 +374,7 @@ public class CheckAttributeValues extends CheckCLDR {
             return this;
         }
         public boolean matches(Object value) {
-            String[] values = ((String)value).split("\\s+");
+            String[] values = ((String)value).trim().split("\\s+");
             if (values.length == 1 && values[0].length() == 0) return true;
             for (int i = 0; i < values.length; ++i) {
                 if (!other.matches(values[i])) {

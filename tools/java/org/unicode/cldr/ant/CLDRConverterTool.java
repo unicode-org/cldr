@@ -200,11 +200,16 @@ public abstract class CLDRConverterTool {
                 parts = parts.set((String)xpathList.get(i));
                 Map attr = parts.getAttributes(parts.size()-1);
                 String draftVal = (String)attr.get(LDMLConstants.DRAFT);
+                String altVal = (String)attr.get(LDMLConstants.ALT);
                 if(draftVal!=null && !draftVal.matches(draft)){
                     xpathList.remove(i);
                 }
+                // remove xpaths with alt attribute set
+                if(altVal!=null){
+                    xpathList.remove(i);
+                }
             }
-           // return xpathList;
+            return xpathList;
         }
         if(pathList==null){
             // include everything!
@@ -300,30 +305,15 @@ public abstract class CLDRConverterTool {
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
                         boolean altExc = false, draftExc = false;
-                        if(exc.preferAlt==null && altVal==null){
+                        if(exc.alt==null && altVal==null){
                             altExc = true;
-                        }else if(exc.preferAlt==null && altVal!=null){
+                        }else if(exc.alt==null && altVal!=null){
                             altExc = true;
-                        }else if(exc.preferAlt!=null && altVal==null){
+                        }else if(exc.alt!=null && altVal==null){
                             altExc = false;
                         }else{
-                            //the current xpath does not have the alt attribute set
-                            // since the list is sorted we can be sure that if the
-                            // next xpath matches the the current one then additional
-                            // alt attribute should be set
-                            // now check if next xpath contains alt attribute
-                            String nxp = (String) xpathList.get(i+1);
-                            XPathParts nparts = (new XPathParts(null, null)).set(nxp);
-                            Map nattr = nparts.getAttributes(parts.size()-1);
-                            // make sure the type attribute is the same
-                            if(parts.isLike(nparts)){
-                                altVal = (String)nattr.get(LDMLConstants.ALT);
-                                if(altVal.matches(exc.preferAlt)){
-                                    draftVal = (String)nattr.get(LDMLConstants.DRAFT);
-                                    xpath = nxp;
-                                    i++;
-                                    altExc = true;
-                                }
+                            if(altVal.matches(exc.alt)){
+                                altExc = true;
                             }
                         }
                         if(exc.draft==null && draftVal==null){
@@ -388,11 +378,11 @@ public abstract class CLDRConverterTool {
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
                         boolean altInc = false;
-                        if(inc.preferAlt==null && altVal==null){
+                        if(inc.alt==null && altVal==null){
                             altInc = true;
-                        }else if(inc.preferAlt==null && altVal!=null){
+                        }else if(inc.alt==null && altVal!=null){
                              altInc = false;
-                        }else if(inc.preferAlt!=null && altVal==null){
+                        }else if(inc.alt!=null && altVal==null){
                             // the current xpath does not have the alt attribute set
                             // since the list is sorted we can be sure that if the
                             // next xpath matches the the current one then additional
@@ -404,7 +394,7 @@ public abstract class CLDRConverterTool {
                             // make sure the type attribute is the same
                             if(parts.isLike(nparts)){
                                 altVal = (String)nattr.get(LDMLConstants.ALT);
-                                if(altVal.matches(inc.preferAlt)){
+                                if(altVal.matches(inc.alt)){
                                     draftVal = (String)nattr.get(LDMLConstants.DRAFT);
                                     xpath = nxp;
                                     i++;
@@ -412,7 +402,7 @@ public abstract class CLDRConverterTool {
                                 }
                             }
                         }else{
-                            if(altVal.matches(inc.preferAlt)){
+                            if(altVal.matches(inc.alt)){
                                 altInc = true;
                             }
                         }

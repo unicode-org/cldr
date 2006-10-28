@@ -388,7 +388,7 @@ public class CLDRBuild extends Task{
         public String draft;
         public String locales;
         public String xpath;
-        public String preferAlt;
+        public String alt;
         
         public void setDraft(String ds){
             draft = ds;
@@ -399,9 +399,10 @@ public class CLDRBuild extends Task{
         public void setXpath(String xp){
             xpath = xp;
         }
-        public void setPreferAlt(String pa){
-            preferAlt = pa;
+        public void setAlt(String pa){
+            alt = pa;
         }
+        
         public boolean equals(Object o){
             if(!(o instanceof Include)){
                 return false;
@@ -413,7 +414,7 @@ public class CLDRBuild extends Task{
             if(locales.equals(other.locales)&&
                 (draft==other.draft || (draft!=null && other.draft!=null && draft.equals(other.draft))) &&
                 (xpath==other.xpath || (xpath!=null && other.xpath!=null && xpath.equals(other.xpath))) &&
-                (preferAlt==other.preferAlt || (preferAlt!=null && other.preferAlt!=null && preferAlt.equals(other.preferAlt)))
+                (alt==other.alt || (alt!=null && other.alt!=null && alt.equals(other.alt)))
                ){
                 return true;
             }
@@ -423,7 +424,7 @@ public class CLDRBuild extends Task{
             return locales.hashCode() + 
                    draft!=null? draft.hashCode():0+
                    xpath!=null? xpath.hashCode():0+
-                   preferAlt!=null? preferAlt.hashCode():0;
+                   alt!=null? alt.hashCode():0;
         }
     }
     public static class Exclude extends Include{

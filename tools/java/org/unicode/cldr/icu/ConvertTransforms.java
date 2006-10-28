@@ -272,7 +272,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		output.println(quoteSymbol + " *");
 		output.println(quoteSymbol + " ***************************************************************************");
 		output.println(quoteSymbol + " File: " + filename);
-		output.println(quoteSymbol + " Generated from CLDR: " + new Date());
+		output.println(quoteSymbol + " Generated from CLDR ");
 		output.println(quoteSymbol + "");
 
 	}

@@ -1060,7 +1060,7 @@ XXX	Code for transations where no currency is involved
 -->
     </currencyData>
 	<territoryContainment> <!-- based on UN data, at http://unstats.un.org/unsd/methods/m49/m49regin.htm -->
-		<group type="001" contains="002 009 019 142 150"/> <!--World -->
+		<group type="001" contains="002 009 019 142 150 003 419"/> <!--World -->
 		<group type="003" contains="021 029 013"/> <!-- Northern America -->
 		<group type="419" contains="029 013 005"/> <!-- Latin America and the Caribbean -->
 		<group type="011" contains="BF BJ CI CV GH GM GN GW LR ML MR NE NG SH SL SN TG"/> <!--Western Africa -->
@@ -1085,7 +1085,7 @@ XXX	Code for transations where no currency is involved
 		<group type="003" contains="013 021 029"/> <!--North America -->
 		<group type="030" contains="CN HK JP KP KR MN MO TW"/> <!--Eastern Asia -->
 		<group type="035" contains="BN ID KH LA MM BU MY PH SG TH TL TP VN"/> <!--South-Eastern Asia -->
-		<group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA YU"/> <!--Southern Europe -->
+		<group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT CS RS PT SI SM VA YU"/> <!--Southern Europe -->
 		<group type="419" contains="005 013 029"/> <!--Latin America and the Caribbean -->
 		<group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
 		<group type="053" contains="AU NF NZ"/> <!--Australia and New Zealand -->
@@ -1350,9 +1350,9 @@ XXX	Code for transations where no currency is involved
           <weekendStart day="sun"  territories="IN"/>
           <weekendStart day="thu"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
         
-          <weekendEnd day="sun"    territories="001"/>
-          <weekendEnd day="fri"    territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
-          <weekendEnd day="sat"    territories="EG IL SY"/>
+          <weekendEnd day="sun"  territories="001"/>
+          <weekendEnd day="fri"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
+          <weekendEnd day="sat"  territories="EG IL SY"/>
     </weekData>
 
     <measurementData>

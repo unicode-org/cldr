@@ -23,8 +23,8 @@ import org.unicode.cldr.icu.LDMLConstants;
 
 public class XPathTable {
     private static java.util.logging.Logger logger;
-    
     public static final String CLDR_XPATHS = "cldr_xpaths";
+    private PrettyPath ppath = new PrettyPath();
     
     /** 
      * Called by SM to create the reg
@@ -385,5 +385,33 @@ public class XPathTable {
             return -1;
         }
     }
+    
+    // re export PrettyPath API but synchronized
+    /**
+     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping.
+     * @param path
+     * @return
+     */
+    public String getPrettyPath(String path) {
+        synchronized(ppath) {
+            return ppath.getPrettyPath(path);
+        }
+    }
+    
+    /**
+     * Get original path. ONLY works if getPrettyPath was called with the original!
+     * @param prettyPath
+     * @return
+     */
+    public String getOriginal(String prettyPath) {
+        synchronized(ppath) {
+            return ppath.getOriginal(prettyPath);
+        }
+    }
 
+    public String getOutputForm(String prettyPath) {
+        synchronized(ppath) {
+            return ppath.getOutputForm(prettyPath);
+        }
+    }            
 }

@@ -1,4 +1,4 @@
-
+/* @override http://127.0.0.1:8080/cldr-apps/surveytool.css */
 
 hr {
 	border: 1px dashed #ccd
@@ -97,7 +97,7 @@ a.selected :link {
 
 a.notselected {
 	color : #358cc3;
-/*	text-decoration : none; */
+	text-decoration: underline;
 }
 
 .sep {
@@ -240,6 +240,43 @@ tt.codebox {
   */
 }
 
+.respbox {
+	border:  1px solid gray;
+	padding:  0.5em;
+}
+
+.respbox h3 {
+	color: #084610;
+	margin: 0;
+}
+
+.person {
+	float: right;
+	clear: none;
+	font-size: smaller;
+	text-decoration: none;
+	text-align: right;
+}
+
+div.person a  {
+	text-decoration: none;
+	float: none;
+}
+
+.response {
+	
+}
+
+.reply a {
+	background-color: #fff88d;
+	color: #1b1b1b;
+}
+
+
+.odashbox {
+border: 3px dashed olive; margin: 1em; padding: 1em;
+}
+
 .dashbox {
     color: #000;
     background: #ddd;
@@ -271,7 +308,7 @@ td.framecell {
 	color: black;
 }
 
-/*<group=vetting>*/
+/* @group vetting */
 
 .approved {
 	border-color: green;
@@ -295,5 +332,5 @@ td.framecell {
 	padding: 1px;
 }
 	
-/*</group>*/
+/* @end */
 

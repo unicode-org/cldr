@@ -85,6 +85,12 @@ public class UserRegistry {
         public int hashCode() { 
             return id;
         }
+        /**
+         * is the user interested in this locale?
+         */
+        public boolean interestedIn(String locale) {
+            return UserRegistry.localeMatchesLocaleList(intlocs, locale);
+        }
     }
         
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -774,15 +780,14 @@ public class UserRegistry {
         return((u!=null) && userIsStreet(u));
     }
     
-    static final boolean userCanModifyLocale(String uLocale, String locale) {
-		if(SurveyMain.phaseReadonly) return false;
-        if(locale.startsWith(uLocale)) {
-            int llen = locale.length();
-            int ulen = uLocale.length();
+    static final boolean localeMatchesLocale(String smallLocale, String bigLocale) {
+        if(bigLocale.startsWith(smallLocale)) {
+            int blen = bigLocale.length();
+            int slen = smallLocale.length();
             
-            if(llen==ulen) {
+            if(blen==slen) {
                 return true;  // exact match.   'ro' matches 'ro'
-            } else if(!java.lang.Character.isLetter(locale.charAt(ulen))) {
+            } else if(!java.lang.Character.isLetter(bigLocale.charAt(slen))) {
                 return true; // next char is NOT a letter. 'ro' matches 'ro_...'
             } else {
                 return false; // next char IS a letter.  'ro' DOES NOT MATCH 'root'
@@ -792,23 +797,40 @@ public class UserRegistry {
         }
     }
     
+    static final boolean userCanModifyLocale(String uLocale, String locale) {
+        if(SurveyMain.phaseReadonly) return false;
+        return localeMatchesLocale(uLocale, locale);
+    }
+
+    static boolean localeMatchesLocaleList(String localeArray[], String locale)
+    {
+        for(int i=0;i<localeArray.length;i++) {
+            if(localeMatchesLocale(localeArray[i],locale)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean localeMatchesLocaleList(String localeList, String locale)
+    {
+        String localeArray[] = tokenizeLocale(localeList);
+        return localeMatchesLocaleList(localeArray, locale);
+    }
+        
+    
     static final boolean userCanModifyLocale(String localeArray[], String locale) {
 		if(SurveyMain.phaseReadonly) return false;
         if(localeArray.length == 0) {
             return true; // all 
         }
         
-        for(int i=0;i<localeArray.length;i++) {
-            if(userCanModifyLocale(localeArray[i],locale)) {
-                return true;
-            }
-        }
-        return false; // no match
+        return localeMatchesLocaleList(localeArray, locale);
     }
     
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
-		if(SurveyMain.phaseReadonly) return false;
+        if(SurveyMain.phaseReadonly) return false;
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;

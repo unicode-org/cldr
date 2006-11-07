@@ -552,7 +552,7 @@ public class Vetting {
                     if(uscnt>0) {
                         System.err.println("updated " + uscnt + " statuses, due to implied vote\n");
                     } else {
-                        System.err.println("updated " + uscnt + " statuses, due to impliedvote??\n");
+                        System.err.println("No statuses updated due to impliedvote.\n");
                     }
                     conn.commit();
                 }
@@ -1413,13 +1413,13 @@ public class Vetting {
         return ts;
     }
 	
-	void doDisputePage(WebContext ctx) {
-		Map m = new TreeMap();
-		int n = 0;
-		int locs=0;
-		synchronized(conn) {
-		 try {
-			// select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
+    void doDisputePage(WebContext ctx) {
+        Map m = new TreeMap();
+        int n = 0;
+        int locs=0;
+        synchronized(conn) {
+         try {
+                // select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
             Statement s = conn.createStatement();
             ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.type=4");
 			while(rs.next()) {

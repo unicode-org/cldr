@@ -650,9 +650,9 @@ public class CLDRDBSource extends XMLSource {
                 }
                 rv = rs.getString(1);
                 if(rs.next()) {
-                    String complaint = "multi return: " + locale + ":" + path;
+                    String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
                     logger.severe(complaint);
-                    throw new InternalError(complaint);                    
+                   // throw new InternalError(complaint);                    
                 }
                 rs.close();
 ///*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}

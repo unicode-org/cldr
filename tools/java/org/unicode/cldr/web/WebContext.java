@@ -102,6 +102,10 @@ public class WebContext {
         }
     }
 
+    final int fieldInt(String x) {
+        return fieldInt(x,-1);
+    }
+    
     int fieldInt(String x, int def) {
         String f;
         if((f=field(x)).length()>0) {
@@ -143,6 +147,10 @@ public class WebContext {
             ret = def;
         }
         return ret;
+    }
+    
+    public boolean hasField(String x) {
+        return(request.getParameter(x)!=null);
     }
     
     public final String field(String x) {
@@ -307,6 +315,16 @@ public class WebContext {
         t.printStackTrace(new PrintWriter(asString));
         print(asString.toString());
         print("</pre>");
+    }
+
+    void redirect(String where) {
+        try {
+            response.sendRedirect(where);
+            out.close();
+            close();
+        } catch(IOException ioe) {
+            throw new RuntimeException(ioe.toString() + " while redirecting to "+where);
+        }
     }
     
     void close() {

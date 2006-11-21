@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005-2006, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2006, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -34,23 +34,22 @@ import org.unicode.cldr.icu.LDMLConstants;
 // ICU
 import com.ibm.icu.util.ULocale;
 
-
 /**
  * This class implements an XMLSource which is read out of a database.
  * it is not directly modifiable, but it does have routines for modifying the database again.
- */
-public class CLDRDBSource extends XMLSource {
+ **/
+ public class CLDRDBSource extends XMLSource {
     /**
-     *  show final, vetted data only?
+     * show final, vetted data only?
      */
     public boolean finalData = false;
-
+    
     /**
      * the logger to use, from SurveyMain
-     */
+     **/
     private static Logger logger;
-        
- // local things
+    
+    // local things
     /**
      * map from paths to comments.  (for now: empty. TODO: make this real)
      */
@@ -65,7 +64,7 @@ public class CLDRDBSource extends XMLSource {
      */
     private String dir = null;
     
- // DB things
+    // DB things
  
     /**
      * The table containing CLDR data
@@ -122,28 +121,28 @@ public class CLDRDBSource extends XMLSource {
             Statement s = sconn.createStatement();
             
             sql = "create table " + CLDR_DATA + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                    "xpath INT not null, " + // normal
-                                                    "txpath INT not null, " + // tiny
-                                                    "locale varchar(20), " +
-                                                    "source INT, " +
-                                                    "origxpath INT not null, " + // full
-                                                    "alt_proposed varchar(50), " +
-                                                    "alt_type varchar(50), " +
-                                                    "type varchar(50), " +
-                                                    "value varchar(29000) not null, " +
-                                                    "submitter INT, " +
-                                                    "modtime TIMESTAMP, " +
-                                                    // new additions, April 2006
-                                                    "base_xpath INT NOT NULL WITH DEFAULT -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
-                                                       " )";
+                "xpath INT not null, " + // normal
+                "txpath INT not null, " + // tiny
+                "locale varchar(20), " +
+                "source INT, " +
+                "origxpath INT not null, " + // full
+                "alt_proposed varchar(50), " +
+                "alt_type varchar(50), " +
+                "type varchar(50), " +
+                "value varchar(29000) not null, " +
+                "submitter INT, " +
+                "modtime TIMESTAMP, " +
+                // new additions, April 2006
+                "base_xpath INT NOT NULL WITH DEFAULT -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
+                " )";
             //            System.out.println(sql);
             s.execute(sql);
             sql = "create table " + CLDR_SRC + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                    "locale varchar(20), " +
-                                                    "tree varchar(20) NOT NULL, " +
-                                                    "rev varchar(20), " +
-                                                    "modtime TIMESTAMP, "+
-                                                    "inactive INT)";
+                "locale varchar(20), " +
+                "tree varchar(20) NOT NULL, " +
+                "rev varchar(20), " +
+                "modtime TIMESTAMP, "+
+                "inactive INT)";
             // System.out.println(sql);
             s.execute(sql);
             // s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_DATA +"(xpath)");
@@ -157,7 +156,7 @@ public class CLDRDBSource extends XMLSource {
         }
         logger.info("CLDRDBSource DB: done.");
     }
-
+    
     /** 
      * this inner class contains a link to all of the prepared statements needed by the CLDRDBSource.
      * it may be shared by certain CLDRDBSources, or lazy initialized.
@@ -181,7 +180,7 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement insertSource = null;
         public PreparedStatement oxpathFromXpath = null;
         public PreparedStatement keyNoVotesSet = null;
-
+        
         /**
          * called to initialize one of the preparedstatement fields
          * @param name the shortname of the PreparedStatement field. For debugging.
@@ -205,74 +204,74 @@ public class CLDRDBSource extends XMLSource {
          */
         MyStatements(Connection conn) {
             insert = prepareStatement("insert",
-                        "INSERT INTO " + CLDR_DATA +
-                        " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter,base_xpath,modtime) " +
-                        "VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
-                        
-                    // xpath - contains type, no draft
-                    // origxpath - original xpath (full) - 
-                    // txpath - tiny xpath  (no TYPE)
-
+                                      "INSERT INTO " + CLDR_DATA +
+                                      " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter,base_xpath,modtime) " +
+                                      "VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
+            
+            // xpath - contains type, no draft
+            // origxpath - original xpath (full) - 
+            // txpath - tiny xpath  (no TYPE)
+            
             queryXpathPrefixes = prepareStatement("queryXpathPrefixes",
-                "select "+XPathTable.CLDR_XPATHS+".id from "+
-                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
-                        XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?");
-
+                                                  "select "+XPathTable.CLDR_XPATHS+".id from "+
+                                                  XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
+                                                  XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?");
+            
             queryXpathTypes = prepareStatement("queryXpathTypes",
-                "select " +CLDR_DATA+".type from "+
-                        CLDR_DATA+","+XPathTable.CLDR_XPATHS+" where "+CLDR_DATA+".xpath="+
-                        XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ?");
-
+                                               "select " +CLDR_DATA+".type from "+
+                                               CLDR_DATA+","+XPathTable.CLDR_XPATHS+" where "+CLDR_DATA+".xpath="+
+                                               XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ?");
+            
             oxpathFromXpath = prepareStatement("oxpathFromXpath",
-                "select " +CLDR_DATA+".origxpath from "+CLDR_DATA+" where "+CLDR_DATA+".xpath=? AND "+CLDR_DATA+".locale=?");
-
+                                               "select " +CLDR_DATA+".origxpath from "+CLDR_DATA+" where "+CLDR_DATA+".xpath=? AND "+CLDR_DATA+".locale=?");
+            
             queryTypeValues = prepareStatement("queryTypeValues",
-                "select "+CLDR_DATA+".value,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter,"+CLDR_DATA+".xpath,"+CLDR_DATA+".origxpath " +
-                        " from "+
-                        CLDR_DATA+" where "+CLDR_DATA+".txpath=? AND "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".type=?");
-
+                                               "select "+CLDR_DATA+".value,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter,"+CLDR_DATA+".xpath,"+CLDR_DATA+".origxpath " +
+                                               " from "+
+                                               CLDR_DATA+" where "+CLDR_DATA+".txpath=? AND "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".type=?");
+            
             queryValue = prepareStatement("queryValue",
-                "SELECT value FROM " + CLDR_DATA +
-                        " WHERE locale=? AND xpath=?"); // TODO: 1 need to be more specific! ! ! !
-
+                                          "SELECT value FROM " + CLDR_DATA +
+                                          " WHERE locale=? AND xpath=?"); // TODO: 1 need to be more specific! ! ! !
+            
             queryVetValue = prepareStatement("queryVetValue",
-                "SELECT CLDR_DATA.value FROM CLDR_RESULT," + CLDR_DATA +
-                        " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? AND "
-                            +" (CLDR_RESULT.locale=CLDR_DATA.locale) AND (CLDR_RESULT.result_xpath=CLDR_DATA.xpath)"); // TODO: 1 need to be more specific! ! ! !
-
+                                             "SELECT CLDR_DATA.value FROM CLDR_RESULT," + CLDR_DATA +
+                                             " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? AND "
+                                             +" (CLDR_RESULT.locale=CLDR_DATA.locale) AND (CLDR_RESULT.result_xpath=CLDR_DATA.xpath)"); // TODO: 1 need to be more specific! ! ! !
+            
             keyASet = prepareStatement("keyASet",
-            /*
-                "SELECT "+CLDR_DATA+".xpath from "+
-                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
-                        XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
-            */
-//    "SELECT CLDR_DATA.xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
-            "SELECT CLDR_DATA.origxpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.origxpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
-                        );
-
-
+                                       /*
+                                        "SELECT "+CLDR_DATA+".xpath from "+
+                                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
+                                        XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
+                                        */
+                                       //    "SELECT CLDR_DATA.xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
+                                       "SELECT CLDR_DATA.origxpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.origxpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
+                                       );
+            
+            
             keySet = prepareStatement("keySet",
-                "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
-                        " WHERE locale=?"); // TODO: 1 need to be more specific!
+                                      "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
+                                      " WHERE locale=?"); // TODO: 1 need to be more specific!
             keyVettingSet = prepareStatement("keyVettingSet",
-                "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
-			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-				"select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
-			keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
-				"select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_RESULT where CLDR_DATA.locale=? AND CLDR_DATA.locale=CLDR_RESULT.locale AND CLDR_DATA.xpath=CLDR_RESULT.base_xpath AND CLDR_RESULT.type="+Vetting.RES_NO_VOTES);
+                                             "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
+            keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
+                                                 "select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
+            keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
+                                             "select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_RESULT where CLDR_DATA.locale=? AND CLDR_DATA.locale=CLDR_RESULT.locale AND CLDR_DATA.xpath=CLDR_RESULT.base_xpath AND CLDR_RESULT.type="+Vetting.RES_NO_VOTES);
             querySource = prepareStatement("querySource",
-                "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
-
+                                           "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
+            
             querySourceInfo = prepareStatement("querySourceInfo",
-                "SELECT rev FROM " + CLDR_SRC + " where id=?");
-                
+                                               "SELECT rev FROM " + CLDR_SRC + " where id=?");
+            
             querySourceActives = prepareStatement("querySourceActives",
-                "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
-                
+                                                  "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+            
             insertSource = prepareStatement("insertSource",
-                "INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)");
+                                            "INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)");
         }
-                
+        
     }
     
     /**
@@ -307,7 +306,6 @@ public class CLDRDBSource extends XMLSource {
      * @see getSourceID()
      */
     public int srcId = -1; 
-
 
     /**
      * load and validate the item, if not already in the DB. Sets srcId and other state.
@@ -554,6 +552,10 @@ public class CLDRDBSource extends XMLSource {
         }
     }
 
+    /** 
+     * Utility function called by manageSourceUpdates()
+     * @see manageSourceUpdates
+     */
     private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc)
         throws SQLException
     {
@@ -571,6 +573,12 @@ public class CLDRDBSource extends XMLSource {
         sm.lcr.invalidateLocale(loc); // force a reload.
     }
     
+    /**
+     * Administrative hook called by the Admin user from SurveyMain
+     * presents the "manage source updates" interface, allowing new XML files to be updated
+     * @param ctx the webcontext
+     * @param sm alias to the SurveyMain
+     */
     public void manageSourceUpdates(WebContext ctx, SurveyMain sm) {
      //       querySourceActives = prepareStatement("querySourceActives",
      //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
@@ -580,7 +588,7 @@ public class CLDRDBSource extends XMLSource {
         synchronized (conn) {
             synchronized(xpt) {
                 try {
-                    boolean hadDiffs = false;
+                    boolean hadDiffs = false; // were there any differences? (used for 'update all')
                     ResultSet rs = stmts.querySourceActives.executeQuery();
                     ctx.println("<table border='1'>");
                     ctx.println("<tr><th>#</th><th>loc</th><th>DB Version</th><th>CVS/Disk</th><th>update</th></tr>");
@@ -599,19 +607,19 @@ public class CLDRDBSource extends XMLSource {
                             disk = "null";
                         }
                         if(rev.equals(disk)) {
-                            ctx.println("<td class='proposed'>-</td><td></td>");
+                            ctx.println("<td class='proposed'>-</td><td></td>"); // no update available
                         } else {
                             hadDiffs = true;
                             ctx.println("<td class='missing'>disk="+disk+ " </td> ");
                             WebContext subCtx = new WebContext(ctx);
                             subCtx.addQuery("src_update",loc);
                             // ...
-                            if(updAll || what.equals(loc)) {
+                            if(updAll || what.equals(loc)) { // did we request update of this one?
                                 ctx.println("<td class='proposed'>Updating...</td></tr><tr><td colspan='5'>");
                                 manageSourceUpdates_locale(ctx,sm,id,loc);
                                 ctx.println("</td>");
                             } else {
-                                ctx.println("<td><a href='"+subCtx.url()+"#"+id+"'>Update</a></td>");
+                                ctx.println("<td><a href='"+subCtx.url()+"#"+id+"'>Update</a></td>"); // update available
                             }
                         }
                         ctx.println("</tr>");
@@ -632,11 +640,19 @@ public class CLDRDBSource extends XMLSource {
         }
     }
 
+    /**
+     * This is also called from the administrative pane and implements an old database migration function (adding base_xpaths).
+     */
     public void doDbUpdate(WebContext ctx, SurveyMain sm) {
-     //       querySourceActives = prepareStatement("querySourceActives",
-     //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+    
+        if(true==true) {
+            throw new InternalError("CLDRDBSource.doDbUpdate (to add base_xpaths) is obsolete and has been disabled."); // ---- obsolete.  Code left here for future use.
+        }
+         //       querySourceActives = prepareStatement("querySourceActives",
+         //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+         
         String what = ctx.field("db_update");
-//        boolean updAll = what.equals("all_locs");
+        //   boolean updAll = what.equals("all_locs");
         ctx.println("<h4>DB Update Manager (srl use only)</h4>");
         System.err.println("doDbUpdate: "+SurveyMain.freeMem());
         int n = 0, nd = 0;
@@ -689,17 +705,55 @@ public class CLDRDBSource extends XMLSource {
         }
     }
     
-    
-	protected void putFullPath(String distinguishingXPath, String fullxpath) {
+    /** 
+     * XMLSource API. Unimplemented.
+     */
+    protected void putFullPath(String distinguishingXPath, String fullxpath) {
         throw new InternalError("read-only");
         // TODO: 0
     }
     
-	protected void putValue(String distinguishingXPath, String value) {
+    /** 
+     * XMLSource API. Unimplemented.
+     */
+    protected void putValue(String distinguishingXPath, String value) {
         throw new InternalError("read-only");
         // TODO: 0
     }
+	
+    /**
+     * XMLSource API. Unimplemented, read only.
+     */
+    public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) { 
+        throw new InternalError("read-only");
+    } // read only.
     
+    /**
+     * XMLSource API. Unimplemented, read only.
+     */
+    public void putValueAtDPath(String distinguishingXPath, String value) { 
+        throw new InternalError("read-only");
+    } // read only
+
+    /**
+     * XMLSource API. Unimplemented, read only.
+     */
+    public void removeValueAtDPath(String distinguishingXPath) {  
+                throw new InternalError("read-only");
+    }  // R/O
+
+    /**
+     * XMLSource API. Unimplemented, read only.
+     */
+    public void remove(String xpath) {
+         throw new InternalError("read-only");
+    }
+
+   /** 
+     * XMLSource API. Returns whether or not a value exists. 
+     * @param path a distinguished path
+     * @return true if the value exists
+     */
     public boolean hasValueAtDPath(String path) // d path
     {
         if(conn == null) {
@@ -707,8 +761,8 @@ public class CLDRDBSource extends XMLSource {
         }
     
         String locale = getLocaleID();
-//logger.info(locale + ":" + path);
-//        synchronized (conn) {
+        //logger.info(locale + ":" + path);
+        //synchronized (conn) {
             try {
                 stmts.queryValue.setString(1,locale);
                 stmts.queryValue.setInt(2,xpt.getByXpath(path)); // TODO: 2 more specificity
@@ -718,15 +772,22 @@ public class CLDRDBSource extends XMLSource {
                 } else {
                     return false;
                 }
-//                rs.close();
-//logger.info(locale + ":" + path+" -> " + rv);
+                //                rs.close();
+                //logger.info(locale + ":" + path+" -> " + rv);
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to check data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
                 return false;
             }
-//        }
+        //}
     }
     
+    
+    /**
+     * XMLSource API. Returns the value of a distringuished path
+     * @param path distinguished path
+     * @return value or else null if none exists
+     */
+     
     public String getValueAtDPath(String path) // D path
     {
         if(conn == null) {
@@ -781,101 +842,97 @@ public class CLDRDBSource extends XMLSource {
                 return null;
             }
     }
-	
-    // new functions
-	 public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) { 
-                throw new InternalError("read-only");
-     } // read only.
-	 public void putValueAtDPath(String distinguishingXPath, String value) { 
-                throw new InternalError("read-only");
-     } // read only
-	 public void removeValueAtDPath(String distinguishingXPath) {  
-                throw new InternalError("read-only");
-    }  // R/O
-	    
+
     /*
-     * @param path cleaned path
+     * convert a distinguished path to a full path
+     * @param path cleaned (distinguished) path
+     * @return the full path
      */
     public String getFullPathAtDPath(String path) {
-		if(finalData) {
-			String aPath = path;
-			// note: we don't call: getOrigXpath(xpt.getByXpath(path))  here, because 'path' may not have an orig xpath. 
-			
-			// this is going to be a little bit slow.
-			String locale = getLocaleID();
-			int id = xpt.getByXpath(path); // get id..
-			int type[] = new int[1];
-			int base_id = xpt.xpathToBaseXpathId(id);
-			int res = sm.vet.queryResult(locale, base_id, type);
+        if(finalData) { // show only final data?
+            
+            String aPath = path;
+            // note: we don't call: getOrigXpath(xpt.getByXpath(path))  here, because 'path' may not have an original xpath. 
+            
+            // this is going to be a little bit slow!
+            String locale = getLocaleID();
+            int id = xpt.getByXpath(path); // get id..
+            int base_id = xpt.xpathToBaseXpathId(id);
+            int type[] = new int[1];
+            int res = sm.vet.queryResult(locale, base_id, type);
+            
+            // extract the 'reference' (and any others?)
+            {
+                XPathParts xpp = new XPathParts(null,null);
+                xpp.clear();
+                if(res>=0) {
+                    xpp.initialize(getOrigXpath(res));
+                } else {
+                    xpp.initialize(getOrigXpath(xpt.getByXpath(path)));
+                }
+                
+                Map lastAtts = xpp.getAttributes(-1);
+                
+                for(Iterator i = lastAtts.keySet().iterator();i.hasNext();) { // reconstruct the path  but- 
+                    String attName = i.next().toString();
+                    if( !attName.equals(LDMLConstants.DRAFT) &&  // NOT draft
+                        !CLDRFile.isDistinguishing(xpp.getElement(-1),attName)) {  // NOT un-distinguishing elements
+                        String att = (String)lastAtts.get(attName);
+                        if(att!=null) {
+                            aPath = aPath + "[@"+attName+"=\""+att+"\"]";
+                        }
+                    }
+                }
+            }
+            
+            if((res!=id) && // this was the "loser" of the voting  AND - 
+               true /*	!((res<=Vetting.RES_BAD_MAX && (base_id==id)))  */) { // (formerly checked: not a fallback from an insufficient/disputed)
 
-			// extract the 'reference' (and any others?)
-			{
-				XPathParts xpp = new XPathParts(null,null);
-				xpp.clear();
-				if(res>=0) {
-					xpp.initialize(getOrigXpath(res));
-				} else {
-					xpp.initialize(getOrigXpath(xpt.getByXpath(path)));
-				}
-				
-				Map lastAtts = xpp.getAttributes(-1);
-				for(Iterator i = lastAtts.keySet().iterator();i.hasNext();) {
-				    String attName = i.next().toString();
-				    if( !attName.equals(LDMLConstants.DRAFT) &&
-				        !CLDRFile.isDistinguishing(xpp.getElement(-1),attName)) {
-					String att = (String)lastAtts.get(attName);
-					if(att!=null) { 
-						aPath = aPath + "[@"+attName+"=\""+att+"\"]";
-					}
-				    }
-				}
-			}
-
-			if((res!=id) && // l0ser and
-			true /*	!((res<=Vetting.RES_BAD_MAX && (base_id==id)))  */) { // not a fallback from an insufficient/disputed
-				// Did any regular vetters vote for this?
-				int highest =  sm.vet.highestLevelVotedFor(locale,id);
-								
-				if(xpathThatNeedsOrig(path)) {
-					aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT); // original- minus draft. (Draft will be re-added later.)
-				}
-				
-				if((type[0]==Vetting.RES_INSUFFICIENT)&&(base_id==id)) { // fallback - no 'provisional' needed.
-					return aPath;
-				}
-				
-				if(highest == -1) {
-					if(type[0]==Vetting.RES_NO_VOTES) {
-						return aPath+"[@draft=\"unconfirmed\"]"; // was probably a draft=true
-					} else {
-						return aPath; // +"[@reference=\"nobody_voted_for:"+id+"!"+res+"at"+base_id+"\"]";
-					}
-				} else if(highest>UserRegistry.VETTER) {
-					return aPath+"[@draft=\"unconfirmed\"]";
-				} else {
-					return aPath+"[@draft=\"provisional\"]";
-				}
-			}
-
-			// not an odd case - a winning item.
-			
-			if(xpathThatNeedsOrig(path)) {
-				return getOrigXpath(xpt.getByXpath(path));
-			} else {
-				return aPath; // don't need origpath. This is a 'winning' item.
-			}
-		} else {
-			// proposed-  always returns origpath
-			return getOrigXpath(xpt.getByXpath(path));
-		}
+                // But: Did any regular vetters vote for this?
+                int highest =  sm.vet.highestLevelVotedFor(locale,id);  // what is the 'highest' level of user who voted for it?
+                
+                if(xpathThatNeedsOrig(path)) { // Does it need its original path back?
+                    aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT); // original- minus draft. (Draft will be re-added later.)
+                }
+                
+                if((type[0]==Vetting.RES_INSUFFICIENT)&&(base_id==id)) { // no, it is a fallback - no 'provisional' needed.
+                    return aPath;
+                }
+                
+                if(highest == -1) {  // No highest level
+                    if(type[0]==Vetting.RES_NO_VOTES) { // no votes at all-
+                        return aPath+"[@draft=\"unconfirmed\"]"; // could have been a draft=true
+                    } else {
+                        return aPath; // +"[@reference=\"nobody_voted_for:"+id+"!"+res+"at"+base_id+"\"]"; // other resolution.
+                    }
+                } else if(highest>UserRegistry.VETTER) { 
+                    return aPath+"[@draft=\"unconfirmed\"]";   // vetter level voted for it-
+                } else {
+                    return aPath+"[@draft=\"provisional\"]"; // no vetter voted for it - provisional.
+                }
+            }
+            
+            // otherwise - not an odd case - a winning item.
+            if(xpathThatNeedsOrig(path)) {
+                return getOrigXpath(xpt.getByXpath(path)); // it needs the original xpath (reference, etc) - return it
+            } else {
+                return aPath; // don't need origpath. This is a 'winning' item.
+            }
+        } else {
+            // proposed-  always returns origpath
+            return getOrigXpath(xpt.getByXpath(path));
+        }
     }
     
+    /**
+     * get the 'original' xpath from a path-id#
+     * @param pathid ID# of a path
+     * @return the original xpath string
+     * @see XPathTable
+     */
     public String getOrigXpath(int pathid) {
         String locale = getLocaleID();
-//        if(nid < 0) {
-//                return path;
-//        }
-//        synchronized (conn) {
+        //synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
             try {
                 stmts.oxpathFromXpath.setInt(1,pathid);
                 stmts.oxpathFromXpath.setString(2,locale);
@@ -896,29 +953,27 @@ public class CLDRDBSource extends XMLSource {
                 logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + SurveyMain.unchainSqlException(se));
                 return xpt.getById(pathid); //? should be null?
             }
-//        }
+        //}
     }
     
-    
-	public Comments getXpathComments() {
-        // ...
+    /**
+     * return the comments array, which comes from the raw XML.
+     * @return comments
+     * @see Comments
+     */
+    public Comments getXpathComments() {
         CLDRFile file = factory.make(getLocaleID(), false, true);
         return file.getXpath_comments();
-//        return xpath_comments; // TODO: make this real.  For now, return this empty item.
     }
 	public void setXpathComments(Comments path) {
         this.xpath_comments = xpath_comments;
     }
-    
+ 
+    /** 
+     * todo - implement? 
+     */
     public int size() {
         throw new InternalError("not implemented yet");
-        // query
-  //      return -1; // TODO: 0
-    }
-    public void remove(String xpath) {
-        throw new InternalError("read-only");
-        // delete
-        // TODO: 0
     }
     
     public Set getAvailableLocales() {

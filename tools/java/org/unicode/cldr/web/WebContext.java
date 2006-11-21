@@ -3,7 +3,7 @@
 //  cldrtools
 //
 //  Created by Steven R. Loomis on 3/11/2005.
-//  Copyright 2005 IBM. All rights reserved.
+//  Copyright 2005-2006 IBM. All rights reserved.
 //
 package org.unicode.cldr.web;
 
@@ -51,7 +51,10 @@ public class WebContext {
     public Map getParameterMap() { 
         return request.getParameterMap();
     }
-    // New constructor
+    
+    /**
+     * Construct a new WebContext from the servlet request and response 
+     */
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
          request = irq;
          response = irs;
@@ -60,12 +63,19 @@ public class WebContext {
         
     }
     
+    /**
+     * Construct a new fake WebContext - for testing purposes.
+     * Writes to stderr. 
+     */
     public WebContext(boolean fake)throws IOException  {
         dontCloseMe=false;
         out=openUTF8Writer(System.err);
     }
     
-    // copy c'tor
+    /**
+     * Copy one WebContext to another.
+     * useful for sub-contexts with different base urls.
+     */
     public WebContext( WebContext other) {
         doc = other.doc;
         docLocale = other.docLocale;
@@ -83,11 +93,10 @@ public class WebContext {
         sm = other.sm;
     }
     
-// More API
-
-    /* 
-     * return true if field y or n.
-     * given default passed in def
+    /**
+     * get a field's value as a boolean
+     * @param x field name
+     * @param def default value if field is not found.
      */
      
     boolean fieldBool(String x, boolean def) {
@@ -102,10 +111,19 @@ public class WebContext {
         }
     }
 
+    /**
+     * get a field's value, or -1
+     * @param x field name
+     */
     final int fieldInt(String x) {
         return fieldInt(x,-1);
     }
     
+    /**
+     * get a field's value, or the default
+     * @param x field name
+     * @param def default value
+     */
     int fieldInt(String x, int def) {
         String f;
         if((f=field(x)).length()>0) {
@@ -119,43 +137,26 @@ public class WebContext {
         }
     }
     
-    boolean prefBool(String x) {
-        return prefBool(x,false);
-    }
-    boolean prefBool(String x, boolean defVal)
-    {
-        boolean ret = fieldBool(x, session.prefGetBool(x, defVal));
-        session.prefPut(x, ret);
-        return ret;
-    }
-    
     /**
-     * get a pref that is a string, 
-     * @param x the field name and pref name
+     * Return true if the field is present
      */
-    String pref(String x) {
-        return pref(x, ""); // should be null?
-    }
-    
-    String pref(String x, String def)
-    {
-        String ret = field(x, session.prefGet(x));
-        if(ret != null) {
-            session.prefPut(x, ret);
-        }
-        if((ret == null) || (ret.length()<=0)) {
-            ret = def;
-        }
-        return ret;
-    }
-    
     public boolean hasField(String x) {
         return(request.getParameter(x)!=null);
     }
     
+    /**
+     * return a field's value, else ""
+     * @param x field name
+     */
     public final String field(String x) {
         return field(x, "");
     }
+
+    /**
+     * return a field's value, else def
+     * @param x field name
+     * @param def default value
+     */
     public String field(String x, String def) {
         if(request==null) { 
             return def; // support testing
@@ -190,6 +191,53 @@ public class WebContext {
         
         return res;
     }
+// preference api    
+    /**
+     * get a preference's value as a boolean. defaults to false.
+     * @param x pref name
+     */
+    boolean prefBool(String x) {
+        return prefBool(x,false);
+    }
+
+    /**
+     * get a preference's value as a boolean. defaults to defVal.
+     * @param x preference name
+     * @param defVal default value
+     */
+    boolean prefBool(String x, boolean defVal)
+    {
+        boolean ret = fieldBool(x, session.prefGetBool(x, defVal));
+        session.prefPut(x, ret);
+        return ret;
+    }
+    
+    /**
+     * get a pref that is a string, 
+     * @param x the field name and pref name
+     */
+    String pref(String x) {
+        return pref(x, ""); // should be null?
+    }
+    
+    /**
+     * get a pref that is a string, 
+     * @param x the field name and pref name
+     * @param def default value
+     */
+    String pref(String x, String def)
+    {
+        String ret = field(x, session.prefGet(x));
+        if(ret != null) {
+            session.prefPut(x, ret);
+        }
+        if((ret == null) || (ret.length()<=0)) {
+            ret = def;
+        }
+        return ret;
+    }
+    
+
 // query api
     void addQuery(String k, String v) {
         outQueryMap.put(k,v);

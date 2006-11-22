@@ -19,6 +19,8 @@ Stuff to put in shared/lib:
  mail.jar,  activation.jar  (from javamail and java beans activation framework)
 
 Stuff to add to catalina.policy:
+
+   // for JavaMail / Activation.  Used by CLDR SurveyTool
     grant codeBase "file:${catalina.home}/shared/lib/activation.jar" {
        permission java.io.FilePermission "file:${catalina.home}/shared/lib/mail.jar","read";
     };

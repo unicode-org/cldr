@@ -461,6 +461,20 @@ public class Utility {
 		}
 		return a;
 	}
+  
+  public static String join(Collection c, String separator) {
+    StringBuffer output = new StringBuffer();
+    boolean isFirst = true;
+    for (Object item : c) {
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        output.append(separator);
+      }
+      output.append(item == null ? item : item.toString());
+    }
+    return output.toString();
+  }
 	
 	/**
 	 * Utility like Arrays.asList()
@@ -689,27 +703,29 @@ public class Utility {
 		}
 	}
 	
-  public static void callMethod(String methodName, Class cls) {
-    try {
-      Method method;
+  public static void callMethod(String methodNames, Class cls) {
+    for (String methodName : methodNames.split(",")) {
       try {
-        method = cls.getMethod(methodName, (Class[]) null);
+        Method method;
         try {
-          method.invoke(null, (Object[]) null);
+          method = cls.getMethod(methodName, (Class[]) null);
+          try {
+            method.invoke(null, (Object[]) null);
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
         } catch (Exception e) {
-          e.printStackTrace();              
+          System.out.println("No such method: " + methodName);
+          showMethods(cls);
         }
-      } catch (Exception e) {
-        System.out.println("No such method: " + methodName);
-        showMethods(cls);
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
       }
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
     }
   }
 
   public static void showMethods(Class cls) throws ClassNotFoundException {
-    System.out.println("Possible methods are: ");
+    System.out.println("Possible methods of " + cls.getCanonicalName() + " are: ");
     Method[] methods = cls.getMethods();
     Set<String> names = new TreeSet<String>();
     for (int i = 0; i < methods.length; ++i) {

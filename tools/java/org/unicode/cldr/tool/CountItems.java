@@ -471,11 +471,73 @@ public class CountItems {
         System.out.println();
         String sep = "\r\n\t\t\t\t";
         // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-        String broken = Utility.breakLines(tzid, sep, Pattern.compile("((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""), 80);
+        String broken = Utility.breakLines(tzid, sep, Pattern.compile("((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""), 80);
         assert(tzid.toString().equals(broken.replace(sep," ")));
         System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
     }
     
+    public static void getSubtagVariables() {
+      System.out.println("</supplementalData>");
+      System.out.println();
+      String sep = "\r\n\t\t\t\t";
+      StandardCodes sc = StandardCodes.make();
+      for (String type : new String[]{"grandfathered", "language", "territory", "script", "currency", "currency2"}) {
+        Set i;
+        if (type.equals("currency2")) {
+          i = getSupplementalCurrency();
+        } else {
+          i = sc.getAvailableCodes(type);          
+        }
+        TreeSet<String> s = new TreeSet<String>(i);
+        StringBuffer b = new StringBuffer();
+        for (String code : s) {
+          if (b.length() != 0) b.append(' ');
+          b.append(code);
+        }
+        // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
+        String broken = Utility.breakLines(b, sep, Pattern.compile("([-_A-Za-z0-9])[-_A-Za-z0-9]*").matcher(""), 80);
+        assert(b.toString().equals(broken.replace(sep," ")));
+        System.out.println("\t\t\t<variable id=\"$" + type + "\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
+      }
+
+    }
+    private static Set getSupplementalCurrency() {
+      Factory cldrFactory = CLDRFile.Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*");
+      CLDRFile supp = cldrFactory.make("supplementalData",false);
+      XPathParts p = new XPathParts();
+      Set currencies = new TreeSet();
+      Set decimals = new TreeSet();
+      for (Iterator it = supp.iterator(); it.hasNext();) {
+        String path = (String) it.next();
+        String currency = p.set(path).findAttributeValue("currency", "iso4217");
+        if (currency != null) {
+          currencies.add(currency);
+        }
+        currency = p.set(path).findAttributeValue("info", "iso4217");
+        if (currency != null) {
+          decimals.add(currency);
+        }
+      }
+      decimals.remove("DEFAULT");
+      if (!currencies.containsAll(decimals)) {
+        decimals.removeAll(currencies);
+        System.out.println("Value with decimal but no country: " + decimals);
+      }
+      Set std = StandardCodes.make().getAvailableCodes("currency");
+      TreeSet stdMinusCountry = new TreeSet(std);
+      stdMinusCountry.removeAll(currencies);
+      if (std.size() != 0) {
+        System.out.println("In standard, but no country:" + stdMinusCountry);
+      }
+      TreeSet countriesMinusStd = new TreeSet(currencies);
+      countriesMinusStd.removeAll(std);
+      if (countriesMinusStd.size() != 0) {
+        System.out.println("Have country, but not in std:" + countriesMinusStd);
+      }
+      
+      return currencies;
+    }
+
     /**
      * 
      */

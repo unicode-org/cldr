@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -272,17 +273,7 @@ public class GenerateEnums {
     }
 
     XPathParts parts = new XPathParts();
-    //<group type="001" contains="002 009 019 142 150"/> <!--World -->
-    for (Iterator it = supplementalData.iterator("//supplementalData/territoryContainment/group"); it.hasNext();) {
-      String path = (String) it.next();
-      parts.set(path);
-      String container = parts.getAttributeValue(parts.size() - 1, "type");
-      List contained = Arrays.asList(parts.getAttributeValue(parts.size() - 1, "contains").trim().split("\\s+"));
-      containment.put(container, contained);
-    }
-    Set startingFromWorld = new TreeSet();
-    addContains("001", startingFromWorld);
-    compareSets("World", startingFromWorld, "CLDR", cldrCodes);
+    getContainment();
 
     DateFormat[] simpleFormats = { new SimpleDateFormat("yyyy-MM-dd"), new SimpleDateFormat("yyyy-MM"), new SimpleDateFormat("yyyy"), };
     Date today = new Date();
@@ -357,18 +348,42 @@ public class GenerateEnums {
     //            }
   }
 
-  private void compareSets(String name, Set availableCodes, String name2, Set cldrCodes) {
-    Set temp = new TreeSet();
-    temp.addAll(availableCodes);
-    temp.removeAll(cldrCodes);
-    System.out.println("In " + name + " but not in " + name2 + ": " + temp);
-    temp.clear();
-    temp.addAll(cldrCodes);
-    temp.removeAll(availableCodes);
-    System.out.println("Not in " + name + " but in " + name2 + ": " + temp);
+  public  void getContainment() {
+    XPathParts parts = new XPathParts();
+    //<group type="001" contains="002 009 019 142 150"/> <!--World -->
+    for (Iterator it = supplementalData.iterator("//supplementalData/territoryContainment/group"); it.hasNext();) {
+      String path = (String) it.next();
+      parts.set(path);
+      String container = parts.getAttributeValue(parts.size() - 1, "type");
+      List contained = Arrays.asList(parts.getAttributeValue(parts.size() - 1, "contains").trim().split("\\s+"));
+      containment.put(container, contained);
+    }
+    // fix recursiveContainment.
+//    for (String region : (Collection<String>)containment.keySet()) {
+//      Set temp = new LinkedHashSet();
+//      addContains(region, temp);
+//      recursiveContainment.put(region, temp);
+//    }
+    Set startingFromWorld = new TreeSet();
+    addContains("001", startingFromWorld);
+    compareSets("World", startingFromWorld, "CLDR", cldrCodes);
+    generateContains();
+  }
+
+  private void generateContains() {
+    
+    for (String region : (Collection<String>)containment.keySet()) {
+      Collection plain = (Collection)containment.get(region);
+      //Collection recursive = (Collection)recursiveContainment.get(region);
+      
+      String setAsString = Utility.join(plain," ");
+      //String setAsString2 = recursive.equals(plain) ? "" : ", " + Utility.join(recursive," ");
+      System.out.println("\t\tadd(\"" + region + "\", \"" + setAsString + "\");");
+    }
   }
 
   Map containment = new TreeMap();
+  //Map recursiveContainment = new TreeMap();
 
   private void addContains(String string, Set startingFromWorld) {
     startingFromWorld.add(string);
@@ -378,6 +393,17 @@ public class GenerateEnums {
     for (Iterator it = contained.iterator(); it.hasNext();) {
       addContains((String) it.next(), startingFromWorld);
     }
+  }
+
+  private void compareSets(String name, Set availableCodes, String name2, Set cldrCodes) {
+    Set temp = new TreeSet();
+    temp.addAll(availableCodes);
+    temp.removeAll(cldrCodes);
+    System.out.println("In " + name + " but not in " + name2 + ": " + temp);
+    temp.clear();
+    temp.addAll(cldrCodes);
+    temp.removeAll(availableCodes);
+    System.out.println("Not in " + name + " but in " + name2 + ": " + temp);
   }
 
   private void checkDuplicates(Map m) {
@@ -478,13 +504,15 @@ public class GenerateEnums {
     }
 
     showGeneratedCommentEnd(DATA_INDENT);
+    
+    getContainment();
   }
 
   private void doAliases(Map<String, String> code_replacements) {
     for (String code : code_replacements.keySet()) {
       String newCode = code_replacements.get(code);
       if (newCode.length() == 0) newCode = "ZZ";
-      System.out.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", " + "RegionCode." + newCode + ");");
+      System.out.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", \"" + newCode + "\");");
     }
   }
 
@@ -573,7 +601,7 @@ public class GenerateEnums {
       System.out.println();
     }
     System.out.print(prefix);
-    System.out.print("                                                           ".substring(prefix.length() + printedCodeName.length()));
+    System.out.print("                                                                                                    ".substring(prefix.length() + printedCodeName.length()));
     System.out.println(printedCodeName
     //                    + "\t(" + numeric + 
         //                    (alpha3 != null ? ", " + quote(alpha3) : "")

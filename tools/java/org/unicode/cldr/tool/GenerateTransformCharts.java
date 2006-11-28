@@ -725,7 +725,7 @@ public class GenerateTransformCharts {
         return sb.toString();
     }
     
-    static class CollectionOfComparablesComparator implements Comparator {
+    static public class CollectionOfComparablesComparator implements Comparator {
         public int compare(Object o1, Object o2) {
             if (o1 == null) {
                 if (o2 == null) return 0;

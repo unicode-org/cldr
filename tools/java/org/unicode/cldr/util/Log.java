@@ -32,7 +32,7 @@ public class Log {
 		if (log != null && test) log.println(message);
 	}
 	
-	public static void logln(String message) {
+	public static void logln(Object message) {
 		if (log != null) log.println(message);
 	}
 	

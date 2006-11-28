@@ -633,7 +633,14 @@ public class StandardCodes {
   // return a complex map. language -> arn -> {"Comments" -> "x",
   // "Description->y,...}
   static String[][] extras = {
-      { "language", "root", "Description", "Root", "CLDR", "True" },
+    { "language", "root", "Description", "Root", "CLDR", "True" },
+    { "language", "cch", "Description", "Atsam", "CLDR", "True" },
+    { "language", "kaj", "Description", "Jju", "CLDR", "True" },
+    { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
+    { "language", "kfo", "Description", "Koro", "CLDR", "True" },
+    { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
+    { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
+    { "region", "003", "Description", "North America", "CLDR", "True" },
       { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True" },
       { "variant", "REVISED", "Description", "Revised Orthography", "CLDR",
           "True" },

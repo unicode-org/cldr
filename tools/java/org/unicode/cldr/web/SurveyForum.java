@@ -20,6 +20,12 @@ import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
 
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.test.CheckCLDR;
+
+/**
+ * This class implements a discussion forum per language (ISO code)
+ */
 public class SurveyForum {
     private static java.util.logging.Logger logger;
 
@@ -193,7 +199,7 @@ public class SurveyForum {
         }
 
         if(text!=null && text.length()>0) {
-            if(ctx.field("post")!=null) {
+            if(ctx.field("post").length()>0) {
                 // do the post!
                 
                 if(forumNumber == -1) {
@@ -258,7 +264,7 @@ public class SurveyForum {
         ctx.println("<br><input name=post type=submit value=Post><input type=submit name=preview value=Preview><br>");
         ctx.println("</form>");
         
-        if(ctx.field("post")!=null) {
+        if(ctx.field("post").length()>0) {
             if(text==null || text.length()==0) {
                 ctx.println("<b>Please type some text.</b><br>");
             } else {
@@ -279,14 +285,67 @@ public class SurveyForum {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
         // Show the Pod in question:
-        ctx.println("<hr> \n This post concerns:<p>");
+        ctx.println("<hr> \n This post Concerns:<p>");
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
         String podBase = DataPod.xpathToPodBase(xpath);
+        
+        sm.printPathListOpen(ctx);
+
+        if(canModify) {
+            /* hidden fields for that */
+            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
+            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
+            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
+
+            ctx.println("<input style='float:right' type='submit' value='" + sm.xSAVE + "'>");
+            synchronized (ctx.session) { // session sync
+                // first, do submissions.
+                DataPod oldPod = ctx.getExistingPod(podBase);
+                
+                // *** copied from SurveyMain.showLocale() ... TODO: refactor
+                SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+                CLDRFile cf = uf.cldrfile;
+                if(cf == null) {
+                    throw new InternalError("CLDRFile is null!");
+                }
+                CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+                
+                if(ourSrc == null) {
+                    throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.locale );
+                }
+                synchronized(ourSrc) { 
+                    // Set up checks
+                    CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
+                
+                    if(sm.processPeaChanges(ctx, oldPod, cf, ourSrc)) {
+                        int j = sm.vet.updateResults(oldPod.locale); // bach 'em
+                        ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+                    }
+                }
+            }
+        } else {
+            ctx.println("<br>cant modify " + ctx.locale + "<br>");
+        }
+        
         DataPod pod = ctx.getPod(podBase);
         
         SurveyMain.printPodTableOpen(ctx, pod);
         sm.showPeas(ctx, pod, canModify, base_xpath);
         SurveyMain.printPodTableClose(ctx, pod);
+        if(canModify) {
+            ctx.println("<hr>");
+            String warnHash = "add_an_alt";
+            ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
+                        "<b>+</b> Add Alternate..</a></div>");
+            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                        "<div style='display: none' class='pager' id='" + warnHash + "'>" );
+            ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + 
+                        "(<b>-</b>)</a>");
+            ctx.println("<label>To add a new alternate, type it in here and modify any item above:<br> <input name='new_alt'></label><br>");                        
+            ctx.println("</div>");
+
+        }
+        sm.printPathListClose(ctx);
     }
     
     void printForumMenu(WebContext ctx, String forum) {

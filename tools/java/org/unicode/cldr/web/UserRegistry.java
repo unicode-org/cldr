@@ -19,25 +19,39 @@ import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
 
-
+/**
+ * This class represents the list of all registered users.  It contains an inner class, UserRegistry.User, 
+ * which represents an individual user.
+ * @see UserRegistry.User
+ * @see OldUserRegistry
+ **/
 public class UserRegistry {
     private static java.util.logging.Logger logger;
     // user levels
-    public static final int ADMIN   = 0;
-    public static final int TC      = 1;
-    public static final int EXPERT  = 3;
-    public static final int VETTER  = 5;
-    public static final int STREET  = 10;
-    public static final int LOCKED  = 999;
+    public static final int ADMIN   = 0;  /** Administrator **/
+    public static final int TC      = 1;  /** Technical Committee **/
+    public static final int EXPERT  = 3;  /** Expert Vetter **/
+    public static final int VETTER  = 5;  /** regular Vetter **/
+    public static final int STREET  = 10; /** Guest Vetter **/
+    public static final int LOCKED  = 999;/** Locked user - can't login **/
     
-    public static final String FOR_ADDING= "(for adding)";
-    public static final int ALL_LEVELS[] = { // for UI presentation
+    public static final String FOR_ADDING= "(for adding)"; /** special "IP" value referring to a user being added **/ 
+
+    /**
+     * List of all user levels - for UI presentation
+     **/
+    public static final int ALL_LEVELS[] = {
         ADMIN, TC, EXPERT, VETTER, STREET, LOCKED };
     
-
+    /**
+     * get a level as a string - presentation form
+     **/
     public static String levelToStr(WebContext ctx, int level) {
         return level + ": (" + levelAsStr(level) + ")";
     }
+    /**
+     * get just the raw level as a string
+     */
     public static String levelAsStr(int level) {
         String thestr = null;
         if(level <= ADMIN) { 
@@ -58,6 +72,7 @@ public class UserRegistry {
         return thestr;
     }
     
+    
     PreparedStatement insertStmt = null;
     PreparedStatement importStmt = null;
     PreparedStatement queryStmt = null;
@@ -65,6 +80,10 @@ public class UserRegistry {
     PreparedStatement queryEmailStmt = null;
     PreparedStatement touchStmt = null;
     
+    /**
+     * This nested class is the representation of an individual user. 
+     * It may not have all fields filled out, if it is simply from the cache.
+     */
     public class User {
         public int    id;  // id number
         public int    userlevel=LOCKED;    // user level
@@ -98,6 +117,9 @@ public class UserRegistry {
             email + "</a>");
     }
     
+    /**
+     * The name of the user sql database
+     */
     public static final String CLDR_USERS = "cldr_users";
     
     /** 
@@ -160,9 +182,21 @@ public class UserRegistry {
             conn.commit();
         }
     }
+    
+    /**
+     * ID# of the user
+     */
     static final int ADMIN_ID = 1;
+    
+    /**
+     * special ID meaning 'all'
+     */
     static final int ALL_ID = -1;
 	
+    /**
+     * Migrate the user DB from the separate user DB to the main DB
+     * @deprecated
+     */
 	public void migrateFrom(Connection uConn) throws SQLException {
 		System.err.println("USER MIGRATE");
 		Statement s = conn.createStatement(); // 'new' side

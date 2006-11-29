@@ -21,6 +21,10 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.icu.LDMLConstants;
 
+/**
+ * This class maps between full and partial xpaths, and the small integers which are actually stored in the database.
+ * It keeps an in-memory cache which is populated as ids are requested.
+ */
 public class XPathTable {
     private static java.util.logging.Logger logger;
     public static final String CLDR_XPATHS = "cldr_xpaths";

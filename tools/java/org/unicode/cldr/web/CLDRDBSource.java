@@ -485,7 +485,7 @@ import com.ibm.icu.util.ULocale;
     }
     
     /**
-     * Return the CVS ID of this source.
+     * Return the SCM ID of this source.
      */
     public String getSourceRevision() {
         return getSourceRevision(srcId);
@@ -580,8 +580,6 @@ import com.ibm.icu.util.ULocale;
      * @param sm alias to the SurveyMain
      */
     public void manageSourceUpdates(WebContext ctx, SurveyMain sm) {
-     //       querySourceActives = prepareStatement("querySourceActives",
-     //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
         String what = ctx.field("src_update");
         boolean updAll = what.equals("all_locs");
         ctx.println("<h4>Source Update Manager</h4>");
@@ -648,16 +646,16 @@ import com.ibm.icu.util.ULocale;
         if(true==true) {
             throw new InternalError("CLDRDBSource.doDbUpdate (to add base_xpaths) is obsolete and has been disabled."); // ---- obsolete.  Code left here for future use.
         }
-         //       querySourceActives = prepareStatement("querySourceActives",
+         /* //       querySourceActives = prepareStatement("querySourceActives",
          //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
-         
-        String what = ctx.field("db_update");
-        //   boolean updAll = what.equals("all_locs");
-        ctx.println("<h4>DB Update Manager (srl use only)</h4>");
-        System.err.println("doDbUpdate: "+SurveyMain.freeMem());
-        int n = 0, nd = 0;
-        String loc = "_";
-        synchronized (conn) {
+
+         String what = ctx.field("db_update");
+         //   boolean updAll = what.equals("all_locs");
+         ctx.println("<h4>DB Update Manager (srl use only)</h4>");
+         System.err.println("doDbUpdate: "+SurveyMain.freeMem());
+         int n = 0, nd = 0;
+         String loc = "_";
+         synchronized (conn) {
             synchronized(xpt) {
                 String sql="??";
                 try {
@@ -702,7 +700,8 @@ import com.ibm.icu.util.ULocale;
                     return;
                 }
             }
-        }
+         }
+          */
     }
     
     /** 
@@ -965,17 +964,26 @@ import com.ibm.icu.util.ULocale;
         CLDRFile file = factory.make(getLocaleID(), false, true);
         return file.getXpath_comments();
     }
+
+    /**
+     * set the comments array, which comes from the raw XML.
+     * @see Comments
+     */
 	public void setXpathComments(Comments path) {
-        this.xpath_comments = xpath_comments;
+        this.xpath_comments = path;
     }
  
     /** 
-     * todo - implement? 
+     * TODO: This could take a while (given vetting rules)- do we need it?
      */
     public int size() {
         throw new InternalError("not implemented yet");
     }
     
+    /**
+     * Get a list of which locales are available to this source, as per the underlying data store.
+     * @return set of available locales
+     */
     public Set getAvailableLocales() {
         // TODO: optimize
         File inFiles[] = getInFiles();
@@ -997,7 +1005,14 @@ import com.ibm.icu.util.ULocale;
         return s;
     }
     
+    /**
+     * Cache of iterators over various things
+     */
     Hashtable keySets = new Hashtable();
+    
+    /**
+     * Return an iterator for the current set.
+     */
     public Iterator iterator() {
         if(finalData) { // don't cache finaldata iterator.
             return oldKeySet().iterator();
@@ -1013,7 +1028,12 @@ import com.ibm.icu.util.ULocale;
         return s.iterator();
     }
 
-
+    /** 
+     * Return an iterator for a specific xpath prefix. This is faster than iterating over all
+     * functions, and discarding the ones the caller doesn't want. 
+     * @param prefix prefix of xpaths 
+     * @return an iterator over the specified paths.
+     */
     public Iterator iterator(String prefix) {
         if(finalData) {
             return super.iterator(prefix); // no optimization for this, yet
@@ -1027,6 +1047,8 @@ import com.ibm.icu.util.ULocale;
 
     /**
      * @deprecated
+     * Returns the old, slower format iterator
+     * (this is the only way to get only-final data)
      * TODO: rewrite as iterator
      */
     private Set oldKeySet() {
@@ -1096,6 +1118,11 @@ import com.ibm.icu.util.ULocale;
 		}
     }
 
+    /**
+     * is this an xpath which requires the 'origXpath' to make sense of it?
+     * i.e. 'alias' contains attribute data 
+     * TODO: discover this dynamically 
+     */
     final private boolean xpathThatNeedsOrig(String xpath) {
      if(xpath.endsWith("/minDays") ||
         xpath.endsWith("/default") ||
@@ -1115,6 +1142,9 @@ import com.ibm.icu.util.ULocale;
     }
 
 
+    /**
+     * return the keyset over a certain prefix
+     */
     private Set prefixKeySet(String prefix) {
 //        String locale = getLocaleID();
 //        synchronized (conn) {
@@ -1146,9 +1176,16 @@ import com.ibm.icu.util.ULocale;
     }
 
     
-
+    /**
+     * Table of all aliases
+     */
     private Hashtable aliasTable = new Hashtable();
     
+    /**
+     * add all the current aliases to the parameter
+     * @param output the list to be added to
+     * @return a reference to output
+     */
 	public List addAliases(List output) {
         String locale = getLocaleID();
 //        com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
@@ -1158,6 +1195,10 @@ import com.ibm.icu.util.ULocale;
         return output;
     }
 
+    /**
+     * get a copy of all aliases 
+     * @return list of aliases
+     */
 	public List getAliases() {
         String locale = getLocaleID();
         List output = null;
@@ -1185,7 +1226,6 @@ import com.ibm.icu.util.ULocale;
                     aliasTable.put(locale,output);
                     return output;
                     // TODO: 0
-                    // TODO: ???
                 } catch(SQLException se) {
                     logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                     return null;
@@ -1195,6 +1235,12 @@ import com.ibm.icu.util.ULocale;
         }
     }
     
+    /**
+     * Factory function. Create a new XMLSource from the specified id. 
+     * clones this's db conn, etc.
+     * @param localeID the id to make
+     * @return the new CLDRDBSource
+     */
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
         if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
@@ -1211,14 +1257,35 @@ import com.ibm.icu.util.ULocale;
         return result;
     }
     
+    /** 
+     * private c'tor.  inherits factory and xpath table.
+     * Caller wil fill in other stuff
+     */
     private CLDRDBSource(CLDRFile.Factory nFactory, XPathTable nXpt) {
             factory = nFactory; 
             xpt = nXpt; 
     }
+    /**
+     * Bootstrap Factory function for internal use. 
+     * @param theDir directory for XML data
+     * @param xpt XPathTable to use
+     * @param loacaleID locale id to use
+     * @param conn the database connection (shared)
+     * @param user the user to create for
+     */
     public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID, Connection conn,
         UserRegistry.User user) {
         return createInstance(theDir, xpt, localeID, conn, user, false);
     }
+    /**
+     * Factory function for internal use
+     * @param theDir directory for XML data
+     * @param xpt XPathTable to use
+     * @param loacaleID locale id to use
+     * @param conn the database connection (shared)
+     * @param user the user to create for
+     * @param finalData true if to only return final (vettd) data
+     */
     public static CLDRDBSource createInstance(String theDir, XPathTable xpt, ULocale localeID,
             Connection conn, UserRegistry.User user, boolean finalData) {
         CLDRFile.Factory afactory = CLDRFile.Factory.make(theDir,".*");
@@ -1231,6 +1298,9 @@ import com.ibm.icu.util.ULocale;
         return result;
     }
     
+    /**
+     * Cloner. Shares the DB connection. 
+     */
 	public Object clone() {
         try {
             CLDRDBSource result = (CLDRDBSource) super.clone();
@@ -1251,6 +1321,10 @@ import com.ibm.icu.util.ULocale;
 			throw new InternalError("should never happen");
 		}
 	}
+    
+    /**
+     * @see Freezable
+     */
     // Lockable things
     public Object freeze() {
         locked = true;
@@ -1259,6 +1333,9 @@ import com.ibm.icu.util.ULocale;
     
     
     // TODO: remove this, implement as iterator( stringPrefix)
+    /**
+     * get the keyset over a prefix
+     */
     public java.sql.ResultSet getPrefixKeySet(String prefix) {
         String locale = getLocaleID();
         ResultSet rs = null;
@@ -1277,6 +1354,9 @@ import com.ibm.icu.util.ULocale;
     }
     
     /*
+    
+    Deprecated - getByType turned out not to be useful
+    
     public java.sql.ResultSet listForType(int xpath, String type) {
         return listForType(xpath, type, getLocaleID());
     }
@@ -1297,6 +1377,10 @@ import com.ibm.icu.util.ULocale;
         return rs;
     }
     */
+    
+    /**
+     * return a list fo XML input files
+     */
     private File[] getInFiles() {
         // 1. get the list of input XML files
         FileFilter myFilter = new FileFilter() {
@@ -1316,7 +1400,15 @@ import com.ibm.icu.util.ULocale;
      * Add new data to the next sequentially available slot. 
      * This does perform a linear search, however it is only active when we are adding data, so should not
      * be an issue. 
-     * returns: the entire altProposed which succeeded or NULL/throw for failure.
+     * @param file the CLDRFile  (unused)
+     * @param locale the locale used
+     * @param fullXpathMinusAlt  the xpath being added, with any "alt=" omitted. (alt is synthesized separately)
+     * @param altType the 'type' portion of alt, such as "variant"
+     * @param altProposedPrefix if it is a proposed alt, this is "proposed"
+     * @param submitterId # of the submitter
+     * @param value the value being added
+     * @param refs ID of any references being added.
+     * @return the entire altProposed which succeeded or NULL/throw for failure.
      */
     public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
                                     String altType, String altProposedPrefix, int submitterId, String value, String refs) {
@@ -1428,10 +1520,15 @@ import com.ibm.icu.util.ULocale;
 
 
     /**
-     * Add new data to the next sequentially available slot. 
+     * Add a new reference to the next sequentially available slot. 
      * This does perform a linear search, however it is only active when we are adding data, so should not
      * be an issue. 
-     * returns: the entire altProposed which succeeded or NULL/throw for failure.
+     * @param file the CLDRFile (unused)
+     * @param locale localeID added to
+     * @param submitterId the submitter's numerical ID
+     * @param value value of the reference
+     * @param uri optional URI of the reference
+     * @return the entire altProposed which succeeded or NULL/throw for failure.
      */
     public String addReferenceToNextSlot(CLDRFile file, String locale, int submitterId, String value, String uri) {
         XPathParts xpp = new XPathParts(null,null);
@@ -1482,7 +1579,7 @@ import com.ibm.icu.util.ULocale;
             String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
             String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
             
-            /* special func to find this */
+            /* todo - have a special func to find this */
             String eType = type;
             String tinyXpath = xpp.toString();
             

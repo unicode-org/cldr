@@ -26,6 +26,10 @@ import java.sql.Connection;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
+/**
+ * This is the per-client context passed to basically all functions
+ * it has print*() like functions, and so can be written to.
+ */
 public class WebContext {
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields

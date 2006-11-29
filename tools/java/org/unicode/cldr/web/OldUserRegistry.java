@@ -11,6 +11,11 @@ package org.unicode.cldr.web;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The 'old' format user registry, consisting of a flat text file (cldrvet.txt).
+ * Read-only, and only used for bootstrapping from an empty DB.
+ * @deprecated
+ */
 public class OldUserRegistry {
     public static final char SEPARATOR = '\t';
     public static final String REGISTRY = "cldrvet.txt";

@@ -9,19 +9,28 @@ package org.unicode.cldr.web;
 
 import java.util.*;
 
+/**
+ * This class implements a class that tracks changes to locale-based data. 
+ * @see Registerable
+ */
 public class LocaleChangeRegistry {
 
+    /**
+     * Last key ID .. unique across all LCRs
+     */
     private static int keyn = 0;
+    
     /**
      * mint a new key for use with the registry
      * @return key string
      */
     public synchronized static final String newKey() {
-//        synchronized(this) {
-            return CookieSession.cheapEncode(++keyn)+":LCR";
-//        }
+        return CookieSession.cheapEncode(++keyn)+":LCR";
     }
     
+    /**
+     * hash of all lcrs
+     */
     Hashtable tables = new Hashtable();
     
     /**
@@ -41,6 +50,8 @@ public class LocaleChangeRegistry {
     /**
      * register an object
      * @param locale - the locale to register. Note, parent locales will automatically be registered.
+     * @param key key to regiter under.
+     * @param 
      */
     public void register(/* other params: tree, etc.., */ String locale, String key, Object /*notused */what) {
         synchronized(this) {
@@ -78,7 +89,6 @@ public class LocaleChangeRegistry {
     {
         synchronized(this) {
             internalGetHash(locale).clear();
-            // notify objects?
         }
     }
 }

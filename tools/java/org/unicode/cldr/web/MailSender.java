@@ -18,7 +18,12 @@ import java.io.*;
 import javax.mail.internet.*;
 
 
+/**
+ * Helper class. Sends mail with a simple interface */
 public class MailSender {
+    /**
+     * Intrnal function - write something to the log
+     */
     public static synchronized void log(String to, String what, Throwable t) {
         try{ 
           OutputStream file = new FileOutputStream("cldrmail.log", true); // Append
@@ -37,6 +42,9 @@ public class MailSender {
         }
     }
 
+    /** 
+     * Footer to be placed at the bottom of emails
+     */
     public static final String footer =             
                 "\n----------\n"+
                 "This email was generated automatically as part of the CLDR survey process\n"+
@@ -49,6 +57,14 @@ public class MailSender {
         sendMail(smtp,from,to,subject,body);
     }
     */
+    /**
+     * Send a piece of mail
+     * @param smtp smtp server
+     * @param from From: user
+     * @param to to: user
+     * @param subject mail subject
+     * @param body mail body
+     */
     public static synchronized void sendMail(String smtp, String from, String to, String subject, String body) {
         if(to.equals("admin@")) {
             log(to,"Suppressed: " + subject,null);        

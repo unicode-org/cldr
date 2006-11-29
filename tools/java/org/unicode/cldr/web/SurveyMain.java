@@ -53,6 +53,9 @@ import java.util.Properties;
 
 import com.ibm.icu.lang.UCharacter;
 
+/**
+ * The main servlet class of Survey Tool
+ */
 public class SurveyMain extends HttpServlet {
 
     // phase?
@@ -3577,6 +3580,7 @@ boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSou
 
 boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
     String fieldHash = pod.fieldHash(p);
+    String altType = p.altType;
     String choice = ctx.field(fieldHash); // checkmark choice
     if(choice.length()==0) {
         return false; // nothing to see..
@@ -3650,7 +3654,11 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         } else {
             altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
         }
-        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
+        // user requested a new alternate.
+        if(ctx.field("new_alt").trim().length()>0) {
+            altType = ctx.field("new_alt").trim();
+        }
+        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, altType, 
             altPrefix, ctx.session.user.id, choice_v, choice_r);
         // update implied vote
         ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp+"</b>");

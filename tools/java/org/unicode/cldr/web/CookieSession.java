@@ -16,6 +16,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
+/**
+ * Instances of this class represent the session-persistent data kept on a per-user basis.
+ * Instances are typically held by WebContext.session.
+ */
 public class CookieSession {
     public String ip;
     public String id;
@@ -24,6 +28,10 @@ public class CookieSession {
     public Hashtable prefs = new Hashtable(); // user prefs
     public UserRegistry.User user = null;
     
+    /** 
+     * Construct a CookieSession from a particular session ID.
+     * @param s session ID
+     */
     private CookieSession(String s) {
         id = s;
     }
@@ -31,7 +39,10 @@ public class CookieSession {
     static Hashtable gHash = new Hashtable(); // hash by sess ID
     static Hashtable uHash = new Hashtable(); // hash by user ID
     
-    /* all sessions. sorted by age. */
+    /**
+     * return an iterator over all sessions. sorted by age.  For administrative use.
+     * @return iterator over all sessions.
+     **/
     public static Iterator getAll() {
         synchronized(gHash) {
             TreeSet sessSet = new TreeSet(new Comparator() {
@@ -51,6 +62,11 @@ public class CookieSession {
         }
     }
     
+    /** 
+     * Fetch a specific session.  'touch' it (mark it as recently active) if found.
+     * @return session or null
+     * @param sessionid id to fetch
+     */
     public static CookieSession retrieve(String sessionid) {
         CookieSession c = retrieveWithoutTouch(sessionid);
         if(c != null) {
@@ -59,6 +75,12 @@ public class CookieSession {
         return c;
     }
 
+    /** 
+     * fetch a session if it exists. Don't touch it as recently active. Useful for 
+     * administratively retrieving a session
+     * @param session ID
+     * @return session or null
+     */
     public static CookieSession retrieveWithoutTouch(String sessionid) {
         synchronized (gHash) {
             CookieSession c = (CookieSession)gHash.get(sessionid);
@@ -66,6 +88,11 @@ public class CookieSession {
         }
     }
     
+    /**
+     * Retrieve a user's session. Don't touch it (mark it active) if found.
+     * @param email user's email
+     * @return session or null
+     */
     public static CookieSession retrieveUserWithoutTouch(String email) {
         synchronized (gHash) {
             CookieSession c = (CookieSession)uHash.get(email);
@@ -73,6 +100,11 @@ public class CookieSession {
         }
     }
     
+    /**
+     * Retrieve a user's session. Touch it (mark it active) if found.
+     * @param email user's email
+     * @return session or null
+     */
     public static CookieSession retrieveUser(String email) {
         synchronized(gHash) {
             CookieSession c = retrieveUserWithoutTouch(email);
@@ -83,6 +115,10 @@ public class CookieSession {
         }
     }
     
+    /**
+     * Associate this session with a user
+     * @param u user
+     */
     public void setUser(UserRegistry.User u) {
         user = u;
         synchronized(gHash) {
@@ -90,6 +126,10 @@ public class CookieSession {
         }
     }
     
+    /**
+     * Create a bran-new session.  
+     * @param guest True if the user is a guest.
+     */
     public CookieSession(boolean isGuest) {
         id = newId(isGuest);
         touch();
@@ -98,14 +138,23 @@ public class CookieSession {
         }
     }
     
+    /**
+     * mark this session as recently updated and shouldn't expire 
+     */
     protected void touch() {
         last = System.currentTimeMillis();
     }
     
+    /**
+     * Set the user's IP, if known.
+     */
     public void setIp(String ip) {
         this.ip=ip;
     }
     
+    /**
+     * Delete a session.
+     */
     public void remove() {
         synchronized(gHash) {
             if(user != null) {
@@ -115,18 +164,27 @@ public class CookieSession {
         }
     }
     
+    /**
+     * How old is this session?
+     * @return age of this session, in millis
+     */
     protected long age() {
         return (System.currentTimeMillis()-last);
     }
     
-    static int n = 4000;
-    static int g = 8000;
-    static int h = 90;
-    public static String j = cheapEncode(System.currentTimeMillis());
+    
+    static int n = 4000; /** Counter used for ID creation **/
+    static int g = 8000; /** Counter used for ID creation **/
+    static int h = 90;   /** Counter used for ID creation **/
+    public static String j = cheapEncode(System.currentTimeMillis()); /** per instance random hash **/
 
     // secure stuff
-    static SecureRandom myRand = null;
+    static SecureRandom myRand = null; /** Secure random number generator **/
     
+    /** 
+     * Generate a new ID. 
+     * @param isGuest true if user is a guest. The guest namespace is separate from the nonguest.
+     */
     public static synchronized String newId(boolean isGuest) {
         try {
             if(myRand == null) {
@@ -144,24 +202,47 @@ public class CookieSession {
             } else {
                 return cheapEncode((n+=(j.hashCode()%444))+n) +"y" + j;
             }        
+        }
     }
-    }
-    // convenience functions
+    
+    //-- convenience functions
+    
+    /**
+     * Get some object out of the session 
+     * @param key the key to load
+     */
     Object get(String key) { 
         synchronized (stuff) {
             return stuff.get(key);
         }
     }
     
+    /**
+     * Store an object in the session
+     * @param key the key to set
+     * @param value object to be set
+     */
     void put(String key, Object value) {
         synchronized(stuff) {
             stuff.put(key,value);
         }
     }
 
+    /**
+     * Fetch a named boolean from the preferences string
+     * @param key parameter to look at
+     * @return boolean result, or false as default
+     */
     boolean prefGetBool(String key) { 
         return prefGetBool(key,false);
     }
+
+    /**
+     * Fetch a named boolean from the preferences string
+     * @param key parameter to look at
+     * @param defVal default value of parameter
+     * @return boolean result, or defVal as default
+     */
     boolean prefGetBool(String key, boolean defVal) { 
         Boolean b = (Boolean)prefs.get(key);
         if(b == null) {
@@ -171,6 +252,11 @@ public class CookieSession {
         }
     }
 
+    /**
+     * Get a string preference
+     * @param key the key to load
+     * @return named pref, or null as default
+     */
     String prefGet(String key) { 
         String b = (String)prefs.get(key);
         if(b == null) {
@@ -180,23 +266,45 @@ public class CookieSession {
         }
     }
     
+    /** 
+     * Store a boolean preference value
+     * @param key the pref to put
+     * @param value boolean value
+     */
     void prefPut(String key, boolean value) {
         prefs.put(key,new Boolean(value));
     }
 
+    /** 
+     * Store a string preference value
+     * @param key the pref to put
+     * @param value string value
+     */
     void prefPut(String key, String value) {
         prefs.put(key,value);
     }
     
+    /**
+     * Fetch a hashtable of per-locale session data. Will create one if it wasn't already there.
+     * @return the locale hashtable 
+     */
     public Hashtable getLocales() {
-        Hashtable l = (Hashtable)get("locales");
-        if(l == null) {
-            l = new Hashtable();
-            put("locales",l);
+        synchronized (stuff) {
+            Hashtable l = (Hashtable)get("locales");
+            if(l == null) {
+                l = new Hashtable();
+                put("locales",l);
+            }
+            return l;
         }
-        return l;
     }
     
+    /**
+     * Pull an object out of the session according to key and locale
+     * @param key key to use
+     * @param aLocale locale to fetch by
+     * @return the object, or null if not found
+     */
     public final Object getByLocale(String key, String aLocale) {
         synchronized(stuff) {
             Hashtable f = (Hashtable)getLocales().get(aLocale);
@@ -208,6 +316,12 @@ public class CookieSession {
         }
     }
 
+    /**
+     * Store an object into the session according to key and locale
+     * @param key key to use
+     * @param aLocale locale to store by
+     * @param value object value
+     */
     public void putByLocale(String key, String aLocale, Object value) {
         synchronized(stuff) {
             Hashtable f = (Hashtable)getLocales().get(aLocale);
@@ -219,6 +333,11 @@ public class CookieSession {
         }
     }
         
+    /**
+     * remove an object from the session according to key and locale
+     * @param key key to use
+     * @param aLocale locale to store by
+     */
     public final void removeByLocale(String key, String aLocale) {
         synchronized(stuff) {
             Hashtable f = (Hashtable)getLocales().get(aLocale);
@@ -229,8 +348,9 @@ public class CookieSession {
     }
     
     /**
-     * utility function for doing a hash
-     * @param l number
+     * utility function for doing an encoding of a long.  Creates a base26 (a-z) representation of the number, plus a leading '-' if negative.
+     * TODO: shrink? base64?
+     * @param l some number
      * @return string
      */
     public static String cheapEncode(long l) {
@@ -252,6 +372,12 @@ public class CookieSession {
         return out;
     }
     
+    
+    /**
+     * utility function for doing a base64 of some bytes.  URL safe, converts '=/+' to ',._' respectively.
+     * @param b some data in bytes
+     * @return string
+     */
     public static String cheapEncode(byte b[]) {
         StringBuffer sb = new StringBuffer(new sun.misc.BASE64Encoder().encode(b));
         for(int i=0;i<sb.length();i++) {
@@ -268,23 +394,25 @@ public class CookieSession {
     }
     
     
-    // Reaping. 
-    // For now, we just reap *guest* sessions and not regular users. 
-    static final int MILLIS_IN_MIN = 1000*60; // 1 minute = 60,000 milliseconds
+    //- Session Reaping.  Deletion of old user session
+    static final int MILLIS_IN_MIN = 1000*60; /**  1 minute = 60,000 milliseconds **/
 // testing:
 //    static final int GUEST_TO =  1 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
 //    static final int USER_TO =  3 * MILLIS_IN_MIN; // soon.
 //    static final int REAP_TO = 8000; //often.
 // production:
-    public static final int GUEST_TO =  10 * MILLIS_IN_MIN; // Expire Guest sessions after 15 min
-    public static final int USER_TO =  1 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a few hours
-    public static final int REAP_TO = 4 * MILLIS_IN_MIN; // Only once every 4 mintutes
+    public static final int GUEST_TO =  10 * MILLIS_IN_MIN; /** Expire Guest sessions after 10 min **/
+    public static final int USER_TO =  1 * 60 * MILLIS_IN_MIN; /** Expire non-guest sessions after 1 hours **/
+    public static final int REAP_TO = 4 * MILLIS_IN_MIN; /** Only reap once every 4 mintutes **/
 
-    static long lastReap = 0; // reap once, to get a count..
+    static long lastReap = 0; /** last time reaped.  Starts at 0, so reap immediately **/
     
-    public static int nGuests = 0;
-    public static int nUsers = 0;
+    public static int nGuests = 0; /** # of guests **/
+    public static int nUsers = 0; /** # of users **/
     
+    /**
+     * Perform a reap.  To be called from SurveyMain etc.
+     */
     public static void reap() {        
         synchronized(gHash) {
             // reap..

@@ -26,6 +26,11 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
+/**
+ * This class does the calculations for which item wins a vetting,
+ * and also manages some notifications,
+ * and also records which votes are cast
+ */
 public class Vetting {
     private static java.util.logging.Logger logger;
     

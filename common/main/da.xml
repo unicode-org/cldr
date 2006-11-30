@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -7,7 +7,7 @@
 		<language type="da"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
+		<languages casing="lowercase-words">
 			<language type="aa">afar</language>
 			<language type="ab">abkhasisk</language>
 			<language type="ace">achinesisk</language>
@@ -29,7 +29,7 @@
 			<language type="alt" draft="provisional">sydaltaisk</language>
 			<language type="am">amharisk</language>
 			<language type="an">aragonesisk</language>
-			<language type="ang">Angelsaksisk (ca.450-1100)</language>
+			<language type="ang">angelsaksisk (ca.450-1100)</language>
 			<language type="ang" alt="proposed-u219-1" draft="provisional">angelsaksisk (c:a 450-1100)</language>
 			<language type="apa">apache sprog</language>
 			<language type="ar">arabisk</language>
@@ -48,7 +48,7 @@
 			<language type="av" references="RP2">avarisk</language>
 			<language type="av" references="RP2" alt="proposed-u219-1" draft="unconfirmed">avarisk sprog</language>
 			<language type="awa">awadhi</language>
-			<language type="ay">Aymara</language>
+			<language type="ay">aymara</language>
 			<language type="ay" alt="proposed-u219-1" draft="provisional">aymara</language>
 			<language type="az">aserbajdsjansk</language>
 			<language type="ba">bashkir</language>
@@ -71,12 +71,12 @@
 			<language type="bi">bislama</language>
 			<language type="bik">bikol</language>
 			<language type="bin">bini</language>
-			<language type="bla">Siksika</language>
+			<language type="bla">siksika</language>
 			<language type="bla" alt="proposed-u219-1" draft="provisional">siksika</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengalsk</language>
 			<language type="bnt">bantu</language>
-			<language type="bo">Tibetansk</language>
+			<language type="bo">tibetansk</language>
 			<language type="bo" alt="proposed-u219-1" draft="provisional">tibetansk</language>
 			<language type="br">bretonsk</language>
 			<language type="bra">braj</language>
@@ -97,487 +97,487 @@
 			<language type="cel" references="R1">keltisk (øvrige)</language>
 			<language type="cel" references="R1" alt="proposed-u219-1" draft="unconfirmed">keltisk sprog (annet)</language>
 			<language type="ch">chamorro</language>
-			<language type="chb">Chibcha</language>
+			<language type="chb">chibcha</language>
 			<language type="chb" alt="proposed-u219-1" draft="provisional">chibcha</language>
 			<language type="chg">chagatai</language>
-			<language type="chk">Chuukese</language>
+			<language type="chk">chuukese</language>
 			<language type="chk" alt="proposed-u219-1" draft="provisional">chuukese</language>
-			<language type="chm">Mari</language>
+			<language type="chm">mari</language>
 			<language type="chm" alt="proposed-u219-1" draft="provisional">mari</language>
-			<language type="chn">Chinook</language>
+			<language type="chn">chinook</language>
 			<language type="chn" alt="proposed-u219-1" draft="provisional">chinook</language>
-			<language type="cho">Choctaw</language>
+			<language type="cho">choctaw</language>
 			<language type="cho" alt="proposed-u219-1" draft="provisional">choctaw</language>
-			<language type="chp">Chipewyan</language>
+			<language type="chp">chipewyan</language>
 			<language type="chp" alt="proposed-u219-1" draft="provisional">chipewyan</language>
 			<language type="chr">cherokee</language>
 			<language type="chy">cheyenne</language>
 			<language type="cmc" references="RP2">chamic sprog</language>
 			<language type="cmc" references="RP2" alt="proposed-u219-1" draft="unconfirmed">chamic sprog</language>
-			<language type="co">Korsikansk</language>
+			<language type="co">korsikansk</language>
 			<language type="co" alt="proposed-u219-1" draft="provisional">korsikansk</language>
-			<language type="cop">Koptisk</language>
+			<language type="cop">koptisk</language>
 			<language type="cop" alt="proposed-u219-1" draft="provisional">koptisk</language>
-			<language type="cpe">Kreolsk og pidgin, baseret på engelsk (øvrige)</language>
+			<language type="cpe">kreolsk og pidgin, baseret på engelsk (øvrige)</language>
 			<language type="cpe" references="R1" alt="proposed-u165-1" draft="provisional">kreolsk og pidgin, baseret på engelsk (øvrige)</language>
 			<language type="cpe" alt="proposed-u219-1" draft="unconfirmed">engelsk kreolsk sprog (annet)</language>
-			<language type="cpf">Kreolsk og pidgin, baseret på fransk (øvrige)</language>
+			<language type="cpf">kreolsk og pidgin, baseret på fransk (øvrige)</language>
 			<language type="cpf" references="R1" alt="proposed-u165-1" draft="provisional">kreolsk og pidgin, baseret på fransk (øvrige)</language>
 			<language type="cpf" alt="proposed-u219-1" draft="unconfirmed">fransk kreolsk sprok (annet)</language>
-			<language type="cpp">Kreolsk og pidgin, baseret på portugisisk (øvrige)</language>
+			<language type="cpp">kreolsk og pidgin, baseret på portugisisk (øvrige)</language>
 			<language type="cpp" references="R1" alt="proposed-u165-1" draft="provisional">kreolsk og pidgin, baseret på portugisisk</language>
 			<language type="cpp" alt="proposed-u219-1" draft="unconfirmed">portugisisk kreolsk sprog (annet)</language>
-			<language type="cr">Cree</language>
+			<language type="cr">cree</language>
 			<language type="cr" alt="proposed-u219-1" draft="provisional">cree</language>
 			<language type="crh">Krim-tyrkisk; Krim-tatarisk</language>
 			<language type="crh" alt="proposed-u219-1" draft="provisional">krim-tyrkisk; krim-tatarisk</language>
-			<language type="crp">Kreolsk og pidgin (øvrige)</language>
+			<language type="crp">kreolsk og pidgin (øvrige)</language>
 			<language type="crp" references="RP2" alt="proposed-u165-1" draft="provisional">kreolsk og pidgin (øvrige)</language>
 			<language type="crp" alt="proposed-u219-1" draft="unconfirmed">kreolsk sprog (annet)</language>
-			<language type="cs">Tjekkisk</language>
+			<language type="cs">tjekkisk</language>
 			<language type="cs" alt="proposed-u219-1" draft="provisional">tjekkisk</language>
-			<language type="csb">Kashubian</language>
+			<language type="csb">kashubian</language>
 			<language type="csb" alt="proposed-u219-1" draft="provisional">kashubian</language>
-			<language type="cu">Kirkeslavisk</language>
+			<language type="cu">kirkeslavisk</language>
 			<language type="cu" alt="proposed-u219-1" draft="provisional">oldkirkeslavisk</language>
-			<language type="cus">Kusjitiske sprog (øvrige)</language>
+			<language type="cus">kusjitiske sprog (øvrige)</language>
 			<language type="cus" references="R1" alt="proposed-u165-1" draft="provisional">kusjitisk (øvrige)</language>
 			<language type="cus" alt="proposed-u219-1" draft="unconfirmed">kusjitisk sprog (annet)</language>
-			<language type="cv">Chuvash</language>
+			<language type="cv">chuvash</language>
 			<language type="cv" alt="proposed-u219-1" draft="provisional">chuvash</language>
-			<language type="cy">Walisisk</language>
+			<language type="cy">walisisk</language>
 			<language type="cy" alt="proposed-u219-1" draft="provisional">walisisk</language>
-			<language type="da">Dansk</language>
+			<language type="da">dansk</language>
 			<language type="da" alt="proposed-u219-1" draft="provisional">dansk</language>
-			<language type="dak">Dakota</language>
+			<language type="dak">dakota</language>
 			<language type="dak" alt="proposed-u219-1" draft="provisional">dakota</language>
-			<language type="dar">Dargwa</language>
+			<language type="dar">dargwa</language>
 			<language type="dar" alt="proposed-u219-1" draft="provisional">dargwa</language>
-			<language type="day">Dayak</language>
+			<language type="day">dayak</language>
 			<language type="day" alt="proposed-u219-1" draft="provisional">dayak</language>
-			<language type="de">Tysk</language>
+			<language type="de">tysk</language>
 			<language type="de" alt="proposed-u219-1" draft="provisional">tysk</language>
-			<language type="del">Delaware</language>
+			<language type="del">delaware</language>
 			<language type="del" alt="proposed-u219-1" draft="provisional">delaware</language>
 			<language type="den">Slave (Athapascan)</language>
 			<language type="den" alt="proposed-u219-1" draft="provisional">slavej</language>
-			<language type="dgr">Dogrib</language>
+			<language type="dgr">dogrib</language>
 			<language type="dgr" alt="proposed-u219-1" draft="provisional">dogrib</language>
-			<language type="din">Dinka</language>
+			<language type="din">dinka</language>
 			<language type="din" alt="proposed-u219-1" draft="provisional">dinka</language>
-			<language type="doi">Dogri</language>
+			<language type="doi">dogri</language>
 			<language type="doi" alt="proposed-u219-1" draft="provisional">dogri</language>
-			<language type="dra">Dravidiske sprog (øvrige)</language>
+			<language type="dra">dravidiske sprog (øvrige)</language>
 			<language type="dra" references="R1" alt="proposed-u165-1" draft="provisional">dravidisk (øvrige)</language>
 			<language type="dra" alt="proposed-u219-1" draft="unconfirmed">dravidisk sprog (annet)</language>
-			<language type="dsb">Nedre sorbisk</language>
+			<language type="dsb">nedre sorbisk</language>
 			<language type="dsb" alt="proposed-u219-1" draft="provisional">nedre sorbisk</language>
-			<language type="dua">Duala</language>
+			<language type="dua">duala</language>
 			<language type="dua" alt="proposed-u219-1" draft="provisional">duala</language>
-			<language type="dum">Hollandsk (ca. 1050-1350)</language>
+			<language type="dum">hollandsk (ca. 1050-1350)</language>
 			<language type="dum" alt="proposed-u219-1" draft="provisional">middelhollandsk (c:a 1050-1350)</language>
-			<language type="dv">Divehi</language>
+			<language type="dv">divehi</language>
 			<language type="dv" alt="proposed-u219-1" draft="provisional">divehi</language>
-			<language type="dyu">Dyula</language>
+			<language type="dyu">dyula</language>
 			<language type="dyu" alt="proposed-u219-1" draft="provisional">dyula</language>
-			<language type="dz">Dzongkha</language>
+			<language type="dz">dzongkha</language>
 			<language type="dz" alt="proposed-u219-1" draft="provisional">dzongkha</language>
-			<language type="ee">Ewe</language>
+			<language type="ee">ewe</language>
 			<language type="ee" alt="proposed-u219-1" draft="provisional">ewe</language>
-			<language type="efi">Efik</language>
+			<language type="efi">efik</language>
 			<language type="efi" alt="proposed-u219-1" draft="provisional">efik</language>
-			<language type="egy">Egyptisk (oldtid)</language>
+			<language type="egy">egyptisk (oldtid)</language>
 			<language type="egy" alt="proposed-u219-1" draft="provisional">oldegyptisk</language>
-			<language type="eka">Ekajuk</language>
+			<language type="eka">ekajuk</language>
 			<language type="eka" alt="proposed-u219-1" draft="provisional">ekajuk</language>
-			<language type="el">Græsk</language>
+			<language type="el">græsk</language>
 			<language type="el" alt="proposed-u219-1" draft="provisional">græsk</language>
-			<language type="elx">Elamitisk</language>
+			<language type="elx">elamitisk</language>
 			<language type="elx" alt="proposed-u219-1" draft="provisional">elamitisk</language>
-			<language type="en">Engelsk</language>
+			<language type="en">engelsk</language>
 			<language type="en" alt="proposed-u219-1" draft="provisional">engelsk</language>
 			<language type="enm">Engelsk, Middel- (1100-1500)</language>
 			<language type="enm" alt="proposed-u219-1" draft="provisional">middelengelsk (1100-1500)</language>
-			<language type="eo">Esperanto</language>
+			<language type="eo">esperanto</language>
 			<language type="eo" alt="proposed-u219-1" draft="provisional">esperanto</language>
-			<language type="es">Spansk</language>
+			<language type="es">spansk</language>
 			<language type="es" alt="proposed-u219-1" draft="provisional">spansk</language>
-			<language type="et">Estisk</language>
+			<language type="et">estisk</language>
 			<language type="et" alt="proposed-u219-1" draft="provisional">estisk</language>
 			<language type="eu">baskisk</language>
-			<language type="ewo">Ewondo</language>
+			<language type="ewo">ewondo</language>
 			<language type="ewo" alt="proposed-u219-1" draft="provisional">ewondo</language>
-			<language type="fa">Persisk</language>
+			<language type="fa">persisk</language>
 			<language type="fa" alt="proposed-u219-1" draft="provisional">persisk</language>
-			<language type="fan">Fang</language>
+			<language type="fan">fang</language>
 			<language type="fan" alt="proposed-u219-1" draft="provisional">fang</language>
-			<language type="fat">Fanti</language>
+			<language type="fat">fanti</language>
 			<language type="fat" alt="proposed-u219-1" draft="provisional">fanti</language>
-			<language type="ff">Fulah</language>
+			<language type="ff">fulah</language>
 			<language type="ff" alt="proposed-u219-1" draft="provisional">fulah</language>
-			<language type="fi">Finsk</language>
+			<language type="fi">finsk</language>
 			<language type="fi" alt="proposed-u219-1" draft="provisional">finsk</language>
 			<language type="fil" draft="provisional">filippinsk</language>
-			<language type="fiu">Finsk-ugriske sprog (øvrige)</language>
+			<language type="fiu">finsk-ugriske sprog (øvrige)</language>
 			<language type="fiu" references="R1" alt="proposed-u165-1" draft="provisional">finsk-ugrisk (øvrige)</language>
 			<language type="fiu" alt="proposed-u219-1" draft="unconfirmed">finsk-ugrisk sprog (annet)</language>
-			<language type="fj">Fijian</language>
+			<language type="fj">fijian</language>
 			<language type="fj" alt="proposed-u219-1" draft="provisional">fijian</language>
-			<language type="fo">Færøsk</language>
+			<language type="fo">færøsk</language>
 			<language type="fo" alt="proposed-u219-1" draft="provisional">færøsk</language>
-			<language type="fon">Fon</language>
+			<language type="fon">fon</language>
 			<language type="fon" alt="proposed-u219-1" draft="provisional">fon</language>
-			<language type="fr">Fransk</language>
+			<language type="fr">fransk</language>
 			<language type="fr" alt="proposed-u219-1" draft="provisional">fransk</language>
 			<language type="frm">Fransk, Middel- (ca.1400-1600)</language>
 			<language type="frm" alt="proposed-u219-1" draft="provisional">middelfransk (c:a 1400-1600)</language>
 			<language type="fro">Fransk, Old- (842-ca.1400)</language>
 			<language type="fro" alt="proposed-u219-1" draft="provisional">oldfransk (c:a 842-1400)</language>
-			<language type="fur">Friulian</language>
+			<language type="fur">friulian</language>
 			<language type="fur" alt="proposed-u219-1" draft="provisional">friulian</language>
-			<language type="fy">Frisisk</language>
+			<language type="fy">frisisk</language>
 			<language type="fy" alt="proposed-u219-1" draft="provisional">vestfrisisk</language>
-			<language type="ga">Irsk</language>
+			<language type="ga">irsk</language>
 			<language type="ga" alt="proposed-u219-1" draft="provisional">irsk</language>
-			<language type="gaa">Ga</language>
+			<language type="gaa">ga</language>
 			<language type="gaa" alt="proposed-u219-1" draft="provisional">gã</language>
-			<language type="gay">Gayo</language>
+			<language type="gay">gayo</language>
 			<language type="gay" alt="proposed-u219-1" draft="provisional">gayo</language>
-			<language type="gba">Gbaya</language>
+			<language type="gba">gbaya</language>
 			<language type="gba" alt="proposed-u219-1" draft="provisional">gbaya</language>
-			<language type="gd">Gælisk (skotsk)</language>
+			<language type="gd">gælisk (skotsk)</language>
 			<language type="gd" alt="proposed-u219-1" draft="provisional">gælisk (skotsk)</language>
-			<language type="gem">Germanske sprog (øvrige)</language>
+			<language type="gem">germanske sprog (øvrige)</language>
 			<language type="gem" references="R1" alt="proposed-u165-1" draft="provisional">germansk (øvrige)</language>
 			<language type="gem" alt="proposed-u219-1" draft="unconfirmed">germansk sprog (annet)</language>
-			<language type="gez">Geez</language>
+			<language type="gez">geez</language>
 			<language type="gez" alt="proposed-u219-1" draft="provisional">etiopisk</language>
-			<language type="gil">Gilbertesisk</language>
+			<language type="gil">gilbertesisk</language>
 			<language type="gil" alt="proposed-u219-1" draft="provisional">gilbertesisk</language>
-			<language type="gl">Galicisk</language>
+			<language type="gl">galicisk</language>
 			<language type="gl" alt="proposed-u219-1" draft="provisional">galicisk</language>
 			<language type="gmh">Tysk, Middelhøj- (ca.1050-1500)</language>
 			<language type="gmh" alt="proposed-u219-1" draft="provisional">middelhøjtysk (c:a 1050-1500)</language>
-			<language type="gn">Guarani</language>
+			<language type="gn">guarani</language>
 			<language type="gn" alt="proposed-u219-1" draft="provisional">guaraní</language>
 			<language type="goh">Tysk, Oldhøj- (ca.750-1050)</language>
 			<language type="goh" alt="proposed-u219-1" draft="provisional">oldhøjtysk (c:a 750-1050)</language>
-			<language type="gon">Gondi</language>
+			<language type="gon">gondi</language>
 			<language type="gon" alt="proposed-u219-1" draft="provisional">gondi</language>
-			<language type="gor">Gorontalo</language>
+			<language type="gor">gorontalo</language>
 			<language type="gor" alt="proposed-u219-1" draft="provisional">gorontalo</language>
-			<language type="got">Gotisk</language>
+			<language type="got">gotisk</language>
 			<language type="got" alt="proposed-u219-1" draft="provisional">gotisk</language>
-			<language type="grb">Grebo</language>
+			<language type="grb">grebo</language>
 			<language type="grb" alt="proposed-u219-1" draft="provisional">grebo</language>
 			<language type="grc">oldgræsk (til 1453)</language>
-			<language type="gu">Gujaratisk</language>
+			<language type="gu">gujaratisk</language>
 			<language type="gu" alt="proposed-u219-1" draft="provisional">gujaratisk</language>
-			<language type="gv">Manx</language>
+			<language type="gv">manx</language>
 			<language type="gv" alt="proposed-u219-1" draft="provisional">manx</language>
-			<language type="gwi">Gwichʼin</language>
+			<language type="gwi">gwichʼin</language>
 			<language type="gwi" alt="proposed-u219-1" draft="provisional">gwichin</language>
-			<language type="ha">Hausa</language>
+			<language type="ha">hausa</language>
 			<language type="ha" alt="proposed-u219-1" draft="provisional">hausa</language>
-			<language type="hai">Haida</language>
+			<language type="hai">haida</language>
 			<language type="hai" alt="proposed-u219-1" draft="provisional">haida</language>
-			<language type="haw">Hawaiiansk</language>
+			<language type="haw">hawaiiansk</language>
 			<language type="haw" alt="proposed-u219-1" draft="provisional">hawaiiansk</language>
-			<language type="he">Hebraisk</language>
+			<language type="he">hebraisk</language>
 			<language type="he" alt="proposed-u219-1" draft="provisional">hebraisk</language>
-			<language type="hi">Hindi</language>
+			<language type="hi">hindi</language>
 			<language type="hi" alt="proposed-u219-1" draft="provisional">hindi</language>
-			<language type="hil">Hiligaynon</language>
+			<language type="hil">hiligaynon</language>
 			<language type="hil" alt="proposed-u219-1" draft="provisional">hiligaynon</language>
-			<language type="him">Himachali</language>
+			<language type="him">himachali</language>
 			<language type="him" alt="proposed-u219-1" draft="provisional">himachali</language>
-			<language type="hit">Hittitisk</language>
+			<language type="hit">hittitisk</language>
 			<language type="hit" alt="proposed-u219-1" draft="provisional">hittitisk</language>
-			<language type="hmn">Hmong</language>
+			<language type="hmn">hmong</language>
 			<language type="hmn" alt="proposed-u219-1" draft="provisional">hmong</language>
 			<language type="ho">Hiri Motu</language>
 			<language type="ho" alt="proposed-u219-1" draft="provisional">hirimotu</language>
-			<language type="hr">Kroatisk</language>
+			<language type="hr">kroatisk</language>
 			<language type="hr" alt="proposed-u219-1" draft="provisional">kroatisk</language>
-			<language type="hsb">Øvre sorbisk</language>
+			<language type="hsb">øvre sorbisk</language>
 			<language type="hsb" alt="proposed-u219-1" draft="provisional">øvre sorbisk</language>
-			<language type="ht">Haitisk</language>
+			<language type="ht">haitisk</language>
 			<language type="ht" alt="proposed-u219-1" draft="provisional">haitisk</language>
-			<language type="hu">Ungarsk</language>
+			<language type="hu">ungarsk</language>
 			<language type="hu" alt="proposed-u219-1" draft="provisional">ungarsk</language>
-			<language type="hup">Hupa</language>
+			<language type="hup">hupa</language>
 			<language type="hup" alt="proposed-u219-1" draft="provisional">hupa</language>
 			<language type="hy">armensk</language>
-			<language type="hz">Herero</language>
+			<language type="hz">herero</language>
 			<language type="hz" alt="proposed-u219-1" draft="provisional">herero</language>
-			<language type="ia">Interlingua</language>
+			<language type="ia">interlingua</language>
 			<language type="ia" alt="proposed-u219-1" draft="provisional">interlingua</language>
-			<language type="iba">Iban</language>
+			<language type="iba">iban</language>
 			<language type="iba" alt="proposed-u219-1" draft="provisional">iban</language>
-			<language type="id">Indonesisk</language>
+			<language type="id">indonesisk</language>
 			<language type="id" alt="proposed-u219-1" draft="provisional">indonesisk</language>
-			<language type="ie">Interlingue</language>
+			<language type="ie">interlingue</language>
 			<language type="ie" alt="proposed-u219-1" draft="provisional">interlingue</language>
-			<language type="ig">Igbo</language>
+			<language type="ig">igbo</language>
 			<language type="ig" alt="proposed-u219-1" draft="provisional">igbo</language>
 			<language type="ii">Sichuan Yi</language>
 			<language type="ii" alt="proposed-u219-1" draft="provisional">sichuan yi</language>
-			<language type="ijo">Ijo</language>
+			<language type="ijo">ijo</language>
 			<language type="ijo" alt="proposed-u219-1" draft="provisional">ijo</language>
-			<language type="ik">Inupiaq</language>
+			<language type="ik">inupiaq</language>
 			<language type="ik" alt="proposed-u219-1" draft="provisional">inupiaq</language>
-			<language type="ilo">Iloko</language>
+			<language type="ilo">iloko</language>
 			<language type="ilo" alt="proposed-u219-1" draft="provisional">iloko</language>
-			<language type="inc">Indiske sprog (øvrige)</language>
+			<language type="inc">indiske sprog (øvrige)</language>
 			<language type="inc" references="R1" alt="proposed-u165-1" draft="provisional">indisk (øvrige)</language>
 			<language type="inc" alt="proposed-u219-1" draft="unconfirmed">indisk sprog (annet)</language>
-			<language type="ine">Indoeuropæiske sprog (øvrige)</language>
+			<language type="ine">indoeuropæiske sprog (øvrige)</language>
 			<language type="ine" references="R1" alt="proposed-u165-1" draft="provisional">indoeuropæisk (øvrige)</language>
 			<language type="ine" alt="proposed-u219-1" draft="unconfirmed">indo-europæisk sprog (annet)</language>
-			<language type="inh">Ingush</language>
+			<language type="inh">ingush</language>
 			<language type="inh" alt="proposed-u219-1" draft="provisional">ingush</language>
-			<language type="io">Ido</language>
+			<language type="io">ido</language>
 			<language type="io" alt="proposed-u219-1" draft="provisional">ido</language>
-			<language type="ira">Iranske sprog (øvrige)</language>
+			<language type="ira">iranske sprog (øvrige)</language>
 			<language type="ira" references="R1" alt="proposed-u165-1" draft="provisional">iransk (øvrige)</language>
 			<language type="ira" alt="proposed-u219-1" draft="unconfirmed">iransk sprog (annet)</language>
-			<language type="iro">Irokesiske sprog</language>
+			<language type="iro">irokesiske sprog</language>
 			<language type="iro" references="R1" alt="proposed-u165-1" draft="provisional">irokesiske sprog</language>
 			<language type="iro" alt="proposed-u219-1" draft="unconfirmed">irokesisk sprog</language>
-			<language type="is">Islandsk</language>
+			<language type="is">islandsk</language>
 			<language type="is" alt="proposed-u219-1" draft="provisional">islandsk</language>
-			<language type="it">Italiensk</language>
+			<language type="it">italiensk</language>
 			<language type="it" alt="proposed-u219-1" draft="provisional">italiensk</language>
-			<language type="iu">Inuktitut</language>
+			<language type="iu">inuktitut</language>
 			<language type="iu" alt="proposed-u219-1" draft="provisional">inuktitut</language>
-			<language type="ja">Japansk</language>
+			<language type="ja">japansk</language>
 			<language type="ja" alt="proposed-u219-1" draft="provisional">japansk</language>
-			<language type="jbo">Lojban</language>
+			<language type="jbo">lojban</language>
 			<language type="jbo" alt="proposed-u219-1" draft="provisional">lojban</language>
-			<language type="jpr">Jødisk-persisk</language>
+			<language type="jpr">jødisk-persisk</language>
 			<language type="jpr" alt="proposed-u219-1" draft="provisional">jødisk-persisk</language>
-			<language type="jrb">Jødisk-arabisk</language>
+			<language type="jrb">jødisk-arabisk</language>
 			<language type="jrb" alt="proposed-u219-1" draft="provisional">jødisk-arabisk</language>
-			<language type="jv">Javanesisk</language>
+			<language type="jv">javanesisk</language>
 			<language type="jv" alt="proposed-u219-1" draft="provisional">javanesisk</language>
-			<language type="ka">Georgisk</language>
+			<language type="ka">georgisk</language>
 			<language type="ka" alt="proposed-u219-1" draft="provisional">georgisk</language>
-			<language type="kaa">Karakalpakisk</language>
+			<language type="kaa">karakalpakisk</language>
 			<language type="kaa" alt="proposed-u219-1" draft="provisional">karakalpakisk</language>
-			<language type="kab">Kabyle</language>
+			<language type="kab">kabyle</language>
 			<language type="kab" alt="proposed-u219-1" draft="provisional">kabyle</language>
-			<language type="kac">Kachin</language>
+			<language type="kac">kachin</language>
 			<language type="kac" alt="proposed-u219-1" draft="provisional">kachin</language>
-			<language type="kam">Kamba</language>
+			<language type="kam">kamba</language>
 			<language type="kam" alt="proposed-u219-1" draft="provisional">kamba</language>
-			<language type="kar">Karen</language>
+			<language type="kar">karen</language>
 			<language type="kar" alt="proposed-u219-1" draft="provisional">karen</language>
-			<language type="kaw">Kawi</language>
+			<language type="kaw">kawi</language>
 			<language type="kaw" alt="proposed-u219-1" draft="provisional">kawi</language>
-			<language type="kbd">Kabardian</language>
+			<language type="kbd">kabardian</language>
 			<language type="kbd" alt="proposed-u219-1" draft="provisional">kabardian</language>
-			<language type="kg">Kongo</language>
+			<language type="kg">kongo</language>
 			<language type="kg" alt="proposed-u219-1" draft="provisional">kikongo</language>
-			<language type="kha">Khasi</language>
+			<language type="kha">khasi</language>
 			<language type="kha" alt="proposed-u219-1" draft="provisional">khasi</language>
-			<language type="khi">Khoisan (øvrige)</language>
+			<language type="khi">khoisan (øvrige)</language>
 			<language type="khi" references="R1" alt="proposed-u165-1" draft="provisional">khoisan (øvrige)</language>
 			<language type="khi" alt="proposed-u219-1" draft="unconfirmed">khoisansprog (annet)</language>
-			<language type="kho">Khotanesisk</language>
+			<language type="kho">khotanesisk</language>
 			<language type="kho" alt="proposed-u219-1" draft="provisional">khotanesisk</language>
-			<language type="ki">Kikuyu</language>
+			<language type="ki">kikuyu</language>
 			<language type="ki" alt="proposed-u219-1" draft="provisional">kikuyu</language>
-			<language type="kj">Kuanyama</language>
+			<language type="kj">kuanyama</language>
 			<language type="kj" alt="proposed-u219-1" draft="provisional">kuanyama</language>
-			<language type="kk">Kasakhisk</language>
+			<language type="kk">kasakhisk</language>
 			<language type="kk" alt="proposed-u219-1" draft="provisional">kasakhisk</language>
-			<language type="kl">Kalaallisut</language>
+			<language type="kl">kalaallisut</language>
 			<language type="kl" alt="proposed-u219-1" draft="unconfirmed">grønlansk</language>
-			<language type="km">Khmer</language>
+			<language type="km">khmer</language>
 			<language type="km" alt="proposed-u219-1" draft="provisional">khmer; kambodjansk</language>
-			<language type="kmb">Kimbundu</language>
+			<language type="kmb">kimbundu</language>
 			<language type="kmb" alt="proposed-u219-1" draft="provisional">kimbundu</language>
-			<language type="kn">Kannaresisk</language>
+			<language type="kn">kannaresisk</language>
 			<language type="kn" alt="proposed-u219-1" draft="provisional">kannaresisk</language>
-			<language type="ko">Koreansk</language>
+			<language type="ko">koreansk</language>
 			<language type="ko" alt="proposed-u219-1" draft="provisional">koreansk</language>
-			<language type="kok">Konkani</language>
+			<language type="kok">konkani</language>
 			<language type="kok" alt="proposed-u219-1" draft="provisional">konkani</language>
-			<language type="kos">Kosraean</language>
+			<language type="kos">kosraean</language>
 			<language type="kos" alt="proposed-u219-1" draft="provisional">kosraeansk</language>
-			<language type="kpe">Kpelle</language>
+			<language type="kpe">kpelle</language>
 			<language type="kpe" alt="proposed-u219-1" draft="provisional">kpelle</language>
-			<language type="kr">Kanuri</language>
+			<language type="kr">kanuri</language>
 			<language type="kr" alt="proposed-u219-1" draft="provisional">kanuri</language>
 			<language type="krc">Karachay-Balkar</language>
 			<language type="krc" alt="proposed-u219-1" draft="provisional">karatjai-balkar</language>
-			<language type="kro">Kru</language>
+			<language type="kro">kru</language>
 			<language type="kro" alt="proposed-u219-1" draft="provisional">kru</language>
-			<language type="kru">Kurukh</language>
+			<language type="kru">kurukh</language>
 			<language type="kru" alt="proposed-u219-1" draft="provisional">kurukh</language>
-			<language type="ks">Kashmiri</language>
+			<language type="ks">kashmiri</language>
 			<language type="ks" alt="proposed-u219-1" draft="provisional">kashmiri</language>
-			<language type="ku">Kurdisk</language>
+			<language type="ku">kurdisk</language>
 			<language type="ku" alt="proposed-u219-1" draft="provisional">kurdisk</language>
 			<language type="kum" draft="provisional">kymyk</language>
 			<language type="kut" draft="provisional">kutenaj</language>
 			<language type="kv" draft="provisional">komi</language>
-			<language type="kw">Cornisk</language>
+			<language type="kw">cornisk</language>
 			<language type="kw" alt="proposed-u219-1" draft="provisional">cornisk</language>
-			<language type="ky">Kirgisisk</language>
+			<language type="ky">kirgisisk</language>
 			<language type="ky" alt="proposed-u219-1" draft="provisional">kirgisisk</language>
-			<language type="la">Latin</language>
+			<language type="la">latin</language>
 			<language type="la" alt="proposed-u219-1" draft="provisional">latin</language>
-			<language type="lad">Ladino</language>
+			<language type="lad">ladino</language>
 			<language type="lad" alt="proposed-u219-1" draft="provisional">ladino</language>
-			<language type="lah">Lahnda</language>
+			<language type="lah">lahnda</language>
 			<language type="lah" alt="proposed-u219-1" draft="provisional">lahnda</language>
-			<language type="lam">Lamba</language>
+			<language type="lam">lamba</language>
 			<language type="lam" alt="proposed-u219-1" draft="provisional">lamba</language>
-			<language type="lb">Luxembourgsk</language>
+			<language type="lb">luxembourgsk</language>
 			<language type="lb" alt="proposed-u219-1" draft="provisional">luxembourgsk</language>
-			<language type="lez">Lezghian</language>
+			<language type="lez">lezghian</language>
 			<language type="lez" alt="proposed-u219-1" draft="provisional">lezghian</language>
-			<language type="lg">Ganda</language>
+			<language type="lg">ganda</language>
 			<language type="lg" alt="proposed-u219-1" draft="provisional">ganda</language>
-			<language type="li">Limburgsk</language>
+			<language type="li">limburgsk</language>
 			<language type="li" alt="proposed-u219-1" draft="provisional">limburgsk</language>
-			<language type="ln">Lingala</language>
+			<language type="ln">lingala</language>
 			<language type="ln" alt="proposed-u219-1" draft="provisional">lingala</language>
-			<language type="lo">Lao</language>
+			<language type="lo">lao</language>
 			<language type="lo" alt="proposed-u219-1" draft="provisional">laotisk</language>
-			<language type="lol">Mongo</language>
+			<language type="lol">mongo</language>
 			<language type="lol" alt="proposed-u219-1" draft="provisional">mongo</language>
-			<language type="loz">Lozi</language>
+			<language type="loz">lozi</language>
 			<language type="loz" alt="proposed-u219-1" draft="provisional">lozi</language>
-			<language type="lt">Litauisk</language>
+			<language type="lt">litauisk</language>
 			<language type="lt" alt="proposed-u219-1" draft="provisional">litauisk</language>
 			<language type="lu">Luba-Katanga</language>
 			<language type="lu" alt="proposed-u219-1" draft="provisional">luba-katanga</language>
 			<language type="lua">Luba-Lulua</language>
 			<language type="lua" alt="proposed-u219-1" draft="provisional">luba-lulua</language>
-			<language type="lui">Luiseno</language>
+			<language type="lui">luiseno</language>
 			<language type="lui" alt="proposed-u219-1" draft="provisional">luiseño</language>
-			<language type="lun">Lunda</language>
+			<language type="lun">lunda</language>
 			<language type="lun" alt="proposed-u219-1" draft="provisional">lunda</language>
-			<language type="luo">Luo</language>
+			<language type="luo">luo</language>
 			<language type="luo" alt="proposed-u219-1" draft="provisional">luo</language>
-			<language type="lus">Lushai</language>
+			<language type="lus">lushai</language>
 			<language type="lus" alt="proposed-u219-1" draft="provisional">lushai</language>
-			<language type="lv">Lettisk</language>
+			<language type="lv">lettisk</language>
 			<language type="lv" alt="proposed-u219-1" draft="provisional">lettisk</language>
-			<language type="mad">Madurese</language>
+			<language type="mad">madurese</language>
 			<language type="mad" alt="proposed-u219-1" draft="provisional">maduresisk</language>
-			<language type="mag">Magahi</language>
+			<language type="mag">magahi</language>
 			<language type="mag" alt="proposed-u219-1" draft="provisional">magahi</language>
-			<language type="mai">Maithili</language>
+			<language type="mai">maithili</language>
 			<language type="mai" alt="proposed-u219-1" draft="provisional">maithili</language>
-			<language type="mak">Makasar</language>
+			<language type="mak">makasar</language>
 			<language type="mak" alt="proposed-u219-1" draft="provisional">makasar</language>
-			<language type="man">Mandingo</language>
+			<language type="man">mandingo</language>
 			<language type="man" alt="proposed-u219-1" draft="provisional">mandingo</language>
 			<language type="map" references="R1">malajo-polynesisk</language>
 			<language type="map" references="R1" alt="proposed-u219-1" draft="unconfirmed">malajo-polynesisk sprog (annet)</language>
-			<language type="mas">Masai</language>
+			<language type="mas">masai</language>
 			<language type="mas" alt="proposed-u219-1" draft="provisional">masai</language>
-			<language type="mdf">Moksha</language>
+			<language type="mdf">moksha</language>
 			<language type="mdf" alt="proposed-u219-1" draft="provisional">moksha</language>
-			<language type="mdr">Mandar</language>
+			<language type="mdr">mandar</language>
 			<language type="mdr" alt="proposed-u219-1" draft="provisional">mandar</language>
-			<language type="men">Mende</language>
+			<language type="men">mende</language>
 			<language type="men" alt="proposed-u219-1" draft="provisional">mende</language>
-			<language type="mg">Malagasy</language>
+			<language type="mg">malagasy</language>
 			<language type="mg" alt="proposed-u219-1" draft="provisional">malagasy</language>
 			<language type="mga">Irsk, Middel- (900-1200)</language>
 			<language type="mga" alt="proposed-u219-1" draft="provisional">middelirsk (c:a 900-1200)</language>
-			<language type="mh">Marshallese</language>
+			<language type="mh">marshallese</language>
 			<language type="mh" alt="proposed-u219-1" draft="provisional">marshallese</language>
-			<language type="mi">Maori</language>
+			<language type="mi">maori</language>
 			<language type="mi" alt="proposed-u219-1" draft="provisional">maori</language>
-			<language type="mic">Micmac</language>
+			<language type="mic">micmac</language>
 			<language type="mic" alt="proposed-u219-1" draft="provisional">micmac</language>
-			<language type="min">Minangkabau</language>
+			<language type="min">minangkabau</language>
 			<language type="min" alt="proposed-u219-1" draft="provisional">minangkabau</language>
-			<language type="mis">Diverse sprog</language>
+			<language type="mis">diverse sprog</language>
 			<language type="mis" references="R1" alt="proposed-u165-1" draft="provisional">diverse sprog</language>
 			<language type="mis" alt="proposed-u219-1" draft="unconfirmed">annet sprog</language>
-			<language type="mk">Makedonsk</language>
+			<language type="mk">makedonsk</language>
 			<language type="mk" alt="proposed-u219-1" draft="provisional">makedonsk</language>
-			<language type="mkh">Mon-khmer (øvrige)</language>
+			<language type="mkh">mon-khmer (øvrige)</language>
 			<language type="mkh" references="R1" alt="proposed-u165-1" draft="provisional">mon-khmer (øvrige)</language>
 			<language type="mkh" alt="proposed-u219-1" draft="unconfirmed">mon-khmer sprog (annet)</language>
-			<language type="ml">Malayalam</language>
+			<language type="ml">malayalam</language>
 			<language type="ml" alt="proposed-u219-1" draft="provisional">malayalam</language>
-			<language type="mn">Mongolsk</language>
+			<language type="mn">mongolsk</language>
 			<language type="mn" alt="proposed-u219-1" draft="provisional">mongolsk</language>
-			<language type="mnc">Manchu</language>
+			<language type="mnc">manchu</language>
 			<language type="mnc" alt="proposed-u219-1" draft="provisional">manchu</language>
-			<language type="mni">Manipuri</language>
+			<language type="mni">manipuri</language>
 			<language type="mni" alt="proposed-u219-1" draft="provisional">manipuri</language>
 			<language type="mno" draft="unconfirmed">manobo sprog</language>
-			<language type="mo">Moldovisk</language>
+			<language type="mo">moldovisk</language>
 			<language type="mo" alt="proposed-u219-1" draft="provisional">moldovisk</language>
-			<language type="moh">Mohawk</language>
+			<language type="moh">mohawk</language>
 			<language type="moh" alt="proposed-u219-1" draft="provisional">mohawk</language>
-			<language type="mos">Mossi</language>
+			<language type="mos">mossi</language>
 			<language type="mos" alt="proposed-u219-1" draft="provisional">mossi</language>
-			<language type="mr">Marathisk</language>
+			<language type="mr">marathisk</language>
 			<language type="mr" alt="proposed-u219-1" draft="provisional">marathisk</language>
-			<language type="ms">Malay</language>
+			<language type="ms">malay</language>
 			<language type="ms" alt="proposed-u219-1" draft="provisional">malay</language>
-			<language type="mt">Maltesisk</language>
+			<language type="mt">maltesisk</language>
 			<language type="mt" alt="proposed-u219-1" draft="provisional">maltesisk</language>
-			<language type="mul">Flere sprog</language>
+			<language type="mul">flere sprog</language>
 			<language type="mul" alt="proposed-u219-1" draft="provisional">flere sprog</language>
-			<language type="mun">Munda (øvrige)</language>
+			<language type="mun">munda (øvrige)</language>
 			<language type="mun" references="R1" alt="proposed-u165-1" draft="provisional">munda (øvrige)</language>
 			<language type="mun" alt="proposed-u219-1" draft="unconfirmed">mundasprog (annet)</language>
-			<language type="mus">Creek</language>
+			<language type="mus">creek</language>
 			<language type="mus" alt="proposed-u219-1" draft="provisional">creek</language>
 			<language type="mwl" draft="provisional">mirandesisk</language>
-			<language type="mwr">Marwari</language>
+			<language type="mwr">marwari</language>
 			<language type="mwr" alt="proposed-u219-1" draft="provisional">marwari</language>
 			<language type="my">burmesisk</language>
-			<language type="myn">Maya sprog</language>
+			<language type="myn">maya sprog</language>
 			<language type="myn" references="RP2" alt="proposed-u165-1" draft="provisional">maya sprog</language>
-			<language type="myn" alt="proposed-u219-1" draft="unconfirmed">Mayasprog</language>
-			<language type="myv">Erzya</language>
+			<language type="myn" alt="proposed-u219-1" draft="unconfirmed">mayasprog</language>
+			<language type="myv">erzya</language>
 			<language type="myv" alt="proposed-u219-1" draft="provisional">erzya</language>
-			<language type="na">Nauru</language>
+			<language type="na">nauru</language>
 			<language type="na" alt="proposed-u219-1" draft="provisional">nausu</language>
-			<language type="nah">Nahuatl</language>
+			<language type="nah">nahuatl</language>
 			<language type="nah" alt="proposed-u219-1" draft="provisional">nahuatl</language>
-			<language type="nai">Nordamerikanske indianske sprog (øvrige)</language>
+			<language type="nai">nordamerikanske indianske sprog (øvrige)</language>
 			<language type="nai" alt="proposed-u165-1" draft="provisional">nordamerikansk indiansk (øvrige)</language>
 			<language type="nai" alt="proposed-u219-1" draft="unconfirmed">nordamerikansk indiansk sprog (annet)</language>
-			<language type="nap">Neapolitansk</language>
+			<language type="nap">neapolitansk</language>
 			<language type="nap" alt="proposed-u219-1" draft="provisional">neapolitansk</language>
 			<language type="nb">Norsk Bokmål</language>
 			<language type="nb" alt="proposed-u219-1" draft="provisional">norsk (bokmål)</language>
 			<language type="nd">Ndebele, Nord</language>
 			<language type="nd" alt="proposed-u219-1" draft="provisional">nordndebele</language>
-			<language type="nds">Nedertysk; nedersachsisk</language>
+			<language type="nds">nedertysk; nedersachsisk</language>
 			<language type="nds" alt="proposed-u219-1" draft="provisional">nedertysk; nedersachsisk</language>
-			<language type="ne">Nepalesisk</language>
+			<language type="ne">nepalesisk</language>
 			<language type="ne" alt="proposed-u219-1" draft="provisional">nepalesisk</language>
-			<language type="new">Newari</language>
+			<language type="new">newari</language>
 			<language type="new" alt="proposed-u219-1" draft="provisional">newari</language>
-			<language type="ng">Ndonga</language>
+			<language type="ng">ndonga</language>
 			<language type="ng" alt="proposed-u219-1" draft="provisional">ndonga</language>
-			<language type="nia">Nias</language>
+			<language type="nia">nias</language>
 			<language type="nia" alt="proposed-u219-1" draft="provisional">nias</language>
 			<language type="nic">Niger-Congo sprog (øvrige)</language>
 			<language type="nic" references="R1" alt="proposed-u165-1" draft="provisional">Niger-Congo sprog (øvrige)</language>
 			<language type="nic" alt="proposed-u219-1" draft="unconfirmed">Niger-Congo sprog (annet)</language>
-			<language type="niu">Niuean</language>
+			<language type="niu">niuean</language>
 			<language type="niu" alt="proposed-u219-1" draft="provisional">niuansk</language>
-			<language type="nl">Hollandsk</language>
+			<language type="nl">hollandsk</language>
 			<language type="nl" alt="proposed-u219-1" draft="provisional">hollandsk</language>
-			<language type="nn">Nynorsk</language>
+			<language type="nn">nynorsk</language>
 			<language type="nn" alt="proposed-u219-1" draft="provisional">nynorsk</language>
-			<language type="no">Norsk</language>
+			<language type="no">norsk</language>
 			<language type="no" alt="proposed-u219-1" draft="provisional">norsk</language>
-			<language type="nog">Nogai</language>
+			<language type="nog">nogai</language>
 			<language type="nog" alt="proposed-u219-1" draft="provisional">nogai</language>
 			<language type="non">Islandsk, Old-</language>
 			<language type="non" alt="proposed-u219-1" draft="provisional">oldislandsk</language>
@@ -585,157 +585,157 @@
 			<language type="nr" alt="proposed-u219-1" draft="provisional">sydndebele</language>
 			<language type="nso">Sotho, Nord</language>
 			<language type="nso" alt="proposed-u219-1" draft="provisional">nordsotho</language>
-			<language type="nub">Nubiske sprog</language>
+			<language type="nub">nubiske sprog</language>
 			<language type="nub" alt="proposed-u219-1" draft="unconfirmed">nubisk sprog</language>
-			<language type="nv">Navajo</language>
+			<language type="nv">navajo</language>
 			<language type="nv" alt="proposed-u219-1" draft="provisional">navajo</language>
 			<language type="nwc" draft="provisional">klassisk newarisk</language>
 			<language type="ny">Nyanja; Chichewa; Chewa</language>
 			<language type="ny" alt="proposed-u219-1" draft="provisional">nyanja; chichewa; chewa</language>
-			<language type="nym">Nyamwezi</language>
+			<language type="nym">nyamwezi</language>
 			<language type="nym" alt="proposed-u219-1" draft="provisional">nyamwezi</language>
-			<language type="nyn">Nyankole</language>
+			<language type="nyn">nyankole</language>
 			<language type="nyn" alt="proposed-u219-1" draft="provisional">nyankole</language>
-			<language type="nyo">Nyoro sprog</language>
+			<language type="nyo">nyoro sprog</language>
 			<language type="nyo" alt="proposed-u219-1" draft="provisional">nyoro sprog</language>
-			<language type="nzi">Nzima</language>
+			<language type="nzi">nzima</language>
 			<language type="nzi" alt="proposed-u219-1" draft="provisional">nzima</language>
 			<language type="oc">Occitansk (efter 1500); Provencalsk</language>
 			<language type="oc" alt="proposed-u219-1" draft="provisional">occitansk (efter 1500); provencalsk</language>
-			<language type="oj">Ojibwa</language>
+			<language type="oj">ojibwa</language>
 			<language type="oj" alt="proposed-u219-1" draft="provisional">ojibwa</language>
-			<language type="om">Oromo</language>
+			<language type="om">oromo</language>
 			<language type="om" alt="proposed-u219-1" draft="provisional">oromo</language>
-			<language type="or">Oriya</language>
+			<language type="or">oriya</language>
 			<language type="or" alt="proposed-u219-1" draft="provisional">oriya</language>
-			<language type="os">Ossetisk</language>
+			<language type="os">ossetisk</language>
 			<language type="os" alt="proposed-u219-1" draft="provisional">ossetisk</language>
-			<language type="osa">Osage</language>
+			<language type="osa">osage</language>
 			<language type="osa" alt="proposed-u219-1" draft="provisional">osage</language>
-			<language type="ota">Osmannisk (1500-1928)</language>
+			<language type="ota">osmannisk (1500-1928)</language>
 			<language type="ota" alt="proposed-u219-1" draft="provisional">osmannisk (1500-1928)</language>
-			<language type="oto">Otomi sprog</language>
+			<language type="oto">otomi sprog</language>
 			<language type="oto" alt="proposed-u219-1" draft="provisional">otomi sprog</language>
-			<language type="pa">Punjabi</language>
+			<language type="pa">punjabi</language>
 			<language type="pa" alt="proposed-u219-1" draft="provisional">punjabi</language>
-			<language type="paa">Papua-australske sprog (øvrige)</language>
+			<language type="paa">papua-australske sprog (øvrige)</language>
 			<language type="paa" references="R1" alt="proposed-u165-1" draft="provisional">papua-australsk (øvrige)</language>
 			<language type="paa" alt="proposed-u219-1" draft="unconfirmed">papua-australsk sprog (annet)</language>
-			<language type="pag">Pangasinan</language>
+			<language type="pag">pangasinan</language>
 			<language type="pag" alt="proposed-u219-1" draft="provisional">pangasinan</language>
-			<language type="pal">Pahlavi</language>
+			<language type="pal">pahlavi</language>
 			<language type="pal" alt="proposed-u219-1" draft="provisional">pahlavi; middelpersisk</language>
-			<language type="pam">Pampanga</language>
+			<language type="pam">pampanga</language>
 			<language type="pam" alt="proposed-u219-1" draft="provisional">pampanga</language>
-			<language type="pap">Papiamento</language>
+			<language type="pap">papiamento</language>
 			<language type="pap" alt="proposed-u219-1" draft="provisional">papiamento</language>
-			<language type="pau">Palauansk</language>
+			<language type="pau">palauansk</language>
 			<language type="pau" alt="proposed-u219-1" draft="provisional">palauansk</language>
 			<language type="peo">Persisk, Old- (ca. 600-400 f. Kr.)</language>
 			<language type="peo" alt="proposed-u219-1" draft="provisional">oldpersisk (c:a 600-400 f.Kr.)</language>
-			<language type="phi">Filippinske sprog (øvrige)</language>
+			<language type="phi">filippinske sprog (øvrige)</language>
 			<language type="phi" references="R1" alt="proposed-u165-1" draft="provisional">filippinsk (øvrige)</language>
 			<language type="phi" alt="proposed-u219-1" draft="unconfirmed">filippinsk sprog (annet)</language>
-			<language type="phn">Fønikisk</language>
+			<language type="phn">fønikisk</language>
 			<language type="phn" alt="proposed-u219-1" draft="provisional">fønikisk</language>
-			<language type="pi">Pali</language>
+			<language type="pi">pali</language>
 			<language type="pi" alt="proposed-u219-1" draft="provisional">pali</language>
-			<language type="pl">Polsk</language>
+			<language type="pl">polsk</language>
 			<language type="pl" alt="proposed-u219-1" draft="provisional">polsk</language>
-			<language type="pon">Ponape</language>
+			<language type="pon">ponape</language>
 			<language type="pon" alt="proposed-u219-1" draft="provisional">ponape</language>
 			<language type="pra" draft="provisional">prakrit sprog</language>
-			<language type="pro">Provencalsk (før 1500)</language>
+			<language type="pro">provencalsk (før 1500)</language>
 			<language type="pro" alt="proposed-u219-1" draft="provisional">provencalsk (før 1500)</language>
 			<language type="ps">Pashto (Pushto)</language>
 			<language type="ps" alt="proposed-u219-1" draft="provisional">pashto</language>
-			<language type="pt">Portugisisk</language>
+			<language type="pt">portugisisk</language>
 			<language type="pt" alt="proposed-u219-1" draft="provisional">portugisisk</language>
-			<language type="qu">Quechua</language>
+			<language type="qu">quechua</language>
 			<language type="qu" alt="proposed-u219-1" draft="provisional">quechua</language>
-			<language type="raj">Rajasthani</language>
+			<language type="raj">rajasthani</language>
 			<language type="raj" alt="proposed-u219-1" draft="provisional">rajasthanisk</language>
-			<language type="rap">Rapanui</language>
+			<language type="rap">rapanui</language>
 			<language type="rap" alt="proposed-u219-1" draft="provisional">rapanui</language>
-			<language type="rar">Rarotongan</language>
+			<language type="rar">rarotongan</language>
 			<language type="rar" alt="proposed-u219-1" draft="provisional">rarotongansk</language>
-			<language type="rm">Rætoromansk</language>
+			<language type="rm">rætoromansk</language>
 			<language type="rm" alt="proposed-u219-1" draft="provisional">rætoromansk</language>
-			<language type="rn">Rundi</language>
+			<language type="rn">rundi</language>
 			<language type="rn" alt="proposed-u219-1" draft="provisional">rundi</language>
-			<language type="ro">Rumænsk</language>
+			<language type="ro">rumænsk</language>
 			<language type="ro" alt="proposed-u219-1" draft="provisional">rumænsk</language>
-			<language type="roa">Romanske sprog (øvrige)</language>
+			<language type="roa">romanske sprog (øvrige)</language>
 			<language type="roa" references="R1" alt="proposed-u165-1" draft="provisional">romansk (øvrige)</language>
 			<language type="roa" alt="proposed-u219-1" draft="unconfirmed">romansk sprog (annet)</language>
-			<language type="rom">Romani</language>
+			<language type="rom">romani</language>
 			<language type="rom" alt="proposed-u219-1" draft="provisional">romani</language>
 			<language type="root" draft="provisional">rot</language>
-			<language type="ru">Russisk</language>
+			<language type="ru">russisk</language>
 			<language type="ru" alt="proposed-u219-1" draft="provisional">russisk</language>
 			<language type="rup">arumænsk</language>
-			<language type="rw">Kinyarwanda</language>
+			<language type="rw">kinyarwanda</language>
 			<language type="rw" alt="proposed-u219-1" draft="provisional">kinyarwanda</language>
-			<language type="sa">Sanskrit</language>
+			<language type="sa">sanskrit</language>
 			<language type="sa" alt="proposed-u219-1" draft="provisional">sanskrit</language>
-			<language type="sad">Sandawe</language>
+			<language type="sad">sandawe</language>
 			<language type="sad" alt="proposed-u219-1" draft="provisional">sandawe</language>
-			<language type="sah">Yakut</language>
+			<language type="sah">yakut</language>
 			<language type="sah" alt="proposed-u219-1" draft="provisional">jakut</language>
-			<language type="sai">Sydamerikanske indianske sprog (øvrige)</language>
+			<language type="sai">sydamerikanske indianske sprog (øvrige)</language>
 			<language type="sai" references="RP2" alt="proposed-u165-1" draft="provisional">sydamerikansk indiansk (øvrige)</language>
 			<language type="sai" alt="proposed-u219-1" draft="unconfirmed">sydamerikansk indiansk sprog (annet)</language>
 			<language type="sal" draft="provisional">salikisk sprog</language>
-			<language type="sam">Samaritansk</language>
+			<language type="sam">samaritansk</language>
 			<language type="sam" alt="proposed-u219-1" draft="provisional">samaritansk</language>
-			<language type="sas">Sasak</language>
+			<language type="sas">sasak</language>
 			<language type="sas" alt="proposed-u219-1" draft="provisional">sasak</language>
-			<language type="sat">Santali</language>
+			<language type="sat">santali</language>
 			<language type="sat" alt="proposed-u219-1" draft="provisional">santali</language>
-			<language type="sc">Sardinsk</language>
+			<language type="sc">sardinsk</language>
 			<language type="sc" alt="proposed-u219-1" draft="provisional">sardisk</language>
 			<language type="scn" draft="provisional">siciliansk</language>
-			<language type="sco">Skotsk</language>
+			<language type="sco">skotsk</language>
 			<language type="sco" alt="proposed-u219-1" draft="provisional">skotsk</language>
-			<language type="sd">Sindhi</language>
+			<language type="sd">sindhi</language>
 			<language type="sd" alt="proposed-u219-1" draft="provisional">sindhi</language>
-			<language type="se">Nordsamisk</language>
+			<language type="se">nordsamisk</language>
 			<language type="se" alt="proposed-u219-1" draft="provisional">nordsamisk</language>
-			<language type="sel">Selkupisk</language>
+			<language type="sel">selkupisk</language>
 			<language type="sel" alt="proposed-u219-1" draft="provisional">selkupisk</language>
-			<language type="sem">Semitiske sprog (øvrige)</language>
+			<language type="sem">semitiske sprog (øvrige)</language>
 			<language type="sem" references="RP2" alt="proposed-u165-1" draft="provisional">semitisk (øvrige)</language>
 			<language type="sem" alt="proposed-u219-1" draft="unconfirmed">semitisk sprog (annet)</language>
-			<language type="sg">Sango</language>
+			<language type="sg">sango</language>
 			<language type="sg" alt="proposed-u219-1" draft="provisional">sango</language>
 			<language type="sga">Irsk, Old- (indtil 900)</language>
 			<language type="sga" alt="proposed-u219-1" draft="provisional">oldirsk (indtil 900)</language>
-			<language type="sgn">Tegnsprog</language>
+			<language type="sgn">tegnsprog</language>
 			<language type="sgn" alt="proposed-u219-1" draft="provisional">tegnsprog</language>
-			<language type="sh">Serbokroatisk</language>
+			<language type="sh">serbokroatisk</language>
 			<language type="sh" alt="proposed-u219-1" draft="provisional">serbokroatisk</language>
-			<language type="shn">Shan</language>
+			<language type="shn">shan</language>
 			<language type="shn" alt="proposed-u219-1" draft="provisional">shan</language>
-			<language type="si">Singalesisk</language>
+			<language type="si">singalesisk</language>
 			<language type="si" alt="proposed-u219-1" draft="provisional">singalesisk</language>
-			<language type="sid">Sidamo</language>
+			<language type="sid">sidamo</language>
 			<language type="sid" alt="proposed-u219-1" draft="provisional">sidamo</language>
 			<language type="sio" draft="provisional">sioux sprog</language>
-			<language type="sit">Sino-tibetanske sprog (øvrige)</language>
+			<language type="sit">sino-tibetanske sprog (øvrige)</language>
 			<language type="sit" references="R1" alt="proposed-u165-1" draft="provisional">sino-tibetansk (øvrige)</language>
 			<language type="sit" alt="proposed-u219-1" draft="unconfirmed">sino-tibetansk sprog (annet)</language>
-			<language type="sk">Slovakisk</language>
+			<language type="sk">slovakisk</language>
 			<language type="sk" alt="proposed-u219-1" draft="provisional">slovakisk</language>
-			<language type="sl">Slovensk</language>
+			<language type="sl">slovensk</language>
 			<language type="sl" alt="proposed-u219-1" draft="provisional">slovensk</language>
-			<language type="sla">Slaviske sprog (øvrige)</language>
+			<language type="sla">slaviske sprog (øvrige)</language>
 			<language type="sla" references="R1" alt="proposed-u165-1" draft="provisional">slavisk (øvrige)</language>
 			<language type="sla" alt="proposed-u219-1" draft="unconfirmed">slavisk sprog (annet)</language>
-			<language type="sm">Samoansk</language>
+			<language type="sm">samoansk</language>
 			<language type="sm" alt="proposed-u219-1" draft="provisional">samoansk</language>
-			<language type="sma">Sydsamisk</language>
+			<language type="sma">sydsamisk</language>
 			<language type="sma" alt="proposed-u219-1" draft="provisional">sydsamisk</language>
-			<language type="smi">Samiske sprog (øvrige)</language>
+			<language type="smi">samiske sprog (øvrige)</language>
 			<language type="smi" references="RP2" alt="proposed-u165-1" draft="provisional">samiske sprog (øvrige)</language>
 			<language type="smi" alt="proposed-u219-1" draft="unconfirmed">samisk sprog (annet)</language>
 			<language type="smj">Lule Sami</language>
@@ -744,78 +744,78 @@
 			<language type="smn" alt="proposed-u219-1" draft="provisional">inari sami</language>
 			<language type="sms">Skolt Sami</language>
 			<language type="sms" alt="proposed-u219-1" draft="provisional">skolt sami</language>
-			<language type="sn">Shona</language>
+			<language type="sn">shona</language>
 			<language type="sn" alt="proposed-u219-1" draft="provisional">shona</language>
-			<language type="snk">Soninke</language>
+			<language type="snk">soninke</language>
 			<language type="snk" alt="proposed-u219-1" draft="provisional">soninke</language>
-			<language type="so">Somalisk</language>
+			<language type="so">somalisk</language>
 			<language type="so" alt="proposed-u219-1" draft="provisional">somalisk</language>
-			<language type="sog">Sogdiansk</language>
+			<language type="sog">sogdiansk</language>
 			<language type="sog" alt="proposed-u219-1" draft="provisional">sogdiansk</language>
-			<language type="son">Songhai</language>
+			<language type="son">songhai</language>
 			<language type="son" alt="proposed-u219-1" draft="provisional">songhai</language>
 			<language type="sq">albansk</language>
-			<language type="sr">Serbisk</language>
+			<language type="sr">serbisk</language>
 			<language type="sr" alt="proposed-u219-1" draft="provisional">serbisk</language>
 			<language type="srn" draft="provisional">sranan tongo</language>
-			<language type="srr">Serer</language>
+			<language type="srr">serer</language>
 			<language type="srr" alt="proposed-u219-1" draft="provisional">serer</language>
-			<language type="ss">Swati</language>
+			<language type="ss">swati</language>
 			<language type="ss" alt="proposed-u219-1" draft="provisional">swati</language>
 			<language type="ssa">Afrikanske sprog syd for Sahara (øvrige)</language>
 			<language type="ssa" references="R1" alt="proposed-u165-1" draft="provisional">afrikanske sprog syd for Sahara (øvrige)</language>
 			<language type="ssa" alt="proposed-u219-1" draft="unconfirmed">afrikansk sprog syd for Sahara (annet)</language>
 			<language type="st">Sotho, Southern</language>
 			<language type="st" alt="proposed-u219-1" draft="provisional">sydsotho</language>
-			<language type="su">Sundanesisk</language>
+			<language type="su">sundanesisk</language>
 			<language type="su" alt="proposed-u219-1" draft="provisional">sundanesisk</language>
-			<language type="suk">Sukuma</language>
+			<language type="suk">sukuma</language>
 			<language type="suk" alt="proposed-u219-1" draft="provisional">sukuma</language>
-			<language type="sus">Susu</language>
+			<language type="sus">susu</language>
 			<language type="sus" alt="proposed-u219-1" draft="provisional">susu</language>
-			<language type="sux">Sumerisk</language>
+			<language type="sux">sumerisk</language>
 			<language type="sux" alt="proposed-u219-1" draft="provisional">sumerisk</language>
-			<language type="sv">Svensk</language>
+			<language type="sv">svensk</language>
 			<language type="sv" alt="proposed-u219-1" draft="provisional">svensk</language>
-			<language type="sw">Swahili</language>
+			<language type="sw">swahili</language>
 			<language type="sw" alt="proposed-u219-1" draft="provisional">swahili</language>
-			<language type="syr">Syrisk</language>
+			<language type="syr">syrisk</language>
 			<language type="syr" alt="proposed-u219-1" draft="provisional">syrisk</language>
-			<language type="ta">Tamilsk</language>
+			<language type="ta">tamilsk</language>
 			<language type="ta" alt="proposed-u219-1" draft="provisional">tamilsk</language>
-			<language type="tai">Tai (øvrige)</language>
+			<language type="tai">tai (øvrige)</language>
 			<language type="tai" references="RP2" alt="proposed-u165-1" draft="provisional">tai (øvrige)</language>
 			<language type="tai" alt="proposed-u219-1" draft="unconfirmed">thai sprog (annet)</language>
-			<language type="te">Telugu</language>
+			<language type="te">telugu</language>
 			<language type="te" alt="proposed-u219-1" draft="provisional">telugu</language>
-			<language type="tem">Temne</language>
+			<language type="tem">temne</language>
 			<language type="tem" alt="proposed-u219-1" draft="provisional">temne</language>
-			<language type="ter">Tereno</language>
+			<language type="ter">tereno</language>
 			<language type="ter" alt="proposed-u219-1" draft="provisional">tereno</language>
-			<language type="tet">Tetum</language>
+			<language type="tet">tetum</language>
 			<language type="tet" alt="proposed-u219-1" draft="provisional">tetum</language>
-			<language type="tg">Tajik</language>
+			<language type="tg">tajik</language>
 			<language type="tg" alt="proposed-u219-1" draft="provisional">tajik</language>
-			<language type="th">Thailandsk</language>
+			<language type="th">thailandsk</language>
 			<language type="th" alt="proposed-u219-1" draft="provisional">thailandsk</language>
-			<language type="ti">Tigrinya</language>
+			<language type="ti">tigrinya</language>
 			<language type="ti" alt="proposed-u219-1" draft="provisional">tigrinya</language>
-			<language type="tig">Tigre</language>
+			<language type="tig">tigre</language>
 			<language type="tig" alt="proposed-u219-1" draft="provisional">tigré</language>
-			<language type="tiv">Tivi</language>
+			<language type="tiv">tivi</language>
 			<language type="tiv" alt="proposed-u219-1" draft="provisional">tivi</language>
-			<language type="tk">Turkmensk</language>
+			<language type="tk">turkmensk</language>
 			<language type="tk" alt="proposed-u219-1" draft="provisional">turkmensk</language>
-			<language type="tkl">Tokelau</language>
+			<language type="tkl">tokelau</language>
 			<language type="tkl" alt="proposed-u219-1" draft="provisional">tokelau</language>
-			<language type="tl">Tagalog</language>
+			<language type="tl">tagalog</language>
 			<language type="tl" alt="proposed-u219-1" draft="provisional">tagalog</language>
 			<language type="tlh" draft="provisional">klingonsk</language>
-			<language type="tli">Tlingit</language>
+			<language type="tli">tlingit</language>
 			<language type="tli" alt="proposed-u219-1" draft="provisional">tlingit</language>
-			<language type="tmh">Tamashek</language>
+			<language type="tmh">tamashek</language>
 			<language type="tmh" alt="proposed-u219-1" draft="provisional">tamashek</language>
-			<language type="tn">Tswana</language>
+			<language type="tn">tswana</language>
 			<language type="tn" alt="proposed-u219-1" draft="provisional">tswana</language>
 			<language type="to">Tonga (Tongaøerne)</language>
 			<language type="to" alt="proposed-u219-1" draft="provisional">tongansk (Tongaøerne)</language>
@@ -823,94 +823,94 @@
 			<language type="tog" alt="proposed-u219-1" draft="provisional">tongansk (Nyasa)</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tpi" alt="proposed-u219-1" draft="provisional">tok pisin</language>
-			<language type="tr">Tyrkisk</language>
+			<language type="tr">tyrkisk</language>
 			<language type="tr" alt="proposed-u219-1" draft="provisional">tyrkisk</language>
-			<language type="ts">Tsonga</language>
+			<language type="ts">tsonga</language>
 			<language type="ts" alt="proposed-u219-1" draft="provisional">tsonga</language>
-			<language type="tsi">Tsimshisk</language>
+			<language type="tsi">tsimshisk</language>
 			<language type="tsi" alt="proposed-u219-1" draft="provisional">tsimshisk</language>
-			<language type="tt">Tatarisk</language>
+			<language type="tt">tatarisk</language>
 			<language type="tt" alt="proposed-u219-1" draft="provisional">tatarisk</language>
-			<language type="tum">Tumbuka</language>
+			<language type="tum">tumbuka</language>
 			<language type="tum" alt="proposed-u219-1" draft="provisional">tumbuka</language>
 			<language type="tup" draft="provisional">tupí sprog</language>
 			<language type="tut">tyrkisk-tatarisk (øvrige)</language>
 			<language type="tut" alt="proposed-u219-1" draft="unconfirmed">tyrkisk-tatarisk sprog (annet)</language>
-			<language type="tvl">Tuvalu</language>
+			<language type="tvl">tuvalu</language>
 			<language type="tvl" alt="proposed-u219-1" draft="provisional">tuvalu</language>
-			<language type="tw">Twi</language>
+			<language type="tw">twi</language>
 			<language type="tw" alt="proposed-u219-1" draft="provisional">twi</language>
-			<language type="ty">Tahitiansk</language>
+			<language type="ty">tahitiansk</language>
 			<language type="ty" alt="proposed-u219-1" draft="provisional">tahitiansk</language>
-			<language type="tyv">Tuvinian</language>
+			<language type="tyv">tuvinian</language>
 			<language type="tyv" alt="proposed-u219-1" draft="provisional">tuvinian</language>
-			<language type="udm">Udmurt</language>
+			<language type="udm">udmurt</language>
 			<language type="udm" alt="proposed-u219-1" draft="provisional">udmurt</language>
-			<language type="ug">Uigurisk</language>
+			<language type="ug">uigurisk</language>
 			<language type="ug" alt="proposed-u219-1" draft="provisional">uigurisk</language>
-			<language type="uga">Ugaristisk</language>
+			<language type="uga">ugaristisk</language>
 			<language type="uga" alt="proposed-u219-1" draft="provisional">ugaristisk</language>
-			<language type="uk">Ukrainsk</language>
+			<language type="uk">ukrainsk</language>
 			<language type="uk" alt="proposed-u219-1" draft="provisional">ukrainsk</language>
-			<language type="umb">Umbundu</language>
+			<language type="umb">umbundu</language>
 			<language type="umb" alt="proposed-u219-1" draft="provisional">umbundu</language>
-			<language type="und">Sproget kan ikke bestemmes</language>
+			<language type="und">sproget kan ikke bestemmes</language>
 			<language type="und" references="R1" alt="proposed-u165-1" draft="provisional">sproget kan ikke bestemmes</language>
 			<language type="und" alt="proposed-u219-1" draft="unconfirmed">obestemt sprog</language>
-			<language type="ur">Urdu</language>
+			<language type="ur">urdu</language>
 			<language type="ur" alt="proposed-u219-1" draft="provisional">urdu</language>
-			<language type="uz">Usbekisk</language>
+			<language type="uz">usbekisk</language>
 			<language type="uz" alt="proposed-u219-1" draft="provisional">usbekisk</language>
-			<language type="vai">Vai</language>
+			<language type="vai">vai</language>
 			<language type="vai" alt="proposed-u219-1" draft="provisional">vaj</language>
-			<language type="ve">Venda</language>
+			<language type="ve">venda</language>
 			<language type="ve" alt="proposed-u219-1" draft="provisional">venda</language>
-			<language type="vi">Vietnamesisk</language>
+			<language type="vi">vietnamesisk</language>
 			<language type="vi" alt="proposed-u219-1" draft="provisional">vietnamesisk</language>
-			<language type="vo">Volapük</language>
+			<language type="vo">volapük</language>
 			<language type="vo" alt="proposed-u219-1" draft="provisional">volapyk</language>
-			<language type="vot">Votisk</language>
+			<language type="vot">votisk</language>
 			<language type="vot" alt="proposed-u219-1" draft="provisional">votisk</language>
-			<language type="wa">Vallonsk</language>
+			<language type="wa">vallonsk</language>
 			<language type="wa" alt="proposed-u219-1" draft="provisional">vallonsk</language>
 			<language type="wak" draft="provisional">wkashansk sprog</language>
-			<language type="wal">Walamo</language>
+			<language type="wal">walamo</language>
 			<language type="wal" alt="proposed-u219-1" draft="provisional">walamo</language>
-			<language type="war">Waray</language>
+			<language type="war">waray</language>
 			<language type="war" alt="proposed-u219-1" draft="provisional">waray</language>
-			<language type="was">Washo</language>
+			<language type="was">washo</language>
 			<language type="was" alt="proposed-u219-1" draft="provisional">washo</language>
-			<language type="wen">Vendiske sprog</language>
+			<language type="wen">vendiske sprog</language>
 			<language type="wen" references="RP2" alt="proposed-u165-1" draft="provisional">vendiske sprog</language>
 			<language type="wen" alt="proposed-u219-1" draft="unconfirmed">vendisk sprog</language>
-			<language type="wo">Wolof</language>
+			<language type="wo">wolof</language>
 			<language type="wo" alt="proposed-u219-1" draft="provisional">wolof</language>
-			<language type="xal">Kalmyk</language>
+			<language type="xal">kalmyk</language>
 			<language type="xal" alt="proposed-u219-1" draft="provisional">kalmyk</language>
-			<language type="xh">Xhosa</language>
+			<language type="xh">xhosa</language>
 			<language type="xh" alt="proposed-u219-1" draft="provisional">xhosa</language>
-			<language type="yao">Yao</language>
+			<language type="yao">yao</language>
 			<language type="yao" alt="proposed-u219-1" draft="provisional">yao</language>
-			<language type="yap">Yap</language>
+			<language type="yap">yap</language>
 			<language type="yap" alt="proposed-u219-1" draft="provisional">yap</language>
-			<language type="yi">Jiddisch</language>
+			<language type="yi">jiddisch</language>
 			<language type="yi" alt="proposed-u219-1" draft="provisional">jiddisch</language>
-			<language type="yo">Yoruba</language>
+			<language type="yo">yoruba</language>
 			<language type="yo" alt="proposed-u219-1" draft="provisional">yoruba</language>
 			<language type="ypk" draft="unconfirmed">yupisk sprog</language>
-			<language type="za">Zhuang</language>
+			<language type="za">zhuang</language>
 			<language type="za" alt="proposed-u219-1" draft="provisional">zhuang</language>
-			<language type="zap">Zapotec</language>
+			<language type="zap">zapotec</language>
 			<language type="zap" alt="proposed-u219-1" draft="provisional">zapotec</language>
-			<language type="zen">Zenaga</language>
+			<language type="zen">zenaga</language>
 			<language type="zen" alt="proposed-u219-1" draft="provisional">zenaga</language>
-			<language type="zh">Kinesisk</language>
+			<language type="zh">kinesisk</language>
 			<language type="zh" alt="proposed-u219-1" draft="provisional">kinesisk</language>
-			<language type="znd">Zande</language>
+			<language type="znd">zande</language>
 			<language type="znd" alt="proposed-u219-1" draft="provisional">zandé</language>
-			<language type="zu">Zulu</language>
+			<language type="zu">zulu</language>
 			<language type="zu" alt="proposed-u219-1" draft="provisional">zulu</language>
-			<language type="zun">Zuni</language>
+			<language type="zun">zuni</language>
 			<language type="zun" alt="proposed-u219-1" draft="provisional">zuñi</language>
 		</languages>
 		<scripts>

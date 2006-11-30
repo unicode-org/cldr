@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -7,38 +7,38 @@
 		<language type="sl"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-			<language type="ar">Arabščina</language>
-			<language type="bg">Bolgarščina</language>
-			<language type="cs">Češčina</language>
-			<language type="da">Danščina</language>
-			<language type="de">Nemščina</language>
-			<language type="el">Grščina</language>
-			<language type="en">Angleščina</language>
-			<language type="es">Španščina</language>
-			<language type="et">Estonščina</language>
-			<language type="fi">Finščina</language>
-			<language type="fr">Francoščina</language>
-			<language type="he">Hebrejščina</language>
-			<language type="hi" draft="unconfirmed">Hindujščina</language>
-			<language type="hr">Hrvaščina</language>
-			<language type="hu">Madžarščina</language>
-			<language type="it">Italijanščina</language>
-			<language type="ja">Japonščina</language>
-			<language type="ko">Korejščina</language>
-			<language type="lt">Litovščina</language>
-			<language type="lv">Letonščina</language>
-			<language type="nl">Nizozemščina</language>
-			<language type="no">Norveščina</language>
-			<language type="pl">Poljščina</language>
-			<language type="pt">Portugalščina</language>
-			<language type="ro">Romunščina</language>
-			<language type="ru">Ruščina</language>
-			<language type="sk">Slovaščina</language>
-			<language type="sl">Slovenščina</language>
-			<language type="sv">Švedščina</language>
-			<language type="tr">Turščina</language>
-			<language type="zh">Kitajščina</language>
+		<languages casing="lowercase-words">
+			<language type="ar">arabščina</language>
+			<language type="bg">bolgarščina</language>
+			<language type="cs">češčina</language>
+			<language type="da">danščina</language>
+			<language type="de">nemščina</language>
+			<language type="el">grščina</language>
+			<language type="en">angleščina</language>
+			<language type="es">španščina</language>
+			<language type="et">estonščina</language>
+			<language type="fi">finščina</language>
+			<language type="fr">francoščina</language>
+			<language type="he">hebrejščina</language>
+			<language type="hi" draft="unconfirmed">hindujščina</language>
+			<language type="hr">hrvaščina</language>
+			<language type="hu">madžarščina</language>
+			<language type="it">italijanščina</language>
+			<language type="ja">japonščina</language>
+			<language type="ko">korejščina</language>
+			<language type="lt">litovščina</language>
+			<language type="lv">letonščina</language>
+			<language type="nl">nizozemščina</language>
+			<language type="no">norveščina</language>
+			<language type="pl">poljščina</language>
+			<language type="pt">portugalščina</language>
+			<language type="ro">romunščina</language>
+			<language type="ru">ruščina</language>
+			<language type="sk">slovaščina</language>
+			<language type="sl">slovenščina</language>
+			<language type="sv">švedščina</language>
+			<language type="tr">turščina</language>
+			<language type="zh">kitajščina</language>
 		</languages>
 		<scripts>
 			<script type="Latn">Latinski</script>
@@ -72,7 +72,6 @@
 			<territory type="154">Severna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
 			<territory type="830">Kanalski otoki</territory>
-			<territory type="IM">Otok Man</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Združeni arabski emirati</territory>
 			<territory type="AF">Afganistan</territory>
@@ -174,6 +173,7 @@
 			<territory type="ID">Indonezija</territory>
 			<territory type="IE">Irska</territory>
 			<territory type="IL">Izrael</territory>
+			<territory type="IM">Otok Man</territory>
 			<territory type="IN">Indija</territory>
 			<territory type="IO">Britanska Indija</territory>
 			<territory type="IQ">Irak</territory>

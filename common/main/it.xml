@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -837,30 +837,30 @@
 			<variant type="ROZAJ">resiano</variant>
 			<variant type="SAAHO">saho</variant>
 		</variants>
-		<keys>
-			<key type="calendar">Calendario</key>
-			<key type="collation">Collazione</key>
-			<key type="currency">Valuta</key>
+		<keys casing="lowercase-words">
+			<key type="calendar">calendario</key>
+			<key type="collation">collazione</key>
+			<key type="currency">valuta</key>
 		</keys>
-		<types>
-			<type type="big5han" key="collation">Cinese Tradizionale</type>
-			<type type="buddhist" key="calendar">Calendario Buddista</type>
-			<type type="chinese" key="calendar">Calendario Cinese</type>
-			<type type="direct" key="collation">Ordine Diretto</type>
-			<type type="gb2312han" key="collation">Cinese Semplificato</type>
-			<type type="gregorian" key="calendar">Calendario Gregoriano</type>
-			<type type="hebrew" key="calendar">Calendario Ebraico</type>
-			<type type="islamic" key="calendar">Calendario Islamico</type>
-			<type type="islamic-civil" key="calendar">Calendario Civile Islamico</type>
-			<type type="japanese" key="calendar">Calendario Giapponese</type>
-			<type type="phonebook" key="collation">Ordine Elenco Telefonico</type>
-			<type type="pinyin" key="collation">Ordine Pinyin</type>
-			<type type="stroke" key="collation">Ordine Segni</type>
-			<type type="traditional" key="collation">Ordine Tradizionale</type>
+		<types casing="lowercase-words">
+			<type type="big5han" key="collation">cinese tradizionale</type>
+			<type type="buddhist" key="calendar">calendario buddista</type>
+			<type type="chinese" key="calendar">calendario cinese</type>
+			<type type="direct" key="collation">ordine diretto</type>
+			<type type="gb2312han" key="collation">cinese semplificato</type>
+			<type type="gregorian" key="calendar">calendario gregoriano</type>
+			<type type="hebrew" key="calendar">calendario ebraico</type>
+			<type type="islamic" key="calendar">calendario islamico</type>
+			<type type="islamic-civil" key="calendar">calendario civile islamico</type>
+			<type type="japanese" key="calendar">calendario giapponese</type>
+			<type type="phonebook" key="collation">ordine elenco telefonico</type>
+			<type type="pinyin" key="collation">ordine pinyin</type>
+			<type type="stroke" key="collation">ordine segni</type>
+			<type type="traditional" key="collation">ordine tradizionale</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="US">USA</measurementSystemName>
-			<measurementSystemName type="metric">Metrico</measurementSystemName>
+			<measurementSystemName type="metric">metrico</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>

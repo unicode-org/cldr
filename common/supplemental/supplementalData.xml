@@ -1116,8 +1116,10 @@ XXX	Code for transations where no currency is involved
 		<language type="bal" scripts="Arab Latn" territories="PK"/>
 		<language type="be" scripts="Cyrl" territories="BY"/>
 		<language type="bg" scripts="Cyrl" territories="BG"/>
+		<language type="bho" scripts="Deva" territories="IN NP MU"/>
 		<language type="bn" scripts="Beng" territories="BD IN"/>
 		<language type="bo" scripts="Tibt" territories="CN IN NP" alt="secondary"/>
+		<language type="br" scripts="Latn" territories="FR"/>
 		<language type="bs" scripts="Latn" territories="BA"/>
 		<language type="bs" scripts="Latn" territories="HR ME RS" alt="secondary"/>
 		<language type="byn" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
@@ -1125,7 +1127,9 @@ XXX	Code for transations where no currency is involved
 		<language type="cch" scripts="Latn" territories="NG"/>
 		<language type="cch" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="ch" scripts="Latn" territories="GU MP"/>
+		<language type="ceb" scripts="Latn" territories="PH"/>
 		<language type="chr" scripts="Latn Cher" territories="US" alt="secondary"/>
+		<language type="co" scripts="Latn" territories="FR"/>
 		<language type="cop" scripts="Copt Arab" territories="EG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="cop" scripts="Copt Arab" territories="US" alt="secondary"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="cpe" scripts="Latn" territories="SL"/>
@@ -1187,7 +1191,9 @@ XXX	Code for transations where no currency is involved
 		<language type="it" scripts="Latn" territories="HR SI" alt="secondary"/>
 		<language type="iu" scripts="Cans Cyrl Latn" territories="CA GL US RU" alt="secondary"/>
 		<language type="iu" scripts="Cans" /> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="ja" scripts="Hani Hira Kana" territories="GU JP PW"/>
+		<language type="ja" scripts="Japn Hani Hira Kana Hrkt" territories="GU JP PW"/>
+		<language type="jv" scripts="Latn" territories="ID MY"/>
+		<language type="jv" scripts="Java"  alt="secondary"/>
 		<language type="ka" scripts="Geor" territories="GE"/>
 		<language type="kaj" scripts="Latn" territories="NG"/>
 		<language type="kaj" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
@@ -1207,7 +1213,7 @@ XXX	Code for transations where no currency is involved
 		<language type="ku" scripts="Arab Latn Cyrl" territories="IQ IR TR"/>
 		<language type="ku" scripts="Arab Latn Cyrl" territories="SY" alt="secondary"/>
 		<language type="kw" scripts="Latn" territories="GB" alt="secondary"/>
-		<language type="ky" scripts="Arab Cyrl" territories="CN" alt="secondary"/>
+		<language type="ky" scripts="Cyrl Arab" territories="CN" alt="secondary"/>
 		<language type="ky" scripts="Arab Cyrl" territories="KG"/>
 		<language type="la" scripts="Latn" territories="VA"/>
 		<language type="lb" scripts="Latn" territories="LU"/>
@@ -1227,7 +1233,8 @@ XXX	Code for transations where no currency is involved
 		<language type="mni" territories="IN"/>
 		<language type="mo" scripts="Latn Cyrl" territories="MD"/>
 		<language type="mr" scripts="Deva" territories="IN"/>
-		<language type="ms" scripts="Arab Latn" territories="BN CC CX MY SG"/>
+		<language type="ms" scripts="Latn" territories="BN CC CX MY SG"/>
+		<language type="ms" scripts="Arab" alt="secondary"/>
 		<language type="mt" scripts="Latn" territories="MT"/>
 		<language type="my" scripts="Mymr" territories="MM"/>
 		<language type="na" scripts="Latn" territories="NR"/>
@@ -1247,7 +1254,7 @@ XXX	Code for transations where no currency is involved
 		<language type="or" scripts="Orya" territories="IN"/>
 		<language type="os" scripts="Latn" territories="GE RU" alt="secondary"/>
 		<language type="pa" scripts="Arab Guru" territories="IN PK"/>
-		<language type="pau" territories="PW"/>
+		<language type="pau" scripts="Latn" territories="PW"/>
 		<language type="pl" scripts="Latn" territories="PL"/>
 		<language type="ps" scripts="Arab" territories="AF PK"/>
 		<language type="pt" scripts="Latn" territories="AO BR CV GW MO MZ PT ST TL"/>
@@ -1260,7 +1267,7 @@ XXX	Code for transations where no currency is involved
 		<language type="ru" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="rw" scripts="Latn" territories="RW"/>
 		<language type="sa" scripts="Deva" territories="IN"/>
-		<language type="sd" scripts="Deva Arab" territories="IN PK"/>
+		<language type="sd" scripts="Arab Deva" territories="IN PK"/>
 		<language type="se" scripts="Latn" territories="FI NO SE"/> <!-- Reflecting submitted data, cldrbug #1013 -->
 		<language type="sg" scripts="Latn" territories="CF"/>
 		<language type="sh" scripts="Latn" territories="BA HR ME RS" alt="secondary"/> <!-- this one is only aliases.. -->
@@ -1290,7 +1297,8 @@ XXX	Code for transations where no currency is involved
 		<language type="te" scripts="Telu" territories="IN"/>
 		<language type="tem" scripts="Latn" territories="SL"/>
 		<language type="tet" scripts="Latn" territories="TL"/>
-		<language type="tg" scripts="Arab Cyrl Latn" territories="TJ"/>
+		<language type="tg" scripts="Arab Cyrl Latn" territories="TJ PK"/>
+		<language type="tg" scripts="Latn" alt="secondary"/>
 		<language type="th" scripts="Thai" territories="TH"/>
 		<language type="ti" scripts="Ethi" territories="ER ET"/>
 		<language type="tig" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
@@ -1302,7 +1310,8 @@ XXX	Code for transations where no currency is involved
 		<language type="tn" scripts="Latn" territories="BW ZA"/>
 		<language type="to" scripts="Latn" territories="TO"/>
 		<language type="tpi" scripts="Latn" territories="PG"/>
-		<language type="tr" scripts="Arab Latn" territories="CY TR"/>
+		<language type="tr" scripts="Latn" territories="CY TR"/>
+		<language type="tr" scripts="Arab" alt="secondary"/>
 		<language type="ts" scripts="Latn" territories="ZA"/>
 		<language type="tt" scripts="Cyrl" territories="RU"/> <!-- Reflecting submitted data, cldrbug #1013. Official language of Republic of Tatarstan according to http://en.wikipedia.org/wiki/Tatar_language#Official_status -->
 		<language type="tvl" scripts="Latn" territories="TV"/>

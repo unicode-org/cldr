@@ -34,14 +34,14 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class Vetting {
     private static java.util.logging.Logger logger;
     
-    public static final String CLDR_RESULT = "cldr_result";
-    public static final String CLDR_VET = "cldr_vet";
-    public static final String CLDR_INTGROUP = "cldr_intgroup";
-    public static final String CLDR_STATUS = "cldr_status";
+    public static final String CLDR_RESULT = "cldr_result"; /** constant for table access **/
+    public static final String CLDR_VET = "cldr_vet"; /** constant for table access **/
+    public static final String CLDR_INTGROUP = "cldr_intgroup"; /** constant for table access **/
+    public static final String CLDR_STATUS = "cldr_status"; /** constant for table access **/
     
     
-    public static final int VET_EXPLICIT = 0; // explicit
-    public static final int VET_IMPLIED  = 1; // implicit
+    public static final int VET_EXPLICIT = 0; /** 0: vote was explicitly made by user **/
+    public static final int VET_IMPLIED  = 1; /** 1: vote was implicitly made by user as a result of new data entry **
 
     /* 
         0: no votes (and some draft data) - NO resolution
@@ -51,24 +51,30 @@ public class Vetting {
         U: normal, unanimous
         N: No new data was entered.  Resolved item is the original, nondraft data.
     */
-    public static final int RES_NO_VOTES        = 1;      // 0 No votes for data
-    public static final int RES_INSUFFICIENT    = 2;      // I Not enough votes
-    public static final int RES_DISPUTED        = 4;      // disputed
+    public static final int RES_NO_VOTES        = 1;      /** 1:0 No votes for data (and some draft data) - NO resolution **/
+    public static final int RES_INSUFFICIENT    = 2;      /** 2:I Not enough votes **/
+    public static final int RES_DISPUTED        = 4;      /** 4:D disputed item **/
 
-    public static final int RES_BAD_MAX = RES_DISPUTED;  // Data is OK (has an xpath) if (type > RES_BAD_MAX)
-    public static final int RES_BAD_MASK  = RES_NO_VOTES|RES_INSUFFICIENT|RES_DISPUTED;
+    public static final int RES_BAD_MAX = RES_DISPUTED;  /** Data is OK (has a valid xpath in final data) if (type > RES_BAD_MAX) **/
+    public static final int RES_BAD_MASK  = RES_NO_VOTES|RES_INSUFFICIENT|RES_DISPUTED;  /** bitmask for testing 'BAD' (invalid) **/
     
     
-    public static final int RES_ADMIN           = 8;      //  ADmin override
-    public static final int RES_TC              = 16;     // TC override (or, TC at least..)
-    public static final int RES_GOOD            = 32; // normal, unanimous
-    public static final int RES_UNANIMOUS       = 64; // no new data
-    public static final int RES_NO_CHANGE       = 128; // no new data
-    public static final int RES_REMOVAL         = 256; // no new data
+    public static final int RES_ADMIN           = 8;   /** 8:A Admin override **/
+    public static final int RES_TC              = 16;  /** 16:T  TC override (or, TC voted at least..) **/
+    public static final int RES_GOOD            = 32;  /** 32:G good - normal **/
+    public static final int RES_UNANIMOUS       = 64;  /** 64:U  unamimous **/
+    public static final int RES_NO_CHANGE       = 128; /** 128:N no new data **/
+    public static final int RES_REMOVAL         = 256; /** 256: result: removal **/
 
-    public static final String RES_LIST = "0IDATGUNR";
-	public static final String TWID_VET_VERBOSE = "Vetting_Verbose";
-	boolean VET_VERBOSE=false;
+    public static final String RES_LIST = "0IDATGUNR"; /** list of strings for type 2**n.  @see typeToStr **/
+	public static final String TWID_VET_VERBOSE = "Vetting_Verbose"; /** option string for toggling verbosity in vetting **/
+	boolean VET_VERBOSE=false; /** option boolean for verbose vetting, defaults to false **/
+    
+    /**
+     * Convert a vetting type to a string
+     * @param t a type
+     * @return string format
+     **/
     public static String typeToStr(int t) {
         if(t==0) {
             return "z";
@@ -83,15 +89,16 @@ public class Vetting {
     }
     
     /** 
-     * Called by SM to create the reg
+     * Called by SurveyMain to create the vetting table
      * @param xlogger the logger to use
      * @param ourConn the conn to use
      * @param isNew  true if should CREATE TABLEs
+     * @return vetting service object
      */
     public static Vetting createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
         Vetting reg = new Vetting(xlogger,ourConn,sm);
         reg.setupDB(); // always call - we can figure it out.
-        reg.myinit();
+        reg.initStmts();
 //        logger.info("Vetting DB: Created.");
 
 		// initialize twid parameters
@@ -100,14 +107,17 @@ public class Vetting {
         return reg;
     }
 
-    public Vetting(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain ourSm) {
+    /**
+     * Internal Constructor for creating Vetting objects
+     */
+    private Vetting(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain ourSm) {
         logger = xlogger;
         conn = ourConn;
         sm = ourSm;
     }
     
     /**
-     * Called by SM to shutdown
+     * Called by SurveyMain to shutdown
      */
     public void shutdownDB() throws SQLException {
         synchronized(conn) {
@@ -193,14 +203,27 @@ public class Vetting {
         }
     }
     
+    /**
+     * the Vetting sql connection
+     */
     public Connection conn = null;
+    
+    /**
+     * alias to the SurveyMain
+     * @see SurveyMain
+     */
     SurveyMain sm = null;
     
+    /**
+     * for future use - reports on vetting statistics
+     */
     public String statistics() {
         return "Vetting: nothing to report";
     }
     
-    
+    /**
+     * prepare statements for this connection 
+     **/ 
     public PreparedStatement prepareStatement(String name, String sql) {
         PreparedStatement ps = null;
         try {
@@ -242,7 +265,10 @@ public class Vetting {
     PreparedStatement listBadResults= null;
 	PreparedStatement highestVetter = null;
     
-    public void myinit() throws SQLException {
+    /**
+     * initialize prepared statements
+     */
+    private void initStmts() throws SQLException {
         synchronized(conn) {
             missingImpliedVotes = prepareStatement("missingImpliedVotes", 
             "select distinct CLDR_DATA.submitter,CLDR_DATA.base_xpath from CLDR_DATA WHERE "+
@@ -308,6 +334,10 @@ public class Vetting {
         }
     }
     
+    /**
+     * update all implied votes ( where a user has entered a new data item, they are assumed to be voting for that item )
+     * @return number of votes that were updated
+     */
     public int updateImpliedVotes() {
         ElapsedTimer et = new ElapsedTimer();
         System.err.println("updating implied votes..");
@@ -336,6 +366,11 @@ public class Vetting {
         return tcount;
     }
     
+    /**
+     * update implied votes for one locale
+     * @param locale which locale 
+     * @return locale count
+     */
     public int updateImpliedVotes(String locale) {
         int count = 0;
         int updates = 0;
@@ -419,13 +454,25 @@ public class Vetting {
             return count;
         }
     }
-    static Collator getOurCollator() {
+    
+    /**
+     * private utility to create a new collator which can sort numerically
+     */
+    static private Collator getOurCollator() {
         RuleBasedCollator rbc = 
             ((RuleBasedCollator)Collator.getInstance());
         rbc.setNumericCollation(true);
         return rbc;
     }
     
+    /**
+     * return the result of a particular contest
+     * @param locale which locale
+     * @param userid of the submitter
+     * @param base_xpath base xpath id to check
+     * @return result of vetting, RES_NO_VOTES, etc.
+     * @see XPathTable
+     */
     public int queryVote(String locale, int submitter, int base_xpath) {
         synchronized(conn) {
             try {
@@ -446,6 +493,13 @@ public class Vetting {
         }
     }
     
+    
+    /**
+     * get a Set consisting of all of the users which voted on a certain path
+     * @param locale which locale
+     * @param base_xpath string xpath to gather for
+     * @return a Set of UserRegistry.User objects
+     */
     public Set gatherVotes(String locale, String base_xpath) {
         int base_xpath_id = sm.xpt.getByXpath(base_xpath);
         synchronized(conn) {
@@ -472,9 +526,15 @@ public class Vetting {
         }
     }
     
+    /**
+     * The static collator to use
+     */
     final Collator myCollator = getOurCollator();
 
-    // this is a *bit* bogus right now, because no notification happens
+    /**
+     * update all vetting results
+     * @return the number of results changed
+     */
     public int updateResults() {
         System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
         ElapsedTimer et = new ElapsedTimer();
@@ -513,6 +573,12 @@ public class Vetting {
         return tcount;
     }
     
+    /**
+     * update the results of a specific locale, without caring what kind of results were had.  This is a convenience
+     * function so you don't have to new up an array.
+     * @param locale which locale
+     * @return number of results changed
+     */
     public int updateResults(String locale) {
         ElapsedTimer et2 = new ElapsedTimer();
         int type[] = new int[1];
@@ -521,8 +587,15 @@ public class Vetting {
         return count;
     }
     
+    /**
+     * update the results of a specific locale, and return the bitwise OR of all types of results had
+     * @param locale which locale
+     * @param type an OUT parameter, must be a 1-element ( new int[1] ) array. input value doesn't matter. on output, 
+     * contains the bitwise OR of all types of vetting results which were found.
+     * @return number of results changed
+     **/
     public int updateResults(String locale, int type[]) {
-		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE);
+		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE); // load user prefs: should we do verbose vetting?
         int ncount = 0; // new count
         int ucount = 0; // update count
         int updates = 0;
@@ -571,7 +644,7 @@ public class Vetting {
                     base_xpath = rs.getInt(2);
                     
                     int rc = updateResults(id, locale, base_xpath);
-//    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+                    //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
                     updates |= rc;
                 }
                 if(ucount > 0) {
@@ -596,22 +669,32 @@ public class Vetting {
     }
     
     /**
-     * This class represents a particular item that can be voted for.
-     * Not to be confused with the Chadless version of the survey tool.
+     * This class represents a particular item that can be voted for,
+     * a single "contest" if you will.
+     * TODO: implement the Chadless version of the survey tool.
      */
     class Chad {
-        public int xpath;
-        public Set voters = new HashSet(); // Set of users which voted for this.
+        public int xpath; /** xpath of this item **/
+        public Set voters = new HashSet(); /** Set of users which voted for this. **/
         
-        // calculated
-        public boolean admin_voted_for = false;
-        public boolean quorum = false;
-        public boolean someone_voted_for = false;
-        public boolean removal = false; // is this a vote for Removal?
+        // calculated:
+        public boolean admin_voted_for = false; /** did an admin vote for it ? **/
+        public boolean quorum = false; /** do we have a quorum? **/
+        public boolean someone_voted_for = false; /** did anyone at all vote for it? **/
+        public boolean removal = false; /** is this a vote for Removal? **/
         
+        /**
+         * construct a Chad over a certain xpath id
+         * @param x the id
+         */
         Chad(int x) {
             xpath = x;
         }
+        
+        /**
+         * Register a vote for a particular user
+         * @param u the user
+         */
         void vote(UserRegistry.User u) {
             voters.add(u);
             
@@ -642,6 +725,10 @@ public class Vetting {
             }
         }
         
+        /**
+         * return a Chad in string format
+         * for debugging
+         */
         public String toString() {
             String rs ="";
             if(quorum) {
@@ -667,8 +754,11 @@ public class Vetting {
         }
     };
     
+     
+    Map chads = new HashMap();
+
     /**
-     * This function doesn't acquire a lock, ONLY call it from updateResults().  Also, it does not call commmit().
+     * This function doesn't acquire a lock, so ONLY call it from updateResults().  Also, it does not call commmit().
      *
      * EXPECTS that the following is already called:
      *               dataByBase.setString(1,locale);
@@ -678,10 +768,10 @@ public class Vetting {
      *
      *
      * @param id ID of item to update (or, -1 if no existing item, i.e. needs to be inserted. 
-     */
-     
-    Map chads = new HashMap();
-     
+     * @param locale the locale
+     * @param base_xpath the base xpath that is being considered
+     * @return the type of the vetting result. 
+     */     
     private int updateResults(int id, String locale, int base_xpath) throws SQLException {
         chads.clear();
 
@@ -737,8 +827,8 @@ public class Vetting {
                 //System.err.println(locale+":"+base_xpath+" - Collected "+count+" votes in " + chads.size() + " chads");                
             }
         }
-                    
-        if((type==-1) && !chads.isEmpty()) {
+        
+        if((type==-1) && !chads.isEmpty()) { // no resolution AND someone did vote.
             int number_voted_for=0;
             boolean sawQuorum = false;
             boolean tcOverride = false;
@@ -855,6 +945,7 @@ public class Vetting {
             }
                         
             if(type==-1) {
+                // no other resolution - was there an existing item?
                 if((count==1) && sawExisting && !sawProposed) {
                     resultXpath = existingXpath;
                     //System.err.println(base_xpath + " - no new data (existing " + resultXpath+")");
@@ -866,21 +957,29 @@ public class Vetting {
             }
         } // end no-votes
         
+        // resulted in -1 and was bad - sanity check. Should have fallen back to something. 
         if((resultXpath==-1)&&
            (type>RES_BAD_MAX)) {
             throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+
                     " - no resultXpath and type is " + typeToStr(type));
         }
+        
         if(type==-1) {
+            // another sanity check. Should have had a resolution here.
             throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+" - no type");
         }
         
+        // --------
+        // Now, update the vote results
         int setXpath = resultXpath;
+        
         if(setXpath==-1) {
+            // fallback situation
             setXpath = fallbackXpath;
         }
         
         if(id == -1) { 
+            // Not an existing vote:  insert a new oen
             // insert 
         // insertResult: "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             insertResult.setInt(2,base_xpath);
@@ -904,7 +1003,7 @@ public class Vetting {
             }
             return type;
         } else {
-            // get the old one
+            // existing vote: get the old one
             // ... for now, just do an update
             // update CLDR_RESULT set vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
             updateResult.setInt(1, setXpath);
@@ -918,6 +1017,15 @@ public class Vetting {
         }
     }
     
+    /**
+     * fetch the result of vetting.
+     * @param locale locale to look at
+     * @param base_xpath the item under consideration
+     * @param type an OUT parameter, must be a 1-element ( new int[1] ) array. input value doesn't matter. on output, 
+     * the result type. 
+     * @return the winning xpath id
+     * @see updateResults
+     */
     int queryResult(String locale, int base_xpath, int type[]) {
         // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
@@ -952,6 +1060,13 @@ public class Vetting {
         }
     }
 	
+    /**
+     * What was the most privileged user who voted for this? 
+     * i.e. if a Vetter and a TC vote for it, it returns TC.
+     * @param locale locale
+     * @param base_xpath the base xpath
+     * @return UserRegistry.User level
+     */
 	int highestLevelVotedFor(String locale, int base_xpath) {
 		int rv=-1;
         synchronized(conn) {
@@ -974,6 +1089,14 @@ public class Vetting {
         }
 	}
     
+    /**
+     * Undo a vote. Whatever the vote was, remove it.
+     * This is useful if we are about to recalculate the vote or recast it.
+     * @param locale locale
+     * @param base_xpath
+     * @param submitter userid of the submitter
+     * @return 1 if successful
+     */
     int unvote(String locale, int base_xpath, int submitter) {
         //rmVote;
         synchronized(conn) {
@@ -994,6 +1117,15 @@ public class Vetting {
         }
     }
     
+    /**
+     * Cast a vote.
+     * @param locale the locale
+     * @param base_xpath the base xpath
+     * @param submitter the submitter's ID
+     * @param vote_xpath the exact xpath voting for
+     * @param type either VET_IMPLICIT or VET_EXPLICIT if this is to be recorded as an implicit or explicit vote.
+     */
+     
     void vote(String locale, int base_xpath, int submitter, int vote_xpath, int type) {
         synchronized(conn) {
             try {
@@ -1032,8 +1164,14 @@ public class Vetting {
         }
     }
     
-    // called from updateStatus(). 
-    // Assumes caller has lock, and that caller will call commit()
+    /**
+     *  called from updateStatus(). 
+     * Collects the vetting type ( good, disputed, etc.. ) and updates the locale-level status row.
+     * Assumes caller has lock, and that caller will call commit()
+     * @param locale the locale
+     * @param isUpdate true if to do an update, otherwise insert
+     * @return number of rows affected, normally 1 if successful.
+     */
     private int updateStatus(String locale, boolean isUpdate) throws SQLException {
         queryTypes.setString(1, locale);
         ResultSet rs = queryTypes.executeQuery();
@@ -1055,6 +1193,10 @@ public class Vetting {
         
     }
     
+    /**
+     * Update any status which is missing. 
+     * @return number of locales updated
+     */
     int updateStatus() { // updates MISSING status
         synchronized(conn) {
             // missing ones 
@@ -1078,6 +1220,11 @@ public class Vetting {
         }
     }
     
+    /**
+     * Get the status of a particular locale, as a bitwise OR of good, disputed, etc.. 
+     * @param locale the locale
+     * @return bitwise OR of good, disputed, etc.
+     */
     int status(String locale) {
         synchronized(conn) {
             // missing ones 
@@ -1111,6 +1258,12 @@ public class Vetting {
      *    Integer(userid)   ->   String body-of-mail-to-send
      * 
      * This way, users only get one mail per service.
+     * 
+     * this function sends out mail waiting in the buckets.
+     * 
+     * @param mailBucket map of mail going out already. (IN)
+     * @param title the title of this mail
+     * @return number of mails sent.
      */
     int sendBucket(Map mailBucket, String title) {
         int n =0;
@@ -1152,6 +1305,9 @@ public class Vetting {
         return n;
     }
     
+    /**
+     * Send out the Nag emails.
+     */
     void doNag() {
         Map mailBucket = new HashMap(); // mail bucket: 
     
@@ -1174,6 +1330,13 @@ public class Vetting {
         }
     }
     
+    /** 
+     * compose nags for one group
+     * @param mailBucket IN/OUT of mail waiting to go out
+     * @param intUsers interested users in this group
+     * @param group the interest group being processed
+     * @param s the list of locales contained in interest group 'group'
+     */
     void doNag(Map mailBucket, Set intUsers, String group, Set s) {
         // First, are there any problems here?
         String complain = null;
@@ -1225,6 +1388,12 @@ public class Vetting {
     }
 
 
+    /**
+     * Send out dispute nags for one organization.
+     * @param  message your special message
+     * @param org the organization
+     * @return number of mails sent.
+     */
     int doDisputeNag(String message, String org) {
         Map mailBucket = new HashMap(); // mail bucket: 
     
@@ -1251,7 +1420,7 @@ public class Vetting {
 
 
 	/**
-	 * Send mail to certain users with details about disputed items.
+	 * Compose mail to certain users with details about disputed items.
 	 *  
 	 * @param mailBucket the bucket of outbound mail
 	 * @param intUsers map of locale -> users
@@ -1353,11 +1522,19 @@ public class Vetting {
         }
     }
 
-    
+    /**
+     * empty function
+     * TODO: why is this function empty?
+     */
     void doUpdate() {
     }
     
-    
+    /**
+     * how many results of this type for this locale? I.e. N disputed .. 
+     * @param locale the locale
+     * @param type the type to consider (not a bitfield)
+     * @return number of results in this locale that are of this type
+     */
     int countResultsByType(String locale, int type) {
         int rv = 0;
         synchronized(conn) {
@@ -1380,44 +1557,60 @@ public class Vetting {
         return rv;
     }
     
+    /**
+     * Pull in a ResultSet of the bad (unresolved) results for this locale
+     * @param locale the locale
+     * @return the ResultSet - caller must close it, etc!
+     */
     ResultSet listBadResults(String locale) {
         ResultSet rs = null;
         synchronized(conn) {
-        try {
-            listBadResults.setString(1,locale);
-            
-            rs = listBadResults.executeQuery();
-        } catch ( SQLException se ) {
-            String complaint = "Vetter:  couldn't  query bad results - loc=" + locale + ", type=BAD - " + SurveyMain.unchainSqlException(se);
-            logger.severe(complaint);
-            se.printStackTrace();
-            throw new RuntimeException(complaint);
-        }
+            try {
+                listBadResults.setString(1,locale);
+                
+                rs = listBadResults.executeQuery();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  query bad results - loc=" + locale + ", type=BAD - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
         }
         return rs;
     }
     
-    java.sql.Timestamp getTimestamp(boolean forNag,String locale, boolean reset) {
+    /**
+     * get the timestamp of when this group was last nagged
+     * @param forNag TRUE for nag,  FALSE for informational
+     * @param locale which locale
+     * @param reset should the timestamp be reset?? [ TODO: currently this param is IGNORED. ]
+     * @return the java.sql.Timestamp of when this group was last nagged.
+     */
+    java.sql.Timestamp getTimestamp(boolean forNag, String locale, boolean reset) {
         java.sql.Timestamp ts = null;
         synchronized(conn) {
-        try {
-            intQuery.setString(1,locale);
-            
-            ResultSet rs = intQuery.executeQuery();
-            if(rs.next()) {
-                ts =  rs.getTimestamp(forNag?1:2);
+            try {
+                intQuery.setString(1,locale);
+                
+                ResultSet rs = intQuery.executeQuery();
+                if(rs.next()) {
+                    ts =  rs.getTimestamp(forNag?1:2);
+                }
+                rs.close();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  query timestamp - nag=" + forNag + ", forRest="+reset+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
             }
-            rs.close();
-        } catch ( SQLException se ) {
-            String complaint = "Vetter:  couldn't  query timestamp - nag=" + forNag + ", forRest="+reset+" - " + SurveyMain.unchainSqlException(se);
-            logger.severe(complaint);
-            se.printStackTrace();
-            throw new RuntimeException(complaint);
-        }
         }
         return ts;
     }
 	
+    /**
+     * Show the 'disputed' page.
+     * @param ctx webcontext for IN/OUT stuff
+     */
     void doDisputePage(WebContext ctx) {
         Map m = new TreeMap();
         int n = 0;

@@ -687,7 +687,7 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
         title = pod.intgroup + " forum" /*+ title*/;
-        ctx.println("<a href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>\u2709</a>");
+        ctx.println("<a href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>[zoom]</a>");
         
     }
 

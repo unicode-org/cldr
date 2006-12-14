@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Copyright © 2003-2006 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode data files and any associated documentation (the "Data Files") or Unicode software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that (a) the above copyright notice(s) and this permission notice appear with all copies of the Data Files or Software, (b) both the above copyright notice(s) and this permission notice appear in associated documentation, and (c) there is clear notice in each modified Data File or in the Software as well as in the documentation associated with the Data File(s) or Software that the data or software has been modified.
@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.82 $
-$Date: 2006-11-30 15:13:49 $
+$Revision: 1.83 $
+$Date: 2006-12-14 22:35:10 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -591,7 +591,7 @@ $Date: 2006-11-30 15:13:49 $
 <!ATTLIST appendItem references CDATA #IMPLIED >
 <!ATTLIST appendItem alt CDATA #IMPLIED >
 
-<!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) >
 <!ATTLIST timeZoneNames draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
@@ -627,7 +627,7 @@ $Date: 2006-11-30 15:13:49 $
 <!ATTLIST abbreviationFallback draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST abbreviationFallback references CDATA #IMPLIED >
 
-<!ELEMENT preferenceOrdering EMPTY >
+<!ELEMENT preferenceOrdering EMPTY > <!-- deprecated, use metazones instead -->
 <!ATTLIST preferenceOrdering type CDATA #IMPLIED > <!-- deprecated in favor of choice -->
 <!ATTLIST preferenceOrdering choice CDATA #IMPLIED > <!-- really required, but needs to be optional to support type also -->
 <!ATTLIST preferenceOrdering alt CDATA #IMPLIED >
@@ -640,7 +640,7 @@ $Date: 2006-11-30 15:13:49 $
 <!ATTLIST singleCountries draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST singleCountries references CDATA #IMPLIED >
 
-<!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) >
+<!ELEMENT zone (alias | ( long*, short*, exemplarCity*, usesMetazone*, special*)) >
 <!ATTLIST zone type CDATA #REQUIRED >
 <!ATTLIST zone draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST zone standard CDATA #IMPLIED >
@@ -648,12 +648,26 @@ $Date: 2006-11-30 15:13:49 $
 <!ATTLIST zone alt CDATA #IMPLIED >
 <!ATTLIST zone validSubLocales CDATA #IMPLIED >
 
+<!ELEMENT metazone (alias | ( long*, short*, special*)) >
+<!ATTLIST metazone type CDATA #REQUIRED >
+<!ATTLIST metazone draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST metazone standard CDATA #IMPLIED >
+<!ATTLIST metazone references CDATA #IMPLIED >
+<!ATTLIST metazone alt CDATA #IMPLIED >
+<!ATTLIST metazone validSubLocales CDATA #IMPLIED >
+
 <!ELEMENT long (alias | (generic*, standard*, daylight*, special*)) >
 <!ATTLIST long draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST long references CDATA #IMPLIED >
 <!ATTLIST long alt CDATA #IMPLIED >
 <!ATTLIST long validSubLocales CDATA #IMPLIED >
 <!ATTLIST long casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) "mixed" >
+
+<!ELEMENT short (alias | (generic*, standard*, daylight*, commonlyUsed*, special*)) >
+<!ATTLIST short draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST short references CDATA #IMPLIED >
+<!ATTLIST short alt CDATA #IMPLIED >
+<!ATTLIST short validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT generic ( #PCDATA ) >
 <!ATTLIST generic draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -667,22 +681,31 @@ $Date: 2006-11-30 15:13:49 $
 <!ATTLIST standard alt CDATA #IMPLIED >
 <!ATTLIST standard casing (verbatim) #IMPLIED >
 
-<!ELEMENT short (alias | (generic*, standard*, daylight*, special*)) >
-<!ATTLIST short draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST short references CDATA #IMPLIED >
-<!ATTLIST short alt CDATA #IMPLIED >
-<!ATTLIST short validSubLocales CDATA #IMPLIED >
-
 <!ELEMENT daylight ( #PCDATA ) >
 <!ATTLIST daylight draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST daylight references CDATA #IMPLIED >
 <!ATTLIST daylight alt CDATA #IMPLIED >
 <!ATTLIST daylight casing (verbatim) #IMPLIED >
 
+<!ELEMENT commonlyUsed ( true | false ) #IMPLIED>
+<!ATTLIST commonlyUsed draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST commonlyUsed references CDATA #IMPLIED >
+<!ATTLIST commonlyUsed alt CDATA #IMPLIED >
+<!ATTLIST commonlyUsed casing (verbatim) #IMPLIED >
+
 <!ELEMENT exemplarCity ( #PCDATA ) >
 <!ATTLIST exemplarCity draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exemplarCity references CDATA #IMPLIED >
 <!ATTLIST exemplarCity alt CDATA #IMPLIED >
+
+<!ELEMENT usesMetazone EMPTY >
+<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
+<!ATTLIST usesMetazone from NMTOKEN #IMPLIED >
+<!ATTLIST usesMetazone to NMTOKEN #IMPLIED >
+<!ATTLIST usesMetazone draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST usesMetazone references CDATA #IMPLIED >
+<!ATTLIST usesMetazone alt CDATA #IMPLIED >
+<!ATTLIST usesMetazone casing (verbatim) #IMPLIED >
 
 <!ELEMENT fields ( alias | (field*, special*)) >
 <!ATTLIST fields draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

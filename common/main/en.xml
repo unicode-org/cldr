@@ -1123,14 +1123,14 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="provisional">MMM yyyy</dateFormatItem>
+						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -2288,8 +2288,8 @@
 		</currencies>
 	</numbers>
 	<references>
-		<reference type="R01" draft="unconfirmed"/>
-		<reference type="R02" draft="provisional"/>
+		<reference type="R01"/>
+		<reference type="R02"/>
 		<reference type="R03" uri="http://unstats.un.org/unsd/geoinfo/">UN Geographical Names</reference>
 		<reference type="R1">Special reference used only to prevent minimalization</reference>
 		<reference type="RP1" uri="isbn:0-321-18578-1">The Unicode Standard 4.0</reference>

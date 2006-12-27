@@ -860,13 +860,17 @@
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
+			<currency type="BRL">
+				<displayName>BRL</displayName>
+				<symbol>R$</symbol>
+			</currency>
 			<currency type="EUR">
 				<displayName>EUR</displayName>
 				<symbol>€</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>GBP</displayName>
-				<symbol>£</symbol>
+				<symbol>UK£</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>INR</displayName>
@@ -874,15 +878,15 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>ITL</displayName>
-				<symbol>₤</symbol>
+				<symbol>IT₤</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>JPY</displayName>
-				<symbol>¥</symbol>
+				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>USD</displayName>
-				<symbol>$</symbol>
+				<symbol>US$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

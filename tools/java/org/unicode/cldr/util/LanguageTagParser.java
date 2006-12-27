@@ -291,4 +291,31 @@ public class LanguageTagParser {
 	public String getLocaleExtensions() {
 		return localeExtensions;
 	}
+  
+  public LanguageTagParser setRegion(String region) {
+    this.region = region;
+    return this;
+  }
+  public LanguageTagParser setScript(String script) {
+    this.script = script;
+    return this;
+  }
+  
+  public String toString() {
+    String result = language;
+    if (this.script.length() != 0) result += "_" + script;
+    if (this.region.length() != 0) result += "_" + region;
+    if (this.variants.size() != 0) {
+      for (String variant : (Collection<String>) variants) {
+        result += "_" + variant;
+      }
+    }
+    return result;
+  }
+  public static String getParent(String localeCode) {
+    if (localeCode == null || localeCode.equals("root")) return null;
+    int pos = localeCode.lastIndexOf('_');
+    if (pos < 0) return "root";
+    return localeCode.substring(0,pos);
+  }
 }

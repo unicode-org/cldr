@@ -6,7 +6,7 @@
     <metadata>
         <attributeOrder>_q type key registry source target path day date version count lines characters before from to number time casing list uri iso4217 digits rounding iso3166 hex id request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary normalization numeric strength validSubLocales standard references elements element attributes attribute alt draft</attributeOrder>
         <elementOrder>ldml identity alias localeDisplayNames layout characters delimiters measurement dates numbers collations posix segmentations references version generation language script territory variant languages scripts territories variants keys types measurementSystemNames key type measurementSystemName orientation inList exemplarCharacters mapping quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd measurementSystem paperSize height width localizedPatternChars calendars timeZoneNames months monthNames monthAbbr days dayNames dayAbbr quarters week am pm eras dateFormats timeFormats dateTimeFormats fields month day quarter minDays firstDay weekendStart weekendEnd eraNames eraAbbr eraNarrow era pattern displayName dateFormatItem appendItem hourFormat hoursFormat gmtFormat regionFormat fallbackFormat abbreviationFallback preferenceOrdering singleCountries default calendar monthContext monthWidth dayContext dayWidth quarterContext quarterWidth dateFormatLength dateFormat timeFormatLength timeFormat dateTimeFormatLength availableFormats appendItems dateTimeFormat zone long short exemplarCity generic standard daylight field relative symbols decimalFormats scientificFormats percentFormats currencyFormats currencies decimalFormatLength decimalFormat scientificFormatLength scientificFormat percentFormatLength percentFormat currencySpacing currencyFormatLength beforeCurrency afterCurrency currencyMatch surroundingMatch insertBetween currencyFormat currency symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan collation messages yesstr nostr yesexpr noexpr segmentation variables segmentRules special variable rule comment base settings suppress_contractions optimize rules</elementOrder>
-        <serialElements>variable comment tRule reset p pc s sc t tc q qc i ic x extend first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing</serialElements>
+        <serialElements>variable comment tRule reset p pc s sc t tc q qc i ic x extend first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing languagePopulation</serialElements>
         <suppress>
             <attributes attribute="_q"/>
             <attributes element="collation" attribute="type" attributeValue="standard"/>
@@ -388,7 +388,7 @@
             <attributeValues elements="key" attributes="type" type="choice">calendar collation currency</attributeValues>
             <attributeValues elements="language" attributes="scripts">$script</attributeValues>
             <attributeValues elements="language" attributes="territories">$territory</attributeValues>
-            <attributeValues elements="language" attributes="type">$language</attributeValues>
+            <attributeValues elements="language" attributes="type">$locale</attributeValues>
             <attributeValues elements="language" attributes="variants">$variant</attributeValues>
             <attributeValues elements="languageAlias" attributes="replacement type" type="locale"/>
             <attributeValues elements="ldml" attributes="version">$version</attributeValues>
@@ -532,18 +532,19 @@
             <deprecatedItems attributes="draft" values="true false"/>
         </deprecated>
         <coverageAdditions>
-            <languageCoverage type="basic" values="de en es fr it ja pt ru zh"/>
+            <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant und"/>
             <languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>
             <!-- <languageCoverage type="moderate" subtype="EU" values="da el fi sv cs et lv lt hu mt sk sl"/> -->
             <!-- <languageCoverage type="modern" values="sr"/> from languageInfo -->
-            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab"/>
-            <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US"/>
-            <territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW"/>		
+            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab Zzzz"/>
+            <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US ZZ"/>
+            <territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW 419"/>		
             <timezoneCoverage type="moderate" values="America/Buenos_Aires America/Rio_Branco America/Campo_Grande America/Sao_Paulo
                 Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart
                 America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns
                 America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City
-                Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis America/New_York"	/>	
+                Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago 
+                America/Indianapolis America/New_York Etc/Unknown"	/>	
         </coverageAdditions>
         <skipDefaultLocale services="segmentation collation"/>
     </metadata>

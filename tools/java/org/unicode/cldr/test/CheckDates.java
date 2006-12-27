@@ -92,6 +92,7 @@ public class CheckDates extends CheckCLDR {
         notCovered.removeAll(baseSkeletons);
         if (notCovered.size() != 0) {
         	possibleErrors.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+              .setCheckOnSubmit(false)
         			.setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         }
         return this;

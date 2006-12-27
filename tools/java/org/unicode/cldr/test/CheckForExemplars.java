@@ -43,10 +43,10 @@ public class CheckForExemplars extends CheckCLDR {
 		CLDRFile resolvedFile = cldrFile.getResolved();
 		exemplars = resolvedFile.getExemplarSet("");
 		if (exemplars == null) {
-			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-			.setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
-			possibleErrors.add(item);
-			return this;
+		  CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+		  .setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
+		  possibleErrors.add(item);
+		  return this;
 		}
 		//UnicodeSet temp = resolvedFile.getExemplarSet("standard");
 		//if (temp != null) exemplars.addAll(temp);

@@ -36,6 +36,7 @@ public class CheckChildren extends CheckCLDR {
 		}
 		if (tempSet.values().contains(current)) return this;
 		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+    .setCheckOnSubmit(false)
 		.setMessage("Value always overridden in children: {0}", new Object[]{tempSet.keySet().toString()});
 		result.add(item);
 		tempSet.clear(); // free for gc

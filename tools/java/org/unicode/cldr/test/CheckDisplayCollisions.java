@@ -44,7 +44,8 @@ public class CheckDisplayCollisions extends CheckCLDR {
 					//Set codes = new TreeSet(s);
 					//codes.remove(code); // don't show self
 					CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-					.setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
+              .setCheckOnSubmit(false)
+              .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
 					result.add(item);
 				}
 				break;

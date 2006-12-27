@@ -37,8 +37,13 @@ public class CheckAlt extends CheckCLDR {
 		// if localeID is null, or if it is CODE_FALLBACK_ID or root, we have a potential problem.
 		if (localeID == null || localeID.equals(XMLSource.CODE_FALLBACK_ID)) { //  || localeID.equals("root")
 			String message = strippedPath;
-			if (seenSoFar.contains(strippedPath)) message += "MULTIPLE! ";
+      boolean checkOnSubmit = true;
+			if (seenSoFar.contains(strippedPath)) {
+        message += "MULTIPLE! ";
+        checkOnSubmit = false;
+      }
 			result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+          .setCheckOnSubmit(checkOnSubmit)
 					.setMessage("Proposed item but no unproposed variant", new Object[]{}));
 			seenSoFar.add(strippedPath);
 		}

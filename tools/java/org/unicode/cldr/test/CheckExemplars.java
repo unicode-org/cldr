@@ -17,7 +17,7 @@ public class CheckExemplars extends CheckCLDR {
 	Collator spaceCol;
 	boolean isRoot;
 	static final UnicodeSet HangulSyllables = new UnicodeSet("[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]");
-	static final UnicodeSet AlwaysOK = new UnicodeSet("[[:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]]"); // [:script=common:][:script=inherited:]
+	static final UnicodeSet AlwaysOK = new UnicodeSet("[[[:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]] [\u066A-\u066C]]"); //[\\u200c-\\u200f] [:script=common:][:script=inherited:]
 	static final UnicodeSet AllowedInExemplars = new UnicodeSet(AlwaysOK).complement()
 		.removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]"));

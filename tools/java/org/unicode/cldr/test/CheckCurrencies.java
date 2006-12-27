@@ -4,8 +4,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CheckCurrencies extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll

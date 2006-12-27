@@ -82,6 +82,7 @@ abstract public class CheckCLDR {
     .add(new CheckZones())
     .add(new CheckAlt())
     .add(new CheckCurrencies())
+    .add(new CheckCasing())
     ;
   }
   

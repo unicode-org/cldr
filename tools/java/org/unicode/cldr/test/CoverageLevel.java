@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -261,7 +262,16 @@ public class CoverageLevel {
             String territory = (String) it.next();
             setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), CoverageLevel.Level.BASIC, true);
         }
+
+        // special case XXX, Etc/Unknown
+        Set temp = new HashSet();
+        temp.add("XXX");
+        setIfBetter(currency_level, temp, CoverageLevel.Level.BASIC, false);
         
+        Set temp2 = new HashSet();
+        temp2.add("Etc/Unknown");
+        setIfBetter(zone_level, temp, CoverageLevel.Level.BASIC, false);
+
         
         if (CheckCoverage.DEBUG) {
             System.out.println(language_level);               
@@ -332,10 +342,10 @@ public class CoverageLevel {
         CoverageLevel.Level result = null;
         String part1 = parts.getElement(1);
         if (lastElement.equals("exemplarCity")) {
-            if (latinScript) {
+            type = (String) parts.getAttributeValue(-2, "type"); // it's one level up
+            if (latinScript && !type.equals("Etc/Unknown")) {
                 result = CoverageLevel.Level.UNDETERMINED;
             } else {
-                type = (String) parts.getAttributeValue(-2, "type"); // it's one level up
                 result = (CoverageLevel.Level) zone_level.get(type);
             }
         } else if (part1.equals("localeDisplayNames")) {

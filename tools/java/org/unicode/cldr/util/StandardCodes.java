@@ -40,23 +40,23 @@ import com.ibm.icu.lang.UCharacter;
  */
 public class StandardCodes {
   public static final String NO_COUNTRY = "001";
-
+  
   private static StandardCodes singleton;
-
+  
   private Map type_code_data = new TreeMap();
-
+  
   private Map type_name_codes = new TreeMap();
-
+  
   private Map type_code_preferred = new TreeMap();
-
+  
   private Map country_modernCurrency = new TreeMap();
-
+  
   private Map goodCodes = new TreeMap();
-
+  
   private String date;
-
+  
   private static final boolean DEBUG = false;
-
+  
   /**
    * Get the singleton copy of the standard codes.
    */
@@ -65,7 +65,7 @@ public class StandardCodes {
       singleton = new StandardCodes();
     return singleton;
   }
-
+  
   /**
    * The data is the name in the case of RFC3066 codes, and the country code in
    * the case of TZIDs and ISO currency codes. If the country code is missing,
@@ -80,7 +80,7 @@ public class StandardCodes {
       return null;
     return (String) list.get(0);
   }
-
+  
   /**
    * @return the full data for the type and code For the data in lstreg, it is
    *         description | date | canonical_value | recommended_prefix #
@@ -102,7 +102,7 @@ public class StandardCodes {
       return null;
     }
   }
-
+  
   /**
    * Return a replacement code, if available. If not, return null.
    * 
@@ -122,7 +122,7 @@ public class StandardCodes {
       return replacement;
     return null;
   }
-
+  
   /**
    * Return the list of codes that have the same data. For example, returns all
    * currency codes for a country If there is a preferred one, it is first.
@@ -137,7 +137,7 @@ public class StandardCodes {
       return null;
     return Collections.unmodifiableList((List) data_codes.get(data));
   }
-
+  
   /**
    * Where there is a preferred code, return it.
    */
@@ -150,14 +150,14 @@ public class StandardCodes {
       return code;
     return newCode;
   }
-
+  
   /**
    * Get all the available types
    */
   public Set getAvailableTypes() {
     return Collections.unmodifiableSet(type_code_data.keySet());
   }
-
+  
   /**
    * Get all the available codes for a given type
    * 
@@ -170,7 +170,7 @@ public class StandardCodes {
       return null;
     return Collections.unmodifiableSet(code_name.keySet());
   }
-
+  
   /**
    * Get all the available "real" codes for a given type
    * 
@@ -215,16 +215,16 @@ public class StandardCodes {
     }
     return result;
   }
-
+  
   /**
    * Gets the modern currency.
    */
   public Set getMainCurrencies(String countryCode) {
     return (Set) country_modernCurrency.get(countryCode);
   }
-
+  
   private Map platform_locale_status = null;
-
+  
   public String getEffectiveLocaleType(String type) throws IOException {
     Map m = getLocaleTypes();
     if ((type != null) && (m.get(type) != null)) {
@@ -233,17 +233,17 @@ public class StandardCodes {
       return "IBM"; // the default.. for now..
     }
   }
-
+  
   static Comparator caseless = new Comparator() {
-
+    
     public int compare(Object arg0, Object arg1) {
       String s1 = (String) arg0;
       String s2 = (String) arg1;
       return s1.compareToIgnoreCase(s2);
     }
-
+    
   };
-
+  
   /**
    * Returns locales according to status. It returns a Map of Maps, key 1 is
    * either IBM or Java (perhaps more later), key 2 is the locale string value
@@ -287,7 +287,7 @@ public class StandardCodes {
     }
     return platform_locale_status;
   }
-
+  
   /**
    * Ascertain that the given locale in in the given group specified by the
    * organization
@@ -312,7 +312,7 @@ public class StandardCodes {
       return false;
     }
   }
-
+  
   /**
    * Gets the coverage group given a locale and org
    * 
@@ -333,10 +333,10 @@ public class StandardCodes {
       return null;
     }
   }
-
+  
   // ========== PRIVATES ==========
   static Map languageRegistry;
-
+  
   private StandardCodes() {
     String[] files = {/* "lstreg.txt", */"ISO4217.txt" }; // , "TZID.txt"
     type_code_preferred.put("tzid", new TreeMap());
@@ -364,21 +364,21 @@ public class StandardCodes {
           pieces.remove(0);
           if (type.equals("region"))
             type = "territory";
-
+          
           String code = (String) pieces.get(0);
           pieces.remove(0);
           if (type.equals("date")) {
             date = code;
             continue;
           }
-
+          
           String oldName = (String) pieces.get(0);
           int pos = oldName.indexOf(';');
           if (pos >= 0) {
             oldName = oldName.substring(0, pos).trim();
             pieces.set(0, oldName);
           }
-
+          
           List data = pieces;
           if (comment.indexOf("deprecated") >= 0) {
             // System.out.println(originalLine);
@@ -434,18 +434,18 @@ public class StandardCodes {
         lstreg.close();
       } catch (Exception e) {
         System.err.println("WARNING: " + files[fileIndex]
-            + " may be a corrupted UTF-8 file. Please check.");
+                                               + " may be a corrupted UTF-8 file. Please check.");
         throw (IllegalArgumentException) new IllegalArgumentException(
             "Can't read " + files[fileIndex] + "\t" + originalLine)
             .initCause(e);
       }
       Utility.protectCollection(country_modernCurrency);
     }
-
+    
     // data is: description | date | canonical_value | recommended_prefix #
     // comments
     // HACK, just rework
-
+    
     languageRegistry = getLStreg();
     Utility.protectCollection(languageRegistry);
     
@@ -477,14 +477,14 @@ public class StandardCodes {
         add(type2, code, data);
       }
     }
-
+    
     Map m = getZoneData();
     for (Iterator it = m.keySet().iterator(); it.hasNext();) {
       String code = (String) it.next();
       add("tzid", code, m.get(code).toString());
     }
   }
-
+  
   /**
    * @param current
    * @return
@@ -512,7 +512,7 @@ public class StandardCodes {
     }
     return result;
   }
-
+  
   /**
    * @param string
    * @param string2
@@ -523,7 +523,7 @@ public class StandardCodes {
     l.add(string3);
     add(string, string2, l);
   }
-
+  
   private void add(String type, String code, List otherData) {
     // hack
     if (type.equals("script")) {
@@ -535,11 +535,11 @@ public class StandardCodes {
         otherData.set(0, "Common");
       }
     }
-
+    
     // assume name is the first item
-
+    
     String name = (String) otherData.get(0);
-
+    
     // add to main list
     Map code_data = (Map) type_code_data.get(type);
     if (code_data == null) {
@@ -552,7 +552,7 @@ public class StandardCodes {
     } else {
       code_data.put(code, otherData);
     }
-
+    
     // now add mapping from name to codes
     Map name_codes = (Map) type_name_codes.get(type);
     if (name_codes == null) {
@@ -566,18 +566,18 @@ public class StandardCodes {
     }
     codes.add(code);
   }
-
+  
   private List DELETED3166 = Collections.unmodifiableList(Arrays
       .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
           "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
           "VD", "WK", "YD", "YU", "ZR" }));
-
+  
   public List getOld3166() {
     return DELETED3166;
   }
-
-   private Map WorldBankInfo;
-
+  
+  private Map WorldBankInfo;
+  
   public Map getWorldBankInfo() {
     if (WorldBankInfo == null) {
       List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "WorldBankInfo.txt");
@@ -593,9 +593,9 @@ public class StandardCodes {
     }
     return WorldBankInfo;
   }
-
+  
   Set MainTimeZones;
-
+  
   public Set getMainTimeZones() {
     if (MainTimeZones == null) {
       List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "MainTimeZones.txt");
@@ -605,7 +605,7 @@ public class StandardCodes {
     }
     return MainTimeZones;
   }
-
+  
   // produces a list of the 'clean' lines
   private List fillFromCommaFile(String dir, String filename) {
     try {
@@ -629,7 +629,7 @@ public class StandardCodes {
           "Can't process file: " + dir + filename).initCause(e);
     }
   }
-
+  
   // return a complex map. language -> arn -> {"Comments" -> "x",
   // "Description->y,...}
   static String[][] extras = {
@@ -641,63 +641,55 @@ public class StandardCodes {
     { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
     { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
     { "region", "003", "Description", "North America", "CLDR", "True" },
-      { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True" },
-      { "variant", "REVISED", "Description", "Revised Orthography", "CLDR",
-          "True" },
-      { "variant", "SAAHO", "Description", "Dialect", "CLDR", "True" },
-      // {"region", "172", "Description", "Commonwealth of Independent States",
-      // "CLDR", "True"},
-      { "region", "QU", "Description", "European Union", "CLDR", "True" },
-  // {"region", "003", "Description", "North America", "CLDR", "True"},
-  // {"region", "062", "Description", "South-central Asia", "CLDR", "True"},
-  // {"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},
-  // {"region", "830", "Description", "Channel Islands", "CLDR", "True"},
-  // {"region", "833", "Description", "Isle of Man", "CLDR", "True"},
-
-  // {"region", "NT", "Description", "Neutral Zone (formerly between Saudi
-  // Arabia & Iraq)", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "SU", "Description", "Union of Soviet Socialist Republics",
-  // "CLDR", "True", "Deprecated", "True"},
-  // {"region", "BQ", "Description", "British Antarctic Territory",
-  // "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "CT", "Description", "Canton and Enderbury Islands",
-  // "Preferred-Value", "KI", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "FQ", "Description", "French Southern and Antarctic Territories
-  // (now split between AQ and TF)", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "JT", "Description", "Johnston Island", "Preferred-Value", "UM",
-  // "CLDR", "True", "Deprecated", "True"},
-  // {"region", "MI", "Description", "Midway Islands", "Preferred-Value", "UM",
-  // "CLDR", "True", "Deprecated", "True"},
-  // {"region", "NQ", "Description", "Dronning Maud Land", "Preferred-Value",
-  // "AQ", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "PC", "Description", "Pacific Islands Trust Territory (divided
-  // into FM, MH, MP, and PW)", "Preferred-Value", "AQ", "CLDR", "True",
-  // "Deprecated", "True"},
-  // {"region", "PU", "Description", "U.S. Miscellaneous Pacific Islands",
-  // "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "PZ", "Description", "Panama Canal Zone", "Preferred-Value",
-  // "PA", "CLDR", "True", "Deprecated", "True"},
-  // {"region", "VD", "Description", "North Vietnam", "Preferred-Value", "VN",
-  // "CLDR", "True", "Deprecated", "True"},
-  // {"region", "WK", "Description", "Wake Island", "Preferred-Value", "UM",
-  // "CLDR", "True", "Deprecated", "True"},
+    { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True" },
+    { "variant", "REVISED", "Description", "Revised Orthography", "CLDR",
+    "True" },
+    { "variant", "SAAHO", "Description", "Dialect", "CLDR", "True" },
+    // {"region", "172", "Description", "Commonwealth of Independent States",
+    // "CLDR", "True"},
+    { "region", "QU", "Description", "European Union", "CLDR", "True" },
+    { "region", "ZZ", "Description", "Unknown or Invalid Region", "CLDR", "True" },
+    { "region", "QO", "Description", "Outlying Oceania", "CLDR", "True" },
+    { "script", "Qaai", "Description", "Inherited", "CLDR", "True" },
+    // {"region", "003", "Description", "North America", "CLDR", "True"},
+    // {"region", "062", "Description", "South-central Asia", "CLDR", "True"},
+    // {"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},
+    // {"region", "830", "Description", "Channel Islands", "CLDR", "True"},
+    // {"region", "833", "Description", "Isle of Man", "CLDR", "True"},
+    
+    // {"region", "NT", "Description", "Neutral Zone (formerly between Saudi
+    // Arabia & Iraq)", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "SU", "Description", "Union of Soviet Socialist Republics",
+    // "CLDR", "True", "Deprecated", "True"},
+    // {"region", "BQ", "Description", "British Antarctic Territory",
+    // "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "CT", "Description", "Canton and Enderbury Islands",
+    // "Preferred-Value", "KI", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "FQ", "Description", "French Southern and Antarctic Territories
+    // (now split between AQ and TF)", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "JT", "Description", "Johnston Island", "Preferred-Value", "UM",
+    // "CLDR", "True", "Deprecated", "True"},
+    // {"region", "MI", "Description", "Midway Islands", "Preferred-Value", "UM",
+    // "CLDR", "True", "Deprecated", "True"},
+    // {"region", "NQ", "Description", "Dronning Maud Land", "Preferred-Value",
+    // "AQ", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "PC", "Description", "Pacific Islands Trust Territory (divided
+    // into FM, MH, MP, and PW)", "Preferred-Value", "AQ", "CLDR", "True",
+    // "Deprecated", "True"},
+    // {"region", "PU", "Description", "U.S. Miscellaneous Pacific Islands",
+    // "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "PZ", "Description", "Panama Canal Zone", "Preferred-Value",
+    // "PA", "CLDR", "True", "Deprecated", "True"},
+    // {"region", "VD", "Description", "North Vietnam", "Preferred-Value", "VN",
+    // "CLDR", "True", "Deprecated", "True"},
+    // {"region", "WK", "Description", "Wake Island", "Preferred-Value", "UM",
+    // "CLDR", "True", "Deprecated", "True"},
   };
-
+  
   public static Map getLStreg() {
-
+    
     Map result = new TreeMap();
-    // add extras
-    for (int i = 0; i < extras.length; ++i) {
-      Map subtagData = (Map) result.get(extras[i][0]);
-      if (subtagData == null)
-        result.put(extras[i][0], subtagData = new TreeMap());
-      Map labelData = new TreeMap();
-      for (int j = 2; j < extras[i].length; j += 2) {
-        labelData.put(extras[i][j], extras[i][j + 1]);
-      }
-      subtagData.put(extras[i][1], labelData);
-    }
-
+    
     int lineNumber = 1;
     
     Set funnyTags = new TreeSet();
@@ -748,7 +740,7 @@ public class StandardCodes {
           currentData.put(lastLabel, lastRest + " " + line.trim());
           continue;
         }
-
+        
         /*
          * Type: language Subtag: aa Description: Afar Added: 2005-10-16
          * Suppress-Script: Latn
@@ -769,22 +761,19 @@ public class StandardCodes {
             endTag = lastTag.substring(pos + 2);
             lastTag = lastTag.substring(0, pos);
           }
-          currentData = (Map) subtagData.get(lastTag);
-          if (currentData != null)
-            throw new IllegalArgumentException("Duplicate tag: " + lastTag);
           currentData = new TreeMap();
           if (endTag == null) {
-            subtagData.put(lastTag, currentData);
+            putSubtagData(lastTag, subtagData, currentData);
             languageCount.add(lastType, 1);
             //System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
           } else {
             for (; lastTag.compareTo(endTag) <= 0; lastTag = nextAlpha(lastTag)) {
               //System.out.println(">" + current);
-              subtagData.put(lastTag, currentData);
+              putSubtagData(lastTag, subtagData, currentData);
               languageCount.add(lastType, 1);
               //System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
             }
-
+            
           }
           //label.equalsIgnoreCase("Added") || label.equalsIgnoreCase("Suppress-Script")) {
           // skip
@@ -803,18 +792,41 @@ public class StandardCodes {
     } catch (Exception e) {
       throw (RuntimeException) new IllegalArgumentException(
           "Can't process file: " + Utility.UTIL_DATA_DIR
-              + registryName + ";\t at line " + lineNumber).initCause(e);
+          + registryName + ";\t at line " + lineNumber).initCause(e);
     } finally {
       if (!funnyTags.isEmpty()) {
         if (DEBUG)
           System.out.println("Funny tags: " + funnyTags);
       }
     }
+    // add extras
+    for (int i = 0; i < extras.length; ++i) {
+      Map subtagData = (Map) result.get(extras[i][0]);
+      if (subtagData == null)
+        result.put(extras[i][0], subtagData = new TreeMap());
+      Map labelData = new TreeMap();
+      for (int j = 2; j < extras[i].length; j += 2) {
+        labelData.put(extras[i][j], extras[i][j + 1]);
+      }
+      subtagData.put(extras[i][1], labelData);
+    }
     return result;
   }
-
+  
+  private static Object putSubtagData(String lastTag, Map subtagData, Map currentData) {
+    Map oldData = (Map) subtagData.get(lastTag);
+    if (oldData != null) {
+      if (oldData.get("CLDR") != null) {
+        System.out.println("overriding: " + lastTag + ", " + oldData);
+      } else {
+        throw new IllegalArgumentException("Duplicate tag: " + lastTag);
+      }
+    }
+    return subtagData.put(lastTag, currentData);
+  }
+  
   static Counter languageCount = new Counter();
-
+  
   public static Counter getLanguageCount() {
     return languageCount;
   }
@@ -828,33 +840,33 @@ public class StandardCodes {
   public Map getZoneData() {
     return zoneParser.getZoneData();
   }
-
+  
   public Map getCountryToZoneSet() {
     return zoneParser.getCountryToZoneSet();
   }
-
+  
   public List getDeprecatedZoneIDs() {
     return zoneParser.getDeprecatedZoneIDs();
   }
-
+  
   public Comparator getTZIDComparator() {
     return zoneParser.getTZIDComparator();
   }
-
+  
   public Map getZoneLinkNew_OldSet() {
     return zoneParser.getZoneLinkNew_OldSet();
   }
-
+  
   public Map getZoneLinkold_new() {
     return zoneParser.getZoneLinkold_new();
   }
-
+  
   public Map getZoneRuleID_rules() {
     return zoneParser.getZoneRuleID_rules();
   }
-
+  
   public Map getZoneToCounty() {
     return zoneParser.getZoneToCounty();
   }
-
+  
 }

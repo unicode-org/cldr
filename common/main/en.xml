@@ -1146,173 +1146,51 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="America/Vancouver">
+			<metazone type="Acre">
 				<long>
-					<generic>Pacific Time (CA)</generic>
-					<standard>Pacific Standard Time (CA)</standard>
-					<daylight>Pacific Daylight Time (CA)</daylight>
+					<standard>Acre Time</standard>
+					<daylight>Acre Summer Time</daylight>
 				</long>
 				<short>
-					<generic>PT (CA)</generic>
-					<standard>PST (CA)</standard>
-					<daylight>PDT (CA)</daylight>
+					<standard>ACT</standard>
+					<daylight>ACST</daylight>
 				</short>
-			</zone>
-			<zone type="America/Edmonton">
+			</metazone>
+			<metazone type="Africa_Central">
 				<long>
-					<generic>Mountain Time (CA)</generic>
-					<standard>Mountain Standard Time (CA)</standard>
-					<daylight>Mountain Daylight Time (CA)</daylight>
+					<standard>Central Africa Time</standard>
 				</long>
 				<short>
-					<generic>MT (CA)</generic>
-					<standard>MST (CA)</standard>
-					<daylight>MDT (CA)</daylight>
+					<standard>CAT</standard>
 				</short>
-			</zone>
-			<zone type="America/Winnipeg">
+			</metazone>
+			<metazone type="Africa_Eastern">
 				<long>
-					<generic>Central Time (CA)</generic>
-					<standard>Central Standard Time (CA)</standard>
-					<daylight>Central Daylight Time (CA)</daylight>
+					<standard>East Africa Time</standard>
 				</long>
 				<short>
-					<generic>CT (CA)</generic>
-					<standard>CST (CA)</standard>
-					<daylight>CDT (CA)</daylight>
+					<standard>EAT</standard>
 				</short>
-			</zone>
-			<zone type="America/Montreal">
+			</metazone>
+			<metazone type="Africa_Southern">
 				<long>
-					<generic>Eastern Time (CA)</generic>
-					<standard>Eastern Standard Time (CA)</standard>
-					<daylight>Eastern Daylight Time (CA)</daylight>
+					<standard>South Africa Standard Time</standard>
 				</long>
 				<short>
-					<generic>ET (CA)</generic>
-					<standard>EST (CA)</standard>
-					<daylight>EDT (CA)</daylight>
+					<standard>SAST</standard>
 				</short>
-			</zone>
-			<zone type="America/Halifax">
+			</metazone>
+			<metazone type="Africa_Western">
 				<long>
-					<generic>Atlantic Time</generic>
-					<standard>Atlantic Standard Time</standard>
-					<daylight>Atlantic Daylight Time</daylight>
+					<standard>West Africa Time</standard>
+					<daylight>West Africa Summer Time</daylight>
 				</long>
 				<short>
-					<generic>AT</generic>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<standard>WAT</standard>
+					<daylight>WAST</daylight>
 				</short>
-			</zone>
-			<zone type="America/St_Johns">
-				<long>
-					<generic>Newfoundland Time</generic>
-					<standard>Newfoundland Standard Time</standard>
-					<daylight>Newfoundland Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>NT</generic>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
-				<exemplarCity>St. John’s</exemplarCity>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>China Standard Time</standard>
-					<daylight>China Daylight Time</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Paris">
-				<long>
-					<generic>Central European Time</generic>
-					<standard>Central European Standard Time</standard>
-					<daylight>Central European Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>CET</generic>
-					<standard>CEST</standard>
-					<daylight>CEDT</daylight>
-				</short>
-				<exemplarCity>Paris</exemplarCity>
-			</zone>
-			<zone type="Europe/London">
-				<long>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>British Summer Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>BST</daylight>
-				</short>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Irish Summer Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>IST</daylight>
-				</short>
-				<exemplarCity>Dublin</exemplarCity>
-			</zone>
-			<!-- Note: the following is known to be sparse, and needs to be improved in the future -->
-			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Israel Standard Time</standard>
-					<daylight>Israel Daylight Time</daylight>
-				</long>
-				<exemplarCity>Jerusalem</exemplarCity>
-			</zone>
-			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Japan Standard Time</standard>
-					<daylight>Japan Daylight Time</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
-				<exemplarCity>Tokyo</exemplarCity>
-			</zone>
-			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Eastern European Standard Time</standard>
-					<daylight>Eastern European Daylight Time</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
-				<exemplarCity>Bucharest</exemplarCity>
-			</zone>
-			<zone type="Asia/Singapore">
-				<long>
-					<standard>Singapore Standard Time</standard>
-					<daylight>Singapore Standard Time</daylight>
-				</long>
-				<short>
-					<standard>SST</standard>
-					<daylight>SST</daylight>
-				</short>
-				<exemplarCity>Singapore</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<generic>Hawaii Time</generic>
-					<standard>Hawaii Standard Time</standard>
-					<daylight>Hawaii Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>HT</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Anchorage">
+			</metazone>
+			<metazone type="Alaska">
 				<long>
 					<generic>Alaska Time</generic>
 					<standard>Alaska Standard Time</standard>
@@ -1321,34 +1199,20 @@
 				<short>
 					<generic>AKT</generic>
 					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
 				</short>
-			</zone>
-			<!-- Note: zones that don't use daylight time need further work -->
-			<zone type="America/Los_Angeles">
+			</metazone>
+			<metazone type="Amazon">
 				<long>
-					<generic>Pacific Time</generic>
-					<standard>Pacific Standard Time</standard>
-					<daylight>Pacific Daylight Time</daylight>
+					<standard>Amazon Time</standard>
+					<daylight>Amazon Summer Time</daylight>
 				</long>
 				<short>
-					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
+					<standard>AMT</standard>
+					<daylight>AMST</daylight>
 				</short>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<generic>Mountain Time</generic>
-					<standard>Mountain Standard Time</standard>
-					<daylight>Mountain Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<generic>Central Time</generic>
 					<standard>Central Standard Time</standard>
@@ -1359,8 +1223,8 @@
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<generic>Eastern Time</generic>
 					<standard>Eastern Standard Time</standard>
@@ -1370,6 +1234,1565 @@
 					<generic>ET</generic>
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>Mountain Time</generic>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>Pacific Time</generic>
+					<standard>Pacific Standard Time</standard>
+					<daylight>Pacific Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>PT</generic>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>Arabian Time</generic>
+					<standard>Arabian Standard Time</standard>
+					<daylight>Arabian Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>AST (Arabian)</standard>
+					<daylight>ADT (Arabian)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<standard>Argentina Time</standard>
+					<daylight>Argentina Summer Time</daylight>
+				</long>
+				<short>
+					<standard>ART</standard>
+					<daylight>ARST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<standard>Armenia Time</standard>
+					<daylight>Armenia Summer Time</daylight>
+				</long>
+				<short>
+					<standard>AMT (Armenia)</standard>
+					<daylight>AMST (Armenia)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>Atlantic Time</generic>
+					<standard>Atlantic Standard Time</standard>
+					<daylight>Atlantic Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>AT</generic>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>Central Australia Time</generic>
+					<standard>Australian Central Standard Time</standard>
+					<daylight>Australian Central Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>ACST</standard>
+					<daylight>ACDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>Eastern Australia Time</generic>
+					<standard>Australian Eastern Standard Time</standard>
+					<daylight>Australian Eastern Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>AEST</standard>
+					<daylight>AEDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>Western Australia Time</generic>
+					<standard>Australian Western Standard Time</standard>
+					<daylight>Australian Western Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>AWST</standard>
+					<daylight>AWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<standard>Azores Time</standard>
+					<daylight>Azores Summer Time</daylight>
+				</long>
+				<short>
+					<standard>AZOT</standard>
+					<daylight>AZOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<standard>Bangladesh Time</standard>
+				</long>
+				<short>
+					<standard>BDT</standard>
+				</short>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>Bhutan Time</standard>
+				</long>
+				<short>
+					<standard>BTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<standard>Brasilia Time</standard>
+					<daylight>Brasilia Summer Time</daylight>
+				</long>
+				<short>
+					<standard>BRT</standard>
+					<daylight>BRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>China Standard Time</standard>
+					<daylight>China Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>CST (China)</standard>
+					<daylight>CDT (China)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<standard>Chile Time</standard>
+					<daylight>Chile Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CLT</standard>
+					<daylight>CLST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard>Chamorro Standard Time</standard>
+				</long>
+				<short>
+					<standard>ChST</standard>
+				</short>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<standard>Choibalsan Time</standard>
+					<daylight>Choibalsan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CHOT</standard>
+					<daylight>CHOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard>East Timor Time</standard>
+				</long>
+				<short>
+					<standard>TLT</standard>
+				</short>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard>Ecuador Time</standard>
+				</long>
+				<short>
+					<standard>ECT</standard>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Central European Time</standard>
+					<daylight>Central European Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Eastern European Time</standard>
+					<daylight>Eastern European Summer Time</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<standard>Western European Time</standard>
+					<daylight>Western European Summer Time</daylight>
+				</long>
+				<short>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>Galapagos Time</standard>
+				</long>
+				<short>
+					<standard>GALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<standard>Georgia Time</standard>
+					<daylight>Georgia Summer Time</daylight>
+				</long>
+				<short>
+					<standard>GET</standard>
+					<daylight>GEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwich Mean Time</standard>
+				</long>
+				<short>
+					<standard>AZOT</standard>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<long>
+					<standard>Central Greenland Time</standard>
+					<daylight>Central Greenland Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CGT</standard>
+					<daylight>CGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<standard>East Greenland Time</standard>
+					<daylight>East Greenland Summer Time</daylight>
+				</long>
+				<short>
+					<standard>EGT</standard>
+					<daylight>EGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<standard>West Greenland Time</standard>
+					<daylight>West Greenland Summer Time</daylight>
+				</long>
+				<short>
+					<standard>WGT</standard>
+					<daylight>WGST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard>Gulf Standard Time</standard>
+				</long>
+				<short>
+					<standard>GST</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>Hawaii-Aleutian Time</generic>
+					<standard>Hawaii-Aleutian Standard Time</standard>
+					<daylight>Hawaii-Aleutian Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>HAT</generic>
+					<standard>HAST</standard>
+					<daylight>HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<generic>Hawaii Time</generic>
+					<standard>Hawaii Standard Time</standard>
+					<daylight>Hawaii Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>HT</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>Central Indonesia Time</standard>
+				</long>
+				<short>
+					<standard>CIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>Eastern Indonesia Time</standard>
+				</long>
+				<short>
+					<standard>EIT</standard>
+				</short>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>Western Indonesia Time</standard>
+				</long>
+				<short>
+					<standard>WIT</standard>
+				</short>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>India Standard Time</standard>
+				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israel Standard Time</standard>
+					<daylight>Israel Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>IST (Israel)</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>East Kazakhstan Standard Time</standard>
+				</long>
+				<short>
+					<standard>EKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>West Kazakhstan Standard Time</standard>
+				</long>
+				<short>
+					<standard>WKST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>Kyrgystan Time</standard>
+				</long>
+				<short>
+					<standard>KGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>Korean Time</generic>
+					<standard>Korean Standard Time</standard>
+					<daylight>Korean Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>KST</standard>
+					<daylight>KDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic>Lord Howe Time</generic>
+					<standard>Lord Howe Standard Time</standard>
+					<daylight>Lord Howe Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>LHST</standard>
+					<standard>LHDT</standard>
+				</short>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>Malaysia Time</standard>
+				</long>
+				<short>
+					<standard>MYT</standard>
+				</short>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard>Marshall Islands Time</standard>
+				</long>
+				<short>
+					<standard>MHT</standard>
+				</short>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<standard>Ulan Bator Time</standard>
+					<daylight>Ulan Bator Summer Time</daylight>
+				</long>
+				<short>
+					<standard>ULAT</standard>
+					<daylight>ULAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>Newfoundland Time</generic>
+					<standard>Newfoundland Standard Time</standard>
+					<daylight>Newfoundland Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>NT</generic>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic>New Zealand Time</generic>
+					<standard>New Zealand Standard Time</standard>
+					<daylight>New Zealand Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>NZST</standard>
+					<daylight>NZDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Pierre and Miquelon Time</generic>
+					<standard>Pierre and Miquelon Standard Time</standard>
+					<daylight>Pierre and Miquelon Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>PMST</standard>
+					<daylight>PMDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<standard>Pakistan Time</standard>
+					<daylight>Pakistan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>PKT</standard>
+					<daylight>PKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<standard>Samara Time</standard>
+					<daylight>Samara Summer Time</daylight>
+				</long>
+				<short>
+					<standard>SAMT</standard>
+					<daylight>SAMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard>Samoa Standard Time</standard>
+				</long>
+				<short>
+					<standard>SST</standard>
+				</short>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>Suriname Time</standard>
+				</long>
+				<short>
+					<standard>SRT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>Tajikistan Time</standard>
+				</long>
+				<short>
+					<standard>TJT</standard>
+				</short>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<standard>Turkmenistan Time</standard>
+					<daylight>Turkmenistan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>TMT</standard>
+					<daylight>TMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<standard>Uzbekistan Time</standard>
+					<daylight>Uzbekistan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>UZT</standard>
+					<daylight>UZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<standard>Yekaterinburg Time</standard>
+					<daylight>Yekaterinburg Summer Time</daylight>
+				</long>
+				<short>
+					<standard>YEKT</standard>
+					<daylight>YEKST</daylight>
+				</short>
+			</metazone>
+			<!-- Historical metazones - The following metazones are no longer in modern usage -->
+			<!-- but were actively used sometime since 1970-01-01 -->
+			<metazone type="Aktyubinsk">
+				<long>
+					<standard>Aktyubinsk Time</standard>
+					<daylight>Aktyubinsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>AKTT</standard>
+					<daylight>AKTST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<long>
+					<standard>Alaska-Hawaii Standard Time</standard>
+					<daylight>Alaska-Hawaii Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>AHST</standard>
+					<daylight>AHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<standard>Aqtau Time</standard>
+					<daylight>Aqtau Summer Time</daylight>
+				</long>
+				<short>
+					<standard>AQTT (Aqtau)</standard>
+					<daylight>AQTST (Aqtau)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<standard>Aqtobe Time</standard>
+					<daylight>Aqtobe Summer Time</daylight>
+				</long>
+				<short>
+					<standard>AQTT (Aqtobe)</standard>
+					<daylight>AQTST (Aqtobe)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<standard>Western Argentina Time</standard>
+				</long>
+				<short>
+					<standard>WART</standard>
+				</short>
+			</metazone>
+			<metazone type="Ashkhabad">
+				<long>
+					<standard>Ashkhabad Time</standard>
+					<daylight>Ashkhabad Summer Time</daylight>
+				</long>
+				<short>
+					<standard>ASHT</standard>
+					<daylight>ASHST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Baku">
+				<long>
+					<standard>Baku Time</standard>
+					<daylight>Baku Summer Time</daylight>
+				</long>
+				<short>
+					<standard>BAKT</standard>
+					<daylight>BAKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bering">
+				<long>
+					<generic>Bering Time</generic>
+					<standard>Bering Standard Time</standard>
+					<daylight>Bering Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>BST (Bering)</standard>
+					<daylight>BDT (Bering)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Borneo">
+				<long>
+					<standard>Borneo Time</standard>
+					<daylight>Borneo Summer Time</daylight>
+				</long>
+				<short>
+					<standard>BORT</standard>
+					<daylight>BORST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Changbai">
+				<long>
+					<standard>Changbai Time</standard>
+				</long>
+				<short>
+					<standard>CHAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Dacca">
+				<long>
+					<standard>Dacca Time</standard>
+				</long>
+				<short>
+					<standard>DACT</standard>
+				</short>
+			</metazone>
+			<metazone type="Dushanbe">
+				<long>
+					<standard>Dushanbe Time</standard>
+					<daylight>Dushanbe Summer Time</daylight>
+				</long>
+				<short>
+					<standard>DUST</standard>
+					<daylight>DUSST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<long>
+					<standard>Dutch Guiana Time</standard>
+				</long>
+				<short>
+					<standard>NEGT</standard>
+				</short>
+			</metazone>
+			<metazone type="Frunze">
+				<long>
+					<standard>Frunze Time</standard>
+					<daylight>Frunze Summer Time</daylight>
+				</long>
+				<short>
+					<standard>FRUT</standard>
+					<daylight>FRUST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Guam">
+				<long>
+					<standard>Guam Standard Time</standard>
+				</long>
+				<short>
+					<standard>GST (Guam)</standard>
+				</short>
+			</metazone>
+			<metazone type="Lanka">
+				<long>
+					<standard>Lanka Time</standard>
+				</long>
+				<short>
+					<standard>LKT</standard>
+				</short>
+			</metazone>
+			<metazone type="Karachi">
+				<long>
+					<standard>Karachi Time</standard>
+				</long>
+				<short>
+					<standard>KART</standard>
+				</short>
+			</metazone>
+			<metazone type="Kashgar">
+				<long>
+					<standard>Kashgar Time</standard>
+				</long>
+				<short>
+					<standard>KAST</standard>
+				</short>
+			</metazone>
+			<metazone type="Kizilorda">
+				<long>
+					<standard>Kizilorda Time</standard>
+					<daylight>Kizilorda Summer Time</daylight>
+				</long>
+				<short>
+					<standard>KIZT</standard>
+					<daylight>KIZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kuybyshev">
+				<long>
+					<standard>Kuybyshev Time</standard>
+					<daylight>Kuybyshev Summer Time</daylight>
+				</long>
+				<short>
+					<standard>KUYT</standard>
+					<daylight>KUYST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Kwajalein">
+				<long>
+					<standard>Kwajalein Time</standard>
+				</long>
+				<short>
+					<standard>KWAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<standard>Macau Time</standard>
+					<daylight>Macau Summer Time</daylight>
+				</long>
+				<short>
+					<standard>MOT</standard>
+					<daylight>MOST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Malaya">
+				<long>
+					<standard>Malaya Time</standard>
+				</long>
+				<short>
+					<standard>MALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Long_Shu">
+				<long>
+					<standard>Long-Shu Time</standard>
+				</long>
+				<short>
+					<standard>LONT</standard>
+				</short>
+			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard>North Mariana Islands Time</standard>
+				</long>
+				<short>
+					<standard>MPT</standard>
+				</short>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<standard>Qyzylorda Time</standard>
+					<daylight>Qyzylorda Summer Time</daylight>
+				</long>
+				<short>
+					<standard>QYZT</standard>
+					<daylight>QYZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Samarkand">
+				<long>
+					<standard>Samarkand Time</standard>
+					<daylight>Samarkand Summer Time</daylight>
+				</long>
+				<short>
+					<standard>SAMT (Samarkand)</standard>
+					<daylight>SAMST (Samarkand)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Shevchenko">
+				<long>
+					<standard>Shevchenko Time</standard>
+					<daylight>Shevchenko Summer Time</daylight>
+				</long>
+				<short>
+					<standard>SHET</standard>
+					<daylight>SHEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Sverdlovsk">
+				<long>
+					<standard>Sverdlovsk Time</standard>
+					<daylight>Sverdlovsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>SVET</standard>
+					<daylight>SVEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Uralsk">
+				<long>
+					<standard>Ural'sk Time</standard>
+					<daylight>Ural'sk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>URAT</standard>
+					<daylight>URAST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Urumqi Time</standard>
+				</long>
+				<short>
+					<standard>URUT</standard>
+				</short>
+			</metazone>
+			<metazone type="Tashkent">
+				<long>
+					<standard>Tashkent Time</standard>
+					<daylight>Tashkent Summer Time</daylight>
+				</long>
+				<short>
+					<standard>TAST</standard>
+					<daylight>TASST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Tbilisi">
+				<long>
+					<standard>Tbilisi Time</standard>
+					<daylight>Tbilisi Summer Time</daylight>
+				</long>
+				<short>
+					<standard>TBIT</standard>
+					<daylight>TBIST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<standard>Turkey Time</standard>
+					<daylight>Turkey Summer Time</daylight>
+				</long>
+				<short>
+					<standard>TRT</standard>
+					<daylight>TRST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yerevan">
+				<long>
+					<standard>Yerevan Time</standard>
+					<daylight>Yerevan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>YERT</standard>
+					<daylight>YERST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<generic>Yukon Time</generic>
+					<standard>Yukon Standard Time</standard>
+					<daylight>Yukon Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>YT</generic>
+					<standard>YST</standard>
+					<daylight>YDT</daylight>
+				</short>
+			</metazone>
+			<zone type="America/Asuncion">
+				<long>
+					<standard>Paraguay Time</standard>
+					<daylight>Paraguay Summer Time</daylight>
+				</long>
+				<short>
+					<standard>PYT</standard>
+					<daylight>PYST</daylight>
+				</short>
+			</zone>
+			<zone type="America/Bogota">
+				<long>
+					<standard>Colombia Time</standard>
+					<daylight>Colombia Summer Time</daylight>
+				</long>
+				<short>
+					<standard>COT</standard>
+					<daylight>COST</daylight>
+				</short>
+			</zone>
+			<zone type="America/Caracas">
+				<long>
+					<standard>Venezuela Time</standard>
+				</long>
+				<short>
+					<standard>VET</standard>
+				</short>
+			</zone>
+			<zone type="America/Cayenne">
+				<long>
+					<standard>French Guiana Time</standard>
+				</long>
+				<short>
+					<standard>GFT</standard>
+				</short>
+			</zone>
+			<zone type="America/Guyana">
+				<long>
+					<standard>Guyana Time</standard>
+				</long>
+				<short>
+					<standard>GYT</standard>
+				</short>
+			</zone>
+			<zone type="America/Havana">
+				<long>
+					<generic>Cuba Time</generic>
+					<standard>Cuba Standard Time</standard>
+					<daylight>Cuba Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>CST (Cuba)</standard>
+					<daylight>CDT (Cuba)</daylight>
+				</short>
+			</zone>
+			<zone type="America/La_Paz">
+				<long>
+					<standard>Bolivia Time</standard>
+				</long>
+				<short>
+					<standard>BOT</standard>
+				</short>
+			</zone>
+			<zone type="America/Lima">
+				<long>
+					<standard>Peru Time</standard>
+					<daylight>Peru Summer Time</daylight>
+				</long>
+				<short>
+					<standard>PET</standard>
+					<daylight>PEST</daylight>
+				</short>
+			</zone>
+			<zone type="America/Montevideo">
+				<long>
+					<standard>Uruguay Time</standard>
+					<daylight>Uruguay Summer Time</daylight>
+				</long>
+				<short>
+					<standard>UYT</standard>
+					<daylight>UYST</daylight>
+				</short>
+			</zone>
+			<zone type="America/Noronha">
+				<long>
+					<standard>Fernando de Noronha Time</standard>
+					<daylight>Fernando de Noronha Summer Time</daylight>
+				</long>
+				<short>
+					<standard>FNT</standard>
+					<daylight>FNST</daylight>
+				</short>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>St. John’s</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<long>
+					<standard>Davis Time</standard>
+				</long>
+				<short>
+					<standard>DAVT</standard>
+				</short>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<long>
+					<standard>Dumont-d'Urville Time</standard>
+				</long>
+				<short>
+					<standard>DDUT</standard>
+				</short>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<long>
+					<standard>Mawson Time</standard>
+				</long>
+				<short>
+					<standard>MAWT</standard>
+				</short>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<long>
+					<standard>Rothera Time</standard>
+				</long>
+				<short>
+					<standard>ROTT</standard>
+				</short>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<long>
+					<standard>Syowa Time</standard>
+				</long>
+				<short>
+					<standard>SYOT</standard>
+				</short>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<long>
+					<standard>Vostok Time</standard>
+				</long>
+				<short>
+					<standard>VOST</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<long>
+					<standard>Anadyr Time</standard>
+					<daylight>Anadyr Summer Time</daylight>
+				</long>
+				<short>
+					<standard>ANAT</standard>
+					<daylight>ANAST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Brunei">
+				<long>
+					<standard>Brunei Darussalam Time</standard>
+				</long>
+				<short>
+					<standard>BNT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<long>
+					<standard>Hong Kong Time</standard>
+					<daylight>Hong Kong Summer Time</daylight>
+				</long>
+				<short>
+					<standard>HKT</standard>
+					<daylight>HKST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Hovd">
+				<long>
+					<standard>Hovd Time</standard>
+					<daylight>Hovd Summer Time</daylight>
+				</long>
+				<short>
+					<standard>HOVT</standard>
+					<daylight>HOVST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<long>
+					<standard>Irkutsk Time</standard>
+					<daylight>Irkutsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>IRKT</standard>
+					<daylight>IRKST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<long>
+					<standard>Petropavlovsk-Kamchatski Time</standard>
+					<daylight>Petropavlovsk-Kamchatski Summer Time</daylight>
+				</long>
+				<short>
+					<standard>PETT</standard>
+					<daylight>PETST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<long>
+					<standard>Nepal Time</standard>
+				</long>
+				<short>
+					<standard>NPT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<long>
+					<standard>Krasnoyarsk Time</standard>
+					<daylight>Krasnoyarsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>KRAT</standard>
+					<daylight>KRAST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<long>
+					<standard>Malaysia Time</standard>
+				</long>
+				<short>
+					<standard>MYT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Kabul">
+				<long>
+					<standard>Afghanistan Time</standard>
+				</long>
+				<short>
+					<standard>AFT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Magadan">
+				<long>
+					<standard>Magadan Time</standard>
+					<daylight>Magadan Summer Time</daylight>
+				</long>
+				<short>
+					<standard>MAGT</standard>
+					<daylight>MAGST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Manila">
+				<long>
+					<standard>Philippine Time</standard>
+					<daylight>Philippine Summer Time</daylight>
+				</long>
+				<short>
+					<standard>PHT</standard>
+					<daylight>PHST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<long>
+					<standard>Novosibirsk Time</standard>
+					<daylight>Novosibirsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>NOVT</standard>
+					<daylight>NOVST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Omsk">
+				<long>
+					<standard>Omsk Time</standard>
+					<daylight>Omsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>OMST</standard>
+					<daylight>OMSST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<long>
+					<standard>Myanmar Time</standard>
+				</long>
+				<short>
+					<standard>MMT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<long>
+					<standard>Sakhalin Time</standard>
+					<daylight>Sakhalin Summer Time</daylight>
+				</long>
+				<short>
+					<standard>SAKT</standard>
+					<daylight>SAKST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Singapore">
+				<long>
+					<standard>Singapore Standard Time</standard>
+				</long>
+				<short>
+					<standard>SGT</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Tehran">
+				<long>
+					<standard>Iran Standard Time</standard>
+					<daylight>Iran Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>IRST</standard>
+					<daylight>IRDT</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<long>
+					<standard>Japan Standard Time</standard>
+					<daylight>Japan Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<long>
+					<standard>Vladivostok Time</standard>
+					<daylight>Vladivostok Summer Time</daylight>
+				</long>
+				<short>
+					<standard>VLAT</standard>
+					<daylight>VLAST</daylight>
+				</short>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<long>
+					<standard>Yakutsk Time</standard>
+					<daylight>Yakutsk Summer Time</daylight>
+				</long>
+				<short>
+					<standard>YAKT</standard>
+					<daylight>YAKST</daylight>
+				</short>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<long>
+					<standard>Cape Verde Time</standard>
+					<daylight>Cape Verde Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CVT</standard>
+					<daylight>CVST</daylight>
+				</short>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<long>
+					<standard>South Georgia Time</standard>
+				</long>
+				<short>
+					<standard>GST (S. Georgia)</standard>
+				</short>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<long>
+					<standard>Falkland Islands Time</standard>
+					<daylight>Falkland Islands Summer Time</daylight>
+				</long>
+				<short>
+					<standard>FKT</standard>
+					<daylight>FKST</daylight>
+				</short>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight>British Summer Time</daylight>
+				</long>
+				<short>
+					<daylight>BST</daylight>
+				</short>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>Irish Summer Time</daylight>
+				</long>
+				<short>
+					<daylight>IST (Irish)</daylight>
+				</short>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<long>
+					<standard>Volgograd Time</standard>
+					<daylight>Volgograd Summer Time</daylight>
+				</long>
+				<short>
+					<standard>VOLT</standard>
+					<daylight>VOLST</daylight>
+				</short>
+			</zone>
+			<zone type="Indian/Chagos">
+				<long>
+					<standard>Indian Ocean Time</standard>
+				</long>
+				<short>
+					<standard>IOT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Christmas">
+				<long>
+					<standard>Christmas Island Time</standard>
+				</long>
+				<short>
+					<standard>CXT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Cocos">
+				<long>
+					<standard>Cocos Islands Time</standard>
+				</long>
+				<short>
+					<standard>CCT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<long>
+					<standard>French Southern and Antarctic Time</standard>
+				</long>
+				<short>
+					<standard>TFT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Mahe">
+				<long>
+					<standard>Seychelles Time</standard>
+				</long>
+				<short>
+					<standard>SCT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Maldives">
+				<long>
+					<standard>Maldives Time</standard>
+				</long>
+				<short>
+					<standard>MVT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<long>
+					<standard>Mauritius Time</standard>
+				</long>
+				<short>
+					<standard>MUT</standard>
+				</short>
+			</zone>
+			<zone type="Indian/Reunion">
+				<long>
+					<standard>Reunion Time</standard>
+				</long>
+				<short>
+					<standard>RET</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<long>
+					<standard>Chatham Standard Time</standard>
+					<daylight>Chatham Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>CHAST</standard>
+					<daylight>CHADT</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Easter">
+				<long>
+					<standard>Easter Island Time</standard>
+					<daylight>Easter Island Summer Time</daylight>
+				</long>
+				<short>
+					<standard>EAST</standard>
+					<daylight>EASST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Efate">
+				<long>
+					<standard>Vanuatu Time</standard>
+					<daylight>Vanuatu Summer Time</daylight>
+				</long>
+				<short>
+					<standard>VUT</standard>
+					<daylight>VUST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<long>
+					<standard>Phoenix Islands Time</standard>
+				</long>
+				<short>
+					<standard>PHOT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<long>
+					<standard>Fiji Time</standard>
+					<daylight>Fiji Summer Time</daylight>
+				</long>
+				<short>
+					<standard>FJT</standard>
+					<daylight>FJST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<long>
+					<standard>Tokelau Time</standard>
+				</long>
+				<short>
+					<standard>TKT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<long>
+					<standard>Tuvalu Time</standard>
+				</long>
+				<short>
+					<standard>TVT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<long>
+					<standard>Gambier Time</standard>
+				</long>
+				<short>
+					<standard>GAMT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<long>
+					<standard>Solomon Islands Time</standard>
+				</long>
+				<short>
+					<standard>SBT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<long>
+					<standard>Line Islands Time</standard>
+				</long>
+				<short>
+					<standard>LINT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<long>
+					<standard>Kosrae Time</standard>
+				</long>
+				<short>
+					<standard>KOST</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<long>
+					<standard>Marquesas Time</standard>
+				</long>
+				<short>
+					<standard>MART</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<long>
+					<standard>Nauru Time</standard>
+				</long>
+				<short>
+					<standard>NRT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Niue">
+				<long>
+					<standard>Niue Time</standard>
+				</long>
+				<short>
+					<standard>NUT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<long>
+					<standard>Norfolk Islands Time</standard>
+				</long>
+				<short>
+					<standard>NFT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<long>
+					<standard>New Caledonia Time</standard>
+					<daylight>New Caledonia Summer Time</daylight>
+				</long>
+				<short>
+					<standard>NCT</standard>
+					<daylight>NCST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<long>
+					<standard>Pitcairn Time</standard>
+				</long>
+				<short>
+					<standard>PNT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Palau">
+				<long>
+					<standard>Palau Time</standard>
+				</long>
+				<short>
+					<standard>PWT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<long>
+					<standard>Ponape Time</standard>
+				</long>
+				<short>
+					<standard>PONT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<long>
+					<standard>Papua New Guinea Time</standard>
+				</long>
+				<short>
+					<standard>PGT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<long>
+					<standard>Cook Islands Time</standard>
+					<daylight>Cook Islands Half Summer Time</daylight>
+				</long>
+				<short>
+					<standard>CKT</standard>
+					<daylight>CKHST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<long>
+					<standard>Tahiti Time</standard>
+				</long>
+				<short>
+					<standard>TAHT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<long>
+					<standard>Gilbert Islands Time</standard>
+				</long>
+				<short>
+					<standard>GILT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<long>
+					<standard>Tonga Time</standard>
+					<daylight>Tonga Summer Time</daylight>
+				</long>
+				<short>
+					<standard>TOT</standard>
+					<daylight>TOST</daylight>
+				</short>
+			</zone>
+			<zone type="Pacific/Truk">
+				<long>
+					<standard>Truk Time</standard>
+				</long>
+				<short>
+					<standard>TRUT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Wake">
+				<long>
+					<standard>Wake Island Time</standard>
+				</long>
+				<short>
+					<standard>WAKT</standard>
+				</short>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<long>
+					<standard>Wallis and Futuna Time</standard>
+				</long>
+				<short>
+					<standard>WFT</standard>
 				</short>
 			</zone>
 		</timeZoneNames>

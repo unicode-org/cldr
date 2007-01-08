@@ -854,7 +854,7 @@
 				<usesMetazone mzone="Europe_Western" to="1984-03-16"/>
 				<usesMetazone mzone="Europe_Central" from="1984-03-16"/>
 			</zone>
-			<zone type="Africa/Conkary">
+			<zone type="Africa/Conakry">
 				<usesMetazone mzone="GMT"/>
 			</zone>
 			<zone type="Africa/Dakar">
@@ -1037,9 +1037,6 @@
 			<zone type="America/Belize">
 				<usesMetazone mzone="America_Central"/>
 			</zone>
-			<zone type="America/Bermuda">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
 			<zone type="America/Blanc-Sablon">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
@@ -1098,6 +1095,10 @@
 			<zone type="America/Curacao">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
+			<zone type="America/Danmarkshavn">
+				<usesMetazone mzone="Greenland_Western" to="1996-01-01"/>
+				<usesMetazone mzone="GMT" from="1996-01-01"/>
+			</zone>
 			<zone type="America/Dawson">
 				<usesMetazone mzone="Yukon" to="1973-10-28"/>
 				<usesMetazone mzone="America_Pacific" from="1973-10-28"/>
@@ -1130,6 +1131,9 @@
 			<zone type="America/Glace_Bay">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
+			<zone type="America/Godthab">
+				<usesMetazone mzone="Greenland_Western"/>
+			</zone>
 			<zone type="America/Goose_Bay">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
@@ -1147,9 +1151,6 @@
 			</zone>
 			<zone type="America/Guayaquil">
 				<usesMetazone mzone="Ecuador"/>
-			</zone>
-			<zone type="America/Haiti">
-				<usesMetazone mzone="America_Eastern"/>
 			</zone>
 			<zone type="America/Halifax">
 				<usesMetazone mzone="Atlantic"/>
@@ -1310,6 +1311,9 @@
 			<zone type="America/Phoenix">
 				<usesMetazone mzone="America_Mountain"/>
 			</zone>
+			<zone type="America/Port-au-Prince">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
 			<zone type="America/Port_of_Spain">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
@@ -1347,6 +1351,10 @@
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<usesMetazone mzone="Greenland_Central" to="1981-03-29"/>
+				<usesMetazone mzone="Greenland_Eastern" from="1981-03-29"/>
 			</zone>
 			<zone type="America/Shiprock">
 				<usesMetazone mzone="America_Mountain"/>
@@ -1622,6 +1630,9 @@
 				<usesMetazone mzone="Europe_Western" from="1992-09-27 01:00" to="1993-03-28 01:00"/>
 				<usesMetazone mzone="Azores" from="1993-03-28 01:00"/>
 			</zone>
+			<zone type="Atlantic/Bermuda">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
 			<zone type="Atlantic/Canary">
 				<usesMetazone mzone="Europe_Western"/>
 			</zone>
@@ -1705,18 +1716,11 @@
 				<usesMetazone mzone="Moscow" to="1990-05-06"/>
 				<usesMetazone mzone="Europe_Eastern" from="1990-05-06"/>
 			</zone>
-			<zone type="Europe/Danmarkshavn">
-				<usesMetazone mzone="Greenland_Western" to="1996-01-01"/>
-				<usesMetazone mzone="GMT" from="1996-01-01"/>
-			</zone>
 			<zone type="Europe/Dublin">
 				<usesMetazone mzone="GMT"/>
 			</zone>
 			<zone type="Europe/Gibraltar">
 				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Godthab">
-				<usesMetazone mzone="Greenland_Western"/>
 			</zone>
 			<zone type="Europe/London">
 				<usesMetazone mzone="GMT"/>
@@ -1793,10 +1797,6 @@
 			<zone type="Europe/Sarajevo">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Scoresbysund">
-				<usesMetazone mzone="Greenland_Central" to="1981-03-29"/>
-				<usesMetazone mzone="Greenland_Eastern" from="1981-03-29"/>
-			</zone>
 			<zone type="Europe/Simferopol">
 				<usesMetazone mzone="Moscow" to="1990-07-01 02:00"/>
 				<usesMetazone mzone="Europe_Eastern" from="1990-07-01 02:00"/>
@@ -1840,7 +1840,7 @@
 			<zone type="Europe/Zagreb">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Zaporozyhe">
+			<zone type="Europe/Zaporozhye">
 				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
 				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00"/>
 			</zone>

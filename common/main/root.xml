@@ -1022,9 +1022,6 @@
 			<zone type="America/Aruba">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
-			<zone type="America/Atikokan">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
 			<zone type="America/Bahia">
 				<usesMetazone mzone="Brasilia"/>
 			</zone>
@@ -1080,6 +1077,9 @@
 			<zone type="America/Chihuahua">
 				<usesMetazone mzone="America_Central" to="1998-04-05 03:00"/>
 				<usesMetazone mzone="America_Mountain" from="1998-04-05 03:00"/>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<usesMetazone mzone="America_Eastern"/>
 			</zone>
 			<zone type="America/Cordoba">
 				<usesMetazone mzone="Argentina" to="1991-03-03"/>

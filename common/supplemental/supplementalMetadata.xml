@@ -342,6 +342,8 @@
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
     
+            <!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
+            <variable id="$allow" type="regex">(verbatim)</variable>
             <variable id="$alt" type="regex">((variant|list|secondary|email|www)(-proposed(([-]u?)?[1-9][0-9]*)*)?)|(proposed(([-]u?)?[1-9][0-9]*)*)</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
             <variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>

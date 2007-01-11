@@ -102,7 +102,23 @@ public class CheckNumbers extends CheckCLDR {
               .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));				
         }
       }
+      // Make sure currency patterns contain a currency symbol
+      if ( type == NumericType.CURRENCY ) {
+         String [] currencyPatterns = value.split(";",2);
+         for ( int i = 0 ; i < currencyPatterns.length ; i++ ) {
+            if ( currencyPatterns[i].indexOf("\u00a4") < 0 )
+               result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+                  .setMessage("Currency formatting pattern must contain a currency symbol."));
+         }
+      }
       
+      // Make sure percent formatting patterns contain a currency symbol
+      if ( type == NumericType.PERCENT ) {
+         if ( value.indexOf("%") < 0 )
+            result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+                  .setMessage("Percentage formatting pattern must contain a % symbol."));
+      }
+
     } catch (Exception e) {
       result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
       .setMessage("Error in creating number format {0}; {1}", 

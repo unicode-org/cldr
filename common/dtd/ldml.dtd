@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.86 $
-$Date: 2007-01-03 16:41:37 $
+$Revision: 1.87 $
+$Date: 2007-01-11 15:18:30 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -31,28 +31,28 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST language draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST language references CDATA #IMPLIED >
 <!ATTLIST language alt  CDATA #IMPLIED >
-<!ATTLIST language casing (verbatim) #IMPLIED >
+<!ATTLIST language allow CDATA #IMPLIED >
 
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
 <!ATTLIST script draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST script references CDATA #IMPLIED >
 <!ATTLIST script alt  CDATA #IMPLIED >
-<!ATTLIST script casing (verbatim) #IMPLIED >
+<!ATTLIST script allow CDATA #IMPLIED >
 
 <!ELEMENT territory ( #PCDATA ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
 <!ATTLIST territory draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territory references CDATA #IMPLIED >
 <!ATTLIST territory alt  CDATA #IMPLIED >
-<!ATTLIST territory casing (verbatim) #IMPLIED >
+<!ATTLIST territory allow CDATA #IMPLIED >
 
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
 <!ATTLIST variant draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST variant references CDATA #IMPLIED >
 <!ATTLIST variant alt  CDATA #IMPLIED >
-<!ATTLIST variant casing (verbatim) #IMPLIED >
+<!ATTLIST variant allow CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -131,7 +131,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST key draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST key references CDATA #IMPLIED >
 <!ATTLIST key alt CDATA #IMPLIED >
-<!ATTLIST key casing (verbatim) #IMPLIED >
+<!ATTLIST key allow CDATA #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more type -->
 <!ELEMENT types ( alias | (type | special)* ) >
@@ -147,7 +147,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST type draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST type references CDATA #IMPLIED >
 <!ATTLIST type alt CDATA #IMPLIED >
-<!ATTLIST type casing (verbatim) #IMPLIED >
+<!ATTLIST type allow CDATA #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
 <!ELEMENT measurementSystemNames ( alias | (measurementSystemName | special)* ) >
@@ -161,7 +161,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST measurementSystemName draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystemName references CDATA #IMPLIED >
 <!ATTLIST measurementSystemName alt CDATA #IMPLIED >
-<!ATTLIST measurementSystemName casing (verbatim) #IMPLIED >
+<!ATTLIST measurementSystemName allow CDATA #IMPLIED >
 
 
 
@@ -344,7 +344,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST month references CDATA #IMPLIED >
 <!ATTLIST month alt CDATA #IMPLIED >
 <!ATTLIST month draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST month casing (verbatim) #IMPLIED >
+<!ATTLIST month allow CDATA #IMPLIED >
 
 <!-- START_DEPRECATED -->
 <!ELEMENT monthNames ( alias | (month*, special*)) >
@@ -383,7 +383,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST day references CDATA #IMPLIED >
 <!ATTLIST day draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST day alt CDATA #IMPLIED >
-<!ATTLIST day casing (verbatim) #IMPLIED >
+<!ATTLIST day allow CDATA #IMPLIED >
 
 <!ELEMENT quarters ( alias | (default*, quarterContext*, special*)) >
 <!ATTLIST quarters draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -411,7 +411,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST quarter references CDATA #IMPLIED >
 <!ATTLIST quarter draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST quarter alt CDATA #IMPLIED >
-<!ATTLIST quarter casing (verbatim) #IMPLIED >
+<!ATTLIST quarter allow CDATA #IMPLIED >
 
 <!-- START_DEPRECATED-->
 
@@ -525,7 +525,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST displayName draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST displayName references CDATA #IMPLIED >
 <!ATTLIST displayName alt CDATA #IMPLIED >
-<!ATTLIST displayName casing (verbatim) #IMPLIED >
+<!ATTLIST displayName allow CDATA #IMPLIED >
 
 <!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) >
 <!ATTLIST timeFormats draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -673,25 +673,25 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST generic draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST generic references CDATA #IMPLIED >
 <!ATTLIST generic alt CDATA #IMPLIED >
-<!ATTLIST generic casing (verbatim) #IMPLIED >
+<!ATTLIST generic allow CDATA #IMPLIED >
 
 <!ELEMENT standard ( #PCDATA ) >
 <!ATTLIST standard draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST standard references CDATA #IMPLIED >
 <!ATTLIST standard alt CDATA #IMPLIED >
-<!ATTLIST standard casing (verbatim) #IMPLIED >
+<!ATTLIST standard allow CDATA #IMPLIED >
 
 <!ELEMENT daylight ( #PCDATA ) >
 <!ATTLIST daylight draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST daylight references CDATA #IMPLIED >
 <!ATTLIST daylight alt CDATA #IMPLIED >
-<!ATTLIST daylight casing (verbatim) #IMPLIED >
+<!ATTLIST daylight allow CDATA #IMPLIED >
 
 <!ELEMENT commonlyUsed EMPTY >
 <!ATTLIST commonlyUsed draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST commonlyUsed references CDATA #IMPLIED >
 <!ATTLIST commonlyUsed alt CDATA #IMPLIED >
-<!ATTLIST commonlyUsed casing (verbatim) #IMPLIED >
+<!ATTLIST commonlyUsed allow CDATA #IMPLIED >
 
 <!ELEMENT exemplarCity ( #PCDATA ) >
 <!ATTLIST exemplarCity draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -705,7 +705,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST usesMetazone draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST usesMetazone references CDATA #IMPLIED >
 <!ATTLIST usesMetazone alt CDATA #IMPLIED >
-<!ATTLIST usesMetazone casing (verbatim) #IMPLIED >
+<!ATTLIST usesMetazone allow CDATA #IMPLIED >
 
 <!ELEMENT fields ( alias | (field*, special*)) >
 <!ATTLIST fields draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -722,7 +722,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST field references CDATA #IMPLIED >
 <!ATTLIST field alt CDATA #IMPLIED >
 <!ATTLIST field validSubLocales CDATA #IMPLIED >
-<!ATTLIST field casing (verbatim) #IMPLIED >
+<!ATTLIST field allow CDATA #IMPLIED >
 
 <!ELEMENT relative (#PCDATA) >
 <!ATTLIST relative type NMTOKEN #IMPLIED >
@@ -730,7 +730,7 @@ $Date: 2007-01-03 16:41:37 $
 <!ATTLIST relative references CDATA #IMPLIED >
 <!ATTLIST relative alt CDATA #IMPLIED >
 <!ATTLIST relative validSubLocales CDATA #IMPLIED >
-<!ATTLIST relative casing (verbatim) #IMPLIED >
+<!ATTLIST relative allow CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

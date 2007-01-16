@@ -2807,7 +2807,7 @@ public class SurveyMain extends HttpServlet {
                     if(which.equals(CURRENCIES)) {
                         showPathList(subCtx, "//ldml/"+NUMBERSCURRENCIES, null);
                     } else if(which.equals(TIMEZONES)) {
-                        showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone", null);
+                        showTimeZones(subCtx);
                     } else {
                         showLocaleCodeList(subCtx, which);
                     }
@@ -3303,6 +3303,204 @@ public void showPathListExample(WebContext ctx, String xpath, String lastElement
 }
 
 /**
+ * some supplemental data parsing stuff
+ */
+ 
+private Document supplementalDocument = null;
+
+private synchronized Document getSupplemental() {
+    if(supplementalDocument == null) {
+        supplementalDocument = LDMLUtilities.parse(fileBase + "/../supplemental/supplementalData.xml", true);
+    }
+    return supplementalDocument;
+}
+
+/**
+ * some containment parsing stuff
+ */
+ 
+private Hashtable tcDown = null;  // String -> String[]
+private Hashtable tcUp = null;    // String -> String (parent)
+
+public String[] getContainedTerritories(String territory) {
+    //parseTerritoryContainment();
+    return (String[])tcDown.get(territory);
+}
+
+public String getContainingTerritory(String territory) {
+    //parseTerritoryContainment();
+    return (String)tcUp.get(territory);
+}
+
+private synchronized void parseTerritoryContainment()
+{
+    if(tcDown == null) {
+        Hashtable d = new Hashtable();
+        Hashtable u = new Hashtable();
+        
+        NodeList territoryContainment = 
+                    LDMLUtilities.getNodeList(getSupplemental(), 
+                    "//supplementalData/territoryContainment/group");
+        for(int i=0;i<territoryContainment.getLength();i++) {
+            Node item = territoryContainment.item(i);
+            
+            String type = LDMLUtilities.getAttributeValue(item, LDMLConstants.TYPE);
+            String contains = LDMLUtilities.getAttributeValue(item, LDMLConstants.CONTAINS);
+            String[] containsList = UserRegistry.tokenizeLocale(contains);
+         
+            // now, add them
+            d.put(type, containsList);
+            for(int j=0;j<containsList.length;j++) {
+                u.put(containsList[j],type);
+            }
+        }
+        
+        tcUp = u;
+        tcDown = d;
+    }
+}
+
+/**
+ * parse the list of used zones
+ */
+private Hashtable territoryToZones = null;
+
+String olsonVersion = null;
+String multiZone[] = null;
+Set multiZoneSet = null;
+
+public synchronized Hashtable getTerritoryToZones() {
+    if(territoryToZones == null) {
+        Hashtable u = new Hashtable();
+        
+        NodeList zoneFormatting = 
+                    LDMLUtilities.getNodeList(getSupplemental(), 
+                    "//supplementalData/timezoneData/zoneFormatting");
+                    
+        Node zfItem = zoneFormatting.item(0);
+        
+        olsonVersion = LDMLUtilities.getAttributeValue(zfItem,"tzidVersion");
+        multiZone = UserRegistry.tokenizeLocale(LDMLUtilities.getAttributeValue(zfItem,"multizone"));
+        multiZoneSet = new HashSet();
+        for(int i=0;i<multiZone.length;i++) {
+            multiZoneSet.add(multiZone[i]);
+        }
+        
+        NodeList terrToZones = 
+                    LDMLUtilities.getNodeList(getSupplemental(), 
+                    "//supplementalData/timezoneData/zoneFormatting/zoneItem");
+        for(int i=0;i<terrToZones.getLength();i++) {
+            Node item = terrToZones.item(i);
+            
+            String type = LDMLUtilities.getAttributeValue(item, LDMLConstants.TYPE);
+            String territory = LDMLUtilities.getAttributeValue(item, LDMLConstants.TERRITORY);
+            // do we care about alias?
+            
+            //String[] containsList = UserRegistry.tokenizeLocale(contains);
+            Vector v = (Vector)u.get(territory);
+            if(v==null) { 
+                v = new Vector();
+                u.put(territory,v);
+            }
+            v.add(type);
+        }
+        
+        // devectorize?        
+        territoryToZones = u;
+    }
+    return territoryToZones;
+}
+
+/**
+ * for showing the list of zones to the user
+ */
+
+public void showTimeZones(WebContext ctx) {
+    String z = ctx.field("z");
+    WebContext subCtx = new WebContext(ctx);
+    WebContext worldCtx = new WebContext(ctx);
+    worldCtx.setQuery("z","001");
+    if((z==null)||("".equals(z))) {
+        z = "001";
+    }
+    
+    if("full".equals(z)) {
+        WebContext oCtx = new WebContext(ctx);
+        
+        worldCtx.println("<a href='"+worldCtx.url()+"'>Territory Timezone List (World)</a><br>");
+        subCtx.setQuery("z", "full");
+        showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone", null);
+    } else {
+        WebContext oCtx = new WebContext(ctx);
+
+        oCtx.setQuery("z","full");
+        oCtx.println("<a href='"+oCtx.url()+"'>Full Timezone List</a><br>");
+        
+        parseTerritoryContainment();
+        
+        ULocale zLocale = new ULocale("und",z);
+        
+        /* Fetch the parent locales, and output them in reverse order. */
+        Vector v = new Vector();
+        
+        String parLoc = z;
+        
+        while(parLoc!=null) {
+            v.add(parLoc);
+            if(parLoc.equals("001")) {
+                parLoc = null;
+            } else {
+                parLoc = getContainingTerritory(parLoc);
+            }
+        }
+        
+        WebContext nCtx = new WebContext(oCtx);
+        
+        ctx.println("<hr><p class='hang'>");
+        
+        // output in reverse order
+        for(int j=v.size();j>1;j--) {
+            String s = (String)v.get(j-1);
+            ULocale nLocale = new ULocale("und",s);
+            nCtx.setQuery("z",s);
+            oCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(oCtx.displayLocale)+
+                " ("+s+")</a> ");
+            if(j > 1) {
+                oCtx.println(" \u2192 ");
+            }
+        }
+            
+        oCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(oCtx.displayLocale)+" ("+z+")"+"</b></p>");
+        
+        String[] containsList = getContainedTerritories(z);
+        ///
+        
+        if(containsList != null) {
+            for(int i=0;i<containsList.length;i++) {
+                ULocale nLocale = new ULocale("und",containsList[i]);
+               nCtx.setQuery("z",containsList[i]);
+                oCtx.println(" .. <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(oCtx.displayLocale)+
+                    " ("+containsList[i]+")</a><br>");
+            }
+        }
+        
+        // does it contain any zones?
+        Vector zones = (Vector)(getTerritoryToZones().get(z));
+        if(zones != null && !("001".equals(z))) {
+            oCtx.println("<hr><h4>"+zones.size()+" Contained Zones:</h4>");
+            for(int j=0;j<zones.size();j++) {
+                String s = zones.get(j).toString();
+                oCtx.println(s+"<br>");
+                
+              /*
+               showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone[@type=\""+s+"\"]", null);
+               */
+            }
+        }
+    }
+}
+
+/**
 * This is the main function for showing lists of items (pods).
  */
 public void showPathList(WebContext ctx, String xpath, String lastElement) {
@@ -3372,10 +3570,10 @@ static void printPodTableClose(WebContext ctx, DataPod pod) {
 }
 
 void showPeas(WebContext ctx, DataPod pod, boolean canModify) { 
-    showPeas(ctx, pod, canModify, -1);
+    showPeas(ctx, pod, canModify, -1, false);
 }
 
-void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath) {
+void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn) {
     int count = 0;
     int dispCount = 0;
     int total = 0;
@@ -3476,7 +3674,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         }
         
         try {
-            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs,checkCldr);
+            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs,checkCldr, zoomedIn);
         } catch(Throwable t) {
             ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br>");
             ctx.print(t);
@@ -3486,7 +3684,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
             for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
                 DataPod.Pea subPea = (DataPod.Pea)e.next();
                 try {
-                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths,refs,checkCldr);
+                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths,refs,checkCldr, zoomedIn);
                 } catch(Throwable t) {
                     ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+pod.xpath(subPea)+"."+subPea.altType+"</b><br>");
                     ctx.print(t);
@@ -3598,7 +3796,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         choice_refDisplay = " Ref: "+choice_r;
     }
     if(!choice.equals(CHANGETO)) {
-        choice_v=""; // so that it is ignored
+        choice_v=""; // so that the value is ignored, as it is not changing
     }
     if(choice.equals(CHANGETO)&& choice_v.length()==0) {
         ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
@@ -3658,10 +3856,56 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         if(ctx.field("new_alt").trim().length()>0) {
             altType = ctx.field("new_alt").trim();
         }
+        
+        ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v +"</b> : ");
+        // Test: is the value valid?
+        {
+            /* cribbed from elsewhere */
+            UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            /*CLDRFile cf = uf.cldrfile;
+            if(cf == null) {
+                throw new InternalError("CLDRFile is null!");
+            }*/
+            /*CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            if(ourSrc == null) {
+                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+            }*/
+            // Set up checks
+            CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
+            List checkCldrResult = new ArrayList();
+            
+            checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(), checkCldrResult);  // they get the full course
+            
+            if(!checkCldrResult.isEmpty()) {
+                boolean doFail = false;
+                ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if(status.getType().equals(status.errorType)) {
+                        doFail = true;
+                    }
+                    try{ 
+                        if (!status.getType().equals(status.exampleType)) {
+                            ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
+                        }/* else {
+                            ctx.println("<i>example available</i><br>");
+                        }*/
+                    } catch(Throwable t) {
+                        ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
+                    }
+                }
+                ctx.println("</div><hr>");
+                if(doFail) {
+                    ctx.println(" <b>..unrecoverable...not accepting this item!</b><hr>");
+                    return false;
+                }
+            }
+        }
+        
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, altType, 
             altPrefix, ctx.session.user.id, choice_v, choice_r);
         // update implied vote
-        ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp+"</b>");
+        ctx.print(" : <b>" + newProp+"</b>");
         if(choice.equals(REMOVE)) {
             ctx.print(" <i>(removal)</i>");
         }
@@ -3716,9 +3960,13 @@ int doUnVote(WebContext ctx, String locale, int base_xpath) {
     return rs;
 }
 
+void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr)  {
+    showPea(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr,false);
+}
 // TODO: trim unused params
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
+    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
     //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
     //    return;
     //}
@@ -4114,19 +4362,21 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.print("<td nowrap valign='top' align='right'>");
         if(!p.confirmOnly) {
 
-            if(canModify && canSubmit) {
-                fora.showForumLink(ctx, pod, p, base_xpath);
-            }
-        
-            ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
-            if(canModify && canSubmit ) {
-                ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+            if(!zoomedIn) {
+                if(canModify && canSubmit) {
+                    fora.showForumLink(ctx, pod, p, base_xpath);
+                }
             } else {
-                ctx.print("<input type='radio' disabled>");
+                ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
+                if(canModify && canSubmit ) {
+                    ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+                } else {
+                    ctx.print("<input type='radio' disabled>");
+                }
             }
         }
         ctx.println("</td>");
-        if(canSubmit && canModify && !p.confirmOnly) {
+        if(zoomedIn && canSubmit && canModify && !p.confirmOnly) {
             ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'  class='inputbox'></td>");
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");

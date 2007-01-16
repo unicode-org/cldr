@@ -37,6 +37,7 @@ public class WebContext {
     public CLDRDBSource dbsrc = null;
     public Document doc[]= new Document[0];
     public ULocale locale = null;
+    public ULocale displayLocale = new ULocale("en_US");
     public String docLocale[] = new String[0];
     public String localeName = null; 
     public CookieSession session = null;

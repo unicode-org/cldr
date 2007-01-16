@@ -247,11 +247,23 @@ public class SurveyForum {
             ctx.println("<br><br> <div class='response'>"+(text==null?("<i>none</i>"):preparePostText(text))+"</div><p>");
             ctx.println("</div><hr>");
         } else {
-            sm.printHeader(ctx,"Fora | " + forum + " | New post on #" + base_xpath);
+            sm.printHeader(ctx,"Fora | " + forum + " | Zoom on #" + base_xpath);
             printForumMenu(ctx, forum);
         }
         
         
+        if(ctx.field("text").length()==0 &&
+           ctx.field("subj").length()==0) {
+            // hide the 'post comment' thing
+            String warnHash = "post_comment"+base_xpath+"_"+forum;
+            ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
+                        "<b>+</b> Ask a question or post a comment..</a></div>");
+            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                        "<div style='display: none' class='pager' id='" + warnHash + "'>" );
+            ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + 
+                        "(<b>-</b> Don't post comment)</a>");
+        }
+                
         ctx.println("<form method='POST' action='"+ctx.base()+"'>");
         
         ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+forum+"'>");
@@ -271,6 +283,12 @@ public class SurveyForum {
               //  ...
             }
         }
+
+        if(ctx.field("text").length()==0 &&
+           ctx.field("subj").length()==0) {
+            ctx.println("</div>");
+        }
+        
         if(replyTo != -1) {
             ctx.println("<h4>In Reply To:</h4><span class='reply-to'>");
             String subj2 = showItem(ctx, forum, forumNumber, replyTo, false); 
@@ -285,7 +303,7 @@ public class SurveyForum {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
         // Show the Pod in question:
-        ctx.println("<hr> \n This post Concerns:<p>");
+//        ctx.println("<hr> \n This post Concerns:<p>");
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
         String podBase = DataPod.xpathToPodBase(xpath);
         
@@ -330,7 +348,7 @@ public class SurveyForum {
         DataPod pod = ctx.getPod(podBase);
         
         SurveyMain.printPodTableOpen(ctx, pod);
-        sm.showPeas(ctx, pod, canModify, base_xpath);
+        sm.showPeas(ctx, pod, canModify, base_xpath, true);
         SurveyMain.printPodTableClose(ctx, pod);
         if(canModify) {
             ctx.println("<hr>");
@@ -687,7 +705,7 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
         title = pod.intgroup + " forum" /*+ title*/;
-        ctx.println("<a href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>[zoom]</a>");
+        ctx.println("<a class='forumlink' href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>[zoom/change]</a>");
         
     }
 

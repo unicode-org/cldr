@@ -26,6 +26,8 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 
 
 public class LDMLComparator {
@@ -126,6 +128,15 @@ public class LDMLComparator {
         comparator.processArgs(args);
     }
 
+    static Collator getDefaultCollation() {
+   //     if (DEFAULT_COLLATION != null) return DEFAULT_COLLATION;
+        RuleBasedCollator temp = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+        temp.setStrength(Collator.IDENTICAL);
+        temp.setNumericCollation(true);
+       // DEFAULT_COLLATION = temp;
+        return temp;
+    }
+
     Hashtable optionTable = new Hashtable();
     private String sourceFolder = ".";
     private String destFolder = ".";
@@ -137,7 +148,7 @@ public class LDMLComparator {
     private String goldKey;
     private int numPlatforms = 0;
     private int serialNumber =0;
-    private TreeMap compareMap = new TreeMap();
+    private TreeMap compareMap = new TreeMap(getDefaultCollation());
     private Hashtable doesNotExist = new Hashtable();
     private Hashtable requested = new Hashtable();
     private Hashtable deprecatedLanguageCodes = new Hashtable();
@@ -157,6 +168,7 @@ public class LDMLComparator {
     private boolean m_Vetting = false;
 
     private int m_totalCount = 0;
+    private int m_diffcount = 0;
     private String m_Messages = "";
 
     private class CompareElement
@@ -245,6 +257,7 @@ public class LDMLComparator {
 
                 String fileName = destFolder+File.separator+localeStr+".html";
                 m_totalCount = 0;
+		m_diffcount = 0;
                 if((m_iOptions & OPT_VETTING) != 0)
                 {
                     m_Vetting = true;
@@ -285,6 +298,9 @@ public class LDMLComparator {
                         indexwriter.println(" <td><a href=\"" + localeStr+".html" + "\">" +
                             ourLocale.getDisplayName() + "</a></td>");
                         indexwriter.println(" <td>" + m_totalCount + "</td>");
+			if(!m_Vetting) {
+			    indexwriter.println(" <td>" + m_diffcount + "</td>");
+			}
                         indexwriter.println(" <td>" + LDMLUtilities.getCVSLink(localeStr,ourCvsVersion) +  ourCvsVersion + "</a></td>");
                         indexwriter.println("</tr>");
                         is.close();
@@ -689,7 +705,7 @@ public class LDMLComparator {
                     }else if(value.equals("")){
                         color = "#FFFFFF";
                         break;
-                    }else if(element.parentNode.indexOf("decimal")>-1 || element.parentNode.indexOf("currency")>-1 ){
+                    }else if	(element.parentNode.indexOf("decimalFormat")>-1 || element.parentNode.indexOf("currencyFormat")>-1 ){
                         if(comparePatterns(compareTo, value)){
                             color = (String)colorHash.get(PLATFORM_PRINT_ORDER[j]);
                             isEqual = true;
@@ -707,7 +723,16 @@ public class LDMLComparator {
                 }
                 if(isEqual){
                     value = "=";
-                }
+		} else {
+		    if(i>0) { // not the first platform
+			if ((element.node.compareTo((String)"generation") == 0)
+			|| (element.node.compareTo((String)"version")==0)) {
+			    // ignored
+			} else {
+			    m_diffcount++;
+			}
+		    }
+		}
                 if(m_Vetting) {
                     String altText = (String)element.platformData.get("ALT");
                     writer.print("<td>" + value);
@@ -1120,7 +1145,7 @@ public class LDMLComparator {
                  Node altNode = attr.getNamedItem("alt");
                  String index="";
                  if(typeNode!=null){
-
+/*
                      if(childOfSource.getNodeName().equals("era")&&!key.equals("common")){
                          //remap type for comparison purpose
                          // TODO remove this hack
@@ -1130,6 +1155,7 @@ public class LDMLComparator {
                          }
                          typeNode.setNodeValue(Integer.toString(j));
                      }
+*/
                      String temp =typeNode.getNodeValue();
 
                      if(!temp.equals("standard")){

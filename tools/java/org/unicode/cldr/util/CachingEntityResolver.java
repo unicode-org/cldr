@@ -38,7 +38,9 @@ import org.xml.sax.InputSource;
  */
 public class CachingEntityResolver implements EntityResolver {
     static final String CLDR_DTD_CACHE = "CLDR_DTD_CACHE";
+    static final String CLDR_DTD_OVERRIDE = "CLDR_DTD_OVERRIDE";
     private static String gCacheDir = null;
+    private static String gOverrideDir = System.getProperty(CLDR_DTD_OVERRIDE);
     private static boolean gCheckedEnv = false;
     
     // TODO: synch?
@@ -77,13 +79,16 @@ public class CachingEntityResolver implements EntityResolver {
 
         if((gCacheDir == null) && (!gCheckedEnv)) {
             gCacheDir = System.getProperty(CLDR_DTD_CACHE);
-
+        
 //            if(aDebug) {
 //                System.out.println("CRE:  " + CLDR_DTD_CACHE + " = " + gCacheDir);
 //            }
             
             if((gCacheDir==null)||(gCacheDir.length()<=0)) {
                 gCacheDir = null;
+            }
+            if((gOverrideDir==null)||(gOverrideDir.length()<=0)) {
+                gOverrideDir = null;
             }
             gCheckedEnv=true;
         }
@@ -98,7 +103,7 @@ public class CachingEntityResolver implements EntityResolver {
         String theCache = getCacheDir();
 
         if(aDebug) {
-            System.out.println("CRE:  " + publicId + " | " + systemId + ", cache=" + theCache);
+            System.out.println("CRE:  " + publicId + " | " + systemId + ", cache=" + theCache+", override="+gOverrideDir);
         }
         
         if(theCache!=null) {
@@ -139,9 +144,25 @@ public class CachingEntityResolver implements EntityResolver {
                     System.out.println("Using existing: " + t.getPath());
                 }
             } else {
+                
+                if(gOverrideDir != null) {
+                    int lastSlash = systemId.lastIndexOf('/');
+                    if(lastSlash != -1) {
+                        String shortName = systemId.substring(lastSlash+1,systemId.length());
+                        File aFile = new File(gOverrideDir,shortName);
+                        if(aFile.exists()) {
+                            if(aDebug) {
+                                System.err.println("overridden "+aFile.toString());
+                            }
+                            return new InputSource(aFile.getPath());
+                        }
+                    }
+                }
+
                 if(aDebug) {
                     System.out.println(t.getPath() + " doesn't exist. fetching.");
                 }
+                
                 try {
                     BufferedReader r = new BufferedReader(new InputStreamReader(new java.net.URL(systemId).openStream()));
                     BufferedWriter w = new BufferedWriter(new FileWriter(t.getPath()));
@@ -154,6 +175,7 @@ public class CachingEntityResolver implements EntityResolver {
                     w.close();
                 } catch ( Throwable th ) {
                     System.err.println(th.toString() + " trying to fetch " + t.getPath());
+                    
                     return null;
                 }
                 if(aDebug) {

@@ -938,12 +938,12 @@ import com.ibm.icu.util.ULocale;
                 ResultSet rs = stmts.oxpathFromXpath.executeQuery();
                 if(!rs.next()) {
                     rs.close();
-                    logger.severe("gfx not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
+                    logger.severe("getOrigXpath not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
                     return xpt.getById(pathid); // not found - should be null?
                 }
                 int result = rs.getInt(1);
                 if(rs.next()) {
-                    logger.severe("gfx returns two results: " + locale + " " + xpt.getById(pathid));
+                    logger.severe("getOrigXpath returns two results: " + locale + " " + xpt.getById(pathid));
                     // fail?? what?
                 }
                 rs.close();

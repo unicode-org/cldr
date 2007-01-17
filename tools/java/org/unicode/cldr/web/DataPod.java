@@ -179,13 +179,16 @@ public class DataPod extends Registerable {
                         return myCollator.compare(p1.altProposed, p2.altProposed);
                     }
                 });
-        Item addItem(String value, String altProposed, List tests) {
+        public Item addItem(String value, String altProposed, List tests) {
             Item pi = new Item();
             pi.value = value;
             pi.altProposed = altProposed;
             pi.tests = tests;
             items.add(pi);
-//            System.out.println("  v: " + pi.value);
+///*srl*/            if(type.indexOf("Chicago")>-1) {
+//                System.out.println(type+"  v: " + pi.value);
+//            }
+            
             return pi;
         }
         
@@ -298,19 +301,9 @@ public class DataPod extends Registerable {
                 Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
                 for(int i=0;i<peasArray.length;i++) {
                     Pea p = peasArray[i];
-                    
-///*srl*/                    if(p.base_xpath == 964) {
-//                        System.err.println(p.base_xpath+": Props:"+new Boolean(p.hasProps)+", Tests:"+new Boolean(p.hasTests)+
-//                            ", Inherit:"+new Boolean(p.hasInherited));
-//                            
-//                        for(int j=0;j<testPartitions.length;j++) {
-//                            System.err.println(p.base_xpath+": " + testPartitions[j].name+": " + testPartitions[j].pm.isMember(p));
-//                        }
-//                    }
-                    
+                                        
                     for(int j=lastGood;j<testPartitions.length;j++) {
                         if(testPartitions[j].pm.isMember(p)) {
-//System.err.println(testPartitions[j].name+ " - OK @ " + i);
                             if(j>lastGood) {
                                 lastGood = j;
                             }
@@ -332,7 +325,6 @@ public class DataPod extends Registerable {
                 }
                     
                 for(int j=0;j<testPartitions.length;j++) {
-// /*srl*/                   System.err.println("P"+j+" - " + testPartitions[j]);
                     if(testPartitions[j].start != -1) {
 						if(testPartitions[j].start!=0 && v.isEmpty()) {
 //							v.add(new Partition("Other",0,testPartitions[j].start));
@@ -465,7 +457,6 @@ public class DataPod extends Registerable {
                             }
                         }
                         if(rv==-1) {
-///*srl*/                                System.err.println("Uncategorized pea: " + p.base_xpath);
                         }
                         return rv;
                     }
@@ -720,7 +711,6 @@ public class DataPod extends Registerable {
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
-        /*srl*/
         boolean ndebug = false;
         long lastTime = -1;
         long longestTime = -1;
@@ -798,6 +788,8 @@ public class DataPod extends Registerable {
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             boolean confirmOnly = false;
             String xpath = (String)it.next();
+                
+                
             if(SHOW_TIME) {
                 count++;
                 if((count%250)==0) {
@@ -832,8 +824,6 @@ public class DataPod extends Registerable {
             String baseXpath = src.xpt.getById(base_xpath);
             
             
-///*srl*/            System.err.println("X: "+xpath+"\nF: "+fullPath+"\nB: " + baseXpath);
-            
             if(fullPath == null) {
                 System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
                 fullPath = xpath;
@@ -848,20 +838,16 @@ public class DataPod extends Registerable {
             boolean mixedType = false;
             String type;
             String lastType = src.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
-///*srl*/System.err.println("LT = " + lastType);
             String displaySuffixXpath;
             String peaSuffixXpath = null; // if non null:  write to suffixXpath
             
             // these need to work on the base
             String fullSuffixXpath = baseXpath.substring(xpathPrefix.length(),baseXpath.length());
-///*srl*/System.err.println("Fs:"+fullSuffixXpath);
             if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
                 displaySuffixXpath = baseXpath;
-///*srl*/                System.err.println("RP: " + removePrefix);
             } else {
                 displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
             }
-///*srl*/System.err.println("dX:"+displaySuffixXpath);
             if(useShorten == false) {
                 type = lastType;
                 if(type == null) {
@@ -967,6 +953,7 @@ public class DataPod extends Registerable {
             Pea p = getPea(type, altType);
             p.base_xpath = base_xpath;
             Pea superP = getPea(type);
+///*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
                 p.xpathSuffix = peaSuffixXpath;
@@ -1065,6 +1052,10 @@ public class DataPod extends Registerable {
                 }
             }
             
+///*SRL*/     if(xpath.indexOf("Chicago")>-1) {
+//                System.err.println(locale + " - CHI - " + xpath + " V:"+value+" - I:"+isInherited);
+//            }
+
             if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
                 p.pathWhereFound = sourceLocaleStatus.pathWhereFound;
                 continue;  // **************************** don't collect any data from aliased items.
@@ -1145,34 +1136,11 @@ public class DataPod extends Registerable {
             if((eRefs != null) && (!isInherited)) {
                 myItem.references = eRefs;
             }
-
-//if(ndebug)    System.err.println("n09  "+(System.currentTimeMillis()-nextTime));
-            /*srl*/
-    /*
-            nextTime=System.currentTimeMillis();
-            if(lastTime>0) {
-                long thisTime = nextTime-lastTime;
-                if(thisTime>longestTime) {
-                    longestPath=xpath;
-                    longestTime=thisTime;
-                    System.err.println("Longest: " + longestTime+"ms, " +xpath);
-                }
-            }            
-            if(lastTime>0) {
-                t--;
-     //if(ndebug)           if(t==0) {
-                    return;
-                }
-            }
-            lastTime=nextTime;
-    */
-            /*end srl*/
             
-
         }
 //        aFile.close();
     }
-    private Pea getPea(String type) {
+    public Pea getPea(String type) {
         if(type == null) {
             throw new InternalError("type is null");
         }

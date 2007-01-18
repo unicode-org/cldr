@@ -409,7 +409,23 @@ abstract public class CheckCLDR {
         newLocale = false;
       }
       if (path.equals(lastPath)) return;
-      String[] splitPath = path.split(splitChar);
+
+//    This logic keeps us from splitting on an attribute value that contains a /
+//    such as time zone names.
+//
+      StringBuffer newPath = new StringBuffer();
+      boolean inQuotes = false;
+      for ( int i = 0 ; i < path.length() ; i++ ) {
+         if ( (path.charAt(i) == '/') && !inQuotes )
+             newPath.append('%');
+         else
+             newPath.append(path.charAt(i));
+
+         if ( path.charAt(i) == '\"' )
+            inQuotes = !inQuotes;
+      }
+      
+      String[] splitPath = newPath.toString().split("%");
       
       for (int i = 0; i < splitPath.length; ++i) {
         if (lastSplitPath != null && i < lastSplitPath.length && splitPath[i].equals(lastSplitPath[i])) {

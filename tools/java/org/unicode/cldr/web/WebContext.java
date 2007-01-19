@@ -43,6 +43,7 @@ public class WebContext {
     public CookieSession session = null;
     public Connection conn = null;
     public ElapsedTimer reqTimer = null;
+    public Hashtable temporaryStuff = new Hashtable();
     
 // private fields
     protected PrintWriter out = null;
@@ -84,6 +85,7 @@ public class WebContext {
     public WebContext( WebContext other) {
         doc = other.doc;
         docLocale = other.docLocale;
+        displayLocale = other.displayLocale;
         out = other.out;
         outQuery = other.outQuery;
         locale = other.locale;
@@ -96,6 +98,7 @@ public class WebContext {
         conn = other.conn;
         dbsrc = other.dbsrc;
         sm = other.sm;
+        temporaryStuff = other.temporaryStuff;
     }
     
     /**

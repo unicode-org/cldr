@@ -3905,6 +3905,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
     if(choice.length()==0) {
         return false; // nothing to see..
     }
+    
     String fullPathFull = pod.xpath(p);
     int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
     int oldVote = vet.queryVote(pod.locale, ctx.session.user.id, base_xpath);
@@ -3940,6 +3941,10 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                 if(theirReferences.equals(choice_r)) {
                     ctx.println("<tt class='codebox'>" + p.displayName +"</tt>  - Not accepting value, as it is already present under " + 
                         ((item.altProposed==null)?" non-draft item ":(" <tt>"+item.altProposed+"</tt><br> ")));
+                    // reject the value
+                    if(!choice.equals(REMOVE)) {
+                        ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
+                    }
                     return false;
                 } else {
                     ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - <i>Note, differs only in references</i> ("+theirReferences+")<br>");
@@ -3978,8 +3983,12 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         if(ctx.field("new_alt").trim().length()>0) {
             altType = ctx.field("new_alt").trim();
         }
-        
-        ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v +"</b> : ");
+        String aDisplayName = p.displayName;
+        if(pod.xpath(p).startsWith("//ldml/characters") && 
+            ((aDisplayName == null) || "null".equals(aDisplayName))) {
+            aDisplayName = "standard";
+        }
+        ctx.print("<tt class='codebox'>" + aDisplayName + "</tt> <b>change: " + choice_v +"</b> : ");
         // Test: is the value valid?
         {
             /* cribbed from elsewhere */
@@ -4000,7 +4009,6 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
             
             if(!checkCldrResult.isEmpty()) {
                 boolean doFail = false;
-                ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if(status.getType().equals(status.errorType)) {
@@ -4008,7 +4016,8 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                     }
                     try{ 
                         if (!status.getType().equals(status.exampleType)) {
-                            ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
+                            String cls = shortClassName(status.getCause());
+                            ctx.println(cls +": "+ status.toString() + "<br>");
                         }/* else {
                             ctx.println("<i>example available</i><br>");
                         }*/
@@ -4016,9 +4025,12 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                         ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                     }
                 }
-                ctx.println("</div><hr>");
                 if(doFail) {
-                    ctx.println(" <b>..unrecoverable...not accepting this item!</b><hr>");
+                    // reject the value
+                    if(!choice.equals(REMOVE)) {
+                        ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
+                    }
+                    ctx.println("<b>This item was not accepted because of test failures.</b><hr>");
                     return false;
                 }
             }
@@ -4498,7 +4510,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         }
         ctx.println("</td>");
         if(zoomedIn && canSubmit && canModify && !p.confirmOnly) {
-            ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'  class='inputbox'></td>");
+            String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
+            String fClass = "inputbox";
+            if(oldValue==null) {
+                oldValue="";
+            } else {
+                fClass = "badinputbox";
+            }
+            ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");
                 ctx.print("<a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"'>Ref:</a>");

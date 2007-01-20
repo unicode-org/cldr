@@ -348,3 +348,48 @@ td.framecell {
 	
 /* @end */
 
+/* @group tzbox */
+table.tzbox {
+/*	border: 1px solid gray; */
+	border-collapse: collapse;
+}
+
+table.tzbox th {
+	border-right:  1px solid gray;
+	border-left:  1px solid gray;
+	border-bottom:  2px solid gray;
+	color:  black;
+}
+
+table.tzbox td {
+	padding-right:  0.2em;
+	padding-left:  0.2em;
+	border-right:  1px solid gray;
+	border-left:  1px solid gray;
+}
+
+table.tzbox tr.r0 td {
+	color:  darkgray;
+}
+
+table.tzbox tr.r1 td {
+	color:  darkgray;
+	background-color:  lightgoldenrodyellow;
+}
+
+table.tzbox tr.r0currentZone td {
+	color:  black;
+	background-color: white;
+}
+
+table.tzbox tr.r1currentZone td {
+	color:  black;
+	background-color: lightgoldenrodyellow;
+}
+
+table.tzbox tt.codebox {
+	background-color:  white;
+}
+
+/* @end */
+

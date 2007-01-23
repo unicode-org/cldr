@@ -11,6 +11,11 @@
 			<measurementSystemName type="US">US</measurementSystemName>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+           <codePattern type="language">Language: {0}</codePattern>
+           <codePattern type="script">Script: {0}</codePattern>
+           <codePattern type="territory">Region: {0}</codePattern>
+		</codePatterns>	
 	</localeDisplayNames>
 	<layout>
 		<orientation/>

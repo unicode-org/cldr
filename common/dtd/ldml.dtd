@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.87 $
-$Date: 2007-01-11 15:18:30 $
+$Revision: 1.88 $
+$Date: 2007-01-23 05:54:00 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -54,6 +54,13 @@ $Date: 2007-01-11 15:18:30 $
 <!ATTLIST variant alt  CDATA #IMPLIED >
 <!ATTLIST variant allow CDATA #IMPLIED >
 
+<!ELEMENT codePatterns ( codePattern+ ) >
+<!ELEMENT codePattern ( #PCDATA ) >
+<!ATTLIST codePattern type NMTOKEN #REQUIRED >
+<!ATTLIST codePattern draft ( approved | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST codePattern references CDATA #IMPLIED >
+<!ATTLIST codePattern alt  CDATA #IMPLIED >
+
 <!-- ######################################################### -->
 
 <!-- These elements are common to almost all elements defined  -->
@@ -83,7 +90,7 @@ $Date: 2007-01-11 15:18:30 $
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystemNames?, special*)) >
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystemNames?, codePatterns?, special*)) >
 <!ATTLIST localeDisplayNames draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- Either 1 alias OR any specials, any order, zero or more language -->

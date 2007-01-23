@@ -633,13 +633,22 @@ public class CLDRFile implements Freezable {
     return this;
   }
   
+  static final Pattern specialsToKeep = Pattern.compile(
+      "/(" +
+      "measurementSystemName" +
+      "|codePattern" +
+      "|calendar\\[\\@type\\=\"gregorian\"\\]" +
+      "|numbers/symbols/(decimal/group)" +
+      "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+      ")");
   
   /**
    * Removes all items with same value
    * @param keepList TODO
    */
-  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, Map keepList) {
+  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, boolean dontRemoveSpecials) {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
     boolean first = true;
     for (Iterator it = other.iterator(); it.hasNext();) {
       String xpath = (String)it.next();
@@ -647,9 +656,14 @@ public class CLDRFile implements Freezable {
       if (currentValue == null) continue;
       String otherValue = other.dataSource.getValueAtPath(xpath);
       if (!currentValue.equals(otherValue)) continue;
-      String keepValue = (String) keepList.get(xpath);
-      if (keepValue != null && keepValue.equals(currentValue)) {
-        continue;
+      if (dontRemoveSpecials) {
+        String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
+        if (keepValue != null && keepValue.equals(currentValue)) {
+          continue;
+        }
+        if (specialPathMatcher.reset(xpath).find()) { // skip certain xpaths
+          continue;
+        }
       }
       String currentFullXPath = dataSource.getFullPath(xpath);
       String otherFullXPath = other.dataSource.getFullPath(xpath);
@@ -659,6 +673,39 @@ public class CLDRFile implements Freezable {
         if (butComment) appendFinalComment("Duplicates removed:");
       }
       remove(xpath, butComment);
+    }
+    return this;
+  }
+  
+  public CLDRFile putRoot(CLDRFile rootFile) {
+    Matcher specialPathMatcher = specialsToKeep.matcher("");
+    XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
+    for (Iterator it = rootFile.iterator(); it.hasNext();) {
+      String xpath = (String)it.next();
+      
+      // skip aliases, choices
+      if (xpath.contains("/alias")) continue;
+      if (xpath.contains("/default")) continue;
+      
+      // skip values we have
+      String currentValue = dataSource.getValueAtPath(xpath);      
+      if (currentValue != null) continue;
+      
+      // only copy specials
+      if (!specialPathMatcher.reset(xpath).find()) { // skip certain xpaths
+        continue;
+      }
+      // now add the value
+      String otherValue = rootFile.dataSource.getValueAtPath(xpath);
+      String otherFullXPath = rootFile.dataSource.getFullPath(xpath);
+      if (!otherFullXPath.contains("[@draft")) {
+        parts.set(otherFullXPath);
+        Map attributes = parts.getAttributes(-1);
+        attributes.put("draft","provisional");
+        otherFullXPath = parts.toString();
+      }
+
+      add(otherFullXPath,otherValue);
     }
     return this;
   }

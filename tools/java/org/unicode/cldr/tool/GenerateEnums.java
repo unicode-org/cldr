@@ -1,12 +1,16 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import org.unicode.cldr.util.Relation;
+
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -15,6 +19,7 @@ import com.ibm.icu.util.ULocale;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -58,7 +63,7 @@ public class GenerateEnums {
 
   private CLDRFile supplementalData = factory.make("supplementalData", false);
 
-  private TreeSet unlimitedCurrencyCodes;
+  private Relation unlimitedCurrencyCodes;
 
   private Set scripts = new TreeSet();
 
@@ -67,10 +72,17 @@ public class GenerateEnums {
   public static void main(String[] args) throws IOException {
     GenerateEnums gen = new GenerateEnums();
     gen.loadCLDRData();
+    gen.showCounts();
     gen.showCurrencies();
     gen.showLanguages();
     gen.showScripts();
     gen.showRegionCodeInfo();
+  }
+
+  private void showCounts() {
+    System.out.format("Language Subtags: %s\r\n", sc.getGoodAvailableCodes("language").size());
+    System.out.format("Script Subtags: %s\r\n", sc.getGoodAvailableCodes("script").size());
+    System.out.format("Territory Subtags: %s\r\n", sc.getGoodAvailableCodes("territory").size());
   }
 
   private void showCurrencies() {
@@ -78,15 +90,33 @@ public class GenerateEnums {
     System.out.println("Currency Data");
     System.out.println();
     compareSets("currencies from sup.data", currencyCodes, "valid currencies", validCurrencyCodes);
-    Set both = new TreeSet(currencyCodes);
-    both.addAll(validCurrencyCodes);
+    Set unused = new TreeSet(validCurrencyCodes);
+    unused.removeAll(currencyCodes);
+    showCurrencies(currencyCodes);
+    System.out.println();
+    showCurrencies(unused);
+    Map<String,String> sorted = new TreeMap(Collator.getInstance(ULocale.ENGLISH));
+    for (String code : validCurrencyCodes) {
+      if (unused.contains(code) && !code.equals("CLF")) continue; // we include CLF for compatibility
+      sorted.put(english.getName(CLDRFile.CURRENCY_NAME, code, false),code);
+    }
+    int lineLength = "  /** Belgian Franc */                                            BEF,".length();
+    for (String name : sorted.keySet()) {
+      printRow(sorted.get(name), name, "currency", null, lineLength);
+    }
+  }
+
+  private void showCurrencies(Set both) {
+    //   /** Afghani */                                                  AFN,
     for (Iterator it = both.iterator(); it.hasNext();) {
       String code = (String) it.next();
       String englishName = english.getName(CLDRFile.CURRENCY_NAME, code, false);
+      if (englishName == null) {
+      }
+      Set<String> regions = unlimitedCurrencyCodes.getAll(code);
       System.out.println(code + "\t" + englishName + "\t" + (validCurrencyCodes.contains(code) ? currencyCodes.contains(code) ? "" : "valid-only" : "supp-only") + "\t"
-          + (unlimitedCurrencyCodes.contains(code) ? "" : "unused"));
+          + (regions != null ? regions : "unused"));
     }
-
   }
 
   private void showScripts() {
@@ -101,7 +131,7 @@ public class GenerateEnums {
       String englishName = english.getName(CLDRFile.SCRIPT_NAME, code, false);
       if (englishName == null)
         continue;
-      printRow(code, "script", code_replacements);
+      printRow(code, null, "script", code_replacements, 80);
       //System.out.println("     /**" + englishName + "*/    " + code + ",");
     }
     showGeneratedCommentEnd(CODE_INDENT);
@@ -248,6 +278,7 @@ public class GenerateEnums {
     missing.removeAll(cldrCodes);
     // don't care list: "003"
     missing.remove("003");
+    missing.remove("172");
     if (missing.size() != 0) {
       throw new IllegalArgumentException("Codes in Registry but not in CLDR: " + missing);
     }
@@ -279,14 +310,15 @@ public class GenerateEnums {
     Date today = new Date();
     Date longAgo = new Date(1000 - 1900, 1, 1);
     currencyCodes = new TreeSet();
-    unlimitedCurrencyCodes = new TreeSet();
+    unlimitedCurrencyCodes = new Relation(new TreeMap(), TreeSet.class, null);
     for (Iterator it = supplementalData.iterator("//supplementalData/currencyData/region"); it.hasNext();) {
       String path = (String) it.next();
       parts.set(path);
+      String region = parts.findAttributeValue("region", "iso3166");
       String code = parts.findAttributeValue("currency", "iso4217");
       String to = parts.findAttributeValue("currency", "to");
       main: if (to == null) {
-        unlimitedCurrencyCodes.add(code);
+        unlimitedCurrencyCodes.put(code, region);
       } else {
         for (int i = 0; i < simpleFormats.length; ++i) {
           try {
@@ -295,7 +327,7 @@ public class GenerateEnums {
               System.out.println("Date Error: can't parse " + to);
               break main;
             } else if (foo.compareTo(today) >= 0) {
-              unlimitedCurrencyCodes.add(code);
+              unlimitedCurrencyCodes.put(code, region);
             }
             break main;
           } catch (ParseException e) {
@@ -427,9 +459,9 @@ public class GenerateEnums {
 
       });
 
-  private Set currencyCodes;
+  private Set<String> currencyCodes;
 
-  private Set validCurrencyCodes;
+  private Set<String> validCurrencyCodes;
 
   /**
    * Get the RegionCode Enum
@@ -445,7 +477,7 @@ public class GenerateEnums {
     Map<String,String> code_replacements = new TreeMap<String,String>();
     for (Iterator it = reordered.iterator(); it.hasNext();) {
       String region = (String) it.next();
-      printRow(region, "territory", code_replacements);
+      printRow(region, null, "territory", code_replacements, 80);
     }
     showGeneratedCommentEnd(CODE_INDENT);
 
@@ -581,13 +613,16 @@ public class GenerateEnums {
     return replacement;
   }
   
-  private void printRow(String codeName, String type, Map<String,String> code_replacements) {
+  private void printRow(String codeName, String englishName, String type, Map<String,String> code_replacements, int lineLength) {
     //int numeric = Integer.parseInt((String) enum_UN.get(codeName));
     //String alpha3 = (String) enum_alpha3.get(codeName);
     String cldrName = codeName.length() < 5 ? codeName : codeName.substring(2); // fix UN name
     String replacement = getDeprecatedReplacement(type, cldrName);
-    String englishName = type.equals("territory") ? getEnglishName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName, false);
-    String prefix = CODE_INDENT + "/** " + englishName; //  + " - " + threeDigit.format(numeric);
+    String resolvedEnglishName = englishName != null ? englishName
+      : type.equals("territory") ? getEnglishName(codeName) 
+      : type.equals("currency") ? english.getName(CLDRFile.CURRENCY_NAME, codeName, false)
+      : english.getName(CLDRFile.SCRIPT_NAME, codeName, false);
+    String prefix = CODE_INDENT + "/** " + resolvedEnglishName; //  + " - " + threeDigit.format(numeric);
     String printedCodeName = codeName;
     if (replacement != null) {
       code_replacements.put(codeName, replacement);
@@ -601,7 +636,7 @@ public class GenerateEnums {
       System.out.println();
     }
     System.out.print(prefix);
-    System.out.print("                                                                                                    ".substring(prefix.length() + printedCodeName.length()));
+    System.out.print(Utility.repeat(" ",lineLength - (prefix.length() + printedCodeName.length() + 1)));
     System.out.println(printedCodeName
     //                    + "\t(" + numeric + 
         //                    (alpha3 != null ? ", " + quote(alpha3) : "")

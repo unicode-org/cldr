@@ -236,7 +236,10 @@ public class CLDRModify {
 						CLDRFile toRemove = cldrFactory.make(parent, true);
 						// remove the items that are language codes, script codes, or region codes
 						// since they may be real translations.
-						k.removeDuplicates(toRemove, COMMENT_REMOVALS, XMLSource.getPathsAllowingDuplicates());
+            if (parent.equals("root")) {
+              k.putRoot(toRemove);
+            }
+						k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"));
 					}
 				}
 				//System.out.println(CLDRFile.getAttributeOrder());

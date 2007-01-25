@@ -55,7 +55,7 @@
             classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
     <target name="util" depends="init" description="build utility classes">
         <javac includes="org/unicode/cldr/util/**/*.java"
@@ -65,7 +65,7 @@
             classpathref="project.class.path"
             source="1.5"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/util/data"/>
         <copy todir="${build.dir}/org/unicode/cldr/util/data">
@@ -81,7 +81,7 @@
             classpathref="project.class.path"
             source="1.5"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
     <target name="posix" depends="init,util" description="build posix conversion tool">
         <javac includes="org/unicode/cldr/posix/**/*.java"
@@ -91,7 +91,7 @@
             classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
 	<target name="icu" depends="init, ant-plugin, util" description="build posix conversion tool">
 	        <javac includes="org/unicode/cldr/icu/**/*.java"
@@ -101,7 +101,7 @@
                 classpathref="project.class.path"
 	            source="1.4"
 	            debug="on" deprecation="off"
-	            encoding="ascii"/>
+	            encoding="utf-8"/>
 	</target>
     <target name="test" depends="init,util,tool" description="build tests">
         <javac includes="org/unicode/cldr/test/**/*.java"
@@ -111,7 +111,7 @@
             classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
    <target name="ooo" depends="init,icu,util" description="build OpenOffice.org conversion tools">
         <javac includes="org/unicode/cldr/ooo/**/*.java"
@@ -121,7 +121,7 @@
             classpathref="project.class.path"
             source="1.4"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
     <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>
@@ -208,7 +208,7 @@
             classpathref="weblib.classpath"
             source="1.4"
             debug="on" deprecation="off"
-            encoding="ascii"/>
+            encoding="utf-8"/>
     </target>
  
     <!-- build as a WAR file -->

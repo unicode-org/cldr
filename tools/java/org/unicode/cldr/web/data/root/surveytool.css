@@ -1,5 +1,9 @@
 /* @override http://127.0.0.1:8080/cldr-apps/surveytool.css */
 
+body {
+	background-color:  white;
+}
+
 hr {
 	border: 1px dashed #ccd
 }
@@ -131,7 +135,9 @@ tr.warnrow {
 .pager {
 	border: 1px solid gray;
 	background-color: #FFEECC;
-	padding: 1em 1em 1em 1em;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+/*	padding: 1em 1em 1em 1em; */
+	margin-top:  2px; 
 	font-size: smaller;
 }
 

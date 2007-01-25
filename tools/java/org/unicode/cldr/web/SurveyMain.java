@@ -2506,6 +2506,7 @@ public class SurveyMain extends HttpServlet {
             busted("Can't load CLDR data files from " + fileBase);
             throw new RuntimeException("Can't load CLDR data files from " + fileBase);
         }
+
         ctx.println("<table summary='Locale List' border=1 class='list'>");
         int n=0;
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
@@ -2714,10 +2715,10 @@ public class SurveyMain extends HttpServlet {
                         ctx.print("&nbsp;&nbsp;");
                     }
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-                    ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
+                    ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                         "\">");
                     printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(), "");
-                    ctx.println(" <tt  style='font-size: 60%' class='codebox'>"+ctx.docLocale[i]+"</tt>" + "</a> ");
+                    ctx.println("</a> ");
                     if(canModify) {
                         ctx.print(modifyThing(ctx));
                     }
@@ -2728,10 +2729,9 @@ public class SurveyMain extends HttpServlet {
                 }
                 boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
                 ctx.print("\u2517&nbsp;");
-                ctx.print("<span style='font-size: 120%'>");
+                ctx.print("<span title='"+ctx.locale+"' style='font-size: 120%'>");
                 printMenu(subCtx, which, xMAIN, 
-                    getLocaleStatus(ctx.locale.toString(), ctx.locale.getDisplayName(), "") 
-                        +" <tt style='font-size: 60%' class='codebox'>"+ctx.locale+"</tt>");
+                    getLocaleStatus(ctx.locale.toString(), ctx.locale.getDisplayName(), "") );
                 if(canModifyL) {
                     ctx.print(modifyThing(ctx));
                 }
@@ -2780,13 +2780,15 @@ public class SurveyMain extends HttpServlet {
 
                 if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
                     (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
-                    ctx.println("<hr><h4>Possible problems with locale:</h4>");
-                    ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                    ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
+                    ctx.println("<b>Possible problems with locale:</b><br>");
                     for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                         CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                         try{ 
                             if (!status.getType().equals(status.exampleType)) {
-                                ctx.println(status.getCause().getClass().toString() +": "+ status.toString() + "<br>");
+                                String cls = shortClassName(status.getCause());
+                                ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+                                ctx.println(": "+ status.toString() + "<br>");
                             } else {
                                 ctx.println("<i>example available</i><br>");
                             }
@@ -2794,7 +2796,7 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
                         }
                     }
-                    ctx.println("</div><hr>");
+                    ctx.println("</div>");
                 }
             }
             
@@ -4084,7 +4086,8 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                     try{ 
                         if (!status.getType().equals(status.exampleType)) {
                             String cls = shortClassName(status.getCause());
-                            ctx.println(cls +": "+ status.toString() + "<br>");
+                            ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+                            ctx.println(": "+ status.toString() + "<br>");
                         }/* else {
                             ctx.println("<i>example available</i><br>");
                         }*/

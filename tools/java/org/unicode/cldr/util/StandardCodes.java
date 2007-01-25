@@ -869,4 +869,7 @@ public class StandardCodes {
     return zoneParser.getZoneToCounty();
   }
   
+  public String getZoneVersion() {
+    return zoneParser.getVersion();
+  }
 }

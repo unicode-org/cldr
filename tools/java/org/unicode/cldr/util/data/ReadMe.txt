@@ -76,20 +76,32 @@ This document describes how to update CLDR when this happens.
 - Download the latest version of the data from ftp://elsie.nci.nih.gov/pub/
 - Unpack, and copy contents into ...org\unicode\cldr\util\data
 - Check in just the ones that are already checked in (eg check in 'africa', but not 'factory')
+- Edit the file tzdb-version.txt to change the version, eg for the file tzdata2007a.tar.gz, the version is 2007a.
+- If you are using Eclipse, remember to refresh the project.
 
-A. If any IDs in zone.tab changed name, add the mapping to StandardCodes.FIX_UNSTABLE_TZID_DATA
-   AND rerun CountItems.genSupplementalZoneData()
+A. Diff zone.tab.
+- if any IDs in zone.tab changed name, 
+- add the mapping to org.unicode.cldr.util.ZoneParser.FIX_UNSTABLE_TZID_DATA
+   The format is <new name>, <old name>
    Eg {"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
-   (the format is new name to old name)
 
-Now Verify
+B. Now Verify
 - Run CountItems -Dmethod=genSupplementalZoneData to generate new data.
 - Paste the zoneItems into supplementalData.xml
-  Add the version number, <zoneFormatting multizone="001 ... UZ" tzidVersion="2006g">
 - Paste the $tzid into supplementalMetadata.xml
-- CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION
+- Produce Diffs for both files.
+- CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION FOR BOTH
+  - In supplementalData.xml, any changed name from zone.tab must show a diff like:
+  old:	<zoneItem type="Atlantic/Faeroe" territory="FO"/>
+  new:	<zoneItem type="Atlantic/Faeroe" territory="FO" aliases="Atlantic/Faroe"/>
+  That is, the old name must not change, just add new aliases.
+  - In both files, any new zone.tab ID must show up, eg.
+  supplementalData.xml, new: 			<zoneItem type="Australia/Eucla" territory="AU"/>
+  supplementalMetadata.xml, new: 				Australia/Eucla
 
-B. If there are any $tzid's that are in the last version that are not in the current,
+C. REMOVED IDs. This doesn't happen very often, but requires some real thought when it does.
+
+  If there are any $tzid's that are in the last version that are not in the current,
   find out what "real" alias it should point to. There are 2 types.
   
   1. ID was removed completely, like HST. In that case, there will be no item or alias in zoneItem's.
@@ -109,9 +121,10 @@ B. If there are any $tzid's that are in the last version that are not in the cur
       	"Africa/Timbuktu",
   - Rerun CountItems.genSupplementalZoneData()
   
-C. Sometimes the aliases will be on the wrong element. If so, change PREFERRED_BASES.
-
-When you are all done, there should ONLY be additions to $tzid and zoneItem's.
+  Sometimes the aliases will be on the wrong element. If so, add to org.unicode.cldr.util.ZoneParser.PREFERRED_BASES.
+  
+D. Repeat B and C until done.
+- When you are all done, there should ONLY be additions to $tzid and zoneItem's.
 
 (Note: the code in CountItems and StandardCodes means that we have to duplicate a bit of process above, but
 for now it's not worth fixing.)

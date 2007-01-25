@@ -2340,12 +2340,12 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="New Zealand" type="Pacific/Auckland"/> <!-- D (GMT+12:00) Auckland, Wellington-->
 			<mapZone other="Tonga" type="Pacific/Tongatapu"/> <!-- S (GMT+13:00) Nuku'alofa-->
 		</mapTimezones>
-		<zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GL ID KI KZ MH MN MX MY NZ PF PT RU SJ UA UM US UZ" tzidVersion="2006n">
+		<zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GL ID KI KZ MH MN MX MY NZ PF PT RU SJ UA UM US UZ" tzidVersion="2007a">
 			<zoneItem type="Africa/Abidjan" territory="CI"/>
 			<zoneItem type="Africa/Accra" territory="GH"/>
 			<zoneItem type="Africa/Addis_Ababa" territory="ET"/>
 			<zoneItem type="Africa/Algiers" territory="DZ"/>
-			<zoneItem type="Africa/Asmera" territory="ER"/>
+			<zoneItem type="Africa/Asmera" territory="ER" aliases="Africa/Asmara"/>
 			<zoneItem type="Africa/Bamako" territory="ML" aliases="Africa/Timbuktu"/>
 			<zoneItem type="Africa/Bangui" territory="CF"/>
 			<zoneItem type="Africa/Banjul" territory="GM"/>
@@ -2612,7 +2612,7 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Atlantic/Bermuda" territory="BM"/>
 			<zoneItem type="Atlantic/Canary" territory="ES"/>
 			<zoneItem type="Atlantic/Cape_Verde" territory="CV"/>
-			<zoneItem type="Atlantic/Faeroe" territory="FO"/>
+			<zoneItem type="Atlantic/Faeroe" territory="FO" aliases="Atlantic/Faroe"/>
 			<zoneItem type="Atlantic/Jan_Mayen" territory="SJ"/>
 			<zoneItem type="Atlantic/Madeira" territory="PT"/>
 			<zoneItem type="Atlantic/Reykjavik" territory="IS" aliases="Iceland"/>
@@ -2624,6 +2624,7 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Australia/Broken_Hill" territory="AU" aliases="Australia/Yancowinna"/>
 			<zoneItem type="Australia/Currie" territory="AU"/>
 			<zoneItem type="Australia/Darwin" territory="AU" aliases="Australia/North"/>
+			<zoneItem type="Australia/Eucla" territory="AU"/>
 			<zoneItem type="Australia/Hobart" territory="AU" aliases="Australia/Tasmania"/>
 			<zoneItem type="Australia/Lindeman" territory="AU"/>
 			<zoneItem type="Australia/Lord_Howe" territory="AU" aliases="Australia/LHI"/>

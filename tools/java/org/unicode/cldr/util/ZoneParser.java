@@ -25,6 +25,8 @@ import java.util.regex.Pattern;
 public class ZoneParser {
   static final boolean DEBUG = false;
 
+  private String version;
+  
   private Map zone_to_country;
 
   private Map country_to_zoneSet;
@@ -593,7 +595,8 @@ public class ZoneParser {
       "Navajo", "America/Shiprock" }));
   
   private static Set PREFERRED_BASES = new HashSet(Arrays.asList(new String[] {
-      "Europe/London" }));
+      "Europe/London"
+  }));
 
   private static String[][] ADD_ZONE_ALIASES_DATA = { { "Etc/UTC", "Etc/GMT" },
       { "Etc/UCT", "Etc/GMT" }, 
@@ -631,7 +634,10 @@ public class ZoneParser {
         { "America/Argentina/Jujuy", "America/Jujuy" },
         { "America/Argentina/Mendoza", "America/Mendoza" },
         { "America/Kentucky/Louisville", "America/Louisville" },
-        { "America/Indiana/Indianapolis", "America/Indianapolis" }, };
+        { "America/Indiana/Indianapolis", "America/Indianapolis" },
+        { "Africa/Asmara", "Africa/Asmera" },
+        { "Atlantic/Faroe", "Atlantic/Faeroe" },
+    };
     FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
     RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA,
         new HashMap(), true);
@@ -642,6 +648,14 @@ public class ZoneParser {
    */
   private void makeZoneData() {
     try {
+      // get version
+      BufferedReader versionIn = Utility.getUTF8Data("tzdb-version.txt");
+      version = versionIn.readLine();
+      if (!version.matches("[0-9]{4}[a-z]")) {
+        throw new IllegalArgumentException("Bad Version number: %s, should be of the form 2007x".format(version));
+      }
+      versionIn.close();
+      
       // String deg = "([+-][0-9]+)";//
       String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
       Matcher m = Pattern.compile(deg + deg).matcher("");
@@ -971,6 +985,10 @@ public class ZoneParser {
   public Map getZone_rules() {
     getZoneData();
     return zone_rules;
+  }
+
+  public String getVersion() {
+    return version;
   }
 
 }

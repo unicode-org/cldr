@@ -432,7 +432,11 @@ public class CountItems {
             if (zones != null && zones.size() != 1) multizone.add(country);
         }
 
-        System.out.println("\t\t<zoneFormatting multizone=\"" + toString(multizone, " ") + "\">");
+        System.out.println("\t\t<zoneFormatting multizone=\"" + toString(multizone, " ")
+            + "\""
+            + " tzidVersion=\"" +
+            sc.getZoneVersion() +
+            "\"" + ">");
        
         Set orderedSet = new TreeSet(col);
         orderedSet.addAll(zone_country.keySet());

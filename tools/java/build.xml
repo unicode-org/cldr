@@ -154,6 +154,7 @@
         <property name="derby.jar"          value="${env.DERBY_HOME}/lib/derby.jar"/>
         <property name="icu.jar"          value="${icu.home}/icu4j.jar"/>
         <property name="utilities.jar"      value="${icu.home}/utilities.jar"/>
+        <property name="mail.jar"            value="${tomcat.home}/shared/lib/mail.jar"/>
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
         <!-- Configure the custom Ant tasks for the Manager application -->
         <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
@@ -183,9 +184,10 @@
             <fileset refid="otherjars"/>
             
             <pathelement path="${servlet.jar}"/>
-<!--             <pathelement path="${jsp.jar}"/> -->
-            <pathelement refid="project.class.path"/>
             <pathelement path="${derby.jar}"/> 
+            <pathelement path="${icu.jar}"/> 
+            <pathelement path="${mail.jar}"/> 
+            <pathelement path="${utilities.jar}"/> 
         </path>
 
         <echo message="weblib.classpath is set to = ${derby.jar}:${icu.jar}:${utilities.jar}:${servlet.jar}"/>
@@ -206,7 +208,7 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="weblib.classpath"
-            source="1.4"
+            source="1.5"
             debug="on" deprecation="off"
             encoding="utf-8"/>
     </target>
@@ -222,7 +224,6 @@
             <zipfileset dir="${wardata}/root" excludes="**/CVS/**/*"/>
             
             <!-- certain jars that we want --> 
-            <lib file="${icu.jar}"/>
             <lib file="${utilities.jar}"/>  <!-- CLDR utilities -->
             <!-- May want this later. -->
             <!--  <pathelement path="${jsp.jar}"/> -->

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -560,39 +560,32 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="Europe/Belfast">
-				<long>
-					<standard>Meán-Am Greenwich</standard>
-					<daylight>Am Samhraidh na Breataine</daylight>
-				</long>
-				<short>
-					<standard>MAG</standard>
-					<daylight>ASB</daylight>
-				</short>
-				<exemplarCity>Béal Feirste</exemplarCity>
-			</zone>
 			<zone type="Europe/London">
 				<long>
-					<standard>Meán-Am Greenwich</standard>
 					<daylight>Am Samhraidh na Breataine</daylight>
 				</long>
 				<short>
-					<standard>MAG</standard>
 					<daylight>ASB</daylight>
 				</short>
 				<exemplarCity>Londain</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<standard>Meán-Am Greenwich</standard>
 					<daylight>Am Samhraidh na hÉireann</daylight>
 				</long>
 				<short>
-					<standard>MAG</standard>
 					<daylight>ASÉ</daylight>
 				</short>
 				<exemplarCity>Baile Átha Cliath</exemplarCity>
 			</zone>
+			<metazone type="GMT">
+				<long>
+					<standard>Meán-Am Greenwich</standard>
+				</long>
+				<short>
+					<standard>MAG</standard>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

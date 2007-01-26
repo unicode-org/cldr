@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1002,10 +1002,6 @@
 				<exemplarCity>Kosrae-szigetek</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>közép-európai idő</standard>
-					<daylight>közép-európai nyári idő</daylight>
-				</long>
 				<exemplarCity>Paris</exemplarCity>
 				<exemplarCity alt="proposed-u46-1" draft="provisional">Párizs</exemplarCity>
 			</zone>
@@ -1166,6 +1162,12 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taskent</exemplarCity>
 			</zone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>közép-európai idő</standard>
+					<daylight>közép-európai nyári idő</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

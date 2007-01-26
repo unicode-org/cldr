@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1572,14 +1572,6 @@
 				<exemplarCity>モンクトン</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<long>
-					<standard>大西洋標準時</standard>
-					<daylight>大西洋夏時間</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 				<exemplarCity>ハリファクス</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
@@ -1589,14 +1581,6 @@
 				<exemplarCity>アメリカ/グレースベイ</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>ニューファンドランド島標準時</standard>
-					<daylight>ニューファンドランド島夏時間</daylight>
-				</long>
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
 				<exemplarCity>セントジョンズ</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
@@ -1624,13 +1608,6 @@
 				<exemplarCity>アジア/重慶</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>中国標準時</standard>
-					<daylight>中国夏時間</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-				</short>
 				<exemplarCity>上海</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
@@ -1663,14 +1640,6 @@
 				<exemplarCity>太平洋/コシャエ</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>中欧標準時</standard>
-					<daylight>中欧夏時間</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>パリ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
@@ -1703,14 +1672,6 @@
 				<exemplarCity>アジア/ジャヤプラ</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>イスラエル標準時</standard>
-					<daylight>イスラエル夏時間</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>エルサレム</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -1722,6 +1683,7 @@
 					<standard>JST</standard>
 					<daylight>JDT</daylight>
 				</short>
+				<commonlyUsed used="true"/>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<!-- Kiribati -->
@@ -1751,14 +1713,6 @@
 				<exemplarCity>アジア/アルマトイ</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>グリニッジ標準時</standard>
-					<daylight>グリニッジ標準時</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>カサブランカ</exemplarCity>
 			</zone>
 			<!-- Marshall Islands -->
@@ -1842,14 +1796,6 @@
 				<exemplarCity>ヨーロッパ/リスボン</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>東欧標準時</standard>
-					<daylight>東欧夏時間</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>ブカレスト</exemplarCity>
 			</zone>
 			<!-- Russia -->
@@ -1933,25 +1879,9 @@
 				<exemplarCity>アメリカ/ノーメ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>ハワイ標準時</standard>
-					<daylight>ハワイ夏時間</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
 				<exemplarCity>ホノルル</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<long>
-					<standard>アラスカ標準時</standard>
-					<daylight>アラスカ夏時間</daylight>
-				</long>
-				<short>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
-				</short>
 				<exemplarCity>アンカレッジ</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
@@ -1961,14 +1891,6 @@
 				<exemplarCity>アメリカ/ジュノー</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<long>
-					<standard>太平洋標準時</standard>
-					<daylight>太平洋夏時間</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 				<exemplarCity>ロサンゼルス</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
@@ -1981,28 +1903,12 @@
 				<exemplarCity>アメリカ/シップロック</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<long>
-					<standard>山地標準時</standard>
-					<daylight>山地夏時間</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 				<exemplarCity>デンバー</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>アメリカ/ノースダコタ/センター</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<long>
-					<standard>中部標準時</standard>
-					<daylight>中部夏時間</daylight>
-				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
 				<exemplarCity>シカゴ</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
@@ -2036,14 +1942,6 @@
 				<exemplarCity>アメリカ/デトロイト</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<long>
-					<standard>東部標準時</standard>
-					<daylight>東部夏時間</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
 				<exemplarCity>ニューヨーク</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
@@ -2053,6 +1951,133 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>アジア/タシケント</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>アラスカ標準時</standard>
+					<daylight>アラスカ夏時間</daylight>
+				</long>
+				<short>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>中部標準時</standard>
+					<daylight>中部夏時間</daylight>
+				</long>
+				<short>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>東部標準時</standard>
+					<daylight>東部夏時間</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>山地標準時</standard>
+					<daylight>山地夏時間</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>太平洋標準時</standard>
+					<daylight>太平洋夏時間</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>大西洋標準時</standard>
+					<daylight>大西洋夏時間</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>中国標準時</standard>
+					<daylight>中国夏時間</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>中欧標準時</standard>
+					<daylight>中欧夏時間</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>東欧標準時</standard>
+					<daylight>東欧夏時間</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>グリニッジ標準時</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>ハワイ標準時</standard>
+					<daylight>ハワイ夏時間</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>イスラエル標準時</standard>
+					<daylight>イスラエル夏時間</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>ニューファンドランド島標準時</standard>
+					<daylight>ニューファンドランド島夏時間</daylight>
+				</long>
+				<short>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1242,70 +1242,38 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-					<standard>Atlantic, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Halifax, normaltid</standard>
-					<daylight>Atlantic, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Halifax, sommartid</daylight>
 				</long>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>Newfoundland, normaltid</standard>
-					<daylight>Newfoundland, sommartid</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Påskön</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Kina, normaltid</standard>
-					<daylight>Kina, normaltid</daylight>
-				</long>
-			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanarieöarna</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Centraleuropa, normaltid</standard>
-					<daylight>Centraleuropa, sommartid</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthåb</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Israel, normaltid</standard>
-					<daylight>Israel, sommartid</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japan, normaltid</standard>
-					<daylight>Japan, normaltid</daylight>
+					<daylight>Japan, sommartid</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
@@ -1314,15 +1282,9 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-					<standard>Greenwichtid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">Afrika/Casablanca, sommartid</standard>
-					<daylight>Greenwichtid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">Afrika/Casablanca, normaltid</daylight>
 				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
@@ -1339,14 +1301,6 @@
 				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Östeuropa, normaltid</standard>
-					<daylight>Östeuropa, sommartid</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
@@ -1377,90 +1331,163 @@
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporozjzja</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Hawaii, normaltid</standard>
-					<daylight>Hawaii, normaltid</daylight>
-					<daylight alt="proposed-u219-1" draft="provisional">Hawaii, sommartid</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
-			</zone>
 			<zone type="America/Anchorage">
-				<long>
-					<standard>Alaska, normaltid</standard>
-					<daylight>Alaska, sommartid</daylight>
-				</long>
 				<exemplarCity>Alaska/Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-					<standard>Pacific, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Los Angeles, normaltid</standard>
-					<daylight>Pacific, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Los Angeles, sommarid</daylight>
 				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-					<standard>Mountain, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Phoenix, normaltid</standard>
-					<daylight>Mountain, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Phoenix, sommartid</daylight>
 				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
 			</zone>
 			<zone type="America/Denver">
 				<long>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Denver, normaltid</standard>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Denver, sommartid</daylight>
 				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-					<standard>Central, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Chicago, normaltid</standard>
-					<daylight>Central, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/Chicago, sommartid</daylight>
 				</long>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
 					<standard alt="proposed-u219-1" draft="provisional">USA/Indanapolis, normaltid</standard>
-					<daylight alt="proposed-u219-1" draft="provisional">USA/Indianapolis, normaltid</daylight>
+					<daylight alt="proposed-u219-1" draft="provisional">USA/Indianapolis, sommartid</daylight>
 				</long>
 			</zone>
 			<zone type="America/New_York">
 				<long>
-					<standard>Eastern, normaltid</standard>
 					<standard alt="proposed-u219-1" draft="provisional">USA/New York, normaltid</standard>
-					<daylight>Eastern, sommartid</daylight>
 					<daylight alt="proposed-u219-1" draft="provisional">USA/New York, sommatid</daylight>
+				</long>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>Tasjkent</exemplarCity>
+			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>Alaska, normaltid</standard>
+					<daylight>Alaska, sommartid</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>Central, normaltid</standard>
+					<daylight>Central, sommartid</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>Eastern, normaltid</standard>
+					<daylight>Eastern, sommartid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-			</zone>
-			<zone type="Asia/Tashkent">
-				<exemplarCity>Tasjkent</exemplarCity>
-			</zone>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Mountain, normaltid</standard>
+					<daylight>Mountain, sommartid</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>			
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Pacific, normaltid</standard>
+					<daylight>Pacific, sommartid</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Atlantic, normaltid</standard>
+					<daylight>Atlantic, sommartid</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Kina, normaltid</standard>
+					<daylight>Kina, sommartid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Centraleuropa, normaltid</standard>
+					<daylight>Centraleuropa, sommartid</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Östeuropa, normaltid</standard>
+					<daylight>Östeuropa, sommartid</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwichtid</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii, normaltid</standard>
+					<daylight>Hawaii, sommartid</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israel, normaltid</standard>
+					<daylight>Israel, sommartid</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Newfoundland, normaltid</standard>
+					<daylight>Newfoundland, sommartid</daylight>
+				</long>
+				<short>
+					<standard>CNT</standard>
+					<daylight>CDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

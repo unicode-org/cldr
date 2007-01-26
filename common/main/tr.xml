@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -938,18 +938,6 @@
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidney</exemplarCity>
 			</zone>
-			<zone type="America/Halifax">
-				<long>
-					<standard>Atlantik Standart Saati</standard>
-					<daylight>Atlantik Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/St_Johns">
-				<long>
-					<standard>Newfoundland Standart Saati</standard>
-					<daylight>Newfoundland Yaz Saati</daylight>
-				</long>
-			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinşasa</exemplarCity>
@@ -976,11 +964,6 @@
 				<exemplarCity>Çunking</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Çin Standart Saati</standard>
-					<daylight>Çin Standart Saati</daylight>
-					<daylight alt="proposed-u51-1" draft="provisional">Çin Yaz Saati</daylight>
-				</long>
 				<exemplarCity>Şangay</exemplarCity>
 			</zone>
 			<!-- Spain -->
@@ -1088,55 +1071,12 @@
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity draft="provisional">Zaporojye</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Hawaii Standart Saati</standard>
-					<daylight>Hawaii Standart Saati</daylight>
-					<daylight alt="proposed-u51-1" draft="provisional">Hawaii Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>Alaska Standart Saati</standard>
-					<daylight>Alaska Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>Pasifik Standart Saati</standard>
-					<daylight>Pasifik Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<standard>ABD Sıradağlar Standart Saati</standard>
-					<daylight>ABD Sıradağlar Standart Saati</daylight>
-					<daylight alt="proposed-u51-2" draft="provisional">ABD Sıradağlar (Phoenix) Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>ABD Sıradağlar Standart Saati</standard>
-					<daylight>ABD Sıradağlar Yaz Saati</daylight>
-				</long>
-			</zone>
 			<zone type="America/Chicago">
-				<long>
-					<standard>Merkezi Standart Saati</standard>
-					<daylight>Merkezi Yaz Saati</daylight>
-				</long>
 				<exemplarCity>Şikago</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<standard>Doğu Standart Saati</standard>
 					<daylight alt="proposed-u51-2" draft="provisional">Doğu (Indianapolis) Yaz Saati</daylight>
-				</long>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>Doğu Standart Saati</standard>
-					<daylight>Doğu Yaz Saati</daylight>
 				</long>
 			</zone>
 			<!-- Uzbekistan -->
@@ -1146,6 +1086,60 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taşkent</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>Alaska Standart Saati</standard>
+					<daylight>Alaska Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>Merkezi Standart Saati</standard>
+					<daylight>Merkezi Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>Doğu Standart Saati</standard>
+					<daylight>Doğu Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>ABD Sıradağlar Standart Saati</standard>
+					<daylight>ABD Sıradağlar Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Pasifik Standart Saati</standard>
+					<daylight>Pasifik Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Atlantik Standart Saati</standard>
+					<daylight>Atlantik Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Çin Standart Saati</standard>
+					<daylight>Çin Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii Standart Saati</standard>
+					<daylight>Hawaii Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Newfoundland Standart Saati</standard>
+					<daylight>Newfoundland Yaz Saati</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

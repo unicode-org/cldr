@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<!-- Locale Data Format
@@ -322,21 +322,19 @@
 		-->
 		<timeZoneNames>
 			<zone type="Asia/Thimphu">
-				<!-- Bhutan does not use Daylight Saving Time -->
+				<exemplarCity draft="unconfirmed">ཐིམ་ཕུག</exemplarCity>
+			</zone>
+			<metazone type="Bhutan">
 				<long>
 					<!-- Bhutanese time is referred to as "BST" in Bhutan -->
 					<generic draft="unconfirmed">Bhutan Standard Time</generic>
-					<!-- TODO: This data may be in the wrong script -->
 					<standard draft="unconfirmed">Bhutan Standard Time</standard>
-					<daylight draft="unconfirmed">Bhutan Standard Time</daylight>
 				</long>
 				<short>
 					<generic draft="unconfirmed">BST</generic>
 					<standard draft="unconfirmed">BST</standard>
-					<daylight draft="unconfirmed">BST</daylight>
 				</short>
-				<exemplarCity draft="unconfirmed">ཐིམ་ཕུག</exemplarCity>
-			</zone>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

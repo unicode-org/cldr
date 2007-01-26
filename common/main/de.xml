@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1121,14 +1121,6 @@
 				<exemplarCity>Osterinsel</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
-				<long>
-					<standard>Mitteleuropäische Zeit</standard>
-					<daylight>Mitteleuropäische Sommerzeit</daylight>
-				</long>
-				<short>
-					<standard>MEZ</standard>
-					<daylight>MESZ</daylight>
-				</short>
 				<exemplarCity>Berlin</exemplarCity>
 			</zone>
 			<!-- Spain -->
@@ -1184,6 +1176,17 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taschkent</exemplarCity>
 			</zone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Mitteleuropäische Zeit</standard>
+					<daylight>Mitteleuropäische Sommerzeit</daylight>
+				</long>
+				<short>
+					<standard>MEZ</standard>
+					<daylight>MESZ</daylight>
+				</short>
+				<commonlyUsed used="true"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

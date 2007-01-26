@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1194,67 +1194,24 @@
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
-			<zone type="America/Halifax">
-				<long>
-					<standard>Kanadan Atlantin normaaliaika</standard>
-					<daylight>Kanadan Atlantin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>Newfoundlandin normaaliaika</standard>
-					<daylight>Newfoundlandin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Pääsiäissaari</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Kiinan normaaliaika</standard>
-					<daylight>Kiinan kesäaika</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CTT</daylight>
-				</short>
-			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanariansaaret</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Keski-Euroopan normaaliaika</standard>
-					<daylight>Keski-Euroopan kesäaika</daylight>
-				</long>
-				<short>
-					<standard>CEST</standard>
-					<daylight>CEDT</daylight>
-				</short>
 				<exemplarCity>Pariisi</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Lontoo</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Israelin normaaliaika</standard>
-					<daylight>Israelin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -1264,19 +1221,11 @@
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tokio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard draft="provisional">Greenwichin normaaliaika</standard>
-					<daylight draft="provisional">Greenwichin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
@@ -1293,14 +1242,6 @@
 				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Itä-Euroopan normaaliaika</standard>
-					<daylight>Itä-Euroopan kesäaika</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
@@ -1327,17 +1268,13 @@
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiova</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Havaijin normaaliaika</standard>
-					<daylight>Havaijin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>keskinen North Dakota</exemplarCity>
 			</zone>
-			<zone type="America/Anchorage">
+			<zone type="Asia/Tashkent">
+				<exemplarCity>Taškent</exemplarCity>
+			</zone>
+			<metazone type="Alaska">
 				<long>
 					<standard>Alaskan normaaliaika</standard>
 					<daylight>Alaskan kesäaika</daylight>
@@ -1346,31 +1283,8 @@
 					<standard>AKST</standard>
 					<daylight>AKDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>Yhdysvaltain Tyynenmeren normaaliaika</standard>
-					<daylight>Yhdysvaltain Tyynenmeren kesäaika</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Kalliovuorten normaaliaika</standard>
-					<daylight>Kalliovuorten kesäaika</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity>keskinen North Dakota</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<standard>Yhdysvaltain keskinen normaaliaika</standard>
 					<daylight>Yhdysvaltain keskinen kesäaika</daylight>
@@ -1379,8 +1293,8 @@
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/Indianapolis">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<standard>Yhdysvaltain itäinen normaaliaika</standard>
 					<daylight>Yhdysvaltain itäinen kesäaika</daylight>
@@ -1389,20 +1303,104 @@
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Mountain">
 				<long>
-					<standard>Yhdysvaltain itäinen normaaliaika</standard>
-					<daylight>Yhdysvaltain itäinen kesäaika</daylight>
+					<standard>Kalliovuorten normaaliaika</standard>
+					<daylight>Kalliovuorten kesäaika</daylight>
 				</long>
 				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
 				</short>
-			</zone>
-			<zone type="Asia/Tashkent">
-				<exemplarCity>Taškent</exemplarCity>
-			</zone>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Yhdysvaltain Tyynenmeren normaaliaika</standard>
+					<daylight>Yhdysvaltain Tyynenmeren kesäaika</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Kanadan Atlantin normaaliaika</standard>
+					<daylight>Kanadan Atlantin kesäaika</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Kiinan normaaliaika</standard>
+					<daylight>Kiinan kesäaika</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CTT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Keski-Euroopan normaaliaika</standard>
+					<daylight>Keski-Euroopan kesäaika</daylight>
+				</long>
+				<short>
+					<standard>CEST</standard>
+					<daylight>CEDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Itä-Euroopan normaaliaika</standard>
+					<daylight>Itä-Euroopan kesäaika</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="provisional">Greenwichin normaaliaika</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Havaijin normaaliaika</standard>
+					<daylight>Havaijin kesäaika</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israelin normaaliaika</standard>
+					<daylight>Israelin kesäaika</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Newfoundlandin normaaliaika</standard>
+					<daylight>Newfoundlandin kesäaika</daylight>
+				</long>
+				<short>
+					<standard>CNT</standard>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

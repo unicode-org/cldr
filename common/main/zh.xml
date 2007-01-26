@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1175,19 +1175,6 @@
 				<exemplarCity draft="unconfirmed">庞贡唐</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<long>
-					<standard>大西洋标准时间</standard>
-					<daylight>大西洋夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">大西洋标准时间</standard>
-					<daylight draft="provisional">大西洋夏令时间</daylight>
-				</short>
-				<!-- <short>
-					 <standard>AST</standard>
-					 <daylight>ADT</daylight>
-					 </short>
-				-->
 				<exemplarCity>哈利法克斯</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
@@ -1197,19 +1184,6 @@
 				<exemplarCity>格莱斯贝</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>纽芬兰标准时间</standard>
-					<daylight>纽芬兰夏令时间</daylight>
-				</long>
-				<short>
-					<standard>NST 纽芬兰标准时间</standard>
-					<daylight>NDT 纽芬兰夏令时间</daylight>
-				</short>
-				<!-- <short>
-					 <standard>CNT</standard>
-					 <daylight>CDT</daylight>
-					 </short>
-				-->
 				<exemplarCity>圣约翰</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
@@ -1237,15 +1211,6 @@
 				<exemplarCity>重庆</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>中国标准时间</standard>
-					<daylight>中国标准时间</daylight>
-				</long>
-				<!-- <short>
-					 <standard>CTT</standard>
-					 <daylight>CDT</daylight>
-					 </short>
-				-->
 				<exemplarCity>上海</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
@@ -1278,14 +1243,6 @@
 				<exemplarCity draft="unconfirmed">科斯里</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>中欧标准时间</standard>
-					<daylight>中欧夏令时间</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>巴黎</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
@@ -1318,24 +1275,16 @@
 				<exemplarCity>查亚普拉</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>以色列标准时间</standard>
-					<daylight>以色列夏令时间</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>耶路撒冷</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>日本标准时间</standard>
-					<daylight>日本标准时间</daylight>
+					<daylight>日本夏令时间</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>东京</exemplarCity>
 			</zone>
@@ -1366,14 +1315,6 @@
 				<exemplarCity>阿拉木图</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>格林威治标准时间</standard>
-					<daylight>格林威治标准时间</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>卡萨布兰卡</exemplarCity>
 			</zone>
 			<!-- Marshall Islands -->
@@ -1457,14 +1398,6 @@
 				<exemplarCity>里斯本</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>东欧标准时间</standard>
-					<daylight>东欧夏令时间</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>布加勒斯特</exemplarCity>
 			</zone>
 			<!-- Russia -->
@@ -1548,30 +1481,9 @@
 				<exemplarCity>诺母</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>夏威夷标准时间</standard>
-					<daylight>夏威夷标准时间</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
 				<exemplarCity>檀香山</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<long>
-					<standard>阿拉斯加标准时间</standard>
-					<daylight>阿拉斯加夏令时间</daylight>
-				</long>
-				<short>
-					<standard>阿拉斯加标准时间</standard>
-					<daylight>阿拉斯加夏令时间</daylight>
-				</short>
-				<!-- <short>
-					 <standard>AST</standard>
-					 <daylight>ADT</daylight>
-					 </short>
-				-->
 				<exemplarCity>安克雷奇</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
@@ -1581,61 +1493,24 @@
 				<exemplarCity>朱诺</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<long>
-					<standard>太平洋标准时间</standard>
-					<daylight>太平洋夏令时间</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 				<exemplarCity>洛杉矶</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>博伊西</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<long>
-					<standard>山区标准时间 Phoenix</standard>
-					<daylight>山区夏令时间 Phoenix</daylight>
-				</long>
-				<!-- <short>
-					 <standard>MST</standard>
-					 <daylight>MST</daylight>
-					 </short>
-				-->
 				<exemplarCity>凤凰城</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
 				<exemplarCity>舰石城</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<long>
-					<standard>山区标准时间</standard>
-					<daylight>山区夏令时间</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 				<exemplarCity>丹佛</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>森特</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<long>
-					<standard>中央标准时间</standard>
-					<daylight>中央夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">中部标准时间</standard>
-				</short>
-				<!-- <short>
-					 <standard>CST</standard>
-					 <daylight>CDT</daylight>
-					 </short>
-				-->
 				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
@@ -1648,19 +1523,6 @@
 				<exemplarCity>马伦戈</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<long>
-					<standard>东部标准时间 Indianapolis</standard>
-					<daylight draft="unconfirmed">东部夏时制 Indianapolis</daylight>
-				</long>
-				<!-- <short>
-					 <standard draft="provisional">东部标准时间</standard>
-					 <daylight references="RP22">EDT</daylight>
-					 </short>
-					 <short>
-					 <standard>EST</standard>
-					 <daylight>EST</daylight>
-					 </short>
-				-->
 				<exemplarCity>印地安纳波利斯</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
@@ -1676,19 +1538,6 @@
 				<exemplarCity>底特律</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<long>
-					<standard>东部标准时间</standard>
-					<daylight>东部夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">东部标准时间</standard>
-					<daylight draft="provisional">东部夏令时间</daylight>
-				</short>
-				<!-- <short>
-					 <standard>EST</standard>
-					 <daylight>EDT</daylight>
-					 </short>
-				-->
 				<exemplarCity>纽约</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
@@ -1698,6 +1547,129 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>塔什干</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>阿拉斯加标准时间</standard>
+					<daylight>阿拉斯加夏令时间</daylight>
+				</long>
+				<short>
+					<standard>阿拉斯加标准时间</standard>
+					<daylight>阿拉斯加夏令时间</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>中央标准时间</standard>
+					<daylight>中央夏令时间</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">中部标准时间</standard>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>东部标准时间</standard>
+					<daylight>东部夏令时间</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">东部标准时间</standard>
+					<daylight draft="provisional">东部夏令时间</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>山区标准时间</standard>
+					<daylight>山区夏令时间</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>太平洋标准时间</standard>
+					<daylight>太平洋夏令时间</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>大西洋标准时间</standard>
+					<daylight>大西洋夏令时间</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">大西洋标准时间</standard>
+					<daylight draft="provisional">大西洋夏令时间</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>中国标准时间</standard>
+					<daylight>中国夏令时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>中欧标准时间</standard>
+					<daylight>中欧夏令时间</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>东欧标准时间</standard>
+					<daylight>东欧夏令时间</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>格林威治标准时间</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>以色列标准时间</standard>
+					<daylight>以色列夏令时间</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>夏威夷标准时间</standard>
+					<daylight>夏威夷夏令时间</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>纽芬兰标准时间</standard>
+					<daylight>纽芬兰夏令时间</daylight>
+				</long>
+				<short>
+					<standard>纽芬兰标准时间</standard>
+					<daylight>纽芬兰夏令时间</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

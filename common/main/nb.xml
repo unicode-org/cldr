@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1149,6 +1149,12 @@
 				<exemplarCity>Lisboa</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
+				<exemplarCity>Bucuresti</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>Moskva</exemplarCity>
+			</zone>
+			<metazone type="Europe_Eastern">
 				<long>
 					<standard>østeuropeisk standardtid</standard>
 					<daylight>østeuropeisk sommertid</daylight>
@@ -1157,11 +1163,7 @@
 					<standard>EET</standard>
 					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>Bucuresti</exemplarCity>
-			</zone>
-			<zone type="Europe/Moscow">
-				<exemplarCity>Moskva</exemplarCity>
-			</zone>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

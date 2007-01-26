@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1171,27 +1171,7 @@
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
 			</zone>
-			<zone type="America/Halifax">
-				<long>
-					<standard>Atlantic-standaardtijd</standard>
-					<daylight>Atlantic-zomertijd</daylight>
-					<!-- <short>
-						 <standard>AST</standard>
-						 <daylight>ADT</daylight>
-						 </short>
-					-->
-				</long>
-			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>Newfoundland-standaardtijd</standard>
-					<daylight>Newfoundland-zomertijd</daylight>
-				</long>
-				<!-- <short>
-					 <standard>CNT</standard>
-					 <daylight>CDT</daylight>
-					 </short>
-				-->
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<!-- Chile -->
@@ -1199,10 +1179,6 @@
 				<exemplarCity>Paaseiland</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Chinese standaardtijd</standard>
-					<daylight>Chinese standaardtijd</daylight>
-				</long>
 				<exemplarCity draft="provisional">Sjanghai</exemplarCity>
 			</zone>
 			<!-- Spain -->
@@ -1210,51 +1186,27 @@
 				<exemplarCity>Canarische Eilanden</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Midden-Europese standaardtijd</standard>
-					<daylight>Midden-Europese zomertijd</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>Parijs</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londen</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Israëlische standaardtijd</standard>
-					<daylight>Israëlische zomertijd</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jeruzalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japanse standaardtijd</standard>
-					<daylight>Japanse standaardtijd</daylight>
+					<daylight>Japanse zomertijd</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 				<exemplarCity alt="proposed-u10-1" draft="provisional">Tokio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Greenwich Mean Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<!-- Mongolia -->
@@ -1294,14 +1246,6 @@
 				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Oost-Europese standaardtijd</standard>
-					<daylight>Oost-Europese zomertijd</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Boekarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
@@ -1331,58 +1275,16 @@
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity draft="provisional">Zaporizja</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Hawaï-standaardtijd</standard>
-					<daylight>Hawaï-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>Tasjkent</exemplarCity>
 			</zone>
-			<zone type="America/Anchorage">
+			<metazone type="Alaska">
 				<long>
 					<standard>Alaska-standaardtijd</standard>
 					<daylight>Alaska-zomertijd</daylight>
-					<!-- <short>
-						 <standard>AST</standard>
-						 <daylight>ADT</daylight>
-						 </short>
-					-->
 				</long>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>Pacific-standaardtijd</standard>
-					<daylight>Pacific-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<standard>Mountain-standaardtijd</standard>
-					<daylight>Mountain-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Mountain-standaardtijd</standard>
-					<daylight>Mountain-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<standard>Central-standaardtijd</standard>
 					<daylight>Central-zomertijd</daylight>
@@ -1391,19 +1293,8 @@
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
-			</zone>
-			<!-- <zone type="America/Indianapolis">
-				 <long>
-				 <standard>Eastern-standaardtijd</standard>
-				 <daylight>Eastern-standaardtijd</daylight>
-				 </long>
-				 <short>
-				 <standard>EST</standard>
-				 <daylight>EST</daylight>
-				 </short>
-				 </zone>
-			-->
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<standard>Eastern-standaardtijd</standard>
 					<daylight>Eastern-zomertijd</daylight>
@@ -1412,10 +1303,93 @@
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-			</zone>
-			<zone type="Asia/Tashkent">
-				<exemplarCity>Tasjkent</exemplarCity>
-			</zone>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Mountain-standaardtijd</standard>
+					<daylight>Mountain-zomertijd</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Pacific-standaardtijd</standard>
+					<daylight>Pacific-zomertijd</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Atlantic-standaardtijd</standard>
+					<daylight>Atlantic-zomertijd</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Chinese standaardtijd</standard>
+					<daylight>Chinese zomertijd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Midden-Europese standaardtijd</standard>
+					<daylight>Midden-Europese zomertijd</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Oost-Europese standaardtijd</standard>
+					<daylight>Oost-Europese zomertijd</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwich Mean Time</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israëlische standaardtijd</standard>
+					<daylight>Israëlische zomertijd</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaï-standaardtijd</standard>
+					<daylight>Hawaï-zomertijd</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Newfoundland-standaardtijd</standard>
+					<daylight>Newfoundland-zomertijd</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

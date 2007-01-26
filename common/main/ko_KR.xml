@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -171,38 +171,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="America/Halifax">
-				<long>
-					<daylight draft="provisional">대서양 서머타임</daylight>
-				</long>
-			</zone>
-			<zone type="America/St_Johns">
-				<long>
-					<daylight draft="provisional">뉴펀들랜드 서머타임</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">NST</standard>
-					<daylight draft="provisional">NDT</daylight>
-				</short>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<daylight draft="provisional">중국 서머타임</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Paris">
-				<long>
-					<daylight draft="provisional">중부유럽 서머타임</daylight>
-				</long>
-				<short>
-					<daylight draft="provisional">CEDT</daylight>
-				</short>
-			</zone>
-			<zone type="Asia/Jerusalem">
-				<long>
-					<daylight draft="provisional">이스라엘 서머타임</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<daylight draft="provisional">일본 서머타임</daylight>
@@ -211,62 +179,72 @@
 					<daylight draft="provisional">JDT</daylight>
 				</short>
 			</zone>
-			<zone type="Asia/Seoul">
+			<metazone type="Atlantic">
+				<long>
+					<daylight draft="provisional">대서양 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<daylight draft="provisional">중국 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<daylight draft="provisional">뉴펀들랜드 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<daylight draft="provisional">중부유럽 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<daylight draft="provisional">이스라엘 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Korea">
 				<long>
 					<standard draft="provisional">한국 표준시</standard>
 					<daylight draft="provisional">한국 서머타임</daylight>
 				</long>
-				<short>
-					<daylight draft="provisional">KDT</daylight>
-				</short>
-			</zone>
-			<zone type="Africa/Casablanca">
-				<long>
-					<daylight draft="provisional">그리니치 서머타임</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Bucharest">
+			</metazone>
+			<metazone type="Europe_Eastern">
 				<long>
 					<daylight draft="provisional">동부유럽 서머타임</daylight>
 				</long>
-			</zone>
-			<zone type="Pacific/Honolulu">
+			</metazone>
+			<metazone type="Hawaii">
 				<long>
 					<daylight draft="provisional">하와이 서머타임</daylight>
 				</long>
-				<short>
-					<daylight draft="provisional">HDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Anchorage">
+			</metazone>
+			<metazone type="Alaska">
 				<long>
 					<daylight draft="provisional">알래스카 서머타임</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AKST</standard>
-					<daylight draft="provisional">AKDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Los_Angeles">
+			</metazone>
+			<metazone type="America_Pacific">
 				<long>
 					<daylight draft="provisional">태평양 서머타임</daylight>
 				</long>
-			</zone>
-			<zone type="America/Denver">
+			</metazone>
+			<metazone type="America_Mountain">
 				<long>
 					<daylight draft="provisional">산악 서머타임</daylight>
 				</long>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<daylight draft="provisional">중부 서머타임</daylight>
 				</long>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<daylight draft="provisional">동부 서머타임</daylight>
 				</long>
-			</zone>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -240,16 +240,15 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="Asia/Calcutta">
+			<metazone type="India">
 				<long>
 					<standard>भारतीय समय</standard>
-					<daylight>भारतीय समय</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
-					<daylight>IST</daylight>
 				</short>
-			</zone>
+				<commonlyUsed used="true"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

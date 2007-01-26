@@ -2,6 +2,9 @@ About the Survey Tool and the org.unicode.cldr.web.* classes
 Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
 ------------------------------------------------------------
 
+0. Prerequisite: General CLDR Tools issues
+  See the readme at cldr/tools/java/readme.txt
+
 1. Survey Tool Requirements:
 
 * Ant 1.7
@@ -10,18 +13,22 @@ Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
   -  place catalina-ant.jar into Ant's lib/ directory
      Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
 * Apache Derby 10.2.2.0+  http://db.apache.org/derby/
-* International Classes for Unicode, for Java  3.6+  http://icu-project.org
-  - you will need both icu4j.jar and utilities.jar  
-  - build with "ant jar cldrUtil"
+* International Classes for Unicode, for Java  (icu4j) plus Utilities, 3.6+
+  RECOMMENDED: use pre-built binaries
+  - for CLDR 1.4 see http://unicode.org/Public/cldr/1.4/tools/readme.txt
+     ( cldr-utilities-1_4.jar is in that directory, and ICU4J 3.6 is available from
+       http://icu.sourceforge.net/download/ )
+  If building ICU from source: 
+    See the readme inside of cldr's  cldr/tools/java/readme.txt
 * Xalan http://xalan.apache.org
 * JavaMail 1.4+  http://java.sun.com/products/javamail/
-  - may need Java Beans Activation Framework  activation.jar to install mail
-  - however, mail.jar is enough to compile
+  - may need Java Beans Activation Framework  activation.jar to install mail - http://java.sun.com/products/javabeans/jaf/
+  - however, mail.jar is enough to compile and run survey tool without email (SMTP) support.
 
 2. Setting up jars for tomcat
  - put the following jars from the following projects into tomcat's  "lib/" directory:
     Derby:  derby.jar
-    ICU:    icu4j*.jar   *utilities*.jar
+    ICU4J:    icu4j*.jar   cldr-utilities*.jar
     xalan: xalan.jar, xercesImpl.jar, xml-apis.jar
     JavaMail:   mail.jar   ( may need activation.jar also )
 
@@ -30,15 +37,16 @@ Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
  - follow the general requirements for building CLDR - should be able to do "ant jar" to produce cldr.jar
  - set CATALINA_HOME to your Tomcat install directory
 
-4. test building
+4. Test Building of SurveyTool
  - you can use "ant web" to test compilation 
 
-5. build  cldr-apps.war
+5. Build cldr-apps.war
  - "ant war" will produce cldr-apps.war 
 
 6. setting up your ST deployment environment
  - create a "cldr" directory inside your tomcat directory containing:
-	common/   (symlink or copy of CLDR common data - or see note about CLDR_COMMON below)
+	common/   (symlink or copy of CLDR common data - or see note about CLDR_COMMON below.
+                    On Windows, this may not be a shortcut.)
 	vetdata/   (vetting dir )
 	vetdata/cldrvet.txt  (vetting registry - can be an empty file)
 	vetweb/    (output dir for web pages. can be an empty dir)

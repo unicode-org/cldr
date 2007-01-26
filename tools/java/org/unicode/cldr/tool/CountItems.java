@@ -26,13 +26,16 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneInflections;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.ZoneInflections.OutputLong;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
@@ -387,6 +390,37 @@ public class CountItems {
         Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
         countItems(cldrFactory, false);
    }
+    
+    public static void generateCurrencyItems() {
+      IsoCurrencyParser isoCurrencyParser = IsoCurrencyParser.getInstance();
+      Relation<String, Data> codeList = isoCurrencyParser.getCodeList();
+      StringBuffer list = new StringBuffer();
+      for (Iterator it = codeList.keySet().iterator(); it.hasNext();) {
+        //String lastField = (String) it.next(); 
+        //String zone = (String) fullMap.get(lastField);    
+        String currencyCode = (String)it.next();
+        Set<Data> dataSet = codeList.getAll(currencyCode);
+        boolean first = true;
+        for (Data data : dataSet) {
+          if (first) {
+            System.out.print(currencyCode);
+            first = false;
+          }
+          System.out.println("\t" + data);
+        }
+
+        if (list.length() != 0) list.append(" ");
+        list.append(currencyCode);
+        
+      }
+      System.out.println();
+      String sep = "\r\n\t\t\t\t";
+      // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
+      String broken = Utility.breakLines(list.toString(), sep, Pattern.compile("([A-Z])[A-Z][A-Z]").matcher(""), 80);
+      assert(list.toString().equals(broken.replace(sep," ")));
+      System.out.println("<!-- version " + isoCurrencyParser.getVersion() + " -->");
+      System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
+    }
     
     public static void genSupplementalZoneData() {
       genSupplementalZoneData(false);

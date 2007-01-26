@@ -1,22 +1,87 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
-Steven R. Loomis srl@icu-project.org
+Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
 ------------------------------------------------------------
 
-Very briefly:
-* requires Tomcat, Derby, and ICU. May require Xalan/Xerces jars to deploy.
-** Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
-* (see  ./jars/readme.txt for more about jar dependencies)
-* ant targets:   "ant war" will build cldr-apps.war .  "ant deploy", etc will deploy to a tomcat server if configured correctly.
+1. Survey Tool Requirements:
+
+* Ant 1.7
+* Tomcat 6.0.8+  http://tomcat.apache.org 
+  - Download and install
+  -  place catalina-ant.jar into Ant's lib/ directory
+     Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
+* Apache Derby 10.2.2.0+  http://db.apache.org/derby/
+* International Classes for Unicode, for Java  3.6+  http://icu-project.org
+  - you will need both icu4j.jar and utilities.jar  
+  - build with "ant jar cldrUtil"
+* Xalan http://xalan.apache.org
+* JavaMail 1.4+  http://java.sun.com/products/javamail/
+  - may need Java Beans Activation Framework  activation.jar to install mail
+  - however, mail.jar is enough to compile
+
+2. Setting up jars for tomcat
+ - put the following jars from the following projects into tomcat's  "lib/" directory:
+    Derby:  derby.jar
+    ICU:    icu4j*.jar   *utilities*.jar
+    xalan: xalan.jar, xercesImpl.jar, xml-apis.jar
+    JavaMail:   mail.jar   ( may need activation.jar also )
+
+3. Setting up your build environment
+
+ - follow the general requirements for building CLDR - should be able to do "ant jar" to produce cldr.jar
+ - set CATALINA_HOME to your Tomcat install directory
+
+4. test building
+ - you can use "ant web" to test compilation 
+
+5. build  cldr-apps.war
+ - "ant war" will produce cldr-apps.war 
+
+6. setting up your ST deployment environment
+ - create a "cldr" directory inside your tomcat directory containing:
+	common/   (symlink or copy of CLDR common data - or see note about CLDR_COMMON below)
+	vetdata/   (vetting dir )
+	vetdata/cldrvet.txt  (vetting registry - can be an empty file)
+	vetweb/    (output dir for web pages. can be an empty dir)
+	cldr.properties  (see below)
 
 
-Stuff to put into your server's lib directory: (common/lib on tomcat):
- * xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
- * derby.jar ( from http://derby.apache.org )
- * icu4j.jar ( from ICU ) 
+  - cldr.properties is the config file for the survey tool
 
-TO DO MAIL:
-Stuff to put in shared/lib:
- mail.jar,  activation.jar  (from javamail and java beans activation framework)
+       # cldr.properties should contain at least the Vetting Access Password:
+       CLDR_VAP=somepassword 
+
+       # if the common data is not in TOMCAT/cldr/common you can set the following
+       ##CLDR_COMMON=/work/cldr/common
+
+       # for mail uncomment these:
+       ##CLDR_SMTP=  smtp_host.example.com
+       ##CLDR_FROM=  your@email.com
+
+7. Deploy cldr-apps.war to your server
+   http://127.0.0.1:8080/manager/html
+   "WAR file to deploy" (2nd item under deploy).. find and feed it the cldr-apps.war next to build.xml
+    ( you could undeploy and then post another one to update, or see "ant deploy", below. )
+   
+8. test
+    http://127.0.0.1:8080/cldr-apps
+     login as "admin@" with password "somepassword"  ( the CLDR_VAP, above )
+
+9. problems
+
+    look under TOMCAT/logs  for log files. 
+
+
+**********************
+**********************
+**********************
+**********************
+
+
+ADVANCED
+
+10.  "ant deploy", etc will deploy to a tomcat server if configured correctly.  see build.xml
+
+11. setting up mail: 
 
 Stuff to add to catalina.policy:
 
@@ -26,24 +91,8 @@ Stuff to add to catalina.policy:
     };
 
 
-SETUP:
-under your tomcat home directory (sibling to 'bin') create a 'cldr' directory. Inside it, place:
-	common   (symlink or copy of CLDR common data)
-	vetdata   (vetting dir )
-	vetdata/cldrvet.txt  (vetting registry - can be an empty file)
-	vetweb    (output dir for web pages. can be an empty dir)
-	cldr.properties  (see below)
 
-(If not on tomcat, see surveytool.xml or the web.xml in the WAR.) 
-(Note on Windows: you may have to modify the owner and permissions of cldr to allow tomcat to create dirs and files there.)
-
-
-# cldr.properties should contain at least the Vetting Access Password:
-CLDR_VAP=password 
-
-for mail (above):
-CLDR_SMTP=  smtp_host.example.com
-CLDR_FROM=  your@email.com
+12. fun startup options
 
 Tomcat startup:
 I put this in startup.sh:
@@ -52,7 +101,7 @@ export CATALINA_OPTS=-Dderby.system.home=/xsrl/derby\ -Dderby.storage.fileSyncTr
   derby.storage.**: workaround for a known MacOSX JDK 1.5 bug
   java.util.logging*:  use a simplified log file format instead of XML.
 
-SQL modifications:
+13. SQL modifications:
 ------
 * the 'raw sql' panel is quite powerful/dangerous.  Derby docs: http://db.apache.org/derby/docs/
 also: http://db.apache.org/derby/faq.html
@@ -66,3 +115,4 @@ derby.locks.deadlockTimeout=120
 
 Most normal user operations shouldn't need these timeouts.
 Symptom: "could not aquire lock in the specified time"
+

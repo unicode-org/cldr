@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -961,32 +961,10 @@
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
 			</zone>
-			<zone type="America/Halifax">
-				<long>
-					<standard>Horário Padrão Atlântico</standard>
-					<daylight>Horário de Verão Atlântico</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>Horário Padrão de Terra Nova</standard>
-					<daylight>Horário de Verão de Terra Nova</daylight>
-				</long>
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Horário Padrão da China</standard>
-					<daylight>Horário Padrão da China</daylight>
-				</long>
 				<exemplarCity>Xangai</exemplarCity>
 			</zone>
 			<!-- Ecuador -->
@@ -1004,14 +982,6 @@
 				<exemplarCity draft="unconfirmed">Madri</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Horário Padrão Europa Central</standard>
-					<daylight>Horário de Verão Europa Central</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
@@ -1022,36 +992,20 @@
 				<exemplarCity>Jacarta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Horário Padrão de Israel</standard>
-					<daylight>Horário de Verão de Israel</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jerusalém</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Horário Padrão do Japão</standard>
-					<daylight>Horário Padrão do Japão</daylight>
+					<daylight>Horário de Verão do Japão</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tóquio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>Horário do Meridiano de Greenwich</standard>
-					<daylight>Horário do Meridiano de Greenwich</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
@@ -1075,69 +1029,27 @@
 				<exemplarCity>Lisboa</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Horário Padrão da Europa Oriental</standard>
-					<daylight>Horário de Verão da Europa Oriental</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Bucareste</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity draft="unconfirmed">Moscou</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Horário Padrão do Havaí</standard>
-					<daylight>Horário Padrão do Havaí</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>Central</exemplarCity>
 			</zone>
-			<zone type="America/Anchorage">
+			<zone type="America/Indianapolis">
+				<exemplarCity>Indianápolis</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>Nova Iorque</exemplarCity>
+			</zone>
+			<metazone type="Alaska">
 				<long>
 					<standard>Horário Padrão do Alasca</standard>
 					<daylight>Horário de Verão do Alasca</daylight>
 				</long>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>Horário Padrão do Pacífico</standard>
-					<daylight>Horário de Verão do Pacífico</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<standard>Horário Padrão Montanha</standard>
-					<daylight>Horário Padrão Montanha</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Horário Padrão Montanha</standard>
-					<daylight>Horário de Verão Montanha</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Central</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<standard>Horário Padrão Central</standard>
 					<daylight>Horário de Verão Central</daylight>
@@ -1146,11 +1058,8 @@
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianápolis</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<standard>Horário Padrão Oriental</standard>
 					<daylight>Horário de Verão Oriental</daylight>
@@ -1159,8 +1068,101 @@
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>Nova Iorque</exemplarCity>
-			</zone>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário de Verão Montanha</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Horário Padrão do Pacífico</standard>
+					<daylight>Horário de Verão do Pacífico</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Horário Padrão Atlântico</standard>
+					<daylight>Horário de Verão Atlântico</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Horário Padrão da China</standard>
+					<daylight>Horário de Verão da China</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Horário Padrão Europa Central</standard>
+					<daylight>Horário de Verão Europa Central</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Horário Padrão da Europa Oriental</standard>
+					<daylight>Horário de Verão da Europa Oriental</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Horário do Meridiano de Greenwich</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Horário Padrão do Havaí</standard>
+					<daylight>Horário de Verão do Havaí</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Horário Padrão de Israel</standard>
+					<daylight>Horário de Verão de Israel</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Horário Padrão de Terra Nova</standard>
+					<daylight>Horário de Verão de Terra Nova</daylight>
+				</long>
+				<short>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

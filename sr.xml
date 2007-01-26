@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -577,12 +577,6 @@
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Шангај</exemplarCity>
 			</zone>
-			<zone type="Europe/Belgrade">
-				<long>
-					<standard>Централно Европско Време</standard>
-					<daylight>Централно Европско Летње Време</daylight>
-				</long>
-			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Moscow">
 				<exemplarCity>Москва</exemplarCity>
@@ -610,6 +604,13 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Ташкент</exemplarCity>
 			</zone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Централно Европско Време</standard>
+					<daylight>Централно Европско Летње Време</daylight>
+				</long>
+			</metazone>
+
 		</timeZoneNames>
 	</dates>
 	<numbers>

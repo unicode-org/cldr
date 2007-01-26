@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -946,6 +946,9 @@
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="Europe/Malta">
+				<exemplarCity>Valletta</exemplarCity>
+			</zone>
+			<metazone type="Europe_Central">
 				<long>
 					<standard>Ħin Ċentrali Ewropew</standard>
 					<daylight>Ħin Ċentrali Ewropew tas-Sajf</daylight>
@@ -954,8 +957,8 @@
 					<standard>CET</standard>
 					<daylight>CEST</daylight>
 				</short>
-				<exemplarCity>Valletta</exemplarCity>
-			</zone>
+				<commonlyUsed used="true"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

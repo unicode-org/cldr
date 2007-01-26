@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1578,56 +1578,34 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-					<standard>Atlantic-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Halifax, normaltid</standard>
-					<daylight>Atlantic-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Halifax, sommertid</daylight>
 				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-					<standard>Newfoundland-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">St. Johns, normaltid</standard>
-					<daylight>Newfoundland-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">St. Johns, sommertid</daylight>
 				</long>
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
-			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity>Påskeøen</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-					<standard>Kinesisk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Shanghai, normaltid</standard>
-					<daylight>Kinesisk normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Shanghai, sommertid</daylight>
 				</long>
 			</zone>
-			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>De Kanariske Øer</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-					<standard>Mellemeuropæisk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Paris, normaltid</standard>
-					<daylight>Mellemeuropæisk sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Paris, sommertid</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
@@ -1635,41 +1613,29 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-					<standard>Israelsk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Jerusalem, normaltid</standard>
-					<daylight>Israelsk sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Jerusalem, sommertid</daylight>
 				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japansk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Tokyo, normaltid</standard>
-					<daylight>Japansk normaltid</daylight>
+					<daylight>Japansk sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Tokyo, sommertid</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-					<standard>Verdenstid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Casablanca, normaltid</standard>
-					<daylight>Verdenstid</daylight>
 					<daylight alt="proposed-u165-2" draft="provisional">Casablanca, sommertid</daylight>
 				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
@@ -1677,15 +1643,9 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Østeuropæisk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Bucharest, normaltid</standard>
-					<daylight>Østeuropæisk sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Bucharest, sommertid</daylight>
 				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
@@ -1693,75 +1653,39 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Hawaii-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Hawaii, normaltid</standard>
-					<daylight>Hawaii-normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Hawaii, sommertid</daylight>
 				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-					<standard>Alaska-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Alaska, normaltid</standard>
-					<daylight>Alaska-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Alaska, sommertid</daylight>
 				</long>
-				<short>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-					<standard>Pacific-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Los Angeles, normaltid</standard>
-					<daylight>Pacific-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Los Angeles, sommertid</daylight>
 				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-					<standard>Mountain-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Phoenix, normaltid</standard>
-					<daylight>Mountain-normaltid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Phoenix, sommertid</daylight>
 				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
 			</zone>
 			<zone type="America/Denver">
 				<long>
-					<standard>Mountain-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Denver, normaltid</standard>
-					<daylight>Mountain-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Denver, sommertid</daylight>
 				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-					<standard>Central-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Chicago, normaltid</standard>
-					<daylight>Central-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Chicago, sommertid</daylight>
 				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -1771,16 +1695,134 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-					<standard>Eastern-normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">New York, normaltid</standard>
-					<daylight>Eastern-sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">New York, sommertid</daylight>
+				</long>
+			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>Alaska-normaltid</standard>
+					<daylight>Alaska-sommertid</daylight>
+				</long>
+				<short>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Atlantic-normaltid</standard>
+					<daylight>Atlantic-sommertid</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>Central-normaltid</standard>
+					<daylight>Central-sommertid</daylight>
+				</long>
+				<short>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-sommertid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-			</zone>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-sommertid</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Pacific-normaltid</standard>
+					<daylight>Pacific-sommertid</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Kinesisk normaltid</standard>
+					<daylight>Kinesisk sommertid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Mellemeuropæisk normaltid</standard>
+					<daylight>Mellemeuropæisk sommertid</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Østeuropæisk normaltid</standard>
+					<daylight>Østeuropæisk sommertid</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Verdenstid</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-normaltid</standard>
+					<daylight>Hawaii-sommertid</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israelsk normaltid</standard>
+					<daylight>Israelsk sommertid</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Newfoundland-normaltid</standard>
+					<daylight>Newfoundland-sommertid</daylight>
+				</long>
+				<short>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

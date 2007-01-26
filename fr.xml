@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -1323,76 +1323,10 @@
 			<zone type="America/Manaus">
 				<exemplarCity>Manaos</exemplarCity>
 			</zone>
-			<zone type="America/Vancouver">
-				<long>
-					<generic>Heure du Pacifique</generic>
-					<standard>Heure normale du Pacifique</standard>
-					<daylight>Heure avancée du Pacifique</daylight>
-				</long>
-				<short>
-					<generic>HP</generic>
-					<standard>HNP</standard>
-					<daylight>HAP</daylight>
-				</short>
-			</zone>
-			<zone type="America/Edmonton">
-				<long>
-					<generic>Heure des Rocheuses</generic>
-					<standard>Heure normale des Rocheuses</standard>
-					<daylight>Heure avancée des Rocheuses</daylight>
-				</long>
-				<short>
-					<generic>HR</generic>
-					<standard>HNR</standard>
-					<daylight>HAR</daylight>
-				</short>
-			</zone>
-			<zone type="America/Winnipeg">
-				<long>
-					<generic>Heure du Centre</generic>
-					<standard>Heure normale du Centre</standard>
-					<daylight>Heure avancée du Centre</daylight>
-				</long>
-				<short>
-					<generic>HC</generic>
-				</short>
-			</zone>
 			<zone type="America/Montreal">
-				<long>
-					<generic>Heure de l’Est</generic>
-					<standard>Heure normale de l’Est</standard>
-					<daylight>Heure avancée de l’Est</daylight>
-				</long>
-				<short>
-					<generic>HE</generic>
-					<standard>HNE</standard>
-					<daylight>HAE</daylight>
-				</short>
 				<exemplarCity>Montréal</exemplarCity>
 			</zone>
-			<zone type="America/Halifax">
-				<long>
-					<generic>Heure de l’Atlantique</generic>
-					<standard>Heure normale de l’Atlantique</standard>
-					<daylight>Heure avancée de l’Atlantique</daylight>
-				</long>
-				<short>
-					<generic>HA</generic>
-					<standard>HNA</standard>
-					<daylight>HAA</daylight>
-				</short>
-			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<generic>Heure de Terre-Neuve</generic>
-					<standard>Heure normale de Terre-Neuve</standard>
-					<daylight>Heure avancée de Terre-Neuve</daylight>
-				</long>
-				<short>
-					<generic>HT</generic>
-					<standard>HNT</standard>
-					<daylight>HAT</daylight>
-				</short>
 				<exemplarCity>Saint-Jean de Terre-Neuve</exemplarCity>
 			</zone>
 			<!-- Chile -->
@@ -1403,45 +1337,17 @@
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kachgar</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Heure normale de Chine</standard>
-					<daylight>Heure avancée de Chine</daylight>
-				</long>
-				<short>
-					<standard>HNC</standard>
-					<daylight>HAC</daylight>
-				</short>
-			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Îles Canaries</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<generic>Heure de l’Europe centrale</generic>
-					<standard>Heure normale de l’Europe centrale</standard>
-					<daylight>Heure avancée de l’Europe centrale</daylight>
-				</long>
-				<short>
-					<generic>HEC</generic>
-					<standard>HNEC</standard>
-					<daylight>HAEC</daylight>
-				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Heure normale d’Israël</standard>
-					<daylight>Heure avancée d’Israël</daylight>
-				</long>
-				<short>
-					<standard>HNI</standard>
-					<daylight>HAI</daylight>
-				</short>
 				<exemplarCity>Jérusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -1494,14 +1400,6 @@
 				<exemplarCity>Lisbonne</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Heure normale de l’Europe de l’Est</standard>
-					<daylight>Heure avancée de l’Europe de l’Est</daylight>
-				</long>
-				<short>
-					<standard>HEE</standard>
-					<daylight>HAEE</daylight>
-				</short>
 				<exemplarCity>Bucarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
@@ -1535,18 +1433,10 @@
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojie</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<generic>Heure d’Hawaï</generic>
-					<standard>Heure normale d’Hawaï</standard>
-					<daylight>Heure avancée d’Hawaï</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
+			<zone type="America/Detroit">
+				<exemplarCity>Détroit</exemplarCity>
 			</zone>
-			<zone type="America/Anchorage">
+			<metazone type="Alaska">
 				<long>
 					<generic>Heure de l’Alaska</generic>
 					<standard>Heure normale de l’Alaska</standard>
@@ -1557,58 +1447,132 @@
 					<standard>HNAK</standard>
 					<daylight>HAAK</daylight>
 				</short>
-			</zone>
-			<zone type="America/Los_Angeles">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
-					<generic>Heure du Pacifique (ÉUA)</generic>
-					<standard>Heure normale du Pacifique (ÉUA)</standard>
-					<daylight>Heure avancée du Pacifique (ÉUA)</daylight>
+					<generic>Heure du Centre</generic>
+					<standard>Heure normale du Centre</standard>
+					<daylight>Heure avancée du Centre</daylight>
 				</long>
 				<short>
-					<generic>HP (ÉUA)</generic>
-					<standard>HNP (ÉUA)</standard>
-					<daylight>HAP (ÉUA)</daylight>
+					<generic>HC</generic>
+					<standard>HNC</standard>
+					<daylight>HAC</daylight>
 				</short>
-			</zone>
-			<zone type="America/Denver">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
-					<generic>Heure des Rocheuses (ÉUA)</generic>
-					<standard>Heure normale des Rocheuses (ÉUA)</standard>
-					<daylight>Heure avancée des Rocheuses (ÉUA)</daylight>
+					<generic>Heure de l’Est</generic>
+					<standard>Heure normale de l’Est</standard>
+					<daylight>Heure avancée de l’Est</daylight>
 				</long>
 				<short>
-					<generic>HR (ÉUA)</generic>
-					<standard>HNR (ÉUA)</standard>
-					<daylight>HAR (ÉUA)</daylight>
+					<generic>HE</generic>
+					<standard>HNE</standard>
+					<daylight>HAE</daylight>
 				</short>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Mountain">
 				<long>
-					<generic>Heure du Centre (ÉUA)</generic>
-					<standard>Heure normale du Centre (ÉUA)</standard>
-					<daylight>Heure avancée du Centre (ÉUA)</daylight>
+					<generic>Heure des Rocheuses</generic>
+					<standard>Heure normale des Rocheuses</standard>
+					<daylight>Heure avancée des Rocheuses</daylight>
 				</long>
 				<short>
-					<generic>HC (ÉUA)</generic>
-					<standard>HNC (ÉUA)</standard>
-					<daylight>HAC (ÉUA)</daylight>
+					<generic>HR</generic>
+					<standard>HNR</standard>
+					<daylight>HAR</daylight>
 				</short>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity>Détroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Pacific">
 				<long>
-					<generic>Heure de l’Est (ÉUA)</generic>
-					<standard>Heure normale de l’Est (ÉUA)</standard>
-					<daylight>Heure avancée de l’Est (ÉUA)</daylight>
+					<generic>Heure du Pacifique</generic>
+					<standard>Heure normale du Pacifique</standard>
+					<daylight>Heure avancée du Pacifique</daylight>
 				</long>
 				<short>
-					<generic>HE (ÉUA)</generic>
-					<standard>HNE (ÉUA)</standard>
-					<daylight>HAE (ÉUA)</daylight>
+					<generic>HP</generic>
+					<standard>HNP</standard>
+					<daylight>HAP</daylight>
 				</short>
-			</zone>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>Heure de l’Atlantique</generic>
+					<standard>Heure normale de l’Atlantique</standard>
+					<daylight>Heure avancée de l’Atlantique</daylight>
+				</long>
+				<short>
+					<generic>HA</generic>
+					<standard>HNA</standard>
+					<daylight>HAA</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Heure normale de Chine</standard>
+					<daylight>Heure avancée de Chine</daylight>
+				</long>
+				<short>
+					<standard>HNC (Chine)</standard>
+					<daylight>HAC (Chine)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>Heure de l’Europe centrale</generic>
+					<standard>Heure normale de l’Europe centrale</standard>
+					<daylight>Heure avancée de l’Europe centrale</daylight>
+				</long>
+				<short>
+					<generic>HEC</generic>
+					<standard>HNEC</standard>
+					<daylight>HAEC</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Heure normale de l’Europe de l’Est</standard>
+					<daylight>Heure avancée de l’Europe de l’Est</daylight>
+				</long>
+				<short>
+					<standard>HEE</standard>
+					<daylight>HAEE</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<generic>Heure d’Hawaï</generic>
+					<standard>Heure normale d’Hawaï</standard>
+					<daylight>Heure avancée d’Hawaï</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Heure normale d’Israël</standard>
+					<daylight>Heure avancée d’Israël</daylight>
+				</long>
+				<short>
+					<standard>HNI</standard>
+					<daylight>HAI</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>Heure de Terre-Neuve</generic>
+					<standard>Heure normale de Terre-Neuve</standard>
+					<daylight>Heure avancée de Terre-Neuve</daylight>
+				</long>
+				<short>
+					<generic>HT</generic>
+					<standard>HNT</standard>
+					<daylight>HAT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

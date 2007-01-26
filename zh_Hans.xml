@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -280,27 +280,11 @@
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>Danmarkshavn（格陵兰东北城市）</exemplarCity>
 			</zone>
-			<zone type="Africa/Casablanca">
-				<long>
-					<standard>格林尼治标准时间</standard>
-					<daylight references="RP20">格林尼治夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">格林尼治标准时间</standard>
-					<daylight references="RP21">GDT</daylight>
-				</short>
-			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>艾德克</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>诺姆</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<short>
-					<standard draft="provisional">太平洋标准时间</standard>
-					<daylight draft="provisional">太平洋夏令时间</daylight>
-				</short>
 			</zone>
 			<!-- <zone type="America/Denver">
 				 <short>
@@ -312,26 +296,11 @@
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>北达科他</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
-				<long>
-					<standard>中部标准时间</standard>
-					<daylight>中部夏令时间</daylight>
-				</long>
-			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<exemplarCity>温森斯</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>彼得斯堡</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<daylight>东部夏令时间</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">东部标准时间</standard>
-					<daylight references="RP22">EDT</daylight>
-				</short>
 			</zone>
 			<zone type="America/Louisville">
 				<exemplarCity>路易斯维尔</exemplarCity>
@@ -339,6 +308,26 @@
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>维维市（印第安纳州）</exemplarCity>
 			</zone>
+			<metazone type="America_Central">
+				<long>
+					<standard>中部标准时间</standard>
+					<daylight>中部夏令时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<short>
+					<standard draft="provisional">太平洋标准时间</standard>
+					<daylight draft="provisional">太平洋夏令时间</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>格林尼治标准时间</standard>
+				</long>
+				<short>
+					<standard draft="provisional">格林尼治标准时间</standard>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

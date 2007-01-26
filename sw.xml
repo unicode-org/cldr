@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -197,16 +197,16 @@
 		</calendars>
 		<timeZoneNames>
 			<zone type="Africa/Nairobi">
+				<exemplarCity>Nairobi</exemplarCity>
+			</zone>
+			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Saa za Africa Mashariki</standard>
-					<daylight>Saa za Africa Mashariki</daylight>
 				</long>
 				<short>
 					<standard>EAT</standard>
-					<daylight>EAT</daylight>
 				</short>
-				<exemplarCity>Nairobi</exemplarCity>
-			</zone>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

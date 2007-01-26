@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -972,115 +972,65 @@
 		</calendars>
 		<timeZoneNames>
 			<zone type="America/Halifax">
-				<long>
-					<standard>대서양 표준시</standard>
-					<daylight>대서양 기준시</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 				<exemplarCity>핼리팩스</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>뉴펀들랜드 표준시</standard>
-					<daylight>뉴펀들랜드 기준시</daylight>
-				</long>
-				<short>
-					<standard>NST</standard>
-					<daylight>NDT</daylight>
-				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>중국 표준시</standard>
-					<daylight>중국 표준시</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-				</short>
 				<exemplarCity>상하이</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>중부유럽 표준시</standard>
-					<daylight>중부유럽 기준시</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>파리</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>이스라엘 표준시</standard>
-					<daylight>이스라엘 기준시</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>예루살렘</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>일본 표준시</standard>
-					<daylight>일본 표준시</daylight>
+					<daylight>일본 기준시</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>도쿄</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
-				<long>
-					<standard>한국표준시</standard>
-					<daylight>한국표준시</daylight>
-				</long>
-				<short>
-					<standard>KST</standard>
-					<daylight>KST</daylight>
-				</short>
 				<exemplarCity>서울</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>그리니치 표준시</standard>
-					<daylight>그리니치 표준시</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
 				<exemplarCity>카사블랑카</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>동부유럽 표준시</standard>
-					<daylight>동부유럽 기준시</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>부쿠레슈티</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>하와이 표준시</standard>
-					<daylight>하와이 표준시</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
 				<exemplarCity>호놀룰루</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
+				<exemplarCity>앵커리지</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>로스앤젤레스</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>피닉스</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>덴버</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>시카고</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>인디애나폴리스</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>뉴욕</exemplarCity>
+			</zone>
+			<metazone type="Alaska">
 				<long>
 					<standard>알래스카 표준시</standard>
 					<daylight>알래스카 기준시</daylight>
@@ -1089,42 +1039,8 @@
 					<standard>AKST</standard>
 					<daylight>AKDT</daylight>
 				</short>
-				<exemplarCity>앵커리지</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>태평양 표준시</standard>
-					<daylight>태평양 기준시</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-				<exemplarCity>로스앤젤레스</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<standard>산악 표준시</standard>
-					<daylight>산악 표준시</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-				<exemplarCity>피닉스</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>산악 표준시</standard>
-					<daylight>산악 기준시</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>덴버</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
+			</metazone>
+			<metazone type="America_Central">
 				<long>
 					<standard>중부 표준시</standard>
 					<daylight>중부 기준시</daylight>
@@ -1133,20 +1049,8 @@
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
-				<exemplarCity>시카고</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<standard>동부 표준시 (인디애나폴리스)</standard>
-					<daylight>동부 기준시 (인디애나폴리스)</daylight>
-				</long>
-				<short>
-					<standard>EST (IN)</standard>
-					<daylight>EDT (IN)</daylight>
-				</short>
-				<exemplarCity>인디애나폴리스</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
+			</metazone>
+			<metazone type="America_Eastern">
 				<long>
 					<standard>동부 표준시</standard>
 					<daylight>동부 기준시</daylight>
@@ -1155,8 +1059,114 @@
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>뉴욕</exemplarCity>
-			</zone>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>산악 표준시</standard>
+					<daylight>산악 기준시</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>태평양 표준시</standard>
+					<daylight>태평양 기준시</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>대서양 표준시</standard>
+					<daylight>대서양 기준시</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>중국 표준시</standard>
+					<daylight>중국 기준시</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>중부유럽 표준시</standard>
+					<daylight>중부유럽 기준시</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>동부유럽 표준시</standard>
+					<daylight>동부유럽 기준시</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>그리니치 표준시</standard>
+				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>하와이 표준시</standard>
+					<daylight>하와이 기준시</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>이스라엘 표준시</standard>
+					<daylight>이스라엘 기준시</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<standard>한국표준시</standard>
+					<daylight>한국기준시</daylight>
+				</long>
+				<short>
+					<standard>KST</standard>
+					<daylight>KDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>뉴펀들랜드 표준시</standard>
+					<daylight>뉴펀들랜드 기준시</daylight>
+				</long>
+				<short>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

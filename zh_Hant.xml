@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -962,10 +962,6 @@
 				<exemplarCity>潘尼爾東</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<long>
-					<standard>大西洋標準時間</standard>
-					<daylight>大西洋日光節約時間</daylight>
-				</long>
 				<exemplarCity>哈里法克斯</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
@@ -975,10 +971,6 @@
 				<exemplarCity>格雷斯貝</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>紐芬蘭標準時間</standard>
-					<daylight>紐芬蘭日光節約時間</daylight>
-				</long>
 				<exemplarCity>聖約翰</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
@@ -1004,12 +996,6 @@
 			</zone>
 			<zone type="Asia/Chongqing">
 				<exemplarCity>重慶</exemplarCity>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>中國標準時間</standard>
-					<daylight>中國標準時間</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Harbin">
 				<exemplarCity>哈爾濱</exemplarCity>
@@ -1037,12 +1023,6 @@
 			<zone type="Pacific/Ponape">
 				<exemplarCity>波納佩</exemplarCity>
 			</zone>
-			<zone type="Europe/Paris">
-				<long>
-					<standard>中歐標準時間</standard>
-					<daylight>中歐日光節約時間</daylight>
-				</long>
-			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>倫敦</exemplarCity>
 			</zone>
@@ -1069,16 +1049,10 @@
 			<zone type="Asia/Jayapura">
 				<exemplarCity>加亞布拉</exemplarCity>
 			</zone>
-			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>以色列標準時間</standard>
-					<daylight>以色列日光節約時間</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>日本標準時間</standard>
-					<daylight>日本標準時間</daylight>
+					<daylight>日本日光節約時間</daylight>
 				</long>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
@@ -1109,10 +1083,6 @@
 				<exemplarCity>阿拉木圖</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>格林威治標準時間</standard>
-					<daylight>格林威治標準時間</daylight>
-				</long>
 				<exemplarCity>卡薩布蘭卡</exemplarCity>
 			</zone>
 			<!-- Marshall Islands -->
@@ -1183,12 +1153,6 @@
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>馬得拉群島</exemplarCity>
-			</zone>
-			<zone type="Europe/Bucharest">
-				<long>
-					<standard>東歐標準時間</standard>
-					<daylight>東歐日光節約時間</daylight>
-				</long>
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Kaliningrad">
@@ -1264,17 +1228,7 @@
 			<zone type="America/Nome">
 				<exemplarCity>諾姆</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>夏威夷標準時間</standard>
-					<daylight>夏威夷標準時間</daylight>
-				</long>
-			</zone>
 			<zone type="America/Anchorage">
-				<long>
-					<standard>阿拉斯加標準時間</standard>
-					<daylight>阿拉斯加日光節約時間</daylight>
-				</long>
 				<exemplarCity>安克里治</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
@@ -1284,39 +1238,19 @@
 				<exemplarCity>朱諾</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<long>
-					<standard>太平洋標準時間</standard>
-					<daylight>太平洋日光節約時間</daylight>
-				</long>
 				<exemplarCity>洛杉磯</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>波伊斯</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<long>
-					<standard>山區標準時間</standard>
-					<daylight>山區標準時間</daylight>
-				</long>
 				<exemplarCity>鳳凰城</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
 				<exemplarCity>船岩峰</exemplarCity>
 			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>山區標準時間</standard>
-					<daylight>山區日光節約時間</daylight>
-				</long>
-			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>申特城</exemplarCity>
-			</zone>
-			<zone type="America/Chicago">
-				<long>
-					<standard>中部標準時間</standard>
-					<daylight>中部日光節約時間</daylight>
-				</long>
 			</zone>
 			<zone type="America/Menominee">
 				<exemplarCity>美諾米克</exemplarCity>
@@ -1328,10 +1262,6 @@
 				<exemplarCity>馬倫哥</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<long>
-					<standard>東部標準時間 Indianapolis</standard>
-					<daylight>東部標準時間 Indianapolis daylight</daylight>
-				</long>
 				<exemplarCity>印第安那波里斯</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
@@ -1344,16 +1274,89 @@
 				<exemplarCity>蒙提瑟洛</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<long>
-					<standard>東部標準時間</standard>
-					<daylight>東部日光節約時間</daylight>
-				</long>
 				<exemplarCity>紐約</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
 			<zone type="Asia/Samarkand">
 				<exemplarCity>撒馬爾罕</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>阿拉斯加標準時間</standard>
+					<daylight>阿拉斯加日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>中部標準時間</standard>
+					<daylight>中部日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>東部標準時間</standard>
+					<daylight>東部日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>山區標準時間</standard>
+					<daylight>山區日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>太平洋標準時間</standard>
+					<daylight>太平洋日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>大西洋標準時間</standard>
+					<daylight>大西洋日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>中國標準時間</standard>
+					<daylight>中國日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>中歐標準時間</standard>
+					<daylight>中歐日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>東歐標準時間</standard>
+					<daylight>東歐日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>格林威治標準時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>夏威夷標準時間</standard>
+					<daylight>夏威夷日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>以色列標準時間</standard>
+					<daylight>以色列日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>紐芬蘭標準時間</standard>
+					<daylight>紐芬蘭日光節約時間</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

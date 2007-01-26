@@ -234,7 +234,7 @@ public class OOToLDMLPattern
         
         boolean bIsValid = false;
         //System.err.println (buf.toString());
-        String validChars = "AGJKOPTUVXMDNYWQGMTSHERAHhMmSs0[]/,.:-() 月日年時分秒";
+        String validChars = "AGJKOPTUVXMDNYWQGMTSHERAHhMmSs0[]/,.:-() \u6708\u65E5\u5E74\u6642\u5206\u79D2";
         for (int i=0; i < buf.length(); i++)
         {
             bIsValid = false;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -971,14 +971,6 @@
 				<exemplarCity>Пангниртунг</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<long>
-					<standard>Атлантическа часова зона</standard>
-					<daylight>Атлантическа лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
 				<exemplarCity>Халифакс</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
@@ -988,10 +980,6 @@
 				<exemplarCity>Глейс Бей</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<long>
-					<standard>Часова зона Нюфаундленд</standard>
-					<daylight>Лятна часова зона Нюфаундленд</daylight>
-				</long>
 				<exemplarCity>Сейнт Джоунс</exemplarCity>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
@@ -1019,10 +1007,6 @@
 				<exemplarCity>Чунцин</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Китайска часова зона</standard>
-					<daylight>Китайска часова зона</daylight>
-				</long>
 				<exemplarCity>Шанхай</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
@@ -1055,14 +1039,6 @@
 				<exemplarCity>о. Косрае</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Централноевропейска часова зона</standard>
-					<daylight>Централноевропейска лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
 				<exemplarCity>Париж</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
@@ -1095,14 +1071,6 @@
 				<exemplarCity>Джаяпура</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Часова зона Израел</standard>
-					<daylight>Лятна часова зона Израел</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Йерусалим</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -1112,7 +1080,7 @@
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Токио</exemplarCity>
 			</zone>
@@ -1143,14 +1111,6 @@
 				<exemplarCity>Алма Ата</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
-				<long>
-					<standard>Часова зона Гринуич</standard>
-					<daylight>Часова зона Гринуич</daylight>
-				</long>
-				<short>
-					<standard>Гринуич часова зона</standard>
-					<daylight>Гринуич часова зона</daylight>
-				</short>
 				<exemplarCity>Казабланка</exemplarCity>
 			</zone>
 			<!-- Marshall Islands -->
@@ -1234,14 +1194,6 @@
 				<exemplarCity>Лисабон</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<long>
-					<standard>Източноевропейска часова зона</standard>
-					<daylight>Източноевропейска лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
-				</short>
 				<exemplarCity>Букурещ</exemplarCity>
 			</zone>
 			<!-- Russia -->
@@ -1325,25 +1277,9 @@
 				<exemplarCity>Ноум</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
-				<long>
-					<standard>Часова зона Хавай</standard>
-					<daylight>Лятна часова зона Хавай</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
 				<exemplarCity>Хонолулу</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<long>
-					<standard>Часова зона Аляска</standard>
-					<daylight>Лятна часова зона Аляска</daylight>
-				</long>
-				<short>
-					<standard alt="proposed-u195-1" draft="provisional">AKST</standard>
-					<daylight alt="proposed-u195-1" draft="provisional">AKDT</daylight>
-				</short>
 				<exemplarCity>Анкоридж</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
@@ -1353,56 +1289,24 @@
 				<exemplarCity>Джуно</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<long>
-					<standard>Тихоокеанска часова зона</standard>
-					<daylight>Тихоокеанска лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
 				<exemplarCity>Лос Анжелис</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
 				<exemplarCity>Буаз</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<long>
-					<standard>Американска планинска часова зона</standard>
-					<daylight>Американска планинска часова зона</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
 				<exemplarCity>Финикс</exemplarCity>
 			</zone>
 			<zone type="America/Shiprock">
 				<exemplarCity>Шипрок</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<long>
-					<standard>Американска планинска часова зона</standard>
-					<daylight>Американска планинска лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
 				<exemplarCity>Денвър</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Сентър</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<long>
-					<standard>Американска централна часова зона</standard>
-					<daylight>Американска централна лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
 				<exemplarCity>Чикаго</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
@@ -1415,9 +1319,6 @@
 				<exemplarCity>Маренго</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<long>
-					<daylight>Американска източна часова зона (Индианополис)</daylight>
-				</long>
 				<exemplarCity>Индианополис</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
@@ -1433,14 +1334,6 @@
 				<exemplarCity>Детройт</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<long>
-					<standard>Американска източна часова зона</standard>
-					<daylight>Американска източна лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
 				<exemplarCity>Ню Йорк</exemplarCity>
 			</zone>
 			<!-- Uzbekistan -->
@@ -1450,6 +1343,124 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Ташкент</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>Часова зона Аляска</standard>
+					<daylight>Лятна часова зона Аляска</daylight>
+				</long>
+				<short>
+					<standard alt="proposed-u195-1" draft="provisional">AKST</standard>
+					<daylight alt="proposed-u195-1" draft="provisional">AKDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<standard>Американска централна часова зона</standard>
+					<daylight>Американска централна лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<standard>Тихоокеанска часова зона</standard>
+					<daylight>Тихоокеанска лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Атлантическа часова зона</standard>
+					<daylight>Атлантическа лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Китайска часова зона</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Централноевропейска часова зона</standard>
+					<daylight>Централноевропейска лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<standard>Източноевропейска часова зона</standard>
+					<daylight>Източноевропейска лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Часова зона Гринуич</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Часова зона Хавай</standard>
+					<daylight>Лятна часова зона Хавай</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Часова зона Израел</standard>
+					<daylight>Лятна часова зона Израел</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<standard>Часова зона Нюфаундленд</standard>
+					<daylight>Лятна часова зона Нюфаундленд</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

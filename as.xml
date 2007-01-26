@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -84,16 +84,17 @@
 		<!-- NOTE: NO ERA INFO -->
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
+				<exemplarCity>এলাহাৱাদ</exemplarCity>
+			</zone>
+			<metazone type="India">
 				<long>
 					<standard>ভাৰতীয় সময়</standard>
-					<daylight>ভাৰতীয় সময়</daylight>
 				</long>
 				<short>
 					<standard>ভা. স.</standard>
-					<daylight>ভা. স.</daylight>
 				</short>
-				<exemplarCity>এলাহাৱাদ</exemplarCity>
-			</zone>
+				<commonlyUsed used="true"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

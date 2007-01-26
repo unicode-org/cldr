@@ -37,24 +37,29 @@
             <pathelement location="${env.ICU4J_JAR}"/>
             <pathelement location="${env.CLDR_JAR}"/>
             <pathelement location="${env.UTILITIES_JAR}"/>
+            <pathelement location="${env.XML_APIS_JAR}"/>
         </path>
         <echo message="java home: ${java.home}"/>
         <echo message="java version: ${java.version}"/>
         <echo message="ant java version: ${ant.java.version}"/>
         <echo message="${ant.version}"/>
-        <echo message="${project.class.path}"/>
+        <echo message="${env.XML_APIS_JAR}"/>
     </target>
 
     <!-- build everything but dist-related stuff -->
     <target name="all" depends="util,ant-plugin,tool,posix,icu,test,ooo" description="build all primary targets"/>
     <target name="ant-plugin" depends="init" description="build utility classes">
-        <javac includes="org/unicode/cldr/ant/**/*.java"
+        <javac includes="org/unicode/cldr/ant/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.4"
+            source="1.5"
             debug="on" deprecation="off"
+<<<<<<< build.xml
+            encoding="ASCII"
+            />
+=======
             encoding="ASCII"/>
     </target>
     <target name="util" depends="init" description="build utility classes">
@@ -147,14 +152,18 @@
         <!-- TODO: document.. -->
         <!-- for now: depends on tomcat (catalina) for servlet API. -->
         <property name="tomcat.home"        value="${env.CATALINA_HOME}"/>
+        <condition property="is.tomcat.home.set" >
+                <isset property="env.CATALINA_HOME" />
+        </condition > 
+        <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME environment variable to point at your Tomcat installation."/>   
+        
         <property name="icu.home"           value="${env.ICU4J_HOME}"/>
         
-        <property name="servlet.jar"        value="${tomcat.home}/common/lib/servlet-api.jar"/>
-        <property name="jsp.jar"            value="${tomcat.home}/common/lib/jsp-api.jar"/>
+        <property name="servlet.jar"        value="${tomcat.home}/lib/servlet-api.jar"/>
+        <property name="jsp.jar"            value="${tomcat.home}/lib/jsp-api.jar"/>
         <property name="derby.jar"          value="${env.DERBY_HOME}/lib/derby.jar"/>
-        <property name="icu.jar"          value="${icu.home}/icu4j.jar"/>
-        <property name="utilities.jar"      value="${icu.home}/utilities.jar"/>
-        <property name="mail.jar"            value="${tomcat.home}/shared/lib/mail.jar"/>
+
+        <property name="mail.jar"            value="${tomcat.home}/lib/mail.jar"/>
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
         <!-- Configure the custom Ant tasks for the Manager application -->
         <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
@@ -182,12 +191,10 @@
 
         <path id="weblib.classpath">
             <fileset refid="otherjars"/>
-            
+            <path refid="project.class.path"/>
             <pathelement path="${servlet.jar}"/>
             <pathelement path="${derby.jar}"/> 
-            <pathelement path="${icu.jar}"/> 
             <pathelement path="${mail.jar}"/> 
-            <pathelement path="${utilities.jar}"/> 
         </path>
 
         <echo message="weblib.classpath is set to = ${derby.jar}:${icu.jar}:${utilities.jar}:${servlet.jar}"/>

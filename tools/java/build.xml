@@ -5,6 +5,8 @@
         <property name="build.dir" value="classes"/>
         <property name="jar.file" value="cldr.jar"/>
         <property name="jarSrc.file" value="cldrsrc.jar"/>
+        <property name="doc.dir" value="doc"/>
+        <property name="doc.params" value=""/>
         <!-- Load environment variables -->
         <property environment="env"/>
         
@@ -135,6 +137,28 @@
             includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
             basedir="${build.dir}"/>
     </target>
+  <!-- Docs stuff -->
+    <!-- use excludefiles below when we move to ant 1.5 -->
+    <target name="docs" depends="init" description="build user javadoc">
+        <echo message="doc params: ${doc.params}"/>
+        <mkdir dir="${doc.dir}"/>
+        <javadoc
+            packagenames="org.unicode.cldr.*"
+            sourcepath="${src.dir}"
+            destdir="${doc.dir}"
+            classpathref="project.class.path"
+            nodeprecatedlist="true"
+            windowtitle="CLDR | Java Tools"
+            doctitle="CLDR | Java Tools"
+            encoding="utf-8"
+            docencoding="utf-8"
+            additionalparam="${doc.params}"
+            link="http://java.sun.com/j2se/1.5/docs/api"
+	    bottom="&lt;font size=-1>Copyright &amp;copy; ${current.year} Unicode, Inc. All Rights Reserved.&lt;/font>"
+            source="1.5"/>
+    </target>
+               <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
+
     
   <!-- SurveyTool (web) stuff follows ................. -->
     

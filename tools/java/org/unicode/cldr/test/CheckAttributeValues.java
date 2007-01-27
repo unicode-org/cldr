@@ -220,7 +220,7 @@ public class CheckAttributeValues extends CheckCLDR {
               // skip for now 
             } else if (lastElement.endsWith("skipDefaultLocale")) {
               // skip for now 
-            } else if (lastElement.endsWith("defaultCountent")) {
+            } else if (lastElement.endsWith("defaultContent")) {
               // skip for now 
             } else {
                 System.out.println("Unknown final element: " + path);

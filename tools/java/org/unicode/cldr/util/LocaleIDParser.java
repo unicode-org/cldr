@@ -10,6 +10,7 @@ package org.unicode.cldr.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -127,6 +128,48 @@ public class LocaleIDParser {
 		this.variants = (String[]) variants.clone();
 		return this;
 	}
+  
+  public enum Level {
+    Language, Script, Region, Variants, Other
+  }
+  /**
+   * Returns an int mask indicating the level
+   * @return (2 if script is present) + (4 if region is present) + (8 if region is present)
+   */
+  public Set<Level> getLevels() {
+    EnumSet<Level> result = EnumSet.of(Level.Language);
+    if (getScript().length() != 0) result.add(Level.Script);
+    if (getRegion().length() != 0) result.add(Level.Region);
+    if (getVariants().length != 0) result.add(Level.Variants);
+    return result;
+  }
+  
+  public String getParent() {
+    String localeName = toString();
+    int pos = localeName.lastIndexOf('_');
+    if (pos >= 0) {
+      return localeName.substring(0,pos);
+    }
+    if (localeName.equals("root")) return null;
+    return "root";
+  }
+  
+  public Set<String> getSiblings(Set<String> set) {
+    Set<Level> myLevel = getLevels();
+    String localeID = toString();
+    String parentID = getParent(localeID);
+    
+    String prefix = parentID.equals("root") ? "" : parentID + "_";
+    Set<String> siblings = new TreeSet<String>();
+    for (String id : set) {
+      if (id.startsWith(prefix) && set(id).getLevels().equals(myLevel)) {
+        siblings.add(id);
+      }
+    }
+    set(localeID); // leave in known state
+    return siblings;
+  }
+
 	public String toString() {
 		StringBuffer result = new StringBuffer(language);
 		if (script.length() != 0) result.append('_').append(script);

@@ -3,10 +3,12 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SpreadSheet;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -34,6 +37,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 public class ConvertLanguageData {
   
@@ -140,6 +144,9 @@ public class ConvertLanguageData {
           ? countryLiteracy 
           : pf.parse(stringLanguageLiteracy).doubleValue();
     }
+    public double getLanguageLiteratePopulation() {
+      return languageLiteracy * languagePopulation;
+    }
     static final Comparator GENERAL_COLLATOR = new GeneralCollator();
     static final Comparator INVERSE_GENERAL = new InverseComparator(GENERAL_COLLATOR);
     public int compareTo(Object o) {
@@ -165,18 +172,19 @@ public class ConvertLanguageData {
 
     Set<String> cldrParents = getCldrParents(available);
     
-    List<String> failures = new ArrayList();
+    List<String> failures = new ArrayList<String>();
+    Map<String,RowData> localeToRowData = new TreeMap<String,RowData>();
 
-    Set<RowData> sortedInput = getExcelData(failures);
+    Set<RowData> sortedInput = getExcelData(failures, localeToRowData);
  
     // TODO sort by country code, then functionalPopulation, then language code
     // and keep the top country for each language code (even if < 1%)
     
     writeTerritoryLanguageData(failures, sortedInput);
     
-    showDefaults(cldrParents, nf, defaultContent);
+    showDefaults(cldrParents, nf, defaultContent, localeToRowData);
     
-    showContent(available);
+    //showContent(available);
 
     showFailures(failures);
   }
@@ -256,13 +264,13 @@ public class ConvertLanguageData {
     System.out.println("\t\t</territory>");
   }
 
-  private static Set<RowData> getExcelData(List<String> failures) throws IOException {
+  private static Set<RowData> getExcelData(List<String> failures, Map<String,RowData> localeToRowData) throws IOException {
     System.out.println();
     System.out.println("Get Excel Data");
     System.out.println();
 
     List<List<String>> input = SpreadSheet.convert("C:\\Documents and Settings\\markdavis\\My Documents\\" +
-        "Excel Stuff\\country_language_population.txt");
+        "Excel Stuff\\countryLanguagePopulation\\country_language_population2.txt");
     
     Set<RowData> sortedInput = new TreeSet();
     int count = 0;
@@ -273,7 +281,9 @@ public class ConvertLanguageData {
         continue;
       }
       try {
-        sortedInput.add(new RowData(row));
+        RowData x = new RowData(row);
+        localeToRowData.put(x.languageCode + "_" + x.countryCode, x);
+        sortedInput.add(x);
       } catch (ParseException e) {
         failures.add(join(row,"\t") + "\t" + join(Arrays.asList(e.getStackTrace()),";\t"));
       }
@@ -438,80 +448,208 @@ public class ConvertLanguageData {
       }
     }
   }
+  
+  static Comparator<Iterable> firstElementComparator = new Comparator<Iterable>() {
+    public int compare(Iterable o1, Iterable o2) {
+      int result = ((Comparable)o1.iterator().next()).compareTo(((Comparable)o2.iterator().next()));
+      assert result != 0;
+      return result;
+    }  
+  };
 
-  private static void showDefaults(Set<String> cldrParents, NumberFormat nf, Map<String,String> defaultContent) {
+  private static void showDefaults(Set<String> cldrParents, NumberFormat nf, Map<String,String> defaultContent, Map<String, RowData> localeToRowData) {
 
     System.out.println();
     System.out.println("Defaults");
     System.out.println();
 
-    LanguageTagParser ltp = new LanguageTagParser();
-    Set<String> warnings = new LinkedHashSet();
-    for (String languageCode : languageToMaxCountry.keySet()) {
-      CodeAndPopulation best = languageToMaxCountry.get(languageCode);
-      String languageSubtag = ltp.set(languageCode).getLanguage();
-      String countryCode = "ZZ";
-      double rawLanguagePopulation = -1;
-      if (best != null) {
-        countryCode = best.code;
-        rawLanguagePopulation = best.population;
-        Set<String> regions = LanguageInfo.INSTANCE.languageToRegions.get(languageSubtag);
-        if (regions == null || !regions.contains(countryCode)) {
-          Set<String> regions2 = LanguageInfo.INSTANCE.languageToRegionsAlt.get(languageSubtag);
-          if (regions2 == null || !regions2.contains(countryCode)) {
-            warnings.add("WARNING: " + languageCode + " => " + countryCode + ", not in " + regions + "/" + regions2);
-          }
-        }
-      }
-      String resolvedLanguageCode = languageCode + "_" + countryCode;
-      ltp.set(languageCode);
-      Set<String> scripts = LanguageInfo.INSTANCE.languageToScripts.get(languageCode);
-      String script = ltp.getScript();
-      if (script.length() == 0) {
-        CodeAndPopulation bestScript = languageToMaxScript.get(languageCode);
-        if (bestScript != null) {
-          script = bestScript.code;
-          if (scripts == null || !scripts.contains(script)) {
-            warnings.add("WARNING: " + languageCode + " => " + script + ", not in " + scripts);
-          }
-        } else {
-            script = "Zzzz";
-            if (scripts == null) {
-              scripts = LanguageInfo.INSTANCE.languageToScriptsAlt.get(languageCode);
-            }
-            if (scripts != null) {
-              script = scripts.iterator().next();
-              if (scripts.size() != 1) {
-                warnings.add("WARNING: " + languageCode + " => " + scripts);
-              }
-            }
-        }
-        if (scripts == null) {
-          warnings.add("Missing scripts for: " + languageCode);
-        } else if (scripts.size() == 1){
-          script = "";
-        }
-        resolvedLanguageCode = languageCode 
-        + (script.length() == 0 ? "" : "_" + script) 
-        + "_" + countryCode;
-      }
-      
+    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Set<String> locales = cldrFactory.getAvailable();
+    // get sets of siblings
+    LocaleIDParser lidp = new LocaleIDParser();
+    Set<Set<String>> siblingSets  = new TreeSet<Set<String>>(firstElementComparator);
+    Set<String> needsADoin = new TreeSet<String>(locales);
+    
+    Set<String> deprecatedLanguages = new TreeSet();
+    deprecatedLanguages.add("sh");
+    Set<String> deprecatedRegions = new TreeSet();
+    deprecatedRegions.add("YU");
+    deprecatedRegions.add("CS");
 
-      System.out.println(
-          resolvedLanguageCode
-          + "\t" + languageCode
-          + "\t" + ULocale.getDisplayName(languageCode, ULocale.ENGLISH)
-          + "\t" + countryCode
-          + "\t" + ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH)
-          + "\t" + nf.format(rawLanguagePopulation)
-          + (cldrParents.contains(languageCode) ? "\tCLDR" : "")
-          );
-      if (languageCode.length() == 0) continue;
-      defaultContent.put(languageCode, resolvedLanguageCode);
+    // first find all the language subtags that have scripts, and those we need to skip. Those are aliased-only
+    Set<String> skippingItems = new TreeSet();
+    Set<String> hasAScript = new TreeSet();
+    Set<LocaleIDParser.Level> languageOnly = EnumSet.of(LocaleIDParser.Level.Language);
+    for (String locale : locales) {
+      lidp.set(locale);
+      if (lidp.getScript().length() != 0) {
+        hasAScript.add(lidp.getLanguage());
+      }
+      Set<LocaleIDParser.Level> levels = lidp.getLevels();
+      // must have no variants, must have either script or region, no deprecated elements
+      if (levels.contains(LocaleIDParser.Level.Variants) // no variants
+          || !(levels.contains(LocaleIDParser.Level.Script) || levels.contains(LocaleIDParser.Level.Region))
+          || deprecatedLanguages.contains(lidp.getLanguage()) 
+          || deprecatedRegions.contains(lidp.getRegion())) {
+        // skip language-only locales, and ones with variants
+        needsADoin.remove(locale);
+        skippingItems.add(locale);
+        continue;
+      }
     }
-    for (String warning : warnings) {
-      System.out.println(warning);
+    // walk through the locales, getting the ones we care about.
+    Map<String,Double> scriptLocaleToLanguageLiteratePopulation = new TreeMap();
+    
+    for (String locale : new TreeSet<String>(needsADoin)) {
+      if (!needsADoin.contains(locale)) continue;
+      lidp.set(locale);
+      Set<Level> level = lidp.getLevels();
+      // skip locales that need scripts and don't have them
+      if (!level.contains(LocaleIDParser.Level.Script) // no script
+          && hasAScript.contains(lidp.getLanguage())) {
+        needsADoin.remove(locale);
+        skippingItems.add(locale);
+        continue;
+      }
+      // get siblings
+      Set<String> siblingSet = lidp.getSiblings(needsADoin);
+      // if it has a script and region
+      if (level.contains(LocaleIDParser.Level.Script) && level.contains(LocaleIDParser.Level.Region)) {
+        double languageLiteratePopulation = 0;
+        for (String localeID2 : siblingSet) {
+          RowData rowData = localeToRowData.get(localeID2);
+          if (rowData != null) {
+            languageLiteratePopulation += rowData.getLanguageLiteratePopulation();
+          }
+        }
+        String parentID = lidp.getParent();
+        scriptLocaleToLanguageLiteratePopulation.put(parentID, languageLiteratePopulation);
+      }
+
+      try {
+        siblingSets.add(siblingSet);
+      } catch (RuntimeException e) {
+        e.printStackTrace();
+      }
+      needsADoin.removeAll(siblingSet);
     }
+    System.out.println("Skipping: " + skippingItems);
+    if (needsADoin.size() != 0) {
+      System.out.println("Missing: " + needsADoin);
+    }
+    
+    // walk through the data
+    Set<String> skippingSingletons = new TreeSet();
+    Set<String> defaultLocaleContent = new TreeSet();
+    
+    Set<String> missingData = new TreeSet();
+    for (Set<String> siblingSet : siblingSets) {
+      System.out.println("***" + siblingSet);
+      
+      if (false & siblingSet.size() == 1) {
+        skippingSingletons.add(siblingSet.iterator().next());
+        continue;
+      }
+      // get best
+      double best = Double.NEGATIVE_INFINITY;
+      String bestLocale = "???";
+      for (String locale : siblingSet) {
+        RowData rowData = localeToRowData.get(locale);
+        double languageLiteratePopulation = -1;
+        if (rowData != null) {
+          languageLiteratePopulation = rowData.getLanguageLiteratePopulation();
+        } else {
+          Double d = scriptLocaleToLanguageLiteratePopulation.get(locale);
+          if (d != null) {
+            languageLiteratePopulation = d;
+          } else {
+            missingData.add(locale);
+          }
+        }
+        if (best < languageLiteratePopulation) {
+          best = languageLiteratePopulation;
+          bestLocale = locale;
+        }
+      }
+      // show it
+      System.out.format("\t%s %f\r\n", bestLocale, best);
+      defaultLocaleContent.add(bestLocale);
+    }
+    
+    System.out.format("Skipping Singletons %s\r\n", skippingSingletons);
+    System.out.format("Missing Data %s\r\n", missingData);
+    String sep = "\r\n\t\t\t";
+    String broken = Utility.breakLines(join(defaultLocaleContent," "), sep, Pattern.compile("(\\S)\\S*").matcher(""), 80);
+    
+    System.out.println("\t\t<defaultContent locales=\"" + broken + "\"/>");
+
+//    LanguageTagParser ltp = new LanguageTagParser();
+//    Set<String> warnings = new LinkedHashSet();
+//    for (String languageCode : languageToMaxCountry.keySet()) {
+//      CodeAndPopulation best = languageToMaxCountry.get(languageCode);
+//      String languageSubtag = ltp.set(languageCode).getLanguage();
+//      String countryCode = "ZZ";
+//      double rawLanguagePopulation = -1;
+//      if (best != null) {
+//        countryCode = best.code;
+//        rawLanguagePopulation = best.population;
+//        Set<String> regions = LanguageInfo.INSTANCE.languageToRegions.get(languageSubtag);
+//        if (regions == null || !regions.contains(countryCode)) {
+//          Set<String> regions2 = LanguageInfo.INSTANCE.languageToRegionsAlt.get(languageSubtag);
+//          if (regions2 == null || !regions2.contains(countryCode)) {
+//            warnings.add("WARNING: " + languageCode + " => " + countryCode + ", not in " + regions + "/" + regions2);
+//          }
+//        }
+//      }
+//      String resolvedLanguageCode = languageCode + "_" + countryCode;
+//      ltp.set(languageCode);
+//      Set<String> scripts = LanguageInfo.INSTANCE.languageToScripts.get(languageCode);
+//      String script = ltp.getScript();
+//      if (script.length() == 0) {
+//        CodeAndPopulation bestScript = languageToMaxScript.get(languageCode);
+//        if (bestScript != null) {
+//          script = bestScript.code;
+//          if (scripts == null || !scripts.contains(script)) {
+//            warnings.add("WARNING: " + languageCode + " => " + script + ", not in " + scripts);
+//          }
+//        } else {
+//            script = "Zzzz";
+//            if (scripts == null) {
+//              scripts = LanguageInfo.INSTANCE.languageToScriptsAlt.get(languageCode);
+//            }
+//            if (scripts != null) {
+//              script = scripts.iterator().next();
+//              if (scripts.size() != 1) {
+//                warnings.add("WARNING: " + languageCode + " => " + scripts);
+//              }
+//            }
+//        }
+//        if (scripts == null) {
+//          warnings.add("Missing scripts for: " + languageCode);
+//        } else if (scripts.size() == 1){
+//          script = "";
+//        }
+//        resolvedLanguageCode = languageCode 
+//        + (script.length() == 0 ? "" : "_" + script) 
+//        + "_" + countryCode;
+//      }
+//      
+//
+//      System.out.println(
+//          resolvedLanguageCode
+//          + "\t" + languageCode
+//          + "\t" + ULocale.getDisplayName(languageCode, ULocale.ENGLISH)
+//          + "\t" + countryCode
+//          + "\t" + ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH)
+//          + "\t" + nf.format(rawLanguagePopulation)
+//          + (cldrParents.contains(languageCode) ? "\tCLDR" : "")
+//          );
+//      if (languageCode.length() == 0) continue;
+//      defaultContent.put(languageCode, resolvedLanguageCode);
+//    }
+//    for (String warning : warnings) {
+//      System.out.println(warning);
+//    }
   }
   
   private static Object getSuppressScript(String languageCode) {

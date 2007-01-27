@@ -313,7 +313,7 @@ public abstract class XMLSource implements Freezable {
   /**
    * @return an iterator over the distinguished paths
    */
-  abstract public Iterator iterator();
+  abstract public Iterator<String> iterator();
   /**
    * @return an XMLSource for the given localeID; null if unavailable
    */

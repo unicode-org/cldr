@@ -789,8 +789,8 @@ public class CLDRFile implements Freezable {
    * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
    * Note that supplementalData is always skipped, and root is always included.
    */
-  public static Set getMatchingXMLFiles(String sourceDir, Matcher m) {
-    Set s = new TreeSet();
+  public static Set<String> getMatchingXMLFiles(String sourceDir, Matcher m) {
+    Set<String> s = new TreeSet();
     File[] files = new File(sourceDir).listFiles();
     for (int i = 0; i < files.length; ++i) {
       String name = files[i].getName();
@@ -810,7 +810,7 @@ public class CLDRFile implements Freezable {
 //return (Set) CollectionUtilities.addAll(dataSource.iterator(), new HashSet());
 //}
   
-  public Iterator iterator() {
+  public Iterator<String> iterator() {
     return dataSource.iterator();
   }
   
@@ -958,7 +958,7 @@ public class CLDRFile implements Freezable {
   public static class Factory {
     private String sourceDirectory;
     private String matchString;
-    private Set localeList = new TreeSet();
+    private Set<String> localeList = new TreeSet();
     private Map mainCache = new TreeMap();
     private Map resolvedCache = new TreeMap();  
     private Map mainCacheNoDraft = new TreeMap();
@@ -987,17 +987,17 @@ public class CLDRFile implements Freezable {
     /**
      * Get a set of the available locales for the factory.
      */
-    public Set getAvailable() {
+    public Set<String> getAvailable() {
       return Collections.unmodifiableSet(localeList);
     }
     
     /**
      * Get a set of the available language locales (according to isLanguage).
      */
-    public Set getAvailableLanguages() {
-      Set result = new TreeSet();
-      for (Iterator it = localeList.iterator(); it.hasNext();) {
-        String s = (String) it.next();
+    public Set<String> getAvailableLanguages() {
+      Set<String> result = new TreeSet();
+      for (Iterator<String> it = localeList.iterator(); it.hasNext();) {
+        String s = it.next();
         if (XPathParts.isLanguage(s)) result.add(s);
       }
       return result;

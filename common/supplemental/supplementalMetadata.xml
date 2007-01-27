@@ -580,6 +580,7 @@
                 Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago 
                 America/Indianapolis America/New_York Etc/Unknown"	/>	
         </coverageAdditions>
+        <skipDefaultLocale services="segmentation collation"/>
         <defaultContent locales="
 			aa_ET af_ZA ak_GH am_ET ar_EG as_IN az_Cyrl_AZ az_Latn az_Latn_AZ
 			be_BY bg_BG bn_BD bs_BA byn_ER
@@ -608,6 +609,5 @@
 			xh_ZA
 			yo_NG
 			zh_Hans zh_Hans_CN zh_Hant_TW zu_ZA"/>
-        <skipDefaultLocale services="segmentation collation"/>
     </metadata>
 </supplementalData>

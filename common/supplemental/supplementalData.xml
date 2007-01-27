@@ -1344,9 +1344,9 @@ XXX	Code for transations where no currency is involved
     -->
 	<territoryTestData>
 		<territory type="AD" gdp="1840000000" literacy="1.0" population="66000">	<!--Andorra-->
-			<languagePopulation type="ca" functionallyLiterate="31000"/>	<!--Catalan-->
-			<languagePopulation type="es" functionallyLiterate="25000"/>	<!--Spanish-->
-			<languagePopulation type="fr" functionallyLiterate="2400"/>	<!--French-->
+			<languagePopulation type="ca" functionallyLiterate="33000"/>	<!--Catalan-->
+			<languagePopulation type="es" functionallyLiterate="26000"/>	<!--Spanish-->
+			<languagePopulation type="fr" functionallyLiterate="2600"/>	<!--French-->
 		</territory>
 		<territory type="AE" gdp="111300000000" literacy="0.78" population="4300000">	<!--United Arab Emirates-->
 			<languagePopulation type="ar" functionallyLiterate="580000"/>	<!--Arabic-->
@@ -1358,9 +1358,10 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="uz_Arab" functionallyLiterate="390000"/>	<!--Uzbek (Arabic)-->
 		</territory>
 		<territory type="AG" gdp="750000000" literacy="0.858" population="80000">	<!--Antigua and Barbuda-->
+			<languagePopulation type="en" functionallyLiterate="59000"/>	<!--English-->
 		</territory>
 		<territory type="AI" gdp="112000000" literacy="0.95" population="13000">	<!--Anguilla-->
-			<languagePopulation type="en" functionallyLiterate="900"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="12000"/>	<!--English-->
 		</territory>
 		<territory type="AL" gdp="18970000000" literacy="0.987" population="3200000">	<!--Albania-->
 			<languagePopulation type="sq" functionallyLiterate="3200000"/>	<!--Albanian-->
@@ -1373,15 +1374,16 @@ XXX	Code for transations where no currency is involved
 		<territory type="AN" gdp="2800000000" literacy="0.97" population="220000">	<!--Netherlands Antilles-->
 		</territory>
 		<territory type="AO" gdp="45930000000" literacy="0.674" population="14000000">	<!--Angola-->
+			<languagePopulation type="pt" functionallyLiterate="6400000"/>	<!--Portuguese-->
 		</territory>
 		<territory type="AQ" gdp="0" literacy="1.0" population="1">	<!--Antarctica-->
 			<languagePopulation type="und" functionallyLiterate="1"/>	<!--Undetermined-->
 		</territory>
 		<territory type="AR" gdp="518100000000" literacy="0.972" population="38000000">	<!--Argentina-->
-			<languagePopulation type="es" functionallyLiterate="32000000"/>	<!--Spanish-->
+			<languagePopulation type="es" functionallyLiterate="40000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="AS" gdp="500000000" literacy="0.97" population="57000">	<!--American Samoa-->
-			<languagePopulation type="en" functionallyLiterate="1200"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="54000"/>	<!--English-->
 		</territory>
 		<territory type="AT" gdp="267600000000" literacy="0.98" population="8100000">	<!--Austria-->
 			<languagePopulation type="de" functionallyLiterate="7400000"/>	<!--German-->
@@ -1393,7 +1395,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="it" functionallyLiterate="380000"/>	<!--Italian-->
 		</territory>
 		<territory type="AW" gdp="2130000000" literacy="0.973" population="99000">	<!--Aruba-->
-			<languagePopulation type="nl" functionallyLiterate="5100"/>	<!--Dutch-->
+			<languagePopulation type="nl" functionallyLiterate="94000"/>	<!--Dutch-->
 			<languagePopulation type="en" functionallyLiterate="2900"/>	<!--English-->
 		</territory>
 		<territory type="AX" gdp="0" literacy="0.99" population="27000">	<!--Aland Islands-->
@@ -1409,40 +1411,48 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="sr_Cyrl" functionallyLiterate="390000"/>	<!--Serbian (Cyrillic)-->
 		</territory>
 		<territory type="BB" gdp="4745000000" literacy="0.99" population="270000">	<!--Barbados-->
-			<languagePopulation type="en" functionallyLiterate="13000"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="270000"/>	<!--English-->
 		</territory>
 		<territory type="BD" gdp="304300000000" literacy="0.43" population="140000000">	<!--Bangladesh-->
-			<languagePopulation type="bn" functionallyLiterate="43000000"/>	<!--Bengali-->
+			<languagePopulation type="bn" functionallyLiterate="59000000"/>	<!--Bengali-->
 			<languagePopulation type="my" functionallyLiterate="130000"/>	<!--Burmese-->
 		</territory>
 		<territory type="BE" gdp="325000000000" literacy="0.99" population="10000000">	<!--Belgium-->
 			<languagePopulation type="nl" functionallyLiterate="4600000"/>	<!--Dutch-->
 			<languagePopulation type="fr" functionallyLiterate="4000000"/>	<!--French-->
+			<languagePopulation type="wa" functionallyLiterate="1100000"/>	<!--Walloon-->
 			<languagePopulation type="de" functionallyLiterate="150000"/>	<!--German-->
 		</territory>
 		<territory type="BF" gdp="16950000000" literacy="0.218" population="12000000">	<!--Burkina Faso-->
+			<languagePopulation type="fr" functionallyLiterate="590000"/>	<!--French-->
 		</territory>
 		<territory type="BG" gdp="71540000000" literacy="0.982" population="7800000">	<!--Bulgaria-->
 			<languagePopulation type="bg" functionallyLiterate="7800000"/>	<!--Bulgarian-->
 			<languagePopulation type="tr" functionallyLiterate="830000"/>	<!--Turkish-->
 		</territory>
 		<territory type="BH" gdp="15830000000" literacy="0.866" population="730000">	<!--Bahrain-->
-			<languagePopulation type="ar" functionallyLiterate="260000"/>	<!--Arabic-->
+			<languagePopulation type="ar" functionallyLiterate="540000"/>	<!--Arabic-->
 		</territory>
 		<territory type="BI" gdp="5654000000" literacy="0.593" population="7300000">	<!--Burundi-->
+			<languagePopulation type="rn" functionallyLiterate="2700000"/>	<!--Rundi-->
+			<languagePopulation type="fr" functionallyLiterate="2600000"/>	<!--French-->
 		</territory>
 		<territory type="BJ" gdp="8553000000" literacy="0.347" population="6900000">	<!--Benin-->
+			<languagePopulation type="fr" functionallyLiterate="800000"/>	<!--French-->
+			<languagePopulation type="fon" functionallyLiterate="590000"/>	<!--Fon-->
 			<languagePopulation type="yo" functionallyLiterate="160000"/>	<!--Yoruba-->
 		</territory>
 		<territory type="BM" gdp="4500000000" literacy="0.98" population="64000">	<!--Bermuda-->
 			<languagePopulation type="en" functionallyLiterate="58000"/>	<!--English-->
 		</territory>
 		<territory type="BN" gdp="6842000000" literacy="0.927" population="360000">	<!--Brunei-->
+			<languagePopulation type="ms" functionallyLiterate="310000"/>	<!--Malay-->
 			<languagePopulation type="zh_Hant" functionallyLiterate="37000"/>	<!--Chinese (Traditional Han)-->
 			<languagePopulation type="en" functionallyLiterate="7400"/>	<!--English-->
 		</territory>
 		<territory type="BO" gdp="25950000000" literacy="0.867" population="9000000">	<!--Bolivia-->
 			<languagePopulation type="es" functionallyLiterate="3000000"/>	<!--Spanish-->
+			<languagePopulation type="qu" functionallyLiterate="2500000"/>	<!--Quechua-->
 		</territory>
 		<territory type="BR" gdp="1556000000000" literacy="0.886" population="180000000">	<!--Brazil-->
 			<languagePopulation type="pt" functionallyLiterate="140000000"/>	<!--Portuguese-->
@@ -1451,7 +1461,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ja" functionallyLiterate="340000"/>	<!--Japanese-->
 		</territory>
 		<territory type="BS" gdp="6098000000" literacy="0.95" population="320000">	<!--Bahamas-->
-			<languagePopulation type="en" functionallyLiterate="47000"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="300000"/>	<!--English-->
 		</territory>
 		<territory type="BT" gdp="2900000000" literacy="0.47" population="900000">	<!--Bhutan-->
 			<languagePopulation type="ne" functionallyLiterate="73000"/>	<!--Nepali-->
@@ -1461,12 +1471,14 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="und" functionallyLiterate="1"/>	<!--Undetermined-->
 		</territory>
 		<territory type="BW" gdp="17240000000" literacy="0.812" population="1700000">	<!--Botswana-->
+			<languagePopulation type="en" functionallyLiterate="1100000"/>	<!--English-->
 			<languagePopulation type="tn" functionallyLiterate="870000"/>	<!--Tswana-->
 		</territory>
 		<territory type="BY" gdp="70680000000" literacy="0.996" population="9800000">	<!--Belarus-->
-			<languagePopulation type="be" functionallyLiterate="6700000"/>	<!--Belarusian-->
+			<languagePopulation type="be" functionallyLiterate="9800000"/>	<!--Belarusian-->
 		</territory>
 		<territory type="BZ" gdp="1778000000" literacy="0.94" population="280000">	<!--Belize-->
+			<languagePopulation type="en" functionallyLiterate="270000"/>	<!--English-->
 			<languagePopulation type="es" functionallyLiterate="76000"/>	<!--Spanish-->
 		</territory>
 		<territory type="CA" gdp="1114000000000" literacy="0.99" population="32000000">	<!--Canada-->
@@ -1499,6 +1511,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" functionallyLiterate="13000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="CM" gdp="40830000000" literacy="0.679" population="16000000">	<!--Cameroon-->
+			<languagePopulation type="fr" functionallyLiterate="7600000"/>	<!--French-->
 		</territory>
 		<territory type="CN" gdp="8859000000000" literacy="0.909" population="1300000000">	<!--China-->
 			<languagePopulation type="zh_Hans" functionallyLiterate="1100000000"/>	<!--Chinese (Simplified Han)-->
@@ -1509,7 +1522,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ky_Arab" functionallyLiterate="400000"/>	<!--Kirghiz (Arabic)-->
 		</territory>
 		<territory type="CO" gdp="337500000000" literacy="0.928" population="45000000">	<!--Colombia-->
-			<languagePopulation type="es" functionallyLiterate="32000000"/>	<!--Spanish-->
+			<languagePopulation type="es" functionallyLiterate="39000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="CR" gdp="44680000000" literacy="0.949" population="4100000">	<!--Costa Rica-->
 			<languagePopulation type="es" functionallyLiterate="3100000"/>	<!--Spanish-->
@@ -1556,7 +1569,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" functionallyLiterate="6000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="DZ" gdp="233200000000" literacy="0.699" population="32000000">	<!--Algeria-->
-			<languagePopulation type="ar" functionallyLiterate="14000000"/>	<!--Arabic-->
+			<languagePopulation type="ar" functionallyLiterate="17000000"/>	<!--Arabic-->
 		</territory>
 		<territory type="EC" gdp="56900000000" literacy="0.91" population="13000000">	<!--Ecuador-->
 			<languagePopulation type="es" functionallyLiterate="8600000"/>	<!--Spanish-->
@@ -1618,7 +1631,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="GB" gdp="1830000000000" literacy="0.99" population="59000000">	<!--United Kingdom-->
 			<languagePopulation type="en" functionallyLiterate="54000000"/>	<!--English-->
-			<languagePopulation type="cy" functionallyLiterate="500000"/>	<!--Welsh-->
+			<languagePopulation type="cy" functionallyLiterate="580000"/>	<!--Welsh-->
 			<languagePopulation type="pa" functionallyLiterate="470000"/>	<!--Punjabi-->
 			<languagePopulation type="bn" functionallyLiterate="400000"/>	<!--Bengali-->
 			<languagePopulation type="zh_Hant" functionallyLiterate="320000"/>	<!--Chinese (Traditional Han)-->
@@ -1626,6 +1639,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="it" functionallyLiterate="200000"/>	<!--Italian-->
 		</territory>
 		<territory type="GD" gdp="440000000" literacy="0.96" population="110000">	<!--Grenada-->
+			<languagePopulation type="en" functionallyLiterate="97000"/>	<!--English-->
 		</territory>
 		<territory type="GE" gdp="15560000000" literacy="0.99" population="4500000">	<!--Georgia-->
 			<languagePopulation type="ka" functionallyLiterate="3900000"/>	<!--Georgian-->
@@ -1638,10 +1652,11 @@ XXX	Code for transations where no currency is involved
 		<territory type="GH" gdp="54450000000" literacy="0.579" population="21000000">	<!--Ghana-->
 			<languagePopulation type="ak" functionallyLiterate="4800000"/>	<!--Akan-->
 			<languagePopulation type="ee" functionallyLiterate="1300000"/>	<!--Ewe-->
+			<languagePopulation type="en" functionallyLiterate="580000"/>	<!--English-->
 			<languagePopulation type="gaa" functionallyLiterate="350000"/>	<!--Ga-->
 		</territory>
 		<territory type="GI" gdp="769000000" literacy="0.8" population="28000">	<!--Gibraltar-->
-			<languagePopulation type="en" functionallyLiterate="2600"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="18000"/>	<!--English-->
 		</territory>
 		<territory type="GL" gdp="1100000000" literacy="1.0" population="57000">	<!--Greenland-->
 			<languagePopulation type="kl" functionallyLiterate="48000"/>	<!--Kalaallisut-->
@@ -1652,6 +1667,7 @@ XXX	Code for transations where no currency is involved
 		<territory type="GN" gdp="18990000000" literacy="0.295" population="8100000">	<!--Guinea-->
 		</territory>
 		<territory type="GP" gdp="3513000000" literacy="0.9" population="450000">	<!--Guadeloupe-->
+			<languagePopulation type="fr" functionallyLiterate="360000"/>	<!--French-->
 		</territory>
 		<territory type="GQ" gdp="25690000000" literacy="0.87" population="510000">	<!--Equatorial Guinea-->
 		</territory>
@@ -1663,9 +1679,10 @@ XXX	Code for transations where no currency is involved
 		<territory type="GS" gdp="0" literacy="0.991" population="1">	<!--South Georgia and the South Sandwich Islands-->
 		</territory>
 		<territory type="GT" gdp="56860000000" literacy="0.691" population="13000000">	<!--Guatemala-->
-			<languagePopulation type="es" functionallyLiterate="3200000"/>	<!--Spanish-->
+			<languagePopulation type="es" functionallyLiterate="6000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="GU" gdp="2500000000" literacy="0.99" population="160000">	<!--Guam-->
+			<languagePopulation type="ch" functionallyLiterate="59000"/>	<!--Chamorro-->
 			<languagePopulation type="en" functionallyLiterate="29000"/>	<!--English-->
 		</territory>
 		<territory type="GW" gdp="1185000000" literacy="0.424" population="1500000">	<!--Guinea-Bissau-->
@@ -1698,7 +1715,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="IE" gdp="164600000000" literacy="0.99" population="4000000">	<!--Ireland-->
 			<languagePopulation type="en" functionallyLiterate="2600000"/>	<!--English-->
-			<languagePopulation type="ga" functionallyLiterate="260000"/>	<!--Irish-->
+			<languagePopulation type="ga" functionallyLiterate="1600000"/>	<!--Irish-->
 		</territory>
 		<territory type="IL" gdp="154500000000" literacy="0.972" population="6800000">	<!--Israel-->
 			<languagePopulation type="he" functionallyLiterate="6600000"/>	<!--Hebrew-->
@@ -1707,8 +1724,10 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ro" functionallyLiterate="240000"/>	<!--Romanian-->
 		</territory>
 		<territory type="IM" gdp="2113000000" literacy="0.99" population="75000">	<!--Isle of Man-->
+			<languagePopulation type="en" functionallyLiterate="75000"/>	<!--English-->
 		</territory>
 		<territory type="IN" gdp="3611000000000" literacy="0.61" population="1100000000">	<!--India-->
+			<languagePopulation type="en" functionallyLiterate="210000000"/>	<!--English-->
 			<languagePopulation type="hi" functionallyLiterate="110000000"/>	<!--Hindi-->
 			<languagePopulation type="bn" functionallyLiterate="43000000"/>	<!--Bengali-->
 			<languagePopulation type="te" functionallyLiterate="42000000"/>	<!--Telugu-->
@@ -1719,7 +1738,6 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ml" functionallyLiterate="22000000"/>	<!--Malayalam-->
 			<languagePopulation type="kn" functionallyLiterate="22000000"/>	<!--Kannada-->
 			<languagePopulation type="or" functionallyLiterate="19000000"/>	<!--Oriya-->
-			<languagePopulation type="en" functionallyLiterate="18000000"/>	<!--English-->
 			<languagePopulation type="pa_Guru" functionallyLiterate="17000000"/>	<!--Punjabi (Gurmukhi)-->
 			<languagePopulation type="bho" functionallyLiterate="15000000"/>	<!--Bhojpuri-->
 			<languagePopulation type="as" functionallyLiterate="9400000"/>	<!--Assamese-->
@@ -1742,7 +1760,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="hy" functionallyLiterate="130000"/>	<!--Armenian-->
 		</territory>
 		<territory type="IS" gdp="10570000000" literacy="0.991" population="290000">	<!--Iceland-->
-			<languagePopulation type="is" functionallyLiterate="230000"/>	<!--Icelandic-->
+			<languagePopulation type="is" functionallyLiterate="290000"/>	<!--Icelandic-->
 		</territory>
 		<territory type="IT" gdp="1698000000000" literacy="0.984" population="58000000">	<!--Italy-->
 			<languagePopulation type="it" functionallyLiterate="54000000"/>	<!--Italian-->
@@ -1757,13 +1775,14 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="en" functionallyLiterate="2100000"/>	<!--English-->
 		</territory>
 		<territory type="JO" gdp="26800000000" literacy="0.899" population="5400000">	<!--Jordan-->
-			<languagePopulation type="ar" functionallyLiterate="3800000"/>	<!--Arabic-->
+			<languagePopulation type="ar" functionallyLiterate="4900000"/>	<!--Arabic-->
 		</territory>
 		<territory type="JP" gdp="4018000000000" literacy="0.99" population="130000000">	<!--Japan-->
 			<languagePopulation type="ja" functionallyLiterate="120000000"/>	<!--Japanese-->
 			<languagePopulation type="ko" functionallyLiterate="660000"/>	<!--Korean-->
 		</territory>
 		<territory type="KE" gdp="37150000000" literacy="0.736" population="32000000">	<!--Kenya-->
+			<languagePopulation type="en" functionallyLiterate="20000000"/>	<!--English-->
 			<languagePopulation type="kam" functionallyLiterate="1800000"/>	<!--Kamba-->
 			<languagePopulation type="so" functionallyLiterate="310000"/>	<!--Somali-->
 			<languagePopulation type="om" functionallyLiterate="110000"/>	<!--Oromo-->
@@ -1776,8 +1795,10 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="km" functionallyLiterate="8900000"/>	<!--Khmer-->
 		</territory>
 		<territory type="KI" gdp="79000000" literacy="0.93" population="98000">	<!--Kiribati-->
+			<languagePopulation type="en" functionallyLiterate="91000"/>	<!--English-->
 		</territory>
 		<territory type="KM" gdp="441000000" literacy="0.66" population="610000">	<!--Comoros-->
+			<languagePopulation type="ar" functionallyLiterate="270000"/>	<!--Arabic-->
 		</territory>
 		<territory type="KN" gdp="339000000" literacy="0.978" population="47000">	<!--Saint Kitts and Nevis-->
 		</territory>
@@ -1788,13 +1809,14 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ko" functionallyLiterate="47000000"/>	<!--Korean-->
 		</territory>
 		<territory type="KW" gdp="44770000000" literacy="0.933" population="2500000">	<!--Kuwait-->
-			<languagePopulation type="ar" functionallyLiterate="470000"/>	<!--Arabic-->
+			<languagePopulation type="ar" functionallyLiterate="2300000"/>	<!--Arabic-->
 		</territory>
 		<territory type="KY" gdp="1391000000" literacy="0.98" population="44000">	<!--Cayman Islands-->
 			<languagePopulation type="en" functionallyLiterate="20000"/>	<!--English-->
 		</territory>
 		<territory type="KZ" gdp="124300000000" literacy="0.995" population="15000000">	<!--Kazakhstan-->
-			<languagePopulation type="kk" functionallyLiterate="5300000"/>	<!--Kazakh-->
+			<languagePopulation type="ru" functionallyLiterate="14000000"/>	<!--Russian-->
+			<languagePopulation type="kk" functionallyLiterate="9600000"/>	<!--Kazakh-->
 			<languagePopulation type="de" functionallyLiterate="950000"/>	<!--German-->
 			<languagePopulation type="ug" functionallyLiterate="300000"/>	<!--Uighur-->
 		</territory>
@@ -1898,6 +1920,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="MY" gdp="290200000000" literacy="0.887" population="25000000">	<!--Malaysia-->
 			<languagePopulation type="ms" functionallyLiterate="17000000"/>	<!--Malay-->
+			<languagePopulation type="en" functionallyLiterate="6600000"/>	<!--English-->
 			<languagePopulation type="zh_Hant" functionallyLiterate="3900000"/>	<!--Chinese (Traditional Han)-->
 			<languagePopulation type="ta" functionallyLiterate="940000"/>	<!--Tamil-->
 			<languagePopulation type="jv" functionallyLiterate="270000"/>	<!--Javanese-->
@@ -2159,7 +2182,15 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="US" gdp="12360000000000" literacy="0.99" population="290000000">	<!--United States-->
 			<languagePopulation type="en" functionallyLiterate="270000000"/>	<!--English-->
-			<languagePopulation type="es" functionallyLiterate="22000000"/>	<!--Spanish-->
+			<languagePopulation type="es" functionallyLiterate="28000000"/>	<!--Spanish-->
+			<languagePopulation type="zh_Hant" functionallyLiterate="2000000"/>	<!--Chinese (Traditional Han)-->
+			<languagePopulation type="fr" functionallyLiterate="1600000"/>	<!--French-->
+			<languagePopulation type="de" functionallyLiterate="1400000"/>	<!--German-->
+			<languagePopulation type="tl" functionallyLiterate="1200000"/>	<!--Tagalog-->
+			<languagePopulation type="vi" functionallyLiterate="1000000"/>	<!--Vietnamese-->
+			<languagePopulation type="it" functionallyLiterate="1000000"/>	<!--Italian-->
+			<languagePopulation type="ko" functionallyLiterate="890000"/>	<!--Korean-->
+			<languagePopulation type="ru" functionallyLiterate="700000"/>	<!--Russian-->
 			<languagePopulation type="ru" functionallyLiterate="330000"/>	<!--Russian-->
 			<languagePopulation type="haw" functionallyLiterate="990"/>	<!--Hawaiian-->
 		</territory>
@@ -2178,7 +2209,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" functionallyLiterate="20000000"/>	<!--Spanish-->
 		</territory>
 		<territory type="VG" gdp="853400000" literacy="0.978" population="23000">	<!--British Virgin Islands-->
-			<languagePopulation type="en" functionallyLiterate="2000"/>	<!--English-->
+			<languagePopulation type="en" functionallyLiterate="22000"/>	<!--English-->
 		</territory>
 		<territory type="VI" gdp="1577000000" literacy="0.9" population="110000">	<!--U.S. Virgin Islands-->
 			<languagePopulation type="en" functionallyLiterate="7600"/>	<!--English-->

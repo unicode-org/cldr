@@ -140,6 +140,9 @@
   <!-- Docs stuff -->
     <!-- use excludefiles below when we move to ant 1.5 -->
     <target name="docs" depends="init" description="build user javadoc">
+	<tstamp>
+		<format property="current.year" pattern="yyyy"/>
+	</tstamp>
         <echo message="doc params: ${doc.params}"/>
         <mkdir dir="${doc.dir}"/>
         <javadoc
@@ -154,7 +157,7 @@
             docencoding="utf-8"
             additionalparam="${doc.params}"
             link="http://java.sun.com/j2se/1.5/docs/api"
-	    bottom="&lt;font size=-1>Copyright &amp;copy; ${current.year} Unicode, Inc. All Rights Reserved.&lt;/font>"
+            bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
             source="1.5"/>
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->

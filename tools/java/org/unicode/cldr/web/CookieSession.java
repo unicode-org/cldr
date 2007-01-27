@@ -78,7 +78,7 @@ public class CookieSession {
     /** 
      * fetch a session if it exists. Don't touch it as recently active. Useful for 
      * administratively retrieving a session
-     * @param session ID
+     * @param sessionid session ID
      * @return session or null
      */
     public static CookieSession retrieveWithoutTouch(String sessionid) {
@@ -128,7 +128,7 @@ public class CookieSession {
     
     /**
      * Create a bran-new session.  
-     * @param guest True if the user is a guest.
+     * @param isGuest True if the user is a guest.
      */
     public CookieSession(boolean isGuest) {
         id = newId(isGuest);

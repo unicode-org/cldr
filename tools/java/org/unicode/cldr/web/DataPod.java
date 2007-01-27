@@ -28,14 +28,15 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class DataPod extends Registerable {
 
 /*
-    Ballast.
+    Ballast.  [ used for memory testing ]
     
     int r[] = new int[1024000]; // red sand
     int g[] = new int[1024000]; // grn sand
     int b[] = new int[1024000]; // blu sand
 */
     
-    long touchTime = -1;
+    long touchTime = -1; // when has this pod been hit?
+    
     public void touch() {
         touchTime = System.currentTimeMillis();
     }
@@ -44,6 +45,7 @@ public class DataPod extends Registerable {
     }
     // UI strings
     boolean canName = true;
+    boolean simple = false; // is it a 'simple code list'?
     
     public static final String DATAPOD_MISSING = "Inherited";
     public static final String DATAPOD_NORMAL = "Normal";
@@ -67,7 +69,10 @@ public class DataPod extends Registerable {
     }
     private static int n =0;
     protected static synchronized int getN() { return ++n; }
-    // This class represents an Example box, so that it can be popped out.
+    
+    /** 
+     * This class represents an Example box, so that it can be stored and restored.
+     */ 
     public class ExampleEntry {
 
         public String hash = null;
@@ -87,7 +92,8 @@ public class DataPod extends Registerable {
                 this.pod.fieldHash(p);   /* fieldHash ensures that we don't get the wrong field.. */
         }
     }
-    Hashtable exampleHash = new Hashtable();
+    Hashtable exampleHash = new Hashtable(); // hash of examples
+    
     ExampleEntry addExampleEntry(ExampleEntry e) {
         synchronized(exampleHash) {
             exampleHash.put(e.hash,e);
@@ -578,29 +584,26 @@ public class DataPod extends Registerable {
 	 * @param prefix XPATH prefix
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
-	public static DataPod make(WebContext ctx, String locale,String prefix, boolean simple) {
+	public static DataPod make(WebContext ctx, String locale, String prefix, boolean simple) {
 		DataPod pod = new DataPod(ctx.sm, locale, prefix);
-		if(simple==true) {
-//            pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english  
-            SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
-      
-            CLDRDBSource ourSrc = uf.dbSource;
-            CheckCLDR checkCldr = uf.getCheck(ctx);
-            if(checkCldr == null) {
-                throw new InternalError("checkCldr == null");
-            }
-            com.ibm.icu.dev.test.util.ElapsedTimer et;
-            if(SHOW_TIME) {
-                et= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
-            }
-            pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
-            if(SHOW_TIME) {
-                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et);
-            }
-		} else {
-			throw new InternalError("non-simple pods not supported");
-		}
+        pod.simple = simple;
+     // pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english  
+        SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
+  
+        CLDRDBSource ourSrc = uf.dbSource;
+        CheckCLDR checkCldr = uf.getCheck(ctx);
+        if(checkCldr == null) {
+            throw new InternalError("checkCldr == null");
+        }
+        com.ibm.icu.dev.test.util.ElapsedTimer et;
+        if(SHOW_TIME) {
+            et= new com.ibm.icu.dev.test.util.ElapsedTimer();
+            System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
+        }
+        pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
+        if(SHOW_TIME) {
+            System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et);
+        }
 		return pod;
 	}
     

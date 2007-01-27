@@ -50,8 +50,8 @@ public class LocaleChangeRegistry {
     /**
      * register an object
      * @param locale - the locale to register. Note, parent locales will automatically be registered.
-     * @param key key to regiter under.
-     * @param 
+     * @param key key to register under.
+     * @param what what is being registered (ignored)
      */
     public void register(/* other params: tree, etc.., */ String locale, String key, Object /*notused */what) {
         synchronized(this) {

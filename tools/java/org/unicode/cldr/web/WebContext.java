@@ -51,6 +51,9 @@ public class WebContext {
     TreeMap outQueryMap = new TreeMap();
     boolean dontCloseMe = false;
 
+    public PrintWriter getOut() { 
+        return out;
+    }
     HttpServletRequest request;
     HttpServletResponse response;
     
@@ -642,7 +645,7 @@ public class WebContext {
             if(pod == null) {
                 long t0 = System.currentTimeMillis();
                 ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                pod = DataPod.make(this, locale.toString(), prefix, true);
+                pod = DataPod.make(this, locale.toString(), prefix, false);
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }

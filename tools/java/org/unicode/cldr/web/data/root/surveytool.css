@@ -186,6 +186,16 @@ tr.warnrow {
 	padding-bottom: 4px;
 }
 
+.listb {
+	border: 1px solid black;
+	border-collapse: collapse
+}
+
+.listb.td .listb.th {
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
 table.userlist th {
 	color: navy;
 	font-size: 92%;
@@ -244,6 +254,19 @@ th.botgray {
 tr.heading {
     background: #ddd; 
 }
+
+tr.heading th.partsection {
+	border-top: 2px solid black;
+}
+
+tr.headingb { /* heading with a border */
+    background: #ddd; 
+}
+
+tr.headingb th {
+	border-right: 1px solid black;	
+}
+
 
 tt.codebox {
  border: 1px solid gray; 
@@ -398,4 +421,62 @@ table.tzbox tt.codebox {
 }
 
 /* @end */
+/* @group sqlbox */
+table.sqlbox {
+	border: 1px solid gray; 
+	border-collapse: collapse;
+}
 
+table.sqlbox th {
+	border-right:  1px solid gray;
+	border-left:  1px solid gray;
+	border-bottom:  2px solid gray;
+	color: navy;
+	font-size: 50%;
+	background-color: whitesmoke;
+}
+
+table.sqlbox td {
+	padding-right:  0.2em;
+	padding-left:  0.2em;
+	border-right:  1px solid gray;
+	border-left:  1px solid gray;
+}
+
+table.sqlbox tr.r0 td {
+	color:  black;
+}
+
+table.sqlbox tr.r1 td {
+	color:  black;
+	background-color:  lightgoldenrodyellow;
+}
+
+/* forms here don't need a margin */
+table.sqlbox input {
+	margin:  0;
+}
+
+table.sqlbox form {
+	margin:  0;
+}
+
+/* @end */
+
+
+
+.ferrbox {
+	border: 1px solid red; margin: 1em; padding: 1em;	
+}
+
+.specialHeader {
+	border: 2px solid gray; margin: 0.5em; padding: 0.5em;
+}
+
+.winner {
+	border: 4px groove #0f0;
+}
+
+.loser {
+	border: 4px solid rgba(255,255,255,0);
+}

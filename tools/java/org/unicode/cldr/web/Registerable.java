@@ -95,7 +95,7 @@ public abstract class Registerable {
     /**
      * convert this item to a string..
      *
-     * @returns this item as a string
+     * @return this item as a string
      */
     public String toString () {
         return "{Registerable "+key+" @ "+locale+", valid:"+peekIsValid()+"}";

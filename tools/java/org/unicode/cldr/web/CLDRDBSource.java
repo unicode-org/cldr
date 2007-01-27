@@ -303,7 +303,7 @@ import com.ibm.icu.util.ULocale;
     
     /** 
      * source ID of this CLDRDBSource. 
-     * @see getSourceID()
+     * @see #getSourceID
      */
     public int srcId = -1; 
 
@@ -442,7 +442,7 @@ import com.ibm.icu.util.ULocale;
      * given a tree and locale, return the source ID.
      * @param tree which tree. should be "main". TODO: support multiple trees
      * @param locale the locale to fetch.
-     * @param return the source id, or -1 if not found.
+     * @returns the source id, or -1 if not found.
      */
     public int getSourceId(String tree, String locale) {
         String key = tree + "_" + locale;
@@ -1269,7 +1269,7 @@ import com.ibm.icu.util.ULocale;
      * Bootstrap Factory function for internal use. 
      * @param theDir directory for XML data
      * @param xpt XPathTable to use
-     * @param loacaleID locale id to use
+     * @param localeID locale id to use
      * @param conn the database connection (shared)
      * @param user the user to create for
      */
@@ -1281,7 +1281,7 @@ import com.ibm.icu.util.ULocale;
      * Factory function for internal use
      * @param theDir directory for XML data
      * @param xpt XPathTable to use
-     * @param loacaleID locale id to use
+     * @param localeID locale id to use
      * @param conn the database connection (shared)
      * @param user the user to create for
      * @param finalData true if to only return final (vettd) data

@@ -237,7 +237,11 @@ public class CLDRModify {
 						// remove the items that are language codes, script codes, or region codes
 						// since they may be real translations.
             if (parent.equals("root")) {
-              k.putRoot(toRemove);
+              if (k.getFullXPath("//ldml/alias",true) != null) {
+                System.out.println("Skipping completely aliased file: " + test);  
+              } else {
+                k.putRoot(toRemove);
+              }
             }
 						k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"));
 					}

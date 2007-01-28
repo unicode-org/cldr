@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -530,7 +530,6 @@
 			<territory type="154">Северная Европа</territory>
 			<territory type="155">Западная Европа</territory>
 			<territory type="830">Нормандские острова</territory>
-			<territory type="IM">Мэн, остров</territory>
 			<territory type="AD">Андорра</territory>
 			<territory type="AE">Объединенные Арабские Эмираты</territory>
 			<territory type="AF">Афганистан</territory>
@@ -632,6 +631,7 @@
 			<territory type="ID">Индонезия</territory>
 			<territory type="IE">Ирландия</territory>
 			<territory type="IL">Израиль</territory>
+			<territory type="IM">Мэн, остров</territory>
 			<territory type="IN">Индия</territory>
 			<territory type="IO">Британские Территории в Индийском Океане</territory>
 			<territory type="IQ">Ирак</territory>
@@ -944,7 +944,13 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">до н.э.</era>
 						<era type="1">н.э.</era>
@@ -995,11 +1001,17 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMd" draft="provisional">d MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE, d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL" draft="provisional">LLLL yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ yyyy 'г.'</dateFormatItem>
@@ -1124,6 +1136,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Тимбукту</exemplarCity>
 			</zone>
@@ -1284,6 +1299,9 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity>Уайтхорс</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>Инувик</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>Ванкувер</exemplarCity>
 			</zone>
@@ -1292,9 +1310,6 @@
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>Йеллоунайф</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Инувик</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Эдмонтон</exemplarCity>
@@ -1317,14 +1332,14 @@
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Ранкин-Инлет</exemplarCity>
 			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>Корал-Харбор</exemplarCity>
+			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>Тандер-Бей</exemplarCity>
 			</zone>
 			<zone type="America/Nipigon">
 				<exemplarCity>Нипигон</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Корал-Харбор</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>Торонто</exemplarCity>
@@ -1816,7 +1831,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразильский реал</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Крузейро реал</displayName>
@@ -2348,7 +2362,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Доллар США</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Уругвайское песо</displayName>

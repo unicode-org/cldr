@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -329,7 +329,6 @@
 			<territory type="172" draft="provisional">Független Államok Közössége</territory>
 			<territory type="419" draft="provisional">Latin-Amerika és a Karib-térség</territory>
 			<territory type="830">Csatorna-szigetek</territory>
-			<territory type="IM">Man-sziget</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Egyesült Arab Emirátus</territory>
 			<territory type="AE" references="RP3" alt="proposed-u46-1" draft="provisional">Egyesült Arab Emírségek</territory>
@@ -440,6 +439,7 @@
 			<territory type="ID">Indonézia</territory>
 			<territory type="IE">Írország</territory>
 			<territory type="IL">Izrael</territory>
+			<territory type="IM">Man-sziget</territory>
 			<territory type="IN">India</territory>
 			<territory type="IO">Brit Indiai Oceán</territory>
 			<territory type="IQ">Irak</territory>
@@ -819,10 +819,16 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM d.</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM.dd.</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy.MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">yyyy. MMMM</dateFormatItem>
 					</availableFormats>
@@ -913,6 +919,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>Comodoro Rivadavia</exemplarCity>
 			</zone>
@@ -1371,7 +1380,6 @@
 			<currency type="BRL">
 				<displayName>Brazil real</displayName>
 				<displayName references="RP3" alt="proposed-u46-1" draft="provisional">real</displayName>
-				<symbol>R$</symbol>
 				<symbol references="RP3" alt="proposed-u46-1" draft="provisional">BRL</symbol>
 			</currency>
 			<currency type="BRN">
@@ -2245,7 +2253,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>USA dollár</displayName>
-				<symbol>US$</symbol>
 				<symbol references="RP3" alt="proposed-u46-1" draft="provisional">USD</symbol>
 			</currency>
 			<currency type="USN">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -143,7 +143,13 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">да н.е.</era>
 						<era type="1">н.е.</era>
@@ -194,16 +200,27 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d.M</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

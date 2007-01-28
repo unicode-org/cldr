@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -457,6 +457,10 @@
 				<am>priešpiet</am>
 				<pm>popiet</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">pr. Kr.</era>
 						<era type="1">po Kr.</era>
@@ -484,7 +488,34 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
@@ -492,6 +523,7 @@
 						<dateFormatItem id="MMdd" draft="provisional">MM.dd</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy.MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -533,6 +565,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>San Paulas</exemplarCity>
 			</zone>

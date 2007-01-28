@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -712,7 +712,6 @@
 			<territory type="172">Samväldet av oberoende stater</territory>
 			<territory type="419">Latinamerika och Karibien</territory>
 			<territory type="830">Kanalöarna</territory>
-			<territory type="IM">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
 			<territory type="AF" references="R1">Afghanistan</territory>
@@ -818,6 +817,7 @@
 			<territory type="ID">Indonesien</territory>
 			<territory type="IE">Irland</territory>
 			<territory type="IL">Israel</territory>
+			<territory type="IM">Isle of Man</territory>
 			<territory type="IN">Indien</territory>
 			<territory type="IO">Brittiska Indiska oceanöarna</territory>
 			<territory type="IQ">Irak</territory>
@@ -1120,6 +1120,10 @@
 				<am draft="unconfirmed">fm</am>
 				<pm draft="unconfirmed">em</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
 						<era type="1">e.Kr.</era>
@@ -1170,12 +1174,18 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMd" draft="provisional">d MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="provisional">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ',' yyyy</dateFormatItem>
@@ -1221,6 +1231,8 @@
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<hourFormat alt="proposed-u219-1" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>Comod. Rivadavia</exemplarCity>
 			</zone>
@@ -1407,7 +1419,7 @@
 					<standard>MST</standard>
 					<daylight>MDT</daylight>
 				</short>
-			</metazone>			
+			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<standard>Pacific, normaltid</standard>
@@ -1630,7 +1642,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Brasiliansk real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasiliansk cruzado novo</displayName>
@@ -2229,7 +2240,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>US-dollar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>US-dollar (nästa dag)</displayName>

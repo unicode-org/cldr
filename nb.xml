@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1035,6 +1035,10 @@
 				<am>formiddag</am>
 				<pm>ettermiddag</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
 						<era type="1">e.Kr.</era>
@@ -1085,11 +1089,17 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -1132,6 +1142,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sørpolen</exemplarCity>
 			</zone>
@@ -1308,7 +1321,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>brasilianske realer</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>brasilianske cruzado novo</displayName>
@@ -1938,7 +1950,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>amerikanske dollar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>amerikanske dollar (neste dag)</displayName>

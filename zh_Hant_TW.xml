@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -193,14 +193,29 @@
 			<zone type="America/Louisville">
 				<exemplarCity draft="provisional">路易斯維爾</exemplarCity>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<daylight draft="provisional">阿拉斯加夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<daylight draft="provisional">中部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<daylight draft="provisional">東部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<daylight draft="provisional">太平洋夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<daylight draft="provisional">大西洋夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Newfoundland">
-				<long>
-					<daylight draft="provisional">紐芬蘭夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
@@ -213,11 +228,6 @@
 					<daylight draft="provisional">中歐夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Israel">
-				<long>
-					<daylight draft="provisional">以色列夏令時間</daylight>
-				</long>
-			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<daylight draft="provisional">東歐夏令時間</daylight>
@@ -228,24 +238,14 @@
 					<daylight draft="provisional">夏威夷夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Alaska">
+			<metazone type="Israel">
 				<long>
-					<daylight draft="provisional">阿拉斯加夏令時間</daylight>
+					<daylight draft="provisional">以色列夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="America_Pacific">
+			<metazone type="Newfoundland">
 				<long>
-					<daylight draft="provisional">太平洋夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Central">
-				<long>
-					<daylight draft="provisional">中部夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Eastern">
-				<long>
-					<daylight draft="provisional">東部夏令時間</daylight>
+					<daylight draft="provisional">紐芬蘭夏令時間</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>

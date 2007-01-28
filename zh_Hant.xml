@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -454,7 +454,6 @@
 			<territory type="154">北歐</territory>
 			<territory type="155">西歐</territory>
 			<territory type="830">海峽群島</territory>
-			<territory type="IM">曼島</territory>
 			<territory type="AD">安道爾</territory>
 			<territory type="AE">阿拉伯聯合大公國</territory>
 			<territory type="AG">安地卡及巴布達</territory>
@@ -540,6 +539,7 @@
 			<territory type="HR">克羅埃西亞</territory>
 			<territory type="ID">印尼</territory>
 			<territory type="IE">愛爾蘭</territory>
+			<territory type="IM">曼島</territory>
 			<territory type="IO">英屬印度洋領土</territory>
 			<territory type="IS">冰島</territory>
 			<territory type="IT">義大利</territory>
@@ -910,6 +910,9 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity>懷特霍斯</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>伊奴維克</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>溫哥華</exemplarCity>
 			</zone>
@@ -918,9 +921,6 @@
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>耐羅耐佛</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>伊奴維克</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>艾德蒙吞</exemplarCity>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -434,6 +434,22 @@
 							<month type="12">Desember</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">1</month>
+							<month type="2" draft="provisional">2</month>
+							<month type="3" draft="provisional">3</month>
+							<month type="4" draft="provisional">4</month>
+							<month type="5" draft="provisional">5</month>
+							<month type="6" draft="provisional">6</month>
+							<month type="7" draft="provisional">7</month>
+							<month type="8" draft="provisional">8</month>
+							<month type="9" draft="provisional">9</month>
+							<month type="10" draft="provisional">10</month>
+							<month type="11" draft="provisional">11</month>
+							<month type="12" draft="provisional">12</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -461,6 +477,17 @@
 							<day type="thu">Donderdag</day>
 							<day type="fri">Vrydag</day>
 							<day type="sat">Saterdag</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">1</day>
+							<day type="mon" draft="provisional">2</day>
+							<day type="tue" draft="provisional">3</day>
+							<day type="wed" draft="provisional">4</day>
+							<day type="thu" draft="provisional">5</day>
+							<day type="fri" draft="provisional">6</day>
+							<day type="sat" draft="provisional">7</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -514,10 +541,38 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -557,6 +612,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity references="RP3" draft="provisional">Suidpool</exemplarCity>
 			</zone>

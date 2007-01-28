@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -634,7 +634,6 @@
 			<territory type="172" draft="provisional">Gemeinschaft Unabhängiger Staaten</territory>
 			<territory type="419">Lateinamerika und Karibik</territory>
 			<territory type="830">Kanalinseln</territory>
-			<territory type="IM">Insel Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Vereinigte Arabische Emirate</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -736,6 +735,7 @@
 			<territory type="ID">Indonesien</territory>
 			<territory type="IE">Irland</territory>
 			<territory type="IL">Israel</territory>
+			<territory type="IM">Insel Man</territory>
 			<territory type="IN">Indien</territory>
 			<territory type="IO">Britisches Territorium im Indischen Ozean</territory>
 			<territory type="IQ">Irak</territory>
@@ -1012,6 +1012,12 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1. Quartal</quarter>
 							<quarter type="2">2. Quartal</quarter>
@@ -1061,8 +1067,28 @@
 							<pattern alt="proposed-u45-1" draft="provisional">H:mm' Uhr 'v</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
@@ -1071,6 +1097,7 @@
 						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -1107,6 +1134,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Südpol</exemplarCity>
 			</zone>

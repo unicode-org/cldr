@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -977,6 +977,10 @@
 				<am references="RP1">a.m.</am>
 				<pm references="RP1">p.m.</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">a.C.</era>
 						<era type="1">d.C.</era>
@@ -1010,8 +1014,28 @@
 							<pattern>HH'H'mm''ss&quot; z</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
@@ -1021,6 +1045,7 @@
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="provisional">MMM-yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1062,6 +1087,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Polo Sur</exemplarCity>
 			</zone>
@@ -1159,16 +1187,6 @@
 					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Atlantic">
-				<long>
-					<standard>Hora estándar del Atlántico</standard>
-					<daylight>Hora de verano del Atlántico</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<standard>Hora estándar central</standard>
@@ -1207,6 +1225,16 @@
 				<short>
 					<standard>PST</standard>
 					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Hora estándar del Atlántico</standard>
+					<daylight>Hora de verano del Atlántico</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="China">
@@ -1418,7 +1446,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>real brasileño</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>nuevo cruzado brasileño</displayName>
@@ -2057,7 +2084,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>dólar estadounidense</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>dólar estadounidense (día siguiente)</displayName>

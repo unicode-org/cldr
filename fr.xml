@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -797,8 +797,6 @@
 			<territory type="419">Amérique latine et Caraïbes</territory>
 			<territory type="830">anglo-normandes, îles</territory>
 			<territory type="830" alt="proposed-u148-1" draft="unconfirmed">Iles anglo-normandes</territory>
-			<territory type="IM">Île de Man</territory>
-			<territory type="IM" alt="proposed-u148-1" draft="unconfirmed">Ile de Man</territory>
 			<territory type="AD">Andorre</territory>
 			<territory type="AE">Émirats arabes unis</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -910,6 +908,8 @@
 			<territory type="ID">Indonésie</territory>
 			<territory type="IE">Irlande</territory>
 			<territory type="IL">Israël</territory>
+			<territory type="IM">Île de Man</territory>
+			<territory type="IM" alt="proposed-u148-1" draft="unconfirmed">Ile de Man</territory>
 			<territory type="IN">Inde</territory>
 			<territory type="IO" references="RP6" draft="unconfirmed">Océan indien, territoire britannique de l'</territory>
 			<territory type="IQ">Iraq</territory>
@@ -1210,6 +1210,8 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0">av. J.-C.</era>
@@ -1248,8 +1250,28 @@
 							<pattern>HH' h 'mm z</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
@@ -1258,6 +1280,7 @@
 						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -1301,7 +1324,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">HMG{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Tombouctou</exemplarCity>
 			</zone>
@@ -1715,7 +1740,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>réal</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>nouveau cruzado</displayName>

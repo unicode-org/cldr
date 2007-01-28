@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -668,9 +668,29 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<am draft="unconfirmed">ጡዋት</am>
 				<pm draft="unconfirmed">ከሰዓት</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">ዓ/ዓ</era>
 						<era type="1">ዓ/ም</era>
@@ -721,10 +741,16 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -774,6 +800,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity draft="unconfirmed">ቲምቡክቱ</exemplarCity>
 			</zone>
@@ -925,6 +953,9 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity draft="unconfirmed">ሁዋይትሆርስ</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="unconfirmed">ኢኑቪክ</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity draft="unconfirmed">ቫንኩቨር</exemplarCity>
 			</zone>
@@ -933,9 +964,6 @@
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity draft="unconfirmed">የሎውናይፍ</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="unconfirmed">ኢኑቪክ</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity draft="unconfirmed">ኤድመንተን</exemplarCity>
@@ -1338,7 +1366,6 @@
 		<currencies>
 			<currency type="BRL">
 				<displayName draft="unconfirmed">የብራዚል ሪል</displayName>
-				<symbol draft="unconfirmed">R$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">የቻይና ዩአን ረንሚንቢ</displayName>

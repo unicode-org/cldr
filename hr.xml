@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -112,7 +112,6 @@
 			<territory type="154">Sjeverna Europa</territory>
 			<territory type="155">Zapadna Europa</territory>
 			<territory type="830">Kanalski otoci</territory>
-			<territory type="IM">Otok Man</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Ujedinjeni Arapski Emirati</territory>
 			<territory type="AF">Afganistan</territory>
@@ -214,6 +213,7 @@
 			<territory type="ID">Indonezija</territory>
 			<territory type="IE">Irska</territory>
 			<territory type="IL">Izrael</territory>
+			<territory type="IM">Otok Man</territory>
 			<territory type="IN">Indija</territory>
 			<territory type="IO">Britanski Teritorij Indijskog Oceana</territory>
 			<territory type="IQ">Irak</territory>
@@ -527,6 +527,8 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0">Prije Krista</era>
@@ -559,7 +561,34 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
@@ -568,6 +597,7 @@
 						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE yy.MMM d</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy.MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">yyyy. MMMM</dateFormatItem>
@@ -577,6 +607,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni pol</exemplarCity>
@@ -1173,7 +1205,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Američki dolar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Američki dolar (sljedeći dan)</displayName>

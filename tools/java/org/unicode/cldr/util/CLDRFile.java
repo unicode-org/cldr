@@ -637,11 +637,18 @@ public class CLDRFile implements Freezable {
       "/(" +
       "measurementSystemName" +
       "|codePattern" +
-      "|calendar\\[\\@type\\=\"gregorian\"\\]" +
+      "|calendar\\[\\@type\\=\"gregorian\"\\]/(?!dateTimeFormats/appendItems)" +
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
       ")");
-  
+
+  static final Pattern specialsToPushFromRoot = Pattern.compile(
+      "/(" +
+      "calendar\\[\\@type\\=\"gregorian\"\\]/(?!fields)(?!dateTimeFormats/appendItems)" +
+      "|numbers/symbols/(decimal/group)" +
+      "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+      ")");
+
   /**
    * Removes all items with same value
    * @param keepList TODO
@@ -678,7 +685,7 @@ public class CLDRFile implements Freezable {
   }
   
   public CLDRFile putRoot(CLDRFile rootFile) {
-    Matcher specialPathMatcher = specialsToKeep.matcher("");
+    Matcher specialPathMatcher = specialsToPushFromRoot.matcher("");
     XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
     for (Iterator it = rootFile.iterator(); it.hasNext();) {
       String xpath = (String)it.next();

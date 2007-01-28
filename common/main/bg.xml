@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -703,13 +703,33 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
@@ -717,6 +737,7 @@
 						<dateFormatItem id="hmm" draft="provisional">h:mm a</dateFormatItem>
 						<dateFormatItem id="hmmss" draft="provisional">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ yyyy 'г'.</dateFormatItem>
@@ -759,6 +780,7 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>Гриинуич{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Тимбукту</exemplarCity>
 			</zone>
@@ -1580,7 +1602,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразилски реал</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Бахамски долар</displayName>
@@ -2128,7 +2149,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>САЩ долар</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Уругвайско песо (1975-1993)</displayName>

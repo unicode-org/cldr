@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -85,11 +85,6 @@
 			<zone type="Pacific/Kosrae">
 				<exemplarCity>库赛埃</exemplarCity>
 			</zone>
-			<zone type="Asia/Tokyo">
-				<long>
-					<daylight>日本夏令时间</daylight>
-				</long>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>基里巴斯（圣诞岛）</exemplarCity>
 			</zone>
@@ -126,16 +121,6 @@
 			<zone type="Pacific/Wake">
 				<exemplarCity draft="provisional">威克</exemplarCity>
 			</zone>
-			<metazone type="Hawaii">
-				<long>
-					<daylight>夏威夷夏令时间</daylight>
-				</long>
-			</metazone>
-			<metazone type="China">
-				<long>
-					<daylight>中国夏令时间</daylight>
-				</long>
-			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

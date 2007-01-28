@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -543,6 +543,12 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1ο τρίμηνο</quarter>
 							<quarter type="2">2ο τρίμηνο</quarter>
@@ -554,6 +560,10 @@
 				<am>ΠΜ</am>
 				<pm>ΜΜ</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">π.Χ.</era>
 						<era type="1">μ.Χ.</era>
@@ -608,11 +618,17 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
@@ -622,6 +638,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Τιμπουκτού</exemplarCity>
 			</zone>
@@ -927,7 +945,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Real Βραζιλίας</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Νέο Cruzado Βραζιλίας</displayName>
@@ -1504,7 +1521,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Δολάριο ΗΠΑ</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Δολάριο ΗΠΑ (Επόμενη Ημέρα)</displayName>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -653,7 +653,6 @@
 			<territory type="172">Samveldet av uavhengige statar</territory>
 			<territory type="419">Latin-Amerika og Karibia</territory>
 			<territory type="830">Kanaløyane</territory>
-			<territory type="IM">Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Dei sameinte arabiske emirata</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -762,6 +761,7 @@
 			<territory type="ID">Indonesia</territory>
 			<territory type="IE">Irland</territory>
 			<territory type="IL">Israel</territory>
+			<territory type="IM">Man</territory>
 			<territory type="IN">India</territory>
 			<territory type="IO">Britiske områder i det indiske hav</territory>
 			<territory type="IO" alt="proposed-u223-1" draft="provisional">Britiske område i Det indiske hav</territory>
@@ -1074,6 +1074,10 @@
 				<am draft="unconfirmed">formiddag</am>
 				<pm draft="unconfirmed">ettermiddag</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
 						<era type="1">e.Kr.</era>
@@ -1124,11 +1128,17 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1171,6 +1181,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<!-- Antarktis -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sørpolen</exemplarCity>

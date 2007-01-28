@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -888,6 +888,18 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraAbbr>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -910,12 +922,40 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">d. MMMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d.M</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -923,6 +963,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="unconfirmed">Suðurpóll</exemplarCity>
@@ -1071,7 +1114,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Brasilískt ríal</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahameyskur dalur</displayName>
@@ -1504,7 +1546,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Bandaríkjadalur</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Bandaríkjadalur (næsta dag)</displayName>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -12,10 +12,10 @@
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-           <codePattern type="language">Language: {0}</codePattern>
-           <codePattern type="script">Script: {0}</codePattern>
-           <codePattern type="territory">Region: {0}</codePattern>
-		</codePatterns>	
+			<codePattern type="language">Language: {0}</codePattern>
+			<codePattern type="script">Script: {0}</codePattern>
+			<codePattern type="territory">Region: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation/>
@@ -32,7 +32,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<default choice="gregorian"/>
 			<calendar type="buddhist">
@@ -808,615 +807,34 @@
 			<abbreviationFallback choice="standard"/>
 			<preferenceOrdering choice=""/>
 			<singleCountries list="Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"/>
-			<!--  Metazone information based on Olson 2006p -->
-			<zone type="Africa/Abidjan">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Accra">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Algiers">
-				<usesMetazone mzone="Europe_Western" to="1977-10-21"/>
-				<usesMetazone mzone="Europe_Central" from="1977-10-21" to="1979-10-26"/>
-				<usesMetazone mzone="Europe_Western" from="1979-10-26" to="1981-05-01"/>
-				<usesMetazone mzone="Europe_Central" from="1981-05-01"/>
-			</zone>
-			<zone type="Africa/Addis_Ababa">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Asmera">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Bamako">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Bangui">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Banjul">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Bissau">
-				<usesMetazone mzone="GMT" from="1975-01-01"/>
-			</zone>
-			<zone type="Africa/Blantyre">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Brazzaville">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Bujumbura">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Cairo">
-				<usesMetazone mzone="Europe_Eastern"/>
-			</zone>
-			<zone type="Africa/Casablanca">
-				<usesMetazone mzone="Europe_Western" to="1984-03-16"/>
-				<usesMetazone mzone="Europe_Central" from="1984-03-16" to="1986-01-01"/>
-				<usesMetazone mzone="Europe_Western" from="1986-01-01"/>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<usesMetazone mzone="Europe_Western" to="1984-03-16"/>
-				<usesMetazone mzone="Europe_Central" from="1984-03-16"/>
-			</zone>
-			<zone type="Africa/Conakry">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Dakar">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Dar_es_Salaam">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Djibouti">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Douala">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/El_Aaiun">
-				<usesMetazone mzone="Europe_Western" from="1976-04-14"/>
-			</zone>
-			<zone type="Africa/Freetown">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Gaborone">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Harare">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Johannesburg">
-				<usesMetazone mzone="Africa_Southern"/>
-			</zone>
-			<zone type="Africa/Lome">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Kampala">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Khartoum">
-				<usesMetazone mzone="Africa_Central" to="2000-01-15 12:00"/>
-				<usesMetazone mzone="Africa_Eastern" from="2000-01-15 12:00"/>
-			</zone>
-			<zone type="Africa/Kigali">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Lagos">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Libreville">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Luanda">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Lusaka">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Malabo">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Maputo">
-				<usesMetazone mzone="Africa_Central"/>
-			</zone>
-			<zone type="Africa/Maseru">
-				<usesMetazone mzone="Africa_Southern"/>
-			</zone>
-			<zone type="Africa/Mbabane">
-				<usesMetazone mzone="Africa_Southern"/>
-			</zone>
-			<zone type="Africa/Mogadishu">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Monrovia">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Nairobi">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Africa/Ndjamena">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Niamey">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Nouakchott">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Ouagadougou">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Porto-Novo">
-				<usesMetazone mzone="Africa_Western"/>
-			</zone>
-			<zone type="Africa/Sao_Tome">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Africa/Tripoli">
-				<usesMetazone mzone="Europe_Eastern" to="1982-01-01"/>
-				<usesMetazone mzone="Europe_Central" from="1982-01-01" to="1990-05-04"/>
-				<usesMetazone mzone="Europe_Eastern" from="1990-05-04" to="1996-09-30"/>
-				<usesMetazone mzone="Europe_Central" from="1996-09-30" to="1997-10-04"/>
-				<usesMetazone mzone="Europe_Eastern" from="1997-10-04"/>
-			</zone>
-			<zone type="Africa/Tunis">
+			<zone type="Europe/Andorra">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Africa/Windhoek">
-				<usesMetazone mzone="Africa_Southern" to="1990-03-21"/>
-				<usesMetazone mzone="Africa_Central" from="1990-03-21" to="1994-04-03"/>
-				<usesMetazone mzone="Africa_Western" from="1994-04-03"/>
-			</zone>
-			<zone type="America/Adak">
-				<usesMetazone mzone="Bering" to="1983-10-30 02:00"/>
-				<usesMetazone mzone="Alaska_Hawaii" from="1983-10-30 02:00" to="1983-11-30"/>
-				<usesMetazone mzone="Hawaii_Aleutian" from="1983-11-30"/>
-			</zone>
-			<zone type="America/Anchorage">
-				<usesMetazone mzone="Alaska_Hawaii" to="1983-10-30 02:00"/>
-				<usesMetazone mzone="Yukon" from="1983-10-30 02:00" to="1983-11-30"/>
-				<usesMetazone mzone="Alaska" from="1983-11-30"/>
-			</zone>
-			<zone type="America/Anguilla">
-				<usesMetazone mzone="Atlantic"/>
+			<zone type="Asia/Dubai">
+				<usesMetazone mzone="Gulf"/>
 			</zone>
 			<zone type="America/Antigua">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
-			<zone type="America/Araguaina">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<usesMetazone mzone="Argentina" to="1991-03-01"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-01" to="1991-05-07"/>
-				<usesMetazone mzone="Argentina" from="1991-05-07" to="2004-06-01"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-06-01" to="2004-06-20"/>
-				<usesMetazone mzone="Argentina" from="2004-06-20"/>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<usesMetazone mzone="Argentina" to="2004-06-01"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-06-01" to="2004-06-20"/>
-				<usesMetazone mzone="Argentina" from="2004-06-20"/>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<usesMetazone mzone="Argentina" to="1991-03-01"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-01" to="1991-05-07"/>
-				<usesMetazone mzone="Argentina" from="1991-05-07" to="2004-05-31"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-05-31" to="2004-07-25"/>
-				<usesMetazone mzone="Argentina" from="2004-07-25"/>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<usesMetazone mzone="Argentina" to="1991-03-03"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-03" to="1991-10-20"/>
-				<usesMetazone mzone="Argentina" from="1991-10-20" to="2004-06-01"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-06-01" to="2004-06-13"/>
-				<usesMetazone mzone="Argentina" from="2004-06-13"/>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<usesMetazone mzone="Argentina" to="2004-05-30"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-05-30" to="2004-06-20"/>
-				<usesMetazone mzone="Argentina" from="2004-06-20"/>
-			</zone>
-			<zone type="America/Aruba">
+			<zone type="America/Anguilla">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
-			<zone type="America/Bahia">
-				<usesMetazone mzone="Brasilia"/>
+			<zone type="Europe/Tirane">
+				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="America/Barbados">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Belem">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Belize">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<usesMetazone mzone="Amazon"/>
-			</zone>
-			<zone type="America/Boise">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<usesMetazone mzone="Argentina"/>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<usesMetazone mzone="America_Mountain" to="1999-10-31 02:00"/>
-				<usesMetazone mzone="America_Central" from="1999-10-31 02:00" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00" to="2000-11-05"/>
-				<usesMetazone mzone="America_Central" from="2000-11-05" to="2001-04-01 03:00"/>
-				<usesMetazone mzone="America_Mountain" from="2001-04-01 03:00"/>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<usesMetazone mzone="Amazon"/>
-			</zone>
-			<zone type="America/Cancun">
-				<usesMetazone mzone="America_Central" to="1981-12-23"/>
-				<usesMetazone mzone="America_Eastern" from="1981-12-23" to="1998-08-02 02:00"/>
-				<usesMetazone mzone="America_Central" from="1998-08-02 02:00"/>
-			</zone>
-			<zone type="America/Catamarca">
-				<usesMetazone mzone="Argentina" to="1991-03-04"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-04" to="1991-10-20"/>
-				<usesMetazone mzone="Argentina" from="1991-10-20" to="2004-06-01"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-06-01" to="2004-06-20"/>
-				<usesMetazone mzone="Argentina" from="2004-06-20"/>
-			</zone>
-			<zone type="America/Cayman">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Chicago">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Chihuahua">
-				<usesMetazone mzone="America_Central" to="1998-04-05 03:00"/>
-				<usesMetazone mzone="America_Mountain" from="1998-04-05 03:00"/>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Cordoba">
-				<usesMetazone mzone="Argentina" to="1991-03-03"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-03" to="1991-10-20"/>
-				<usesMetazone mzone="Argentina" from="1991-10-20"/>
-			</zone>
-			<zone type="America/Costa_Rica">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Cuiaba">
-				<usesMetazone mzone="Amazon"/>
+			<zone type="Asia/Yerevan">
+				<usesMetazone to="1991-09-23" mzone="Yerevan"/>
+				<usesMetazone from="1991-09-23" mzone="Armenia"/>
 			</zone>
 			<zone type="America/Curacao">
 				<usesMetazone mzone="Atlantic"/>
 			</zone>
-			<zone type="America/Danmarkshavn">
-				<usesMetazone mzone="Greenland_Western" to="1996-01-01"/>
-				<usesMetazone mzone="GMT" from="1996-01-01"/>
-			</zone>
-			<zone type="America/Dawson">
-				<usesMetazone mzone="Yukon" to="1973-10-28"/>
-				<usesMetazone mzone="America_Pacific" from="1973-10-28"/>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<usesMetazone mzone="America_Pacific" to="1972-08-30 02:00"/>
-				<usesMetazone mzone="America_Mountain" from="1972-08-30 02:00"/>
-			</zone>
-			<zone type="America/Denver">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Detroit">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Dominica">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Edmonton">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Eirunepe">
-				<usesMetazone mzone="Acre"/>
-			</zone>
-			<zone type="America/El_Salvador">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Fortaleza">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Godthab">
-				<usesMetazone mzone="Greenland_Western"/>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Grand_Turk">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Grenada">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Guadeloupe">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Guatemala">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Guayaquil">
-				<usesMetazone mzone="Ecuador"/>
-			</zone>
-			<zone type="America/Halifax">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Hermosillo">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<usesMetazone mzone="America_Central" to="1991-10-27 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="1991-10-27 02:00" to="2006-04-02 02:00"/>
-				<usesMetazone mzone="America_Central" from="2006-04-02 02:00"/>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<usesMetazone mzone="America_Eastern" to="1974-01-06 02:00"/>
-				<usesMetazone mzone="America_Central" from="1974-01-06 02:00" to="1974-10-27 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="1974-10-27 02:00"/>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<usesMetazone mzone="America_Central" to="1977-10-30 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="1977-10-30 02:00" to="2006-04-02 02:00"/>
-				<usesMetazone mzone="America_Central" from="2006-04-02 02:00"/>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<usesMetazone mzone="America_Eastern" to="2006-04-02 02:00"/>
-				<usesMetazone mzone="America_Central" from="2006-04-02 02:00"/>
-			</zone>
-			<zone type="America/Indianapolis">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Inuvik">
-				<usesMetazone mzone="America_Pacific" to="1979-04-29 02:00"/>
-				<usesMetazone mzone="America_Mountain" from="1979-04-29 02:00"/>
-			</zone>
-			<zone type="America/Iqaluit">
-				<usesMetazone mzone="America_Eastern" to="1999-10-31 02:00"/>
-				<usesMetazone mzone="America_Central" from="1999-10-31 02:00" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00"/>
-			</zone>
-			<zone type="America/Jamaica">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Jujuy">
-				<usesMetazone mzone="Argentina" to="1990-03-04"/>
-				<usesMetazone mzone="Argentina_Western" from="1990-03-04" to="1991-10-06"/>
-				<usesMetazone mzone="Argentina" from="1991-10-06"/>
-			</zone>
-			<zone type="America/Juneau">
-				<usesMetazone mzone="America_Pacific" to="1983-10-30 02:00"/>
-				<usesMetazone mzone="Yukon" from="1983-10-30 02:00" to="1983-11-30"/>
-				<usesMetazone mzone="Alaska" from="1983-11-30"/>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<usesMetazone mzone="America_Central" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00"/>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<usesMetazone mzone="America_Pacific"/>
-			</zone>
-			<zone type="America/Louisville">
-				<usesMetazone mzone="America_Eastern" to="1974-01-06 02:00"/>
-				<usesMetazone mzone="America_Central" from="1974-01-06 02:00" to="1974-10-27 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="1974-10-27 02:00"/>
-			</zone>
-			<zone type="America/Maceio">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Managua">
-				<usesMetazone mzone="America_Central" to="1973-05-01"/>
-				<usesMetazone mzone="America_Eastern" from="1973-05-01" to="1975-02-16"/>
-				<usesMetazone mzone="America_Central" from="1975-02-16" to="1992-01-01 04:00"/>
-				<usesMetazone mzone="America_Eastern" from="1992-01-01 04:00" to="1992-09-24"/>
-				<usesMetazone mzone="America_Central" from="1992-09-24" to="1993-01-01"/>
-				<usesMetazone mzone="America_Eastern" from="1993-01-01" to="1997-01-01"/>
-				<usesMetazone mzone="America_Central" from="1997-01-01"/>
-			</zone>
-			<zone type="America/Manaus">
-				<usesMetazone mzone="Amazon"/>
-			</zone>
-			<zone type="America/Martinique">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Mazatlan">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Mendoza">
-				<usesMetazone mzone="Argentina" to="1991-03-04"/>
-				<usesMetazone mzone="Argentina_Western" from="1991-03-04" to="1992-10-18"/>
-				<usesMetazone mzone="Argentina" from="1992-10-18" to="2004-05-23"/>
-				<usesMetazone mzone="Argentina_Western" from="2004-05-23" to="2004-09-26"/>
-				<usesMetazone mzone="Argentina" from="2004-09-26"/>
-			</zone>
-			<zone type="America/Menominee">
-				<usesMetazone mzone="America_Eastern" to="1973-04-29 02:00"/>
-				<usesMetazone mzone="America_Central" from="1973-04-29 02:00"/>
-			</zone>
-			<zone type="America/Merida">
-				<usesMetazone mzone="America_Central" to="1981-12-23"/>
-				<usesMetazone mzone="America_Eastern" from="1981-12-23" to="1982-12-02"/>
-				<usesMetazone mzone="America_Central" from="1982-12-02"/>
-			</zone>
-			<zone type="America/Mexico_City">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Miquelon">
-				<usesMetazone mzone="Atlantic" to="1980-05-01"/>
-				<usesMetazone mzone="Pierre_Miquelon" from="1980-05-01"/>
-			</zone>
-			<zone type="America/Moncton">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Monterrey">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Montreal">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Montserrat">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Nassau">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/New_York">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Nipigon">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Nome">
-				<usesMetazone mzone="Bering" to="1983-10-30 02:00"/>
-				<usesMetazone mzone="Yukon" from="1983-10-30 02:00" to="1983-11-30"/>
-				<usesMetazone mzone="Alaska" from="1983-11-30"/>
-			</zone>
-			<zone type="America/North_Dakota/Center">
-				<usesMetazone mzone="America_Mountain" to="1992-10-25 02:00"/>
-				<usesMetazone mzone="America_Central" from="1992-10-25 02:00"/>
-			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<usesMetazone mzone="America_Mountain" to="2003-10-26 02:00"/>
-				<usesMetazone mzone="America_Central" from="2003-10-26 02:00"/>
-			</zone>
-			<zone type="America/Panama">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<usesMetazone mzone="Atlantic" to="1995-04-02 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="1995-04-02 02:00" to="1999-10-31 02:00"/>
-				<usesMetazone mzone="America_Central" from="1999-10-31 02:00" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00"/>
-			</zone>
-			<zone type="America/Paramaribo">
-				<usesMetazone mzone="Dutch_Guiana" to="1975-11-20"/>
-				<usesMetazone mzone="Suriname" from="1975-11-20"/>
-			</zone>
-			<zone type="America/Phoenix">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/Port-au-Prince">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Port_of_Spain">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<usesMetazone mzone="Amazon"/>
-			</zone>
-			<zone type="America/Puerto_Rico">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Rainy_River">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<usesMetazone mzone="America_Central" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00" to="2001-04-01 03:00"/>
-				<usesMetazone mzone="America_Central" from="2001-04-01 03:00"/>
-			</zone>
-			<zone type="America/Recife">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Regina">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<usesMetazone mzone="Acre"/>
-			</zone>
-			<zone type="America/Santiago">
-				<usesMetazone mzone="Chile"/>
-			</zone>
-			<zone type="America/Santo_Domingo">
-				<usesMetazone mzone="America_Eastern" to="1974-10-27"/>
-				<usesMetazone mzone="Atlantic" from="1974-10-27" to="2000-10-29 02:00"/>
-				<usesMetazone mzone="America_Eastern" from="2000-10-29 02:00" to="2000-12-03 01:00"/>
-				<usesMetazone mzone="Atlantic" from="2000-12-03 01:00"/>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<usesMetazone mzone="Brasilia"/>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<usesMetazone mzone="Greenland_Central" to="1981-03-29"/>
-				<usesMetazone mzone="Greenland_Eastern" from="1981-03-29"/>
-			</zone>
-			<zone type="America/Shiprock">
-				<usesMetazone mzone="America_Mountain"/>
-			</zone>
-			<zone type="America/St_Johns">
-				<usesMetazone mzone="Newfoundland"/>
-			</zone>
-			<zone type="America/St_Kitts">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/St_Lucia">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/St_Thomas">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/St_Vincent">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Swift_Current">
-				<usesMetazone mzone="America_Mountain" to="1972-04-30 02:00"/>
-				<usesMetazone mzone="America_Central" from="1972-04-30 02:00"/>
-			</zone>
-			<zone type="America/Tegucigalpa">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Thule">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Tijuana">
-				<usesMetazone mzone="America_Pacific"/>
-			</zone>
-			<zone type="America/Toronto">
-				<usesMetazone mzone="America_Eastern"/>
-			</zone>
-			<zone type="America/Tortola">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="America/Vancouver">
-				<usesMetazone mzone="America_Pacific"/>
-			</zone>
-			<zone type="America/Whitehorse">
-				<usesMetazone mzone="America_Pacific"/>
-			</zone>
-			<zone type="America/Winnipeg">
-				<usesMetazone mzone="America_Central"/>
-			</zone>
-			<zone type="America/Yakutat">
-				<usesMetazone mzone="Yukon" to="1983-11-30"/>
-				<usesMetazone mzone="Alaska" from="1983-11-30"/>
-			</zone>
-			<zone type="America/Yellowknife">
-				<usesMetazone mzone="America_Mountain"/>
+			<zone type="Africa/Luanda">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<usesMetazone to="1982-01-01" mzone="Argentina"/>
+				<usesMetazone from="1982-01-01" mzone="Chile"/>
 			</zone>
 			<zone type="Antarctica/Casey">
 				<usesMetazone mzone="Australia_Western"/>
@@ -1424,241 +842,79 @@
 			<zone type="Antarctica/McMurdo">
 				<usesMetazone mzone="New_Zealand"/>
 			</zone>
-			<zone type="Antarctica/Palmer">
-				<usesMetazone mzone="Argentina" to="1982-01-01"/>
-				<usesMetazone mzone="Chile" from="1982-01-01"/>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<usesMetazone to="2004-06-01" mzone="Argentina"/>
+				<usesMetazone to="2004-06-20" from="2004-06-01" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-06-20" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Aden">
-				<usesMetazone mzone="Arabian"/>
+			<zone type="America/Mendoza">
+				<usesMetazone to="1991-03-04" mzone="Argentina"/>
+				<usesMetazone to="1992-10-18" from="1991-03-04" mzone="Argentina_Western"/>
+				<usesMetazone to="2004-05-23" from="1992-10-18" mzone="Argentina"/>
+				<usesMetazone to="2004-09-26" from="2004-05-23" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-09-26" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Almaty">
-				<usesMetazone mzone="Almaty" to="2005-03-15"/>
-				<usesMetazone mzone="Kazakhstan_Eastern" from="2005-03-15"/>
+			<zone type="America/Argentina/San_Juan">
+				<usesMetazone to="1991-03-01" mzone="Argentina"/>
+				<usesMetazone to="1991-05-07" from="1991-03-01" mzone="Argentina_Western"/>
+				<usesMetazone to="2004-05-31" from="1991-05-07" mzone="Argentina"/>
+				<usesMetazone to="2004-07-25" from="2004-05-31" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-07-25" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Amman">
-				<usesMetazone mzone="Europe_Eastern"/>
+			<zone type="America/Argentina/Ushuaia">
+				<usesMetazone to="2004-05-30" mzone="Argentina"/>
+				<usesMetazone to="2004-06-20" from="2004-05-30" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-06-20" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Aqtau">
-				<usesMetazone mzone="Shevchenko" to="1991-12-16"/>
-				<usesMetazone mzone="Aqtau" from="1991-12-16" to="2005-03-15"/>
-				<usesMetazone mzone="Kazakhstan_Western" from="2005-03-15"/>
+			<zone type="America/Argentina/La_Rioja">
+				<usesMetazone to="1991-03-01" mzone="Argentina"/>
+				<usesMetazone to="1991-05-07" from="1991-03-01" mzone="Argentina_Western"/>
+				<usesMetazone to="2004-06-01" from="1991-05-07" mzone="Argentina"/>
+				<usesMetazone to="2004-06-20" from="2004-06-01" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-06-20" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Aqtobe">
-				<usesMetazone mzone="Aktyubinsk" to="1991-12-16"/>
-				<usesMetazone mzone="Aqtobe" from="1991-12-16" to="2005-03-15"/>
-				<usesMetazone mzone="Kazakhstan_Western" from="2005-03-15"/>
+			<zone type="America/Catamarca">
+				<usesMetazone to="1991-03-04" mzone="Argentina"/>
+				<usesMetazone to="1991-10-20" from="1991-03-04" mzone="Argentina_Western"/>
+				<usesMetazone to="2004-06-01" from="1991-10-20" mzone="Argentina"/>
+				<usesMetazone to="2004-06-20" from="2004-06-01" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-06-20" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Ashgabat">
-				<usesMetazone mzone="Ashkhabad" to="1991-10-27"/>
-				<usesMetazone mzone="Turkmenistan" from="1991-10-27"/>
+			<zone type="America/Jujuy">
+				<usesMetazone to="1990-03-04" mzone="Argentina"/>
+				<usesMetazone to="1991-10-06" from="1990-03-04" mzone="Argentina_Western"/>
+				<usesMetazone from="1991-10-06" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Baku">
-				<usesMetazone mzone="Baku" to="1991-08-30"/>
-				<usesMetazone mzone="Azerbaijan" from="1991-08-30"/>
+			<zone type="America/Argentina/Tucuman">
+				<usesMetazone to="1991-03-03" mzone="Argentina"/>
+				<usesMetazone to="1991-10-20" from="1991-03-03" mzone="Argentina_Western"/>
+				<usesMetazone to="2004-06-01" from="1991-10-20" mzone="Argentina"/>
+				<usesMetazone to="2004-06-13" from="2004-06-01" mzone="Argentina_Western"/>
+				<usesMetazone from="2004-06-13" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Bahrain">
-				<usesMetazone mzone="Gulf" to="1972-06-01"/>
-				<usesMetazone mzone="Arabian" from="1972-06-01"/>
+			<zone type="America/Cordoba">
+				<usesMetazone to="1991-03-03" mzone="Argentina"/>
+				<usesMetazone to="1991-10-20" from="1991-03-03" mzone="Argentina_Western"/>
+				<usesMetazone from="1991-10-20" mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Baghdad">
-				<usesMetazone mzone="Arabian"/>
+			<zone type="America/Buenos_Aires">
+				<usesMetazone mzone="Argentina"/>
 			</zone>
-			<zone type="Asia/Bangkok">
-				<usesMetazone mzone="Indochina"/>
+			<zone type="Pacific/Pago_Pago">
+				<usesMetazone to="1983-11-30" mzone="Bering"/>
+				<usesMetazone from="1983-11-30" mzone="Samoa"/>
 			</zone>
-			<zone type="Asia/Beirut">
-				<usesMetazone mzone="Europe_Eastern"/>
+			<zone type="Europe/Vienna">
+				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Asia/Bishkek">
-				<usesMetazone mzone="Frunze" to="1991-08-31 02:00"/>
-				<usesMetazone mzone="Kyrgystan" from="1991-08-31 02:00"/>
+			<zone type="Australia/Perth">
+				<usesMetazone mzone="Australia_Western"/>
 			</zone>
-			<zone type="Asia/Calcutta">
-				<usesMetazone mzone="India"/>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<usesMetazone mzone="Mongolia" to="1983-04-01"/>
-				<usesMetazone mzone="Choibalsan" from="1983-04-01"/>
-			</zone>
-			<zone type="Asia/Chongqing">
-				<usesMetazone mzone="Long_Shu" to="1980-05-01"/>
-				<usesMetazone mzone="China" from="1980-05-01"/>
-			</zone>
-			<zone type="Asia/Colombo">
-				<usesMetazone mzone="India" to="1996-05-25"/>
-				<usesMetazone mzone="Lanka" from="1996-05-25" to="2006-04-15 00:30"/>
-				<usesMetazone mzone="India" from="2006-04-15 00:30"/>
-			</zone>
-			<zone type="Asia/Damascus">
-				<usesMetazone mzone="Europe_Eastern"/>
-			</zone>
-			<zone type="Asia/Dili">
-				<usesMetazone mzone="East_Timor" to="1976-05-03"/>
-				<usesMetazone mzone="Indonesia_Central" from="1976-05-03" to="2000-09-17"/>
-				<usesMetazone mzone="East_Timor" from="2000-09-17"/>
-			</zone>
-			<zone type="Asia/Dubai">
-				<usesMetazone mzone="Gulf"/>
-			</zone>
-			<zone type="Asia/Dushanbe">
-				<usesMetazone mzone="Dushanbe" to="1991-09-09 02:00"/>
-				<usesMetazone mzone="Tajikistan" from="1991-09-09 02:00"/>
-			</zone>
-			<zone type="Asia/Dhaka">
-				<usesMetazone mzone="Dacca" to="1971-03-26"/>
-				<usesMetazone mzone="Bangladesh" from="1971-03-26"/>
-			</zone>
-			<zone type="Asia/Gaza">
-				<usesMetazone mzone="Israel" to="1996-01-01"/>
-				<usesMetazone mzone="Europe_Eastern" from="1996-01-01"/>
-			</zone>
-			<zone type="Asia/Harbin">
-				<usesMetazone mzone="Changbai" to="1980-05-01"/>
-				<usesMetazone mzone="China" from="1980-05-01"/>
-			</zone>
-			<zone type="Asia/Jerusalem">
-				<usesMetazone mzone="Israel"/>
-			</zone>
-			<zone type="Asia/Kuala_Lumpur">
-				<usesMetazone mzone="Malaya" to="1982-01-01"/>
-				<usesMetazone mzone="Malaysia" from="1982-01-01"/>
-			</zone>
-			<zone type="Asia/Kuching">
-				<usesMetazone mzone="Borneo" to="1982-01-01"/>
-				<usesMetazone mzone="Malaysia" from="1982-01-01"/>
-			</zone>
-			<zone type="Asia/Jakarta">
-				<usesMetazone mzone="Indonesia_Western"/>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<usesMetazone mzone="Indonesia_Eastern"/>
-			</zone>
-			<zone type="Asia/Karachi">
-				<usesMetazone mzone="Karachi" to="1971-03-26"/>
-				<usesMetazone mzone="Pakistan" from="1971-03-26"/>
-			</zone>
-			<zone type="Asia/Kashgar">
-				<usesMetazone mzone="Kashgar" to="1980-05-01"/>
-				<usesMetazone mzone="China" from="1980-05-01"/>
-			</zone>
-			<zone type="Asia/Kuwait">
-				<usesMetazone mzone="Arabian"/>
-			</zone>
-			<zone type="Asia/Macau">
-				<usesMetazone mzone="Macau" to="1999-12-20"/>
-				<usesMetazone mzone="China" from="1999-12-20"/>
-			</zone>
-			<zone type="Asia/Makassar">
-				<usesMetazone mzone="Indonesia_Central"/>
-			</zone>
-			<zone type="Asia/Muscat">
-				<usesMetazone mzone="Gulf"/>
-			</zone>
-			<zone type="Asia/Nicosia">
-				<usesMetazone mzone="Europe_Eastern"/>
-			</zone>
-			<zone type="Asia/Oral">
-				<usesMetazone mzone="Uralsk" to="1991-12-16"/>
-				<usesMetazone mzone="Kazakhstan_Western" from="1991-12-16"/>
-			</zone>
-			<zone type="Asia/Phnom_Penh">
-				<usesMetazone mzone="Indochina"/>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<usesMetazone mzone="Indonesia_Central" to="1988-01-01"/>
-				<usesMetazone mzone="Indonesia_Western" from="1988-01-01"/>
-			</zone>
-			<zone type="Asia/Pyongyang">
-				<usesMetazone mzone="Korea"/>
-			</zone>
-			<zone type="Asia/Qatar">
-				<usesMetazone mzone="Gulf" to="1972-06-01"/>
-				<usesMetazone mzone="Arabian" from="1972-06-01"/>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<usesMetazone mzone="Kizilorda" to="1991-12-16"/>
-				<usesMetazone mzone="Qyzylorda" from="1991-12-16" to="2005-03-15"/>
-				<usesMetazone mzone="Kazakhstan_Eastern" from="2005-03-15"/>
-			</zone>
-			<zone type="Asia/Riyadh">
-				<usesMetazone mzone="Arabian"/>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<usesMetazone mzone="Samarkand" to="1981-10-01"/>
-				<usesMetazone mzone="Tashkent" from="1981-10-01" to="1982-04-01"/>
-				<usesMetazone mzone="Samarkand" from="1982-04-01" to="1991-09-01"/>
-				<usesMetazone mzone="Uzbekistan" from="1991-09-01"/>
-			</zone>
-			<zone type="Asia/Saigon">
-				<usesMetazone mzone="Indochina"/>
-			</zone>
-			<zone type="Asia/Seoul">
-				<usesMetazone mzone="Korea"/>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<usesMetazone mzone="China"/>
-			</zone>
-			<zone type="Asia/Taipei">
-				<usesMetazone mzone="China"/>
-			</zone>
-			<zone type="Asia/Tashkent">
-				<usesMetazone mzone="Tashkent" to="1991-09-01"/>
-				<usesMetazone mzone="Uzbekistan" from="1991-09-01"/>
-			</zone>
-			<zone type="Asia/Tbilisi">
-				<usesMetazone mzone="Tbilisi" to="1991-04-09"/>
-				<usesMetazone mzone="Georgia" from="1991-04-09"/>
-			</zone>
-			<zone type="Asia/Thimphu">
-				<usesMetazone mzone="India" to="1987-10-01"/>
-				<usesMetazone mzone="Bhutan" from="1987-10-01"/>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<usesMetazone mzone="Mongolia"/>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<usesMetazone mzone="Urumqi" to="1980-05-01"/>
-				<usesMetazone mzone="China" from="1980-05-01"/>
-			</zone>
-			<zone type="Asia/Vientiane">
-				<usesMetazone mzone="Indochina"/>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<usesMetazone mzone="Sverdlovsk" to="1992-01-19 02:00"/>
-				<usesMetazone mzone="Yekaterinburg" from="1992-01-19 02:00"/>
-			</zone>
-			<zone type="Asia/Yerevan">
-				<usesMetazone mzone="Yerevan" to="1991-09-23"/>
-				<usesMetazone mzone="Armenia" from="1991-09-23"/>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<usesMetazone mzone="Azores" to="1992-09-27 01:00"/>
-				<usesMetazone mzone="Europe_Western" from="1992-09-27 01:00" to="1993-03-28 01:00"/>
-				<usesMetazone mzone="Azores" from="1993-03-28 01:00"/>
-			</zone>
-			<zone type="Atlantic/Bermuda">
-				<usesMetazone mzone="Atlantic"/>
-			</zone>
-			<zone type="Atlantic/Canary">
-				<usesMetazone mzone="Europe_Western"/>
-			</zone>
-			<zone type="Atlantic/Faeroe">
-				<usesMetazone mzone="Europe_Western"/>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<usesMetazone mzone="Europe_Western"/>
-			</zone>
-			<zone type="Atlantic/Reykjavik">
-				<usesMetazone mzone="GMT"/>
-			</zone>
-			<zone type="Atlantic/St_Helena">
-				<usesMetazone mzone="GMT"/>
+			<zone type="Australia/Darwin">
+				<usesMetazone mzone="Australia_Central"/>
 			</zone>
 			<zone type="Australia/Adelaide">
 				<usesMetazone mzone="Australia_Central"/>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<usesMetazone mzone="Australia_Eastern"/>
 			</zone>
 			<zone type="Australia/Broken_Hill">
 				<usesMetazone mzone="Australia_Central"/>
@@ -1666,8 +922,8 @@
 			<zone type="Australia/Currie">
 				<usesMetazone mzone="Australia_Eastern"/>
 			</zone>
-			<zone type="Australia/Darwin">
-				<usesMetazone mzone="Australia_Central"/>
+			<zone type="Australia/Melbourne">
+				<usesMetazone mzone="Australia_Eastern"/>
 			</zone>
 			<zone type="Australia/Hobart">
 				<usesMetazone mzone="Australia_Eastern"/>
@@ -1675,233 +931,977 @@
 			<zone type="Australia/Lindeman">
 				<usesMetazone mzone="Australia_Eastern"/>
 			</zone>
-			<zone type="Australia/Lord_Howe">
-				<usesMetazone mzone="Australia_Eastern" to="1981-03-01"/>
-				<usesMetazone mzone="Lord_Howe" from="1981-03-01"/>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<usesMetazone mzone="Australia_Eastern"/>
-			</zone>
-			<zone type="Australia/Perth">
-				<usesMetazone mzone="Australia_Western"/>
-			</zone>
 			<zone type="Australia/Sydney">
 				<usesMetazone mzone="Australia_Eastern"/>
 			</zone>
-			<zone type="Europe/Amsterdam">
+			<zone type="Australia/Brisbane">
+				<usesMetazone mzone="Australia_Eastern"/>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<usesMetazone to="1981-03-01" mzone="Australia_Eastern"/>
+				<usesMetazone from="1981-03-01" mzone="Lord_Howe"/>
+			</zone>
+			<zone type="America/Aruba">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Baku">
+				<usesMetazone to="1991-08-30" mzone="Baku"/>
+				<usesMetazone from="1991-08-30" mzone="Azerbaijan"/>
+			</zone>
+			<zone type="Europe/Sarajevo">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Andorra">
+			<zone type="America/Barbados">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<usesMetazone to="1971-03-26" mzone="Dacca"/>
+				<usesMetazone from="1971-03-26" mzone="Bangladesh"/>
+			</zone>
+			<zone type="Europe/Brussels">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Athens">
+			<zone type="Africa/Ouagadougou">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Europe/Sofia">
 				<usesMetazone mzone="Europe_Eastern"/>
 			</zone>
-			<zone type="Europe/Belgrade">
+			<zone type="Asia/Bahrain">
+				<usesMetazone to="1972-06-01" mzone="Gulf"/>
+				<usesMetazone from="1972-06-01" mzone="Arabian"/>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Eirunepe">
+				<usesMetazone mzone="Acre"/>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<usesMetazone mzone="Acre"/>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<usesMetazone mzone="Amazon"/>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<usesMetazone mzone="Amazon"/>
+			</zone>
+			<zone type="America/Manaus">
+				<usesMetazone mzone="Amazon"/>
+			</zone>
+			<zone type="America/Cuiaba">
+				<usesMetazone mzone="Amazon"/>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<usesMetazone mzone="Amazon"/>
+			</zone>
+			<zone type="America/Belem">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Araguaina">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Bahia">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Fortaleza">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Maceio">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Recife">
+				<usesMetazone mzone="Brasilia"/>
+			</zone>
+			<zone type="America/Nassau">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<usesMetazone to="1987-10-01" mzone="India"/>
+				<usesMetazone from="1987-10-01" mzone="Bhutan"/>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Europe/Minsk">
+				<usesMetazone to="1991-03-31 02:00" mzone="Moscow"/>
+				<usesMetazone from="1991-03-31 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="America/Belize">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Dawson">
+				<usesMetazone to="1973-10-28" mzone="Yukon"/>
+				<usesMetazone from="1973-10-28" mzone="America_Pacific"/>
+			</zone>
+			<zone type="America/Whitehorse">
+				<usesMetazone mzone="America_Pacific"/>
+			</zone>
+			<zone type="America/Inuvik">
+				<usesMetazone to="1979-04-29 02:00" mzone="America_Pacific"/>
+				<usesMetazone from="1979-04-29 02:00" mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Vancouver">
+				<usesMetazone mzone="America_Pacific"/>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<usesMetazone to="1972-08-30 02:00" mzone="America_Pacific"/>
+				<usesMetazone from="1972-08-30 02:00" mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Yellowknife">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Edmonton">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Swift_Current">
+				<usesMetazone to="1972-04-30 02:00" mzone="America_Mountain"/>
+				<usesMetazone from="1972-04-30 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<usesMetazone to="1999-10-31 02:00" mzone="America_Mountain"/>
+				<usesMetazone to="2000-10-29 02:00" from="1999-10-31 02:00" mzone="America_Central"/>
+				<usesMetazone to="2000-11-05" from="2000-10-29 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="2001-04-01 03:00" from="2000-11-05" mzone="America_Central"/>
+				<usesMetazone from="2001-04-01 03:00" mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Regina">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Winnipeg">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Rainy_River">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<usesMetazone to="2000-10-29 02:00" mzone="America_Central"/>
+				<usesMetazone to="2001-04-01 03:00" from="2000-10-29 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2001-04-01 03:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Nipigon">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Toronto">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Montreal">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Iqaluit">
+				<usesMetazone to="1999-10-31 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="2000-10-29 02:00" from="1999-10-31 02:00" mzone="America_Central"/>
+				<usesMetazone from="2000-10-29 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<usesMetazone to="1995-04-02 02:00" mzone="Atlantic"/>
+				<usesMetazone to="1999-10-31 02:00" from="1995-04-02 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="2000-10-29 02:00" from="1999-10-31 02:00" mzone="America_Central"/>
+				<usesMetazone from="2000-10-29 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Moncton">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Halifax">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/St_Johns">
+				<usesMetazone mzone="Newfoundland"/>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Africa/Bangui">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Europe/Zurich">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<!-- Metazone information based on Olson 2006p -->
+			<zone type="Africa/Abidjan">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="America/Santiago">
+				<usesMetazone mzone="Chile"/>
+			</zone>
+			<zone type="Africa/Douala">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<usesMetazone to="1980-05-01" mzone="Kashgar"/>
+				<usesMetazone from="1980-05-01" mzone="China"/>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<usesMetazone to="1980-05-01" mzone="Urumqi"/>
+				<usesMetazone from="1980-05-01" mzone="China"/>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<usesMetazone to="1980-05-01" mzone="Long_Shu"/>
+				<usesMetazone from="1980-05-01" mzone="China"/>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<usesMetazone mzone="China"/>
+			</zone>
+			<zone type="Asia/Harbin">
+				<usesMetazone to="1980-05-01" mzone="Changbai"/>
+				<usesMetazone from="1980-05-01" mzone="China"/>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Prague">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
 			<zone type="Europe/Berlin">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Bratislava">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Brussels">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Bucharest">
-				<usesMetazone mzone="Europe_Eastern"/>
-			</zone>
-			<zone type="Europe/Budapest">
-				<usesMetazone mzone="Europe_Central"/>
+			<zone type="Africa/Djibouti">
+				<usesMetazone mzone="Africa_Eastern"/>
 			</zone>
 			<zone type="Europe/Copenhagen">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Chisinau">
-				<usesMetazone mzone="Moscow" to="1990-05-06"/>
-				<usesMetazone mzone="Europe_Eastern" from="1990-05-06"/>
+			<zone type="America/Dominica">
+				<usesMetazone mzone="Atlantic"/>
 			</zone>
-			<zone type="Europe/Dublin">
+			<zone type="America/Santo_Domingo">
+				<usesMetazone to="1974-10-27" mzone="America_Eastern"/>
+				<usesMetazone to="2000-10-29 02:00" from="1974-10-27" mzone="Atlantic"/>
+				<usesMetazone to="2000-12-03 01:00" from="2000-10-29 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2000-12-03 01:00" mzone="Atlantic"/>
+			</zone>
+			<zone type="Africa/Algiers">
+				<usesMetazone to="1977-10-21" mzone="Europe_Western"/>
+				<usesMetazone to="1979-10-26" from="1977-10-21" mzone="Europe_Central"/>
+				<usesMetazone to="1981-05-01" from="1979-10-26" mzone="Europe_Western"/>
+				<usesMetazone from="1981-05-01" mzone="Europe_Central"/>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<usesMetazone to="1986-01-01" mzone="Ecuador"/>
+				<usesMetazone from="1986-01-01" mzone="Galapagos"/>
+			</zone>
+			<zone type="America/Guayaquil">
+				<usesMetazone mzone="Ecuador"/>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<usesMetazone to="1989-03-26 02:00" mzone="Moscow"/>
+				<usesMetazone from="1989-03-26 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Cairo">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<usesMetazone from="1976-04-14" mzone="Europe_Western"/>
+			</zone>
+			<zone type="Africa/Asmera">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<usesMetazone mzone="Europe_Western"/>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<usesMetazone to="1984-03-16" mzone="Europe_Western"/>
+				<usesMetazone from="1984-03-16" mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Madrid">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<usesMetazone mzone="Europe_Western"/>
+			</zone>
+			<zone type="Europe/Paris">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Africa/Libreville">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Europe/London">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="America/Grenada">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<usesMetazone to="1991-04-09" mzone="Tbilisi"/>
+				<usesMetazone from="1991-04-09" mzone="Georgia"/>
+			</zone>
+			<zone type="Africa/Accra">
 				<usesMetazone mzone="GMT"/>
 			</zone>
 			<zone type="Europe/Gibraltar">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/London">
+			<zone type="America/Thule">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Godthab">
+				<usesMetazone mzone="Greenland_Western"/>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<usesMetazone to="1981-03-29" mzone="Greenland_Central"/>
+				<usesMetazone from="1981-03-29" mzone="Greenland_Eastern"/>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<usesMetazone to="1996-01-01" mzone="Greenland_Western"/>
+				<usesMetazone from="1996-01-01" mzone="GMT"/>
+			</zone>
+			<zone type="Africa/Banjul">
 				<usesMetazone mzone="GMT"/>
 			</zone>
-			<zone type="Europe/Helsinki">
+			<zone type="Africa/Conakry">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Africa/Malabo">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Europe/Athens">
 				<usesMetazone mzone="Europe_Eastern"/>
 			</zone>
-			<zone type="Europe/Istanbul">
-				<usesMetazone mzone="Europe_Eastern" to="1978-10-15"/>
-				<usesMetazone mzone="Turkey" from="1978-10-15" to="1985-04-20"/>
-				<usesMetazone mzone="Europe_Eastern" from="1985-04-20"/>
+			<zone type="America/Guatemala">
+				<usesMetazone mzone="America_Central"/>
 			</zone>
-			<zone type="Europe/Kaliningrad">
-				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00"/>
+			<zone type="Pacific/Guam">
+				<usesMetazone to="2000-12-23" mzone="Guam"/>
+				<usesMetazone from="2000-12-23" mzone="Chamorro"/>
 			</zone>
-			<zone type="Europe/Kiev">
-				<usesMetazone mzone="Moscow" to="1990-07-01 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1990-07-01 02:00"/>
+			<zone type="Africa/Bissau">
+				<usesMetazone from="1975-01-01" mzone="GMT"/>
 			</zone>
-			<zone type="Europe/Ljubljana">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Lisbon">
-				<usesMetazone mzone="Europe_Central" to="1976-09-26 01:00"/>
-				<usesMetazone mzone="Europe_Western" from="1976-09-26 01:00" to="1992-09-27 01:00"/>
-				<usesMetazone mzone="Europe_Central" from="1992-09-27 01:00" to="1996-03-31 01:00"/>
-				<usesMetazone mzone="Europe_Western" from="1996-03-31 01:00"/>
-			</zone>
-			<zone type="Europe/Luxembourg">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Madrid">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Malta">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Minsk">
-				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00"/>
-			</zone>
-			<zone type="Europe/Monaco">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Moscow">
-				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00" to="1992-01-19 02:00"/>
-				<usesMetazone mzone="Moscow" from="1992-01-19 02:00"/>
-			</zone>
-			<zone type="Europe/Oslo">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Paris">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Podgorica">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Prague">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Riga">
-				<usesMetazone mzone="Moscow" to="1989-03-26 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1989-03-26 02:00"/>
-			</zone>
-			<zone type="Europe/Rome">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Samara">
-				<usesMetazone mzone="Kuybyshev" to="1991-10-20 03:00"/>
-				<usesMetazone mzone="Samara" from="1991-10-20 03:00"/>
-			</zone>
-			<zone type="Europe/Sarajevo">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<usesMetazone mzone="Moscow" to="1990-07-01 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1990-07-01 02:00"/>
-			</zone>
-			<zone type="Europe/Skopje">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Sofia">
-				<usesMetazone mzone="Europe_Eastern"/>
-			</zone>
-			<zone type="Europe/Stockholm">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Tallinn">
-				<usesMetazone mzone="Moscow" to="1989-03-26 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1989-03-26 02:00"/>
-			</zone>
-			<zone type="Europe/Tirane">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Uzhgorod">
-				<usesMetazone mzone="Moscow" to="1990-07-01 02:00"/>
-				<usesMetazone mzone="Europe_Central" from="1990-07-01 02:00" to="1991-03-31 03:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 03:00"/>
-			</zone>
-			<zone type="Europe/Vaduz">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Vienna">
-				<usesMetazone mzone="Europe_Central"/>
-			</zone>
-			<zone type="Europe/Vilnius">
-				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00" to="1998-03-29 01:00"/>
-				<usesMetazone mzone="Europe_Central" from="1998-03-29 01:00" to="1999-10-31 01:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1999-10-31 01:00"/>
-			</zone>
-			<zone type="Europe/Warsaw">
-				<usesMetazone mzone="Europe_Central"/>
+			<zone type="America/Tegucigalpa">
+				<usesMetazone mzone="America_Central"/>
 			</zone>
 			<zone type="Europe/Zagreb">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Europe/Zaporozhye">
-				<usesMetazone mzone="Moscow" to="1991-03-31 02:00"/>
-				<usesMetazone mzone="Europe_Eastern" from="1991-03-31 02:00"/>
+			<zone type="America/Port-au-Prince">
+				<usesMetazone mzone="America_Eastern"/>
 			</zone>
-			<zone type="Europe/Zurich">
+			<zone type="Europe/Budapest">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<usesMetazone mzone="Indonesia_Western"/>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<usesMetazone to="1988-01-01" mzone="Indonesia_Central"/>
+				<usesMetazone from="1988-01-01" mzone="Indonesia_Western"/>
+			</zone>
+			<zone type="Asia/Makassar">
+				<usesMetazone mzone="Indonesia_Central"/>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<usesMetazone mzone="Indonesia_Eastern"/>
+			</zone>
+			<zone type="Europe/Dublin">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<usesMetazone mzone="Israel"/>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<usesMetazone mzone="India"/>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<usesMetazone mzone="Arabian"/>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Europe/Rome">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="America/Jamaica">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Asia/Amman">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<usesMetazone to="1991-08-31 02:00" mzone="Frunze"/>
+				<usesMetazone from="1991-08-31 02:00" mzone="Kyrgystan"/>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<usesMetazone mzone="Indochina"/>
+			</zone>
+			<zone type="Indian/Comoro">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="America/St_Kitts">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<usesMetazone mzone="Korea"/>
+			</zone>
+			<zone type="Asia/Seoul">
+				<usesMetazone mzone="Korea"/>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<usesMetazone mzone="Arabian"/>
+			</zone>
+			<zone type="America/Cayman">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<usesMetazone to="1991-12-16" mzone="Shevchenko"/>
+				<usesMetazone to="2005-03-15" from="1991-12-16" mzone="Aqtau"/>
+				<usesMetazone from="2005-03-15" mzone="Kazakhstan_Western"/>
+			</zone>
+			<zone type="Asia/Oral">
+				<usesMetazone to="1991-12-16" mzone="Uralsk"/>
+				<usesMetazone from="1991-12-16" mzone="Kazakhstan_Western"/>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<usesMetazone to="1991-12-16" mzone="Aktyubinsk"/>
+				<usesMetazone to="2005-03-15" from="1991-12-16" mzone="Aqtobe"/>
+				<usesMetazone from="2005-03-15" mzone="Kazakhstan_Western"/>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<usesMetazone to="1991-12-16" mzone="Kizilorda"/>
+				<usesMetazone to="2005-03-15" from="1991-12-16" mzone="Qyzylorda"/>
+				<usesMetazone from="2005-03-15" mzone="Kazakhstan_Eastern"/>
+			</zone>
+			<zone type="Asia/Almaty">
+				<usesMetazone to="2005-03-15" mzone="Almaty"/>
+				<usesMetazone from="2005-03-15" mzone="Kazakhstan_Eastern"/>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<usesMetazone mzone="Indochina"/>
+			</zone>
+			<zone type="Asia/Beirut">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="America/St_Lucia">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Asia/Colombo">
+				<usesMetazone to="1996-05-25" mzone="India"/>
+				<usesMetazone to="2006-04-15 00:30" from="1996-05-25" mzone="Lanka"/>
+				<usesMetazone from="2006-04-15 00:30" mzone="India"/>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Africa/Maseru">
+				<usesMetazone mzone="Africa_Southern"/>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<usesMetazone to="1991-03-31 02:00" mzone="Moscow"/>
+				<usesMetazone to="1998-03-29 01:00" from="1991-03-31 02:00" mzone="Europe_Eastern"/>
+				<usesMetazone to="1999-10-31 01:00" from="1998-03-29 01:00" mzone="Europe_Central"/>
+				<usesMetazone from="1999-10-31 01:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Riga">
+				<usesMetazone to="1989-03-26 02:00" mzone="Moscow"/>
+				<usesMetazone from="1989-03-26 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<usesMetazone to="1982-01-01" mzone="Europe_Eastern"/>
+				<usesMetazone to="1990-05-04" from="1982-01-01" mzone="Europe_Central"/>
+				<usesMetazone to="1996-09-30" from="1990-05-04" mzone="Europe_Eastern"/>
+				<usesMetazone to="1997-10-04" from="1996-09-30" mzone="Europe_Central"/>
+				<usesMetazone from="1997-10-04" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<usesMetazone to="1984-03-16" mzone="Europe_Western"/>
+				<usesMetazone to="1986-01-01" from="1984-03-16" mzone="Europe_Central"/>
+				<usesMetazone from="1986-01-01" mzone="Europe_Western"/>
+			</zone>
+			<zone type="Europe/Monaco">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<usesMetazone to="1990-05-06" mzone="Moscow"/>
+				<usesMetazone from="1990-05-06" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Podgorica">
 				<usesMetazone mzone="Europe_Central"/>
 			</zone>
 			<zone type="Indian/Antananarivo">
 				<usesMetazone mzone="Africa_Eastern"/>
 			</zone>
-			<zone type="Indian/Comoro">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Indian/Mayotte">
-				<usesMetazone mzone="Africa_Eastern"/>
-			</zone>
-			<zone type="Pacific/Auckland">
-				<usesMetazone mzone="New_Zealand"/>
-			</zone>
-			<zone type="Pacific/Apia">
-				<usesMetazone mzone="Samoa"/>
-			</zone>
-			<zone type="Pacific/Galapagos">
-				<usesMetazone mzone="Ecuador" to="1986-01-01"/>
-				<usesMetazone mzone="Galapagos" from="1986-01-01"/>
-			</zone>
-			<zone type="Pacific/Guam">
-				<usesMetazone mzone="Guam" to="2000-12-23"/>
-				<usesMetazone mzone="Chamorro" from="2000-12-23"/>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<usesMetazone mzone="Hawaii"/>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<usesMetazone mzone="Hawaii"/>
-			</zone>
 			<zone type="Pacific/Kwajalein">
-				<usesMetazone mzone="Kwajalein" to="1993-08-20"/>
-				<usesMetazone mzone="Marshall_Islands" from="1993-08-20"/>
+				<usesMetazone to="1993-08-20" mzone="Kwajalein"/>
+				<usesMetazone from="1993-08-20" mzone="Marshall_Islands"/>
 			</zone>
 			<zone type="Pacific/Majuro">
 				<usesMetazone mzone="Marshall_Islands"/>
 			</zone>
-			<zone type="Pacific/Midway">
-				<usesMetazone mzone="Bering" to="1983-11-30"/>
-				<usesMetazone mzone="Samoa" from="1983-11-30"/>
+			<zone type="Europe/Skopje">
+				<usesMetazone mzone="Europe_Central"/>
 			</zone>
-			<zone type="Pacific/Pago_Pago">
-				<usesMetazone mzone="Bering" to="1983-11-30"/>
-				<usesMetazone mzone="Samoa" from="1983-11-30"/>
+			<zone type="Africa/Bamako">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<usesMetazone mzone="Mongolia"/>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<usesMetazone to="1983-04-01" mzone="Mongolia"/>
+				<usesMetazone from="1983-04-01" mzone="Choibalsan"/>
+			</zone>
+			<zone type="Asia/Macau">
+				<usesMetazone to="1999-12-20" mzone="Macau"/>
+				<usesMetazone from="1999-12-20" mzone="China"/>
 			</zone>
 			<zone type="Pacific/Saipan">
-				<usesMetazone mzone="North_Mariana" to="2000-12-23"/>
-				<usesMetazone mzone="Chamorro" from="2000-12-23"/>
+				<usesMetazone to="2000-12-23" mzone="North_Mariana"/>
+				<usesMetazone from="2000-12-23" mzone="Chamorro"/>
+			</zone>
+			<zone type="America/Martinique">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="America/Montserrat">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Europe/Malta">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="America/Tijuana">
+				<usesMetazone mzone="America_Pacific"/>
+			</zone>
+			<zone type="America/Hermosillo">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Mazatlan">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Chihuahua">
+				<usesMetazone to="1998-04-05 03:00" mzone="America_Central"/>
+				<usesMetazone from="1998-04-05 03:00" mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Monterrey">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Mexico_City">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Merida">
+				<usesMetazone to="1981-12-23" mzone="America_Central"/>
+				<usesMetazone to="1982-12-02" from="1981-12-23" mzone="America_Eastern"/>
+				<usesMetazone from="1982-12-02" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Cancun">
+				<usesMetazone to="1981-12-23" mzone="America_Central"/>
+				<usesMetazone to="1998-08-02 02:00" from="1981-12-23" mzone="America_Eastern"/>
+				<usesMetazone from="1998-08-02 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<usesMetazone to="1982-01-01" mzone="Malaya"/>
+				<usesMetazone from="1982-01-01" mzone="Malaysia"/>
+			</zone>
+			<zone type="Asia/Kuching">
+				<usesMetazone to="1982-01-01" mzone="Borneo"/>
+				<usesMetazone from="1982-01-01" mzone="Malaysia"/>
+			</zone>
+			<zone type="Africa/Maputo">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<usesMetazone to="1990-03-21" mzone="Africa_Southern"/>
+				<usesMetazone to="1994-04-03" from="1990-03-21" mzone="Africa_Central"/>
+				<usesMetazone from="1994-04-03" mzone="Africa_Western"/>
+			</zone>
+			<zone type="Africa/Niamey">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Africa/Lagos">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="America/Managua">
+				<usesMetazone to="1973-05-01" mzone="America_Central"/>
+				<usesMetazone to="1975-02-16" from="1973-05-01" mzone="America_Eastern"/>
+				<usesMetazone to="1992-01-01 04:00" from="1975-02-16" mzone="America_Central"/>
+				<usesMetazone to="1992-09-24" from="1992-01-01 04:00" mzone="America_Eastern"/>
+				<usesMetazone to="1993-01-01" from="1992-09-24" mzone="America_Central"/>
+				<usesMetazone to="1997-01-01" from="1993-01-01" mzone="America_Eastern"/>
+				<usesMetazone from="1997-01-01" mzone="America_Central"/>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Oslo">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<usesMetazone mzone="New_Zealand"/>
+			</zone>
+			<zone type="Asia/Muscat">
+				<usesMetazone mzone="Gulf"/>
+			</zone>
+			<zone type="America/Panama">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Asia/Karachi">
+				<usesMetazone to="1971-03-26" mzone="Karachi"/>
+				<usesMetazone from="1971-03-26" mzone="Pakistan"/>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="America/Miquelon">
+				<usesMetazone to="1980-05-01" mzone="Atlantic"/>
+				<usesMetazone from="1980-05-01" mzone="Pierre_Miquelon"/>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Gaza">
+				<usesMetazone to="1996-01-01" mzone="Israel"/>
+				<usesMetazone from="1996-01-01" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<usesMetazone to="1992-09-27 01:00" mzone="Azores"/>
+				<usesMetazone to="1993-03-28 01:00" from="1992-09-27 01:00" mzone="Europe_Western"/>
+				<usesMetazone from="1993-03-28 01:00" mzone="Azores"/>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<usesMetazone mzone="Europe_Western"/>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<usesMetazone to="1976-09-26 01:00" mzone="Europe_Central"/>
+				<usesMetazone to="1992-09-27 01:00" from="1976-09-26 01:00" mzone="Europe_Western"/>
+				<usesMetazone to="1996-03-31 01:00" from="1992-09-27 01:00" mzone="Europe_Central"/>
+				<usesMetazone from="1996-03-31 01:00" mzone="Europe_Western"/>
+			</zone>
+			<zone type="Asia/Qatar">
+				<usesMetazone to="1972-06-01" mzone="Gulf"/>
+				<usesMetazone from="1972-06-01" mzone="Arabian"/>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<usesMetazone to="1991-03-31 02:00" mzone="Moscow"/>
+				<usesMetazone from="1991-03-31 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Moscow">
+				<usesMetazone to="1991-03-31 02:00" mzone="Moscow"/>
+				<usesMetazone to="1992-01-19 02:00" from="1991-03-31 02:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="1992-01-19 02:00" mzone="Moscow"/>
+			</zone>
+			<zone type="Europe/Samara">
+				<usesMetazone to="1991-10-20 03:00" mzone="Kuybyshev"/>
+				<usesMetazone from="1991-10-20 03:00" mzone="Samara"/>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<usesMetazone to="1992-01-19 02:00" mzone="Sverdlovsk"/>
+				<usesMetazone from="1992-01-19 02:00" mzone="Yekaterinburg"/>
+			</zone>
+			<zone type="Africa/Kigali">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<usesMetazone mzone="Arabian"/>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<usesMetazone to="2000-01-15 12:00" mzone="Africa_Central"/>
+				<usesMetazone from="2000-01-15 12:00" mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Africa/Freetown">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Africa/Dakar">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="America/Paramaribo">
+				<usesMetazone to="1975-11-20" mzone="Dutch_Guiana"/>
+				<usesMetazone from="1975-11-20" mzone="Suriname"/>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="America/El_Salvador">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="Asia/Damascus">
+				<usesMetazone mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<usesMetazone mzone="Africa_Southern"/>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<usesMetazone mzone="Africa_Western"/>
+			</zone>
+			<zone type="Africa/Lome">
+				<usesMetazone mzone="GMT"/>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<usesMetazone mzone="Indochina"/>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<usesMetazone to="1991-09-09 02:00" mzone="Dushanbe"/>
+				<usesMetazone from="1991-09-09 02:00" mzone="Tajikistan"/>
+			</zone>
+			<zone type="Asia/Dili">
+				<usesMetazone to="1976-05-03" mzone="East_Timor"/>
+				<usesMetazone to="2000-09-17" from="1976-05-03" mzone="Indonesia_Central"/>
+				<usesMetazone from="2000-09-17" mzone="East_Timor"/>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<usesMetazone to="1991-10-27" mzone="Ashkhabad"/>
+				<usesMetazone from="1991-10-27" mzone="Turkmenistan"/>
+			</zone>
+			<zone type="Africa/Tunis">
+				<usesMetazone mzone="Europe_Central"/>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<usesMetazone to="1978-10-15" mzone="Europe_Eastern"/>
+				<usesMetazone to="1985-04-20" from="1978-10-15" mzone="Turkey"/>
+				<usesMetazone from="1985-04-20" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Taipei">
+				<usesMetazone mzone="China"/>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<usesMetazone to="1990-07-01 02:00" mzone="Moscow"/>
+				<usesMetazone to="1991-03-31 03:00" from="1990-07-01 02:00" mzone="Europe_Central"/>
+				<usesMetazone from="1991-03-31 03:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Kiev">
+				<usesMetazone to="1990-07-01 02:00" mzone="Moscow"/>
+				<usesMetazone from="1990-07-01 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<usesMetazone to="1990-07-01 02:00" mzone="Moscow"/>
+				<usesMetazone from="1990-07-01 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<usesMetazone to="1991-03-31 02:00" mzone="Moscow"/>
+				<usesMetazone from="1991-03-31 02:00" mzone="Europe_Eastern"/>
+			</zone>
+			<zone type="Africa/Kampala">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Pacific/Midway">
+				<usesMetazone to="1983-11-30" mzone="Bering"/>
+				<usesMetazone from="1983-11-30" mzone="Samoa"/>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<usesMetazone mzone="Hawaii"/>
+			</zone>
+			<zone type="America/Adak">
+				<usesMetazone to="1983-10-30 02:00" mzone="Bering"/>
+				<usesMetazone to="1983-11-30" from="1983-10-30 02:00" mzone="Alaska_Hawaii"/>
+				<usesMetazone from="1983-11-30" mzone="Hawaii_Aleutian"/>
+			</zone>
+			<zone type="America/Nome">
+				<usesMetazone to="1983-10-30 02:00" mzone="Bering"/>
+				<usesMetazone to="1983-11-30" from="1983-10-30 02:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30" mzone="Alaska"/>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<usesMetazone mzone="Hawaii"/>
+			</zone>
+			<zone type="America/Anchorage">
+				<usesMetazone to="1983-10-30 02:00" mzone="Alaska_Hawaii"/>
+				<usesMetazone to="1983-11-30" from="1983-10-30 02:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30" mzone="Alaska"/>
+			</zone>
+			<zone type="America/Yakutat">
+				<usesMetazone to="1983-11-30" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30" mzone="Alaska"/>
+			</zone>
+			<zone type="America/Juneau">
+				<usesMetazone to="1983-10-30 02:00" mzone="America_Pacific"/>
+				<usesMetazone to="1983-11-30" from="1983-10-30 02:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30" mzone="Alaska"/>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<usesMetazone mzone="America_Pacific"/>
+			</zone>
+			<zone type="America/Boise">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Phoenix">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Shiprock">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/Denver">
+				<usesMetazone mzone="America_Mountain"/>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<usesMetazone to="2003-10-26 02:00" mzone="America_Mountain"/>
+				<usesMetazone from="2003-10-26 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<usesMetazone to="1992-10-25 02:00" mzone="America_Mountain"/>
+				<usesMetazone from="1992-10-25 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Chicago">
+				<usesMetazone mzone="America_Central"/>
+			</zone>
+			<zone type="America/Menominee">
+				<usesMetazone to="1973-04-29 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="1973-04-29 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<usesMetazone to="2006-04-02 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2006-04-02 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<usesMetazone to="1977-10-30 02:00" mzone="America_Central"/>
+				<usesMetazone to="2006-04-02 02:00" from="1977-10-30 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2006-04-02 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<usesMetazone to="1991-10-27 02:00" mzone="America_Central"/>
+				<usesMetazone to="2006-04-02 02:00" from="1991-10-27 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2006-04-02 02:00" mzone="America_Central"/>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<usesMetazone to="1974-01-06 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="1974-10-27 02:00" from="1974-01-06 02:00" mzone="America_Central"/>
+				<usesMetazone from="1974-10-27 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Indianapolis">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Louisville">
+				<usesMetazone to="1974-01-06 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="1974-10-27 02:00" from="1974-01-06 02:00" mzone="America_Central"/>
+				<usesMetazone from="1974-10-27 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<usesMetazone to="2000-10-29 02:00" mzone="America_Central"/>
+				<usesMetazone from="2000-10-29 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Detroit">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/New_York">
+				<usesMetazone mzone="America_Eastern"/>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<usesMetazone to="1981-10-01" mzone="Samarkand"/>
+				<usesMetazone to="1982-04-01" from="1981-10-01" mzone="Tashkent"/>
+				<usesMetazone to="1991-09-01" from="1982-04-01" mzone="Samarkand"/>
+				<usesMetazone from="1991-09-01" mzone="Uzbekistan"/>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<usesMetazone to="1991-09-01" mzone="Tashkent"/>
+				<usesMetazone from="1991-09-01" mzone="Uzbekistan"/>
+			</zone>
+			<zone type="America/St_Vincent">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/Tortola">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="America/St_Thomas">
+				<usesMetazone mzone="Atlantic"/>
+			</zone>
+			<zone type="Asia/Saigon">
+				<usesMetazone mzone="Indochina"/>
+			</zone>
+			<zone type="Pacific/Apia">
+				<usesMetazone mzone="Samoa"/>
+			</zone>
+			<zone type="Asia/Aden">
+				<usesMetazone mzone="Arabian"/>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<usesMetazone mzone="Africa_Eastern"/>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<usesMetazone mzone="Africa_Southern"/>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<usesMetazone mzone="Africa_Central"/>
+			</zone>
+			<zone type="Africa/Harare">
+				<usesMetazone mzone="Africa_Central"/>
 			</zone>
 		</timeZoneNames>
+		<dateRangePattern>{0} - {1}</dateRangePattern>
 	</dates>
 	<numbers>
 		<symbols>

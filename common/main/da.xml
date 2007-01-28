@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1476,7 +1476,13 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
 						<era type="1">e.Kr.</era>
@@ -1527,10 +1533,16 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMd" draft="provisional">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="provisional">MMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -1573,6 +1585,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sydpolen</exemplarCity>
 			</zone>
@@ -1709,16 +1724,6 @@
 					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Atlantic">
-				<long>
-					<standard>Atlantic-normaltid</standard>
-					<daylight>Atlantic-sommertid</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<standard>Central-normaltid</standard>
@@ -1757,6 +1762,16 @@
 				<short>
 					<standard>PST</standard>
 					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Atlantic-normaltid</standard>
+					<daylight>Atlantic-sommertid</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="China">
@@ -1970,7 +1985,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Brasiliansk real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasiliansk cruzado novo</displayName>
@@ -2563,7 +2577,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Amerikanske dollar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Amerikansk dollar (næste dag)</displayName>

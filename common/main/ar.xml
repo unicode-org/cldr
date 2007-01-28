@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1121,9 +1121,15 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM, yyyy</dateFormatItem>
 					</availableFormats>
@@ -1512,6 +1518,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity draft="unconfirmed">تيمبيوكتو</exemplarCity>
 			</zone>
@@ -1672,6 +1681,9 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity draft="unconfirmed">هوايت هورس</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="unconfirmed">اينوفيك</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity draft="unconfirmed">فانكوفر</exemplarCity>
 			</zone>
@@ -1680,9 +1692,6 @@
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity draft="unconfirmed">يلونيف</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity draft="unconfirmed">اينوفيك</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity draft="unconfirmed">ايدمونتون</exemplarCity>

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -559,7 +559,6 @@
 			<territory type="154">北欧</territory>
 			<territory type="155" draft="unconfirmed">西欧</territory>
 			<territory type="830">海峡群岛</territory>
-			<territory type="IM">曼岛</territory>
 			<territory type="AD">安道尔</territory>
 			<territory type="AE">阿拉伯联合酋长国</territory>
 			<territory type="AF">阿富汗</territory>
@@ -661,6 +660,7 @@
 			<territory type="ID">印度尼西亚</territory>
 			<territory type="IE">爱尔兰</territory>
 			<territory type="IL">以色列</territory>
+			<territory type="IM">曼岛</territory>
 			<territory type="IN">印度</territory>
 			<territory type="IO">英属印度洋领地</territory>
 			<territory type="IQ">伊拉克</territory>
@@ -943,9 +943,59 @@
 						<era type="1">公元</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="provisional">yyyy MMMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="provisional">yyyy MMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="provisional">yy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="provisional">M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy'年'M'月'</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -953,6 +1003,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>延巴克图</exemplarCity>
 			</zone>
@@ -1123,6 +1175,9 @@
 			<zone type="America/Whitehorse">
 				<exemplarCity>怀特霍斯</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>伊努维克</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>温哥华</exemplarCity>
 			</zone>
@@ -1131,9 +1186,6 @@
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>耶洛奈夫</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>伊努维克</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>埃德蒙顿</exemplarCity>
@@ -1640,16 +1692,6 @@
 					<standard>GMT</standard>
 				</short>
 			</metazone>
-			<metazone type="Israel">
-				<long>
-					<standard>以色列标准时间</standard>
-					<daylight>以色列夏令时间</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
-			</metazone>
 			<metazone type="Hawaii">
 				<long>
 					<standard>夏威夷标准时间</standard>
@@ -1658,6 +1700,16 @@
 				<short>
 					<standard>HST</standard>
 					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>以色列标准时间</standard>
+					<daylight>以色列夏令时间</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -1998,7 +2050,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>日元</displayName>
-				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>肯尼亚先令</displayName>
@@ -2307,7 +2358,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>美元</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>美元 (下一天)</displayName>

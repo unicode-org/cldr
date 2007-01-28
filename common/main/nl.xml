@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -622,7 +622,6 @@
 			<territory type="155">West-Europa</territory>
 			<territory type="419">Latijns-Amerika en het Caribisch gebied</territory>
 			<territory type="830">Kanaaleilanden</territory>
-			<territory type="IM">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Verenigde Arabische Emiraten</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -726,6 +725,7 @@
 			<territory type="ID">Indonesië</territory>
 			<territory type="IE">Ierland</territory>
 			<territory type="IL">Israël</territory>
+			<territory type="IM">Isle of Man</territory>
 			<territory type="IN">India</territory>
 			<territory type="IO">Britse Gebieden in de Indische Oceaan</territory>
 			<territory type="IQ">Irak</territory>
@@ -1012,7 +1012,13 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">v. Chr.</era>
 						<era type="1">n. Chr.</era>
@@ -1046,13 +1052,34 @@
 							<pattern>HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd-MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM-yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -1127,6 +1154,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<!-- Mali -->
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Timboektoe</exemplarCity>
@@ -1364,16 +1394,6 @@
 					<standard>GMT</standard>
 				</short>
 			</metazone>
-			<metazone type="Israel">
-				<long>
-					<standard>Israëlische standaardtijd</standard>
-					<daylight>Israëlische zomertijd</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
-			</metazone>
 			<metazone type="Hawaii">
 				<long>
 					<standard>Hawaï-standaardtijd</standard>
@@ -1382,6 +1402,16 @@
 				<short>
 					<standard>HST</standard>
 					<daylight>HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<standard>Israëlische standaardtijd</standard>
+					<daylight>Israëlische zomertijd</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -1526,7 +1556,6 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Braziliaanse real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Braziliaanse cruzado novo</displayName>
@@ -2151,7 +2180,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Amerikaanse dollar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Amerikaanse dollar (volgende dag)</displayName>

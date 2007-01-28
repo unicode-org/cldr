@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -190,37 +190,22 @@
 			<zone type="America/Phoenix">
 				<exemplarCity draft="provisional">Fênix</exemplarCity>
 			</zone>
-			<zone type="Asia/Tokyo">
+			<metazone type="America_Mountain">
 				<long>
-					<daylight draft="provisional">Horário de Verão do Japão</daylight>
+					<standard draft="provisional">Horário Padrão da Montanha</standard>
+					<daylight draft="provisional">Horário de Verão da Montanha</daylight>
 				</long>
-			</zone>
+			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<standard draft="provisional">Horário Padrão do Atlântico</standard>
 					<daylight draft="provisional">Horário de Verão do Atlântico</daylight>
 				</long>
 			</metazone>
-			<metazone type="China">
-				<long>
-					<daylight draft="provisional">Horário de Verão da China</daylight>
-				</long>
-			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<standard draft="provisional">Horário Padrão da Europa Central</standard>
 					<daylight draft="provisional">Horário de Verão da Europa Central</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<daylight draft="provisional">Horário de Verão do Havaí</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Mountain">
-				<long>
-					<standard draft="provisional">Horário Padrão da Montanha</standard>
-					<daylight draft="provisional">Horário de Verão da Montanha</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>

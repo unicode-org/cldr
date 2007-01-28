@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -126,7 +126,6 @@
 			<territory type="154" draft="unconfirmed">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
 			<territory type="830">Каналска острва</territory>
-			<territory type="IM">Острво Ман</territory>
 			<territory type="AD">Андора</territory>
 			<territory type="AE">Уједињени Арапски Емирати</territory>
 			<territory type="AF">Авганистан</territory>
@@ -224,6 +223,7 @@
 			<territory type="ID">Индонезија</territory>
 			<territory type="IE">Ирска</territory>
 			<territory type="IL">Израел</territory>
+			<territory type="IM">Острво Ман</territory>
 			<territory type="IN">Индија</territory>
 			<territory type="IQ">Ирак</territory>
 			<territory type="IR">Иран</territory>
@@ -496,7 +496,13 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">CE</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">п. н. е.</era>
 						<era type="1">н. е</era>
@@ -547,6 +553,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMdd" draft="provisional">dd.MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
@@ -555,6 +566,7 @@
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd" draft="provisional">d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -562,6 +574,8 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
 			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Јужни пол</exemplarCity>
@@ -610,7 +624,6 @@
 					<daylight>Централно Европско Летње Време</daylight>
 				</long>
 			</metazone>
-
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -729,7 +742,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Амерички долар</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="YUN">
 				<symbol>Дин</symbol>

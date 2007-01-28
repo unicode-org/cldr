@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -175,10 +175,32 @@
 				<long>
 					<daylight draft="provisional">일본 서머타임</daylight>
 				</long>
-				<short>
-					<daylight draft="provisional">JDT</daylight>
-				</short>
 			</zone>
+			<metazone type="Alaska">
+				<long>
+					<daylight draft="provisional">알래스카 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<daylight draft="provisional">중부 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<daylight draft="provisional">동부 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<daylight draft="provisional">산악 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<daylight draft="provisional">태평양 서머타임</daylight>
+				</long>
+			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<daylight draft="provisional">대서양 서머타임</daylight>
@@ -189,14 +211,19 @@
 					<daylight draft="provisional">중국 서머타임</daylight>
 				</long>
 			</metazone>
-			<metazone type="Newfoundland">
-				<long>
-					<daylight draft="provisional">뉴펀들랜드 서머타임</daylight>
-				</long>
-			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<daylight draft="provisional">중부유럽 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<daylight draft="provisional">동부유럽 서머타임</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<daylight draft="provisional">하와이 서머타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
@@ -210,39 +237,9 @@
 					<daylight draft="provisional">한국 서머타임</daylight>
 				</long>
 			</metazone>
-			<metazone type="Europe_Eastern">
+			<metazone type="Newfoundland">
 				<long>
-					<daylight draft="provisional">동부유럽 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<daylight draft="provisional">하와이 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="Alaska">
-				<long>
-					<daylight draft="provisional">알래스카 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Pacific">
-				<long>
-					<daylight draft="provisional">태평양 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Mountain">
-				<long>
-					<daylight draft="provisional">산악 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Central">
-				<long>
-					<daylight draft="provisional">중부 서머타임</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Eastern">
-				<long>
-					<daylight draft="provisional">동부 서머타임</daylight>
+					<daylight draft="provisional">뉴펀들랜드 서머타임</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -276,12 +273,6 @@
 			</currency>
 			<currency type="BND">
 				<symbol draft="provisional">B$</symbol>
-			</currency>
-			<currency type="BRL">
-				<symbol draft="provisional">R$</symbol>
-			</currency>
-			<currency type="BSD">
-				<symbol draft="provisional">BSD</symbol>
 			</currency>
 			<currency type="BZD">
 				<symbol draft="provisional">BZ$</symbol>

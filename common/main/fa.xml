@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/data/dtd/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -777,6 +777,20 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">1</month>
+							<month type="2" draft="provisional">2</month>
+							<month type="3" draft="provisional">3</month>
+							<month type="4" draft="provisional">4</month>
+							<month type="5" draft="provisional">5</month>
+							<month type="6" draft="provisional">6</month>
+							<month type="7" draft="provisional">7</month>
+							<month type="8" draft="provisional">8</month>
+							<month type="9" draft="provisional">9</month>
+							<month type="10" draft="provisional">10</month>
+							<month type="11" draft="provisional">11</month>
+							<month type="12" draft="provisional">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" references="R6">ژانویهٔ</month>
 							<month type="2" references="R6">فوریهٔ</month>
@@ -861,6 +875,12 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">سه‌ماههٔ اول</quarter>
 							<quarter type="2">سه‌ماههٔ دوم</quarter>
@@ -938,6 +958,7 @@
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEEEEd" draft="provisional">EEEE d MMMM yyyy</dateFormatItem>
@@ -1140,6 +1161,7 @@
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
 			<regionFormat>وقت {0}</regionFormat>
 			<fallbackFormat>وقت {0} ({1})</fallbackFormat>
 			<zone type="Asia/Kabul">
@@ -1211,14 +1233,14 @@
 			<zone type="America/Dawson">
 				<exemplarCity>داوسن</exemplarCity>
 			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>اینوویک</exemplarCity>
+			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>ونکوور</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>داوسن کریک</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>اینوویک</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>ادمونتون</exemplarCity>
@@ -1235,11 +1257,11 @@
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>خلیجک رنکین</exemplarCity>
 			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>نیپیگان</exemplarCity>
-			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>کورال هاربر</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity>نیپیگان</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>تورنتو</exemplarCity>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -32,6 +32,7 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZvcL</localizedPatternChars>
+		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<default choice="gregorian"/>
 			<calendar type="buddhist">
@@ -1901,7 +1902,6 @@
 				<usesMetazone mzone="Africa_Central"/>
 			</zone>
 		</timeZoneNames>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 	</dates>
 	<numbers>
 		<symbols>

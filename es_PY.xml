@@ -53,6 +53,10 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -60,6 +64,15 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>dólar estadounidense</displayName>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
 

@@ -522,44 +522,52 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="RP1" draft="provisional">EEEE d MMMM yyyy</pattern>
+							<pattern references="RP1" draft="provisional">EEEE dd MMMM yyyy</pattern>
+							<pattern references="RP1" alt="proposed-x999" draft="provisional">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="RP1" draft="provisional">d MMMM yyyy</pattern>
+							<pattern references="RP1" draft="provisional">dd MMMM yyyy</pattern>
+							<pattern references="RP1" alt="proposed-x999" draft="provisional">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="RP1" draft="provisional">d MMM yyyy</pattern>
+							<pattern references="RP1" draft="provisional">dd MMM yyyy</pattern>
+							<pattern references="RP1" alt="proposed-x999" draft="provisional">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern references="RP1" draft="provisional">yyyy-MM-dd</pattern>
+							<pattern references="RP1" draft="provisional">yyyy/MM/dd</pattern>
+							<pattern references="RP1" alt="proposed-x999" draft="provisional">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="provisional">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="provisional">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="provisional">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="provisional">h:mm a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -571,9 +579,12 @@
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">MM/dd</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-x999" draft="provisional">MM-dd</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">yyyy/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" alt="proposed-x999" draft="provisional">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -637,6 +648,13 @@
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName references="RP3" draft="provisional">Reaal</displayName>

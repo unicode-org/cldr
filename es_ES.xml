@@ -39,6 +39,16 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH'H'mm''ss&quot; z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>H:mm:ss</pattern>
@@ -61,6 +71,10 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -73,6 +87,13 @@
 				<pattern>#,##0 ¤;-#,##0 ¤</pattern>
 				<decimal>,</decimal>
 				<group>.</group>
+			</currency>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>dólar estadounidense</displayName>
 			</currency>
 		</currencies>
 	</numbers>

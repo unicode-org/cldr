@@ -7,8 +7,74 @@
 		<language type="sv"/>
 		<territory type="FI"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="afa">afro-asiatiskt språk (annat)</language>
+			<language type="cpe">kreolspråk och pidgin, engelskbaserade (annat)</language>
+			<language type="cpf">kreolspråk och pidgin, franskbaserade (annat)</language>
+			<language type="cpp">kreolspråk och pidgin, portugisiskbaserade (annat)</language>
+			<language type="crh">krimturkiska; krimtatariska</language>
+			<language type="crp">kreolspråk och pidgin (annat)</language>
+			<language type="enm">medelengelska (1100-1500)</language>
+			<language type="gil">gilbertesiska; kiribati</language>
+			<language type="gn">guaraní</language>
+			<language type="iro">irokesiskt språk</language>
+			<language type="khi">khoisanspråk (annat)</language>
+			<language type="km">kambodjanska; khmeriska</language>
+			<language type="kn">kanaresiska; kannada</language>
+			<language type="lol">lolo; mongo</language>
+			<language type="mga">medeliriska (900-1200)</language>
+			<language type="nah">nahuatl; aztekiska</language>
+			<language type="nds">lågtyska; lågsaxiska</language>
+			<language type="oc">provensalska (efter 1500); occitanska</language>
+			<language type="oj">odjibwa; chippewa</language>
+			<language type="phn">kananeiska; feniciska</language>
+			<language type="ps">pashto; afghanska</language>
+			<language type="rw">rwanda; kinjarwanda</language>
+			<language type="sit">sinotibetanskt språk (annat)</language>
+			<language type="smi">samiskt språk (annat)</language>
+			<language type="sn">shona; manshona</language>
+		</languages>
+		<territories>
+			<territory type="UM" references="R2">USAs yttre öar</territory>
+		</territories>
+		<types>
+			<type type="stroke" key="collation">kinesiska i streck-ordning</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US" draft="unconfirmed">imperiska enheter</measurementSystemName>
+			<measurementSystemName type="metric" draft="provisional">SI-enheter</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
+	<delimiters>
+		<quotationStart>”</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>’</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern references="R3">EEEE d MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ',' yyyy</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+				<fields>
+					<field type="dayperiod">
+						<displayName>dagsperiod</displayName>
+					</field>
+				</fields>
+			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
@@ -101,6 +167,15 @@
 			</calendar>
 		</calendars>
 	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+	</numbers>
 	<references>
 		<reference type="RP1">Finlands Statskalender 2006</reference>
 	</references>

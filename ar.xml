@@ -510,7 +510,8 @@
 			<script type="Hrkt">الكتكانا أو الهيراجانا</script>
 			<script type="Hung">المجرية القديمة</script>
 			<script type="Inds">اندس - هارابان</script>
-			<script type="Ital">اللأيطالية القديمة</script>
+			<script type="Ital" draft="provisional">الأيطالية القديمة</script>
+			<script type="Ital" alt="proposed-x999">اللأيطالية القديمة</script>
 			<script type="Java">الجاوية</script>
 			<script type="Kali">الكياه لى</script>
 			<script type="Kana">الكتكانا</script>
@@ -879,10 +880,14 @@
 		<exemplarCharacters type="auxiliary">[\u200C \u200D]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>”</quotationStart>
-		<quotationEnd>“</quotationEnd>
-		<alternateQuotationStart>’</alternateQuotationStart>
-		<alternateQuotationEnd>‘</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">‘</quotationStart>
+		<quotationStart alt="proposed-x999">”</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<quotationEnd alt="proposed-x999">“</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">&quot;</alternateQuotationStart>
+		<alternateQuotationStart alt="proposed-x999">’</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">&quot;</alternateQuotationEnd>
+		<alternateQuotationEnd alt="proposed-x999">‘</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>

@@ -7,30 +7,5 @@
 		<language type="ps"/>
 		<territory type="AF"/>
 	</identity>
-	<numbers>
-		<symbols>
-			<decimal>٫</decimal>
-			<group>٬</group>
-			<percentSign>٪</percentSign>
-			<nativeZeroDigit>۰</nativeZeroDigit>
-			<minusSign>−</minusSign>
-			<exponential>×۱۰^</exponential>
-		</symbols>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
-	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ps_AF.txt?only_with_tag=final-update-LDML
-
-Created by Roozbeh Pournader <roozbeh@sharif.edu> and Michael Everson <everson@evertype.com>
-                7,      // Saturday
-        "#,##0%", // The percent sign appears on the right side.
-Acad says it should appear on the left (like fa_IR).
--->
 

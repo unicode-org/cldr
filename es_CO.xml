@@ -16,6 +16,11 @@
 							<pattern>d/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
@@ -49,10 +54,18 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+		</symbols>
 		<currencies>
 			<currency type="COP">
 				<displayName>Peso de Colombia</displayName>
 				<symbol>$</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dólar Americano</displayName>

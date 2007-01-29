@@ -311,7 +311,7 @@ public class XPathParts {
 	/**
 	 * Get the attributes for the nth element (negative index is from end). Returns null or an empty map if there's nothing.
 	 */
-	public Map getAttributes(int elementIndex) {
+	public Map<String,String> getAttributes(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
 		return ((Element)elements.get(elementIndex)).getAttributes();
 	}
@@ -522,7 +522,7 @@ public class XPathParts {
 	
 	private class Element {
 		private String element;
-		private Map attributes; // = new TreeMap(AttributeComparator);
+		private Map<String,String> attributes; // = new TreeMap(AttributeComparator);
 
 		public Element(String element) {
 			this.element = element;
@@ -637,8 +637,8 @@ public class XPathParts {
 //			this.attributes = attributes;
 //		}
 
-		private Map getAttributes() {
-			if (attributes == null) attributes = new TreeMap(attributeComparator);
+		private Map<String,String> getAttributes() {
+			if (attributes == null) attributes = new TreeMap<String,String>(attributeComparator);
 			return attributes;
 		}
 

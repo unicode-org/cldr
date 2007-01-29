@@ -500,8 +500,10 @@
 				<pm draft="provisional">PM</pm>
 				<eras>
 					<eraNames>
-						<era type="0" draft="provisional">BCE</era>
-						<era type="1" draft="provisional">CE</era>
+						<era type="0" draft="provisional">Прије нове ере</era>
+						<era type="0" alt="proposed-x999" draft="provisional">BCE</era>
+						<era type="1" draft="provisional">Нове ере</era>
+						<era type="1" alt="proposed-x999" draft="provisional">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">п. н. е.</era>
@@ -620,7 +622,8 @@
 			</zone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>Централно Европско Време</standard>
+					<standard>Средње Европско Вријеме</standard>
+					<standard alt="proposed-x999">Централно Европско Време</standard>
 					<daylight>Централно Европско Летње Време</daylight>
 				</long>
 			</metazone>

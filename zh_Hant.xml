@@ -38,6 +38,7 @@
 			<language type="az">亞塞拜然文</language>
 			<language type="ba">巴什客爾文</language>
 			<language type="bad">班達文</language>
+			<language type="bai">巴米累克文</language>
 			<language type="ban" draft="provisional">峇里文</language>
 			<language type="ban" alt="proposed-x999">巴厘文</language>
 			<language type="bas">巴薩文</language>
@@ -187,6 +188,7 @@
 			<language type="kar">克倫文</language>
 			<language type="kbd">卡巴爾達文</language>
 			<language type="kg">剛果文</language>
+			<language type="khi">其他科伊桑文</language>
 			<language type="kho" draft="provisional">和闐文</language>
 			<language type="kho" alt="proposed-x999">和闐[與闐]文</language>
 			<language type="ki">吉庫尤人</language>
@@ -217,6 +219,7 @@
 			<language type="lg">干達文</language>
 			<language type="li">林堡文</language>
 			<language type="lo">寮國文</language>
+			<language type="lol">芒戈语</language>
 			<language type="loz">洛齊文</language>
 			<language type="lt">立陶宛語</language>
 			<language type="lu">魯巴加丹加文</language>
@@ -225,6 +228,7 @@
 			<language type="lun">盧恩達文</language>
 			<language type="luo">盧奧文</language>
 			<language type="lus">盧晒文</language>
+			<language type="lv">拉脫維亞文</language>
 			<language type="mad">馬都拉文</language>
 			<language type="mag">馬加伊文</language>
 			<language type="mai">邁蒂利文</language>
@@ -288,6 +292,7 @@
 			<language type="oc" draft="provisional">奧克西坦文（1500 後）；普羅旺斯文</language>
 			<language type="oc" alt="proposed-x999">奧西坦文</language>
 			<language type="oj">奧杰布瓦文</language>
+			<language type="om">阿曼文</language>
 			<language type="or">歐里亞文</language>
 			<language type="os">奧塞提文</language>
 			<language type="osa">歐塞奇文</language>
@@ -356,6 +361,7 @@
 			<language type="sr">塞爾維亞文</language>
 			<language type="srn" draft="provisional">蘇拉南東墎文</language>
 			<language type="srr">塞雷爾文</language>
+			<language type="ss">辛辛那提文</language>
 			<language type="ssa">非洲撒哈拉沙漠邊緣地帶文</language>
 			<language type="su">巽他語</language>
 			<language type="suk">蘇庫馬文</language>
@@ -364,6 +370,7 @@
 			<language type="sw">史瓦希里文</language>
 			<language type="syr">古敘利亞文</language>
 			<language type="ta">坦米爾文</language>
+			<language type="tai">其他泰文</language>
 			<language type="te">泰盧固文</language>
 			<language type="tem">提姆文</language>
 			<language type="ter">泰雷諾文</language>
@@ -373,6 +380,7 @@
 			<language type="tiv">提夫文</language>
 			<language type="tk">土庫曼文</language>
 			<language type="tkl">托克勞文</language>
+			<language type="tl">塔加路族文</language>
 			<language type="tlh" draft="provisional">克林貢文</language>
 			<language type="tli">特林基特文</language>
 			<language type="tmh">塔馬奇克文</language>
@@ -380,6 +388,7 @@
 			<language type="to">東加文</language>
 			<language type="tog">湯加文(尼亞薩文)</language>
 			<language type="tpi">托比辛文</language>
+			<language type="ts">特松加文</language>
 			<language type="tsi">欽西安文</language>
 			<language type="tt">韃靼文</language>
 			<language type="tum">圖姆布卡文</language>
@@ -487,6 +496,7 @@
 			<script type="Mlym">馬來亞拉姆文</script>
 			<script type="Mong">蒙古文</script>
 			<script type="Mymr">緬甸文</script>
+			<script type="Nkoo">Nkoo</script>
 			<script type="Ogam">歐甘文</script>
 			<script type="Orkh" draft="provisional">鄂爾渾文</script>
 			<script type="Orya">歐利亞文</script>
@@ -495,6 +505,7 @@
 			<script type="Phag" draft="provisional">八思巴文</script>
 			<script type="Phnx" draft="provisional">腓尼基文</script>
 			<script type="Plrd" draft="provisional">柏格理拼音符</script>
+			<script type="Qaai">Qaai</script>
 			<script type="Roro" draft="provisional">朗格朗格象形文</script>
 			<script type="Runr">古北歐文字</script>
 			<script type="Sara" draft="provisional">沙拉堤文</script>
@@ -753,7 +764,11 @@
 			<territory type="ZW">辛巴威</territory>
 		</territories>
 		<variants>
+			<variant type="1901">1901</variant>
+			<variant type="1996">1996</variant>
+			<variant type="POLYTONI">POLYTONI</variant>
 			<variant type="REVISED">已修訂</variant>
+			<variant type="SAAHO">SAAHO</variant>
 		</variants>
 		<keys>
 			<key type="calendar">曆法</key>
@@ -1178,6 +1193,9 @@
 			<zone type="Pacific/Ponape">
 				<exemplarCity>波納佩</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="unconfirmed">科斯里</exemplarCity>
+			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>倫敦</exemplarCity>
 			</zone>
@@ -1476,6 +1494,10 @@
 					<daylight draft="provisional">太平洋夏令時間</daylight>
 					<daylight alt="proposed-x999">太平洋日光節約時間</daylight>
 				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -1509,6 +1531,9 @@
 				<long>
 					<standard>格林威治標準時間</standard>
 				</long>
+				<short>
+					<standard>GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
@@ -2196,6 +2221,9 @@
 			<currency type="USN">
 				<displayName>美元 (第二天)</displayName>
 			</currency>
+			<currency type="USS">
+				<displayName>美元 (同一天)</displayName>
+			</currency>
 			<currency type="UYP">
 				<displayName>烏拉圭披索 (1975-1993)</displayName>
 			</currency>
@@ -2218,6 +2246,9 @@
 			<currency type="XAF">
 				<displayName draft="provisional">西非法郎 BEAC</displayName>
 				<displayName alt="proposed-x999">西非 法郎 BEAC</displayName>
+			</currency>
+			<currency type="XAG">
+				<displayName>XAG</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>黃金</displayName>
@@ -2261,6 +2292,12 @@
 			</currency>
 			<currency type="XPT">
 				<displayName draft="provisional">白金</displayName>
+			</currency>
+			<currency type="XTS">
+				<displayName>XTS</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName>XXX</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>葉門第納爾</displayName>

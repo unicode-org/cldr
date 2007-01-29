@@ -13,19 +13,38 @@
 			<language type="ain" draft="provisional">愛奴文</language>
 			<language type="alt" draft="provisional">南阿爾泰文</language>
 			<language type="awa" draft="provisional">阿瓦文</language>
+			<language type="ban">巴厘文</language>
+			<language type="ceb">宿務族文</language>
+			<language type="crp">克里奧爾文和皮欽文</language>
+			<language type="cv">楚瓦甚文</language>
+			<language type="dum">荷蘭，中古 (ca. 1050-1350)</language>
 			<language type="egy" draft="provisional">古埃及文</language>
+			<language type="elx">埃蘭文</language>
+			<language type="enm">英文，中世紀 (1100-1500)</language>
 			<language type="fil" draft="provisional">菲律賓文</language>
 			<language type="gem" draft="provisional">日耳曼文（其他）</language>
+			<language type="gmh">德文, 中古全盛時期 (ca.1050-1500)</language>
+			<language type="goh">德文,上古全盛時期 (ca.750-1050)</language>
+			<language type="got">哥特文</language>
 			<language type="grb" draft="provisional">哥博文</language>
+			<language type="grc">古希臘文 (至 1453)</language>
+			<language type="ia">拉丁國際文 Interlingua</language>
+			<language type="ie">拉丁國際文 Interlingue</language>
+			<language type="kho">和闐[與闐]文</language>
 			<language type="lez" draft="provisional">列茲干文</language>
 			<language type="mga" draft="provisional">中古愛爾蘭文（900-1200）</language>
 			<language type="mwl" draft="provisional">米蘭德斯文</language>
 			<language type="nds" draft="provisional">低地日爾曼文；低地薩克遜文</language>
 			<language type="nwc" draft="provisional">古尼瓦爾文  </language>
 			<language type="oc" draft="provisional">奧克西坦文（1500 後）；普羅旺斯文</language>
+			<language type="pro">普羅文斯文 (to 1500)</language>
+			<language type="root">root</language>
+			<language type="rup">rup</language>
 			<language type="scn" draft="provisional">西西里文</language>
+			<language type="sco">苏格兰文</language>
 			<language type="srn" draft="provisional">蘇拉南東墎文</language>
 			<language type="tlh" draft="provisional">克林貢文</language>
+			<language type="xh">科薩語</language>
 		</languages>
 		<scripts>
 			<script type="Bali" draft="provisional">峇里文</script>
@@ -40,7 +59,11 @@
 			<script type="Egyd" draft="provisional">古埃及世俗體</script>
 			<script type="Egyh" draft="provisional">古埃及僧侶體</script>
 			<script type="Egyp" draft="provisional">古埃及象形文字</script>
+			<script type="Geok">Geok</script>
 			<script type="Glag" draft="provisional">格拉哥里文</script>
+			<script type="Gujr">吉亞拉塔文</script>
+			<script type="Hano">哈努努文</script>
+			<script type="Hans">簡體漢語</script>
 			<script type="Hmng" draft="provisional">楊松錄苗文</script>
 			<script type="Hrkt" draft="provisional">片假名或平假名</script>
 			<script type="Hung" draft="provisional">古匈牙利文</script>
@@ -117,6 +140,18 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">周日</day>
+							<day type="mon">周一</day>
+							<day type="wed">周三</day>
+							<day type="thu">周四</day>
+							<day type="fri">周五</day>
+							<day type="sat">周六</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -151,6 +186,41 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<fields>
+					<field type="era">
+						<displayName>Era</displayName>
+					</field>
+					<field type="year">
+						<displayName>Year</displayName>
+					</field>
+					<field type="month">
+						<displayName>Month</displayName>
+					</field>
+					<field type="week">
+						<displayName>Week</displayName>
+					</field>
+					<field type="day">
+						<displayName>Day</displayName>
+					</field>
+					<field type="weekday">
+						<displayName>Day of the Week</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName>Dayperiod</displayName>
+					</field>
+					<field type="hour">
+						<displayName>Hour</displayName>
+					</field>
+					<field type="minute">
+						<displayName>Minute</displayName>
+					</field>
+					<field type="second">
+						<displayName>Second</displayName>
+					</field>
+					<field type="zone">
+						<displayName>Zone</displayName>
+					</field>
+				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -261,20 +331,53 @@
 			<currency type="BRN">
 				<displayName draft="provisional">巴西克如爾達農瓦</displayName>
 			</currency>
+			<currency type="CSD">
+				<displayName>CSD</displayName>
+			</currency>
 			<currency type="DDM">
 				<displayName draft="provisional">東德奧斯特馬克</displayName>
+			</currency>
+			<currency type="EQE">
+				<displayName>EQE</displayName>
+			</currency>
+			<currency type="ESA">
+				<displayName>ESA</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName>ESB</displayName>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="provisional">喬治庫旁拉里</displayName>
 			</currency>
+			<currency type="INR">
+				<symbol choice="true">0≤Rs.|1≤Re.|1&lt;Rs.</symbol>
+			</currency>
 			<currency type="LAK">
 				<displayName draft="provisional">老撾開普</displayName>
+			</currency>
+			<currency type="LSM">
+				<displayName>LSM</displayName>
+			</currency>
+			<currency type="LUC">
+				<displayName>LUC</displayName>
+			</currency>
+			<currency type="LUL">
+				<displayName>LUL</displayName>
+			</currency>
+			<currency type="MXV">
+				<displayName>墨西哥法律反轉(UDI)</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName draft="provisional">尼加拉瓜金哥多華</displayName>
 			</currency>
+			<currency type="RHD">
+				<displayName>RHD</displayName>
+			</currency>
 			<currency type="SHP">
 				<displayName draft="provisional">聖赫勒拿鎊</displayName>
+			</currency>
+			<currency type="SRD">
+				<displayName>SRD</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName draft="provisional">愛爾薩爾瓦多科郎</displayName>
@@ -306,8 +409,17 @@
 			<currency type="XOF">
 				<displayName draft="provisional">西非法郎 BCEAO</displayName>
 			</currency>
+			<currency type="XPD">
+				<displayName>XPD</displayName>
+			</currency>
+			<currency type="XPT">
+				<displayName>XPT</displayName>
+			</currency>
 			<currency type="YUN">
 				<displayName draft="provisional">南斯拉夫可轉換第納爾</displayName>
+			</currency>
+			<currency type="ZRN">
+				<displayName>薩伊扎新伊爾</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -59,6 +59,7 @@
 			<language type="ru">Ruski</language>
 			<language type="sa">Sanskrit</language>
 			<language type="sh">Srpsko-Hrvatski</language>
+			<language type="sh" alt="proposed-x999" draft="provisional">srpski</language>
 			<language type="sk">Slovački</language>
 			<language type="sl">Slovenački</language>
 			<language type="sq">Albanski</language>
@@ -420,7 +421,9 @@
 							<month type="4">april</month>
 							<month type="5">maj</month>
 							<month type="6">jun</month>
+							<month type="6" alt="proposed-x999">juni</month>
 							<month type="7">jul</month>
+							<month type="7" alt="proposed-x999">juli</month>
 							<month type="8">avgust</month>
 							<month type="9">septembar</month>
 							<month type="10">oktobar</month>
@@ -452,6 +455,7 @@
 							<day type="mon">pon</day>
 							<day type="tue">uto</day>
 							<day type="wed">sre</day>
+							<day type="wed" alt="proposed-x999">sri</day>
 							<day type="thu">čet</day>
 							<day type="fri">pet</day>
 							<day type="sat">sub</day>
@@ -461,6 +465,7 @@
 							<day type="mon">ponedeljak</day>
 							<day type="tue">utorak</day>
 							<day type="wed">sreda</day>
+							<day type="wed" alt="proposed-x999">srijeda</day>
 							<day type="thu">četvrtak</day>
 							<day type="fri">petak</day>
 							<day type="sat">subota</day>
@@ -513,12 +518,44 @@
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>EEEE, d.MM.yyyy.</pattern>
+							<pattern alt="proposed-x999">dd. MMMM yyyy.</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>yyyy-MM-dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH 'časova', mm 'minuta', ss 'sekundi'</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMMdd" draft="provisional">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -580,6 +617,13 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="provisional">#,##0.00 km</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ATS">
 				<displayName>Austrijski šiling</displayName>
@@ -589,6 +633,8 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibilna marka</displayName>
+				<displayName alt="proposed-x999">Konvertibilna Marka</displayName>
+				<symbol>KM.</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgijski franak</displayName>

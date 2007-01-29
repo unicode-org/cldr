@@ -15,7 +15,6 @@
 			<language type="bug">Buginese</language>
 			<language type="ce">chechene</language>
 			<language type="chy" draft="provisional">cheyenne</language>
-			<language type="cmc" draft="provisional">idiomas chamic</language>
 			<language type="crh" draft="provisional">turco da crimeia, tatar da crimeia</language>
 			<language type="cs">checo</language>
 			<language type="cus" draft="provisional">cuchíticas (outros)</language>
@@ -43,8 +42,6 @@
 			<language type="ik">Inupiaq</language>
 			<language type="ilo" draft="provisional">iloko</language>
 			<language type="jv">jv</language>
-			<language type="kbd" draft="provisional">kabardiano</language>
-			<language type="khi" draft="provisional">khoisan (outros)</language>
 			<language type="kho" draft="provisional">khotanês</language>
 			<language type="ki" draft="provisional">kikuyu</language>
 			<language type="kl" draft="provisional">kalaallisut</language>
@@ -54,12 +51,10 @@
 			<language type="mh" draft="provisional">marsalhês</language>
 			<language type="mk" draft="provisional">macedónio</language>
 			<language type="mkh">mon-khmer (other)</language>
-			<language type="mno" draft="provisional">idiomas manobo</language>
 			<language type="nah" draft="provisional">nauatle</language>
 			<language type="nd">ndebele, north</language>
 			<language type="nic" draft="provisional">níger - kordofaniano (outros)</language>
 			<language type="non">norse, old</language>
-			<language type="nr" draft="provisional">ndebele do sul</language>
 			<language type="nso">soto, setentrional</language>
 			<language type="os" draft="provisional">ossético</language>
 			<language type="ota">turco, otomano (1500-1928)</language>
@@ -70,7 +65,6 @@
 			<language type="sgn">linguages de sinais</language>
 			<language type="sl">esloveno</language>
 			<language type="ssa" draft="provisional">nilo-saariano (outros)</language>
-			<language type="st" draft="provisional">soto do sul</language>
 			<language type="ta" draft="provisional">tamil</language>
 			<language type="tet" draft="provisional">tetum</language>
 			<language type="tig" draft="provisional">tigre</language>
@@ -114,9 +108,7 @@
 			<territory type="AI" draft="provisional">Anguilha</territory>
 			<territory type="AM">Arménia</territory>
 			<territory type="AQ">Antárctica</territory>
-			<territory type="AX" draft="provisional">Ilhas Aland</territory>
 			<territory type="AZ">Azerbeijão</territory>
-			<territory type="BA">Bósnia-Herzegovina</territory>
 			<territory type="BH">Bareine</territory>
 			<territory type="BJ">Benim</territory>
 			<territory type="BY">Bielorrússia</territory>
@@ -252,30 +244,6 @@
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
-					<field type="year">
-						<displayName draft="provisional">Ano</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="provisional">Mês</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="provisional">Semana</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="provisional">Dia</displayName>
-					</field>
-					<field type="weekday">
-						<displayName draft="provisional">Dia da semana</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="provisional">Período do dia</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="provisional">Hora</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="provisional">Minuto</displayName>
-					</field>
 					<field type="second">
 						<displayName>Second</displayName>
 					</field>
@@ -409,9 +377,6 @@
 			<currency type="BAM">
 				<displayName>Marco bósnio-herzegóvino conversível</displayName>
 			</currency>
-			<currency type="BRB">
-				<displayName>Cruzeiro novo brasileiro (1967-1986)</displayName>
-			</currency>
 			<currency type="CYP">
 				<displayName>Libra de Chipre</displayName>
 			</currency>
@@ -433,20 +398,11 @@
 			<currency type="GNF">
 				<displayName draft="provisional">Franco da Guiné</displayName>
 			</currency>
-			<currency type="GNS">
-				<displayName draft="provisional">Syli da Guiné</displayName>
-			</currency>
-			<currency type="GQE">
-				<displayName draft="provisional">Ekwele da Guiné Equatorial</displayName>
-			</currency>
 			<currency type="GTQ">
 				<displayName draft="provisional">Quetzal da Guatemala</displayName>
 			</currency>
 			<currency type="HNL">
 				<displayName draft="provisional">Lempira das Honduras</displayName>
-			</currency>
-			<currency type="KGS">
-				<displayName draft="provisional">Som do Quirguistão</displayName>
 			</currency>
 			<currency type="KWD">
 				<displayName draft="provisional">Dinar koweitiano</displayName>
@@ -454,17 +410,8 @@
 			<currency type="KYD">
 				<displayName>Dólar das Ilhas Caimão</displayName>
 			</currency>
-			<currency type="LKR">
-				<displayName draft="provisional">Rupia do Sri Lanka</displayName>
-			</currency>
-			<currency type="LSL">
-				<displayName draft="provisional">Loti do Lesoto</displayName>
-			</currency>
 			<currency type="MAD">
 				<displayName draft="provisional">Dirham marroquino</displayName>
-			</currency>
-			<currency type="MDL">
-				<displayName draft="provisional">Leu da Moldávia</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName draft="provisional">Dinar macedónio</displayName>
@@ -487,9 +434,6 @@
 			<currency type="NIO">
 				<displayName>Córdoba Ouro nicaraguano</displayName>
 			</currency>
-			<currency type="NLG">
-				<displayName draft="provisional">Florim holandês</displayName>
-			</currency>
 			<currency type="PLN">
 				<displayName draft="provisional">Zloti polaco</displayName>
 			</currency>
@@ -506,9 +450,6 @@
 			</currency>
 			<currency type="SGD">
 				<displayName draft="provisional">Dólar de Singapura</displayName>
-			</currency>
-			<currency type="SRG">
-				<displayName draft="provisional">Florim do Suriname</displayName>
 			</currency>
 			<currency type="TZS">
 				<displayName>Xelim de Tanzânia</displayName>

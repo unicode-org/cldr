@@ -26,18 +26,6 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/yy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -64,7 +52,6 @@
 					<availableFormats>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

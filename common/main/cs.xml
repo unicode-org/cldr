@@ -74,6 +74,11 @@
 			<language type="ku">kurdština</language>
 			<language type="ky">kirgizština</language>
 			<language type="la">latina</language>
+		</languages>
+		<languages>
+			<language type="lb">Lucemburština</language>
+		</languages>
+		<languages casing="lowercase-words">
 			<language type="ln">lingalština</language>
 			<language type="lo">laoština</language>
 			<language type="lt">litevština</language>
@@ -162,7 +167,8 @@
 			<territory type="014">Východní Afrika</territory>
 			<territory type="015">Severní Afrika</territory>
 			<territory type="017">Střední Afrika</territory>
-			<territory type="018">Jižní Afrika</territory>
+			<territory type="018" draft="provisional">jižní Afrika</territory>
+			<territory type="018" alt="proposed-x999">Jižní Afrika</territory>
 			<territory type="019">Amerika</territory>
 			<territory type="021">Severní Amerika</territory>
 			<territory type="029">Karibik</territory>
@@ -181,6 +187,7 @@
 			<territory type="154">Severní Evropa</territory>
 			<territory type="155">Západní Evropa</territory>
 			<territory type="200">Československo</territory>
+			<territory type="419" draft="provisional">Latinská Amerika a Karibské moře</territory>
 			<territory type="830">Normanské ostrovy</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Spojené arabské emiráty</territory>
@@ -895,6 +902,13 @@
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Peseta andorrská</displayName>

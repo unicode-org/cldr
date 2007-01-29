@@ -827,6 +827,13 @@
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00¤;-¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Πεσέτα Ανδόρας</displayName>
@@ -1115,8 +1122,11 @@
 				<displayName>Ekwele Guineana Ισημερινής Γουινέας</displayName>
 			</currency>
 			<currency type="GRD">
+				<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
 				<displayName>Δραχμή Ελλάδας</displayName>
 				<symbol>Δρχ</symbol>
+				<decimal>,</decimal>
+				<group>.</group>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal Γουατεμάλα</displayName>

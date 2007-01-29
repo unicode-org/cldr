@@ -925,12 +925,16 @@
 		<exemplarCharacters type="auxiliary">[á ǎ č ç đ è ê ń ñ ŋ š ŧ ü ž ä ö]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>«</quotationStart>
-		<quotationEnd>»</quotationEnd>
-		<alternateQuotationStart>&quot;</alternateQuotationStart>
+		<quotationStart draft="unconfirmed">’</quotationStart>
+		<quotationStart alt="proposed-x999">«</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<quotationEnd alt="proposed-x999">»</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
 		<alternateQuotationStart alt="proposed-u219-1" draft="unconfirmed">”</alternateQuotationStart>
-		<alternateQuotationEnd>&quot;</alternateQuotationEnd>
+		<alternateQuotationStart alt="proposed-x999">&quot;</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">»</alternateQuotationEnd>
 		<alternateQuotationEnd alt="proposed-u219-1" draft="unconfirmed">”</alternateQuotationEnd>
+		<alternateQuotationEnd alt="proposed-x999">&quot;</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -1095,8 +1099,11 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="HHmm" draft="provisional">HH.mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd. MM</dateFormatItem>
+						<dateFormatItem id="MMdd" alt="proposed-x999" draft="provisional">dd.MM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
@@ -1191,6 +1198,14 @@
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="proposed-u223-1" draft="unconfirmed">¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>andorranske pesetas</displayName>

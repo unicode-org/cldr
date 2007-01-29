@@ -9,25 +9,40 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ang">inglês, arcaico (aprox. 450-1100)</language>
+			<language type="awa">Awadhi</language>
+			<language type="bai">bamileke Languages</language>
+			<language type="bug">Buginese</language>
+			<language type="ce">chechene</language>
 			<language type="chy" draft="provisional">cheyenne</language>
 			<language type="cmc" draft="provisional">idiomas chamic</language>
 			<language type="crh" draft="provisional">turco da crimeia, tatar da crimeia</language>
 			<language type="cs">checo</language>
 			<language type="cus" draft="provisional">cuchíticas (outros)</language>
 			<language type="dsb" draft="provisional">Baixo Sórbio</language>
+			<language type="dum">holandês, medieval (aprox. 1050-1350)</language>
 			<language type="dyu" draft="provisional">diula</language>
 			<language type="ee" draft="provisional">ewe</language>
 			<language type="efi" draft="provisional">efik</language>
+			<language type="enm">inglês, medieval (1100-1500)</language>
 			<language type="et">estónio</language>
 			<language type="fan" draft="provisional">fang</language>
 			<language type="fo" draft="provisional">faroés</language>
+			<language type="frm">francês, medieval (aprox.1400-1600)</language>
+			<language type="fro">francês, arcaico (842-aprox.1400)</language>
 			<language type="gl" draft="provisional">galiciano</language>
+			<language type="gmh">alemão, medieval alto (aprox.1050-1500)</language>
+			<language type="goh">alemão, arcaico alto (aprox.750-1050)</language>
 			<language type="grb" draft="provisional">Grebo</language>
+			<language type="grc">grego, arcaico (até 1453)</language>
 			<language type="ha" draft="provisional">hausa</language>
 			<language type="hsb" draft="provisional">sorbiano superior</language>
 			<language type="hy" draft="provisional">arménio</language>
+			<language type="iba">Iban</language>
 			<language type="ig" draft="provisional">igbo</language>
+			<language type="ik">Inupiaq</language>
 			<language type="ilo" draft="provisional">iloko</language>
+			<language type="jv">jv</language>
 			<language type="kbd" draft="provisional">kabardiano</language>
 			<language type="khi" draft="provisional">khoisan (outros)</language>
 			<language type="kho" draft="provisional">khotanês</language>
@@ -35,14 +50,24 @@
 			<language type="kl" draft="provisional">kalaallisut</language>
 			<language type="km" draft="provisional">khmer</language>
 			<language type="lez" draft="provisional">lezghiano</language>
+			<language type="mga">irlandês, medieval (900-1200)</language>
 			<language type="mh" draft="provisional">marsalhês</language>
 			<language type="mk" draft="provisional">macedónio</language>
+			<language type="mkh">mon-khmer (other)</language>
 			<language type="mno" draft="provisional">idiomas manobo</language>
 			<language type="nah" draft="provisional">nauatle</language>
+			<language type="nd">ndebele, north</language>
 			<language type="nic" draft="provisional">níger - kordofaniano (outros)</language>
+			<language type="non">norse, old</language>
 			<language type="nr" draft="provisional">ndebele do sul</language>
+			<language type="nso">soto, setentrional</language>
 			<language type="os" draft="provisional">ossético</language>
+			<language type="ota">turco, otomano (1500-1928)</language>
+			<language type="peo">persa arcaico (aprox. 600-400 a.C.)</language>
 			<language type="pl">polaco</language>
+			<language type="pro">provençal, arcaico (até 1500)</language>
+			<language type="sal">salishan languages</language>
+			<language type="sgn">linguages de sinais</language>
 			<language type="sl">esloveno</language>
 			<language type="ssa" draft="provisional">nilo-saariano (outros)</language>
 			<language type="st" draft="provisional">soto do sul</language>
@@ -51,6 +76,7 @@
 			<language type="tig" draft="provisional">tigre</language>
 			<language type="tut" draft="provisional">altaico (outros)</language>
 			<language type="tyv" draft="provisional">tuviniano</language>
+			<language type="wak">wakashan languages</language>
 			<language type="wen" draft="provisional">idiomas sorbio</language>
 		</languages>
 		<scripts>
@@ -77,11 +103,13 @@
 			<script type="Linb" draft="provisional">Linear B</script>
 			<script type="Maya" draft="provisional">Hieroglifos maias</script>
 			<script type="Mlym" draft="provisional">Malaialam</script>
+			<script type="Osma">osmanya</script>
 			<script type="Phnx" draft="provisional">fenício</script>
 			<script type="Sylo" draft="provisional">Siloti Nagri</script>
 			<script type="Taml" draft="provisional">tamil</script>
 		</scripts>
 		<territories>
+			<territory type="172">172</territory>
 			<territory type="AE">Emiratos Árabes Unidos</territory>
 			<territory type="AI" draft="provisional">Anguilha</territory>
 			<territory type="AM">Arménia</territory>
@@ -89,6 +117,7 @@
 			<territory type="AX" draft="provisional">Ilhas Aland</territory>
 			<territory type="AZ">Azerbeijão</territory>
 			<territory type="BA">Bósnia-Herzegovina</territory>
+			<territory type="BH">Bareine</territory>
 			<territory type="BJ">Benim</territory>
 			<territory type="BY">Bielorrússia</territory>
 			<territory type="CM">Camarões</territory>
@@ -121,6 +150,7 @@
 			<territory type="MP">Ilhas Mariana do Norte</territory>
 			<territory type="MU">Maurícias</territory>
 			<territory type="NC">Nova Caledónia</territory>
+			<territory type="NL">Países Baixos</territory>
 			<territory type="PG">Papua Nova Guiné</territory>
 			<territory type="PL">Polónia</territory>
 			<territory type="PS">Território Palestiniano</territory>
@@ -164,6 +194,30 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, yyyy G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>MMMM d, yyyy G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>MMM d, yyyy G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>M/d/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
 					<dateFormatLength type="medium">
@@ -177,6 +231,18 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH'H'mm'm'ss's' z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMdd" draft="provisional">MM/dd</dateFormatItem>
@@ -210,13 +276,43 @@
 					<field type="minute">
 						<displayName draft="provisional">Minuto</displayName>
 					</field>
+					<field type="second">
+						<displayName>Second</displayName>
+					</field>
 					<field type="zone">
 						<displayName draft="provisional">Zona</displayName>
 					</field>
 				</fields>
 			</calendar>
+			<calendar type="japanese">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>MMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>M/d/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>Tucumán</exemplarCity>
+			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Cuibá</exemplarCity>
 			</zone>
@@ -245,9 +341,30 @@
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sacalina</exemplarCity>
 			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>Phoenix</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center</exemplarCity>
 			</zone>
+			<metazone type="America_Mountain">
+				<long>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário de Verão Montanha</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<standard>Horário Padrão Atlântico</standard>
+					<daylight>Horário de Verão Atlântico</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Horário Padrão Europa Central</standard>
+					<daylight>Horário de Verão Europa Central</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -286,8 +403,23 @@
 			<currency type="AWG">
 				<displayName draft="provisional">Florim de Aruba</displayName>
 			</currency>
+			<currency type="BAD">
+				<displayName>Dinar da Bósnia-Herzegóvina</displayName>
+			</currency>
+			<currency type="BAM">
+				<displayName>Marco bósnio-herzegóvino conversível</displayName>
+			</currency>
 			<currency type="BRB">
 				<displayName>Cruzeiro novo brasileiro (1967-1986)</displayName>
+			</currency>
+			<currency type="CYP">
+				<displayName>Libra de Chipre</displayName>
+			</currency>
+			<currency type="CZK">
+				<displayName>Coroa da República Checa</displayName>
+			</currency>
+			<currency type="ECV">
+				<displayName>Unidad de Valor Constante (UVC) do Equador</displayName>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="provisional">Dólar das Fiji</displayName>
@@ -319,6 +451,9 @@
 			<currency type="KWD">
 				<displayName draft="provisional">Dinar koweitiano</displayName>
 			</currency>
+			<currency type="KYD">
+				<displayName>Dólar das Ilhas Caimão</displayName>
+			</currency>
 			<currency type="LKR">
 				<displayName draft="provisional">Rupia do Sri Lanka</displayName>
 			</currency>
@@ -339,6 +474,18 @@
 			</currency>
 			<currency type="MWK">
 				<displayName draft="provisional">Kwacha do Malawi</displayName>
+			</currency>
+			<currency type="MXP">
+				<displayName>Peso Plata mexicano (1861-1992)</displayName>
+			</currency>
+			<currency type="MXV">
+				<displayName>Unidad de Inversion (UDI) mexicana</displayName>
+			</currency>
+			<currency type="NIC">
+				<displayName>Córdoba nicaraguano</displayName>
+			</currency>
+			<currency type="NIO">
+				<displayName>Córdoba Ouro nicaraguano</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName draft="provisional">Florim holandês</displayName>
@@ -362,6 +509,12 @@
 			</currency>
 			<currency type="SRG">
 				<displayName draft="provisional">Florim do Suriname</displayName>
+			</currency>
+			<currency type="TZS">
+				<displayName>Xelim de Tanzânia</displayName>
+			</currency>
+			<currency type="WST">
+				<displayName>Tala de Samoa Ocidental</displayName>
 			</currency>
 			<currency type="XBA">
 				<displayName draft="provisional">Unidade Composta Europeia</displayName>

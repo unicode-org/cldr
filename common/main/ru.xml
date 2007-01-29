@@ -25,7 +25,8 @@
 			<language type="am">амхарский</language>
 			<language type="an">арагонский</language>
 			<language type="ang">староанглийский</language>
-			<language type="apa">апачский</language>
+			<language type="apa">апачские языки</language>
+			<language type="apa" alt="proposed-x999">апачский</language>
 			<language type="ar">арабский</language>
 			<language type="arc">арамейский</language>
 			<language type="arn">арауканский</language>
@@ -101,7 +102,8 @@
 			<language type="dak">дакота</language>
 			<language type="de">немецкий</language>
 			<language type="del">делаварский</language>
-			<language type="den">слэйви</language>
+			<language type="den" draft="provisional">славянский</language>
+			<language type="den" alt="proposed-x999">слэйви</language>
 			<language type="din">динка</language>
 			<language type="doi">догри</language>
 			<language type="dra">дравидийские (другие)</language>
@@ -254,7 +256,8 @@
 			<language type="men">менде</language>
 			<language type="mg">малагасийский</language>
 			<language type="mga">среднеирландский</language>
-			<language type="mh">маршальский</language>
+			<language type="mh" draft="provisional">маршаллийский</language>
+			<language type="mh" alt="proposed-x999">маршальский</language>
 			<language type="mi">маори</language>
 			<language type="mic">микмак</language>
 			<language type="min">минангкабау</language>
@@ -395,7 +398,8 @@
 			<language type="tk">туркменский</language>
 			<language type="tkl">токелайский</language>
 			<language type="tl">тагалог</language>
-			<language type="tlh">клингон</language>
+			<language type="tlh">клингонский</language>
+			<language type="tlh" alt="proposed-x999">клингон</language>
 			<language type="tli">тлингит</language>
 			<language type="tmh">тамашек</language>
 			<language type="tn">тсвана</language>
@@ -496,8 +500,9 @@
 			<script type="Tibt">Тибетская</script>
 			<script type="Ugar">Угаритская</script>
 			<script type="Xpeo">Староперсидская</script>
-			<script type="Xsux">Шумеро-аккадская клинопись</script>
+			<script type="Xsux" draft="provisional">Шумер-Аккадская клинопись</script>
 			<script type="Xsux" alt="proposed-u179-1" draft="unconfirmed">Шумер-Аккадская клинопись</script>
+			<script type="Xsux" alt="proposed-x999">Шумеро-аккадская клинопись</script>
 			<script type="Yiii">Йи (ицзу)</script>
 			<script type="Zyyy">Неопределенная</script>
 		</scripts>
@@ -779,7 +784,8 @@
 			<key type="currency">Валюта</key>
 		</keys>
 		<types>
-			<type type="buddhist" key="calendar">Буддийский календарь</type>
+			<type type="buddhist" key="calendar">Буддийский кадендарь</type>
+			<type type="buddhist" key="calendar" alt="proposed-x999">Буддийский календарь</type>
 			<type type="chinese" key="calendar">Китайский календарь</type>
 			<type type="gregorian" key="calendar">Григорианский календарь</type>
 			<type type="hebrew" key="calendar">Еврейский календарь</type>
@@ -787,6 +793,10 @@
 			<type type="islamic-civil" key="calendar">Исламский гражданский календарь</type>
 			<type type="japanese" key="calendar">Японский календарь</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US">Англо-американская</measurementSystemName>
+			<measurementSystemName type="metric">Метрическая</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<layout>
 		<inList casing="titlecase-firstword"/>
@@ -1783,7 +1793,8 @@
 				<displayName>Азербайджанский манат</displayName>
 			</currency>
 			<currency type="BAM">
-				<displayName>Конвертируемая марка Боснии и Герцеговины</displayName>
+				<displayName draft="provisional">Конвертируемая марка Боснии и Герциговины</displayName>
+				<displayName alt="proposed-x999">Конвертируемая марка Боснии и Герцеговины</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>Барбадосский доллар</displayName>
@@ -1939,6 +1950,9 @@
 			</currency>
 			<currency type="ESA">
 				<displayName>Испанская песета (А)</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName>Испанская песета (А) ()</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>Испанская песета</displayName>
@@ -2234,6 +2248,9 @@
 				<displayName>Катарский риал</displayName>
 				<symbol>QR</symbol>
 			</currency>
+			<currency type="RHD">
+				<displayName>Родезийский доллар</displayName>
+			</currency>
 			<currency type="ROL">
 				<displayName>Румынский лей</displayName>
 				<symbol>leu</symbol>
@@ -2422,6 +2439,9 @@
 				<displayName>Йеменский риал</displayName>
 				<symbol>YRl</symbol>
 			</currency>
+			<currency type="YUM">
+				<displayName>Югославский новый динар</displayName>
+			</currency>
 			<currency type="YUN">
 				<displayName>Югославский динар</displayName>
 			</currency>
@@ -2451,7 +2471,8 @@
 		</messages>
 	</posix>
 	<references>
-		<reference type="R1" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm">ГОСТ 7.12-93</reference>
+		<reference type="R1" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm">http://www.gsnti-norms.ru/norms/common/doc.asp?0&amp;/norms/stands/7_12.htm</reference>
+		<reference type="R1" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm" alt="proposed-x999">ГОСТ 7.12-93</reference>
 		<reference type="RP1" uri="http://www.spravka.gramota.ru/pravila.html?perenos.htm">Правила переносов</reference>
 	</references>
 </ldml>

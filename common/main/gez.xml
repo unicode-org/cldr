@@ -406,44 +406,52 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
+							<pattern draft="unconfirmed">EEEE፥ dd MMMM መዓልት yyyy G</pattern>
+							<pattern alt="proposed-x999" draft="provisional">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMMM d</pattern>
+							<pattern draft="unconfirmed">dd MMMM yyyy</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMM d</pattern>
+							<pattern draft="unconfirmed">dd-MMM-yyyy</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="provisional">yy/MM/dd</pattern>
+							<pattern draft="unconfirmed">dd/MM/yy</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="unconfirmed">h:mm a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -454,7 +462,11 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -466,6 +478,16 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<symbols>
+			<group draft="unconfirmed">ወ</group>
+		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="unconfirmed">¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName draft="unconfirmed">የብራዚል ሪል</displayName>
@@ -474,9 +496,13 @@
 				<displayName draft="unconfirmed">የቻይና ዩአን ረንሚንቢ</displayName>
 				<symbol draft="unconfirmed">Y</symbol>
 			</currency>
+			<currency type="ERN">
+				<symbol draft="unconfirmed">$</symbol>
+			</currency>
 			<currency type="ETB">
 				<displayName draft="unconfirmed">የኢትዮጵያ ብር</displayName>
-				<symbol draft="unconfirmed">$</symbol>
+				<symbol draft="unconfirmed">ETB$</symbol>
+				<symbol alt="proposed-x999" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">አውሮ</displayName>
@@ -495,7 +521,8 @@
 			</currency>
 			<currency type="USD">
 				<displayName draft="unconfirmed">የአሜሪካን ዶላር</displayName>
-				<symbol draft="unconfirmed">USD</symbol>
+				<symbol draft="unconfirmed">US$</symbol>
+				<symbol alt="proposed-x999" draft="unconfirmed">USD</symbol>
 			</currency>
 		</currencies>
 	</numbers>

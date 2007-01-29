@@ -1040,10 +1040,14 @@
 		<exemplarCharacters type="auxiliary">[i v x]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="provisional">«</quotationStart>
-		<quotationEnd draft="provisional">»</quotationEnd>
-		<alternateQuotationStart draft="provisional">„</alternateQuotationStart>
-		<alternateQuotationEnd draft="provisional">“</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">‘</quotationStart>
+		<quotationStart alt="proposed-x999" draft="provisional">«</quotationStart>
+		<quotationEnd draft="unconfirmed">’</quotationEnd>
+		<quotationEnd alt="proposed-x999" draft="provisional">»</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
+		<alternateQuotationStart alt="proposed-x999" draft="provisional">„</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
+		<alternateQuotationEnd alt="proposed-x999" draft="provisional">“</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -2008,6 +2012,13 @@
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Андоррська песета</displayName>

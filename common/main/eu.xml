@@ -256,22 +256,26 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
+							<pattern draft="provisional">EEEE, yyyy'eko' MMMM'ren' dd'a'</pattern>
+							<pattern alt="proposed-x999" draft="provisional">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMMM d</pattern>
+							<pattern draft="provisional">EEE, yyyy'eko' MMM'ren' dd'a'</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMM d</pattern>
+							<pattern draft="provisional">yy'-'MMM'-'dd</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="provisional">yy/MM/dd</pattern>
+							<pattern draft="provisional">yy'-'MM'-'dd</pattern>
+							<pattern alt="proposed-x999" draft="provisional">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -320,6 +324,13 @@
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>

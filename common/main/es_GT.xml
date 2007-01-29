@@ -16,6 +16,11 @@
 							<pattern>d/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
@@ -52,6 +57,15 @@
 			<decimal>.</decimal>
 			<group>,</group>
 		</symbols>
+		<currencies>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>dólar estadounidense</displayName>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
 

@@ -909,7 +909,8 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-s š t-z ž å ä ö]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á à ã č ç é è ë í ï ñ ô ř ú ü æ ø õ œ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à â ã č ç đ é è ë ǧ ǥ ȟ í ï ǩ ń ñ ŋ ô ř ŧ ú ü æ ø õ œ ʒ ǯ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-x999">[á à ã č ç é è ë í ï ñ ô ř ú ü æ ø õ œ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>”</quotationStart>
@@ -1427,7 +1428,8 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="proposed-x999">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

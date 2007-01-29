@@ -1015,7 +1015,8 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="provisional">H:mm:ss z</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -1570,8 +1571,11 @@
 				<displayName>Corona Islandese</displayName>
 			</currency>
 			<currency type="ITL">
+				<pattern>¤ #,##0;-¤ #,##0</pattern>
 				<displayName>Lira Italiana</displayName>
 				<symbol>₤</symbol>
+				<decimal>,</decimal>
+				<group>.</group>
 			</currency>
 			<currency type="JMD">
 				<displayName>Dollaro Giamaicano</displayName>

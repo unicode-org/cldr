@@ -82,6 +82,10 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -93,6 +97,10 @@
 			<currency type="CLP">
 				<displayName>Peso Chileno</displayName>
 				<symbol>$</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dólar Americano</displayName>

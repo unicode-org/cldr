@@ -33,6 +33,16 @@
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="provisional">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
@@ -43,10 +53,18 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+		</symbols>
 		<currencies>
 			<currency type="ARS">
 				<displayName>Peso Argentino</displayName>
 				<symbol>$</symbol>
+			</currency>
+			<currency type="MXN">
+				<displayName>peso mexicano</displayName>
+				<symbol>MEX$</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dólar Americano</displayName>

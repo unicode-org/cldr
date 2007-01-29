@@ -64,13 +64,16 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">Qunxa Garablu</month>
-							<month type="2" draft="unconfirmed">Naharsi Kudo</month>
+							<month type="2" draft="unconfirmed">Kudo</month>
+							<month type="2" alt="proposed-x999" draft="unconfirmed">Naharsi Kudo</month>
 							<month type="3" draft="unconfirmed">Ciggilta Kudo</month>
-							<month type="4" draft="unconfirmed">Agda Baxisso</month>
+							<month type="4" draft="unconfirmed">Agda Baxis</month>
+							<month type="4" alt="proposed-x999" draft="unconfirmed">Agda Baxisso</month>
 							<month type="5" draft="unconfirmed">Caxah Alsa</month>
 							<month type="6" draft="unconfirmed">Qasa Dirri</month>
 							<month type="7" draft="unconfirmed">Qado Dirri</month>
-							<month type="8" draft="unconfirmed">Leqeeni</month>
+							<month type="8" draft="unconfirmed">Liiqen</month>
+							<month type="8" alt="proposed-x999" draft="unconfirmed">Leqeeni</month>
 							<month type="9" draft="unconfirmed">Waysu</month>
 							<month type="10" draft="unconfirmed">Diteli</month>
 							<month type="11" draft="unconfirmed">Ximoli</month>
@@ -218,6 +221,13 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="unconfirmed">¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName draft="unconfirmed">Brazilian Real</displayName>
@@ -229,6 +239,10 @@
 				<symbol draft="unconfirmed">FD</symbol>
 			</currency>
 			<currency type="ERN">
+				<symbol draft="unconfirmed">ERN</symbol>
+				<symbol alt="proposed-x999" draft="unconfirmed">$</symbol>
+			</currency>
+			<currency type="ETB">
 				<symbol draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="EUR">

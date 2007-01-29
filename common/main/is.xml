@@ -8,7 +8,8 @@
 	</identity>
 	<localeDisplayNames>
 		<languages casing="lowercase-words">
-			<language type="aa" draft="unconfirmed">afár</language>
+			<language type="aa" draft="provisional">Afar</language>
+			<language type="aa" alt="proposed-x999" draft="unconfirmed">afár</language>
 			<language type="ab">abkasíska</language>
 			<language type="ace">akkíska</language>
 			<language type="ach">akólí</language>
@@ -18,12 +19,14 @@
 			<language type="af">afríkanska</language>
 			<language type="afa">afróasísk mál (önnur)</language>
 			<language type="afh">afríhílí</language>
-			<language type="ain" draft="unconfirmed">aínu</language>
+			<language type="ain" draft="provisional">Ainú</language>
+			<language type="ain" alt="proposed-x999" draft="unconfirmed">aínu</language>
 			<language type="ak">akan</language>
 			<language type="akk">akkadíska</language>
 			<language type="ale">aleúska</language>
 			<language type="alg">algonkvínsk mál</language>
-			<language type="alt" draft="unconfirmed">suðuraltaíska</language>
+			<language type="alt" draft="provisional">Altaí</language>
+			<language type="alt" alt="proposed-x999" draft="unconfirmed">suðuraltaíska</language>
 			<language type="am">amharíska</language>
 			<language type="an">aragonska</language>
 			<language type="ang">fornenska (um 450-1100)</language>
@@ -387,8 +390,9 @@
 			<language type="si">singalesíska</language>
 			<language type="sid">sídamó</language>
 			<language type="sio">síúmál</language>
-			<language type="sit">sínótíbesk mál (önnur)</language>
+			<language type="sit" draft="provisional">Sínótíbeska (önnur)</language>
 			<language type="sit" alt="proposed-u219-1" draft="unconfirmed">sínótíbesk mál (önnur)</language>
+			<language type="sit" alt="proposed-x999">sínótíbesk mál (önnur)</language>
 			<language type="sk">slóvakíska</language>
 			<language type="sl">slóvenska</language>
 			<language type="sla">slavnesk mál (önnur)</language>
@@ -398,7 +402,8 @@
 			<language type="smj">lúlesamíska</language>
 			<language type="smn">enaresamíska</language>
 			<language type="sms">skoltesamíska</language>
-			<language type="sn">shona</language>
+			<language type="sn" draft="provisional">Shóna</language>
+			<language type="sn" alt="proposed-x999">shona</language>
 			<language type="snk">sóninke</language>
 			<language type="so">sómalska</language>
 			<language type="sog">sogdíen</language>
@@ -460,8 +465,9 @@
 			<language type="vai">vaí</language>
 			<language type="ve">venda</language>
 			<language type="vi">víetnamska</language>
-			<language type="vo">volapük</language>
+			<language type="vo" draft="provisional">Volapuk</language>
 			<language type="vo" alt="proposed-u219-1" draft="unconfirmed">volapyk</language>
+			<language type="vo" alt="proposed-x999">volapük</language>
 			<language type="vot">votíska</language>
 			<language type="wa">vallónska</language>
 			<language type="wak">vakasmál</language>
@@ -486,6 +492,11 @@
 			<language type="zun">súní</language>
 		</languages>
 		<scripts>
+			<script type="Arab" draft="provisional">Arabískt</script>
+			<script type="Cyrl" draft="provisional">Kyrillískt</script>
+			<script type="Ethi" draft="provisional">Eþíópískt</script>
+			<script type="Hans" draft="provisional">Einföldað Han</script>
+			<script type="Hant" draft="provisional">Hefðbundið Han</script>
 			<script type="Latn" draft="unconfirmed">Latneskt</script>
 		</scripts>
 		<territories>
@@ -498,7 +509,8 @@
 			<territory type="014" draft="unconfirmed">austur-Afríka</territory>
 			<territory type="015" draft="unconfirmed">norður-Afríka</territory>
 			<territory type="017" draft="unconfirmed">mið-Afríka</territory>
-			<territory type="018" draft="unconfirmed">suður-Afríka</territory>
+			<territory type="018" draft="provisional">Syðri-Afríka</territory>
+			<territory type="018" alt="proposed-x999" draft="unconfirmed">suður-Afríka</territory>
 			<territory type="019" draft="unconfirmed">Ameríka</territory>
 			<territory type="021" draft="unconfirmed">norður-Ameríka</territory>
 			<territory type="029" draft="unconfirmed">Karíbahaf</territory>
@@ -779,14 +791,22 @@
 			<type type="stroke" key="collation">Strikaröðun</type>
 			<type type="traditional" key="collation">Hefðbundin</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US" draft="provisional">Bandarískt</measurementSystemName>
+			<measurementSystemName type="metric" draft="provisional">Metrakerfi</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á b d ð e é f-i í j-o ó p r-u ú v y ý þ æ ö]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q w z]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">”</quotationStart>
-		<alternateQuotationStart draft="unconfirmed">’</alternateQuotationStart>
+		<quotationStart draft="provisional">„</quotationStart>
+		<quotationStart alt="proposed-x999" draft="unconfirmed">”</quotationStart>
+		<quotationEnd draft="provisional">“</quotationEnd>
+		<alternateQuotationStart draft="provisional">‚</alternateQuotationStart>
+		<alternateQuotationStart alt="proposed-x999" draft="unconfirmed">’</alternateQuotationStart>
+		<alternateQuotationEnd draft="provisional">‘</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -1048,6 +1068,13 @@
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Andorrskur peseti</displayName>
@@ -1608,7 +1635,8 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="unconfirmed">já:ja:j</yesstr>
+			<yesstr draft="provisional">já:j</yesstr>
+			<yesstr alt="proposed-x999" draft="unconfirmed">já:ja:j</yesstr>
 			<nostr draft="unconfirmed">nei:n</nostr>
 		</messages>
 	</posix>

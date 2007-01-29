@@ -999,34 +999,40 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd-MMM-yy</pattern>
+							<pattern>dd/MM/yyyy</pattern>
+							<pattern alt="proposed-x999">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d/MM/yy</pattern>
+							<pattern>dd/MM/yy</pattern>
+							<pattern alt="proposed-x999">d/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH'H'mm''ss&quot; z</pattern>
+							<pattern>hh:mm:ss a z</pattern>
+							<pattern alt="proposed-x999">HH'H'mm''ss&quot; z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="provisional">hh:mm:ss a z</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="provisional">hh:mm:ss a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="provisional">hh:mm a</pattern>
+							<pattern alt="proposed-x999" draft="provisional">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1047,6 +1053,7 @@
 						<dateFormatItem id="yyMMM" draft="provisional">MMM-yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1307,8 +1314,10 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>,</decimal>
-			<group>.</group>
+			<decimal>.</decimal>
+			<decimal alt="proposed-x999">,</decimal>
+			<group>,</group>
+			<group alt="proposed-x999">.</group>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -1845,8 +1854,10 @@
 				<symbol>MK</symbol>
 			</currency>
 			<currency type="MXN">
-				<displayName>peso mexicano</displayName>
-				<symbol>MEX$</symbol>
+				<displayName>MXN</displayName>
+				<displayName alt="proposed-x999">peso mexicano</displayName>
+				<symbol>$</symbol>
+				<symbol alt="proposed-x999">MEX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>peso de plata mexicano (1861-1992)</displayName>
@@ -2083,7 +2094,8 @@
 				<symbol>U Sh</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>dólar estadounidense</displayName>
+				<displayName>Dólar Americano</displayName>
+				<displayName alt="proposed-x999">dólar estadounidense</displayName>
 			</currency>
 			<currency type="USN">
 				<displayName>dólar estadounidense (día siguiente)</displayName>

@@ -386,6 +386,13 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<symbols>
+			<list draft="unconfirmed">དང་</list>
+			<percentSign draft="unconfirmed">བརྒ་ཆཱ</percentSign>
+			<nativeZeroDigit draft="unconfirmed">༠</nativeZeroDigit>
+			<infinity draft="unconfirmed">གྲངས་མེད</infinity>
+			<nan draft="unconfirmed">ཨང་མད</nan>
+		</symbols>
 		<decimalFormats>
 			<decimalFormatLength type="long">
 				<decimalFormat>
@@ -415,6 +422,12 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="BTN">
+				<displayName draft="unconfirmed">དངུལ་ཀྲམ་</displayName>
+				<symbol draft="unconfirmed">Nu</symbol>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
 

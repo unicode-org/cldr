@@ -264,7 +264,7 @@ public class Vetting {
     PreparedStatement intUpdateUpdate = null;
     PreparedStatement listBadResults= null;
 	PreparedStatement highestVetter = null;
-    
+    PreparedStatement lookupByXpath = null;
     /**
      * initialize prepared statements
      */
@@ -667,6 +667,225 @@ public class Vetting {
             return ncount + ucount;
         }
     }
+
+    /**
+     * wash (prepare for next CLDR release) all votes
+     * @return the number of data items changed
+     */
+    public int washVotes() {
+        System.err.println("******************** washVotes() .");
+        ElapsedTimer et = new ElapsedTimer();
+        System.err.println("updating results...");
+        File inFiles[] = sm.getInFiles();
+        int tcount = 0;
+        int lcount = 0;
+        int types[] = new int[1];
+        int nrInFiles = inFiles.length;
+        for(int i=0;i<nrInFiles;i++) {
+            // TODO: need a function for this.
+            String fileName = inFiles[i].getName();
+            int dot = fileName.indexOf('.');
+            String localeName = fileName.substring(0,dot);
+            //System.err.println(localeName + " - "+i+"/"+nrInFiles);
+            ElapsedTimer et2 = new ElapsedTimer();
+            types[0]=0;
+            int count = washVotes(localeName/*,types*/);
+            tcount += count;
+            if(count>0) {
+                lcount++;
+                System.err.println("washVotes("+localeName+ " ("+count+" washed, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles+") took " + et2.toString());
+            } else {
+                // no reason to print it.
+            }
+            
+            /*
+                if(count>0) {
+                System.err.println("SRL: Interrupting.");
+                break;
+            }
+            */
+        }
+        System.err.println("Done washing "+tcount+" in ("+lcount + " locales). Elapsed:" + et.toString());
+        System.err.println("******************** NOTE: washVotes() doesn't send notifications yet.");
+        return tcount;
+    }
+    
+    /**
+     * update the results of a specific locale, without caring what kind of results were had.  This is a convenience
+     * function so you don't have to new up an array.
+     * @param locale which locale
+     * @return number of results changed
+     */
+     /*
+    public int washVotes(String locale) {
+        ElapsedTimer et2 = new ElapsedTimer();
+        int type[] = new int[1];
+        int count = washVotes(locale,type);
+        System.err.println("Vetting Results for "+locale+ ":  "+count+" updated, "+typeToStr(type[0])+" - "+ et2.toString());
+        return count;
+    }*/
+    
+    /**
+     * update the results of a specific locale, and return the bitwise OR of all types of results had
+     * @param locale which locale
+     * @param type an OUT parameter, must be a 1-element ( new int[1] ) array. input value doesn't matter. on output, 
+     * contains the bitwise OR of all types of vetting results which were found.
+     * @return number of results changed
+     **/
+    public int washVotes(String locale /*, int type[]*/) {
+        int type[] = new int[1];
+		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE); // load user prefs: should we do verbose vetting?
+        int ncount = 0; // new count
+        int ucount = 0; // update count'
+        int fcount = 0; // total thrash count
+        int zcount = 0; // count of inner thrash
+        int zocount = 0; // count of inner thrash
+        
+        int updates = 0;
+        int base_xpath=-1;
+        long lastU = System.currentTimeMillis();
+        // two lists here.
+        //  #1  results that are missing (unique CLDR_DATA.base_xpath but no CLDR_RESULT).  Use 'insert' instead of 'update', no 'old' data.
+        //  #2  results that are out of date (CLDR_VET with same base_xpath but later modtime.).  Use 'update' instead of 'insert'. (better yet, use an updatable resultset).
+        synchronized(conn) {
+            try {
+                Statement s3 = conn.createStatement();
+                Statement s2 = conn.createStatement();
+                Statement s = conn.createStatement();
+                
+                if(lookupByXpath == null) {
+                    lookupByXpath = prepareStatement("lookupByXpath", 
+                        "select xpath,value,source,origxpath from CLDR_DATA where base_xpath=? AND SUBMITTER is NULL AND locale=?");
+                }
+                
+                lookupByXpath.setString(2,locale);
+                int cachedBase = -1;
+                int vettedValue = -1; // do we have a vetted value?
+                Hashtable cachedProps = new Hashtable();
+
+                try {
+                    ULocale ulocale = new ULocale(locale);
+                    //                        WebContext xctx = new WebContext(false);
+                    //                        xctx.setLocale(locale);
+                    sm.makeCLDRFile(sm.makeDBSource(null, ulocale));
+                } catch(Throwable t) {
+                    t.printStackTrace();
+                    String complaint = ("Error loading: " + locale + " - " + t.toString() + " ...");
+                    logger.severe("loading "+locale+": " + complaint);
+                 //   ctx.println(complaint + "<br>" + "<pre>");
+                //    ctx.print(t);
+                //    ctx.println("</pre>");
+                }
+
+
+                int vetCleared = s3.executeUpdate("delete from CLDR_VET where locale='"+locale+"'");
+                int resCleared = s3.executeUpdate("delete from CLDR_RESULT where locale='"+locale+"'");
+                
+                // clear RESULTS
+                System.err.println(locale + " - cleared "+vetCleared + " from CLDR_VET");
+                System.err.println(locale + " - cleared "+resCleared + " from CLDR_RESULT");
+                
+                ResultSet rs = s.executeQuery("select id,source,value,base_xpath,submitter from CLDR_DATA where SUBMITTER IS NOT NULL AND LOCALE='"+locale+"' order by base_xpath, source desc");
+                System.err.println(" querying..");
+                while(rs.next()) {
+                   // ncount++;
+                   fcount++;
+                    int oldId = rs.getInt(1);
+                    int oldSource = rs.getInt(2);
+                    String oldValue = rs.getString(3);
+                    base_xpath = rs.getInt(4);
+                    int oldSubmitter = rs.getInt(5);
+                    
+                  //  if(base_xpath != 4008) {   continue;  }
+                  
+                    long thisU = System.currentTimeMillis();
+                    
+                    if((thisU-lastU)>5000) {
+                        lastU = thisU;
+                        System.err.println(locale + " - #"+fcount+ ", so far " + ncount+ " - ["+zcount+"/"+zocount+"]");
+                    }
+                    
+                    if(cachedBase != base_xpath) {
+                        zcount++;
+                        cachedBase=base_xpath;
+                        vettedValue=-1;
+                        cachedProps.clear();
+                        
+                        lookupByXpath.setInt(1, base_xpath);
+                        ResultSet rs2 = lookupByXpath.executeQuery();
+                        while(rs2.next()) {
+                            int newXpath = rs2.getInt(1);
+                            String newValue = rs2.getString(2);
+                            int newSource = rs2.getInt(3);
+                            int newOXpath = rs2.getInt(4);
+                            zocount++;
+                            
+                            if(newSource > oldSource) {
+                                // content must be from a newer xml file than the most recent vote.
+                                if((newXpath == base_xpath) && (newXpath == newOXpath)) { // 
+                                    //System.err.println("Ho yeah, "+newXpath+"//"+newValue.length()+"//"+newSource+"//"+newOXpath);
+                                    vettedValue = newXpath; // vetted - drop the other one
+                                } else {
+                                    cachedProps.put(newValue,new Integer(newXpath));
+                                }
+                            }
+                        }
+                        // -
+                    }
+                    
+                    Integer ourProp = (Integer)cachedProps.get(oldValue);
+                    //System.err.println("Wash:"+locale+" #"+oldId+"//"+base_xpath+" -> v"+vettedValue+" but props "+ cachedProps.size()+", , p"+(ourProp==null?"NULL":ourProp.toString()));
+                    if((vettedValue==-1)&&(ourProp!=null)) {
+                        // cast a vote for ourProp
+                        vote(locale, base_xpath, oldSubmitter, ourProp.intValue(), VET_IMPLIED);
+                    }
+                    if((vettedValue != -1) || (cachedProps.size()>0)) {
+                        // just, erase it
+                        ncount += s3.executeUpdate("delete from CLDR_DATA where id="+oldId);
+                    }
+                    
+                    // what to do?
+                  //  updates |= rc;
+                }
+
+                    /*                
+                // out of date
+                staleResult.setString(1,locale);
+                rs = staleResult.executeQuery();  // id, base_xpath
+                while(rs.next()) {
+                    ucount++;
+                    int id = rs.getInt(1);
+                    base_xpath = rs.getInt(2);
+                    
+                    int rc = updateResults(id, locale, base_xpath);
+                    //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+                    updates |= rc;
+                }
+                if(ucount > 0) {
+                    int uscnt = updateStatus(locale, true);// update results
+                    if(uscnt>0) {
+                        System.err.println("updated " + uscnt + " statuses, due to vote change\n");
+                    } else {
+                        System.err.println("updated " + uscnt + " statuses, due to vote change??\n");
+                    }
+                    conn.commit();
+                }
+                */
+                conn.commit();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't wash vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
+                    "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+            type[0] = updates;
+            System.err.println("Wash  : "+locale+" - count: "+ ncount + " ["+zcount+"/"+zocount+"]");
+            System.err.println("Update: "+locale+" - count: " + updateResults(locale));
+            return ncount + ucount;
+        }
+    }
+
     
     /**
      * This class represents a particular item that can be voted for,
@@ -907,8 +1126,16 @@ public class Vetting {
                 boolean isDraft = false;
 //    System.err.println(xpath+":"+orig_xpath+" - "+alt_type);
                 if(orig_xpath!=xpath) {
-                    if(sm.xpt.getById(orig_xpath).indexOf("[@draft=\"true\"]")!=-1) {
-                        isDraft=true; /// altproposed doesn't mark drafts
+                    final String draftString = "[@draft=\"";
+                    String ourXpath=sm.xpt.getById(orig_xpath);
+                    int draftLoc = ourXpath.indexOf(draftString);
+                    if(draftLoc != -1) {
+                        String sub = ourXpath.substring(draftLoc+draftString.length());
+                        if(sub.startsWith("true") ||
+                           sub.startsWith("provisional") ||
+                           sub.startsWith("unconfirmed")) {
+                            isDraft=true;
+                        }
                     }
                 }
 
@@ -938,8 +1165,8 @@ public class Vetting {
                     }
                 }
             }
-            
-//System.err.println(base_xpath+": fb="+fallbackXpath+", x="+existingXpath);
+
+ //   System.err.println(base_xpath+": fb="+fallbackXpath+", x="+existingXpath+", t="+type+", count="+count+", sawX="+new Boolean(sawExisting)+", sawP="+new Boolean(sawProposed)+".");
             if(fallbackXpath == -1) {
                 fallbackXpath = existingXpath;
             }
@@ -1197,7 +1424,7 @@ public class Vetting {
      * Update any status which is missing. 
      * @return number of locales updated
      */
-    int updateStatus() { // updates MISSING status
+    public int updateStatus() { // updates MISSING status
         synchronized(conn) {
             // missing ones 
             int locs=0;

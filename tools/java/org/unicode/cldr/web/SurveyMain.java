@@ -595,12 +595,17 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_sta", "Update Vetting Status", "action");       
             actionCtx.println(" | ");
+            /*
             printMenu(actionCtx, action, "srl_vet_nag", "MAIL: vet nag [weekly]", "action");       
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_upd", "MAIL: vote change [daily]", "action");       
             actionCtx.println(" | ");
-            
+            */
+            /*
             printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
+            actionCtx.println(" | ");
+            */
+            printMenu(actionCtx, action, "srl_vet_wash", "Clear out old votes", "action");       
             actionCtx.println(" | ");
             
             printMenu(actionCtx, action, "srl_twiddle", "twiddle params", "action");       
@@ -726,6 +731,46 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
             actionCtx.printUrlAsHiddenFields();
             actionCtx.println("Update just: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
+        } else if(action.equals("srl_twiddle")) {
+			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
+			
+			for(Iterator i = twidHash.keySet().iterator();i.hasNext();) {
+				String k = (String)i.next();
+				Object o = twidHash.get(k);
+				if(o instanceof Boolean) {	
+					boolean adv = showToggleTwid(actionSubCtx, k, "Boolean "+k);
+				} else {
+					actionSubCtx.println("<h4>"+k+"</h4>");
+				}
+			}
+			
+			
+        } else if(action.equals("srl_vet_wash")) {
+            WebContext subCtx = new WebContext(ctx);
+            actionCtx.addQuery("action",action);
+            ctx.println("<br>");
+            String what = actionCtx.field("srl_vet_wash");
+            if(what.equals("ALL")) {
+                ctx.println("<h4>Remove Old Votes. (in preparation for a new CLDR - do NOT run this after start of vetting)</h4>");
+                ElapsedTimer et = new ElapsedTimer();
+                int n = vet.washVotes();
+                ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
+                int stup = vet.updateStatus();
+                ctx.println("Updated " + stup + " statuses.<br>");
+            } else {
+                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+action+"=ALL'>Wash all</a> ]<br>");
+                if(what.length()>0) {
+                    ctx.println("<h4>Wash "+what+"</h4>");
+                    ElapsedTimer et = new ElapsedTimer();
+                    int n = vet.washVotes(what);
+                    ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
+                    int stup = vet.updateStatus();
+                    ctx.println("Updated " + stup + " statuses.<br>");
+                }
+            }
+            actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+            actionCtx.printUrlAsHiddenFields();
+            actionCtx.println("Update just: <input name='"+action+"' value='"+what+"'><input type='submit' value='Wash'></form>");
         } else if(action.equals("srl_twiddle")) {
 			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
 			
@@ -4720,6 +4765,10 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
 
     boolean zoomedIn = false; // not a param
+    String ourAlign = "left";
+    if(ourDir.equals("rtl")) {
+        ourAlign = "right";
+    }
     
     boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
         || (canModify&&p.hasProps); // or, there's modified data.
@@ -4805,7 +4854,7 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</td>");
     
     // ##5 current control
-    ctx.print("<td colspan='2' align='left' valign='top'>");
+    ctx.print("<td colspan='2'  dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
     // go find the 'current' item
     DataPod.Pea.Item current = null;
     for(Iterator j = p.items.iterator();(current==null)&&j.hasNext();) {
@@ -4818,7 +4867,7 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</td>");
     
     // ##6 proposed
-    ctx.print("<td colspan='2' align='left' valign='top'>");
+    ctx.print("<td colspan='2' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
     // go find the 'current' item
     for(Iterator j = p.items.iterator();j.hasNext();) {
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -4842,7 +4891,7 @@ void printPeaItem(WebContext ctx, DataPod.Pea.Item item, String fieldHash, Strin
         (item.xpath.equals(resultXpath)));
         
     if(winner) {
-        ctx.println("<span class='winner'>");
+        ctx.println("<span title='Winning item.' class='winner'>");
     } else {
         ctx.println("<span class='loser'>");
     }
@@ -5920,7 +5969,8 @@ private void doStartupDB()
     public static final String timeDiff(long a, long b) {
         return ElapsedTimer.elapsedTime(a,b);
     }
-   public static     String shortClassName(Object o) {
+    
+    public static     String shortClassName(Object o) {
         try {
             String cls = o.getClass().toString();
             int io = cls.lastIndexOf(".");

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
+<!-- Data donated by Mr.Raymond Doctor, CDAC, Pune, India !-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -10,71 +11,72 @@
 		<languages>
 			<language type="ur">اردو</language>
 		</languages>
+           <scripts>
+                <script type="Arab" alt="proposed" draft="true">العربية</script>
+            </scripts>
+
 		<territories>
 			<territory type="IN">بھارت</territory>
 			<territory type="PK">پاکستان</territory>
 		</territories>
 	</localeDisplayNames>
+
 	<layout>
 		<orientation characters="right-to-left" draft="approved"/>
 	</layout>
-	<characters>
-		<exemplarCharacters>[ء-ؤ ئ-ب ٻ پ ة-ث ٹ ٺ ټ ٽ ج چ ح-ذ ڈ ر ز ڑ ژ س-غ ف ق ک گ ل-ن ں ه ھ و ی ے]</exemplarCharacters>
-	</characters>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
+  
+    <characters>
+        <exemplarCharacters>[ء-ؤ ئ-ب ٻ پ ة-ث ٹ ٺ ټ ٽ ج چ ح-ذ ڈ ر ز ڑ ژ س-غ ف ق ک گ ل-ن ں ه ھ و ی ے]</exemplarCharacters>
+        <exemplarCharacters type="auxiliary" alt="proposed" draft="true">[]</exemplarCharacters>
+    </characters>
+
+    <dates>
+    <calendars>
+      <calendar type="gregorian">
+        <months>
+          <monthContext type="format">
+            <monthWidth type="abbreviated">
+                <alias path="../monthWidth@type='wide'"/>
+            </monthWidth>
+
+            <monthWidth type="wide">
+              <month type="1" alt="proposed" draft="true">جنوری</month>
+              <month type="2" alt="proposed" draft="true">فروری</month>
+              <month type="3" alt="proposed" draft="true">مار چ</month>
+              <month type="4" alt="proposed" draft="true">اپريل</month>
+              <month type="5" alt="proposed" draft="true">مئ</month>
+              <month type="6" alt="proposed" draft="true">جون</month>
+              <month type="7" alt="proposed" draft="true">جولائ</month>
+              <month type="8" alt="proposed" draft="true">اگست</month>
+              <month type="9" alt="proposed" draft="true">ستمبر</month>
+              <month type="10" alt="proposed" draft="true">اکتوبر</month>
+              <month type="11" alt="proposed" draft="true">نومبر</month>
+              <month type="12" alt="proposed" draft="true">دسمبر</month>
+            </monthWidth>
+            
+            <monthWidth type="narrow">
+                <alias path="../monthWidth@type='wide'"/>
+            </monthWidth>
+          </monthContext>
+        </months>
+
+        <days>
+          <dayContext type="format">
+            <dayWidth type="abbreviated">
+              <alias path="../dayWidth@type='wide'"/>
+            </dayWidth>
+            <dayWidth type="wide">
+              <day type="sun" alt="proposed" draft="true">اتوار</day>
+              <day type="mon" alt="proposed" draft="true">پير</day>
+              <day type="tue" alt="proposed" draft="true">منگل</day>
+              <day type="wed" alt="proposed" draft="true">بده</day>
+              <day type="thu" alt="proposed" draft="true">جمعرات</day>
+              <day type="fri" alt="proposed" draft="true">جمعہ</day>
+              <day type="sat" alt="proposed" draft="true">ہفتہ</day>
+            </dayWidth>
+          </dayContext>
+		   <dayContext type="stand-alone">
+                  <dayWidth type="narrow">
 							<day type="sun" draft="provisional">1</day>
 							<day type="mon" draft="provisional">2</day>
 							<day type="tue" draft="provisional">3</day>
@@ -82,125 +84,207 @@
 							<day type="thu" draft="provisional">5</day>
 							<day type="fri" draft="provisional">6</day>
 							<day type="sat" draft="provisional">7</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">1</day>
-							<day type="mon" draft="provisional">2</day>
-							<day type="tue" draft="provisional">3</day>
-							<day type="wed" draft="provisional">4</day>
-							<day type="thu" draft="provisional">5</day>
-							<day type="fri" draft="provisional">6</day>
-							<day type="sat" draft="provisional">7</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">1</day>
-							<day type="mon" draft="provisional">2</day>
-							<day type="tue" draft="provisional">3</day>
-							<day type="wed" draft="provisional">4</day>
-							<day type="thu" draft="provisional">5</day>
-							<day type="fri" draft="provisional">6</day>
-							<day type="sat" draft="provisional">7</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<am draft="provisional">AM</am>
-				<pm draft="provisional">PM</pm>
-				<eras>
-					<eraNames>
-						<era type="0" draft="provisional">BCE</era>
-						<era type="1" draft="provisional">CE</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="provisional">BCE</era>
-						<era type="1" draft="provisional">CE</era>
-					</eraAbbr>
-				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="provisional">yyyy MMMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="provisional">yyyy MMM d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="provisional">yy/MM/dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<availableFormats>
-						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-		<timeZoneNames>
-			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
-			<regionFormat draft="provisional">{0} Time</regionFormat>
-		</timeZoneNames>
-	</dates>
-	<numbers>
-		<currencies>
-			<currency type="PKR">
-				<symbol draft="unconfirmed">Rs</symbol>
-			</currency>
-		</currencies>
-	</numbers>
+				</dayWidth>
+			</dayContext>
+		</days>
+        <quarters>
+            <quarterContext type="format">
+		<quarterWidth type="abbreviated">
+		     <alias path="../dayWidth@type='wide'"/>
+                </quarterWidth>
+                <quarterWidth type="wide">
+                    <quarter type="1" alt="proposed" draft="true">پہلی سہ ماہی</quarter>
+                    <quarter type="2" alt="proposed" draft="true">دوسری سہ ماہی</quarter>
+                    <quarter type="3" alt="proposed" draft="true">تيسری سہ ماہی</quarter>
+                    <quarter type="4" alt="proposed" draft="true">چوتهی سہ ماہی</quarter>
+                </quarterWidth>
+            </quarterContext>
+        </quarters>
+		<am draft="provisional">AM</am>
+		<pm draft="provisional">PM</pm>
+        <eras>
+          <eraNames>
+            <era type="0" alt="proposed" draft="true">قبل مسيح</era>
+            <era type="1" alt="proposed" draft="true">عيسوی سن</era>
+          </eraNames>
+          <eraAbbr>
+            <era type="0" alt="proposed" draft="true">ق م</era>
+            <era type="1" alt="proposed" draft="true">عيسوی سن</era> <!-- needs translation -->
+          </eraAbbr>
+        </eras>
+	<dateFormats>
+		<dateFormatLength type="full">
+			<dateFormat>
+				<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
+			</dateFormat>
+		</dateFormatLength>
+		<dateFormatLength type="long">
+			<dateFormat>
+				<pattern draft="provisional">yyyy MMMM d</pattern>
+			</dateFormat>
+		</dateFormatLength>
+		<dateFormatLength type="medium">
+			<dateFormat>
+				<pattern draft="provisional">yyyy MMM d</pattern>
+			</dateFormat>
+		</dateFormatLength>
+		<dateFormatLength type="short">
+			<dateFormat>
+				<pattern draft="provisional">yy/MM/dd</pattern>
+			</dateFormat>
+		</dateFormatLength>
+	</dateFormats>
+	<timeFormats>
+		<timeFormatLength type="full">
+			<timeFormat>
+				<pattern draft="provisional">HH:mm:ss z</pattern>
+			</timeFormat>
+		</timeFormatLength>
+		<timeFormatLength type="long">
+			<timeFormat>
+				<pattern draft="provisional">HH:mm:ss z</pattern>
+			</timeFormat>
+		</timeFormatLength>
+		<timeFormatLength type="medium">
+			<timeFormat>
+				<pattern draft="provisional">HH:mm:ss</pattern>
+			</timeFormat>
+		</timeFormatLength>
+		<timeFormatLength type="short">
+			<timeFormat>
+				<pattern draft="provisional">HH:mm</pattern>
+			</timeFormat>
+		</timeFormatLength>
+	</timeFormats>
+	<dateTimeFormats>
+		<dateTimeFormatLength>
+			<dateTimeFormat>
+				<pattern draft="provisional">{1} {0}</pattern>
+			</dateTimeFormat>	
+		</dateTimeFormatLength>
+		<availableFormats>
+			<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
+		</availableFormats>
+	</dateTimeFormats>
+
+        <fields>
+          <field type="day" alt="proposed" draft="true">
+            <relative type="0" alt="proposed" draft="true">آج</relative>
+            <relative type="1" alt="proposed" draft="true">کل</relative>
+            <relative type="-1" alt="proposed" draft="true">کل</relative>
+          </field>
+
+          <field type="dayperiod" alt="proposed" draft="true">
+            <displayName>رات/صبح</displayName>
+          </field>
+        </fields>
+      </calendar>
+      <calendar type="islamic">
+        <months>
+          <monthContext type="format">
+            <monthWidth type="wide">
+              <month type="1" alt="proposed" draft="true">محرم</month>
+              <month type="2" alt="proposed" draft="true">صفر</month>
+              <month type="3" alt="proposed" draft="true">ر بيع الاول</month>
+              <month type="4" alt="proposed" draft="true">ر بيع الثانی</month>
+              <month type="5" alt="proposed" draft="true">جمادی الاول</month>
+              <month type="6" alt="proposed" draft="true">جمادی الثانی</month>
+              <month type="7" alt="proposed" draft="true">رجب</month>
+              <month type="8" alt="proposed" draft="true">شعبان</month>
+              <month type="9" alt="proposed" draft="true">رمضان</month>
+              <month type="10" alt="proposed" draft="true">شوال</month>
+              <month type="11" alt="proposed" draft="true">ذيقعدہ</month>
+              <month type="12" alt="proposed" draft="true">ذی الحجہ</month>
+              <month type="12" alt="proposed-1" draft="true">دسمبر</month>
+            </monthWidth>
+            <monthWidth type="abbreviated">
+                <alias path="../monthWidth@type='wide'"/>
+            </monthWidth>
+            <monthWidth type="narrow">
+                <alias path="../monthWidth@type='wide'"/>
+            </monthWidth>
+          </monthContext>
+        </months>
+
+        <days>
+          <dayContext type="format">
+            <dayWidth type="wide">
+              <day type="sun" alt="proposed" draft="true">يکشنبہ</day>
+              <day type="mon" alt="proposed" draft="true">دو شنبہ</day>
+              <day type="tue" alt="proposed" draft="true">سہ شنبہ</day>
+              <day type="wed" alt="proposed" draft="true">چہار شنبہ</day>
+              <day type="thu" alt="proposed" draft="true">پنجشنبہ</day>
+              <day type="fri" alt="proposed" draft="true">جمعہ</day>
+              <day type="sat" alt="proposed" draft="true">شنبہ</day>
+            </dayWidth>
+            <dayWidth type="abbreviated">
+                <alias path="../dayWidth@type='wide'"/>
+            </dayWidth>            
+             <dayWidth type="narrow">
+                    <alias path="../dayWidth@type='wide'"/>
+            </dayWidth>
+          </dayContext>
+        </days>
+        <quarters>
+          <quarterContext type="format">
+            <quarterWidth type="abbreviated">
+                <alias path="../quarterWidth@type='wide'"/>
+            </quarterWidth>
+            <quarterWidth type="wide">
+              <quarter type="1" alt="proposed" draft="true">پہلی سہ ماہی</quarter>
+              <quarter type="2" alt="proposed" draft="true">دوسری سہ ماہی</quarter>
+              <quarter type="3" alt="proposed" draft="true">تيسری سہ ماہی</quarter>
+              <quarter type="4" alt="proposed" draft="true">چوتهی سہ ماہی</quarter>
+            </quarterWidth>
+          </quarterContext>
+        </quarters>
+
+        <eras>
+          <eraNames>
+            <era type="0" alt="proposed" draft="true">قبل مسيح</era>
+            <era type="1" alt="proposed" draft="true">عيسوی سن</era>
+          </eraNames>
+          <eraAbbr>
+            <era type="0" alt="proposed" draft="true">ق م</era>
+            <era type="1" alt="provisional" draft="true">CE</era>
+          </eraAbbr>
+        </eras>
+        <fields>
+          <field type="day" alt="proposed" draft="true">
+            <relative type="0" alt="proposed" draft="true">آج</relative>
+            <relative type="1" alt="proposed" draft="true">کل</relative>
+            <relative type="-1" alt="proposed" draft="true">کل</relative>
+          </field>\
+          <field type="dayperiod" alt="proposed" draft="true">
+            <displayName>رات/صبح</displayName>
+          </field>
+        </fields>
+      </calendar>
+    </calendars>
+
+       	<timeZoneNames>
+		<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+		<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+		<regionFormat draft="provisional">{0} Time</regionFormat>
+	</timeZoneNames>
+  </dates>
+  <numbers>
+    <currencyFormats>
+      <currencyFormatLength>
+        <currencyFormat type="standard">
+          <pattern type="standard" alt="proposed" draft="true">¤#,##0.00</pattern>
+        </currencyFormat>
+      </currencyFormatLength>
+    </currencyFormats>
+
+    <currencies>
+      <currency type="INR">
+        <displayName alt="proposed" draft="true">روپيہ</displayName>
+      </currency>
+      <currency type="PKR">
+         <symbol draft="unconfirmed">Rs</symbol>
+      </currency>
+    </currencies>
+  </numbers>
 </ldml>
 

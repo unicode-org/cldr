@@ -370,21 +370,25 @@ public class ShowLanguages {
           String territories = (String) attributes.get("territories");
           addTerritoryInfo(territories, display, type);
         }
-        if (path.indexOf("/territoryTestData") >= 0) {
-          Map attributes = parts.getAttributes(2);
+        if (path.indexOf("/territoryInfo") >= 0) {
+          Map<String,String> attributes = parts.getAttributes(2);
           String type = (String) attributes.get("type");
           String name = english.getName(english.TERRITORY_NAME, type, false);
           Map languageData = (Map) territoryLanguageData.get(name);
           if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap());
           languageData.put("code", attributes.get("type"));
           languageData.put("gdp", attributes.get("gdp"));
-          languageData.put("literacy", attributes.get("literacy"));
+          languageData.put("literacyPercent", attributes.get("literacyPercent"));
           languageData.put("population", attributes.get("population"));
           if (parts.size() > 3) {
             attributes = parts.getAttributes(3);
             Set languageData2 = (Set) languageData.get("language");
             if (languageData2 == null) languageData.put("language", languageData2 = new TreeSet(INVERSE_COMPARABLE));
-            languageData2.add(new Pair(Double.parseDouble((String)attributes.get("functionallyLiterate")),(String)attributes.get("type")));
+            String literacy = attributes.get("literacyPercent");
+            languageData2.add(
+                new Pair(Double.parseDouble(attributes.get("populationPercent")),
+                new Pair(literacy == null ? Double.NaN : Double.parseDouble(literacy),
+                    attributes.get("type"))));
           }
 //        supplementalData/territoryTestData/territory[@type="AU"][@gdp="640100000000"][@literacy="0.99"][@population="20000000"]/languagePopulation[@type="zh_Hant"][@functionallyLiterate="420000"]
 //        supplementalData/territoryTestData/territory[@type="GP"][@gdp="3513000000"][@literacy="0.99"][@population="450000"]
@@ -481,14 +485,15 @@ public class ShowLanguages {
           "<th class='source'>Code</th>" +
           "<th class='target'>Population</th>" +
           "<th class='target'>Literacy</th>" +
-          "<th class='target'>GDP</th>" +
+          "<th class='target'>GDP (PPP)</th>" +
           "<th class='target'>Language</th>" +
           "<th class='target'>Code</th>" +
-          "<th class='target'>Population Percent</th>" +
+          "<th class='target'>Population</th>" +
+          "<th class='target'>Literacy</th>" +
       "</tr>");
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
-        Set<Pair<Double,String>> language = (Set<Pair<Double,String>>)results.get("language");
+        Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
         int span = language == null ? 0 : language.size();
         String spanString = span == 0 ? "" : " rowSpan='"+span+"'";
         double population = Double.parseDouble((String)results.get("population"));
@@ -497,18 +502,20 @@ public class ShowLanguages {
             "<td class='source'" + spanString + ">" + territoryName + "</td>" +
             "<td class='source'" + spanString + ">" + results.get("code") + "</td>" +
             "<td class='targetRight'" + spanString + ">" + (population <= 1 ? "<i>na</i>" : nf.format(population)) + "</td>" +
-            "<td class='targetRight'" + spanString + ">" + pf.format(Double.parseDouble((String)results.get("literacy"))) + "</td>" +
+            "<td class='targetRight'" + spanString + ">" + pf.format(Double.parseDouble((String)results.get("literacyPercent"))/100) + "</td>" +
             "<td class='targetRight'" + spanString + ">" + (gdp <= 1 ? "<i>na</i>" : nf.format(gdp)) + "</td>");
         if (span == 0) {
           pw2.println("<td class='source'><i>na</i></td>" +
-              "<td class='source'><i>na</i></td>" +
-              "<td class='targetRight'><i>na</i></td>"
+              "<td class='source'><i>na</i></td>"
+              + "<td class='targetRight'><i>na</i></td>"
+              + "<td class='targetRight'><i>na</i></td>"
               + "</tr>");
         } else {
           boolean first = true;
-          for (Pair<Double,String> languageCodePair : language) {
-            Double languagePopulation = languageCodePair.first;
-            String languageCode = languageCodePair.second;
+          for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+            double languagePopulation = languageCodePair.first;
+            double languageliteracy = languageCodePair.second.first;
+            String languageCode = languageCodePair.second.second;
             if (first) {
               first = false;
             } else {
@@ -521,8 +528,9 @@ public class ShowLanguages {
             }
             pw2.println(
                 "<td class='source'>" + english.getName(languageCode, false) + "</td>" +
-                "<td class='source'>" + languageCode + "</td>" +
-                "<td class='targetRight'>" + pf.format(proportion) + "</td>"
+                "<td class='source'>" + languageCode + "</td>"
+                + "<td class='targetRight'>" + pf.format(languagePopulation/100) + "</td>"
+                + "<td class='targetRight'>" + (Double.isNaN(languageliteracy) ? "<i>na</i>" : pf.format(languageliteracy/100)) + "</td>"
                 + "</tr>");
           }
         }

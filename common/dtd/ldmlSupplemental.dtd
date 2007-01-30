@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.34 $
-    $Date: 2007-01-27 23:37:30 $
+    $Revision: 1.35 $
+    $Date: 2007-01-30 05:20:50 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryTestData?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
+<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.4.1" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -64,15 +64,15 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST language references CDATA #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 
-<!ELEMENT territoryTestData ( territory* ) >
-<!ATTLIST territoryTestData draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST territoryTestData references CDATA #IMPLIED >
-<!ATTLIST territoryTestData alt NMTOKENS #IMPLIED >
+<!ELEMENT territoryInfo ( territory* ) >
+<!ATTLIST territoryInfo draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST territoryInfo references CDATA #IMPLIED >
+<!ATTLIST territoryInfo alt NMTOKENS #IMPLIED >
 
 <!ELEMENT territory ( languagePopulation* ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
 <!ATTLIST territory gdp NMTOKEN #REQUIRED >
-<!ATTLIST territory literacy NMTOKEN #REQUIRED >
+<!ATTLIST territory literacyPercent NMTOKEN #REQUIRED >
 <!ATTLIST territory population NMTOKEN #REQUIRED >
 <!ATTLIST territory draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territory references CDATA #IMPLIED >
@@ -80,7 +80,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languagePopulation EMPTY >
 <!ATTLIST languagePopulation type NMTOKEN #REQUIRED >
-<!ATTLIST languagePopulation functionallyLiterate NMTOKEN #REQUIRED >
+<!ATTLIST languagePopulation literacyPercent NMTOKEN #IMPLIED >
+<!ATTLIST languagePopulation populationPercent NMTOKEN #REQUIRED >
 <!ATTLIST languagePopulation draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST languagePopulation references CDATA #IMPLIED >
 <!ATTLIST languagePopulation alt NMTOKENS #IMPLIED >

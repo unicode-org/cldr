@@ -203,19 +203,19 @@ public class ConvertLanguageData {
         
         double countryPopulationRaw = row.countryPopulation;
         long countryPopulation = (long) roundToDecimals(countryPopulationRaw, 2);
-        double languageLiteracy = row.languageLiteracy;
-        double countryLiteracy = row.countryLiteracy;
+        double languageLiteracy = row.languageLiteracy*100;
+        double countryLiteracy = row.countryLiteracy*100;
         
         double countryGDPRaw = row.countryGdp;
         long countryGDP = Math.round(countryGDPRaw/gdpFactor);
         
         String languageCode = row.languageCode;
         
-        double languagePopulationRaw = row.languagePopulation * languageLiteracy;
+        double languagePopulationRaw = row.languagePopulation;
         long languagePopulation = (long) roundToDecimals(languagePopulationRaw, 2);
         
-        int languagePopulationPercent = (int) Math.min(100, Math.max(0, 
-                languagePopulation*100 / (double)countryPopulation));
+        double languagePopulationPercent = roundToDecimals(Math.min(100, Math.max(0, 
+                languagePopulation*100 / (double)countryPopulation)),3);
 
         if (!countryCode.equals(lastCountryCode)) {
           if (first) {
@@ -225,7 +225,7 @@ public class ConvertLanguageData {
           }
           System.out.print("\t\t<territory type=\"" + countryCode + "\""
               + " gdp=\"" + countryGDP + "\""
-              + " literacy=\"" + countryLiteracy + "\""
+              + " literacyPercent=\"" + nf.format(countryLiteracy) + "\""
               + " population=\"" + countryPopulation + "\">");
           lastCountryCode = countryCode;
           System.out.println("\t<!--" + ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH) + "-->");
@@ -245,7 +245,9 @@ public class ConvertLanguageData {
           }
 
           System.out.print("\t\t\t<languagePopulation type=\"" + languageCode + "\""
-              + " functionallyLiterate=\"" + languagePopulation + "\"/>");
+              + (languageLiteracy != countryLiteracy ? " literacyPercent=\"" + nf.format(languageLiteracy) + "\"" : "")
+              + " populationPercent=\"" + nf.format(languagePopulationPercent) + "\""
+              + "/>");
           System.out.println("\t<!--" + ULocale.getDisplayName(languageCode, ULocale.ENGLISH) + "-->");
         } else {
           failures.add(row + "\tLess than 1% or no language code");

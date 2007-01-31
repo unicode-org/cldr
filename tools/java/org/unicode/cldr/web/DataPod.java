@@ -496,12 +496,18 @@ public class DataPod extends Registerable {
                        if(rv == 0) { // try to avoid a compare
                             int crv;
                             String p1d = p1.displayName;
-                            if(p1.displayName == null ) {
+                            if(p1d == null ) {
                                 p1d = p1.type;
+                                if(p1d == null) {
+                                    p1d = "(null)";
+                                }
                             }
                             String p2d = p2.displayName;
-                            if(p2.displayName == null ) {
+                            if(p2d == null ) {
                                 p2d = p2.type;
+                                if(p2d == null) {
+                                    p2d = "(null)";
+                                }
                             }
                             return myCollator.compare(p1d, p2d);
                         }
@@ -682,6 +688,7 @@ public class DataPod extends Registerable {
                                                 "^//ldml/measurement.*|"+
                                                 ".*week/minDays.*|"+
                                                 ".*week/firstDay.*|"+
+                                                ".*/usesMetazone.*|"+
                                                 ".*week/weekendEnd.*|"+
                                                 ".*week/weekendStart.*|" +
 //                                                "^//ldml/dates/.*localizedPatternChars.*|" +

@@ -707,4 +707,7 @@ public class WebContext {
     public String modifyThing(String message) {
         return "<img border='0' style='width: 1em; height: 1em;' src='"+context("hand.gif")+"' title='"+message+"' />";
     }
+    public String iconThing(String icon, String message) {
+        return "<img border='0' style='width: 1em; height: 1em;' src='"+context(icon+".png")+"' title='"+message+"' />";
+    }
 }

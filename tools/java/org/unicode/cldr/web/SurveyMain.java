@@ -3556,7 +3556,9 @@ public void showTimeZones(WebContext ctx) {
             WebContext zCtx = new WebContext(oCtx);
             zCtx.setQuery("z",z);
             zCtx.setQuery("zz",zoneToShow);
-
+            if(whichMZone != null) {
+                zCtx.setQuery("mzone",whichMZone);
+            }
             showOneZone(zCtx, zoneToShow);
         }
     }
@@ -3672,7 +3674,7 @@ void showOneZone(WebContext ctx, String zone) {
     }
     if(canModify) {
         /* hidden fields for that */
-        ctx.printUrlAsHiddenFields();
+
 
         ctx.println("<input style='float:right' type='submit' value='" + sm.xSAVE + "'>");
         synchronized (ctx.session) { // session sync
@@ -3705,13 +3707,29 @@ void showOneZone(WebContext ctx, String zone) {
     // Make sure the pod contains the peas we'd like to see.
     if(whichMZone==null) {
         // regular zone
-        String suffs[] = {  "/long/generic",
+        
+        final String tzsuffs[] = {  "/long/generic",
                             "/long/daylight",
                             "/long/standard",
                             "/short/generic",
                             "/short/daylight",
                             "/short/standard",
                             "/exemplarCity" };
+        final String mzsuffs[] = {  "/long/generic",
+                            "/long/daylight",
+                            "/long/standard",
+                            "/short/generic",
+                            "/short/daylight",
+                            "/short/standard",
+                            "/commonlyUsed[@used=\"true\"]"
+        };
+        
+        String suffs[];
+        if(whichMZone != null) {
+            suffs = mzsuffs;
+        } else {
+            suffs = tzsuffs;
+        }        
         for(int i=0;i<suffs.length;i++) {
             String suff = suffs[i];
             DataPod.Pea myp = pod.getPea(zone+suff);
@@ -3854,13 +3872,15 @@ static void printPodTableOpen(WebContext ctx, DataPod pod) {
     
     if(pod.simple) {
         ctx.println("<tr class='headingb'>\n"+
-                    " <th>St.</th>\n"+
-                    " <th>Code</th>\n"+
-                    " <th>English</th>\n"+
-                    " <th>Zm.</th>\n"+
-                    " <th colspan='2'>Current</th>\n"+
-                    " <th colspan='2'>Proposed</th>\n"+
-                    " <th>References</th>\n"+
+                    " <th>St.</th>\n"+                  // 1
+                    " <th>Code</th>\n"+                 // 2
+                    " <th>English</th>\n"+              // 3
+                    " <th>Zm.</th>\n"+                  // 4
+                    " <th>NV</th>\n"+                   // 5
+                    " <th colspan='2'>Current</th>\n"+  // 6
+                    " <th colspan='2'>Proposed</th>\n"+ // 7
+                    " <th colspan='2'>Change</th>\n"+               // 8
+                    " <th>References</th>\n"+           // 9
                     "</tr>");
     } else {
         ctx.println("<tr class='heading'>\n"+
@@ -4742,6 +4762,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 fClass = "badinputbox";
             }
             ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
+            // references
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");
                 ctx.print("<a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"'>Ref:</a>");
@@ -4803,17 +4824,40 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
             ourVoteXpath = xpt.getById(ourVote);
         }
     }
+
     
     /*  TOP BAR */
     ctx.println("<tr class='topbar'>");
     String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
-    ctx.print("<th><!-- St -->"); // ##1 status
-    if(canModify) {
-        ctx.print("<span style='border: 1px solid black; margin: 0px;'>");
-        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
-            +((ourVoteXpath==null)?"CHECKED":"")+" >");
-        ctx.print("(none)</span></th>");
-    }
+    
+    /* 
+                         " <th>St.</th>\n"+                  // 1
+                    " <th>Code</th>\n"+                 // 2
+                    " <th>English</th>\n"+              // 3
+                    " <th>Zm.</th>\n"+                  // 4
+                    " <th>NV</th>\n"+                   // 5
+                    " <th colspan='2'>Current</th>\n"+  // 6
+                    " <th colspan='2'>Proposed</th>\n"+ // 7
+                    " <th>Change</th>\n"+               // 8
+                    " <th>References</th>\n"+           // 9
+     */
+     
+    ctx.print("<th valign='top'>");  // ##1 status
+    // Mark the line as disputed or insufficient, depending.
+    String rclass = "";
+    {
+        int s = resultType[0];
+        if((s & Vetting.RES_DISPUTED)>0) {
+            rclass= "disputed";
+            ctx.print(ctx.iconThing("stop","disputed"));
+        } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
+            rclass = "insufficient";
+            ctx.print(ctx.iconThing("warn","insufficient"));            
+        } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
+            ctx.print(ctx.iconThing("okay","ok"));
+        }
+    }    
+    ctx.print("</th>");
     
     // ##2 code
     ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
@@ -4853,8 +4897,15 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     }
     ctx.println("</td>");
     
+    ctx.print("<td>");
+    if(canModify) {
+        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
+            +((ourVoteXpath==null)?"CHECKED":"")+" >");
+    }
+    ctx.print("</td>");
+    
     // ##5 current control
-    ctx.print("<td colspan='2'  dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
+    ctx.print("<td colspan='2' class='"+rclass+"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
     // go find the 'current' item
     DataPod.Pea.Item current = null;
     for(Iterator j = p.items.iterator();(current==null)&&j.hasNext();) {
@@ -4867,7 +4918,7 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</td>");
     
     // ##6 proposed
-    ctx.print("<td colspan='2' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+    ctx.print("<td colspan='2' class='"+rclass+"' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
     // go find the 'current' item
     for(Iterator j = p.items.iterator();j.hasNext();) {
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -4878,7 +4929,46 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     }
     ctx.println("</td>");
     
-    // ##7 References
+    if(phaseSubmit==true) {
+        ctx.println("<td>");
+        // ##7 Change
+        if(canModify && canSubmit ) {
+            ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+        } else {
+            ctx.print("<input type='radio' disabled>");
+        }
+        ctx.println("</td>");
+        if(canSubmit && canModify && !p.confirmOnly) {
+            String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
+            String fClass = "inputbox";
+            if(oldValue==null) {
+                oldValue="";
+            } else {
+                fClass = "badinputbox";
+            }
+            ctx.println("<td><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
+            // references
+        } else  {
+            ctx.println("<td></td>");
+        }
+    } else {
+        ctx.println("<td colspan='2'></td>");
+    }
+    // ##8 References
+    if(refs.length>0) {
+        ctx.print("<td nowrap><label>");
+        ctx.print("<a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"'>Ref:</a>");
+        if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
+            ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
+            ctx.print("<option value='' SELECTED></option>");
+            for(int i=0;i<refs.length;i++) {
+                ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+            }
+            ctx.println("</select>");
+        }
+        ctx.println("</label></td>");
+            
+    }
     
     ctx.println("</tr>");
 }

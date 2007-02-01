@@ -3652,6 +3652,7 @@ void showOneZone(WebContext ctx, String zone) {
     // now, print the normal zone stuff.
     
     sm.printPathListOpen(ctx);
+    String showZoneOverride = ctx.field("szo");
     
     if(whichMZone != null) {
         ctx.println("<h2>MetaZone: "+whichMZone+"</h2>");
@@ -3665,7 +3666,15 @@ void showOneZone(WebContext ctx, String zone) {
     } else {
         ctx.println("<h2>"+zone+"</h2>");
         if(useMetazone != null) {
-            ctx.println("<i>Note: the metazone <b>"+useMetazone+"</b> is active for this zone. Something about contacting CLDR folks if this is wrong.</i>");
+            mzContext.setQuery("mzone",useMetazone);
+            ctx.print("<i>Note: the metazone <b>");
+            ctx.print("<a class='"+(useMetazone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
+            ctx.print(useMetazone+"</a></b> is active for this zone. Something about contacting CLDR folks if this is wrong.</i>");
+            if(!"y".equals(showZoneOverride)) {
+                ctx.setQuery("szo","y");
+                ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
+                return;
+            }
         }
     }
     
@@ -3674,7 +3683,7 @@ void showOneZone(WebContext ctx, String zone) {
     }
     if(canModify) {
         /* hidden fields for that */
-
+        ctx.printUrlAsHiddenFields();
 
         ctx.println("<input style='float:right' type='submit' value='" + sm.xSAVE + "'>");
         synchronized (ctx.session) { // session sync
@@ -3807,6 +3816,9 @@ void showOneZone(WebContext ctx, String zone) {
 
     }
 */
+    if(showZoneOverride.length()>0) {
+        ctx.println("<input type=hidden name=szo value=y>");
+    }
     sm.printPathListClose(ctx);
 }
 

@@ -1698,6 +1698,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
             }else if(name.equals(LDMLConstants.MSNS)){
+            }else if(name.equals(LDMLConstants.CODE_PATTERNS)){
             }else{
                  System.err.println("Unknown element found: "+name);
                  System.exit(-1);
@@ -2228,6 +2229,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseCalendars(node, xpath);
             }else if(name.equals(LDMLConstants.TZN)){
                 res = parseTimeZoneNames(node, xpath);
+            }else if(name.equals(LDMLConstants.DRP)){
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -2329,6 +2331,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = getDefaultResource(node, xpath, name);
             }else if(name.equals(LDMLConstants.ZONE)){
                 res = parseZone(node, xpath);
+            }else if(name.equals(LDMLConstants.METAZONE)){
+                res = parseMetazone(node, xpath);
             }else if(name.equals(LDMLConstants.HOUR_FORMAT) ||
                     name.equals(LDMLConstants.HOURS_FORMAT) ||
                     name.equals(LDMLConstants.GMT_FORMAT)   ||
@@ -2435,8 +2439,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
     private ICUResourceWriter.Resource parseZone(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.ResourceTable uses_mz_table = new ICUResourceWriter.ResourceTable();
         
         boolean writtenEC = false;
+        boolean containsUM = false;
+        int mz_count = 0;
         boolean isECDraft = false;
         int savedLength = xpath.length();
         getXPath(root, xpath);
@@ -2453,6 +2460,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         table.name = "\"" + id + "\"";
         table.name = table.name.replace('/', ':');
         ICUResourceWriter.Resource current = null;
+        ICUResourceWriter.Resource current_mz = null;
+        uses_mz_table.name = "um";
+
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
@@ -2491,6 +2501,46 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if(daylight != null ){
                     res = getStringResource(name.charAt(0)+"d", daylight, res);
                 }            
+            }else if(name.equals(LDMLConstants.COMMONLY_USED)){
+// TODO: Fix COMMONLY_USED
+            }else if(name.equals(LDMLConstants.USES_METAZONE)){
+
+                    ICUResourceWriter.ResourceArray this_mz = new ICUResourceWriter.ResourceArray();
+                    ICUResourceWriter.ResourceString mzone = new ICUResourceWriter.ResourceString();
+                    ICUResourceWriter.ResourceString from = new ICUResourceWriter.ResourceString();
+                    ICUResourceWriter.ResourceString to = new ICUResourceWriter.ResourceString();
+
+                    this_mz.name =  "mz" + String.valueOf(mz_count);
+                    this_mz.first = mzone;
+                    mzone.next = from;
+                    from.next = to;
+                    mz_count++;
+
+                    mzone.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.MZONE);
+                    String str = LDMLUtilities.getAttributeValue(node,LDMLConstants.FROM);
+                    if ( str != null )
+                       from.val = str;
+                    else
+                       from.val = "0000-00-00";
+
+                    str = LDMLUtilities.getAttributeValue(node,LDMLConstants.TO);
+                    if ( str != null )
+                       to.val = str;
+                    else
+                       to.val = "9999-12-31";
+
+                    if ( current_mz == null ) {
+                       uses_mz_table.first = this_mz;
+                       current_mz = findLast(this_mz);
+                    }
+                    else {
+                       current_mz.next = this_mz;
+                       current_mz = findLast(this_mz);
+                    }
+                    containsUM = true;
+
+                    res = null;
+
             }else if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
                 String ec = LDMLUtilities.getNodeValue(node);
                 if(ec!=null){
@@ -2517,6 +2567,19 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
             xpath.delete(oldLength, xpath.length());
         }
+
+        // Add the metazone mapping table if mz mappings were present
+        if ( containsUM ){
+           ICUResourceWriter.Resource res = uses_mz_table;
+           if(current == null){
+              table.first = res;
+              current = findLast(res);
+           }else{
+              current.next = res;
+              current = findLast(res);
+           }
+        }
+
         //TODO fix this hack once CLDR data is fixed.
         if(writtenEC == false && isECDraft==false){
             //try to fetch the exemplar city name from the id
@@ -2528,6 +2591,89 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else{
                 current.next = str;
             }
+        }
+        
+        xpath.delete(savedLength, xpath.length());
+        if(table.first!=null){
+            return table;
+        }
+        return null;
+    }
+
+
+    private ICUResourceWriter.Resource parseMetazone(Node root, StringBuffer xpath){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        
+        boolean writtenEC = false;
+        boolean isECDraft = false;
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+        
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+        String id = LDMLUtilities.getAttributeValue(root,LDMLConstants.TYPE) ;
+
+        table.name = "\"" + "meta:" + id + "\"";
+        table.name = table.name.replace('/', ':');
+        ICUResourceWriter.Resource current = null;
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+            // a ceratain element of the list
+            // is marked draft .. just dont
+            // output that item
+            getXPath(node, xpath);
+            if(isNodeNotConvertible(node, xpath)){
+                xpath.setLength(oldLength);
+                continue;
+            }
+            if(name.equals(LDMLConstants.ALIAS)){
+                res = parseAliasResource(node,xpath);
+                if(res!=null){
+                    res.name =table.name;
+                }
+                return res;
+            }else if(name.equals(LDMLConstants.DEFAULT)){
+                res = getDefaultResource(node, xpath, name);
+            }else if(name.equals(LDMLConstants.LONG) || name.equals(LDMLConstants.SHORT)){
+                Node standard = LDMLUtilities.getNode(node,LDMLConstants.STANDARD);
+                Node generic  = LDMLUtilities.getNode(node,LDMLConstants.GENERIC);
+                Node daylight  = LDMLUtilities.getNode(node,LDMLConstants.DAYLIGHT);
+                if(standard != null ){
+                    res = getStringResource(name.charAt(0)+"s", standard, res);
+                }
+                if(generic != null ){
+                    res = getStringResource(name.charAt(0)+"g", generic, res);
+                }
+                if(daylight != null ){
+                    res = getStringResource(name.charAt(0)+"d", daylight, res);
+                }            
+
+            }else if(name.equals(LDMLConstants.COMMONLY_USED)){
+// TODO: Fix COMMONLY_USED
+            }else{
+                System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
+                System.exit(-1);
+            }
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(oldLength, xpath.length());
         }
         
         xpath.delete(savedLength, xpath.length());

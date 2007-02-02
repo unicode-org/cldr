@@ -3574,6 +3574,7 @@ void showOneZone(WebContext ctx, String zone) {
     SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
     CLDRFile cf = uf.cldrfile;
     CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
+    CLDRFile engFile = ctx.sm.getEnglishFile();
     //  showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone[@type=\""+s+"\"]", null);
     //  private void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
     //WebContext ctx = new WebContext(baseCtx);
@@ -3711,10 +3712,11 @@ void showOneZone(WebContext ctx, String zone) {
     }
     
     DataPod pod = ctx.getPod(podBase);
+///*srl*/System.err.println("pre-pod: " + pod.getAll().size() + " - podBase: " + podBase);
     
     
     // Make sure the pod contains the peas we'd like to see.
-    if(whichMZone==null) {
+    if(true /*whichMZone==null*/) {
         // regular zone
         
         final String tzsuffs[] = {  "/long/generic",
@@ -3735,7 +3737,7 @@ void showOneZone(WebContext ctx, String zone) {
         
         String suffs[];
         if(whichMZone != null) {
-            suffs = mzsuffs;
+            suffs = mzsuffs;            
         } else {
             suffs = tzsuffs;
         }        
@@ -3745,22 +3747,30 @@ void showOneZone(WebContext ctx, String zone) {
             if(myp.xpathSuffix == null) {
                 myp.xpathSuffix = ourSuffix+suff;
             }
+///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
+
+            if(suff.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+                myp.confirmOnly = true;
+            }
+
 
             if(myp.items.isEmpty()) {
                 // cribbed from CheckZones
                 TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
-                //parts.set(podBase+ourSuffix+suff);
+                parts.set(podBase+ourSuffix+suff);
                 //if (parts.containsElement("zone")) {
                 String id = zone; //(String) parts.getAttributeValue(3,"type");
                 TimeZone tz = TimeZone.getTimeZone(id);
                 String pat = "vvvv";
                 String formatted = null;
-                if (suff.indexOf("short")>-1) pat = "v";
+///*srl*/         System.err.println("suff: " + suff);
                 if (suff.indexOf("exemplarCity")>-1) {
                     formatted = timezoneFormatter.getFormattedZone(id, pat,
-                            false, tz.getRawOffset(), false);
-                } else {
+						false, tz.getRawOffset(), false);
+                } else if (suff.indexOf("commonlyUsed")>-1) {
+                    formatted = "true"; // set to true...
+                } else { // some other zone
         //				boolean daylight = parts.containsElement("daylight");
         //				if (daylight || parts.containsElement("standard")) {				
         //					pat = "zzzz";
@@ -3772,13 +3782,37 @@ void showOneZone(WebContext ctx, String zone) {
         //				result.add(new CheckStatus().setCause(this).setType(
         //						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
         //						new Object[] { formatted }));
-                        pat = "vvvv";
-                        if (suff.indexOf("short")>-1) pat = "v";
-                        formatted = timezoneFormatter.getFormattedZone(id, pat,
-                                false, tz.getRawOffset(), true);
+                boolean isDaylight = false;
+                if(parts.containsElement("daylight")) {
+                    isDaylight = true;
                 }
+                           if ( parts.containsElement("generic") ) {
+				pat = "vvvv";
+				if (parts.containsElement("short")) pat = "v";
+                           }
+                           else {
+				pat = "zzzz";
+				if (parts.containsElement("short")) pat = "z";
+                           }
+
+
+                        if(whichMZone == null) {
+//  /*srl*/                 System.err.println("gfz: id:"+id+", pat:"+pat+", day:"+isDaylight+", "+tz.getRawOffset()+", true- " + suff);
+                          formatted = timezoneFormatter.getFormattedZone(id, pat,
+                                isDaylight, tz.getRawOffset(), true);
+                        } else {
+                            formatted = "???";
+                        }
+                        
+                        //formatted = formatted + " : " + pat;
+                }
+///*srl*/                System.err.println(" -> " + formatted);
+
+                
                 DataPod.Pea.Item item = myp.addItem(formatted, null, null);
                 item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
+                myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
+                
 //                } else {
 //                    System.err.println("Items not empty: "+zone+suff);
             }
@@ -3794,10 +3828,10 @@ void showOneZone(WebContext ctx, String zone) {
 //            myp.displayName = spiel;
     }
     
-
+///*srl*/System.err.println("pod: " + pod.getAll().size() + " - base_xpath: " + base_xpath);
     
     SurveyMain.printPodTableOpen(ctx, pod);
-    sm.showPeas(ctx, pod, canModify, base_xpath, true); // fail. 
+    sm.showPeas(ctx, pod, canModify, base_xpath, true);
     SurveyMain.printPodTableClose(ctx, pod);
     
     // TODO: no alts for now, on the time zones..
@@ -3951,6 +3985,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     String ourDir = getDirectionFor(ctx.locale);
     ctx.println("<hr>");
     boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
+    
     // calculate references
     if(pod.xpathPrefix.indexOf("references")==-1) {
         Set refsSet = new HashSet();

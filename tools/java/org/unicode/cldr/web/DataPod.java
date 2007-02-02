@@ -681,6 +681,7 @@ public class DataPod extends Registerable {
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
                                               "^//ldml/dates/timeZoneNames/zone.*|"+
+                                              "^//ldml/dates/timeZoneNames/metazone.*|"+
                                               "^//ldml/dates/calendar.*|"+
                                               "^//ldml/identity.*");
         // what to exclude under 'misc' and calendars
@@ -741,6 +742,7 @@ public class DataPod extends Registerable {
         boolean excludeLDN = false;
         boolean excludeGrego = false;
         boolean excludeTimeZones = false;
+        boolean excludeMetaZones = false;
         boolean useShorten = false; // 'shorten' xpaths instead of extracting type
         boolean keyTypeSwap = false;
         boolean hackCurrencyDisplay = false;
@@ -765,12 +767,16 @@ public class DataPod extends Registerable {
             }
         } else if(xpathPrefix.startsWith("//ldml/dates")) {
             useShorten = true;
-            if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
+            if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 removePrefix = "//ldml/dates/timeZoneNames/zone";
                 excludeTimeZones = false;
+            } if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+                removePrefix = "//ldml/dates/timeZoneNames/metazone";
+                excludeMetaZones = false;
             } else {
                 removePrefix = "//ldml/dates/calendars/calendar";
                 excludeTimeZones = true;
+                excludeMetaZones = true;
                 if(xpathPrefix.indexOf("gregorian")==-1) {
                     excludeGrego = true; 
                     // nongreg
@@ -821,6 +827,9 @@ public class DataPod extends Registerable {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+                continue;
+            } else if(excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
@@ -899,7 +908,7 @@ public class DataPod extends Registerable {
 
 //if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
 
-            if(xpath.indexOf("default[@type")!=-1) {
+            if( xpath.indexOf("default[@type")!=-1 ) {
                 peaSuffixXpath = displaySuffixXpath;
                 int n = type.lastIndexOf('/');
                 if(n==-1) {
@@ -909,6 +918,8 @@ public class DataPod extends Registerable {
                 }
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
+            } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+                confirmOnly = true;
             }
             
             if(useShorten) {
@@ -977,6 +988,7 @@ public class DataPod extends Registerable {
                 if(superP.displayName == null) {
                     if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")||
                        xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")||
+                       xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")||
                        (xpathPrefix.startsWith("//ldml/dates") && (-1==peaSuffixXpath.indexOf("/pattern"))
                                                             && (-1==peaSuffixXpath.indexOf("availableFormats")))) {
                         superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
@@ -1197,6 +1209,7 @@ public class DataPod extends Registerable {
             // LOCALEDISPLAYNAMES
                 "//ldml/"+SurveyMain.NUMBERSCURRENCIES,
                 "//ldml/"+"dates/timeZoneNames/zone",
+                "//ldml/"+"dates/timeZoneNames/metazone",
             // OTHERROOTS
                 SurveyMain.GREGO_XPATH,
                 SurveyMain.OTHER_CALENDARS_XPATH

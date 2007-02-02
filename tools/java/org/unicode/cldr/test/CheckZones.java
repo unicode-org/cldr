@@ -118,7 +118,6 @@ public class CheckZones extends CheckCLDR {
 			String id = (String) parts.getAttributeValue(3,"type");
 			TimeZone tz = TimeZone.getTimeZone(id);
 			String pat = "vvvv";
-			if (parts.containsElement("short")) pat = "v";
 			if (parts.containsElement("exemplarCity")) {
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
 						false, tz.getRawOffset(), false);
@@ -126,23 +125,18 @@ public class CheckZones extends CheckCLDR {
 						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
 						new Object[] { formatted }));
 			} else {
-//				boolean daylight = parts.containsElement("daylight");
-//				if (daylight || parts.containsElement("standard")) {				
-//					pat = "zzzz";
-//					if (parts.containsElement("short")) pat = "z";
-//				}
-//
-//				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-//						daylight, tz.getRawOffset(), false);
-//				result.add(new CheckStatus().setCause(this).setType(
-//						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
-//						new Object[] { formatted }));
+                           if ( parts.containsElement("generic") ) {
 				pat = "vvvv";
 				if (parts.containsElement("short")) pat = "v";
+                           }
+                           else {
+				pat = "zzzz";
+				if (parts.containsElement("short")) pat = "z";
+                           }
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
 						false, tz.getRawOffset(), true);
 				result.add(new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
-						.setMessage("Formatted value (if removed!): \"{0}\"", new Object[] {formatted}));
+						.setMessage("Formatted value (if removed): \"{0}\"", new Object[] {formatted}));
 			}
 		}
 		return this;

@@ -3887,12 +3887,12 @@ static void printPodTableOpen(WebContext ctx, DataPod pod) {
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
                     " <th>English</th>\n"+              // 3
-                    " <th>Zm.</th>\n"+                  // 4
-                    " <th>NV</th>\n"+                   // 5
                     " <th colspan='2'>Current</th>\n"+  // 6
                     " <th colspan='2'>Proposed</th>\n"+ // 7
                     " <th colspan='2'>Change</th>\n"+               // 8
-                    " <th>References</th>\n"+           // 9
+                    " <th>Rf</th>\n"+           // 9
+                    " <th>n/a</th>\n"+                   // 5
+                    " <th>Zm.</th>\n"+                  // 4
                     "</tr>");
     } else {
         ctx.println("<tr class='heading'>\n"+
@@ -4842,17 +4842,6 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("<tr class='topbar'>");
     String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
     
-    /* 
-                         " <th>St.</th>\n"+                  // 1
-                    " <th>Code</th>\n"+                 // 2
-                    " <th>English</th>\n"+              // 3
-                    " <th>Zm.</th>\n"+                  // 4
-                    " <th>NV</th>\n"+                   // 5
-                    " <th colspan='2'>Current</th>\n"+  // 6
-                    " <th colspan='2'>Proposed</th>\n"+ // 7
-                    " <th>Change</th>\n"+               // 8
-                    " <th>References</th>\n"+           // 9
-     */
      
     ctx.print("<th valign='top'>");  // ##1 status
     // Mark the line as disputed or insufficient, depending.
@@ -4874,7 +4863,7 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     // ##2 code
     ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
     //if(p.displayName != null) { // have a display name - code gets its own box
-    ctx.println("<tt title='"+baseInfo+"' class='codebox'>"
+    ctx.println("<tt title='"+baseInfo+"' >"
                 + p.type + 
                 "</tt>");
     //}
@@ -4900,21 +4889,6 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</th>");
     
     
-    // ##4 zoom
-    ctx.println("<td>");
-    if(!zoomedIn) {
-        if(canModify && canSubmit) {
-            fora.showForumLink(ctx, pod, p, base_xpath);
-        }
-    }
-    ctx.println("</td>");
-    
-    ctx.print("<td>");
-    if(canModify) {
-        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
-            +((ourVoteXpath==null)?"CHECKED":"")+" >");
-    }
-    ctx.print("</td>");
     
     // ##5 current control
     ctx.print("<td colspan='2' class='"+rclass+"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
@@ -4967,8 +4941,15 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
         ctx.println("<td colspan='2'></td>");
     }
     // ##8 References
+    ctx.print("<td>");
     if(refs.length>0) {
-        ctx.print("<td nowrap><label>");
+        String refHash = fieldHash;
+        ctx.print("<span id='h_ref"+refHash+"'>");
+        ctx.print("<a style='text-decoration: none;' href='javascript:show(\"ref" + refHash + "\")'>" + "\u21A3" /* right arrow with tail */ +"</a></span>");
+        ctx.print("<!-- <noscript> </noscript> -->" + 
+                    "<span style='display: none' id='ref" + refHash + "'>");
+        ctx.print("<label>");
+        ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "\u21A2" +"</a>&nbsp;");
         ctx.print("<a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"'>Ref:</a>");
         if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
             ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
@@ -4978,9 +4959,27 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
             }
             ctx.println("</select>");
         }
-        ctx.println("</label></td>");
-            
+        ctx.print("</label>");
+        ctx.print("</span>");
     }
+    ctx.println("</td>");
+
+    // NV
+    ctx.print("<td>");
+    if(canModify) {
+        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
+            +((ourVoteXpath==null)?"CHECKED":"")+" >");
+    }
+    ctx.print("</td>");
+
+    // zoom
+    ctx.println("<td>");
+    if(!zoomedIn) {
+        if(canModify && canSubmit) {
+            fora.showForumLink(ctx, pod, p, base_xpath);
+        }
+    }
+    ctx.println("</td>");
     
     ctx.println("</tr>");
 }

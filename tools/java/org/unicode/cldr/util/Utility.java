@@ -38,6 +38,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 
 public class Utility {
 	/**
@@ -529,6 +530,37 @@ public class Utility {
 		return index;
 	}
 	
+  /**
+   * Scan the string value from index forward. Stop at any point where the character
+   * at index is in the UnicodeSet.
+   */
+  public static int scanNot(UnicodeSet uset, String value, int index) {
+    int cp;
+    for (; index < value.length(); index += UTF16.getCharCount(cp)) {
+      cp = UTF16.charAt(value, index);
+      if (uset.contains(cp)) break;
+    }
+    return index;
+  }
+  
+  /**
+   * Simplify the ranges in a Unicode set by merging any ranges that are only separated by characters in the dontCare set. 
+   * For example, the ranges: \\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3000-\\u303E change to \\u2E80-\\u303E if the dontCare set includes unassigned characters.
+   * @param input Set to be modified
+   * @param dontCare Set with the don't-care characters for spanning
+   * @return the input set, modified
+   */
+  public static UnicodeSet addDontCareSpans(UnicodeSet input, UnicodeSet dontCare) {
+    UnicodeSet notInInput = new UnicodeSet(input).complement();
+    for (UnicodeSetIterator it = new UnicodeSetIterator(notInInput); it.nextRange();) {
+      if (dontCare.contains(it.codepoint,it.codepointEnd)) {
+        input.add(it.codepoint,it.codepointEnd);
+      }
+    }
+    return input;
+  }
+  
+
     /**
      * Replaces all occurances of piece with replacement, and returns new String
      * Dumb implementation for now.

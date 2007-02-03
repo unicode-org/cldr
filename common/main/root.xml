@@ -397,6 +397,9 @@
 					</field>
 					<field type="day">
 						<displayName>Day</displayName>
+						<relative type="0">Today</relative>
+						<relative type="1">Tomorrow</relative>
+						<relative type="-1">Yesterday</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Day of the Week</displayName>

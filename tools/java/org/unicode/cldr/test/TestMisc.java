@@ -36,7 +36,7 @@ public class TestMisc {
     	//testPopulous();
     	//checkDistinguishing();
       // checkEastAsianWidth();
-      checkEnglishPaths();
+      //checkEnglishPaths();
       System.out.println("Done");
     }
     

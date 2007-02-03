@@ -7,12 +7,12 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.35 $
-    $Date: 2007-01-30 05:20:50 $
+    $Revision: 1.36 $
+    $Date: 2007-02-03 01:28:40 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata? ) >
-<!ATTLIST supplementalData version CDATA #FIXED "1.4.1" >
+<!ATTLIST supplementalData version CDATA #FIXED "1.5" >
 
 <!ELEMENT version ( #PCDATA ) >
 <!ATTLIST version number CDATA #REQUIRED >

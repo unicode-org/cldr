@@ -353,7 +353,7 @@ public class CoverageLevel {
       "|characters/exemplarCharacters" +
       "|delimiters" +
       "|codePattern" +
-      "|calendar\\[\\@type\\=\"gregorian\"\\]/.*(" +
+      "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
       "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
       "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
       "|/eraAbbr" +

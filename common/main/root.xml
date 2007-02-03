@@ -6,6 +6,7 @@
 		<generation date="$Date$"/>
 		<language type="root"/>
 	</identity>
+	<fallback/>
 	<localeDisplayNames>
 		<measurementSystemNames>
 			<measurementSystemName type="US">US</measurementSystemName>
@@ -19,10 +20,12 @@
 	</localeDisplayNames>
 	<layout>
 		<orientation/>
+		<inList casing="mixed"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -197,6 +200,9 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -213,6 +219,9 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../monthWidth[@type='narrow']"/>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -227,6 +236,9 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../monthWidth[@type='narrow']"/>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -234,13 +246,10 @@
 					<dayContext type="format">
 						<default choice="wide"/>
 						<dayWidth type="abbreviated">
-							<day type="sun">1</day>
-							<day type="mon">2</day>
-							<day type="tue">3</day>
-							<day type="wed">4</day>
-							<day type="thu">5</day>
-							<day type="fri">6</day>
-							<day type="sat">7</day>
+							<alias source="locale" path="../dayWidth[@type='wide']"/>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<alias source="locale" path="../dayWidth[@type='wide']"/>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">1</day>
@@ -253,6 +262,9 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<alias source="locale" path="../dayWidth[@type='narrow']"/>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -261,6 +273,9 @@
 							<day type="thu">5</day>
 							<day type="fri">6</day>
 							<day type="sat">7</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<alias source="locale" path="../dayWidth[@type='narrow']"/>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -318,7 +333,7 @@
 					<default choice="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss vvvv</pattern>
+							<pattern>HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">

@@ -30,6 +30,7 @@ public class CheckCoverage extends CheckCLDR {
     private static CoverageLevel coverageLevel = new CoverageLevel();
     private Level requiredLevel;
     private boolean skip; // set to null if we should not be checking this file
+    private boolean requireConfirmed = true;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map options, List result) {
@@ -37,15 +38,18 @@ public class CheckCoverage extends CheckCLDR {
         if (skip) return this;
         if (options.get("submission") == null) return this;
         
-        if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
-        	System.out.println("debug: " + value);
-        }
-
-        if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
-        
-        // skip all items that are in anything but raw codes
+//        if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
+//        	System.out.println("debug: " + value);
+//        }
+//
+//        if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
+//        
+//        // skip all items that are in anything but raw codes
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
-        if (!source.equals(XMLSource.CODE_FALLBACK_ID)) return this;
+        boolean isConfirmed = !fullPath.contains("[@draft=");
+        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !source.equals("root") && (isConfirmed || !requireConfirmed)) {
+            return this;
+        }
         
         if(path == null) { 
             throw new InternalError("Empty path!");
@@ -54,13 +58,15 @@ public class CheckCoverage extends CheckCLDR {
         }
 
         // check to see if the level is good enough
-        CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath);
+        CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath, path);
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
             result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
                 .setCheckOnSubmit(false)
-                    .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
+                    .setMessage(isConfirmed ? 
+                        "Needed to meet {0} coverage level." 
+                        : "Confirmed value needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
             System.out.println(level + "\t" + path);
         }

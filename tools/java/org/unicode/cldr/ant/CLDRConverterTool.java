@@ -170,7 +170,7 @@ public abstract class CLDRConverterTool {
             coverageLevel = new CoverageLevel();
             coverageLevel.init(sd, smd, options);
             ArrayList errors = new ArrayList();
-            coverageLevel.setFile(localeName, exemplarsContainA_Z, null, null, errors);
+            coverageLevel.setFile(localeName, exemplarsContainA_Z, false, null, null, errors);
         }
     }
     /**

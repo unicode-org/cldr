@@ -6,13 +6,13 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.92 $
-$Date: 2007-01-23 22:56:08 $
+$Revision: 1.93 $
+$Date: 2007-02-03 00:36:33 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(fallback?, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
 <!ATTLIST ldml
-   version          CDATA              #FIXED "1.4"
+   version          CDATA              #FIXED "1.5"
 >
 <!ATTLIST ldml draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
@@ -83,8 +83,7 @@ $Date: 2007-01-23 22:56:08 $
 
 <!-- ######################################################### -->
 
-<!ELEMENT fallback EMPTY >
-<!ATTLIST fallback source NMTOKENS #REQUIRED  >
+<!ELEMENT fallback (#PCDATA) >
 <!ATTLIST fallback draft ( approved | provisional | unconfirmed ) #IMPLIED  >
 <!ATTLIST fallback references CDATA #IMPLIED >
 
@@ -193,7 +192,7 @@ $Date: 2007-01-23 22:56:08 $
 <!ATTLIST orientation alt CDATA #IMPLIED >
 
 <!ELEMENT inList ( special* ) >
-<!ATTLIST inList casing ( titlecase-words | titlecase-firstword ) #REQUIRED >
+<!ATTLIST inList casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #REQUIRED >
 <!ATTLIST inList draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST inList references CDATA #IMPLIED >
 <!ATTLIST inList alt CDATA #IMPLIED >
@@ -207,7 +206,7 @@ $Date: 2007-01-23 22:56:08 $
 <!ATTLIST characters draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type ( auxiliary | standard ) #IMPLIED >
+<!ATTLIST exemplarCharacters type ( auxiliary | standard | currencySymbol ) #IMPLIED >
 <!ATTLIST exemplarCharacters draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >

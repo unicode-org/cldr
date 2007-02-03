@@ -26,6 +26,7 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -133,7 +134,7 @@ abstract public class CheckCLDR {
     "-f xxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
     "-c xxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
     "-t xxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
-    "-o xxx \t Organization (for coverage tests): ibm, google, ....",
+    "-o xxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
     "-s \t Show all paths",
@@ -220,16 +221,28 @@ abstract public class CheckCLDR {
     Counter subtotalCount = new Counter();
     FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
     
+    PrettyPath prettyPath = new PrettyPath();
+    
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
       if (CLDRFile.isSupplementalName(localeID)) continue;
-      if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
       boolean isLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
       options.clear();
-      if (!isLanguageLocale) options.put("CheckCoverage.skip","true");
+      
+      // if the organization is set, skip any locale that doesn't have a value in Locales.txt
+      if (organization != null) {
+        Map<String,String> locale_status = StandardCodes.make().getLocaleTypes().get(organization);
+        if (locale_status == null) continue;
+        if (locale_status.get(localeID) == null) continue;
+      } else if (!isLanguageLocale) {
+        // otherwise, skip all language locales
+        options.put("CheckCoverage.skip","true");
+      }
+      
       if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
       if (organization != null) options.put("CoverageLevel.localeType", organization);
       if (true) options.put("submission", "true");
+      if (SHOW_LOCALE) System.out.println("Locale\tKey\tLoc.Value\tEng.Value\tStatus");
       
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
@@ -264,7 +277,7 @@ abstract public class CheckCLDR {
         Set prettySet = new TreeSet();
         for (Iterator it2 = paths.iterator(); it2.hasNext();) {
           String path = (String)it2.next();
-          String prettyString = prettyPath.transliterate(path);
+          String prettyString = prettyPath.getPrettyPath(path);
           if (prettyString.indexOf("%%") >= 0) prettyString = "unmatched/" + prettyString;
           Object old = prettyMap.get(prettyString);
           if (old != null) {
@@ -330,7 +343,8 @@ abstract public class CheckCLDR {
             if (checkOnSubmit) {
               if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
             }
-            pathShower.showHeader(path, value);
+            //pathShower.showHeader(path, value);
+            
             
             //System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
             if (statusType.equals(CheckStatus.demoType)) {
@@ -344,7 +358,14 @@ abstract public class CheckCLDR {
               }
               continue;
             }
-            System.out.println("\t" + statusString);
+            System.out.println(getLocaleAndName(localeID)
+                + "\t" + prettyPath.getPrettyPath(path, false)
+                + "\t\"" + value
+                + "\"\t\"" + getEnglishPathValue(path)
+                + "\"\t" + statusString
+                + "\"\t" + fullPath
+                );
+
             subtotalCount.add(status.type, 1);
             totalCount.add(status.type, 1);
             Object[] parameters = status.getParameters();
@@ -435,16 +456,7 @@ abstract public class CheckCLDR {
         System.out.print(lead.substring(0,i));
         System.out.print(splitPath[i]);
         if (i == splitPath.length - 1) {
-          System.out.print("\tValue:\t" + value);				
-          if (showEnglish) {
-            String englishValue = CheckCLDR.displayInformation.getStringValue(path);
-            if (englishValue == null) {
-              String path2 = CLDRFile.getNondraftNonaltXPath(path);
-              englishValue = CheckCLDR.displayInformation.getStringValue(path2);
-            }
-            System.out.print("\t[English: " + englishValue + "]");	
-          }
-          System.out.print("\tLocale:\t" + localeID);				
+          showValue(path, value, showEnglish, localeID);				
         } else {
           System.out.print(":");
         }
@@ -469,6 +481,20 @@ abstract public class CheckCLDR {
     }
   }
   
+  private static void showValue(String path, String value, boolean showEnglish, String localeID) {
+    System.out.println( "\tValue:\t" + value + (showEnglish ? "\t" + getEnglishPathValue(path) : "") + "\tLocale:\t" + localeID);
+  }
+
+  private static String getEnglishPathValue(String path) {
+    String englishValue = CheckCLDR.displayInformation.getStringValue(path);
+    if (englishValue == null) {
+      String path2 = CLDRFile.getNondraftNonaltXPath(path);
+      englishValue = CheckCLDR.displayInformation.getStringValue(path2);
+    }
+    return englishValue;
+  }
+  
+
   /**
    * Get the CLDRFile.
    * @param cldrFileToCheck
@@ -848,7 +874,7 @@ abstract public class CheckCLDR {
     return locale + " [" + localizedName + "]";
   }
   
-  static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
+  //static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
   
   public static Transliterator getTransliteratorFromFile(String ID, String file) {
     try {

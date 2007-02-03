@@ -299,7 +299,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
@@ -394,7 +393,7 @@
 			<nan draft="unconfirmed">ཨང་མད</nan>
 		</symbols>
 		<decimalFormats>
-			<decimalFormatLength type="long">
+			<decimalFormatLength>
 				<decimalFormat>
 					<pattern draft="unconfirmed">#,##,##0.###</pattern>
 				</decimalFormat>
@@ -402,21 +401,21 @@
 		</decimalFormats>
 		<scientificFormats>
 			<default choice="long" draft="unconfirmed"/>
-			<scientificFormatLength type="long">
+			<scientificFormatLength>
 				<scientificFormat>
 					<pattern draft="unconfirmed">#E+00</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength type="long">
+			<percentFormatLength>
 				<percentFormat>
 					<pattern draft="unconfirmed">#,##,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength type="long">
+			<currencyFormatLength>
 				<currencyFormat>
 					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
 				</currencyFormat>

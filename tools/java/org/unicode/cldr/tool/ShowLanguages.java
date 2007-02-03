@@ -118,8 +118,9 @@ public class ShowLanguages {
     pw1.println("</td></tr>");
     pw1.close();
     
-    linfo.printCountryData(pw);
-    
+    linfo.printCountryData(pw, true);
+    linfo.printCountryData(pw, false);
+
     linfo.showCorrespondances();
     
     linfo.showCalendarData(pw);
@@ -463,13 +464,13 @@ public class ShowLanguages {
       }  
     };
     
-    public void printCountryData(PrintWriter pw) throws IOException {
+    public void printCountryData(PrintWriter pw, boolean countryFirst) throws IOException {
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
       pf.setMinimumFractionDigits(1);
       pf.setMaximumFractionDigits(1);
-      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information", 
+      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information" + (countryFirst ? "" : "-2"), 
           "<div  style='margin:1em'><p>This data is provided for localization testing, and is under development for CLDR 1.5. " +
           "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
           "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
@@ -479,18 +480,36 @@ public class ShowLanguages {
           "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
           "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
           "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
+          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information at " +
+          "<a target='_blank' href='http://www.unicode.org/cldr/bugs/locale-bugs/data?compose=1217'>bug 1217</a>. " +
+          "Please include the desired change <i>and</i> references to support it.</p>" +
           "<p></div>"));
+      if (countryFirst) {
       pw2.println("<tr>" +
           "<th class='source'>Territory</th>" +
           "<th class='source'>Code</th>" +
           "<th class='target'>Population</th>" +
           "<th class='target'>Literacy</th>" +
           "<th class='target'>GDP (PPP)</th>" +
+          
           "<th class='target'>Language</th>" +
           "<th class='target'>Code</th>" +
           "<th class='target'>Population</th>" +
           "<th class='target'>Literacy</th>" +
       "</tr>");
+      } else {
+        pw2.println("<tr>" +
+            "<th class='target'>Language</th>" +
+            "<th class='target'>Code</th>" +
+            "<th class='target'>Population</th>" +
+            "<th class='target'>Literacy</th>" +
+            
+            "<th class='source'>Territory</th>" +
+            "<th class='source'>Code</th>" +
+            "<th class='target'>Population</th>" +
+            "<th class='target'>Literacy</th>" +
+            "<th class='target'>GDP (PPP)</th>" +
+        "</tr>");      }
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");

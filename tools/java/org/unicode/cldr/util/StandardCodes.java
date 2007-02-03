@@ -250,7 +250,7 @@ public class StandardCodes {
    * is the status. For IBM, it is G0..G4, while for Java it is Supported or
    * Unsupported
    */
-  public Map getLocaleTypes() throws IOException {
+  public Map<String,Map<String,String>> getLocaleTypes() throws IOException {
     if (platform_locale_status == null) {
       LocaleIDParser parser = new LocaleIDParser();
       platform_locale_status = new TreeMap(caseless);

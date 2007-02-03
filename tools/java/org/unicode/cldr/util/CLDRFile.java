@@ -1712,9 +1712,12 @@ public class CLDRFile implements Freezable {
   transient LanguageTagParser lparser = new LanguageTagParser();
   
   public synchronized String getName(String localeOrTZID, boolean skipDraft) {
+    String name = getName(LANGUAGE_NAME, localeOrTZID, skipDraft);
+    // TODO - handle arbitrary combinations
+    if (name != null) return name;
     lparser.set(localeOrTZID);
     String original;
-    String name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
+    name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
     if (name == null) name = original;
     String sname = original = lparser.getScript();
     if (sname.length() != 0) {

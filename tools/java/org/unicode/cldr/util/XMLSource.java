@@ -722,15 +722,13 @@ public abstract class XMLSource implements Freezable {
             if (s != null && s.size() == 1) continue;
             value = TimezoneFormatter.getFallbackName(value);
           }
-          //String path = prefix + code + postfix;
-          String fullpath = CLDRFile.getKey(typeNo, code);
-          //System.out.println(fullpath + "\t=> " + code);
-          String distinguishingPath = constructedItems.putValueAtPath(fullpath, value);
-          if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {
-            allowDuplicates.put(distinguishingPath, code);
-          }
+          addFallbackCode(typeNo, code, value);
         }
       }
+      addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh_Hans");
+      addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hant", "zh_Hant");
+      addFallbackCode(CLDRFile.LANGUAGE_NAME, "pt_BR", "pt_BR");
+      
       for (int i = 0; i < keyDisplayNames.length; ++i) {
         constructedItems.putValueAtPath(
             "//ldml/localeDisplayNames/keys/key" +
@@ -747,6 +745,15 @@ public abstract class XMLSource implements Freezable {
       constructedItems.freeze();
       allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
       //System.out.println("constructedItems: " + constructedItems);
+    }
+    private static void addFallbackCode(int typeNo, String code, String value) {
+      //String path = prefix + code + postfix;
+      String fullpath = CLDRFile.getKey(typeNo, code);
+      //System.out.println(fullpath + "\t=> " + code);
+      String distinguishingPath = constructedItems.putValueAtPath(fullpath, value);
+      if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {
+        allowDuplicates.put(distinguishingPath, code);
+      }
     }
     public XMLSource make(String localeID) {
       return mySource.make(localeID);

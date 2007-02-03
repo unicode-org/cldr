@@ -125,7 +125,7 @@ public class CoverageLevel {
   
   private transient XPathParts parts = new XPathParts(null, null);
   
-  private Map language_level = new TreeMap();
+  private Map<String, CoverageLevel.Level> language_level = new TreeMap();
   
   private Map script_level = new TreeMap();
   private Map zone_level = new TreeMap();
@@ -239,6 +239,16 @@ public class CoverageLevel {
     if (euroLanguages.contains(language)) {
       setIfBetter(language_level, euroLanguages, CoverageLevel.Level.MODERATE, true);
       setIfBetter(territory_level, euroCountries, CoverageLevel.Level.MODERATE, true);
+    }
+    // special case pt_BR, zh_Hant, zh_Hans
+    Level x = language_level.get("zh");
+    if (x != null) {
+      language_level.put("zh_Hans", x);
+      language_level.put("zh_Hant", x);
+    }
+    x = language_level.get("pt");
+    if (x != null) {
+      language_level.put("pt_BR", x);
     }
     
     setIfBetter(territory_level, territoryContainment, CoverageLevel.Level.MODERATE, true);
@@ -390,7 +400,7 @@ public class CoverageLevel {
     } else if (part1.equals("localeDisplayNames")) {
       if (lastElement.equals("language")) {
         // <language type=\"aa\">Afar</language>"
-        result = (CoverageLevel.Level) language_level.get(type);
+        result = language_level.get(type);
       } else if (lastElement.equals("territory")) {
         result = (CoverageLevel.Level) territory_level.get(type);
       } else if (lastElement.equals("script")) {

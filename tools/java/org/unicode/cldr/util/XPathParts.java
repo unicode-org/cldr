@@ -327,7 +327,7 @@ public class XPathParts {
 	 * @param elementIndex
 	 * @return
 	 */
-	public Collection getAttributeKeys(int elementIndex) {
+	public Collection<String> getAttributeKeys(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
 		return Collections.unmodifiableSet(((Element)elements.get(elementIndex)).getAttributeKeys());
 	}

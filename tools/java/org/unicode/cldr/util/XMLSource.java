@@ -728,6 +728,8 @@ public abstract class XMLSource implements Freezable {
       addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh_Hans");
       addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hant", "zh_Hant");
       addFallbackCode(CLDRFile.LANGUAGE_NAME, "pt_BR", "pt_BR");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
+      addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
       
       for (int i = 0; i < keyDisplayNames.length; ++i) {
         constructedItems.putValueAtPath(
@@ -746,9 +748,16 @@ public abstract class XMLSource implements Freezable {
       allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
       //System.out.println("constructedItems: " + constructedItems);
     }
+    
     private static void addFallbackCode(int typeNo, String code, String value) {
+      addFallbackCode(typeNo, code, value, null);
+    }
+    private static void addFallbackCode(int typeNo, String code, String value, String alt) {
       //String path = prefix + code + postfix;
       String fullpath = CLDRFile.getKey(typeNo, code);
+      if (alt != null) {
+        fullpath = fullpath.replace("]", "][@alt=\"" + alt + "\"]");
+      }
       //System.out.println(fullpath + "\t=> " + code);
       String distinguishingPath = constructedItems.putValueAtPath(fullpath, value);
       if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {

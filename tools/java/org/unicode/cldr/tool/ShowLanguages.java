@@ -41,6 +41,7 @@ import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -118,8 +119,10 @@ public class ShowLanguages {
     pw1.println("</td></tr>");
     pw1.close();
     
-    linfo.printCountryData(pw, true);
-    linfo.printCountryData(pw, false);
+    // linfo.printCountryData(pw);
+    linfo.showCountryLanguageInfo(pw);
+    
+    linfo.showLanguageCountryInfo(pw);
 
     linfo.showCorrespondances();
     
@@ -464,27 +467,13 @@ public class ShowLanguages {
       }  
     };
     
-    public void printCountryData(PrintWriter pw, boolean countryFirst) throws IOException {
+    public void printCountryData(PrintWriter pw) throws IOException {
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
       pf.setMinimumFractionDigits(1);
       pf.setMaximumFractionDigits(1);
-      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information" + (countryFirst ? "" : "-2"), 
-          "<div  style='margin:1em'><p>This data is provided for localization testing, and is under development for CLDR 1.5. " +
-          "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
-          "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
-          "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
-          "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
-          "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
-          "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
-          "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
-          "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
-          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information at " +
-          "<a target='_blank' href='http://www.unicode.org/cldr/bugs/locale-bugs/data?compose=1217'>bug 1217</a>. " +
-          "Please include the desired change <i>and</i> references to support it.</p>" +
-          "<p></div>"));
-      if (countryFirst) {
+      PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
       pw2.println("<tr>" +
           "<th class='source'>Territory</th>" +
           "<th class='source'>Code</th>" +
@@ -497,19 +486,6 @@ public class ShowLanguages {
           "<th class='target'>Population</th>" +
           "<th class='target'>Literacy</th>" +
       "</tr>");
-      } else {
-        pw2.println("<tr>" +
-            "<th class='target'>Language</th>" +
-            "<th class='target'>Code</th>" +
-            "<th class='target'>Population</th>" +
-            "<th class='target'>Literacy</th>" +
-            
-            "<th class='source'>Territory</th>" +
-            "<th class='source'>Code</th>" +
-            "<th class='target'>Population</th>" +
-            "<th class='target'>Literacy</th>" +
-            "<th class='target'>GDP (PPP)</th>" +
-        "</tr>");      }
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
@@ -617,6 +593,157 @@ public class ShowLanguages {
 //    //doFooter(pw);
 //    
     }
+
+    private PrintWriter showCountryDataHeader(PrintWriter pw, String title) throws IOException {
+      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, title, 
+          "<div  style='margin:1em'><p>This data is provided for localization testing, and is under development for CLDR 1.5. " +
+          "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
+          "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
+          "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
+          "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
+          "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
+          "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
+          "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
+          "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
+          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information at " +
+          "<a target='_blank' href='http://www.unicode.org/cldr/bugs/locale-bugs/data?compose=1217'>bug 1217</a>. " +
+          "Please include the desired change <i>and</i> references to support it.</p>" +
+          "<p></div>"));
+      return pw2;
+    }
+
+    private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
+      PrintWriter pw2 = showCountryDataHeader(pw, "Language-Territory Information");
+      NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
+      nf.setGroupingUsed(true);
+      NumberFormat percent = new DecimalFormat("000.0%");
+      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
+      tablePrinter.setSortPriorities(0,~4)
+      .addColumn("Language", "class='source'", null, "class='source'", true)
+      .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      .addColumn("Territory", "class='target'", null, "class='target'", true)
+      .addColumn("Code", "class='target'", "<a href=\"territory_language_information.html#{0}\">{0}</a>", "class='target'", true)
+      .addColumn("Language Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      //.addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
+      ;
+      Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+      for (String territoryName : territoryLanguageData.keySet()) {
+        Map<String,Object>results = territoryLanguageData.get(territoryName);
+        Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
+        double population = Double.parseDouble((String)results.get("population"));
+        double gdp = Double.parseDouble((String)results.get("gdp"));
+        if (language == null) {
+          Comparable[] items = new Comparable[]{
+              english.getName("und", false),
+              "und",
+              territoryName,
+              (String)results.get("code"),
+              Double.NaN,
+              population,
+              Double.NaN,
+              Double.parseDouble((String)results.get("literacyPercent")),
+//              gdp
+          };
+          data.add(items);
+        } else {
+          for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+            double languagePopulation = languageCodePair.first;
+            double languageliteracy = languageCodePair.second.first;
+            String languageCode = languageCodePair.second.second;
+            double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
+            if (Double.isNaN(languageliteracy)) {
+              languageliteracy = territoryLiteracy;
+            }
+            Comparable[] items = new Comparable[]{
+                english.getName(languageCode, false),
+                languageCode,
+                territoryName,
+                (String)results.get("code"),
+                languagePopulation/100 * population,
+                population,
+                languageliteracy,
+                territoryLiteracy,
+//                gdp
+            };
+            data.add(items);
+          }
+        }
+      }
+      Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
+      String value = tablePrinter.toTable(flattened);
+      pw2.println(value);
+      pw2.close();
+    }
+    
+    private void showCountryLanguageInfo(PrintWriter pw) throws IOException {
+      PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
+      NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
+      nf.setGroupingUsed(true);
+      NumberFormat percent = new DecimalFormat("000.0%");
+      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
+      tablePrinter.setSortPriorities(0,~4)
+      .addColumn("Territory", "class='source'", null, "class='source'", true)
+      .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
+      .addColumn("Language", "class='target'", null, "class='target'", true)
+      .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>", "class='target'", true)
+      .addColumn("Language Population%", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      ;
+      Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+      for (String territoryName : territoryLanguageData.keySet()) {
+        Map<String,Object>results = territoryLanguageData.get(territoryName);
+        Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
+        double population = Double.parseDouble((String)results.get("population"));
+        double gdp = Double.parseDouble((String)results.get("gdp"));
+        if (language == null) {
+          Comparable[] items = new Comparable[]{
+              territoryName,
+              (String)results.get("code"),
+              population,
+              Double.parseDouble((String)results.get("literacyPercent")),
+              gdp,
+              english.getName("und", false),
+              "und",
+              Double.NaN,
+              Double.NaN,
+          };
+          data.add(items);
+        } else {
+          for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+            double languagePopulation = languageCodePair.first;
+            double languageliteracy = languageCodePair.second.first;
+            String languageCode = languageCodePair.second.second;
+            double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
+            if (Double.isNaN(languageliteracy)) {
+              languageliteracy = territoryLiteracy;
+            }
+            Comparable[] items = new Comparable[]{
+                territoryName,
+                (String)results.get("code"),
+                population,
+                territoryLiteracy,
+                gdp,
+                english.getName(languageCode, false),
+                languageCode,
+                languagePopulation,
+                languageliteracy,
+            };
+            data.add(items);
+          }
+        }
+      }
+      Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
+      String value = tablePrinter.toTable(flattened);
+      pw2.println(value);
+      pw2.close();
+    }
+
     
     private void addCharSubstitution(String value, String substitute) {
       if (substitute.equals(value))

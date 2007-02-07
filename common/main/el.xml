@@ -7,7 +7,7 @@
 		<language type="el"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="ar">αραβικά</language>
 			<language type="arc">αραμαϊκά</language>
 			<language type="be">λευκορωσικά</language>
@@ -405,6 +405,9 @@
 			<type type="traditional" key="collation">Παραδοσιακή</type>
 		</types>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[α ά β-ε έ ζ η ή θ ι ί ϊ ΐ κ-ο ό π ρ σ ς τ υ ύ ϋ ΰ φ-ω ώ]</exemplarCharacters>
 	</characters>

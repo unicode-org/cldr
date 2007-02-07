@@ -7,7 +7,7 @@
 		<language type="cs"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="aa">afarština</language>
 			<language type="ab">abcházština</language>
 			<language type="af">afrikánština</language>
@@ -445,6 +445,7 @@
 	</localeDisplayNames>
 	<layout>
 		<inList casing="titlecase-firstword"/>
+		<inText type="languages">lowercase-words</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a á b c č d ď e é ě f-h {ch} i í j-n ň o ó p-r ř s š t ť u ú ů v-y ý z ž]</exemplarCharacters>

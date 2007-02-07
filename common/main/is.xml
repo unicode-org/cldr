@@ -7,7 +7,7 @@
 		<language type="is"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="aa" draft="provisional">Afar</language>
 			<language type="aa" alt="proposed-x999" draft="unconfirmed">afár</language>
 			<language type="ab">abkasíska</language>
@@ -796,6 +796,9 @@
 			<measurementSystemName type="metric" draft="provisional">Metrakerfi</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a á b d ð e é f-i í j-o ó p r-u ú v y ý þ æ ö]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q w z]</exemplarCharacters>

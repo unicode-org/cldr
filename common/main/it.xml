@@ -837,12 +837,12 @@
 			<variant type="ROZAJ">resiano</variant>
 			<variant type="SAAHO">saho</variant>
 		</variants>
-		<keys casing="lowercase-words">
+		<keys>
 			<key type="calendar">calendario</key>
 			<key type="collation">collazione</key>
 			<key type="currency">valuta</key>
 		</keys>
-		<types casing="lowercase-words">
+		<types>
 			<type type="big5han" key="collation">cinese tradizionale</type>
 			<type type="buddhist" key="calendar">calendario buddista</type>
 			<type type="chinese" key="calendar">calendario cinese</type>
@@ -863,6 +863,11 @@
 			<measurementSystemName type="metric">metrico</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+		<inText type="keys">lowercase-words</inText>
+		<inText type="types">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a à b-e é è f-i ì j-o ó ò p-u ù v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[í ï ú]</exemplarCharacters>

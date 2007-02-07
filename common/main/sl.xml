@@ -7,7 +7,7 @@
 		<language type="sl"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="ar">arabščina</language>
 			<language type="bg">bolgarščina</language>
 			<language type="cs">češčina</language>
@@ -335,6 +335,9 @@
 			<type type="traditional" key="collation">Tradicionano zlaganje</type>
 		</types>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a-c č d-p r s š t-v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>

@@ -7,7 +7,7 @@
 		<language type="et"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="ar">araabia</language>
 			<language type="bg">bulgaaria</language>
 			<language type="cs">tiehhi</language>
@@ -292,6 +292,9 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a-s š z ž t-w õ ä ö ü x y]</exemplarCharacters>
 	</characters>

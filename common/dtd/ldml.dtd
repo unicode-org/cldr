@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.93 $
-$Date: 2007-02-03 00:36:33 $
+$Revision: 1.94 $
+$Date: 2007-02-07 15:19:13 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(fallback?, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -96,7 +96,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST languages standard CDATA #IMPLIED >
 <!ATTLIST languages references CDATA #IMPLIED >
 <!ATTLIST languages validSubLocales CDATA #IMPLIED >
-<!ATTLIST languages casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more script -->
 <!ELEMENT scripts (alias |(script | special)* ) >
@@ -104,7 +103,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST scripts standard CDATA #IMPLIED >
 <!ATTLIST scripts references CDATA #IMPLIED >
 <!ATTLIST scripts validSubLocales CDATA #IMPLIED >
-<!ATTLIST scripts casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more territory -->
 <!ELEMENT territories ( alias | (territory | special)*) >
@@ -112,7 +110,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST territories standard CDATA #IMPLIED >
 <!ATTLIST territories references CDATA #IMPLIED >
 <!ATTLIST territories validSubLocales CDATA #IMPLIED >
-<!ATTLIST territories casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more variant -->
 <!ELEMENT variants ( alias |(variant | special)*  ) >
@@ -120,7 +117,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST variants standard CDATA #IMPLIED >
 <!ATTLIST variants references CDATA #IMPLIED >
 <!ATTLIST variants validSubLocales CDATA #IMPLIED >
-<!ATTLIST variants casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more key -->
 <!ELEMENT keys ( alias | (key | special)*) >
@@ -128,7 +124,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST keys standard CDATA #IMPLIED >
 <!ATTLIST keys references CDATA #IMPLIED >
 <!ATTLIST keys validSubLocales CDATA #IMPLIED >
-<!ATTLIST keys casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT key ( #PCDATA ) >
 <!ATTLIST key type NMTOKEN #REQUIRED >
@@ -143,7 +138,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST types standard CDATA #IMPLIED >
 <!ATTLIST types references CDATA #IMPLIED >
 <!ATTLIST types validSubLocales CDATA #IMPLIED >
-<!ATTLIST types casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT type ( #PCDATA ) >
 <!ATTLIST type type NMTOKEN #REQUIRED >
@@ -165,7 +159,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST measurementSystemNames draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST measurementSystemNames references CDATA #IMPLIED >
 <!ATTLIST measurementSystemNames validSubLocales CDATA #IMPLIED >
-<!ATTLIST measurementSystemNames casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT measurementSystemName ( #PCDATA ) >
 <!ATTLIST measurementSystemName type ( US | metric | UK ) #REQUIRED >
@@ -179,7 +172,7 @@ $Date: 2007-02-03 00:36:33 $
 
 <!-- ######################################################### -->
 <!-- layout and orientation are script specific, so validSublocales attribute is not required -->
-<!ELEMENT layout ( alias | (orientation*, inList*, special*) ) >
+<!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
 <!ATTLIST layout draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST layout references CDATA #IMPLIED >
 
@@ -196,6 +189,12 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST inList draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST inList references CDATA #IMPLIED >
 <!ATTLIST inList alt CDATA #IMPLIED >
+
+<!ELEMENT inText ( #PCDATA ) >
+<!ATTLIST inText type ( languages | scripts | territories | variants | keys | types | measurementSystemNames | monthWidth | dayWidth | quarterWidth | long | fields | currency ) #IMPLIED >
+<!ATTLIST inText draft ( approved | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST inText references CDATA #IMPLIED >
+<!ATTLIST inText alt CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -350,7 +349,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST monthWidth references CDATA #IMPLIED >
 <!ATTLIST monthWidth alt CDATA #IMPLIED >
 <!ATTLIST monthWidth validSubLocales CDATA #IMPLIED >
-<!ATTLIST monthWidth casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT month ( #PCDATA | cp )* >
 <!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED >
@@ -389,7 +387,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST dayWidth references CDATA #IMPLIED >
 <!ATTLIST dayWidth alt CDATA #IMPLIED >
 <!ATTLIST dayWidth validSubLocales CDATA #IMPLIED >
-<!ATTLIST dayWidth casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
@@ -417,7 +414,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST quarterWidth references CDATA #IMPLIED >
 <!ATTLIST quarterWidth alt CDATA #IMPLIED >
 <!ATTLIST quarterWidth validSubLocales CDATA #IMPLIED >
-<!ATTLIST quarterWidth casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT quarter ( #PCDATA ) >
 <!ATTLIST quarter type ( 1 | 2 | 3 | 4 ) #REQUIRED >
@@ -674,7 +670,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST long references CDATA #IMPLIED >
 <!ATTLIST long alt CDATA #IMPLIED >
 <!ATTLIST long validSubLocales CDATA #IMPLIED >
-<!ATTLIST long casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT short (alias | (generic*, standard*, daylight*, special*)) >
 <!ATTLIST short draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -727,7 +722,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST fields references CDATA #IMPLIED >
 <!ATTLIST fields alt CDATA #IMPLIED >
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
-<!ATTLIST fields casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT field ( alias | (displayName*, relative*, special*)) >
 <!ATTLIST field type ( era | year | month | week | day | weekday | dayperiod | hour | minute | second | zone ) #IMPLIED >
@@ -942,7 +936,6 @@ $Date: 2007-02-03 00:36:33 $
 <!ATTLIST currency references CDATA #IMPLIED >
 <!ATTLIST currency alt CDATA #IMPLIED >
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >
-<!ATTLIST currency casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED >
 
 <!ELEMENT symbol ( #PCDATA ) >
 <!ATTLIST symbol draft ( approved | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

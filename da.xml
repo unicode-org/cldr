@@ -7,7 +7,7 @@
 		<language type="da"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="aa">afar</language>
 			<language type="ab">abkhasisk</language>
 			<language type="ace">achinesisk</language>
@@ -1408,6 +1408,9 @@
 			<measurementSystemName type="metric" draft="provisional">Metrisk</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[a-z æ ø å]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á é í ó ú ý]</exemplarCharacters>

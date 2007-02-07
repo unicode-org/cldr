@@ -7,7 +7,7 @@
 		<language type="uk"/>
 	</identity>
 	<localeDisplayNames>
-		<languages casing="lowercase-words">
+		<languages>
 			<language type="aa">афарська</language>
 			<language type="ab">абхазька</language>
 			<language type="ace" references="RP4">ачехська</language>
@@ -1035,6 +1035,9 @@
 			<measurementSystemName type="metric" draft="provisional">Метрична</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<layout>
+		<inText type="languages">lowercase-words</inText>
+	</layout>
 	<characters>
 		<exemplarCharacters>[ʼ а-г ґ д е є ж-и і ї й-щ ь ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[i v x]</exemplarCharacters>

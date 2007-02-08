@@ -126,8 +126,11 @@ public class CheckZones extends CheckCLDR {
 				if (parts.containsElement("short")) pat = "z";
                            }
                                 boolean daylight = parts.containsElement("daylight");
+                                int offset = tz.getRawOffset();
+                                if ( daylight )
+                                   offset += tz.getDSTSavings();
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-						daylight, tz.getRawOffset(), true);
+						daylight, offset, true);
 				result.add(new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
 						.setMessage("Formatted value (if removed): \"{0}\"", new Object[] {formatted}));
 			}

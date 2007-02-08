@@ -1,6 +1,7 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2006, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2007
+ , International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -8,6 +9,7 @@ package org.unicode.cldr.web;
 
 import java.io.*;
 import java.util.*;
+import java.net.InetAddress;
 import java.lang.ref.SoftReference;
 
 // logging
@@ -345,7 +347,7 @@ public class SurveyMain extends HttpServlet {
     */
     private void doSql(WebContext ctx)
     {
-        printHeader(ctx, "SQL Console");
+        printHeader(ctx, "SQL Console@"+localhost());
         String q = ctx.field("q");
         boolean tblsel = false;        
         ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
@@ -552,7 +554,8 @@ public class SurveyMain extends HttpServlet {
     
     private void doDump(WebContext ctx)
     {
-        printHeader(ctx, "ST Admin");
+        String action = ctx.field("action");
+        printHeader(ctx, "ST Admin@"+localhost() + " | " + action);
         ctx.println("<h1>SurveyTool Administration</h1>");
         ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
         "<b><a href='" + ctx.base() + "?sql="+vap+"'>SQL</a></b></div><br>");
@@ -560,7 +563,6 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<hr/>");
         
         
-        String action = ctx.field("action");
         if(action.equals("")) {
             action = "sessions";
         }
@@ -790,7 +792,7 @@ public class SurveyMain extends HttpServlet {
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
-            localeListMap = null;
+            resetLocaleCaches();
             mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
             ctx.println("<br>");
         } else if(action.equals("srl_db_update")) {
@@ -2683,18 +2685,55 @@ public class SurveyMain extends HttpServlet {
         printFooter(ctx);
     }
     
+    /**
+     * Print out a menu item
+     * @param ctx the context
+     * @param which the ID of "this" item
+     * @param menu the ID of the current item
+     */
     protected void printMenu(WebContext ctx, String which, String menu) {
         printMenu(ctx,which,menu,menu, QUERY_SECTION);
     }
+    /**
+     * Print out a menu item
+     * @param ctx the context
+     * @param which the ID of "this" item
+     * @param menu the ID of the current item
+     * @param anchor the #anchor to link to
+     */
     protected void printMenuWithAnchor(WebContext ctx, String which, String menu, String anchor) {
         printMenu(ctx,which,menu,menu, QUERY_SECTION, anchor);
     }
+    /**
+     * Print out a menu item
+     * @param ctx the context
+     * @param which the ID of "this" item
+     * @param menu the ID of the current item
+     * @param title the Title of this menu
+     */
     protected void printMenu(WebContext ctx, String which, String menu, String title) {
         printMenu(ctx,which,menu,title,QUERY_SECTION);
     }
+    /**
+     * Print out a menu item
+     * @param ctx the context
+     * @param which the ID of "this" item
+     * @param menu the ID of the current item
+     * @param title the Title of this menu
+     * @param key the URL field to use (such as 'x')
+     */
     protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
 		printMenu(ctx,which,menu,title,key,null);
 	}
+    /**
+     * Print out a menu item
+     * @param ctx the context
+     * @param which the ID of "this" item
+     * @param menu the ID of the current item
+     * @param title the Title of this menu
+     * @param key the URL field to use (such as 'x')
+     * @param anchor the #anchor to link to
+     */
     protected void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
         if(menu.equals(which)) {
             ctx.print("<b class='selected'>");
@@ -3197,7 +3236,6 @@ public void doMain(WebContext ctx) {
 				}
 			}
         }
-        
     }
     ctx.println("<hr/><p><p>");
     ctx.println("<h3>Basic information about the Locale</h3>");
@@ -3368,6 +3406,43 @@ static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
     return new CLDRFile(dbSource,false);
 }
 
+/**
+ * reset the "list of locales".  
+ * call this if you're resetting the in-db view of what's on disk.  
+ * it will reset things like the locale list map, the metazone map, the interest map, ...
+ */
+private synchronized void resetLocaleCaches() {
+    localeListMap = null;
+    allMetazones = null;
+}
+
+/**
+ * Master list of metazones. Don't access this directly.
+ */
+private static Set allMetazones = null;
+
+/**
+ * Maintain a master list of metazones, culled from root.
+ */
+public synchronized Set getMetazones() {
+    if(allMetazones == null) {
+        ElapsedTimer et = new ElapsedTimer();    
+        XPathParts parts = new XPathParts(null,null);
+        CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
+        Set aset = new HashSet();
+        for(Iterator i = mySrc.iterator("//ldml/"+"dates/timeZoneNames/zone");i.hasNext();) {
+            String xpath = i.next().toString();
+            parts.set(xpath);
+            String mzone = parts.getAttributeValue(-1,"mzone");
+            if(mzone != null) {
+                aset.add(mzone);
+            }
+        }
+        allMetazones = aset;
+        System.err.println("sm.getMetazones:" + allMetazones.size()+" metazones found in " + et.toString());
+    }
+    return allMetazones;
+}
 
 
 /**
@@ -3454,18 +3529,26 @@ public void showTimeZones(WebContext ctx) {
     
     ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
     
+    {
+        String fakez = z; // show any region as "territory timezone list"
+        if(!"full".equals(z) && !"meta".equals(z)) {
+            fakez = "001";
+        }
+        printMenu(ctx, fakez, "001", "Zones by Territory", "z");
+    }
+    ctx.println(" | ");
+    printMenu(ctx, z, "full", "All Zones", "z");
+    ctx.println(" | ");
+    printMenu(ctx, z, "meta", "All Metazones", "z");
+    ctx.println("<br>");
+    
     if("full".equals(z)) {
-        WebContext oCtx = new WebContext(ctx);
-        
-        worldCtx.println("<a href='"+worldCtx.url()+"'>Territory Timezone List (World)</a><br>");
-        subCtx.setQuery("z", "full");
+        subCtx.setQuery("z", z);
         showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone", null);
+    } else if("meta".equals(z)) {
+        subCtx.setQuery("z", z);
+        showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/metazone", null);
     } else {
-        WebContext oCtx = new WebContext(ctx);
-
-        oCtx.setQuery("z","full");
-        oCtx.println("<a href='"+oCtx.url()+"'>Full Timezone List</a><br>");
-                
         ULocale zLocale = new ULocale("und",z);
         
         /* Fetch the parent locales, and output them in reverse order. */
@@ -3482,7 +3565,7 @@ public void showTimeZones(WebContext ctx) {
             }
         }
         
-        WebContext nCtx = new WebContext(oCtx);
+        WebContext nCtx = new WebContext(subCtx);
         
         ctx.println("<hr><p class='hang'>");
         
@@ -3491,14 +3574,14 @@ public void showTimeZones(WebContext ctx) {
             String s = (String)v.get(j-1);
             ULocale nLocale = new ULocale("und",s);
             nCtx.setQuery("z",s);
-            oCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(oCtx.displayLocale)+
+            nCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
                 "</a> ");
             if(j > 1) {
-                oCtx.println(" \u2192 ");
+                nCtx.println(" \u2192 ");
             }
         }
             
-        oCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(oCtx.displayLocale)+"</b></p>");
+        nCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(nCtx.displayLocale)+"</b></p>");
         
         String[] containsList = supplemental.getContainedTerritories(z);
         ///
@@ -3513,26 +3596,26 @@ public void showTimeZones(WebContext ctx) {
                 }
                 ULocale nLocale = new ULocale("und",containsList[i]);
                 nCtx.setQuery("z",containsList[i]);
-                oCtx.println(" \u2192 <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(oCtx.displayLocale)+
+                nCtx.println(" \u2192 <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
                     "</a><br>");
             }
             ctx.println("</ul>");
         }
         
-        String zz = oCtx.field("zz");
+        String zz = nCtx.field("zz");
         String zoneToShow = null;
         // does it contain any zones?
         Vector zones = (Vector)(supplemental.getTerritoryToZones().get(z));
         if(zones != null && !("001".equals(z))) {
-            WebContext zCtx = new WebContext(oCtx);
+            WebContext zCtx = new WebContext(nCtx);
             zCtx.setQuery("z",z);
-            oCtx.println("<p class='hang'>Zones: ");
+            zCtx.println("<p class='hang'>Zones: ");
             if(zones.size()==1) {
                 // only one zone. 
                 // select it for 'em.
                 zz = zones.get(0).toString();
                 zCtx.setQuery("zz",zz);
-                oCtx.setQuery("zz",zz);
+                nCtx.setQuery("zz",zz);
             }
             String menuzz = zz;
             if(whichMZone != null) {
@@ -3542,18 +3625,18 @@ public void showTimeZones(WebContext ctx) {
                 String s = zones.get(j).toString();
                 printMenu(zCtx,menuzz, s,s, "zz");
 //                oCtx.println(s+"<br>");
-                oCtx.println(" ");
+                nCtx.println(" ");
                 
                 if(s.equals(zz)) { // make sure the zone actually exists
                     zoneToShow = s;
                 }
             }
-            oCtx.println("</p>");
+            nCtx.println("</p>");
         }
         
         // Now, if zz isn't empty, display it.
         if(zoneToShow != null) {
-            WebContext zCtx = new WebContext(oCtx);
+            WebContext zCtx = new WebContext(nCtx);
             zCtx.setQuery("z",z);
             zCtx.setQuery("zz",zoneToShow);
             if(whichMZone != null) {
@@ -3654,6 +3737,7 @@ void showOneZone(WebContext ctx, String zone) {
     
     sm.printPathListOpen(ctx);
     String showZoneOverride = ctx.field("szo");
+    boolean exemplarCityOnly  = false;
     
     if(whichMZone != null) {
         ctx.println("<h2>MetaZone: "+whichMZone+"</h2>");
@@ -3674,7 +3758,9 @@ void showOneZone(WebContext ctx, String zone) {
             if(!"y".equals(showZoneOverride)) {
                 ctx.setQuery("szo","y");
                 ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
-                return;
+                
+                // show the exemplarCity
+                exemplarCityOnly = true;
             }
         }
     }
@@ -3712,126 +3798,16 @@ void showOneZone(WebContext ctx, String zone) {
     }
     
     DataPod pod = ctx.getPod(podBase);
-///*srl*/System.err.println("pre-pod: " + pod.getAll().size() + " - podBase: " + podBase);
-    
-    
-    // Make sure the pod contains the peas we'd like to see.
-    if(true /*whichMZone==null*/) {
-        // regular zone
-        
-        final String tzsuffs[] = {  "/long/generic",
-                            "/long/daylight",
-                            "/long/standard",
-                            "/short/generic",
-                            "/short/daylight",
-                            "/short/standard",
-                            "/exemplarCity" };
-        final String mzsuffs[] = {  "/long/generic",
-                            "/long/daylight",
-                            "/long/standard",
-                            "/short/generic",
-                            "/short/daylight",
-                            "/short/standard",
-                            "/commonlyUsed[@used=\"true\"]"
-        };
-        
-        String suffs[];
-        if(whichMZone != null) {
-            suffs = mzsuffs;            
-        } else {
-            suffs = tzsuffs;
-        }        
-        for(int i=0;i<suffs.length;i++) {
-            String suff = suffs[i];
-            DataPod.Pea myp = pod.getPea(zone+suff);
-            if(myp.xpathSuffix == null) {
-                myp.xpathSuffix = ourSuffix+suff;
-            }
-///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
 
-            if(suff.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
-                myp.confirmOnly = true;
-            }
-
-
-            if(myp.items.isEmpty()) {
-                // cribbed from CheckZones
-                TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
-
-                parts.set(podBase+ourSuffix+suff);
-                //if (parts.containsElement("zone")) {
-                String id = zone; //(String) parts.getAttributeValue(3,"type");
-                TimeZone tz = TimeZone.getTimeZone(id);
-                String pat = "vvvv";
-                String formatted = null;
-///*srl*/         System.err.println("suff: " + suff);
-                if (suff.indexOf("exemplarCity")>-1) {
-                    formatted = timezoneFormatter.getFormattedZone(id, pat,
-						false, tz.getRawOffset(), false);
-                } else if (suff.indexOf("commonlyUsed")>-1) {
-                    formatted = "true"; // set to true...
-                } else { // some other zone
-        //				boolean daylight = parts.containsElement("daylight");
-        //				if (daylight || parts.containsElement("standard")) {				
-        //					pat = "zzzz";
-        //					if (parts.containsElement("short")) pat = "z";
-        //				}
-        //
-        //				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-        //						daylight, tz.getRawOffset(), false);
-        //				result.add(new CheckStatus().setCause(this).setType(
-        //						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
-        //						new Object[] { formatted }));
-                boolean isDaylight = false;
-                if(parts.containsElement("daylight")) {
-                    isDaylight = true;
-                }
-                           if ( parts.containsElement("generic") ) {
-				pat = "vvvv";
-				if (parts.containsElement("short")) pat = "v";
-                           }
-                           else {
-				pat = "zzzz";
-				if (parts.containsElement("short")) pat = "z";
-                           }
-
-
-                        if(whichMZone == null) {
-//  /*srl*/                 System.err.println("gfz: id:"+id+", pat:"+pat+", day:"+isDaylight+", "+tz.getRawOffset()+", true- " + suff);
-                          formatted = timezoneFormatter.getFormattedZone(id, pat,
-                                isDaylight, tz.getRawOffset(), true);
-                        } else {
-                            formatted = "???";
-                        }
-                        
-                        //formatted = formatted + " : " + pat;
-                }
-///*srl*/                System.err.println(" -> " + formatted);
-
-                
-                DataPod.Pea.Item item = myp.addItem(formatted, null, null);
-                item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
-                myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
-                
-//                } else {
-//                    System.err.println("Items not empty: "+zone+suff);
-            }
-
-            
-        }
-//            if(myp.displayName == null) {
-//                myp.displayName = zone+"/long/generic";
-//            }
-//            String spiel = "<i>Use this item to add a new availableDateFormat</i>";
-//            myp.xpathSuffix = FAKE_FLEX_SUFFIX;
-//            canName=false;
-//            myp.displayName = spiel;
-    }
-    
-///*srl*/System.err.println("pod: " + pod.getAll().size() + " - base_xpath: " + base_xpath);
-    
     SurveyMain.printPodTableOpen(ctx, pod);
-    sm.showPeas(ctx, pod, canModify, base_xpath, true);
+    if(!exemplarCityOnly) {
+        sm.showPeas(ctx, pod, canModify, base_xpath, true);
+    } else {
+        // only show the exemplarCity
+        sm.showPeas(ctx, pod, canModify, base_xpath + "/exemplarCity", true);
+
+       //or, could use this with a numeric xpath; void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn)
+    }
     SurveyMain.printPodTableClose(ctx, pod);
     
     // TODO: no alts for now, on the time zones..
@@ -3959,7 +3935,8 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     int count = 0;
     int dispCount = 0;
     int total = 0;
-    int skip = 0;
+    int skip = 0; // where the index points to
+    int oskip = ctx.fieldInt("skip",0); // original skip from user.
     
     boolean partialPeas = ((only_base_xpath!=-1)||(only_prefix_xpath!=null));
     
@@ -3985,7 +3962,6 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     String ourDir = getDirectionFor(ctx.locale);
     ctx.println("<hr>");
     boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
-    
     // calculate references
     if(pod.xpathPrefix.indexOf("references")==-1) {
         Set refsSet = new HashSet();
@@ -4006,9 +3982,25 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     }
     DataPod.DisplaySet dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
     boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
+    int moveSkip=-1;  // move the "skip" marker?
+    int xfind = ctx.fieldInt("xfind");
+    if(xfind != -1) {
+        // see if we can find this base_xpath somewhere..
+        int pn = 0;
+        for(Iterator i = peas.iterator();(moveSkip==-1)&&i.hasNext();) {
+            DataPod.Pea p = (DataPod.Pea)i.next();
+            if(p.base_xpath == xfind) {
+                moveSkip = pn;
+            }
+            pn++;
+        }
+        if(moveSkip != -1) {
+            oskip = (moveSkip / CODES_PER_PAGE)*CODES_PER_PAGE; // make it fall on a page boundary.
+        }
+    }
     // -----
     if(!partialPeas) {
-        skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode);
+        skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode, oskip);
     } else {
         skip = 0;
     }
@@ -4104,7 +4096,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         }
         
         
-        /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false, sortMode);
+        /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false, sortMode, oskip);
         
         if(!canModify) {
             ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -4787,9 +4779,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(!p.confirmOnly) {
 
             if(!zoomedIn) {
-                if(canModify && canSubmit) {
+                //if(canModify && canSubmit) {
                     fora.showForumLink(ctx, pod, p, base_xpath);
-                }
+                //}
             } else {
                 ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
                 if(canModify && canSubmit ) {
@@ -5010,9 +5002,9 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     // zoom
     ctx.println("<td>");
     if(!zoomedIn) {
-        if(canModify && canSubmit) {
+        //if(canModify && canSubmit) {
             fora.showForumLink(ctx, pod, p, base_xpath);
-        }
+        //}
     }
     ctx.println("</td>");
     
@@ -5095,13 +5087,13 @@ void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDes
     nuCtx.println(" ");
 }
 
-public int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet, boolean showSearchMode, String sortMode) {
+public int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet,
+    boolean showSearchMode, String sortMode, int skip) {
 showSearchMode = true;// all
     List displayList = null;
     if(displaySet != null) {
         displayList = displaySet.displayPeas;
     }
-    int skip;
     ctx.println("<div class='pager' style='margin: 2px'>");
     if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString())) { // at least street level
         // TODO: move to pager
@@ -5125,12 +5117,6 @@ showSearchMode = true;// all
     }
 
     // TODO: replace with ctx.fieldValue("skip",-1)
-    String str = ctx.field("skip");
-    if((str!=null)&&(str.length()>0)) {
-        skip = new Integer(str).intValue();
-    } else {
-        skip = 0;
-    }
     if(skip<=0) {
         skip = 0;
     } 
@@ -5290,6 +5276,51 @@ public static int xpages=0;
 * Main setup
  */
 static  boolean isSetup = false;
+
+private void createBasicCldr(File homeFile) {
+    System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
+
+    try {
+        homeFile.mkdir();
+        File propsFile = new File(homeFile, "cldr.properties");
+        OutputStream file = new FileOutputStream(propsFile, false); // Append
+        PrintWriter pw = new PrintWriter(file);
+
+        pw.println("## autogenerated cldr.properties config file");
+        pw.println("## generated on " + localhost() + " at "+new Date());
+        pw.println("## see the readme at \n## http://unicode.org/cldr/data/tools/java/org/unicode/cldr/web/data/readme.txt ");
+        pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
+        pw.println("##");
+        pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
+        pw.println();
+        pw.println("## your password. Login as user 'admin@' and this password for admin access.");
+        pw.println("CLDR_VAP="+UserRegistry.makePassword("admin@"));
+        pw.println();
+        pw.println("## Special message shown to users as to why survey tool is down.");
+        pw.println("## Comment out for normal start-up.");
+        pw.println("CLDR_MESSAGE=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties. Comment out CLDR_MESSAGE to continue normal startup.");
+        pw.println();
+        pw.println("## Special message shown to users.");
+        pw.println("CLDR_HEADER=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.");
+        pw.println();
+        pw.println("## CLDR common data. Default value shown, uncomment to override");
+        pw.println("CLDR_COMMON="+homeFile.getAbsolutePath()+"/common");
+        pw.println();
+        pw.println("## SMTP server. Mail is disabled by default.");
+        pw.println("#CLDR_SMTP=127.0.0.1");
+        pw.println();
+        pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
+        pw.println("#CLDR_FROM=bad_administrator@"+localhost());
+        pw.println();
+        pw.println("# That's all!");
+        pw.close();
+        file.close();
+    }
+    catch(IOException exception){
+      System.err.println("While writing "+homeFile.getAbsolutePath()+" props: "+exception);
+      exception.printStackTrace();
+    }
+}
 public synchronized void doStartup() throws ServletException {
         if(isSetup == true) {
             return;
@@ -5299,6 +5330,7 @@ public synchronized void doStartup() throws ServletException {
         //CheckCLDR.SHOW_TIMES=true;
         
         survprops = new java.util.Properties(); 
+                
         if(cldrHome == null) {
             cldrHome = System.getProperty("catalina.home");
             if(cldrHome == null) {  
@@ -5306,6 +5338,11 @@ public synchronized void doStartup() throws ServletException {
                 return;
             } 
             File homeFile = new File(cldrHome, "cldr");
+            
+            if(!homeFile.isDirectory()) {
+                createBasicCldr(homeFile); // attempt to create
+            }
+            
             if(!homeFile.isDirectory()) {
                 busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
                 return;
@@ -5328,7 +5365,12 @@ public synchronized void doStartup() throws ServletException {
         }
 
     vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-    if(!new File(vetdata).isDirectory()) {
+    File vetdir = new File(vetdata);
+    if(!vetdir.isDirectory()) {
+        vetdir.mkdir();
+        System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
+    }
+    if(!vetdir.isDirectory()) {
         busted("CLDR_VET_DATA isn't a directory: " + vetdata);
         return;
     }
@@ -5606,11 +5648,6 @@ public static final com.ibm.icu.text.Transliterator hexXML
 public static final com.ibm.icu.text.Transliterator quoteXML 
     = com.ibm.icu.text.Transliterator.getInstance(
      "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
-
-// cache of documents
-static Hashtable docTable = new Hashtable();
-static Hashtable docVersions = new Hashtable();
-
 
 public static int usedK() {
     Runtime r = Runtime.getRuntime();
@@ -6116,6 +6153,17 @@ private void doStartupDB()
             return cls;
         } catch (NullPointerException n) {
             return null;
+        }
+    }
+    
+    /**
+     * get the local host 
+     */
+    public static String localhost() {
+        try {
+            return InetAddress.getLocalHost().getHostName();
+        } catch (Exception e) {
+            return "UNKNOWN";
         }
     }
 

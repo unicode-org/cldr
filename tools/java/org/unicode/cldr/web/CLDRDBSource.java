@@ -795,7 +795,7 @@ import com.ibm.icu.util.ULocale;
     
         String locale = getLocaleID();
         int xpath = xpt.getByXpath(path);
-//logger.info(locale + ":" + path);
+///*srl*/logger.info(locale + ":" + path);
             try {
                 ResultSet rs;
                 if(finalData) {
@@ -811,9 +811,10 @@ import com.ibm.icu.util.ULocale;
                 if(!rs.next()) {
                     if(!finalData) {
                         rs.close();                    
+//                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
                         return null;
                     } else {
-//                        System.err.println("Plan B, couldn't find "+ xpath + " - trying original");
+                        System.err.println("Plan B, couldn't find "+ xpath + " - trying original");
                         // plan B: look for original data
                         stmts.queryValue.setString(1,locale);
                         stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
@@ -834,7 +835,7 @@ import com.ibm.icu.util.ULocale;
                    // throw new InternalError(complaint);                    
                 }
                 rs.close();
-///*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
                 return rv;
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));

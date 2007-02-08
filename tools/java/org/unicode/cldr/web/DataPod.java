@@ -593,7 +593,6 @@ public class DataPod extends Registerable {
 	public static DataPod make(WebContext ctx, String locale, String prefix, boolean simple) {
 		DataPod pod = new DataPod(ctx.sm, locale, prefix);
         pod.simple = simple;
-     // pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english  
         SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
   
         CLDRDBSource ourSrc = uf.dbSource;
@@ -608,8 +607,14 @@ public class DataPod extends Registerable {
         }
         pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
         if(SHOW_TIME) {
-            System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et);
+            System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
         }
+        com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
+        pod.ensureComplete(ourSrc, checkCldr, ctx.sm.getEnglishFile(), ctx.getOptionsMap());
+        if(SHOW_TIME) {
+            System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
+        }
+        
 		return pod;
 	}
     
@@ -709,7 +714,7 @@ public class DataPod extends Registerable {
         isInitted = true;
     }
     
-    private static final boolean SHOW_TIME=false;
+    private static final boolean SHOW_TIME=true;
     public static final String FAKE_FLEX_THING = "available date formats: add NEW";
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
@@ -801,10 +806,14 @@ public class DataPod extends Registerable {
             canName = false; // disable 'view by name'  for references
         }
         List checkCldrResult = new ArrayList();
+        
+        // iterate over everything in this prefix ..
+        
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             boolean confirmOnly = false;
             String xpath = (String)it.next();
-                
+            
+///*srl*/   System.err.println("p] "+xpath);
                 
             if(SHOW_TIME) {
                 count++;
@@ -1162,6 +1171,152 @@ public class DataPod extends Registerable {
         }
 //        aFile.close();
     }
+
+    /**
+     * Makes sure this pod contains the peas we'd like to see.
+     */
+    private void ensureComplete(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile, Map options) {
+        if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
+            // work on zones
+            boolean isMetazones = xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames/metazone");
+            // Make sure the pod contains the peas we'd like to see.
+            // regular zone
+            
+            Set mzones = sm.getMetazones();
+            
+            Iterator zoneIterator;
+            
+            if(isMetazones) {
+                zoneIterator = sm.getMetazones().iterator();
+            } else {
+                zoneIterator = StandardCodes.make().getAvailableCodes("tzid").iterator();
+            }
+            
+            final String tzsuffs[] = {  "/long/generic",
+                                "/long/daylight",
+                                "/long/standard",
+                                "/short/generic",
+                                "/short/daylight",
+                                "/short/standard",
+                                "/exemplarCity" };
+            final String mzsuffs[] = {  "/long/generic",
+                                "/long/daylight",
+                                "/long/standard",
+                                "/short/generic",
+                                "/short/daylight",
+                                "/short/standard",
+                                "/commonlyUsed[@used=\"true\"]"
+            };
+            
+            String suffs[];
+            if(isMetazones) {
+                suffs = mzsuffs;            
+            } else {
+                suffs = tzsuffs;
+            }        
+
+            String podBase = xpathPrefix;
+            CLDRFile resolvedFile = new CLDRFile(src, true);
+            XPathParts parts = new XPathParts(null,null);
+            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
+
+            for(;zoneIterator.hasNext();) {
+                String zone = zoneIterator.next().toString();
+//                System.err.println(">> " + zone);
+                /** some compatibility **/
+                String ourSuffix = "[@type=\""+zone+"\"]";
+                String whichMZone = null;
+                if(isMetazones) {
+                    whichMZone = zone;
+                }
+
+                for(int i=0;i<suffs.length;i++) {
+                    String suff = suffs[i];
+                    DataPod.Pea myp = getPea(zone+suff);
+                    if(myp.xpathSuffix == null) {
+                        myp.xpathSuffix = ourSuffix+suff;
+                    }
+        ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
+
+                    if(suff.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+                        myp.confirmOnly = true;
+                    }
+
+
+                    if(myp.items.isEmpty()) {
+                        parts.set(podBase+ourSuffix+suff);
+                        //if (parts.containsElement("zone")) {
+                        String id = zone; //(String) parts.getAttributeValue(3,"type");
+                        TimeZone tz = TimeZone.getTimeZone(id);
+                        String pat = "vvvv";
+                        String formatted = null;
+        ///*srl*/         System.err.println("suff: " + suff);
+                        if (suff.indexOf("exemplarCity")>-1) {
+                            formatted = timezoneFormatter.getFormattedZone(id, pat,
+                                false, tz.getRawOffset(), false);
+                        } else if (suff.indexOf("commonlyUsed")>-1) {
+                            formatted = "true"; // set to true...
+                        } else { // some other zone
+                //				boolean daylight = parts.containsElement("daylight");
+                //				if (daylight || parts.containsElement("standard")) {				
+                //					pat = "zzzz";
+                //					if (parts.containsElement("short")) pat = "z";
+                //				}
+                //
+                //				String formatted = timezoneFormatter.getFormattedZone(id, pat,
+                //						daylight, tz.getRawOffset(), false);
+                //				result.add(new CheckStatus().setCause(this).setType(
+                //						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
+                //						new Object[] { formatted }));
+                        boolean isDaylight = false;
+                        if(parts.containsElement("daylight")) {
+                            isDaylight = true;
+                        }
+                                   if ( parts.containsElement("generic") ) {
+                        pat = "vvvv";
+                        if (parts.containsElement("short")) pat = "v";
+                                   }
+                                   else {
+                        pat = "zzzz";
+                        if (parts.containsElement("short")) pat = "z";
+                                   }
+
+
+                                if(whichMZone == null) {
+        //  /*srl*/                 System.err.println("gfz: id:"+id+", pat:"+pat+", day:"+isDaylight+", "+tz.getRawOffset()+", true- " + suff);
+                                  formatted = timezoneFormatter.getFormattedZone(id, pat,
+                                        isDaylight, tz.getRawOffset(), true);
+                                } else {
+                                    formatted = "???";
+                                }
+                                
+                                //formatted = formatted + " : " + pat;
+                        }
+        ///*srl*/                System.err.println(" -> " + formatted);
+
+                        
+                        DataPod.Pea.Item item = myp.addItem(formatted, null, null);
+                        item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
+                        myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
+                        
+        //                } else {
+        //                    System.err.println("Items not empty: "+zone+suff);
+                    }
+
+                    
+                }
+            }
+    //            if(myp.displayName == null) {
+    //                myp.displayName = zone+"/long/generic";
+    //            }
+    //            String spiel = "<i>Use this item to add a new availableDateFormat</i>";
+    //            myp.xpathSuffix = FAKE_FLEX_SUFFIX;
+    //            canName=false;
+    //            myp.displayName = spiel;
+        } // tz
+    }
+// ==
+
     public Pea getPea(String type) {
         if(type == null) {
             throw new InternalError("type is null");
@@ -1192,7 +1347,7 @@ public class DataPod extends Registerable {
     }
     
     public String toString() {
-        return "{DataPod " + locale + ":" + xpathPrefix + " #" + super.toString() + "} ";
+        return "{DataPod " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() +" items} ";
     }
     
     /** 

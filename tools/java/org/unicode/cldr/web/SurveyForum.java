@@ -131,12 +131,25 @@ public class SurveyForum {
         int base_xpath = ctx.fieldInt(F_XPATH);
         int forumNumber = getForumNumber(forum);
         String pD = ctx.field(F_DO); // do
-        
+        boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
+        boolean canModify = false;
+
         if((ctx.locale == null) && (forumNumber != -1)) {
             ctx.setLocale(new ULocale(forum));
         }
-
-        if((ctx.session==null)||(ctx.session.user==null)) {
+        
+        if(!loggedout) {
+            canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        }
+        
+        // Are they just zooming in?
+        if(!canModify && (base_xpath!=-1)) {
+            doZoom(ctx, sessionMessage);
+            return;
+        }
+        
+        // User isnt logged in.
+        if(loggedout) {
             sm.printHeader(ctx,"Fora | Please login.");
             sm.printUserMenu(ctx);
             if(sessionMessage != null) {
@@ -146,6 +159,20 @@ public class SurveyForum {
             sm.printFooter(ctx);
             return;
         }
+        
+        // User has an account, but does not have access to this forum.
+        if(!canModify) {
+            sm.printHeader(ctx,"Fora | Access Denied.");
+            sm.printUserMenu(ctx);
+            if(sessionMessage != null) {
+                ctx.println(sessionMessage+"<hr>");
+            }
+            ctx.println("<hr><strong>You do not have access to this forum. If you believe this to be in error, contact your CLDR TC member, and/or the person who set up your account.</strong><p>");
+            sm.printFooter(ctx);
+            return;
+        }
+        
+        // User is logged in and has access.
         
         if((base_xpath != -1) || (ctx.hasField("replyto"))) {
             // Post to a specific xpath
@@ -165,6 +192,30 @@ public class SurveyForum {
         if(sessionMessage != null) {
             ctx.println("<hr>"+sessionMessage);
         }
+        sm.printFooter(ctx);
+    }
+    
+    String returnUrl(WebContext ctx, String locale, int base_xpath) {
+        String xpath = sm.xpt.getById(base_xpath);
+        String theMenu = SurveyMain.xpathToMenu(xpath);
+        if(theMenu==null) {
+            theMenu="raw";
+        }
+        return ctx.base()+"?"+
+					"_="+locale+"&amp;x="+theMenu+"&amp;xfind="+base_xpath;
+    }
+    
+    void doZoom(WebContext ctx, String sessionMessage) {
+        int base_xpath = ctx.fieldInt(F_XPATH);
+        String xpath = sm.xpt.getById(base_xpath);
+        sm.printHeader(ctx,"Zoom | " + ctx.locale + " | Zoom on #" + base_xpath); // TODO: pretty path?
+        sm.printUserMenu(ctx);
+        if(sessionMessage != null) {
+            ctx.println(sessionMessage+"<hr>");
+        }
+        ctx.println("Return to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.locale+"</a><hr>");
+        showXpath(ctx, xpath, base_xpath, ctx.locale);
+        ctx.println("<hr>Return to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.locale+"</a><br/>");
         sm.printFooter(ctx);
     }
     
@@ -295,7 +346,9 @@ public class SurveyForum {
             ctx.println("</span>");
         }
         if(base_xpath != -1) {
+            ctx.println("Return to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.locale+"</a><hr>");
             showXpath(ctx, xpath, base_xpath, ctx.locale);
+            ctx.println("<hr>Return to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.locale+"</a><br/>");
         }
      }
     
@@ -342,7 +395,7 @@ public class SurveyForum {
                 }
             }
         } else {
-            ctx.println("<br>cant modify " + ctx.locale + "<br>");
+//            ctx.println("<br>cant modify " + ctx.locale + "<br>");
         }
         
         DataPod pod = ctx.getPod(podBase);
@@ -697,16 +750,15 @@ public class SurveyForum {
        
     // "link" UI
     void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-        if(ctx.session.user == null) {     
-            return; // no user?
-        }
+        //if(ctx.session.user == null) {     
+        //    return; // no user?
+        //}
         String title;
 /*        if(!ctx.session.user.interestedIn(forum)) {
             title = " (not on your interest list)";
         }*/
         title = pod.intgroup + " forum" /*+ title*/;
         ctx.println("<a class='forumlink' href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>[Z]</a>");
-        
     }
 
     static String forumUrl(WebContext ctx, String forum) {

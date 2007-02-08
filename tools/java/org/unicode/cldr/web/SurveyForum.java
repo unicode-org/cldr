@@ -3,7 +3,7 @@
 //  fivejay
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006 IBM. All rights reserved.
+//  Copyright 2006-2007 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;

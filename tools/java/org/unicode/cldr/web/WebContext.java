@@ -3,7 +3,7 @@
 //  cldrtools
 //
 //  Created by Steven R. Loomis on 3/11/2005.
-//  Copyright 2005-2006 IBM. All rights reserved.
+//  Copyright 2005-2007 IBM. All rights reserved.
 //
 package org.unicode.cldr.web;
 

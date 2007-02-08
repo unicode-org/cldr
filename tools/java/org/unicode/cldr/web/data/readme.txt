@@ -1,5 +1,6 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
 Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
+Copyright 2007 IBM and others. All Rights Reserved
 ------------------------------------------------------------
 
 0. Prerequisite: General CLDR Tools issues

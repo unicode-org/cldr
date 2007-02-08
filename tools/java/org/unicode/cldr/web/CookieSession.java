@@ -1,11 +1,10 @@
-/* Copyright (C) 2004-2005, International Business Machines Corporation and   *
+/* Copyright (C) 2005-2007, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               */
 //
-//  CookieJar.java
+//  CookieSession.java
 //  cldrtools
 //
 //  Created by Steven R. Loomis on 3/17/2005.
-//  Copyright 2005 IBM. All rights reserved.
 //
 
 

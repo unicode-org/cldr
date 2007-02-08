@@ -51,16 +51,6 @@ public class CheckZones extends CheckCLDR {
 			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
 		}
 		parts.set(path);
-//
-//   With the new metazone structure and "commonlyUsed", this warning is no longer necessary
-//		if (parts.containsElement("zone")) {
-//			String id = (String) parts.getAttributeValue(3, "type");
-//			TimeZone tz = TimeZone.getTimeZone(id);
-//			if (!parts.containsElement("exemplarCity") && !parts.containsElement("usesMetazone")) {
-//				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-//				      .setMessage("Remove this field unless always understood in the language."));
-//			}
-//		}
 
                 String zone = parts.getAttributeValue(3,"type");
                 String from;
@@ -119,12 +109,14 @@ public class CheckZones extends CheckCLDR {
 			TimeZone tz = TimeZone.getTimeZone(id);
 			String pat = "vvvv";
 			if (parts.containsElement("exemplarCity")) {
-				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-						false, tz.getRawOffset(), false);
+			        int delim = id.indexOf('/');
+                                if ( delim >= 0 ) {
+                                String formatted = id.substring(delim+1).replaceAll("_"," ");
 				result.add(new CheckStatus().setCause(this).setType(
-						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
+						CheckStatus.exampleType).setMessage("Formatted value (if removed): \"{0}\"",
 						new Object[] { formatted }));
-			} else {
+                                }
+			} else if ( !parts.containsElement("usesMetazone") ){
                            if ( parts.containsElement("generic") ) {
 				pat = "vvvv";
 				if (parts.containsElement("short")) pat = "v";
@@ -133,8 +125,9 @@ public class CheckZones extends CheckCLDR {
 				pat = "zzzz";
 				if (parts.containsElement("short")) pat = "z";
                            }
+                                boolean daylight = parts.containsElement("daylight");
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-						false, tz.getRawOffset(), true);
+						daylight, tz.getRawOffset(), true);
 				result.add(new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
 						.setMessage("Formatted value (if removed): \"{0}\"", new Object[] {formatted}));
 			}

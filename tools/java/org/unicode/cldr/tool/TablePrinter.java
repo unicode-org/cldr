@@ -1,7 +1,9 @@
 package org.unicode.cldr.tool;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.ULocale;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,11 +79,15 @@ public class TablePrinter<T extends Comparable> {
   static class ColumnSorter<T extends Comparable> implements Comparator<T[]> {
     private int[] sortPriorities;
     private boolean[] backward;
+    Collator englishCollator = Collator.getInstance(ULocale.ENGLISH);
     
     public int compare(T[] o1, T[] o2) {
       int result;
       for (int k = 0; k < sortPriorities.length; ++k) {
-        if (0 != (result = o1[sortPriorities[k]].compareTo(o2[sortPriorities[k]]))) {
+        result = o1[sortPriorities[k]] instanceof String ? 
+            englishCollator.compare(o1[sortPriorities[k]],o2[sortPriorities[k]])
+            : o1[sortPriorities[k]].compareTo(o2[sortPriorities[k]]);
+        if (0 != result) {
           if (backward[k]) {
             return -result;
           }

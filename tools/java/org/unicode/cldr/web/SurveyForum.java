@@ -202,7 +202,7 @@ public class SurveyForum {
             theMenu="raw";
         }
         return ctx.base()+"?"+
-					"_="+locale+"&amp;x="+theMenu+"&amp;xfind="+base_xpath;
+					"_="+locale+"&amp;x="+theMenu+"&amp;xfind="+base_xpath+"#x"+base_xpath;
     }
     
     void doZoom(WebContext ctx, String sessionMessage) {
@@ -400,7 +400,7 @@ public class SurveyForum {
         
         DataPod pod = ctx.getPod(podBase);
         
-        SurveyMain.printPodTableOpen(ctx, pod);
+        SurveyMain.printPodTableOpen(ctx, pod, true);
         sm.showPeas(ctx, pod, canModify, base_xpath, true);
         SurveyMain.printPodTableClose(ctx, pod);
         if(canModify) {
@@ -757,8 +757,9 @@ public class SurveyForum {
 /*        if(!ctx.session.user.interestedIn(forum)) {
             title = " (not on your interest list)";
         }*/
-        title = pod.intgroup + " forum" /*+ title*/;
-        ctx.println("<a class='forumlink' href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'+>[Z]</a>");
+        title = "Zoom..." /*+ title*/;
+        ctx.println("<a class='forumlink' href='"+ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath+"' title='"+title+"'>"
+            +ctx.iconThing("zoom",title) + "</a>");
     }
 
     static String forumUrl(WebContext ctx, String forum) {

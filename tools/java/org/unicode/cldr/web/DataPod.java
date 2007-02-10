@@ -433,6 +433,7 @@ public class DataPod extends Registerable {
      */
     public List getList(String sortMode) {
         List aList = (List)listHash.get(sortMode);
+//        final boolean canName = canName;
         if(aList == null) {
             Set newSet;
             
@@ -494,15 +495,18 @@ public class DataPod extends Registerable {
                         }
 
                        if(rv == 0) { // try to avoid a compare
-                            int crv;
-                            String p1d = p1.displayName;
+                            String p1d  = null;
+                            String p2d  = null;
+                            if(canName) {
+                              p1d = p1.displayName;
+                              p2d = p2.displayName;
+                            }
                             if(p1d == null ) {
                                 p1d = p1.type;
                                 if(p1d == null) {
                                     p1d = "(null)";
                                 }
                             }
-                            String p2d = p2.displayName;
                             if(p2d == null ) {
                                 p2d = p2.type;
                                 if(p2d == null) {
@@ -1244,59 +1248,17 @@ public class DataPod extends Registerable {
 
 
                     if(myp.items.isEmpty()) {
-                        parts.set(podBase+ourSuffix+suff);
-                        //if (parts.containsElement("zone")) {
-                        String id = zone; //(String) parts.getAttributeValue(3,"type");
-                        TimeZone tz = TimeZone.getTimeZone(id);
-                        String pat = "vvvv";
-                        String formatted = null;
-        ///*srl*/         System.err.println("suff: " + suff);
-                        if (suff.indexOf("exemplarCity")>-1) {
-                            formatted = timezoneFormatter.getFormattedZone(id, pat,
-                                false, tz.getRawOffset(), false);
-                        } else if (suff.indexOf("commonlyUsed")>-1) {
+                        String formatted = CheckZones.exampleTextForXpath(parts, timezoneFormatter, 
+                            podBase+ourSuffix+suff);
+                        if (suff.indexOf("commonlyUsed")>-1) {
                             formatted = "true"; // set to true...
-                        } else { // some other zone
-                //				boolean daylight = parts.containsElement("daylight");
-                //				if (daylight || parts.containsElement("standard")) {				
-                //					pat = "zzzz";
-                //					if (parts.containsElement("short")) pat = "z";
-                //				}
-                //
-                //				String formatted = timezoneFormatter.getFormattedZone(id, pat,
-                //						daylight, tz.getRawOffset(), false);
-                //				result.add(new CheckStatus().setCause(this).setType(
-                //						CheckStatus.exampleType).setMessage("Formatted value: \"{0}\"",
-                //						new Object[] { formatted }));
-                        boolean isDaylight = false;
-                        if(parts.containsElement("daylight")) {
-                            isDaylight = true;
+                        } else if(whichMZone != null) {
+                            formatted = "???";
                         }
-                                   if ( parts.containsElement("generic") ) {
-                        pat = "vvvv";
-                        if (parts.containsElement("short")) pat = "v";
-                                   }
-                                   else {
-                        pat = "zzzz";
-                        if (parts.containsElement("short")) pat = "z";
-                                   }
-
-
-                                if(whichMZone == null) {
-        //  /*srl*/                 System.err.println("gfz: id:"+id+", pat:"+pat+", day:"+isDaylight+", "+tz.getRawOffset()+", true- " + suff);
-                                  formatted = timezoneFormatter.getFormattedZone(id, pat,
-                                        isDaylight, tz.getRawOffset(), true);
-                                } else {
-                                    formatted = "???";
-                                }
-                                
-                                //formatted = formatted + " : " + pat;
+                        if(formatted != null) {
+                            DataPod.Pea.Item item = myp.addItem(formatted, null, null);
+                            item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
                         }
-        ///*srl*/                System.err.println(" -> " + formatted);
-
-                        
-                        DataPod.Pea.Item item = myp.addItem(formatted, null, null);
-                        item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
                         myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
                         
         //                } else {

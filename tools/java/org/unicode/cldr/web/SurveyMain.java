@@ -65,11 +65,24 @@ public class SurveyMain extends HttpServlet {
     public static final boolean phaseClosed = false;
     public static final boolean phaseDisputed = false;
 	public static final boolean phaseReadonly = false;
+
+    // Special bug numbers.
+    public static final String BUG_METAZONE_FOLDER = "data";
+    public static final int    BUG_METAZONE = 1262;
+    public static final String BUG_ST_FOLDER = "tools";
+    public static final int    BUG_ST = 1263;
+    
+    public static final String URL_HOST = "http://www.unicode.org/";
+
+    public static final String URL_CLDR = URL_HOST+"cldr/";
+    public static final String BUG_URL_BASE = URL_CLDR+"bugs/locale-bugs";
+    
+    
     /**
     * URL prefix for  help
     */
-    public static final String CLDR_HELP_LINK = "http://www.unicode.org/cldr/wiki?SurveyToolHelp";
-//   public static final String CLDR_HELP_LINK_EDIT = "http://bugs.icu-project.org/cgibin/cldr/cldrwiki.pl?SurveyToolHelp";
+    public static final String CLDR_WIKI_BASE = URL_CLDR+"wiki";
+    public static final String CLDR_HELP_LINK = CLDR_WIKI_BASE+"?SurveyToolHelp";
     public static final String CLDR_HELP_LINK_EDIT = CLDR_HELP_LINK;
      
     public static final String SLOW_PAGE_NOTICE = ("<i>Note: The first time a page is loaded it may take some time, please be patient.</i>");    
@@ -248,8 +261,10 @@ public class SurveyMain extends HttpServlet {
             prevent spidering of the site
         */
         if(request.getRemoteAddr().equals("66.154.103.161") ||
-		   request.getRemoteAddr().equals("203.148.64.17") ) {
-            response.sendRedirect("http://www.unicode.org/cldr");
+		   request.getRemoteAddr().equals("203.148.64.17") ||
+           request.getRemoteAddr().equals("38.98.120.72") || // 38.98.120.72 - feb 7, 2007-  lots of connections
+           false) {
+            response.sendRedirect(URL_CLDR);
         }
         
         response.setHeader("Cache-Control", "no-cache");
@@ -286,7 +301,7 @@ public class SurveyMain extends HttpServlet {
                 out.println("<h1>CLDR Survey Tool is down, because:</h1>");
                 out.println("<pre class='ferrbox'>" + isBusted + "</pre><br>");
                 out.println("<hr>");
-                out.println("Please try this link for info: <a href='http://www.unicode.org/cldr/wiki?SurveyTool/Status'>http://www.unicode.org/cldr/wiki?SurveyTool/Status</a><br>");
+                out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
                 out.println("<hr>");
                 out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
                             " (you are unhappy visitor #" + pages + ")</i>");
@@ -960,7 +975,6 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<meta name=\"gigabot\" content=\"nofollow\">");
 
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
-        // + "http://www.unicode.org/webscripts/standard_styles.css'>"
         ctx.println("<title>CLDR Vetting | ");
         if(ctx.locale != null) {
             ctx.print(ctx.locale.getDisplayName() + " | ");
@@ -1037,7 +1051,31 @@ public class SurveyMain extends HttpServlet {
             ctx.print(" \u00b7 ");
         }
         ctx.print("#" + pages + " served in " + ctx.reqTimer + "</div>");
-        ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
+        ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='"+URL_CLDR+"'>Common Locale Data Repository</a>");
+        try {
+            Map m = new TreeMap(ctx.request.getParameterMap());
+            m.remove("sql");
+            m.remove("pw");
+            m.remove("email");
+            m.remove("dump");
+            m.remove("s");
+            m.remove("udump");
+            String u = "";
+            for(Enumeration e=ctx.request.getParameterNames();e.hasMoreElements();)  {
+                String k = e.nextElement().toString();
+                String v;
+                if(k.equals("sql")||k.equals("pw")||k.equals("email")||k.equals("dump")||k.equals("s")||k.equals("udump")) {
+                    v = "";
+                } else {
+                    v = ctx.request.getParameterValues(k)[0];
+                }
+                u=u+"|"+k+"="+v;
+            }
+            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on ?" + u)+"'>Feedback</a>");
+        } catch (Throwable t) {
+            System.err.println(t.toString());
+            t.printStackTrace();
+        }
         ctx.println("</body>");
         ctx.println("</html>");
     }
@@ -3753,7 +3791,9 @@ void showOneZone(WebContext ctx, String zone) {
             mzContext.setQuery("mzone",useMetazone);
             ctx.print("<i>Note: the metazone <b>");
             ctx.print("<a class='"+(useMetazone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
-            ctx.print(useMetazone+"</a></b> is active for this zone. Something about contacting CLDR folks if this is wrong.</i>");
+            ctx.print(useMetazone+"</a></b> is active for this zone. <a href=\""+
+                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + useMetazone + " incorrect")+
+                "\">Click Here to report Metazone problems</a> .</i>");
             if(!"y".equals(showZoneOverride)) {
                 ctx.setQuery("szo","y");
                 ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
@@ -3798,7 +3838,7 @@ void showOneZone(WebContext ctx, String zone) {
     
     DataPod pod = ctx.getPod(podBase);
 
-    SurveyMain.printPodTableOpen(ctx, pod);
+    SurveyMain.printPodTableOpen(ctx, pod, true);
     if(!exemplarCityOnly) {
         sm.showPeas(ctx, pod, canModify, base_xpath, true);
     } else {
@@ -3839,6 +3879,9 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
 }
 
 public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
+    /* all simple */
+    simple = true;
+
     UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
     CLDRDBSource ourSrc = uf.dbSource;
     CLDRFile cf =  uf.cldrfile;
@@ -3888,10 +3931,10 @@ String getSortMode(WebContext ctx, String prefix) {
     return sortMode;
 }
 
-static void printPodTableOpen(WebContext ctx, DataPod pod) {
+static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
     ctx.println("<table summary='Data Items for "+ctx.locale.toString()+" " + pod.xpathPrefix + "' class='list' border='0'>");
     
-    if(pod.simple) {
+    if(!zoomedIn) {
         ctx.println("<tr class='headingb'>\n"+
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
@@ -4014,7 +4057,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
 
     if(!partialPeas) {
         ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
-        printPodTableOpen(ctx, pod);
+        printPodTableOpen(ctx, pod, zoomedIn);
     }
 
 				
@@ -4051,10 +4094,17 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         if((!partialPeas) && checkPartitions) {
             for(int j = 0;j<dSet.partitions.length;j++) {
                 if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
-                    ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='5'><i>" +
-                        "<a name='" + dSet.partitions[j].name + "'>" +
-                        dSet.partitions[j].name + "</a>" +
-                        "</i></th></tr>");
+                    if(zoomedIn) {
+                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='5'>" +
+                            "<a name='" + dSet.partitions[j].name + "'>" +
+                            dSet.partitions[j].name + "</a>" +
+                            "</th></tr>");
+                    } else {
+                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='12'>" +
+                            "<a name='" + dSet.partitions[j].name + "'>" +
+                            dSet.partitions[j].name + "</a>" +
+                            "</th></tr>");
+                    }
                 }
             }
         }
@@ -4370,8 +4420,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
     
-    // if it is simple - go elsewhere.
-    if(pod.simple && !zoomedIn) {
+    // if it is not zoomed in - go elsewhere.
+    if(!zoomedIn) {
         showPeaSimple(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
         return;
     }
@@ -4691,9 +4741,13 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if (!status.getType().equals(status.exampleType)) {
-                        
                         ctx.println("<span class='warning'>");
                         String cls = shortClassName(status.getCause());
+                        if(status.getType().equals(status.errorType)) {
+                            ctx.print(ctx.iconThing("stop","Error: "+cls));
+                        } else {
+                            ctx.print(ctx.iconThing("warn","Warning: "+cls));
+                        }
                         printShortened(ctx,status.toString());
                         ctx.println("</span>");
                         if(cls != null) {
@@ -4850,8 +4904,11 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     int resultType[] = new int[1];
     int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
     String resultXpath = null;
+    boolean noWinner = false;
     if(resultXpath_id != -1) {
         resultXpath = xpt.getById(resultXpath_id); 
+    } else {
+        noWinner = true;
     }
     if(ctx.session.user != null) {
         ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
@@ -4872,9 +4929,61 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.print("<th valign='top'>");  // ##1 status
     // Mark the line as disputed or insufficient, depending.
     String rclass = "";
+    boolean foundError = false;
+    boolean foundWarning = false;
+
+    // todo: move this into DataPod..
+    if(p.hasTests) {            
+        for(Iterator j = p.items.iterator();!foundError&&!foundWarning&&j.hasNext();) {
+            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+            if(item.tests!=null) {
+                for (Iterator it3 = item.tests.iterator(); !foundError&&!foundWarning&&it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if(status.getType().equals(status.errorType)) {
+                        foundError = true;
+                    } else if(status.getType().equals(status.warningType)) {
+                        foundWarning = true;
+                    }
+                }
+            }
+        }
+    }
+
+    // calculate the class of data items
     {
         int s = resultType[0];
-        if((s & Vetting.RES_DISPUTED)>0) {
+        
+        if(foundError) {
+            rclass = "warning";
+            ctx.print(ctx.iconThing("stop","Errors - please zoom in"));            
+        } else if(foundWarning) {
+            rclass = "okay";
+            ctx.print(ctx.iconThing("warn","Warnings - please zoom in"));            
+
+            /*
+            if((item.tests != null) || (item.examples != null)) {
+                if(item.tests != null) {
+                    ctx.println("<td class='warncell'>");
+                    for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                        if (!status.getType().equals(status.exampleType)) {
+                            
+                            ctx.println("<span class='warning'>");
+                            String cls = shortClassName(status.getCause());
+                            printShortened(ctx,status.toString());
+                            ctx.println("</span>");
+                            if(cls != null) {
+                                ctx.printHelpLink("/"+cls+"","Help");
+                            }
+                            ctx.print("<br>");
+                        }
+                    }
+                } else {
+                    ctx.println("<td class='examplecell'>");
+                }
+            */
+            
+        } else if((s & Vetting.RES_DISPUTED)>0) {
             rclass= "disputed";
             ctx.print(ctx.iconThing("stop","disputed"));
         } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
@@ -4882,19 +4991,33 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
             ctx.print(ctx.iconThing("warn","insufficient"));            
         } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
             ctx.print(ctx.iconThing("okay","ok"));
+            rclass = "okay";
+        } else {
+            rclass = "vother";
         }
     }    
-    ctx.print("</th>");
+
+    if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
+        rclass = "insufficient";
+    }
+    ctx.println("</th>");
     
     // ##2 code
-    ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
+    ctx.print("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
     //if(p.displayName != null) { // have a display name - code gets its own box
-    ctx.println("<tt title='"+baseInfo+"' >"
+    int xfind = ctx.fieldInt("xfind");
+    if(xfind==base_xpath) {
+        ctx.print("<a name='x"+xfind+"'>");
+    }
+    ctx.print("<tt title='"+baseInfo+"' >"
                 + p.type + 
                 "</tt>");
     //}
     if(p.altType != null) {
-        ctx.println("<br> ("+p.altType+")");
+        ctx.print("<br> ("+p.altType+")");
+    }
+    if(xfind==base_xpath) {
+        ctx.print("</a>"); // for the <a name..>
     }
     ctx.println("</th>");
     
@@ -4915,9 +5038,13 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</th>");
     
     
-    
     // ##5 current control
     ctx.print("<td colspan='2' class='"+rclass+"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
+
+    if(isAlias || (p.pathWhereFound != null))  {
+        ctx.println("<i dir='ltr'>(Alias - Zoom In for details)</i>");
+    }
+
     // go find the 'current' item
     DataPod.Pea.Item current = null;
     for(Iterator j = p.items.iterator();(current==null)&&j.hasNext();) {
@@ -4942,14 +5069,19 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.println("</td>");
     
     if(phaseSubmit==true) {
-        ctx.println("<td>");
+        String changetoBox = "<td valign='top'>";
         // ##7 Change
         if(canModify && canSubmit ) {
-            ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+            changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
         } else {
-            ctx.print("<input type='radio' disabled>");
+            //changetoBox = changetoBox+("<input type='radio' disabled>"); /* don't show the empty input box */
         }
-        ctx.println("</td>");
+        changetoBox=changetoBox+("</td>");
+        
+        if(!"rtl".equals(ourDir)) {
+            ctx.println(changetoBox);
+        }
+        
         if(canSubmit && canModify && !p.confirmOnly) {
             String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
             String fClass = "inputbox";
@@ -4958,11 +5090,16 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
             } else {
                 fClass = "badinputbox";
             }
-            ctx.println("<td><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
+            ctx.println("<td valign='top'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
             // references
         } else  {
             ctx.println("<td></td>");
         }
+
+        if("rtl".equals(ourDir)) {
+            ctx.println(changetoBox);
+        }
+
     } else {
         ctx.println("<td colspan='2'></td>");
     }
@@ -4999,13 +5136,19 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     ctx.print("</td>");
 
     // zoom
-    ctx.println("<td>");
     if(!zoomedIn) {
+        if(foundError || foundWarning) {
+            ctx.println("<td title='Errors or Warnings- please zoom in' class='warning'>");
+        } else {
+            ctx.println("<td>");
+        }
         //if(canModify && canSubmit) {
             fora.showForumLink(ctx, pod, p, base_xpath);
         //}
+        ctx.println("</td>");
+    } else {
+        ctx.println("<td></td>");
     }
-    ctx.println("</td>");
     
     ctx.println("</tr>");
 }
@@ -5037,7 +5180,7 @@ void printPeaItem(WebContext ctx, DataPod.Pea.Item item, String fieldHash, Strin
     if(item.value.length()!=0) {
         ctx.print(item.value);
     } else {
-        ctx.print("<i>(empty)</i>");
+        ctx.print("<i dir='ltr'>(empty)</i>");
     }
     ctx.println("</span>");
     /*
@@ -5287,7 +5430,7 @@ private void createBasicCldr(File homeFile) {
 
         pw.println("## autogenerated cldr.properties config file");
         pw.println("## generated on " + localhost() + " at "+new Date());
-        pw.println("## see the readme at \n## http://unicode.org/cldr/data/tools/java/org/unicode/cldr/web/data/readme.txt ");
+        pw.println("## see the readme at \n## "+URL_CLDR+"data/tools/java/org/unicode/cldr/web/data/readme.txt ");
         pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
         pw.println("##");
         pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
@@ -6165,5 +6308,10 @@ private void doStartupDB()
             return "UNKNOWN";
         }
     }
+    
+    public static String bugReplyUrl(String folder, int number, String subject) {
+        return BUG_URL_BASE + "/"+folder+"?compose="+number+"&subject="+java.net.URLEncoder.encode(subject);
+    }
+    
 
 }

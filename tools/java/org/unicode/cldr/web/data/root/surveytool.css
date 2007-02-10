@@ -121,6 +121,7 @@ a.notselected {
 /*	font-color: #F22;*/
 	color: #F22;
 	background-color: #fee;
+	border: 1px solid red;
 }
 
 
@@ -261,6 +262,14 @@ tr.heading th.partsection {
 	border-top: 2px solid black;
 }
 
+th.partsection, th.partsection a {
+	font-weight: bold;
+	font-style: italic;
+	background-color: #9edbec;
+	color: #111111;
+	font-size: 1.1em;
+}
+
 tr.headingb { /* heading with a border */
     background: #ddd; 
 }
@@ -371,12 +380,26 @@ td.framecell {
 }
 
 .insufficient {
-    border: 1px;
+    border: 2px;
 	border-color: #f0961b;
 	border-style: dashed;
 	margin: 1px;
 	padding: 1px;
 }
+
+/* but, an insufficient table.. */
+td.insufficient {
+	border:  none;
+}
+
+td.insufficient span.loser {
+    border: 2px;
+	border-color: #f0961b;
+	border-style: dashed;
+	margin: 1px;
+	padding: 1px;
+}
+
 	
 /* @end */
 
@@ -484,4 +507,5 @@ table.sqlbox form {
 
 .loser {
 	border: 4px solid rgba(255,255,255,0);
+	/*color:  #333;*/
 }

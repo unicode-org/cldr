@@ -160,7 +160,12 @@ public class CoverageLevel {
       }
     }
     boolean exemplarsContainA_Z = false;
-    UnicodeSet exemplars = file.getExemplarSet("");
+    UnicodeSet exemplars = file.getResolved().getExemplarSet(""); // need to use resolved version to get exemplars
+    
+    if(exemplars == null) {
+        throw new InternalError("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
+    }
+    
     UnicodeSet auxexemplars = file.getExemplarSet("auxiliary");
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');

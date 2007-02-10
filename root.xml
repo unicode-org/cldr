@@ -294,11 +294,11 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="narrow">
+							<alias source="locale" path="../quarterWidth[@type='wide']"/>
+						</quarterWidth>
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<alias source="locale" path="../quarterWidth[@type='wide']"/>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Q1</quarter>
@@ -306,6 +306,9 @@
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<alias source="locale" path="../quarterContext[@type='format']"/>
 					</quarterContext>
 				</quarters>
 				<am>AM</am>

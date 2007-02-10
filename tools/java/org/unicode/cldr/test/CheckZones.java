@@ -39,10 +39,10 @@ public class CheckZones extends CheckCLDR {
 	}
 	
 	XPathParts parts = new XPathParts(null, null);
-        String previousZone = new String();
-        String previousFrom = new String("1970-01-01");
-        String previousTo = new String("present");
-
+    String previousZone = new String();
+    String previousFrom = new String("1970-01-01");
+    String previousTo = new String("present");
+    
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map options, List result) {
 		if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
@@ -96,46 +96,54 @@ public class CheckZones extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR handleGetExamples(String path, String fullPath, String value,
-			Map options, List result) {
-		if (path.indexOf("timeZoneNames") < 0)
-			return this;
-		if (timezoneFormatter == null) {
-			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
-		}
+    public static String exampleTextForXpath(XPathParts parts, TimezoneFormatter timezoneFormatter, 
+            String path) {
 		parts.set(path);
 		if (parts.containsElement("zone")) {
 			String id = (String) parts.getAttributeValue(3,"type");
 			TimeZone tz = TimeZone.getTimeZone(id);
 			String pat = "vvvv";
 			if (parts.containsElement("exemplarCity")) {
-			        int delim = id.indexOf('/');
-                                if ( delim >= 0 ) {
-                                String formatted = id.substring(delim+1).replaceAll("_"," ");
-				result.add(new CheckStatus().setCause(this).setType(
-						CheckStatus.exampleType).setMessage("Formatted value (if removed): \"{0}\"",
-						new Object[] { formatted }));
-                                }
-			} else if ( !parts.containsElement("usesMetazone") ){
-                           if ( parts.containsElement("generic") ) {
+                int delim = id.indexOf('/');
+                if ( delim >= 0 ) {
+                    String formatted = id.substring(delim+1).replaceAll("_"," ");
+                    return formatted;
+                }
+            } else if ( !parts.containsElement("usesMetazone") ){
+               if ( parts.containsElement("generic") ) {
 				pat = "vvvv";
 				if (parts.containsElement("short")) pat = "v";
-                           }
-                           else {
+               } else {
 				pat = "zzzz";
 				if (parts.containsElement("short")) pat = "z";
-                           }
-                                boolean daylight = parts.containsElement("daylight");
-                                int offset = tz.getRawOffset();
-                                if ( daylight )
-                                   offset += tz.getDSTSavings();
+               }
+                boolean daylight = parts.containsElement("daylight");
+                int offset = tz.getRawOffset();
+                if ( daylight )
+                   offset += tz.getDSTSavings();
 				String formatted = timezoneFormatter.getFormattedZone(id, pat,
 						daylight, offset, true);
-				result.add(new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
-						.setMessage("Formatted value (if removed): \"{0}\"", new Object[] {formatted}));
+                return formatted;
 			}
 		}
+        return null; // unknown
+    }
+
+	public CheckCLDR handleGetExamples(String path, String fullPath, String value,
+			Map options, List result) {
+		if (path.indexOf("timeZoneNames") < 0) {
+			return this;
+        }
+		if (timezoneFormatter == null) {
+			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+		}
+        String formatted = exampleTextForXpath(parts, timezoneFormatter, path);
+
+		if(formatted != null) {
+            result.add(new CheckStatus().setCause(this).setType(
+                CheckStatus.exampleType).setMessage("Formatted value (if removed): \"{0}\"",
+                new Object[] { formatted }));
+        }
 		return this;
 	}
-
 }

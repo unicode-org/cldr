@@ -739,7 +739,7 @@
 			<territory type="830">Kanalöarna</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
-			<territory type="AF" references="R1">Afghanistan</territory>
+			<territory type="AF" references="R222">Afghanistan</territory>
 			<territory type="AG">Antigua och Barbuda</territory>
 			<territory type="AI">Anguilla</territory>
 			<territory type="AL">Albanien</territory>
@@ -967,9 +967,9 @@
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM" references="R2">USA:s yttre öar</territory>
-			<territory type="UM" references="R2" alt="proposed-x999">USAs yttre öar</territory>
-			<territory type="US" references="R3">USA</territory>
+			<territory type="UM" references="R221">USA:s yttre öar</territory>
+			<territory type="UM" references="R221" alt="proposed-x999">USAs yttre öar</territory>
+			<territory type="US" references="R217">USA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikanstaten</territory>
@@ -1098,19 +1098,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
-							<day type="sun" references="R4" alt="proposed" draft="provisional">sön</day>
+							<day type="sun" references="R218" alt="proposed" draft="provisional">sön</day>
 							<day type="mon">må</day>
-							<day type="mon" references="R4" alt="proposed" draft="provisional">mån</day>
+							<day type="mon" references="R218" alt="proposed" draft="provisional">mån</day>
 							<day type="tue">ti</day>
-							<day type="tue" references="R4" alt="proposed" draft="provisional">tis</day>
+							<day type="tue" references="R218" alt="proposed" draft="provisional">tis</day>
 							<day type="wed">on</day>
-							<day type="wed" references="R4" alt="proposed" draft="provisional">ons</day>
+							<day type="wed" references="R218" alt="proposed" draft="provisional">ons</day>
 							<day type="thu">to</day>
-							<day type="thu" references="R4" alt="proposed" draft="provisional">tors</day>
+							<day type="thu" references="R218" alt="proposed" draft="provisional">tors</day>
 							<day type="fri">fr</day>
-							<day type="fri" references="R4" alt="proposed" draft="provisional">fre</day>
+							<day type="fri" references="R218" alt="proposed" draft="provisional">fre</day>
 							<day type="sat">lö</day>
-							<day type="sat" references="R4" alt="proposed" draft="provisional">lör</day>
+							<day type="sat" references="R218" alt="proposed" draft="provisional">lör</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">söndag</day>
@@ -1170,13 +1170,13 @@
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R3">EEE d MMM yyyy</pattern>
-							<pattern references="R3" alt="proposed-x999">EEEE d MMM yyyy</pattern>
+							<pattern references="R217">EEE d MMM yyyy</pattern>
+							<pattern references="R217" alt="proposed-x999">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="R3">d MMM yyyy</pattern>
+							<pattern references="R217">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1552,7 +1552,7 @@
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern references="R3">#,##0 %</pattern>
+					<pattern references="R217">#,##0 %</pattern>
 					<pattern alt="proposed-x999">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
@@ -1619,12 +1619,12 @@
 				<displayName>Azerbajdzjansk manat</displayName>
 			</currency>
 			<currency type="BAD">
-				<displayName references="R5">Bosnisk-hercegovinsk dinar</displayName>
-				<symbol references="R5">BAD</symbol>
+				<displayName references="R219">Bosnisk-hercegovinsk dinar</displayName>
+				<symbol references="R219">BAD</symbol>
 			</currency>
 			<currency type="BAM">
-				<displayName references="R5">Konvertibel bosnisk-hercegovinsk mark</displayName>
-				<symbol references="R5">KM</symbol>
+				<displayName references="R219">Konvertibel bosnisk-hercegovinsk mark</displayName>
+				<symbol references="R219">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadisk dollar</displayName>
@@ -1958,8 +1958,8 @@
 				<symbol>KD</symbol>
 			</currency>
 			<currency type="KYD">
-				<displayName references="R5">Cayman-dollar</displayName>
-				<symbol references="R5">KYD</symbol>
+				<displayName references="R219">Cayman-dollar</displayName>
+				<symbol references="R219">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakisk tenge</displayName>
@@ -2377,13 +2377,13 @@
 		</messages>
 	</posix>
 	<references>
-		<reference type="R1">Utrikes namnbok</reference>
-		<reference type="R2">Landskoder på Internet</reference>
-		<reference type="R3">Svenska skrivregler</reference>
-		<reference type="R4">Svenska språknämnden</reference>
-		<reference type="R5">Länder och valutor</reference>
-		<reference type="RP1" uri="http://www.kb.se/">Kungliga bibliotekets protokoll över ämnesord</reference>
-		<reference type="RP2" uri="http://www.libris.kb.se/tjanster/katalogisering/formathandbok/sprakkoder.htm">LIBRIS språkkoder</reference>
+		<reference type="R217">Svenska skrivregler</reference>
+		<reference type="R218">Svenska språknämnden</reference>
+		<reference type="R219">Länder och valutor</reference>
+		<reference type="R220" uri="http://www.libris.kb.se/tjanster/katalogisering/formathandbok/sprakkoder.htm">LIBRIS språkkoder</reference>
+		<reference type="R221">Landskoder på Internet</reference>
+		<reference type="R222">Utrikes namnbok</reference>
+		<reference type="R223" uri="http://www.kb.se/">Kungliga bibliotekets protokoll över ämnesord</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.

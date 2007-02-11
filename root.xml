@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.5/ldml.dtd">
 <ldml>
 	<identity>
@@ -21,19 +21,19 @@
 	<layout>
 		<orientation/>
 		<inList casing="mixed"/>
-		<inText type="languages">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="variants">mixed</inText>
+		<inText type="currency">mixed</inText>
+		<inText type="dayWidth">mixed</inText>
+		<inText type="fields">mixed</inText>
 		<inText type="keys">mixed</inText>
-		<inText type="types">mixed</inText>
+		<inText type="languages">mixed</inText>
+		<inText type="long">mixed</inText>
 		<inText type="measurementSystemNames">mixed</inText>
 		<inText type="monthWidth">mixed</inText>
-		<inText type="dayWidth">mixed</inText>
 		<inText type="quarterWidth">mixed</inText>
-		<inText type="long">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="currency">mixed</inText>
+		<inText type="scripts">mixed</inText>
+		<inText type="territories">mixed</inText>
+		<inText type="types">mixed</inText>
+		<inText type="variants">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
@@ -294,10 +294,10 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="narrow">
+						<quarterWidth type="abbreviated">
 							<alias source="locale" path="../quarterWidth[@type='wide']"/>
 						</quarterWidth>
-						<quarterWidth type="abbreviated">
+						<quarterWidth type="narrow">
 							<alias source="locale" path="../quarterWidth[@type='wide']"/>
 						</quarterWidth>
 						<quarterWidth type="wide">

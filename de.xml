@@ -911,8 +911,8 @@
 			<type type="traditional" key="collation">Traditionelle Sortierregeln</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="US" references="RP11" draft="provisional">US-amerikanisch</measurementSystemName>
-			<measurementSystemName type="metric" references="RP10" draft="unconfirmed">metrisch</measurementSystemName>
+			<measurementSystemName type="US" references="R019" draft="provisional">US-amerikanisch</measurementSystemName>
+			<measurementSystemName type="metric" references="R021" draft="unconfirmed">metrisch</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
@@ -1315,11 +1315,11 @@
 			</currency>
 			<currency type="BGL">
 				<displayName>Lew (1962-1999)</displayName>
-				<displayName references="RP10" alt="proposed-u212-2" draft="provisional">Bulgarischer Lew (1962-1999)</displayName>
+				<displayName references="R021" alt="proposed-u212-2" draft="provisional">Bulgarischer Lew (1962-1999)</displayName>
 			</currency>
 			<currency type="BGN">
 				<displayName>Lew</displayName>
-				<displayName references="RP10" alt="proposed-u212-2" draft="unconfirmed">Bulgarischer Lew</displayName>
+				<displayName references="R021" alt="proposed-u212-2" draft="unconfirmed">Bulgarischer Lew</displayName>
 				<displayName alt="proposed-u45-1" draft="provisional">Neuer Bulgarischer Lew</displayName>
 			</currency>
 			<currency type="BHD">
@@ -1472,10 +1472,10 @@
 				<displayName>Nakfa</displayName>
 			</currency>
 			<currency type="ESA">
-				<displayName references="RP10" draft="provisional">Spanische Peseta (A-Konten)</displayName>
+				<displayName references="R021" draft="provisional">Spanische Peseta (A-Konten)</displayName>
 			</currency>
 			<currency type="ESB">
-				<displayName references="RP10" draft="provisional">Spanische Peseta (konvertibel)</displayName>
+				<displayName references="R021" draft="provisional">Spanische Peseta (konvertibel)</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spanische Pesete</displayName>
@@ -1521,7 +1521,7 @@
 				<displayName>Guinea Franc</displayName>
 			</currency>
 			<currency type="GNS">
-				<displayName references="RP10" draft="provisional">Guineischer Syli</displayName>
+				<displayName references="R021" draft="provisional">Guineischer Syli</displayName>
 			</currency>
 			<currency type="GQE">
 				<displayName>Äquatorialguinea Ekwele Guineana</displayName>
@@ -1802,7 +1802,7 @@
 				<displayName>Leu</displayName>
 			</currency>
 			<currency type="RON">
-				<displayName references="RP10" draft="provisional">Neuer Rumänischer Leu</displayName>
+				<displayName references="R021" draft="provisional">Neuer Rumänischer Leu</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russischer Rubel (neu)</displayName>
@@ -1850,7 +1850,7 @@
 				<displayName>Somalia Schilling</displayName>
 			</currency>
 			<currency type="SRD">
-				<displayName references="RP10" draft="provisional">Surinamischer Dollar</displayName>
+				<displayName references="R021" draft="provisional">Surinamischer Dollar</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname Gulden</displayName>
@@ -1928,7 +1928,7 @@
 				<displayName>US Dollar (Gleicher Tag)</displayName>
 			</currency>
 			<currency type="UYP">
-				<displayName references="RP10" draft="provisional">Uruguayischer Neuer Peso (1975-1993)</displayName>
+				<displayName references="R021" draft="provisional">Uruguayischer Neuer Peso (1975-1993)</displayName>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguayischer Peso</displayName>
@@ -2045,17 +2045,17 @@
 		</messages>
 	</posix>
 	<references>
-		<reference type="RP1" uri="http://www2.bibliothek.uni-augsburg.de/kfe/kkb_mab_037.html">Languages</reference>
-		<reference type="RP10" uri="http://www.ids-mannheim.de/reform/regelwerk.pdf">German spelling, official new rules (for capitalization see pp. 51, 64-67 = §§ 60-64)</reference>
-		<reference type="RP11" uri="http://de.wikipedia.org/wiki/Angloamerikanisches_Ma%C3%9Fsystem">US measurement system in German</reference>
-		<reference type="RP2" uri="http://www.allegro-c.de/formate/sprachen.htm">Languages 2</reference>
-		<reference type="RP3" uri="http://www.metatab.de/meta_tags/sprachenkuerzel2.htm">Languages 3</reference>
-		<reference type="RP4" uri="http://www.auswaertiges-amt.de/www/de/infoservice/download/pdf/publikationen/staatennamen.pdf">Territories</reference>
-		<reference type="RP5" uri="http://de.wikipedia.org/wiki/Liste_der_Unicode-Blöcke">Scripts</reference>
-		<reference type="RP6" uri="http://www.oenb.at/ebusinesscodes/isocodes?lang=de&amp;mode=isocodes">Currencies</reference>
-		<reference type="RP7" uri="http://de.wikipedia.org/wiki/ISO_4217">Currencies 2</reference>
-		<reference type="RP8" uri="http://de.wikipedia.org/wiki/Prozent">Prozent</reference>
-		<reference type="RP9" uri="http://afrika.heim.at">Territories of Africa in German</reference>
+		<reference type="R019" uri="http://de.wikipedia.org/wiki/Angloamerikanisches_Ma%C3%9Fsystem">US measurement system in German</reference>
+		<reference type="R020" uri="http://www.allegro-c.de/formate/sprachen.htm">Languages 2</reference>
+		<reference type="R021" uri="http://www.ids-mannheim.de/reform/regelwerk.pdf">German spelling, official new rules (for capitalization see pp. 51, 64-67 = §§ 60-64)</reference>
+		<reference type="R022" uri="http://www.oenb.at/ebusinesscodes/isocodes?lang=de&amp;amp;mode=isocodes">Currencies</reference>
+		<reference type="R023" uri="http://de.wikipedia.org/wiki/Prozent">Prozent</reference>
+		<reference type="R024" uri="http://www.metatab.de/meta_tags/sprachenkuerzel2.htm">Languages 3</reference>
+		<reference type="R025" uri="http://de.wikipedia.org/wiki/Liste_der_Unicode-Blöcke">Scripts</reference>
+		<reference type="R026" uri="http://www2.bibliothek.uni-augsburg.de/kfe/kkb_mab_037.html">Languages</reference>
+		<reference type="R027" uri="http://afrika.heim.at">Territories of Africa in German</reference>
+		<reference type="R028" uri="http://de.wikipedia.org/wiki/ISO_4217">Currencies 2</reference>
+		<reference type="R029" uri="http://www.auswaertiges-amt.de/www/de/infoservice/download/pdf/publikationen/staatennamen.pdf">Territories</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.

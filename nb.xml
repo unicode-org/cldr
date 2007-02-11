@@ -668,8 +668,8 @@
 			<territory type="BE">Belgia</territory>
 			<territory type="BF">Burkina Faso</territory>
 			<territory type="BG">Bulgaria</territory>
-			<territory type="BH" references="RP4">Bahrain</territory>
-			<territory type="BH" references="RP4" alt="proposed-u124-1" draft="unconfirmed">Bahrein</territory>
+			<territory type="BH" references="R205">Bahrain</territory>
+			<territory type="BH" references="R205" alt="proposed-u124-1" draft="unconfirmed">Bahrein</territory>
 			<territory type="BI">Burundi</territory>
 			<territory type="BJ">Benin</territory>
 			<territory type="BM">Bermuda</territory>
@@ -942,18 +942,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" references="R1">jan.</month>
-							<month type="2" references="R1">feb.</month>
-							<month type="3" references="R1">mars</month>
-							<month type="4" references="R1">april</month>
-							<month type="5" references="R1">mai</month>
-							<month type="6" references="R1">juni</month>
-							<month type="7" references="R1">juli</month>
-							<month type="8" references="R1">aug.</month>
-							<month type="9" references="R1">sep.</month>
-							<month type="10" references="R1">okt.</month>
-							<month type="11" references="R1">nov.</month>
-							<month type="12" references="R1">des.</month>
+							<month type="1" references="R201">jan.</month>
+							<month type="2" references="R201">feb.</month>
+							<month type="3" references="R201">mars</month>
+							<month type="4" references="R201">april</month>
+							<month type="5" references="R201">mai</month>
+							<month type="6" references="R201">juni</month>
+							<month type="7" references="R201">juli</month>
+							<month type="8" references="R201">aug.</month>
+							<month type="9" references="R201">sep.</month>
+							<month type="10" references="R201">okt.</month>
+							<month type="11" references="R201">nov.</month>
+							<month type="12" references="R201">des.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -990,13 +990,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" references="R1">sø.</day>
-							<day type="mon" references="R1">ma.</day>
-							<day type="tue" references="R1">ti.</day>
-							<day type="wed" references="R1">on.</day>
-							<day type="thu" references="R1">to.</day>
-							<day type="fri" references="R1">fr.</day>
-							<day type="sat" references="R1">lø.</day>
+							<day type="sun" references="R201">sø.</day>
+							<day type="mon" references="R201">ma.</day>
+							<day type="tue" references="R201">ti.</day>
+							<day type="wed" references="R201">on.</day>
+							<day type="thu" references="R201">to.</day>
+							<day type="fri" references="R201">fr.</day>
+							<day type="sat" references="R201">lø.</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">søndag</day>
@@ -2097,11 +2097,11 @@
 		</messages>
 	</posix>
 	<references>
-		<reference type="R1" uri="URN:ISBN:82-03-32936-5">Vinje, Finn-Erik, Skriveregler (1994)</reference>
-		<reference type="RP1" uri="URN:ISBN:9979-9004-3-1">INSTA report: Nordic Cultural Requirements on Information Technology (1992)</reference>
-		<reference type="RP2" uri="http://www.norid.no/navnepolitikk.html#link3">NORID Navnepolitikk for .no-domenet</reference>
-		<reference type="RP3" draft="provisional">Bokmålsordboka</reference>
-		<reference type="RP4" uri="http://www.sprakrad.no/templates/Page.aspx?id=3312">Språkrådet</reference>
+		<reference type="R201" uri="URN:ISBN:82-03-32936-5">Vinje, Finn-Erik, Skriveregler (1994)</reference>
+		<reference type="R202" uri="http://www.norid.no/navnepolitikk.html#link3">NORID Navnepolitikk for .no-domenet</reference>
+		<reference type="R203" draft="provisional">Bokmålsordboka</reference>
+		<reference type="R204" uri="URN:ISBN:9979-9004-3-1">INSTA report: Nordic Cultural Requirements on Information Technology (1992)</reference>
+		<reference type="R205" uri="http://www.sprakrad.no/templates/Page.aspx?id=3312">Språkrådet</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.

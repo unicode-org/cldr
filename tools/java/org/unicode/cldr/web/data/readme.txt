@@ -44,15 +44,20 @@ Copyright 2007 IBM and others. All Rights Reserved
 5. Build cldr-apps.war
  - "ant war" will produce cldr-apps.war 
 
-6. setting up your ST deployment environment
- - create a "cldr" directory inside your tomcat directory containing:
+6. Deploy cldr-apps.war to your server
+   http://127.0.0.1:8080/manager/html
+   "WAR file to deploy" (2nd item under deploy).. find and feed it the cldr-apps.war next to build.xml
+    ( you could undeploy and then post another one to update, or see "ant deploy", below. )
+
+7. setting up your ST deployment environment
+ i.  Visit http://127.0.0.1:8080/cldr-apps/survey
+ ii. You will see a message about a default cldr directory being created
+ iii.Go to http://127.0.0.1:8080/manager/html and Stop the cldr-apps
+
+ - visit the "cldr" directory inside your tomcat directory:
+    Install a directory inside cldr/ : 
 	common/   (symlink or copy of CLDR common data - or see note about CLDR_COMMON below.
                     On Windows, this may not be a shortcut.)
-	vetdata/   (vetting dir )
-	vetdata/cldrvet.txt  (vetting registry - can be an empty file)
-	vetweb/    (output dir for web pages. can be an empty dir)
-	cldr.properties  (see below)
-
 
   - cldr.properties is the config file for the survey tool
 
@@ -66,13 +71,10 @@ Copyright 2007 IBM and others. All Rights Reserved
        ##CLDR_SMTP=  smtp_host.example.com
        ##CLDR_FROM=  your@email.com
 
-7. Deploy cldr-apps.war to your server
-   http://127.0.0.1:8080/manager/html
-   "WAR file to deploy" (2nd item under deploy).. find and feed it the cldr-apps.war next to build.xml
-    ( you could undeploy and then post another one to update, or see "ant deploy", below. )
+    After changing cldr.properties you must Stop the survey tool if it was already running.
    
 8. test
-    http://127.0.0.1:8080/cldr-apps
+    http://127.0.0.1:8080/cldr-apps/survey
      login as "admin@" with password "somepassword"  ( the CLDR_VAP, above )
 
 9. problems

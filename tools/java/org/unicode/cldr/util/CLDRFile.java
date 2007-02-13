@@ -68,7 +68,7 @@ import com.ibm.icu.util.Freezable;
  http://lists.xml.org/archives/xml-dev/200007/msg00284.html
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
-public class CLDRFile implements Freezable {
+public class CLDRFile implements Freezable, Iterable<String> {
   private static boolean LOG_PROGRESS = false;
   
   public static boolean HACK_ORDER = false;
@@ -123,7 +123,7 @@ public class CLDRFile implements Freezable {
       xpath_value.remove(distinguishingXPath);
       xpath_fullXPath.remove(distinguishingXPath);
     }
-    public Iterator iterator() { // must be unmodifiable or locked
+    public Iterator<String> iterator() { // must be unmodifiable or locked
       return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
     }
     public Object freeze() {
@@ -644,7 +644,11 @@ public class CLDRFile implements Freezable {
 
   static final Pattern specialsToPushFromRoot = Pattern.compile(
       "/(" +
-      "calendar\\[\\@type\\=\"gregorian\"\\]/(?!fields)(?!dateTimeFormats/appendItems)" +
+      "calendar\\[\\@type\\=\"gregorian\"\\]/" +
+        "(?!fields)" +
+        "(?!dateTimeFormats/appendItems)" +
+        "(?!.*\\[@type=\"format\"].*[@type=\"narrow\"])" +
+        "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
       ")");
@@ -708,7 +712,7 @@ public class CLDRFile implements Freezable {
       if (!otherFullXPath.contains("[@draft")) {
         parts.set(otherFullXPath);
         Map attributes = parts.getAttributes(-1);
-        attributes.put("draft","provisional");
+        attributes.put("draft","unconfirmed");
         otherFullXPath = parts.toString();
       }
 
@@ -1146,7 +1150,7 @@ public class CLDRFile implements Freezable {
       Log.logln(LOG_PROGRESS, "push\t" + qName + "\t" + show(attributes));
       if (lastChars.length() != 0) {
         if (whitespace.containsAll(lastChars)) lastChars = "";
-        else throw new IllegalArgumentException("Internal Error");
+        else throw new IllegalArgumentException("Must not have mixed content: " + qName + ", " + show(attributes) + ", Content: " + lastChars);
       }
       //currentXPath += "/" + qName;
       currentFullXPath += "/" + qName;

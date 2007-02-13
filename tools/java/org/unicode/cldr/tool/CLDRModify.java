@@ -55,6 +55,8 @@ import org.unicode.cldr.util.Utility.*;
 public class CLDRModify {
 	static final String DEBUG_PATHS = null; // ".*currency.*";
 	static final boolean COMMENT_REMOVALS = false; // append removals as comments
+  static UnicodeSet whitespace = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
+
 	// TODO make this into input option.
 	
 	static FixList fixList = new FixList();
@@ -197,7 +199,7 @@ public class CLDRModify {
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
 				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
-				// if (k.isNonInheriting()) continue; // for now, skip supplementals
+				if (k.isNonInheriting()) continue; // for now, skip supplementals
 				if (DEBUG_PATHS != null) {
 					System.out.println("Debug1 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}
@@ -240,7 +242,7 @@ public class CLDRModify {
               if (k.getFullXPath("//ldml/alias",true) != null) {
                 System.out.println("Skipping completely aliased file: " + test);  
               } else {
-                k.putRoot(toRemove);
+                // k.putRoot(toRemove);
               }
             }
 						k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"));
@@ -341,69 +343,56 @@ public class CLDRModify {
 		toMergeIn.removeAll(toRemove, false);
 	}
 	
-	private static class References {
-		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
-		UnicodeSet digits = new UnicodeSet("[0-9]");
-		int referenceCounter = 0;
-		Map references_token = new TreeMap();
-		Set tokenSet = new HashSet();
-		String[] keys2;
-		boolean isStandard;
-		References(boolean standard) {
-			isStandard = standard;
-			keys2 = standard ? keys[0] : keys[1];
-		}
-		/**
-		 * 
-		 */
-		public void reset(CLDRFile k) {
-			clear();
-			XPathParts parts = new XPathParts(null, null);
-			for (Iterator it = k.iterator(); it.hasNext();) {
-				String path = (String) it.next();
-				if (path.indexOf("/reference") < 0) continue;
-				parts.set(k.getFullXPath(path));
-				if (!parts.getElement(2).equals("reference")) continue;
-				//Map attributes = parts.getAttributes(2);
-				String token = parts.getAttributeValue(2, "type");
-				boolean refIsStandard = "true".equals(parts.getAttributeValue(2, "standard"));
-				if (refIsStandard != isStandard) continue;
-				String references = k.getStringValue(path);
-				tokenSet.add(token);
-				references_token.put(references, token);
-			}			
-		}
-		/**
-		 * 
-		 */
-		public void clear() {
-			referenceCounter = 0;
-			references_token.clear();
-		}
-		private int fix(Map attributes, CLDRFile replacements) {
-			String references = (String) attributes.get(keys2[0]);
-			int result = 0;
-			if (references != null) {
-				references = references.trim();
-				if (references.startsWith("S") || references.startsWith("R")) {
-					if (digits.containsAll(references.substring(1))) return 0;
-				}
-				String token = (String) references_token.get(references);
-				if (token == null) {
-					while (true) {
-						token = keys2[1] + (++referenceCounter);
-						if (!tokenSet.contains(token)) break;
-					}
-					references_token.put(references, token);
-					System.out.println("Adding: " + token + "\t" + references);
-					replacements.add("//ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
-					result = 1;
-				}
-				attributes.put(keys2[0], token);
-			}
-			return result;
-		}
-	}
+//	private static class References {
+//    static Map<String,Map<String,String>> locale_oldref_newref = new TreeMap<String,Map<String,String>>();
+//    
+//		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
+//		UnicodeSet digits = new UnicodeSet("[0-9]");
+//		int referenceCounter = 0;
+//		Map references_token = new TreeMap();
+//		Set tokenSet = new HashSet();
+//		String[] keys2;
+//		boolean isStandard;
+//		References(boolean standard) {
+//			isStandard = standard;
+//			keys2 = standard ? keys[0] : keys[1];
+//		}
+//		/**
+//		 * 
+//		 */
+//		public void reset(CLDRFile k) {
+//		}
+//		/**
+//		 * 
+//		 */
+//    // Samples:
+//    // <language type="ain" references="RP1">阿伊努文</language>
+//    // <reference type="R1" uri="http://www.info.gov.hk/info/holiday_c.htm">二零零五年公眾假期刊登憲報</reference>
+//		private int fix(Map attributes, CLDRFile replacements) {
+//      // we have to have either a references element or attributes.
+//			String references = (String) attributes.get(keys2[0]);
+//			int result = 0;
+//			if (references != null) {
+//				references = references.trim();
+//				if (references.startsWith("S") || references.startsWith("R")) {
+//					if (digits.containsAll(references.substring(1))) return 0;
+//				}
+//				String token = (String) references_token.get(references);
+//				if (token == null) {
+//					while (true) {
+//						token = keys2[1] + (++referenceCounter);
+//						if (!tokenSet.contains(token)) break;
+//					}
+//					references_token.put(references, token);
+//					System.out.println("Adding: " + token + "\t" + references);
+//					replacements.add("//ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
+//					result = 1;
+//				}
+//				attributes.put(keys2[0], token);
+//			}
+//			return result;
+//		}
+//	}
 	
 	
 	abstract static class CLDRFilter {
@@ -494,7 +483,12 @@ public class CLDRModify {
 			for (int i = 0; i < options.length(); ++i) {
 				char c = options.charAt(i);
 				if (filters[c] != null) {
-					filters[c].handlePath(xpath);
+					try {
+            filters[c].handlePath(xpath);
+          } catch (RuntimeException e) {
+            System.err.println("Failure in " + filters[c].localeID + "\t " + xpath);
+            throw e;
+          }
 				}
 			}
 		}
@@ -1011,29 +1005,68 @@ public class CLDRModify {
 				return alt;
 			}
 		});
-		
+
 		fixList.add('r', "fix references and standards", new CLDRFilter() {
-			References standards = new References(true);
-			References references = new References(false);
+      int currentRef = 0;
+      Map<String,TreeMap<String,String>> locale_oldref_newref = new TreeMap<String,TreeMap<String,String>>();
+      TreeMap<String,String> oldref_newref;
+      LanguageTagParser ltp = new LanguageTagParser();
+			//References standards = new References(true);
+			//References references = new References(false);
 			
 			public void handleStart() {
-				standards.reset(cldrFileToFilter);
-				references.reset(cldrFileToFilter);
+        String locale = cldrFileToFilter.getLocaleID();
+        oldref_newref = locale_oldref_newref.get(locale);
+        if (oldref_newref == null) {
+          // copy parent if exists
+          String parent = LanguageTagParser.getParent(locale);
+          if (parent != null && !parent.equals("root")) {
+            oldref_newref = locale_oldref_newref.get(parent);
+            if (oldref_newref == null) {
+              throw new IllegalArgumentException("can't find info for parent: " + locale + "\t" + parent);
+            }
+            oldref_newref = (TreeMap<String, String>) oldref_newref.clone();           
+          } else {
+            oldref_newref = new TreeMap();
+          }
+          locale_oldref_newref.put(locale, oldref_newref);
+        }
 			}
+//    // Samples:
+//    // <language type="ain" references="RP1">阿伊努文</language>
+//    // <reference type="R1" uri="http://www.info.gov.hk/info/holiday_c.htm">二零零五年公眾假期刊登憲報</reference>
 			public void handlePath(String xpath) {
+        // must be minimised for this to work.
+        String fullpath = cldrFileToFilter.getFullXPath(xpath);
+        if (!fullpath.contains("reference")) return;
 				String value = cldrFileToFilter.getStringValue(xpath);
-				String fullpath = cldrFileToFilter.getFullXPath(xpath);
-				if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
-				if (fullpath.indexOf("/references") >= 0) return;
-				fullparts.set(fullpath);
-				int fixCount = 0;
-				for (int i = 0; i < fullparts.size(); ++i) {
-					Map attributes = fullparts.getAttributes(i);
-					fixCount += standards.fix(attributes, getReplacementFile());
-					fixCount += references.fix(attributes, getReplacementFile());
-				}
-				if (fixCount >= 0) getReplacementFile().add(fullparts.toString(), value);
+        fullparts.set(fullpath);
+        if ("reference".equals(fullparts.getElement(-1))) {
+          fixType(value, "type", fullpath);
+        } else if (fullparts.getAttributeValue(-1,"references") != null) {
+          fixType(value, "references", fullpath);   
+        } else {
+          System.out.println("Skipping: " + xpath);
+        }
 			}
+      
+      private void fixType(String value, String type, String oldFullPath) {
+        String ref = fullparts.getAttributeValue(-1,type);
+        if (whitespace.containsSome(ref)) throw new IllegalArgumentException("Whitespace in references");
+        String newRef = getNewRef(ref);
+        fullparts.addAttribute(type, newRef);
+        replace(oldFullPath, fullparts.toString(), value);
+      }
+      
+      private String getNewRef(String ref) {
+        String newRef = oldref_newref.get(ref);
+        if (newRef == null) {
+          newRef = String.valueOf(currentRef++);
+          newRef = "R" + Utility.repeat("0", 3 - newRef.length()) + newRef;
+          oldref_newref.put(ref, newRef);
+        }
+        return newRef;
+      }
 		});
 		
 		fixList.add('i', "fix Identical Children");

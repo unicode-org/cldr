@@ -663,7 +663,7 @@ public abstract class XMLSource implements Freezable {
       throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
     }
     public Object freeze() {
-      throw new UnsupportedOperationException("Resolved CLDRFiles can't be locked");
+        return this; // No-op. ResolvingSource is already read-only. 
     }
     public ResolvingSource(/*Factory factory, */XMLSource source) {
       super();

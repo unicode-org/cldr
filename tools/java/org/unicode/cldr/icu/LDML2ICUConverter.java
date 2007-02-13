@@ -1424,7 +1424,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseLocaleDisplayNames(node, xpath);
             }else if(name.equals(LDMLConstants.LAYOUT)){
                 res = parseLayout(node, xpath);
-                //if(DEBUG)printXPathWarning(node, xpath);
+            }else if(name.equals(LDMLConstants.FALLBACK)){
             }else if(name.equals(LDMLConstants.CHARACTERS)){
                 res = parseCharacters(node, xpath);
             }else if(name.equals(LDMLConstants.DELIMITERS)){
@@ -2161,6 +2161,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                         res = lns;
                     }
                 }
+            }else if(name.equals(LDMLConstants.INTEXT)){
             }else{
                  System.err.println("Unknown element found: "+name);
                  System.exit(-1);

@@ -455,6 +455,15 @@ public class LDMLUtilities {
         }else if(token.indexOf(LDMLConstants.DAY) > -1){
             String dayName = getAttributeValue(token, LDMLConstants.TYPE);
             return getDayIndexAsString(dayName);   
+        }else if(token.indexOf(LDMLConstants.QUARTER_WIDTH) > -1){
+            // TODO fix this
+            return "";
+        }else if(token.indexOf(LDMLConstants.QUARTER_CONTEXT) > -1){
+            // TODO fix this
+            return "";
+        }else if(token.indexOf(LDMLConstants.QUARTERS) > -1){
+            // TODO fix this
+            return "";
         }else if(token.indexOf(LDMLConstants.COLLATIONS) > -1){
             return "collations";
         }else if(token.indexOf(LDMLConstants.COLLATION) > -1){

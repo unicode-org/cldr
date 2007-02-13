@@ -13,8 +13,10 @@ public class LDMLConstants {
     public static final String LDML            = "ldml";
     public static final String IDENTITY        = "identity";
     public static final String LDN             = "localeDisplayNames";
+    public static final String FALLBACK        = "fallback";
     public static final String LAYOUT          = "layout";
     public static final String ORIENTATION     = "orientation";
+    public static final String INTEXT          = "inText";
     public static final String INLIST          = "inList";
     public static final String CHARACTERS      = "characters";
     public static final String CASING          = "casing";

@@ -1914,6 +1914,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseStringResource(node);
                 if (isType(node,LDMLConstants.AUXILIARY)) {
                     res.name = (String) keyNameMap.get(LDMLConstants.AUXILIARY);
+                } else if (isType(node,LDMLConstants.CURRENCY_SYMBOL)) {
+                    res = null;
                 }else{
                     res.name = (String) keyNameMap.get(node.getNodeName());
                 }

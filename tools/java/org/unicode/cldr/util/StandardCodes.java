@@ -270,10 +270,14 @@ public class StandardCodes {
         String locale = (String) stuff.get(1);
         String status = (String) stuff.get(2);
         Map locale_status = (Map) platform_locale_status.get(organization);
-        if (locale_status == null)
-          platform_locale_status.put(organization,
-              locale_status = new TreeMap());
+        if (locale_status == null) {
+          platform_locale_status.put(organization, locale_status = new TreeMap());
+        }
         parser.set(locale);
+        String valid = validate(parser);
+        if (valid.length() != 0) {
+          System.out.println("Warning: " + valid + "; " + line);
+        }
         locale = parser.toString(); // normalize
         locale_status.put(locale, status);
         String scriptLoc = parser.getLanguageScript();
@@ -288,6 +292,25 @@ public class StandardCodes {
     return platform_locale_status;
   }
   
+  private String validate(LocaleIDParser parser) {
+    String message = "";
+    String lang = parser.getLanguage();
+    if (lang.length() == 0) {
+      message += ", Missing language";
+    } else if (!getAvailableCodes("language").contains(lang)) {
+      message += ", Invalid language code: " + lang;
+    }
+    String script = parser.getScript();
+    if (script.length() != 0 && !getAvailableCodes("script").contains(script)) {
+      message += ", Invalid script code: " + script;
+    }
+    String territory = parser.getRegion();
+    if (territory.length() != 0 && !getAvailableCodes("territory").contains(territory)) {
+      message += ", Invalid territory code: " + lang;
+    }
+    return message.length() == 0 ? message : message.substring(2);
+  }
+
   /**
    * Ascertain that the given locale in in the given group specified by the
    * organization

@@ -931,7 +931,9 @@ public class ShowLanguages {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null));
       pw.println("<tr><th class='source'>Territory</th>");
       for (Iterator it = territoryTypes.iterator(); it.hasNext();) {
-        pw.println("<th class='target'>" + it.next() + "</th>");
+        String header = (String) it.next();
+        if (header.equals("calendar")) header = "calendar (+gregorian)";
+        pw.println("<th class='target'>" + header + "</th>");
       }
       pw.println("</tr>");
       

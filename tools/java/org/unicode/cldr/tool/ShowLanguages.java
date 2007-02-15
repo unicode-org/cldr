@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
@@ -124,6 +125,8 @@ public class ShowLanguages {
     linfo.showCountryLanguageInfo(pw);
     
     linfo.showLanguageCountryInfo(pw);
+    
+    linfo.showCoverageGoals(pw);
 
     linfo.showCorrespondances();
     
@@ -687,6 +690,75 @@ public class ShowLanguages {
       pw2.close();
     }
     
+    private void showCoverageGoals(PrintWriter pw) throws IOException {
+      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Coverage Goals", "<p>" +
+          "The following show default coverage goals for member data submitters. " +
+          "Values for the goals are as defined in the LDML spec. " +
+          "<i>[basic]</i> shows where there is no specific value for a given vendor, " +
+          "while <i>(...)</i> indicates that the goal is inherited from the parent. A * is added if the goal differs from the parent locale's goal." +
+          "</p>"));
+
+
+      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
+      tablePrinter.setSortPriorities(0,~4)
+      .addColumn("Language", "class='source'", null, "class='source'", true)
+      .addColumn("Locale", "class='source'", null, "class='source'", true)
+      .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      ;
+      Map<String, Map<String, String>> vendordata = sc.getLocaleTypes();
+      Set<String> locales = new TreeSet();
+      for (String vendor : vendordata.keySet()) {
+        if (vendor.equals("Java")) continue;
+        tablePrinter.addColumn(vendor, "class='target'", null, "class='target'", false);
+        locales.addAll(vendordata.get(vendor).keySet());
+      }
+      Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+      List<String> list = new ArrayList<String>();
+      LanguageTagParser ltp = new LanguageTagParser();
+      
+      for (String locale : locales) {
+        list.clear();
+        String baseLang = ltp.set(locale).getLanguage();
+        String baseLangName = english.getName(baseLang, false);
+        list.add(baseLangName);
+        list.add(baseLang.equals(locale) ? "" : english.getName(locale, false));
+        list.add(locale);
+        for (String vendor : vendordata.keySet()) {
+          if (vendor.equals("Java")) continue;
+          String status = getVendorStatus(locale, vendor, vendordata);
+          if (!baseLang.equals(locale) && !status.startsWith("<")) {
+            String langStatus = getVendorStatus(baseLang, vendor, vendordata);
+            if (!langStatus.equals(status)) {
+              status += "*";
+            }
+          }
+          list.add(status);
+        }
+        data.add(list.toArray(new String[list.size()]));
+      }
+      Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
+      String value = tablePrinter.toTable(flattened);
+      pw2.println(value);
+      pw2.close();
+    }
+
+    private String getVendorStatus(String locale, String vendor, Map<String, Map<String, String>> vendordata) {
+      String status = vendordata.get(vendor).get(locale);
+      String curLocale = locale;
+      while (status == null) {
+          curLocale = LanguageTagParser.getParent(curLocale);
+          if (curLocale.equals("root")) {
+            status = "<i>[basic]</i>";
+            break;
+          }
+          status = vendordata.get(vendor).get(curLocale);
+          if (status != null) {
+            status = "<i>(" + status + ")</i>";
+          }
+      }
+      return status;
+    }
+
     private void showCountryLanguageInfo(PrintWriter pw) throws IOException {
       PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);

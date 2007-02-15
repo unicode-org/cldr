@@ -59,8 +59,10 @@ public class ShowLanguages {
   
   static StandardCodes sc = StandardCodes.make();
   
+  static Factory cldrFactory;
+  
   public static void main(String[] args) throws IOException {
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
     english = cldrFactory.make("en", false);
     printLanguageData(cldrFactory, "index.html");
     //cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
@@ -205,6 +207,8 @@ public class ShowLanguages {
   public static Map<String,String> territoryAliases = new HashMap();
   
   static class LanguageInfo {
+    private static final Map<String,Map<String,String>> localeAliasInfo = new TreeMap();
+
     Map language_scripts = new TreeMap();
     
     Map language_territories = new TreeMap();
@@ -413,6 +417,18 @@ public class ShowLanguages {
       script_languages = getInverse(language_scripts);
       
       // now get some metadata
+      localeAliasInfo.put("language", new TreeMap());
+      localeAliasInfo.put("script", new TreeMap());
+      localeAliasInfo.put("territory", new TreeMap());
+      localeAliasInfo.put("variant", new TreeMap());
+      localeAliasInfo.put("zone", new TreeMap());
+      
+      localeAliasInfo.get("language").put("no", "nb");
+      localeAliasInfo.get("language").put("zh_CN", "zh_Hans_CN");
+      localeAliasInfo.get("language").put("zh_SG", "zh_Hans_SG");
+      localeAliasInfo.get("language").put("zh_TW", "zh_Hant_TW");
+      localeAliasInfo.get("language").put("zh_MO", "zh_Hant_MO");
+      localeAliasInfo.get("language").put("zh_HK", "zh_Hant_HK");
       
       CLDRFile supp2 = cldrFactory.make(CLDRFile.SUPPLEMENTAL_METADATA, false);
       for (Iterator it = supp2.iterator(); it.hasNext();) {
@@ -426,6 +442,8 @@ public class ShowLanguages {
             throw new IllegalArgumentException("Unexpected alias element: " + element);
           element = element.substring(0, element.length() - 5);
           String replacement = (String) attributes.get("replacement");
+          localeAliasInfo.get(element).put(type, replacement);
+
           String name = "";
           if (replacement == null) {
             name = "(none)";
@@ -446,7 +464,7 @@ public class ShowLanguages {
             territoryAliases.put(type,name);
             aliases.add(new String[] { element, getName(CLDRFile.TERRITORY_NAME, type, false), name });
           } else {
-            aliases.add(new String[] { element, type, name });            
+            aliases.add(new String[] { element, type, name });
           }
           continue;
         }
@@ -472,7 +490,7 @@ public class ShowLanguages {
         System.out.println("Skipped NFKC/NFC items: " + count);
       Log.close();
     }
-    
+
     static final Comparator INVERSE_COMPARABLE = new Comparator() {
       public int compare(Object o1, Object o2) {
         return ((Comparable)o2).compareTo(o1);
@@ -702,8 +720,9 @@ public class ShowLanguages {
       TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
       tablePrinter.setSortPriorities(0,~4)
       .addColumn("Language", "class='source'", null, "class='source'", true)
-      .addColumn("Locale", "class='source'", null, "class='source'", true)
-      .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      .addColumn("Locale", "class='source'", null, "class='source'", false)
+      .addColumn("Code", "class='source'", "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
+      .addColumn("CLDR", "class='source'", null, "class='source'", false)
       ;
       Map<String, Map<String, String>> vendordata = sc.getLocaleTypes();
       Set<String> locales = new TreeSet();
@@ -715,14 +734,20 @@ public class ShowLanguages {
       Collection<Comparable[]> data = new ArrayList<Comparable[]>();
       List<String> list = new ArrayList<String>();
       LanguageTagParser ltp = new LanguageTagParser();
+      String alias2 = getAlias("sh_YU");
       
       for (String locale : locales) {
+        String alias = getAlias(locale);
+        if (!alias.equals(locale)) {
+          System.out.println("Should use canonical form: " + locale + " => " + alias);
+        }
         list.clear();
         String baseLang = ltp.set(locale).getLanguage();
         String baseLangName = english.getName(baseLang, false);
         list.add(baseLangName);
         list.add(baseLang.equals(locale) ? "" : english.getName(locale, false));
         list.add(locale);
+        list.add(cldrFactory.getAvailable().contains(locale) ? "\u00A0" : baseLang.equals(locale) ? "No" : "<i>(No)</i>");
         for (String vendor : vendordata.keySet()) {
           if (vendor.equals("Java")) continue;
           String status = getVendorStatus(locale, vendor, vendordata);
@@ -740,6 +765,33 @@ public class ShowLanguages {
       String value = tablePrinter.toTable(flattened);
       pw2.println(value);
       pw2.close();
+    }
+
+    LanguageTagParser lpt2 = new LanguageTagParser();
+    private String getAlias(String locale) {
+      lpt2.set(locale);
+      locale = lpt2.toString(); // normalize
+      String language = lpt2.getLanguage();
+      String script = lpt2.getScript();
+      String region = lpt2.getRegion();
+      //List variants = lpt2.getVariants();
+      String temp;
+      for (String old : localeAliasInfo.get("language").keySet()) {
+        if (locale.startsWith(old)) {
+          temp = localeAliasInfo.get("language").get(old);
+          lpt2.setLanguage(temp.split("\\s+")[0] + locale.substring(old.length()));
+          break;
+        }
+      }
+      temp = localeAliasInfo.get("script").get(script);
+      if (temp != null) {
+        lpt2.setScript(temp.split("\\s+")[0]);
+      }
+      temp = localeAliasInfo.get("territory").get(region);
+      if (temp != null) {
+        lpt2.setRegion(temp.split("\\s+")[0]);
+      }
+      return lpt2.toString();
     }
 
     private String getVendorStatus(String locale, String vendor, Map<String, Map<String, String>> vendordata) {

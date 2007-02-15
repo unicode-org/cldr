@@ -318,4 +318,24 @@ public class LanguageTagParser {
     if (pos < 0) return "root";
     return localeCode.substring(0,pos);
   }
+  public void setLanguage(String language) {
+    if (language.contains("_")) {
+      String oldScript = script;
+      String oldRegion = region;
+      List oldVariants = variants;
+      set(language);
+      if (script.length() == 0) {
+        script = oldScript;
+      }
+      if (region.length() == 0) {
+        region = oldRegion;
+      }
+      if (oldVariants.size() != 0) {
+        variants.addAll(oldVariants);
+      }
+
+    } else {
+      this.language = language;
+    }
+  }
 }

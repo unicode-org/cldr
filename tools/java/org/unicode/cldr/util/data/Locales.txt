@@ -1,7 +1,7 @@
 # http://java.sun.com/j2se/1.5.0/docs/guide/intl/locale.doc.html
 Java ;	ar_SA ;	Supported
-Java ;	zh_CN ;	Supported
-Java ;	zh_TW ;	Supported
+Java ;	zh_Hans_CN ;	Supported # using canonical form
+Java ;	zh_Hant_TW ;	Supported # using canonical form
 Java ;	nl_NL ;	Supported
 Java ;	en_AU ;	Supported
 Java ;	en_CA ;	Supported
@@ -39,7 +39,7 @@ Java ;	ar_YE ;	Unsupported
 Java ;	be_BY ;	Unsupported
 Java ;	bg_BG ;	Unsupported
 Java ;	ca_ES ;	Unsupported
-Java ;	zh_HK ;	Unsupported
+Java ;	zh_Hant_HK ;	Unsupported # using canonical form
 Java ;	hr_HR ;	Unsupported
 Java ;	cs_CZ ;	Unsupported
 Java ;	da_DK ;	Unsupported
@@ -141,14 +141,14 @@ IBM ;	it_IT ;	modern
 IBM ;	ja_JP ;	modern
 IBM ;	ko_KR ;	modern
 IBM ;	pt_BR ;	modern
-IBM ;	zh_CN ;	modern
+IBM ;	zh_Hans_CN ;	modern # using canonical form
 IBM ;	zh_Hans_CN ;	modern
 IBM ;	zh_Hans_SG ;	modern
 IBM ;	zh_Hant_HK ;	modern
 IBM ;	zh_Hant_TW ;	modern
-IBM ;	zh_HK ;	modern
-IBM ;	zh_SG ;	modern
-IBM ;	zh_TW ;	modern
+IBM ;	zh_Hant_HK ;	modern # using canonical form
+IBM ;	zh_Hans_SG ;	modern # using canonical form
+IBM ;	zh_Hant_TW ;	modern # using canonical form
 IBM ;	ar_AE ;	moderate
 IBM ;	ar_BH ;	moderate
 IBM ;	ar_DZ ;	moderate
@@ -172,7 +172,7 @@ IBM ;	hu_HU ;	moderate
 IBM ;	nb_NO ;	moderate
 IBM ;	nl_BE ;	moderate
 IBM ;	nl_NL ;	moderate
-IBM ;	no ;	moderate
+#IBM ;	no ;	moderate # should be nb, already covered
 IBM ;	pl_PL ;	moderate
 IBM ;	pt_PT ;	moderate
 IBM ;	ru_RU ;	moderate
@@ -189,13 +189,13 @@ IBM ;	lt_LT ;	basic
 IBM ;	lv_LV ;	basic
 IBM ;	mk_MK ;	basic
 IBM ;	ro_RO ;	basic
-IBM ;	sh_CS ;	basic
+IBM ;	sr_Latn_RS ;	basic # using canonical name
 IBM ;	sk_SK ;	basic
 IBM ;	sl_SI ;	basic
 IBM ;	sq_AL ;	basic
-IBM ;	sr_CS ;	basic
-IBM ;	sr_Cyrl_CS ;	basic
-IBM ;	sr_Latn_CS ;	basic
+IBM ;	sr_RS ;	basic # using canonical name
+IBM ;	sr_Cyrl_RS ;	basic # using canonical name
+IBM ;	sr_Latn_RS ;	basic # using canonical name
 IBM ;	th_TH ;	basic
 IBM ;	uk_UA ;	basic
 IBM ;	as_IN ;	posix
@@ -400,14 +400,14 @@ Adobe ; pt           ;    moderate
 Adobe ; pt_BR        ;    moderate
 Adobe ; pt_PT        ;    moderate
 Adobe ; ro           ;    basic
-Adobe ; ro_MO        ;    basic
+Adobe ; ro_MD        ;    basic
 Adobe ; ro_RO        ;    basic
 Adobe ; ru           ;    moderate
-Adobe ; ru_MO        ;    basic
+Adobe ; ru_MD        ;    basic
 Adobe ; ru_RU        ;    moderate
 Adobe ; ru_UA        ;    basic
-Adobe ; sh           ;    basic
-Adobe ; sh_YU        ;    basic
+Adobe ; sr_Latn           ;    basic # using canonical name
+Adobe ; sr_Latn_RS        ;    basic # using canonical name
 Adobe ; ii_CN       ;    wish
 Adobe ; sk           ;    basic
 Adobe ; sk_SK        ;    basic
@@ -416,11 +416,11 @@ Adobe ; sl_SI        ;    basic
 Adobe ; sq           ;    basic
 Adobe ; sq_AL        ;    basic
 Adobe ; sr           ;    basic
-Adobe ; sr_CS        ;    basic
+Adobe ; sr_RS        ;    basic # using canonical name
 Adobe ; sr_Cyrl      ;    basic
-Adobe ; sr_Cyrl_CS   ;    basic
+Adobe ; sr_Cyrl_RS   ;    basic # using canonical name
 Adobe ; sr_Latn      ;    basic
-Adobe ; sr_Latn_CS   ;    basic
+Adobe ; sr_Latn_RS   ;    basic # using canonical name
 Adobe ; sv           ;    moderate
 Adobe ; sv_FI        ;    moderate
 Adobe ; sv_SE        ;    moderate
@@ -434,8 +434,8 @@ Adobe ; uk_UA        ;    basic
 Adobe ; vi           ;    moderate
 Adobe ; vi_VN        ;    moderate
 Adobe ; zh           ;    moderate
-Adobe ; zh_CN        ;    moderate
-Adobe ; zh_HK        ;    moderate
-Adobe ; zh_MO        ;    basic
-Adobe ; zh_SG        ;    basic
-Adobe ; zh_TW        ;    moderate
+Adobe ; zh_Hans_CN        ;    moderate # using canonical form
+Adobe ; zh_Hant_HK        ;    moderate # using canonical form
+Adobe ; zh_Hant_MO        ;    basic # using canonical form
+Adobe ; zh_Hans_SG        ;    basic # using canonical form
+Adobe ; zh_Hant_TW        ;    moderate # using canonical form

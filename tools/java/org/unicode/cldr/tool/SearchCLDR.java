@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -34,7 +35,7 @@ public class SearchCLDR {
   + "-h or -?\t for this message" + XPathParts.NEWLINE
   + "-"+options[SOURCEDIR].shortName + "\t source directory. Default = -s" + Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
     + "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
-    + "-m<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
+    + "-l<regex>\t to restrict the locales to what matches <regex>" + XPathParts.NEWLINE
     + "-p<regex>\t to restrict the paths to what matches <regex>" + XPathParts.NEWLINE
     + "-v<regex>\t to restrict the values to what matches <regex>" + XPathParts.NEWLINE
     + "\t Remember to put .* on the front and back of any regex if you want to find any occurence."
@@ -65,19 +66,29 @@ public class SearchCLDR {
       valueMatch = Pattern.compile(options[MATCH_VALUE].value).matcher("");
     }
     System.out.println("Searching...");
+    System.out.println();
     System.out.flush();
+    PrettyPath pretty = new PrettyPath();
     
     for (String locale : locales) {
       CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
       //System.out.println("*Checking " + locale);
-      for (String path : file) {
+      int count = 0;
+      for (Iterator<String> it = file.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
+        String path = it.next();
         String fullPath = file.getFullXPath(path);
         String value = file.getStringValue(path);
         if (pathMatch != null && !pathMatch.reset(fullPath).matches()) continue;
         if (valueMatch != null && !valueMatch.reset(value).matches()) continue;
-        System.out.println(locale + "\t" + fullPath + "\t{" + value + "}");
+        String shortPath = pretty.getPrettyPath(path);
+        System.out.println(locale + "\t" + shortPath + "\t{" + value + "}"  + "\t" + fullPath);
+        count++;
       }
-      System.out.flush();
+      if (count != 0) {
+        System.out.println("*Found:\t" + count);
+        System.out.println();
+        System.out.flush();
+      }
     }
     System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime)/60000.0) + " minutes");
   }

@@ -1007,7 +1007,7 @@ public class CLDRModify {
 		});
 
 		fixList.add('r', "fix references and standards", new CLDRFilter() {
-      int currentRef = 0;
+      int currentRef = 500;
       Map<String,TreeMap<String,String>> locale_oldref_newref = new TreeMap<String,TreeMap<String,String>>();
       TreeMap<String,String> oldref_newref;
       LanguageTagParser ltp = new LanguageTagParser();
@@ -1018,17 +1018,7 @@ public class CLDRModify {
         String locale = cldrFileToFilter.getLocaleID();
         oldref_newref = locale_oldref_newref.get(locale);
         if (oldref_newref == null) {
-          // copy parent if exists
-          String parent = LanguageTagParser.getParent(locale);
-          if (parent != null && !parent.equals("root")) {
-            oldref_newref = locale_oldref_newref.get(parent);
-            if (oldref_newref == null) {
-              throw new IllegalArgumentException("can't find info for parent: " + locale + "\t" + parent);
-            }
-            oldref_newref = (TreeMap<String, String>) oldref_newref.clone();           
-          } else {
-            oldref_newref = new TreeMap();
-          }
+          oldref_newref = new TreeMap();
           locale_oldref_newref.put(locale, oldref_newref);
         }
 			}

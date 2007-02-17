@@ -84,6 +84,11 @@ public class ShowLanguages {
     StringWriter sw = new StringWriter();
     PrintWriter pw = new PrintWriter(sw);
     
+    // linfo.printCountryData(pw);
+    linfo.showCountryLanguageInfo(pw);
+    
+    linfo.showLanguageCountryInfo(pw);
+    
     //linfo.printDeprecatedItems(pw);
     linfo.printCurrency(pw);
     
@@ -125,16 +130,11 @@ public class ShowLanguages {
     pw1.println("</td></tr>");
     pw1.close();
     
-    // linfo.printCountryData(pw);
-    linfo.showCountryLanguageInfo(pw);
-    
-    linfo.showLanguageCountryInfo(pw);
-    
-    linfo.showCoverageGoals(pw);
+    //linfo.showCoverageGoals(pw);
     
     linfo.showCorrespondances();
     
-    linfo.showCalendarData(pw);
+    //linfo.showCalendarData(pw);
     
     linfo.printContains(pw);
     
@@ -321,11 +321,15 @@ public class ShowLanguages {
             info = (Set) currency_territory.get(currencyName);
             if (info == null)
               currency_territory.put(currencyName, info = new TreeSet(col));
-            info.add(countryName);
             territoriesWithCurrencies.add(iso3166);
             currenciesWithTerritories.add(iso4217);
             if (to.equals("\u221E") || to.compareTo("2006") > 0) {
               territoriesToModernCurrencies.put(iso3166, iso4217);
+              info.add("<b>" + countryName + "</b>");
+
+            } else {
+              info.add("<i>" + countryName + "</i>");
+              
             }
             continue;
           }
@@ -1189,7 +1193,12 @@ public class ShowLanguages {
      * 
      */
     public void printCurrency(PrintWriter index) throws IOException {
-      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Territory \u2192 Currency", null));
+      PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Detailed Territory-Currency Information", 
+          "<p>The following table shows when currencies were in use in different countries. " +
+          "See also <a href='#format_info'>Decimal Digits and Rounding</a>. " +
+          "To correct any information here, please file a " +
+          addBug(1274, "bug", "<email>", "Currency Bug", "<currency, country, and references supporting change>") +
+      ".</p>"));
       //doTitle(pw, "Territory \u2192 Currency");
       pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
       for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
@@ -1207,8 +1216,15 @@ public class ShowLanguages {
         }
       }
       //doFooter(pw);
-      pw.close();
-      pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info", null));
+      //pw.close();
+      //pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info", null));
+      pw.write("</table></div>");
+      pw.write("<h2><a name='format_info'>Decimal Digits and Rounding</a></h2>");
+      pw.write("<p>This table shows the digit rounding for the currency, plus the countries where it is or was in use. " +
+          "Countries where the currency is not in current use are marked by italics. " +
+          "If the currency uses 'nickel rounding' in retail formatting, the digits are followed by '(5)'." +
+          "</p>");
+      pw.write("<div align='center'><table>");
       
       //doTitle(pw, "Currency Format Info");
       pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");

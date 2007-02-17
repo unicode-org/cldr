@@ -131,7 +131,7 @@ public class ShowLanguages {
     linfo.showLanguageCountryInfo(pw);
     
     linfo.showCoverageGoals(pw);
-
+    
     linfo.showCorrespondances();
     
     linfo.showCalendarData(pw);
@@ -205,12 +205,12 @@ public class ShowLanguages {
       out.flush();
     }
   }
-
+  
   public static Map<String,String> territoryAliases = new HashMap();
   
   static class LanguageInfo {
     private static final Map<String,Map<String,String>> localeAliasInfo = new TreeMap();
-
+    
     Map language_scripts = new TreeMap();
     
     Map language_territories = new TreeMap();
@@ -248,7 +248,7 @@ public class ShowLanguages {
     String defaultDigits = null;
     
     Map<String,Map<String,Object>> territoryLanguageData = new TreeMap<String,Map<String,Object>>();
-
+    
     private Relation<String,String> territoriesToModernCurrencies = new Relation(new TreeMap(), TreeSet.class, null);
     
     public LanguageInfo(Factory cldrFactory) throws IOException {
@@ -370,23 +370,23 @@ public class ShowLanguages {
           Map attributes = parts.getAttributes(parts.size() - 1);
           // later, make this a table
           String key = "count";
-          String display = "days in week (min)";
+          String display = "Days in week (min)";
           if (element.equals("firstDay")) {
             key = "day";
-            display = "first day of week";
+            display = "First day of week";
           } else if (element.equals("weekendStart")) {
             key = "day";
-            display = "first day of weekend";
+            display = "First day of weekend";
           } else if (element.equals("weekendEnd")) {
             key = "day";
-            display = "last day of weekend";
+            display = "Last day of weekend";
           } else if (element.equals("measurementSystem")) {
             //<measurementSystem type="metric"  territories="001"/>
             key = "choice";
-            display = "measurement system";
+            display = "Meas. system";
           } else if (element.equals("paperSize")) {
             key = "type";
-            display = "paper size";
+            display = "Paper Size";
           }
           String type = (String) attributes.get(key);
           String territories = (String) attributes.get("territories");
@@ -409,8 +409,8 @@ public class ShowLanguages {
             String literacy = attributes.get("literacyPercent");
             languageData2.add(
                 new Pair(Double.parseDouble(attributes.get("populationPercent")),
-                new Pair(literacy == null ? Double.NaN : Double.parseDouble(literacy),
-                    attributes.get("type"))));
+                    new Pair(literacy == null ? Double.NaN : Double.parseDouble(literacy),
+                        attributes.get("type"))));
           }
 //        supplementalData/territoryTestData/territory[@type="AU"][@gdp="640100000000"][@literacy="0.99"][@population="20000000"]/languagePopulation[@type="zh_Hant"][@functionallyLiterate="420000"]
 //        supplementalData/territoryTestData/territory[@type="GP"][@gdp="3513000000"][@literacy="0.99"][@population="450000"]
@@ -450,7 +450,7 @@ public class ShowLanguages {
           element = element.substring(0, element.length() - 5);
           String replacement = (String) attributes.get("replacement");
           localeAliasInfo.get(element).put(type, replacement);
-
+          
           String name = "";
           if (replacement == null) {
             name = "(none)";
@@ -497,158 +497,140 @@ public class ShowLanguages {
         System.out.println("Skipped NFKC/NFC items: " + count);
       Log.close();
     }
-
+    
     static final Comparator INVERSE_COMPARABLE = new Comparator() {
       public int compare(Object o1, Object o2) {
         return ((Comparable)o2).compareTo(o1);
       }  
     };
     
-//    public void printCountryData(PrintWriter pw) throws IOException {
-//      NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
-//      nf.setGroupingUsed(true);
-//      NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
-//      pf.setMinimumFractionDigits(1);
-//      pf.setMaximumFractionDigits(1);
-//      PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
-//      pw2.println("<tr>" +
-//          "<th class='source'>Territory</th>" +
-//          "<th class='source'>Code</th>" +
-//          "<th class='target'>Population</th>" +
-//          "<th class='target'>Literacy</th>" +
-//          "<th class='target'>GDP (PPP)</th>" +
-//          
-//          "<th class='target'>Language</th>" +
-//          "<th class='target'>Code</th>" +
-//          "<th class='target'>Population</th>" +
-//          "<th class='target'>Literacy</th>" +
-//      "</tr>");
-//      for (String territoryName : territoryLanguageData.keySet()) {
-//        Map<String,Object>results = territoryLanguageData.get(territoryName);
-//        Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
-//        int span = language == null ? 0 : language.size();
-//        String spanString = span == 0 ? "" : " rowSpan='"+span+"'";
-//        double population = Double.parseDouble((String)results.get("population"));
-//        double gdp = Double.parseDouble((String)results.get("gdp"));
-//        pw2.println("<tr>" +
-//            "<td class='source'" + spanString + ">" + territoryName + "</td>" +
-//            "<td class='source'" + spanString + ">" + results.get("code") + "</td>" +
-//            "<td class='targetRight'" + spanString + ">" + (population <= 1 ? "<i>na</i>" : nf.format(population)) + "</td>" +
-//            "<td class='targetRight'" + spanString + ">" + pf.format(Double.parseDouble((String)results.get("literacyPercent"))/100) + "</td>" +
-//            "<td class='targetRight'" + spanString + ">" + (gdp <= 1 ? "<i>na</i>" : nf.format(gdp)) + "</td>");
-//        if (span == 0) {
-//          pw2.println("<td class='source'><i>na</i></td>" +
-//              "<td class='source'><i>na</i></td>"
-//              + "<td class='targetRight'><i>na</i></td>"
-//              + "<td class='targetRight'><i>na</i></td>"
-//              + "</tr>");
-//        } else {
-//          boolean first = true;
-//          for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
-//            double languagePopulation = languageCodePair.first;
-//            double languageliteracy = languageCodePair.second.first;
-//            String languageCode = languageCodePair.second.second;
-//            if (first) {
-//              first = false;
-//            } else {
-//              pw2.println("<tr>");
-//            }
-//            double proportion = languagePopulation/population;
-//            if (proportion > 1) {
-//              System.out.println("Warning - proportion > 100:" + territoryName + ", " + english.getName(languageCode, false));
-//              proportion = 1;
-//            }
-//            pw2.println(
-//                "<td class='source'>" + english.getName(languageCode, false) + "</td>" +
-//                "<td class='source'>" + languageCode + "</td>"
-//                + "<td class='targetRight'>" + pf.format(languagePopulation/100) + "</td>"
-//                + "<td class='targetRight'>" + (Double.isNaN(languageliteracy) ? "<i>na</i>" : pf.format(languageliteracy/100)) + "</td>"
-//                + "</tr>");
-//          }
-//        }
-//      }
-//      pw2.close();
-//      /*
-//       *           Map languageData = (Map) territoryLanguageData.get(type);
-//       if (languageData == null) territoryLanguageData.put(type, languageData = new TreeMap());
-//       languageData.put("gdp", attributes.get("gdp"));
-//       languageData.put("literacy", attributes.get("literacy"));
-//       languageData.put("population", attributes.get("population"));
-//       attributes = parts.getAttributes(3);
-//       if (attributes != null) {
-//       Map languageData2 = (Map) languageData.get("language");
-//       if (languageData2 == null) territoryLanguageData.put(type, languageData2 = new LinkedHashMap());
-//       languageData.put(attributes.get("type"), attributes.get("functionallyLiterate"));
-//       }
-//       
-//       */
-////    pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
-////    for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
-////    String territory = (String) it.next();
-////    Set info = (Set) territory_currency.get(territory);
-////    pw.println("<tr><td class='source' rowSpan='" + info.size() + "'>" + territory + "</td>");
-////    boolean first = true;
-////    for (Iterator it2 = info.iterator(); it2.hasNext();) {
-////    String[] items = (String[]) it2.next();
-////    if (first)
-////    first = false;
-////    else
-////    pw.println("<tr>");
-////    pw.println("<td class='target'>" + items[0] + "</td><td class='target'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");
-////    }
-////    }
-////    //doFooter(pw);
-////    pw.close();
-////    pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info"));
-////    
-////    //doTitle(pw, "Currency Format Info");
-////    pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");
-////    Set currencyList = new TreeSet(col);
-////    currencyList.addAll(currency_fractions.keySet());
-////    currencyList.addAll(currency_territory.keySet());
-////    
-////    for (Iterator it = currencyList.iterator(); it.hasNext();) {
-////    String currency = (String) it.next();
-////    String fractions = (String) currency_fractions.get(currency);
-////    if (fractions == null)
-////    fractions = defaultDigits;
-////    Set territories = (Set) currency_territory.get(currency);
-////    pw.print("<tr><td class='source'>" + currency + "</td><td class='target'>" + fractions + "</td><td class='target'>");
-////    if (territories != null) {
-////    boolean first = true;
-////    for (Iterator it2 = territories.iterator(); it2.hasNext();) {
-////    if (first)
-////    first = false;
-////    else
-////    pw.print(", ");
-////    pw.print(it2.next());
-////    }
-////    }
-////    pw.println("</td></tr>");
-////    }
-////    pw.close();
-////    //doFooter(pw);
-////    
-//    }
-
-    private PrintWriter showCountryDataHeader(PrintWriter pw, String title) throws IOException {
-      PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, title, 
-          "<div  style='margin:1em'><p>This data is provided for localization testing, and is under development for CLDR 1.5. " +
-          "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
-          "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
-          "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
-          "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
-          "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
-          "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
-          "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
-          "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
-          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information at " +
-          "<a target='_blank' href='http://www.unicode.org/cldr/bugs/locale-bugs/data?compose=1217'>bug 1217</a>. " +
-          "Please include the desired change <i>and</i> references to support it.</p>" +
-          "<p></div>"));
-      return pw2;
-    }
-
+//  public void printCountryData(PrintWriter pw) throws IOException {
+//  NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
+//  nf.setGroupingUsed(true);
+//  NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
+//  pf.setMinimumFractionDigits(1);
+//  pf.setMaximumFractionDigits(1);
+//  PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
+//  pw2.println("<tr>" +
+//  "<th class='source'>Territory</th>" +
+//  "<th class='source'>Code</th>" +
+//  "<th class='target'>Population</th>" +
+//  "<th class='target'>Literacy</th>" +
+//  "<th class='target'>GDP (PPP)</th>" +
+//  
+//  "<th class='target'>Language</th>" +
+//  "<th class='target'>Code</th>" +
+//  "<th class='target'>Population</th>" +
+//  "<th class='target'>Literacy</th>" +
+//  "</tr>");
+//  for (String territoryName : territoryLanguageData.keySet()) {
+//  Map<String,Object>results = territoryLanguageData.get(territoryName);
+//  Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
+//  int span = language == null ? 0 : language.size();
+//  String spanString = span == 0 ? "" : " rowSpan='"+span+"'";
+//  double population = Double.parseDouble((String)results.get("population"));
+//  double gdp = Double.parseDouble((String)results.get("gdp"));
+//  pw2.println("<tr>" +
+//  "<td class='source'" + spanString + ">" + territoryName + "</td>" +
+//  "<td class='source'" + spanString + ">" + results.get("code") + "</td>" +
+//  "<td class='targetRight'" + spanString + ">" + (population <= 1 ? "<i>na</i>" : nf.format(population)) + "</td>" +
+//  "<td class='targetRight'" + spanString + ">" + pf.format(Double.parseDouble((String)results.get("literacyPercent"))/100) + "</td>" +
+//  "<td class='targetRight'" + spanString + ">" + (gdp <= 1 ? "<i>na</i>" : nf.format(gdp)) + "</td>");
+//  if (span == 0) {
+//  pw2.println("<td class='source'><i>na</i></td>" +
+//  "<td class='source'><i>na</i></td>"
+//  + "<td class='targetRight'><i>na</i></td>"
+//  + "<td class='targetRight'><i>na</i></td>"
+//  + "</tr>");
+//  } else {
+//  boolean first = true;
+//  for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+//  double languagePopulation = languageCodePair.first;
+//  double languageliteracy = languageCodePair.second.first;
+//  String languageCode = languageCodePair.second.second;
+//  if (first) {
+//  first = false;
+//  } else {
+//  pw2.println("<tr>");
+//  }
+//  double proportion = languagePopulation/population;
+//  if (proportion > 1) {
+//  System.out.println("Warning - proportion > 100:" + territoryName + ", " + english.getName(languageCode, false));
+//  proportion = 1;
+//  }
+//  pw2.println(
+//  "<td class='source'>" + english.getName(languageCode, false) + "</td>" +
+//  "<td class='source'>" + languageCode + "</td>"
+//  + "<td class='targetRight'>" + pf.format(languagePopulation/100) + "</td>"
+//  + "<td class='targetRight'>" + (Double.isNaN(languageliteracy) ? "<i>na</i>" : pf.format(languageliteracy/100)) + "</td>"
+//  + "</tr>");
+//  }
+//  }
+//  }
+//  pw2.close();
+//  /*
+//  *           Map languageData = (Map) territoryLanguageData.get(type);
+//  if (languageData == null) territoryLanguageData.put(type, languageData = new TreeMap());
+//  languageData.put("gdp", attributes.get("gdp"));
+//  languageData.put("literacy", attributes.get("literacy"));
+//  languageData.put("population", attributes.get("population"));
+//  attributes = parts.getAttributes(3);
+//  if (attributes != null) {
+//  Map languageData2 = (Map) languageData.get("language");
+//  if (languageData2 == null) territoryLanguageData.put(type, languageData2 = new LinkedHashMap());
+//  languageData.put(attributes.get("type"), attributes.get("functionallyLiterate"));
+//  }
+//  
+//  */
+////pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
+////for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
+////String territory = (String) it.next();
+////Set info = (Set) territory_currency.get(territory);
+////pw.println("<tr><td class='source' rowSpan='" + info.size() + "'>" + territory + "</td>");
+////boolean first = true;
+////for (Iterator it2 = info.iterator(); it2.hasNext();) {
+////String[] items = (String[]) it2.next();
+////if (first)
+////first = false;
+////else
+////pw.println("<tr>");
+////pw.println("<td class='target'>" + items[0] + "</td><td class='target'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");
+////}
+////}
+//////doFooter(pw);
+////pw.close();
+////pw = new PrintWriter(new FormattedFileWriter(index, "Currency Format Info"));
+////
+//////doTitle(pw, "Currency Format Info");
+////pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");
+////Set currencyList = new TreeSet(col);
+////currencyList.addAll(currency_fractions.keySet());
+////currencyList.addAll(currency_territory.keySet());
+////
+////for (Iterator it = currencyList.iterator(); it.hasNext();) {
+////String currency = (String) it.next();
+////String fractions = (String) currency_fractions.get(currency);
+////if (fractions == null)
+////fractions = defaultDigits;
+////Set territories = (Set) currency_territory.get(currency);
+////pw.print("<tr><td class='source'>" + currency + "</td><td class='target'>" + fractions + "</td><td class='target'>");
+////if (territories != null) {
+////boolean first = true;
+////for (Iterator it2 = territories.iterator(); it2.hasNext();) {
+////if (first)
+////first = false;
+////else
+////pw.print(", ");
+////pw.print(it2.next());
+////}
+////}
+////pw.println("</td></tr>");
+////}
+////pw.close();
+//////doFooter(pw);
+////
+//  }
+    
     // http://www.faqs.org/rfcs/rfc2396.html
     //    delims      = "<" | ">" | "#" | "%" | <">
     //"{" | "}" | "|" | "\" | "^" | "[" | "]" | "`"
@@ -690,9 +672,14 @@ public class ShowLanguages {
       }
       return "<a target='_blank' href='http://unicode.org/cldr/bugs/locale-bugs/data?compose=" + bugNumber + from + subject + body + "'>" + text + "</a>";
     }
-
+    
     private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
-      PrintWriter pw2 = showCountryDataHeader(pw, "Language-Territory Information");
+      PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Language-Territory Information", 
+          "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
+          "To add a new territory for a language, see the <i>add new</i> links below. " +
+          "For more information, see <a href=\"territory_language_information.html\">Territory-Language Information.</a>" +
+      "<p></div>"));
+      PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat percent = new DecimalFormat("000.0%");
@@ -704,9 +691,9 @@ public class ShowLanguages {
       .addColumn("Territory", "class='target'", null, "class='target'", true)
       .addColumn("Code", "class='target'", "<a href=\"territory_language_information.html#{0}\">{0}</a>", "class='target'", true)
       .addColumn("Language Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true).setSortPriority(1).setSortAscending(false)
-//      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
-//      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
-//      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+//    .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+//    .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+//    .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
       //.addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
       ;
       TreeSet<String> languages = new TreeSet();
@@ -725,10 +712,10 @@ public class ShowLanguages {
               territoryName,
               (String)results.get("code"),
               Double.NaN,
-//              population,
-//              Double.NaN,
-//              Double.parseDouble((String)results.get("literacyPercent")),
-//              gdp
+//            population,
+//            Double.NaN,
+//            Double.parseDouble((String)results.get("literacyPercent")),
+//            gdp
           };
           data.add(items);
         } else {
@@ -748,10 +735,10 @@ public class ShowLanguages {
                 territoryName,
                 (String)results.get("code"),
                 languagePopulation/100 * population,
-//                population,
-//                languageliteracy,
-//                territoryLiteracy,
-//                gdp
+//              population,
+//              languageliteracy,
+//              territoryLiteracy,
+//              gdp
             };
             data.add(items);
           }
@@ -762,13 +749,13 @@ public class ShowLanguages {
             english.getName(languageCode, false) + msg,
             languageCode,
             //bug,
-            addBug(1217, "<i>add new</i>", "<email>", "add territory to " + english.getName(languageCode, false) + " (" + languageCode + ")", "<supply territory, speaker population in territory, and references>"),
+            addBug(1217, "<i>add new</i>", "<email>", "add territory to " + english.getName(languageCode, false) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
             "",
             0.0d,
-//            0.0d,
-//            0.0d,
-//            0.0d,
-//            gdp
+//          0.0d,
+//          0.0d,
+//          0.0d,
+//          gdp
         };
         data.add(items);
         
@@ -785,9 +772,9 @@ public class ShowLanguages {
           "Values for the goals are as defined in the LDML spec. " +
           "<i>[basic]</i> shows where there is no specific value for a given vendor, " +
           "while <i>(...)</i> indicates that the goal is inherited from the parent. A * is added if the goal differs from the parent locale's goal." +
-          "</p>"));
-
-
+      "</p>"));
+      
+      
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,4)
       .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0)
@@ -837,7 +824,7 @@ public class ShowLanguages {
       pw2.println(value);
       pw2.close();
     }
-
+    
     LanguageTagParser lpt2 = new LanguageTagParser();
     private String getAlias(String locale) {
       lpt2.set(locale);
@@ -864,26 +851,38 @@ public class ShowLanguages {
       }
       return lpt2.toString();
     }
-
+    
     private String getVendorStatus(String locale, String vendor, Map<String, Map<String, String>> vendordata) {
       String status = vendordata.get(vendor).get(locale);
       String curLocale = locale;
       while (status == null) {
-          curLocale = LanguageTagParser.getParent(curLocale);
-          if (curLocale.equals("root")) {
-            status = "<i>[basic]</i>";
-            break;
-          }
-          status = vendordata.get(vendor).get(curLocale);
-          if (status != null) {
-            status = "<i>(" + status + ")</i>";
-          }
+        curLocale = LanguageTagParser.getParent(curLocale);
+        if (curLocale.equals("root")) {
+          status = "<i>[basic]</i>";
+          break;
+        }
+        status = vendordata.get(vendor).get(curLocale);
+        if (status != null) {
+          status = "<i>(" + status + ")</i>";
+        }
       }
       return status;
     }
-
+    
     private void showCountryLanguageInfo(PrintWriter pw) throws IOException {
-      PrintWriter pw2 = showCountryDataHeader(pw, "Territory-Language Information");
+      PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information", 
+          "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
+          "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
+          "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
+          "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
+          "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
+          "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
+          "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
+          "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
+          "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
+          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
+          "</p></div>"));
+      PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat percent = new DecimalFormat("000.0%");
@@ -891,68 +890,136 @@ public class ShowLanguages {
       //tablePrinter.setSortPriorities(0,4)
       .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
       .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
-      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
-      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
-      .addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
-      .addColumn("Currencies (2006...)", "class='target'", null, "class='target'", true)
-      .addColumn("Language", "class='target'", null, "class='target'", false)
+      .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,###.0}", "class='targetRight'", true)
+      .addColumn("Terr. Literacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
+      .addColumn("Terr. GDP ($M PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
+      .addColumn("Currencies (2006...)", "class='target'", null, "class='target'", true);
+      for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
+        String header = it.next();
+        if (header.equals("calendar")) header = "calendar (+gregorian)";
+        tablePrinter.addColumn(header).setHeaderAttributes("class='target'").setCellAttributes("class='target'").setSpanRows(true);
+      }
+      
+      tablePrinter.addColumn("Language", "class='target'", null, "class='target'", false)
       .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>", "class='target'", false)
-      .addColumn("Language Population%", "class='target'", "{0,number,00.0}%", "class='targetRight'", true).setSortAscending(false).setSortPriority(1)
-      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Lang. Pop.%", "class='target'", "{0,number,#.0}%", "class='targetRight'", true).setSortAscending(false).setSortPriority(1)
+      .addColumn("Lang. Liter\u00ADacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
       .addColumn("Report Bug", "class='target'", null, "class='target'", false)
       ;
-
+      
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
-        double population = Double.parseDouble((String)results.get("population"));
-        double gdp = Double.parseDouble((String)results.get("gdp"));
-          String territoryCode = (String)results.get("code");
-          if (language != null) for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
-            double languagePopulation = languageCodePair.first;
-            double languageliteracy = languageCodePair.second.first;
-            String languageCode = languageCodePair.second.second;
-            double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
-            if (Double.isNaN(languageliteracy)) {
-              languageliteracy = territoryLiteracy;
-            }
-            Comparable[] items = new Comparable[]{
-                territoryName,
-                territoryCode,
-                population,
-                territoryLiteracy,
-                gdp,
-                getCurrencyNames(territoryCode),
-                english.getName(languageCode, false),
-                languageCode,
-                languagePopulation,
-                languageliteracy,
-                addBug(1217, "<i>bug</i>", "<email>", "fix info for " + english.getName(languageCode, false) + " (" + languageCode + ")"
-                    + " in " + territoryName + " (" + territoryCode + ")",
-                    "<supply fixed speaker population in territory and references>"),
-            };
-            tablePrinter.addRow(items);
+        double population = Double.parseDouble((String)results.get("population"))/1000000;
+        double gdp = Double.parseDouble((String)results.get("gdp"))/1000000;
+        double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
+        String territoryCode = (String)results.get("code");
+        
+        Map worldData = (Map) territoryData.get(getName(CLDRFile.TERRITORY_NAME, "001", false));
+        Map countryData = (Map) territoryData.get(getName(CLDRFile.TERRITORY_NAME, territoryCode, false)); 
+        
+        if (language != null) for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+          double languagePopulation = languageCodePair.first;
+          double languageliteracy = languageCodePair.second.first;
+          String languageCode = languageCodePair.second.second;
+          
+          if (Double.isNaN(languageliteracy)) {
+            languageliteracy = territoryLiteracy;
           }
+//        Comparable[] items = new Comparable[]{
+//        territoryName,
+//        territoryCode,
+//        population,
+//        territoryLiteracy,
+//        gdp,
+//        getCurrencyNames(territoryCode),
+//        english.getName(languageCode, false),
+//        languageCode,
+//        languagePopulation,
+//        languageliteracy,
+//        addBug(1217, "<i>bug</i>", "<email>", "fix info for " + english.getName(languageCode, false) + " (" + languageCode + ")"
+//        + " in " + territoryName + " (" + territoryCode + ")",
+//        "<fixed data for territory, plus references>"),
+//        };
+//        tablePrinter.addRow(items);
+          tablePrinter.addRow()
+          .addCell(territoryName)
+          .addCell(territoryCode)
+          .addCell(population)
+          .addCell(territoryLiteracy)
+          .addCell(gdp)
+          .addCell(getCurrencyNames(territoryCode));
+           
+          addOtherCountryData(tablePrinter, worldData, countryData);
+          
+          tablePrinter
+          .addCell(english.getName(languageCode, false))
+          .addCell(languageCode)
+          .addCell(languagePopulation)
+          .addCell(languageliteracy)
+          .addCell(addBug(1217, "<i>bug</i>", "<email>", "fix info for " + english.getName(languageCode, false) + " (" + languageCode + ")"
+              + " in " + territoryName + " (" + territoryCode + ")",
+          "<fixed data for territory, plus references>"))
+          .finishRow();
+        }
+        
+//      Comparable[] items = new Comparable[]{
+//      territoryName,
+//      territoryCode,
+//      population,
+//      Double.parseDouble((String)results.get("literacyPercent")),
+//      gdp,
+//      getCurrencyNames(territoryCode),
+//      addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<language, speaker pop. and literacy in territory, plus references>"),
+//      "",
+//      0.0d,
+//      0.0d,
+//      ""
+//      };
+//      tablePrinter.addRow(items);
+        tablePrinter.addRow()
+        .addCell(territoryName)
+        .addCell(territoryCode)
+        .addCell(population)
+        .addCell(territoryLiteracy)
+        .addCell(gdp)
+        .addCell(getCurrencyNames(territoryCode));
+        
+        addOtherCountryData(tablePrinter, worldData, countryData);
 
-            Comparable[] items = new Comparable[]{
-                territoryName,
-                territoryCode,
-                population,
-                Double.parseDouble((String)results.get("literacyPercent")),
-                gdp,
-                getCurrencyNames(territoryCode),
-                addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<supply language, speaker population in territory, and references>"),
-                "",
-                0.0d,
-                0.0d,
-                                ""
-            };
-            tablePrinter.addRow(items);
-
+        tablePrinter
+        .addCell(addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<language, speaker pop. and literacy in territory, plus references>"))
+        .addCell("")
+        .addCell(0.0d)
+        .addCell(0.0d)
+        .addCell("")
+        .finishRow();
+        
+        
       }
       String value = tablePrinter.toTable();
       pw2.println(value);
       pw2.close();
+    }
+    
+    private void addOtherCountryData(TablePrinter tablePrinter, Map worldData, Map countryData) {
+      for (Iterator<String> it2 = territoryTypes.iterator(); it2.hasNext();) {
+        String type = it2.next();
+        Set worldResults = (Set) worldData.get(type);
+        Set territoryResults = null;
+        if (countryData != null) {
+          territoryResults = (Set) countryData.get(type);
+        }
+        if (territoryResults == null) {
+          territoryResults = worldResults;
+        }
+        String out = "";
+        if (territoryResults != null) {
+          out = territoryResults + "";
+          out = out.substring(1, out.length() - 1); // remove [ and ]
+        }
+        tablePrinter.addCell(out);
+      }
     }
     
     private String getCurrencyNames(String territoryCode) {
@@ -963,7 +1030,7 @@ public class ShowLanguages {
       }
       return buffer.toString();
     }
-
+    
     
     private void addCharSubstitution(String value, String substitute) {
       if (substitute.equals(value))
@@ -1017,7 +1084,7 @@ public class ShowLanguages {
     public void showCalendarData(PrintWriter pw0) throws IOException {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(pw0, "Other Territory Data", null));
       pw.println("<tr><th class='source'>Territory</th>");
-      for (Iterator it = territoryTypes.iterator(); it.hasNext();) {
+      for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
         String header = (String) it.next();
         if (header.equals("calendar")) header = "calendar (+gregorian)";
         pw.println("<th class='target'>" + header + "</th>");
@@ -1299,7 +1366,7 @@ public class ShowLanguages {
       }
       currentRow.remove(len);
     }
-
+    
     public void printCharacters(PrintWriter index) throws IOException {
       String title = "Character Fallback Substitutions";
       

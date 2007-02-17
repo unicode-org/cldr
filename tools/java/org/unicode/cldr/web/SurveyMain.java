@@ -65,6 +65,11 @@ public class SurveyMain extends HttpServlet {
     public static final boolean phaseClosed = false;
     public static final boolean phaseDisputed = false;
 	public static final boolean phaseReadonly = false;
+    
+    public static final boolean phaseBeta = true;
+
+    // Unofficial?
+    public static       boolean isUnofficial = true;
 
     // Special bug numbers.
     public static final String BUG_METAZONE_FOLDER = "data";
@@ -210,8 +215,7 @@ public class SurveyMain extends HttpServlet {
     public SurveyForum  fora = null;
     public LocaleChangeRegistry lcr = new LocaleChangeRegistry();
     
-    public static String xREVIEW = "Review and Submit";
-    public static String xSAVE = "Save Changes";
+    public static String xSAVE = phaseBeta?"Save [Note: SurveyTool is in BETA]":"Save Changes";
     
     /*private int n = 0;
     synchronized int getN() {
@@ -356,7 +360,6 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.close();
     }
-                    
     
     /** Admin functions
     */
@@ -365,10 +368,8 @@ public class SurveyMain extends HttpServlet {
         printHeader(ctx, "SQL Console@"+localhost());
         String q = ctx.field("q");
         boolean tblsel = false;        
-        ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
-        "<b><a href='" + ctx.base() + "?dump="+vap+"'>Admin</a></b></div><br>");
+        printAdminMenu(ctx, "/AdminSql");
         ctx.println("<h1>SQL Console</h1>");
-        ctx.printHelpLink("/AdminSql","Help with this SQL page", true);
         if(q.length() == 0) {
             q = "select tablename from SYS.SYSTABLES where tabletype='T'";
             tblsel = true;
@@ -445,7 +446,7 @@ public class SurveyMain extends HttpServlet {
                                     ctx.println("<form method=POST action='" + ctx.base() + "'>");
                                     ctx.println("<input type=hidden name=sql value='" + vap + "'>");
                                     ctx.println("<input type=hidden name=q value='" + "select * from "+v+" where 1 = 0'>");
-                                    ctx.println("<input type=submit value='Info'></form>");
+                                    ctx.println("<input type=image src='"+ctx.context("zoom"+".png")+"' value='Info'></form>");
                                     ctx.println("</td><td>");
                                     int count = sqlCount(ctx, conn, "select COUNT(*) from " + v);
                                     ctx.println(count+"</td>");
@@ -565,17 +566,27 @@ public class SurveyMain extends HttpServlet {
         return ret;
     }
     
-	
+	void printAdminMenu(WebContext ctx, String helpLink) {
+    
+        boolean isDump = ctx.hasField("dump");
+        boolean isSql = ctx.hasField("sql");
+    
+        ctx.print("<div style='float: right'><a class='notselected' href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | ");
+        ctx.print("<a class='"+(isDump?"":"not")+"selected' href='" + ctx.base() + "?dump="+vap+"'>Admin</a>");
+        ctx.print(" | ");
+        ctx.print("<a class='"+(isSql?"":"not")+"selected' href='" + ctx.base() + "?sql="+vap+"'>SQL</a>");
+        ctx.print("<br>");
+        ctx.printHelpLink(helpLink, "Admin Help", true);
+        ctx.println("</div>");
+    }
     
     private void doDump(WebContext ctx)
     {
         String action = ctx.field("action");
         printHeader(ctx, "ST Admin@"+localhost() + " | " + action);
+        printAdminMenu(ctx, "/AdminDump");
         ctx.println("<h1>SurveyTool Administration</h1>");
-        ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
-        "<b><a href='" + ctx.base() + "?sql="+vap+"'>SQL</a></b></div><br>");
-        ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
-        ctx.println("<hr/>");
+        ctx.println("<hr>");
         
         
         if(action.equals("")) {
@@ -984,6 +995,16 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         ctx.println("</head>");
         ctx.println("<body>");
+        if(isUnofficial) {
+            ctx.print("<div title='Not an official SurveyTool' style='text-align: center; margin: 0; background-color: goldenrod;'>");
+            ctx.printHelpLink("/Unofficial",ctx.iconThing("warn","Unofficial Site")+"Unofficial");
+            ctx.println("</div>");
+        }
+        if(phaseBeta) {
+            ctx.print("<div title='Survey Tool is in Beta' style='text-align: center; margin: 0; background-color: yellow;'>");
+            ctx.printHelpLink("/Beta",ctx.iconThing("warn","beta")+"SurveyTool is in Beta");
+            ctx.println("</div>");
+        }
         showSpecialHeader(ctx);
         ctx.println("<script type='text/javascript'><!-- \n" +
                     "function show(what)\n" +
@@ -1227,23 +1248,66 @@ public class SurveyMain extends HttpServlet {
     
 	//    protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
 
+    /* print a user table without any extra help in it */
+    public void printUserTable(WebContext ctx) {
+        printUserTableWithHelp(ctx, null, null);
+    }
+
+    public void printUserTableWithHelp(WebContext ctx, String helpLink) {
+        printUserTableWithHelp(ctx, helpLink, null);
+    }
+    
+    public void printUserTableWithHelp(WebContext ctx, String helpLink, String helpName) {
+        printUserTableBegin(ctx);
+        if(helpLink != null) {
+            ctx.println(" | ");
+            if(helpName != null) {
+                ctx.printHelpLink(helpLink, helpName);
+            } else {
+                ctx.printHelpLink(helpLink, "Page&nbsp;Instructions");
+            }
+        }
+        printUserTableMiddle(ctx);
+        printUserTableEnd(ctx);
+    }
+    
+    /***
+     * print table that holds the menu of choices
+     */
+    public void printUserTableBegin(WebContext ctx) {
+            ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
+                        " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
+            ctx.println("<tr><td>");
+            ctx.printHelpLink("","General&nbsp;Instructions"); // base help
+    }
+    
+    public void printUserTableMiddle(WebContext ctx) {
+            ctx.println("</td><td align='right'>");
+            printUserMenu(ctx);
+    }
+    public void printUserTableEnd(WebContext ctx) {
+            ctx.println("</td></tr></table>");
+    }
     /**
      * Print menu of choices available to the user.
      */
     public void printUserMenu(WebContext ctx) {
+        String doWhat = ctx.field("do");
         if(ctx.session.user == null)  {
-            ctx.println("You are a <b>Visitor</b>. <a href='" + ctx.jspLink("login.jsp") +"'>Login</a> ");
-            ctx.println(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=disputed"+"'>Disputed</a>");
-            ctx.println(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=options"+"'>My options</a>");
+            ctx.println("You are a <b>Visitor</b>. <a class='notselected' href='" + ctx.jspLink("login.jsp") +"'>Login</a><br>");
+            
+            printMenu(ctx, doWhat, "disputed", "Disputed", "do");
+            ctx.print(" | ");
+            printMenu(ctx, doWhat, "options", "My Options", "do");
             ctx.println("<br>");
         } else {
-                
             ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
-            ctx.println("<a href='" + ctx.base() + "?do=logout'>Logout</a><br>");
-            ctx.println(" <a href='"+ctx.url()+ctx.urlConnector()+"do=options"+"'>My options</a> | ");
-            ctx.println(" <a href='"+ctx.url()+ctx.urlConnector()+"do=disputed"+"'>Disputed</a>");
-            ctx.print(" | <a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(ctx.session.user.email)+
-                "' >My account</a>");
+            ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a><br>");
+            printMenu(ctx, doWhat, "disputed", "Disputed", "do");
+            ctx.print(" | ");
+            printMenu(ctx, doWhat, "options", "My Options", "do");
+            ctx.print(" | ");
+            printMenu(ctx, doWhat, "listu", "My Account", "do");
             ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
             ctx.println("<br/>");
             if(UserRegistry.userIsAdmin(ctx.session.user)) {
@@ -1256,7 +1320,9 @@ public class SurveyMain extends HttpServlet {
             }
             if(UserRegistry.userIsTC(ctx.session.user)) {
                 ctx.println("You are: <b>A CLDR TC Member:</b> ");
-                ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
+                printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", "do");
+                ctx.print(" | ");
+                printMenu(ctx, doWhat, "coverage", "Coverage", "do");                    
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     if(UserRegistry.userIsExpert(ctx.session.user)) {
@@ -1264,7 +1330,9 @@ public class SurveyMain extends HttpServlet {
                     } else {
                         ctx.println("You are a: <b>Vetter:</b> ");
                     }
-                    ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[List " + ctx.session.user.org + " Users]</a>");
+                    printMenu(ctx, doWhat, "list", "List " + ctx.session.user.org + " Users", "do");
+                    ctx.print(" | ");
+                    printMenu(ctx, doWhat, "coverage", "Coverage", "do");                    
                 } else if(UserRegistry.userIsStreet(ctx.session.user)) {
                     ctx.println("You are a: <b>Guest Contributor</b> ");
                 } else if(UserRegistry.userIsLocked(ctx.session.user)) {
@@ -1288,8 +1356,7 @@ public class SurveyMain extends HttpServlet {
     */
     public void doNew(WebContext ctx) {
         printHeader(ctx, "New User");
-        printUserMenu(ctx);
-        ctx.printHelpLink("/AddModifyUser");
+        printUserTableWithHelp(ctx, "/AddModifyUser");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         
         String new_name = ctx.field("new_name");
@@ -1378,21 +1445,43 @@ public class SurveyMain extends HttpServlet {
         return rv;
     }
 
-    
+    public static void showCoverageLanguage(WebContext ctx, String group, String lang) {
+        ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+new ULocale(lang).getDisplayName()+":<i>"+group+"</i>)</tt>" );
+    }
     
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; //ctx.prefBool(PREF_SHOWCODES);
         printHeader(ctx, "Locale Coverage");
-        printUserMenu(ctx);
+
+        printUserTableWithHelp(ctx, "/LocaleCoverage");
+
         ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
-        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=list'>[List Users]</a>");
+//        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=list'>[List Users]</a>");
         ctx.print("<br>");
-        ctx.printHelpLink("/LocaleCoverage");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         String org = ctx.session.user.org;
         if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             org = null; // all
         }
+        
+        StandardCodes sc = StandardCodes.make();
+
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.setQuery("do","coverage");
+        boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown");
+        String missingLocalesForOrg = org;
+        if(missingLocalesForOrg == null) {
+            missingLocalesForOrg = showListPref(subCtx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
+        }
+        if(missingLocalesForOrg == null || missingLocalesForOrg.length()==0 || missingLocalesForOrg.equals("default")) {
+            missingLocalesForOrg = "default"; // ?!
+        }
+        
+        ctx.println("<h4>Showing coverage for: " + org + "</h4>");
+        if(missingLocalesForOrg != org) {
+            ctx.println("<h4> (and missing locales for " + missingLocalesForOrg +")</h4>");
+        }
+        
         File inFiles[] = getInFiles();
         int nrInFiles = inFiles.length;
         String localeList[] = new String[nrInFiles];
@@ -1446,7 +1535,6 @@ public class SurveyMain extends HttpServlet {
             if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
                 org = "ALL"; // all
             }
-            ctx.println("<h4>Showing coverage for: " + org + "</h4>");
             while(rs.next()) {
               //  n++;
                 int theirId = rs.getInt(1);
@@ -1461,7 +1549,7 @@ public class SurveyMain extends HttpServlet {
 				// setup
 			
 				
-                if(conn!=null) {
+                if(participation && (conn!=null)) {
 					psMySubmit.setInt(1,theirId);
 					psMyVet.setInt(1,theirId);
 					psnSubmit.setInt(1,theirId);
@@ -1518,28 +1606,19 @@ public class SurveyMain extends HttpServlet {
 						s.add(theLocale);
                           //      hitList[j]++;
                                // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + theLocale + "<br>");
-                               
-					   if(conn != null) {
+                       Hashtable theHash = localeStatus;
+                       String userInfo = nameLink+" ";
+					   if(participation && conn != null) {
 							psnSubmit.setString(2,theLocale);
 							psnVet.setString(2,theLocale);
 							
 							int nSubmit=sqlCount(ctx,conn,psnSubmit);
 							int nVet=sqlCount(ctx,conn,psnVet);
 							
-							Hashtable theHash = localeStatus;
 							if((nSubmit+nVet)==0) {
 								theHash = nullStatus; // vetter w/ no work done
 							}
-							
-							Hashtable oldStr = (Hashtable)theHash.get(theLocale);
-							if(oldStr==null) {
-								oldStr = new Hashtable();
-								theHash.put(theLocale,oldStr);
-							} else {
-//                                       // oldStr = oldStr+"<br>\n";
-							}
-							
-							String userInfo = nameLink+" ";
+                        
 							if(nSubmit>0) {
 								userInfo = userInfo + " submits: "+ nSubmit+" ";
 							}
@@ -1552,8 +1631,19 @@ public class SurveyMain extends HttpServlet {
 								userInfo = "<strike>"+userInfo+"</strike>";
 							}
 //									userInfo = userInfo + ", file: "+theLocale+", th: " + theirLocales[j];
-							oldStr.put(new Integer(theirId), userInfo + "<!-- " + theLocale + " -->");
-					   }
+                        }
+                        Hashtable oldStr = (Hashtable)theHash.get(theLocale);
+                        
+                        
+                        if(oldStr==null) {
+                            oldStr = new Hashtable();
+                            theHash.put(theLocale,oldStr);
+                        } else {
+                        //     // oldStr = oldStr+"<br>\n";
+                        }
+
+                        oldStr.put(new Integer(theirId), userInfo + "<!-- " + theLocale + " -->");
+					   
                     }
 					/*
                     for(int j=0;j<theirLocales.length;j++) {
@@ -1577,7 +1667,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         if(!badSet.isEmpty()) {
-            ctx.println("<B>Warning: locale designations not matching any real locales:</b> ");
+            ctx.println("<B>Warning: locale designations not matching locales in CLDR:</b> ");
             boolean first=true;
             for(Iterator li = badSet.iterator();li.hasNext();) {
                 if(first==false) {
@@ -1589,6 +1679,66 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.println("<br>");
         }
+        
+        // Now, calculate coverage of requested locales for this organization
+        //sc.getGroup(locale,missingLocalesForOrg);
+        Set languagesNotInCLDR = new TreeSet();
+        Set languagesMissing = new HashSet();
+        Set allLanguages = sc.getAvailableCodes("language");
+        for(Iterator li = allLanguages.iterator();li.hasNext();) {
+            String lang = (String)(li.next());
+            String group = sc.getGroup(lang, missingLocalesForOrg);
+            if(group != null ) {
+                //System.err.println("getGroup("+lang+", " + missingLocalesForOrg + ") = " + group);
+                if(!isValidLocale(lang)) {
+                    //System.err.println("-> not in lm: " + lang);
+                    languagesNotInCLDR.add(lang);
+                } else {
+                    if(!s.contains(lang)) {
+                     //   System.err.println("-> not in S: " + lang);
+                        languagesMissing.add(lang);
+                    } else {
+                       // System.err.println("in lm && s: " + lang);
+                    }
+                }
+            }
+        }
+
+        if(!languagesNotInCLDR.isEmpty()) {
+            ctx.println("<p class='hang'>"+ctx.iconThing("stop","locales missing from CLDR")+"<B>Required by " + missingLocalesForOrg + " but not in CLDR: </b>");
+            boolean first=true;
+            for(Iterator li = languagesNotInCLDR.iterator();li.hasNext();) {
+                if(first==false) {
+                    ctx.print(", ");
+                } else {
+                    first = false;
+                }
+                String lang = li.next().toString();
+                showCoverageLanguage(ctx,sc.getGroup(lang, missingLocalesForOrg), lang);
+            }
+            ctx.println("<br>");
+			ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
+            ctx.println("</p><br>");
+        }
+
+        if(!languagesMissing.isEmpty()) {
+            ctx.println("<p class='hang'>"+ctx.iconThing("stop","locales without vetters")+
+                "<B>Required by " + missingLocalesForOrg + " but no vetters: </b>");
+            boolean first=true;
+            for(Iterator li = languagesMissing.iterator();li.hasNext();) {
+                if(first==false) {
+                    ctx.print(", ");
+                } else {
+                    first = false;
+                }
+                String lang = li.next().toString();
+                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
+            }
+            ctx.println("<br>");
+			//ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
+            ctx.println("</p><br>");            
+        }
+
 
         ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
         int n=0;
@@ -1608,6 +1758,9 @@ public class SurveyMain extends HttpServlet {
             //ctx.print("<br><font size='-1'>"+new ULocale(aLocale).getDisplayName()+"</font>");
 			printLocaleStatus(ctx, aLocale, ln, aLocale);
             ctx.print("</span>");
+            if(languagesMissing.contains(aLocale)) {
+                ctx.println("<br>"+ctx.iconThing("stop","No " + missingLocalesForOrg + " vetters")+ "<i>(coverage: "+ sc.getGroup(aLocale, missingLocalesForOrg)+")</i>");
+            }
 
             if(showCodes) {
                 ctx.println("<br><tt>" + aLocale + "</tt>");
@@ -1622,7 +1775,7 @@ public class SurveyMain extends HttpServlet {
 					ctx.println("</ul>");
 				}
 			}
-			if(nullStatus!=null && !nullStatus.isEmpty()) {
+			if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
 				Hashtable what = (Hashtable)nullStatus.get(aLocale);				
 				if(what!=null) {
 					ctx.println("<br><blockquote> <b>Did not participate:</b> ");
@@ -1637,7 +1790,7 @@ public class SurveyMain extends HttpServlet {
 			}
             ctx.println(" </td>");
             
-            TreeMap sm = (TreeMap)subLocales.get(aLocale);
+            TreeMap sm = (TreeMap)subLocales.get(aLocale);  // sub locales 
             
             ctx.println("<td valign='top'>");
             int j = 0;
@@ -1684,7 +1837,7 @@ public class SurveyMain extends HttpServlet {
 							ctx.println("</ul>");
 						}
 					}
-					if(nullStatus!=null && !nullStatus.isEmpty()) {
+					if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
 						Hashtable what = (Hashtable)nullStatus.get(subLocale);				
 						if(what!=null) {
 							ctx.println("<br><blockquote><b>Did not participate:</b> ");
@@ -1707,24 +1860,27 @@ public class SurveyMain extends HttpServlet {
         ctx.println(totalUsers + "  users, including " + allUsers + " with 'all' privs (not counted against the locale list)<br>");
     
         if(conn!=null) {
+            if(participation) {
+                ctx.println("Selected users have submitted " + totalSubmit + " items, and voted for " + totalVet + " items (including implied votes).<br>");
+            }
             int totalResult=sqlCount(ctx,conn,"select COUNT(*) from CLDR_RESULT");
             int totalData=sqlCount(ctx,conn,"select COUNT(id) from CLDR_DATA");
-            ctx.println("These users have submitted " + totalSubmit + " items, and voted for " + totalVet + " items (including implied votes).<br>");
             ctx.println("In all, the SurveyTool has " + totalData + " items (including proposed) and " + totalResult + " items that may need voting.<br>");
 			
-			ctx.println("<hr>");
-			ctx.println("<h4>Participated: "+userMap.size()+"</h4><table border='1'>");
-			for(Iterator i = userMap.values().iterator();i.hasNext();) {
-				String which = (String)i.next();
-				ctx.println(which);
-			}
-			ctx.println("</table><h4>Did Not Participate at all: "+nullMap.size()+"</h4><table border='1'>");
-			for(Iterator i = nullMap.values().iterator();i.hasNext();) {
-				String which = (String)i.next();
-				ctx.println(which);
-			}
-			ctx.println("</table>");
-
+            if(participation) {
+                ctx.println("<hr>");
+                ctx.println("<h4>Participated: "+userMap.size()+"</h4><table border='1'>");
+                for(Iterator i = userMap.values().iterator();i.hasNext();) {
+                    String which = (String)i.next();
+                    ctx.println(which);
+                }
+                ctx.println("</table><h4>Did Not Participate at all: "+nullMap.size()+"</h4><table border='1'>");
+                for(Iterator i = nullMap.values().iterator();i.hasNext();) {
+                    String which = (String)i.next();
+                    ctx.println(which);
+                }
+                ctx.println("</table>");
+            }
 		}
 
         printFooter(ctx);
@@ -1794,25 +1950,31 @@ public class SurveyMain extends HttpServlet {
     public void doList(WebContext ctx) {
         int n=0;
         String just = ctx.field(LIST_JUST);
+        String doWhat = ctx.field("do");
         boolean justme = false; // "my account" mode
+        String listName = "list";
         if(just.length()==0) {
             just = null;
         } else {
             just = change40ToAt(just);
             justme = ctx.session.user.email.equals(just);
         }
+        if(doWhat.equals("listu")) {
+            listName = "listu";
+            just = ctx.session.user.email;
+            justme = true;
+        }
         if(justme) {
             printHeader(ctx, "My Account");
         } else {
             printHeader(ctx, "List Users" + ((just==null)?"":(" - " + just)));
         }
-        printUserMenu(ctx);
+        printUserTableWithHelp(ctx, "/AddModifyUser");
         if(reg.userCanCreateUsers(ctx.session.user)) {
             ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
         }
-        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=coverage'>[Locale Coverage Reports]</a>");
+//        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=coverage'>[Locale Coverage Reports]</a>");
         ctx.print("<br>");
-        ctx.printHelpLink("/AddModifyUser");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         String org = ctx.session.user.org;
         if(just!=null) {
@@ -1895,7 +2057,7 @@ public class SurveyMain extends HttpServlet {
                 if(just!=null) {
                     ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
                 }
-                ctx.println("<input type='submit' name='do' value='list'></form>");
+                ctx.println("<input type='submit' name='do' value='"+listName+"'></form>");
                 if((ctx.field("preset_from").length()>0)&&!ctx.field("preset_from").equals(LIST_ACTION_NONE)) {
                     ctx.println("<hr><i><b>Menus have been pre-filled. <br> Confirm your choices and click Change.</b></i>");
                     ctx.println("<form method=POST action='" + ctx.base() + "'>");
@@ -1918,7 +2080,7 @@ public class SurveyMain extends HttpServlet {
             }
             if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.printUrlAsHiddenFields();
-                ctx.println("<input type='hidden' name='do' value='list'>");
+                ctx.println("<input type='hidden' name='do' value='"+listName+"'>");
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
             }
             ctx.println("<table summary='User List' class='userlist' border='2'>");
@@ -2083,7 +2245,7 @@ public class SurveyMain extends HttpServlet {
                 // are they logged in?
                 if((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                     ctx.println("<td>");
-                    ctx.println("<b>Active " + timeDiff(theUser.last) + " ago</b>");
+                    ctx.println("<b>active: " + timeDiff(theUser.last) + " ago</b>");
                     if(UserRegistry.userIsAdmin(ctx.session.user)) {
                         ctx.print("<br/>");
                         printLiveUserMenu(ctx, theUser);
@@ -2091,7 +2253,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("</td>");
                 } else if(theirLast != null) {
                     ctx.println("<td>");
-                    ctx.println("<b>Last Login:" + timeDiff(theirLast.getTime()) + " ago</b>");
+                    ctx.println("<b>seen: " + timeDiff(theirLast.getTime()) + " ago</b>");
                     ctx.print("<br/><font size='-2'>");
                     ctx.print(theirLast.toString());
                     ctx.println("</font></td>");
@@ -2189,14 +2351,14 @@ public class SurveyMain extends HttpServlet {
                     
                     ctx.println("<ul><tt class='codebox'>"+UserRegistry.prettyPrintLocale(ctx.session.user.intlocs) + "</tt>");
                     if(!intlocs_change) {
-                        ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(ctx.session.user.email)+
+                        ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=listu&"+LIST_JUST+"="+changeAtTo40(ctx.session.user.email)+
                             "&intlocs_change=b' >[Change this]</a>");
                     }
                     ctx.println("</ul>");
                     
                 } // end intlocs
                 ctx.println("<br>");
-                ctx.println("<input type='submit' disabled value='Reset Password'>");
+                //ctx.println("<input type='submit' disabled value='Reset Password'>"); /* just mean to show it as disabled */
             }
             if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<br>");
@@ -2256,11 +2418,8 @@ public class SurveyMain extends HttpServlet {
     public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic" };
 	
     void doDisputed(WebContext ctx){
-        if(ctx.session.user != null) {
-                printHeader(ctx, "Disputed Items Page");
-                printUserMenu(ctx);
-        }
-        ctx.printHelpLink("/DisputedItems");
+        printHeader(ctx, "Disputed Items Page");
+        printUserTableWithHelp(ctx, "/DisputedItems");
         
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
         ctx.addQuery("do","disputed");
@@ -2272,11 +2431,8 @@ public class SurveyMain extends HttpServlet {
     } 
 	
     void doOptions(WebContext ctx) {
-        if(ctx.session.user != null) {
-                printHeader(ctx, "My Options");
-                printUserMenu(ctx);
-        }
-        ctx.printHelpLink("/MyOptions");
+        printHeader(ctx, "My Options");
+        printUserTableWithHelp(ctx, "/MyOptions");
         
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
         ctx.addQuery("do","options");
@@ -2350,41 +2506,49 @@ public class SurveyMain extends HttpServlet {
         
         // TODO: untangle this
         // admin things
-        if((ctx.session.user != null) && (ctx.field("do").length()>0)) {
+        if((ctx.field("do").length()>0)) {
             String doWhat = ctx.field("do");
-            if(doWhat.equals("list")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
-                doList(ctx);
-            } else if(doWhat.equals("coverage")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
-                doCoverage(ctx);
-            } else if(doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user)) ) {
-                doNew(ctx);
-            } else if(doWhat.equals("logout")) {
-                ctx.session.remove(); // zap!
-                HttpSession httpSession = ctx.request.getSession(false);
-                if(httpSession != null) {
-                    httpSession.removeAttribute(SURVEYTOOL_COOKIE_SESSION);
-                }
 
-                try {
-                    ctx.response.sendRedirect(ctx.jspLink("?logout=1"));
-                    ctx.out.close();
-                    ctx.close();
-                } catch(IOException ioe) {
-                    throw new RuntimeException(ioe.toString() + " while redirecting to logout");
-                }
-                return;
-            } else if(doWhat.equals("options")) {
+            // could be user or non-user items
+            if(doWhat.equals("options")) {
                 doOptions(ctx);
+                return;
             } else if(doWhat.equals("disputed")) {
                 doDisputed(ctx);
-            } else {
-                printHeader(ctx,doWhat + "?");
-                ctx.println("<i>some error, try hitting the Back button.</i>");
-                printFooter(ctx);
+                return;
+            } else if(doWhat.equals("logout")) {
+                    ctx.session.remove(); // zap!
+                    HttpSession httpSession = ctx.request.getSession(false);
+                    if(httpSession != null) {
+                        httpSession.removeAttribute(SURVEYTOOL_COOKIE_SESSION);
+                    }
+
+                    try {
+                        ctx.response.sendRedirect(ctx.jspLink("?logout=1"));
+                        ctx.out.close();
+                        ctx.close();
+                    } catch(IOException ioe) {
+                        throw new RuntimeException(ioe.toString() + " while redirecting to logout");
+                    }
+                    return;
             }
-            return;
-        } else { // non-user options
-            //
+            
+            // these items are only for users.
+            if(ctx.session.user != null) {
+                if((doWhat.equals("list")||doWhat.equals("listu")) && (UserRegistry.userCanDoList(ctx.session.user))  ) {
+                    doList(ctx);
+                    return;
+                } else if(doWhat.equals("coverage")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
+                    doCoverage(ctx);
+                    return;
+                } else if(doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user)) ) {
+                    doNew(ctx);
+                    return;
+                }
+            }
+
+            // Option wasn't found
+            sessionMessage = ("<i>Problem trying to do '"+doWhat+"'. You may need to be logged in first.</i>");
         }
         
         String title = " " + which;
@@ -2401,26 +2565,20 @@ public class SurveyMain extends HttpServlet {
         // print 'shopping cart'
         if(ctx.field(QUERY_EXAMPLE).length()==0)  {
             
-            ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
-                        " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
-            ctx.println("<tr><td>");
-                ctx.printHelpLink("","General&nbsp;Instructions"); // base help
-                if((which.length()==0) && (ctx.locale!=null)) {
-                    which = xMAIN;
-                }
-                if(which.length()>0) {
-                    ctx.println(" | ");
-                    ctx.printHelpLink("/"+which.replaceAll(" ","_"),"Page&nbsp;Instructions"); // base help
-                }
-            ctx.println("</td><td align='right'>");
-                printUserMenu(ctx);
-            ctx.println("</td></tr></table>");
+            if((which.length()==0) && (ctx.locale!=null)) {
+                which = xMAIN;
+            }
+            if(which.length()>0) {
+                printUserTableWithHelp(ctx, "/"+which.replaceAll(" ","_"));
+            } else {
+                printUserTable(ctx);
+            }
 
             
             Hashtable lh = ctx.session.getLocales();
             Enumeration e = lh.keys();
             if(e.hasMoreElements()) { 
-                ctx.println("<p align='center'><B>Visited locales: </B> ");
+                ctx.println("<p align='center'><B>Recent locales: </B> ");
                 for(;e.hasMoreElements();) {
                     String k = e.nextElement().toString();
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
@@ -2432,25 +2590,12 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("</a> ");
                 }
                 
-            /*   if(  UserRegistry.userCanSubmit(ctx.session.user) ) {
-                    ctx.println("<div>");
-                    ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
-                    ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
-                    ctx.println("</div>");
-                }*/
                 ctx.println("</p>");
             }
             ctx.println("<hr/>");
         }
         
-        String doWhat = ctx.field("do");
-        if(doWhat.equals("options")) {
-            doOptions(ctx);
-        } else if(doWhat.equals("disputed")) {
-            doDisputed(ctx);
-        } else {
-            doLocale(ctx, baseContext, which);
-        }
+        doLocale(ctx, baseContext, which);
     }
     
      //TODO: object
@@ -3488,6 +3633,7 @@ static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
 private synchronized void resetLocaleCaches() {
     localeListMap = null;
     allMetazones = null;
+    localeListSet = null;
 }
 
 /**
@@ -5574,6 +5720,9 @@ public synchronized void doStartup() throws ServletException {
         busted("No vetting password set. (CLDR_VAP in cldr.properties)");
         return;
     }
+    if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
+        isUnofficial = false;
+    }
     vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
     cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     // System.getProperty("CLDR_COMMON") + "/main" is ignored.
@@ -5701,19 +5850,28 @@ static protected File[] getInFiles() {
     return baseDir.listFiles(myFilter);
 }
 
-static protected String[] getLocales() {
-    File inFiles[] = getInFiles();
-    int nrInFiles = inFiles.length;
-    Vector v = new Vector();
-    for(int i=0;i<nrInFiles;i++) {
-        String fileName = inFiles[i].getName();
-        int dot = fileName.indexOf('.');
-        if(dot !=  -1) {
-            String locale = fileName.substring(0,dot);
-            v.add(locale);
+private static Set localeListSet = null;
+
+static synchronized protected Set getLocalesSet() {
+    if(localeListSet == null ) {
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        Set s = new HashSet();
+        for(int i=0;i<nrInFiles;i++) {
+            String fileName = inFiles[i].getName();
+            int dot = fileName.indexOf('.');
+            if(dot !=  -1) {
+                String locale = fileName.substring(0,dot);
+                s.add(locale);
+            }
         }
+        localeListSet = s;
     }
-    return (String[])v.toArray(new String[0]);
+    return localeListSet;
+}
+
+static protected String[] getLocales() {
+    return (String[])getLocalesSet().toArray(new String[0]);
 }
 
 /**
@@ -5722,6 +5880,7 @@ static protected String[] getLocales() {
  * fr -> fr, fr_BE, fr_FR, ...
  */
 static protected Map getIntGroups() {
+    // TODO: rewrite as iterator
     String[] locales = getLocales();
     Map h = new HashMap();
     for(int i=0;i<locales.length;i++) {
@@ -5741,14 +5900,8 @@ static protected Map getIntGroups() {
     return h;
 }
 
-public synchronized boolean isValidLocale(String locale) {
-    String[] locales = getLocales();
-    for(int j=0;j<locales.length;j++) {
-        if(locales[j].equals(locale)) {
-            return true;
-        }
-    }
-    return false;
+public boolean isValidLocale(String locale) {
+    return getLocalesSet().contains(locale);
 }
 
 /* returns a map of String localegroup -> Set [ User interestedUser,  ... ]
@@ -6319,11 +6472,20 @@ private void doStartupDB()
     
     // ====== Utility Functions
     public static final String timeDiff(long a) {
-        return ElapsedTimer.elapsedTime(a);
+        return timeDiff(a,System.currentTimeMillis());
     }
     
     public static final String timeDiff(long a, long b) {
-        return ElapsedTimer.elapsedTime(a,b);
+        final long ONE_DAY = 86400*1000;
+        final long A_LONG_TIME = ONE_DAY*3;
+        if((b-a)>(A_LONG_TIME)) {
+            double del = (b-a);
+            del /= ONE_DAY;
+            int days = (int)del;
+            return days + " days";
+        } else {
+            return ElapsedTimer.elapsedTime(a,b);
+        }
     }
     
     public static     String shortClassName(Object o) {

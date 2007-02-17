@@ -152,7 +152,7 @@ public class SurveyForum {
             // User isnt logged in.
             if(loggedout) {
                 sm.printHeader(ctx,"Fora | Please login.");
-                sm.printUserMenu(ctx);
+                sm.printUserTable(ctx);
                 if(sessionMessage != null) {
                     ctx.println(sessionMessage+"<hr>");
                 }
@@ -164,7 +164,7 @@ public class SurveyForum {
             // User has an account, but does not have access to this forum.
             if(!canModify) {
                 sm.printHeader(ctx,"Fora | Access Denied.");
-                sm.printUserMenu(ctx);
+                sm.printUserTable(ctx);
                 if(sessionMessage != null) {
                     ctx.println(sessionMessage+"<hr>");
                 }
@@ -182,7 +182,7 @@ public class SurveyForum {
                 doForumView(ctx, forum, forumNumber);
             } else if(forumNumber == -1) {
                 sm.printHeader(ctx,"Fora");
-                    sm.printUserMenu(ctx);
+                sm.printUserTable(ctx);
                 // no forum or bad forum. Do general stuff.
     //            doForumForum(ctx, pF, pD);
             } else {
@@ -216,7 +216,7 @@ public class SurveyForum {
         int base_xpath = ctx.fieldInt(F_XPATH);
         String xpath = sm.xpt.getById(base_xpath);
         sm.printHeader(ctx,"Zoom | " + ctx.locale + " | Zoom on #" + base_xpath); // TODO: pretty path?
-        sm.printUserMenu(ctx);
+        sm.printUserTable(ctx);
         if(sessionMessage != null) {
             ctx.println(sessionMessage+"<hr>");
         }
@@ -446,7 +446,7 @@ public class SurveyForum {
         ctx.println("<a href=\"" + ctx.url() + "\">" + "<b>Locales</b>" + "</a><br>");
         sm.printListFromInterestGroup(ctx, forum);
         ctx.println("</td><td align='right'>");
-        sm.printUserMenu(ctx);
+        sm.printUserTable(ctx);
         ctx.println("</td></tr></table>");
     }
 

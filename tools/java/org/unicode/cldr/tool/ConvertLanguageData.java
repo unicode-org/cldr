@@ -231,7 +231,9 @@ public class ConvertLanguageData {
           System.out.println("\t<!--" + ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH) + "-->");
         }
           
-        if (languageCode.length() != 0 && (languagePopulationPercent > 1 || languagePopulationRaw > 100000 || languageCode.equals("haw"))) {
+        if (languageCode.length() != 0 
+            && (languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw"))
+            ) {
           // add best case
           addBestRegion(languageCode, countryCode, languagePopulationRaw);
           String baseScriptLanguage = ltp.set(languageCode).getLanguageScript();

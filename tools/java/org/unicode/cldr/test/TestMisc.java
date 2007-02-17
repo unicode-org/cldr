@@ -35,18 +35,18 @@ public class TestMisc {
     	//checkPrivateUse();
     	//testPopulous();
     	//checkDistinguishing();
-      // checkEastAsianWidth();
+      checkEastAsianWidth();
       //checkEnglishPaths();
       System.out.println("Done");
     }
     
     static void checkEastAsianWidth() {
-      UnicodeSet dontCares = new UnicodeSet("[[:Cn:][:Cc:][:Noncharacter_Code_Point:]]");
+      UnicodeSet dontCares = new UnicodeSet("[[:Cs:][:Cn:][:Cc:][:Noncharacter_Code_Point:]]");
       
-      UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Cs:][:Co:]]").remove(0x10000,0x10FFFF); // remove supplementaries
+      UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); // remove supplementaries
       System.out.format("Wide %s\r\n\r\n", wide);
       System.out.format("Wide(spanned) %s\r\n\r\n", Utility.addDontCareSpans(wide, dontCares));
-      UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]").remove(0x10000,0x10FFFF); // remove supplementaries
+      UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove supplementaries
       System.out.format("ZeroWidth %s\r\n\r\n", zeroWidth);
       System.out.format("ZeroWidth(spanned) %s\r\n\r\n", Utility.addDontCareSpans(zeroWidth, dontCares));
     }

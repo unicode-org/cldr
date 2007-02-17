@@ -9,6 +9,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -30,6 +31,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -246,6 +248,8 @@ public class ShowLanguages {
     String defaultDigits = null;
     
     Map<String,Map<String,Object>> territoryLanguageData = new TreeMap<String,Map<String,Object>>();
+
+    private Relation<String,String> territoriesToModernCurrencies = new Relation(new TreeMap(), TreeSet.class, null);
     
     public LanguageInfo(Factory cldrFactory) throws IOException {
       CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
@@ -320,6 +324,9 @@ public class ShowLanguages {
             info.add(countryName);
             territoriesWithCurrencies.add(iso3166);
             currenciesWithTerritories.add(iso4217);
+            if (to.equals("\u221E") || to.compareTo("2006") > 0) {
+              territoriesToModernCurrencies.put(iso3166, iso4217);
+            }
             continue;
           }
         }
@@ -642,24 +649,69 @@ public class ShowLanguages {
       return pw2;
     }
 
+    // http://www.faqs.org/rfcs/rfc2396.html
+    //    delims      = "<" | ">" | "#" | "%" | <">
+    //"{" | "}" | "|" | "\" | "^" | "[" | "]" | "`"
+    // Within a query component, the characters ";", "/", "?", ":", "@",
+    // "&", "=", "+", ",", and "$" are reserved.
+    static final UnicodeSet ESCAPED_URI_QUERY = (UnicodeSet) new UnicodeSet("[\\u0000-\\u0020\\u007F <>#%\"\\{}|\\\\\\^\\[\\]`;/?:@\\&=+,$\\u0080-\\U0001FFFF]").freeze();
+    static {
+      System.out.println(new UnicodeSet(ESCAPED_URI_QUERY).complement());
+    }
+    
+    private String urlEncode(String input) {
+      try {
+        byte[] utf8 = input.getBytes("utf-8");
+        StringBuffer output = new StringBuffer();
+        for (int i = 0; i < utf8.length; ++i) {
+          int b = utf8[i]&0xFF;
+          if (ESCAPED_URI_QUERY.contains(b)) {
+            output.append('%');
+            if (b < 0x10) output.append('0');
+            output.append(Integer.toString(b,16));
+          } else {
+            output.append((char)b);
+          }
+        }
+        return output.toString();
+      } catch (UnsupportedEncodingException e) {
+        throw (IllegalArgumentException) new IllegalArgumentException().initCause(e);
+      }
+    }
+    private String addBug(int bugNumber, String text, String from, String subject, String body) {
+      if (from.length() != 0) {
+        from = "&from=" + urlEncode(from);
+      }
+      if (body.length() != 0) {
+        body = "&body=" + urlEncode(body);
+      }
+      if (subject.length() != 0) {
+        subject = "&subject=" + urlEncode(subject);
+      }
+      return "<a target='_blank' href='http://unicode.org/cldr/bugs/locale-bugs/data?compose=" + bugNumber + from + subject + body + "'>" + text + "</a>";
+    }
+
     private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
       PrintWriter pw2 = showCountryDataHeader(pw, "Language-Territory Information");
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat percent = new DecimalFormat("000.0%");
-      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
-      tablePrinter.setSortPriorities(0,~4)
-      .addColumn("Language", "class='source'", null, "class='source'", true)
+      TablePrinter tablePrinter = new TablePrinter()
+      //tablePrinter.setSortPriorities(0,5)
+      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
       .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      //.addColumn("Report Bug", "class='target'", null, "class='target'", false)
       .addColumn("Territory", "class='target'", null, "class='target'", true)
       .addColumn("Code", "class='target'", "<a href=\"territory_language_information.html#{0}\">{0}</a>", "class='target'", true)
-      .addColumn("Language Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
-      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
-      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
-      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Language Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true).setSortPriority(1).setSortAscending(false)
+//      .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+//      .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+//      .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
       //.addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
       ;
+      TreeSet<String> languages = new TreeSet();
       Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+      String msg = "<br><i>click on each country code</i>";
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
@@ -667,14 +719,15 @@ public class ShowLanguages {
         double gdp = Double.parseDouble((String)results.get("gdp"));
         if (language == null) {
           Comparable[] items = new Comparable[]{
-              english.getName("und", false),
+              english.getName("und", false) + msg,
               "und",
+              //bug,
               territoryName,
               (String)results.get("code"),
               Double.NaN,
-              population,
-              Double.NaN,
-              Double.parseDouble((String)results.get("literacyPercent")),
+//              population,
+//              Double.NaN,
+//              Double.parseDouble((String)results.get("literacyPercent")),
 //              gdp
           };
           data.add(items);
@@ -683,27 +736,45 @@ public class ShowLanguages {
             double languagePopulation = languageCodePair.first;
             double languageliteracy = languageCodePair.second.first;
             String languageCode = languageCodePair.second.second;
+            languages.add(languageCode);
             double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
             if (Double.isNaN(languageliteracy)) {
               languageliteracy = territoryLiteracy;
             }
             Comparable[] items = new Comparable[]{
-                english.getName(languageCode, false),
+                english.getName(languageCode, false) + msg,
                 languageCode,
+                //bug,
                 territoryName,
                 (String)results.get("code"),
                 languagePopulation/100 * population,
-                population,
-                languageliteracy,
-                territoryLiteracy,
+//                population,
+//                languageliteracy,
+//                territoryLiteracy,
 //                gdp
             };
             data.add(items);
           }
         }
       }
+      for (String languageCode : languages) {
+        Comparable[] items = new Comparable[]{
+            english.getName(languageCode, false) + msg,
+            languageCode,
+            //bug,
+            addBug(1217, "<i>add new</i>", "<email>", "add territory to " + english.getName(languageCode, false) + " (" + languageCode + ")", "<supply territory, speaker population in territory, and references>"),
+            "",
+            0.0d,
+//            0.0d,
+//            0.0d,
+//            0.0d,
+//            gdp
+        };
+        data.add(items);
+        
+      }
       Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
-      String value = tablePrinter.toTable(flattened);
+      String value = tablePrinter.addRows(flattened).toTable();
       pw2.println(value);
       pw2.close();
     }
@@ -717,12 +788,12 @@ public class ShowLanguages {
           "</p>"));
 
 
-      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
-      tablePrinter.setSortPriorities(0,~4)
-      .addColumn("Language", "class='source'", null, "class='source'", true)
+      TablePrinter tablePrinter = new TablePrinter()
+      //tablePrinter.setSortPriorities(0,4)
+      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0)
       .addColumn("Locale", "class='source'", null, "class='source'", false)
       .addColumn("Code", "class='source'", "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
-      .addColumn("CLDR", "class='source'", null, "class='source'", false)
+      .addColumn("CLDR", "class='source'", null, "class='source'", false).setSortAscending(false).setSortPriority(1)
       ;
       Map<String, Map<String, String>> vendordata = sc.getLocaleTypes();
       Set<String> locales = new TreeSet();
@@ -762,7 +833,7 @@ public class ShowLanguages {
         data.add(list.toArray(new String[list.size()]));
       }
       Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
-      String value = tablePrinter.toTable(flattened);
+      String value = tablePrinter.addRows(flattened).toTable();
       pw2.println(value);
       pw2.close();
     }
@@ -816,39 +887,28 @@ public class ShowLanguages {
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
       NumberFormat percent = new DecimalFormat("000.0%");
-      TablePrinter<Comparable> tablePrinter = new TablePrinter<Comparable>();
-      tablePrinter.setSortPriorities(0,~4)
-      .addColumn("Territory", "class='source'", null, "class='source'", true)
+      TablePrinter tablePrinter = new TablePrinter()
+      //tablePrinter.setSortPriorities(0,4)
+      .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
       .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
       .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
       .addColumn("Territory Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
       .addColumn("Territory GDP (PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
-      .addColumn("Language", "class='target'", null, "class='target'", true)
-      .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>", "class='target'", true)
-      .addColumn("Language Population%", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Currencies (2006...)", "class='target'", null, "class='target'", true)
+      .addColumn("Language", "class='target'", null, "class='target'", false)
+      .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>", "class='target'", false)
+      .addColumn("Language Population%", "class='target'", "{0,number,00.0}%", "class='targetRight'", true).setSortAscending(false).setSortPriority(1)
       .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
+      .addColumn("Report Bug", "class='target'", null, "class='target'", false)
       ;
-      Collection<Comparable[]> data = new ArrayList<Comparable[]>();
+
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
         double population = Double.parseDouble((String)results.get("population"));
         double gdp = Double.parseDouble((String)results.get("gdp"));
-        if (language == null) {
-          Comparable[] items = new Comparable[]{
-              territoryName,
-              (String)results.get("code"),
-              population,
-              Double.parseDouble((String)results.get("literacyPercent")),
-              gdp,
-              english.getName("und", false),
-              "und",
-              Double.NaN,
-              Double.NaN,
-          };
-          data.add(items);
-        } else {
-          for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
+          String territoryCode = (String)results.get("code");
+          if (language != null) for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
             double languagePopulation = languageCodePair.first;
             double languageliteracy = languageCodePair.second.first;
             String languageCode = languageCodePair.second.second;
@@ -858,23 +918,50 @@ public class ShowLanguages {
             }
             Comparable[] items = new Comparable[]{
                 territoryName,
-                (String)results.get("code"),
+                territoryCode,
                 population,
                 territoryLiteracy,
                 gdp,
+                getCurrencyNames(territoryCode),
                 english.getName(languageCode, false),
                 languageCode,
                 languagePopulation,
                 languageliteracy,
+                addBug(1217, "<i>bug</i>", "<email>", "fix info for " + english.getName(languageCode, false) + " (" + languageCode + ")"
+                    + " in " + territoryName + " (" + territoryCode + ")",
+                    "<supply fixed speaker population in territory and references>"),
             };
-            data.add(items);
+            tablePrinter.addRow(items);
           }
-        }
+
+            Comparable[] items = new Comparable[]{
+                territoryName,
+                territoryCode,
+                population,
+                Double.parseDouble((String)results.get("literacyPercent")),
+                gdp,
+                getCurrencyNames(territoryCode),
+                addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<supply language, speaker population in territory, and references>"),
+                "",
+                0.0d,
+                0.0d,
+                                ""
+            };
+            tablePrinter.addRow(items);
+
       }
-      Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
-      String value = tablePrinter.toTable(flattened);
+      String value = tablePrinter.toTable();
       pw2.println(value);
       pw2.close();
+    }
+    
+    private String getCurrencyNames(String territoryCode) {
+      StringBuilder buffer = new StringBuilder();
+      for (String code : territoriesToModernCurrencies.getAll(territoryCode)) {
+        if (buffer.length() != 0) buffer.append("<br>");
+        buffer.append(getName(CLDRFile.CURRENCY_NAME, code, false));
+      }
+      return buffer.toString();
     }
 
     
@@ -1168,15 +1255,14 @@ public class ShowLanguages {
       //doTitle(pw, title);
       List<String[]> rows = new ArrayList<String[]>();
       printContains3("001", rows, new ArrayList());
-      TablePrinter<String> tablePrinter = new TablePrinter<String>()
-      .setSortPriorities(0,1,2,3,4)
-      .addColumn("World","class='source'",null,"class='z0'",true)
-      .addColumn("Continent","class='source'",null,"class='z1'",true)
-      .addColumn("Subcontinent","class='source'",null,"class='z2'",true)
-      .addColumn("Country (Territory)","class='source'",null,"class='z3'",true)
-      .addColumn("Time Zone","class='source'",null,"class='z4'",true);
+      TablePrinter tablePrinter = new TablePrinter()
+      .addColumn("World","class='source'",null,"class='z0'",true).setSortPriority(0)
+      .addColumn("Continent","class='source'",null,"class='z1'",true).setSortPriority(1)
+      .addColumn("Subcontinent","class='source'",null,"class='z2'",true).setSortPriority(2)
+      .addColumn("Country (Territory)","class='source'",null,"class='z3'",true).setSortPriority(3)
+      .addColumn("Time Zone","class='source'",null,"class='z4'",true).setSortPriority(4);
       String[][] flatData = rows.toArray(string2ArrayPattern);
-      pw.println(tablePrinter.toTable(flatData));
+      pw.println(tablePrinter.addRows(flatData).toTable());
       pw.close();
     }
     

@@ -7,29 +7,42 @@ import com.ibm.icu.util.ULocale;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
-public class TablePrinter<T extends Comparable> {
+public class TablePrinter {
   public static void main(String[] args) {
     // quick test;
     TablePrinter tablePrinter = new TablePrinter()
       .setTableAttributes("style='border-collapse: collapse' border='1'")
-      .setSortPriorities(0, 1)
-      .addColumn("Language", null, null, null, true)
-      .addColumn("Territory", "bgcolor='green'", null, "align='right'", true);
-    String s = tablePrinter.toTable(new Comparable[][] {
-        {"German", 3}, 
-        {"French", 2}, 
-        {"English", 2}
-        });
+      .addColumn("Language").setSpanRows(true).setSortPriority(0).setBreakSpans(true)
+      .addColumn("Junk").setSpanRows(true)
+      .addColumn("Territory").setHeaderAttributes("bgcolor='green'").setCellAttributes("align='right'").setSpanRows(true)
+          .setSortPriority(1).setSortAscending(false);
+    Comparable[][] data = {
+        {"German", 1.3d, 3}, 
+        {"French", 1.3d, 2}, 
+        {"English", 1.3d, 2},
+        {"English", 1.3d, 4},
+        {"English", 1.3d, 6},
+        {"English", 1.3d, 8},
+        {"Arabic", 1.3d, 5},
+        {"Zebra", 1.3d, 10}
+        };
+    tablePrinter.addRows(data);
+
+    String s = tablePrinter.toTable();
     System.out.println(s);
   }
+  
   private List<Column> columns = new ArrayList();
   private String tableAttributes;
   private transient Column[] columnsFlat;
+  private BitSet blockingRows = new BitSet();
+  private List<Comparable[]> rows = new ArrayList();
   
   public String getTableAttributes() {
     return tableAttributes;
@@ -40,8 +53,18 @@ public class TablePrinter<T extends Comparable> {
     return this;
   }
 
-  public TablePrinter setSortPriorities(int... sortPriorities) {
-    columnSorter.setSortPriorities(sortPriorities);
+  public TablePrinter setSortPriority(int priority) {
+    columnSorter.setSortPriority(columns.size()-1, priority);
+    return this;
+  }
+
+  public TablePrinter setSortAscending(boolean ascending) {
+    columnSorter.setSortAscending(columns.size()-1, ascending);
+    return this;
+  }
+  
+  public TablePrinter setBreakSpans(boolean breaks) {
+    breaksSpans.set(columns.size()-1, breaks);
     return this;
   }
   
@@ -53,69 +76,141 @@ public class TablePrinter<T extends Comparable> {
     boolean spanRows;
     MessageFormat cellPattern;
     
-    public Column(String header, String headerAttributes, String cellPattern, String cellAttributes, boolean spanRows) {
+    public Column(String header) {
       this.header = header;
-      this.headerAttributes = headerAttributes;
+    }
+
+    public Column setCellAttributes(String cellAttributes) {
       this.cellAttributes = cellAttributes;
+      return this;
+   }
+
+    public Column setCellPattern(String cellPattern) {
       this.cellPattern = cellPattern == null ? null : new MessageFormat(cellPattern);
+      return this;
+    }
+
+    public Column setHeader(String header) {
+      this.header = header;
+      return this;
+    }
+
+    public Column setHeaderAttributes(String headerAttributes) {
+      this.headerAttributes = headerAttributes;
+      return this;
+    }
+
+    public Column setSpanRows(boolean spanRows) {
       this.spanRows = spanRows;
+      return this;
     }
   }
-  
+
   public TablePrinter addColumn(String header, String headerAttributes, String cellPattern, String cellAttributes, boolean spanRows) {
-    columns.add(new Column(header, headerAttributes, cellPattern, cellAttributes, spanRows));
+    columns.add(new Column(header).setHeaderAttributes(headerAttributes).setCellPattern(cellPattern).setCellAttributes(cellAttributes).setSpanRows(spanRows));
+    setSortAscending(true);
     return this;
   }
   
-  public String toTable(T[][] data) {
-    return toTable(Arrays.asList(data));
+  public TablePrinter addColumn(String header) {
+    columns.add(new Column(header));
+    setSortAscending(true);
+    return this;
   }
   
-  public String toTable(Collection<T[]> data) {
-    T[][] sortedFlat = (T[][]) (data.toArray());
+  public TablePrinter addRow(Comparable[] data) {
+    if (data.length != columns.size()) {
+      throw new IllegalArgumentException(String.format("Data size (%d) != column count (%d)", data.length, columns.size()));
+    }
+    // make sure we can compare; get exception early
+    if (rows.size() > 0) {
+      Comparable[] data2 = rows.get(0);
+      for (int i = 0; i < data.length; ++i) {
+        try {
+          data[i].compareTo(data2[i]);
+        } catch (RuntimeException e) {
+          throw new IllegalArgumentException("Can't compare column " + i + ", " + data[i] + ", " + data2[i]);
+        }
+      }
+    }
+    rows.add(data);
+    return this;
+  }
+
+  public TablePrinter addRow(Collection<Comparable> data) {
+    addRow(data.toArray(new Comparable[data.size()]));
+    return this;
+  }
+  
+  public TablePrinter addRows(Collection data) {
+    for (Object row : data) {
+      if (row instanceof Collection) {
+        addRow((Collection)row);
+      } else {
+        addRow((Comparable[])row);
+      }
+    }
+    return this;
+  }
+  
+  public TablePrinter addRows(Comparable[][] data) {
+    for (Comparable[] row : data) {
+      addRow(row);
+    }
+    return this;
+  }
+
+  public String toTable() {
+    Comparable[][] sortedFlat = (Comparable[][]) (rows.toArray(new Comparable[rows.size()][]));
     return toTableInternal(sortedFlat);
   }
   
   static class ColumnSorter<T extends Comparable> implements Comparator<T[]> {
-    private int[] sortPriorities;
-    private boolean[] backward;
+    private int[] sortPriorities = new int[0];
+    private BitSet ascending = new BitSet();
     Collator englishCollator = Collator.getInstance(ULocale.ENGLISH);
     
     public int compare(T[] o1, T[] o2) {
       int result;
-      for (int k = 0; k < sortPriorities.length; ++k) {
-        result = o1[sortPriorities[k]] instanceof String ? 
-            englishCollator.compare(o1[sortPriorities[k]],o2[sortPriorities[k]])
-            : o1[sortPriorities[k]].compareTo(o2[sortPriorities[k]]);
+      for (int curr : sortPriorities) {
+        result = o1[curr] instanceof String ? 
+            englishCollator.compare(o1[curr],o2[curr])
+            : o1[curr].compareTo(o2[curr]);
         if (0 != result) {
-          if (backward[k]) {
-            return -result;
+          if (ascending.get(curr)) {
+            return result;
           }
-          return result;
+          return -result;
         }
       }
       return 0;
+    }
+
+    public void setSortPriority(int column, int priority) {
+      if (sortPriorities.length <= priority) {
+        int[] temp = new int[priority+1];
+        System.arraycopy(sortPriorities,0,temp,0,sortPriorities.length);
+        sortPriorities = temp;
+      }
+      sortPriorities[priority] = column;
     }
 
     public int[] getSortPriorities() {
       return sortPriorities;
     }
 
-    public void setSortPriorities(int[] inSortPriorities) {
-      this.sortPriorities = inSortPriorities.clone();
-      backward = new boolean[sortPriorities.length];
-      for (int i = 0; i < sortPriorities.length; ++i) {
-        if (sortPriorities[i] < 0) {
-          sortPriorities[i] = ~sortPriorities[i];
-          backward[i] = true;
-        }
-      }
+    public boolean getSortAscending(int bitIndex) {
+      return ascending.get(bitIndex);
+    }
+
+    public void setSortAscending(int bitIndex, boolean value) {
+      ascending.set(bitIndex, value);
     }
   }
   
-  ColumnSorter columnSorter = new ColumnSorter();
+  ColumnSorter<Comparable> columnSorter = new ColumnSorter<Comparable>();
   
-  public String toTableInternal(T[][] sortedFlat) {
+  public String toTableInternal(Comparable[][] sortedFlat) {
     //TreeSet<String[]> sorted = new TreeSet();
     //sorted.addAll(data);
     Arrays.sort(sortedFlat, columnSorter);
@@ -177,22 +272,60 @@ public class TablePrinter<T extends Comparable> {
   /**
    * Return 0 if the item is the same as in the row above, otherwise the rowSpan (of equal items)
    * @param sortedFlat
-   * @param i
-   * @param j
+   * @param rowIndex
+   * @param colIndex
    * @return
    */
-  private int findIdentical(T[][] sortedFlat, int i, int j) {
-    if (!columnsFlat[j].spanRows) return 1;
-    T item = sortedFlat[i][j];
-    if (i > 0 && item.equals(sortedFlat[i-1][j])) {
-      return 0;
-    }
-    for (int k = i+1; k < sortedFlat.length; ++k) {
-      if (!item.equals(sortedFlat[k][j])) {
-        return k - i;
+  private int findIdentical(Comparable[][] sortedFlat, int rowIndex, int colIndex) {
+    if (!columnsFlat[colIndex].spanRows) return 1;
+    Comparable item = sortedFlat[rowIndex][colIndex];
+    if (rowIndex > 0 && item.equals(sortedFlat[rowIndex-1][colIndex])) {
+      if (!breakSpans(sortedFlat, rowIndex)) {
+        return 0;
       }
     }
-    return sortedFlat.length - i;
+    for (int k = rowIndex+1; k < sortedFlat.length; ++k) {
+      if (!item.equals(sortedFlat[k][colIndex]) || breakSpans(sortedFlat, k)) {
+        return k - rowIndex;
+      }
+    }
+    return sortedFlat.length - rowIndex;
   }
   // to-do: prevent overlap when it would cause information to be lost.
+  private BitSet breaksSpans = new BitSet();
+
+  /**
+   * Only called with rowIndex > 0
+   * @param rowIndex
+   * @return
+   */
+  private boolean breakSpans(Comparable[][] sortedFlat, int rowIndex) {
+    for (int colIndex = 0; colIndex < breaksSpans.length(); ++colIndex) {
+      if (!breaksSpans.get(colIndex)) return false;
+      if (sortedFlat[rowIndex][colIndex].compareTo(sortedFlat[rowIndex-1][colIndex]) != 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public TablePrinter setCellAttributes(String cellAttributes) {
+    columns.get(columns.size()-1).setCellAttributes(cellAttributes);
+    return this;
+  }
+
+  public TablePrinter setCellPattern(String cellPattern) {
+    columns.get(columns.size()-1).setCellPattern(cellPattern);
+    return this;
+  }
+
+  public TablePrinter setHeaderAttributes(String headerAttributes) {
+    columns.get(columns.size()-1).setHeaderAttributes(headerAttributes);
+    return this;
+  }
+
+  public TablePrinter setSpanRows(boolean spanRows) {
+    columns.get(columns.size()-1).setSpanRows(spanRows);
+    return this;
+  }
 }

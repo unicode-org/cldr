@@ -248,6 +248,18 @@ public class WebContext {
         return ret;
     }
     
+// convenience - atarget
+    String atarget() {
+        return atarget("_blank");
+    }
+    
+    String atarget(String target) {
+        if(prefBool(SurveyMain.PREF_NOPOPUPS)) {
+            return "";
+        } else {
+            return "target='"+target+"' ";
+        }
+    }
 
 // query api
     void addQuery(String k, String v) {
@@ -705,9 +717,9 @@ public class WebContext {
         }
     }
     public String modifyThing(String message) {
-        return "<img border='0' style='width: 1em; height: 1em;' src='"+context("hand.gif")+"' title='"+message+"' />";
+        return iconThing("hand",message);
     }
     public String iconThing(String icon, String message) {
-        return "<img border='0' style='width: 1em; height: 1em;' src='"+context(icon+".png")+"' title='"+message+"' />";
+        return "<img border='0' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
     }
 }

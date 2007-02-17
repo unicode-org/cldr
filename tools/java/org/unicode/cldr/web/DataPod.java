@@ -151,6 +151,8 @@ public class DataPod extends Registerable {
         public String altType = null; // alt type (NOT to be confused with -proposedn)
         int base_xpath = -1;
         boolean hasTests = false;
+        boolean hasErrors = false;
+        boolean hasWarnings = false;
         boolean hasProps = false;
         boolean hasInherited = false;
         public int voteType = 0; // bitmask of all voting types included
@@ -301,7 +303,8 @@ public class DataPod extends Registerable {
             // fetch partitions..
             Vector v = new Vector();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                Partition testPartitions[] = createTestPartitions();
+                Partition testPartitions[] = SurveyMain.phaseSubmit?createSubmitPartitions():
+                                                                           createVettingPartitions();
                 // find the starts
                 int lastGood = 0;
                 Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
@@ -349,7 +352,8 @@ public class DataPod extends Registerable {
 
 	public static String CHANGES_DISPUTED = "Changes Proposed: Disputed";
 
-    private Partition[] createTestPartitions() {
+
+    private Partition[] createVettingPartitions() {
         Partition theTestPartitions[] = 
         {                 
                 new Partition("Changes Proposed: Insufficient Votes", 
@@ -411,6 +415,41 @@ public class DataPod extends Registerable {
                     }),
         };
         return theTestPartitions;
+    }
+
+    private Partition[] createSubmitPartitions() {
+        Partition theTestPartitions[] = 
+        {                 
+                new Partition("Errors and Warnings", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasErrors||p.hasWarnings);
+                        }
+                    }),
+                new Partition("Unconfirmed", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            // == insufficient votes
+                            return  (p.voteType == Vetting.RES_INSUFFICIENT) ||
+                                (p.voteType == Vetting.RES_NO_VOTES);
+                        }
+                    }),
+                new Partition("Changes Proposed: Tentatively Approved", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((p.hasProps)&&
+                                ((p.voteType & Vetting.RES_BAD_MASK)==0)&&
+                                    (p.voteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                        }
+                    }),
+                new Partition("Others", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return true;
+                        }
+                    }),
+        };
+        return theTestPartitions;
     }        
     
 
@@ -456,9 +495,10 @@ public class DataPod extends Registerable {
                 });
             } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
                 newSet = new TreeSet(new Comparator() {
+                
                     int categorizePea(Pea p, Partition partitions[]) {
                         int rv = -1;
-                        for(int i=0;i<partitions.length;i++) {
+                        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
                             if(partitions[i].pm.isMember(p)) {
                                 rv = i;
                             }
@@ -467,7 +507,9 @@ public class DataPod extends Registerable {
                         }
                         return rv;
                     }
-                    final Partition[] warningSort = createTestPartitions();
+                    
+                    final Partition[] warningSort = SurveyMain.phaseSubmit?createSubmitPartitions():
+                                                                           createVettingPartitions();
 //                        com.ibm.icu.text.Collator myCollator = rbc;
                     public int compare(Object o1, Object o2){
                         Pea p1 = (Pea) o1;
@@ -772,7 +814,7 @@ public class DataPod extends Registerable {
             } else {
                 removePrefix = "//ldml/numbers/currencies/currency";
                 useShorten = true;
-                hackCurrencyDisplay = true;
+//                hackCurrencyDisplay = true;
             }
         } else if(xpathPrefix.startsWith("//ldml/dates")) {
             useShorten = true;
@@ -794,7 +836,7 @@ public class DataPod extends Registerable {
                     
                     // Add the fake 'dateTimes/availableDateFormats/new'
                     Pea myp = getPea(FAKE_FLEX_THING);
-                    String spiel = "<i>Use this item to add a new availableDateFormat</i>";
+                    String spiel = "<i>add</i>"; //Use this item to add a new availableDateFormat
                     myp.xpathSuffix = FAKE_FLEX_SUFFIX;
                     canName=false;
                     myp.displayName = spiel;
@@ -1028,11 +1070,11 @@ public class DataPod extends Registerable {
                         } else {
                             superP.displayName = null;
                         }
-                    } else if(!xpath.startsWith("//ldml/characters") && !useShorten) {
+                    } /* else if(!xpath.startsWith("//ldml/characters") && !useShorten) {
                         superP.displayName = "'"+type+"'";
-                    }
+                    } */
                 }
-                if((superP.displayName == null)&& hackCurrencyDisplay) {
+/*                if((superP.displayName == null)&& hackCurrencyDisplay) {
                     int slashDex = type.indexOf('/');
                     String cType = type;
                     if(slashDex!=-1) {
@@ -1040,8 +1082,12 @@ public class DataPod extends Registerable {
                     }
                     superP.displayName = engFile.getStringValue(SurveyMain.CURRENCYTYPE+cType+"']/displayName");
                     if((superP.displayName != null)&&(type.indexOf("symbol")!=-1)) {
-                        superP.displayName = superP.displayName + " (symbol)";
+                        superP.displayName = superP.displayName + " <strong>(symbol)</strong>";
                     }
+                } */
+                if(superP.displayName == null) {
+                    // other items...
+                    superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
                 }
                 if(superP.displayName == null) {
                     canName = false; // disable 'view by name' if not all have names.
@@ -1117,6 +1163,8 @@ public class DataPod extends Registerable {
                 myItem = p.addItem( value, altProposed, checkCldrResult);
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
+                int errorCount = 0;
+                int warningCount =0 ;
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if(status.getType().equals(status.exampleType)) {
@@ -1131,11 +1179,18 @@ public class DataPod extends Registerable {
                         (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { 
                         // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
                         weHaveTests = true;
+                        if(status.getType().equals(status.errorType)) {
+                            errorCount++;
+                        } else if(status.getType().equals(status.warningType)) {
+                            warningCount++;
+                        }
                     }
                 }
                 if(weHaveTests) {
                     p.hasTests = true;
                     superP.hasTests = true;
+                    p.hasErrors = (errorCount>0);
+                    p.hasWarnings = (warningCount>0);
                 }
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
@@ -1260,7 +1315,6 @@ public class DataPod extends Registerable {
                             item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
                         }
                         myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
-                        
         //                } else {
         //                    System.err.println("Items not empty: "+zone+suff);
                     }

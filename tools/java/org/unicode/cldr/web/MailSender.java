@@ -65,7 +65,7 @@ public class MailSender {
      * @param subject mail subject
      * @param body mail body
      */
-    public static synchronized void sendMail(String smtp, String from, String to, String subject, String body) {
+    public static synchronized void sendMail(String smtp, String mailFromAddress, String mailFromName, String from, String to, String subject, String body) {
         if(to.equals("admin@")) {
             log(to,"Suppressed: " + subject,null);        
 //            System.err.println("Not emailing admin.");
@@ -75,8 +75,12 @@ public class MailSender {
             Properties env = System.getProperties();
             env.put("mail.host", smtp);
             MimeMessage ourMessage = new MimeMessage(Session.getInstance(env, null));
-            ourMessage.setFrom(new InternetAddress(from));
+            ourMessage.setFrom(new InternetAddress(from, "CLDR Survey Tool"));
             ourMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            if(mailFromAddress != null) {
+                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName) };
+                ourMessage.setReplyTo(replyTo);
+            }
             ourMessage.setSubject(subject);
             ourMessage.setText(body+footer);
             Transport.send(ourMessage);

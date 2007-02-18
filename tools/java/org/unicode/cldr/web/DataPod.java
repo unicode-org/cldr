@@ -94,12 +94,19 @@ public class DataPod extends Registerable {
     }
     Hashtable exampleHash = new Hashtable(); // hash of examples
     
+    /**
+     * Enregister an ExampleEntry
+     */
     ExampleEntry addExampleEntry(ExampleEntry e) {
         synchronized(exampleHash) {
             exampleHash.put(e.hash,e);
         }
         return e; // for the hash.
     }
+    
+    /**
+     * Given a hash, see addExampleEntry, retrieve the ExampleEntry which has pod, pea, item and status
+     */
     ExampleEntry getExampleEntry(String hash) {
         synchronized(exampleHash) {
             return (DataPod.ExampleEntry)exampleHash.get(hash);
@@ -144,6 +151,7 @@ public class DataPod extends Registerable {
     final Collator myCollator = getOurCollator();
     
     public class Pea {
+        Pea superPea = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
         public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
         public String type = null;
         public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
@@ -233,6 +241,7 @@ public class DataPod extends Registerable {
                 p = new Pea();
                 p.type = type;
                 p.altType = altType;
+                p.superPea = this;
                 subPeas.put(altType, p);
             }
             return p;
@@ -731,6 +740,7 @@ public class DataPod extends Registerable {
          mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
+                                              "^//ldml/references.*|"+
                                               "^//ldml/dates/timeZoneNames/zone.*|"+
                                               "^//ldml/dates/timeZoneNames/metazone.*|"+
                                               "^//ldml/dates/calendar.*|"+
@@ -761,7 +771,7 @@ public class DataPod extends Registerable {
     }
     
     private static final boolean SHOW_TIME=true;
-    public static final String FAKE_FLEX_THING = "available date formats: add NEW";
+    public static final String FAKE_FLEX_THING = "available date formats: add NEW item";
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
@@ -810,6 +820,7 @@ public class DataPod extends Registerable {
                 doExcludeAlways=false;
                 excludeCurrencies=true; // = "//ldml/numbers/currencies";
                 removePrefix = "//ldml/numbers/";
+                canName=false;  // sort numbers by code
                 useShorten = true;
             } else {
                 removePrefix = "//ldml/numbers/currencies/currency";
@@ -1027,71 +1038,56 @@ public class DataPod extends Registerable {
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
+///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
             Pea superP = getPea(type);
 ///*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
                 p.xpathSuffix = peaSuffixXpath;
-                superP.xpathSuffix = peaSuffixXpath;
+                superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath);
+///*srl*/         if(type.equals("HK")) { System.err.println("SuperP's xps = " + superP.xpathSuffix); }
             }
             p.confirmOnly = superP.confirmOnly = confirmOnly;
 
 //if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
-            if(altProposed == null) {
-                // just work on the supers
-                if(superP.displayName == null) {
-                    if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")||
-                       xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")||
-                       xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")||
-                       (xpathPrefix.startsWith("//ldml/dates") && (-1==peaSuffixXpath.indexOf("/pattern"))
-                                                            && (-1==peaSuffixXpath.indexOf("availableFormats")))) {
-                        superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
-                        /*
-                        if(mixedType == false) {
-                            superP.displayName = engFile.getStringValue(xpathPrefix+"[@type=\""+type+"\"]");
-                        } else {
-                            superP.displayName = engFile.getStringValue(xpathPrefix);
-                        }
-                        */
+
+            // make sure the superP has its display name
+            if(isReferences) {
+                String eUri = xpp.findAttributeValue(lelement,"uri");
+               if((eUri!=null)&&eUri.length()>0) {
+                   if(eUri.startsWith("isbn:")) {
+                        // linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).  
+                        // could also go to wikipedia's  ISBN special page.              
+                        p.displayName = /*type + " - "+*/ "<a href='http://my.linkbaton.com/isbn/"+
+                            eUri.substring(5,eUri.length())+"'>"+eUri+"</a>";
+                    } else {
+                        p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
                     }
+                } else {
+                    p.displayName = null;
                 }
                 if(superP.displayName == null) {
-                    if(isReferences) {
-                        String eUri = xpp.findAttributeValue(lelement,"uri");
-                       if((eUri!=null)&&eUri.length()>0) {
-                           if(eUri.startsWith("isbn:")) {
-                                // linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).                
-                                superP.displayName = /*type + " - "+*/ "<a href='http://my.linkbaton.com/isbn/"+
-                                    eUri.substring(5,eUri.length())+"'>"+eUri+"</a>";
-                            } else {
-                                superP.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
-                            }
-                        } else {
-                            superP.displayName = null;
-                        }
-                    } /* else if(!xpath.startsWith("//ldml/characters") && !useShorten) {
-                        superP.displayName = "'"+type+"'";
-                    } */
+                    superP.displayName = p.displayName;
                 }
-/*                if((superP.displayName == null)&& hackCurrencyDisplay) {
-                    int slashDex = type.indexOf('/');
-                    String cType = type;
-                    if(slashDex!=-1) {
-                        cType = type.substring(0,slashDex);
-                    }
-                    superP.displayName = engFile.getStringValue(SurveyMain.CURRENCYTYPE+cType+"']/displayName");
-                    if((superP.displayName != null)&&(type.indexOf("symbol")!=-1)) {
-                        superP.displayName = superP.displayName + " <strong>(symbol)</strong>";
-                    }
-                } */
+            } else {
                 if(superP.displayName == null) {
-                    // other items...
                     superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
+///*srl*/                  if(p.type.equals("HK") || p.type.equals("MO")) {
+///*srl*/                        System.err.println("SP["+xpath(superP)+"] = " + superP.displayName);
+///*srl*/                  }
                 }
-                if(superP.displayName == null) {
-                    canName = false; // disable 'view by name' if not all have names.
+                if(p.displayName == null) {
+                    p.displayName = engFile.getStringValue(baseXpath);
+///*srl*/                    if(p.type.equals("HK") || p.type.equals("MO")) {
+///*srl*/                        System.err.println("P["+baseXpath+"] = " + p.displayName);
+///*srl*/                    }
                 }
+            }
+    
+            if((superP.displayName == null) ||
+                (p.displayName == null)) {
+                canName = false; // disable 'view by name' if not all have names.
             }
 //    System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
             
@@ -1103,7 +1099,10 @@ public class DataPod extends Registerable {
             
             // Inherit display names.
             if((superP != p) && (p.displayName == null)) {
-                p.displayName = superP.displayName;
+                p.displayName = engFile.getStringValue(baseXpath); 
+                if(p.displayName == null) {
+                    p.displayName = superP.displayName; // too: unscramble this a little bit
+                }
             }
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
@@ -1188,9 +1187,16 @@ public class DataPod extends Registerable {
                 }
                 if(weHaveTests) {
                     p.hasTests = true;
-                    superP.hasTests = true;
                     p.hasErrors = (errorCount>0);
                     p.hasWarnings = (warningCount>0);
+                    // propagate to parent
+                    superP.hasTests = true;
+                    if(p.hasErrors) {
+                        superP.hasErrors = true;
+                    }
+                    if(p.hasWarnings) {
+                        superP.hasWarnings = true;
+                    }
                 }
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
@@ -1291,7 +1297,15 @@ public class DataPod extends Registerable {
 
                 for(int i=0;i<suffs.length;i++) {
                     String suff = suffs[i];
+                    
+                    // synthesize a new pea..
                     DataPod.Pea myp = getPea(zone+suff);
+                    
+                    // set it up..
+                    String base_xpath_string = podBase+ourSuffix+suff;
+                    int base_xpath = sm.xpt.getByXpath(base_xpath_string);
+                    myp.base_xpath = base_xpath;
+                    
                     if(myp.xpathSuffix == null) {
                         myp.xpathSuffix = ourSuffix+suff;
                     }
@@ -1311,7 +1325,7 @@ public class DataPod extends Registerable {
                             formatted = "???";
                         }
                         if(formatted != null) {
-                            DataPod.Pea.Item item = myp.addItem(formatted, null, null);
+                            DataPod.Pea.Item item = myp.addItem(formatted, null, null); // <<<<<< THIS IS BAD. 
                             item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
                         }
                         myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?

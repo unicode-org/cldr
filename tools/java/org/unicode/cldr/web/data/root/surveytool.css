@@ -1,6 +1,10 @@
 /* Copyright (c) 2004-2007 IBM and others. All Rights Reserved. */
 
-/* @override http://127.0.0.1:8080/cldr-apps/surveytool.css */
+/* @override 
+	http://127.0.0.1:8080/cldr-apps/surveytool.css
+	http://nestor.priv:8080/cldr-apps/surveytool.css
+	http://tintin.priv:8080/cldr-apps/surveytool.css
+*/
 
 body {
 	background-color:  white;
@@ -40,7 +44,8 @@ A.nodraft:visited {
 }
 
 .missing {
-	background-color: #ff9589;
+	background-color: #ffd8c8;
+	border: 1px solid red;
 }
 
 .missing a:link {

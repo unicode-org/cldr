@@ -776,7 +776,7 @@ public class SurveyForum {
     static public String forumUrl(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
         return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath;
     }
-    void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
+    void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath, String contents) {
         //if(ctx.session.user == null) {     
         //    return; // no user?
         //}
@@ -786,7 +786,10 @@ public class SurveyForum {
         }*/
         title = "Zoom..." /*+ title*/;
         ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,pod,p,xpath)+"' title='"+title+"'>"
-            +ctx.iconThing("zoom",title) + "</a>");
+            +contents+ "</a>");
+    }
+    void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
+            showForumLink(ctx,pod,p,xpath,ctx.iconThing("zoom","Zoom..."));
     }
 
     static String forumUrl(WebContext ctx, String forum) {

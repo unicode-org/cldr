@@ -288,6 +288,17 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.ALT);
         return xpp.toString();
     }
+    public static String removeAltFromStub(String stub) {
+        int ix = stub.indexOf("[@alt=\"");
+        if(ix == -1) { 
+            return stub;
+        }
+        int nx = stub.indexOf(']',ix+1);
+        if(nx == -1) {
+            return stub; // ?
+        }
+        return stub.substring(0,ix)+stub.substring(nx+1);
+    }
     public static String removeAttribute(String path, String att) {
         return removeAttribute(path, new XPathParts(null,null), att);
     }

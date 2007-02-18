@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 import java.util.List;
 import java.util.Map;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XMLSource;
 
@@ -53,8 +54,8 @@ public class CheckForExemplars extends CheckCLDR {
     //if (temp != null) exemplars.addAll(temp);
     UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary");
     if (auxiliary != null) exemplars.addAll(auxiliary);
-    exemplars.addAll(CheckExemplars.AlwaysOK);
-    scriptRegionExemplars = new UnicodeSet(exemplars).removeAll("();,");
+    exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
+    scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
     skip = false;
     return this;
   }
@@ -78,16 +79,20 @@ public class CheckForExemplars extends CheckCLDR {
     }
     if (path.startsWith("//ldml/posix/messages")) return this;
     
-    UnicodeSet testExemplars = exemplars;
-    if (path.contains("/localeDisplayNames")) {
-      testExemplars = scriptRegionExemplars;
+    if (!exemplars.containsAll(value)) {
+      UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
+      String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
+      CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+      .setMessage("Not in exemplars: \u200E{0}\u200E", new Object[]{fixedMissing});
+      result.add(item);
+    } else if (path.contains("/localeDisplayNames") && !scriptRegionExemplars.containsAll(value)) {
+      UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(scriptRegionExemplars);
+      String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
+      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+        .setMessage("The characters \u200E{0}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{fixedMissing});
+      result.add(item);
     }
-    if (testExemplars.containsAll(value)) return this;
-    UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(testExemplars);
-    String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-    CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
-    .setMessage("Not in exemplars: \u200E{0}\u200E", new Object[]{fixedMissing});
-    result.add(item);
+
     return this;
   }
   

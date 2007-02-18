@@ -684,7 +684,7 @@ abstract public class CheckCLDR {
       .append("'></td><td><input type='text' name='input' value='")
       .append(TransliteratorUtilities.toXML.transliterate(input))
       .append("'></td><td>")
-      .append("<input type='button' value='Test' name='Test'>")
+      .append("<input type='submit' value='Test' name='Test'>")
       .append("</td><td>" + "<input type='text' name='formatted' value='")
       .append(TransliteratorUtilities.toXML.transliterate(formatted))
       .append("'></td><td>" + "<input type='text' name='reparsed' value='")

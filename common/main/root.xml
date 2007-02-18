@@ -214,7 +214,7 @@
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1</month>
@@ -233,7 +233,7 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -250,7 +250,7 @@
 							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<alias source="locale" path="../monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -262,7 +262,7 @@
 							<alias source="locale" path="../dayWidth[@type='wide']"/>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<alias source="locale" path="../dayWidth[@type='wide']"/>
+							<alias source="locale" path="../../dayContext[@type='stand-alone']/dayWidth[@type='narrow']"/>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">1</day>
@@ -276,7 +276,7 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<alias source="locale" path="../dayWidth[@type='narrow']"/>
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='abbreviated']"/>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">1</day>
@@ -288,7 +288,7 @@
 							<day type="sat">7</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<alias source="locale" path="../dayWidth[@type='narrow']"/>
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='wide']"/>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -298,7 +298,7 @@
 							<alias source="locale" path="../quarterWidth[@type='wide']"/>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<alias source="locale" path="../quarterWidth[@type='wide']"/>
+							<alias source="locale" path="../../quarterContext[@type='stand-alone']/quarterWidth[@type='narrow']"/>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Q1</quarter>
@@ -308,7 +308,18 @@
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
-						<alias source="locale" path="../quarterContext[@type='format']"/>
+						<quarterWidth type="abbreviated">
+							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='abbreviated']"/>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='wide']"/>
+						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<am>AM</am>

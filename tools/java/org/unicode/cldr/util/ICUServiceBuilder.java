@@ -106,7 +106,7 @@ public class ICUServiceBuilder {
     result = getFullFormat(calendar, pattern);
     cacheDateFormats.put(key, result);
     //System.out.println("created " + key);
-    return result;
+    return (SimpleDateFormat) result.clone();
   }
   
   public SimpleDateFormat getDateFormat(String calendar, String pattern) {
@@ -116,7 +116,7 @@ public class ICUServiceBuilder {
     result = getFullFormat(calendar, pattern);
     cacheDateFormats.put(key, result);
     //System.out.println("created " + key);
-    return result;
+    return (SimpleDateFormat) result.clone();
   }
   
   private SimpleDateFormat getFullFormat(String calendar, String pattern) {

@@ -48,6 +48,7 @@ public class CheckZones extends CheckCLDR {
 		if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
 			return this;
 		if (timezoneFormatter == null) {
+      if (true) return this;
 			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
 		}
 		parts.set(path);

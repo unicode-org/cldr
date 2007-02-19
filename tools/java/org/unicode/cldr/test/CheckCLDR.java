@@ -323,11 +323,19 @@ abstract public class CheckCLDR {
 //        }
         String fullPath = file.getFullXPath(path);
 
-        String example = exampleGenerator.getExample(path, value, ExampleGenerator.Zoomed.OUT);
+        String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
 
         if (SHOW_EXAMPLES) {
           if (example != null) {
             showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
+          }
+          String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN);
+          if (longExample != null && !longExample.equals(example)) {
+            showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
+          }
+          String help = exampleGenerator.getHelpHtml(path, value);
+          if (help != null) {
+            showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
           }
           continue; // don't show problems
         }
@@ -410,7 +418,7 @@ abstract public class CheckCLDR {
 
   private static void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
     example = example == null ? "" : "<" + example + ">";
-    String englishExample = englishExampleGenerator.getExample(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+    String englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     System.out.println(getLocaleAndName(localeID)
         + "\t" + prettyPath.getPrettyPath(path, false)

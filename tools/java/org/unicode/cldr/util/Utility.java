@@ -476,6 +476,21 @@ public class Utility {
     }
     return output.toString();
   }
+  
+  public static String join(Object[] c, String separator) {
+    StringBuffer output = new StringBuffer();
+    boolean isFirst = true;
+    for (Object item : c) {
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        output.append(separator);
+      }
+      output.append(item == null ? item : item.toString());
+    }
+    return output.toString();
+  }
+
 	
 	/**
 	 * Utility like Arrays.asList()

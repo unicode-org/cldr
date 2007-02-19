@@ -9,7 +9,7 @@ public class CheckNew extends CheckCLDR {
     // this list should be updated with each release.
     static final Matcher stuffToCheckFor = Pattern.compile(".*/(" 
     		// segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
-            + "measurementSystemNames|inList|availableFormats"
+            + "inList|availableFormats"
             + "|singleCountries|hourFormat|hoursFormat|gmtFormat|regionFormat|fallbackFormat"
             + "|relative"
             + "|calendars.*/fields"

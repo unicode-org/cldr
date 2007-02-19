@@ -97,7 +97,9 @@ abstract public class CheckCLDR {
   }
   public static void setDisplayInformation(CLDRFile displayInformation) {
     CheckCLDR.displayInformation = displayInformation;
+    englishExampleGenerator = new ExampleGenerator(displayInformation);
   }
+  static ExampleGenerator englishExampleGenerator;
   
   private static final int
   HELP1 = 0,
@@ -242,7 +244,7 @@ abstract public class CheckCLDR {
       if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
       if (organization != null) options.put("CoverageLevel.localeType", organization);
       if (true) options.put("submission", "true");
-      if (SHOW_LOCALE) System.out.println("Locale\tKey\tLoc.Value\tEng.Value\tStatus");
+      if (SHOW_LOCALE) System.out.println("Locale\tKey\tLoc.Value\tLoc.Ex\tEng.Value\tEng.Ex.\tStatus");
       
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
@@ -311,15 +313,25 @@ abstract public class CheckCLDR {
         return;
       }
       
+      ExampleGenerator exampleGenerator = new ExampleGenerator(file);
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {
         
         String path = (String) it2.next();
         String value = file.getStringValue(path);
-        if (value == null) {
-          value = file.getStringValue(path);
-        }
+//        if (value == null) {
+//          value = file.getStringValue(path);
+//        }
         String fullPath = file.getFullXPath(path);
-        
+
+        String example = exampleGenerator.getExample(path, value, ExampleGenerator.Zoomed.OUT);
+
+        if (SHOW_EXAMPLES) {
+          if (example != null) {
+            showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
+          }
+          continue; // don't show problems
+        }
+
         if (checkFlexibleDates) {
           fset.checkFlexibles(path, value, fullPath);
         }
@@ -334,7 +346,7 @@ abstract public class CheckCLDR {
           }
           
           if (showAll) pathShower.showHeader(path, value);
-          
+                    
           for (Iterator it3 = result.iterator(); it3.hasNext();) {
             CheckStatus status = (CheckStatus) it3.next();
             String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
@@ -358,13 +370,7 @@ abstract public class CheckCLDR {
               }
               continue;
             }
-            System.out.println(getLocaleAndName(localeID)
-                + "\t" + prettyPath.getPrettyPath(path, false)
-                + "\t\"" + value
-                + "\"\t\"" + getEnglishPathValue(path)
-                + "\"\t" + statusString
-                + "\"\t" + fullPath
-                );
+            showValue(prettyPath, localeID, example, path, value, fullPath, statusString);
 
             subtotalCount.add(status.type, 1);
             totalCount.add(status.type, 1);
@@ -400,6 +406,21 @@ abstract public class CheckCLDR {
     
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+  }
+
+  private static void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
+    example = example == null ? "" : "<" + example + ">";
+    String englishExample = englishExampleGenerator.getExample(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+    englishExample = englishExample == null ? "" : "<" + englishExample + ">";
+    System.out.println(getLocaleAndName(localeID)
+        + "\t" + prettyPath.getPrettyPath(path, false)
+        + "\t<" + value + ">"
+        + "\t" + example
+        + "\t<" + getEnglishPathValue(path) + ">"
+        + "\t" +  englishExample
+        + "\t" + statusString + ""
+        + "\t" + fullPath
+        );
   }
   
   public static class PathShower {

@@ -52,11 +52,28 @@
 		<calendars>
 			<default choice="gregorian"/>
 			<calendar type="buddhist">
+				<months>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">BE</era>
 						<!-- = 544 BC gregorian. See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/buddhcal.cpp -->
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<default choice="medium"/>
@@ -89,6 +106,18 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
+				<months>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
+				<!-- chinese eras are computed, and don't fall back to gregorian --> 
 				<dateFormats>
 					<default choice="medium"/>
 					<dateFormatLength type="full">
@@ -127,6 +156,9 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tout</month>
 							<!-- from ICU data -->
@@ -144,13 +176,50 @@
 							<month type="13">Nasie</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="13">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
+					</monthContext>
 				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 						<!-- to be replaced -->
 						<era type="1">ERA1</era>
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
@@ -170,6 +239,9 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Meskerem</month>
 							<!-- from ICU data -->
@@ -187,13 +259,50 @@
 							<month type="13">Pagumen</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="13">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
+					</monthContext>
 				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">ERA0</era>
 						<!-- to be replaced -->
 						<era type="1">ERA1</era>
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
@@ -332,6 +441,9 @@
 						<era type="0">BCE</era>
 						<era type="1">CE</era>
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<default choice="medium"/>
@@ -456,6 +568,9 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
 							<month type="2">Heshvan</month>
@@ -472,8 +587,42 @@
 							<month type="13">Elul</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="13">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
+					</monthContext>
 				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">AM</era>
 						<!-- HY = Anno Mundi
@@ -481,7 +630,19 @@
 							 See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/hebrwcal.cpp
 						-->
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
+				<dateFormats>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
+				</dateFormats>
+				<timeFormats>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+				</timeFormats>
+				<dateTimeFormats>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -490,6 +651,9 @@
 						<default choice="wide"/>
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -506,8 +670,22 @@
 							<month type="12">Dhuʻl-Hijjah</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<alias source="locale" path="../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']"/>
+					</monthContext>
 				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
 						<!-- Anno Hijri,  =  7/16/622 AD
@@ -515,6 +693,9 @@
 							 See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/islamcal.cpp
 						-->
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
@@ -530,7 +711,21 @@
 				<alias source="locale" path="../calendar[@type='islamic']"/>
 			</calendar>
 			<calendar type="japanese">
+				<months>
+					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<!-- These eras are numbered according to the data used
 							 by the ICU Japanese Calendar.
@@ -819,6 +1014,9 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Farvardin</month>
 							<month type="2">Ordibehesht</month>
@@ -834,11 +1032,28 @@
 							<month type="12">Esfand</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<alias source="locale" path="../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']"/>
+					</monthContext>
 				</months>
+				<days>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+				</quarters>
+				<am>AM</am>
+				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">AP</era>
 					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>

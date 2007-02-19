@@ -670,6 +670,16 @@ public class XPathParts {
 		}
 		return -1;
 	}
+  
+  /**
+   * Determines if an elementName is contained in the path.
+   * @param elementName
+   * @return
+   */
+  public boolean contains(String elementName) {
+    return findElement(elementName) >= 0;
+  }
+  
 	/**
 	 * add a relative path to this XPathParts.
 	 */

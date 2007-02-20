@@ -324,9 +324,9 @@ public class CheckDates extends CheckCLDR {
       
       arguments[i] = source + " \u2192 \u201C\u200E" + formatted + "\u200E\u201D \u2192 " + reparsed;
     }
-    result.add(new CheckStatus()
-        .setCause(this).setType(CheckStatus.exampleType)
-        .setMessage(SampleList, arguments));
+//    result.add(new CheckStatus()
+//        .setCause(this).setType(CheckStatus.exampleType)
+//        .setMessage(SampleList, arguments));
     result.add(new MyCheckStatus()
         .setFormat(x)
         .setCause(this).setType(CheckStatus.demoType));

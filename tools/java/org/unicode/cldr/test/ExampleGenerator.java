@@ -74,6 +74,9 @@ public class ExampleGenerator {
    * @return
    */
   public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
+    if (value == null) {
+      return null; // for now
+    }
     String cacheKey = xpath + "," + value + "," + zoomed;
     String result = cache.get(cacheKey);
     if (result != null) {
@@ -108,7 +111,7 @@ public class ExampleGenerator {
         result = x.format(12345.6789);
         break main;
       }
-      if (parts.contains("pattern")) {
+      if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
         if (parts.contains("calendar")) {
           String calendar = parts.findAttributeValue("calendar", "type");
           SimpleDateFormat dateFormat;

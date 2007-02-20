@@ -25,6 +25,8 @@ import java.util.regex.Pattern;
 public class QuickCheck {
   private static final Set skipAttributes = new HashSet(Arrays.asList(new String[]{
       "alt", "draft", "references"}));
+
+  private static final String localeRegex = "root"; // normally .*
   
   private static boolean showInfo = false;
   
@@ -44,10 +46,10 @@ public class QuickCheck {
     Relation<String,String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     Relation<String,String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     XPathParts parts = new XPathParts();
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, localeRegex);
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator), TreeSet.class, null);
     for (String locale : cldrFactory.getAvailable()) {
-      if (locale.equals("root"))
+      if (locale.equals("root") && !localeRegex.equals("root"))
         continue;
       CLDRFile file = cldrFactory.make(locale, false);
       if (file.isNonInheriting())
@@ -79,6 +81,13 @@ public class QuickCheck {
     System.out.format("Distinguishing Elements: %s\r\n", distinguishing);
     System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);
     System.out.format("Skipped %s\r\n", skipAttributes);
+    
+    System.out.println("\r\nPaths to skip in Survey Tool");
+    for (String path : pathToLocale.keySet()) {
+      if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
+        System.out.println("Skipping: " + path);
+      }
+    }
     
     if (showInfo) {
       System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");

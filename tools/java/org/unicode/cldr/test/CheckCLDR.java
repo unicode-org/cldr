@@ -431,6 +431,30 @@ abstract public class CheckCLDR {
         );
   }
   
+  /**
+   * [Warnings - please zoom in]  dates/​timeZoneNames/​singleCountries   
+(empty)
+        [refs][hide] Ref:     [Zoom...]
+[Warnings - please zoom in]   dates/​timeZoneNames/​hours   {0}/{1}   {0}/{1}
+        [refs][hide] Ref:     [Zoom...]
+[Warnings - please zoom in]   dates/​timeZoneNames/​hour  +HH:mm;-HH:mm   
++HH:mm;-HH:mm
+      [refs][hide] Ref:     [Zoom...]
+[ok]  layout/​orientation     (empty)
+        [refs][hide] Ref:     [Zoom...]
+[ok]  dates/​localizedPatternChars  GyMdkHmsSEDFwWahKzYeugAZvcL 
+GaMjkHmsSEDFwWxhKzAeugXZvcL
+        [refs][hide] Ref:     [Zoom...]*/
+  
+  public static final Pattern skipShowingInSurvey = Pattern.compile(".*/" +
+      "(beforeCurrency" +
+      "|afterCurrency" +
+      "|appendItems" +
+      "|singleCountries" +
+      "|hoursFormat" +
+      "|localizedPatternChars" +
+      "|orientation).*", Pattern.COMMENTS);
+  
   public static class PathShower {
     String localeID;
     boolean newLocale = true;

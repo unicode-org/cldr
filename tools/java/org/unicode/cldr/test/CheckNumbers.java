@@ -200,11 +200,11 @@ public class CheckNumbers extends CheckCLDR {
 //  .append(pattern3)
 //  .append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
 //  .append(pattern4);
-    if (generateExamples || gotFailure) {
-      result.add(new CheckStatus()
-          .setCause(this).setType(CheckStatus.exampleType)
-          .setMessage(SampleList, arguments));
-    }
+//    if (generateExamples || gotFailure) {
+//      result.add(new CheckStatus()
+//          .setCause(this).setType(CheckStatus.exampleType)
+//          .setMessage(SampleList, arguments));
+//    }
     if (generateExamples) {
       result.add(new MyCheckStatus()
           .setFormat(x, context)

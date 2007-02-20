@@ -43,6 +43,8 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;
@@ -953,6 +955,7 @@ public class CLDRModify {
 		
 		fixList.add('d', "fix dates",  new CLDRFilter() {
 			DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.newInstance();
+      DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 			HashMap seenSoFar = new HashMap();
 			
 			public void handleStart() {
@@ -960,6 +963,30 @@ public class CLDRModify {
 			}
 			
 			public void handlePath(String xpath) {
+			  //timeFormatLength type="full"
+			  if (xpath.contains("timeFormatLength") && xpath.contains("full")) {
+			    String fullpath = cldrFileToFilter.getFullXPath(xpath);
+			    String value = cldrFileToFilter.getStringValue(xpath);
+			    boolean gotChange = false;
+			    List list = formatParser.set(value).getItems();
+			    for (int i = 0; i < list.size(); ++i) {
+			      Object item = list.get(i);
+			      if (item instanceof DateTimePatternGenerator.VariableField) {
+			        String itemString = item.toString();
+			        if (itemString.charAt(0) == 'z') {
+			          list.set(i, new VariableField(Utility.repeat("v", itemString.length())));
+			          gotChange = true;
+			        }
+			      }
+			    }
+			    if (gotChange) {
+			      String newValue = toStringWorkaround();
+			      if (value != newValue) {
+			        replace(xpath, fullpath, newValue);
+			      }
+			    }
+			  }
+			  if (true) return; // don't do the rest for now
 				if (xpath.indexOf("/availableFormats") < 0) return;
 				String value = cldrFileToFilter.getStringValue(xpath);
 				if (value == null) return; // not in current file
@@ -989,6 +1016,20 @@ public class CLDRModify {
 				
 				replace(xpath, fullparts.toString(), value);
 			}
+
+      private String toStringWorkaround() {
+        StringBuffer result = new StringBuffer();
+        List items = formatParser.getItems();
+        for (int i = 0; i < items.size(); ++i) {
+          Object item = items.get(i);
+          if (item instanceof String) {
+            result.append(formatParser.quoteLiteral((String)items.get(i)));
+          } else {
+            result.append(items.get(i).toString());
+          }
+        }
+        return result.toString();
+      }
 			
 			private String fixAlt(String alt, String id) {
 				Set soFar = (Set) seenSoFar.get(id);

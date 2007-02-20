@@ -53,7 +53,12 @@ public class DataPod extends Registerable {
     public static final String DATAPOD_PROPOSED = "Proposed";
     public static final String DATAPOD_VETPROB = "Vetting Issue";
 
+    public static final String EXEMPLAR_ONLY = "//ldml/dates/timeZoneNames/zone/*/exemplarCity";
+    public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
+
     public String xpathPrefix = null;
+    
+//    public boolean exemplarCityOnly = false;
     
     private String fieldHash; // prefix string used for calculating html fields
     private SurveyMain sm;
@@ -65,6 +70,10 @@ public class DataPod extends Registerable {
         super(sm.lcr,loc); // initialize call to LCR
 
         this.sm = sm;
+/*        if(prefix.equals(EXEMPLAR_ONLY)) {
+            prefix = "//ldml/dates/timeZoneNames/zone";
+            exemplarCityOnly = true;
+        }*/
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
         intgroup = new ULocale(loc).getLanguage(); // calculate interest group
@@ -881,7 +890,7 @@ public class DataPod extends Registerable {
                         (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
                 }
             }
-            
+
             if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
  //if(ndebug)    System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
@@ -897,11 +906,18 @@ public class DataPod extends Registerable {
             } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
+/*            } else if(exemplarCityOnly && (xpath.indexOf("exemplarCity")==-1)) {
+                continue;*/
             } else if(excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
 //if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+                continue;
+            }
+            
+            if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
+                //System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
 

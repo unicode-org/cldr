@@ -157,6 +157,8 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
     static final String PREF_NOPOPUPS = "p_nopopups";
+    static final String PREF_XPID = "p_xpid";
+    static final String PREF_GROTTY = "p_grotty";
     static final String PREF_SORTMODE_CODE = "code";
     static final String PREF_SORTMODE_ALPHA = "alpha";
     static final String PREF_SORTMODE_WARNING = "interest";
@@ -1010,7 +1012,7 @@ public class SurveyMain extends HttpServlet {
         }
         if(phaseBeta) {
             ctx.print("<div title='Survey Tool is in Beta' style='text-align: center; margin: 0; background-color: yellow;'>");
-            ctx.printHelpLink("/Beta",ctx.iconThing("warn","beta")+"SurveyTool is in Beta");
+            ctx.printHelpLink("/Beta",ctx.iconThing("warn","beta")+"SurveyTool is in Beta. Any data added here will NOT go into CLDR.");
             ctx.println("</div>");
         }
         showSpecialHeader(ctx);
@@ -1062,7 +1064,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
-        ctx.print("<span class='notselected'>valid <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
+        ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 ");
         int guests = CookieSession.nGuests;
@@ -2448,10 +2450,15 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<h4>Advanced Options</h4>");
         boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
 
-        // no advanced prefs, now
-
-        showTogglePref(ctx, PREF_NOPOPUPS, "Reduce popup windows");
-
+        if(adv == true) {
+            ctx.println("<div class='ferrbox'><i>Do not enable these items unless instructed.</i><br>");
+            showTogglePref(ctx, PREF_NOPOPUPS, "Reduce popup windows");
+    
+            showTogglePref(ctx, PREF_XPID, "show XPATH ids");
+            showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
+            ctx.println("</div>");
+        }
+    
         showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
 
         ctx.println("<br>");
@@ -2505,9 +2512,14 @@ public class SurveyMain extends HttpServlet {
         
         // Redirect references to language locale
         if(ctx.field("x").equals("references")) {
-            String langLocale = ctx.locale.getLanguage();
-            if(!langLocale.equals(ctx.locale.toString())) {
-                ctx.redirect(ctx.base()+"?_="+langLocale+"&x=references");
+            if(ctx.locale != null) {
+                String langLocale = ctx.locale.getLanguage();
+                if(!langLocale.equals(ctx.locale.toString())) {
+                    ctx.redirect(ctx.base()+"?_="+langLocale+"&x=references");
+                    return;
+                }
+            } else {
+                ctx.redirect(ctx.base());
                 return;
             }
         }
@@ -3749,32 +3761,47 @@ public SupplementalData supplemental = null;
 
 public void showTimeZones(WebContext ctx) {
     String z = ctx.field("z");
+    String whichZone = ctx.field("zz");
     WebContext subCtx = new WebContext(ctx);
     WebContext worldCtx = new WebContext(ctx);
     worldCtx.setQuery("z","001");
+
+    boolean combinedMode = false; // The default is all zones. If a zone is chosen, go into combined mode. 
+    boolean useCombinedMode = !ctx.prefBool(PREF_GROTTY);
 
     String whichMZone = ctx.field("mzone"); // mzone user has chosen
     if(whichMZone.equals("")) {
         whichMZone = null;
     }
 
+    String territory = null;
     // were we given a zone but no territory?
     if((z==null)||("".equals(z))) {
         if(ctx.hasField("zz")) {
-            System.err.println("noz, but " + ctx.field("zz"));
-            z = (String)(supplemental.getZoneToTerritory().get(ctx.field("zz")));
-            System.err.println("z is now " + z);
+//            System.err.println("noz, but " + ctx.field("zz"));
+            territory = (String)(supplemental.getZoneToTerritory().get(whichZone));
+            if(useCombinedMode) {
+                combinedMode = true;
+            } else {
+                z = territory;
+            }
+            // z=territory;
+//            System.err.println("z is now " + z);
         }
     }
 
     // try again
-    if((z==null)||("".equals(z))) {
-        String t = ctx.locale.getCountry(); // if the locale we're on has a country, use it.
-        if(t!=null && t.length()>0) {
-            z = t;
+    if(!combinedMode && ((z==null)||("".equals(z)))) {
+        if(useCombinedMode) {
+            z = "full"; 
         } else {
-//            z = "001"; // default to 'zones by territory'
-            z = "full"; // default to 'all zones'
+            String t = ctx.locale.getCountry(); // if the locale we're on has a country, use it.
+            if(t!=null && t.length()>0) {
+                z = t;
+            } else {
+    //            z = "001"; // default to 'zones by territory'
+                z = "full"; // default to 'all zones'
+            }
         }
     }
     
@@ -3786,20 +3813,34 @@ public void showTimeZones(WebContext ctx) {
     
     printMenu(ctx, z, "full", "All Zones", "z");
     ctx.println(" | ");
-    printMenu(ctx, z, "meta", "All Metazones", "z");
-    ctx.println(" | ");
-    {
-        String fakez = z; // show any region as "territory timezone list"
-        if(!"full".equals(z) && !"meta".equals(z)) {
-            fakez = "001";
+    if(!useCombinedMode) {
+        printMenu(ctx, z, "meta", "All Metazones", "z");
+        ctx.println(" | ");
+        {
+            String fakez = z; // show any region as "territory timezone list"
+            if(!"full".equals(z) && !"meta".equals(z)) {
+                fakez = "001";
+            }
+            printMenu(ctx, fakez, "001", "Zones by Territory", "z");
         }
-        printMenu(ctx, fakez, "001", "Zones by Territory", "z");
+    } else {
+        printMenu(ctx, whichZone, whichZone, whichZone, "zz");
     }
+    
     ctx.println("<br>");
     
-    if("full".equals(z)) {
+    if(combinedMode == true) {
+        WebContext zCtx = new WebContext(ctx);
+        zCtx.setQuery("zz",whichZone);
+        showOneZone(zCtx, whichZone, combinedMode);
+    } if("full".equals(z)) {
         subCtx.setQuery("z", z);
-        showPathList(subCtx, "//ldml/dates/timeZoneNames/zone", null);
+        try { 
+            showPathList(subCtx, DataPod.EXEMPLAR_ONLY, null);
+        } catch (Throwable t) {
+            System.err.println("err: " + t.toString());
+            t.printStackTrace();
+        }
     } else if("meta".equals(z)) {
         subCtx.setQuery("z", z);
         showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/metazone", null);
@@ -3822,39 +3863,43 @@ public void showTimeZones(WebContext ctx) {
         
         WebContext nCtx = new WebContext(subCtx);
         
-        ctx.println("<hr><p class='hang'>");
-        
-        // output in reverse order
-        for(int j=v.size();j>1;j--) {
-            String s = (String)v.get(j-1);
-            ULocale nLocale = new ULocale("und",s);
-            nCtx.setQuery("z",s);
-            nCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
-                "</a> ");
-            if(j > 1) {
-                nCtx.println(" \u2192 ");
-            }
-        }
+        if(!useCombinedMode) {
+            ctx.println("<hr><p class='hang'>");
             
+            // output in reverse order
+            for(int j=v.size();j>1;j--) {
+                String s = (String)v.get(j-1);
+                ULocale nLocale = new ULocale("und",s);
+                nCtx.setQuery("z",s);
+                nCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
+                    "</a> ");
+                if(j > 1) {
+                    nCtx.println(" \u2192 ");
+                }
+            }
+        }        
         nCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(nCtx.displayLocale)+"</b></p>");
         
-        String[] containsList = supplemental.getContainedTerritories(z);
-        ///
+        if(!useCombinedMode) {
+            
+            String[] containsList = supplemental.getContainedTerritories(z);
+            ///
 
-        Set ot = supplemental.getObsoleteTerritories();
-        
-        if(containsList != null) {
-            ctx.println("<ul>");
-            for(int i=0;i<containsList.length;i++) {
-                if(ot.contains(containsList[i])) { // don't show obsolete territory codes.
-                    continue;
+            Set ot = supplemental.getObsoleteTerritories();
+            
+            if(containsList != null) {
+                ctx.println("<ul>");
+                for(int i=0;i<containsList.length;i++) {
+                    if(ot.contains(containsList[i])) { // don't show obsolete territory codes.
+                        continue;
+                    }
+                    ULocale nLocale = new ULocale("und",containsList[i]);
+                    nCtx.setQuery("z",containsList[i]);
+                    nCtx.println(" \u2192 <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
+                        "</a><br>");
                 }
-                ULocale nLocale = new ULocale("und",containsList[i]);
-                nCtx.setQuery("z",containsList[i]);
-                nCtx.println(" \u2192 <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
-                    "</a><br>");
+                ctx.println("</ul>");
             }
-            ctx.println("</ul>");
         }
         
         String zz = nCtx.field("zz");
@@ -3897,12 +3942,12 @@ public void showTimeZones(WebContext ctx) {
             if(whichMZone != null) {
                 zCtx.setQuery("mzone",whichMZone);
             }
-            showOneZone(zCtx, zoneToShow);
+            showOneZone(zCtx, zoneToShow, combinedMode);
         }
     }
 }
 
-void showOneZone(WebContext ctx, String zone) {
+void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
     SurveyMain sm = this;
     String whichMZone = ctx.field("mzone"); // mzone user has chosen
     if(whichMZone.equals("")) {
@@ -4103,9 +4148,14 @@ public void showPathList(WebContext ctx, String xpath, String lastElement, boole
     CLDRDBSource ourSrc = uf.dbSource;
     CLDRFile cf =  uf.cldrfile;
     String fullThing = xpath + "/" + lastElement;
-    boolean isTz = xpath.equals("timeZoneNames");
+//    boolean isTz = xpath.equals("timeZoneNames");
     if(lastElement == null) {
         fullThing = xpath;
+    }
+    boolean exemplar_only = false;
+    if(fullThing.equals(DataPod.EXEMPLAR_ONLY)) {
+        fullThing = DataPod.EXEMPLAR_PARENT;
+        exemplar_only=true;
     }
     
     boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
@@ -4128,7 +4178,11 @@ public void showPathList(WebContext ctx, String xpath, String lastElement, boole
     //        System.out.println("Pod's full thing: " + fullThing);
             DataPod pod = ctx.getPod(fullThing); // we load a new pod here - may be invalid by the modifications above.
             pod.simple=simple;
-            showPeas(ctx, pod, canModify);
+            if(exemplar_only == false) {
+                showPeas(ctx, pod, canModify);
+            } else {
+                showPeas(ctx, pod, canModify, DataPod.EXEMPLAR_ONLY, false);
+            }
         }
     }
 }
@@ -4155,9 +4209,12 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
         ctx.println("<tr class='headingb'>\n"+
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
-                    " <th colspan='2'>"+BASELINE_NAME+"</th>\n"+              // 3
-                    " <th colspan='2'>Current</th>\n"+  // 6
-                    " <th colspan='2'>Proposed</th>\n"+ // 7
+                    " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
+                    " <th><i>Example</i></th>\n" + 
+                    " <th colspan='1'>Current</th>\n"+  // 6
+                    " <th><i>Example</i></th>\n" + 
+                    " <th colspan='1'>Proposed</th>\n"+ // 7
+                    " <th><i>Example</i></th>\n" + 
                     " <th colspan='2' width='20%'>Change</th>\n"+               // 8
                     " <th>Rf</th>\n"+           // 9
                     " <th>n/a</th>\n"+                   // 5
@@ -4219,6 +4276,15 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
 		sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
 	}
     List peas = pod.getList(sortMode);
+
+//    boolean exemplarCityOnly = (!partialPeas && pod.exemplarCityOnly);
+    boolean exemplarCityOnly = (only_prefix_xpath!=null) && (only_prefix_xpath.equals(DataPod.EXEMPLAR_ONLY));
+    if(exemplarCityOnly) {
+        only_prefix_xpath = null; // special prefix
+        partialPeas = false;
+    }
+    
+
     String refs[] = new String[0];
     String ourDir = getDirectionFor(ctx.locale);
     ctx.println("<hr>");
@@ -4227,6 +4293,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     if(pod.xpathPrefix.indexOf("references")==-1) {
         Set refsSet = new HashSet();
         WebContext refCtx = new WebContext(ctx);
+        refCtx.setQuery("_",ctx.locale.getLanguage());
         refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
         DataPod refPod = refCtx.getPod("//ldml/references");
         List refPeas = refPod.getList(PREF_SORTMODE_CODE);
@@ -4272,6 +4339,10 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         ctx.printUrlAsHiddenFields();   
     }
 	
+    if(exemplarCityOnly) {
+        ctx.println("<div class='ferrbox'>Note: timezone display is a bit strange still. The numbering is a bit off, and submitted data will not show up. this will be fixed shortly.</div>");
+    }
+    
     if(disputedOnly==true){
         ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
     }
@@ -4294,8 +4365,6 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
             }
     }
 
-    boolean exemplarCityOnly = (!partialPeas && pod.xpathPrefix.equals("//ldml/dates/timeZoneNames/zone"));
-    
     
     for(ListIterator i = peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
         DataPod.Pea p = (DataPod.Pea)i.next();
@@ -4346,7 +4415,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
                     zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
                 }
             
-                ctx.println("<tr><td colspan=4><a href='"+ctx.base()+"?"+
+                ctx.println("<tr><td colspan=4>Click to view this time zone: <a href='"+ctx.base()+"?"+
                         "_="+ctx.locale+"&amp;x=timezones&amp;zz="+zone+"' class='notselected'>"+zone+"</a></td></tr>");
             }
         } catch(Throwable t) {
@@ -4679,6 +4748,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     String boxClass = canModify?"actionbox":"disabledbox";
     boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
     WebContext refCtx = new WebContext(ctx);
+    refCtx.setQuery("_",ctx.locale.getLanguage());
     refCtx.setQuery(QUERY_SECTION,"references");
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
@@ -4718,7 +4788,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<th nowrap class='botgray' colspan='5' valign='top' align='left'>");
     }
     if(p.altType != null) {
-        ctx.println(" ("+p.altType+")");
+        ctx.println(" ("+p.altType+" alternative)");
     }
     if(p.displayName != null) {
         ctx.println("</th>");
@@ -5188,6 +5258,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     String boxClass = canModify?"actionbox":"disabledbox";
     boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
     WebContext refCtx = new WebContext(ctx);
+    refCtx.setQuery("_",ctx.locale.getLanguage());
     refCtx.setQuery(QUERY_SECTION,"references");
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
@@ -5308,7 +5379,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     }
     
     if(p.altType != null) {
-        ctx.print("<br> ("+p.altType+")");
+        ctx.print("<br> ("+p.altType+" alternative)");
     }
     if(xfind==base_xpath) {
         ctx.print("</a>"); // for the <a name..>
@@ -5427,7 +5498,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
             }
             ctx.println("</td>");
         } else  {
-            ctx.println("<td></td>");
+            ctx.println("</td>");
         }
 
         if("rtl".equals(ourDir)) {
@@ -5587,7 +5658,7 @@ showSearchMode = true;// all
         }
     }
     if(showSearchMode) {
-        ctx.println("<p style='float: right; margin-left: 3em;'> " + 
+        ctx.println("<p > " +  //float: right; tyle='margin-left: 3em;'
             "<b>Sorted:</b>  ");
         {
             boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));

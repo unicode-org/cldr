@@ -198,7 +198,7 @@ public class SurveyForum {
             System.err.println("err in forum: " + t.toString());
             t.printStackTrace();
         } finally {
-//            System.err.println("leavin' - ");
+            //System.err.println("leavin' - ");
         }
     }
     
@@ -234,14 +234,15 @@ public class SurveyForum {
     
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException {
         String xpath = sm.xpt.getById(base_xpath);
-        int replyTo = ctx.fieldInt("replyto");
+        int replyTo = ctx.fieldInt("replyto",-1);
         
         // Don't want to call printHeader here - becasue if we do a post, we're going ot be
         // redirecting outta here. 
         String subj = HTMLSafe(ctx.field("subj"));
         String text = HTMLSafe(ctx.field("text"));
-        
+        boolean defaultSubj = false;
         if((subj == null) || (subj.trim().length()==0)) {
+            defaultSubj = true;
             if(xpath != null) {
                 //I could really use '#if 0' right here
                 subj = sm.xpt.getPrettyPath(xpath);
@@ -316,10 +317,21 @@ public class SurveyForum {
             ctx.println("<a href='"+forumUrl(ctx,forum)+"'>Return to " + forum + " forum</a>");
         }
         
-        
-        if(ctx.field("text").length()==0 &&
-           ctx.field("subj").length()==0 &&
-            replyTo == -1) {
+        if(replyTo != -1) {
+            ctx.println("<h4>In Reply To:</h4><span class='reply-to'>");
+            String subj2 = showItem(ctx, forum, forumNumber, replyTo, false); 
+            ctx.println("</span>");
+            if(defaultSubj) {
+                subj = subj2;
+                if(!subj.startsWith("Re: ")) {
+                    subj = "Re: "+subj;
+                }
+            }
+        }
+
+        if((ctx.field("text").length()==0) &&
+           (ctx.field("subj").length()==0) &&
+            base_xpath != -1) {
             // hide the 'post comment' thing
             String warnHash = "post_comment"+base_xpath+"_"+forum;
             ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
@@ -339,7 +351,11 @@ public class SurveyForum {
 
         ctx.println("<b>Subject</b>: <input name='subj' size=40 value='"+subj+"'><br>");
         ctx.println("<textarea rows=12 cols=60 name='text'>"+(text==null?"":text)+"</textarea>");
-        ctx.println("<br><input name=post type=submit value=Post><input type=submit name=preview value=Preview><br>");
+        ctx.println("<br>");
+        ctx.println("<input name=post "+
+            //(ctx.hasField("text")?"":"disabled")+ // require preview
+            " type=submit value=Post>");
+        ctx.println("<input type=submit name=preview value=Preview><br>");
         ctx.println("</form>");
         
         if(ctx.field("post").length()>0) {
@@ -350,17 +366,12 @@ public class SurveyForum {
             }
         }
 
-        if(ctx.field("text").length()==0 &&
-           ctx.field("subj").length()==0 &&
-            replyTo == -1) {
+        if((ctx.field("text").length()==0) &&
+           (ctx.field("subj").length()==0) &&
+            base_xpath != -1) {
             ctx.println("</div>");
         }
         
-        if(replyTo != -1) {
-            ctx.println("<h4>In Reply To:</h4><span class='reply-to'>");
-            String subj2 = showItem(ctx, forum, forumNumber, replyTo, false); 
-            ctx.println("</span>");
-        }
         if(base_xpath != -1) {
             boolean nopopups = ctx.prefBool(SurveyMain.PREF_NOPOPUPS);
             String returnText = returnText(ctx, base_xpath);
@@ -390,7 +401,7 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
             ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
 
-            ctx.println("<input style='float:right' type='submit' value='" + sm.xSAVE + "'>");
+            ctx.println("<input type='submit' value='" + sm.xSAVE + "'>"); //style='float:right' 
             synchronized (ctx.session) { // session sync
                 // first, do submissions.
                 DataPod oldPod = ctx.getExistingPod(podBase);
@@ -439,6 +450,12 @@ public class SurveyForum {
 
         }
         sm.printPathListClose(ctx);
+        
+        String helpHtml = pod.exampleGenerator.getHelpHtml(podBase,null);
+        if(helpHtml != null)  {
+            ctx.println("<hr><div class='helpHtml'>"+helpHtml+"</div>");
+        }
+        
     }
     
     void printForumMenu(WebContext ctx, String forum) {
@@ -470,6 +487,8 @@ public class SurveyForum {
         if(didpost) {
             ctx.println("<b>Posted your response.</b><hr>");
         }
+
+        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> Ask a question or post a comment..</a><br>");
         
         synchronized (conn) {
             try {
@@ -500,6 +519,7 @@ public class SurveyForum {
             }
         }
         
+        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> Ask a question or post a comment..</a><br>");
         ctx.println("<hr>"+count+" posts ");
         
     }

@@ -163,6 +163,10 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     
+    static final String  BASELINE_ID = "en";
+    static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
+    static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
+    
     static final int CODES_PER_PAGE = 80;  // was 51
 
     // more global prefs
@@ -662,6 +666,9 @@ public class SurveyMain extends HttpServlet {
             ctx.println("xString hash info: " + xpt.statistics() +"<br>");
             ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
             ctx.println("</div>");
+            
+            ctx.println("<a class='notselected' href='" + ctx.jspLink("about.jsp") +"'>More version information...</a><br/>");
+            
         } else if(action.equals("statics")) {
             ctx.println("<h1>Statics</h1>");
             ctx.staticInfo();
@@ -685,7 +692,7 @@ public class SurveyMain extends HttpServlet {
                 if(e.hasMoreElements()) { 
                     for(;e.hasMoreElements();) {
                         String k = e.nextElement().toString();
-                        ctx.println(new ULocale(k).getDisplayName() + " ");
+                        ctx.println(new ULocale(k).getDisplayName(ctx.displayLocale) + " ");
                     }
                 }
                 ctx.println("</td>");
@@ -990,7 +997,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         ctx.println("<title>CLDR Vetting | ");
         if(ctx.locale != null) {
-            ctx.print(ctx.locale.getDisplayName() + " | ");
+            ctx.print(ctx.locale.getDisplayName(ctx.displayLocale) + " | ");
         }
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
@@ -1447,7 +1454,7 @@ public class SurveyMain extends HttpServlet {
     }
 
     public static void showCoverageLanguage(WebContext ctx, String group, String lang) {
-        ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+new ULocale(lang).getDisplayName()+":<i>"+group+"</i>)</tt>" );
+        ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+new ULocale(lang).getDisplayName(ctx.displayLocale)+":<i>"+group+"</i>)</tt>" );
     }
     
     public void doCoverage(WebContext ctx) {
@@ -2584,7 +2591,7 @@ public class SurveyMain extends HttpServlet {
                     String k = e.nextElement().toString();
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
                     ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
-                                new ULocale(k).getDisplayName());
+                                new ULocale(k).getDisplayName(ctx.displayLocale));
                     if(canModify) {
                         ctx.print(modifyThing(ctx));
                     }
@@ -2652,7 +2659,7 @@ public class SurveyMain extends HttpServlet {
         String ls = ((s==null)?l:(l+"_"+s)); // language and script
         
         ULocale lsl = new ULocale(ls);
-        localeListMap.put(lsl.getDisplayName(),ls);
+        localeListMap.put(lsl.getDisplayName(BASELINE_LOCALE),ls);
         
         TreeMap lm = (TreeMap)subLocales.get(ls);
         if(lm == null) {
@@ -2662,9 +2669,9 @@ public class SurveyMain extends HttpServlet {
         
         if(t != null) {
             if(v == null) {
-                lm.put(u.getDisplayCountry(), localeName);
+                lm.put(u.getDisplayCountry(BASELINE_LOCALE), localeName);
             } else {
-                lm.put(u.getDisplayCountry() + " (" + u.getDisplayVariant() + ")", localeName);
+                lm.put(u.getDisplayCountry(BASELINE_LOCALE) + " (" + u.getDisplayVariant(BASELINE_LOCALE) + ")", localeName);
             }
         }
     }
@@ -2744,7 +2751,7 @@ public class SurveyMain extends HttpServlet {
     
     void printLocaleLink(WebContext ctx, String localeName, String n) {
         if(n == null) {
-            n = new ULocale(localeName).getDisplayName() ;
+            n = new ULocale(localeName).getDisplayName(ctx.displayLocale) ;
         }
         String connector = ctx.urlConnector();
 //        boolean hasDraft = draftSet.contains(localeName);
@@ -3086,7 +3093,7 @@ public class SurveyMain extends HttpServlet {
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
                     ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                         "\">");
-                    printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(), "");
+                    printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(ctx.displayLocale), "");
                     ctx.println("</a> ");
                     if(canModify) {
                         ctx.print(modifyThing(ctx));
@@ -3100,7 +3107,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("\u2517&nbsp;");
                 ctx.print("<span title='"+ctx.locale+"' style='font-size: 120%'>");
                 printMenu(subCtx, which, xMAIN, 
-                    getLocaleStatus(ctx.locale.toString(), ctx.locale.getDisplayName(), "") );
+                    getLocaleStatus(ctx.locale.toString(), ctx.locale.getDisplayName(ctx.displayLocale), "") );
                 if(canModifyL) {
                     ctx.print(modifyThing(ctx));
                 }
@@ -3150,7 +3157,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 subCtx.println("</td></tr></table>");
             } else { // end in-locale nav
-                ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName()+" / " + which + " Example</h3>");
+                ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
             }
             
             // check for errors
@@ -3324,7 +3331,7 @@ public boolean doRawXml(HttpServletRequest request, HttpServletResponse response
             String fileName = inFiles[i].getName();
             int dot = fileName.indexOf('.');
             String localeName = fileName.substring(0,dot);
-            ctx.println("<li><a href='"+fileName+"'>"+fileName+"</a> " + new ULocale(localeName).getDisplayName() +
+            ctx.println("<li><a href='"+fileName+"'>"+fileName+"</a> " + new ULocale(localeName).getDisplayName(ctx.displayLocale) +
                 "</li>");
         }
         ctx.println("</ul>");
@@ -3508,7 +3515,8 @@ public static final String USER_FILE = "UserFile";
 public static final String USER_FILE_KEY = "UserFileKey";
 public static final String CLDRDBSRC = "_source";
 
-private static CLDRFile gEnglishFile = null;
+private static CLDRFile gBaselineFile = null;
+private static ExampleGenerator gBaselineExample = null;
 
 private CLDRFile.Factory gFactory = null;
 
@@ -3519,17 +3527,24 @@ private synchronized CLDRFile.Factory getFactory() {
     return gFactory;
 }
 
-public synchronized CLDRFile getEnglishFile(/*CLDRDBSource ourSrc*/) {
-    if(gEnglishFile == null) {
-        gEnglishFile = getFactory().make("en", true)
-//            .freeze() // so it can be shared
-            ;
+public synchronized CLDRFile getBaselineFile(/*CLDRDBSource ourSrc*/) {
+    if(gBaselineFile == null) {
+        CLDRFile file = getFactory().make(BASELINE_LOCALE.toString(), true);
+        file.freeze(); // so it can be shared.
+        gBaselineFile = file;
     }
-    return gEnglishFile;
+    return gBaselineFile;
+}
+
+public synchronized ExampleGenerator getBaselineExample() {
+    if(gBaselineExample == null) {
+        gBaselineExample = new ExampleGenerator(getBaselineFile());
+    }
+    return gBaselineExample;
 }
 
 public synchronized String getDirectionFor(ULocale locale) {
-    // Hackness:
+    // TODO: use orientation.
     String locStr = locale.toString();
     String script = locale.getScript();
     if(locStr.startsWith("ps") ||
@@ -3570,7 +3585,7 @@ public class UserLocaleStuff extends Registerable {
 //            long t0 = System.currentTimeMillis();
             checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
             
-            checkCldr.setDisplayInformation(getEnglishFile());
+            checkCldr.setDisplayInformation(getBaselineFile());
             if(cldrfile==null) {
                 throw new InternalError("cldrfile was null.");
             }
@@ -3704,8 +3719,8 @@ public void showPathListExample(WebContext ctx, String xpath, String lastElement
         Map m = new TreeMap();
         for(Iterator i = mapOfArrays.keySet().iterator();i.hasNext();) {
             String k = i.next().toString();
-            String[] v = (String[])mapOfArrays.get(k);
-            m.put(k,v[0]); // server interface uses String[] for multi valued items..
+//            String[] v = (String[])mapOfArrays.get(k);  // We dont care about the broken, undecoded contents here..
+            m.put(k,ctx.field(k,null)); //  .. use our vastly improved field() function
         }
         
         if(d != null) {
@@ -3753,7 +3768,11 @@ public void showTimeZones(WebContext ctx) {
         }
     }
     
-    ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
+    try {
+        ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
+    } catch(Throwable t) {
+        ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
+    }
     
     {
         String fakez = z; // show any region as "territory timezone list"
@@ -3770,7 +3789,7 @@ public void showTimeZones(WebContext ctx) {
     
     if("full".equals(z)) {
         subCtx.setQuery("z", z);
-        showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone", null);
+        showPathList(subCtx, "//ldml/dates/timeZoneNames/zone", null);
     } else if("meta".equals(z)) {
         subCtx.setQuery("z", z);
         showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/metazone", null);
@@ -3883,7 +3902,7 @@ void showOneZone(WebContext ctx, String zone) {
     SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
     CLDRFile cf = uf.cldrfile;
     CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
-    CLDRFile engFile = ctx.sm.getEnglishFile();
+    CLDRFile engFile = ctx.sm.getBaselineFile();
     //  showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone[@type=\""+s+"\"]", null);
     //  private void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
     //WebContext ctx = new WebContext(baseCtx);
@@ -3964,10 +3983,9 @@ void showOneZone(WebContext ctx, String zone) {
     sm.printPathListOpen(ctx);
     String showZoneOverride = ctx.field("szo");
     boolean exemplarCityOnly  = false;
-    
+
     if(whichMZone != null) {
         ctx.println("<h2>MetaZone: "+whichMZone+"</h2>");
-        
         // Re-map things pretty drastically to be metazone based.
         zone = whichMZone;
         xpath =  "//ldml/"+"dates/timeZoneNames/metazone";
@@ -4000,7 +4018,7 @@ void showOneZone(WebContext ctx, String zone) {
         /* hidden fields for that */
         ctx.printUrlAsHiddenFields();
 
-        ctx.println("<input style='float:right' type='submit' value='" + sm.xSAVE + "'>");
+        ctx.println("<input  type='submit' value='" + sm.xSAVE + "'>"); // style='float:right'
         synchronized (ctx.session) { // session sync
             // first, do submissions.
             DataPod oldPod = ctx.getExistingPod(podBase);
@@ -4028,6 +4046,7 @@ void showOneZone(WebContext ctx, String zone) {
     DataPod pod = ctx.getPod(podBase);
 
     SurveyMain.printPodTableOpen(ctx, pod, true);
+    
     if(!exemplarCityOnly) {
         sm.showPeas(ctx, pod, canModify, base_xpath, true);
     } else {
@@ -4037,7 +4056,6 @@ void showOneZone(WebContext ctx, String zone) {
        //or, could use this with a numeric xpath; void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn)
     }
     SurveyMain.printPodTableClose(ctx, pod);
-    
     // TODO: no alts for now, on the time zones..
 /*
     if(canModify) {
@@ -4127,7 +4145,7 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
         ctx.println("<tr class='headingb'>\n"+
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
-                    " <th>English</th>\n"+              // 3
+                    " <th colspan='2'>"+BASELINE_NAME+"</th>\n"+              // 3
                     " <th colspan='2'>Current</th>\n"+  // 6
                     " <th colspan='2'>Proposed</th>\n"+ // 7
                     " <th colspan='2'>Change</th>\n"+               // 8
@@ -4140,7 +4158,8 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
                     " <th colspan=2>\n"+
                     " </th>\n"+
                     "<th> action</th>\n"+
-                    "<th> data</th>\n"+
+                    "<th colspan=1> data</th>\n"+
+                    "<th> examples</th>\n"+
                     "<th> alerts</th>\n"+
                     "</tr>");
     }
@@ -4175,7 +4194,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
     UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
     CLDRFile cf = uf.cldrfile;
-        //    CLDRFile engf = getEnglishFile();
+        //    CLDRFile engf = getBaselineFile();
     CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
     CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
     XPathParts pathParts = new XPathParts(null, null);
@@ -4217,7 +4236,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
     int moveSkip=-1;  // move the "skip" marker?
     int xfind = ctx.fieldInt("xfind");
-    if(xfind != -1) {
+    if((xfind != -1) && !partialPeas) {
         // see if we can find this base_xpath somewhere..
         int pn = 0;
         for(Iterator i = peas.iterator();(moveSkip==-1)&&i.hasNext();) {
@@ -4263,6 +4282,8 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
                     }
             }
     }
+
+    boolean exemplarCityOnly = (!partialPeas && pod.xpathPrefix.equals("//ldml/dates/timeZoneNames/zone"));
     
     
     for(ListIterator i = peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
@@ -4613,7 +4634,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     
     // if it is not zoomed in - go elsewhere.
     if(!zoomedIn) {
-        showPeaSimple(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
+        showPeaZoomedout(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
         return;
     }
     
@@ -4671,7 +4692,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     }
     if(p.displayName != null) {
         ctx.println("</th>");
-        ctx.println("<th nowrap style='padding-left: 4px;' colspan='4' valign='top' align='left' class='botgray'>");
+        ctx.println("<th nowrap style='padding-left: 4px;' colspan='3' valign='top' align='right' class='botgray'>");
         ctx.println(p.displayName);
     } else {
         ctx.println("<tt title='"+baseInfo+"' >"+p.type+"</tt>");
@@ -4684,7 +4705,15 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(true==false) {
         ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
     }
-    ctx.println("</th> </tr>");
+    ctx.println("</th> ");
+    // Example
+    String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.IN);
+    if(baseExample != null) {
+        ctx.print("<td>"+ baseExample + "</td>");
+    } else {
+        ctx.print("<td></td>");
+    }
+    ctx.println("</tr>");
     
     
     if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
@@ -4926,6 +4955,16 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
 			ctx.printHelpLink("/AdminOverride","Admin Override");
 		}
         ctx.print("</td>");
+        
+        // example
+        String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value, ExampleGenerator.Zoomed.IN);
+        if(itemExample != null) {
+            ctx.print("<td align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
+        } else {
+            ctx.print("<td></td>");
+        }
+        
+        
         if((item.tests != null) || (item.examples != null)) {
             if(item.tests != null) {
                 ctx.println("<td class='warncell'>");
@@ -5066,10 +5105,10 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
 }
 
 /**
- * show a pea, in a simplified state.
+ * show a pea, in a simplified state. This is used in the zoomed out mode.
  * we expect types here.
  */
-void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
 
     boolean zoomedIn = false; // not a param
@@ -5205,10 +5244,10 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
     }
     ctx.println("</th>");
     
-    // ##3 display / English
+    // ##3 display / Baseline
     ctx.println("<th nowrap style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>");
     if(p.displayName != null) {
-        ctx.println(p.displayName); // ##3 display/English
+        ctx.println(p.displayName); // ##3 display/Baseline
     }
 /*
     if(showFullXpaths) {
@@ -5221,6 +5260,13 @@ void showPeaSimple(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CL
 */
     ctx.println("</th>");
     
+    // ##2 and a half - baseline sample
+    String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
+    if(baseExample != null) {
+        ctx.print("<td>"+ baseExample + "</td>");
+    } else {
+        ctx.print("<td></td>");
+    }
     
     // ##5 current control
     ctx.print("<td nowrap colspan='2' class='"+/*rclass+*/"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
@@ -5433,7 +5479,7 @@ showSearchMode = true;// all
     ctx.println("<div class='pager' style='margin: 2px'>");
     if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString())) { // at least street level
         if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
-            ctx.println("<input style='float:left' type='submit' value='" + xSAVE + "'>");
+            ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:left'
         }
     }
     if(showSearchMode) {
@@ -6423,7 +6469,7 @@ private void doStartupDB()
         */
                       //  checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
         /*                
-                        checkCldr.setDisplayInformation(sm.getEnglishFile());
+                        checkCldr.setDisplayInformation(sm.getBaselineFile());
                         if(cf==null) {
                             throw new InternalError("cf was null.");
                         }

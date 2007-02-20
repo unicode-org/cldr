@@ -57,6 +57,8 @@ public class DataPod extends Registerable {
     
     private String fieldHash; // prefix string used for calculating html fields
     private SurveyMain sm;
+    
+    public ExampleGenerator exampleGenerator = null;
 
     public String intgroup; 
     DataPod(SurveyMain sm, String loc, String prefix) {
@@ -660,16 +662,16 @@ public class DataPod extends Registerable {
             et= new com.ibm.icu.dev.test.util.ElapsedTimer();
             System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
         }
-        pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile(),ctx.getOptionsMap());
+        pod.populateFrom(ourSrc, checkCldr, ctx.sm.getBaselineFile(),ctx.getOptionsMap());
         if(SHOW_TIME) {
             System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
         }
         com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        pod.ensureComplete(ourSrc, checkCldr, ctx.sm.getEnglishFile(), ctx.getOptionsMap());
+        pod.ensureComplete(ourSrc, checkCldr, ctx.sm.getBaselineFile(), ctx.getOptionsMap());
         if(SHOW_TIME) {
             System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
         }
-        
+        pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true));
 		return pod;
 	}
     
@@ -775,7 +777,7 @@ public class DataPod extends Registerable {
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
-    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile, Map options) {
+    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
         init();
         XPathParts xpp = new XPathParts(null,null);
 //        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
@@ -1072,13 +1074,13 @@ public class DataPod extends Registerable {
                 }
             } else {
                 if(superP.displayName == null) {
-                    superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
+                    superP.displayName = baselineFile.getStringValue(xpath(superP)); // isn't this what it's for?
 ///*srl*/                  if(p.type.equals("HK") || p.type.equals("MO")) {
 ///*srl*/                        System.err.println("SP["+xpath(superP)+"] = " + superP.displayName);
 ///*srl*/                  }
                 }
                 if(p.displayName == null) {
-                    p.displayName = engFile.getStringValue(baseXpath);
+                    p.displayName = baselineFile.getStringValue(baseXpath);
 ///*srl*/                    if(p.type.equals("HK") || p.type.equals("MO")) {
 ///*srl*/                        System.err.println("P["+baseXpath+"] = " + p.displayName);
 ///*srl*/                    }
@@ -1099,7 +1101,7 @@ public class DataPod extends Registerable {
             
             // Inherit display names.
             if((superP != p) && (p.displayName == null)) {
-                p.displayName = engFile.getStringValue(baseXpath); 
+                p.displayName = baselineFile.getStringValue(baseXpath); 
                 if(p.displayName == null) {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
@@ -1240,7 +1242,7 @@ public class DataPod extends Registerable {
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */
-    private void ensureComplete(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile, Map options) {
+    private void ensureComplete(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options) {
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
             // work on zones
             boolean isMetazones = xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames/metazone");
@@ -1283,7 +1285,7 @@ public class DataPod extends Registerable {
             String podBase = xpathPrefix;
             CLDRFile resolvedFile = new CLDRFile(src, true);
             XPathParts parts = new XPathParts(null,null);
-            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
+//            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
             for(;zoneIterator.hasNext();) {
                 String zone = zoneIterator.next().toString();
@@ -1317,6 +1319,7 @@ public class DataPod extends Registerable {
 
 
                     if(myp.items.isEmpty()) {
+            /*
                         String formatted = CheckZones.exampleTextForXpath(parts, timezoneFormatter, 
                             podBase+ourSuffix+suff);
                         if (suff.indexOf("commonlyUsed")>-1) {
@@ -1328,21 +1331,11 @@ public class DataPod extends Registerable {
                             DataPod.Pea.Item item = myp.addItem(formatted, null, null); // <<<<<< THIS IS BAD. 
                             item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
                         }
-                        myp.displayName = engFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
-        //                } else {
-        //                    System.err.println("Items not empty: "+zone+suff);
-                    }
-
-                    
+            */
+                    }                  
+                    myp.displayName = baselineFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
                 }
             }
-    //            if(myp.displayName == null) {
-    //                myp.displayName = zone+"/long/generic";
-    //            }
-    //            String spiel = "<i>Use this item to add a new availableDateFormat</i>";
-    //            myp.xpathSuffix = FAKE_FLEX_SUFFIX;
-    //            canName=false;
-    //            myp.displayName = spiel;
         } // tz
     }
 // ==

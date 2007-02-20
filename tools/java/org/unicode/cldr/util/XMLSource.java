@@ -421,10 +421,9 @@ public abstract class XMLSource implements Freezable {
       //String newPart;
       XMLSource source;
       String desiredLocaleID;
-      transient List aliases = new ArrayList();
       
       public String toString() {
-        return "[parentID: " + parentID + "; path: " + path + "; locale: " + desiredLocaleID + "; aliases: " + aliases + "]";
+        return "[parentID: " + parentID + "; path: " + path + "; locale: " + desiredLocaleID + "; "/*+aliases: " + aliases */ + "]";
       }
       
       public ParentAndPath set(String xpath, XMLSource source, String desiredLocaleID) {
@@ -435,7 +434,8 @@ public abstract class XMLSource implements Freezable {
         return this;
       }
       public ParentAndPath next() {
-        aliases.clear();
+        //aliases.clear();
+        List aliases = new ArrayList();
         source.addAliases(aliases);
         if (aliases.size() != 0) for (Iterator it = aliases.iterator(); it.hasNext();) {
           Alias alias = (Alias)it.next();

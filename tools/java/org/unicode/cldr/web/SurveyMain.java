@@ -3758,13 +3758,23 @@ public void showTimeZones(WebContext ctx) {
         whichMZone = null;
     }
 
+    // were we given a zone but no territory?
+    if((z==null)||("".equals(z))) {
+        if(ctx.hasField("zz")) {
+            System.err.println("noz, but " + ctx.field("zz"));
+            z = (String)(supplemental.getZoneToTerritory().get(ctx.field("zz")));
+            System.err.println("z is now " + z);
+        }
+    }
 
+    // try again
     if((z==null)||("".equals(z))) {
         String t = ctx.locale.getCountry(); // if the locale we're on has a country, use it.
         if(t!=null && t.length()>0) {
             z = t;
         } else {
-            z = "001";
+//            z = "001"; // default to 'zones by territory'
+            z = "full"; // default to 'all zones'
         }
     }
     
@@ -3774,6 +3784,10 @@ public void showTimeZones(WebContext ctx) {
         ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
     }
     
+    printMenu(ctx, z, "full", "All Zones", "z");
+    ctx.println(" | ");
+    printMenu(ctx, z, "meta", "All Metazones", "z");
+    ctx.println(" | ");
     {
         String fakez = z; // show any region as "territory timezone list"
         if(!"full".equals(z) && !"meta".equals(z)) {
@@ -3781,10 +3795,6 @@ public void showTimeZones(WebContext ctx) {
         }
         printMenu(ctx, fakez, "001", "Zones by Territory", "z");
     }
-    ctx.println(" | ");
-    printMenu(ctx, z, "full", "All Zones", "z");
-    ctx.println(" | ");
-    printMenu(ctx, z, "meta", "All Metazones", "z");
     ctx.println("<br>");
     
     if("full".equals(z)) {
@@ -4148,19 +4158,20 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
                     " <th colspan='2'>"+BASELINE_NAME+"</th>\n"+              // 3
                     " <th colspan='2'>Current</th>\n"+  // 6
                     " <th colspan='2'>Proposed</th>\n"+ // 7
-                    " <th colspan='2'>Change</th>\n"+               // 8
+                    " <th colspan='2' width='20%'>Change</th>\n"+               // 8
                     " <th>Rf</th>\n"+           // 9
                     " <th>n/a</th>\n"+                   // 5
                     " <th>Zm.</th>\n"+                  // 4
                     "</tr>");
     } else {
         ctx.println("<tr class='heading'>\n"+
+                    "<td></td>\n"+ // row title
                     " <th colspan=2>\n"+
                     " </th>\n"+
                     "<th> action</th>\n"+
                     "<th colspan=1> data</th>\n"+
                     "<th> examples</th>\n"+
-                    "<th> alerts</th>\n"+
+                    "<th> comments</th>\n"+
                     "</tr>");
     }
 }
@@ -4302,6 +4313,11 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
 //                System.err.println("P[["+only_prefix_xpath+"]], t[["+pod.xpath(p)+"]]");
             }
         }
+        if(exemplarCityOnly) {
+            if(pod.xpath(p).indexOf("exemplarCity")==-1) {
+                continue;
+            }
+        }
         
         if((!partialPeas) && checkPartitions) {
             for(int j = 0;j<dSet.partitions.length;j++) {
@@ -4312,7 +4328,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
                             dSet.partitions[j].name + "</a>" +
                             "</th></tr>");
                     } else {
-                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='12'>" +
+                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='13'>" +
                             "<a name='" + dSet.partitions[j].name + "'>" +
                             dSet.partitions[j].name + "</a>" +
                             "</th></tr>");
@@ -4323,6 +4339,16 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         
         try {
             showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs,checkCldr, zoomedIn);
+            if(exemplarCityOnly) {
+                String zone = p.type;
+                int n = zone.lastIndexOf('/');
+                if(n!=-1) {
+                    zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
+                }
+            
+                ctx.println("<tr><td colspan=4><a href='"+ctx.base()+"?"+
+                        "_="+ctx.locale+"&amp;x=timezones&amp;zz="+zone+"' class='notselected'>"+zone+"</a></td></tr>");
+            }
         } catch(Throwable t) {
             // failed to show pea. 
             ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br>");
@@ -4546,6 +4572,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                         if (!status.getType().equals(status.exampleType)) {
                             String cls = shortClassName(status.getCause());
                             ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+                            ctx.print(ctx.iconThing("stop",cls));
                             ctx.println(": "+ status.toString() + "<br>");
                         }/* else {
                             ctx.println("<i>example available</i><br>");
@@ -4645,6 +4672,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
         || (canModify&&p.hasProps); // or, there's modified data.
 
+    String localeLangName = ctx.locale.getDisplayLanguage(ctx.displayLocale);
+
     boolean showedRemoveButton = false; 
     String fullPathFull = pod.xpath(p); 
     String boxClass = canModify?"actionbox":"disabledbox";
@@ -4678,6 +4707,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     
     /*  TOP BAR */
     ctx.println("<tr class='topbar'>");
+    ctx.println("<th class='rowinfo'>Code / " + BASELINE_NAME + "</th>"); // ##0 title
     String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
     if(p.displayName != null) { // have a display name - code gets its own box
         ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
@@ -4709,7 +4739,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     // Example
     String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.IN);
     if(baseExample != null) {
-        ctx.print("<td>"+ baseExample + "</td>");
+        ctx.print("<td align='left' valign='top' class='generatedexample' nowrap>"+ baseExample + "</td>");
     } else {
         ctx.print("<td></td>");
     }
@@ -4719,6 +4749,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
         String pClass = "class='warnrow'";
         ctx.print("<tr " + pClass + ">");
+        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
         ctx.print("<td nowrap colspan='3' valign='top' align='right'>");
         ctx.print("<span class='actionbox'>missing</span>");
         if(canModify) {
@@ -4773,12 +4804,16 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         
         if((xa.length()+xb.length())>0) {
             // Aliases: from xa to xb
-            ctx.println("<tr><td colspan='3'><i>Alias: <tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
+            ctx.println("<tr>");
+            ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
+            ctx.print("<td colspan='3'><i><tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
             ctx.printHelpLink("/AliasedFrom","Help",true,false);
             ctx.println("</td></tr>");
         } else {
             // Aliased - no further information
-            ctx.println("<tr><td colspan='3'><i>Aliased: </i>");
+            ctx.println("<tr>");
+            ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
+            ctx.println("<td colspan='3'>");
             ctx.printHelpLink("/AliasedFrom","Help",true,false);
             ctx.println("</td></tr>");
         }
@@ -4786,7 +4821,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     /* else */ if(isAlias) {   
 //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")/*,fullPathFull.length()*/);
 //<tt class='codebox'>["+shortStr+"]</tt>
-        ctx.println("<tr><td colspan='3'><i>Alias</i></td></tr>");
+        ctx.println("<tr>");
+        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+        ctx.println("<td colspan='3'><i>Alias</i></td></tr>");
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             String pClass ="";
@@ -4798,6 +4835,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 pClass = "class='missing'";
             } 
             ctx.println("<tr>");
+            ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
             if(item.inheritFrom != null) {
                 ctx.println("<td class='fallback'>Inherited from: " + item.inheritFrom+"</td>");
             } else {
@@ -4810,6 +4848,19 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             ctx.print("<td colspan='4'><tt>"+item.value+"</tt></td></tr>");
         }
 
+    } else if (p.items.isEmpty()) {
+        // there weren't any normal items to show. show an example anyways.
+        ctx.print("<tr>");
+        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+        ctx.print("<td colspan='5' align='right' valign='top'></td>");
+        // example
+        String itemExample = pod.exampleGenerator.getExampleHtml(fullPathFull, null, ExampleGenerator.Zoomed.IN);
+        if(itemExample != null) {
+            ctx.print("<td class='generatedexample' nowrap align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
+        } else {
+            ctx.print("<td></td>");
+        }
+        ctx.println("</tr>");
     } else for(Iterator j = p.items.iterator();j.hasNext();) { // non alias
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
         String pClass ="";
@@ -4820,7 +4871,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         } else if(p.inheritFrom != null) {
             pClass = "class='missing'";
         } 
-        ctx.print("<tr><td colspan='1' align='right' valign='top'>");
+        ctx.print("<tr>");
+        ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- "+pClass+" --></th>"); // ##0 title
+        ctx.print("<td colspan='1' align='right' valign='top'>");
 //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
         if(((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly)
             || (!j.hasNext()&&!showedRemoveButton)) {
@@ -4928,7 +4981,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             (item.xpath!=null)&&
             (item.xpath.equals(resultXpath)));
         
-        ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
+        ctx.print("<td nowrap class='botgray' valign='top' dir='" + ourDir +"'>");
         String itemSpan = null;
         
         if(winner) {
@@ -4959,7 +5012,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         // example
         String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value, ExampleGenerator.Zoomed.IN);
         if(itemExample != null) {
-            ctx.print("<td align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
+            ctx.print("<td class='generatedexample' align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
         } else {
             ctx.print("<td></td>");
         }
@@ -5050,7 +5103,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(true && !isAlias) {
         String pClass = "";
          // dont care
-        ctx.print("<tr " + pClass + "><td nowrap valign='top' align='right'>");
+        ctx.print("<tr " + pClass + ">");
+        ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- changeto --></th>"); // ##0 title
+        ctx.print("<td nowrap valign='top' align='right'>");
         ctx.print("<span class='"+boxClass+"'>" + DONTCARE + "</span>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
@@ -5082,12 +5137,20 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(zoomedIn && canSubmit && canModify && !p.confirmOnly) {
             String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
             String fClass = "inputbox";
+            ctx.print("<td colspan='2'>");
+            boolean badInputBox = false;
             if(oldValue==null) {
                 oldValue="";
             } else {
+                badInputBox = true;
+                ctx.print("<span class='ferrbox'>"+ctx.iconThing("stop","this item was not accepted."));
                 fClass = "badinputbox";
             }
-            ctx.println("<td colspan='2'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
+            ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+            if(badInputBox) {
+                ctx.print("</span>");
+            }
+            ctx.println("</td>");
             // references
             if(refs.length>0) {
                 ctx.print("<td nowrap><label>");
@@ -5232,10 +5295,18 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     if(xfind==base_xpath) {
         ctx.print("<a name='x"+xfind+"'>");
     }
-    ctx.print("<tt class='hangsml' title='"+baseInfo+"' >"
-                + p.type.replaceAll("/","/\u200b") + 
-                "</tt>");
-    //}
+
+    {
+        ctx.print("<tt class='hangsml' title='"+baseInfo+"' >");
+        String typeShown = p.type.replaceAll("/","/\u200b");
+        if(!zoomedIn) {
+            fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown);
+        } else {
+            ctx.print(typeShown);
+        }
+        ctx.print("</tt>");
+    }
+    
     if(p.altType != null) {
         ctx.print("<br> ("+p.altType+")");
     }
@@ -5263,13 +5334,13 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     // ##2 and a half - baseline sample
     String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
     if(baseExample != null) {
-        ctx.print("<td>"+ baseExample + "</td>");
+        ctx.print("<td align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
     } else {
         ctx.print("<td></td>");
     }
     
     // ##5 current control
-    ctx.print("<td nowrap colspan='2' class='"+/*rclass+*/"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
+    ctx.print("<td nowrap colspan='1' class='"+/*rclass+*/"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
 
     if(isAlias || (p.pathWhereFound != null))  {
         ctx.println("<i dir='ltr'>(Alias - Zoom In for details)</i>");
@@ -5281,13 +5352,24 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
         if(item.altProposed == null) {
             printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
-            ctx.println("<br>");
+            current = item;
+           // ctx.println("<br>");
         }
     }
     ctx.println("</td>");
+    ctx.print("<td class='generatedexample' valign='top' align='left'>");
+    if(current != null) {
+        String itemExample = pod.exampleGenerator.getExampleHtml(current.xpath, current.value,
+            ExampleGenerator.Zoomed.OUT);
+        if(itemExample!=null) {
+            ctx.print(itemExample);
+        }
+    }
+    ctx.println("</td>");
+
     
     // ##6 proposed
-    ctx.print("<td nowrap colspan='2' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+    ctx.print("<td nowrap colspan='1' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
     // go find the 'current' item
     for(Iterator j = p.items.iterator();j.hasNext();) {
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -5295,6 +5377,18 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
             printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
             ctx.println("<br>");
         } 
+    }
+    ctx.println("</td>");
+    ctx.print("<td class='generatedexample' valign='top' align='left'>");
+    for(Iterator j = p.items.iterator();j.hasNext();) {
+        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+        if(item.altProposed != null) {
+            String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
+                ExampleGenerator.Zoomed.OUT);
+            if(itemExample!=null) {
+                ctx.print(itemExample);
+            }
+        }
     }
     ctx.println("</td>");
     
@@ -5312,16 +5406,26 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
             ctx.println(changetoBox);
         }
         
+        ctx.print("<td valign='top'>");
+        
+        boolean badInputBox = false;
+        
         if(canSubmit && canModify && !p.confirmOnly) {
             String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
             String fClass = "inputbox";
             if(oldValue==null) {
                 oldValue="";
             } else {
+                ctx.print("<span class='ferrbox'>"+ctx.iconThing("stop","this item was not accepted."));
                 fClass = "badinputbox";
+                badInputBox = true;
             }
-            ctx.println("<td valign='top'><input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'></td>");
+            ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
             // references
+            if(badInputBox) {
+                ctx.print("</span>");
+            }
+            ctx.println("</td>");
         } else  {
             ctx.println("<td></td>");
         }

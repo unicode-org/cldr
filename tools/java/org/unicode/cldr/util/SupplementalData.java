@@ -178,7 +178,8 @@ public class SupplementalData {
      * parse the list of used zones
      */
     private Hashtable territoryToZones = null;
-
+    private Hashtable zoneToTerritory = null;
+    
     String olsonVersion = null;
     String multiZone[] = null;
     Set multiZoneSet = null;
@@ -190,10 +191,17 @@ public class SupplementalData {
         return olsonVersion;
     }
 
+    public synchronized Hashtable getZoneToTerritory() {
+        if(zoneToTerritory == null) {
+            getTerritoryToZones();
+        }
+        return zoneToTerritory;
+    }
+
     public synchronized Hashtable getTerritoryToZones() {
         if(territoryToZones == null) {
             Hashtable u = new Hashtable();
-            
+            Hashtable z = new Hashtable();
             NodeList zoneFormatting = 
                         LDMLUtilities.getNodeList(getSupplemental(), 
                         "//supplementalData/timezoneData/zoneFormatting");
@@ -224,9 +232,11 @@ public class SupplementalData {
                     u.put(territory,v);
                 }
                 v.add(type);
+                z.put(type,territory);
             }
             
             // devectorize?        
+            zoneToTerritory=z;
             territoryToZones = u;
         }
         return territoryToZones;

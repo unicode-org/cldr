@@ -351,11 +351,12 @@ border: 3px dashed olive; margin: 1em; padding: 1em;
 }
 
 a.forumlink {
+	/*
 	text-decoration: none;
 	font-size: small;
 	font-variant: small-caps;
 	font-weight: bold;
-	background-color: white;
+	background-color: white;*/
 }
 
 .disabledbox {
@@ -519,4 +520,15 @@ table.sqlbox form {
 .loser {
 	border: 4px solid rgba(255,255,255,0);
 	/*color:  #333;*/
+}
+
+td.generatedexample {
+	border-left:  1px solid silver;
+	border-right: 2px solid gray;
+}
+
+th.rowinfo {
+	font-size:  small;
+	border-right: 1px solid gray;
+	background-color:  #eee;
 }

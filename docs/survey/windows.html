@@ -152,13 +152,13 @@ h2           { text-indent: -1em }
 					September–</a> </td>
 					<td class="pagerln" align="left">
 					<span style="font-style: italic; background-color: #FFFF00">
-					There may be multiple pages in a section., so don&#39;t forget 
-					to view them all.</span></td>
+					There may be multiple pages in a section, so don&#39;t forget 
+					to view them all. The items on other pages are non-bold.</span></td>
 				</tr>
 			</table>
 		</div>
 		<p>&nbsp;</p>
-		<h2>Mail List</h2>
+		<h2>Main List</h2>
 		<p>Below the navigation bar, you&#39;ll see something like this:</p>
 
 <form method="POST" action="--WEBBOT-SELF--" onSubmit="location.href='_derived/nortbots.htm';return false;" webbot-onSubmit>
@@ -354,67 +354,70 @@ h2           { text-indent: -1em }
 		<table border="1" id="table8" style="border-left-color: #0000FF; border-right-color: #0000FF; border-top-color: #0000FF; border-top-width: 1px; border-bottom-color: #0000FF; border-bottom-width: 1px">
 			<caption><b><font size="4">Key</font></b></caption>
 			<tr>
-				<td style="vertical-align: top; text-align: left" width="119" bgcolor="#C0C0C0"><b>Status</b></td>
-				<td style="vertical-align: top; text-align: left" bgcolor="#C0C0C0"><b>Description</b></td>
+				<td style="vertical-align: top; text-align: left" bgcolor="#C0C0C0">
+				<b>Column</b></td>
+				<td style="vertical-align: top; text-align: left" bgcolor="#C0C0C0">
+				<b>Example</b></td>
+				<td style="vertical-align: top; text-align: left" bgcolor="#C0C0C0" colspan="2"><b>Description</b></td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" width="119">
+				<td style="vertical-align: top; text-align: center" bgcolor="#C0C0C0" rowspan="4">
+				<b>Status</b></td>
+				<td style="vertical-align: top; text-align: center">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left">no problems 
+				<td style="vertical-align: top; text-align: left" colspan="2">no problems 
 				have been detected.</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" width="119">
+				<td style="vertical-align: top; text-align: center">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left">not confirmed: has draft value</td>
+				<td style="vertical-align: top; text-align: left" colspan="2">not confirmed: has draft value</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" width="119">
+				<td style="vertical-align: top; text-align: center">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left">warning</td>
+				<td style="vertical-align: top; text-align: left" colspan="2">warning</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" width="119">
+				<td style="vertical-align: top; text-align: center">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left">error</td>
+				<td style="vertical-align: top; text-align: left" colspan="2">error</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" width="119">
+				<td style="vertical-align: top; text-align: center"  title="{shows reference here}">
 				<p style="text-align: left"><b>Code</b></td>
-				<td style="vertical-align: top; text-align: left">This is an 
+				<td style="vertical-align: top; text-align: left"><code>bho </code> </td>
+				<td style="vertical-align: top; text-align: left" colspan="2">This is an 
 				internal, constant code used to access the translation, both in 
 				English and in other languages.</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" width="119">
-				<p style="text-align: left"><b>Current / Proposed</b></td>
-				<td style="vertical-align: top; text-align: left">If what you 
-				think is the correct value is not selected (eg
-				<input value="V1" name="R36" type="radio">), then you can select 
-				it (eg <input value="V1" name="R37" type="radio" checked>). If 
-				you have no opinion, select <b>n/a</b>. If the correct value is 
-				not listed, see <b>Add Proposed</b>.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top" width="119" >
+				<td style="vertical-align: top" rowspan="4" >
+				<b>Current / Proposed</b></td>
+				<td style="vertical-align: top; text-align:left" >
 				<span class="winner">				<input value="V1" name="R32" type="radio" checked>bichlamar</span></td>
 				<td style="vertical-align: top; text-align: left"><b>
 				uncontested:</b> If nothing else is done, this will be confirmed 
 				as the value in the release.</td>
+				<td style="vertical-align: top; text-align: left" rowspan="4">
+				<i><span style="background-color: #FFFF00">If what you 
+				think is the correct value is not selected (eg
+				<input value="V1" name="R36" type="radio">), then you can select 
+				it (eg <input value="V1" name="R37" type="radio" checked>).</span></i></td>
 				</tr>
 			<tr>
-				<td style="vertical-align: top" width="119" >
+				<td style="vertical-align: top; text-align:left" >
 		<span class="parent"><input value="V1" name="R33" type="radio" checked>bho</span></td>
 				<td style="vertical-align: top; text-align: left"><b>inherited:</b> 
 				The value is from the &quot;parent&quot; locale. For example, in &#39;en_GB&#39;, 
 				this indicates a value from &#39;en&#39;.</td>
 				</tr>
 			<tr>
-				<td style="vertical-align: top" width="119" >
+				<td style="vertical-align: top; text-align:left" >
 				<span class="alias">
 				<input value="V1" name="R34" type="radio" checked>bugg</span></td>
 				<td style="vertical-align: top; text-align: left"><b>alias: </b>
@@ -423,37 +426,50 @@ h2           { text-indent: -1em }
 				be the same as the Gregorian (Western) calendar&#39;s. </td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" width="119">
+				<td style="vertical-align: top; text-align: center"  title="{shows reference here}">
 				<p style="text-align: left">
 				<input value="V1" name="R35" type="radio" checked>blin</td>
 				<td style="vertical-align: top; text-align: left">none of the 
 				above</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" width="119">
+				<td style="vertical-align: top; "  title="{shows reference here}">
 				<b>Add Proposed</b></td>
-				<td style="vertical-align: top; text-align: left">Allows you to 
-				add new proposed value.</td>
+
+		<td style="vertical-align: top; text-align: left">
+		<table class="wide-noborder" id="table23">
+			<tr>
+				<td class="narrow-noborder">
+
+		<input value="V1" name="R39" type="radio" checked></td>
+				<td class="wide-noborder">
+		<input name="T18" size="20" class="wide"></td>
+			</tr>
+		</table>
+		</td>
+
+				<td style="vertical-align: top; text-align: left" colspan="2">Allows you to 
+				add new proposed value. Do this if none of the others are 
+				correct.</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" width="119">
+				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" rowspan="2">
 				<p style="text-align: left"><b>Reference</b></td>
-				<td style="vertical-align: top; text-align: left">Set a 
-				reference whenever an item is controversial. <i>We expect this 
-				interface to change, but for now, here&#39;s how it works.</i></td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}" width="119">
+				<td style="vertical-align: top; text-align: left">
+				<p style="text-align: center">
 				<span id="h_reftbg:faalmge:-hkhliyc">
 				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
 				[refs]</a></span></td>
-				<td style="vertical-align: top; text-align: left">A. Click on 
+				<td style="vertical-align: top; text-align: left" colspan="2">Set a 
+				reference whenever an item is controversial. <i>We expect this 
+				interface to change, but for now, here&#39;s how it works.<br>
+				</i><b>A. </b>Click on 
 				this to see the B view</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" title="References: push to add" width="119">
+				<td style="vertical-align: top; text-align: center" title="References: push to add">
 				<a href="javascript:hide("refwcc:gxjxkgf:kkohwcc")">
-				<span style="text-decoration: none">[h</span></a><span style="display: block;" id="refwcc:gxjxkgf:kkohwcc"><a style="text-decoration: none;" href="javascript:hide("refwcc:gxjxkgf:kkohwcc")">ide]</a>&nbsp;<a target="ref_fr" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">Ref:</a>&nbsp;<select name="wcc:gxjxkgf:kkohwcc_r">
+				<span style="text-decoration: none">[h</span></a><span style="display: block;" id="refwcc:gxjxkgf:kkohwcc"><a style="text-decoration: none;" href="javascript:hide("refwcc:gxjxkgf:kkohwcc")">ide]</a>&nbsp;<a target="ref_fr" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">Ref:</a> &nbsp;<select name="wcc:gxjxkgf:kkohwcc_r">
 				<option value selected="selected"></option>
 				<option value="R060">R060</option>
 				<option value="R064">R064</option>
@@ -469,23 +485,29 @@ h2           { text-indent: -1em }
 				<option value="R065">R065</option>
 				<option value="R061">R061</option>
 				</select></span></td>
-				<td style="vertical-align: top; text-align: left">B. Click on 
+				<td style="vertical-align: top; text-align: left" colspan="2">
+				<b>B. </b>Click on 
 				hide to hide go back to the A view; click on Ref. to bring up 
 				the Reference view. There you can see what all the cryptic R001, 
 				etc. mean. Once you know what you want, go back to the original 
 				window and pick the right one.</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" title="Push to see or edit details" width="119">
-				<p style="text-align: left"><b>Zoom</b></td>
-				<td style="vertical-align: top; text-align: left">&nbsp;</td>
+				<td style="vertical-align: top; text-align: center"  title="{shows reference here}">
+				<p style="text-align: left"><b>n/a</b></td>
+				<td style="vertical-align: top; text-align: left">
+				<input value="V1" name="R38" type="radio" checked></td>
+				<td style="vertical-align: top; text-align: left" colspan="2">&nbsp;If 
+				you have no opinion, select <b>n/a</b>. If the correct value is 
+				not listed, see <b>Add Proposed</b>.</td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: center" title="Push to see or edit details" width="119">
+				<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
+				<p style="text-align: left"><b>Zoom</b></td>
+				<td style="vertical-align: top; text-align: left">
 				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a>
-				</td>
-				<td style="vertical-align: top; text-align: left">Zoom to a 
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
+				<td style="vertical-align: top; text-align: left" colspan="2">Zoom to a 
 				detailed view to see warning messages, examples, and demos (as 
 				available).</td>
 			</tr>
@@ -560,7 +582,7 @@ h2           { text-indent: -1em }
 		cases, the tool will show (where possible) a short example of what the 
 		format will result in. Notice that these patterns use special 
 		characters, such as the following:</p>
-		<table border="1" id="table20">
+		<table border="1" id="table20" width="50%">
 			<caption><b>Number Format Symbols</b></caption>
 			<tr>
 				<th>Symbol</th>
@@ -587,7 +609,7 @@ h2           { text-indent: -1em }
 				<td style="text-align: center">...;...</td>
 				<td>If your language uses different formats for negative numbers 
 				than just adding &quot;-&quot; at the front, you can put in two patterns. 
-				For example: #,##0.00¤;(#,##0.00¤) is used to have negative 
+				For example: #,##0.00¤;(#,##0.00¤) is used to make negative 
 				currencies appear like &quot;(<font face="Times New Roman">1&#39;234,56£)&quot; 
 				instead of &quot;-1&#39;234,56£&quot;</font></td>
 			</tr>
@@ -694,7 +716,7 @@ h2           { text-indent: -1em }
 		<td ><b>Help</b></td>
 
 		<td style="vertical-align: top; text-align: left" >
-		This field is used.....</td>
+		<i>...help text here...</i></td>
 	</tr>
 	</table>
 

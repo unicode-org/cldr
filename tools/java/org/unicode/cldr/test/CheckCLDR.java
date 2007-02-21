@@ -446,20 +446,22 @@ abstract public class CheckCLDR {
 GaMjkHmsSEDFwWxhKzAeugXZvcL
         [refs][hide] Ref:     [Zoom...]*/
   
-  public static final Pattern skipShowingInSurvey = Pattern.compile(".*/" +
-      "(beforeCurrency" +
-      "|afterCurrency" +
-      "|appendItems" +
-      "|singleCountries" +
-      "|hoursFormat" +
-      "|localizedPatternChars" +
-      "|abbreviationFallback" + // new
-      "|default" + // new
-      "|mapping" + // new
-      "|measurementSystem" + // new
-      "|preferenceOrdering" + // new
-      "|orientation)" +
-      "((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
+  public static final Pattern skipShowingInSurvey = Pattern.compile(
+      ".*/(" +
+      "beforeCurrency" + // hard to explain, use bug
+      "|afterCurrency" + // hard to explain, use bug
+      "|orientation" + // hard to explain, use bug
+      "|appendItems" + // hard to explain, use bug
+      "|singleCountries" + // hard to explain, use bug
+      // from deprecatedItems in supplemental metadata
+      "|hoursFormat" + // deprecated
+      "|localizedPatternChars" + // deprecated
+      "|abbreviationFallback" + // deprecated
+      "|default" + // deprecated
+      "|mapping" + // deprecated
+      "|measurementSystem" + // deprecated
+      "|preferenceOrdering" + // deprecated
+      ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
   
   public static class PathShower {
     String localeID;

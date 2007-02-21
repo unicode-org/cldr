@@ -453,7 +453,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       "|singleCountries" +
       "|hoursFormat" +
       "|localizedPatternChars" +
-      "|orientation).*", Pattern.COMMENTS);
+      "|abbreviationFallback" + // new
+      "|default" + // new
+      "|mapping" + // new
+      "|measurementSystem" + // new
+      "|preferenceOrdering" + // new
+      "|orientation)" +
+      "((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
   
   public static class PathShower {
     String localeID;

@@ -23,6 +23,16 @@ import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.test.CheckCLDR;
 
+import com.sun.syndication.feed.synd.*;
+import com.sun.syndication.io.SyndFeedOutput;
+
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+
+// servlet imports
+import javax.servlet.*;
+import javax.servlet.http.*;
+
 /**
  * This class implements a discussion forum per language (ISO code)
  */
@@ -43,7 +53,7 @@ public class SurveyForum {
     static final String F_REPLY = "reply";
     static final String F_POST = "post";
     
-    
+    static final String POST_SPIEL = "Post a comment to other vetters. (Don't use this to report SurveyTool issues.)";    
     /** 
      * prepare text for posting
      */
@@ -335,7 +345,7 @@ public class SurveyForum {
             // hide the 'post comment' thing
             String warnHash = "post_comment"+base_xpath+"_"+forum;
             ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
-                        "<b>+</b> Ask a question or post a comment..</a></div>");
+                        "<b>+</b> "+POST_SPIEL+"</a></div>");
             ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
                         "<div style='display: none' class='pager' id='" + warnHash + "'>" );
             ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + 
@@ -488,7 +498,7 @@ public class SurveyForum {
             ctx.println("<b>Posted your response.</b><hr>");
         }
 
-        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> Ask a question or post a comment..</a><br>");
+        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> "+POST_SPIEL+"</a><br>");
         
         synchronized (conn) {
             try {
@@ -519,7 +529,7 @@ public class SurveyForum {
             }
         }
         
-        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> Ask a question or post a comment..</a><br>");
+        ctx.println("<a href='"+forumUrl(ctx,forum)+"&amp;replyto='><b>+</b> "+POST_SPIEL+"..</a><br>");
         ctx.println("<hr>"+count+" posts ");
         
     }
@@ -613,18 +623,17 @@ public class SurveyForum {
         ctx.println("</div>");
     }
 
-
-    String getNameLinkFromUid(WebContext ctx, int uid) {
+   String getNameLinkFromUid(UserRegistry.User me, int uid) {
         UserRegistry.User theU = null;
         theU = sm.reg.getInfo(uid);
         String aLink = null;
         if((theU!=null)&&
-           (ctx.session.user!=null)&&
-                ((uid==ctx.session.user.id) ||   //if it's us or..
-                (UserRegistry.userIsTC(ctx.session.user) ||  //or  TC..
-                (UserRegistry.userIsVetter(ctx.session.user) && (true ||  // approved vetter or ..
-                                                ctx.session.user.org.equals(theU.org)))))) { // vetter&same org
-            if((ctx.session.user==null)||(ctx.session.user.org == null)) {
+           (me!=null)&&
+                ((uid==me.id) ||   //if it's us or..
+                (UserRegistry.userIsTC(me) ||  //or  TC..
+                (UserRegistry.userIsVetter(me) && (true ||  // approved vetter or ..
+                                                me.org.equals(theU.org)))))) { // vetter&same org
+            if((me==null)||(me.org == null)) {
                 throw new InternalError("null: c.s.u.o");
             }
             if((theU!=null)&&(theU.org == null)) {
@@ -639,6 +648,14 @@ public class SurveyForum {
         }
         
         return aLink;
+   }
+
+    String getNameLinkFromUid(WebContext ctx, int uid) {
+        if(ctx.session==null || ctx.session.user==null) {
+            return getNameLinkFromUid((UserRegistry.User)null, uid);
+        } else {
+            return getNameLinkFromUid(ctx.session.user, uid);
+        }
     }
 
     /** 
@@ -800,16 +817,16 @@ public class SurveyForum {
         //if(ctx.session.user == null) {     
         //    return; // no user?
         //}
-        String title;
+//        String title;
 /*        if(!ctx.session.user.interestedIn(forum)) {
             title = " (not on your interest list)";
         }*/
-        title = "Zoom..." /*+ title*/;
-        ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,pod,p,xpath)+"' title='"+title+"'>"
+//        title = null /*+ title*/;
+        ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,pod,p,xpath)+"' >" // title='"+title+"'
             +contents+ "</a>");
     }
     void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-            showForumLink(ctx,pod,p,xpath,ctx.iconThing("zoom","Zoom..."));
+            showForumLink(ctx,pod,p,xpath,ctx.iconThing("zoom","zoom"));
     }
 
     static String forumUrl(WebContext ctx, String forum) {
@@ -818,4 +835,135 @@ public class SurveyForum {
     String returnText(WebContext ctx, int base_xpath) {
         return "Zoom out to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.iconThing("zoom","zoom out to " + ctx.locale)+" "+ ctx.locale+"</a>";
     }
+    
+    // XML/RSS
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
+    
+    private static void sendErr(HttpServletRequest request, HttpServletResponse response, String err) 
+    throws IOException {
+        response.setContentType("text/html; charset=utf-8");
+        WebContext xctx = new WebContext(request,response);
+        xctx.println("Error: " + err );
+        xctx.close();
+        return;
+    }
+
+public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
+throws IOException, ServletException {
+    
+        response.setContentType("application/rss+xml; charset=utf-8");
+        
+        String feedType = request.getParameter("feed");
+        if(feedType == null) {
+            feedType = "rss_0.94";
+        }
+        
+        String email = request.getParameter("email");
+        String pw = request.getParameter("pw");
+        
+        if(email==null || pw==null) {
+            sendErr(request, response, "URL error.");
+            return true;
+        }
+        
+        UserRegistry.User user;
+        user = sm.reg.get(pw,email,"RSS@"+request.getRemoteAddr());
+        
+        if(user == null) {
+            sendErr(request, response, "authentication err");
+            return true;
+        }
+        
+        String base = "http://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath() + request.getServletPath();
+        String kind = request.getParameter("kind");
+        String loc = request.getParameter("_");
+        
+        if((loc==null) || (!UserRegistry.userCanModifyLocale(user, loc))) {
+            sendErr(request, response, "permission denied for "+loc);
+            return true;
+        }
+        
+        try {
+            DateFormat dateParser = new SimpleDateFormat(DATE_FORMAT);
+            
+            SyndFeed feed = new SyndFeedImpl();
+            feed.setFeedType(feedType);
+            
+            feed.setTitle("CLDR Feed for " + loc);
+            feed.setLink(base);
+            feed.setDescription("test feed");
+            
+            List entries = new ArrayList();
+            SyndEntry entry;
+            SyndContent description;
+            
+            synchronized (conn) {
+                
+                int forumNumber = getForumNumberFromDB(loc);
+                int count=0;
+                if(forumNumber != -1) try {
+                    pList.setInt(1, forumNumber);
+                    ResultSet rs = pList.executeQuery();
+                    
+                    while(rs.next()) {                        
+                        int poster = rs.getInt(1);
+                        String subj = rs.getString(2);
+                        String text = rs.getString(3);
+                        int id = rs.getInt(4);
+                        java.sql.Timestamp lastDate = rs.getTimestamp(5);
+                        String ploc = rs.getString(6);
+                        int xpath = rs.getInt(7);
+                        
+                        String nameLink = getNameLinkFromUid(user,poster);
+                        
+                        entry = new SyndEntryImpl();
+                        entry.setTitle(subj);
+                        entry.setAuthor(nameLink);
+                        entry.setLink(base+"?forum="+loc+"&amp;"+F_DO+"="+F_VIEW+"&amp;id="+id+"&amp;email="+
+                                      email + "&amp;pw="+pw);
+                        entry.setPublishedDate(lastDate); // dateParser.parse("2004-06-08"));
+                        description = new SyndContentImpl();
+                        description.setType("text/html");
+                        description.setValue("From: "+nameLink+"<br><hr>"+ text);
+                        entry.setDescription(description);
+                        entries.add(entry);
+                        
+                        count++;
+                    }
+                } catch (SQLException se) {
+                    String complaint = "SurveyForum:  Couldn't use forum " +loc + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                    logger.severe(complaint);
+                    throw new RuntimeException(complaint);
+                }
+            }
+            feed.setEntries(entries);
+            
+            Writer writer = response.getWriter();
+            SyndFeedOutput output = new SyndFeedOutput();
+            output.output(feed,writer);
+            //writer.close();
+            
+            //System.out.println("The feed has been written to the file ["+fileName+"]");
+        } catch (Throwable ie) {
+            System.err.println("Error getting RSS feed: " + ie.toString());
+            ie.printStackTrace();
+            // todo: err
+        }
+        return true;
+    }
+    
+    String forumFeedStuff(WebContext ctx) {
+        if(ctx.session == null ||
+           ctx.session.user == null) {
+            return "";
+        }
+        String feedUrl = ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+            ctx.session.user.password+"&amp;");
+        return 
+             "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" +
+              "<link rel=\"alternate\" type=\"application/rdf+xml\" title=\"RSS 1.0\" href=\""+feedUrl+"&feed=rss_1.0\">"+
+             "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"RSS 2.0\" href=\""+feedUrl+"&feed=rss_2.0\">" 
+           ;
+    }
 }
+

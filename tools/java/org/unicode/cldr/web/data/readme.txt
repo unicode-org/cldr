@@ -25,6 +25,8 @@ Copyright 2007 IBM and others. All Rights Reserved
 * JavaMail 1.4+  http://java.sun.com/products/javamail/
   - may need Java Beans Activation Framework  activation.jar to install mail - http://java.sun.com/products/javabeans/jaf/
   - however, mail.jar is enough to compile and run survey tool without email (SMTP) support.
+* https://rome.dev.java.net/ Rome 0.9+  download the jar and place in cldr's org/unicode/cldr/web/data/jars/ directory
+* http://www.jdom.org  JDOM 1.0 download jar and place in cldr's org/unicode/cldr/web/data/jars/ directory
 
 2. Setting up jars for tomcat
  - put the following jars from the following projects into tomcat's  "lib/" directory:
@@ -32,6 +34,7 @@ Copyright 2007 IBM and others. All Rights Reserved
     ICU4J:    icu4j*.jar   cldr-utilities*.jar
     xalan: xalan.jar, xercesImpl.jar, xml-apis.jar
     JavaMail:   mail.jar   ( may need activation.jar also )
+    JDOM: jdom.jar
 
 3. Setting up your build environment
 

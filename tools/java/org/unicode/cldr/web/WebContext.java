@@ -257,7 +257,7 @@ public class WebContext {
         if(prefBool(SurveyMain.PREF_NOPOPUPS)) {
             return "";
         } else {
-            return "target='"+target+"' ";
+            return "target='SurveyTool:"+target+"' ";
         }
     }
 

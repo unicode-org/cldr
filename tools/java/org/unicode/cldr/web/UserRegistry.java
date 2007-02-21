@@ -453,11 +453,13 @@ public class UserRegistry {
                     logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                     return null;
                 }
-                logger.info("Login: " + email + " @ " + ip);
-                if(!FOR_ADDING.equals(ip)) {
-                    touchStmt.setInt(1, u.id);
-                    touchStmt.executeUpdate();
-                    conn.commit();
+                if(!ip.startsWith("RSS@")) {
+                    logger.info("Login: " + email + " @ " + ip);
+                    if(!FOR_ADDING.equals(ip)) {
+                        touchStmt.setInt(1, u.id);
+                        touchStmt.executeUpdate();
+                        conn.commit();
+                    }
                 }
                 
                 return u;

@@ -1003,6 +1003,12 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+        
+        if(isUnofficial &&  // no RSS on the official site- for now
+                ctx.locale != null) {
+            ctx.println(fora.forumFeedStuff(ctx));
+        }
+        
         ctx.println("</head>");
         ctx.println("<body>");
         if(isUnofficial) {
@@ -1103,7 +1109,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 u=u+"|"+k+"="+v;
             }
-            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on ?" + u)+"'>Feedback</a>");
+            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on ?" + u)+"'>Report Problem in Tool</a>");
         } catch (Throwable t) {
             System.err.println(t.toString());
             t.printStackTrace();
@@ -3298,12 +3304,18 @@ public void doRaw(WebContext ctx) {
 
 public static final String XML_PREFIX="/xml/main";
 public static final String VXML_PREFIX="/vxml/main";
+public static final String FEED_PREFIX="/feed";
 
 public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
     String s = request.getPathInfo();
-    if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX))) {
+    
+    if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
         return false;
+    }
+    
+    if(s.startsWith(FEED_PREFIX)) {
+        return fora.doFeed(request, response);
     }
 
     boolean finalData = false;
@@ -5368,7 +5380,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     }
 
     {
-        ctx.print("<tt class='hangsml' title='"+baseInfo+"' >");
+        ctx.print("<tt title='"+baseInfo+"' >");
         String typeShown = p.type.replaceAll("/","/\u200b");
         if(!zoomedIn) {
             fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown);

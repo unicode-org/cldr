@@ -42,7 +42,7 @@ public class ExampleGenerator {
 
   private final static String EXEMPLAR_CITY = "Europe/Rome";
 
-  private String backgroundStart = "<span style='background-color: gray'>";
+  private String backgroundStart = "<span style='background-color: silver'>";
 
   private String backgroundEnd = "</span>";
 
@@ -61,6 +61,10 @@ public class ExampleGenerator {
   private Map<String, String> cache = new HashMap();
 
   private static final String NONE = "\uFFFF";
+
+  private static final String backgroundStartSymbol = "\uE1234";
+
+  private static final String backgroundEndSymbol = "\uE1235";
 
   // Matcher skipMatcher = Pattern.compile(
   // "/localeDisplayNames(?!"
@@ -136,6 +140,7 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
       if (parts.contains("dateRangePattern")) { // {0} - {1}
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
         result = MessageFormat.format(value, new Object[]{setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2))});
+        result = finalizeBackground(result);
         break main;
       }
       if (parts.contains("timeZoneNames")) {
@@ -154,9 +159,9 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
           result = getGMTFormat(value, null);
         }
+        result = finalizeBackground(result);
         break main;
       }
-      if (true) break main; // for now
       if (xpath.contains("/exemplarCharacters")) {
         if (zoomed == Zoomed.IN) {
           UnicodeSet unicodeSet = new UnicodeSet(value);
@@ -170,6 +175,7 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
         if (xpath.contains("/codePatterns")) {
           parts.set(xpath);
           result = MessageFormat.format(value, new Object[] { setBackground("CODE") });
+          result = finalizeBackground(result);
         }
         break main;
       }
@@ -177,6 +183,8 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
         String currency = parts.getAttributeValue(-2, "type");
         DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency);
         result = x.format(12345.6789);
+        result = setBackground(result).replace(currency,backgroundEndSymbol + currency + backgroundStartSymbol);
+        result = finalizeBackground(result);
         break main;
       }
       if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
@@ -196,6 +204,7 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
           }
           dateFormat.setTimeZone(ZONE_SAMPLE);
           result = dateFormat.format(DATE_SAMPLE);
+          result = finalizeBackground(result);
         } else if (parts.contains("numbers")) {
           DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
           result = numberFormat.format(NUMBER_SAMPLE);
@@ -226,7 +235,15 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
    */
   private String setBackground(String inputPattern) {
     Matcher m = PARAMETER.matcher(inputPattern);
-    return backgroundStart + m.replaceAll(backgroundEnd + "$1" + backgroundStart) + backgroundEnd;
+    return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol) + backgroundEndSymbol;
+  }
+  
+  private String finalizeBackground(String input) {
+    return input == null ? input : input
+        .replace(backgroundStartSymbol+backgroundEndSymbol,"") // remove null runs
+        .replace(backgroundEndSymbol+backgroundStartSymbol,"") // remove null runs
+        .replace(backgroundStartSymbol, backgroundStart)
+        .replace(backgroundEndSymbol, backgroundEnd);
   }
 
   static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");

@@ -130,7 +130,9 @@ public class ShowLanguages {
     pw1.println("</td></tr>");
     pw1.close();
     
-    //linfo.showCoverageGoals(pw);
+    if (System.getProperty("Coverage") != null) {
+      linfo.showCoverageGoals(pw);
+    }
     
     linfo.showCorrespondances();
     
@@ -773,9 +775,12 @@ public class ShowLanguages {
     private void showCoverageGoals(PrintWriter pw) throws IOException {
       PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Coverage Goals", "<p>" +
           "The following show default coverage goals for member data submitters. " +
-          "Values for the goals are as defined in the LDML spec. " +
           "<i>[basic]</i> shows where there is no specific value for a given vendor, " +
-          "while <i>(...)</i> indicates that the goal is inherited from the parent. A * is added if the goal differs from the parent locale's goal." +
+          "while <i>(...)</i> indicates that the goal is inherited from the parent. " +
+          "A * is added if the goal differs from the parent locale's goal. " +
+          "For information on what these goals mean (comprehensive, modern, moderate,...), see the LDML specification " +
+          "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
+          "See also the coverageAdditions in <a href='http://www.unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml'>supplemental metadata</a>." +
       "</p>"));
       
       

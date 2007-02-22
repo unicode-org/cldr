@@ -495,6 +495,10 @@ public class WebContext {
         if(o == null) {
             println("null");
             return 0;
+        } else if(o instanceof String) {
+            return staticInfo_String(o);
+        } else if(o instanceof Boolean) {
+            return staticInfo_Boolean(o);
         } else if(o instanceof Reference) {
             return staticInfo_Reference(o);
         } else if(o instanceof Hashtable) {
@@ -520,6 +524,19 @@ public class WebContext {
         }
         println("</ul>");
         return s;
+    }
+
+    public int staticInfo_String(Object o) {
+        String obj = (String)o;
+        println("("+obj+")<br>");
+        return 1;
+    }
+
+    public int staticInfo_Boolean(Object o) {
+        Boolean obj = (Boolean)o;
+        boolean b = (boolean)obj;
+        println(obj.toString()+"<br>");
+        return 1;
     }
     
     public final int staticInfo() {
@@ -720,6 +737,6 @@ public class WebContext {
         return iconThing("hand",message);
     }
     public String iconThing(String icon, String message) {
-        return "<img border='0' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
+        return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
     }
 }

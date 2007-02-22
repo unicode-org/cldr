@@ -676,17 +676,17 @@ public class SurveyMain extends HttpServlet {
             ctx.staticInfo();
         } else if(action.equals("sessions"))  {
             ctx.println("<h1>Current Sessions</h1>");
-            ctx.println("<table summary='User list' border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
+            ctx.println("<table summary='User list' border=1><tr><th>age</th><th>user</th><th>what</th><th>action</th></tr>");
             for(Iterator li = CookieSession.getAll();li.hasNext();) {
                 CookieSession cs = (CookieSession)li.next();
-                ctx.println("<tr><td><tt style='font-size: 72%'>" + cs.id + "</tt></td>");
+                ctx.println("<tr><!-- <td><tt style='font-size: 72%'>" + cs.id + "</tt></td> -->");
                 ctx.println("<td>" + timeDiff(cs.last) + "</td>");
                 if(cs.user != null) {
-                    ctx.println("<td>" + cs.user.email + "<br/>" + 
-                                cs.user.name + "<br/>" + 
+                    ctx.println("<td><tt>" + cs.user.email + "</tt><br/>" + 
+                                "<b>"+cs.user.name + "</b><br/>" + 
                                 cs.user.org + "</td>");
                 } else {
-                    ctx.println("<td><i>Guest</i><br>"+cs.ip+"</td>");
+                    ctx.println("<td><i>Guest</i><br><tt>"+cs.ip+"<tt></td>");
                 }
                 ctx.println("<td>");
                 Hashtable lh = cs.getLocales();
@@ -970,9 +970,9 @@ public class SurveyMain extends HttpServlet {
      * print menu of stuff to 'work with' a live user session..
      */
     private void printLiveUserMenu(WebContext ctx, CookieSession cs) {
-        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>" + "see" + "</a> |");
-        ctx.println("<a href='" + ctx.base() + "?&amp;s=" + cs.id + "'>" + "be" + "</a> |");
-        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" + "kick" + "</a>");
+        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>" + ctx.iconThing("zoom","SEE this user") + "see" + "</a> |");
+        ctx.println("<a href='" + ctx.base() + "?&amp;s=" + cs.id + "'>"  +"be" + "</a> |");
+        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" +  "kick" + "</a>");
     }
     
     static boolean showedComplaint = false;
@@ -1011,6 +1011,13 @@ public class SurveyMain extends HttpServlet {
         
         ctx.println("</head>");
         ctx.println("<body>");
+        if(/*!isUnofficial && */ 
+            ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||
+                false)) {
+            ctx.print("<div title='You're an admin!' style='text-align: center; margin: 0; background-color: red;'>");
+            ctx.printHelpLink("/Admin",ctx.iconThing("stop","Admin!")+"Be careful, you are an administrator!");
+            ctx.println("</div>");
+        }
         if(isUnofficial) {
             ctx.print("<div title='Not an official SurveyTool' style='text-align: center; margin: 0; background-color: goldenrod;'>");
             ctx.printHelpLink("/Unofficial",ctx.iconThing("warn","Unofficial Site")+"Unofficial");
@@ -1094,6 +1101,7 @@ public class SurveyMain extends HttpServlet {
             Map m = new TreeMap(ctx.request.getParameterMap());
             m.remove("sql");
             m.remove("pw");
+            m.remove(QUERY_PASSWORD_ALT);
             m.remove("email");
             m.remove("dump");
             m.remove("s");
@@ -1109,7 +1117,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 u=u+"|"+k+"="+v;
             }
-            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on ?" + u)+"'>Report Problem in Tool</a>");
+            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on URL ?" + u)+"'>Report Problem in Tool</a>");
         } catch (Throwable t) {
             System.err.println(t.toString());
             t.printStackTrace();
@@ -2003,25 +2011,33 @@ public class SurveyMain extends HttpServlet {
         String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
         boolean areSendingMail = false;
 		boolean didConfirmMail = false;
-		boolean areSendingDisp = (ctx.field(LIST_MAILUSER+"_d").length())>0;
+		boolean areSendingDisp = (ctx.field(LIST_MAILUSER+"_d").length())>0; // sending a dispute note?
         String mailBody = null;
         String mailSubj = null;
+        boolean hideUserList = false;
         if(UserRegistry.userCanEmailUsers(ctx.session.user)) {
             cleanEmail = ctx.session.user.email;
             if(cleanEmail.equals("admin@")) {
                 cleanEmail = "surveytool@unicode.org";
             }
             if(ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)) {
-                ctx.println("<h4>begin sending mail...</h4>");
+                ctx.println("<h1>sending mail to users...</h4>");
 				didConfirmMail=true;
                 mailBody = "Message from " + getRequester(ctx) + ":\n--------\n"+sendWhat+
                     "\n--------\n\nSurvey Tool: http://" + ctx.serverHostport() + ctx.base()+"\n\n";
                 mailSubj = "CLDR SurveyTool message from " +getRequester(ctx);
 				if(!areSendingDisp) {
-					areSendingMail= true;
+					areSendingMail= true; // we are ready to go ahead and mail..
 				}
+            } else if(ctx.hasField(LIST_MAILUSER_CONFIRM)) {
+                ctx.println("<h1 class='ferrbox'>"+ctx.iconThing("stop","emails did not match")+" not sending mail - you did not confirm the email address. See form at bottom of page."+"</h1>");
+            }
+            
+            if(!areSendingMail && !areSendingDisp && ctx.hasField(LIST_MAILUSER)) {
+                hideUserList = true; // hide the user list temporarily.
             }
         }
+        
         try { synchronized(reg) {
             java.sql.ResultSet rs = reg.list(org);
             if(rs == null) {
@@ -2042,6 +2058,16 @@ public class SurveyMain extends HttpServlet {
             }
             // Preset box
             boolean preFormed = false;
+            
+            if(hideUserList) {
+                String warnHash = "userlist";
+                ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
+                            "<b>+</b> Click here to show the user list...</a></div>");
+                ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                            "<div style='display: none' id='" + warnHash + "'>" );
+                ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
+
+            }
             
             if(/*(just==null) 
                   &&*/ UserRegistry.userCanModifyUsers(ctx.session.user) && !justme) {
@@ -2194,7 +2220,7 @@ public class SurveyMain extends HttpServlet {
                 
                 if(just==null) {
                     ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(theirEmail)+
-                        "' title='More on this user...'>\u22d7</a>");
+                        "' >"+ctx.iconThing("zoom","More on this user..")+"</a>");
                 }
                 ctx.println("</td>");
                 
@@ -2278,6 +2304,10 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("  </tr>");
             }
             ctx.println("</table>");
+            
+            if(hideUserList ) {
+                ctx.println("</div>");
+            }
             if(!justme) {
                 ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br>");
             }
@@ -2297,13 +2327,13 @@ public class SurveyMain extends HttpServlet {
 							}
                         } else { // dont' allow resend option
 							if(sendWhat.length()>0) {
-								ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"_d'>Check this box to send a Dispute complaint to your vetters. (Otherwise it is just a normal email.)</label><br>");
+								ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"_d'>Check this box to send a Dispute complaint with this email.</label><br>");
 							} else {
 								ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
 							}
                             ctx.println("<input type='hidden' name='"+LIST_MAILUSER+"' value='y'>");
                         }
-                        ctx.println("From: "+cleanEmail+"<br>");
+                        ctx.println("From: <b>"+cleanEmail+"</b><br>");
                         if(sendWhat.length()>0) {
                             ctx.println("<div class='odashbox'>"+
                                 TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n","<br>")+
@@ -2312,9 +2342,9 @@ public class SurveyMain extends HttpServlet {
                                 ctx.println("<input type='hidden' name='"+LIST_MAILUSER_WHAT+"' value='"+
                                         sendWhat.replaceAll("&","&amp;").replaceAll("'","&quot;")+"'>");
                                 if(!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail) && (ctx.field(LIST_MAILUSER_CONFIRM).length()>0)) {
-                                    ctx.println("<strong>That email didn't match. Try again.</strong><br>");
+                                    ctx.println("<strong>"+ctx.iconThing("stop","email did not match")+"That email didn't match. Try again.</strong><br>");
                                 }
-                                ctx.println("To confirm sending, type your email address (just as it is above): <input name='"+LIST_MAILUSER_CONFIRM+
+                                ctx.println("To confirm sending, type the email address <tt class='codebox'>"+cleanEmail+"</tt> in this box : <input name='"+LIST_MAILUSER_CONFIRM+
                                     "'>");
                             }
                         } else {
@@ -6754,7 +6784,7 @@ private void doStartupDB()
     }
     
     public static String bugReplyUrl(String folder, int number, String subject) {
-        return BUG_URL_BASE + "/"+folder+"?compose="+number+"&subject="+java.net.URLEncoder.encode(subject);
+        return BUG_URL_BASE + "/"+folder+"?compose="+number+"&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
     }
     
 

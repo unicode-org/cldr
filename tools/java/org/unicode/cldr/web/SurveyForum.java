@@ -957,7 +957,7 @@ throws IOException, ServletException {
            ctx.session.user == null) {
             return "";
         }
-        String feedUrl = ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
             ctx.session.user.password+"&amp;");
         return 
              "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" +

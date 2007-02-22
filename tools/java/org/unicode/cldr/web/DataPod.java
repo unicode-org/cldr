@@ -63,6 +63,8 @@ public class DataPod extends Registerable {
     private String fieldHash; // prefix string used for calculating html fields
     private SurveyMain sm;
     
+    public boolean hasExamples = false;
+    
     public ExampleGenerator exampleGenerator = null;
 
     public String intgroup; 
@@ -191,6 +193,8 @@ public class DataPod extends Registerable {
             int xpathId = -1;
             
             public Set votes = null; // Set of Users who voted for this.
+            
+            public String example = "";
         }
         
         public Set items = new TreeSet(new Comparator() {
@@ -1192,8 +1196,8 @@ public class DataPod extends Registerable {
                         }
                         myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
                         */
-                    } else if (!(isCodeFallback &&
-                        (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { 
+                    } else /* if (!(isCodeFallback &&
+                        (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) */ { 
                         // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
                         weHaveTests = true;
                         if(status.getType().equals(status.errorType)) {

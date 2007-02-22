@@ -436,12 +436,12 @@ table.tzbox td {
 }
 
 table.tzbox tr.r0 td {
-	color:  darkgray;
+	color: #555;
 }
 
 table.tzbox tr.r1 td {
-	color:  darkgray;
-	background-color:  lightgoldenrodyellow;
+	color:  #555;
+	background-color: #fe9;
 }
 
 table.tzbox tr.r0currentZone td {
@@ -451,7 +451,7 @@ table.tzbox tr.r0currentZone td {
 
 table.tzbox tr.r1currentZone td {
 	color:  black;
-	background-color: lightgoldenrodyellow;
+	background-color: #fe9;
 }
 
 table.tzbox tt.codebox {
@@ -471,7 +471,7 @@ table.sqlbox th {
 	border-bottom:  2px solid gray;
 	color: navy;
 	font-size: 50%;
-	background-color: whitesmoke;
+	background-color: #dde;
 }
 
 table.sqlbox td {
@@ -487,7 +487,7 @@ table.sqlbox tr.r0 td {
 
 table.sqlbox tr.r1 td {
 	color:  black;
-	background-color:  lightgoldenrodyellow;
+	background-color:  #fe9;
 }
 
 /* forms here don't need a margin */
@@ -518,7 +518,7 @@ table.sqlbox form {
 }
 
 .loser {
-	border: 4px solid rgba(255,255,255,0);
+/*	border: 4px solid rgba(255,255,255,0);*/
 	/*color:  #333;*/
 }
 

@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
@@ -39,7 +40,7 @@ public class CheckAttributeValues extends CheckCLDR {
     boolean isEnglish;
 
     XPathParts parts = new XPathParts(null, null);
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
         	if (parts.getAttributeCount(i) == 0) continue;

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 
@@ -67,7 +68,7 @@ public class CheckNumbers extends CheckCLDR {
    * This is the method that does the check. Notice that for performance, you should try to
    * exit as fast as possible except where the path is one that you are testing.
    */
-  public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+  public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     // Do a quick check on the currencyMatch, to make sure that it is a proper UnicodeSet
     if (path.indexOf("/currencyMatch") >= 0) {
       try {

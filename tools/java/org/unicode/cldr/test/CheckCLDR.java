@@ -30,6 +30,7 @@ import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
@@ -78,12 +79,12 @@ abstract public class CheckCLDR {
     .add(new CheckDisplayCollisions())
     .add(new CheckExemplars())
     .add(new CheckForExemplars())
-    .add(new CheckNew())
     .add(new CheckNumbers())
     .add(new CheckZones())
     .add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
+    .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
     ;
   }
   
@@ -113,7 +114,8 @@ abstract public class CheckCLDR {
   SHOWALL = 8,
   PRETTY = 9,
   ERRORS_ONLY = 10,
-  CHECK_ON_SUBMIT = 11
+  CHECK_ON_SUBMIT = 11,
+  NO_ALIASES = 12
   ;
   
   private static final UOption[] options = {
@@ -129,6 +131,7 @@ abstract public class CheckCLDR {
     UOption.create("pretty", 'p', UOption.NO_ARG),
     UOption.create("errors_only", 'e', UOption.NO_ARG),
     UOption.create("check-on-submit", 'k', UOption.NO_ARG),
+    UOption.create("noaliases", 'n', UOption.NO_ARG),
   };
   
   private static String[] HelpMessage = {
@@ -141,6 +144,7 @@ abstract public class CheckCLDR {
     "-d \t Turn on special date format checks",
     "-s \t Show all paths",
     "-e \t Show errors only",
+    "-n \t No aliases",
   };
   
   /**
@@ -153,6 +157,7 @@ abstract public class CheckCLDR {
    * @throws IOException 
    */
   public static void main(String[] args) throws IOException {
+    Utility.showOptions(args);
     double deltaTime = System.currentTimeMillis();
     UOption.parseArgs(args, options);
     if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
@@ -171,6 +176,7 @@ abstract public class CheckCLDR {
     boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
     boolean pretty = options[PRETTY].doesOccur; 
     boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur; 
+    boolean noaliases = options[NO_ALIASES].doesOccur; 
     
     Level coverageLevel = null;
     String coverageLevelInput = options[COVERAGE].value;
@@ -314,6 +320,8 @@ abstract public class CheckCLDR {
 //      }
       
       ExampleGenerator exampleGenerator = new ExampleGenerator(file);
+      Status pathStatus = new Status();
+      
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {
         
         String path = (String) it2.next();
@@ -322,7 +330,13 @@ abstract public class CheckCLDR {
 //          value = file.getStringValue(path);
 //        }
         String fullPath = file.getFullXPath(path);
-
+        if (noaliases) { // this is just for console testing, the survey tool shouldn't do it.
+          String sourceLocale = file.getSourceLocaleID(path, pathStatus);
+          if (!path.equals(pathStatus.pathWhereFound)) {
+            continue;
+          }
+        }
+        
         String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
 
         if (SHOW_EXAMPLES) {
@@ -786,7 +800,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
    * It can be used for new data entry.
    * @param result
    */
-  public final CheckCLDR check(String path, String fullPath, String value, Map options, List result) {
+  public final CheckCLDR check(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     if(cldrFileToCheck == null) {
       throw new InternalError("CheckCLDR problem: cldrFileToCheck must not be null");
     }
@@ -836,7 +850,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
    * @param options TODO
    */
   abstract public CheckCLDR handleCheck(String path, String fullPath, String value,
-      Map options, List result);
+      Map<String, String> options, List<CheckStatus> result);
   
   /**
    * Internal class used to bundle up a number of Checks.
@@ -856,7 +870,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       return this;
     }
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map options, List result) {
+        Map<String, String> options, List<CheckStatus> result) {
       result.clear();
       for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
         CheckCLDR item = (CheckCLDR) it.next();

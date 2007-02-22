@@ -24,7 +24,7 @@ public class CheckAlt extends CheckCLDR {
 	// determine if we have an alt=...proposed
 	// if we have one, and there is not a non-proposed version -- in this same file, unaliased, there's a problem.
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
-			Map options, List result) {
+			Map<String, String> options, List<CheckStatus> result) {
 		if (path.indexOf("proposed") <= 0) return this;
 		String localeID = getCldrFileToCheck().getSourceLocaleID(path, status);
 		if (!localeID.equals(getCldrFileToCheck().getLocaleID())) return this; // must be same file

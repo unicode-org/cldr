@@ -3,6 +3,8 @@ package org.unicode.cldr.test;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -24,6 +26,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.PrettyPrinter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -31,11 +34,26 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestMisc {
     public static void main(String[] args) {
+      Set s = new HashSet(Arrays.asList("a", "A", "c"));
+      Collator caselessCompare = Collator.getInstance(Locale.ENGLISH);
+      caselessCompare.setStrength(Collator.PRIMARY);
+      Set t = new TreeSet((Comparator)caselessCompare);
+      t.addAll(Arrays.asList("a", "b", "c"));
+      System.out.println("s equals t: " + s.equals(t));
+      System.out.println("t equals s: " + t.equals(s));
+
+      
+      Set u = Collections.unmodifiableSet(t);
+      System.out.println("s==t " + (s.equals(t)));
+      System.out.println("s==u " + (s.equals(u)));
+      UnicodeSet x = new UnicodeSet("[a-z]");
+      UnicodeSet y = (UnicodeSet) new UnicodeSet("[a-z]").freeze();
+      System.out.println("x==y " + (x.equals(y)));
     	//showEnglish();
     	//checkPrivateUse();
     	//testPopulous();
     	//checkDistinguishing();
-      checkEastAsianWidth();
+      //checkEastAsianWidth();
       //checkEnglishPaths();
       System.out.println("Done");
     }

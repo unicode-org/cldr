@@ -198,10 +198,13 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
             date2.applyPattern(MessageFormat.format(value, new Object[]{
                 setBackground(time.toPattern()), setBackground(date2.toPattern())}));
             dateFormat = date2;
-          } else if (parts.contains("[@id=\"NEW\"]")) {
-            break main;
           } else {
-            dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+            String id = parts.findAttributeValue("dateFormatItem","id");
+            if ("NEW".equals(id)) {
+              break main;
+            } else {
+              dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+            }
           }
           dateFormat.setTimeZone(ZONE_SAMPLE);
           result = dateFormat.format(DATE_SAMPLE);

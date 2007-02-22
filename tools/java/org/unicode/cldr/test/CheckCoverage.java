@@ -34,7 +34,7 @@ public class CheckCoverage extends CheckCLDR {
     private boolean requireConfirmed = true;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-            Map options, List result) {
+            Map<String, String> options, List<CheckStatus> result) {
         // for now, skip all but localeDisplayNames
         if (skip) return this;
         if (options.get("submission") == null) return this;

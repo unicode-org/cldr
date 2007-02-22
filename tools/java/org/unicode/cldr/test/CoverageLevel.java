@@ -659,7 +659,9 @@ public class CoverageLevel {
   Set multizoneTerritories = null;
   
   private void getData(CLDRFile data) {
-    for (Iterator it = data.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
+    // optimization -- don't get the paths in sorted order.
+    // data.iterator(null, CLDRFile.ldmlComparator)
+    for (Iterator it = data.iterator(); it.hasNext();) {
       String path = (String) it.next();
       //String value = metadata.getStringValue(path);
       path = data.getFullXPath(path);

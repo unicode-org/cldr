@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
@@ -33,7 +34,7 @@ public class CheckCasing extends CheckCLDR {
   }
 
   // If you don't need any file initialization or postprocessing, you only need this one routine
-  public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+  public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     // it helps performance to have a quick reject of most paths
     if (fullPath.indexOf("casing") < 0) return this;
     

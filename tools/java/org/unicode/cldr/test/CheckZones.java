@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 import java.util.List;
 import java.util.Map;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XMLSource;
@@ -44,7 +45,7 @@ public class CheckZones extends CheckCLDR {
     String previousTo = new String("present");
     
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
-			Map options, List result) {
+			Map<String, String> options, List<CheckStatus> result) {
 		if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
 			return this;
 		if (timezoneFormatter == null) {

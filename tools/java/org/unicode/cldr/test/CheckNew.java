@@ -1,5 +1,7 @@
 package org.unicode.cldr.test;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -19,11 +21,16 @@ public class CheckNew extends CheckCLDR {
     //  dateTimes/availableDateFormats/NEW
     // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="second"]/displayName
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (stuffToCheckFor.reset(path).matches()) {
+          for (CheckStatus resultItem : result) {
+            if (resultItem.getCause().getClass() == CheckCoverage.class) {
+              return this;
+            }
+          }
             result.add(new CheckStatus()
                     .setCause(this).setType(CheckStatus.warningType)
-                    .setMessage("New field: may need translation or fixing."));
+                    .setMessage("Relatively new field: may need translation or fixing."));
         }
         return this;
     }

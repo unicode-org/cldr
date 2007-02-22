@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -818,5 +819,10 @@ public class Utility {
       lastPrefix = prefix;
     }
     return output.toString();
+  }
+
+  public static void showOptions(String[] args) {
+    Properties props = System.getProperties();
+    System.out.println("Arguments: " + join(args," ") + (props == null ? "" : " " + props));
   }
 }

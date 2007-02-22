@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.impl.CollectionUtilities;
@@ -34,7 +35,7 @@ public class CheckExemplars extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
 		if (path.indexOf("/exemplarCharacters") < 0) return this;
 		boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
         checkExemplar(value, result, isAuxiliary);

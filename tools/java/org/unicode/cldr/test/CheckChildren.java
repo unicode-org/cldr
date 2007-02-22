@@ -18,7 +18,7 @@ public class CheckChildren extends CheckCLDR {
 	Map tempSet = new HashMap();
 	
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
-			Map options, List result) {
+			Map<String, String> options, List<CheckStatus> result) {
 		if (immediateChildren == null) return this; // skip
 		
         if (options.get("submission") == null) return this;

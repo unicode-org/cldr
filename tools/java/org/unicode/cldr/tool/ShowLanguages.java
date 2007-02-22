@@ -775,7 +775,7 @@ public class ShowLanguages {
     private void showCoverageGoals(PrintWriter pw) throws IOException {
       PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Coverage Goals", "<p>" +
           "The following show default coverage goals for member data submitters. " +
-          "<i>[basic]</i> shows where there is no specific value for a given vendor, " +
+          "<i>[n/a]</i> shows where there is no specific value for a given vendor, " +
           "while <i>(...)</i> indicates that the goal is inherited from the parent. " +
           "A * is added if the goal differs from the parent locale's goal. " +
           "For information on what these goals mean (comprehensive, modern, moderate,...), see the LDML specification " +
@@ -787,9 +787,9 @@ public class ShowLanguages {
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,4)
       .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0)
-      .addColumn("Locale", "class='source'", null, "class='source'", false)
+      .addColumn("Locale", "class='source'", null, "class='source'", false).setSortPriority(1)
       .addColumn("Code", "class='source'", "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
-      .addColumn("CLDR", "class='source'", null, "class='source'", false).setSortAscending(false).setSortPriority(1)
+      .addColumn("CLDR", "class='source'", null, "class='source'", false)
       ;
       Map<String, Map<String, String>> vendordata = sc.getLocaleTypes();
       Set<String> locales = new TreeSet();
@@ -867,7 +867,7 @@ public class ShowLanguages {
       while (status == null) {
         curLocale = LanguageTagParser.getParent(curLocale);
         if (curLocale.equals("root")) {
-          status = "<i>[basic]</i>";
+          status = "<i>[n/a]</i>";
           break;
         }
         status = vendordata.get(vendor).get(curLocale);

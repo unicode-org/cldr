@@ -403,64 +403,65 @@ public class XPathParts {
 	}
 	
 	private XPathParts addInternal(String xPath, boolean initial) {
-    	String lastAttributeName = "";
-    	//if (xPath.length() == 0) return this;
-    	String requiredPrefix = "/";
-    	if (initial) {
-        	elements.clear();
-        	requiredPrefix = "//";
-    	}
-    	if (!xPath.startsWith(requiredPrefix)) return parseError(xPath, 0);
-    	int stringStart = requiredPrefix.length(); // skip prefix
-		char state = 'p';
-		// since only ascii chars are relevant, use char
-		for (int i = 2; i < xPath.length(); ++i) {
-			char cp = xPath.charAt(i);
-			if (cp != state && (state == '\"' || state == '\'')) continue; // stay in quotation
-			switch(cp) {
-			case '/':
-				if (state != 'p' || stringStart >= i) return parseError(xPath,i);
-    			if (stringStart > 0) addElement(xPath.substring(stringStart, i));
-				stringStart = i+1;
-				break;
-			case '[':
-				if (state != 'p' || stringStart >= i) return parseError(xPath,i);
-				if (stringStart > 0) addElement(xPath.substring(stringStart, i));
-				state = cp;
-				break;
-			case '@': 
-				if (state != '[') return parseError(xPath,i);
-				stringStart = i+1;
-				state = cp;
-				break;
-			case '=': 
-				if (state != '@' || stringStart >= i) return parseError(xPath,i);
-				lastAttributeName = xPath.substring(stringStart, i);
-				state = cp;
-				break;
-			case '\"':
-			case '\'':
-				if (state == cp) { // finished
-					if (stringStart > i) return parseError(xPath,i);
-					addAttribute(lastAttributeName, xPath.substring(stringStart, i));
-					state = 'e';
-					break;
-				}
-				if (state != '=') return parseError(xPath,i);
-				stringStart = i+1;
-				state = cp;
-				break;
-			case ']': 
-				if (state != 'e') return parseError(xPath,i);
-				state = 'p';
-				stringStart = -1;
-				break;
-			}
-		}
-		// check to make sure terminated
-		if (state != 'p' || stringStart >= xPath.length()) return parseError(xPath,xPath.length());
-		if (stringStart > 0) addElement(xPath.substring(stringStart, xPath.length()));
-		return this;
+	  String lastAttributeName = "";
+	  //if (xPath.length() == 0) return this;
+	  String requiredPrefix = "/";
+	  if (initial) {
+	    elements.clear();
+	    requiredPrefix = "//";
+	  }
+	  if (!xPath.startsWith(requiredPrefix)) return parseError(xPath, 0);
+	  int stringStart = requiredPrefix.length(); // skip prefix
+	  char state = 'p';
+	  // since only ascii chars are relevant, use char
+	  int len = xPath.length();
+	  for (int i = 2; i < len; ++i) {
+	    char cp = xPath.charAt(i);
+	    if (cp != state && (state == '\"' || state == '\'')) continue; // stay in quotation
+	    switch(cp) {
+	      case '/':
+	        if (state != 'p' || stringStart >= i) return parseError(xPath,i);
+	        if (stringStart > 0) addElement(xPath.substring(stringStart, i));
+	        stringStart = i+1;
+	        break;
+	      case '[':
+	        if (state != 'p' || stringStart >= i) return parseError(xPath,i);
+	        if (stringStart > 0) addElement(xPath.substring(stringStart, i));
+	        state = cp;
+	        break;
+	      case '@': 
+	        if (state != '[') return parseError(xPath,i);
+	        stringStart = i+1;
+	        state = cp;
+	        break;
+	      case '=': 
+	        if (state != '@' || stringStart >= i) return parseError(xPath,i);
+	        lastAttributeName = xPath.substring(stringStart, i);
+	        state = cp;
+	        break;
+	      case '\"':
+	      case '\'':
+	        if (state == cp) { // finished
+	          if (stringStart > i) return parseError(xPath,i);
+	          addAttribute(lastAttributeName, xPath.substring(stringStart, i));
+	          state = 'e';
+	          break;
+	        }
+	        if (state != '=') return parseError(xPath,i);
+	        stringStart = i+1;
+	        state = cp;
+	        break;
+	      case ']': 
+	        if (state != 'e') return parseError(xPath,i);
+	        state = 'p';
+	        stringStart = -1;
+	        break;
+	    }
+	  }
+	  // check to make sure terminated
+	  if (state != 'p' || stringStart >= xPath.length()) return parseError(xPath,xPath.length());
+	  if (stringStart > 0) addElement(xPath.substring(stringStart, xPath.length()));
+	  return this;
 	}
 
 	/**
@@ -525,7 +526,8 @@ public class XPathParts {
 		private Map<String,String> attributes; // = new TreeMap(AttributeComparator);
 
 		public Element(String element) {
-			this.element = element;
+      // if we don't intern elements, we'd have to change equals.
+			this.element = element.intern();
 			this.attributes = null;
 		}
 		
@@ -623,7 +625,8 @@ public class XPathParts {
 		public boolean equals(Object other) {
 			if (other == null || !getClass().equals(other.getClass())) return false;
 			Element that = (Element)other;
-			return element.equals(that.element) && getAttributes().equals(that.getAttributes());
+      // == check is ok since we intern elements
+			return element == that.element && getAttributes().equals(that.getAttributes());
 		}
 		public int hashCode() {
 			return element.hashCode()*37 + getAttributes().hashCode();

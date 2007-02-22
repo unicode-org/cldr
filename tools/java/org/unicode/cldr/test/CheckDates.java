@@ -123,7 +123,7 @@ public class CheckDates extends CheckCLDR {
   FlexibleDateFromCLDR flexInfo;
   Collection redundants = new HashSet();
   
-  public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
+  public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
     try {
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {

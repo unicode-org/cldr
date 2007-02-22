@@ -26,9 +26,11 @@ public class CheckForExemplars extends CheckCLDR {
   
   UnicodeSet exemplars;
   UnicodeSet scriptRegionExemplars;
+  UnicodeSet currencySymbolExemplars;
   boolean skip;
   Collator col;
   Collator spaceCol;
+  String informationMessage;
   
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map options, List possibleErrors) {
     if (cldrFile == null) return this;
@@ -38,6 +40,7 @@ public class CheckForExemplars extends CheckCLDR {
       return this;
     }
     String locale = cldrFile.getLocaleID();
+    informationMessage = "<a href='http://unicode.org/cldr/apps/survey?_=" + locale + "&x=characters'>characters</a>";
     col = Collator.getInstance(new ULocale(locale));
     spaceCol = Collator.getInstance(new ULocale(locale));
     spaceCol.setStrength(col.PRIMARY);
@@ -56,6 +59,12 @@ public class CheckForExemplars extends CheckCLDR {
     if (auxiliary != null) exemplars.addAll(auxiliary);
     exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
     scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
+    currencySymbolExemplars = resolvedFile.getExemplarSet("currencySymbol");
+    if (currencySymbolExemplars == null) {
+      currencySymbolExemplars = new UnicodeSet(exemplars);
+    } else {
+      currencySymbolExemplars.addAll(exemplars);
+    }
     skip = false;
     return this;
   }
@@ -72,6 +81,7 @@ public class CheckForExemplars extends CheckCLDR {
       return this;
     } else if ("root".equals(sourceLocale)) {
       // skip eras for non-gregorian
+      if (true) return this;
       if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
     }
     for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
@@ -79,21 +89,31 @@ public class CheckForExemplars extends CheckCLDR {
     }
     if (path.startsWith("//ldml/posix/messages")) return this;
     
-    if (!exemplars.containsAll(value)) {
+    if (path.contains("/currency") && path.endsWith("/symbol")) {
+      if (!currencySymbolExemplars.containsAll(value)) {
+        UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(currencySymbolExemplars);
+        String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
+        result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+        .setMessage("The characters \u200E{0}\u200E are not used in currency symbols in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
+      }
+    } else if (!exemplars.containsAll(value)) {
       UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
-      .setMessage("Not in exemplars: \u200E{0}\u200E", new Object[]{fixedMissing});
-      result.add(item);
+      result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+      .setMessage("The characters \u200E{0}\u200E are not used in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
     } else if (path.contains("/localeDisplayNames") && !scriptRegionExemplars.containsAll(value)) {
       UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(scriptRegionExemplars);
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-        .setMessage("The characters \u200E{0}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{fixedMissing});
-      result.add(item);
+      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+      .setMessage("The characters \u200E{0}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{fixedMissing}));
     }
-
+    // check for spaces 
+    if (!path.startsWith("//ldml/references/reference") && !path.endsWith("/insertBetween")) {
+      if (!value.equals(value.trim())) {
+        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        .setMessage("This item must not start or end with whitespace."));
+      }
+    }
     return this;
   }
-  
 }

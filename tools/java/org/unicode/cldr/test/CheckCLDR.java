@@ -244,7 +244,7 @@ abstract public class CheckCLDR {
       if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
       if (organization != null) options.put("CoverageLevel.localeType", organization);
       if (true) options.put("submission", "true");
-      if (SHOW_LOCALE) System.out.println("Locale\tKey\tLoc.Value\tLoc.Ex\tEng.Value\tEng.Ex.\tStatus");
+      if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
       
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
@@ -273,45 +273,45 @@ abstract public class CheckCLDR {
         fset.set(file);
       }
       pathShower.set(localeID);
-      if (pretty) {
-        System.out.println("Showing Pretty Paths");
-        Map prettyMap = new TreeMap();
-        Set prettySet = new TreeSet();
-        for (Iterator it2 = paths.iterator(); it2.hasNext();) {
-          String path = (String)it2.next();
-          String prettyString = prettyPath.getPrettyPath(path);
-          if (prettyString.indexOf("%%") >= 0) prettyString = "unmatched/" + prettyString;
-          Object old = prettyMap.get(prettyString);
-          if (old != null) {
-            System.out.println("Collision with: ");
-            System.out.println("\t" + prettyString);
-            System.out.println("\t\t" + path);
-            System.out.println("\t\t" + old);
-          }
-          prettyMap.put(prettyString, path);
-          String cleanPath = prettyString;
-          int last = prettyString.lastIndexOf('|');
-          if (last >= 0) cleanPath = cleanPath.substring(0,last);
-          prettySet.add(cleanPath);
-          System.out.println(prettyString + " => " + path);
-        }
-        System.out.println("Showing Structure");
-        String oldSplit = pathShower.getSplitChar();
-        pathShower.setSplitChar("\\|");
-        for (Iterator it2 = prettyMap.keySet().iterator(); it2.hasNext();) {
-          String prettyString = (String) it2.next();
-          String path = (String) prettyMap.get(prettyString);
-          pathShower.showHeader(prettyString, file.getStringValue(path));
-        }
-        System.out.println("Showing Non-Leaves");
-        pathShower.setSplitChar(oldSplit);
-        for (Iterator it2 = prettySet.iterator(); it2.hasNext();) {
-          String prettyString = (String) it2.next();
-          System.out.println(prettyString);
-        }
-        System.out.println("Done Showing Pretty Paths");
-        return;
-      }
+//      if (pretty) {
+//        System.out.println("Showing Pretty Paths");
+//        Map prettyMap = new TreeMap();
+//        Set prettySet = new TreeSet();
+//        for (Iterator it2 = paths.iterator(); it2.hasNext();) {
+//          String path = (String)it2.next();
+//          String prettyString = prettyPath.getPrettyPath(path);
+//          if (prettyString.indexOf("%%") >= 0) prettyString = "unmatched/" + prettyString;
+//          Object old = prettyMap.get(prettyString);
+//          if (old != null) {
+//            System.out.println("Collision with: ");
+//            System.out.println("\t" + prettyString);
+//            System.out.println("\t\t" + path);
+//            System.out.println("\t\t" + old);
+//          }
+//          prettyMap.put(prettyString, path);
+//          String cleanPath = prettyString;
+//          int last = prettyString.lastIndexOf('|');
+//          if (last >= 0) cleanPath = cleanPath.substring(0,last);
+//          prettySet.add(cleanPath);
+//          System.out.println(prettyString + " => " + path);
+//        }
+//        System.out.println("Showing Structure");
+//        String oldSplit = pathShower.getSplitChar();
+//        pathShower.setSplitChar("\\|");
+//        for (Iterator it2 = prettyMap.keySet().iterator(); it2.hasNext();) {
+//          String prettyString = (String) it2.next();
+//          String path = (String) prettyMap.get(prettyString);
+//          pathShower.showHeader(prettyString, file.getStringValue(path));
+//        }
+//        System.out.println("Showing Non-Leaves");
+//        pathShower.setSplitChar(oldSplit);
+//        for (Iterator it2 = prettySet.iterator(); it2.hasNext();) {
+//          String prettyString = (String) it2.next();
+//          System.out.println(prettyString);
+//        }
+//        System.out.println("Done Showing Pretty Paths");
+//        return;
+//      }
       
       ExampleGenerator exampleGenerator = new ExampleGenerator(file);
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {
@@ -420,13 +420,15 @@ abstract public class CheckCLDR {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
+    String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
     System.out.println(getLocaleAndName(localeID)
+        + "\t" + shortStatus
         + "\t" + prettyPath.getPrettyPath(path, false)
-        + "\t<" + value + ">"
+        + "\t" + getEnglishPathValue(path)
+        + "\t" + englishExample
+        + "\t" + value
         + "\t" + example
-        + "\t<" + getEnglishPathValue(path) + ">"
-        + "\t" +  englishExample
-        + "\t" + statusString + ""
+        + "\t" + statusString
         + "\t" + fullPath
         );
   }
@@ -738,9 +740,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      * @param reparsed
      */
     public static void appendLine(StringBuffer htmlMessage, String pattern, String context, String input, String formatted, String reparsed) {
-      htmlMessage.append("<tr><td><input type='text' name='pattern' readonly='true' value='")
+      htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
       .append(TransliteratorUtilities.toXML.transliterate(pattern))
-      .append("'></td><td><input type='text' name='context' readonly='true' value='")
+      .append("'></td><td><input type='text' name='context' value='")
       .append(TransliteratorUtilities.toXML.transliterate(context))
       .append("'></td><td><input type='text' name='input' value='")
       .append(TransliteratorUtilities.toXML.transliterate(input))

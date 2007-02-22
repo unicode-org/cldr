@@ -363,20 +363,25 @@ public class ICUServiceBuilder {
   
   public DecimalFormat getCurrencyFormat(String currency) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(currency, CURRENCY);
+    return _getNumberFormat(currency, CURRENCY, null);
+  }
+  
+  public DecimalFormat getCurrencyFormat(String currency, String currencySymbol) {
+    //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+    return _getNumberFormat(currency, CURRENCY, currencySymbol);
   }
   
   public DecimalFormat getNumberFormat(int index) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(NumberNames[index], OTHER_KEY);
+    return _getNumberFormat(NumberNames[index], OTHER_KEY, null);
   }
   
   public DecimalFormat getNumberFormat(String pattern) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(pattern, PATTERN);
+    return _getNumberFormat(pattern, PATTERN, null);
   }
   
-  private DecimalFormat _getNumberFormat(String key1, int kind) {
+  private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol) {
     ULocale ulocale = new ULocale(cldrFile.getLocaleID());
     String key = ulocale + "/" + key1 + "/" + kind;
     DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
@@ -398,7 +403,9 @@ public class ICUServiceBuilder {
       // /ldml/numbers/currencies/currency[@type="GBP"]/symbol
       // /ldml/numbers/currencies/currency[@type="GBP"]
       
-      String symbol = cldrFile.getStringValue(prefix + "symbol");
+      if (currencySymbol == null) {
+        currencySymbol = cldrFile.getStringValue(prefix + "symbol");
+      }
       String currencyDecimal = cldrFile.getStringValue(prefix + "decimal");
       if (currencyDecimal != null) {
         (symbols = cloneIfNeeded(symbols)).setMonetaryDecimalSeparator(currencyDecimal.charAt(0));
@@ -420,15 +427,15 @@ public class ICUServiceBuilder {
       if (pattern.contains(";")) { // multi pattern
         String[] pieces = pattern.split(";");
         for (int i = 0; i < pieces.length; ++i) {
-          pieces[i] = fixCurrencySpacing(pieces[i], symbol);
+          pieces[i] = fixCurrencySpacing(pieces[i], currencySymbol);
         }
         pattern = org.unicode.cldr.util.Utility.join(pieces, ";");
       } else {
-        pattern = fixCurrencySpacing(pattern, symbol);
+        pattern = fixCurrencySpacing(pattern, currencySymbol);
       }
       
       mc = new MyCurrency(key1, 
-          symbol, 
+          currencySymbol, 
           cldrFile.getStringValue(prefix + "displayName"),
           null, null);
       

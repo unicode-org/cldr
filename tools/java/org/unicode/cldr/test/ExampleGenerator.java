@@ -181,9 +181,10 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
       }
       if (parts.contains("currency") && parts.contains("symbol")) {
         String currency = parts.getAttributeValue(-2, "type");
-        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency);
+        // TODO fix to use value!!
+        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
         result = x.format(12345.6789);
-        result = setBackground(result).replace(currency,backgroundEndSymbol + currency + backgroundStartSymbol);
+        result = setBackground(result).replace(currency,backgroundEndSymbol + value + backgroundStartSymbol);
         result = finalizeBackground(result);
         break main;
       }

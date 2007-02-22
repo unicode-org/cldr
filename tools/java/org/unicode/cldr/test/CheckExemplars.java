@@ -61,7 +61,7 @@ public class CheckExemplars extends CheckCLDR {
         			if (overlap.size() != 0) {
         				String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
         				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-        						.setMessage("Auxilliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
+        						.setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
         			}
         		}
         	}

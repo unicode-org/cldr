@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 import java.util.List;
 import java.util.Map;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XMLSource;
@@ -62,7 +63,7 @@ public class CheckCoverage extends CheckCLDR {
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+            result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
                 .setCheckOnSubmit(false)
                     .setMessage(isConfirmed ? 
                         "Needed to meet {0} coverage level." 

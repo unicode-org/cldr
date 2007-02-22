@@ -9,11 +9,12 @@ public class CheckNew extends CheckCLDR {
     // this list should be updated with each release.
     static final Matcher stuffToCheckFor = Pattern.compile(".*/(" 
     		// segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
-            + "inList|availableFormats"
+            + "inList"
+            // + "|availableFormats"
             + "|singleCountries|hourFormat|hoursFormat|gmtFormat|regionFormat|fallbackFormat"
             + "|relative"
             + "|calendars.*/fields"
-            + "|exemplarCharacters\\[.*auxiliary"
+            //+ "|exemplarCharacters\\[.*auxiliary"
             + ").*").matcher("");
     //  dateTimes/availableDateFormats/NEW
     // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="second"]/displayName

@@ -19,6 +19,7 @@ import com.ibm.icu.util.ULocale;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.text.ChoiceFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExampleGenerator {
-  private final static boolean DEBUG_SHOW_HELP = true;
+  private final static boolean DEBUG_SHOW_HELP = false;
   
   public enum Zoomed {
     /** For the zoomed-out view. */
@@ -193,10 +194,15 @@ public class ExampleGenerator {
       }
       if (parts.contains("currency") && parts.contains("symbol")) {
         String currency = parts.getAttributeValue(-2, "type");
+        String fullPath = cldrFile.getFullXPath(xpath,false);
+        if (fullPath.contains("[@choice=\"true\"]")) {
+          ChoiceFormat cf = new ChoiceFormat(value);
+          value = cf.format(NUMBER_SAMPLE);
+        }
         // TODO fix to use value!!
         DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
-        result = x.format(12345.6789);
-        result = setBackground(result).replace(currency, backgroundEndSymbol + value + backgroundStartSymbol);
+        result = x.format(NUMBER_SAMPLE);
+        result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
         result = finalizeBackground(result);
         break main;
       }

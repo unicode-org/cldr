@@ -133,6 +133,7 @@ public class CheckAttributeValues extends CheckCLDR {
     private void getMetadata(CLDRFile metadata) {
         String lastPath = "//ldml";
         //checkTransitivity(metadata.iterator(), CLDRFile.ldmlComparator);
+        // sorting is expensive, but we need it here.
         for (Iterator it = metadata.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
             String path = (String) it.next();
             String value = metadata.getStringValue(path);

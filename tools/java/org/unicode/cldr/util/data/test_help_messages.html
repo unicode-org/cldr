@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>This is a help-text file for use</title>
+</head>
+
+<body>
+
+<p>This is a help-text file for use with the survey tool. The software that 
+interprets this expects a particular format, so don't make arbitrary changes. 
+You can add a new row, where the Key is usually a regex for a path, and you can 
+put text to insert. The text to insert can actually be fairly arbitrary HTML.</p>
+<table border="1" width="100%" id="table1" cellspacing="0" bordercolor="#000080" style="border-collapse: collapse">
+	<tr>
+		<th>Path</th>
+		<th>Text to insert</th>
+	</tr>
+	<tr>
+		<td>.*/exemplarCharacters.*</td>
+		<td>The standard exemplar characters are those used in customary writing 
+		([a-z] for English; the auxiliary characters are used in foreign words 
+		found in typical magazines, newspapers, &amp;c.; currency auxiliary 
+		characters are those used in currency symbols, like 'US$ 1,234'.</td>
+	</tr>
+	<tr>
+		<td>.*/numbers.*/pattern.*</td>
+		<td>You need to use '.' for the decimal point and ',' for the thousands 
+		(grouping) separator, even if they are not used in your language. They 
+		are special characters that will be replaced by your real decimal point 
+		and thousands separator (see the number symbols for those).</td>
+	</tr>
+</table>
+<p>The software that reads this table will search the first column (eg between 
+&lt;td&gt; and &lt;/td&gt;) and return the contents of the second column. I plan on adding a 
+few variables also, for the current locale name, in particular. </p>
+<p><b>WARNING</b></p>
+<ul>
+	<li><b><i>It uses a very dumb parser, so make sure that &lt;tr&gt;, &lt;/tr&gt; are on 
+	separate lines!</i></b></li>
+	<li><b><i>The regex must match the whole path, so if it is an interior 
+	substring, remember to add .* on both ends.</i></b></li>
+</ul>
+
+</body>
+
+</html>

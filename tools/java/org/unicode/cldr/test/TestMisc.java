@@ -34,6 +34,12 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestMisc {
     public static void main(String[] args) {
+      
+      ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false));
+      System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
+      System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
+
+      if (true) return;
       Set s = new HashSet(Arrays.asList("a", "A", "c"));
       Collator caselessCompare = Collator.getInstance(Locale.ENGLISH);
       caselessCompare.setStrength(Collator.PRIMARY);

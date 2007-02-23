@@ -728,7 +728,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     protected ParsePosition parsePosition = new ParsePosition(0);
     
     protected abstract String getPattern();
-    protected abstract String getRandomInput(); 
+    protected abstract String getSampleInput(); 
     protected abstract void getArguments(Map postArguments);
     
     public String getHTML(Map postArguments) throws Exception {

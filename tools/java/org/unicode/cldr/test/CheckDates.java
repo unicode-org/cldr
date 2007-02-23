@@ -167,10 +167,10 @@ public class CheckDates extends CheckCLDR {
   
   
   //Calendar myCal = Calendar.getInstance(TimeZone.getTimeZone("America/Denver"));
-  TimeZone denver = TimeZone.getTimeZone("America/Denver");
+  //TimeZone denver = TimeZone.getTimeZone("America/Denver");
   static final SimpleDateFormat neutralFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
   static {
-    neutralFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    neutralFormat.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
   }
   XPathParts pathParts = new XPathParts(null, null);
   
@@ -270,22 +270,22 @@ public class CheckDates extends CheckCLDR {
   Pattern[] dateTimePatterns = {
       Pattern.compile("(h|hh|H|HH)mm"), // time-short
       Pattern.compile("(h|hh|H|HH)mmss"), // time-medium
-      Pattern.compile("(h|hh|H|HH)mmss(v+|z+)?"), // time-long
-      Pattern.compile("(h|hh|H|HH)mmss(v+|z+)"), // time-full
+      Pattern.compile("(h|hh|H|HH)mmss(z+)"), // time-long
+      Pattern.compile("(h|hh|H|HH)mmss(v+)"), // time-full
       Pattern.compile("y{2,4}M{1,2}d{1,2}"), // date-short
       Pattern.compile("yyyyM{1,3}d{1,2}"), // date-medium
       Pattern.compile("yyyyM{1,4}d{1,2}"), // date-long
       Pattern.compile("G*yyyyM{1,4}E*d{1,2}"), // date-full
   };
   String[] dateTimeMessage = {
-      "hours (H,HH,h,hh), minutes (mm)", // time-short
-      "hours (H,HH,h,hh), minutes (mm), seconds (ss)", // time-medium
-      "hours (H,HH,h,hh), minutes (mm), seconds (ss); optionally timezone (z or v)", // time-long
-      "hours (H,HH,h,hh), minutes (mm), seconds (ss), timezone (z or v)", // time-full
-      "year (yy,yyyy), month (M,MM), day (d,dd)", // date-short
-      "year (yyyy), month (M-MMM), day (d,dd)", // date-medium
-      "year (yyyy), month (M-MMMM), day (d,dd)", // date-long
-      "year (yyyy), month (M-MMMM), day (d,dd); optionally day of week (EEEE) or era (G)", // date-full
+      "hours (H,HH,h,hh), and minutes (mm)", // time-short
+      "hours (H,HH,h,hh), minutes (mm), and seconds (ss)", // time-medium
+      "hours (H,HH,h,hh), minutes (mm), and seconds (ss); optionally timezone (z or zzzz)", // time-long
+      "hours (H,HH,h,hh), minutes (mm), seconds (ss), and timezone (v or vvvv)", // time-full
+      "year (yy,yyyy), month (M,MM), and day (d,dd)", // date-short
+      "year (yyyy), month (M-MMM), and day (d,dd)", // date-medium
+      "year (yyyy), month (M-MMMM), and day (d,dd)", // date-long
+      "year (yyyy), month (M-MMMM), and day (d,dd); optionally day of week (EEEE) or era (G)", // date-full
   };
   
   
@@ -307,23 +307,25 @@ public class CheckDates extends CheckCLDR {
     pathParts.set(path);
     String calendar = pathParts.findAttributeValue("calendar", "type");
     SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
-    Object[] arguments = new Object[samples.length];
-    for (int i = 0; i < samples.length; ++i) {
-      String source = getRandomDate(date1950, date2010); // samples[i];
-      Date dateSource = neutralFormat.parse(source);
-      String formatted = x.format(dateSource);
-      String reparsed;
-      
-      parsePosition.setIndex(0);
-      Date parsed = x.parse(formatted, parsePosition);
-      if (parsePosition.getIndex() != formatted.length()) {
-        reparsed = "Couldn't parse past: " + formatted.substring(0,parsePosition.getIndex());
-      } else {
-        reparsed = neutralFormat.format(parsed);
-      }
-      
-      arguments[i] = source + " \u2192 \u201C\u200E" + formatted + "\u200E\u201D \u2192 " + reparsed;
-    }
+    x.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
+    
+//    Object[] arguments = new Object[samples.length];
+//    for (int i = 0; i < samples.length; ++i) {
+//      String source = getRandomDate(date1950, date2010); // samples[i];
+//      Date dateSource = neutralFormat.parse(source);
+//      String formatted = x.format(dateSource);
+//      String reparsed;
+//      
+//      parsePosition.setIndex(0);
+//      Date parsed = x.parse(formatted, parsePosition);
+//      if (parsePosition.getIndex() != formatted.length()) {
+//        reparsed = "Couldn't parse past: " + formatted.substring(0,parsePosition.getIndex());
+//      } else {
+//        reparsed = neutralFormat.format(parsed);
+//      }
+//      
+//      arguments[i] = source + " \u2192 \u201C\u200E" + formatted + "\u200E\u201D \u2192 " + reparsed;
+//    }
 //    result.add(new CheckStatus()
 //        .setCause(this).setType(CheckStatus.exampleType)
 //        .setMessage(SampleList, arguments));
@@ -373,8 +375,8 @@ public class CheckDates extends CheckCLDR {
     protected String getPattern() {
       return df.toPattern();
     }
-    protected String getRandomInput() {
-      return getRandomDate(date1950, date2010);
+    protected String getSampleInput() {
+      return neutralFormat.format(ExampleGenerator.DATE_SAMPLE);
     }
     public MyDemo setFormat(SimpleDateFormat df) {
       this.df = df;
@@ -396,7 +398,7 @@ public class CheckDates extends CheckCLDR {
       try {
         currentInput = (String) inout.get("input");
         if (currentInput == null) {
-          currentInput = getRandomInput();
+          currentInput = getSampleInput();
         }
         d = neutralFormat.parse(currentInput);
       } catch (Exception e) {

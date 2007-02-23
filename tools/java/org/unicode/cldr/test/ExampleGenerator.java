@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -16,13 +17,19 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExampleGenerator {
+  private final static boolean DEBUG_SHOW_HELP = false;
+
   public enum Zoomed {
     /** For the zoomed-out view. */
     OUT,
@@ -32,11 +39,11 @@ public class ExampleGenerator {
 
   private final static boolean CACHING = false;
 
-  private final double NUMBER_SAMPLE = 12345.6789;
+  public final static double NUMBER_SAMPLE = 12345.6789;
 
-  private final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
+  public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
 
-  private final static Date DATE_SAMPLE;
+  public final static Date DATE_SAMPLE;
 
   private final static Date DATE_SAMPLE2;
 
@@ -78,8 +85,10 @@ public class ExampleGenerator {
   }
 
   /**
-   * For setting the end of the "background" style. Default is "</span>". 
-   * It is used in composing patterns, so it can show the part that corresponds to the value. 
+   * For setting the end of the "background" style. Default is "</span>". It is
+   * used in composing patterns, so it can show the part that corresponds to the
+   * value.
+   * 
    * @return
    */
   public void setBackgroundEnd(String backgroundEnd) {
@@ -91,8 +100,10 @@ public class ExampleGenerator {
   }
 
   /**
-   * For setting the "background" style. Default is "<span style='background-color: gray'>". 
-   * It is used in composing patterns, so it can show the part that corresponds to the value. 
+   * For setting the "background" style. Default is "<span
+   * style='background-color: gray'>". It is used in composing patterns, so it
+   * can show the part that corresponds to the value.
+   * 
    * @return
    */
   public void setBackgroundStart(String backgroundStart) {
@@ -117,7 +128,7 @@ public class ExampleGenerator {
    * @param zoomed
    * @return
    */
-public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
+  public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
     if (value == null) {
       return null; // for now
     }
@@ -134,28 +145,29 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
       }
     }
     // result is null at this point. Get the real value if we can.
-    
+
     main: {
       parts.set(xpath);
       if (parts.contains("dateRangePattern")) { // {0} - {1}
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-        result = MessageFormat.format(value, new Object[]{setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2))});
+        result = MessageFormat.format(value, new Object[] { setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)) });
         result = finalizeBackground(result);
         break main;
       }
       if (parts.contains("timeZoneNames")) {
         if (parts.contains("regionFormat")) { // {0} Time
           String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
-          result = MessageFormat.format(value, new Object[]{setBackground(sampleTerritory)});
+          result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
         } else if (parts.contains("fallbackFormat")) { // {1} ({0})
           String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
           String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
-          //ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity =  Λος Άντζελες
+          // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+          // = Λος Άντζελες
           String LosAngeles = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
-          result = MessageFormat.format(value, new Object[]{LosAngeles, us});
-          result = MessageFormat.format(timeFormat, new Object[]{result});
+          result = MessageFormat.format(value, new Object[] { LosAngeles, us });
+          result = MessageFormat.format(timeFormat, new Object[] { result });
         } else if (parts.contains("gmtFormat")) { // GMT{0}
-          result = getGMTFormat(null, value);          
+          result = getGMTFormat(null, value);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
           result = getGMTFormat(value, null);
         }
@@ -184,7 +196,7 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
         // TODO fix to use value!!
         DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
         result = x.format(12345.6789);
-        result = setBackground(result).replace(currency,backgroundEndSymbol + value + backgroundStartSymbol);
+        result = setBackground(result).replace(currency, backgroundEndSymbol + value + backgroundStartSymbol);
         result = finalizeBackground(result);
         break main;
       }
@@ -195,11 +207,10 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
           if (parts.contains("dateTimeFormat")) {
             SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
             SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
-            date2.applyPattern(MessageFormat.format(value, new Object[]{
-                setBackground(time.toPattern()), setBackground(date2.toPattern())}));
+            date2.applyPattern(MessageFormat.format(value, new Object[] { setBackground(time.toPattern()), setBackground(date2.toPattern()) }));
             dateFormat = date2;
           } else {
-            String id = parts.findAttributeValue("dateFormatItem","id");
+            String id = parts.findAttributeValue("dateFormatItem", "id");
             if ("NEW".equals(id)) {
               break main;
             } else {
@@ -232,8 +243,10 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
     }
     return result;
   }
+
   /**
    * Put a background on an item, skipping enclosed patterns.
+   * 
    * @param sampleTerritory
    * @return
    */
@@ -241,13 +254,14 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
     Matcher m = PARAMETER.matcher(inputPattern);
     return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol) + backgroundEndSymbol;
   }
-  
+
   private String finalizeBackground(String input) {
-    return input == null ? input : input
-        .replace(backgroundStartSymbol+backgroundEndSymbol,"") // remove null runs
-        .replace(backgroundEndSymbol+backgroundStartSymbol,"") // remove null runs
-        .replace(backgroundStartSymbol, backgroundStart)
-        .replace(backgroundEndSymbol, backgroundEnd);
+    return input == null ? input : input.replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove
+                                                                                                  // null
+                                                                                                  // runs
+        .replace(backgroundEndSymbol + backgroundStartSymbol, "") // remove null
+                                                                  // runs
+        .replace(backgroundStartSymbol, backgroundStart).replace(backgroundEndSymbol, backgroundEnd);
   }
 
   static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
@@ -285,12 +299,109 @@ public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
    * @return null if none available.
    */
   public String getHelpHtml(String xpath, String value) {
-    String result = null;
-    if (xpath.contains("/exemplarCharacters")) {
-      result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
-          + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
-          + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
+    if (helpMessages == null) {
+      helpMessages = new HelpMessages();
     }
-    return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
+    return helpMessages.find(xpath);
+//    if (xpath.contains("/exemplarCharacters")) {
+//      result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
+//          + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
+//          + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
+//    }
+//    return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
+  }
+  
+  HelpMessages helpMessages;
+
+  private static class HelpMessages {
+    List<Matcher> keys = new ArrayList();
+    List<String> values = new ArrayList();
+
+    enum Status {
+      BASE, BEFORE_COL1, IN_COL1, AFTER_COL1, IN_COL2
+    };
+
+    StringBuilder[] currentColumn = new StringBuilder[2];
+    int column = 0;
+
+    HelpMessages() {
+      currentColumn[0] = new StringBuilder();
+      currentColumn[1] = new StringBuilder();
+      BufferedReader in;
+      try {
+        in = Utility.getUTF8Data("test_help_messages.html");
+        Status status = Status.BASE;
+        int count = 0;
+        while (true) {
+          String line = in.readLine();
+          count++;
+          if (line == null)
+            break;
+          line = line.trim();
+          // watch for tr, then td. Pick up following strings.
+          switch (status) {
+            case BASE:
+              if (line.equals("<tr>")) {
+                status = Status.BEFORE_COL1;
+              }
+              break;
+            case BEFORE_COL1:
+              if (line.equals("</tr>")) {
+                addHelpMessages();
+                status = Status.BASE;
+                break;
+              }
+              if (line.startsWith("<td>")) {
+                status = Status.IN_COL1;
+                line = line.substring(4);
+              }
+              // fall through
+            case IN_COL1:
+              boolean done = false;
+              if (line.endsWith("</td>")) {
+                line = line.substring(0,line.length()-5);
+                status = Status.BEFORE_COL1;
+                done = true;
+              }
+                if (line.length() != 0) {
+                if (currentColumn[column].length() > 0) {
+                  currentColumn[column].append(" ");
+                }
+                currentColumn[column].append(line);
+                }
+                if (done) column++;
+              break;
+          }
+        }
+        in.close();
+      } catch (IOException e) {
+        System.err.println("Can't initialize help text");
+      }
+    }
+
+    public String find(String xpath) {
+      for (int i = 0; i < keys.size(); ++i) {
+        if (keys.get(i).reset(xpath).matches()) {
+          return values.get(i);
+        }
+      }
+      return null;
+    }
+
+    private void addHelpMessages() {
+      try {
+        if (DEBUG_SHOW_HELP) {
+          System.out.println(currentColumn[0].toString() + " => " + currentColumn[1].toString());
+        }
+        Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(currentColumn[0].toString()), Pattern.COMMENTS).matcher("");
+        keys.add(m);
+        values.add(currentColumn[1].toString());
+      } catch (RuntimeException e) {
+        System.err.println("Help file has illegal regex: " + currentColumn[0]);
+      }
+      currentColumn[0].setLength(0);
+      currentColumn[1].setLength(0);
+      column = 0;
+    }
   }
 }

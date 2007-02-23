@@ -174,26 +174,26 @@ public class CheckNumbers extends CheckCLDR {
    * they are just tested.
    */
   private void addOrTestSamples(DecimalFormat x, String pattern, String context, List result, boolean generateExamples) throws ParseException {
-    Object[] arguments = new Object[3];
-    
-    double sample = getRandomNumber();
-    arguments[0] = String.valueOf(sample);
-    String formatted = x.format(sample);
-    arguments[1] = formatted;
-    boolean gotFailure = false;
-    try {
-      parsePosition.setIndex(0);
-      double parsed = x.parse(formatted, parsePosition).doubleValue();
-      if (parsePosition.getIndex() != formatted.length()) {
-        arguments[2] = "Couldn't parse past: " + "\u200E" + formatted.substring(0,parsePosition.getIndex()) + "\u200E";
-        gotFailure = true;
-      } else {
-        arguments[2] = String.valueOf(parsed);
-      }
-    } catch (Exception e) {
-      arguments[2] = e.getMessage();
-      gotFailure = true;
-    }
+//    Object[] arguments = new Object[3];
+//    
+//    double sample = getRandomNumber();
+//    arguments[0] = String.valueOf(sample);
+//    String formatted = x.format(sample);
+//    arguments[1] = formatted;
+//    boolean gotFailure = false;
+//    try {
+//      parsePosition.setIndex(0);
+//      double parsed = x.parse(formatted, parsePosition).doubleValue();
+//      if (parsePosition.getIndex() != formatted.length()) {
+//        arguments[2] = "Couldn't parse past: " + "\u200E" + formatted.substring(0,parsePosition.getIndex()) + "\u200E";
+//        gotFailure = true;
+//      } else {
+//        arguments[2] = String.valueOf(parsed);
+//      }
+//    } catch (Exception e) {
+//      arguments[2] = e.getMessage();
+//      gotFailure = true;
+//    }
 //  htmlMessage.append(pattern1)
 //  .append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
 //  .append(pattern2)
@@ -317,8 +317,8 @@ public class CheckNumbers extends CheckCLDR {
     protected String getPattern() {
       return df.toPattern();
     }
-    protected String getRandomInput() {
-      return String.valueOf(getRandomNumber());
+    protected String getSampleInput() {
+      return String.valueOf(ExampleGenerator.NUMBER_SAMPLE);
     }
     public MyDemo setFormat(DecimalFormat df, String context) {
       this.df = df;
@@ -340,7 +340,7 @@ public class CheckNumbers extends CheckCLDR {
       try {
         currentInput = (String) inout.get("input");
         if (currentInput == null) {
-          currentInput = getRandomInput();
+          currentInput = getSampleInput();
         }
         d = Double.parseDouble(currentInput);
       } catch (Exception e) {

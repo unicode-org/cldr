@@ -88,31 +88,31 @@ public class CheckDates extends CheckCLDR {
     
     redundants.clear();
     flexInfo.getRedundants(redundants);
-    Set baseSkeletons = flexInfo.gen.getBaseSkeletons(new TreeSet());
-    Set notCovered = new TreeSet(neededFormats);
-    if (flexInfo.preferred12Hour()) {
-      notCovered.addAll(neededHours12);
-    } else {
-      notCovered.addAll(neededHours24);
-    }
-    notCovered.removeAll(baseSkeletons);
-    if (notCovered.size() != 0) {
-      possibleErrors.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
-          .setCheckOnSubmit(false)
-          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
-    }
+//    Set baseSkeletons = flexInfo.gen.getBaseSkeletons(new TreeSet());
+//    Set notCovered = new TreeSet(neededFormats);
+//    if (flexInfo.preferred12Hour()) {
+//      notCovered.addAll(neededHours12);
+//    } else {
+//      notCovered.addAll(neededHours24);
+//    }
+//    notCovered.removeAll(baseSkeletons);
+//    if (notCovered.size() != 0) {
+//      possibleErrors.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+//          .setCheckOnSubmit(false)
+//          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
+//    }
     return this;
   }
   
-  Set neededFormats = new TreeSet(Arrays.asList(new String[]{
-      "yM", "yMMM", "yMd", "yMMMd", "Md", "MMMd","yQ"
-  }));
-  Set neededHours12 = new TreeSet(Arrays.asList(new String[]{
-      "hm", "hms"
-  }));
-  Set neededHours24 = new TreeSet(Arrays.asList(new String[]{
-      "Hm", "Hms"
-  }));
+//  Set neededFormats = new TreeSet(Arrays.asList(new String[]{
+//      "yM", "yMMM", "yMd", "yMMMd", "Md", "MMMd","yQ"
+//  }));
+//  Set neededHours12 = new TreeSet(Arrays.asList(new String[]{
+//      "hm", "hms"
+//  }));
+//  Set neededHours24 = new TreeSet(Arrays.asList(new String[]{
+//      "Hm", "Hms"
+//  }));
   /**
    hour+minute, hour+minute+second (12 & 24)
    year+month, year+month+day (numeric & string)

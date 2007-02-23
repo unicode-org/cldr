@@ -36,8 +36,9 @@ public class TestMisc {
     public static void main(String[] args) {
       
       ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false));
-      System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
       System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
+      System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
+      System.out.println(eg.getHelpHtml("/calendar/pattern",""));
 
       if (true) return;
       Set s = new HashSet(Arrays.asList("a", "A", "c"));

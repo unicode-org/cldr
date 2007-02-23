@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>This is a help-text file for use</title>
+<link rel='stylesheet' type='text/css' href='http://unicode.org/cldr/apps/surveytool.css'>
+<title>Help Text file for Survey tool</title>
 </head>
 
 <body>
@@ -19,26 +20,167 @@ put text to insert. The text to insert can actually be fairly arbitrary HTML.</p
 	</tr>
 	<tr>
 		<td>.*/exemplarCharacters.*</td>
-		<td>The standard exemplar characters are those used in customary writing 
-		([a-z] for English; the auxiliary characters are used in foreign words 
-		found in typical magazines, newspapers, &amp;c.; currency auxiliary 
-		characters are those used in currency symbols, like 'US$ 1,234'.</td>
+		<td>The <i>standard</i> exemplar characters are those used in customary 
+		writing ([a-z] for English); the <i>auxiliary</i> characters are used in 
+		foreign words found in typical magazines, newspapers, &amp;c.; <i>currency</i> 
+		exemplar characters are those used in currency symbols, like 'US$ 
+		1,234'.</td>
 	</tr>
 	<tr>
 		<td>.*/numbers.*/pattern.*</td>
 		<td>You need to use '.' for the decimal point and ',' for the thousands 
-		(grouping) separator, even if they are not used in your language. They 
-		are special characters that will be replaced by your real decimal point 
-		and thousands separator (see the number symbols for those).</td>
+		(grouping) separator, even if they are not used in your language. Here 
+		are the special characters used in number patterns.
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table2" >
+			<caption><b>Number Format Symbols</b></caption>
+			<tr>
+				<th style="vertical-align: top; text-align: left">Symbol</th>
+				<th style="vertical-align: top; text-align: left">Meaning</th>
+
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">.</td>
+				<td style="vertical-align: top; text-align: left"><b>Not</b> a real 
+				period: instead, it will be replaced automatically by the 
+				character used for the decimal point in your language, listed 
+				under <tt class="hangsml" title="#194, w[N]:194">symbols/decimal</tt></td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">,</td>
+
+				<td style="vertical-align: top; text-align: left"><b>Not</b> a real 
+				comma: instead, it will be replaced by the &quot;grouping&quot; 
+				(thousands) separator in your language, listed under
+				<tt class="hangsml" title="#4, w[N]:4">symbols/group</tt></td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">0</td>
+				<td style="vertical-align: top; text-align: left">Replaced by a 
+				digit (or zero if there aren&#39;t enough digits).</td>
+
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">#</td>
+				<td style="vertical-align: top; text-align: left">Replaced by a 
+				digit (or nothing if there aren&#39;t enough). Often used to show 
+				the position of the &quot;,&quot;.</td>
+			</tr>
+			<tr>
+
+				<td style="text-align: center; vertical-align:top">¤</td>
+				<td style="vertical-align: top; text-align: left">This will be 
+				replaced by a currency symbol, such as $ or USD. Note: by 
+				default a space is placed between letters in a currency symbol 
+				and adjacent numbers. If this is not right for your language, 
+				file a bug to change it.</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">...;...</td>
+				<td style="vertical-align: top; text-align: left">If your 
+				language uses different formats for negative numbers than just 
+				adding &quot;-&quot; at the front, you can put in two patterns. For 
+				example: #,##0.00¤;(#,##0.00¤) is used to make negative 
+				currencies appear like &quot;(<font face="Times New Roman">1&#39;234,56£)&quot; 
+				instead of &quot;-1&#39;234,56£&quot;</font></td>
+
+			</tr>
+		</table>
+</td>
+	</tr>
+	<tr>
+		<td>.*/calendar.*/(pattern|dateFormatItem).*</td>
+		<td>You need to use letters to stand for different date fields like the
+		<i>month</i> or <i>day</i>:
+				<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900">
+			<caption><b>Date Format Symbols</b></caption>
+			<tr>
+				<th style="vertical-align: top; text-align: left">Symbol</th>
+
+				<th style="vertical-align: top; text-align: left">Meaning</th>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">G</td>
+				<td style="vertical-align: top; text-align: left">era (eg AD)*</td>
+			</tr>
+			<tr>
+
+				<td style="text-align: center; vertical-align:top">y</td>
+				<td style="vertical-align: top; text-align: left">year</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">M</td>
+				<td style="vertical-align: top; text-align: left">month*</td>
+			</tr>
+
+			<tr>
+				<td style="text-align: center; vertical-align:top">E</td>
+				<td style="vertical-align: top; text-align: left">day of the 
+				week (eg Tuesday).*</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">d</td>
+				<td style="vertical-align: top; text-align: left">day</td>
+
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">h / H</td>
+				<td style="vertical-align: top; text-align: left">hour. h for 12 
+				hour, H for 24.</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">m</td>
+
+				<td style="vertical-align: top; text-align: left">minute</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">s</td>
+				<td style="vertical-align: top; text-align: left">second</td>
+			</tr>
+			<tr>
+
+				<td style="text-align: center; vertical-align:top">a</td>
+				<td style="vertical-align: top; text-align: left">am/pm. Only 
+				used with &quot;h&quot;.</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">z / v</td>
+				<td style="vertical-align: top; text-align: left">time zone. Use 
+				v for full format dates, z for long format dates</td>
+
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top">&#39;a&#39;</td>
+				<td style="vertical-align: top; text-align: left">since letters 
+				have special meaning, if you want a real letter, you need to put 
+				it in single quotes. For a real single quote, use &#39;&#39;.</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top" colspan="2">
+
+				<p style="text-align: left">* Some fields 
+				use M or MM for numeric (eg 1 or 01);
+				MMM for abbreviated (eg Sept); and
+				MMMM for full (eg September)</td>
+			</tr>
+		</table>
+		<i>Note that even if your language doesn't use am/pm in any patterns, strings for those need to be defined for testing.
+		</i>
+</td>
 	</tr>
 </table>
 <p>The software that reads this table will search the first column (eg between 
 &lt;td&gt; and &lt;/td&gt;) and return the contents of the second column. I plan on adding a 
-few variables also, for the current locale name, in particular. </p>
+few variables also, for the current locale name, in particular. This file uses 
+the survey tool stylesheet, so you can use those <span  class="winner">styles</span> (and icons, like
+<a target="target=" surveytool:n:de class="forumlink" href="http://unicode.org/cldr/apps/survey?_=de&forum=de&xpath=249">
+<img alt="[stop]" style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a>) 
+in the text to insert.</p>
 <p><b>WARNING</b></p>
 <ul>
-	<li><b><i>It uses a very dumb parser, so make sure that &lt;tr&gt;, &lt;/tr&gt; are on 
-	separate lines!</i></b></li>
+	<li><b><i>It uses a very dumb parser, so make sure that table elements are 
+	matched, eg &lt;td&gt; with &lt;/td&gt;, and also that &lt;tr&gt;, &lt;/tr&gt;, &lt;table&gt;, 
+	and &lt;/table&gt; are on 
+	separate lines.</i></b></li>
 	<li><b><i>The regex must match the whole path, so if it is an interior 
 	substring, remember to add .* on both ends.</i></b></li>
 </ul>

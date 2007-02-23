@@ -691,7 +691,7 @@ public class ShowLanguages {
       NumberFormat percent = new DecimalFormat("000.0%");
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,5)
-      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
+      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
       .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
       //.addColumn("Report Bug", "class='target'", null, "class='target'", false)
       .addColumn("Territory", "class='target'", null, "class='target'", true)
@@ -786,7 +786,7 @@ public class ShowLanguages {
       
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,4)
-      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0)
+      .addColumn("Language", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
       .addColumn("Locale", "class='source'", null, "class='source'", false).setSortPriority(1)
       .addColumn("Code", "class='source'", "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
       .addColumn("CLDR", "class='source'", null, "class='source'", false)
@@ -795,7 +795,7 @@ public class ShowLanguages {
       Set<String> locales = new TreeSet();
       for (String vendor : vendordata.keySet()) {
         if (vendor.equals("Java")) continue;
-        tablePrinter.addColumn(vendor, "class='target'", null, "class='target'", false);
+        tablePrinter.addColumn(vendor, "class='target'", null, "class='target'", false).setSpanRows(true);
         locales.addAll(vendordata.get(vendor).keySet());
       }
       Collection<Comparable[]> data = new ArrayList<Comparable[]>();
@@ -897,7 +897,7 @@ public class ShowLanguages {
       NumberFormat percent = new DecimalFormat("000.0%");
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,4)
-      .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true)
+      .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
       .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
       .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,###.0}", "class='targetRight'", true)
       .addColumn("Terr. Literacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)

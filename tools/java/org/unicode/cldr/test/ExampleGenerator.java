@@ -28,31 +28,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExampleGenerator {
-  private final static boolean DEBUG_SHOW_HELP = false;
-
+  private final static boolean DEBUG_SHOW_HELP = true;
+  
   public enum Zoomed {
     /** For the zoomed-out view. */
     OUT,
     /** For the zoomed-in view */
     IN
   };
-
+  
   private final static boolean CACHING = false;
-
+  
   public final static double NUMBER_SAMPLE = 12345.6789;
-
+  
   public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
-
+  
   public final static Date DATE_SAMPLE;
-
+  
   private final static Date DATE_SAMPLE2;
-
+  
   private final static String EXEMPLAR_CITY = "Europe/Rome";
-
+  
   private String backgroundStart = "<span style='background-color: silver'>";
-
+  
   private String backgroundEnd = "</span>";
-
+  
   static {
     Calendar c = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
     c.set(1999, 8, 14, 13, 25, 59); // 1999-09-13 13:25:59
@@ -60,30 +60,30 @@ public class ExampleGenerator {
     c.set(1999, 9, 27, 13, 25, 59); // 1999-09-13 13:25:59
     DATE_SAMPLE2 = c.getTime();
   }
-
+  
   private Collator col;
-
+  
   private CLDRFile cldrFile;
-
+  
   private Map<String, String> cache = new HashMap();
-
+  
   private static final String NONE = "\uFFFF";
-
+  
   private static final String backgroundStartSymbol = "\uE1234";
-
+  
   private static final String backgroundEndSymbol = "\uE1235";
-
+  
   // Matcher skipMatcher = Pattern.compile(
   // "/localeDisplayNames(?!"
   // ).matcher("");
   private XPathParts parts = new XPathParts();
-
+  
   private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-
+  
   public String getBackgroundEnd() {
     return backgroundEnd;
   }
-
+  
   /**
    * For setting the end of the "background" style. Default is "</span>". It is
    * used in composing patterns, so it can show the part that corresponds to the
@@ -94,11 +94,11 @@ public class ExampleGenerator {
   public void setBackgroundEnd(String backgroundEnd) {
     this.backgroundEnd = backgroundEnd;
   }
-
+  
   public String getBackgroundStart() {
     return backgroundStart;
   }
-
+  
   /**
    * For setting the "background" style. Default is "<span
    * style='background-color: gray'>". It is used in composing patterns, so it
@@ -109,13 +109,13 @@ public class ExampleGenerator {
   public void setBackgroundStart(String backgroundStart) {
     this.backgroundStart = backgroundStart;
   }
-
+  
   public ExampleGenerator(CLDRFile resolvedCLDRFile) {
     this.cldrFile = resolvedCLDRFile;
     icuServiceBuilder.setCldrFile(resolvedCLDRFile);
     col = Collator.getInstance(new ULocale(resolvedCLDRFile.getLocaleID()));
   }
-
+  
   /**
    * Returns an example string, in html, if there is one for this path,
    * otherwise null. For use in the survey tool, an example might be returned
@@ -145,7 +145,7 @@ public class ExampleGenerator {
       }
     }
     // result is null at this point. Get the real value if we can.
-
+    
     main: {
       parts.set(xpath);
       if (parts.contains("dateRangePattern")) { // {0} - {1}
@@ -243,7 +243,7 @@ public class ExampleGenerator {
     }
     return result;
   }
-
+  
   /**
    * Put a background on an item, skipping enclosed patterns.
    * 
@@ -254,18 +254,18 @@ public class ExampleGenerator {
     Matcher m = PARAMETER.matcher(inputPattern);
     return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol) + backgroundEndSymbol;
   }
-
+  
   private String finalizeBackground(String input) {
     return input == null ? input : input.replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove
-                                                                                                  // null
-                                                                                                  // runs
+        // null
+        // runs
         .replace(backgroundEndSymbol + backgroundStartSymbol, "") // remove null
-                                                                  // runs
+        // runs
         .replace(backgroundStartSymbol, backgroundStart).replace(backgroundEndSymbol, backgroundEnd);
   }
-
+  
   static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
-
+  
   private String getGMTFormat(String gmtHourString, String gmtFormat) {
     if (gmtFormat == null) {
       gmtFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
@@ -285,7 +285,7 @@ public class ExampleGenerator {
     String result = MessageFormat.format(gmtFormat, new Object[] { hours });
     return result;
   }
-
+  
   /**
    * Return a help string, in html, that should be shown in the Zoomed view.
    * Presumably at the end of each help section is something like: <br>
@@ -303,27 +303,27 @@ public class ExampleGenerator {
       helpMessages = new HelpMessages();
     }
     return helpMessages.find(xpath);
-//    if (xpath.contains("/exemplarCharacters")) {
-//      result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
-//          + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
-//          + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
-//    }
-//    return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
+//  if (xpath.contains("/exemplarCharacters")) {
+//  result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
+//  + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
+//  + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
+//  }
+//  return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
   }
   
   HelpMessages helpMessages;
-
+  
   private static class HelpMessages {
     List<Matcher> keys = new ArrayList();
     List<String> values = new ArrayList();
-
+    
     enum Status {
-      BASE, BEFORE_COL1, IN_COL1, AFTER_COL1, IN_COL2
+      BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
     };
-
+    
     StringBuilder[] currentColumn = new StringBuilder[2];
     int column = 0;
-
+    
     HelpMessages() {
       currentColumn[0] = new StringBuilder();
       currentColumn[1] = new StringBuilder();
@@ -332,6 +332,7 @@ public class ExampleGenerator {
         in = Utility.getUTF8Data("test_help_messages.html");
         Status status = Status.BASE;
         int count = 0;
+        int tableCount = 0;
         while (true) {
           String line = in.readLine();
           count++;
@@ -342,34 +343,46 @@ public class ExampleGenerator {
           switch (status) {
             case BASE:
               if (line.equals("<tr>")) {
-                status = Status.BEFORE_COL1;
+                status = Status.BEFORE_CELL;
               }
               break;
-            case BEFORE_COL1:
+            case BEFORE_CELL:
               if (line.equals("</tr>")) {
                 addHelpMessages();
                 status = Status.BASE;
                 break;
               }
               if (line.startsWith("<td>")) {
-                status = Status.IN_COL1;
+                status = Status.IN_CELL;
                 line = line.substring(4);
               }
               // fall through
-            case IN_COL1:
+            case IN_CELL:
               boolean done = false;
-              if (line.endsWith("</td>")) {
-                line = line.substring(0,line.length()-5);
-                status = Status.BEFORE_COL1;
-                done = true;
-              }
-                if (line.length() != 0) {
-                if (currentColumn[column].length() > 0) {
-                  currentColumn[column].append(" ");
+              if (line.startsWith("<table")) {
+                tableCount++;
+                appendLine(line);
+                status = Status.IN_INSIDE_TABLE;
+              } else {
+                if (line.endsWith("</td>")) {
+                  line = line.substring(0,line.length()-5);
+                  status = Status.BEFORE_CELL;
+                  done = true;
                 }
-                currentColumn[column].append(line);
-                }
+                appendLine(line);
                 if (done) column++;
+              }
+              break;
+            case IN_INSIDE_TABLE:
+              appendLine(line);
+              if (line.startsWith("<table")) {
+                tableCount++;
+              } else if (line.equals("</table>")) {
+                tableCount--;
+                if (tableCount == 0) {
+                  status = Status.IN_CELL;
+                }
+              }
               break;
           }
         }
@@ -379,6 +392,15 @@ public class ExampleGenerator {
       }
     }
 
+    private void appendLine(String line) {
+      if (line.length() != 0) {
+        if (currentColumn[column].length() > 0) {
+          currentColumn[column].append(" ");
+        }
+        currentColumn[column].append(line);
+      }
+    }
+    
     public String find(String xpath) {
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(xpath).matches()) {
@@ -387,17 +409,19 @@ public class ExampleGenerator {
       }
       return null;
     }
-
+    
     private void addHelpMessages() {
-      try {
-        if (DEBUG_SHOW_HELP) {
-          System.out.println(currentColumn[0].toString() + " => " + currentColumn[1].toString());
+      if (DEBUG_SHOW_HELP) {
+        System.out.println(currentColumn[0].toString() + " => " + currentColumn[1].toString());
+      }
+      if (column == 2) { // must have two columns
+        try {
+          Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(currentColumn[0].toString()), Pattern.COMMENTS).matcher("");
+          keys.add(m);
+          values.add(currentColumn[1].toString());
+        } catch (RuntimeException e) {
+          System.err.println("Help file has illegal regex: " + currentColumn[0]);
         }
-        Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(currentColumn[0].toString()), Pattern.COMMENTS).matcher("");
-        keys.add(m);
-        values.add(currentColumn[1].toString());
-      } catch (RuntimeException e) {
-        System.err.println("Help file has illegal regex: " + currentColumn[0]);
       }
       currentColumn[0].setLength(0);
       currentColumn[1].setLength(0);

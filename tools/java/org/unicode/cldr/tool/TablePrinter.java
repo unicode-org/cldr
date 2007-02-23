@@ -76,6 +76,7 @@ public class TablePrinter {
     
     boolean spanRows;
     MessageFormat cellPattern;
+    private boolean repeatHeader;
     
     public Column(String header) {
       this.header = header;
@@ -104,6 +105,10 @@ public class TablePrinter {
     public Column setSpanRows(boolean spanRows) {
       this.spanRows = spanRows;
       return this;
+    }
+
+    public void setRepeatHeader(boolean b) {
+      repeatHeader = b;
     }
   }
   
@@ -256,18 +261,17 @@ public class TablePrinter {
       }
       result.append(">\r\n");
     }
-    result.append("\t<tr>");
-    for (int j = 0; j < columnsFlat.length; ++j) {
-      result.append("<th");
-      if (columnsFlat[j].headerAttributes != null) {
-        result.append(' ').append(columnsFlat[j].headerAttributes);
-      }
-      result.append('>').append(columnsFlat[j].header).append("</th>");
-      
-    }
-    result.append("</tr>\r\n");
+    showHeader(result);
     
     for (int i = 0; i < sortedFlat.length; ++i) {
+      // check to see if we repeat the header
+      if (i != 0) {
+        for (int j = 0; j < sortedFlat[i].length; ++j) {
+          if (columns.get(j).repeatHeader && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
+            showHeader(result);
+          }
+        }
+      }
       result.append("\t<tr>");
       for (int j = 0; j < sortedFlat[i].length; ++j) {
         int identical = findIdentical(sortedFlat, i, j);
@@ -298,6 +302,19 @@ public class TablePrinter {
       result.append("</table>");
     }
     return result.toString();
+  }
+  
+  private void showHeader(StringBuilder result) {
+    result.append("\t<tr>");
+    for (int j = 0; j < columnsFlat.length; ++j) {
+      result.append("<th");
+      if (columnsFlat[j].headerAttributes != null) {
+        result.append(' ').append(columnsFlat[j].headerAttributes);
+      }
+      result.append('>').append(columnsFlat[j].header).append("</th>");
+      
+    }
+    result.append("</tr>\r\n");
   }
   
   /**
@@ -359,4 +376,13 @@ public class TablePrinter {
     columns.get(columns.size()-1).setSpanRows(spanRows);
     return this;
   }
+  
+  public TablePrinter setRepeatHeader(boolean b) {
+    columns.get(columns.size()-1).setRepeatHeader(b);
+    if (b) {
+      breaksSpans.set(columns.size()-1, true);
+    }
+    return this;
+  }
+
 }

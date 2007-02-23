@@ -27,8 +27,8 @@
         </suppress>
         <validity>
             <!-- generated from language tag registry + CLDR-specific items -->
-            <variable id="$grandfathered" type="choice">
-            	art-lojban
+			<variable id="$grandfathered" type="choice">
+				art-lojban
 				cel-gaulish
 				en-GB-oed
 				i-ami i-bnn i-default i-enochian i-hak i-klingon i-lux i-mingo i-navajo i-pwn
@@ -37,8 +37,8 @@
 				sgn-BE-fr sgn-BE-nl sgn-CH-de
 				zh-cmn zh-cmn-Hans zh-cmn-Hant zh-gan zh-guoyu zh-hakka zh-min zh-min-nan
 				zh-wuu zh-xiang zh-yue
-            </variable>
-            <variable id="$language" type="choice">
+			</variable>
+			<variable id="$language" type="choice">
 				aa ab ace ach ada ady ae af afa afh ain ak akk ale alg alt am an ang anp apa ar
 				arc arn arp art arw as ast ath aus av awa ay az
 				ba bad bai bal ban bas bat be bej bem ber bg bh bho bi bik bin bla bm bn bnt bo
@@ -101,7 +101,7 @@
 				yao yap yi yo ypk
 				za zap zen zh znd zu zun zxx zza
 			</variable>
-            <variable id="$territory" type="choice">
+			<variable id="$territory" type="choice">
 				001 002 003 005 009 011 013 014 015 017 018 019 021 029 030 034 035 039 053 054
 				057 061 062
 				142 143 145 150 151 154 155 172
@@ -132,8 +132,8 @@
 				XA XB XC XD XE XF XG XH XI XJ XK XL XM XN XO XP XQ XR XS XT XU XV XW XX XY XZ
 				YD YE YT YU
 				ZA ZM ZR ZW ZZ
-            </variable>
-            <variable id="$script" type="choice">
+			</variable>
+			<variable id="$script" type="choice">
 				Arab Armn
 				Bali Batk Beng Blis Bopo Brah Brai Bugi Buhd
 				Cans Cari Cham Cher Cirt Copt Cprt Cyrl Cyrs
@@ -145,7 +145,7 @@
 				Java Jpan
 				Kali Kana Khar Khmr Knda
 				Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lyci Lydi
-				Mand Maya Mero Mlym Mong Mymr
+				Mand Maya Mero Mlym Mong Moon Mtei Mymr
 				Nkoo
 				Ogam Olck Orkh Orya Osma
 				Perm Phag Phnx Plrd
@@ -161,9 +161,18 @@
 				Xpeo Xsux
 				Yiii
 				Zxxx Zyyy Zzzz
+			</variable>			
+			<variable id="$variant" type="choice">
+				1901 1996
+				AREVELA AREVMDA
+				BOONT
+				FONIPA FONUPA
+				MONOTON
+				NEDIS
+				POLYTON POLYTONI POSIX
+				REVISED ROZAJ
+				SAAHO SCOUSE
 			</variable>
-			
-            <variable id="$variant" type="choice">AREVELA AREVMDA BOONT SCOUSE 1901 1996 POLYTONI REVISED SAAHO POSIX NEDIS ROZAJ</variable>
 			<variable id="$tzid" type="choice">
 				Africa/Abidjan Africa/Accra Africa/Addis_Ababa Africa/Algiers Africa/Asmera
 				Africa/Bamako Africa/Bangui Africa/Banjul Africa/Bissau Africa/Blantyre
@@ -378,7 +387,7 @@
     
             <!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
             <variable id="$allow" type="regex">(verbatim)</variable>
-            <variable id="$alt" type="regex">((variant|list|secondary|email|www|short)(-proposed(([-]u?)?[1-9][0-9]*)*)?)|(proposed(([-]u?)?[1-9][0-9]*)*)</variable>
+            <variable id="$alt" type="regex">((variant|list|secondary|email|www|short)(-proposed(([-](u|x)?)?[1-9][0-9]*)*)?)|(proposed(([-](u|x)?)?[1-9][0-9]*)*)</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
             <variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>
             <variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>

@@ -40,8 +40,9 @@ public class SurveyForum {
     private static java.util.logging.Logger logger;
 
 
-    public static String DB_FORA = "SF_FORA";
-    public static String DB_POSTS = "SF_POSTS";
+    public static String DB_FORA = "SF_FORA";    //  forum name -> id
+    public static String DB_POSTS = "SF_POSTS";  // 
+    public static String DB_READERS = "SF_READERS";  // 
 
     /* --------- FORUM ------------- */
     static final String F_FORUM = "forum";

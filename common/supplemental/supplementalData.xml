@@ -1720,6 +1720,7 @@ XXX	Code for transations where no currency is involved
 		<territory type="HU" gdp="162600000000" literacyPercent="99" population="10000000">	<!--Hungary-->
 			<languagePopulation type="hu" populationPercent="100"/>	<!--Hungarian-->
 			<languagePopulation type="de" populationPercent="2.5"/>	<!--German-->
+			<languagePopulation type="ro" populationPercent="1"/>	<!--Romanian-->
 		</territory>
 		<territory type="ID" gdp="865600000000" literacyPercent="90.4" population="220000000">	<!--Indonesia-->
 			<languagePopulation type="jv" populationPercent="34.1"/>	<!--Javanese-->
@@ -1744,7 +1745,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="100"/>	<!--English-->
 		</territory>
 		<territory type="IN" gdp="3611000000000" literacyPercent="61" population="1100000000">	<!--India-->
-			<languagePopulation type="en" populationPercent="31.8"/>	<!--English-->
+			<languagePopulation type="en" populationPercent="10"/>	<!--English-->
 			<languagePopulation type="hi" populationPercent="16.4"/>	<!--Hindi-->
 			<languagePopulation type="bn" populationPercent="6.45"/>	<!--Bengali-->
 			<languagePopulation type="te" populationPercent="6.36"/>	<!--Telugu-->
@@ -1849,6 +1850,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ku_Arab" populationPercent="1.63"/>	<!--Kurdish (Arabic)-->
 		</territory>
 		<territory type="LC" gdp="866000000" literacyPercent="90" population="160000">	<!--Saint Lucia-->
+			<languagePopulation type="en" populationPercent="1"/>	<!--English-->
 		</territory>
 		<territory type="LI" gdp="1786000000" literacyPercent="100" population="34000">	<!--Liechtenstein-->
 			<languagePopulation type="gsw" populationPercent="85.3"/>	<!--Swiss German-->
@@ -1864,6 +1866,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="st" populationPercent="100"/>	<!--Southern Sotho-->
 			<languagePopulation type="zu" populationPercent="13.9"/>	<!--Zulu-->
 			<languagePopulation type="ss" populationPercent="2.39"/>	<!--Swati-->
+			<languagePopulation type="xh" populationPercent="1"/>	<!--Xhosa-->
 		</territory>
 		<territory type="LT" gdp="49210000000" literacyPercent="99.7" population="3400000">	<!--Lithuania-->
 			<languagePopulation type="lt" populationPercent="88.2"/>	<!--Lithuanian-->
@@ -1896,6 +1899,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="kk" populationPercent="1.06"/>	<!--Kazakh-->
 		</territory>
 		<territory type="MH" gdp="115000000" literacyPercent="93.7" population="60000">	<!--Marshall Islands-->
+			<languagePopulation type="en" populationPercent="1"/>	<!--English-->
 		</territory>
 		<territory type="MK" gdp="16030000000" literacyPercent="96.1" population="2100000">	<!--Macedonia-->
 			<languagePopulation type="mk" populationPercent="66.7"/>	<!--Macedonian-->
@@ -2291,6 +2295,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="2.92"/>	<!--English-->
 			<languagePopulation type="ny" populationPercent="1.92"/>	<!--Nyanja; Chichewa; Chewa-->
 		</territory>
+
 	</territoryInfo>
 	<calendarData>
 		<!-- gregorian is assumed, so these are all in addition -->

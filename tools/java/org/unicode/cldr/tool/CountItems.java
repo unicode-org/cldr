@@ -519,7 +519,7 @@ public class CountItems {
       System.out.println();
       String sep = "\r\n\t\t\t\t";
       StandardCodes sc = StandardCodes.make();
-      for (String type : new String[]{"grandfathered", "language", "territory", "script", "currency", "currency2"}) {
+      for (String type : new String[]{"grandfathered", "language", "territory", "script", "currency", "currency2", "variant"}) {
         Set i;
         if (type.equals("currency2")) {
           i = getSupplementalCurrency();

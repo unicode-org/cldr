@@ -223,21 +223,25 @@ public class CoverageLevel {
     try {
       Set scriptsForLanguage = (Set) language_scripts.get(language);
       if (scriptsForLanguage != null && scriptsForLanguage.size() > 1) {
-        putAll(script_level, scriptsForLanguage, CoverageLevel.Level.MINIMAL);
+        putAll(script_level, scriptsForLanguage, CoverageLevel.Level.MINIMAL, true);
       }
     } catch (RuntimeException e) {
       e.printStackTrace();
     }
     
     territory_level.putAll(base_territory_level);
-    putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.MINIMAL);
+    putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.MINIMAL, true);
     
     {
       language_level.put(language, CoverageLevel.Level.MINIMAL);
       String script = parser.getScript();
-      if (script != null) script_level.put(script, CoverageLevel.Level.MINIMAL);
+      if (script != null) {
+        script_level.put(script, CoverageLevel.Level.MINIMAL);
+      }
       String territory = parser.getRegion();
-      if (territory != null) territory_level.put(territory, CoverageLevel.Level.MINIMAL);
+      if (territory != null) {
+        territory_level.put(territory, CoverageLevel.Level.MINIMAL);
+      }
     }
     
     // special cases for EU
@@ -260,7 +264,7 @@ public class CoverageLevel {
     
     // set currencies, timezones according to territory level
     // HOWEVER, make the currency level at most BASIC
-    putAll(currency_level, modernCurrencies, CoverageLevel.Level.MODERN);
+    putAll(currency_level, modernCurrencies, CoverageLevel.Level.MODERN, true);
     for (Iterator it = territory_level.keySet().iterator(); it.hasNext();) {
       String territory = (String) it.next();
       CoverageLevel.Level level = (CoverageLevel.Level) territory_level.get(territory);
@@ -298,13 +302,12 @@ public class CoverageLevel {
     
     
     if (CheckCoverage.DEBUG) {
-      System.out.println(language_level);               
-      System.out.println(script_level);
-      System.out.println(territory_level);
-      System.out.println(currency_level);
+      System.out.println("language_level: " + language_level);               
+      System.out.println("script_level: " + script_level);
+      System.out.println("territory_level: " + territory_level);
+      System.out.println("currency_level: " + currency_level);
       System.out.println("euroCountries: " + euroCountries);
       System.out.println("euroLanguages: " + euroLanguages);
-      System.out.println("file-specific info set");
       System.out.flush();
     }
     
@@ -316,10 +319,21 @@ public class CoverageLevel {
     }
   }
   
-  private void putAll(Map targetMap, Collection keyset, Object value) {
+  /**
+   * For each items in keyset, targetMap.put(item, value);
+   * @param targetMap
+   * @param keyset
+   * @param value
+   * @param override TODO
+   */
+  private void putAll(Map targetMap, Collection keyset, Object value, boolean override) {
     if (keyset == null) return;
     for (Iterator it2 = keyset.iterator(); it2.hasNext();) {
-      targetMap.put(it2.next(), value);
+      Object item = it2.next();
+      if (override & targetMap.get(item) != null) {
+        continue;
+      }
+      targetMap.put(item, value);
     }
   }
   
@@ -433,9 +447,13 @@ public class CoverageLevel {
   }
   
   // ========== Initialization Stuff ===================
-  
+
+  /**
+   * Should only be called once, or if the platform changes (options - "CoverageLevel.localeType")
+   */
   public void init(CLDRFile supplementalData, CLDRFile supplementalMetadata, Map options) {
     try {
+
       getMetadata(supplementalMetadata);
       getData(supplementalData);
       
@@ -453,14 +471,17 @@ public class CoverageLevel {
       
       // add the modern stuff, after doing both of the above
       
-      modernLanguages.removeAll(base_language_level.keySet());
-      putAll(base_language_level, modernLanguages, CoverageLevel.Level.MODERN);
+      //modernLanguages.removeAll(base_language_level.keySet());
+      putAll(base_language_level, modernLanguages, CoverageLevel.Level.MODERN, false);
+      //putAll(base_language_level, sc.getGoodAvailableCodes("language"), CoverageLevel.Level.COMPREHENSIVE, false);
       
-      modernScripts.removeAll(base_script_level.keySet());
-      putAll(base_script_level, modernScripts, CoverageLevel.Level.MODERN);
+      //modernScripts.removeAll(base_script_level.keySet());
+      putAll(base_script_level, modernScripts, CoverageLevel.Level.MODERN, false);
+      //putAll(base_script_level, sc.getGoodAvailableCodes("script"), CoverageLevel.Level.COMPREHENSIVE, false);
       
-      modernTerritories.removeAll(base_territory_level.keySet());
-      putAll(base_territory_level, modernTerritories, CoverageLevel.Level.MODERN);
+      //modernTerritories.removeAll(base_territory_level.keySet());
+      putAll(base_territory_level, modernTerritories, CoverageLevel.Level.MODERN, false);
+      //putAll(base_territory_level, sc.getGoodAvailableCodes("territory"), CoverageLevel.Level.COMPREHENSIVE, false);
       
       // set up the required levels
       try {
@@ -471,6 +492,7 @@ public class CoverageLevel {
         
         if (localeType != null) locale_level = (Map) platform_local_level.get(localeType);
         
+        // fix up the locale_level by setting the language to be the greatest of the children and itself (if it exists)
         if (locale_level != null) {
           for (Iterator it = locale_level.keySet().iterator(); it.hasNext();) {
             String locale = (String) it.next();
@@ -480,17 +502,17 @@ public class CoverageLevel {
             Level requiredLevel = Level.get(level);
             if (requiredLevel == Level.UNDETERMINED) requiredLevel = Level.BASIC;
             
-            String key = parser.getLanguage();
-            CoverageLevel.Level old = (CoverageLevel.Level) locale_requiredLevel.get(key);
-            if (old == null || old.compareTo(requiredLevel) > 0) {
-              locale_requiredLevel.put(key, requiredLevel);
+            String language = parser.getLanguage();
+            CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_requiredLevel.get(language);
+            if (languageLevel == null || languageLevel.compareTo(requiredLevel) < 0) {
+              locale_requiredLevel.put(language, requiredLevel);
             }
-            String oldKey = key;
-            key = parser.getLanguageScript();
-            if (!key.equals(oldKey)) {
-              old = (CoverageLevel.Level) locale_requiredLevel.get(key);
-              if (old == null || old.compareTo(requiredLevel) > 0) {
-                locale_requiredLevel.put(key, requiredLevel);
+            String oldLanguage = language;
+            language = parser.getLanguageScript();
+            if (!language.equals(oldLanguage)) {
+              languageLevel = (CoverageLevel.Level) locale_requiredLevel.get(language);
+              if (languageLevel == null || languageLevel.compareTo(requiredLevel) < 0) {
+                locale_requiredLevel.put(language, requiredLevel);
               }
             }
           }
@@ -533,16 +555,16 @@ public class CoverageLevel {
       }
       
       if (CheckCoverage.DEBUG) {
-        System.out.println(base_language_level);               
-        System.out.println(base_script_level);
-        System.out.println(base_territory_level);
-        System.out.println("common info set");
+        System.out.println("base_language_level: " + base_language_level);               
+        System.out.println("base_script_level: " + base_script_level);
+        System.out.println("base_territory_level: " + base_territory_level);
         System.out.flush();
       }
     } catch (RuntimeException e) {
       throw e; // just for debugging
     }
   }
+  
   private void initPosixCoverage(String localeID, CLDRFile supplementalData){
     parser.set(localeID);
     //String language = parser.getLanguage();

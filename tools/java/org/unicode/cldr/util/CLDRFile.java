@@ -633,13 +633,17 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return this;
   }
   
-  static final Pattern specialsToKeep = Pattern.compile(
+  /**
+   * Code should explicitly include CODE_FALLBACK
+   */
+  public static final Pattern specialsToKeep = Pattern.compile(
       "/(" +
       "measurementSystemName" +
       "|codePattern" +
-      "|calendar\\[\\@type\\=\"gregorian\"\\]/(?!dateTimeFormats/appendItems)" +
+      "|calendar\\[\\@type\\=\"[^\"]*\"\\]/(?!dateTimeFormats/appendItems)" + // gregorian
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+      "|pattern" +
       ")");
 
   static final Pattern specialsToPushFromRoot = Pattern.compile(

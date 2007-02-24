@@ -62,9 +62,10 @@ import com.ibm.icu.util.UniversalTimeScale;
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
 		try {
+      checkStandardCodes();
+      if (true) return;
 		checkNumericTimezone();
 		
-		if (true) return;
 		
 		long foo = UniversalTimeScale.from(new Date().getTime(), UniversalTimeScale.JAVA_TIME);
 		System.out.println("Current Universal Time: " + Long.toString(foo,16));
@@ -75,7 +76,7 @@ public class TestUtilities {
 		//writeMetaData();
 		//testXMLFileReader();
 		//testBreakIterator("&#x61;\n&#255;&#256;");
-		checkStandardCodes();
+
 		//checkLanguages();
 		//printCountries();
 		//printZoneSamples();

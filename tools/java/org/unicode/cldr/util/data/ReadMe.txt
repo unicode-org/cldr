@@ -9,11 +9,10 @@ This document describes how to update CLDR when this happens.
   (you can set up a watch for changes in this page with http://www.watchthatpage.com)
 - Copy into org.unicode.cldr.util.data
     - If using Eclipse, refresh the files
-- Diff with the old copy (via CVS)
+- Diff with the old copy (via CVS) to check for consistency
 - Any new codes need a corresponding update in supplementalMetadata.xml
-	- languages: search for <variable id="$language", add to list
-	- territories: search for <variable id="$territory", add to list
-	- scripts: search for <variable id="$territory", add to list
+  Run CountItems -DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8 -DSHOW_FILES -Xmx512M -Dmethod=getSubtagVariables
+	Replace sections of supplementalMetadata.xml
 - Edit common/main/en.xml to add the new names, based on the Descriptions in the registry file.
     - The format of the registry is screwy: you can use http://demo.icu-project.org/icu-bin/translit
       to convert forms like N&#x2019;Ko into N’Ko

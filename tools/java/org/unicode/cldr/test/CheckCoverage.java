@@ -8,6 +8,8 @@ package org.unicode.cldr.test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel.Level;
@@ -32,6 +34,7 @@ public class CheckCoverage extends CheckCLDR {
     private Level requiredLevel;
     private boolean skip; // set to null if we should not be checking this file
     private boolean requireConfirmed = true;
+    private Matcher specialsToTestMatcher = CLDRFile.specialsToKeep.matcher("");
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
@@ -46,9 +49,14 @@ public class CheckCoverage extends CheckCLDR {
 //        if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
 //        
 //        // skip all items that are in anything but raw codes
+
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
         boolean isConfirmed = !fullPath.contains("[@draft=");
-        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !source.equals("root") && (isConfirmed || !requireConfirmed)) {
+        // && (isConfirmed || !requireConfirmed)
+        
+        // we test stuff matching specialsToKeep, or code fallback  
+        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !specialsToTestMatcher.reset(path).matches() ) {
+          // don't test!
             return this;
         }
         
@@ -62,7 +70,7 @@ public class CheckCoverage extends CheckCLDR {
         CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath, path);
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
-        if (requiredLevel.compareTo(level) >= 0) {
+        if (requiredLevel.compareTo(level) >= 0 || !isConfirmed) {
             result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
                 .setCheckOnSubmit(false)
                     .setMessage(isConfirmed ? 
@@ -92,7 +100,10 @@ public class CheckCoverage extends CheckCLDR {
 
         if (requiredLevel == null) { 
              requiredLevel = Level.BASIC; 
-        } 
+        }
+        if (DEBUG) {
+          System.out.println("requiredLevel: " + requiredLevel);
+        }
 
         skip = false;
         return this;

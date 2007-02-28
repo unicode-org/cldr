@@ -5,6 +5,8 @@
 //  Created by Steven R. Loomis on 16/01/2007.
 //  Copyright 2007 IBM. All rights reserved.
 //
+//
+// TODO: replace string literals with constants
 
 package org.unicode.cldr.util;
 
@@ -241,5 +243,70 @@ public class SupplementalData {
         }
         return territoryToZones;
     }
+    
+    // Default Content Locales
+    private Hashtable defaultContentToParentHash = null; // list of default content locale IDs -> 'parent ID'
+    private Hashtable defaultContentToChildHash = null; // list of default content source IDs -> 'which default content locale ID'
+    
+    public String defaultContentToParent(String child) {
+        if(defaultContentToParentHash == null) {
+            defaultContentToChild(""); // so that it will initialize
+        }
+        return (String)defaultContentToParentHash.get(child);
+    }
+    
+    public synchronized String defaultContentToChild(String parent) {
+        if(defaultContentToChildHash == null) {
+            Hashtable c2p = new Hashtable(); // child to parent
+            Hashtable p2c = new Hashtable(); // parent to child
+            
+            NodeList defaultContent = 
+                        LDMLUtilities.getNodeList(getMetadata(), 
+                        "//supplementalData/metadata/defaultContent");
+                        
+            Node defaultContentItem = defaultContent.item(0);
+            
+            String localesList = LDMLUtilities.getAttributeValue(defaultContentItem,"locales");
+            
+            // we assume locales is sorted, with the later entries being more leaf nodes.
+            String[] locales = split(localesList);
+            
+            Set localeSet = new HashSet(); // for containment purposes
+            for(int i=0;i<locales.length;i++) {
+               localeSet.add(locales[i]);
+            }
+            
+            for(int i=0;i<locales.length;i++) {
+                String child = locales[i];
 
+                // Find a parent of this locale which is NOT itself also a defaultContent
+                String nextParent=LDMLUtilities.getParent(child);
+                while(nextParent!=null) {
+                    if (!localeSet.contains(nextParent)) { // Did we find a parent that's also not itself a defaultContent?
+                        break;
+                    }
+                    nextParent=LDMLUtilities.getParent(nextParent);  // loop over parent localse
+                }
+                // parent 
+                if(nextParent == null) {
+                    throw new InternalError("SupplementalData.defaultContentToChild(): No valid parent for " + child);
+                }
+                
+                c2p.put(child, nextParent);  //  wo_Arab_SN -> wo
+                String oldChild = (String)p2c.get(nextParent);
+                if(oldChild != null) {
+                    String childParent = LDMLUtilities.getParent(child);
+                    if(!childParent.equals(oldChild)) {
+                        throw new InternalError("SupplementalData.defaultContentToChild(): defaultContent list in wrong order? Tried to map "+nextParent + " -> " + child + ", replacing " + oldChild + " (should have been " + childParent+")");
+                    }
+                }
+                p2c.put(nextParent, child); // wo -> wo_Arab_SN
+            }
+            // done, save the hashtables..
+            defaultContentToChildHash = p2c;
+            defaultContentToParentHash = c2p;
+        }
+        // Normal case: return the lookedup value
+        return (String)defaultContentToChildHash.get(parent);
+    }
 }

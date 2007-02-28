@@ -1986,7 +1986,13 @@ public class LDMLUtilities {
         return str;
     } 
 
-    // This should be in ULocale!
+    /**
+     * Returns the parent locale given a locale ID.
+     * Returns "root" for any language locale.
+     * Returns null for root's parent
+     * @param locale Locale to take the parent of.
+     * @return the parent locale, or null if "root" is passed in
+     */
     public static String getParent(String locale) {
         int pos = locale.lastIndexOf('_');
         if (pos >= 0) {

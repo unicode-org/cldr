@@ -128,9 +128,10 @@ public class UserRegistry {
      * @param ourConn the conn to use
      * @param isNew  true if should CREATE TABLEs
      */
-    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, boolean isNew) 
+    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, boolean isNew, SurveyMain theSm) 
       throws SQLException
     {
+        sm = theSm;
         UserRegistry reg = new UserRegistry(xlogger,ourConn);
         if(isNew) {
             reg.setupDB();
@@ -498,7 +499,7 @@ public class UserRegistry {
     }
     
     Connection conn = null;
-    SurveyMain sm = null;
+    static SurveyMain sm = null; // static for static checking of defaultContent..
 
     private UserRegistry(java.util.logging.Logger xlogger, Connection ourConn) {
         logger = xlogger;
@@ -867,6 +868,9 @@ public class UserRegistry {
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
         if(SurveyMain.phaseReadonly) return false;
+        //if(userIsAdmin(u)) return true; // let admins modify all
+        if((sm.isLocaleAliased(locale)!=null) ||
+            sm.supplemental.defaultContentToParent(locale)!=null) return false; // it's a defaultcontent locale or a pure alias.
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;

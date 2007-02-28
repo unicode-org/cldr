@@ -178,9 +178,10 @@ public class DataPod extends Registerable {
         boolean hasInherited = false;
         public int voteType = 0; // bitmask of all voting types included
         public int reservedForSort = -1; // reserved to use in collator.
-        String inheritFrom = null;
-        String pathWhereFound = null;
+//        String inheritFrom = null;
+//        String pathWhereFound = null;
         public class Item {
+            String pathWhereFound = null;
             String inheritFrom = null;
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public String value = null; // actual value
@@ -306,6 +307,9 @@ public class DataPod extends Registerable {
      * A class representing a list of peas, in sorted and divided order.
      */
     public class DisplaySet {
+        public int size() {
+            return peas.size();
+        }
         String sortMode = null;
         public boolean canName = true; // can use the 'name' view?
         public List peas; // list of peas in sorted order
@@ -317,12 +321,35 @@ public class DataPod extends Registerable {
          */
         
         public Partition partitions[];  // display group partitions.  Might only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
-        
-        
+
         public DisplaySet(List myPeas, List myDisplayPeas, String sortMode) {
+            this.sortMode = sortMode;
+            
             peas = myPeas;
             displayPeas = myDisplayPeas;
-            this.sortMode = sortMode;
+
+            /*
+            if(matcher != null) {
+                List peas = new ArrayList();
+                List displayPeas = new ArrayList();
+                peas.addAll(myPeas);
+                displayPeas.addAll(displayPeas);
+                
+                for(Object o : myPeas) {
+                    Pea p = (Pea)o;
+                    if(!matcher.matcher(p.type).matches()) {
+                        peas.remove(o);
+                    }
+                }
+                for(Object o : myDisplayPeas) {
+                    Pea p = (Pea)o;
+                    if(!matcher.matcher(p.type).matches()) {
+                        displayPeas.remove(o);
+                    }
+                }
+                System.err.println("now " +peas.size()+"/"+displayPeas.size()+" versus " + myPeas.size()+"/"+myDisplayPeas.size());
+            }
+            */
             
             // fetch partitions..
             Vector v = new Vector();
@@ -331,7 +358,8 @@ public class DataPod extends Registerable {
                                                                            createVettingPartitions();
                 // find the starts
                 int lastGood = 0;
-                Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
+                Pea peasArray[] = null;
+                peasArray = (Pea[])peas.toArray(new Pea[0]);
                 for(int i=0;i<peasArray.length;i++) {
                     Pea p = peasArray[i];
                                         
@@ -479,13 +507,22 @@ public class DataPod extends Registerable {
 
     private Hashtable displayHash = new Hashtable();
     
+    public DisplaySet getDisplaySet(String sortMode, Pattern matcher) {
+        return createDisplaySet(sortMode, matcher); // don't cache.
+    }
+
     public DisplaySet getDisplaySet(String sortMode) {
         DisplaySet aDisplaySet = (DisplaySet)displayHash.get(sortMode);
         if(aDisplaySet == null)  {
-            aDisplaySet = new DisplaySet(getList(sortMode), getDisplayList(sortMode), sortMode);
-            aDisplaySet.canName = canName;
+            aDisplaySet = createDisplaySet(sortMode, null);
             displayHash.put(sortMode, aDisplaySet);
         }
+        return aDisplaySet;
+    }
+    
+    private DisplaySet createDisplaySet(String sortMode, Pattern matcher) {
+        DisplaySet aDisplaySet = new DisplaySet(getList(sortMode, matcher), getDisplayList(sortMode, matcher), sortMode);
+        aDisplaySet.canName = canName;
         return aDisplaySet;
     }
     
@@ -496,139 +533,166 @@ public class DataPod extends Registerable {
      */
     public List getList(String sortMode) {
         List aList = (List)listHash.get(sortMode);
-//        final boolean canName = canName;
         if(aList == null) {
-            Set newSet;
-            
-//                final com.ibm.icu.text.RuleBasedCollator rbc = 
-//                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
-//                rbc.setNumericCollation(true);
+            aList = getList(sortMode, null);
+        }
+        listHash.put(sortMode, aList);
+        return aList;
+    }
+        
+    public List getList(String sortMode, Pattern matcher) {
+    //        final boolean canName = canName;
+        Set newSet;
+        
+    //                final com.ibm.icu.text.RuleBasedCollator rbc = 
+    //                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
+    //                rbc.setNumericCollation(true);
 
-            
-            if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-                newSet = new TreeSet(new Comparator() {
-//                        com.ibm.icu.text.Collator myCollator = rbc;
-                    public int compare(Object o1, Object o2){
-                        Pea p1 = (Pea) o1;
-                        Pea p2 = (Pea) o2;
-                        if(p1==p2) { 
-                            return 0;
-                        }
-                        return myCollator.compare(p1.type, p2.type);
+        
+        if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
+            newSet = new TreeSet(new Comparator() {
+    //                        com.ibm.icu.text.Collator myCollator = rbc;
+                public int compare(Object o1, Object o2){
+                    Pea p1 = (Pea) o1;
+                    Pea p2 = (Pea) o2;
+                    if(p1==p2) { 
+                        return 0;
                     }
-                });
-            } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                newSet = new TreeSet(new Comparator() {
+                    return myCollator.compare(p1.type, p2.type);
+                }
+            });
+        } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
+            newSet = new TreeSet(new Comparator() {
+            
+                int categorizePea(Pea p, Partition partitions[]) {
+                    int rv = -1;
+                    for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
+                        if(partitions[i].pm.isMember(p)) {
+                            rv = i;
+                        }
+                    }
+                    if(rv==-1) {
+                    }
+                    return rv;
+                }
                 
-                    int categorizePea(Pea p, Partition partitions[]) {
-                        int rv = -1;
-                        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
-                            if(partitions[i].pm.isMember(p)) {
-                                rv = i;
-                            }
-                        }
-                        if(rv==-1) {
-                        }
-                        return rv;
+                final Partition[] warningSort = SurveyMain.phaseSubmit?createSubmitPartitions():
+                                                                       createVettingPartitions();
+    //                        com.ibm.icu.text.Collator myCollator = rbc;
+                public int compare(Object o1, Object o2){
+                    Pea p1 = (Pea) o1;
+                    Pea p2 = (Pea) o2;
+                    
+                    if(p1==p2) {
+                        return 0;
                     }
                     
-                    final Partition[] warningSort = SurveyMain.phaseSubmit?createSubmitPartitions():
-                                                                           createVettingPartitions();
-//                        com.ibm.icu.text.Collator myCollator = rbc;
-                    public int compare(Object o1, Object o2){
-                        Pea p1 = (Pea) o1;
-                        Pea p2 = (Pea) o2;
-                        
-                        if(p1==p2) {
-                            return 0;
-                        }
-                        
-                        int rv = 0; // neg:  a < b.  pos: a> b
-                        
-                        if(p1.reservedForSort==-1) {
-                            p1.reservedForSort = categorizePea(p1, warningSort);
-                        }
-                        if(p2.reservedForSort==-1) {
-                            p2.reservedForSort = categorizePea(p2, warningSort);
-                        }
-                        
-                        if(rv == 0) {
-                            if(p1.reservedForSort < p2.reservedForSort) {
-                                return -1;
-                            } else if(p1.reservedForSort > p2.reservedForSort) {
-                                return 1;
-                            }
-                        }
-
-                       if(rv == 0) { // try to avoid a compare
-                            String p1d  = null;
-                            String p2d  = null;
-                            if(canName) {
-                              p1d = p1.displayName;
-                              p2d = p2.displayName;
-                            }
-                            if(p1d == null ) {
-                                p1d = p1.type;
-                                if(p1d == null) {
-                                    p1d = "(null)";
-                                }
-                            }
-                            if(p2d == null ) {
-                                p2d = p2.type;
-                                if(p2d == null) {
-                                    p2d = "(null)";
-                                }
-                            }
-                            return myCollator.compare(p1d, p2d);
-                        }
-                        
-                        if(rv < 0) {
+                    int rv = 0; // neg:  a < b.  pos: a> b
+                    
+                    if(p1.reservedForSort==-1) {
+                        p1.reservedForSort = categorizePea(p1, warningSort);
+                    }
+                    if(p2.reservedForSort==-1) {
+                        p2.reservedForSort = categorizePea(p2, warningSort);
+                    }
+                    
+                    if(rv == 0) {
+                        if(p1.reservedForSort < p2.reservedForSort) {
                             return -1;
-                        } else if(rv > 0) {
+                        } else if(p1.reservedForSort > p2.reservedForSort) {
                             return 1;
-                        } else {
-                            return 0;
                         }
                     }
-                });
-            } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
-                newSet = new TreeSet(new Comparator() {
-//                        com.ibm.icu.text.Collator myCollator = rbc;
-                    public int compare(Object o1, Object o2){
-                        Pea p1 = (Pea) o1;
-                        Pea p2 = (Pea) o2;
-                        if(p1==p2) { 
-                            return 0;
+
+                   if(rv == 0) { // try to avoid a compare
+                        String p1d  = null;
+                        String p2d  = null;
+                        if(canName) {
+                          p1d = p1.displayName;
+                          p2d = p2.displayName;
                         }
-                        String p1d = p1.displayName;
-                        if(p1.displayName == null ) {
-                                p1d = p1.type;
-//                                throw new InternalError("item p1 w/ null display: " + p1.type);
+                        if(p1d == null ) {
+                            p1d = p1.type;
+                            if(p1d == null) {
+                                p1d = "(null)";
+                            }
                         }
-                        String p2d = p2.displayName;
-                        if(p2.displayName == null ) {
-                                p2d = p2.type;
-//                                throw new InternalError("item p2 w/ null display: " + p2.type);
+                        if(p2d == null ) {
+                            p2d = p2.type;
+                            if(p2d == null) {
+                                p2d = "(null)";
+                            }
                         }
                         return myCollator.compare(p1d, p2d);
                     }
-                });
-            } else {
-                throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
-            }
-            
-            newSet.addAll(peasHash.values()); // sort it    
-            
-            aList = new ArrayList(); // list it (waste here??)
-            aList.addAll(newSet);
+                    
+                    if(rv < 0) {
+                        return -1;
+                    } else if(rv > 0) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            });
+        } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
+            newSet = new TreeSet(new Comparator() {
+    //                        com.ibm.icu.text.Collator myCollator = rbc;
+                public int compare(Object o1, Object o2){
+                    Pea p1 = (Pea) o1;
+                    Pea p2 = (Pea) o2;
+                    if(p1==p2) { 
+                        return 0;
+                    }
+                    String p1d = p1.displayName;
+                    if(p1.displayName == null ) {
+                            p1d = p1.type;
+    //                                throw new InternalError("item p1 w/ null display: " + p1.type);
+                    }
+                    String p2d = p2.displayName;
+                    if(p2.displayName == null ) {
+                            p2d = p2.type;
+    //                                throw new InternalError("item p2 w/ null display: " + p2.type);
+                    }
+                    return myCollator.compare(p1d, p2d);
+                }
+            });
+        } else {
+            throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
         }
+        
+        if(matcher == null) {
+            newSet.addAll(peasHash.values()); // sort it    
+        } else {
+            for(Object o : peasHash.values()) {
+                Pea p = (Pea)o;
+                if(p.type.indexOf("Adak")!=-1) {
+/*srl*/                    System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
+                }
+                if(matcher.matcher(p.type).matches()) {
+                    newSet.add(p);
+                }
+            }
+        }
+        
+        ArrayList aList = new ArrayList(); // list it (waste here??)
+        aList.addAll(newSet);
+
         return aList;
     }
     
     /** Returns a list parallel to that of getList() but of Strings suitable for display. 
     (Alternate idea: just make toString() do so on Pea.. advantage here is we can adjust for sort mode.) **/
     public List getDisplayList(String sortMode) {
-        final List myPeas = getList(sortMode);
+        return getDisplayList(sortMode, getList(sortMode));
+    }
+    
+    public List getDisplayList(String sortMode, Pattern matcher) {
+        return getDisplayList(sortMode, getList(sortMode, matcher));
+    }
+    
+    public List getDisplayList(String sortMode, List inPeas) {
+        final List myPeas = inPeas;
         if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
             return new AbstractList() {
                 private List ps = myPeas;
@@ -798,7 +862,8 @@ public class DataPod extends Registerable {
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
-        boolean ndebug = false;
+        CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+        final boolean ndebug = false;
         long lastTime = -1;
         long longestTime = -1;
         String longestPath = "NONE";
@@ -846,10 +911,12 @@ public class DataPod extends Registerable {
             useShorten = true;
             if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 removePrefix = "//ldml/dates/timeZoneNames/zone";
+//        System.err.println("ZZ0");
                 excludeTimeZones = false;
-            } if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+            } else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 removePrefix = "//ldml/dates/timeZoneNames/metazone";
                 excludeMetaZones = false;
+//        System.err.println("ZZ1");
             } else {
                 removePrefix = "//ldml/dates/calendars/calendar";
                 excludeTimeZones = true;
@@ -884,8 +951,9 @@ public class DataPod extends Registerable {
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             boolean confirmOnly = false;
             String xpath = (String)it.next();
-            
-///*srl*/   System.err.println("p] "+xpath);
+
+///*srl*/  if(xpath.indexOf("Adak")!=-1)
+///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
                 
             if(SHOW_TIME) {
                 count++;
@@ -896,32 +964,32 @@ public class DataPod extends Registerable {
             }
 
             if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
- //if(ndebug)    System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+// if(ndebug && (xpath.indexOf("Adak")!=-1))    System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeMost && mostPattern.matcher(xpath).matches()) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug)     System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug)     System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug)     System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug && (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
 /*            } else if(exemplarCityOnly && (xpath.indexOf("exemplarCity")==-1)) {
                 continue;*/
             } else if(excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug&& (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
-//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
-                //System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
 
@@ -1060,6 +1128,10 @@ public class DataPod extends Registerable {
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
+            
+///*srl*/ if(xpath.indexOf("Adak")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
+
+            
 ///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
             Pea superP = getPea(type);
@@ -1126,20 +1198,20 @@ public class DataPod extends Registerable {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
             }
-            CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
             
             boolean isInherited = !(sourceLocale.equals(locale));
             
 //    System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
     
+            // ?? simplify this.
             if(altProposed == null) {
                 if(!isInherited) {
-                    superP.hasInherited=false;
-                    p.hasInherited=false;
+                    //superP.hasInherited=false;
+                    //p.hasInherited=false;
                 } else {
                     p.hasInherited = true;
-                    p.inheritFrom = sourceLocale;
+                    superP.hasInherited=true;
                 }
             } else {
                 if(!isInherited) {
@@ -1150,18 +1222,13 @@ public class DataPod extends Registerable {
                    // p.hasProps = true; // Don't mark as a proposal.
                    // superP.hasProps = true;
                    p.hasInherited=true;
-                   p.inheritFrom=sourceLocale;
+                   superP.hasInherited=true;
                 }
             }
             
 ///*SRL*/     if(xpath.indexOf("Chicago")>-1) {
 //                System.err.println(locale + " - CHI - " + xpath + " V:"+value+" - I:"+isInherited);
 //            }
-
-            if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-                p.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                continue;  // **************************** don't collect any data from aliased items.
-            }
             
             String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
             boolean isCodeFallback = (setInheritFrom!=null)&&
@@ -1225,7 +1292,12 @@ public class DataPod extends Registerable {
             }
             myItem.xpath = xpath;
             myItem.xpathId = src.xpt.getByXpath(xpath);
-    
+
+            if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+                myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+            }
+            myItem.inheritFrom = setInheritFrom;
+
             // store who voted for what. [ this could be loaded at displaytime..]
             myItem.votes = sm.vet.gatherVotes(locale, xpath);
 
@@ -1246,11 +1318,10 @@ public class DataPod extends Registerable {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();                
                     myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
                 }
- //               myItem.examplesList = examplesResult;
+   //             myItem.examplesList = examplesResult;
    //             examplesResult = new ArrayList(); // getExamples will clear it.
             }
 
-            myItem.inheritFrom=setInheritFrom;
             if((eRefs != null) && (!isInherited)) {
                 myItem.references = eRefs;
             }

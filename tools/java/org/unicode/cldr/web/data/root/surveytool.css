@@ -68,6 +68,13 @@ A.nodraft:visited {
 	font-size: smaller;
 }
 
+.alias {
+/*	font-size: smaller; */
+/*	font-color: #F22;*/
+	background-color: #daf3ff;
+	border: 1px dotted #9b7dff;
+}
+
 .fallback {
 	background-color: #FFDDDD;
 }
@@ -505,6 +512,10 @@ table.sqlbox form {
 
 .ferrbox {
 	border: 1px solid red; margin: 1em; padding: 1em;	
+}
+
+.fnotebox {
+	border: 1px solid green; margin: 1em; padding: 1em;	
 }
 
 .specialHeader {

@@ -407,15 +407,18 @@ public class WebContext {
         }
     }
 // doc api
-    public static String getParent(Object l) {
-        String locale = l.toString();
-        int pos = locale.lastIndexOf('_');
-        if (pos >= 0) {
-            return locale.substring(0,pos);
+
+    // TODO: replace with overloads
+    public static String getParent(Object locale) {
+        String id;
+        if(locale instanceof ULocale) {
+            id = ((ULocale)locale).getBaseName();
+        } else {
+            id = locale.toString();
         }
-        if (!locale.equals("root")) return "root";
-        return null;
+        return LDMLUtilities.getParent(id);
     }
+    
 
     void setLocale(ULocale l) {
         locale = l;

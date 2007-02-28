@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.*;
 import java.net.InetAddress;
 import java.lang.ref.SoftReference;
+import java.util.regex.*;
 
 // logging
 import java.util.logging.Level;
@@ -110,6 +111,7 @@ public class SurveyMain extends HttpServlet {
     public static final String DRAFT = "draft";
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     public static final String DONTCARE = "abstain";
+    public static final boolean HAVE_REMOVE = false;
     public static final String REMOVE = "remove";
     public static final String CONFIRM = "confirm";
     public static final String CHANGETO = "change to";
@@ -2618,6 +2620,7 @@ public class SurveyMain extends HttpServlet {
         
         WebContext baseContext = new WebContext(ctx);
         
+
         // print 'shopping cart'
         if(!ctx.hasField(QUERY_EXAMPLE))  {
             
@@ -2649,6 +2652,43 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</p>");
             }
             ctx.println("<hr/>");
+        }
+        
+        if(ctx.locale != null ) {
+            String dcParent = supplemental.defaultContentToParent(ctx.locale.getBaseName());
+            String dcChild = supplemental.defaultContentToChild(ctx.locale.getBaseName());
+            if(dcParent != null) {
+                ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
+                    getLocaleLink(ctx,dcParent,null)+
+                    "</b>; thus editing is disabled. Please make any changes in <b>"+
+                    getLocaleLink(ctx,dcParent,null)+
+                    "</b> instead. <br>");
+                ctx.printHelpLink("/DefaultContent","Help with Default Content");
+                ctx.print("</div>");
+            } else if (dcChild != null) {
+                ctx.println("<div class='fnotebox'>This locale uses the default content for <b>"+
+                    getLocaleLink(ctx,dcChild,null)+
+                    "</b>. Please make sure that all the changes that you make here are appropriate for <b>"+
+                    getLocaleLink(ctx,dcChild,null)+
+                    "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values.<br>");
+                ctx.printHelpLink("/DefaultContent","Help with Default Content");
+                ctx.print("</div>");
+            }
+            String aliasTarget = isLocaleAliased(ctx.locale.getBaseName());
+            if(aliasTarget != null) {
+                // the alias might be a default content locale. Save some clicks here. 
+                dcParent = supplemental.defaultContentToParent(aliasTarget);
+                if(dcParent == null) {
+                    dcParent = aliasTarget;
+                }
+                ctx.println("<div class='ferrbox'>This locale is aliased to <b>"+
+                    getLocaleLink(ctx,aliasTarget,null)+
+                    "</b>. You cannot modify it. Please make all changes in <b>"+
+                    getLocaleLink(ctx,dcParent,null)+
+                    "</b>.<br>");
+                ctx.printHelpLink("/AliasedLocale","Help with Aliased Locale");
+                ctx.print("</div>");
+            }
         }
         
         doLocale(ctx, baseContext, which);
@@ -2797,24 +2837,32 @@ public class SurveyMain extends HttpServlet {
         return rv;
     }
     
-    void printLocaleLink(WebContext ctx, String localeName, String n) {
+    String getLocaleLink(WebContext ctx, String localeName, String n) {
         if(n == null) {
             n = new ULocale(localeName).getDisplayName(ctx.displayLocale) ;
         }
         String connector = ctx.urlConnector();
 //        boolean hasDraft = draftSet.contains(localeName);
 //        ctx.print(hasDraft?"<b>":"") ;
-        ctx.print("<a "  /* + (hasDraft?"class='draftl'":"class='nodraft'")  */
+        String rv = 
+            ("<a "  /* + (hasDraft?"class='draftl'":"class='nodraft'")  */
                   +" title='" + localeName + "' href=\"" + ctx.url() 
                   + connector + QUERY_LOCALE+"=" + localeName + "\">");
-        printLocaleStatus(ctx, localeName, n, localeName);
+        rv = rv + getLocaleStatus(localeName, n, localeName);
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
-            ctx.print(modifyThing(ctx));
+            rv = rv + (modifyThing(ctx));
         }
-        ctx.print("</a>");
+        rv = rv + ("</a>");
 //        ctx.print(hasDraft?"</b>":"") ;
+
+        return rv;
     }
+    
+    void printLocaleLink(WebContext ctx, String localeName, String n) {
+        ctx.print(getLocaleLink(ctx,localeName,n));
+    }
+
 
     /*
      * show a list of locales that fall into this interest group.
@@ -3101,7 +3149,7 @@ public class SurveyMain extends HttpServlet {
         int i;
         int j;
         int n = ctx.docLocale.length;
-        if(which.equals(xREMOVE)) {
+        if(HAVE_REMOVE&&which.equals(xREMOVE)) {
             ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
             ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
             ctx.println("<h2>Your session for " + ctx.field(QUERY_LOCALE) + " has been removed.</h2>");
@@ -3704,6 +3752,46 @@ private synchronized void resetLocaleCaches() {
     localeListMap = null;
     allMetazones = null;
     localeListSet = null;
+    aliasMap = null;
+}
+
+private static Hashtable aliasMap = null;
+
+/**
+ * Is this locale fully aliased? If true, returns what it is aliased to.
+ */
+public synchronized String isLocaleAliased(String id) {
+    if(aliasMap==null) {
+        Hashtable h = new Hashtable();
+        Set locales  = getLocalesSet();
+        ElapsedTimer et = new ElapsedTimer();    
+        System.err.println("Beginning alias check/parse of " + locales.size() + " locales..");
+        for(Object loc : locales) {
+            try {
+                Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", true);
+                
+                Node[] aliasItems = 
+                            LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
+                if((aliasItems==null) || (aliasItems.length==0)){
+                    continue;
+                } else if(aliasItems.length>1) {
+                    throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                }
+
+                String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
+                h.put(loc.toString(),aliasTo);
+                
+            } catch (Throwable t) {
+                System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                t.printStackTrace();
+                busted("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+            }
+        }
+        System.err.println("Finished alias check/parse of " + locales.size()+ " in " + et.toString());
+        aliasMap = h;
+    }
+    return (String)aliasMap.get(id);
 }
 
 /**
@@ -4352,7 +4440,13 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
             refs = (String[])refsSet.toArray((Object[]) refs);
         }
     }
-    DataPod.DisplaySet dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
+    DataPod.DisplaySet dSet = null;
+    if(!exemplarCityOnly) {
+        dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
+    } else {
+        dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*exemplarCity.*"));
+    }
+    
     boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
     int moveSkip=-1;  // move the "skip" marker?
     int xfind = ctx.fieldInt("xfind");
@@ -4372,7 +4466,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     }
     // -----
     if(!partialPeas) {
-        skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), true, sortMode, oskip);
+        skip = showSkipBox(ctx, dSet.size(), dSet, true, sortMode, oskip);
     } else {
         skip = 0;
     }
@@ -4424,11 +4518,11 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
 //                System.err.println("P[["+only_prefix_xpath+"]], t[["+pod.xpath(p)+"]]");
             }
         }
-        if(exemplarCityOnly) {
+/*        if(exemplarCityOnly) {
             if(pod.xpath(p).indexOf("exemplarCity")==-1) {
                 continue;
             }
-        }
+        }*/
         
         if((!partialPeas) && checkPartitions) {
             for(int j = 0;j<dSet.partitions.length;j++) {
@@ -4494,7 +4588,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         }
         
         
-        /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false, sortMode, oskip);
+        /*skip = */ showSkipBox(ctx, peas.size(), dSet, false, sortMode, oskip);
         
         if(!canModify) {
             ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -4587,9 +4681,9 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         choice_v=""; // so that the value is ignored, as it is not changing
     }
     if(choice.equals(CHANGETO)&& choice_v.length()==0) {
-        ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
+        ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. <!-- Use 'remove' to request removal. --><br>");
     } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
-         choice.equals(REMOVE) ) {
+         (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
         if(!canSubmit) {
             ctx.println("You are not allowed to submit data at this time.<br>");
             return false;
@@ -4598,7 +4692,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(choice_v.equals(item.value)  && 
-                !((item.altProposed==null) && (p.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom))) { // OK to override code fallbacks
+                !((item.altProposed==null) && (item.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom))) { // OK to override code fallbacks
                 String theirReferences = item.references;
                 if(theirReferences == null) {
                     theirReferences="";
@@ -4607,7 +4701,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                     ctx.println("<tt class='codebox'>" + p.displayName +"</tt>  - Not accepting value, as it is already present under " + 
                         ((item.altProposed==null)?" non-draft item ":(" <tt>"+item.altProposed+"</tt><br> ")));
                     // reject the value
-                    if(!choice.equals(REMOVE)) {
+                    if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
                         ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
                     }
                     return false;
@@ -4694,7 +4788,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
                 }
                 if(doFail) {
                     // reject the value
-                    if(!choice.equals(REMOVE)) {
+                    if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
                         ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
                     }
                     ctx.println("<b>This item was not accepted because of test failures.</b><hr>");
@@ -4707,7 +4801,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
             altPrefix, ctx.session.user.id, choice_v, choice_r);
         // update implied vote
         ctx.print(" : <b>" + newProp+"</b>");
-        if(choice.equals(REMOVE)) {
+        if(HAVE_REMOVE&&choice.equals(REMOVE)) {
             ctx.print(" <i>(removal)</i>");
         }
         doUnVote(ctx, pod.locale, base_xpath);
@@ -4858,7 +4952,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     ctx.println("</tr>");
     
     
-    if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
+    if((p.hasInherited == true) && (p.type != null) && (/*item.inheritFrom == null*/false)) { // by code
         String pClass = "class='warnrow'";
         ctx.print("<tr " + pClass + ">");
         ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
@@ -4876,6 +4970,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<td class='warncell'>Missing, using code.</td>");
         ctx.println("</tr>");
     }
+    /*
     if(p.pathWhereFound != null) { // is the pea tagged with another path?
         // middle common string match
         String a = fullPathFull;
@@ -4897,8 +4992,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             ;
         int maxlen = (alen>blen)?alen:blen;
         
-        /* System.err.println("A:"+a);
-        System.err.println("B:"+b); */
+// System.err.println("A:"+a);
+// System.err.println("B:"+b); 
         
         // find a common suffix
         for(suffixSize=0;((suffixSize+prefixSize)<maxlen)&&
@@ -4929,7 +5024,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             ctx.printHelpLink("/AliasedFrom","Help",true,false);
             ctx.println("</td></tr>");
         }
-    }
+    }*/
     /* else */ if(isAlias) {   
 //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")/*,fullPathFull.length()*/);
 //<tt class='codebox'>["+shortStr+"]</tt>
@@ -4939,12 +5034,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             String pClass ="";
-            if((item.inheritFrom != null)&&(p.inheritFrom==null)) {
+            if(item.pathWhereFound != null) {
+                pClass = "class='alias'";
+            } else if((item.inheritFrom != null)) {
                 pClass = "class='fallback'";
             } else if(item.altProposed != null) {
                 pClass = "class='proposed'";
-            } else if(p.inheritFrom != null) {
-                pClass = "class='missing'";
+/*            } else if(p.inheritFrom != null) {
+                pClass = "class='missing'";*/
             } 
             ctx.println("<tr>");
             ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
@@ -4963,7 +5060,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     } else if (p.items.isEmpty()) {
         // there weren't any normal items to show. show an example anyways.
         ctx.print("<tr>");
-        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+        ctx.println("<th class='rowinfo'>"+localeLangName+":</th>"); // ##0 title /*srl*/
         ctx.print("<td colspan='5' align='right' valign='top'></td>");
         // example
         String itemExample = pod.exampleGenerator.getExampleHtml(fullPathFull, null, ExampleGenerator.Zoomed.IN);
@@ -4976,12 +5073,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     } else for(Iterator j = p.items.iterator();j.hasNext();) { // non alias
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
         String pClass ="";
-        if((item.inheritFrom != null)&&(p.inheritFrom==null)) {
+        if(item.pathWhereFound != null) {
+            pClass = "class='alias'";
+        } else if((item.inheritFrom != null)/*&&(p.inheritFrom==null)*/) {
             pClass = "class='fallback'";
         } else if(item.altProposed != null) {
             pClass = "class='proposed'";
-        } else if(p.inheritFrom != null) {
-            pClass = "class='missing'";
+      /*  } else if(p.inheritFrom != null) {
+            pClass = "class='missing'";*/
         } 
         ctx.print("<tr>");
         ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- "+pClass+" --></th>"); // ##0 title
@@ -4990,11 +5089,13 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly)
             || (!j.hasNext()&&!showedRemoveButton)) {
             showedRemoveButton = true;
-            ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
-            if(canModify&&canSubmit) {
-                ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");
-            } else {
-                ctx.print("<input type='radio' disabled>");
+            if(HAVE_REMOVE){
+                ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
+                if(canModify&&canSubmit) {
+                    ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");
+                } else {
+                    ctx.print("<input type='radio' disabled>");
+                }
             }
         }
         ctx.print("</td>");
@@ -5037,11 +5138,11 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 ctx.println("<br><span class='fallback'>Inherited from: " + item.inheritFrom+"</span>");
             }
         } else {
-            if(p.inheritFrom != null) {
-                if(p.inheritFrom.equals(XMLSource.CODE_FALLBACK_ID)) {
-                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" " + p.inheritFrom + "</span>");
+            if(item.inheritFrom != null) {
+                if(item.inheritFrom.equals(XMLSource.CODE_FALLBACK_ID)) {
+                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" " + item.inheritFrom + "</span>");
                 } else {
-                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" inherited [" + p.inheritFrom + "]</span>");
+                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" inherited [" + item.inheritFrom + "]</span>");
                 }
             } else {
                 ctx.print("<span class='"+boxClass+"'>" + CONFIRM + "</span>");
@@ -5384,9 +5485,9 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
         } else {
             rclass = "vother";
         }
-        if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
+/*        if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
             rclass = "insufficientrow";
-        }
+        }*/
     }
     
     ctx.println("<tr class='topbar'>");
@@ -5454,11 +5555,11 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     
     // ##5 current control
     ctx.print("<td nowrap colspan='1' class='"+/*rclass+*/"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
-
+/*
     if(isAlias || (p.pathWhereFound != null))  {
         ctx.println("<i dir='ltr'>(Alias - Zoom In for details)</i>");
     }
-
+*/
     // go find the 'current' item
     DataPod.Pea.Item current = null;
     for(Iterator j = p.items.iterator();(current==null)&&j.hasNext();) {
@@ -5611,12 +5712,14 @@ void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String f
     String pClass ="";
     if(winner) {
         pClass = "class='winner' title='Winning item.'";
-    } else if ((item.inheritFrom != null) &&(p.inheritFrom==null)) {
+    } else if(item.pathWhereFound != null) {
+        pClass = "class='alias' title='alias from somewhere'";
+    } else if ((item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
         pClass = "class='fallback' title='Fallback from "+item.inheritFrom+"'";
     } else if(item.altProposed != null) {
         pClass = "class='loser' title='proposed, losing item'";
-    } else if(p.inheritFrom != null) {
-        pClass = "class='missing'";
+/*    } else if(p.inheritFrom != null) {
+        pClass = "class='missing'"; */
     } else {
         pClass = "class='loser'";
     }
@@ -6520,7 +6623,7 @@ private void doStartupDB()
     try {
         Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
         boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
-        reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u);
+        reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u, this);
         if(!doesExist_u) { // only import users on first run through..
             reg.importOldUsers(vetdata);
         }

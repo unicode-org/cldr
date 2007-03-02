@@ -411,12 +411,12 @@ public abstract class XMLSource implements Freezable {
    */
   private static class ResolvingSource extends XMLSource {
     private XMLSource mySource;
-    private transient ParentAndPath parentAndPath = new ParentAndPath();
     private Alias tempAlias = new Alias();
     
     private static class ParentAndPath {
       String parentID;
       String path;
+      List aliases = new ArrayList();
       //String aliasPart;
       //String newPart;
       XMLSource source;
@@ -434,8 +434,7 @@ public abstract class XMLSource implements Freezable {
         return this;
       }
       public ParentAndPath next() {
-        //aliases.clear();
-        List aliases = new ArrayList();
+        aliases.clear();
         source.addAliases(aliases);
         if (aliases.size() != 0) for (Iterator it = aliases.iterator(); it.hasNext();) {
           Alias alias = (Alias)it.next();
@@ -476,6 +475,9 @@ public abstract class XMLSource implements Freezable {
         if (TRACE_VALUE) System.out.println("result: " + result);
         return result;
       }
+      
+      ParentAndPath parentAndPath = new ParentAndPath();
+      
       parentAndPath.set(xpath, currentSource, getLocaleID()).next();
       while (true) {
         if (parentAndPath.parentID == null) {
@@ -499,6 +501,8 @@ public abstract class XMLSource implements Freezable {
       XMLSource currentSource = mySource;
       String result = currentSource.getValueAtDPath(xpath);
       if (result != null) return currentSource.getFullPathAtDPath(xpath);
+
+      ParentAndPath parentAndPath = new ParentAndPath();
       parentAndPath.set(xpath, currentSource, getLocaleID()).next();
       while (true) {
         if (parentAndPath.parentID == null) {
@@ -525,6 +529,8 @@ public abstract class XMLSource implements Freezable {
         }
         return mySource.getLocaleID(); // was: null
       }
+      
+      ParentAndPath parentAndPath = new ParentAndPath();
       parentAndPath.set(xpath, currentSource, getLocaleID()).next();
       while (true) {
         if (parentAndPath.parentID == null) {

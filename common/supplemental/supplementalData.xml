@@ -1100,74 +1100,112 @@ XXX	Code for transations where no currency is involved
 		<group type="QU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK"/> <!-- European Union -->
 	</territoryContainment>
 	<languageData>
-		<language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--  Reflecting submitted data, cldrbug #1013 -->
-		<language type="ab" scripts="Cyrl" territories="GE" alt="secondary"/>
-		<language type="ab" scripts="Cyrl" territories="TR" alt="secondary"/>
+		<language type="aa" scripts="Latn" territories="DJ ER ET"/>
+		<language type="ab" scripts="Cyrl" territories="GE TR" alt="secondary"/>
+		<language type="abq" scripts="Cyrl" alt="secondary"/>
+		<language type="ady" scripts="Cyrl" alt="secondary"/>
 		<language type="af" scripts="Latn" territories="NA ZA"/>
-		<language type="ak" scripts="Latn" territories="GH"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="aii" scripts="Cyrl Syrc" alt="secondary"/>
+		<language type="ain" scripts="Kana Latn" territories="JP" alt="secondary"/>
+		<language type="ak" scripts="Latn" territories="GH"/>
 		<language type="am" scripts="Ethi" territories="ET"/>
+		<language type="amo" scripts="Latn" territories="NG" alt="secondary"/>
 		<language type="ar" scripts="Arab" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE"/>
 		<language type="ar" scripts="Arab" territories="IR" alt="secondary"/>
 		<language type="as" scripts="Beng" territories="BD IN"/>
+		<language type="av" scripts="Cyrl" alt="secondary"/>
+		<language type="awa" scripts="Deva" territories="IN NP" alt="secondary"/>
 		<language type="ay" scripts="Latn" territories="BO PE"/>
 		<language type="az" scripts="Arab Cyrl Latn" territories="AZ IR"/>
 		<language type="az" scripts="Arab Cyrl Latn" territories="GE TR" alt="secondary"/>
-		<language type="bal" scripts="Arab Latn" territories="AF IR OM" alt="secondary"/>
+		<language type="ba" scripts="Cyrl" alt="secondary"/>
 		<language type="bal" scripts="Arab Latn" territories="PK"/>
+		<language type="bal" scripts="Arab Latn" territories="AF IR OM" alt="secondary"/>
+		<language type="bbc" scripts="Batk Latn" territories="ID" alt="secondary"/>
 		<language type="be" scripts="Cyrl" territories="BY"/>
+		<language type="bfq" scripts="Taml" territories="IN" alt="secondary"/>
+		<language type="bft" scripts="Deva" territories="IN PK" alt="secondary"/>
+		<language type="bfy" scripts="Deva" territories="IN NP" alt="secondary"/>
 		<language type="bg" scripts="Cyrl" territories="BG"/>
-		<language type="bho" scripts="Deva" territories="IN NP MU"/>
+		<language type="bh" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="bhb" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="bho" scripts="Deva" territories="IN MU NP"/>
+		<language type="bin" scripts="Latn" alt="secondary"/>
+		<language type="bjj" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="bku" scripts="Buhd" territories="PH" alt="secondary"/>
 		<language type="bn" scripts="Beng" territories="BD IN"/>
 		<language type="bo" scripts="Tibt" territories="CN IN NP" alt="secondary"/>
 		<language type="br" scripts="Latn" territories="FR"/>
+		<language type="bra" scripts="Deva" territories="IN" alt="secondary"/>
 		<language type="bs" scripts="Latn" territories="BA"/>
 		<language type="bs" scripts="Latn" territories="HR ME RS" alt="secondary"/>
-		<language type="byn" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="btv" scripts="Deva" territories="IN PK" alt="secondary"/>
+		<language type="bug" scripts="Bugi" territories="ID MY" alt="secondary"/>
+		<language type="bxr" scripts="Cyrl" alt="secondary"/>
+		<language type="bya" scripts="Batk Latn" territories="ID PH" alt="secondary"/>
+		<language type="byn" scripts="Ethi" territories="ER"/>
 		<language type="ca" scripts="Latn" territories="AD ES"/>
 		<language type="cch" scripts="Latn" territories="NG"/>
-		<language type="cch" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="ch" scripts="Latn" territories="GU MP"/>
+		<language type="ccp" scripts="Beng" territories="BD IN" alt="secondary"/>
+		<language type="ce" scripts="Cyrl" territories="GE" alt="secondary"/>
 		<language type="ceb" scripts="Latn" territories="PH"/>
-		<language type="chr" scripts="Latn Cher" territories="US" alt="secondary"/>
+		<language type="ch" scripts="Latn" territories="GU MP"/>
+		<language type="chm" scripts="Cyrl Latn" alt="secondary"/>
+		<language type="chr" scripts="Cher Latn" territories="US" alt="secondary"/>
+		<language type="cja" scripts="Arab Cham" territories="KH" alt="secondary"/>
+		<language type="cjm" scripts="Arab Cham" territories="VN" alt="secondary"/>
+		<language type="cjs" scripts="Cyrl" alt="secondary"/>
+		<language type="ckt" scripts="Cyrl" alt="secondary"/>
 		<language type="co" scripts="Latn" territories="FR"/>
-		<language type="cop" scripts="Copt Arab" territories="EG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="cop" scripts="Copt Arab" territories="US" alt="secondary"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="cop" scripts="Arab Copt" territories="EG"/>
+		<language type="cop" scripts="Arab Copt" territories="US" alt="secondary"/>
+		<language type="cop" scripts="Grek" territories="EG" alt="secondary"/>
 		<language type="cpe" scripts="Latn" territories="SL"/>
 		<language type="cr" scripts="Cans Latn" territories="CA" alt="secondary"/>
 		<language type="cs" scripts="Latn" territories="CZ"/>
+		<language type="cv" scripts="Cyrl" alt="secondary"/>
 		<language type="cy" scripts="Latn" territories="GB"/>
 		<language type="da" scripts="Latn" territories="DK GL"/>
+		<language type="dar" scripts="Cyrl" alt="secondary"/>
 		<language type="de" scripts="Latn" territories="AT BE CH DE LI LU NA"/>
 		<language type="de" scripts="Latn" territories="IT" alt="secondary"/>
 		<language type="dgr" territories="CA" alt="secondary"/>
+		<language type="dng" scripts="Cyrl" alt="secondary"/>
 		<language type="dv" scripts="Thaa" territories="MV"/>
 		<language type="dz" scripts="Tibt" territories="BT"/>
-		<language type="ee" scripts="Latn" territories="GH TG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="ee" scripts="Latn" territories="GH TG"/>
 		<language type="el" scripts="Grek" territories="CY GR"/>
+		<language type="emk" scripts="Deva" alt="secondary"/>
 		<language type="en" scripts="Latn" territories="AG AI AS AU AW BB BM BS BW BZ CA CC CK CM CX DM ER FJ FK FM GB GD GH GI GM GY HK IE IN IO JM KE KI KN KY LC LR LS MH MP MS MT MW NA NF NG NR NU NZ PG PH PK PN PW RW SB SG SH SL SZ TC TK TO TT TZ UG UM US VC VG VI ZA ZM ZW"/>
-		<language type="eo" scripts="Latn" /> <!-- Reflecting submitted data, cldrbug #1013 --> <!-- NO territories -->
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EC ES GI GQ GT HN MX NI PA PE PR PY SV US UY VE"/>
 		<language type="et" scripts="Latn" territories="EE"/>
 		<language type="eu" scripts="Latn" territories="ES"/>
+		<language type="evn" scripts="Cyrl" alt="secondary"/>
 		<language type="fa" scripts="Arab" territories="AF IR"/>
 		<language type="fi" scripts="Latn" territories="FI SE"/>
-		<language type="fil" scripts="Latn" territories="PH"/>		
+		<language type="fil" scripts="Latn" territories="PH"/>
 		<language type="fiu" scripts="Latn" territories="FI SE" alt="secondary"/>
 		<language type="fj" scripts="Latn" territories="FJ"/>
 		<language type="fo" scripts="Latn" territories="FO"/>
 		<language type="fr" scripts="Latn" territories="BE BF BI BJ CA CD CF CG CH CI CM DJ FR GA GF GN GP GQ HT KM LU MC MG ML MQ MR MU NC NE PF PM RE RW SC SN TD TF TG VU WF YT"/>
-		<language type="fr" scripts="Latn" territories="IT US" alt="secondary"/> <!-- Italian: official in Valle d'Aosta, US: official in Louisiana -->
-		<language type="fur" scripts="Latn" territories="IT"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="fr" scripts="Latn" territories="IT US" alt="secondary"/>
+		<language type="fur" scripts="Latn" territories="IT"/>
 		<language type="fy" scripts="Latn" territories="DE NL" alt="secondary"/>
-		<language type="ga" scripts="Latn" territories="GB" alt="secondary"/>
 		<language type="ga" scripts="Latn" territories="IE"/>
-		<language type="gaa" scripts="Latn" territories="GH"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="ga" scripts="Latn" territories="GB" alt="secondary"/>
+		<language type="gaa" scripts="Latn" territories="GH"/>
+		<language type="gag" scripts="Cyrl" alt="secondary"/>
+		<language type="gbm" scripts="Deva" territories="IN" alt="secondary"/>
 		<language type="gd" scripts="Latn" territories="GB"/>
-		<language type="gez" scripts="Ethi" territories="ER ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="gez" scripts="Ethi" territories="ER ET"/>
 		<language type="gl" scripts="Latn" territories="ES"/>
-		<language type="gn" scripts="Latn" territories="AR BO" alt="secondary"/>
+		<language type="gld" scripts="Cyrl" alt="secondary"/>
 		<language type="gn" scripts="Latn" territories="PY"/>
+		<language type="gn" scripts="Latn" territories="AR BO" alt="secondary"/>
+		<language type="gon" scripts="Deva Telu" territories="IN" alt="secondary"/>
+		<language type="grt" scripts="Beng" territories="BD IN" alt="secondary"/>
+		<language type="gsc" scripts="Latn" alt="secondary"/>
 		<language type="gsw" scripts="Latn" territories="CH"/>
 		<language type="gu" scripts="Gujr" territories="IN"/>
 		<language type="gv" scripts="Latn" territories="GB"/>
@@ -1175,55 +1213,87 @@ XXX	Code for transations where no currency is involved
 		<language type="haw" scripts="Latn"/>
 		<language type="haw" territories="US" alt="secondary"/>
 		<language type="he" scripts="Hebr" territories="IL"/>
-		<language type="hi" scripts="Deva" territories="IN FJ"/>
+		<language type="hi" scripts="Deva" territories="FJ IN"/>
+		<language type="hmn" scripts="Hmng Latn" alt="secondary"/>
+		<language type="hne" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="hnn" scripts="Hano Latn" territories="PH" alt="secondary"/>
 		<language type="ho" scripts="Latn" territories="PG"/>
+		<language type="hoc" scripts="Deva" territories="BD IN" alt="secondary"/>
+		<language type="hoj" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="hop" scripts="Latn" alt="secondary"/>
 		<language type="hr" scripts="Latn" territories="BA HR"/>
 		<language type="hr" scripts="Latn" territories="ME RS" alt="secondary"/>
 		<language type="ht" scripts="Latn" territories="HT"/>
 		<language type="hu" scripts="Latn" territories="HU"/>
-		<language type="hu" scripts="Latn" territories="SI SK HR RO RS" alt="secondary"/>
+		<language type="hu" scripts="Latn" territories="HR RO RS SI SK" alt="secondary"/>
 		<language type="hy" scripts="Armn" territories="AM"/>
 		<language type="hy" scripts="Armn" territories="AZ GE IR" alt="secondary"/>
-		<language type="ia" scripts="Latn" /> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="ia" scripts="Latn"/>
+		<language type="ibb" scripts="Latn" alt="secondary"/>
 		<language type="id" scripts="Latn" territories="ID"/>
-		<language type="ig" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="id" scripts="Arab" alt="secondary"/>
+		<language type="ig" scripts="Latn" territories="NG"/>
+		<language type="ii" scripts="Latn Yiii" alt="secondary"/>
+		<language type="ik" scripts="Latn" territories="GL" alt="secondary"/>
+		<language type="inh" scripts="Arab Latn" alt="secondary"/>
 		<language type="is" scripts="Latn" territories="IS"/>
 		<language type="it" scripts="Latn" territories="CH IT SM VA"/>
 		<language type="it" scripts="Latn" territories="HR SI" alt="secondary"/>
-		<language type="iu" scripts="Cans Cyrl Latn" territories="CA GL US RU" alt="secondary"/>
-		<language type="iu" scripts="Cans" /> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="ja" scripts="Japn Hani Hira Kana Hrkt" territories="GU JP PW"/>
+		<language type="iu" scripts="Cans"/>
+		<language type="iu" scripts="Cans Cyrl Latn" territories="CA GL RU US" alt="secondary"/>
+		<language type="ja" scripts="Hani Hira Hrkt Japn Kana" territories="GU JP PW"/>
 		<language type="jv" scripts="Latn" territories="ID MY"/>
-		<language type="jv" scripts="Java"  alt="secondary"/>
+		<language type="jv" scripts="Java" alt="secondary"/>
 		<language type="ka" scripts="Geor" territories="GE"/>
+		<language type="kaa" scripts="Cyrl" alt="secondary"/>
 		<language type="kaj" scripts="Latn" territories="NG"/>
-		<language type="kaj" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="kam" scripts="Latn" territories="KE"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="kam" scripts="Latn" territories="KE"/>
+		<language type="kbd" scripts="Cyrl" alt="secondary"/>
+		<language type="kca" scripts="Cyrl" alt="secondary"/>
 		<language type="kcg" scripts="Latn" territories="NG"/>
-		<language type="kcg" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="kdt" scripts="Thai" territories="KH LA TH" alt="secondary"/>
 		<language type="kfo" scripts="Latn" territories="NG"/>
-		<language type="kfo" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="kfr" scripts="Deva" territories="IN" alt="secondary"/>
+		<language type="kha" scripts="Beng Latn" territories="BD IN" alt="secondary"/>
+		<language type="kht" scripts="Mymr" territories="IN MM" alt="secondary"/>
+		<language type="kjh" scripts="Cyrl" alt="secondary"/>
 		<language type="kk" scripts="Cyrl" territories="KZ"/>
 		<language type="kl" scripts="Latn" territories="GL"/>
 		<language type="km" scripts="Khmr" territories="KH"/>
 		<language type="kn" scripts="Knda" territories="IN"/>
 		<language type="ko" scripts="Hang Hani" territories="KP KR"/>
 		<language type="kok" scripts="Deva" territories="IN"/>
-		<language type="kpe" scripts="Latn" territories="GN LR"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="kpe" scripts="Latn" territories="GN LR"/>
+		<language type="kpy" scripts="Cyrl" alt="secondary"/>
+		<language type="kr" scripts="Latn" alt="secondary"/>
+		<language type="krc" scripts="Cyrl" alt="secondary"/>
+		<language type="krl" scripts="Cyrl Latn" alt="secondary"/>
 		<language type="ks" scripts="Arab Deva" territories="IN"/>
-		<language type="ku" scripts="Arab Latn Cyrl" territories="IQ IR TR"/>
-		<language type="ku" scripts="Arab Latn Cyrl" territories="SY" alt="secondary"/>
+		<language type="ku" scripts="Arab Cyrl Latn" territories="IQ IR TR"/>
+		<language type="ku" scripts="Arab Cyrl Latn" territories="SY" alt="secondary"/>
+		<language type="kv" scripts="Cyrl Latn" alt="secondary"/>
 		<language type="kw" scripts="Latn"/>
 		<language type="kw" territories="GB" alt="secondary"/>
-		<language type="ky" scripts="Cyrl Arab" territories="CN" alt="secondary"/>
 		<language type="ky" scripts="Arab Cyrl" territories="KG"/>
+		<language type="ky" scripts="Arab Cyrl" territories="CN" alt="secondary"/>
+		<language type="ky" scripts="Latn" alt="secondary"/>
 		<language type="la" scripts="Latn" territories="VA"/>
+		<language type="lad" scripts="Hebr" alt="secondary"/>
 		<language type="lb" scripts="Latn" territories="LU"/>
+		<language type="lbe" scripts="Cyrl" alt="secondary"/>
+		<language type="lcp" scripts="Thai" territories="CN TH" alt="secondary"/>
+		<language type="lep" scripts="Lepc" territories="BT IN NP" alt="secondary"/>
+		<language type="lez" scripts="Cyrl" alt="secondary"/>
+		<language type="lif" scripts="Deva Limb" territories="BT IN NP" alt="secondary"/>
+		<language type="lis" scripts="Latn" territories="CN" alt="secondary"/>
+		<language type="lmn" scripts="Telu" territories="IN" alt="secondary"/>
+		<language type="ln" scripts="Latn" territories="CG"/>
 		<language type="ln" scripts="Latn" territories="CD" alt="secondary"/>
-		<language type="ln" scripts="Latn" territories="CG" />
 		<language type="lo" scripts="Laoo" territories="LA"/>
 		<language type="lt" scripts="Latn" territories="LT"/>
+		<language type="lut" scripts="Latn" territories="US" alt="secondary"/>
 		<language type="lv" scripts="Latn" territories="LV"/>
+		<language type="lwl" scripts="Thai" territories="TH" alt="secondary"/>
 		<language type="mai" scripts="Deva" territories="IN"/>
 		<language type="men" scripts="Latn" territories="GN LR SL"/>
 		<language type="mg" scripts="Latn" territories="MG"/>
@@ -1231,106 +1301,149 @@ XXX	Code for transations where no currency is involved
 		<language type="mi" scripts="Latn" territories="CK NZ" alt="secondary"/>
 		<language type="mk" scripts="Cyrl" territories="MK"/>
 		<language type="ml" scripts="Mlym" territories="IN"/>
-		<language type="mn" scripts="Cyrl Mong" territories="MN CN"/>
+		<language type="mn" scripts="Cyrl Mong" territories="CN MN"/>
+		<language type="mnc" scripts="Mong" territories="CN" alt="secondary"/>
 		<language type="mni" territories="IN"/>
-		<language type="mo" scripts="Latn Cyrl" territories="MD"/>
+		<language type="mni" scripts="Beng" territories="BD IN" alt="secondary"/>
+		<language type="mns" scripts="Cyrl" alt="secondary"/>
+		<language type="mnw" scripts="Mymr" territories="MM TH" alt="secondary"/>
+		<language type="mo" scripts="Cyrl Latn" territories="MD"/>
 		<language type="mr" scripts="Deva" territories="IN"/>
 		<language type="ms" scripts="Latn" territories="BN CC CX MY SG"/>
 		<language type="ms" scripts="Arab" alt="secondary"/>
 		<language type="mt" scripts="Latn" territories="MT"/>
+		<language type="muw" scripts="Beng Deva" territories="BD IN NP" alt="secondary"/>
+		<language type="mwr" scripts="Deva" alt="secondary"/>
 		<language type="my" scripts="Mymr" territories="MM"/>
 		<language type="na" scripts="Latn" territories="NR"/>
 		<language type="nb" scripts="Latn" territories="NO SJ"/>
+		<language type="nbf" scripts="Latn" territories="CN" alt="secondary"/>
 		<language type="nd" scripts="Latn" territories="ZA"/>
 		<language type="ne" scripts="Deva" territories="NP"/>
+		<language type="new" scripts="Deva" alt="secondary"/>
 		<language type="niu" scripts="Latn" territories="NU"/>
 		<language type="nl" scripts="Latn" territories="AN AW BE NL SR"/>
 		<language type="nn" scripts="Latn" territories="NO SJ"/>
 		<language type="no" scripts="Latn" territories="NO SJ"/>
+		<language type="nog" scripts="Cyrl" alt="secondary"/>
 		<language type="nr" scripts="Latn" territories="ZA"/>
 		<language type="nso" scripts="Latn" territories="ZA"/>
+		<language type="nv" scripts="Latn" alt="secondary"/>
 		<language type="ny" scripts="Latn" territories="MW"/>
 		<language type="ny" scripts="Latn" territories="MZ ZM" alt="secondary"/>
 		<language type="oc" scripts="Latn"/>
 		<language type="oc" territories="ES FR" alt="secondary"/>
 		<language type="om" scripts="Latn" territories="ET KE"/>
+		<language type="om" scripts="Ethi" territories="EG ET SO" alt="secondary"/>
+		<language type="om" scripts="Latn" territories="EG SO" alt="secondary"/>
 		<language type="or" scripts="Orya" territories="IN"/>
+		<language type="os" scripts="Cyrl" alt="secondary"/>
 		<language type="os" scripts="Latn" territories="GE RU" alt="secondary"/>
 		<language type="pa" scripts="Arab Guru" territories="IN PK"/>
 		<language type="pau" scripts="Latn" territories="PW"/>
+		<language type="pi" scripts="Deva Sinh Thai" territories="IN LK MM" alt="secondary"/>
 		<language type="pl" scripts="Latn" territories="PL"/>
+		<language type="prd" scripts="Arab" territories="AF IR" alt="secondary"/>
+		<language type="prg" scripts="Latn" alt="secondary"/>
 		<language type="ps" scripts="Arab" territories="AF PK"/>
 		<language type="pt" scripts="Latn" territories="AO BR CV GW MO MZ PT ST TL"/>
-		<language type="qu" scripts="Latn" territories="BO PE"/>		
+		<language type="qu" scripts="Latn" territories="BO PE"/>
+		<language type="ril" scripts="Beng" territories="BD IN" alt="secondary"/>
 		<language type="rm" scripts="Latn" territories="CH" alt="secondary"/>
 		<language type="rn" scripts="Latn" territories="BI"/>
-		<language type="ro" scripts="Latn" territories="RS" alt="secondary"/>
 		<language type="ro" scripts="Latn" territories="RO"/>
+		<language type="ro" scripts="Latn" territories="RS" alt="secondary"/>
+		<language type="rom" scripts="Cyrl Latn" alt="secondary"/>
 		<language type="ru" scripts="Cyrl" territories="BY GE KG KZ RU SJ UA"/>
 		<language type="ru" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="rw" scripts="Latn" territories="RW"/>
 		<language type="sa" scripts="Deva" territories="IN"/>
+		<language type="sa" scripts="Sinh" territories="IN" alt="secondary"/>
+		<language type="sah" scripts="Cyrl" alt="secondary"/>
+		<language type="sat" scripts="Beng Deva Olck Orya" territories="IN" alt="secondary"/>
 		<language type="sd" scripts="Arab Deva" territories="IN PK"/>
-		<language type="se" scripts="Latn" territories="FI NO SE"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="se" scripts="Latn" territories="FI NO SE"/>
+		<language type="se" scripts="Cyrl" alt="secondary"/>
+		<language type="sel" scripts="Cyrl" alt="secondary"/>
 		<language type="sg" scripts="Latn" territories="CF"/>
-		<language type="sh" scripts="Latn" territories="BA HR ME RS" alt="secondary"/> <!-- this one is only aliases.. -->
+		<language type="sh" scripts="Latn" territories="BA HR ME RS" alt="secondary"/>
+		<language type="shn" scripts="Mymr" territories="CN MM TH" alt="secondary"/>
 		<language type="si" scripts="Sinh" territories="LK"/>
-		<language type="sk" scripts="Latn" territories="RS" alt="secondary"/>
+		<language type="sid" scripts="Latn" territories="ET"/>
 		<language type="sk" scripts="Latn" territories="SK"/>
+		<language type="sk" scripts="Latn" territories="RS" alt="secondary"/>
 		<language type="sl" scripts="Latn" territories="SI"/>
 		<language type="sm" scripts="Latn" territories="AS WS"/>
 		<language type="sma" scripts="Latn" territories="NO SE"/>
+		<language type="smi" scripts="Latn" territories="FI NO SE"/>
 		<language type="smj" scripts="Latn" territories="NO SE"/>
 		<language type="smn" scripts="Latn" territories="FI"/>
+		<language type="smp" scripts="Hebr" territories="IL" alt="secondary"/>
 		<language type="sms" scripts="Latn" territories="FI"/>
-		<language type="smi" scripts="Latn" territories="FI NO SE"/>
+		<language type="sn" scripts="Latn" alt="secondary"/>
 		<language type="so" scripts="Latn" territories="DJ SO"/>
 		<language type="so" scripts="Latn" territories="ET KE" alt="secondary"/>
 		<language type="son" scripts="Latn" territories="BJ ML NE" alt="secondary"/>
-		<language type="sq" scripts="Latn" territories="AL MK ME RS"/>
-		<language type="sid" scripts="Latn" territories="ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="sq" scripts="Latn" territories="AL ME MK RS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="BA ME RS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="HR" alt="secondary"/>
 		<language type="ss" scripts="Latn" territories="SZ ZA"/>
 		<language type="st" scripts="Latn" territories="LS ZA"/>
 		<language type="sv" scripts="Latn" territories="AX FI SE"/>
 		<language type="sw" scripts="Latn" territories="KE TZ YT"/>
-		<language type="syr" scripts="Syrc" territories="SY"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="syl" scripts="Beng Sylo" territories="BD" alt="secondary"/>
+		<language type="syr" scripts="Syrc" territories="SY"/>
 		<language type="ta" scripts="Taml" territories="IN LK SG"/>
+		<language type="tab" scripts="Cyrl" alt="secondary"/>
+		<language type="tbw" scripts="Latn" alt="secondary"/>
+		<language type="tcy" scripts="Knda" territories="IN" alt="secondary"/>
 		<language type="te" scripts="Telu" territories="IN"/>
 		<language type="tem" scripts="Latn" territories="SL"/>
 		<language type="tet" scripts="Latn" territories="TL"/>
-		<language type="tg" scripts="Arab Cyrl Latn" territories="TJ PK"/>
-		<language type="tg" scripts="Latn" alt="secondary"/>
+		<language type="tg" scripts="Arab Cyrl Latn" territories="PK TJ"/>
 		<language type="th" scripts="Thai" territories="TH"/>
 		<language type="ti" scripts="Ethi" territories="ER ET"/>
-		<language type="tig" scripts="Ethi" territories="ER"/> <!-- Reflecting submitted data, cldrbug #1013 -->
-		<language type="tk" scripts="Arab Cyrl Latn" territories="AF IR" alt="secondary"/>
+		<language type="tig" scripts="Ethi" territories="ER"/>
 		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
+		<language type="tk" scripts="Arab Cyrl Latn" territories="AF IR" alt="secondary"/>
 		<language type="tkl" scripts="Latn" territories="TK"/>
 		<language type="tl" scripts="Latn" territories="GU PH"/>
+		<language type="tl" scripts="Tglg" alt="secondary"/>
 		<language type="tmh" scripts="Latn" territories="ML NE" alt="secondary"/>
 		<language type="tn" scripts="Latn" territories="BW ZA"/>
 		<language type="to" scripts="Latn" territories="TO"/>
 		<language type="tpi" scripts="Latn" territories="PG"/>
 		<language type="tr" scripts="Latn" territories="CY TR"/>
 		<language type="tr" scripts="Arab" alt="secondary"/>
+		<language type="tru" scripts="Syrc" alt="secondary"/>
 		<language type="ts" scripts="Latn" territories="ZA"/>
-		<language type="tt" scripts="Cyrl" territories="RU"/> <!-- Reflecting submitted data, cldrbug #1013. Official language of Republic of Tatarstan according to http://en.wikipedia.org/wiki/Tatar_language#Official_status -->
+		<language type="tt" scripts="Cyrl" territories="RU"/>
+		<language type="ttt" scripts="Cyrl" alt="secondary"/>
+		<language type="tut" scripts="Cyrl" alt="secondary"/>
 		<language type="tvl" scripts="Latn" territories="TV"/>
-		<language type="uk" scripts="Cyrl" territories="MD" alt="secondary"/>
+		<language type="ty" scripts="Latn" alt="secondary"/>
+		<language type="tyv" scripts="Cyrl" alt="secondary"/>
+		<language type="tzm" scripts="Latn Tfng" alt="secondary"/>
+		<language type="ude" scripts="Cyrl" alt="secondary"/>
+		<language type="udm" scripts="Cyrl Latn" alt="secondary"/>
+		<language type="ug" scripts="Arab" territories="CN"/>
+		<language type="ug" scripts="Cyrl Latn" alt="secondary"/>
 		<language type="uk" scripts="Cyrl" territories="UA"/>
+		<language type="uk" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="ur" scripts="Arab" territories="IN PK"/>
-		<language type="uz" scripts="Arab Cyrl Latn" territories="AF" alt="secondary"/>
 		<language type="uz" scripts="Arab Cyrl Latn" territories="UZ"/>
-		<language type="ug" scripts="Arab" territories="CN"/> <!-- Reflecting submitted data, cldrbug #1013. No territory level data yet. http://en.wikipedia.org/wiki/Uighur_language#Official_status  "The Uyghurs are one of the 56 official nationalities in China, and Uyghur is an official language of Xinjiang." -->
+		<language type="uz" scripts="Arab Cyrl Latn" territories="AF" alt="secondary"/>
 		<language type="ve" scripts="Latn" territories="ZA"/>
 		<language type="vi" scripts="Latn" territories="VN"/>
-		<language type="wal" scripts="Ethi" territories="ET"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="vi" scripts="Hani" alt="secondary"/>
+		<language type="wal" scripts="Ethi" territories="ET"/>
 		<language type="wo" scripts="Latn" territories="GM MR SN"/>
+		<language type="xal" scripts="Cyrl" alt="secondary"/>
 		<language type="xh" scripts="Latn" territories="LS ZA"/>
+		<language type="xsr" scripts="Deva" alt="secondary"/>
 		<language type="yi" scripts="Hebr"/>
-		<language type="yo" scripts="Latn" territories="NG"/> <!-- Reflecting submitted data, cldrbug #1013 -->
+		<language type="yo" scripts="Latn" territories="NG"/>
+		<language type="yrk" scripts="Cyrl" alt="secondary"/>
 		<language type="zh" scripts="Bopo Hani Hans Hant" territories="CN CX HK MO SG TW"/>
 		<language type="zu" scripts="Latn" territories="LS ZA"/>
 	</languageData>

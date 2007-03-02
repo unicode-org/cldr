@@ -667,7 +667,7 @@ public class DataPod extends Registerable {
             for(Object o : peasHash.values()) {
                 Pea p = (Pea)o;
                 if(p.type.indexOf("Adak")!=-1) {
-/*srl*/                    System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
+///*srl*/                    System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
                 }
                 if(matcher.matcher(p.type).matches()) {
                     newSet.add(p);
@@ -739,12 +739,13 @@ public class DataPod extends Registerable {
             et= new com.ibm.icu.dev.test.util.ElapsedTimer();
             System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
         }
-        pod.populateFrom(ourSrc, checkCldr, ctx.sm.getBaselineFile(),ctx.getOptionsMap());
+        CLDRFile baselineFile = ctx.sm.getBaselineFile();
+        pod.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
         if(SHOW_TIME) {
             System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
         }
         com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        pod.ensureComplete(ourSrc, checkCldr, ctx.sm.getBaselineFile(), ctx.getOptionsMap());
+        pod.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
         if(SHOW_TIME) {
             System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
         }
@@ -989,7 +990,7 @@ public class DataPod extends Registerable {
             }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
-                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
 

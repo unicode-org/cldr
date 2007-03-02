@@ -462,7 +462,7 @@ public class SurveyForum {
         }
         sm.printPathListClose(ctx);
         
-        String helpHtml = pod.exampleGenerator.getHelpHtml(podBase,null);
+        String helpHtml = pod.exampleGenerator.getHelpHtml(xpath,null);
         if(helpHtml != null)  {
             ctx.println("<hr><div class='helpHtml'>"+helpHtml+"</div>");
         }

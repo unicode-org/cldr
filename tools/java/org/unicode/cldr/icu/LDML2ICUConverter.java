@@ -589,6 +589,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //if(DEBUG)printXPathWarning(node, xpath);
             }else if(name.equals(LDMLConstants.TERRITORY_INFO)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.REFERENCES)){
+                //Ignore this
             }else if(name.equals(LDMLConstants.VERSION)){
                 //Ignore this
                 //if(DEBUG)printXPathWarning(node, xpath);

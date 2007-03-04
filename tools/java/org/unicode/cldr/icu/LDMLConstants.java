@@ -206,6 +206,7 @@ public class LDMLConstants {
     public static final String CONTAINS          = "contains";
     public static final String LANGUAGE_DATA     = "languageData";
     public static final String TERRITORY_DATA    = "territoryData";
+    public static final String TERRITORY_INFO    = "territoryInfo";
     public static final String MPT               = "mostPopulousTerritory";
     public static final String MPTZ              = "mostPopulousTimezone";
     public static final String TO                = "to";

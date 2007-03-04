@@ -9,28 +9,187 @@
 
 <body>
 
-<p>This is a help-text file for use with the survey tool. The software that 
-interprets this expects a particular format, so don't make arbitrary changes. 
-You can add a new row, where the Key is usually a regex for a path, and you can 
-put text to insert. The text to insert can actually be fairly arbitrary HTML.</p>
+<h1 align="center">Survey Tool Help Text</h1>
+<p>This is a help-text file for use with the survey tool. <b>The software that 
+interprets this expects a particular format, so don't make arbitrary changes.
+</b>You can add a new row, where the Key is usually a regular expression for a path, and you can 
+put text to insert. The text to insert can be fairly arbitrary HTML.</p>
 <table border="1" width="100%" id="table1" cellspacing="0" bordercolor="#000080" style="border-collapse: collapse">
 	<tr>
 		<th>Path</th>
 		<th>Text to insert</th>
 	</tr>
 	<tr>
+		<td>.*/localeDisplayNames.*</td>
+		<td>Languages, scripts (writing systems), territories (countries and 
+		regions), currencies, and time zones are represented in computers by 
+		internal codes, such as &quot;<code>fr</code>&quot; for the French language or &quot;<code>CA</code>&quot; 
+		for the country of Canada.<p>You should supply the most customary name 
+		used in your language, even if it is not the official name. For example, 
+		for the territory name in English you would use &quot;Switzerland&quot; instead of 
+		&quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The United 
+		Kingdom of Great Britain and Northern Ireland&quot;. All names must be unique 
+		within a given category: thus one cannot use the same translated name 
+		for the following two codes; only one can be called &quot;Congo&quot;:</p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table3" >
+			<tr>
+				<th style="vertical-align: top; text-align: left">Code</th>
+				<th style="vertical-align: top; text-align: left" colspan="5">
+				Possible Pairs of Translations</th>
+
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top"><code>CD</code></td>
+				<td style="vertical-align: top; text-align: left"><i>Democratic 
+				Republic of the Congo</i></td>
+				<td style="vertical-align: top; text-align: left" rowspan="2">or</td>
+				<td style="vertical-align: top; text-align: left"><i>Congo - 
+				Kinshasa</i></td>
+				<td style="vertical-align: top; text-align: left" rowspan="2">or</td>
+				<td style="vertical-align: top; text-align: left"><i>Congo - 
+				formerly Zaire</i></td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align:top"><code>CG</code></td>
+				<td style="vertical-align: top; text-align: left"><i>Congo</i></td>
+				<td style="vertical-align: top; text-align: left"><i>Congo - 
+				Brazzaville</i></td>
+				<td style="vertical-align: top; text-align: left"><i>Congo</i></td>
+			</tr>
+			</table>
+		<p>The typical behavior if any particular translation is not available 
+		is to display some form of the internal code. Thus if there is no 
+		translation of &quot;<code>CA</code>&quot;, then the string &quot;CA&quot; will appear.</td>
+	</tr>
+	<tr>
+		<td>.*/localeDisplayNames.*(keys|types).*</td>
+		<td>
+		<p align="left">The <strong>keys</strong> page lists the key names for 
+		translation. These identify particular key words used to identify 
+		particular <i>types</i> of variants. The calendar types are typically 
+		only used with certain languages, however, they can be used with almost 
+		any language: </p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table4" >
+			<tr>
+				<th style="vertical-align: top; text-align: left">Locale Code</th>
+				<th style="vertical-align: top; text-align: left">Locale Name 
+				(English)</th>
+
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>fr@calendar=buddhist</code></td>
+				<td style="vertical-align: top; text-align: left">French 
+				(Buddhist Calendar)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>de@calendar=buddhist</code></td>
+				<td style="vertical-align: top; text-align: left">German 
+				(Buddhist Calendar)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>...</code></td>
+				<td style="vertical-align: top; text-align: left">...</td>
+			</tr>
+			</table>
+		<p>The collation (sort order) types, on the other hand, are only used 
+		with certain locales (listed below):</p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table5" >
+			<tr>
+				<th style="vertical-align: top; text-align: left">Locale Code</th>
+				<th style="vertical-align: top; text-align: left">Locale Name 
+				(English)</th>
+
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>de@collation=phonebook</code></td>
+				<td style="vertical-align: top; text-align: left">German 
+				(Phonebook Sort Order)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>hi@collation=direct</code></td>
+				<td style="vertical-align: top; text-align: left">Hindi (Direct 
+				Sort Order)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>zh@collation=pinyin</code></td>
+				<td style="vertical-align: top; text-align: left">Chinese 
+				(Pinyin Sort Order)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>zh@collation=stroke</code></td>
+				<td style="vertical-align: top; text-align: left">Chinese 
+				(Stroke Sort Order)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>zh@collation=gb2312han</code></td>
+				<td style="vertical-align: top; text-align: left">Chinese 
+				(Simplified Sort Order - GB2312)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>zh@collation=big5han</code></td>
+				<td style="vertical-align: top; text-align: left">Chinese 
+				(Traditional Sort Order - Big5)</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top"><code>es@collation=traditional</code></td>
+				<td style="vertical-align: top; text-align: left">Spanish 
+				(Traditional Sort Order)</td>
+			</tr>
+			</table>
+		<p align="left">The last value (<code>traditional</code>) is the only 
+		one likely to be extended to other languages over time.</td>
+	</tr>
+	<tr>
+		<td>.*currencies.*</td>
+		<td>Each currency code can be translated in two ways:<ul>
+			<li>As a symbol for use in formatting amounts (such as &quot;12&nbsp;345,68 <b>
+			US$</b>&quot;), and</li>
+			<li>As a name, typically used to show a list of currencies (such as 
+			&quot;<b>dollar des États-Unis</b>&quot;)</li>
+		</ul>
+		</td>
+	</tr>
+	<tr>
 		<td>.*/exemplarCharacters.*</td>
-		<td>The <i>standard</i> exemplar characters are those used in customary 
-		writing ([a-z] for English); the <i>auxiliary</i> characters are used in 
-		foreign words found in typical magazines, newspapers, &amp;c.; <i>currency</i> 
-		exemplar characters are those used in currency symbols, like 'US$ 
-		1,234'.</td>
+		<td>The exemplar character set contains the commonly used letters for a 
+		given modern form of a language. These are used for testing and for 
+		determining the appropriate repertoire of letters for charset conversion 
+		or text comparison. (The term &quot;letter&quot; is interpreted broadly, and 
+		includes characters such as &#26159; or &#44032;.) There are three categories:<ul>
+			<li>The <i>standard</i> characters are those used in customary 
+		writing, such as [a-z] for English.</li>
+			<li>The <i>auxiliary</i> characters are additional characters used 
+			in foreign words found in typical magazines, newspapers, &amp;c.</li>
+			<li>The <i>currency</i> characters are additional characters used in currency symbols, like 'US$ 
+		1,234'.</li>
+		</ul>
+		The exemplar set is not a complete set of letters used for a language: 
+		punctuation and other symbols should not be included, nor uppercase 
+		letters (except for Turkish &#304;). The Survey Tool will flag certain fields 
+		with
+		<img alt="The image “http://unicode.org/cldr/apps/warn.png” cannot be displayed, because it contains errors." src="http://unicode.org/cldr/apps/warn.png"> 
+		if they use characters that are not in exemplar sets. In some cases, 
+		this is not truly an error, such as where &quot;NaN&quot; is used in numbers. In 
+		other cases, the possible actions for you are are:
+		<ul>
+			<li>Fix the field value to not use the character.</li>
+			<li>Fix the exemplar sets, because the character actually is 
+			acceptable in your language in one of the above categories.</li>
+		</ul>
+		<p align="left">Any range of characters, such as &quot;a b c d e&quot; can be 
+		represented compactly as &quot;a-e&quot;. For more information, please see <i>
+		<a href="http://unicode.org/reports/tr35/tr35-6.html#Character_Elements">
+		Section 5.6 Character Elements</a></i> in <i>UTS#35: Locale Data Markup 
+		Language (LDML)</i>.</td>
 	</tr>
 	<tr>
 		<td>.*/numbers.*/pattern.*</td>
-		<td>You need to use '.' for the decimal point and ',' for the thousands 
+		<td>
+		<p>Numbers are formatted using patterns, like &quot;mm-dd&quot;. Different 
+		characters stand for different parts of the number. You need to use '.' for the decimal point and ',' for the thousands 
 		(grouping) separator, even if they are not used in your language. Here 
 		are the special characters used in number patterns.
+		</p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table2" >
 			<caption><b>Number Format Symbols</b></caption>
 			<tr>
@@ -40,16 +199,16 @@ put text to insert. The text to insert can actually be fairly arbitrary HTML.</p
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align:top">.</td>
-				<td style="vertical-align: top; text-align: left"><b>Not</b> a real 
-				period: instead, it will be replaced automatically by the 
+				<td style="vertical-align: top; text-align: left"><b>Not a real 
+				period:</b> instead, it will be replaced automatically by the 
 				character used for the decimal point in your language, listed 
 				under <tt class="hangsml" title="#194, w[N]:194">symbols/decimal</tt></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align:top">,</td>
 
-				<td style="vertical-align: top; text-align: left"><b>Not</b> a real 
-				comma: instead, it will be replaced by the &quot;grouping&quot; 
+				<td style="vertical-align: top; text-align: left"><b>Not a real 
+				comma:</b> instead, it will be replaced by the &quot;grouping&quot; 
 				(thousands) separator in your language, listed under
 				<tt class="hangsml" title="#4, w[N]:4">symbols/group</tt></td>
 			</tr>
@@ -85,12 +244,23 @@ put text to insert. The text to insert can actually be fairly arbitrary HTML.</p
 
 			</tr>
 		</table>
+		<p align="left">For example, the pattern &quot;#,###.00&quot; when used to format 
+		the number 12345.678 could result in &quot;12'345,67&quot;. That would happen if 
+		the grouping separator for your language is an apostrophe, and the 
+		decimal separator is a comma. Translators should not change the pattern 
+		of zeros (0) or hash marks (#); those will be reset by software. This is 
+		true also for currency formats. Even if your currency doesn't use any 
+		decimal points, the currency format will have them in the pattern.</p>
 </td>
 	</tr>
 	<tr>
 		<td>.*/calendar.*/(pattern|dateFormatItem).*</td>
-		<td>You need to use letters to stand for different date fields like the
-		<i>month</i> or <i>day</i>:
+		<td>
+		<p>Dates are formatted using patterns, like &quot;mm-dd&quot;. Each 
+		letter from A to Z may stand for a different field in the data. For 
+		example, one or more M's stand for the month. When the software formats 
+		a date for your language, a value will be substituted for each field, 
+		according to the following table.</p>
 				<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900">
 			<caption><b>Date Format Symbols</b></caption>
 			<tr>
@@ -108,7 +278,7 @@ put text to insert. The text to insert can actually be fairly arbitrary HTML.</p
 				<td style="vertical-align: top; text-align: left">year</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align:top">M</td>
+				<td style="text-align: center; vertical-align:top">M / L</td>
 				<td style="vertical-align: top; text-align: left">month*</td>
 			</tr>
 
@@ -158,20 +328,92 @@ put text to insert. The text to insert can actually be fairly arbitrary HTML.</p
 				<td style="text-align: center; vertical-align:top" colspan="2">
 
 				<p style="text-align: left">* Some fields 
-				use M or MM for numeric (eg 1 or 01);
-				MMM for abbreviated (eg Sept); and
-				MMMM for full (eg September)</td>
+				use M or MM for numeric (eg, 1 or 01); MMM for abbreviated (eg, Sept); and MMMM for full (eg, September)</td>
 			</tr>
 		</table>
-		<i>Note that even if your language doesn't use am/pm in any patterns, strings for those need to be defined for testing.
+		<p align="left">
+		<i>Note that even if your language doesn't use <b>am/pm</b> in any patterns, strings for those need to be defined for testing.
 		</i>
+		<p align="left">Some languages use two different forms of strings (<i>stand-alone</i> 
+		and <i>format</i>) depending on the context. Make sure that the correct 
+		form is chosen, especially for the months. That is, suppose that the 
+		language uses &quot;Dezembro&quot; for December when standing alone, but &quot;Dezembru&quot; 
+		when with a date (meaning the nth day <em>of</em> that month). Then the 
+		formats for months could be something like:</p>
+				<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table7">
+			<caption><b>Stand-Alone vs Format Months</b></caption>
+			<tr>
+				<th style="vertical-align: top; "><strong>Format String</strong></th>
+
+				<td align="center"><strong>Example1</strong></td>
+				<td align="center"><strong>Example2</strong></td>
+			</tr>
+			<tr>
+				<td align="center">LLL</td>
+				<td align="center">Dezembro</td>
+				<td align="center">Dez.</td>
+			</tr>
+			<tr>
+
+				<td align="center">d MMM</td>
+				<td align="center">1 Dezembru</td>
+				<td align="center">1 Dez.</td>
+			</tr>
+			<tr>
+
+				<td align="center">MMM d yy</td>
+				<td align="center">Dezembru 1 1953</td>
+				<td align="center">1 Dez. 53</td>
+			</tr>
+			</table>
 </td>
+	</tr>
+	<tr>
+		<td>.*narrow.*</td>
+		<td>
+		The narrow date fields are the shortest possible names (in terms of 
+		width in common fonts), and are not guaranteed to be unique. Think of 
+		what you might find on a credit-card-sized wallet or checkbook calendar, 
+		such as in English for days of the week: <i>S M T W T F S</i></td>
+	</tr>
+	<tr>
+		<td>.*era.*</td>
+		<td>
+		There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and 
+		&quot;AD&quot;. These values can be translated into other languages, like &quot;a.C.&quot; 
+		and and &quot;d.C.&quot; for Spanish, but there are no other eras in the Gregorian 
+		calendar. Other calendars have a different numbers of eras. Care should 
+		be taken when translating the era names for a specific calendar.</td>
+	</tr>
+	<tr>
+		<td>.*/references.*</td>
+		<td>
+		References are used to document more controversial cases. Whenever there 
+		is a disagreement between translators, or when the choice of translation 
+		might not be understood, you should add a reference.
+		<ul>
+			<li>Fill in a descriptive title for the reference, such as <strong>
+			&quot;The Economist Style Guide&quot;</strong>
+			<ul>
+				<li>For examples of sources, see
+				<a href="http://www.unicode.org/cldr/filing_bug_reports.html#Possible_Comparison_Sources">
+				Possible Comparison Sources</a>.</li>
+				<li>If available, add a web link in the 'URI' field, such as &quot;<a href="http://publications.eu.int/code/es/es-5000500.htm">http://publications.eu.int/code/es/es-5000500.htm</a>&quot;.</li>
+				<li>You can also use the format <strong>isbn:0-316-08215-5</strong> 
+				to refer to a book ISBN number in the URI field.</li>
+			</ul>
+			</li>
+			<li>Click the <strong>Add Changes on This Page</strong> button. You 
+			will see your new reference listed, and you can add it to other 
+			fields.</li>
+		</ul>
+		</td>
 	</tr>
 </table>
 <p>The software that reads this table will search the first column (eg between 
 &lt;td&gt; and &lt;/td&gt;) and return the contents of the second column. I plan on adding a 
 few variables also, for the current locale name, in particular. This file uses 
-the survey tool stylesheet, so you can use those <span  class="winner">styles</span> (and icons, like
+the survey tool style-sheet, so you can use those <span  class="winner">styles</span> (and icons, like
 <a target="target=" surveytool:n:de class="forumlink" href="http://unicode.org/cldr/apps/survey?_=de&forum=de&xpath=249">
 <img alt="[stop]" style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a>) 
 in the text to insert.</p>
@@ -181,7 +423,7 @@ in the text to insert.</p>
 	matched, eg &lt;td&gt; with &lt;/td&gt;, and also that &lt;tr&gt;, &lt;/tr&gt;, &lt;table&gt;, 
 	and &lt;/table&gt; are on 
 	separate lines.</i></b></li>
-	<li><b><i>The regex must match the whole path, so if it is an interior 
+	<li><b><i>The regular expression for the path must match the whole path, so if it is an interior 
 	substring, remember to add .* on both ends.</i></b></li>
 </ul>
 

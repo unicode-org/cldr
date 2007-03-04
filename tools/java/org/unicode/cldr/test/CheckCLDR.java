@@ -321,9 +321,9 @@ abstract public class CheckCLDR {
       
       ExampleGenerator exampleGenerator = new ExampleGenerator(file);
       Status pathStatus = new Status();
-      
+      int pathCount = 0;
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {
-        
+        pathCount++;
         String path = (String) it2.next();
         String value = file.getStringValue(path);
 //        if (value == null) {
@@ -409,6 +409,7 @@ abstract public class CheckCLDR {
           }
         }
       }
+      System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
       if (missingExemplars.size() != 0) {
         System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
         System.out.println("Total missing:\t" + missingExemplars);

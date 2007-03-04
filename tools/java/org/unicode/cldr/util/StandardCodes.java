@@ -93,7 +93,7 @@ public class StandardCodes {
     return (List) code_data.get(code);
   }
   
-  public Map getLangData(String type, String code) {
+  public Map<String,String> getLangData(String type, String code) {
     try {
       if (type.equals("territory")) type = "region";
       else if (type.equals("variant")) code = code.toLowerCase(Locale.ENGLISH);
@@ -154,7 +154,7 @@ public class StandardCodes {
   /**
    * Get all the available types
    */
-  public Set getAvailableTypes() {
+  public Set<String> getAvailableTypes() {
     return Collections.unmodifiableSet(type_code_data.keySet());
   }
   
@@ -164,7 +164,7 @@ public class StandardCodes {
    * @param type
    * @return
    */
-  public Set getAvailableCodes(String type) {
+  public Set<String> getAvailableCodes(String type) {
     Map code_name = (Map) type_code_data.get(type);
     if (code_name == null)
       return null;
@@ -177,7 +177,7 @@ public class StandardCodes {
    * @param type
    * @return
    */
-  public Set getGoodAvailableCodes(String type) {
+  public Set<String> getGoodAvailableCodes(String type) {
     Set result = (Set) goodCodes.get(type);
     if (result == null) {
       Map code_name = (Map) type_code_data.get(type);

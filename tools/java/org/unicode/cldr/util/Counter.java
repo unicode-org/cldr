@@ -24,8 +24,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public final class Counter {
-    Map map = new HashMap();
+public final class Counter<T> implements Iterable<T> {
+    Map<T,RWInteger> map = new HashMap();
 
     static public final class RWInteger implements Comparable {
         static int uniqueCount;
@@ -48,13 +48,13 @@ public final class Counter {
         }
     }
 
-    public void add(Object obj, long countValue) {
+    public void add(T obj, long countValue) {
         RWInteger count = (RWInteger)map.get(obj);
         if (count == null) map.put(obj, count = new RWInteger());
         count.value += countValue;
     }
     
-    public long getCount(Object obj) {
+    public long getCount(T obj) {
         RWInteger count = (RWInteger) map.get(obj);
         return count == null ? 0 : count.value;
     }
@@ -78,8 +78,8 @@ public final class Counter {
     public Set getKeysetSortedByCount(boolean ascending) {
         Map count_key = new TreeMap();
         int counter = 0; // original order
-        for (Iterator it =  map.keySet().iterator(); it.hasNext();) {
-            Object key = it.next();
+        for (Iterator<T> it =  map.keySet().iterator(); it.hasNext();) {
+            T key = it.next();
             long count = getCount(key);
             if (!ascending) count = Integer.MAX_VALUE-count;
             count_key.put(new Long((count<<32) + (counter++)), key);
@@ -116,6 +116,10 @@ public final class Counter {
 
     public Set keySet() {
         return map.keySet();
+    }
+    
+    public Iterator<T> iterator() {
+      return map.keySet().iterator();
     }
     
     public Map getMap() {

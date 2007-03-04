@@ -569,7 +569,7 @@ public class Utility {
   public static UnicodeSet addDontCareSpans(UnicodeSet input, UnicodeSet dontCare) {
     UnicodeSet notInInput = new UnicodeSet(input).complement();
     for (UnicodeSetIterator it = new UnicodeSetIterator(notInInput); it.nextRange();) {
-      if (dontCare.contains(it.codepoint,it.codepointEnd)) {
+      if (it.codepoint != 0 && it.codepointEnd != 0x10FFFF && dontCare.contains(it.codepoint,it.codepointEnd)) {
         input.add(it.codepoint,it.codepointEnd);
       }
     }
@@ -825,4 +825,40 @@ public class Utility {
     Properties props = System.getProperties();
     System.out.println("Arguments: " + join(args," ") + (props == null ? "" : " " + props));
   }
+
+  public static boolean checkEquals(Object a, Object b) {
+    if (a == null) {
+      return b == null;
+    }
+    return a.equals(b);
+  }
+
+  public class IterableComparator<T extends Iterable<Comparable>> implements Comparator<T> {
+    public int compare(T o1, T o2) {
+      // TODO Auto-generated method stub
+      return Utility.compare(o1, o2);
+    }
+  }
+  
+  public static <T extends Comparable> int compare(Iterable<T> a, Iterable<T> b) {
+    if (a == null) {
+      return b == null ? 0 : -1;
+    } else if (b == null) {
+      return 1;
+    }
+    Iterator<T> ai = a.iterator();
+    Iterator<T> bi = b.iterator();
+    while (true) {
+      T aItem, bItem;
+      if (!ai.hasNext()) {
+        return bi.hasNext() ? -1 : 0;
+      }
+      if (!bi.hasNext()) {
+        return 1;
+      }
+      int result = ai.next().compareTo(bi.next());
+      if (result != 0) return result;
+    }
+  }
+
 }

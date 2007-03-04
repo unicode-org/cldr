@@ -35,6 +35,9 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestMisc {
     public static void main(String[] args) {
       
+      checkEastAsianWidth();
+      if (true) return;
+      
       ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false));
       System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
       System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
@@ -74,6 +77,12 @@ public class TestMisc {
       UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove supplementaries
       System.out.format("ZeroWidth %s\r\n\r\n", zeroWidth);
       System.out.format("ZeroWidth(spanned) %s\r\n\r\n", Utility.addDontCareSpans(zeroWidth, dontCares));
+      
+      // P2. In each paragraph, find the first character of type L, AL, or R.
+      UnicodeSet strongBIDI = new UnicodeSet("[[:BidiClass=L:]-[:unassigned:]]"); // remove supplementaries
+      System.out.format("BIDI (L,R,AL - spanned) %s\r\n\r\n", Utility.addDontCareSpans(strongBIDI, dontCares));
+      UnicodeSet strongRAL = new UnicodeSet("[[:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]&[:Letter:]]"); // remove supplementaries
+      System.out.format("BIDI (R,AL - spanned) %s\r\n\r\n", Utility.addDontCareSpans(strongRAL, dontCares));
     }
     
 

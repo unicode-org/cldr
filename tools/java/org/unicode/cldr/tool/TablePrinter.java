@@ -385,4 +385,19 @@ public class TablePrinter {
     return this;
   }
 
+  /**
+   * In the style section, have something like:
+   * <style>
+   * <!--
+   * .redbar       { border-style: solid; border-width: 1px; padding: 0; background-color:red; border-collapse: collapse}
+   * -->
+   * </style> 
+   * @param color
+   * @return
+   */
+  public static String bar(String htmlClass, double value, double max, boolean log) {
+    double width = 100*(log ? Math.log(value)/Math.log(max) : value/max);
+    if (!(width>=0.5)) return ""; // do the comparison this way to catch NaN
+    return "<table class='" + htmlClass + "' width='" + width + "%'><tr><td>\u200B</td></tr></table>";
+  }
 }

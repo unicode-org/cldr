@@ -1,23 +1,31 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.Freezable;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 
-public class Relation<K, V> implements Map<K, V> {
+public class Relation<K, V> implements Freezable {
   private Map<K, Set<V>> data;
   
   Constructor<Set<V>> setCreator;
   Object[] setComparatorParam;
+
+  public Relation(Map<K, Set<V>> map, Class<Set<V>> setCreator) {
+    this(map, setCreator, null);
+  }
   
   public Relation(Map<K, Set<V>> map, Class<Set<V>> setCreator, Comparator setComparator) {
     try {
@@ -65,12 +73,12 @@ public class Relation<K, V> implements Map<K, V> {
     return data.equals(((Relation) o).data);
   }
   
-  public V get(Object key) {
-    Set<V> set = data.get(key);
-    if (set == null || set.size() == 0)
-      return null;
-    return set.iterator().next();
-  }
+//  public V get(Object key) {
+//    Set<V> set = data.get(key);
+//    if (set == null || set.size() == 0)
+//      return null;
+//    return set.iterator().next();
+//  }
   
   public Set<V> getAll(Object key) {
     return data.get(key);
@@ -94,7 +102,24 @@ public class Relation<K, V> implements Map<K, V> {
       data.put(key, set = newSet());
     }
     set.add(value);
-    return null;
+    return value;
+  }
+  
+  public V putAll(K key, Collection<V> value) {
+    Set<V> set = data.get(key);
+    if (set == null) {
+      data.put(key, set = newSet());
+    }
+    set.addAll(value);
+    return value.size() == 0 ? null : value.iterator().next();
+  }
+  
+  public V putAll(Collection<K> keys, V value) {
+    V result = null;
+    for (K key : keys) {
+      result = put(key, value);
+    }
+    return result;
   }
   
   private Set<V> newSet() {
@@ -119,11 +144,16 @@ public class Relation<K, V> implements Map<K, V> {
     }
   }
   
-  public V remove(Object key) {
-    data.remove(key);
-    return null;
+  public Set<V> removeAll(K key) {
+    return data.remove(key);
   }
   
+  public boolean remove(K key, V value) {
+    Set<V> set = data.get(key);
+    if (set == null) return false;
+    return set.remove(value);
+  }
+
   public int size() {
     return data.size();
   }
@@ -168,5 +198,64 @@ public class Relation<K, V> implements Map<K, V> {
       this.value = value;
       return oldValue;
     }
+  }
+  
+  public Relation<K,V> addAllInverted(Relation<V,K> source) {
+    for (V value : source.data.keySet()) {
+      for (K key : source.data.get(value)) {
+        put(key, value);
+      }
+    }
+    return this;
+  }
+  
+  public Relation<K,V> addAllInverted(Map<V,K> source) {
+    for (V value : source.keySet()) {
+      put(source.get(value), value);
+    }
+    return this;
+  }
+  
+  boolean frozen = false;
+  
+  public boolean isFrozen() {
+    return frozen;
+  }
+  
+  public Object freeze() {
+    if (!frozen) {
+      frozen = true;
+      // does not handle one level down, so we do that on a case-by-case basis
+      for (K key : data.keySet()) {
+        data.put(key, Collections.unmodifiableSet(data.get(key)));
+      }
+      // now do top level
+      data = Collections.unmodifiableMap(data);
+    }
+    return this;
+  }
+  
+  public Object cloneAsThawed() {
+    // TODO do later
+    throw new UnsupportedOperationException();
+  }
+
+  public boolean removeAll(Relation<K, V> toBeRemoved) {
+    boolean result = false;
+    for (K key : toBeRemoved.keySet()) {
+      Set<V> values = toBeRemoved.getAll(key);
+      if (values != null) {
+        result |= removeAll(key, values);
+      }
+    }
+    return result;
+  }
+
+  private boolean removeAll(K key, Iterable<V> all) {
+    boolean result = false;
+    for (V value : all) {
+      result |= remove(key, value);
+    }
+    return result;
   }
 }

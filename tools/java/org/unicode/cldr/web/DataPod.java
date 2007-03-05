@@ -666,9 +666,9 @@ public class DataPod extends Registerable {
         } else {
             for(Object o : peasHash.values()) {
                 Pea p = (Pea)o;
-                if(p.type.indexOf("Adak")!=-1) {
+//                if(p.type.indexOf("Adak")!=-1) {
 ///*srl*/                    System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
-                }
+//                }
                 if(matcher.matcher(p.type).matches()) {
                     newSet.add(p);
                 }
@@ -677,6 +677,9 @@ public class DataPod extends Registerable {
         
         ArrayList aList = new ArrayList(); // list it (waste here??)
         aList.addAll(newSet);
+        if(matcher != null) {
+///*srl*/ System.err.println("Pruned match of " + aList.size() + " items from " + peasHash.size());
+        }
 
         return aList;
     }

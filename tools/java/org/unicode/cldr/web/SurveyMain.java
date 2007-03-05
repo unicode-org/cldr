@@ -183,6 +183,7 @@ public class SurveyMain extends HttpServlet {
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
     static final String CURRENCIES = "currencies";
     static final String TIMEZONES = "timezones";
+    static final String METAZONES = "metazones";
     static final String MEASNAMES = "measurementSystemNames";
     static final String MEASNAME = "measurementSystemName";
     public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/"+CURRENCIES;
@@ -195,6 +196,7 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES,
         CURRENCIES,
         TIMEZONES,
+        METAZONES,
         MEASNAMES
     };
     public static String xMAIN = "general";
@@ -2633,13 +2635,19 @@ public class SurveyMain extends HttpServlet {
                 printUserTable(ctx);
             }
 
-            
             Hashtable lh = ctx.session.getLocales();
             Enumeration e = lh.keys();
-            if(e.hasMoreElements()) { 
-                ctx.println("<p align='center'><B>Recent locales: </B> ");
+            if(e.hasMoreElements()) {
+                boolean shownHeader = false;
                 for(;e.hasMoreElements();) {
                     String k = e.nextElement().toString();
+                    if((ctx.locale!=null)&&(ctx.locale.getBaseName().equals(k))) {
+                        continue;
+                    }
+                    if(!shownHeader) {
+                        ctx.println("<p align='right'><B>Recent locales: </B> ");
+                        shownHeader = true;
+                    }
                     boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
                     ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() + QUERY_LOCALE+"=" + k + "\">" + 
                                 new ULocale(k).getDisplayName(ctx.displayLocale));
@@ -2648,10 +2656,10 @@ public class SurveyMain extends HttpServlet {
                     }
                     ctx.println("</a> ");
                 }
-                
-                ctx.println("</p>");
+                if(shownHeader) {
+                    ctx.println("</p>");
+                }
             }
-            ctx.println("<hr/>");
         }
         
         if(ctx.locale != null ) {
@@ -3292,6 +3300,8 @@ public class SurveyMain extends HttpServlet {
                         showPathList(subCtx, "//ldml/"+NUMBERSCURRENCIES, null);
                     } else if(which.equals(TIMEZONES)) {
                         showTimeZones(subCtx);
+                    } else if(which.equals(METAZONES)) {
+                        showMetaZones(subCtx);
                     } else {
                         showLocaleCodeList(subCtx, which);
                     }
@@ -3485,6 +3495,8 @@ public static String xpathToMenu(String path) {
 		theMenu=CURRENCIES;
 	} else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
 		theMenu=TIMEZONES;
+	} else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/metazone")){
+		theMenu=METAZONES;
 	} else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
 		theMenu = LDMLConstants.CHARACTERS;
 	} else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
@@ -3885,6 +3897,11 @@ public void showPathListExample(WebContext ctx, String xpath, String lastElement
 
 public SupplementalData supplemental = null;
 
+
+public void showMetaZones(WebContext ctx) {
+    showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
+}
+
 /**
  * for showing the list of zones to the user
  */
@@ -3918,6 +3935,11 @@ public void showTimeZones(WebContext ctx) {
             // z=territory;
 //            System.err.println("z is now " + z);
         }
+    }
+    
+    if((whichMZone != null) && ((z==null)||("".equals(z))) && !combinedMode) {
+        // show a list of zones..
+        combinedMode = true;
     }
 
     // try again
@@ -3962,7 +3984,9 @@ public void showTimeZones(WebContext ctx) {
     if(combinedMode == true) {
         WebContext zCtx = new WebContext(ctx);
         zCtx.setQuery("zz",whichZone);
-        showOneZone(zCtx, whichZone, combinedMode);
+        // yes, no
+        String theZone = showOneZone(zCtx, whichZone, null, true, true);
+        showOneZone(zCtx, whichZone, null, true, false);
     } if("full".equals(z)) {
         subCtx.setQuery("z", z);
         try { 
@@ -4072,17 +4096,15 @@ public void showTimeZones(WebContext ctx) {
             if(whichMZone != null) {
                 zCtx.setQuery("mzone",whichMZone);
             }
-            showOneZone(zCtx, zoneToShow, combinedMode);
+            
+            showOneZone(zCtx, zoneToShow, whichMZone, false, false);
         }
     }
 }
 
-void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
+String showOneZone(WebContext ctx, String zone, String whichMZone, boolean combinedMode, boolean forceMZone) {
     SurveyMain sm = this;
-    String whichMZone = ctx.field("mzone"); // mzone user has chosen
-    if(whichMZone.equals("")) {
-        whichMZone = null;
-    }
+    String returnZone = null;
 
     SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
     CLDRFile cf = uf.cldrfile;
@@ -4109,7 +4131,7 @@ void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
     WebContext mzContext = new WebContext(ctx);
     
     Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
-    if(mzit.hasNext()) {
+    if(!(combinedMode&&!forceMZone) && mzit.hasNext()) {
         ctx.println("<table class='tzbox'><tr><th>from</th><th>to</th><th>MetaZone</th></tr>");
         
         for(;mzit.hasNext();) {
@@ -4169,6 +4191,13 @@ void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
     String showZoneOverride = ctx.field("szo");
     boolean exemplarCityOnly  = false;
 
+    if(useMetazone != null) {
+        returnZone = useMetazone;
+        if(forceMZone) {
+            whichMZone = useMetazone;  // automatically show the metazone first.
+        }
+    }    
+
     if(whichMZone != null) {
         ctx.println("<h2>MetaZone: "+whichMZone+"</h2>");
         // Re-map things pretty drastically to be metazone based.
@@ -4180,18 +4209,20 @@ void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
     } else {
         ctx.println("<h2>"+zone+"</h2>");
         if(useMetazone != null) {
-            mzContext.setQuery("mzone",useMetazone);
-            ctx.print("<i>Note: the metazone <b>");
-            ctx.print("<a class='"+(useMetazone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
-            ctx.print(useMetazone+"</a></b> is active for this zone. <a href=\""+
-                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + useMetazone + " incorrect")+
-                "\">Click Here to report Metazone problems</a> .</i>");
-            if(!"y".equals(showZoneOverride)) {
-                ctx.setQuery("szo","y");
-                ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
-                
-                // show the exemplarCity
-                exemplarCityOnly = true;
+            if(combinedMode == false) {
+                mzContext.setQuery("mzone",useMetazone);
+                ctx.print("<i>Note: the metazone <b>");
+                ctx.print("<a class='"+(useMetazone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
+                ctx.print(useMetazone+"</a></b> is active for this zone. <a href=\""+
+                    bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + useMetazone + " incorrect")+
+                    "\">Click Here to report Metazone problems</a> .</i>");
+                if(!"y".equals(showZoneOverride)) {
+                    ctx.setQuery("szo","y");
+                    ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
+                    
+                    // show the exemplarCity
+                    exemplarCityOnly = true;
+                }
             }
         }
     }
@@ -4261,6 +4292,7 @@ void showOneZone(WebContext ctx, String zone, boolean combinedMode) {
         ctx.println("<input type=hidden name=szo value=y>");
     }
     sm.printPathListClose(ctx);
+    return returnZone;
 }
 
 /**
@@ -4335,22 +4367,22 @@ String getSortMode(WebContext ctx, String prefix) {
 static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
     ctx.println("<table summary='Data Items for "+ctx.locale.toString()+" " + pod.xpathPrefix + "' class='list' border='0'>");
     
-    if(!zoomedIn) {
+   // if(!zoomedIn) {
         ctx.println("<tr class='headingb'>\n"+
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
                     " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
                     " <th><i>Example</i></th>\n" + 
-                    " <th colspan='1'>Current</th>\n"+  // 6
+                    " <th colspan='2'>Current</th>\n"+  // 6
                     " <th><i>Example</i></th>\n" + 
-                    " <th colspan='1'>Proposed</th>\n"+ // 7
+                    " <th colspan='2'>Proposed</th>\n"+ // 7
                     " <th><i>Example</i></th>\n" + 
                     " <th colspan='2' width='20%'>Change</th>\n"+               // 8
                     " <th>Rf</th>\n"+           // 9
                     " <th>n/a</th>\n"+                   // 5
                     " <th>Zm.</th>\n"+                  // 4
                     "</tr>");
-    } else {
+ /*   } else {
         ctx.println("<tr class='heading'>\n"+
                     "<td></td>\n"+ // row title
                     " <th colspan=2>\n"+
@@ -4360,7 +4392,7 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
                     "<th> examples</th>\n"+
                     "<th> comments</th>\n"+
                     "</tr>");
-    }
+    }*/
 }
 
 static void printPodTableClose(WebContext ctx, DataPod pod) {
@@ -4502,7 +4534,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     }
 
     
-    for(ListIterator i = peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
+    for(ListIterator i = dSet.peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
         DataPod.Pea p = (DataPod.Pea)i.next();
         
 ///*srl*/        System.err.println(pod.xpath(p));
@@ -4527,17 +4559,17 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         if((!partialPeas) && checkPartitions) {
             for(int j = 0;j<dSet.partitions.length;j++) {
                 if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
-                    if(zoomedIn) {
+/*                    if(zoomedIn) {
                         ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='5'>" +
                             "<a name='" + dSet.partitions[j].name + "'>" +
                             dSet.partitions[j].name + "</a>" +
                             "</th></tr>");
-                    } else {
-                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='13'>" +
+                    } else {*/
+                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='15'>" +
                             "<a name='" + dSet.partitions[j].name + "'>" +
                             dSet.partitions[j].name + "</a>" +
                             "</th></tr>");
-                    }
+/*                    }*/
                 }
             }
         }
@@ -4588,7 +4620,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         }
         
         
-        /*skip = */ showSkipBox(ctx, peas.size(), dSet, false, sortMode, oskip);
+        /*skip = */ showSkipBox(ctx, dSet.size(), dSet, false, sortMode, oskip);
         
         if(!canModify) {
             ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -4861,15 +4893,11 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
 }
 
 // TODO: trim unused params
-void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
+void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
     
-    // if it is not zoomed in - go elsewhere.
-    if(!zoomedIn) {
-        showPeaZoomedout(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
-        return;
-    }
-    
+    boolean zoomedIn=true;
+        
     //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
     //    return;
     //}
@@ -5384,10 +5412,16 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
  * show a pea, in a simplified state. This is used in the zoomed out mode.
  * we expect types here.
  */
-void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
+void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
-    boolean zoomedIn = false; // not a param
+/*
+    if(zoomedIn==true) {
+        showPeaZoomedIn_OLD(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
+        return;
+    }
+*/
+
     String ourAlign = "left";
     if(ourDir.equals("rtl")) {
         ourAlign = "right";
@@ -5430,7 +5464,22 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
             ourVoteXpath = xpt.getById(ourVote);
         }
     }
-
+    
+    // let's see what's inside.
+    // TODO: move this into the DataPod itself?
+    List<DataPod.Pea.Item> currentItems = new ArrayList<DataPod.Pea.Item>();
+    List<DataPod.Pea.Item> proposedItems = new ArrayList<DataPod.Pea.Item>();
+    
+    for(Iterator j = p.items.iterator();j.hasNext();) {
+        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+        if(item.altProposed != null) {
+            proposedItems.add(item);
+        } else {
+            currentItems.add(item);
+        }
+    }
+    
+    int rowSpan = Math.max(proposedItems.size(),1); // what is the rowSpan needed for general items?
     
     /*  TOP BAR */
     // Mark the line as disputed or insufficient, depending.
@@ -5494,7 +5543,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
     
      
-    ctx.print("<th class='"+rclass+"' valign='top'>");
+    ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
     if(!zoomedIn) {
         fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,statusIcon);
     } else {
@@ -5503,7 +5552,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     ctx.println("</th>");
     
     // ##2 code
-    ctx.print("<th class='botgray' colspan='1' valign='top' align='left'>");
+    ctx.print("<th rowspan='"+rowSpan+"' class='botgray' colspan='1' valign='top' align='left'>");
     //if(p.displayName != null) { // have a display name - code gets its own box
     int xfind = ctx.fieldInt("xfind");
     if(xfind==base_xpath) {
@@ -5530,7 +5579,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     ctx.println("</th>");
     
     // ##3 display / Baseline
-    ctx.println("<th nowrap style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>");
+    ctx.println("<th rowspan='"+rowSpan+"' nowrap style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>");
     if(p.displayName != null) {
         ctx.println(p.displayName); // ##3 display/Baseline
     }
@@ -5548,66 +5597,28 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     // ##2 and a half - baseline sample
     String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
     if(baseExample != null) {
-        ctx.print("<td align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
+        ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
     } else {
-        ctx.print("<td></td>");
+        ctx.print("<td rowspan='"+rowSpan+"' ></td>");
     }
     
     // ##5 current control
-    ctx.print("<td nowrap colspan='1' class='"+/*rclass+*/"' dir='"+ourDir+"' align='"+ourAlign+"' valign='top'>");
-/*
-    if(isAlias || (p.pathWhereFound != null))  {
-        ctx.println("<i dir='ltr'>(Alias - Zoom In for details)</i>");
+    DataPod.Pea.Item topCurrent = null;
+    if(currentItems.size() > 0) {
+        topCurrent = currentItems.get(0);
     }
-*/
-    // go find the 'current' item
-    DataPod.Pea.Item current = null;
-    for(Iterator j = p.items.iterator();(current==null)&&j.hasNext();) {
-        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-        if(item.altProposed == null) {
-            printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
-            current = item;
-           // ctx.println("<br>");
-        }
-    }
-    ctx.println("</td>");
-    ctx.print("<td class='generatedexample' valign='top' align='left'>");
-    if(current != null) {
-        String itemExample = pod.exampleGenerator.getExampleHtml(current.xpath, current.value,
-            ExampleGenerator.Zoomed.OUT);
-        if(itemExample!=null) {
-            ctx.print(itemExample);
-        }
-    }
-    ctx.println("</td>");
+    printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
 
-    
-    // ##6 proposed
-    ctx.print("<td nowrap colspan='1' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
-    // go find the 'current' item
-    for(Iterator j = p.items.iterator();j.hasNext();) {
-        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-        if(item.altProposed != null) {
-            printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
-            ctx.println("<br>");
-        } 
+    // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
+    DataPod.Pea.Item topProposed = null;
+    if(proposedItems.size() > 0) {
+        topProposed = proposedItems.get(0);
     }
-    ctx.println("</td>");
-    ctx.print("<td class='generatedexample' valign='top' align='left'>");
-    for(Iterator j = p.items.iterator();j.hasNext();) {
-        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-        if(item.altProposed != null) {
-            String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
-                ExampleGenerator.Zoomed.OUT);
-            if(itemExample!=null) {
-                ctx.print(itemExample);
-            }
-        }
-    }
-    ctx.println("</td>");
+    printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
     
+     
     if(phaseSubmit==true) {
-        String changetoBox = "<td valign='top'>";
+        String changetoBox = "<td rowspan='"+rowSpan+"' valign='top'>";
         // ##7 Change
         if(canModify && canSubmit ) {
             changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
@@ -5620,7 +5631,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
             ctx.println(changetoBox);
         }
         
-        ctx.print("<td valign='top'>");
+        ctx.print("<td rowspan='"+rowSpan+"' valign='top'>");
         
         boolean badInputBox = false;
         
@@ -5649,10 +5660,10 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
         }
 
     } else {
-        ctx.println("<td colspan='2'></td>");
+        ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");
     }
     // ##8 References
-    ctx.print("<td>");
+    ctx.print("<td rowspan='"+rowSpan+"'>");
     if(refs.length>0) {
         String refHash = fieldHash;
         ctx.print("<span id='h_ref"+refHash+"'>");
@@ -5676,7 +5687,7 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     ctx.println("</td>");
 
     // NV
-    ctx.print("<td>");
+    ctx.print("<td rowspan='"+rowSpan+"'>");
     if(canModify) {
         ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
             +((ourVoteXpath==null)?"CHECKED":"")+" >");
@@ -5686,19 +5697,132 @@ void showPeaZoomedout(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir,
     // zoom
     if(!zoomedIn) {
         if(foundError || foundWarning) {
-            ctx.println("<td title='Errors or Warnings- please zoom in' class='warning'>");
+            ctx.println("<td rowspan='"+rowSpan+"' title='Errors or Warnings- please zoom in' class='warning'>");
         } else {
-            ctx.println("<td>");
+            ctx.println("<td rowspan='"+rowSpan+"'>");
         }
         //if(canModify && canSubmit) {
         fora.showForumLink(ctx, pod, p, p.superPea.base_xpath);
         //}
         ctx.println("</td>");
     } else {
-        ctx.println("<td></td>");
+        ctx.println("<td rowspan='"+rowSpan+"'></td>");
     }
     
     ctx.println("</tr>");
+    if(rowSpan > 1) {
+        for(int row=1;row<rowSpan;row++){
+            // do the rest of the rows
+            ctx.print("<tr>");
+
+            DataPod.Pea.Item item = null;
+            // current item
+            if(currentItems.size() > row) {
+                item = currentItems.get(row);
+            } else {
+                item = null;
+            }
+            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+            
+            // #6.1, 6.2 - proposed items
+            if(proposedItems.size() > row) {
+                item = proposedItems.get(row);
+            } else {
+                item = null;
+            }
+            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+            
+            ctx.println("</tr>");
+        }
+    }
+    
+}
+
+/**
+ *  print the cells which have to do with the item
+ * this may be called with NULL if there isn't a proposed item for this slot.
+ * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
+ */ 
+void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
+    boolean canModify, String ourAlign, String ourDir, boolean zoomedIn) {
+    // ##6.1 proposed - print the TOP item
+    ctx.print("<td nowrap colspan='1' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+    if(item != null) {
+        printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
+    }
+    ctx.println("</td>");    
+    // 6.3 - error 
+    if((item==null) || !zoomedIn) {
+        ctx.print("<td></td>");
+    } else {
+        if((item.tests != null) || (item.examples != null)) {
+            if(item.tests != null) {
+                ctx.println("<td class='warncell'>");
+                for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if (!status.getType().equals(status.exampleType)) {
+                        ctx.println("<span class='warning'>");
+                        String cls = shortClassName(status.getCause());
+                        if(status.getType().equals(status.errorType)) {
+                            ctx.print(ctx.iconThing("stop","Error: "+cls));
+                        } else {
+                            ctx.print(ctx.iconThing("warn","Warning: "+cls));
+                        }
+                        printShortened(ctx,status.toString());
+                        ctx.println("</span>");
+                        if(cls != null) {
+                            ctx.printHelpLink("/"+cls+"","Help");
+                        }
+                        ctx.print("<br>");
+                    }
+                }
+            } else {
+                ctx.println("<td class='examplecell'>");
+            }
+            
+            if(item.examples != null) {
+                boolean first = true;
+                for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
+                    DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
+                    if(first==false) {
+                    }
+                    String cls = shortClassName(e.status.getCause());
+                    if(e.status.getType().equals(e.status.exampleType)) {
+                        printShortened(ctx,e.status.toString());
+                        if(cls != null) {
+                            ctx.printHelpLink("/"+cls+"","Help");
+                        }
+                        ctx.println("<br>");
+                    } else {                        
+                        String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.superPea.base_xpath));
+                        if(theMenu==null) {
+                            theMenu="raw";
+                        }
+                        ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                        ctx.print(cls);
+                        ctx.print("</a>");
+                    }
+                    first = false;
+                }
+//                    ctx.println(status.getHTMLMessage()+"<br>");
+            }
+            ctx.println("</td>");
+        } else {
+            ctx.print("<td></td>");
+        }
+    }
+
+    // ##6.2 proposed ex
+    ctx.print("<td class='generatedexample' valign='top' align='left'>");
+    if(item != null) {
+        String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
+            zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+        if(itemExample!=null) {
+            ctx.print(itemExample);
+        }
+    }
+    ctx.println("</td>");
+
 }
 
 void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify) {
@@ -5832,7 +5956,6 @@ showSearchMode = true;// all
 
     // Print navigation
     if(showSearchMode) {
-        ctx.println("<br/>");
         ctx.println("Displaying items " + from + " to " + to + " of " + total);        
 
         if(total>=(CODES_PER_PAGE)) {

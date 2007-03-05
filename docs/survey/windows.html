@@ -3,17 +3,22 @@
 <head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
 <link rel='stylesheet' type='text/css' href='http://unicode.org/cldr/apps/surveytool.css'>
 <title>CLDR Tool Windows</title>
 <style>
 <!--
-table {border-collapse: collapse; border-top: 2px solid #666666; border-bottom: 2px solid #666666; }
-td,th {vertical-align:top; text-align:left}
-td           { border: 1px solid #CCCCCC; border-top: 1px solid #666666; border-bottom:1px solid #666666;  }
+table.main2 {border-collapse: collapse; border-top: 2px solid #666666; border-bottom: 2px solid #666666; }
+td.main2,th.main2 {vertical-align:top; text-align:left}
+td.main2           { border: 1px solid #CCCCCC; border-top: 1px solid #666666; border-bottom:1px solid #666666;  }
 .buttonCell  { border-left: 1px solid #C0C0C0; border-right: 1px solid #808080; 
                border-top: 1px solid #C0C0C0; border-bottom: 1px solid #808080; 
                padding: 0 }
-th           { border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
+th.main2           { border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
+
+th.main2-narrow {width:1% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
+th.main2-medium {width:25% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
+th.main2-medium2 {width:15% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
 
 .narrow {width:1%}
 .medium {width:25%}
@@ -31,23 +36,56 @@ th           { border: 1px solid #999999; border-top: 1px solid #666666; border-
 .wide-noborder-winner {width:100%; border: 0 solid white; background-color: #ddFFdd }
 .wide-noborder-parent {width:100%; border: 0 solid white; background-color: #FFdddd }
 h2           { text-indent: -1em }
+
+td, th { vertical-align: top; text-align:left}
+td.source, th.source      { border-style:solid; border-width:1; background-color: #CCCCCC }
+td.target, th.target, td.target2    { border-style:solid; border-width:1; background-color: #CCFFCC }
+td.target2    { color:blue }
+caption           { font-size: 150%; margin-top: 2em }
+table {border-collapse: collapse}
+td.z0      { border-style:solid; border-width:1; background-color: #CC33CC }
+td.z1      { border-style:solid; border-width:1; background-color: #CC66CC }
+td.z2      { border-style:solid; border-width:1; background-color: #CC99CC; vertical-align: middle }
+td.z3      { border-style:solid; border-width:1; background-color: #CCCCCC; vertical-align: middle }
+td.z4      { border-style:solid; border-width:1; background-color: #CCFFCC; vertical-align: middle }
+
 -->
 </style>
 </head>
 
-<body style="margin:2em">
+<body>
 
-		<h1>CLDR Tool Windows</h1>
-		<p>This document explains the different views used in entering in CLDR 
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="table32">
+  <tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table33">
+      <tr>
+        <td class="icon"><a href="http://www.unicode.org/">
+        <img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp;
+        <a class="bar" href="../web/index.html"><font size="3">Common Locale Data Repository</font></a></td>
+        <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> |
+        <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
+        <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="gray">&nbsp;</td>
+  </tr>
+</table>
+<div  style="margin:2em">
+		<h1>Unicode CLDR Survey Tool Windows</h1>
+		<p>This page explains the different views used in entering in CLDR 
 		data. The exact appearance may change as the tool is enhanced during the 
-		beta period. <i><span style="background-color: #FFFF00">Italics and 
-		yellow highlighting are added 
-		here to comment on particular features.</span></i></p>
+		beta period.</p>
+		<p><i><span style="background-color: #FFFF00">Italics and yellow 
+		highlighting are used to comment on particular features.</span></i></p>
 		<h2>Navigation</h2>
 		<p>Once you start on a particular locale, most windows have a navigation 
 		bar at the top. It looks 
 		like the following.</p>
-		<table summary="locale info" border="0" width="95%" id="table21">
+		<table class="main" summary="locale info" border="0" width="95%" id="table21">
 			<tr>
 				<td width="25%"><b>
 				<a href="http://unicode.org/cldr/apps/survey">Locales</a></b><br>
@@ -102,11 +140,12 @@ h2           { text-indent: -1em }
 		</table>
 		<hr>
 		<div class="pager" style="margin: 2px;">
-			<input value="Save [Note: SurveyTool is in BETA]" type="submit"> <i>
-			<span style="background-color: #FFFF00">Hit this button to save. <b>Note that you must do this before you leave 
-			a page, or your changes are lost!</b></span></i><b><span style="background-color: #FFFF00">
+			<input value="Save" type="submit">
+			<span style="background-color: #FFFF00">Hit this button to save. <b>
+			<font size="3">Note that you must do this before you leave 
+			a page, or your changes are lost!</font></b></span></i><b><span style="background-color: #FFFF00"><font size="3"></b>
+			</font>
 			</span>
-			</b>
 			<p>
 			<b>Sorted:</b>
 			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&p_sort=code">
@@ -118,10 +157,9 @@ h2           { text-indent: -1em }
 				<p align="right"><span class="pagerl_inactive">←&nbsp;prev</span>&nbsp;
 				<a class="pagerl_active" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=80">
 				next&nbsp;→</a></p><p align="right"><i>
-				<span style="background-color: #FFFF00"><br>
-				pref and next will go<br>
+				<span style="background-color: #FFFF00">prev and next will go<br>
 &nbsp;between pages</span></i></p>
-			</div>&nbsp;<table summary="navigation box" style="border-collapse: collapse;" id="table22" width="60%">
+			</div>&nbsp;<table class="main" summary="navigation box" style="border-collapse: collapse;" id="table22" width="60%">
 				<tr valign="top">
 					<td>&nbsp;</td>
 					<td class="pagerln" align="left">
@@ -162,23 +200,23 @@ h2           { text-indent: -1em }
 				</tr>
 			</table>
 		</div>
-		<h2>Main List</h2>
+		<h2>Main View</h2>
 		<p>Below the navigation bar, you&#39;ll see something like this:</p>
 
 <form method="POST" action="--WEBBOT-SELF--" onSubmit="location.href='_derived/nortbots.htm';return false;" webbot-onSubmit>
 	<!--webbot bot="SaveResults" U-File="C:\cvsdata\unicode\cldr\dropbox\misc\_private\form_results.csv" S-Format="TEXT/CSV" S-Label-Fields="TRUE" startspan --><input TYPE="hidden" NAME="VTI-GROUP" VALUE="0"><!--webbot bot="SaveResults" i-checksum="43374" endspan -->
 
-<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table1" width="100%">
+<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table1" width="100%">
 	<tr>
-		<th class="narrow" width="2%">St.</th>
-		<th class="narrow" width="5%">Code</th>
-		<th class="medium">English</th>
-		<th class="medium" colspan="2">Current</th>
-		<th class="medium" colspan="2">Proposed</th>
-		<th class="medium" colspan="2">Add Proposed</th>
-		<th class="narrow">Rf.</th>
-		<th class="narrow">n/a</th>
-		<th class="narrow">Det.</th>
+		<th class="main2-narrow" width="2%">St.</th>
+		<th class="main2-narrow" width="5%">Code</th>
+		<th class="main2-medium">English</th>
+		<th class="main2-medium" colspan="2">Current</th>
+		<th class="main2-medium" colspan="2">Proposed</th>
+		<th class="main2-medium" colspan="2">Add Proposed</th>
+		<th class="main2-narrow">Rf.</th>
+		<th class="main2-narrow">n/a</th>
+		<th class="main2-narrow">Det.</th>
 	</tr>
 	<tr>
 
@@ -194,7 +232,7 @@ h2           { text-indent: -1em }
 
 		<td >bhojpuri</td>
 
-		<td width="1%" ><span class="parent">
+		<td width="1%" ><span >
 		<input value="V12" name="R1" type="radio" checked></span></td>
 
 		<td style="vertical-align: top; text-align: left" ><span class="parent">bho</span></td>
@@ -227,11 +265,11 @@ h2           { text-indent: -1em }
 		<td ><code>bi </code> </td>
 		<td  >Bislama </td>
 
-		<td ><span class="winner"><input value="V1" name="R3" type="radio" checked></span></td>
+		<td ><span><input value="V1" name="R3" type="radio" checked></span></td>
 
 		<td ><span class="winner">bichlamar</span></td>
 
-		<td ><span class="parent">
+		<td ><span >
 
 		<input value="V13" name="R1" type="radio"></span></td>
 
@@ -299,7 +337,7 @@ h2           { text-indent: -1em }
 	<tr>
 
 		<td >
-				<span class="winner">
+				<span >
 				<input value="V1" name="R6" type="radio"></span></td>
 
 		<td style="vertical-align: top; text-align: left" >
@@ -311,7 +349,7 @@ h2           { text-indent: -1em }
 
 		<td >
 
-		<span class="parent"><input value="V14" name="R1" type="radio"></span></td>
+		<span ><input value="V14" name="R1" type="radio"></span></td>
 
 		<td style="vertical-align: top; text-align: left" >
 
@@ -327,14 +365,14 @@ h2           { text-indent: -1em }
 		<td ><code>bug </code> </td>
 		<td  >Buginese </td>
 
-		<td  ><span class="parent">
+		<td  ><span>
 		<input value="V1" name="R1" type="radio"></span></td>
 
 		<td  ><span class="parent">
 		bug</span></td>
 
 		<td >
-<span class="alias"><input value="V4" name="R5" type="radio" checked></span></td>
+<span ><input value="V4" name="R5" type="radio" checked></span></td>
 
 		<td style="vertical-align: top; text-align: left" >
 <span class="alias">bugg</span></td>
@@ -366,14 +404,14 @@ h2           { text-indent: -1em }
 
 </form>
 
-		<table border="1" id="table8" style="border-left-color: #0000FF; border-right-color: #0000FF; border-top-color: #0000FF; border-top-width: 1px; border-bottom-color: #0000FF; border-bottom-width: 1px">
+		<table class="main2" border="1" id="table8" style="border-left-color: #0000FF; border-right-color: #0000FF; border-top-color: #0000FF; border-top-width: 1px; border-bottom-color: #0000FF; border-bottom-width: 1px">
 			<caption><b><font size="4">Key</font></b></caption>
 			<tr>
-				<td style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
-				<b>Column</b></td>
-				<td style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
-				<b>Example</b></td>
-				<td style="vertical-align: top; text-align: left" bgcolor="#00FFFF" colspan="2"><b>Description</b></td>
+				<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
+				<b>Column</b></th>
+				<th class="main2-narrow" style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
+				<b>Example</b></th>
+				<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF" colspan="2"><b>Description</b></th>
 			</tr>
 			<tr>
 				<td style="vertical-align: top; " bgcolor="#F5F5F5" rowspan="4">
@@ -466,7 +504,7 @@ h2           { text-indent: -1em }
 				<b>Add Proposed</b></td>
 
 		<td style="vertical-align: top; text-align: left">
-		<table class="wide-noborder" id="table23">
+		<table class="main2-wide-noborder" id="table23">
 			<tr>
 				<td class="narrow-noborder">
 
@@ -542,26 +580,26 @@ h2           { text-indent: -1em }
 			</tr>
 			</table>
 
-		<h2><a name="With_Examples"><b>Main View w</b></a><b><a name="With_Examples">ith Examples</a></b></h2>
+		<h2><a name="With_Examples">M<b>ain View w</b></a><b><a name="With_Examples">ith Examples</a></b></h2>
 		<p>Many of the strings are just simple names, such as the names of the 
 		languages above. Those are called &quot;Code Lists&quot; in the tool. Others are a 
 		bit more complicated, and are either <i>patterns</i> or parts of 
 		patterns. For example, look at the following.</p>
 
-<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table15" width="100%">
+<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table15" width="100%">
 	<tr>
-		<th class="narrow" width="2%">St.</th>
-		<th class="narrow">Code</th>
-		<th class="medium2">English</th>
-		<th class="medium2"><i>Example</i></th>
-		<th class="medium2">Current</th>
-		<th class="medium2"><i>Example</i></th>
-		<th class="medium2">Proposed</th>
-		<th class="medium2"><i>Example</i></th>
-		<th class="medium2">Add Proposed</th>
-		<th class="narrow">Rf.</th>
-		<th class="narrow">n/a</th>
-		<th class="narrow">Det.</th>
+		<th class="main2-narrow" width="2%">St.</th>
+		<th class="main2-narrow">Code</th>
+		<th class="main2-medium2">English</th>
+		<th class="main2-medium2"><i>Example</i></th>
+		<th class="main2-medium2">Current</th>
+		<th class="main2-medium2"><i>Example</i></th>
+		<th class="main2-medium2">Proposed</th>
+		<th class="main2-medium2"><i>Example</i></th>
+		<th class="main2-medium2">Add Proposed</th>
+		<th class="main2-narrow">Rf.</th>
+		<th class="main2-narrow">n/a</th>
+		<th class="main2-narrow">Det.</th>
 	</tr>
 	<tr>
 
@@ -579,11 +617,11 @@ h2           { text-indent: -1em }
 
 		<td style="vertical-align: top; text-align: left" >
 		<font face="Times New Roman">1&#39;234,56£</font></td>
-		<td ><span class="parent"></span>
+		<td >
 
 		<input value="V1" name="R16" type="radio" checked>¤#,##0.00</td>
 
-		<td ><span class="parent"></span>
+		<td >
 
 		<font face="Times New Roman">£1&#39;234,56</font></td>
 
@@ -623,21 +661,21 @@ h2           { text-indent: -1em }
 		<h2><a name="Zoom_View">Zoom View</a></h2>
 		<p>Once you hit the zoom button, then you get a separate window with a more detailed view of just 
 		that item. With some browsers, this window isn&#39;t brought up to the 
-		front, so it helps to make your main view smaller than the full screen, 
+		front, so it helps to make your main2 view smaller than the full screen, 
 		and put this window to the side.<i> The zoom view doesn&#39;t look like this 
 		now, but will look more like it by the end of the beta period.</i></p>
 
-<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table31" width="100%">
+<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table31" width="100%">
 	<tr>
-		<th class="narrow" width="7%">Code</th>
-		<th class="medium">English</th>
-		<th class="medium" colspan="2">Current</th>
-		<th class="medium" style="width: 1%">Example</th>
-		<th class="medium" colspan="2">Proposed</th>
-		<th class="medium" style="width: 1%">Example</th>
-		<th class="medium" colspan="2">Add Proposed</th>
-		<th class="narrow">Rf.</th>
-		<th class="narrow">n/a</th>
+		<th class="main2-narrow" width="7%">Code</th>
+		<th class="main2-medium">English</th>
+		<th class="main2-medium" colspan="2">Current</th>
+		<th class="main2-medium" style="width: 1%">Example</th>
+		<th class="main2-medium" colspan="2">Proposed</th>
+		<th class="main2-medium" style="width: 1%">Example</th>
+		<th class="main2-medium" colspan="2">Add Proposed</th>
+		<th class="main2-narrow">Rf.</th>
+		<th class="main2-narrow">n/a</th>
 	</tr>
 	<tr>
 
@@ -652,7 +690,7 @@ h2           { text-indent: -1em }
 		<td style="vertical-align: top; text-align: left" >#,##0.00</td>
 
 		<td style="vertical-align: top; text-align: left" >123</td>
-		<td width="1%" style="vertical-align: top; text-align: left" ><span class="parent">
+		<td width="1%" style="vertical-align: top; text-align: left" ><span >
 		<input value="V1" name="R41" type="radio" checked></span></td>
 
 		<td style="vertical-align: top; text-align: left" >¤#,##0.00</td>
@@ -676,36 +714,35 @@ h2           { text-indent: -1em }
 
 	</tr>
 	</table>
-	<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table5" width="100%">
+	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table5" width="100%">
 
 	<tr>
 
 		<td ><b>Status</b></td>
 
 		<td style="vertical-align: top; text-align: left"   title="Unconfirmed: push zoom to see details">
-				<img  src="../../dropbox/misc/images/unconfirmed.jpg" width="16" height="16"><font color="#FF0000"><span class="warning"> 
-		</span>Insufficient votes<span class="warning"> 
-		</span>(</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)<br>
+				<img  src="../../dropbox/misc/images/unconfirmed.jpg" width="16" height="16"><font color="#FF0000"><span class="warning">Insufficient votes 
+		(</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</span><br>
 		</font>
 				<img  src="../../dropbox/misc/images/warning.gif" width="16" height="16"><font color="#FF0000"><span class="warning"> 
-				Warning: New field: may need translation or fixing. </span>(</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</font></td>
+				Warning: New field: may need translation or fixing. (</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</font></span></td>
 	</tr>
 	<tr>
 
 		<td ><b>Test</b></td>
 
 		<td style="vertical-align: top; text-align: left" >
-		<table cellSpacing="0" cellPadding="2" border="1" id="table7" width="100%">
+		<table class="main2" cellSpacing="0" cellPadding="2" border="1" id="table7" width="100%">
 			<tr>
-				<th style="vertical-align: top; text-align: left">Pattern</th>
-				<th style="vertical-align: top; text-align: left">Context</th>
-				<th style="vertical-align: top; text-align: left">Unlocalized 
+				<th class="main2" style="vertical-align: top; text-align: left">Pattern</th>
+				<th class="main2" style="vertical-align: top; text-align: left">Context</th>
+				<th class="main2" style="vertical-align: top; text-align: left">Unlocalized 
 				Input</th>
-				<th style="vertical-align: top; text-align: center">
+				<th class="main2" style="vertical-align: top; text-align: center">
 				<input type="button" value="Test" name="Test"></th>
-				<th style="vertical-align: top; text-align: left">Localized 
+				<th class="main2" style="vertical-align: top; text-align: left">Localized 
 				Format</th>
-				<th style="vertical-align: top; text-align: left">Re-Parsed</th>
+				<th class="main2" style="vertical-align: top; text-align: left">Re-Parsed</th>
 			</tr>
 			<tr>
 				<td style="vertical-align: top; text-align: left" >
@@ -737,15 +774,15 @@ h2           { text-indent: -1em }
 <h2><a name="References_Page">References Page</a></h2>
 <p>If you hit the references button, then you get a view of the references. With 
 some browsers, this window isn&#39;t brought up to the front, so it helps to make 
-your main view smaller than the full screen, and put this window to the side.<i> 
+your main2 view smaller than the full screen, and put this window to the side.<i> 
 The references page doesn&#39;t look like this now. We&#39;re trying different ideas 
 during the beta period.</i></p>
 
-<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table17" width="100%">
+<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table17" width="100%">
 	<tr>
-		<th class="narrow" width="2%">St.</th>
-		<th class="narrow" width="5%">Code</th>
-		<th class="medium" colspan="7">Add New Reference</th>
+		<th class="main2-narrow" width="2%">St.</th>
+		<th class="main2-narrow" width="5%">Code</th>
+		<th class="main2-medium" colspan="7">Add New Reference</th>
 	</tr>
 	<tr>
 
@@ -754,7 +791,7 @@ during the beta period.</i></p>
 
 		<td class="code" rowspan="2" ><code><b>NEW</b> </code> </td>
 		<td colspan="6" >
-		<table class="wide-noborder" id="table19">
+		<table class="main2-wide-noborder" id="table19">
 			<tr>
 				<td class="narrow-noborder">
 
@@ -777,12 +814,12 @@ during the beta period.</i></p>
 
 		</tr>
 	<tr>
-		<th class="narrow" width="2%">St.</th>
-		<th class="narrow" width="5%">Code</th>
-		<th class="medium" colspan="2">Current</th>
-		<th class="medium" colspan="2">Proposed</th>
-		<th class="medium" colspan="2">Add Porposed</th>
-		<th class="narrow">n/a</th>
+		<th class="main2-narrow" width="2%">St.</th>
+		<th class="main2-narrow" width="5%">Code</th>
+		<th class="main2-medium" colspan="2">Current</th>
+		<th class="main2-medium" colspan="2">Proposed</th>
+		<th class="main2-medium" colspan="2">Add Porposed</th>
+		<th class="main2-narrow">n/a</th>
 	</tr>
 	<tr>
 
@@ -801,7 +838,7 @@ during the beta period.</i></p>
 		Requirements for Afghanistan </td>
 
 		<td style="vertical-align: top; text-align: left" colspan="2">
-		<table class="wide-noborder" id="table18">
+		<table class="main2-wide-noborder" id="table18">
 			<tr>
 				<td class="narrow-noborder">
 
@@ -870,7 +907,7 @@ during the beta period.</i></p>
 		native speaker you may have better access to sources of the data than 
 		are available in English, so we&#39;d appreciate your reviewing this 
 		information.</p>
-		<table id="table28">
+		<table class="main2" id="table28">
 			<tr>
 				<th class="source">Language</th>
 				<th class="source">Code</th>
@@ -921,7 +958,7 @@ during the beta period.</i></p>
 		language is in major use, click on the country code (eg
 				<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#AT">
 				AT</a>). You&#39;ll see a view like this.</p>
-		<table id="table30">
+		<table class="main2" id="table30">
 			<tr>
 				<th class="source">Territory</th>
 				<th class="source">Code</th>
@@ -1000,5 +1037,5 @@ during the beta period.</i></p>
 			are fluent (functionally) in the language, as a first <i>or</i> 
 			second language. Thus the figures may add to more than 100%.</li>
 		</ul>
-
+</div>
 </body></html>

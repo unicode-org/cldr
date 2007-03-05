@@ -814,14 +814,14 @@ import com.ibm.icu.util.ULocale;
 //                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
                         return null;
                     } else {
-                        System.err.println("Couldn't find "+ xpath + " - trying original");
+//                        System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original");
                         // plan B: look for original data
                         stmts.queryValue.setString(1,locale);
                         stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
                         rs = stmts.queryValue.executeQuery();
                         
                         if(!rs.next()) {
-                            System.err.println("Fallback search failed for "+xpath+":"+path);
+//                            System.err.println("Fallback search failed for "+xpath+":"+path);
                             // NOW return null
                             return null;
                         }

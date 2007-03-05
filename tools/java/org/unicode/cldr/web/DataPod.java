@@ -192,11 +192,14 @@ public class DataPod extends Registerable {
             String references = null;
             String xpath = null;
             int xpathId = -1;
+            boolean isFallback = false; // item is from the parent locale - don't consider it a win.
             
             public Set votes = null; // Set of Users who voted for this.
             
             public String example = "";
         }
+        
+        Item inheritedValue = null; // vetted value inherited from parent
         
         public Set items = new TreeSet(new Comparator() {
                     public int compare(Object o1, Object o2){
@@ -261,6 +264,24 @@ public class DataPod extends Registerable {
                 subPeas.put(altType, p);
             }
             return p;
+        }
+        
+        void updateInheritedValue(CLDRFile vettedParent) {
+            if(vettedParent == null) {
+                return;
+            }
+            
+            String xpath = sm.xpt.getById(base_xpath);
+            String value = vettedParent.getStringValue(xpath);
+            
+            if(value != null) {
+                inheritedValue = new Item();
+                inheritedValue.inheritFrom = vettedParent.getLocaleID();
+                inheritedValue.value = value;
+                inheritedValue.xpath = xpath;
+                inheritedValue.xpathId = base_xpath;
+                inheritedValue.isFallback = true;
+            }
         }
     }
 
@@ -879,6 +900,13 @@ public class DataPod extends Registerable {
         }
         // what to exclude under 'misc'
         int t = 10;
+        
+        CLDRFile vettedParent = null;
+        String parentLoc = WebContext.getParent(locale);
+        if(parentLoc != null) {
+            CLDRDBSource vettedParentSource = sm.makeDBSource(null, new ULocale (parentLoc), true /*finalData*/);
+            vettedParent = new CLDRFile(vettedParentSource,true);
+        }
             
         int pn;
         String exclude = null;
@@ -1146,7 +1174,15 @@ public class DataPod extends Registerable {
                 superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath);
 ///*srl*/         if(type.equals("HK")) { System.err.println("SuperP's xps = " + superP.xpathSuffix); }
             }
+
             p.confirmOnly = superP.confirmOnly = confirmOnly;
+
+            if(p.inheritedValue == null) {
+                p.updateInheritedValue(vettedParent);
+            }
+            if(superP.inheritedValue == null) {
+                superP.updateInheritedValue(vettedParent);
+            }
 
 //if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
 
@@ -1205,6 +1241,11 @@ public class DataPod extends Registerable {
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
             
             boolean isInherited = !(sourceLocale.equals(locale));
+            
+            // ** IF it is inherited, do NOT add any Items.   
+            if(isInherited) {
+                continue;
+            }
             
 //    System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
     

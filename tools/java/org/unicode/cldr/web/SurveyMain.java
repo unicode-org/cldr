@@ -3819,7 +3819,7 @@ public synchronized Set getMetazones() {
         ElapsedTimer et = new ElapsedTimer();    
         XPathParts parts = new XPathParts(null,null);
         CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
-        Set aset = new HashSet();
+        Set aset = new TreeSet();
         for(Iterator i = mySrc.iterator("//ldml/"+"dates/timeZoneNames/zone");i.hasNext();) {
             String xpath = i.next().toString();
             parts.set(xpath);
@@ -3899,7 +3899,25 @@ public SupplementalData supplemental = null;
 
 
 public void showMetaZones(WebContext ctx) {
-    showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
+    Set s = getMetazones();
+    int n = 0;
+    ctx.println("<h4>Metazones ("+s.size()+")</h4>");
+    ctx.print("<table class='tzbox'>");
+    ctx.print("<tr class='topbar'>");
+    WebContext subCtx = new WebContext(ctx);
+    subCtx.setQuery("x","timezones");
+    for(Object o : s) {
+        if(0==(n%4)) {
+            ctx.println("</tr>");
+            ctx.print("<tr>");
+        }
+        String mzone = o.toString();
+        subCtx.setQuery("mzone",mzone);
+        ctx.print("<td><a class='notselected' href='"+subCtx.url()+"'>"+mzone+"</a></td>");
+        n++;
+    }
+    ctx.println("</tr>");
+    ctx.println("</table>");
 }
 
 /**
@@ -3938,8 +3956,8 @@ public void showTimeZones(WebContext ctx) {
     }
     
     if((whichMZone != null) && ((z==null)||("".equals(z))) && !combinedMode) {
-        // show a list of zones..
-        combinedMode = true;
+        // Show just the specified metazone
+        z="ZZ";
     }
 
     // try again
@@ -4032,7 +4050,11 @@ public void showTimeZones(WebContext ctx) {
                 }
             }
         }        
-        nCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(nCtx.displayLocale)+"</b></p>");
+        if(z.equals("ZZ") && (whichMZone!=null))  {
+            nCtx.println("<!-- just a metazone --></p>");
+        } else {
+            nCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(nCtx.displayLocale)+"</b></p>");
+        }
         
         if(!useCombinedMode) {
             
@@ -4089,7 +4111,11 @@ public void showTimeZones(WebContext ctx) {
         }
         
         // Now, if zz isn't empty, display it.
-        if(zoneToShow != null) {
+        if(z.equals("ZZ") && (whichMZone!=null)) {
+            WebContext zCtx = new WebContext(nCtx);
+            zCtx.setQuery("mzone",whichMZone);
+            showOneZone(zCtx, null, whichMZone, false, true);
+        } else if(zoneToShow != null) {
             WebContext zCtx = new WebContext(nCtx);
             zCtx.setQuery("z",z);
             zCtx.setQuery("zz",zoneToShow);
@@ -4131,7 +4157,7 @@ String showOneZone(WebContext ctx, String zone, String whichMZone, boolean combi
     WebContext mzContext = new WebContext(ctx);
     
     Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
-    if(!(combinedMode&&!forceMZone) && mzit.hasNext()) {
+    if((zone!=null) && !(combinedMode&&!forceMZone) && mzit.hasNext()) {
         ctx.println("<table class='tzbox'><tr><th>from</th><th>to</th><th>MetaZone</th></tr>");
         
         for(;mzit.hasNext();) {
@@ -4506,11 +4532,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
     if(!partialPeas) {
         ctx.printUrlAsHiddenFields();   
     }
-	
-    if(exemplarCityOnly) {
-        ctx.println("<div class='ferrbox'>Note: timezone display is a bit strange still. The numbering is a bit off, and submitted data will not show up. this will be fixed shortly.</div>");
-    }
-    
+	    
     if(disputedOnly==true){
         ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
     }
@@ -5478,8 +5500,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             currentItems.add(item);
         }
     }
+    // if there is an inherited value available - show it.
+    if(p.inheritedValue != null) {
+        currentItems.add(p.inheritedValue);
+    }
     
-    int rowSpan = Math.max(proposedItems.size(),1); // what is the rowSpan needed for general items?
+    // calculate the max height of the current row.
+    int rowSpan = Math.max(proposedItems.size(),currentItems.size()); // what is the rowSpan needed for general items?
+    rowSpan = Math.max(rowSpan,1);
     
     /*  TOP BAR */
     // Mark the line as disputed or insufficient, depending.
@@ -5830,7 +5858,8 @@ void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String f
     boolean winner = 
         ((resultXpath!=null)&&
         (item.xpath!=null)&&
-        (item.xpath.equals(resultXpath)));
+        (item.xpath.equals(resultXpath))&&
+        !item.isFallback);
         
 
     String pClass ="";
@@ -5838,7 +5867,7 @@ void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String f
         pClass = "class='winner' title='Winning item.'";
     } else if(item.pathWhereFound != null) {
         pClass = "class='alias' title='alias from somewhere'";
-    } else if ((item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
+    } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
         pClass = "class='fallback' title='Fallback from "+item.inheritFrom+"'";
     } else if(item.altProposed != null) {
         pClass = "class='loser' title='proposed, losing item'";
@@ -5855,8 +5884,12 @@ void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String f
             (item.xpath!=null)&&
             (item.xpath.equals(ourVoteXpath)));
         
-        ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
-            ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
+        if(!item.isFallback) {
+            ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
+                ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
+        } else {
+            ctx.print("<input title='(Fallback, cannot vote for this)' type='radio' disabled>");
+        }
     } else {
         ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
     }

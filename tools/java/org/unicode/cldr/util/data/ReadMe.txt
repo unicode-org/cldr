@@ -93,7 +93,6 @@ This document describes how to update CLDR when this happens.
 - Do the following to update to a new timezone database.
 - Download the latest version of the data from ftp://elsie.nci.nih.gov/pub/
 - Unpack, and copy contents into ...org\unicode\cldr\util\data
-- Check in just the ones that are already checked in (eg check in 'africa', but not 'factory')
 - Edit the file tzdb-version.txt to change the version, eg for the file tzdata2007a.tar.gz, the version is 2007a.
 - If you are using Eclipse, remember to refresh the project.
 
@@ -143,6 +142,9 @@ C. REMOVED IDs. This doesn't happen very often, but requires some real thought w
   
 D. Repeat B and C until done.
 - When you are all done, there should ONLY be additions to $tzid and zoneItem's.
+
+E. Check in the new supplemental files and the data files in ...org\unicode\cldr\util\data
+- just the data files that are already checked in (eg check in 'africa', but not 'factory')
 
 (Note: the code in CountItems and StandardCodes means that we have to duplicate a bit of process above, but
 for now it's not worth fixing.)

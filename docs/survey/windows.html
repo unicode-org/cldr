@@ -103,25 +103,25 @@ h2           { text-indent: -1em }
 		<hr>
 		<div class="pager" style="margin: 2px;">
 			<input value="Save [Note: SurveyTool is in BETA]" type="submit"> <i>
-			<span style="background-color: #FFFF00">Hit this button to save. Note that you must do this before you leave 
-			a page, or your changes are lost!</span></i><span style="background-color: #FFFF00">
+			<span style="background-color: #FFFF00">Hit this button to save. <b>Note that you must do this before you leave 
+			a page, or your changes are lost!</b></span></i><b><span style="background-color: #FFFF00">
 			</span>
-			<p style="float: right; margin-left: 3em;">
+			</b>
+			<p>
 			<b>Sorted:</b>
 			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&p_sort=code">
-			Code</a> <span class="selected">Priority</span><i>&nbsp;</i></p>
-			<p></p>Displaying items 1 to 80 of 211</p>
+			Code</a> <span class="selected">Priority&nbsp; </span><i>
+			<span style="background-color: #FFFF00">Normally you&#39;ll use the 
+			Priority ordering, but to find specific items,
+				you may sort by Code</span></i></p>Displaying items 1 to 80 of 211</p>
 			<div style="float: right; width:195px; height:79px">
 				<p align="right"><span class="pagerl_inactive">←&nbsp;prev</span>&nbsp;
 				<a class="pagerl_active" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=80">
-				next&nbsp;→</a></p><p align="right"><span style="background-color: #FFFF00">
-				<i>T</i></span><i><span style="background-color: #FFFF00">o find specific items,<br>
-				you may sort by Code;<br>
+				next&nbsp;→</a></p><p align="right"><i>
+				<span style="background-color: #FFFF00"><br>
 				pref and next will go<br>
 &nbsp;between pages</span></i></p>
-			</div>
-			<br>
-&nbsp;<table summary="navigation box" style="border-collapse: collapse;" id="table22" width="60%">
+			</div>&nbsp;<table summary="navigation box" style="border-collapse: collapse;" id="table22" width="60%">
 				<tr valign="top">
 					<td>&nbsp;</td>
 					<td class="pagerln" align="left">
@@ -156,11 +156,12 @@ h2           { text-indent: -1em }
 					<td class="pagerln" align="left">
 					<span style="font-style: italic; background-color: #FFFF00">
 					There may be multiple pages in a section, so don&#39;t forget 
-					to view them all. The items on other pages are non-bold.</span></td>
+					to view them all (using this list or next/previous).</span><p>
+					<span style="font-style: italic; background-color: #FFFF00">
+					The items on other pages are non-bold.</span></td>
 				</tr>
 			</table>
 		</div>
-		<p>&nbsp;</p>
 		<h2>Main List</h2>
 		<p>Below the navigation bar, you&#39;ll see something like this:</p>
 
@@ -172,9 +173,9 @@ h2           { text-indent: -1em }
 		<th class="narrow" width="2%">St.</th>
 		<th class="narrow" width="5%">Code</th>
 		<th class="medium">English</th>
-		<th class="medium">Current</th>
-		<th class="medium">Proposed</th>
-		<th class="medium">Add Proposed</th>
+		<th class="medium" colspan="2">Current</th>
+		<th class="medium" colspan="2">Proposed</th>
+		<th class="medium" colspan="2">Add Proposed</th>
 		<th class="narrow">Rf.</th>
 		<th class="narrow">n/a</th>
 		<th class="narrow">Det.</th>
@@ -189,20 +190,21 @@ h2           { text-indent: -1em }
 		<td  >Bhojpuri
 		</td>
 
-		<td ><input value="V1" name="R2" type="radio">bhojpuri</td>
-		<td ><span class="parent"><input value="V3" name="R1" type="radio" checked>bho</span></td>
+		<td width="1%" ><input value="V1" name="R2" type="radio"></td>
+
+		<td >bhojpuri</td>
+
+		<td width="1%" ><span class="parent">
+		<input value="V12" name="R1" type="radio" checked></span></td>
+
+		<td style="vertical-align: top; text-align: left" ><span class="parent">bho</span></td>
+
+		<td width="1%">
+
+		<input value="V18" name="R1" type="radio"></td>
 
 		<td>
-		<table class="wide-noborder">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V5" name="R1" type="radio"></td>
-				<td class="wide-noborder">
 		<input name="T4" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
 
 		<td style="vertical-align: top; text-align: center" title="References: push to add" >
 				<span id="h_reftbg:faalmge:-hkhliyc0">
@@ -225,22 +227,24 @@ h2           { text-indent: -1em }
 		<td ><code>bi </code> </td>
 		<td  >Bislama </td>
 
-		<td ><span class="winner"><input value="V1" name="R3" type="radio" checked>bichlamar</span></td>
+		<td ><span class="winner"><input value="V1" name="R3" type="radio" checked></span></td>
+
+		<td ><span class="winner">bichlamar</span></td>
+
 		<td ><span class="parent">
 
-		<input value="V2" name="R1" type="radio">bi</span></td>
+		<input value="V13" name="R1" type="radio"></span></td>
+
+		<td style="vertical-align: top; text-align: left" ><span class="parent">
+
+		bi</span></td>
+
+		<td width="1%" >
+
+		<input value="V19" name="R1" type="radio"></td>
 
 		<td >
-		<table class="wide-noborder" id="table9">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V6" name="R1" type="radio"></td>
-				<td class="wide-noborder">
 		<input name="T9" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
 
 		<td style="vertical-align: top; text-align: center" title="Computer Locale Requirements for Afghanistan; http://www.macchiato.com/standards/af/" class="buttonCell" >
 				<span id="h_reftbg:faalmge:-hkhliyc1">
@@ -256,57 +260,63 @@ h2           { text-indent: -1em }
 	</tr>
 	<tr>
 
-		<td style="vertical-align: top; text-align: left"   title="Unconfirmed: push zoom to see details">
+		<td style="vertical-align: top; text-align: left"   title="Unconfirmed: push zoom to see details" rowspan="3">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0"></a></td>
 
-		<td ><code>byn </code> </td>
-		<td  >Blin </td>
+		<td rowspan="3" ><code>byn </code> </td>
+		<td rowspan="3"  >Blin </td>
 
-		<td ><input value="V1" name="R4" type="radio">blin</td>
-		<td >
-		<table border="0" class="wide-noborder" id="table2">
-			<tr>
-				<td class="wide-noborder">
-				<input value="V1" name="R5" type="radio">blinu</td>
-			</tr>
-			<tr>
-				<td class="noborder">
-				<span class="winner">
-				<input value="V1" name="R6" type="radio">bliinu</span></td>
-			</tr>
-			<tr>
-				<td class="noborder">
+		<td rowspan="3" ><input value="V1" name="R4" type="radio"></td>
 
-		<span class="parent"><input value="V4" name="R1" type="radio">byn</span></td>
-			</tr>
-		</table>
-		
-		</td>
+		<td rowspan="3" >blin</td>
 
 		<td >
-		<table class="wide-noborder" id="table10">
-			<tr>
-				<td class="narrow-noborder">
+				<input value="V3" name="R5" type="radio"></td>
 
-		<input value="V7" name="R1" type="radio"></td>
-				<td class="wide-noborder">
+		<td style="vertical-align: top; text-align: left" >
+		blinu</td>
+
+		<td rowspan="3" width="1%" >
+
+		<input value="V20" name="R1" type="radio"></td>
+
+		<td rowspan="3" >
 		<input name="T10" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
 
-		<td style="vertical-align: top; text-align: center" title="References: push to add">
+		<td style="vertical-align: top; text-align: center" title="References: push to add" rowspan="3">
 				<span id="h_reftbg:faalmge:-hkhliyc2">
 				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
 				[refs]</a></span></td>
 
-		<td >
+		<td rowspan="3" >
 		<input value="V1" name="R9" type="radio"></td>
 
-		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details">
+		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details" rowspan="3">
 				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
+	</tr>
+	<tr>
+
+		<td >
+				<span class="winner">
+				<input value="V1" name="R6" type="radio"></span></td>
+
+		<td style="vertical-align: top; text-align: left" >
+		<span class="winner">
+				bliinu</span></td>
+
+	</tr>
+	<tr>
+
+		<td >
+
+		<span class="parent"><input value="V14" name="R1" type="radio"></span></td>
+
+		<td style="vertical-align: top; text-align: left" >
+
+		<span class="parent">byn</span></td>
+
 	</tr>
 	<tr>
 
@@ -318,21 +328,23 @@ h2           { text-indent: -1em }
 		<td  >Buginese </td>
 
 		<td  ><span class="parent">
-		<input value="V1" name="R1" type="radio">bug</span></td>
+		<input value="V1" name="R1" type="radio"></span></td>
+
+		<td  ><span class="parent">
+		bug</span></td>
+
 		<td >
-<span class="alias"><input value="V2" name="R5" type="radio" checked>bugg</span></td>
+<span class="alias"><input value="V4" name="R5" type="radio" checked></span></td>
+
+		<td style="vertical-align: top; text-align: left" >
+<span class="alias">bugg</span></td>
+
+		<td  nowrap width="1%">
+
+		<input value="V21" name="R1" type="radio"></td>
 
 		<td  nowrap>
-		<table class="wide-noborder" id="table11">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V8" name="R1" type="radio"></td>
-				<td class="wide-noborder">
 		<input name="T11" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
 
 		<td style="vertical-align: top; text-align: center" title="References: push to add">
 				<span id="h_reftbg:faalmge:-hkhliyc3">
@@ -441,6 +453,16 @@ h2           { text-indent: -1em }
 			</tr>
 			<tr>
 				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
+				<b>Ex.</b></td>
+
+		<td style="vertical-align: top; text-align: left">
+		1,234.56</td>
+
+				<td style="vertical-align: top; text-align: left" colspan="2">
+				Provides examples of patterns in usage.</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
 				<b>Add Proposed</b></td>
 
 		<td style="vertical-align: top; text-align: left">
@@ -528,6 +550,7 @@ h2           { text-indent: -1em }
 
 <table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table15" width="100%">
 	<tr>
+		<th class="narrow" width="2%">St.</th>
 		<th class="narrow">Code</th>
 		<th class="medium2">English</th>
 		<th class="medium2"><i>Example</i></th>
@@ -541,6 +564,10 @@ h2           { text-indent: -1em }
 		<th class="narrow">Det.</th>
 	</tr>
 	<tr>
+
+		<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0"></a></td>
 
 		<td class="code" ><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
 		<td  >¤#,##0.00</td>
@@ -579,7 +606,8 @@ h2           { text-indent: -1em }
 		<input value="V1" name="R19" type="radio" checked></td>
 
 		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details">
-				<img  src="../../dropbox/misc/images/zoom_in.gif" width="16" height="16"></td>
+				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
 
 	</tr>
 	</table>
@@ -587,182 +615,64 @@ h2           { text-indent: -1em }
 		indicates how a number is to be formatted for your language. This is 
 		very much like the &quot;custom formatting&quot; used in spreadsheets. In such 
 		cases, the tool will show (where possible) a short example of what the 
-		format will result in. Notice that these patterns use special 
-		characters, such as the following:</p>
-		<table border="1" width="100%" id="table24" cellspacing="0" cellpadding="4" class="noborder">
-			<tr>
-				<td width="50%" class="noborder" style="text-align: center">
-		<table border="1" id="table25">
-			<caption><b>Number Format Symbols</b></caption>
-			<tr>
-				<th style="vertical-align: top; text-align: left">Symbol</th>
-				<th style="vertical-align: top; text-align: left">Meaning</th>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">.</td>
-				<td style="vertical-align: top; text-align: left">Not a real 
-				period: instead, it will be replaced automatically by the 
-				character used for the decimal point in your language, listed 
-				under <tt class="hangsml" title="#194, w[N]:194">symbols/decimal</tt></td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">,</td>
-				<td style="vertical-align: top; text-align: left">Not a real 
-				comma: instead, it will be replaced by the &quot;grouping&quot; 
-				(thousands) separator in your language, listed under
-				<tt class="hangsml" title="#4, w[N]:4">symbols/group</tt></td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">0</td>
-				<td style="vertical-align: top; text-align: left">Replaced by a 
-				digit (or zero if there aren&#39;t enough digits).</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">#</td>
-				<td style="vertical-align: top; text-align: left">Replaced by a 
-				digit (or nothing if there aren&#39;t enough). Often used to show 
-				the position of the &quot;,&quot;.</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">¤</td>
-				<td style="vertical-align: top; text-align: left">This will be 
-				replaced by a currency symbol, such as $ or USD. Note: by 
-				default a space is placed between letters in a currency symbol 
-				and adjacent numbers. If this is not right for your language, 
-				file a bug to change it.</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">...;...</td>
-				<td style="vertical-align: top; text-align: left">If your 
-				language uses different formats for negative numbers than just 
-				adding &quot;-&quot; at the front, you can put in two patterns. For 
-				example: #,##0.00¤;(#,##0.00¤) is used to make negative 
-				currencies appear like &quot;(<font face="Times New Roman">1&#39;234,56£)&quot; 
-				instead of &quot;-1&#39;234,56£&quot;</font></td>
-			</tr>
-		</table>
-				</td>
-				<td width="50%" class="noborder" style="text-align: center">
-		<table border="1" id="table26">
-			<caption><b>Date Format Symbols</b></caption>
-			<tr>
-				<th style="vertical-align: top; text-align: left">Symbol</th>
-				<th style="vertical-align: top; text-align: left">Meaning</th>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">G</td>
-				<td style="vertical-align: top; text-align: left">era (eg AD)*</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">y</td>
-				<td style="vertical-align: top; text-align: left">year</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">M</td>
-				<td style="vertical-align: top; text-align: left">month*</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">E</td>
-				<td style="vertical-align: top; text-align: left">day of the 
-				week (eg Tuesday).*</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">d</td>
-				<td style="vertical-align: top; text-align: left">day</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">h / H</td>
-				<td style="vertical-align: top; text-align: left">hour. h for 12 
-				hour, H for 24.</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">m</td>
-				<td style="vertical-align: top; text-align: left">minute</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">s</td>
-				<td style="vertical-align: top; text-align: left">second</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">a</td>
-				<td style="vertical-align: top; text-align: left">am/pm. Only 
-				used with &quot;h&quot;.</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">z / v</td>
-				<td style="vertical-align: top; text-align: left">time zone. Use 
-				v for full format dates, z for long format dates</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top">&#39;a&#39;</td>
-				<td style="vertical-align: top; text-align: left">since letters 
-				have special meaning, if you want a real letter, you need to put 
-				it in single quotes. For a real single quote, use &#39;&#39;.</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align:top" colspan="2">
-				<p style="text-align: left">* Some fields 
-				use M or MM for numeric (eg 1 or 01);
-				MMM for abbreviated (eg Sept); and
-				MMMM for full (eg September)</td>
-			</tr>
-		</table>
-				</td>
-			</tr>
-		</table>
-		<p>There is more detailed information on these in the LDML 
-		specification: </p>
-		<ul><li>Appendix F:
-		<a href="http://www.unicode.org/draft/reports/tr35/tr35.html#Date_Format_Patterns">
-		Date Format Patterns</a></li>
-		<li>Appendix G:
-		<a href="http://www.unicode.org/draft/reports/tr35/tr35.html#Number_Format_Patterns">
-		Number Format Patterns</a></li></ul>
+		format will result in.</p>
+		<p>To see what the patterns or their components mean, click on the Zoom 
+		icon:
+				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></p>
 		<h2><a name="Zoom_View">Zoom View</a></h2>
-		<p>If you hit the zoom button, then you get a separate window with a more detailed view of just 
+		<p>Once you hit the zoom button, then you get a separate window with a more detailed view of just 
 		that item. With some browsers, this window isn&#39;t brought up to the 
 		front, so it helps to make your main view smaller than the full screen, 
 		and put this window to the side.<i> The zoom view doesn&#39;t look like this 
 		now, but will look more like it by the end of the beta period.</i></p>
 
-<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table5" width="100%">
+<table style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table31" width="100%">
 	<tr>
-		<th class="narrow">Code</th>
+		<th class="narrow" width="7%">Code</th>
 		<th class="medium">English</th>
-		<th class="medium">Released</th>
-		<th class="medium">Proposed</th>
-		<th class="medium">Add Proposed</th>
+		<th class="medium" colspan="2">Current</th>
+		<th class="medium" style="width: 1%">Example</th>
+		<th class="medium" colspan="2">Proposed</th>
+		<th class="medium" style="width: 1%">Example</th>
+		<th class="medium" colspan="2">Add Proposed</th>
 		<th class="narrow">Rf.</th>
 		<th class="narrow">n/a</th>
 	</tr>
 	<tr>
 
-		<td class="code" ><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
-		<td  >¤#,##0.00</td>
+		<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+				<tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
+
+		<td style="vertical-align: top; text-align: left"  >¤#,##0.00</td>
+
+		<td width="1%" style="vertical-align: top; text-align: left" >
+		<input value="V1" name="R40" type="radio" checked></td>
+
+		<td style="vertical-align: top; text-align: left" >#,##0.00</td>
+
+		<td style="vertical-align: top; text-align: left" >123</td>
+		<td width="1%" style="vertical-align: top; text-align: left" ><span class="parent">
+		<input value="V1" name="R41" type="radio" checked></span></td>
+
+		<td style="vertical-align: top; text-align: left" >¤#,##0.00</td>
+
+		<td style="vertical-align: top; text-align: left" >&nbsp;</td>
+
+		<td width="1%" style="vertical-align: top; text-align: left">
+
+		<input value="V1" name="R42" type="radio" checked></td>
+
+		<td style="vertical-align: top; text-align: left">
+		<input name="T19" size="20" class="wide"></td>
+
+		<td style="vertical-align: top; text-align: center" title="References: push to add" >
+				<span id="h_reftbg:faalmge:-hkhliyc4">
+				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
+				[refs]</a></span></td>
 
 		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R11" type="radio" checked>#,##0.00¤</td>
-		<td ><span class="parent"></span>
-
-		<input value="V1" name="R12" type="radio" checked>¤#,##0.00</td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<table class="wide-noborder" id="table12">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V1" name="R14" type="radio" checked></td>
-				<td class="wide-noborder">
-		<input name="T12" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add">
-				<img border="0" src="../../dropbox/misc/images/no_reference.jpg" width="16" height="16" ></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R13" type="radio" checked></td>
+		<input value="V1" name="R43" type="radio" checked></td>
 
 	</tr>
 	</table>

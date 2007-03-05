@@ -25,10 +25,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.xml.sax.XMLFilter;
@@ -62,8 +64,9 @@ import com.ibm.icu.util.UniversalTimeScale;
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
 		try {
-      checkStandardCodes();
+      testExampleGenerator();
       if (true) return;
+      checkStandardCodes();
 		checkNumericTimezone();
 		
 		
@@ -86,7 +89,40 @@ public class TestUtilities {
 		}
 	}
 	
-	private static void checkNumericTimezone() throws IOException {
+	private static void testExampleGenerator() throws IOException {
+    Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+    CLDRFile english = mainCldrFactory.make("en", true);
+    ExampleGenerator englishExampleGenerator = new ExampleGenerator(english);
+    StringBuilder result = new StringBuilder();
+    Relation<String,String> message_paths = new Relation(new TreeMap(), TreeSet.class);
+    for (String path : english) {
+      String value = english.getStringValue(path);
+      result.setLength(0);
+      String examples = englishExampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT);
+      if (examples != null) result.append(examples).append("<hr>");
+      String helpText = englishExampleGenerator.getHelpHtml(path,null);
+      if (helpText != null) result.append(helpText).append("<hr>");
+      if (result.length() != 0) {
+        message_paths.put(result.toString(), path + "\t:\t" + value);
+      } else {
+        message_paths.put("\uFFFD<b>NO MESSAGE</b><hr>", path + "\t:\t" + value);
+      }
+    }
+    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "test/", "test_examples.html");
+    out.println("<html><body><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
+    for (String message : message_paths.keySet()) {
+      Set<String> paths = message_paths.getAll(message);
+      out.println("<p>");
+      out.println(Utility.join(paths, "<br>\r\n"));
+      out.println("</p><blockquote>");
+      out.println(message);
+      out.println("</blockquote>");
+    }
+    out.println("</body></html>");
+    out.close();
+  }
+
+  private static void checkNumericTimezone() throws IOException {
 		String[] map_integer_zones = new String[1000];
 		StandardCodes sc = StandardCodes.make();
 		Set timezones = new TreeSet(sc.getGoodAvailableCodes("tzid"));

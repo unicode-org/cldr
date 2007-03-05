@@ -408,10 +408,17 @@ public class ExampleGenerator {
     }
     
     public String find(String xpath) {
+      StringBuilder result = new StringBuilder();
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(xpath).matches()) {
-          return values.get(i);
+          if (result.length() != 0) {
+            result.append("<hr>\r\n");
+          }
+          result.append(values.get(i));
         }
+      }
+      if (result.length() != 0) {
+        return result.toString();
       }
       return null;
     }

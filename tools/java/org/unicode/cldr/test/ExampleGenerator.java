@@ -195,7 +195,7 @@ public class ExampleGenerator {
       if (parts.contains("currency") && parts.contains("symbol")) {
         String currency = parts.getAttributeValue(-2, "type");
         String fullPath = cldrFile.getFullXPath(xpath,false);
-        if (fullPath.contains("[@choice=\"true\"]")) {
+        if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
           ChoiceFormat cf = new ChoiceFormat(value);
           value = cf.format(NUMBER_SAMPLE);
         }

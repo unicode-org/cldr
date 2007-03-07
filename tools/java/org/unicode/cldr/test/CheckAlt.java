@@ -30,6 +30,11 @@ public class CheckAlt extends CheckCLDR {
 		if (!localeID.equals(getCldrFileToCheck().getLocaleID())) return this; // must be same file
 		//if (!status.pathWhereFound.equals(path)) return this; // must be unaliased
 		
+    if (fullPath.contains("x999")) {
+      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+          .setMessage("There was a conflict introduced as a result of fixing default contents: please pick among the values or add a corrected value.", new Object[]{}));
+    }
+    
 		String strippedPath = removeProposed(path);
 		if (strippedPath.equals(path)) return this; // happened to match "proposed" but wasn't in 'alt';
 		
@@ -42,7 +47,7 @@ public class CheckAlt extends CheckCLDR {
         message += "MULTIPLE! ";
         checkOnSubmit = false;
       }
-			result.add(new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+			result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
           .setCheckOnSubmit(checkOnSubmit)
 					.setMessage("Proposed item but no unproposed variant", new Object[]{}));
 			seenSoFar.add(strippedPath);

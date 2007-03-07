@@ -148,6 +148,8 @@ public class SurveyMain extends HttpServlet {
     public static final String LOGFILE = "cldr.log";        // log file of all changes
     public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
 
+    public static final String QUERY_TERRITORY = "territory";
+    public static final String QUERY_ZONE = "zone";
     static final String QUERY_PASSWORD = "pw";
     static final String QUERY_PASSWORD_ALT = "uid";
     static final String QUERY_EMAIL = "email";
@@ -174,8 +176,10 @@ public class SurveyMain extends HttpServlet {
     static final String  BASELINE_ID = "en";
     static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
     static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
+
+    public static final String METAZONE_EPOCH = "1970-01-01";
     
-    static final int CODES_PER_PAGE = 80;  // was 51
+    static final int CODES_PER_PAGE = 80;  // This is only a default.
 
     // more global prefs
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
@@ -3904,6 +3908,8 @@ public SupplementalData supplemental = null;
 
 
 public void showMetaZones(WebContext ctx) {
+    showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
+/*
     Set s = getMetazones();
     int n = 0;
     ctx.println("<h4>Metazones ("+s.size()+")</h4>");
@@ -3923,261 +3929,163 @@ public void showMetaZones(WebContext ctx) {
     }
     ctx.println("</tr>");
     ctx.println("</table>");
+    */
 }
+
+/**
+ * parse the metazone list for this zone.
+ * Map will contain enries with key String and value  String[3] of the form:
+ *    from : { from, to, metazone }
+ * for example:
+ *    "1970-01-01" :  { "1970-01-01", "1985-03-08", "Australia_Central" }
+ * the 'to' will be null if it does not have an ending time.
+ * @param metaMap  an 'out' parameter which will be cleared, and populated with the contents of the metazone
+ * @return the active metazone ( where to=null ) if any, or null
+ */
+public String zoneToMetaZone(WebContext ctx, String zone, Map metaMap) {
+    SurveyMain sm = this;
+    String returnZone = null;
+    String current = null;
+    XPathParts parts = new XPathParts(null, null);
+    SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+    CLDRFile cf = uf.cldrfile;
+    CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
+    CLDRFile engFile = ctx.sm.getBaselineFile();
+
+    String xpath =  "//ldml/"+"dates/timeZoneNames/zone";
+    String ourSuffix = "[@type=\""+zone+"\"]";
+    String base_xpath = xpath+ourSuffix;
+    String podBase = DataPod.xpathToPodBase(xpath);
+    
+    metaMap.clear();
+
+    Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
+         
+    for(;mzit.hasNext();) {
+        String ameta = (String)mzit.next();
+        String mfullPath = resolvedFile.getFullXPath(ameta);
+        parts.set(mfullPath);
+        String mzone = parts.getAttributeValue(-1,"mzone");
+        String from = parts.getAttributeValue(-1,"from");
+        if(from==null) {
+            from = METAZONE_EPOCH;
+        }
+        String to = parts.getAttributeValue(-1,"to");
+        String contents[] = { from, to, mzone };
+        metaMap.put(from,contents);
+        
+        if(to==null) {
+            current = mzone;
+        }
+    }
+    return current;
+}
+
 
 /**
  * for showing the list of zones to the user
  */
 
 public void showTimeZones(WebContext ctx) {
-    String z = ctx.field("z");
-    String whichZone = ctx.field("zz");
-    WebContext subCtx = new WebContext(ctx);
-    WebContext worldCtx = new WebContext(ctx);
-    worldCtx.setQuery("z","001");
+    String zone = ctx.field(QUERY_ZONE);
 
-    boolean combinedMode = false; // The default is all zones. If a zone is chosen, go into combined mode. 
-    boolean useCombinedMode = !ctx.prefBool(PREF_GROTTY);
-
-    String whichMZone = ctx.field("mzone"); // mzone user has chosen
-    if(whichMZone.equals("")) {
-        whichMZone = null;
-    }
-
-    String territory = null;
-    // were we given a zone but no territory?
-    if((z==null)||("".equals(z))) {
-        if(ctx.hasField("zz")) {
-//            System.err.println("noz, but " + ctx.field("zz"));
-            territory = (String)(supplemental.getZoneToTerritory().get(whichZone));
-            if(useCombinedMode) {
-                combinedMode = true;
-            } else {
-                z = territory;
-            }
-            // z=territory;
-//            System.err.println("z is now " + z);
-        }
-    }
-    
-    if((whichMZone != null) && ((z==null)||("".equals(z))) && !combinedMode) {
-        // Show just the specified metazone
-        z="ZZ";
-    }
-
-    // try again
-    if(!combinedMode && ((z==null)||("".equals(z)))) {
-        if(useCombinedMode) {
-            z = "full"; 
-        } else {
-            String t = ctx.locale.getCountry(); // if the locale we're on has a country, use it.
-            if(t!=null && t.length()>0) {
-                z = t;
-            } else {
-    //            z = "001"; // default to 'zones by territory'
-                z = "full"; // default to 'all zones'
-            }
-        }
-    }
-    
     try {
         ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
     } catch(Throwable t) {
         ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
     }
-    
-    printMenu(ctx, z, "full", "All Zones", "z");
-    ctx.println(" | ");
-    if(!useCombinedMode) {
-        printMenu(ctx, z, "meta", "All Metazones", "z");
-        ctx.println(" | ");
-        {
-            String fakez = z; // show any region as "territory timezone list"
-            if(!"full".equals(z) && !"meta".equals(z)) {
-                fakez = "001";
-            }
-            printMenu(ctx, fakez, "001", "Zones by Territory", "z");
-        }
-    } else {
-        printMenu(ctx, whichZone, whichZone, whichZone, "zz");
+
+    // simple case - show the list of zones.
+    if((zone == null)||(zone.length()==0)) {
+        showPathList(ctx, DataPod.EXEMPLAR_ONLY, null);
+        return;
     }
-    
-    ctx.println("<br>");
-    
-    if(combinedMode == true) {
-        WebContext zCtx = new WebContext(ctx);
-        zCtx.setQuery("zz",whichZone);
-        // yes, no
-        String theZone = showOneZone(zCtx, whichZone, null, true, true);
-        showOneZone(zCtx, whichZone, null, true, false);
-    } if("full".equals(z)) {
-        subCtx.setQuery("z", z);
-        try { 
-            showPathList(subCtx, DataPod.EXEMPLAR_ONLY, null);
-        } catch (Throwable t) {
-            System.err.println("err: " + t.toString());
-            t.printStackTrace();
-        }
-    } else if("meta".equals(z)) {
-        subCtx.setQuery("z", z);
-        showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/metazone", null);
-    } else {
-        ULocale zLocale = new ULocale("und",z);
-        
-        /* Fetch the parent locales, and output them in reverse order. */
-        Vector v = new Vector();
-        
-        String parLoc = z;
-        
-        while(parLoc!=null) {
-            v.add(parLoc);
-            if(parLoc.equals("001")) {
-                parLoc = null;
-            } else {
-                parLoc = supplemental.getContainingTerritory(parLoc);
-            }
-        }
-        
-        WebContext nCtx = new WebContext(subCtx);
-        
-        if(!useCombinedMode) {
-            ctx.println("<hr><p class='hang'>");
-            
-            // output in reverse order
-            for(int j=v.size();j>1;j--) {
-                String s = (String)v.get(j-1);
-                ULocale nLocale = new ULocale("und",s);
-                nCtx.setQuery("z",s);
-                nCtx.println("<a class='notselected' href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
-                    "</a> ");
-                if(j > 1) {
-                    nCtx.println(" \u2192 ");
-                }
-            }
-        }        
-        if(z.equals("ZZ") && (whichMZone!=null))  {
-            nCtx.println("<!-- just a metazone --></p>");
-        } else {
-            nCtx.println("<b class='selected'>"+zLocale.getDisplayCountry(nCtx.displayLocale)+"</b></p>");
-        }
-        
-        if(!useCombinedMode) {
-            
-            String[] containsList = supplemental.getContainedTerritories(z);
-            ///
 
-            Set ot = supplemental.getObsoleteTerritories();
-            
-            if(containsList != null) {
-                ctx.println("<ul>");
-                for(int i=0;i<containsList.length;i++) {
-                    if(ot.contains(containsList[i])) { // don't show obsolete territory codes.
-                        continue;
-                    }
-                    ULocale nLocale = new ULocale("und",containsList[i]);
-                    nCtx.setQuery("z",containsList[i]);
-                    nCtx.println(" \u2192 <a href='"+nCtx.url()+"'>"+nLocale.getDisplayCountry(nCtx.displayLocale)+
-                        "</a><br>");
-                }
-                ctx.println("</ul>");
-            }
-        }
-        
-        String zz = nCtx.field("zz");
-        String zoneToShow = null;
-        // does it contain any zones?
-        Vector zones = (Vector)(supplemental.getTerritoryToZones().get(z));
-        if(zones != null && !("001".equals(z))) {
-            WebContext zCtx = new WebContext(nCtx);
-            zCtx.setQuery("z",z);
-            zCtx.println("<p class='hang'>Zones: ");
-            if(zones.size()==1) {
-                // only one zone. 
-                // select it for 'em.
-                zz = zones.get(0).toString();
-                zCtx.setQuery("zz",zz);
-                nCtx.setQuery("zz",zz);
-            }
-            String menuzz = zz;
-            if(whichMZone != null) {
-                menuzz = ""; // don't show a zone as selected if there is a metazone selected.
-            }
-            for(int j=0;j<zones.size();j++) {
-                String s = zones.get(j).toString();
-                printMenu(zCtx,menuzz, s,s, "zz");
-//                oCtx.println(s+"<br>");
-                nCtx.println(" ");
-                
-                if(s.equals(zz)) { // make sure the zone actually exists
-                    zoneToShow = s;
-                }
-            }
-            nCtx.println("</p>");
-        }
-        
-        // Now, if zz isn't empty, display it.
-        if(z.equals("ZZ") && (whichMZone!=null)) {
-            WebContext zCtx = new WebContext(nCtx);
-            zCtx.setQuery("mzone",whichMZone);
-            showOneZone(zCtx, null, whichMZone, false, true);
-        } else if(zoneToShow != null) {
-            WebContext zCtx = new WebContext(nCtx);
-            zCtx.setQuery("z",z);
-            zCtx.setQuery("zz",zoneToShow);
-            if(whichMZone != null) {
-                zCtx.setQuery("mzone",whichMZone);
-            }
-            
-            showOneZone(zCtx, zoneToShow, whichMZone, false, false);
-        }
-    }
-}
-
-String showOneZone(WebContext ctx, String zone, String whichMZone, boolean combinedMode, boolean forceMZone) {
-    SurveyMain sm = this;
-    String returnZone = null;
-
-    SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-    CLDRFile cf = uf.cldrfile;
-    CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
-    CLDRFile engFile = ctx.sm.getBaselineFile();
-    //  showPathList(subCtx, "//ldml/"+"dates/timeZoneNames/zone[@type=\""+s+"\"]", null);
-    //  private void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
-    //WebContext ctx = new WebContext(baseCtx);
-    //ctx.setLocale(loc);
-    // Show the Pod in question:
-    //  ctx.println("<hr> \n This post Concerns:<p>");
     boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-    String xpath =  "//ldml/"+"dates/timeZoneNames/zone";
-    String ourSuffix = "[@type=\""+zone+"\"]";
-    String base_xpath = xpath+ourSuffix;
-    String podBase = DataPod.xpathToPodBase(xpath);
     
-    // first, check metazone status
-    String useMetazone = null;
-    XPathParts parts = new XPathParts(null, null);
-    // Look for Metazone
+    WebContext subCtx = new WebContext(ctx);
+    subCtx.setQuery(QUERY_ZONE, zone);
+    
     Map metaMap = new TreeMap();
     
-    WebContext mzContext = new WebContext(ctx);
-    
-    Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
-    if((zone!=null) && !(combinedMode&&!forceMZone) && mzit.hasNext()) {
-        ctx.println("<table class='tzbox'><tr><th>from</th><th>to</th><th>MetaZone</th></tr>");
-        
-        for(;mzit.hasNext();) {
-            String ameta = (String)mzit.next();
-            String mfullPath = resolvedFile.getFullXPath(ameta);
-            parts.set(mfullPath);
-            String mzone = parts.getAttributeValue(-1,"mzone");
-            String from = parts.getAttributeValue(-1,"from");
-            if(from==null) {
-                from = "1970-01-01";
-            }
-            String to = parts.getAttributeValue(-1,"to");
-            String contents[] = { from, to, mzone };
-            metaMap.put(from,contents);
+    String currentMetaZone = zoneToMetaZone(ctx, zone, metaMap);
+
+    String territory = (String)(supplemental.getZoneToTerritory().get(zone));
+    String displayTerritory = null;
+    String displayZone = null;
+    if((territory != null) && (territory.length()>0)) {
+        displayTerritory = new ULocale("und_"+territory).getDisplayCountry(BASELINE_LOCALE);
+        if((displayTerritory == null)||(displayTerritory.length()==0)) {
+            displayTerritory = territory;
         }
+        displayZone = displayTerritory + " : <a class='selected'>"+ zone + "</a>";
+    } else {
+        displayZone = zone;
+    }
+
+    ctx.println("<h2>"+ displayZone + "</h2>"); // couldn't find the territory.
+
+
+    printPathListOpen(ctx);
+    ctx.println("<input type='hidden' name='_' value='"+ctx.locale.getBaseName()+"'>");
+    ctx.println("<input type='hidden' name='zone' value='"+zone+"'>");
+    if(canModify) { 
+        ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
+    }
+    
+    String zonePodXpath =  "//ldml/"+"dates/timeZoneNames/zone";
+    String zoneSuffix = "[@type=\""+zone+"\"]";
+    String zoneXpath = zonePodXpath+zoneSuffix;
+    String podBase = DataPod.xpathToPodBase(zonePodXpath);
+
+    
+    String metazonePodXpath =  "//ldml/"+"dates/timeZoneNames/metazone";
+    String metazoneSuffix = "[@type=\""+currentMetaZone+"\"]";
+    String metazoneXpath = metazonePodXpath+metazoneSuffix;
+    String metazonePodBase = DataPod.xpathToPodBase(metazonePodXpath);
+
+    if(canModify) {
+        vet.processPodChanges(ctx, podBase);
+        if(currentMetaZone != null) {
+            vet.processPodChanges(ctx, metazonePodBase);
+        }
+    }
+    
+    DataPod pod = ctx.getPod(podBase);
+    DataPod metazonePod = null;
+    
+    if(currentMetaZone != null) {
+        metazonePod = ctx.getPod(metazonePodBase);
+    }
+
+    
+    // #1 exemplar city
+    
+    ctx.println("<h3>Exemplar City</h3>");
+    
+    printPodTableOpen(ctx, pod, true);
+    showPeas(ctx, pod, canModify, zoneXpath+"/exemplarCity", true);
+    printPodTableClose(ctx, pod);
+    
+    ctx.printHelpHtml(pod, zoneXpath+"/exemplarCity");
+
+    if(currentMetaZone != null) {
+        // #2 there's a MZ active. Explain it.
+        ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
+
+        printPodTableOpen(ctx, metazonePod, true);
+        showPeas(ctx, metazonePod, canModify, metazoneXpath, true);
+        printPodTableClose(ctx, metazonePod);
+        if(canModify) {
+            ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
+        }
+        
+        ctx.printHelpHtml(metazonePod, metazoneXpath);
+
+        // show the table of active zones
+        ctx.println("<h4>Metazone History</h4>");
+        ctx.println("<table class='tzbox'>");
+        ctx.println("<tr><th>from</th><th>to</th><th>Metazone</th></tr>");
         int n = 0;
         for(Iterator it = metaMap.entrySet().iterator();it.hasNext();) {
             n++;
@@ -4187,10 +4095,9 @@ String showOneZone(WebContext ctx, String zone, String whichMZone, boolean combi
             String to = contents[1];
             String mzone = contents[2];
             // OK, now that we are unpacked..
-            mzContext.setQuery("mzone",mzone);
+            //mzContext.setQuery("mzone",mzone);
             String mzClass="";
-            if(to == null) {
-                useMetazone = mzone;
+            if(mzone.equals(currentMetaZone)) {
                 mzClass="currentZone";
             }
             mzClass = "r"+(n%2)+mzClass; //   r0 r1 r0 r1 r1currentZone    ( or r0currentZone )
@@ -4207,124 +4114,34 @@ String showOneZone(WebContext ctx, String zone, String whichMZone, boolean combi
             ctx.println("</td><td>");
             ctx.println("<tt class='codebox'>");
             
-            ctx.print("<a class='"+(mzone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
+            ctx.print("<span class='"+(mzone.equals(currentMetaZone)?"selected":"notselected")+"' '>"); // href='"+mzContext.url()+"
             ctx.print(mzone);
             ctx.println("</a>");
             ctx.println("</td></tr>");
             
         }
         ctx.println("</table>");
-    }
-    
-    // now, print the normal zone stuff.
-    
-    sm.printPathListOpen(ctx);
-    String showZoneOverride = ctx.field("szo");
-    boolean exemplarCityOnly  = false;
 
-    if(useMetazone != null) {
-        returnZone = useMetazone;
-        if(forceMZone) {
-            whichMZone = useMetazone;  // automatically show the metazone first.
-        }
-    }    
-
-    if(whichMZone != null) {
-        ctx.println("<h2>MetaZone: "+whichMZone+"</h2>");
-        // Re-map things pretty drastically to be metazone based.
-        zone = whichMZone;
-        xpath =  "//ldml/"+"dates/timeZoneNames/metazone";
-        ourSuffix = "[@type=\""+zone+"\"]";
-        base_xpath = xpath+ourSuffix;
-        podBase = DataPod.xpathToPodBase(xpath);
+        ctx.println("<h3>"+ displayZone + " Overrides</h3>"); // couldn't find the territory.
+        ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. <a href=\""+
+            bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + currentMetaZone + " incorrect")+
+            "\">Click Here to report Metazone problems</a> .</i>");
     } else {
-        ctx.println("<h2>"+zone+"</h2>");
-        if(useMetazone != null) {
-            if(combinedMode == false) {
-                mzContext.setQuery("mzone",useMetazone);
-                ctx.print("<i>Note: the metazone <b>");
-                ctx.print("<a class='"+(useMetazone.equals(whichMZone)?"selected":"notselected")+"' href='"+mzContext.url()+"'>");
-                ctx.print(useMetazone+"</a></b> is active for this zone. <a href=\""+
-                    bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + useMetazone + " incorrect")+
-                    "\">Click Here to report Metazone problems</a> .</i>");
-                if(!"y".equals(showZoneOverride)) {
-                    ctx.setQuery("szo","y");
-                    ctx.println("<hr><a href='"+ctx.url()+"'>Click Here</a> to show this zone for overriding.<br>");
-                    
-                    // show the exemplarCity
-                    exemplarCityOnly = true;
-                }
-            }
-        }
+        ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
     }
-    
-    if(cf == null) {
-        throw new InternalError("CLDRFile is null!");
-    }
+            
+    printPodTableOpen(ctx, pod, true);
+    showPeas(ctx, pod, canModify, zoneXpath+DataPod.EXEMPLAR_EXCLUDE, true);
+    printPodTableClose(ctx, pod);
     if(canModify) {
-        /* hidden fields for that */
-        ctx.printUrlAsHiddenFields();
-
-        ctx.println("<input  type='submit' value='" + sm.xSAVE + "'>"); // style='float:right'
-        synchronized (ctx.session) { // session sync
-            // first, do submissions.
-            DataPod oldPod = ctx.getExistingPod(podBase);
-            
-            // *** copied from SurveyMain.showLocale() ... TODO: refactor
-            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-            
-            if(ourSrc == null) {
-                throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.locale );
-            }
-            synchronized(ourSrc) { 
-                // Set up checks
-                CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-            
-                if(sm.processPeaChanges(ctx, oldPod, cf, ourSrc)) {
-                    int j = sm.vet.updateResults(oldPod.locale); // bach 'em
-                    ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
-                }
-            }
-        }
-    } else {
-        //ctx.println("<br>cannot modify " + ctx.locale + "<br>");
+        ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
     }
     
-    DataPod pod = ctx.getPod(podBase);
-
-    SurveyMain.printPodTableOpen(ctx, pod, true);
+    ctx.printHelpHtml(pod, zoneXpath);
     
-    if(!exemplarCityOnly) {
-        sm.showPeas(ctx, pod, canModify, base_xpath, true);
-    } else {
-        // only show the exemplarCity
-        sm.showPeas(ctx, pod, canModify, base_xpath + "/exemplarCity", true);
-
-       //or, could use this with a numeric xpath; void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn)
-    }
-    SurveyMain.printPodTableClose(ctx, pod);
-    // TODO: no alts for now, on the time zones..
-/*
-    if(canModify) {
-        ctx.println("<hr>");
-        String warnHash = "add_an_alt";
-        ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
-                    "<b>+</b> Add Alternate..</a></div>");
-        ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                    "<div style='display: none' class='pager' id='" + warnHash + "'>" );
-        ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + 
-                    "(<b>-</b>)</a>");
-        ctx.println("<label>To add a new alternate, type it in here and modify any item above:<br> <input name='new_alt'></label><br>");                        
-        ctx.println("</div>");
-
-    }
-*/
-    if(showZoneOverride.length()>0) {
-        ctx.println("<input type=hidden name=szo value=y>");
-    }
-    sm.printPathListClose(ctx);
-    return returnZone;
-}
+    printPathListClose(ctx);
+  }
+    
 
 /**
 * This is the main function for showing lists of items (pods).
@@ -4344,13 +4161,13 @@ public void showPathList(WebContext ctx, String xpath, String lastElement, boole
 //    boolean isTz = xpath.equals("timeZoneNames");
     if(lastElement == null) {
         fullThing = xpath;
-    }
+    }    
     boolean exemplar_only = false;
     if(fullThing.equals(DataPod.EXEMPLAR_ONLY)) {
         fullThing = DataPod.EXEMPLAR_PARENT;
         exemplar_only=true;
     }
-    
+        
     boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
     
     synchronized(ourSrc) { // because it has a connection..
@@ -4371,10 +4188,10 @@ public void showPathList(WebContext ctx, String xpath, String lastElement, boole
     //        System.out.println("Pod's full thing: " + fullThing);
             DataPod pod = ctx.getPod(fullThing); // we load a new pod here - may be invalid by the modifications above.
             pod.simple=simple;
-            if(exemplar_only == false) {
-                showPeas(ctx, pod, canModify);
-            } else {
+            if(exemplar_only) {
                 showPeas(ctx, pod, canModify, DataPod.EXEMPLAR_ONLY, false);
+            } else {
+                showPeas(ctx, pod, canModify);
             }
         }
     }
@@ -4478,11 +4295,13 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         only_prefix_xpath = null; // special prefix
         partialPeas = false;
     }
-    
+    boolean exemplarCityExclude = (only_prefix_xpath!=null) && (only_prefix_xpath.endsWith(DataPod.EXEMPLAR_EXCLUDE));
+    if(exemplarCityExclude) {
+        only_prefix_xpath = only_prefix_xpath.replaceAll(DataPod.EXEMPLAR_EXCLUDE,""); // special prefix
+    }
 
     String refs[] = new String[0];
     String ourDir = getDirectionFor(ctx.locale);
-    ctx.println("<hr>");
     boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
     // calculate references
     if(pod.xpathPrefix.indexOf("references")==-1) {
@@ -4506,10 +4325,13 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
         }
     }
     DataPod.DisplaySet dSet = null;
-    if(!exemplarCityOnly) {
-        dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
-    } else {
+
+    if(exemplarCityOnly) {
         dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*exemplarCity.*"));
+    } else if(exemplarCityExclude) {
+        dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*/((short)|(long))/.*"));
+    } else {
+        dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
     }
     
     boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
@@ -4613,7 +4435,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
                 }
             
                 ctx.println("<tr><td colspan=4>Click to view this time zone: <a href='"+ctx.base()+"?"+
-                        "_="+ctx.locale+"&amp;x=timezones&amp;zz="+zone+"' class='notselected'>"+zone+"</a></td></tr>");
+                        "_="+ctx.locale+"&amp;x=timezones&amp;zone="+zone+"' class='notselected'>"+zone+"</a></td></tr>");
             }
         } catch(Throwable t) {
             // failed to show pea. 

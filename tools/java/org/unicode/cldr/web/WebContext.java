@@ -735,6 +735,14 @@ public class WebContext {
                 4*1024));       
     }
     
+    public void printHelpHtml(DataPod pod, String xpath) {
+        String helpHtml = pod.exampleGenerator.getHelpHtml(xpath,null);
+        if(helpHtml != null)  {
+            println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
+        }        
+    }
+    
+    
     public void printHelpLink(String what)  {
         printHelpLink(what, "Help");
     }

@@ -20,6 +20,8 @@ import java.sql.PreparedStatement;
 import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.test.CheckCLDR;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -1903,4 +1905,39 @@ public class Vetting {
 				*/
 		}
 	}
+    
+    /**
+     * process all changes to this pod
+     * @param podBase the XPATH base of a pod, see DataPod.xpathToPodBase
+     * @param ctx WebContext of user
+     * @return true if any changes were processed
+     */
+    public boolean processPodChanges(WebContext ctx, String podBase) {
+        synchronized (ctx.session) {
+            // first, do submissions.
+            DataPod oldPod = ctx.getExistingPod(podBase);
+            
+            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+            CLDRFile cf = uf.cldrfile;
+            if(cf == null) {
+                throw new InternalError("CLDRFile is null!");
+            }
+            CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+            
+            if(ourSrc == null) {
+                throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.locale );
+            }
+            synchronized(ourSrc) { 
+                // Set up checks
+                CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make tests happen
+            
+                if(sm.processPeaChanges(ctx, oldPod, cf, ourSrc)) {
+                    int j = sm.vet.updateResults(oldPod.locale); // bach 'em
+                    ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

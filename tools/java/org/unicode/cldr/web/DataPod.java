@@ -27,14 +27,6 @@ import com.ibm.icu.text.RuleBasedCollator;
 
 public class DataPod extends Registerable {
 
-/*
-    Ballast.  [ used for memory testing ]
-    
-    int r[] = new int[1024000]; // red sand
-    int g[] = new int[1024000]; // grn sand
-    int b[] = new int[1024000]; // blu sand
-*/
-    
     long touchTime = -1; // when has this pod been hit?
     
     public void touch() {
@@ -54,6 +46,7 @@ public class DataPod extends Registerable {
     public static final String DATAPOD_VETPROB = "Vetting Issue";
 
     public static final String EXEMPLAR_ONLY = "//ldml/dates/timeZoneNames/zone/*/exemplarCity";
+    public static final String EXEMPLAR_EXCLUDE = "!exemplarCity";
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
 
     public String xpathPrefix = null;
@@ -72,10 +65,6 @@ public class DataPod extends Registerable {
         super(sm.lcr,loc); // initialize call to LCR
 
         this.sm = sm;
-/*        if(prefix.equals(EXEMPLAR_ONLY)) {
-            prefix = "//ldml/dates/timeZoneNames/zone";
-            exemplarCityOnly = true;
-        }*/
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
         intgroup = new ULocale(loc).getLanguage(); // calculate interest group
@@ -722,9 +711,9 @@ public class DataPod extends Registerable {
         } else {
             for(Object o : peasHash.values()) {
                 Pea p = (Pea)o;
-//                if(p.type.indexOf("Adak")!=-1) {
-///*srl*/                    System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
-//                }
+                                
+///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
+
                 if(matcher.matcher(p.type).matches()) {
                     newSet.add(p);
                 }

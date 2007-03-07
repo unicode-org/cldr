@@ -420,31 +420,7 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
 
             ctx.println("<input type='submit' value='" + sm.xSAVE + "'>"); //style='float:right' 
-            synchronized (ctx.session) { // session sync
-                // first, do submissions.
-                DataPod oldPod = ctx.getExistingPod(podBase);
-                
-                // *** copied from SurveyMain.showLocale() ... TODO: refactor
-                SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-                CLDRFile cf = uf.cldrfile;
-                if(cf == null) {
-                    throw new InternalError("CLDRFile is null!");
-                }
-                CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-                
-                if(ourSrc == null) {
-                    throw new InternalError("oursrc is null! - " + (SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC) + " @ " + ctx.locale );
-                }
-                synchronized(ourSrc) { 
-                    // Set up checks
-                    CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-                
-                    if(sm.processPeaChanges(ctx, oldPod, cf, ourSrc)) {
-                        int j = sm.vet.updateResults(oldPod.locale); // bach 'em
-                        ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
-                    }
-                }
-            }
+            sm.vet.processPodChanges(ctx, podBase);
         } else {
 //            ctx.println("<br>cant modify " + ctx.locale + "<br>");
         }
@@ -456,10 +432,7 @@ public class SurveyForum {
         SurveyMain.printPodTableClose(ctx, pod);
         sm.printPathListClose(ctx);
         
-        String helpHtml = pod.exampleGenerator.getHelpHtml(xpath,null);
-        if(helpHtml != null)  {
-            ctx.println("<hr><div class='helpHtml'>"+helpHtml+"</div>");
-        }        
+        ctx.printHelpHtml(pod, xpath);
     }
     
     void printForumMenu(WebContext ctx, String forum) {

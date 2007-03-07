@@ -1,19 +1,18 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Language" content="en-us">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
-<link rel='stylesheet' type='text/css' href='http://unicode.org/cldr/apps/surveytool.css'>
-<link rel='stylesheet' type='text/css' href='http://www.unicode.org/cldr/data/charts/supplemental/index.css'>
-
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css" />
+<link rel="stylesheet" type="text/css" href="http://unicode.org/cldr/apps/surveytool.css" />
+<link rel="stylesheet" type="text/css" href="http://www.unicode.org/cldr/data/charts/supplemental/index.css" />
 <title>CLDR Tool Windows</title>
 <style>
 <!--
-table {border-collapse: collapse; }
+table {border-collapse: collapse;}
 table.main2 {border-top: 2px solid #666666; border-bottom: 2px solid #666666; }
-td.main2,th.main2 {vertical-align:top; text-align:left}
-td.main2           { border: 1px solid #CCCCCC; border-top: 1px solid #666666; border-bottom:1px solid #666666;  }
+td { margin-left:1px; margin-right:1px }
+th.main2 {vertical-align:top; text-align:left;  margin-left:1px; margin-right:1px }
 .buttonCell  { border-left: 1px solid #C0C0C0; border-right: 1px solid #808080; 
                border-top: 1px solid #C0C0C0; border-bottom: 1px solid #808080; 
                padding: 0 }
@@ -24,10 +23,7 @@ th.main2-medium {width:25% ; border: 1px solid #999999; border-top: 1px solid #6
 th.main2-medium2 {width:15% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
 
 .narrow {width:1%}
-.medium {width:25%}
-.medium2 {width:15%}
 .wide {width:100%}
-.noborder {border: 0 solid white}
 .wide-noborder {width:100%; border: 0 solid white}
 .narrow-noborder {width:1%; border: 0 solid white}
 
@@ -36,22 +32,13 @@ th.main2-medium2 {width:15% ; border: 1px solid #999999; border-top: 1px solid #
 .code { background-color: #EEEEFF }
 .alias { border:1px solid #0000FF; background-color: #EEEEFF }
 
-.wide-noborder-winner {width:100%; border: 0 solid white; background-color: #ddFFdd }
-.wide-noborder-parent {width:100%; border: 0 solid white; background-color: #FFdddd }
 h2           { text-indent: -1em }
 
 td, th { vertical-align: top; text-align:left}
 td.source, th.source      { border-style:solid; border-width:1; background-color: #CCCCCC }
-td.target, th.target, td.target2    { border-style:solid; border-width:1; background-color: #CCFFCC }
-td.target2    { color:blue }
+td.target, th.target    { border-style:solid; border-width:1; background-color: #CCFFCC }
 caption           { font-size: 150%; margin-top: 2em }
 table {border-collapse: collapse}
-td.z0      { border-style:solid; border-width:1; background-color: #CC33CC }
-td.z1      { border-style:solid; border-width:1; background-color: #CC66CC }
-td.z2      { border-style:solid; border-width:1; background-color: #CC99CC; vertical-align: middle }
-td.z3      { border-style:solid; border-width:1; background-color: #CCCCCC; vertical-align: middle }
-td.z4      { border-style:solid; border-width:1; background-color: #CCFFCC; vertical-align: middle }
-
 -->
 </style>
 </head>
@@ -59,1023 +46,659 @@ td.z4      { border-style:solid; border-width:1; background-color: #CCFFCC; vert
 <body>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" id="table32">
-  <tr>
-    <td>
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" id="table33">
-      <tr>
-        <td class="icon"><a href="http://www.unicode.org/">
-        <img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp;
-        <a class="bar" href="../web/index.html"><font size="3">Common Locale Data Repository</font></a></td>
-        <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> |
-        <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
-        <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td class="gray">&nbsp;</td>
-  </tr>
-</table>
-<div  style="margin:2em">
-		<h1>Unicode CLDR Survey Tool Windows</h1>
-		<p>This page explains the different views used in entering in CLDR 
-		data. The exact appearance may change as the tool is enhanced during the 
-		beta period.</p>
-		<p><i><span style="background-color: #FFFF00">Italics and yellow 
-		highlighting are used to comment on particular features.</span></i></p>
-		<h2>Navigation</h2>
-		<p>Once you start on a particular locale, most windows have a navigation 
-		bar at the top. It looks 
-		like the following.</p>
-		<table class="main" summary="locale info" border="0" width="95%" id="table21">
-			<tr>
-				<td width="25%"><b>
-				<a href="http://unicode.org/cldr/apps/survey">Locales</a></b><br>
-				&nbsp;&nbsp;┗&nbsp;<a title="root" class="notselected" href="http://unicode.org/cldr/apps/survey?_=root">Root</a> 
-				&nbsp;<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/hand.png" title="You are allowed to modify this locale." border="0"><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;┗&nbsp;<span title="fr" style="font-size: 120%;"><a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=general"><span style="margin: 1px; padding: 1px;" class="disputed"><span title="disputed">French</span></span></a>&nbsp;<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/hand.png" title="You are allowed to modify this locale." border="0"></span><br>
-&nbsp;</td>
-				<td>
-				<p class="hang">Code Lists:
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=languages">
-				languages</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=scripts">
-				scripts</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=territories">
-				territories</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=variants">
-				variants</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=keys">
-				keys</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=types">
-				types</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=currencies">
-				currencies</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=timezones">
-				timezones</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=measurementSystemNames">
-				measurementSystemNames</a></p>
-				<p class="hang">Other Items:
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=characters">
-				characters</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=numbers">
-				numbers</a> | <b class="selected">gregorian calendar</b> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=other%20calendars">
-				other calendars</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">
-				references</a> |
-				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=misc">
-				misc</a> |
-				<a class="notselected" href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#fr">
-				supplemental</a> </p>
-				<p class="hang">Forum: <strong>
-				<a href="http://unicode.org/cldr/apps/survey?forum=fr">Forum: fr</a></strong>
-				</td>
-			</tr>
-			<tr>
-				<td width="25%"><i><span style="background-color: #FFFF00">This shows the locale structure.</span></i></td>
-				<td><i><span style="background-color: #FFFF00">This shows the 
-				different sections you will need to go through.<br>
-				The forum is where you and other translators for this 
-				locale can discuss problem cases.</span></i></td>
-			</tr>
-		</table>
-		<hr>
-		<div class="pager" style="margin: 2px;">
-			</p>
-			<table class="main" summary="navigation box" style="border-collapse: collapse;" id="table22" >
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="background-color: #FFEFCE" colspan="2">
-			<input value="Save" type="submit"></td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-			&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-			<i>
-			<span style="background-color: #FFFF00">Hit this button to save. <b>
-			<font size="3">Note that you must do this before you leave a page, 
-			or your changes are lost!</font></b></span></i></i><span 
-   style="background-color: #FFFF00; font-style:italic"><font size="3">
-			</font>
-			</span></td>
-				</tr>
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="background-color: #FFEFCE" colspan="2">
-			<b>Sorted:</b>
-			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&p_sort=code">
-			Code</a> <span class="selected">Priority<br>
-					</span>Displaying items 1 to 80 of 211</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE"><i>
-					<span style="background-color: #FFFF00">Normally you&#39;ll use the 
-			Priority ordering, but to find specific items, you may sort by Code</span></i></p>
-					</td>
-				</tr>
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="background-color: #FFEFCE" colspan="2">
-					<b>Errors and Warnings:</b> <b>
-					<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Errors%20and%20Warnings">
-					available date forma…–</a></b> </td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE"><i>
-					<span style="background-color: #FFFF00">The list is broken 
-					into sections, according to status.</span></i></td>
-				</tr>
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="2">
-					<b>Unconfirmed:</b> <b>
-					<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Unconfirmed">
-					AM–h:mm a</a></b> </td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
-				</tr>
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="2">
-					<b>Others:</b> <b>
-					<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Others">
-					<i>add</i>–Thursday</a></b>
-					<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=80">
-					Thu–S</a>
-					<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=160">
-					September–</a> </td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-					&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-					<span style="font-style: italic; background-color: #FFFF00">
-					There may be multiple pages in a section, so don&#39;t forget to 
-					view them all (using this list or next/previous).<br>
-					The items on other pages are non-bold.</span></td>
-				</tr>
-				<tr valign="top">
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-				&nbsp;←&nbsp;prev </td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE; text-align:right">
-					next&nbsp;→</a>
-					</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-					&nbsp;</td>
-					<td class="pagerln" align="left" 
-     style="border-color: #FFEFCE; background-color:#FFEFCE">
-					<i>
-				<span style="background-color: #FFFF00">prev and next will go between pages</span></i></td>
-				</tr>
-			</table>
-				&nbsp;
-			</div>
-		<h2>Main View</h2>
-		<p>Below the navigation bar, you&#39;ll see something like this:</p>
-
-<form method="POST" action="--WEBBOT-SELF--" onSubmit="location.href='_derived/nortbots.htm';return false;" webbot-onSubmit>
-	<!--webbot bot="SaveResults" U-File="C:\cvsdata\unicode\cldr\dropbox\misc\_private\form_results.csv" S-Format="TEXT/CSV" S-Label-Fields="TRUE" startspan --><input TYPE="hidden" NAME="VTI-GROUP" VALUE="0"><!--webbot bot="SaveResults" i-checksum="43374" endspan -->
-
-<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table1" width="100%">
 	<tr>
-		<th class="main2-narrow" width="2%">St.</th>
-		<th class="main2-narrow" width="5%">Code</th>
-		<th class="main2-medium">English</th>
-		<th class="main2-medium" colspan="2">Current</th>
-		<th class="main2-medium" colspan="2">Proposed</th>
-		<th class="main2-medium" colspan="2">Add Proposed</th>
-		<th class="main2-narrow">Rf.</th>
-		<th class="main2-narrow">n/a</th>
-		<th class="main2-narrow">Det.</th>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0"></a></td>
-
-		<td ><code>bho </code> </td>
-		<td  >Bhojpuri
-		</td>
-
-		<td width="1%" ><input value="V1" name="R2" type="radio"></td>
-
-		<td >bhojpuri</td>
-
-		<td width="1%" ><span >
-		<input value="V12" name="R1" type="radio" checked></span></td>
-
-		<td style="vertical-align: top; text-align: left" ><span class="parent">bho</span></td>
-
-		<td width="1%">
-
-		<input value="V18" name="R1" type="radio"></td>
-
 		<td>
-		<input name="T4" size="20" class="wide"></td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add" >
-				<span id="h_reftbg:faalmge:-hkhliyc0">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-
-		<td >
-		<input value="V1" name="R7" type="radio"></td>
-
-		<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" id="table33">
+			<tr>
+				<td class="icon"><a href="http://www.unicode.org/">
+				<img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33" /></a>&nbsp;&nbsp;
+				<a class="bar" href="../web/index.html"><font size="3">Common Locale Data Repository</font></a></td>
+				<td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> | <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
+				<a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+			</tr>
+		</table>
+		</td>
 	</tr>
 	<tr>
-
-		<td style="vertical-align: top; text-align: left"  title="Error: push zoom to see details">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a></td>
-
-		<td ><code>bi </code> </td>
-		<td  >Bislama </td>
-
-		<td ><span><input value="V1" name="R3" type="radio" checked></span></td>
-
-		<td ><span class="winner">bichlamar</span></td>
-
-		<td ><span >
-
-		<input value="V13" name="R1" type="radio"></span></td>
-
-		<td style="vertical-align: top; text-align: left" ><span class="parent">
-
-		bi</span></td>
-
-		<td width="1%" >
-
-		<input value="V19" name="R1" type="radio"></td>
-
-		<td >
-		<input name="T9" size="20" class="wide"></td>
-
-		<td style="vertical-align: top; text-align: center" title="Computer Locale Requirements for Afghanistan; http://www.macchiato.com/standards/af/" class="buttonCell" >
-				<span id="h_reftbg:faalmge:-hkhliyc1">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-
-		<td >
-		<input value="V1" name="R8" type="radio" checked></td>
-
-		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left"   title="Unconfirmed: push zoom to see details" rowspan="3">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0"></a></td>
-
-		<td rowspan="3" ><code>byn </code> </td>
-		<td rowspan="3"  >Blin </td>
-
-		<td rowspan="3" ><input value="V1" name="R4" type="radio"></td>
-
-		<td rowspan="3" >blin</td>
-
-		<td >
-				<input value="V3" name="R5" type="radio"></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		blinu</td>
-
-		<td rowspan="3" width="1%" >
-
-		<input value="V20" name="R1" type="radio"></td>
-
-		<td rowspan="3" >
-		<input name="T10" size="20" class="wide"></td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add" rowspan="3">
-				<span id="h_reftbg:faalmge:-hkhliyc2">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-
-		<td rowspan="3" >
-		<input value="V1" name="R9" type="radio"></td>
-
-		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details" rowspan="3">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
-	</tr>
-	<tr>
-
-		<td >
-				<span >
-				<input value="V1" name="R6" type="radio"></span></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<span class="winner">
-				bliinu</span></td>
-
-	</tr>
-	<tr>
-
-		<td >
-
-		<span ><input value="V14" name="R1" type="radio"></span></td>
-
-		<td style="vertical-align: top; text-align: left" >
-
-		<span class="parent">byn</span></td>
-
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" >
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0"></a></td>
-
-		<td ><code>bug </code> </td>
-		<td  >Buginese </td>
-
-		<td  ><span>
-		<input value="V1" name="R1" type="radio"></span></td>
-
-		<td  ><span class="parent">
-		bug</span></td>
-
-		<td >
-<span ><input value="V4" name="R5" type="radio" checked></span></td>
-
-		<td style="vertical-align: top; text-align: left" >
-<span class="alias">bugg</span></td>
-
-		<td  nowrap width="1%">
-
-		<input value="V21" name="R1" type="radio"></td>
-
-		<td  nowrap>
-		<input name="T11" size="20" class="wide"></td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add">
-				<span id="h_reftbg:faalmge:-hkhliyc3">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-
-		<td >
-		<input value="V1" name="R10" type="radio" checked></td>
-
-		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
+		<td class="gray">&nbsp;</td>
 	</tr>
 </table>
-
-	<p>Here is what all these symbols and backgrounds mean. Most of the buttons 
-	have a short explanation if you &quot;hover&quot; your mouse over them. When pushed, 
-	they go do the zoomed view.</p>
-
-</form>
-
-		<table class="main2" border="1" id="table8" style="border-left-color: #0000FF; border-right-color: #0000FF; border-top-color: #0000FF; border-top-width: 1px; border-bottom-color: #0000FF; border-bottom-width: 1px">
-			<caption><b><font size="4">Key</font></b></caption>
-			<tr>
-				<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
-				<b>Column</b></th>
-				<th class="main2-narrow" style="vertical-align: top; text-align: left" bgcolor="#00FFFF">
-				<b>Example</b></th>
-				<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF" colspan="2"><b>Description</b></th>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; " bgcolor="#F5F5F5" rowspan="4">
-				<b>Status</b></td>
-				<td style="vertical-align: top; text-align: center">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">no problems 
-				have been detected.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">
-				not confirmed: not enough people have agreed on a value</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">warning</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">error</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
-				<p style="text-align: left"><b>Code</b></td>
-				<td style="vertical-align: top; text-align: left"><code>bho </code> </td>
-				<td style="vertical-align: top; text-align: left" colspan="2">This is an 
-				internal, constant code used to access the translation, both in 
-				English and in other languages.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top" rowspan="4" bgcolor="#F5F5F5" >
-				<b>Current / Proposed</b></td>
-				<td style="vertical-align: top; text-align:left" >
-				<span class="winner">				<input value="V1" name="R32" type="radio" checked>bichlamar</span></td>
-				<td style="vertical-align: top; text-align: left"><b>
-				uncontested:</b> If nothing else is done, this will be confirmed 
-				as the value in the release.</td>
-				<td style="vertical-align: top; text-align: left" rowspan="4">
-				<i>&quot;Current&quot; means it was in CLDR v 1.4.<br>
-				<span style="background-color: #FFFF00">If what you 
-				think is the correct value is not selected (eg
-				<input value="V1" name="R36" type="radio">), then you can select 
-				it (eg <input value="V1" name="R37" type="radio" checked>).</span></i></td>
-				</tr>
-			<tr>
-				<td style="vertical-align: top; text-align:left" >
-		<span class="parent"><input value="V1" name="R33" type="radio" checked>bho</span></td>
-				<td style="vertical-align: top; text-align: left"><b>inherited:</b> 
-				The value is from the &quot;parent&quot; locale. For example, in &#39;en_GB&#39;, 
-				this indicates a value from &#39;en&#39;.</td>
-				</tr>
-			<tr>
-				<td style="vertical-align: top; text-align:left" >
-				<span class="alias">
-				<input value="V1" name="R34" type="radio" checked>bugg</span></td>
-				<td style="vertical-align: top; text-align: left"><b>alias: </b>
-				The value comes from another part of this locale, or from 
-				another locale. For example, the Japanese calendar&#39;s months may 
-				be the same as the Gregorian (Western) calendar&#39;s.<br>
-				<i><span style="background-color: #FFFF00">If you need to change 
-				this value, contact your administrator.</span></i></td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center"  title="{shows reference here}">
-				<p style="text-align: left">
-				<input value="V1" name="R35" type="radio" checked>blin</td>
-				<td style="vertical-align: top; text-align: left">none of the 
-				above</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
-				<b>Ex.</b></td>
-
-		<td style="vertical-align: top; text-align: left">
-		1,234.56</td>
-
-				<td style="vertical-align: top; text-align: left" colspan="2">
-				Provides examples of patterns in usage.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
-				<b>Add Proposed</b></td>
-
-		<td style="vertical-align: top; text-align: left">
-		<table class="main2-wide-noborder" id="table23">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V1" name="R39" type="radio" checked></td>
-				<td class="wide-noborder">
-		<input name="T18" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-
-				<td style="vertical-align: top; text-align: left" colspan="2">Allows you to 
-				add new proposed value. Do this if none of the others are 
-				correct.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" rowspan="2" bgcolor="#F5F5F5">
-				<p style="text-align: left"><b>Reference</b></td>
-				<td style="vertical-align: top; text-align: left">
-				<p style="text-align: center">
-				<span id="h_reftbg:faalmge:-hkhliyc">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">Set a 
-				reference whenever an item is controversial. <i>We expect this 
-				interface to change, but for now, here&#39;s how it works.<br>
-				</i><b>A. </b>Click on 
-				this to see the B view</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: center" title="References: push to add">
-				<a href="javascript:hide("refwcc:gxjxkgf:kkohwcc")">
-				<span style="text-decoration: none">[h</span></a><span style="display: block;" id="refwcc:gxjxkgf:kkohwcc"><a style="text-decoration: none;" href="javascript:hide("refwcc:gxjxkgf:kkohwcc")">ide]</a>&nbsp;<a target="ref_fr" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">Ref:</a> &nbsp;<select name="wcc:gxjxkgf:kkohwcc_r">
-				<option value selected="selected"></option>
-				<option value="R060">R060</option>
-				<option value="R064">R064</option>
-				<option value="R057">R057</option>
-				<option value="R068">R068</option>
-				<option value="R067">R067</option>
-				<option value="R058">R058</option>
-				<option value="R056">R056</option>
-				<option value="R063">R063</option>
-				<option value="R059">R059</option>
-				<option value="R066">R066</option>
-				<option value="R062">R062</option>
-				<option value="R065">R065</option>
-				<option value="R061">R061</option>
-				</select></span></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">
-				<b>B. </b>Click on 
-				hide to hide go back to the A view; click on Ref. to bring up 
-				the Reference view. There you can see what all the cryptic R001, 
-				etc. mean. Once you know what you want, go back to the original 
-				window and pick the right one.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; "  title="{shows reference here}" bgcolor="#F5F5F5">
-				<p style="text-align: left"><b>n/a</b></td>
-				<td style="vertical-align: top; text-align: left">
-				<input value="V1" name="R38" type="radio" checked></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">&nbsp;If 
-				you have no opinion, select <b>n/a</b>. If the correct value is 
-				not listed, see <b>Add Proposed</b>.</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; " title="Push to see or edit details" bgcolor="#F5F5F5">
-				<p style="text-align: left"><b>Zoom</b></td>
-				<td style="vertical-align: top; text-align: left">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
-				<td style="vertical-align: top; text-align: left" colspan="2">Zoom to a 
-				detailed view to see warning messages, examples, and demos (as 
-				available).</td>
-			</tr>
-			</table>
-
-		<h2><a name="With_Examples">M<b>ain View w</b></a><b><a name="With_Examples">ith Examples</a></b></h2>
-		<p>Many of the strings are just simple names, such as the names of the 
-		languages above. Those are called &quot;Code Lists&quot; in the tool. Others are a 
-		bit more complicated, and are either <i>patterns</i> or parts of 
-		patterns. For example, look at the following.</p>
-
-<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table15" width="100%">
-	<tr>
-		<th class="main2-narrow" width="2%">St.</th>
-		<th class="main2-narrow">Code</th>
-		<th class="main2-medium2">English</th>
-		<th class="main2-medium2"><i>Example</i></th>
-		<th class="main2-medium2">Current</th>
-		<th class="main2-medium2"><i>Example</i></th>
-		<th class="main2-medium2">Proposed</th>
-		<th class="main2-medium2"><i>Example</i></th>
-		<th class="main2-medium2">Add Proposed</th>
-		<th class="main2-narrow">Rf.</th>
-		<th class="main2-narrow">n/a</th>
-		<th class="main2-narrow">Det.</th>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
-				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0"></a></td>
-
-		<td class="code" ><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
-		<td  >¤#,##0.00</td>
-
-		<td  ><font face="Times New Roman">£1,234.56</font></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R15" type="radio" checked>#,##0.00¤</td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<font face="Times New Roman">1&#39;234,56£</font></td>
-		<td >
-
-		<input value="V1" name="R16" type="radio" checked>¤#,##0.00</td>
-
-		<td >
-
-		<font face="Times New Roman">£1&#39;234,56</font></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<table class="wide-noborder" id="table16">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V1" name="R17" type="radio" checked></td>
-				<td class="wide-noborder">
-		<input name="T13" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add">
-				<img border="0" src="../../dropbox/misc/images/no_reference.jpg" width="16" height="16" ></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R19" type="radio" checked></td>
-
-		<td style="vertical-align: top; text-align: center"  title="Push to see or edit details">
-				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></td>
-
-	</tr>
+<div style="margin:2em">
+	<h1>Unicode CLDR Survey Tool View Help</h1>
+	<p>This page explains the different views used in entering in CLDR data. The exact appearance may change as the tool is enhanced during the beta period.</p>
+	<p><i><span style="background-color: #FFFFCC">Italics and yellow highlighting are used to comment on particular features below.</span></i></p>
+	<h2>Navigation</h2>
+	<p>Once you start on a particular locale, most windows have a navigation bar at the top. It looks like the following.</p>
+	<table class="main" summary="locale info" border="0" width="95%" id="table21">
+		<tr>
+			<td width="25%"><b><a href="http://unicode.org/cldr/apps/survey">Locales</a></b><br />
+&nbsp; ┗ <a title="root" class="notselected" href="http://unicode.org/cldr/apps/survey?_=root">Root</a>&nbsp;
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/hand.png" title="You are allowed to modify this locale." border="0" /><br />
+&nbsp;&nbsp;&nbsp; ┗ <span title="fr" style="font-size: 120%;"><a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=general">
+			<span style="margin: 1px; padding: 1px;" class="disputed"><span title="disputed">French</span></span></a>
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/hand.png" title="You are allowed to modify this locale." border="0" /></span><br />
+&nbsp;</td>
+			<td>
+			<p class="hang">Code Lists: <a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=languages">languages</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=scripts">scripts</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=territories">territories</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=variants">variants</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=keys">keys</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=types">types</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=currencies">currencies</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=timezones">timezones</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=measurementSystemNames">measurementSystemNames</a></p>
+			<p class="hang">Other Items: <a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=characters">characters</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=numbers">numbers</a> | <b class="selected">gregorian calendar</b> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=other%20calendars">other calendars</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">references</a> |
+			<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=misc">misc</a> |
+			<a class="notselected" href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#fr">supplemental</a> </p>
+			<p class="hang">Forum: <strong><a href="http://unicode.org/cldr/apps/survey?forum=fr">Forum: fr</a></strong> </p>
+			</td>
+		</tr>
+		<tr>
+			<td width="25%"><i><span style="background-color: #FFFFCC">This shows the locale structure.</span></i></td>
+			<td><i><span style="background-color: #FFFFCC">This shows the different sections you will need to go through.<br />
+			The forum is where you and other translators for this locale can discuss problem cases.</span></i></td>
+		</tr>
 	</table>
-		<p>In this case the value that you can choose is a pattern that 
-		indicates how a number is to be formatted for your language. This is 
-		very much like the &quot;custom formatting&quot; used in spreadsheets. In such 
-		cases, the tool will show (where possible) a short example of what the 
-		format will result in.</p>
-		<p>To see what the patterns or their components mean, click on the Zoom 
-		icon:
+	<hr />
+	<div class="pager" style="margin: 2px;">
+		<table class="main" summary="navigation box" style="border-collapse: collapse;" id="table22">
+			<tr valign="top">
+				<td class="pagerln" align="left" style="background-color: #FFEFCE"><input value="Save" type="submit" /><b>&nbsp;&nbsp; </b></td>
+				<td class="pagerln" align="left" style="background-color: #FFEFCE"><b>Sorted:</b>
+				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&p_sort=code">Code</a> <span class="selected">Priority</span></td>
+				<td class="pagerln" align="left" style="background-color: #FFEFCE; text-align:right">Displaying items 1 to 80 of 211</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" width="50%"><i><span style="background-color: #FFFFCC">
+				Hit this button to save. <b><font size="3">Note that you must do this before you leave a page, or your changes are lost!</font></b></span></i><span style="background-color: #FFFFCC; font-style:italic"><font size="3">
+				</font></span><i><span style="background-color: #FFFFCC">Normally you&#39;ll use the Priority ordering, but to find specific items, you may sort by 
+				Code</span></i></td>
+			</tr>
+			<tr>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="2">&nbsp;← prev </td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE; text-align:right">next →<a></a> </td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE"><i><span style="background-color: #FFFFCC">prev and next 
+				will go between pages</span></i></td>
+			</tr>
+			<tr valign="top">
+				<td class="pagerln" align="left" style="background-color: #FFEFCE" colspan="3"><b>Errors and Warnings:</b> <b>
+				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Errors%20and%20Warnings">
+				available date forma…–</a></b> </td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE"><i><span style="background-color: #FFFFCC">The list is 
+				broken into sections, according to status.</span></i></td>
+			</tr>
+			<tr valign="top">
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="3"><b>Unconfirmed:</b> <b>
+				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Unconfirmed">AM–h:mm a</a></b>
+				</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" rowspan="2">
+				<span style="font-style: italic; background-color: #FFFFCC">There may be multiple pages in a section, so don&#39;t forget to view them all (using this 
+				list or next/previous).<br />
+				The items on other pages are non-bold.</span></td>
+			</tr>
+			<tr valign="top">
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="3"><b>Others:</b> <b>
+				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Others"><i>add</i>–Thursday</a></b>
+				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=80">Thu–S</a>
+				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=160">September–</a> </td>
+				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+	<h2>Main View</h2>
+	<p>Below the navigation bar, you&#39;ll see something like this:</p>
+	<form method="POST" action="--WEBBOT-SELF--" onsubmit="location.href='_derived/nortbots.htm';return false;" webbot-onsubmit>
+		<!--webbot bot="SaveResults" u-file="C:\cvsdata\unicode\cldr\dropbox\misc\_private\form_results.csv" s-format="TEXT/CSV" s-label-fields="TRUE" startspan --><input TYPE="hidden" NAME="VTI-GROUP" VALUE="0"><!--webbot bot="SaveResults" i-checksum="43374" endspan -->
+		<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table1" width="100%">
+			<tr>
+				<th class="main2-narrow" width="2%">St.</th>
+				<th class="main2-narrow" width="5%">Code</th>
+				<th class="main2-medium">English</th>
+				<th class="main2-medium" colspan="2">Current</th>
+				<th class="main2-medium" colspan="2">Proposed</th>
+				<th class="main2-medium" colspan="2">Add Proposed</th>
+				<th class="main2-narrow">Rf.</th>
+				<th class="main2-narrow">n/a</th>
+				<th class="main2-narrow">Det.</th>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
+				<td><code>bho </code></td>
+				<td>Bhojpuri </td>
+				<td width="1%"><input value="V1" name="R2" type="radio" /></td>
+				<td>bhojpuri</td>
+				<td width="1%"><span><input value="V12" name="R1" type="radio" checked /></span></td>
+				<td style="vertical-align: top; text-align: left"><span class="parent">bho</span></td>
+				<td width="1%"><input value="V18" name="R1" type="radio" /></td>
+				<td><input name="T4" size="20" class="wide" /></td>
+				<td style="vertical-align: top; text-align: center" title="References: push to add"><span id="h_reftbg:faalmge:-hkhliyc0">
+				<a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></td>
+				<td><input value="V1" name="R7" type="radio" /></td>
+				<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
 				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0"></a></p>
-		<h2><a name="Zoom_View">Zoom View</a></h2>
-		<p>Once you hit the zoom button, then you get a separate window with a more detailed view of just 
-		that item. With some browsers, this window isn&#39;t brought up to the 
-		front, so it helps to make your main2 view smaller than the full screen, 
-		and put this window to the side.<i> The zoom view doesn&#39;t look like this 
-		now, but will look more like it by the end of the beta period.</i></p>
-
-<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table31" width="100%">
-	<tr>
-		<th class="main2-narrow" width="7%">Code</th>
-		<th class="main2-medium">English</th>
-		<th class="main2-medium" colspan="2">Current</th>
-		<th class="main2-medium" style="width: 1%">Example</th>
-		<th class="main2-medium" colspan="2">Proposed</th>
-		<th class="main2-medium" style="width: 1%">Example</th>
-		<th class="main2-medium" colspan="2">Add Proposed</th>
-		<th class="main2-narrow">Rf.</th>
-		<th class="main2-narrow">n/a</th>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
-				<tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
-
-		<td style="vertical-align: top; text-align: left"  >¤#,##0.00</td>
-
-		<td width="1%" style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R40" type="radio" checked></td>
-
-		<td style="vertical-align: top; text-align: left" >#,##0.00</td>
-
-		<td style="vertical-align: top; text-align: left" >123</td>
-		<td width="1%" style="vertical-align: top; text-align: left" ><span >
-		<input value="V1" name="R41" type="radio" checked></span></td>
-
-		<td style="vertical-align: top; text-align: left" >¤#,##0.00</td>
-
-		<td style="vertical-align: top; text-align: left" >&nbsp;</td>
-
-		<td width="1%" style="vertical-align: top; text-align: left">
-
-		<input value="V1" name="R42" type="radio" checked></td>
-
-		<td style="vertical-align: top; text-align: left">
-		<input name="T19" size="20" class="wide"></td>
-
-		<td style="vertical-align: top; text-align: center" title="References: push to add" >
-				<span id="h_reftbg:faalmge:-hkhliyc4">
-				<a style="text-decoration: none;" href="javascript:show("reftbg:faalmge:-hkhliyc")">
-				[refs]</a></span></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R43" type="radio" checked></td>
-
-	</tr>
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left" title="Error: push zoom to see details">
+				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0" /></a></td>
+				<td><code>bi </code></td>
+				<td>Bislama </td>
+				<td><span><input value="V1" name="R3" type="radio" checked /></span></td>
+				<td><span class="winner">bichlamar</span></td>
+				<td><span><input value="V13" name="R1" type="radio" /></span></td>
+				<td style="vertical-align: top; text-align: left"><span class="parent">bi</span></td>
+				<td width="1%"><input value="V19" name="R1" type="radio" /></td>
+				<td><input name="T9" size="20" class="wide" /></td>
+				<td style="vertical-align: top; text-align: center" title="Computer Locale Requirements for Afghanistan; http://www.macchiato.com/standards/af/" class="buttonCell">
+				<span id="h_reftbg:faalmge:-hkhliyc1"><a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></td>
+				<td><input value="V1" name="R8" type="radio" checked /></td>
+				<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
+				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left" title="Unconfirmed: push zoom to see details" rowspan="3">
+				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0" /></a></td>
+				<td rowspan="3"><code>byn </code></td>
+				<td rowspan="3">Blin </td>
+				<td rowspan="3"><input value="V1" name="R4" type="radio" /></td>
+				<td rowspan="3">blin</td>
+				<td><input value="V3" name="R5" type="radio" /></td>
+				<td style="vertical-align: top; text-align: left">blinu</td>
+				<td rowspan="3" width="1%"><input value="V20" name="R1" type="radio" /></td>
+				<td rowspan="3"><input name="T10" size="20" class="wide" /></td>
+				<td style="vertical-align: top; text-align: center" title="References: push to add" rowspan="3"><span id="h_reftbg:faalmge:-hkhliyc2">
+				<a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></td>
+				<td rowspan="3"><input value="V1" name="R9" type="radio" /></td>
+				<td style="vertical-align: top; text-align: center" title="Push to see or edit details" rowspan="3">
+				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+			</tr>
+			<tr>
+				<td><span><input value="V1" name="R6" type="radio" /></span></td>
+				<td style="vertical-align: top; text-align: left"><span class="winner">bliinu</span></td>
+			</tr>
+			<tr>
+				<td><span><input value="V14" name="R1" type="radio" /></span></td>
+				<td style="vertical-align: top; text-align: left"><span class="parent">byn</span></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left">
+				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0" /></a></td>
+				<td><code>bug </code></td>
+				<td>Buginese </td>
+				<td><span><input value="V1" name="R1" type="radio" /></span></td>
+				<td><span class="parent">bug</span></td>
+				<td><span><input value="V4" name="R5" type="radio" checked /></span></td>
+				<td style="vertical-align: top; text-align: left"><span class="alias">bugg</span></td>
+				<td nowrap width="1%"><input value="V21" name="R1" type="radio" /></td>
+				<td nowrap><input name="T11" size="20" class="wide" /></td>
+				<td style="vertical-align: top; text-align: center" title="References: push to add"><span id="h_reftbg:faalmge:-hkhliyc3">
+				<a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></td>
+				<td><input value="V1" name="R10" type="radio" checked /></td>
+				<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
+				<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+			</tr>
+		</table>
+		<p>Here is what all these symbols and backgrounds mean. Most of the buttons have a short explanation if you &quot;hover&quot; your mouse over them. When pushed, they 
+		go do the zoomed view.</p>
+	</form>
+	<table class="main2" border="1" id="table8" style="border-left-color: #0000FF; border-right-color: #0000FF; border-top-color: #0000FF; border-top-width: 1px; border-bottom-color: #0000FF; border-bottom-width: 1px">
+		<caption><b><font size="4">Key</font></b></caption>
+		<tr>
+			<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF"><b>Column</b></th>
+			<th class="main2-narrow" style="vertical-align: top; text-align: left" bgcolor="#00FFFF"><b>Example</b></th>
+			<th class="main2" style="vertical-align: top; text-align: left" bgcolor="#00FFFF" colspan="2"><b>Description</b></th>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " bgcolor="#F5F5F5" rowspan="4"><b>Status</b></td>
+			<td style="vertical-align: top; text-align: center">
+			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0" /></a></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">no problems have been detected.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: center">
+			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0" /></a></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">not confirmed: not enough people have agreed on a value</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: center">
+			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">warning</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: center">
+			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0" /></a></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">error</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="{shows reference here}" bgcolor="#F5F5F5">
+			<p style="text-align: left"><b>Code</b></p>
+			</td>
+			<td style="vertical-align: top; text-align: left"><code>bho </code></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">This is an internal, constant code used to access the translation, both in English and 
+			in other languages.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top" rowspan="4" bgcolor="#F5F5F5"><b>Current / Proposed</b></td>
+			<td style="vertical-align: top; text-align:left" nowrap><span class="winner"><input value="V1" name="R32" type="radio" checked />bichlamar</span></td>
+			<td style="vertical-align: top; text-align: left"><b>uncontested:</b> If nothing else is done, this will be confirmed as the value in the release.</td>
+			<td style="vertical-align: top; text-align: left" rowspan="4"><i>&quot;Current&quot; means it was in CLDR v 1.4.<br />
+			<span style="background-color: #FFFFCC">If what you think is the correct value is not selected (eg <input value="V1" name="R36" type="radio" />), then 
+			you can select it (eg <input value="V1" name="R37" type="radio" checked />).</span></i></td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align:left" nowrap><span class="parent"><input value="V1" name="R33" type="radio" checked />bho</span></td>
+			<td style="vertical-align: top; text-align: left"><b>inherited:</b> The value is from the &quot;parent&quot; locale. For example, in &#39;en_GB&#39;, this indicates a 
+			value from &#39;en&#39;.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align:left" nowrap><span class="alias"><input value="V1" name="R34" type="radio" checked />bugg</span></td>
+			<td style="vertical-align: top; text-align: left"><b>alias: </b>The value comes from another part of this locale, or from another locale. For example, 
+			the Japanese calendar&#39;s months may be the same as the Gregorian (Western) calendar&#39;s.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: center" title="{shows reference here}" nowrap>
+			<p style="text-align: left"><input value="V1" name="R35" type="radio" checked />blin</p>
+			</td>
+			<td style="vertical-align: top; text-align: left">none of the above</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="{shows reference here}" bgcolor="#F5F5F5"><b>Ex.</b></td>
+			<td style="vertical-align: top; text-align: left">1,234.56</td>
+			<td style="vertical-align: top; text-align: left" colspan="2">Provides examples of patterns in usage.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="{shows reference here}" bgcolor="#F5F5F5"><b>Add Proposed</b></td>
+			<td style="vertical-align: top; text-align: left">
+			<table class="main2-wide-noborder" id="table23">
+				<tr>
+					<td class="narrow-noborder"><input value="V1" name="R39" type="radio" checked /></td>
+					<td class="wide-noborder"><input name="T18" size="20" class="wide" /></td>
+				</tr>
+			</table>
+			</td>
+			<td style="vertical-align: top; text-align: left" colspan="2">Allows you to add new proposed value. Do this if none of the others values are correct.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="{shows reference here}" rowspan="2" bgcolor="#F5F5F5">
+			<p style="text-align: left"><b>Reference</b></p>
+			</td>
+			<td style="vertical-align: top; text-align: left">
+			<p style="text-align: center"><span id="h_reftbg:faalmge:-hkhliyc">
+			<a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></p>
+			</td>
+			<td style="vertical-align: top; text-align: left" colspan="2">Set a reference whenever an item is controversial. <i>We expect this interface to change, 
+			but for now, here&#39;s how it works.<br />
+			</i><b>A. </b>Click on this to see the B view</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: center" title="References: push to add"><a href="javascript:hide(" refwcc:gxjxkgf:kkohwcc")">
+			<span style="text-decoration: none">[h</span></a><span style="display: block;" id="refwcc:gxjxkgf:kkohwcc"><a style="text-decoration: none;" href="javascript:hide(" refwcc:gxjxkgf:kkohwcc")">ide]</a>
+			<a target="ref_fr" href="http://unicode.org/cldr/apps/survey?_=fr&x=references">Ref:</a>&nbsp; <select name="wcc:gxjxkgf:kkohwcc_r">
+			<option value selected="selected"></option>
+			<option value="R060">R060</option>
+			<option value="R064">R064</option>
+			<option value="R057">R057</option>
+			<option value="R068">R068</option>
+			<option value="R067">R067</option>
+			<option value="R058">R058</option>
+			<option value="R056">R056</option>
+			<option value="R063">R063</option>
+			<option value="R059">R059</option>
+			<option value="R066">R066</option>
+			<option value="R062">R062</option>
+			<option value="R065">R065</option>
+			<option value="R061">R061</option>
+			</select></span></td>
+			<td style="vertical-align: top; text-align: left" colspan="2"><b>B. </b>Click on hide to hide go back to the A view; click on Ref. to bring up the Reference 
+			view. There you can see what all the cryptic R001, etc. mean. Once you know what you want, go back to the original window and pick the right one.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="{shows reference here}" bgcolor="#F5F5F5">
+			<p style="text-align: left"><b>n/a</b></p>
+			</td>
+			<td style="vertical-align: top; text-align: left"><input value="V1" name="R38" type="radio" checked /></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">&nbsp;If you have no opinion, select <b>n/a</b>. If the correct value is not listed, see
+			<b>Add Proposed</b>.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; " title="Push to see or edit details" bgcolor="#F5F5F5">
+			<p style="text-align: left"><b>Zoom</b></p>
+			</td>
+			<td style="vertical-align: top; text-align: left">
+			<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+			<td style="vertical-align: top; text-align: left" colspan="2">Zoom to a detailed view to see warning messages, examples, and demos (as available).</td>
+		</tr>
+	</table>
+	<h2><a name="With_Examples">M<b>ain View w</b></a><b><a name="With_Examples">ith Examples</a></b></h2>
+	<p>Many of the strings are just simple names, such as the names of the languages above. Those are called &quot;Code Lists&quot; in the tool. Others are a bit more complicated, 
+	and are either <i>patterns</i> or parts of patterns. For example, look at the following.</p>
+	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table15" width="100%">
+		<tr>
+			<th class="main2-narrow" width="2%">St.</th>
+			<th class="main2-narrow">Code</th>
+			<th class="main2-medium2">English</th>
+			<th class="main2-medium2"><i>Example</i></th>
+			<th class="main2-medium2">Current</th>
+			<th class="main2-medium2"><i>Example</i></th>
+			<th class="main2-medium2">Proposed</th>
+			<th class="main2-medium2"><i>Example</i></th>
+			<th class="main2-medium2">Add Proposed</th>
+			<th class="main2-narrow">Rf.</th>
+			<th class="main2-narrow">n/a</th>
+			<th class="main2-narrow">Det.</th>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
+			<td class="code"><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
+			<td>¤#,##0.00</td>
+			<td><font face="Times New Roman">£1,234.56</font></td>
+			<td style="vertical-align: top; text-align: left"><input value="V1" name="R15" type="radio" checked />#,##0.00¤</td>
+			<td style="vertical-align: top; text-align: left"><font face="Times New Roman">1&#39;234,56£</font></td>
+			<td><input value="V1" name="R16" type="radio" checked />¤#,##0.00</td>
+			<td><font face="Times New Roman">£1&#39;234,56</font></td>
+			<td style="vertical-align: top; text-align: left">
+			<table class="wide-noborder" id="table16">
+				<tr>
+					<td class="narrow-noborder"><input value="V1" name="R17" type="radio" checked /></td>
+					<td class="wide-noborder"><input name="T13" size="20" class="wide" /></td>
+				</tr>
+			</table>
+			</td>
+			<td style="vertical-align: top; text-align: center" title="References: push to add">
+			<img border="0" src="../../dropbox/misc/images/no_reference.jpg" width="16" height="16" /></td>
+			<td style="vertical-align: top; text-align: left"><input value="V1" name="R19" type="radio" checked /></td>
+			<td style="vertical-align: top; text-align: center" title="Push to see or edit details">
+			<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></td>
+		</tr>
+	</table>
+	<p>In this case the value that you can choose is a pattern that indicates how a number is to be formatted for your language. This is very much like the &quot;custom 
+	formatting&quot; used in spreadsheets. In such cases, the tool will show (where possible) a short example of what the format will result in.</p>
+	<p>To see what the patterns or their components mean, click on the Zoom icon:
+	<a target="_blank" class="forumlink" title="Zoom..." href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
+	<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/zoom.png" title="Zoom..." border="0" /></a></p>
+	<h2><a name="Zoom_View">Zoom View</a></h2>
+	<p>Once you hit the zoom button, then you get a separate window with a more detailed view of just that item. With some browsers, this window isn&#39;t brought up 
+	to the front, so it helps to make your main2 view smaller than the full screen, and put this window to the side.<i> The zoom view doesn&#39;t look like this now, 
+	but will look more like it by the end of the beta period.</i></p>
+	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table31" width="100%">
+		<tr>
+			<th class="main2-narrow" width="7%">Code</th>
+			<th class="main2-medium">English</th>
+			<th class="main2-medium" colspan="2">Current</th>
+			<th class="main2-medium" style="width: 1%">Example</th>
+			<th class="main2-medium" colspan="2">Proposed</th>
+			<th class="main2-medium" style="width: 1%">Example</th>
+			<th class="main2-medium" colspan="2">Add Proposed</th>
+			<th class="main2-narrow">Rf.</th>
+			<th class="main2-narrow">n/a</th>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details"><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
+			<td style="vertical-align: top; text-align: left">¤#,##0.00</td>
+			<td width="1%" style="vertical-align: top; text-align: left"><input value="V1" name="R40" type="radio" checked /></td>
+			<td style="vertical-align: top; text-align: left">#,##0.00</td>
+			<td style="vertical-align: top; text-align: left">123</td>
+			<td width="1%" style="vertical-align: top; text-align: left"><span><input value="V1" name="R41" type="radio" checked /></span></td>
+			<td style="vertical-align: top; text-align: left">¤#,##0.00</td>
+			<td style="vertical-align: top; text-align: left">&nbsp;</td>
+			<td width="1%" style="vertical-align: top; text-align: left"><input value="V1" name="R42" type="radio" checked /></td>
+			<td style="vertical-align: top; text-align: left"><input name="T19" size="20" class="wide" /></td>
+			<td style="vertical-align: top; text-align: center" title="References: push to add"><span id="h_reftbg:faalmge:-hkhliyc4">
+			<a style="text-decoration: none;" href="javascript:show(" reftbg:faalmge:-hkhliyc")">[refs]</a></span></td>
+			<td style="vertical-align: top; text-align: left"><input value="V1" name="R43" type="radio" checked /></td>
+		</tr>
 	</table>
 	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table5" width="100%">
-
-	<tr>
-
-		<td ><b>Status</b></td>
-
-		<td style="vertical-align: top; text-align: left"   title="Unconfirmed: push zoom to see details">
-				<img  src="../../dropbox/misc/images/unconfirmed.jpg" width="16" height="16"><font color="#FF0000"><span class="warning">Insufficient votes 
-		(</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</span><br>
-		</font>
-				<img  src="../../dropbox/misc/images/warning.gif" width="16" height="16"><font color="#FF0000"><span class="warning"> 
-				Warning: New field: may need translation or fixing. (</font><a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</font></span></td>
-	</tr>
-	<tr>
-
-		<td ><b>Test</b></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<table class="main2" cellSpacing="0" cellPadding="2" border="1" id="table7" width="100%">
-			<tr>
-				<th class="main2" style="vertical-align: top; text-align: left">Pattern</th>
-				<th class="main2" style="vertical-align: top; text-align: left">Context</th>
-				<th class="main2" style="vertical-align: top; text-align: left">Unlocalized 
-				Input</th>
-				<th class="main2" style="vertical-align: top; text-align: center">
-				<input type="button" value="Test" name="Test"></th>
-				<th class="main2" style="vertical-align: top; text-align: left">Localized 
-				Format</th>
-				<th class="main2" style="vertical-align: top; text-align: left">Re-Parsed</th>
-			</tr>
-			<tr>
-				<td style="vertical-align: top; text-align: left" >
-				<input readOnly value="¤ #,##0.00" name="pattern" class="wide"></td>
-				<td style="vertical-align: top; text-align: left">
-				<input readOnly value="¤#,##0.00" name="context" class="wide"></td>
-				<td style="vertical-align: top; text-align: left">
-				<input value="-101643.709" name="input" class="wide"></td>
-				<td style="vertical-align: top; text-align: center">
-				<p style="text-align: center">
-				<font face="Times New Roman" size="4">→</font></td>
-				<td style="vertical-align: top; text-align: left">
-				<input value="-XXX 101,643.71" name="formatted" class="wide"></td>
-				<td style="vertical-align: top; text-align: left">
-				<input value="-101643.71" name="reparsed" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-
-		<td ><b>Help</b></td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<i>...help text here...</i></td>
-	</tr>
+		<tr>
+			<td><b>Status</b></td>
+			<td style="vertical-align: top; text-align: left" title="Unconfirmed: push zoom to see details">
+			<img src="../../dropbox/misc/images/unconfirmed.jpg" width="16" height="16" /><span class="warning">Insufficient votes (<a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew"><font color="#FF0000">Help</font></a><font color="#FF0000">)</font></span><font color="#FF0000"><br />
+			</font><img src="../../dropbox/misc/images/warning.gif" width="16" height="16" /><span class="warning"> Warning: New field: may 
+			need translation or fixing. (<a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp/CheckNew">Help</a>)</span></td>
+		</tr>
+		<tr>
+			<td><b>Test</b></td>
+			<td style="vertical-align: top; text-align: left">
+			<table class="main2" cellspacing="0" cellpadding="2" border="1" id="table7" width="100%">
+				<tr>
+					<th class="main2" style="vertical-align: top; text-align: left">Pattern</th>
+					<th class="main2" style="vertical-align: top; text-align: left">Context</th>
+					<th class="main2" style="vertical-align: top; text-align: left">Unlocalized Input</th>
+					<th class="main2" style="vertical-align: top; text-align: center"><input type="button" value="Test" name="Test" /></th>
+					<th class="main2" style="vertical-align: top; text-align: left">Localized Format</th>
+					<th class="main2" style="vertical-align: top; text-align: left">Re-Parsed</th>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; text-align: left"><input readonly value="¤ #,##0.00" name="pattern" class="wide" /></td>
+					<td style="vertical-align: top; text-align: left"><input readonly value="¤#,##0.00" name="context" class="wide" /></td>
+					<td style="vertical-align: top; text-align: left"><input value="-101643.709" name="input" class="wide" /></td>
+					<td style="vertical-align: top; text-align: center">
+					<p style="text-align: center"><font face="Times New Roman" size="4">→</font></p>
+					</td>
+					<td style="vertical-align: top; text-align: left"><input value="-XXX 101,643.71" name="formatted" class="wide" /></td>
+					<td style="vertical-align: top; text-align: left"><input value="-101643.71" name="reparsed" class="wide" /></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Help</b></td>
+			<td style="vertical-align: top; text-align: left"><i>...help text here...</i></td>
+		</tr>
 	</table>
-
-<h2><a name="References_Page">References Page</a></h2>
-<p>If you hit the references button, then you get a view of the references. With 
-some browsers, this window isn&#39;t brought up to the front, so it helps to make 
-your main2 view smaller than the full screen, and put this window to the side.<i> 
-The references page doesn&#39;t look like this now. We&#39;re trying different ideas 
-during the beta period.</i></p>
-
-<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table17" width="100%">
-	<tr>
-		<th class="main2-narrow" width="2%">St.</th>
-		<th class="main2-narrow" width="5%">Code</th>
-		<th class="main2-medium" colspan="7">Add New Reference</th>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" rowspan="2" >
-				&nbsp;</td>
-
-		<td class="code" rowspan="2" ><code><b>NEW</b> </code> </td>
-		<td colspan="6" >
-		<table class="main2-wide-noborder" id="table19">
-			<tr>
-				<td class="narrow-noborder">
-
-		&nbsp;</td>
-				<td class="wide-noborder">
-		<input name="T16" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-
-		<td style="vertical-align: top; text-align: left" rowspan="2" >
-		&nbsp;</td>
-
+	<h2><a name="References_Page">References Page</a></h2>
+	<p>If you hit the references button, then you get a view of the references. With some browsers, this window isn&#39;t brought up to the front, so it helps to make 
+	your main2 view smaller than the full screen, and put this window to the side.<i> The references page doesn&#39;t look like this now. We&#39;re trying different ideas 
+	during the beta period.</i></p>
+	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table17" width="100%">
+		<tr>
+			<th class="main2-narrow" width="2%">St.</th>
+			<th class="main2-narrow" width="5%">Code</th>
+			<th class="main2-medium" colspan="7">Add New Reference</th>
 		</tr>
-	<tr>
-		<td class="narrow" >URL:</td>
-
-		<td colspan="5" >
-		<input name="T17" size="20" class="wide"></td>
-
+		<tr>
+			<td style="vertical-align: top; text-align: left" rowspan="2">&nbsp;</td>
+			<td class="code" rowspan="2"><code><b>NEW</b> </code></td>
+			<td colspan="6">
+			<table class="main2-wide-noborder" id="table19">
+				<tr>
+					<td class="narrow-noborder">&nbsp;</td>
+					<td class="wide-noborder"><input name="T16" size="20" class="wide" /></td>
+				</tr>
+			</table>
+			</td>
+			<td style="vertical-align: top; text-align: left" rowspan="2">&nbsp;</td>
 		</tr>
-	<tr>
-		<th class="main2-narrow" width="2%">St.</th>
-		<th class="main2-narrow" width="5%">Code</th>
-		<th class="main2-medium" colspan="2">Current</th>
-		<th class="main2-medium" colspan="2">Proposed</th>
-		<th class="main2-medium" colspan="2">Add Porposed</th>
-		<th class="main2-narrow">n/a</th>
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" rowspan="2"  title="Warning: push zoom to see details">
-				<img  src="../../dropbox/misc/images/warning.gif" width="16" height="16"></td>
-
-		<td class="code" rowspan="2" ><code>R001 </code> </td>
-		<td class="winner" colspan="2" >
-		<input value="V1" name="R27" type="radio" checked><span class="winner" title="Winning item.">Computer 
-		Locale Requirements for Afghanistan</span>
-		</td>
-
-		<td class="parent" colspan="2" >
-
-		<input value="V1" name="R28" type="radio" checked>Computer Locale 
-		Requirements for Afghanistan </td>
-
-		<td style="vertical-align: top; text-align: left" colspan="2">
-		<table class="main2-wide-noborder" id="table18">
-			<tr>
-				<td class="narrow-noborder">
-
-		<input value="V1" name="R29" type="radio" checked></td>
-				<td class="wide-noborder">
-		<input name="T14" size="20" class="wide"></td>
-			</tr>
-		</table>
-		</td>
-
-		<td style="vertical-align: top; text-align: left" rowspan="2" >
-		<input value="V1" name="R30" type="radio" checked></td>
-
-	</tr>
-	<tr>
-
-		<td class="narrow" >URL:</td>
-
-		<td class="winner" ><a href="http://www.evertype.com/standards/af/">
-		http://www.evertype.com/standards/af/</a></td>
-
-		<td class="narrow" >
-
-		URL:</td>
-
-		<td ><span class="parent"></span>
-
-		<a href="http://www.evertype.com/standards/af/">
-		http://www.evertype.com/standards/af/</a>foo</td>
-
-		<td style="vertical-align: top; text-align: left" class="narrow">
-		URL:</td>
-
-		<td style="vertical-align: top; text-align: left">
-		<input name="T15" size="20" class="wide"></td>
-
-	</tr>
-	<tr>
-
-		<td style="vertical-align: top; text-align: left" >
-				...</td>
-
-		<td class="code" ><code>R123 </code> </td>
-		<td class="winner" colspan="2" >&nbsp;</td>
-
-		<td class="parent" colspan="2" >
-
-		&nbsp;</td>
-
-		<td style="vertical-align: top; text-align: left" colspan="2">
-		&nbsp;</td>
-
-		<td style="vertical-align: top; text-align: left" >
-		<input value="V1" name="R31" type="radio" checked></td>
-
-	</tr>
-</table>
-
-		<h2>Supplemental Data</h2>
-		<p>The
-				<a class="notselected" href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#fr">
-				supplemental</a> link in the navigation bar takes you to a 
-		different kind of window, for information about languages and countries. 
-		This data was collected based on information from the World Bank and 
-		other sources (see the top of the pages for more information). As a 
-		native speaker you may have better access to sources of the data than 
-		are available in English, so we&#39;d appreciate your reviewing this 
-		information.</p>
-		<table class="main2" id="table28">
-			<tr>
-				<th class="source">Language</th>
-				<th class="source">Code</th>
-				<th class="target">Territory</th>
-				<th class="target">Code</th>
-				<th class="target">Language Population</th>
-			</tr>
-			<tr>
-				<td class="source" rowSpan="5">German<br>
-				<i>click on each country code</i></td>
-				<td class="source" rowSpan="5"><a name="de0">de</a></td>
-				<td class="target">Germany</td>
-				<td class="target">
-				<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#DE">
-				DE</a></td>
-				<td class="targetRight">75,032,000</td>
-			</tr>
-			<tr>
-				<td class="target">Austria</td>
-				<td class="target">
-				<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#AT">
-				AT</a></td>
-				<td class="targetRight">7,500,600</td>
-			</tr>
-			<tr>
-				<td class="target">Switzerland</td>
-				<td class="target">
-				<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#CH">
-				CH</a></td>
-				<td class="targetRight">4,203,200</td>
-			</tr>
-			<tr>
-				<td class="target" colspan="3">...</td>
-			</tr>
-			<tr>
-				<td class="target">
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20territory%20to%20German%20(de)&body=%3cterritory%2c%20speaker%20population%20in%20territory%2c%20and%20references%3e">
-				<i>add new</i></a></td>
-				<td class="target">&nbsp;</td>
-				<td class="targetRight">0</td>
-			</tr>
-		</table>
-		<p>&nbsp;If there is a major country or territory missing for the 
-		language, click
-				<i>
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20territory%20to%20German%20(de)&body=%3cterritory%2c%20speaker%20population%20in%20territory%2c%20and%20references%3e">
-				add new</a> </i>to report a bug. For each of the countries that you are familiar with where your 
-		language is in major use, click on the country code (eg
-				<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#AT">
-				AT</a>). You&#39;ll see a view like this.</p>
-		<table class="main2" id="table30">
-			<tr>
-				<th class="source">Territory</th>
-				<th class="source">Code</th>
-				<th class="target">Terr. Pop (M)</th>
-				<th class="target">Terr. Literacy</th>
-				<th class="target">Terr. GDP ($M PPP)</th>
-				<th class="target">Currencies (2006...)</th>
-				<th class="target">Days in week (min)</th>
-				<th class="target">First day of week</th>
-				<th class="target">First day of weekend</th>
-				<th class="target">Last day of weekend</th>
-				<th class="target">Meas. system</th>
-				<th class="target">Paper Size</th>
-				<th class="target">calendar (+gregorian)</th>
-				<th class="target">Language</th>
-				<th class="target">Code</th>
-				<th class="target">Lang. Pop.%</th>
-				<th class="target">Lang. Liter­acy</th>
-				<th class="target">Report Bug</th>
-			</tr>
-			<tr>
-				<td class="source" rowSpan="3">Austria</td>
-				<td class="source" rowSpan="3"><a name="AT">AT</a></td>
-				<td class="targetRight" rowSpan="3">8.1</td>
-				<td class="targetRight" rowSpan="3">98.0%</td>
-				<td class="targetRight" rowSpan="3">267,600</td>
-				<td class="target" rowSpan="3">Euro [EUR]</td>
-				<td class="target" rowSpan="3">4</td>
-				<td class="target" rowSpan="3">mon</td>
-				<td class="target" rowSpan="3">sat</td>
-				<td class="target" rowSpan="3">sun</td>
-				<td class="target" rowSpan="3">metric</td>
-				<td class="target" rowSpan="3">A4</td>
-				<td class="target" rowSpan="3">&nbsp;</td>
-				<td class="target">German</td>
-				<td class="target">
-				<a href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#de">
-				de</a></td>
-				<td class="targetRight">92.6%</td>
-				<td class="targetRight" rowSpan="2">98.0%</td>
-				<td class="target">
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20German%20(de)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
-				<i>bug</i></a></td>
-			</tr>
-			<tr>
-				<td class="target">Croatian</td>
-				<td class="target">
-				<a href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#hr">
-				hr</a></td>
-				<td class="targetRight">1.2%</td>
-				<td class="target">
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20Croatian%20(hr)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
-				<i>bug</i></a></td>
-			</tr>
-			<tr>
-				<td class="target">
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20language%20to%20Austria(AT)&body=%3clanguage%2c%20speaker%20pop.%20and%20literacy%20in%20territory%2c%20plus%20references%3e">
-				<i>add new</i></a></td>
-				<td class="target">&nbsp;</td>
-				<td class="targetRight">.0%</td>
-				<td class="targetRight">.0%</td>
-			</tr>
-		</table>
-
-		<p>If any of the details are wrong in the table, you can report a bug 
-		with the
-				<i>
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20German%20(de)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
-				bug</a></i> link. You can also request adding another language 
-		with the
-				<i>
-				<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20language%20to%20Austria(AT)&body=%3clanguage%2c%20speaker%20pop.%20and%20literacy%20in%20territory%2c%20plus%20references%3e">
-				add new</a> </i>link. Some notes:</p>
-		<ul>
-			<li>The language population should be the proportion of people who 
-			are fluent (functionally) in the language, as a first <i>or</i> 
-			second language. Thus the figures may add to more than 100%.</li>
-		</ul>
+		<tr>
+			<td class="narrow">URL:</td>
+			<td colspan="5"><input name="T17" size="20" class="wide" /></td>
+		</tr>
+		<tr>
+			<th class="main2-narrow" width="2%">St.</th>
+			<th class="main2-narrow" width="5%">Code</th>
+			<th class="main2-medium" colspan="2">Current</th>
+			<th class="main2-medium" colspan="2">Proposed</th>
+			<th class="main2-medium" colspan="2">Add Porposed</th>
+			<th class="main2-narrow">n/a</th>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: left" rowspan="2" title="Warning: push zoom to see details">
+			<img src="../../dropbox/misc/images/warning.gif" width="16" height="16" /></td>
+			<td class="code" rowspan="2"><code>R001 </code></td>
+			<td class="winner" colspan="2"><input value="V1" name="R27" type="radio" checked /><span class="winner" title="Winning item.">Computer Locale Requirements 
+			for Afghanistan</span> </td>
+			<td class="parent" colspan="2"><input value="V1" name="R28" type="radio" checked />Computer Locale Requirements for Afghanistan </td>
+			<td style="vertical-align: top; text-align: left" colspan="2">
+			<table class="main2-wide-noborder" id="table18">
+				<tr>
+					<td class="narrow-noborder"><input value="V1" name="R29" type="radio" checked /></td>
+					<td class="wide-noborder"><input name="T14" size="20" class="wide" /></td>
+				</tr>
+			</table>
+			</td>
+			<td style="vertical-align: top; text-align: left" rowspan="2"><input value="V1" name="R30" type="radio" checked /></td>
+		</tr>
+		<tr>
+			<td class="narrow">URL:</td>
+			<td class="winner"><a href="http://www.evertype.com/standards/af/">http://www.evertype.com/standards/af/</a></td>
+			<td class="narrow">URL:</td>
+			<td><span class="parent"></span><a href="http://www.evertype.com/standards/af/">http://www.evertype.com/standards/af/</a>foo</td>
+			<td style="vertical-align: top; text-align: left" class="narrow">URL:</td>
+			<td style="vertical-align: top; text-align: left"><input name="T15" size="20" class="wide" /></td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; text-align: left">...</td>
+			<td class="code"><code>R123 </code></td>
+			<td class="winner" colspan="2">&nbsp;</td>
+			<td class="parent" colspan="2">&nbsp;</td>
+			<td style="vertical-align: top; text-align: left" colspan="2">&nbsp;</td>
+			<td style="vertical-align: top; text-align: left"><input value="V1" name="R31" type="radio" checked /></td>
+		</tr>
+	</table>
+	<h2>Supplemental Data</h2>
+	<p>The <a class="notselected" href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#fr">supplemental</a> link in the navigation 
+	bar takes you to a different kind of window, for information about languages and countries. This data was collected based on information from the World Bank 
+	and other sources (see the top of the pages for more information). As a native speaker you may have better access to sources of the data than are available 
+	in English, so we&#39;d appreciate your reviewing this information.</p>
+	<table class="main2" id="table28">
+		<tr>
+			<th class="source">Language</th>
+			<th class="source">Code</th>
+			<th class="target">Territory</th>
+			<th class="target">Code</th>
+			<th class="target">Language Population</th>
+		</tr>
+		<tr>
+			<td class="source" rowspan="5">German<br />
+			<i>click on each country code</i></td>
+			<td class="source" rowspan="5"><a name="de0">de</a></td>
+			<td class="target">Germany</td>
+			<td class="target"><a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#DE">DE</a></td>
+			<td class="targetRight">75,032,000</td>
+		</tr>
+		<tr>
+			<td class="target">Austria</td>
+			<td class="target"><a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#AT">AT</a></td>
+			<td class="targetRight">7,500,600</td>
+		</tr>
+		<tr>
+			<td class="target">Switzerland</td>
+			<td class="target"><a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#CH">CH</a></td>
+			<td class="targetRight">4,203,200</td>
+		</tr>
+		<tr>
+			<td class="target" colspan="3">...</td>
+		</tr>
+		<tr>
+			<td class="target">
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20territory%20to%20German%20(de)&body=%3cterritory%2c%20speaker%20population%20in%20territory%2c%20and%20references%3e">
+			<i>add new</i></a></td>
+			<td class="target">&nbsp;</td>
+			<td class="targetRight">0</td>
+		</tr>
+	</table>
+	<p>&nbsp;If there is a major country or territory missing for the language, click <i>
+	<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20territory%20to%20German%20(de)&body=%3cterritory%2c%20speaker%20population%20in%20territory%2c%20and%20references%3e">
+	add new</a> </i>to report a bug. For each of the countries that you are familiar with where your language is in major use, click on the country code (eg
+	<a href="http://unicode.org/cldr/data/charts/supplemental/territory_language_information.html#AT">AT</a>). You&#39;ll see a view like this.</p>
+	<table class="main2" id="table30">
+		<tr>
+			<th class="source">Territory</th>
+			<th class="source">Code</th>
+			<th class="target">Terr. Pop (M)</th>
+			<th class="target">Terr. Literacy</th>
+			<th class="target">Terr. GDP ($M PPP)</th>
+			<th class="target">Currencies (2006...)</th>
+			<th class="target">Days in week (min)</th>
+			<th class="target">First day of week</th>
+			<th class="target">First day of weekend</th>
+			<th class="target">Last day of weekend</th>
+			<th class="target">Meas. system</th>
+			<th class="target">Paper Size</th>
+			<th class="target">calendar (+gregorian)</th>
+			<th class="target">Language</th>
+			<th class="target">Code</th>
+			<th class="target">Lang. Pop.%</th>
+			<th class="target">Lang. Liter­acy</th>
+			<th class="target">Report Bug</th>
+		</tr>
+		<tr>
+			<td class="source" rowspan="3">Austria</td>
+			<td class="source" rowspan="3"><a name="AT">AT</a></td>
+			<td class="targetRight" rowspan="3">8.1</td>
+			<td class="targetRight" rowspan="3">98.0%</td>
+			<td class="targetRight" rowspan="3">267,600</td>
+			<td class="target" rowspan="3">Euro [EUR]</td>
+			<td class="target" rowspan="3">4</td>
+			<td class="target" rowspan="3">mon</td>
+			<td class="target" rowspan="3">sat</td>
+			<td class="target" rowspan="3">sun</td>
+			<td class="target" rowspan="3">metric</td>
+			<td class="target" rowspan="3">A4</td>
+			<td class="target" rowspan="3">&nbsp;</td>
+			<td class="target">German</td>
+			<td class="target"><a href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#de">de</a></td>
+			<td class="targetRight">92.6%</td>
+			<td class="targetRight" rowspan="2">98.0%</td>
+			<td class="target">
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20German%20(de)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
+			<i>bug</i></a></td>
+		</tr>
+		<tr>
+			<td class="target">Croatian</td>
+			<td class="target"><a href="http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#hr">hr</a></td>
+			<td class="targetRight">1.2%</td>
+			<td class="target">
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20Croatian%20(hr)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
+			<i>bug</i></a></td>
+		</tr>
+		<tr>
+			<td class="target">
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20language%20to%20Austria(AT)&body=%3clanguage%2c%20speaker%20pop.%20and%20literacy%20in%20territory%2c%20plus%20references%3e">
+			<i>add new</i></a></td>
+			<td class="target">&nbsp;</td>
+			<td class="targetRight">.0%</td>
+			<td class="targetRight">.0%</td>
+		</tr>
+	</table>
+	<p>If any of the details are wrong in the table, you can report a bug with the <i>
+	<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=fix%20info%20for%20German%20(de)%20in%20Austria%20(AT)&body=%3cfixed%20data%20for%20territory%2c%20plus%20references%3e">
+	bug</a></i> link. You can also request adding another language with the <i>
+	<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1217&from=%3cemail%3e&subject=add%20language%20to%20Austria(AT)&body=%3clanguage%2c%20speaker%20pop.%20and%20literacy%20in%20territory%2c%20plus%20references%3e">
+	add new</a> </i>link. Some notes:</p>
+	<ul>
+		<li>The language population should be the proportion of people who are fluent (functionally) in the language, as a first <i>or</i> second language. Thus 
+		the figures may add to more than 100%.</li>
+		<li>The <b>Days in week (min)</b> is the minimum number of days in a week for it to count as the first week of the year (or month). For example, in some 
+		countries there need to be 4 days in the first week (starting from the <b>First day of week</b>) for it to count as week number 1; in others, what 
+		counts as the first week may only need one day. For example, January 1, 1998 was a Thursday. If the first day of the week is MONDAY and the minimum days 
+		in a week is 4, then week 1 of 1998 starts on December 29, 1997, and ends on January 4, 1998. However, if the first day of the week is SUNDAY, then week 
+		1 of 1998 starts on January 4, 1998, and ends on January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</li>
+	</ul>
 </div>
-</body></html>
+
+</body>
+
+</html>

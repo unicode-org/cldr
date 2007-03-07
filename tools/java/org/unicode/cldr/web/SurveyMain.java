@@ -83,6 +83,9 @@ public class SurveyMain extends HttpServlet {
     public static final String URL_CLDR = URL_HOST+"cldr/";
     public static final String BUG_URL_BASE = URL_CLDR+"bugs/locale-bugs";
     
+    public static final String GENERAL_HELP_URL = URL_CLDR+"data/docs/web/survey_tool.html";
+    public static final String GENERAL_HELP_NAME = "General&nbsp;Instructions";
+    
     
     /**
     * URL prefix for  help
@@ -159,6 +162,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
     static final String PREF_NOPOPUPS = "p_nopopups";
+    static final String PREF_CODES_PER_PAGE = "p_pager";
     static final String PREF_XPID = "p_xpid";
     static final String PREF_GROTTY = "p_grotty";
     static final String PREF_SORTMODE_CODE = "code";
@@ -1306,7 +1310,8 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
                         " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
             ctx.println("<tr><td>");
-            ctx.printHelpLink("","General&nbsp;Instructions"); // base help
+//            ctx.printHelpLink("","General&nbsp;Instructions"); // base help
+            ctx.println("(<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>)"); // base help
     }
     
     public void printUserTableMiddle(WebContext ctx) {
@@ -2629,11 +2634,11 @@ public class SurveyMain extends HttpServlet {
             if((which.length()==0) && (ctx.locale!=null)) {
                 which = xMAIN;
             }
-            if(which.length()>0) {
-                printUserTableWithHelp(ctx, "/"+which.replaceAll(" ","_"));
-            } else {
+         //   if(false&&(which.length()>0)) {
+         // printUserTableWithHelp(ctx, "/"+which.replaceAll(" ","_")); // Page Help
+         //   } else {
                 printUserTable(ctx);
-            }
+         //   }
 
             Hashtable lh = ctx.session.getLocales();
             Enumeration e = lh.keys();
@@ -3587,10 +3592,10 @@ public void doMain(WebContext ctx) {
                 "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
 //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
                 "<font size='4'>");
-    ctx.printHelpLink("","General&nbsp;Instructions");
+    ctx.println("<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>"); // base help
     ctx.print("</font>"+
                 "<font size='4'>     once before going further.</font></i></li>   "+
-                " <li><font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font>"+
+                " <li><!-- <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> -->"+
                 "</li>  </ul>");
     
     if(dbVer != null) {
@@ -4390,6 +4395,8 @@ String getSortMode(WebContext ctx, String prefix) {
     return sortMode;
 }
 
+static int PODTABLE_WIDTH = 15; /** width, in columns, of the typical data table **/
+
 static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
     ctx.println("<table summary='Data Items for "+ctx.locale.toString()+" " + pod.xpathPrefix + "' class='list' border='0'>");
     
@@ -4398,15 +4405,15 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
                     " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
-                    " <th><i>Example</i></th>\n" + 
+                    " <th title='Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2'>Current</th>\n"+  // 6
-                    " <th><i>Example</i></th>\n" + 
+                    " <th title='Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2'>Proposed</th>\n"+ // 7
-                    " <th><i>Example</i></th>\n" + 
+                    " <th title='Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2' width='20%'>Change</th>\n"+               // 8
-                    " <th>Rf</th>\n"+           // 9
-                    " <th>n/a</th>\n"+                   // 5
-                    " <th>Zm.</th>\n"+                  // 4
+                    " <th title='Reference'>Rf</th>\n"+           // 9
+                    " <th title='No Vote (Abstain)'>n/a</th>\n"+                   // 5
+                    " <th title='Zoom'>Zm.</th>\n"+                  // 4
                     "</tr>");
  /*   } else {
         ctx.println("<tr class='heading'>\n"+
@@ -4519,7 +4526,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
             pn++;
         }
         if(moveSkip != -1) {
-            oskip = (moveSkip / CODES_PER_PAGE)*CODES_PER_PAGE; // make it fall on a page boundary.
+            oskip = (moveSkip / ctx.prefCodesPerPage())*ctx.prefCodesPerPage(); // make it fall on a page boundary.
         }
     }
     // -----
@@ -4544,7 +4551,7 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpat
 
 				
     int peaStart = skip; // where should it start?
-    int peaCount = CODES_PER_PAGE; // hwo many to show?
+    int peaCount = ctx.prefCodesPerPage(); // hwo many to show?
     
     if(disputedOnly) {
             for(int j = 0;j<dSet.partitions.length;j++) {
@@ -4793,8 +4800,9 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
             altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
         }
         // user requested a new alternate.
-        if(ctx.field("new_alt").trim().length()>0) {
-            altType = ctx.field("new_alt").trim();
+        String newAlt = ctx.field(fieldHash+"_alt").trim();
+        if(newAlt.length()>0) {
+            altType = newAlt;
         }
         String aDisplayName = p.displayName;
         if(pod.xpath(p).startsWith("//ldml/characters") && 
@@ -4966,19 +4974,19 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
     ctx.println("<th class='rowinfo'>Code / " + BASELINE_NAME + "</th>"); // ##0 title
     String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
     if(p.displayName != null) { // have a display name - code gets its own box
-        ctx.println("<th nowrap class='botgray' colspan='1' valign='top' align='left'>");
+        ctx.println("<th class='botgray' colspan='1' valign='top' align='left'>");
         ctx.println("<tt title='"+baseInfo+"' class='codebox'>"
                     + p.type + 
                     "</tt>");
     } else { // no display name - same box for code+alt
-        ctx.println("<th nowrap class='botgray' colspan='5' valign='top' align='left'>");
+        ctx.println("<th class='botgray' colspan='5' valign='top' align='left'>");
     }
     if(p.altType != null) {
         ctx.println(" ("+p.altType+" alternative)");
     }
     if(p.displayName != null) {
         ctx.println("</th>");
-        ctx.println("<th nowrap style='padding-left: 4px;' colspan='3' valign='top' align='right' class='botgray'>");
+        ctx.println("<th style='padding-left: 4px;' colspan='3' valign='top' align='right' class='botgray'>");
         ctx.println(p.displayName);
     } else {
         ctx.println("<tt title='"+baseInfo+"' >"+p.type+"</tt>");
@@ -4995,7 +5003,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
     // Example
     String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.IN);
     if(baseExample != null) {
-        ctx.print("<td align='left' valign='top' class='generatedexample' nowrap>"+ baseExample + "</td>");
+        ctx.print("<td align='left' valign='top' class='generatedexample' >"+ baseExample + "</td>");
     } else {
         ctx.print("<td></td>");
     }
@@ -5006,7 +5014,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
         String pClass = "class='warnrow'";
         ctx.print("<tr " + pClass + ">");
         ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-        ctx.print("<td nowrap colspan='3' valign='top' align='right'>");
+        ctx.print("<td  colspan='3' valign='top' align='right'>");
         ctx.print("<span class='actionbox'>missing</span>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio'>");
@@ -5115,7 +5123,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
         // example
         String itemExample = pod.exampleGenerator.getExampleHtml(fullPathFull, null, ExampleGenerator.Zoomed.IN);
         if(itemExample != null) {
-            ctx.print("<td class='generatedexample' nowrap align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
+            ctx.print("<td class='generatedexample'  align='left' valign='top'>"+ /* item.xpath+"//"+ */ itemExample + "</td>");
         } else {
             ctx.print("<td></td>");
         }
@@ -5151,7 +5159,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
         ctx.print("</td>");
         
                 
-        ctx.print("<td nowrap "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
+        ctx.print("<td  "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
         if(item.altProposed != null) {
         
             // NB: don't show user under 'alt' for now. just show votes.
@@ -5244,7 +5252,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
             (item.xpath!=null)&&
             (item.xpath.equals(resultXpath)));
         
-        ctx.print("<td nowrap class='botgray' valign='top' dir='" + ourDir +"'>");
+        ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
         String itemSpan = null;
         
         if(winner) {
@@ -5368,7 +5376,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
          // dont care
         ctx.print("<tr " + pClass + ">");
         ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- changeto --></th>"); // ##0 title
-        ctx.print("<td nowrap valign='top' align='right'>");
+        ctx.print("<td  valign='top' align='right'>");
         ctx.print("<span class='"+boxClass+"'>" + DONTCARE + "</span>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
@@ -5416,7 +5424,7 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
             ctx.println("</td>");
             // references
             if(refs.length>0) {
-                ctx.print("<td nowrap><label>");
+                ctx.print("<td ><label>");
                 ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
                 ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
                 ctx.print("<option value='' SELECTED></option>");
@@ -5431,13 +5439,13 @@ void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourD
 }
 
 /**
- * show a pea, in a simplified state. This is used in the zoomed out mode.
- * we expect types here.
+ * Show a single pea
  */
 void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
     CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
 /*
+    // this loads the OLD ( alternate look ) individual pea
     if(zoomedIn==true) {
         showPeaZoomedIn_OLD(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
         return;
@@ -5514,6 +5522,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     String rclass = "vother";
     boolean foundError = p.hasErrors;
     boolean foundWarning = p.hasWarnings;
+    
+    List<DataPod.Pea.Item> warningsList = new ArrayList<DataPod.Pea.Item>();
 
     // calculate the class of data items
     String statusIcon="";
@@ -5607,7 +5617,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     ctx.println("</th>");
     
     // ##3 display / Baseline
-    ctx.println("<th rowspan='"+rowSpan+"' nowrap style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>");
+    ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>");
     if(p.displayName != null) {
         ctx.println(p.displayName); // ##3 display/Baseline
     }
@@ -5635,14 +5645,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(currentItems.size() > 0) {
         topCurrent = currentItems.get(0);
     }
-    printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+    printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
 
     // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
     DataPod.Pea.Item topProposed = null;
     if(proposedItems.size() > 0) {
         topProposed = proposedItems.get(0);
     }
-    printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+    printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
     
      
     if(phaseSubmit==true) {
@@ -5653,6 +5663,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         } else {
             //changetoBox = changetoBox+("<input type='radio' disabled>"); /* don't show the empty input box */
         }
+        
         changetoBox=changetoBox+("</td>");
         
         if(!"rtl".equals(ourDir)) {
@@ -5678,6 +5689,22 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             if(badInputBox) {
                 ctx.print("</span>");
             }
+
+            if(canModify && zoomedIn && (p.altType == null)) {  // show 'Alt' popup for zoomed in main items
+                ctx.println ("<br> ");
+                ctx.println ("<span id='h_alt"+fieldHash+"'>");
+                ctx.println ("<input onclick='javascript:show(\"alt" + fieldHash + "\")' type='button' value='Create Alternate'></span>");
+                ctx.println ("<!-- <noscript> </noscript> -->" + 
+                            "<span style='display: none' id='alt" + fieldHash + "'>");
+                String[] altList = supplemental.getValidityChoice("$altList");
+                ctx.println ("<label>Alt: <select name='"+fieldHash+"_alt'>");
+                ctx.println ("  <option value=''></option>");
+                for(String s : altList) {
+                    ctx.println ("  <option value='"+s+"'>"+s+"</option>");
+                }
+                ctx.println ("</select></label></span>");
+            }
+            
             ctx.println("</td>");
         } else  {
             ctx.println("</td>");
@@ -5725,7 +5752,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     // zoom
     if(!zoomedIn) {
         if(foundError || foundWarning) {
-            ctx.println("<td rowspan='"+rowSpan+"' title='Errors or Warnings- please zoom in' class='warning'>");
+            ctx.println("<td rowspan='"+rowSpan+"' title='Errors or Warnings- please zoom in' >"); //class='warning'
         } else {
             ctx.println("<td rowspan='"+rowSpan+"'>");
         }
@@ -5750,7 +5777,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             } else {
                 item = null;
             }
-            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
             
             // #6.1, 6.2 - proposed items
             if(proposedItems.size() > row) {
@@ -5758,34 +5785,20 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             } else {
                 item = null;
             }
-            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn);
+            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
             
             ctx.println("</tr>");
         }
     }
     
-}
-
-/**
- *  print the cells which have to do with the item
- * this may be called with NULL if there isn't a proposed item for this slot.
- * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
- */ 
-void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
-    boolean canModify, String ourAlign, String ourDir, boolean zoomedIn) {
-    // ##6.1 proposed - print the TOP item
-    ctx.print("<td nowrap colspan='1' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
-    if(item != null) {
-        printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
-    }
-    ctx.println("</td>");    
-    // 6.3 - error 
-    if((item==null) || !zoomedIn) {
-        ctx.print("<td></td>");
-    } else {
-        if((item.tests != null) || (item.examples != null)) {
+    // now, if the warnings list isn't empty..
+    if(!warningsList.isEmpty()) {
+        int mySuperscriptNumber =0;
+        for(DataPod.Pea.Item item : warningsList) {
+            mySuperscriptNumber++;
+            ctx.println("<tr><td>#<span class='warningTarget'>"+mySuperscriptNumber+"</sup></td>");
             if(item.tests != null) {
-                ctx.println("<td class='warncell'>");
+                ctx.println("<td colspan='" + (PODTABLE_WIDTH-1) + "' class='warncell'>");
                 for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if (!status.getType().equals(status.exampleType)) {
@@ -5807,7 +5820,6 @@ void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item ite
             } else {
                 ctx.println("<td class='examplecell'>");
             }
-            
             if(item.examples != null) {
                 boolean first = true;
                 for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
@@ -5832,8 +5844,41 @@ void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item ite
                     }
                     first = false;
                 }
-//                    ctx.println(status.getHTMLMessage()+"<br>");
             }
+            ctx.println("</td>");
+        }
+    }
+}
+
+/**
+ *  print the cells which have to do with the item
+ * this may be called with NULL if there isn't a proposed item for this slot.
+ * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
+ * @param warningsList if an item has warnings or errors, or demos, add them to this list.
+ */ 
+void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
+    boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataPod.Pea.Item> warningsList) {
+    // ##6.1 proposed - print the TOP item
+    ctx.print("<td  colspan='1' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+    if(item != null) {
+        printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
+    }
+    ctx.println("</td>");    
+    // 6.3 - error 
+    if((item==null) || !zoomedIn) {
+        ctx.print("<td></td>");
+    } else {
+        if((item.tests != null) || (item.examples != null)) {
+            warningsList.add(item);
+            int mySuperscriptNumber = warningsList.size();  // which # is this item?
+            ctx.println("<span class='warningReference'>");
+            if(item.tests != null) {
+                ctx.println("<td nowrap class='warncell'>");
+                ctx.print(ctx.iconThing("warn","Warning"));
+            } else {
+                ctx.println("<td nowrap class='examplecell'>");
+            }
+            ctx.println("#"+mySuperscriptNumber+"</span>");
             ctx.println("</td>");
         } else {
             ctx.print("<td></td>");
@@ -5982,7 +6027,7 @@ showSearchMode = true;// all
 
     // calculate nextSkip
     int from = skip+1;
-    int to = from + CODES_PER_PAGE-1;
+    int to = from + ctx.prefCodesPerPage()-1;
     if(to >= total) {
         to = total;
     }
@@ -5991,33 +6036,33 @@ showSearchMode = true;// all
     if(showSearchMode) {
         ctx.println("Displaying items " + from + " to " + to + " of " + total);        
 
-        if(total>=(CODES_PER_PAGE)) {
-            int prevSkip = skip - CODES_PER_PAGE;
+        if(total>=(ctx.prefCodesPerPage())) {
+            int prevSkip = skip - ctx.prefCodesPerPage();
             if(prevSkip<0) {
                 prevSkip = 0;
             }
-            ctx.print("<div style='float: right'>");
+            ctx.print("<div>");
             if(skip<=0) {
-                ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/* + CODES_PER_PAGE */ + "" +
+                ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/* + ctx.prefCodesPerPage() */ + "" +
                         "</span>&nbsp;");  
             } else {
                 ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + 
                         ctx.urlConnector() + "skip=" + new Integer(prevSkip) + "\">" +
-                        "\u2190&nbsp;prev"/* + CODES_PER_PAGE*/ + "");
+                        "\u2190&nbsp;prev"/* + ctx.prefCodesPerPage()*/ + "");
                 ctx.print("</a>&nbsp;");
             }
-            int nextSkip = skip + CODES_PER_PAGE; 
+            int nextSkip = skip + ctx.prefCodesPerPage(); 
             if(nextSkip >= total) {
                 nextSkip = -1;
-                if(total>=(CODES_PER_PAGE)) {
+                if(total>=(ctx.prefCodesPerPage())) {
                     ctx.println(" <span class='pagerl_inactive' >" +
-                                "next&nbsp;"/* + CODES_PER_PAGE*/ + "\u2192" +
+                                "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
                                 "</span>");
                 }
             } else {
                 ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + 
                             ctx.urlConnector() +"skip=" + new Integer(nextSkip) + "\">" +
-                            "next&nbsp;"/* + CODES_PER_PAGE*/ + "\u2192" +
+                            "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
                             "</a>");
             }
             ctx.print("</div>");
@@ -6025,7 +6070,7 @@ showSearchMode = true;// all
         ctx.println("<br/>");
     }
 
-    if(total>=(CODES_PER_PAGE)) {
+    if(total>=(ctx.prefCodesPerPage())) {
         if(displaySet.partitions.length > 1) {
             ctx.println("<table summary='navigation box' style='border-collapse: collapse'><tr valign='top'><td>");
         }
@@ -6047,9 +6092,9 @@ showSearchMode = true;// all
             }
             int ourStart = displaySet.partitions[j].start;
             int ourLimit = displaySet.partitions[j].limit;
-            for(int i=ourStart;i<ourLimit;i = (i - (i%CODES_PER_PAGE)) + CODES_PER_PAGE) {
-                int pageStart = i - (i%CODES_PER_PAGE); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
-                int end = pageStart + CODES_PER_PAGE-1;
+            for(int i=ourStart;i<ourLimit;i = (i - (i%ctx.prefCodesPerPage())) + ctx.prefCodesPerPage()) {
+                int pageStart = i - (i%ctx.prefCodesPerPage()); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
+                int end = pageStart + ctx.prefCodesPerPage()-1;
                 if(end>=ourLimit) {
                     end = ourLimit-1;
                 }

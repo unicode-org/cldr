@@ -360,6 +360,10 @@ public class SurveyForum {
         ctx.println("<input type='hidden' name='_' value='"+ctx.locale+"'>");
         ctx.println("<input type='hidden' name='replyto' value='"+replyTo+"'>");
 
+        if(sm.phaseBeta) {
+            ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
+        }
+
         ctx.println("<b>Subject</b>: <input name='subj' size=40 value='"+subj+"'><br>");
         ctx.println("<textarea rows=12 cols=60 name='text'>"+(text==null?"":text)+"</textarea>");
         ctx.println("<br>");
@@ -367,6 +371,9 @@ public class SurveyForum {
             //(ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
+        if(sm.phaseBeta) {
+            ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
+        }
         ctx.println("</form>");
         
         if(ctx.field("post").length()>0) {
@@ -447,26 +454,12 @@ public class SurveyForum {
         SurveyMain.printPodTableOpen(ctx, pod, true);
         sm.showPeas(ctx, pod, canModify, base_xpath, true);
         SurveyMain.printPodTableClose(ctx, pod);
-        if(canModify) {
-            ctx.println("<hr>");
-            String warnHash = "add_an_alt";
-            ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
-                        "<b>+</b> Add Alternate..</a></div>");
-            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                        "<div style='display: none' class='pager' id='" + warnHash + "'>" );
-            ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + 
-                        "(<b>-</b>)</a>");
-            ctx.println("<label>To add a new alternate, type it in here and modify any item above:<br> <input name='new_alt'></label><br>");                        
-            ctx.println("</div>");
-
-        }
         sm.printPathListClose(ctx);
         
         String helpHtml = pod.exampleGenerator.getHelpHtml(xpath,null);
         if(helpHtml != null)  {
             ctx.println("<hr><div class='helpHtml'>"+helpHtml+"</div>");
-        }
-        
+        }        
     }
     
     void printForumMenu(WebContext ctx, String forum) {

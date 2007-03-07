@@ -201,6 +201,10 @@ public class DataPod extends Registerable {
         
         Item inheritedValue = null; // vetted value inherited from parent
         
+        public String toString() {
+            return "{Pea t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
+        }
+        
         public Set items = new TreeSet(new Comparator() {
                     public int compare(Object o1, Object o2){
                         Item p1 = (Item) o1;
@@ -271,7 +275,13 @@ public class DataPod extends Registerable {
                 return;
             }
             
+            if(base_xpath == -1) {
+                return;
+            }
             String xpath = sm.xpt.getById(base_xpath);
+            if(xpath == null) {
+                return;
+            }
             String value = vettedParent.getStringValue(xpath);
             
             if(value != null) {
@@ -374,7 +384,7 @@ public class DataPod extends Registerable {
             
             // fetch partitions..
             Vector v = new Vector();
-            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
+            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) { // priority
                 Partition testPartitions[] = SurveyMain.phaseSubmit?createSubmitPartitions():
                                                                            createVettingPartitions();
                 // find the starts
@@ -603,6 +613,7 @@ public class DataPod extends Registerable {
                 public int compare(Object o1, Object o2){
                     Pea p1 = (Pea) o1;
                     Pea p2 = (Pea) o2;
+
                     
                     if(p1==p2) {
                         return 0;
@@ -644,9 +655,21 @@ public class DataPod extends Registerable {
                                 p2d = "(null)";
                             }
                         }
-                        return myCollator.compare(p1d, p2d);
+                        rv = myCollator.compare(p1d, p2d);
                     }
-                    
+
+                    if(rv == 0) {
+                        String p1d  = p1.type;
+                        String p2d  = p2.type;
+                        if(p1d == null ) {
+                            p1d = "(null)";
+                        }
+                        if(p2d == null ) {
+                            p2d = "(null)";
+                        }
+                        rv = myCollator.compare(p1d, p2d);
+                    }
+                                        
                     if(rv < 0) {
                         return -1;
                     } else if(rv > 0) {
@@ -675,7 +698,19 @@ public class DataPod extends Registerable {
                             p2d = p2.type;
     //                                throw new InternalError("item p2 w/ null display: " + p2.type);
                     }
-                    return myCollator.compare(p1d, p2d);
+                    int rv = myCollator.compare(p1d, p2d);
+                    if(rv == 0) {
+                        p1d  = p1.type;
+                        p2d  = p2.type;
+                        if(p1d == null ) {
+                            p1d = "(null)";
+                        }
+                        if(p2d == null ) {
+                            p2d = "(null)";
+                        }
+                        rv = myCollator.compare(p1d, p2d);
+                    }
+                    return rv;
                 }
             });
         } else {

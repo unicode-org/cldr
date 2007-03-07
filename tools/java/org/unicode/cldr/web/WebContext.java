@@ -211,6 +211,32 @@ public class WebContext {
         return prefBool(x,false);
     }
 
+    int prefInt(String x, int def) {
+        String f;
+        if((f=pref(x,"")).length()>0) {
+            try {
+                return new Integer(f).intValue();
+            } catch(Throwable t) {
+                return def;
+            }
+        } else {
+            return def;
+        }
+    }
+    
+    int prefInt(String x) {
+        return prefInt(x, -1);
+    }
+    
+    int codesPerPage = -1;
+    int prefCodesPerPage() {
+        if(codesPerPage == -1) {
+            codesPerPage =  prefInt(SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.CODES_PER_PAGE);
+            codesPerPage = Math.max(codesPerPage,5);
+        } 
+        return codesPerPage;
+    }
+
     /**
      * get a preference's value as a boolean. defaults to defVal.
      * @param x preference name
@@ -719,9 +745,8 @@ public class WebContext {
     
         printHelpLink(what, title, true);
     }
-    public static final String MOD_MSG = ("Visit help as Editable (may require login)");
-    public void printHelpLink(String heresWhere, String defaultArgs, boolean areNice) {
-        printHelpLink(heresWhere,defaultArgs,areNice,true);
+    public void printHelpLink(String what, String title, boolean doEdit) {
+        printHelpLink(what,title,doEdit,true);
     }
     public void printHelpLink(String what, String title, boolean doEdit, boolean parens)
     {

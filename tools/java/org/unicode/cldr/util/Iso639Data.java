@@ -20,13 +20,32 @@ public class Iso639Data {
   static Relation<String, String> toNames;
   static Map<String, Scope> toScope;
   static Map<String, Type> toType;
+  static Map<String,String> suffix_prefix;
+  static Relation<String,String> prefix_suffix;
+  static Map<String,Source> toSource;
   
-  public enum Scope {Individual, Macrolanguage, Special};
+  public enum Scope {Individual, Macrolanguage, Special, Collection, PrivateUse};
   public enum Type {Ancient, Constructed, Extinct, Historical, Living, Special};
+  public enum Source {Iso639_1, Iso639_2, Iso639_3};
   
+  public static Source getSource(String languageSubtag) {
+    if (toAlpha3 == null) {
+      getData();
+    }
+    if (!toNames.containsKey(languageSubtag)) {
+      return null;
+    }
+    Source result = toSource.get(languageSubtag);
+    if (result == null) return Source.Iso639_3;
+    return result;
+  }
+
   public static String toAlpha3(String languageSubtag) {
     if (toAlpha3 == null) {
       getData();
+    }
+    if (!toNames.containsKey(languageSubtag)) {
+      return null;
     }
     return toAlpha3.get(languageSubtag);
   }
@@ -57,13 +76,20 @@ public class Iso639Data {
     if (toScope == null) {
       getData();
     }
-    return toScope.get(languageSubtag);
+    if (!toNames.keySet().contains(languageSubtag)) return null;
+    Scope result = toScope.get(languageSubtag);
+    if (result != null) return result;
+    return Scope.Individual;
   }
+  
   public static Type getType(String languageSubtag) {
     if (toAlpha3 == null) {
       getData();
     }
-    return toType.get(languageSubtag);
+    if (!toNames.keySet().contains(languageSubtag)) return null;
+    Type result = toType.get(languageSubtag);
+    if (result != null) return result;
+    return Type.Living;
   }
   /**
    Id      char(3) NOT NULL,  -- The three-letter 639-3 identifier
@@ -92,9 +118,11 @@ public class Iso639Data {
       fromAlpha3 = new HashMap();
       toScope = new HashMap();
       toType = new HashMap();
-      toNames = new Relation(new TreeMap(), LinkedHashSet.class, null);
-      EnumSet allScope = EnumSet.allOf(Scope.class);
-      EnumSet allType = EnumSet.allOf(Type.class);
+      toNames = new Relation(new TreeMap(), LinkedHashSet.class);
+      prefix_suffix = new Relation(new TreeMap(), LinkedHashSet.class);
+      suffix_prefix = new HashMap();
+      toSource = new HashMap();
+    
       while (true) {
         String line = in.readLine();
         if (line == null) break;
@@ -114,7 +142,28 @@ public class Iso639Data {
         Type type = findMatchToPrefix(parts[IsoColumn.Type.ordinal()], Type.values());
         if (type != Type.Living) toType.put(languageSubtag, type);
       }
+      System.out.println("Size:\t" + toNames.size());
       in.close();
+      
+      // ﻿Id  Print_Name  Inverted_Name
+      in = Utility.getUTF8Data("iso-639-3-macrolanguages_20070205.tab");
+      while (true) {
+        String line = in.readLine();
+        if (line == null) break;
+        if (line.startsWith("\uFEFF")) line = line.substring(1);
+        String[] parts = tabs.split(line);
+        String prefix = parts[0];
+        if (prefix.equals("M_Id")) continue;
+        prefix = fromAlpha3(prefix);
+        String suffix = fromAlpha3(parts[1]);
+        suffix_prefix.put(suffix, prefix);
+        prefix_suffix.put(prefix, suffix);
+        // skip inverted name for now
+      }
+      System.out.println("Size:\t" + toNames.size());
+      in.close();
+
+      
       // ﻿Id  Print_Name  Inverted_Name
       in = Utility.getUTF8Data("iso-639-3_Name_Index_20070205.tab");
       while (true) {
@@ -128,8 +177,57 @@ public class Iso639Data {
         toNames.put(languageSubTag, parts[IsoNamesColumn.Print_Name.ordinal()]);
         // skip inverted name for now
       }
+      System.out.println("Size:\t" + toNames.size());
       in.close();
-      
+
+      in = Utility.getUTF8Data("ISO-639-2_values_8bits.txt");
+      // An alpha-3 (bibliographic) code, 
+      // an alpha-3 (terminologic) code (when given), 
+      // an alpha-2 code (when given), 
+      // an English name, 
+      // and a French name of a language are all separated by pipe (|) characters.
+      int addCounter = 0;
+      while (true) {
+        String line = in.readLine();
+        if (line == null) break;
+        if (line.startsWith("\uFEFF")) line = line.substring(1);
+        String[] parts = line.split("\\s*\\|\\s*");
+        String alpha3 = parts[0];
+        if (alpha3.equals("qaa-qtz")) {
+          for (char second = 'a'; second <= 't'; ++second) {
+            for (char third = 'a'; third <= 'z'; ++third) {
+              String languageSubtag = (("q" + second) + third);
+              toScope.put(languageSubtag, Scope.PrivateUse);
+              toType.put(languageSubtag, Type.Special);
+              toNames.put(languageSubtag, "private-use");
+              toSource.put(languageSubtag, Source.Iso639_2);
+            }
+          }
+          continue;
+        }
+        if (parts[1].length() != 0) alpha3 = parts[1];
+        String languageSubtag = parts[2];
+        if (languageSubtag.length() == 0) {
+          languageSubtag = alpha3;
+        }
+        String[] english = parts[3].split(";");
+        toSource.put(languageSubtag, languageSubtag.length() == 2 ? Source.Iso639_1 : Source.Iso639_2);
+        if (!toNames.containsKey(languageSubtag)) {
+          // we don't have it already,
+          System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" + Arrays.asList(english));
+          if (languageSubtag.length() == 2) {
+            toAlpha3.put(languageSubtag,alpha3);
+            fromAlpha3.put(alpha3,languageSubtag);
+          }
+          toScope.put(languageSubtag,Scope.Collection);
+          toType.put(languageSubtag,Type.Special);
+          toNames.putAll(languageSubtag,Arrays.asList(english));
+        }
+        // skip inverted name for now
+      }
+      in.close();
+      System.out.println("Size:\t" + toNames.size());
+
       // make data unmodifiable, just to prevent mistakes
       
       toAlpha3 = Collections.unmodifiableMap(toAlpha3);
@@ -137,9 +235,10 @@ public class Iso639Data {
       toScope = Collections.unmodifiableMap(toScope);
       toType = Collections.unmodifiableMap(toType);
       toNames.freeze();
+      prefix_suffix.freeze();
       
     } catch (IOException e) {
-      throw (RuntimeException) new IllegalArgumentException("Cannot parse iso-fdis-639-3_20061114.tab").initCause(e);
+      throw (RuntimeException) new IllegalArgumentException("Cannot parse file").initCause(e);
     }    
   }
 
@@ -153,6 +252,25 @@ public class Iso639Data {
   }
 
   public static Set<String> getAvailable() {
+    if (toAlpha3 == null) {
+      getData();
+    }
     return toNames.keySet();
+  }
+
+  public static String getPrefix(String suffix) {
+    String prefix = suffix_prefix.get(suffix);
+    if (prefix != null) return prefix;
+    if (suffix.equals("sgn")) return null;
+    Set<String> names = toNames.getAll(suffix);
+    if (names == null) return null;
+    for (String name : names) {
+      if (name.contains("Sign Language")) return "sgn";
+    }
+    return null;
+  }
+  
+  public static Set<String> getSuffixes(String prefix) {
+    return prefix_suffix.getAll(prefix);
   }
 }

@@ -23,6 +23,7 @@ import java.util.Vector;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.*;
 
 /**
  * A class that abstracts out some of the supplementalData  
@@ -308,5 +309,59 @@ public class SupplementalData {
         }
         // Normal case: return the lookedup value
         return (String)defaultContentToChildHash.get(parent);
+    }
+    
+    Hashtable validityVariables = new Hashtable();
+    
+    // variables 
+    synchronized String getValidityVariable(String id, String type) {
+        String key = id+"/"+type;
+        String ret = (String)validityVariables.get(key);
+        if(ret != null) {
+            return ret;
+        }
+    
+        try {
+            NodeList defaultContent = 
+                    LDMLUtilities.getNodeList(getMetadata(), 
+                    "//supplementalData/metadata/validity/variable");
+                    
+            int len = defaultContent.getLength();
+            for(int i=0;i<len;i++) {
+                Node defaultContentItem = defaultContent.item(i);
+                
+                String nodeId = LDMLUtilities.getAttributeValue(defaultContentItem,"id");
+                if(!id.equals(nodeId)) {
+                    continue;
+                }
+                String nodeType = LDMLUtilities.getAttributeValue(defaultContentItem,"type");
+                if(!type.equals(nodeType)) {
+                    continue;
+                }
+                
+                ret = LDMLUtilities.getNodeValue(defaultContentItem);
+
+                validityVariables.put(key, ret);
+                return ret;
+            }
+        } catch ( Throwable t ) {
+            System.err.println("Looking for validity variable " + id + "/"+type + " -> " + t.toString());
+            t.printStackTrace();
+            throw new InternalError("Looking for validity variable " + id + "/"+type + " -> " + t.toString());
+        }
+        return null;
+    }
+    
+    public String[] getValidityChoice(String id) {
+        return split(getValidityVariable(id, "choice"));
+    }
+    
+    public Pattern getValidityRegex(String id) {
+        String regex = getValidityVariable(id, "regex");
+        if(regex == null) {
+            return null;
+        } else {
+            return Pattern.compile(regex);
+        }
     }
 }

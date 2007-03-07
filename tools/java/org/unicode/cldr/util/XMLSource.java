@@ -731,9 +731,10 @@ public abstract class XMLSource implements Freezable {
           addFallbackCode(typeNo, code, value);
         }
       }
-      addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh_Hans");
-      addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hant", "zh_Hant");
-      addFallbackCode(CLDRFile.LANGUAGE_NAME, "pt_BR", "pt_BR");
+      String[] extraCodes = {"en_AU", "en_CA", "en_GB", "en_US", "es_419", "fr_CA", "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant"};
+      for (String extraCode : extraCodes) {
+        addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
+      }
       addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
       addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
       

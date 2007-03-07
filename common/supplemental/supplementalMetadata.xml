@@ -580,9 +580,10 @@
         <coverageAdditions>
             <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant und"/>
             <languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>
+            <languageCoverage type="modern" values="en_AU en_CA en_GB en_US es_419 fr_CA fr_CH nl_BE pt_BR pt_PT"/> 
             <!-- <languageCoverage type="moderate" subtype="EU" values="da el fi sv cs et lv lt hu mt sk sl"/> -->
             <!-- <languageCoverage type="modern" values="sr"/> from languageInfo -->
-            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab Zzzz"/>
+            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab Zzzz Zxxx"/>
             <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US ZZ"/>
             <territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW 419"/>		
             <timezoneCoverage type="moderate" values="America/Buenos_Aires America/Rio_Branco America/Campo_Grande America/Sao_Paulo

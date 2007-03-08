@@ -751,6 +751,19 @@ public abstract class XMLSource implements Freezable {
             + "[@key=\"" + typeDisplayNames[i][1] + "\"]",
             typeDisplayNames[i][0]);
       }
+      String[][] relativeValues = {
+          {"The day before yesterday", "-2"},
+          {"Yesterday", "-1"},
+          {"Today", "0"},
+          {"Tomorrow", "1"},
+          {"The day after tomorrow", "2"},
+      };
+      for (int i = 0; i < relativeValues.length; ++i) {
+        constructedItems.putValueAtPath(
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"" + relativeValues[i][1] + "\"]",
+            relativeValues[i][0]);
+      }
+
       constructedItems.freeze();
       allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
       //System.out.println("constructedItems: " + constructedItems);

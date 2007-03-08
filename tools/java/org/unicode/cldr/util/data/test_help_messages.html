@@ -462,7 +462,11 @@ HTML.</p>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*/fields.*relative.*</td>
 		<td>
-		This is used to indicate a relative period of time, like &quot;Yesterday&quot;.</td>
+		This is used to indicate a relative period of time, like &quot;Yesterday&quot;. Some languages don&#39;t have words or short phrases for some of these. For 
+		example, English does not have a word for &quot;the day before yesterday&quot; as some languages do (such as &quot;Vorgestern&quot; in German). (The English phrase supplied 
+		above is just to let you know what to translate, and is not part of the actually English CLDR file.) If your language doesn&#39;t have a natural term for 
+		one of these, then choose the empty value: that is, pick the &quot;inherited&quot; value: <span class="fallback" title="Fallback from root">
+		<input title="#63133" disabled type="radio" value="V1" checked name="R1">The day after tomorrow</span><span title="Fallback from root">.</span></td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*/(a|p)m</td>

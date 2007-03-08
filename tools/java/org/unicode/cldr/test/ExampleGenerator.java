@@ -50,7 +50,7 @@ public class ExampleGenerator {
   
   private final static String EXEMPLAR_CITY = "Europe/Rome";
   
-  private String backgroundStart = "<span style='background-color: silver'>";
+  private String backgroundStart = "<span class='substituted'>";
   
   private String backgroundEnd = "</span>";
   

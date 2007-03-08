@@ -424,11 +424,13 @@ td.framecell {
 }
 
 .insufficient {
+    /* 
     border: 2px;
 	border-color: #f0961b;
 	border-style: dashed;
 	margin: 1px;
 	padding: 1px;
+	*/
 }
 
 /* but, an insufficient table.. */
@@ -549,8 +551,13 @@ table.sqlbox form {
 
 .winner {
 /*	border: 4px groove #0f0;*/
-   border:2px solid #0f0; 
+   border:1px solid #0f0; 
    background-color:#DDFFDD;
+}
+
+.substituted {
+   border:1px solid #BBBBBB; 
+   background-color:#DDDDDD;
 }
 
 .loser {

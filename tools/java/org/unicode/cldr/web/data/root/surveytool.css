@@ -4,6 +4,7 @@
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
 	http://nestor.priv:8080/cldr-apps/surveytool.css
 	http://tintin.priv:8080/cldr-apps/surveytool.css
+	http://nestor.local:8080/cldr-apps/surveytool.css
 */
 
 td {
@@ -80,8 +81,8 @@ A.nodraft:visited {
 }
 
 .fallback {
-   border:1px dotted #0f0; 
-   background-color: #DDFFDD;
+   border:1px dotted #f00; 
+   background-color: #FFDDDD;
 }
 
 .draft {
@@ -202,6 +203,25 @@ tr.warnrow {
 /*	margin-left: 2em; */
 }
 
+table.data {
+	width:  100%;
+}
+
+.data {
+	border-collapse: collapse;
+}
+
+table.data td, table.data th {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-left:  1px solid gray;
+	border-right: 1px solid gray;
+}
+
+table.data td.noborder, table.data th.noborder {
+	border-left:  none;
+	border-right:  none;
+}
 
 .list {
 	border-collapse: collapse
@@ -529,7 +549,7 @@ table.sqlbox form {
 
 .winner {
 /*	border: 4px groove #0f0;*/
-   border:1px solid #0f0; 
+   border:2px solid #0f0; 
    background-color:#DDFFDD;
 }
 

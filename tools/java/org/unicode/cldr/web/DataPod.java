@@ -186,6 +186,24 @@ public class DataPod extends Registerable {
             public Set votes = null; // Set of Users who voted for this.
             
             public String example = "";
+            
+            public String toString() { 
+                return "{Item v='"+value+"', altProposed='"+altProposed+"', inheritFrom='"+inheritFrom+"'}";
+            }
+            
+           /* public boolean equals(Object other) {
+                if(other == this) {
+                    return true;
+                }
+                if(!(other instanceof DataPod.Pea.Item)) {
+                    return false;
+                }
+                Item i = (Item)other;
+                
+                System.err.println("I= "+this+" : " + i);
+                return false;
+            }*/
+            
         }
         
         Item inheritedValue = null; // vetted value inherited from parent
@@ -857,8 +875,8 @@ public class DataPod extends Registerable {
                                                     "/quarterWidth|"+
                                                     "/dayContext|"+
                                                     "/dayWidth|"+
-                                                    "day/|"+
-                                                    "date/|"+
+//                                                    "day/|"+
+//                                                    "date/|"+
                                                     "Format|"+
                                                     "s/field|"+
                                                     "\\[@draft=\"true\"\\]|"+ // ???

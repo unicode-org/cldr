@@ -62,8 +62,8 @@ table {border-collapse: collapse}
 	</tr>
 </table>
 <div style="margin:2em">
-	<h1>Unicode CLDR Survey Tool View Help</h1>
-	<p>This page explains the different views used in entering in CLDR data. The exact appearance may change as the tool is enhanced during the beta period.</p>
+	<h1>Unicode CLDR Survey Tool Views</h1>
+	<p>This page explains the different views used in entering in CLDR data. The exact appearance may change as the tool is enhanced over time.</p>
 	<p><i><span style="background-color: #FFFFCC">Italics and yellow highlighting are used to comment on particular features below.</span></i></p>
 	<h2>Navigation</h2>
 	<p>Once you start on a particular locale, most windows have a navigation bar at the top. It looks like the following.</p>
@@ -123,7 +123,7 @@ table {border-collapse: collapse}
 				will go between pages</span></i></td>
 			</tr>
 			<tr valign="top">
-				<td class="pagerln" align="left" style="background-color: #FFEFCE" colspan="3"><b>Errors and Warnings:</b> <b>
+				<td class="pagerln" align="left" style="background-color: #FFEFCE; border-top-style:solid; border-top-width:1px; border-bottom-style:solid; border-bottom-width:1px" colspan="3"><b>Errors and Warnings:</b> <b>
 				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Errors%20and%20Warnings">
 				available date forma…–</a></b> </td>
 				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
@@ -131,7 +131,7 @@ table {border-collapse: collapse}
 				broken into sections, according to status.</span></i></td>
 			</tr>
 			<tr valign="top">
-				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="3"><b>Unconfirmed:</b> <b>
+				<td class="pagerln" align="left" style="border-top:1px solid #FFEFCE; border-bottom:1px solid #FFEFCE; background-color:#FFEFCE; border-left-color:#FFEFCE; border-right-color:#FFEFCE" colspan="3"><b>Unconfirmed:</b> <b>
 				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Unconfirmed">AM–h:mm a</a></b>
 				</td>
 				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE">&nbsp;</td>
@@ -141,7 +141,7 @@ table {border-collapse: collapse}
 				The items on other pages are non-bold.</span></td>
 			</tr>
 			<tr valign="top">
-				<td class="pagerln" align="left" style="border-color: #FFEFCE; background-color:#FFEFCE" colspan="3"><b>Others:</b> <b>
+				<td class="pagerln" align="left" style="border-top:1px solid #FFEFCE; border-bottom:1px solid #FFEFCE; background-color:#FFEFCE; border-left-color:#FFEFCE; border-right-color:#FFEFCE" colspan="3"><b>Others:</b> <b>
 				<a class="selected" style="text-decoration: none;" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar#Others"><i>add</i>–Thursday</a></b>
 				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=80">Thu–S</a>
 				<a class="notselected" href="http://unicode.org/cldr/apps/survey?_=fr&x=gregorian%20calendar&skip=160">September–</a> </td>
@@ -160,7 +160,7 @@ table {border-collapse: collapse}
 				<th class="main2-medium">English</th>
 				<th class="main2-medium" colspan="2">Current</th>
 				<th class="main2-medium" colspan="2">Proposed</th>
-				<th class="main2-medium" colspan="2">Add Proposed</th>
+				<th class="main2-medium" colspan="2">Change</th>
 				<th class="main2-narrow">n/a</th>
 			</tr>
 			<tr>
@@ -302,7 +302,9 @@ table {border-collapse: collapse}
 		<tr>
 			<td style="vertical-align: top; " title="{shows reference here}" bgcolor="#F5F5F5"><b>Ex.</b></td>
 			<td style="vertical-align: top; text-align: left">1,234.56</td>
-			<td style="vertical-align: top; text-align: left">Provides examples of patterns in usage.</td>
+			<td style="vertical-align: top; text-align: left">Provides examples of patterns in usage. If text is substituted in a pattern, it is shown in gray. 
+			For example, there is a pattern used in timezones &quot;{0} Time&quot;. In the example, a sample value is used to show what it would look like, as &quot;<span style="background-color: silver;">Japan</span> 
+			Time&quot;</td>
 			<td style="vertical-align: top; text-align: left">&nbsp;</td>
 		</tr>
 		<tr>
@@ -340,14 +342,16 @@ table {border-collapse: collapse}
 			<th class="main2-medium2"><i>Ex</i></th>
 			<th class="main2-medium2">Proposed</th>
 			<th class="main2-medium2"><i>Ex</i></th>
-			<th class="main2-medium2">Add Proposed</th>
+			<th class="main2-medium2">Change</th>
 			<th class="main2-narrow">n/a</th>
 		</tr>
 		<tr>
 			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
 			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
 			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
-			<td class="code"><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
+			<td class="code"><tt title="#1144, w[N]:1144">
+			<a target="target=" surveytool:n:el class="forumlink" href="http://unicode.org/cldr/apps/survey?_=el&forum=el&xpath=1144">
+			currency/​standard/​standard</a></tt></td>
 			<td>¤#,##0.00</td>
 			<td><font face="Times New Roman">£1,234.56</font></td>
 			<td style="vertical-align: top; text-align: left"><input value="V1" name="R15" type="radio" checked />#,##0.00¤</td>
@@ -389,11 +393,13 @@ table {border-collapse: collapse}
 			<th class="main2-medium" style="width: 1%">Ex</th>
 			<th class="main2-medium" colspan="3">Proposed</th>
 			<th class="main2-medium" style="width: 1%">Ex</th>
-			<th class="main2-medium" colspan="2">Add Proposed</th>
+			<th class="main2-medium" colspan="2">Change</th>
 			<th class="main2-narrow">n/a</th>
 		</tr>
 		<tr>
-			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details"><tt title="#1144, w[0]:-1">currency/standard/standard</tt></td>
+			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details"><tt title="#1144, w[N]:1144">
+			<a target="target=" surveytool:n:el class="forumlink" href="http://unicode.org/cldr/apps/survey?_=el&forum=el&xpath=1144">
+			currency/​standard/​standard</a></tt></td>
 			<td style="vertical-align: top; text-align: left">¤#,##0.00;(¤#,##0.00)</td>
 			<td style="vertical-align: top; text-align: left" width="1%">XXX12,345.68</td>
 			<td width="1%" style="vertical-align: top; text-align: left"><input value="V1" name="R44" type="radio" checked /></td>
@@ -465,7 +471,7 @@ table {border-collapse: collapse}
 						</tr>
 						<tr>
 							<td><input value="#,##0.00 ¤;-¤ #,##0.00" name="pattern"></td>
-							<td><input value="#,##0.00¤;-¤#,##0.00" name="context"></td>
+							<td><input value="XXX" name="context"></td>
 							<td><input value="12345.6789" name="input"></td>
 							<td><input type="submit" value="Test" name="Test"></td>
 							<td><input value="12.345,68 XXX" name="formatted"></td>
@@ -489,7 +495,7 @@ table {border-collapse: collapse}
 	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table17">
 		<tr>
 			<th class="main2-narrow" width="5%" nowrap>Code</th>
-			<th class="main2-medium" colspan="2">Reference</th>
+			<th class="main2-medium" colspan="2" style="width: 100%">Reference</th>
 		</tr>
 		<tr>
 			<td class="code" rowspan="2" nowrap width="1%">

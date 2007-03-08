@@ -10,15 +10,14 @@
 <body>
 
 <h1 align="center">Survey Tool Help Text</h1>
-<p>This is a help-text file for use with the survey tool. <b>The software that 
-interprets this expects a particular format, so don&#39;t make arbitrary changes.
-</b>You can add a new row, where the Key is usually a regular expression for a 
-path, and you can put text to insert. The text to insert can be fairly arbitrary 
-HTML.</p>
+<p>This is a help-text file for use with the survey tool. You can add a new row, where the <i>Path</i> is a regular expression for an XML 
+path, and the <i>Text to Insert</i> is what you want to show up as help text, or modify existing text. <b>The software that 
+interprets this expects a particular format, so don&#39;t make arbitrary changes (see the end).
+</b></p>
 <table border="1" width="100%" id="table1" cellspacing="0" bordercolor="#000080" style="border-collapse: collapse">
 	<tr>
 		<th>Path</th>
-		<th>Text to insert</th>
+		<th>Text to Insert</th>
 	</tr>
 	<tr>
 		<td>//ldml/localeDisplayNames.*</td>
@@ -428,10 +427,6 @@ HTML.</p>
 				<td align="center">1 Dez. 53</td>
 			</tr>
 			</table>
-		<p>Other notes:</p>
-		<li><strong>quarter...</strong>. </li>
-		<li><strong>time/...</strong>.
-		</li>
 </td>
 	</tr>
 	<tr>
@@ -463,10 +458,10 @@ HTML.</p>
 		<td>//ldml/dates/calendars/calendar.*/fields.*relative.*</td>
 		<td>
 		This is used to indicate a relative period of time, like &quot;Yesterday&quot;. Some languages don&#39;t have words or short phrases for some of these. For 
-		example, English does not have a word for &quot;the day before yesterday&quot; as some languages do (such as &quot;Vorgestern&quot; in German). (The English phrase supplied 
-		above is just to let you know what to translate, and is not part of the actually English CLDR file.) If your language doesn&#39;t have a natural term for 
-		one of these, then choose the empty value: that is, pick the &quot;inherited&quot; value: <span class="fallback" title="Fallback from root">
-		<input title="#63133" disabled type="radio" value="V1" checked name="R1">The day after tomorrow</span><span title="Fallback from root">.</span></td>
+		example, English does not have a word for &quot;the day before yesterday&quot; as some languages do, such as &quot;Vorgestern&quot; in German.<p>If your language doesn&#39;t have a natural term for 
+		one of these, pick the &quot;inherited&quot; value, such as <span class="fallback" title="Fallback from root">
+		<input title="#63133" disabled type="radio" value="V1" checked name="R1">The day after tomorrow</span><span title="Fallback from root">. </span>The 
+		English phrase supplied here is just to let you know what to translate, and is not part of the actually English CLDR file.</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*/(a|p)m</td>
@@ -653,8 +648,8 @@ HTML.</p>
 		for minority languages. For example, for Breton the most natural language to fall back to might be French.</td>
 	</tr>
 </table>
-<p>The software that reads this table will search the first column (eg between 
-&lt;td&gt; and &lt;/td&gt;) and return the contents of the second column. I plan on adding a 
+<p>The text to insert can be fairly arbitrary HTML. The software that reads this table will search the first column (eg between 
+&lt;td&gt; and &lt;/td&gt;) and return the contents of the second column. We plan on adding a 
 few variables also, for the current locale name, in particular. This file uses 
 the survey tool style-sheet, so you can use those <span  class="winner">styles</span> 
 (and icons, like

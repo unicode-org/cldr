@@ -137,80 +137,73 @@ public class SurveyForum {
     }
     
     void doForum(WebContext ctx, String sessionMessage) throws IOException { 
-        try {
-            /* OK, let's see what we are doing here. */
-            String forum = ctx.field(F_FORUM);
-            int base_xpath = ctx.fieldInt(F_XPATH);
-            int forumNumber = getForumNumber(forum);
-            String pD = ctx.field(F_DO); // do
-            boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
-            boolean canModify = false;
+        /* OK, let's see what we are doing here. */
+        String forum = ctx.field(F_FORUM);
+        int base_xpath = ctx.fieldInt(F_XPATH);
+        int forumNumber = getForumNumber(forum);
+        String pD = ctx.field(F_DO); // do
+        boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
+        boolean canModify = false;
 
-            if((ctx.locale == null) && (forumNumber != -1)) {
-                ctx.setLocale(new ULocale(forum));
-            }
-            
-            if(!loggedout) {
-                canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-            }
-            
-            // Are they just zooming in?
-            if(!canModify && (base_xpath!=-1)) {
-                doZoom(ctx, sessionMessage);
-                return;
-            }
-            
-            // User isnt logged in.
-            if(loggedout) {
-                sm.printHeader(ctx,"Fora | Please login.");
-                sm.printUserTable(ctx);
-                if(sessionMessage != null) {
-                    ctx.println(sessionMessage+"<hr>");
-                }
-                ctx.println("<hr><strong>You aren't logged in. Please login to continue.</strong><p>");
-                sm.printFooter(ctx);
-                return;
-            }
-            
-            // User has an account, but does not have access to this forum.
-            if(!canModify) {
-                sm.printHeader(ctx,"Fora | Access Denied.");
-                sm.printUserTable(ctx);
-                if(sessionMessage != null) {
-                    ctx.println(sessionMessage+"<hr>");
-                }
-                ctx.println("<hr><strong>You do not have access to this forum. If you believe this to be in error, contact your CLDR TC member, and/or the person who set up your account.</strong><p>");
-                sm.printFooter(ctx);
-                return;
-            }
-            
-            // User is logged in and has access.
-            
-            if((base_xpath != -1) || (ctx.hasField("replyto"))) {
-                // Post to a specific xpath
-                doXpathPost(ctx, forum, forumNumber, base_xpath);
-            } else if(F_VIEW.equals(pD) && ctx.hasField("id")) {
-                doForumView(ctx, forum, forumNumber);
-            } else if(forumNumber == -1) {
-                sm.printHeader(ctx,"Fora");
-                sm.printUserTable(ctx);
-                // no forum or bad forum. Do general stuff.
-    //            doForumForum(ctx, pF, pD);
-            } else {
-                // list what is in a certain forum
-                doForumForum(ctx, forum, forumNumber);
-            }
-            
-            if(sessionMessage != null) {
-                ctx.println("<hr>"+sessionMessage);
-            }
-            sm.printFooter(ctx);
-        } catch (Throwable t) {
-            System.err.println("err in forum: " + t.toString());
-            t.printStackTrace();
-        } finally {
-            //System.err.println("leavin' - ");
+        if((ctx.locale == null) && (forumNumber != -1)) {
+            ctx.setLocale(new ULocale(forum));
         }
+        
+        if(!loggedout) {
+            canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        }
+        
+        // Are they just zooming in?
+        if(!canModify && (base_xpath!=-1)) {
+            doZoom(ctx, sessionMessage);
+            return;
+        }
+        
+        // User isnt logged in.
+        if(loggedout) {
+            sm.printHeader(ctx,"Fora | Please login.");
+            sm.printUserTable(ctx);
+            if(sessionMessage != null) {
+                ctx.println(sessionMessage+"<hr>");
+            }
+            ctx.println("<hr><strong>You aren't logged in. Please login to continue.</strong><p>");
+            sm.printFooter(ctx);
+            return;
+        }
+        
+        // User has an account, but does not have access to this forum.
+        if(!canModify) {
+            sm.printHeader(ctx,"Fora | Access Denied.");
+            sm.printUserTable(ctx);
+            if(sessionMessage != null) {
+                ctx.println(sessionMessage+"<hr>");
+            }
+            ctx.println("<hr><strong>You do not have access to this forum. If you believe this to be in error, contact your CLDR TC member, and/or the person who set up your account.</strong><p>");
+            sm.printFooter(ctx);
+            return;
+        }
+        
+        // User is logged in and has access.
+        
+        if((base_xpath != -1) || (ctx.hasField("replyto"))) {
+            // Post to a specific xpath
+            doXpathPost(ctx, forum, forumNumber, base_xpath);
+        } else if(F_VIEW.equals(pD) && ctx.hasField("id")) {
+            doForumView(ctx, forum, forumNumber);
+        } else if(forumNumber == -1) {
+            sm.printHeader(ctx,"Fora");
+            sm.printUserTable(ctx);
+            // no forum or bad forum. Do general stuff.
+//            doForumForum(ctx, pF, pD);
+        } else {
+            // list what is in a certain forum
+            doForumForum(ctx, forum, forumNumber);
+        }
+        
+        if(sessionMessage != null) {
+            ctx.println("<hr>"+sessionMessage);
+        }
+        sm.printFooter(ctx);
     }
     
     String returnUrl(WebContext ctx, String locale, int base_xpath) {
@@ -419,7 +412,7 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
             ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
 
-            ctx.println("<input type='submit' value='" + sm.xSAVE + "'>"); //style='float:right' 
+            ctx.println("<input type='submit' value='" + sm.xSAVE + "'><br>"); //style='float:right' 
             sm.vet.processPodChanges(ctx, podBase);
         } else {
 //            ctx.println("<br>cant modify " + ctx.locale + "<br>");
@@ -793,14 +786,14 @@ public class SurveyForum {
             +contents+ "</a>");
     }
     void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-            showForumLink(ctx,pod,p,xpath,ctx.iconThing("zoom","zoom"));
+            showForumLink(ctx,pod,p,xpath,ctx.iconHtml("zoom","zoom"));
     }
 
     static String forumUrl(WebContext ctx, String forum) {
         return (ctx.base()+"?"+F_FORUM+"="+forum);
     }
     String returnText(WebContext ctx, int base_xpath) {
-        return "Zoom out to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.iconThing("zoom","zoom out to " + ctx.locale)+" "+ ctx.locale+"</a>";
+        return "Zoom out to <a href='"+returnUrl(ctx,ctx.locale.toString(),base_xpath)+"'>"+ctx.iconHtml("zoom","zoom out to " + ctx.locale)+" "+ ctx.locale+"</a>";
     }
     
     // XML/RSS

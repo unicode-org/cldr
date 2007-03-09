@@ -37,6 +37,7 @@ public class WebContext {
     public CLDRDBSource dbsrc = null;
     public Document doc[]= new Document[0];
     public ULocale locale = null;
+    public String  localeString = null;
     public ULocale displayLocale = SurveyMain.BASELINE_LOCALE;
     public String docLocale[] = new String[0];
     public String localeName = null; 
@@ -91,8 +92,11 @@ public class WebContext {
         displayLocale = other.displayLocale;
         out = other.out;
         outQuery = other.outQuery;
-        locale = other.locale;
         localeName = other.localeName;
+        locale = other.locale;
+        if(locale != null) {
+            localeString = locale.getBaseName();
+        }
         session = other.session;
         outQueryMap = (TreeMap)other.outQueryMap.clone();
         dontCloseMe = true;
@@ -448,6 +452,7 @@ public class WebContext {
 
     void setLocale(ULocale l) {
         locale = l;
+        localeString = locale.getBaseName();
         String parents = null;
         Vector localesVector = new Vector();
         parents = l.toString();
@@ -473,6 +478,13 @@ public class WebContext {
         
            // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
         }
+    }
+    
+    public final String localeString() {
+        if(localeString == null) {
+            throw new InternalError("localeString is null, locale="+ locale);
+        }
+        return localeString;
     }
 
     // convenience.	
@@ -770,9 +782,9 @@ public class WebContext {
         }
     }
     public String modifyThing(String message) {
-        return iconThing("hand",message);
+        return iconHtml("hand",message);
     }
-    public String iconThing(String icon, String message) {
+    public String iconHtml(String icon, String message) {
         return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
     }
 }

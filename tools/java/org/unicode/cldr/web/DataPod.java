@@ -155,6 +155,8 @@ public class DataPod extends Registerable {
     public class Pea {
         Pea superPea = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
         public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
+        public Pea toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
+        public boolean toggleValue = false;
         public String type = null;
         public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
         public String displayName = null;
@@ -299,6 +301,60 @@ public class DataPod extends Registerable {
                 inheritedValue.xpathId = base_xpath;
                 inheritedValue.isFallback = true;
             }
+        }
+        
+        private String replaceEndWith(String str, String oldEnd, String newEnd) {
+            if(!str.endsWith(oldEnd)) {
+                throw new InternalError("expected " + str + " to end with " + oldEnd);
+            }
+            return str.substring(0,str.length()-oldEnd.length())+newEnd;
+        }
+        
+        void updateToggle(String path, String attribute) {
+            if(true == true) {
+                confirmOnly = true;
+                return; /// Disable toggles - for now.
+            }
+            
+            
+            
+            XPathParts parts = new XPathParts(null,null);
+            parts.initialize(path);
+            String lelement = parts.getElement(-1);
+            String eAtt = parts.findAttributeValue(lelement, attribute);
+            if(eAtt == null) {
+                System.err.println(this + " - no attribute " + attribute + " in " + path);
+            }
+            toggleValue = eAtt.equals("true");
+            
+            //System.err.println("Pea: " + type + " , toggle of val: " + myValue + " at xpath " + path);
+            String myValueSuffix = "[@"+attribute+"=\""+toggleValue+"\"]";
+            String notMyValueSuffix = "[@"+attribute+"=\""+!toggleValue+"\"]";
+            
+            if(!type.endsWith(myValueSuffix)) {
+                throw new InternalError("toggle: expected "+ type + " to end with " + myValueSuffix);
+            }
+            
+            String typeNoValue =  type.substring(0,type.length()-myValueSuffix.length());
+            String notMyType = typeNoValue+notMyValueSuffix;
+            
+            
+            Pea notMyPea = getPea(notMyType);
+            if(notMyPea.toggleWith == null) {
+                notMyPea.toggleValue = !toggleValue;
+                notMyPea.toggleWith = this;
+
+                String my_base_xpath_string = sm.xpt.getById(base_xpath);
+                String not_my_base_xpath_string = replaceEndWith(my_base_xpath_string, myValueSuffix, notMyValueSuffix);
+                notMyPea.base_xpath = sm.xpt.getByXpath(not_my_base_xpath_string);
+
+                notMyPea.xpathSuffix = replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
+
+                //System.err.println("notMyPea.xpath = " + xpath(notMyPea));
+            }
+            
+            toggleWith = notMyPea;
+            
         }
     }
 
@@ -1024,6 +1080,7 @@ public class DataPod extends Registerable {
         
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             boolean confirmOnly = false;
+            String isToggleFor= null;
             String xpath = (String)it.next();
 
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
@@ -1149,7 +1206,7 @@ public class DataPod extends Registerable {
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
             } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
-                confirmOnly = true;
+                isToggleFor = "used";
             }
             
             if(useShorten) {
@@ -1182,8 +1239,8 @@ public class DataPod extends Registerable {
 
 //    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
     
-            xpp.clear();
             /*
+            xpp.clear();
             xpp.initialize(xpath);
             String lelement = xpp.getElement(-1); */
             /* all of these are always at the end */
@@ -1224,6 +1281,14 @@ public class DataPod extends Registerable {
             }
             if(superP.inheritedValue == null) {
                 superP.updateInheritedValue(vettedParent);
+            }
+            if(isToggleFor != null) {
+                if(superP.toggleWith == null) {
+                    superP.updateToggle(fullPath, isToggleFor);
+                }
+                if(p.toggleWith == null) {
+                    p.updateToggle(fullPath, isToggleFor);
+                }
             }
 
 //if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
@@ -1491,8 +1556,8 @@ public class DataPod extends Registerable {
                     }
         ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
 
-                    if(suff.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
-                        myp.confirmOnly = true;
+                    if(suff.indexOf("commonlyUsed[@used")!=-1) {
+                        myp.updateToggle(base_xpath_string, "used");
                     }
 
 

@@ -1136,6 +1136,7 @@ import com.ibm.icu.util.ULocale;
         xpath.endsWith("/abbreviationFallback") ||
         xpath.endsWith("/preferenceOrdering") ||
         xpath.endsWith("/inList") ||
+        xpath.endsWith("/commonlyUsed") ||
         xpath.endsWith("/firstDay") ) {
         return true;
      }
@@ -1435,10 +1436,11 @@ import com.ibm.icu.util.ULocale;
             }
             String rawXpath = fullXpathMinusAlt + altTag + refStr; // refstr will get removed
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
-            String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
-            if(!xpath.equals(rawXpath)) {
-                logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
-            }
+           // String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);  // removes  @used=  etc
+           // if(!xpath.equals(rawXpath)) {
+           //     logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+           // }
+            String xpath = fullXpathMinusAlt + altTag;
             String oxpath = xpath+refStr+"[@draft=\"true\"]";
             int xpid = xpt.getByXpath(xpath);
             

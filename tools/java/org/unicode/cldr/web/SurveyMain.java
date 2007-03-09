@@ -839,7 +839,7 @@ public class SurveyMain extends HttpServlet {
 		} else if(action.equals("upd_src")) {
             WebContext subCtx = new WebContext(ctx);
             actionCtx.addQuery("action",action);
-            ctx.println("<br>");
+            ctx.println("<br>(locale caches reset..)<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
             resetLocaleCaches();
             mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
@@ -983,7 +983,7 @@ public class SurveyMain extends HttpServlet {
      * print menu of stuff to 'work with' a live user session..
      */
     private void printLiveUserMenu(WebContext ctx, CookieSession cs) {
-        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>" + ctx.iconThing("zoom","SEE this user") + "see" + "</a> |");
+        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;see=" + cs.id + "'>" + ctx.iconHtml("zoom","SEE this user") + "see" + "</a> |");
         ctx.println("<a href='" + ctx.base() + "?&amp;s=" + cs.id + "'>"  +"be" + "</a> |");
         ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&amp;unlink=" + cs.id + "'>" +  "kick" + "</a>");
     }
@@ -1028,17 +1028,17 @@ public class SurveyMain extends HttpServlet {
             ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||
                 false)) {
             ctx.print("<div title='You're an admin!' style='text-align: center; margin: 0; background-color: red;'>");
-            ctx.printHelpLink("/Admin",ctx.iconThing("stop","Admin!")+"Be careful, you are an administrator!");
+            ctx.printHelpLink("/Admin",ctx.iconHtml("stop","Admin!")+"Be careful, you are an administrator!");
             ctx.println("</div>");
         }
         if(isUnofficial) {
             ctx.print("<div title='Not an official SurveyTool' style='text-align: center; margin: 0; background-color: goldenrod;'>");
-            ctx.printHelpLink("/Unofficial",ctx.iconThing("warn","Unofficial Site")+"Unofficial");
+            ctx.printHelpLink("/Unofficial",ctx.iconHtml("warn","Unofficial Site")+"Unofficial");
             ctx.println("</div>");
         }
         if(phaseBeta) {
             ctx.print("<div title='Survey Tool is in Beta' style='text-align: center; margin: 0; background-color: yellow;'>");
-            ctx.printHelpLink("/Beta",ctx.iconThing("warn","beta")+"SurveyTool is in Beta. Any data added here will NOT go into CLDR.");
+            ctx.printHelpLink("/Beta",ctx.iconHtml("warn","beta")+"SurveyTool is in Beta. Any data added here will NOT go into CLDR.");
             ctx.println("</div>");
         }
         showSpecialHeader(ctx);
@@ -1743,7 +1743,7 @@ public class SurveyMain extends HttpServlet {
         }
 
         if(!languagesNotInCLDR.isEmpty()) {
-            ctx.println("<p class='hang'>"+ctx.iconThing("stop","locales missing from CLDR")+"<B>Required by " + missingLocalesForOrg + " but not in CLDR: </b>");
+            ctx.println("<p class='hang'>"+ctx.iconHtml("stop","locales missing from CLDR")+"<B>Required by " + missingLocalesForOrg + " but not in CLDR: </b>");
             boolean first=true;
             for(Iterator li = languagesNotInCLDR.iterator();li.hasNext();) {
                 if(first==false) {
@@ -1760,7 +1760,7 @@ public class SurveyMain extends HttpServlet {
         }
 
         if(!languagesMissing.isEmpty()) {
-            ctx.println("<p class='hang'>"+ctx.iconThing("stop","locales without vetters")+
+            ctx.println("<p class='hang'>"+ctx.iconHtml("stop","locales without vetters")+
                 "<B>Required by " + missingLocalesForOrg + " but no vetters: </b>");
             boolean first=true;
             for(Iterator li = languagesMissing.iterator();li.hasNext();) {
@@ -1797,7 +1797,7 @@ public class SurveyMain extends HttpServlet {
 			printLocaleStatus(ctx, aLocale, ln, aLocale);
             ctx.print("</span>");
             if(languagesMissing.contains(aLocale)) {
-                ctx.println("<br>"+ctx.iconThing("stop","No " + missingLocalesForOrg + " vetters")+ "<i>(coverage: "+ sc.getGroup(aLocale, missingLocalesForOrg)+")</i>");
+                ctx.println("<br>"+ctx.iconHtml("stop","No " + missingLocalesForOrg + " vetters")+ "<i>(coverage: "+ sc.getGroup(aLocale, missingLocalesForOrg)+")</i>");
             }
 
             if(showCodes) {
@@ -2044,7 +2044,7 @@ public class SurveyMain extends HttpServlet {
 					areSendingMail= true; // we are ready to go ahead and mail..
 				}
             } else if(ctx.hasField(LIST_MAILUSER_CONFIRM)) {
-                ctx.println("<h1 class='ferrbox'>"+ctx.iconThing("stop","emails did not match")+" not sending mail - you did not confirm the email address. See form at bottom of page."+"</h1>");
+                ctx.println("<h1 class='ferrbox'>"+ctx.iconHtml("stop","emails did not match")+" not sending mail - you did not confirm the email address. See form at bottom of page."+"</h1>");
             }
             
             if(!areSendingMail && !areSendingDisp && ctx.hasField(LIST_MAILUSER)) {
@@ -2234,7 +2234,7 @@ public class SurveyMain extends HttpServlet {
                 
                 if(just==null) {
                     ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(theirEmail)+
-                        "' >"+ctx.iconThing("zoom","More on this user..")+"</a>");
+                        "' >"+ctx.iconHtml("zoom","More on this user..")+"</a>");
                 }
                 ctx.println("</td>");
                 
@@ -2356,7 +2356,7 @@ public class SurveyMain extends HttpServlet {
                                 ctx.println("<input type='hidden' name='"+LIST_MAILUSER_WHAT+"' value='"+
                                         sendWhat.replaceAll("&","&amp;").replaceAll("'","&quot;")+"'>");
                                 if(!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail) && (ctx.field(LIST_MAILUSER_CONFIRM).length()>0)) {
-                                    ctx.println("<strong>"+ctx.iconThing("stop","email did not match")+"That email didn't match. Try again.</strong><br>");
+                                    ctx.println("<strong>"+ctx.iconHtml("stop","email did not match")+"That email didn't match. Try again.</strong><br>");
                                 }
                                 ctx.println("To confirm sending, type the email address <tt class='codebox'>"+cleanEmail+"</tt> in this box : <input name='"+LIST_MAILUSER_CONFIRM+
                                     "'>");
@@ -2564,7 +2564,7 @@ public class SurveyMain extends HttpServlet {
         if(ctx.field("x").equals("references")) {
             if(ctx.locale != null) {
                 String langLocale = ctx.locale.getLanguage();
-                if(!langLocale.equals(ctx.locale.toString())) {
+                if(!langLocale.equals(ctx.localeString())) {
                     ctx.redirect(ctx.base()+"?_="+langLocale+"&x=references");
                     return;
                 }
@@ -2651,7 +2651,7 @@ public class SurveyMain extends HttpServlet {
                 boolean shownHeader = false;
                 for(;e.hasMoreElements();) {
                     String k = e.nextElement().toString();
-                    if((ctx.locale!=null)&&(ctx.locale.getBaseName().equals(k))) {
+                    if((ctx.locale!=null)&&(ctx.localeString().equals(k))) {
                         continue;
                     }
                     if(!shownHeader) {
@@ -2673,16 +2673,23 @@ public class SurveyMain extends HttpServlet {
         }
         
         if(ctx.locale != null ) {
-            String dcParent = supplemental.defaultContentToParent(ctx.locale.getBaseName());
-            String dcChild = supplemental.defaultContentToChild(ctx.locale.getBaseName());
+            String dcParent = supplemental.defaultContentToParent(ctx.localeString());
+            String dcChild = supplemental.defaultContentToChild(ctx.localeString());
             if(dcParent != null) {
+                ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+                ctx.println("<h1>"+ctx.locale.getDisplayName()+"</h1>");
                 ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
-                    "</b>; thus editing is disabled. Please make any changes in <b>"+
+                    "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b> instead. <br>");
                 ctx.printHelpLink("/DefaultContent","Help with Default Content");
                 ctx.print("</div>");
+                
+                //printLocaleTreeMenu(ctx, which);
+                printFooter(ctx);
+                return; // Disable viewing of default content
+                
             } else if (dcChild != null) {
                 ctx.println("<div class='fnotebox'>This locale uses the default content for <b>"+
                     getLocaleLink(ctx,dcChild,null)+
@@ -2692,7 +2699,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.printHelpLink("/DefaultContent","Help with Default Content");
                 ctx.print("</div>");
             }
-            String aliasTarget = isLocaleAliased(ctx.locale.getBaseName());
+            String aliasTarget = isLocaleAliased(ctx.localeString());
             if(aliasTarget != null) {
                 // the alias might be a default content locale. Save some clicks here. 
                 dcParent = supplemental.defaultContentToParent(aliasTarget);
@@ -2990,7 +2997,7 @@ public class SurveyMain extends HttpServlet {
     void doLocale(WebContext ctx, WebContext baseContext, String which) {
         String locale = null;
         if(ctx.locale != null) {
-            locale = ctx.locale.toString();
+            locale = ctx.localeString();
         }
         printPathListOpen(ctx);
         if((locale==null)||(locale.length()<=0)) {
@@ -3157,6 +3164,85 @@ public class SurveyMain extends HttpServlet {
     public static final String CHECKCLDR = "CheckCLDR_";  // key for CheckCLDR objects by locale
     public static final String CHECKCLDR_RES = "CheckCLDR_RES_";  // key for CheckCLDR objects by locale
     
+    
+    void printLocaleTreeMenu(WebContext ctx, String which) {
+        int n = ctx.docLocale.length;
+        int i,j;
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+
+        ctx.println("<table summary='locale info' width='95%' border=0><tr><td width='25%'>");
+        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+        for(i=(n-1);i>0;i--) {
+            for(j=0;j<(n-i);j++) {
+                ctx.print("&nbsp;&nbsp;");
+            }
+            boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
+            ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
+                "\">");
+            printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(ctx.displayLocale), "");
+            ctx.println("</a> ");
+            if(canModify) {
+                ctx.print(modifyThing(ctx));
+            }
+            ctx.println("<br/>");
+        }
+        for(j=0;j<n;j++) {
+            ctx.print("&nbsp;&nbsp;");
+        }
+        boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString());
+        ctx.print("\u2517&nbsp;");
+        ctx.print("<span title='"+ctx.locale+"' style='font-size: 120%'>");
+        printMenu(subCtx, which, xMAIN, 
+            getLocaleStatus(ctx.localeString(), ctx.locale.getDisplayName(ctx.displayLocale), "") );
+        if(canModifyL) {
+            ctx.print(modifyThing(ctx));
+        }
+        ctx.print("</span>");
+        ctx.println("<br/>");
+        ctx.println("</td><td>");
+        
+        subCtx.println("<p class='hang'> Code Lists: ");
+        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            if(n>0) {
+                ctx.print(" | ");
+            }
+            printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
+        }
+        subCtx.println("</p> <p class='hang'>Other Items: ");
+        
+        for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+            if(n>0) {
+                ctx.print(" | ");
+            }
+            printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
+            if(OTHERROOTS_ITEMS[n].equals("references")) {
+                if(!ctx.locale.getLanguage().equals(ctx.localeString())) {
+                    ctx.println("<b>(note: will change to a parent locale)</b>");
+                }
+            }
+            ctx.print(" ");
+        }
+        ctx.println("| <a class='notselected' href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#"+
+            ctx.locale.getLanguage()+"'>supplemental</a>");
+        
+        ctx.print("</p>");
+        boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.localeString());
+        if(canModify) {
+            subCtx.println("<p class='hang'>Forum: ");
+            String forum = ctx.locale.getLanguage();
+            subCtx.println("<strong><a href='"+fora.forumUrl(subCtx, forum)+"'>Forum: "+forum+"</a></strong>");
+            subCtx.println("</p>");
+        }
+        if(ctx.prefBool(PREF_ADV)) {
+            subCtx.println("<p class='hang'>Advanced Items: ");
+//                printMenu(subCtx, which, TEST_MENU_ITEM);
+            printMenu(subCtx, which, RAW_MENU_ITEM);
+            subCtx.println("</p>");
+        }
+        subCtx.println("</td></tr></table>");
+    }
+    
     /**
         * show the actual locale data..
      * @param ctx context
@@ -3164,9 +3250,6 @@ public class SurveyMain extends HttpServlet {
      */
     public void showLocale(WebContext ctx, String which)
     {
-        int i;
-        int j;
-        int n = ctx.docLocale.length;
         if(HAVE_REMOVE&&which.equals(xREMOVE)) {
             ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
             ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
@@ -3194,82 +3277,9 @@ public class SurveyMain extends HttpServlet {
             }
             
             
-            WebContext subCtx = new WebContext(ctx);
-            subCtx.addQuery(QUERY_LOCALE,ctx.locale.toString());
 
             if(!ctx.hasField(QUERY_EXAMPLE)) {
-                ctx.println("<table summary='locale info' width='95%' border=0><tr><td width='25%'>");
-                ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-                for(i=(n-1);i>0;i--) {
-                    for(j=0;j<(n-i);j++) {
-                        ctx.print("&nbsp;&nbsp;");
-                    }
-                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-                    ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
-                        "\">");
-                    printLocaleStatus(ctx, ctx.docLocale[i], new ULocale(ctx.docLocale[i]).getDisplayName(ctx.displayLocale), "");
-                    ctx.println("</a> ");
-                    if(canModify) {
-                        ctx.print(modifyThing(ctx));
-                    }
-                    ctx.println("<br/>");
-                }
-                for(j=0;j<n;j++) {
-                    ctx.print("&nbsp;&nbsp;");
-                }
-                boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
-                ctx.print("\u2517&nbsp;");
-                ctx.print("<span title='"+ctx.locale+"' style='font-size: 120%'>");
-                printMenu(subCtx, which, xMAIN, 
-                    getLocaleStatus(ctx.locale.toString(), ctx.locale.getDisplayName(ctx.displayLocale), "") );
-                if(canModifyL) {
-                    ctx.print(modifyThing(ctx));
-                }
-                ctx.print("</span>");
-                ctx.println("<br/>");
-                ctx.println("</td><td>");
-                
-                subCtx.println("<p class='hang'> Code Lists: ");
-                for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-                    if(n>0) {
-                        ctx.print(" | ");
-                    }
-                    printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
-                }
-                subCtx.println("</p> <p class='hang'>Other Items: ");
-                
-                for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
-                    if(n>0) {
-                        ctx.print(" | ");
-                    }
-                    printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
-                    if(OTHERROOTS_ITEMS[n].equals("references")) {
-                        if(!ctx.locale.getLanguage().equals(ctx.locale.toString())) {
-                            ctx.println("<b>(note: will change to a parent locale)</b>");
-                        }
-                    }
-                    ctx.print(" ");
-                }
-                ctx.println("| <a class='notselected' href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#"+
-                    ctx.locale.getLanguage()+"'>supplemental</a>");
-                
-                ctx.print("</p>");
-    //            ctx.print(" ");
-    //            printMenu(subCtx, which, xOTHER);
-                boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.locale.toString());
-                if(canModify) {
-                    subCtx.println("<p class='hang'>Forum: ");
-                    String forum = ctx.locale.getLanguage();
-                    subCtx.println("<strong><a href='"+fora.forumUrl(subCtx, forum)+"'>Forum: "+forum+"</a></strong>");
-                    subCtx.println("</p>");
-                }
-                if(ctx.prefBool(PREF_ADV)) {
-                    subCtx.println("<p class='hang'>Advanced Items: ");
-    //                printMenu(subCtx, which, TEST_MENU_ITEM);
-                    printMenu(subCtx, which, RAW_MENU_ITEM);
-                    subCtx.println("</p>");
-                }
-                subCtx.println("</td></tr></table>");
+                printLocaleTreeMenu(ctx, which);
             } else { // end in-locale nav
                 ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
             }
@@ -3303,8 +3313,10 @@ public class SurveyMain extends HttpServlet {
             
             // Find which pod they want, and show it.
             // NB keep these sections in sync with DataPod.xpathToPodBase() 
+            WebContext subCtx = new WebContext(ctx);
+            subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
             subCtx.addQuery(QUERY_SECTION,which);
-            for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
                 if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
                     if(which.equals(CURRENCIES)) {
                         showPathList(subCtx, "//ldml/"+NUMBERSCURRENCIES, null);
@@ -3319,7 +3331,7 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             
-            for(j=0;j<OTHERROOTS_ITEMS.length;j++) {
+            for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
                 if(OTHERROOTS_ITEMS[j].equals(which)) {
                     if(which.equals(GREGORIAN_CALENDAR)) {
                         showPathList(subCtx, GREGO_XPATH, null);
@@ -3338,889 +3350,861 @@ public class SurveyMain extends HttpServlet {
             // fall through if wasn't one of the other roots
             if(RAW_MENU_ITEM.equals(which)) {
                 doRaw(subCtx);
-      /*      } else if((checkCldr != null) && (TEST_MENU_ITEM.equals(which))) { // print the results
-                CLDRFile file = cf;
-                ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
-                //            Set locales = ourSrc.getAvailable();
-                XPathParts pathParts = new XPathParts(null, null);
-                XPathParts fullPathParts = new XPathParts(null, null);
-                //            for (Iterator it = locales.iterator(); it.hasNext();) {
-                String localeID = ctx.locale.toString();
-                ctx.println(checkCldr.getLocaleAndName(localeID));
-                //                CLDRFile file = ourSrc.factory.make(localeID, false);
-                ctx.println(" <h4>Test Results</h4>");
-                for (Iterator it2 = file.iterator(); it2.hasNext();) {
-                    String path = (String) it2.next();
-                    //System.out.println("P: " + path);
-                    
-                    String value = file.getStringValue(path);
-                    String fullPath = file.getFullXPath(path);
-                    checkCldr.check(path, fullPath, value, pathParts, fullPathParts, checkCldrResult);
-                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        if (!status.getType().equals(status.exampleType)) {
-                            ctx.println(status.toString() + "\t" + value + "\t" + fullPath);
-                        } //else {
-                          //ctx.println("<i>example available</i><br>");
-                          //}
-                    }            
-                }
-                
-                System.out.println(" done with tests ");
-                
-                
-                //            }
-                ctx.println("</pre>");
-        */
             } else  {
                 doMain(subCtx);
             }
         }
-        // ?
-//        ctx.removeByLocale(USER_FILE + CHECKCLDR);
-//        ctx.removeByLocale(USER_FILE + CHECKCLDR_RES);
-}
-
-public void doRaw(WebContext ctx) {
-    ctx.println("raw not supported currently. ");
-/*
-    CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
-    
-    ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
-    ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
-    
-    StringWriter sw = new StringWriter();
-    PrintWriter pw = new PrintWriter(sw);
-    file.write(pw);
-    String asString = sw.toString();
-    //                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
-    //                    hexXML.transliterate(asString);
-    String asHtml = TransliteratorUtilities.toHTML.transliterate(asString);
-    ctx.println(asHtml);
-    ctx.println("</pre>");*/
-}
-
-public static final String XML_PREFIX="/xml/main";
-public static final String VXML_PREFIX="/vxml/main";
-public static final String FEED_PREFIX="/feed";
-
-public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
-    throws IOException, ServletException {
-    String s = request.getPathInfo();
-    
-    if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
-        return false;
-    }
-    
-    if(s.startsWith(FEED_PREFIX)) {
-        return fora.doFeed(request, response);
     }
 
-    boolean finalData = false;
-    
-    if(s.startsWith(VXML_PREFIX)) {
-        finalData = true;
+    public void doRaw(WebContext ctx) {
+        ctx.println("raw not supported currently. ");
+    /*
+        CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
+        
+        ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
+        ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
+        
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        file.write(pw);
+        String asString = sw.toString();
+        //                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
+        //                    hexXML.transliterate(asString);
+        String asHtml = TransliteratorUtilities.toHTML.transliterate(asString);
+        ctx.println(asHtml);
+        ctx.println("</pre>");*/
+    }
 
-        if(s.equals(VXML_PREFIX)) {
-            WebContext ctx = new WebContext(request,response);
-            response.sendRedirect(ctx.schemeHostPort()+ctx.base()+VXML_PREFIX+"/");
-            return true;
+    public static final String XML_PREFIX="/xml/main";
+    public static final String VXML_PREFIX="/vxml/main";
+    public static final String FEED_PREFIX="/feed";
+
+    public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
+        throws IOException, ServletException {
+        String s = request.getPathInfo();
+        
+        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
+            return false;
         }
-        s = s.substring(VXML_PREFIX.length()+1,s.length()); //   "foo.xml"
-    } else {
-        if(s.equals(XML_PREFIX)) {
+        
+        if(s.startsWith(FEED_PREFIX)) {
+            return fora.doFeed(request, response);
+        }
+
+        boolean finalData = false;
+        
+        if(s.startsWith(VXML_PREFIX)) {
+            finalData = true;
+
+            if(s.equals(VXML_PREFIX)) {
+                WebContext ctx = new WebContext(request,response);
+                response.sendRedirect(ctx.schemeHostPort()+ctx.base()+VXML_PREFIX+"/");
+                return true;
+            }
+            s = s.substring(VXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else {
+            if(s.equals(XML_PREFIX)) {
+                WebContext ctx = new WebContext(request,response);
+                response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
+                return true;
+            }
+            s = s.substring(XML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        }
+        
+        if(s.length() == 0) {
+            WebContext ctx = new WebContext(request,response);
+            response.setContentType("text/html; charset=utf-8");
+            if(finalData) {
+                ctx.println("<title>CLDR Data | All Locales - Vetted Data</title>");
+            } else {
+                ctx.println("<title>CLDR Data | All Locales</title>");
+            }
+            ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
+            ctx.println("<h4>Locales</h4>");
+            ctx.println("<ul>");
+            File inFiles[] = getInFiles();
+            int nrInFiles = inFiles.length;
+            for(int i=0;i<nrInFiles;i++) {
+                String fileName = inFiles[i].getName();
+                int dot = fileName.indexOf('.');
+                String localeName = fileName.substring(0,dot);
+                ctx.println("<li><a href='"+fileName+"'>"+fileName+"</a> " + new ULocale(localeName).getDisplayName(ctx.displayLocale) +
+                    "</li>");
+            }
+            ctx.println("</ul>");
+            ctx.println("<hr>");
+            ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
+            ctx.close();
+        } else if(!s.endsWith(".xml")) {
             WebContext ctx = new WebContext(request,response);
             response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
-            return true;
-        }
-        s = s.substring(XML_PREFIX.length()+1,s.length()); //   "foo.xml"
-    }
-    
-    if(s.length() == 0) {
-        WebContext ctx = new WebContext(request,response);
-        response.setContentType("text/html; charset=utf-8");
-        if(finalData) {
-            ctx.println("<title>CLDR Data | All Locales - Vetted Data</title>");
         } else {
-            ctx.println("<title>CLDR Data | All Locales</title>");
-        }
-        ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
-        ctx.println("<h4>Locales</h4>");
-        ctx.println("<ul>");
-        File inFiles[] = getInFiles();
-        int nrInFiles = inFiles.length;
-        for(int i=0;i<nrInFiles;i++) {
-            String fileName = inFiles[i].getName();
-            int dot = fileName.indexOf('.');
-            String localeName = fileName.substring(0,dot);
-            ctx.println("<li><a href='"+fileName+"'>"+fileName+"</a> " + new ULocale(localeName).getDisplayName(ctx.displayLocale) +
-                "</li>");
-        }
-        ctx.println("</ul>");
-        ctx.println("<hr>");
-        ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
-        ctx.close();
-    } else if(!s.endsWith(".xml")) {
-        WebContext ctx = new WebContext(request,response);
-        response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
-    } else {
-        File inFiles[] = getInFiles();
-        int nrInFiles = inFiles.length;
-        boolean found = false;
-        String theLocale = null;
-        for(int i=0;(!found) && (i<nrInFiles);i++) {
-            String localeName = inFiles[i].getName();
-            if(s.equals(localeName)) {
-                found=true;
-                int dot = localeName.indexOf('.');
-                theLocale = localeName.substring(0,dot);
-            }
-        }
-        if(!found) {
-            throw new InternalError("No such locale: " + s);
-        } else {
-            response.setContentType("application/xml; charset=utf-8");
-            CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale), finalData);
-            CLDRFile file = makeCLDRFile(dbSource);
-//            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
-            file.write(response.getWriter());
-        }
-    }
-    return true;
-}
-
-public static String xpathToMenu(String path) {                    
-	String theMenu=null;
-	if(path.startsWith(LOCALEDISPLAYNAMES)) {
-		for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
-			if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
-				theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
-			}
-		}
-	} else if(path.startsWith(GREGO_XPATH)) {
-		theMenu=GREGORIAN_CALENDAR;
-	} else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
-		theMenu=OTHER_CALENDARS;
-	} else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
-		theMenu=CURRENCIES;
-	} else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
-		theMenu=TIMEZONES;
-	} else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/metazone")){
-		theMenu=METAZONES;
-	} else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
-		theMenu = LDMLConstants.CHARACTERS;
-	} else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
-		theMenu = LDMLConstants.NUMBERS;
-	} else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
-		theMenu = LDMLConstants.REFERENCES;
-	} else {
-		theMenu=xOTHER;
-		// other?
-	}
-	return theMenu;
-}
-
-/**
-* Show the 'main info about this locale' (General) panel.
- */
-public void doMain(WebContext ctx) {
-    String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.locale.toString() + ".xml"); // just get ver of the latest file.
-    String dbVer = makeDBSource(null,ctx.locale).getSourceRevision();
-    
-    // what should users be notified about?
-    int vetStatus = vet.status(ctx.locale.toString());
-    if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
-        ctx.println("<hr>");
-        int numNoVotes = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_NO_VOTES);
-        int numInsufficient = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_INSUFFICIENT);
-        int numDisputed = vet.countResultsByType(ctx.locale.toString(),Vetting.RES_DISPUTED);
-//            rv = rv + ("");
-     
-        Hashtable insItems = new Hashtable();
-        Hashtable disItems = new Hashtable();
-        synchronized(vet.conn) { 
-            try { // moderately expensive.. since we are tying up vet's connection..
-                ResultSet rs = vet.listBadResults(ctx.locale.toString());
-                while(rs.next()) {
-                    int xp = rs.getInt(1);
-					int type = rs.getInt(2);
-					
-                    String path = xpt.getById(xp);
-                    
-					String theMenu = xpathToMenu(path);
-					
-                    if(theMenu != null) {
-						if(type == Vetting.RES_DISPUTED) {
-							disItems.put(theMenu, "");// what goes here?
-						} else {
-							insItems.put(theMenu, "");
-						}
-					}
+            File inFiles[] = getInFiles();
+            int nrInFiles = inFiles.length;
+            boolean found = false;
+            String theLocale = null;
+            for(int i=0;(!found) && (i<nrInFiles);i++) {
+                String localeName = inFiles[i].getName();
+                if(s.equals(localeName)) {
+                    found=true;
+                    int dot = localeName.indexOf('.');
+                    theLocale = localeName.substring(0,dot);
                 }
-                rs.close();
-            } catch (SQLException se) {
-                throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+            }
+            if(!found) {
+                throw new InternalError("No such locale: " + s);
+            } else {
+                response.setContentType("application/xml; charset=utf-8");
+                CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale), finalData);
+                CLDRFile file = makeCLDRFile(dbSource);
+    //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
+                file.write(response.getWriter());
             }
         }
-        WebContext subCtx = new WebContext(ctx);
-        //subCtx.addQuery(QUERY_LOCALE,ctx.locale.toString());
-        subCtx.removeQuery(QUERY_SECTION);
+        return true;
+    }
 
-       if(phaseVetting != true) {
-            if((numNoVotes+numInsufficient)>0) {
-                ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient items</span> </h4>");
-                for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
-                    String item = (String)li.next();
-                    printMenu(subCtx, "", item);
-                    if(li.hasNext() ) {
-                        subCtx.print(" | ");
+    public static String xpathToMenu(String path) {                    
+        String theMenu=null;
+        if(path.startsWith(LOCALEDISPLAYNAMES)) {
+            for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
+                if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
+                    theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
+                }
+            }
+        } else if(path.startsWith(GREGO_XPATH)) {
+            theMenu=GREGORIAN_CALENDAR;
+        } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
+            theMenu=OTHER_CALENDARS;
+        } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
+            theMenu=CURRENCIES;
+        } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
+            theMenu=TIMEZONES;
+        } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/metazone")){
+            theMenu=METAZONES;
+        } else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
+            theMenu = LDMLConstants.CHARACTERS;
+        } else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
+            theMenu = LDMLConstants.NUMBERS;
+        } else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
+            theMenu = LDMLConstants.REFERENCES;
+        } else {
+            theMenu=xOTHER;
+            // other?
+        }
+        return theMenu;
+    }
+
+    /**
+    * Show the 'main info about this locale' (General) panel.
+     */
+    public void doMain(WebContext ctx) {
+        String diskVer = LDMLUtilities.getCVSVersion(fileBase, ctx.localeString() + ".xml"); // just get ver of the latest file.
+        String dbVer = makeDBSource(null,ctx.locale).getSourceRevision();
+        
+        // what should users be notified about?
+        int vetStatus = vet.status(ctx.localeString());
+        if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
+            ctx.println("<hr>");
+            int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
+            int numInsufficient = vet.countResultsByType(ctx.localeString(),Vetting.RES_INSUFFICIENT);
+            int numDisputed = vet.countResultsByType(ctx.localeString(),Vetting.RES_DISPUTED);
+    //            rv = rv + ("");
+         
+            Hashtable insItems = new Hashtable();
+            Hashtable disItems = new Hashtable();
+            synchronized(vet.conn) { 
+                try { // moderately expensive.. since we are tying up vet's connection..
+                    ResultSet rs = vet.listBadResults(ctx.localeString());
+                    while(rs.next()) {
+                        int xp = rs.getInt(1);
+                        int type = rs.getInt(2);
+                        
+                        String path = xpt.getById(xp);
+                        
+                        String theMenu = xpathToMenu(path);
+                        
+                        if(theMenu != null) {
+                            if(type == Vetting.RES_DISPUTED) {
+                                disItems.put(theMenu, "");// what goes here?
+                            } else {
+                                insItems.put(theMenu, "");
+                            }
+                        }
+                    }
+                    rs.close();
+                } catch (SQLException se) {
+                    throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+                }
+            }
+            WebContext subCtx = new WebContext(ctx);
+            //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+            subCtx.removeQuery(QUERY_SECTION);
+
+           if(phaseVetting != true) {
+                if((numNoVotes+numInsufficient)>0) {
+                    ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient items</span> </h4>");
+                    for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
+                        String item = (String)li.next();
+                        printMenu(subCtx, "", item);
+                        if(li.hasNext() ) {
+                            subCtx.print(" | ");
+                        }
                     }
                 }
-            }
-            if(numDisputed>0) {
-                ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed< items/span> </h4>");
-                for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
-                    String item = (String)li.next();
-                    printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
-                    if(li.hasNext() ) {
-                        subCtx.print(" | ");
+                if(numDisputed>0) {
+                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed< items/span> </h4>");
+                    for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
+                        String item = (String)li.next();
+                        printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
+                        if(li.hasNext() ) {
+                            subCtx.print(" | ");
+                        }
                     }
                 }
             }
         }
+        ctx.println("<hr/><p><p>");
+        ctx.println("<h3>Basic information about the Locale</h3>");
+        
+        ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+
+                    "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
+                    " <b>"+xSAVE+"</b> button!</font></i></li>    <li><i><font size='4'>"+
+                                SLOW_PAGE_NOTICE+
+                    "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
+    //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
+                    "<font size='4'>");
+        ctx.println("<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>"); // base help
+        ctx.print("</font>"+
+                    "<font size='4'>     once before going further.</font></i></li>   "+
+                    " <!-- <li> <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> "+
+                    "</li> --> </ul>");
+        
+        if(dbVer != null) {
+            ctx.println( LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "CVS version #" + dbVer + "</a>");
+            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
+                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "(Note: " + diskVer + " may be installed soon.)</a>");
+            }
+        }    
+        ctx.println(SLOW_PAGE_NOTICE);
     }
-    ctx.println("<hr/><p><p>");
-    ctx.println("<h3>Basic information about the Locale</h3>");
-    
-    ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+
-                "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
-                " <b>"+xSAVE+"</b> button!</font></i></li>    <li><i><font size='4'>"+
-                            SLOW_PAGE_NOTICE+
-                "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
-//                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
-                "<font size='4'>");
-    ctx.println("<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>"); // base help
-    ctx.print("</font>"+
-                "<font size='4'>     once before going further.</font></i></li>   "+
-                " <!-- <li> <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> "+
-                "</li> --> </ul>");
-    
-    if(dbVer != null) {
-        ctx.println( LDMLUtilities.getCVSLink(ctx.locale.toString(), dbVer) + "CVS version #" + dbVer + "</a>");
-        if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-            ctx.println( " " + LDMLUtilities.getCVSLink(ctx.locale.toString(), dbVer) + "(Note: " + diskVer + " may be installed soon.)</a>");
-        }
-    }    
-    ctx.println(SLOW_PAGE_NOTICE);
-}
 
-public static String getAttributeValue(Document doc, String xpath, String attribute) {
-    if(doc != null) {
-        Node n = LDMLUtilities.getNode(doc, xpath);
-        if(n != null) {
-            return LDMLUtilities.getAttributeValue(n, attribute);
+    public static String getAttributeValue(Document doc, String xpath, String attribute) {
+        if(doc != null) {
+            Node n = LDMLUtilities.getNode(doc, xpath);
+            if(n != null) {
+                return LDMLUtilities.getAttributeValue(n, attribute);
+            }
         }
-    }
-    return null;
-}
-
-/**
-private SoftReference nodeHashReference = null;
-int nodeHashPuts = 0;
-private final Hashtable getNodeHash() {
-    Hashtable nodeHash = null;
-    if((nodeHashReference == null) ||
-       ((nodeHash=(Hashtable)nodeHashReference.get())==null)) {
         return null;
     }
-    return nodeHash;
-}
-**/
 
-public static final String USER_FILE = "UserFile";
-public static final String USER_FILE_KEY = "UserFileKey";
-public static final String CLDRDBSRC = "_source";
-
-private static CLDRFile gBaselineFile = null;
-private static ExampleGenerator gBaselineExample = null;
-
-private CLDRFile.Factory gFactory = null;
-
-private synchronized CLDRFile.Factory getFactory() {
-    if(gFactory == null) {
-        gFactory = CLDRFile.Factory.make(fileBase,".*");
-    }
-    return gFactory;
-}
-
-public synchronized CLDRFile getBaselineFile(/*CLDRDBSource ourSrc*/) {
-    if(gBaselineFile == null) {
-        CLDRFile file = getFactory().make(BASELINE_LOCALE.toString(), true);
-        file.freeze(); // so it can be shared.
-        gBaselineFile = file;
-    }
-    return gBaselineFile;
-}
-
-public synchronized ExampleGenerator getBaselineExample() {
-    if(gBaselineExample == null) {
-        gBaselineExample = new ExampleGenerator(getBaselineFile());
-    }
-    return gBaselineExample;
-}
-
-public synchronized String getDirectionFor(ULocale locale) {
-    // TODO: use orientation.
-    String locStr = locale.toString();
-    String script = locale.getScript();
-    if(locStr.startsWith("ps") ||
-       locStr.startsWith("fa") ||
-       locStr.startsWith("ar") ||
-       locStr.startsWith("syr") ||
-       locStr.startsWith("he") ||
-       "Arab".equals(script)) {
-        return "rtl";
-    } else {
-        return "ltr";
-    }
-}
-
-public class UserLocaleStuff extends Registerable {
-    public CLDRFile cldrfile = null;
-    public CLDRDBSource dbSource = null;
-    public Hashtable hash = new Hashtable();
-    
-    public UserLocaleStuff(String locale) {
-        super(lcr, locale);
-//System.err.println("Adding ULS:"+locale);
-    }
-    
-    public void clear() {
-        hash.clear();        
-        // TODO: try just kicking these instead of clearing?
-        cldrfile=null;
-        dbSource=null;
-        setValid();
-    }
-    
-    public CheckCLDR getCheck(WebContext ctx) {
-        CheckCLDR checkCldr = (CheckCLDR)hash.get(CHECKCLDR+ctx.defaultPtype());
-        if (checkCldr == null)   {
-            List checkCldrResult = new ArrayList();
-//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
-//            long t0 = System.currentTimeMillis();
-            checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
-            
-            checkCldr.setDisplayInformation(getBaselineFile());
-            if(cldrfile==null) {
-                throw new InternalError("cldrfile was null.");
-            }
-            checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(), checkCldrResult);
-//            logger.info("fileToCheck set . . . on "+ checkCldr.toString());
-            hash.put(CHECKCLDR+ctx.defaultPtype(), checkCldr);
-            if(!checkCldrResult.isEmpty()) {
-                hash.put(CHECKCLDR_RES+ctx.defaultPtype(), checkCldrResult);
-            }
-//            long t2 = System.currentTimeMillis();
-//            logger.info("Time to init tests: " + (t2-t0));
+    /**
+    private SoftReference nodeHashReference = null;
+    int nodeHashPuts = 0;
+    private final Hashtable getNodeHash() {
+        Hashtable nodeHash = null;
+        if((nodeHashReference == null) ||
+           ((nodeHash=(Hashtable)nodeHashReference.get())==null)) {
+            return null;
         }
-        return checkCldr;
+        return nodeHash;
     }
-};
+    **/
 
-UserLocaleStuff getOldUserFile(WebContext ctx) {
-    UserLocaleStuff uf = (UserLocaleStuff)ctx.getByLocale(USER_FILE_KEY);
-    return uf;
-}
+    public static final String USER_FILE = "UserFile";
+    public static final String USER_FILE_KEY = "UserFileKey";
+    public static final String CLDRDBSRC = "_source";
 
-UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
-    // has this locale been invalidated?
-    UserLocaleStuff uf = getOldUserFile(ctx);
-    
-    if(uf == null) {
-        uf = new UserLocaleStuff(locale.toString());
-        ctx.putByLocale(USER_FILE_KEY, uf);
-        uf.register(); // register with lcr
-    } else if(!uf.isValid()) {
-//        System.err.println("Invalid, clearing: "+ uf.toString());
-        uf.clear();
-        uf.register(); // reregister
+    private static CLDRFile gBaselineFile = null;
+    private static ExampleGenerator gBaselineExample = null;
+
+    private CLDRFile.Factory gFactory = null;
+
+    private synchronized CLDRFile.Factory getFactory() {
+        if(gFactory == null) {
+            gFactory = CLDRFile.Factory.make(fileBase,".*");
+        }
+        return gFactory;
     }
-    
-    if(uf.cldrfile == null) {
-        uf.dbSource = makeDBSource(user, locale);
-        uf.cldrfile = makeCLDRFile(uf.dbSource);
+
+    public synchronized CLDRFile getBaselineFile(/*CLDRDBSource ourSrc*/) {
+        if(gBaselineFile == null) {
+            CLDRFile file = getFactory().make(BASELINE_LOCALE.toString(), true);
+            file.freeze(); // so it can be shared.
+            gBaselineFile = file;
+        }
+        return gBaselineFile;
     }
-    return uf;
-}
-CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale) {
-    CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
-                                                        getDBConnection(), user);
-    return dbSource;
-}
-CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale, boolean finalData) {
-    CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
-                                                        getDBConnection(), user, finalData);
-    return dbSource;
-}
-static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
-    return new CLDRFile(dbSource,false);
-}
 
-/**
- * reset the "list of locales".  
- * call this if you're resetting the in-db view of what's on disk.  
- * it will reset things like the locale list map, the metazone map, the interest map, ...
- */
-private synchronized void resetLocaleCaches() {
-    localeListMap = null;
-    allMetazones = null;
-    localeListSet = null;
-    aliasMap = null;
-}
+    public synchronized ExampleGenerator getBaselineExample() {
+        if(gBaselineExample == null) {
+            gBaselineExample = new ExampleGenerator(getBaselineFile());
+        }
+        return gBaselineExample;
+    }
 
-private static Hashtable aliasMap = null;
+    public synchronized String getDirectionFor(ULocale locale) {
+        // TODO: use orientation.
+        String locStr = locale.toString();
+        String script = locale.getScript();
+        if(locStr.startsWith("ps") ||
+           locStr.startsWith("fa") ||
+           locStr.startsWith("ar") ||
+           locStr.startsWith("syr") ||
+           locStr.startsWith("he") ||
+           "Arab".equals(script)) {
+            return "rtl";
+        } else {
+            return "ltr";
+        }
+    }
 
-/**
- * Is this locale fully aliased? If true, returns what it is aliased to.
- */
-public synchronized String isLocaleAliased(String id) {
-    if(aliasMap==null) {
-        Hashtable h = new Hashtable();
-        Set locales  = getLocalesSet();
-        ElapsedTimer et = new ElapsedTimer();    
-        System.err.println("Beginning alias check/parse of " + locales.size() + " locales..");
-        for(Object loc : locales) {
-            try {
-                Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", true);
+    public class UserLocaleStuff extends Registerable {
+        public CLDRFile cldrfile = null;
+        public CLDRDBSource dbSource = null;
+        public Hashtable hash = new Hashtable();
+        
+        public UserLocaleStuff(String locale) {
+            super(lcr, locale);
+    //System.err.println("Adding ULS:"+locale);
+        }
+        
+        public void clear() {
+            hash.clear();        
+            // TODO: try just kicking these instead of clearing?
+            cldrfile=null;
+            dbSource=null;
+            setValid();
+        }
+        
+        public CheckCLDR getCheck(WebContext ctx) {
+            CheckCLDR checkCldr = (CheckCLDR)hash.get(CHECKCLDR+ctx.defaultPtype());
+            if (checkCldr == null)   {
+                List checkCldrResult = new ArrayList();
+    //                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+    //            long t0 = System.currentTimeMillis();
+                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 
-                Node[] aliasItems = 
-                            LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
-                if((aliasItems==null) || (aliasItems.length==0)){
-                    continue;
-                } else if(aliasItems.length>1) {
-                    throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                checkCldr.setDisplayInformation(getBaselineFile());
+                if(cldrfile==null) {
+                    throw new InternalError("cldrfile was null.");
                 }
-
-                String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
-                h.put(loc.toString(),aliasTo);
-                
-            } catch (Throwable t) {
-                System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
-                t.printStackTrace();
-                busted("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
-                throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(), checkCldrResult);
+    //            logger.info("fileToCheck set . . . on "+ checkCldr.toString());
+                hash.put(CHECKCLDR+ctx.defaultPtype(), checkCldr);
+                if(!checkCldrResult.isEmpty()) {
+                    hash.put(CHECKCLDR_RES+ctx.defaultPtype(), checkCldrResult);
+                }
+    //            long t2 = System.currentTimeMillis();
+    //            logger.info("Time to init tests: " + (t2-t0));
             }
+            return checkCldr;
         }
-        System.err.println("Finished alias check/parse of " + locales.size()+ " in " + et.toString());
-        aliasMap = h;
+    };
+
+    UserLocaleStuff getOldUserFile(WebContext ctx) {
+        UserLocaleStuff uf = (UserLocaleStuff)ctx.getByLocale(USER_FILE_KEY);
+        return uf;
     }
-    return (String)aliasMap.get(id);
-}
 
-/**
- * Master list of metazones. Don't access this directly.
- */
-private static Set allMetazones = null;
-
-/**
- * Maintain a master list of metazones, culled from root.
- */
-public synchronized Set getMetazones() {
-    if(allMetazones == null) {
-        ElapsedTimer et = new ElapsedTimer();    
-        XPathParts parts = new XPathParts(null,null);
-        CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
-        Set aset = new TreeSet();
-        for(Iterator i = mySrc.iterator("//ldml/"+"dates/timeZoneNames/zone");i.hasNext();) {
-            String xpath = i.next().toString();
-            parts.set(xpath);
-            String mzone = parts.getAttributeValue(-1,"mzone");
-            if(mzone != null) {
-                aset.add(mzone);
-            }
-        }
-        allMetazones = aset;
-        System.err.println("sm.getMetazones:" + allMetazones.size()+" metazones found in " + et.toString());
-    }
-    return allMetazones;
-}
-
-
-/**
-* show the webpage for one of the 'locale codes' items.. 
- * @param ctx the web context
- * @param xpath xpath to the root of the structure
- * @param tx the texter to use for presentation of the items
- * @param fullSet the set of tags denoting the expected full-set, or null if none.
- */
-public void showLocaleCodeList(WebContext ctx, String which) {
-    showPathList(ctx, LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
-}
-
-public void showPathListExample(WebContext ctx, String xpath, String lastElement,
-        String e, String fullThing, CLDRFile cf) {
-    DataPod oldPod =  ctx.getExistingPod(fullThing);
-    DataPod.ExampleEntry ee = null;
-    if(oldPod != null) {
-        ee = oldPod.getExampleEntry(e); // retrieve the info out of the hash.. 
-    }
-    if(ee != null) {
-        ctx.println("<form method=POST action='" + ctx.base() + "'>");
-        ctx.printUrlAsHiddenFields();   
-        String cls = shortClassName(ee.status.getCause());
-        ctx.printHelpLink("/"+cls+"-example","Help with this "+cls+" example", true);
-        ctx.println("<hr>");
-        ctx.addQuery(QUERY_EXAMPLE,e);
-        ctx.println("<input type='hidden' name='"+QUERY_EXAMPLE+"' value='"+e+"'>");
+    UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
+        // has this locale been invalidated?
+        UserLocaleStuff uf = getOldUserFile(ctx);
         
-        // keep the Demo with the user. for now.
-        CheckCLDR.SimpleDemo d = (CheckCLDR.SimpleDemo)ctx.getByLocale(e);
-        if(d==null) {        
-            d = ee.status.getDemo();
-            ctx.putByLocale(e,d);
+        if(uf == null) {
+            uf = new UserLocaleStuff(locale.toString());
+            ctx.putByLocale(USER_FILE_KEY, uf);
+            uf.register(); // register with lcr
+        } else if(!uf.isValid()) {
+    //        System.err.println("Invalid, clearing: "+ uf.toString());
+            uf.clear();
+            uf.register(); // reregister
         }
+        
+        if(uf.cldrfile == null) {
+            uf.dbSource = makeDBSource(user, locale);
+            uf.cldrfile = makeCLDRFile(uf.dbSource);
+        }
+        return uf;
+    }
+    CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale) {
+        CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
+                                                            getDBConnection(), user);
+        return dbSource;
+    }
+    CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale, boolean finalData) {
+        CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
+                                                            getDBConnection(), user, finalData);
+        return dbSource;
+    }
+    static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
+        return new CLDRFile(dbSource,false);
+    }
+
+    /**
+     * reset the "list of locales".  
+     * call this if you're resetting the in-db view of what's on disk.  
+     * it will reset things like the locale list map, the metazone map, the interest map, ...
+     */
+    private synchronized void resetLocaleCaches() {
+        localeListMap = null;
+        allMetazones = null;
+        localeListSet = null;
+        aliasMap = null;
+    }
+
+    private static Hashtable aliasMap = null;
+
+    /**
+     * Is this locale fully aliased? If true, returns what it is aliased to.
+     */
+    public synchronized String isLocaleAliased(String id) {
+        if(aliasMap==null) {
+            Hashtable h = new Hashtable();
+            Set locales  = getLocalesSet();
+            ElapsedTimer et = new ElapsedTimer();    
+            System.err.println("Beginning alias check/parse of " + locales.size() + " locales..");
+            for(Object loc : locales) {
+                try {
+                    Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", true);
+                    
+                    Node[] aliasItems = 
+                                LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
+                    if((aliasItems==null) || (aliasItems.length==0)){
+                        continue;
+                    } else if(aliasItems.length>1) {
+                        throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                    }
+
+                    String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
+                    h.put(loc.toString(),aliasTo);
+                    
+                } catch (Throwable t) {
+                    System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                    t.printStackTrace();
+                    busted("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                    throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                }
+            }
+            System.err.println("Finished alias check/parse of " + locales.size()+ " in " + et.toString());
+            aliasMap = h;
+        }
+        return (String)aliasMap.get(id);
+    }
+
+    /**
+     * Master list of metazones. Don't access this directly.
+     */
+    private static Set allMetazones = null;
+
+    /**
+     * Maintain a master list of metazones, culled from root.
+     */
+    public synchronized Set getMetazones() {
+        if(allMetazones == null) {
+            ElapsedTimer et = new ElapsedTimer();    
+            XPathParts parts = new XPathParts(null,null);
+            CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
+            Set aset = new TreeSet();
+            for(Iterator i = mySrc.iterator("//ldml/"+"dates/timeZoneNames/zone");i.hasNext();) {
+                String xpath = i.next().toString();
+                parts.set(xpath);
+                String mzone = parts.getAttributeValue(-1,"mzone");
+                if(mzone != null) {
+                    aset.add(mzone);
+                }
+            }
+            allMetazones = aset;
+            System.err.println("sm.getMetazones:" + allMetazones.size()+" metazones found in " + et.toString());
+        }
+        return allMetazones;
+    }
+
+
+    /**
+    * show the webpage for one of the 'locale codes' items.. 
+     * @param ctx the web context
+     * @param xpath xpath to the root of the structure
+     * @param tx the texter to use for presentation of the items
+     * @param fullSet the set of tags denoting the expected full-set, or null if none.
+     */
+    public void showLocaleCodeList(WebContext ctx, String which) {
+        showPathList(ctx, LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
+    }
+
+    public void showPathListExample(WebContext ctx, String xpath, String lastElement,
+            String e, String fullThing, CLDRFile cf) {
+        DataPod oldPod =  ctx.getExistingPod(fullThing);
+        DataPod.ExampleEntry ee = null;
+        if(oldPod != null) {
+            ee = oldPod.getExampleEntry(e); // retrieve the info out of the hash.. 
+        }
+        if(ee != null) {
+            ctx.println("<form method=POST action='" + ctx.base() + "'>");
+            ctx.printUrlAsHiddenFields();   
+            String cls = shortClassName(ee.status.getCause());
+            ctx.printHelpLink("/"+cls+"-example","Help with this "+cls+" example", true);
+            ctx.println("<hr>");
+            ctx.addQuery(QUERY_EXAMPLE,e);
+            ctx.println("<input type='hidden' name='"+QUERY_EXAMPLE+"' value='"+e+"'>");
             
-        Map mapOfArrays = ctx.getParameterMap();
-        Map m = new TreeMap();
-        for(Iterator i = mapOfArrays.keySet().iterator();i.hasNext();) {
-            String k = i.next().toString();
-//            String[] v = (String[])mapOfArrays.get(k);  // We dont care about the broken, undecoded contents here..
-            m.put(k,ctx.field(k,null)); //  .. use our vastly improved field() function
+            // keep the Demo with the user. for now.
+            CheckCLDR.SimpleDemo d = (CheckCLDR.SimpleDemo)ctx.getByLocale(e);
+            if(d==null) {        
+                d = ee.status.getDemo();
+                ctx.putByLocale(e,d);
+            }
+                
+            Map mapOfArrays = ctx.getParameterMap();
+            Map m = new TreeMap();
+            for(Iterator i = mapOfArrays.keySet().iterator();i.hasNext();) {
+                String k = i.next().toString();
+    //            String[] v = (String[])mapOfArrays.get(k);  // We dont care about the broken, undecoded contents here..
+                m.put(k,ctx.field(k,null)); //  .. use our vastly improved field() function
+            }
+            
+            if(d != null) {
+            
+                try {
+                    String path = ee.pod.xpath(ee.pea);
+                    String fullPath = cf.getFullXPath(path);
+                    String value = ee.item.value;
+                    String html = d.getHTML(m);
+                    ctx.println(html);
+                } catch (Exception ex) {
+                    ctx.println("<br><b>Error: </b> " + ex.toString() +"<br>");
+                }
+            }
+            ctx.println("</form>");
+        } else {
+            ctx.println("<P><P><P><blockquote><i>That example seems to have expired. Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
         }
+    }
+
+    public SupplementalData supplemental = null;
+
+
+    public void showMetaZones(WebContext ctx) {
+        showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
+    /*
+        Set s = getMetazones();
+        int n = 0;
+        ctx.println("<h4>Metazones ("+s.size()+")</h4>");
+        ctx.print("<table class='tzbox'>");
+        ctx.print("<tr class='topbar'>");
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.setQuery("x","timezones");
+        for(Object o : s) {
+            if(0==(n%4)) {
+                ctx.println("</tr>");
+                ctx.print("<tr>");
+            }
+            String mzone = o.toString();
+            subCtx.setQuery("mzone",mzone);
+            ctx.print("<td><a class='notselected' href='"+subCtx.url()+"'>"+mzone+"</a></td>");
+            n++;
+        }
+        ctx.println("</tr>");
+        ctx.println("</table>");
+        */
+    }
+
+    /**
+     * parse the metazone list for this zone.
+     * Map will contain enries with key String and value  String[3] of the form:
+     *    from : { from, to, metazone }
+     * for example:
+     *    "1970-01-01" :  { "1970-01-01", "1985-03-08", "Australia_Central" }
+     * the 'to' will be null if it does not have an ending time.
+     * @param metaMap  an 'out' parameter which will be cleared, and populated with the contents of the metazone
+     * @return the active metazone ( where to=null ) if any, or null
+     */
+    public String zoneToMetaZone(WebContext ctx, String zone, Map metaMap) {
+        SurveyMain sm = this;
+        String returnZone = null;
+        String current = null;
+        XPathParts parts = new XPathParts(null, null);
+        SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+        CLDRFile cf = uf.cldrfile;
+        CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
+        CLDRFile engFile = ctx.sm.getBaselineFile();
+
+        String xpath =  "//ldml/"+"dates/timeZoneNames/zone";
+        String ourSuffix = "[@type=\""+zone+"\"]";
+        String base_xpath = xpath+ourSuffix;
+        String podBase = DataPod.xpathToPodBase(xpath);
         
-        if(d != null) {
-        
-            try {
-                String path = ee.pod.xpath(ee.pea);
-                String fullPath = cf.getFullXPath(path);
-                String value = ee.item.value;
-                String html = d.getHTML(m);
-                ctx.println(html);
-            } catch (Exception ex) {
-                ctx.println("<br><b>Error: </b> " + ex.toString() +"<br>");
+        metaMap.clear();
+
+        Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
+             
+        for(;mzit.hasNext();) {
+            String ameta = (String)mzit.next();
+            String mfullPath = resolvedFile.getFullXPath(ameta);
+            parts.set(mfullPath);
+            String mzone = parts.getAttributeValue(-1,"mzone");
+            String from = parts.getAttributeValue(-1,"from");
+            if(from==null) {
+                from = METAZONE_EPOCH;
+            }
+            String to = parts.getAttributeValue(-1,"to");
+            String contents[] = { from, to, mzone };
+            metaMap.put(from,contents);
+            
+            if(to==null) {
+                current = mzone;
             }
         }
-        ctx.println("</form>");
-    } else {
-        ctx.println("<P><P><P><blockquote><i>That example seems to have expired. Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
+        return current;
     }
-}
-
-public SupplementalData supplemental = null;
 
 
-public void showMetaZones(WebContext ctx) {
-    showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
-/*
-    Set s = getMetazones();
-    int n = 0;
-    ctx.println("<h4>Metazones ("+s.size()+")</h4>");
-    ctx.print("<table class='tzbox'>");
-    ctx.print("<tr class='topbar'>");
-    WebContext subCtx = new WebContext(ctx);
-    subCtx.setQuery("x","timezones");
-    for(Object o : s) {
-        if(0==(n%4)) {
-            ctx.println("</tr>");
-            ctx.print("<tr>");
+    /**
+     * for showing the list of zones to the user
+     */
+
+    public void showTimeZones(WebContext ctx) {
+        String zone = ctx.field(QUERY_ZONE);
+
+        try {
+            ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
+        } catch(Throwable t) {
+            ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
         }
-        String mzone = o.toString();
-        subCtx.setQuery("mzone",mzone);
-        ctx.print("<td><a class='notselected' href='"+subCtx.url()+"'>"+mzone+"</a></td>");
-        n++;
-    }
-    ctx.println("</tr>");
-    ctx.println("</table>");
-    */
-}
 
-/**
- * parse the metazone list for this zone.
- * Map will contain enries with key String and value  String[3] of the form:
- *    from : { from, to, metazone }
- * for example:
- *    "1970-01-01" :  { "1970-01-01", "1985-03-08", "Australia_Central" }
- * the 'to' will be null if it does not have an ending time.
- * @param metaMap  an 'out' parameter which will be cleared, and populated with the contents of the metazone
- * @return the active metazone ( where to=null ) if any, or null
- */
-public String zoneToMetaZone(WebContext ctx, String zone, Map metaMap) {
-    SurveyMain sm = this;
-    String returnZone = null;
-    String current = null;
-    XPathParts parts = new XPathParts(null, null);
-    SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-    CLDRFile cf = uf.cldrfile;
-    CLDRFile resolvedFile = new CLDRFile(uf.dbSource,true);
-    CLDRFile engFile = ctx.sm.getBaselineFile();
-
-    String xpath =  "//ldml/"+"dates/timeZoneNames/zone";
-    String ourSuffix = "[@type=\""+zone+"\"]";
-    String base_xpath = xpath+ourSuffix;
-    String podBase = DataPod.xpathToPodBase(xpath);
-    
-    metaMap.clear();
-
-    Iterator mzit = resolvedFile.iterator(podBase+ourSuffix+"/usesMetazone");
-         
-    for(;mzit.hasNext();) {
-        String ameta = (String)mzit.next();
-        String mfullPath = resolvedFile.getFullXPath(ameta);
-        parts.set(mfullPath);
-        String mzone = parts.getAttributeValue(-1,"mzone");
-        String from = parts.getAttributeValue(-1,"from");
-        if(from==null) {
-            from = METAZONE_EPOCH;
+        // simple case - show the list of zones.
+        if((zone == null)||(zone.length()==0)) {
+            showPathList(ctx, DataPod.EXEMPLAR_ONLY, null);
+            return;
         }
-        String to = parts.getAttributeValue(-1,"to");
-        String contents[] = { from, to, mzone };
-        metaMap.put(from,contents);
+
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
         
-        if(to==null) {
-            current = mzone;
+        WebContext subCtx = new WebContext(ctx);
+        subCtx.setQuery(QUERY_ZONE, zone);
+        
+        Map metaMap = new TreeMap();
+        
+        String currentMetaZone = zoneToMetaZone(ctx, zone, metaMap);
+
+        String territory = (String)(supplemental.getZoneToTerritory().get(zone));
+        String displayTerritory = null;
+        String displayZone = null;
+        if((territory != null) && (territory.length()>0)) {
+            displayTerritory = new ULocale("und_"+territory).getDisplayCountry(BASELINE_LOCALE);
+            if((displayTerritory == null)||(displayTerritory.length()==0)) {
+                displayTerritory = territory;
+            }
+            displayZone = displayTerritory + " : <a class='selected'>"+ zone + "</a>";
+        } else {
+            displayZone = zone;
         }
-    }
-    return current;
-}
+
+        ctx.println("<h2>"+ displayZone + "</h2>"); // couldn't find the territory.
 
 
-/**
- * for showing the list of zones to the user
- */
-
-public void showTimeZones(WebContext ctx) {
-    String zone = ctx.field(QUERY_ZONE);
-
-    try {
-        ctx.println("<div style='float: right'>TZ Version:"+supplemental.getOlsonVersion()+"</div>");
-    } catch(Throwable t) {
-        ctx.println("<div style='float: right' class='warning'>TZ Version: "+ t.toString()+"</div>");
-    }
-
-    // simple case - show the list of zones.
-    if((zone == null)||(zone.length()==0)) {
-        showPathList(ctx, DataPod.EXEMPLAR_ONLY, null);
-        return;
-    }
-
-    boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-    
-    WebContext subCtx = new WebContext(ctx);
-    subCtx.setQuery(QUERY_ZONE, zone);
-    
-    Map metaMap = new TreeMap();
-    
-    String currentMetaZone = zoneToMetaZone(ctx, zone, metaMap);
-
-    String territory = (String)(supplemental.getZoneToTerritory().get(zone));
-    String displayTerritory = null;
-    String displayZone = null;
-    if((territory != null) && (territory.length()>0)) {
-        displayTerritory = new ULocale("und_"+territory).getDisplayCountry(BASELINE_LOCALE);
-        if((displayTerritory == null)||(displayTerritory.length()==0)) {
-            displayTerritory = territory;
+        printPathListOpen(ctx);
+        ctx.println("<input type='hidden' name='_' value='"+ctx.localeString()+"'>");
+        ctx.println("<input type='hidden' name='x' value='timezones'>");
+        ctx.println("<input type='hidden' name='zone' value='"+zone+"'>");
+        if(canModify) { 
+            ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
         }
-        displayZone = displayTerritory + " : <a class='selected'>"+ zone + "</a>";
-    } else {
-        displayZone = zone;
-    }
+        
+        String zonePodXpath =  "//ldml/"+"dates/timeZoneNames/zone";
+        String zoneSuffix = "[@type=\""+zone+"\"]";
+        String zoneXpath = zonePodXpath+zoneSuffix;
+        String podBase = DataPod.xpathToPodBase(zonePodXpath);
 
-    ctx.println("<h2>"+ displayZone + "</h2>"); // couldn't find the territory.
+        
+        String metazonePodXpath =  "//ldml/"+"dates/timeZoneNames/metazone";
+        String metazoneSuffix = "[@type=\""+currentMetaZone+"\"]";
+        String metazoneXpath = metazonePodXpath+metazoneSuffix;
+        String metazonePodBase = DataPod.xpathToPodBase(metazonePodXpath);
 
-
-    printPathListOpen(ctx);
-    ctx.println("<input type='hidden' name='_' value='"+ctx.locale.getBaseName()+"'>");
-    ctx.println("<input type='hidden' name='zone' value='"+zone+"'>");
-    if(canModify) { 
-        ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
-    }
-    
-    String zonePodXpath =  "//ldml/"+"dates/timeZoneNames/zone";
-    String zoneSuffix = "[@type=\""+zone+"\"]";
-    String zoneXpath = zonePodXpath+zoneSuffix;
-    String podBase = DataPod.xpathToPodBase(zonePodXpath);
-
-    
-    String metazonePodXpath =  "//ldml/"+"dates/timeZoneNames/metazone";
-    String metazoneSuffix = "[@type=\""+currentMetaZone+"\"]";
-    String metazoneXpath = metazonePodXpath+metazoneSuffix;
-    String metazonePodBase = DataPod.xpathToPodBase(metazonePodXpath);
-
-    if(canModify) {
-        vet.processPodChanges(ctx, podBase);
+        if(canModify) {
+            vet.processPodChanges(ctx, podBase);
+            if(currentMetaZone != null) {
+                vet.processPodChanges(ctx, metazonePodBase);
+            }
+        }
+        
+        DataPod pod = ctx.getPod(podBase);
+        DataPod metazonePod = null;
+        
         if(currentMetaZone != null) {
-            vet.processPodChanges(ctx, metazonePodBase);
+            metazonePod = ctx.getPod(metazonePodBase);
         }
-    }
-    
-    DataPod pod = ctx.getPod(podBase);
-    DataPod metazonePod = null;
-    
-    if(currentMetaZone != null) {
-        metazonePod = ctx.getPod(metazonePodBase);
-    }
 
-    
-    // #1 exemplar city
-    
-    ctx.println("<h3>Exemplar City</h3>");
-    
-    printPodTableOpen(ctx, pod, true);
-    showPeas(ctx, pod, canModify, zoneXpath+"/exemplarCity", true);
-    printPodTableClose(ctx, pod);
-    
-    ctx.printHelpHtml(pod, zoneXpath+"/exemplarCity");
+        
+        // #1 exemplar city
+        
+        ctx.println("<h3>Exemplar City</h3>");
+        
+        printPodTableOpen(ctx, pod, true);
+        showPeas(ctx, pod, canModify, zoneXpath+"/exemplarCity", true);
+        printPodTableClose(ctx, pod);
+        
+        ctx.printHelpHtml(pod, zoneXpath+"/exemplarCity");
 
-    if(currentMetaZone != null) {
-        // #2 there's a MZ active. Explain it.
-        ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
+        if(currentMetaZone != null) {
+            // #2 there's a MZ active. Explain it.
+            ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
 
-        printPodTableOpen(ctx, metazonePod, true);
-        showPeas(ctx, metazonePod, canModify, metazoneXpath, true);
-        printPodTableClose(ctx, metazonePod);
+            printPodTableOpen(ctx, metazonePod, true);
+            showPeas(ctx, metazonePod, canModify, metazoneXpath, true);
+            printPodTableClose(ctx, metazonePod);
+            if(canModify) {
+                ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
+            }
+            
+            ctx.printHelpHtml(metazonePod, metazoneXpath);
+
+            // show the table of active zones
+            ctx.println("<h4>Metazone History</h4>");
+            ctx.println("<table class='tzbox'>");
+            ctx.println("<tr><th>from</th><th>to</th><th>Metazone</th></tr>");
+            int n = 0;
+            for(Iterator it = metaMap.entrySet().iterator();it.hasNext();) {
+                n++;
+                Map.Entry e = (Map.Entry)it.next();
+                String contents[] = (String[])e.getValue();
+                String from = contents[0];
+                String to = contents[1];
+                String mzone = contents[2];
+                // OK, now that we are unpacked..
+                //mzContext.setQuery("mzone",mzone);
+                String mzClass="";
+                if(mzone.equals(currentMetaZone)) {
+                    mzClass="currentZone";
+                }
+                mzClass = "r"+(n%2)+mzClass; //   r0 r1 r0 r1 r1currentZone    ( or r0currentZone )
+                ctx.println("<tr class='"+mzClass+"'><td>");
+                if(from != null) {
+                    ctx.println(from);
+                }
+                ctx.println("</td><td>");
+                if(to != null) {
+                    ctx.println(to);
+                } else {
+                    ctx.println("<i>now</i>");
+                }
+                ctx.println("</td><td>");
+                ctx.println("<tt class='codebox'>");
+                
+                ctx.print("<span class='"+(mzone.equals(currentMetaZone)?"selected":"notselected")+"' '>"); // href='"+mzContext.url()+"
+                ctx.print(mzone);
+                ctx.println("</a>");
+                ctx.println("</td></tr>");
+                
+            }
+            ctx.println("</table>");
+
+            ctx.println("<h3>"+ displayZone + " Overrides</h3>"); // couldn't find the territory.
+            ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. <a href=\""+
+                bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + currentMetaZone + " incorrect")+
+                "\">Click Here to report Metazone problems</a> .</i>");
+        } else {
+            ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
+        }
+                
+        printPodTableOpen(ctx, pod, true);
+        showPeas(ctx, pod, canModify, zoneXpath+DataPod.EXEMPLAR_EXCLUDE, true);
+        printPodTableClose(ctx, pod);
         if(canModify) {
             ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
         }
         
-        ctx.printHelpHtml(metazonePod, metazoneXpath);
-
-        // show the table of active zones
-        ctx.println("<h4>Metazone History</h4>");
-        ctx.println("<table class='tzbox'>");
-        ctx.println("<tr><th>from</th><th>to</th><th>Metazone</th></tr>");
-        int n = 0;
-        for(Iterator it = metaMap.entrySet().iterator();it.hasNext();) {
-            n++;
-            Map.Entry e = (Map.Entry)it.next();
-            String contents[] = (String[])e.getValue();
-            String from = contents[0];
-            String to = contents[1];
-            String mzone = contents[2];
-            // OK, now that we are unpacked..
-            //mzContext.setQuery("mzone",mzone);
-            String mzClass="";
-            if(mzone.equals(currentMetaZone)) {
-                mzClass="currentZone";
-            }
-            mzClass = "r"+(n%2)+mzClass; //   r0 r1 r0 r1 r1currentZone    ( or r0currentZone )
-            ctx.println("<tr class='"+mzClass+"'><td>");
-            if(from != null) {
-                ctx.println(from);
-            }
-            ctx.println("</td><td>");
-            if(to != null) {
-                ctx.println(to);
-            } else {
-                ctx.println("<i>now</i>");
-            }
-            ctx.println("</td><td>");
-            ctx.println("<tt class='codebox'>");
-            
-            ctx.print("<span class='"+(mzone.equals(currentMetaZone)?"selected":"notselected")+"' '>"); // href='"+mzContext.url()+"
-            ctx.print(mzone);
-            ctx.println("</a>");
-            ctx.println("</td></tr>");
-            
-        }
-        ctx.println("</table>");
-
-        ctx.println("<h3>"+ displayZone + " Overrides</h3>"); // couldn't find the territory.
-        ctx.print("<i>The Metazone <b>"+currentMetaZone+"</b> is active for this zone. <a href=\""+
-            bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE, ctx.locale+":"+ zone + ":" + currentMetaZone + " incorrect")+
-            "\">Click Here to report Metazone problems</a> .</i>");
-    } else {
-        ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
-    }
-            
-    printPodTableOpen(ctx, pod, true);
-    showPeas(ctx, pod, canModify, zoneXpath+DataPod.EXEMPLAR_EXCLUDE, true);
-    printPodTableClose(ctx, pod);
-    if(canModify) {
-        ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:right'
-    }
-    
-    ctx.printHelpHtml(pod, zoneXpath);
-    
-    printPathListClose(ctx);
-  }
-    
-
-/**
-* This is the main function for showing lists of items (pods).
- */
-public void showPathList(WebContext ctx, String xpath, String lastElement) {
-    showPathList(ctx,xpath,lastElement,false);
-}
-
-public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
-    /* all simple */
-    simple = true;
-
-    UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
-    CLDRDBSource ourSrc = uf.dbSource;
-    CLDRFile cf =  uf.cldrfile;
-    String fullThing = xpath + "/" + lastElement;
-//    boolean isTz = xpath.equals("timeZoneNames");
-    if(lastElement == null) {
-        fullThing = xpath;
-    }    
-    boolean exemplar_only = false;
-    if(fullThing.equals(DataPod.EXEMPLAR_ONLY)) {
-        fullThing = DataPod.EXEMPLAR_PARENT;
-        exemplar_only=true;
-    }
+        ctx.printHelpHtml(pod, zoneXpath);
         
-    boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-    
-    synchronized(ourSrc) { // because it has a connection..
-                           // Podder
-        // TODO: move this into showExample. . .
-        String e = ctx.field(QUERY_EXAMPLE);
-        if(e.length() > 0) {
-            showPathListExample(ctx, xpath, lastElement, e, fullThing, cf);
-        } else {
-            // first, do submissions.
-            if(canModify) {
-                DataPod oldPod = ctx.getExistingPod(fullThing);
-                if(processPeaChanges(ctx, oldPod, cf, ourSrc)) {
-                    int j = vet.updateResults(oldPod.locale); // bach 'em
-                    ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+        printPathListClose(ctx);
+      }
+        
+
+    /**
+    * This is the main function for showing lists of items (pods).
+     */
+    public void showPathList(WebContext ctx, String xpath, String lastElement) {
+        showPathList(ctx,xpath,lastElement,false);
+    }
+
+    public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
+        /* all simple */
+        simple = true;
+
+        UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
+        CLDRDBSource ourSrc = uf.dbSource;
+        CLDRFile cf =  uf.cldrfile;
+        String fullThing = xpath + "/" + lastElement;
+    //    boolean isTz = xpath.equals("timeZoneNames");
+        if(lastElement == null) {
+            fullThing = xpath;
+        }    
+        boolean exemplar_only = false;
+        if(fullThing.equals(DataPod.EXEMPLAR_ONLY)) {
+            fullThing = DataPod.EXEMPLAR_PARENT;
+            exemplar_only=true;
+        }
+            
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
+        
+        synchronized(ourSrc) { // because it has a connection..
+                               // Podder
+            // TODO: move this into showExample. . .
+            String e = ctx.field(QUERY_EXAMPLE);
+            if(e.length() > 0) {
+                showPathListExample(ctx, xpath, lastElement, e, fullThing, cf);
+            } else {
+                // first, do submissions.
+                if(canModify) {
+                    DataPod oldPod = ctx.getExistingPod(fullThing);
+                    if(processPeaChanges(ctx, oldPod, cf, ourSrc)) {
+                        int j = vet.updateResults(oldPod.locale); // bach 'em
+                        ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
+                    }
+                }
+        //        System.out.println("Pod's full thing: " + fullThing);
+                DataPod pod = ctx.getPod(fullThing); // we load a new pod here - may be invalid by the modifications above.
+                pod.simple=simple;
+                if(exemplar_only) {
+                    showPeas(ctx, pod, canModify, DataPod.EXEMPLAR_ONLY, false);
+                } else {
+                    showPeas(ctx, pod, canModify);
                 }
             }
-    //        System.out.println("Pod's full thing: " + fullThing);
-            DataPod pod = ctx.getPod(fullThing); // we load a new pod here - may be invalid by the modifications above.
-            pod.simple=simple;
-            if(exemplar_only) {
-                showPeas(ctx, pod, canModify, DataPod.EXEMPLAR_ONLY, false);
-            } else {
-                showPeas(ctx, pod, canModify);
-            }
         }
     }
-}
 
-String getSortMode(WebContext ctx, DataPod pod) {
-    return getSortMode(ctx, pod.xpathPrefix);
-}
-
-String getSortMode(WebContext ctx, String prefix) {
-    String sortMode = null;
-    if(prefix.indexOf("timeZone")!=-1 ||
-        prefix.indexOf("localeDisplayName")!=-1) {
-        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
-    } else {
-        sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
+    String getSortMode(WebContext ctx, DataPod pod) {
+        return getSortMode(ctx, pod.xpathPrefix);
     }
-    return sortMode;
-}
 
-static int PODTABLE_WIDTH = 14; /** width, in columns, of the typical data table **/
+    String getSortMode(WebContext ctx, String prefix) {
+        String sortMode = null;
+        if(prefix.indexOf("timeZone")!=-1 ||
+            prefix.indexOf("localeDisplayName")!=-1) {
+            sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:PREF_SORTMODE_DEFAULT);
+        } else {
+            sortMode = ctx.pref(PREF_SORTMODE, phaseVetting?PREF_SORTMODE_WARNING:/*PREF_SORTMODE_CODE*/PREF_SORTMODE_WARNING); // all the rest get Code Mode
+        }
+        return sortMode;
+    }
 
-static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
-    ctx.println("<table summary='Data Items for "+ctx.locale.toString()+" " + pod.xpathPrefix + "' class='data' border='0'>");
-    
-   // if(!zoomedIn) {
+    static int PODTABLE_WIDTH = 14; /** width, in columns, of the typical data table **/
+
+    static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
+        ctx.println("<table summary='Data Items for "+ctx.localeString()+" " + pod.xpathPrefix + "' class='data' border='0'>");
+
+        if(!zoomedIn) {
+            ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'><i>For details and help on any item, zoom in by clicking on the status icon: " +
+                ctx.iconHtml("okay",null) + ", " +
+                ctx.iconHtml("ques",null) + ", " +
+                ctx.iconHtml("warn",null) + ", " +
+                ctx.iconHtml("stop",null) + " " +
+                    "</i></td></tr>");
+        }
+        
         ctx.println("<tr class='headingb'>\n"+
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
@@ -4231,1129 +4215,982 @@ static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
                     " <th colspan='2'>Proposed</th>\n"+ // 7
                     " <th title='Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2' width='20%'>Change</th>\n"+               // 8
-                    " <th title='Reference'>Rf</th>\n"+           // 9
+                    " <th title='Reference'>" +
+                        (zoomedIn?"Rf":"")  + "</th>\n"+           // 9
                     " <th title='No Vote (Abstain)'>n/a</th>\n"+                   // 5
                     "</tr>");
- /*   } else {
-        ctx.println("<tr class='heading'>\n"+
-                    "<td></td>\n"+ // row title
-                    " <th colspan=2>\n"+
-                    " </th>\n"+
-                    "<th> action</th>\n"+
-                    "<th colspan=1> data</th>\n"+
-                    "<th> examples</th>\n"+
-                    "<th> comments</th>\n"+
-                    "</tr>");
-    }*/
-}
-
-static void printPodTableClose(WebContext ctx, DataPod pod) {
-    ctx.println("</table>");
-}
-
-void showPeas(WebContext ctx, DataPod pod, boolean canModify) { 
-    showPeas(ctx, pod, canModify, -1, false);
-}
-
-void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn) {
-    showPeas(ctx, pod, canModify, only_base_xpath, null, zoomedIn);
-}
-
-void showPeas(WebContext ctx, DataPod pod, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
-    showPeas(ctx, pod, canModify, -1, only_prefix_xpath, zoomedIn);
-}
-
-void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, String only_prefix_xpath, boolean zoomedIn) {
-    int count = 0;
-    int dispCount = 0;
-    int total = 0;
-    int skip = 0; // where the index points to
-    int oskip = ctx.fieldInt("skip",0); // original skip from user.
-    
-    boolean partialPeas = ((only_base_xpath!=-1)||(only_prefix_xpath!=null));
-    
-    //       total = mySet.count();
-    //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-    UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
-    CLDRFile cf = uf.cldrfile;
-        //    CLDRFile engf = getBaselineFile();
-    CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-    CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
-    XPathParts pathParts = new XPathParts(null, null);
-    XPathParts fullPathParts = new XPathParts(null, null);
-    List checkCldrResult = new ArrayList();
-    Iterator theIterator = null;
-    String sortMode = getSortMode(ctx, pod);
-	boolean disputedOnly = false;
-	if(ctx.field("only").equals("disputed")) {
-		disputedOnly=true;
-		sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
-	}
-    List peas = pod.getList(sortMode);
-
-//    boolean exemplarCityOnly = (!partialPeas && pod.exemplarCityOnly);
-    boolean exemplarCityOnly = (only_prefix_xpath!=null) && (only_prefix_xpath.equals(DataPod.EXEMPLAR_ONLY));
-    if(exemplarCityOnly) {
-        only_prefix_xpath = null; // special prefix
-        partialPeas = false;
-    }
-    boolean exemplarCityExclude = (only_prefix_xpath!=null) && (only_prefix_xpath.endsWith(DataPod.EXEMPLAR_EXCLUDE));
-    if(exemplarCityExclude) {
-        only_prefix_xpath = only_prefix_xpath.replaceAll(DataPod.EXEMPLAR_EXCLUDE,""); // special prefix
     }
 
-    String refs[] = new String[0];
-    String ourDir = getDirectionFor(ctx.locale);
-    boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
-    // calculate references
-    if(pod.xpathPrefix.indexOf("references")==-1) {
-        Set refsSet = new HashSet();
-        WebContext refCtx = new WebContext(ctx);
-        refCtx.setQuery("_",ctx.locale.getLanguage());
-        refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
-        DataPod refPod = refCtx.getPod("//ldml/references");
-        List refPeas = refPod.getList(PREF_SORTMODE_CODE);
-        for(Iterator i = refPeas.iterator();i.hasNext();) {
-            DataPod.Pea p = (DataPod.Pea)i.next();
-            for(Iterator j = p.items.iterator();j.hasNext();) {
-                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-                if(item.inheritFrom == null) {
-                        refsSet.add(p.type);
-                }
-            }
+    static void printPodTableClose(WebContext ctx, DataPod pod) {
+        ctx.println("</table>");
+    }
+
+    void showPeas(WebContext ctx, DataPod pod, boolean canModify) { 
+        showPeas(ctx, pod, canModify, -1, false);
+    }
+
+    void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, boolean zoomedIn) {
+        showPeas(ctx, pod, canModify, only_base_xpath, null, zoomedIn);
+    }
+
+    void showPeas(WebContext ctx, DataPod pod, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
+        showPeas(ctx, pod, canModify, -1, only_prefix_xpath, zoomedIn);
+    }
+
+    void showPeas(WebContext ctx, DataPod pod, boolean canModify, int only_base_xpath, String only_prefix_xpath, boolean zoomedIn) {
+        int count = 0;
+        int dispCount = 0;
+        int total = 0;
+        int skip = 0; // where the index points to
+        int oskip = ctx.fieldInt("skip",0); // original skip from user.
+        
+        boolean partialPeas = ((only_base_xpath!=-1)||(only_prefix_xpath!=null));
+        
+        //       total = mySet.count();
+        //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+        UserLocaleStuff uf = getUserFile(ctx, ctx.session.user, ctx.locale);
+        CLDRFile cf = uf.cldrfile;
+            //    CLDRFile engf = getBaselineFile();
+        CLDRDBSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+        CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
+        XPathParts pathParts = new XPathParts(null, null);
+        XPathParts fullPathParts = new XPathParts(null, null);
+        List checkCldrResult = new ArrayList();
+        Iterator theIterator = null;
+        String sortMode = getSortMode(ctx, pod);
+        boolean disputedOnly = false;
+        if(ctx.field("only").equals("disputed")) {
+            disputedOnly=true;
+            sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
         }
-        if(!refsSet.isEmpty()) {
-            refs = (String[])refsSet.toArray((Object[]) refs);
-        }
-    }
-    DataPod.DisplaySet dSet = null;
+        List peas = pod.getList(sortMode);
 
-    if(exemplarCityOnly) {
-        dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*exemplarCity.*"));
-    } else if(exemplarCityExclude) {
-        dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*/((short)|(long))/.*"));
-    } else {
-        dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
-    }
-    
-    boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
-    int moveSkip=-1;  // move the "skip" marker?
-    int xfind = ctx.fieldInt("xfind");
-    if((xfind != -1) && !partialPeas) {
-        // see if we can find this base_xpath somewhere..
-        int pn = 0;
-        for(Iterator i = peas.iterator();(moveSkip==-1)&&i.hasNext();) {
-            DataPod.Pea p = (DataPod.Pea)i.next();
-            if(p.base_xpath == xfind) {
-                moveSkip = pn;
-            }
-            pn++;
+    //    boolean exemplarCityOnly = (!partialPeas && pod.exemplarCityOnly);
+        boolean exemplarCityOnly = (only_prefix_xpath!=null) && (only_prefix_xpath.equals(DataPod.EXEMPLAR_ONLY));
+        if(exemplarCityOnly) {
+            only_prefix_xpath = null; // special prefix
+            partialPeas = false;
         }
-        if(moveSkip != -1) {
-            oskip = (moveSkip / ctx.prefCodesPerPage())*ctx.prefCodesPerPage(); // make it fall on a page boundary.
+        boolean exemplarCityExclude = (only_prefix_xpath!=null) && (only_prefix_xpath.endsWith(DataPod.EXEMPLAR_EXCLUDE));
+        if(exemplarCityExclude) {
+            only_prefix_xpath = only_prefix_xpath.replaceAll(DataPod.EXEMPLAR_EXCLUDE,""); // special prefix
         }
-    }
-    // -----
-    if(!partialPeas) {
-        skip = showSkipBox(ctx, dSet.size(), dSet, true, sortMode, oskip);
-    } else {
-        skip = 0;
-    }
-    
-    if(!partialPeas) {
-        ctx.printUrlAsHiddenFields();   
-    }
-	    
-    if(disputedOnly==true){
-        ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
-    }
 
-    if(!partialPeas) {
-        ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
-        printPodTableOpen(ctx, pod, zoomedIn);
-    }
-
-				
-    int peaStart = skip; // where should it start?
-    int peaCount = ctx.prefCodesPerPage(); // hwo many to show?
-    
-    if(disputedOnly) {
-            for(int j = 0;j<dSet.partitions.length;j++) {
-                    if(dSet.partitions[j].name.equals(DataPod.CHANGES_DISPUTED)) {
-                            peaStart=dSet.partitions[j].start;
-                            peaCount=(dSet.partitions[j].limit - peaStart);
+        String refs[] = new String[0];
+        String ourDir = getDirectionFor(ctx.locale);
+//        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
+        // calculate references
+        if(pod.xpathPrefix.indexOf("references")==-1) {
+            Set refsSet = new HashSet();
+            WebContext refCtx = new WebContext(ctx);
+            refCtx.setQuery("_",ctx.locale.getLanguage());
+            refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
+            DataPod refPod = refCtx.getPod("//ldml/references");
+            List refPeas = refPod.getList(PREF_SORTMODE_CODE);
+            for(Iterator i = refPeas.iterator();i.hasNext();) {
+                DataPod.Pea p = (DataPod.Pea)i.next();
+                for(Iterator j = p.items.iterator();j.hasNext();) {
+                    DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                    if(item.inheritFrom == null) {
+                            refsSet.add(p.type);
                     }
+                }
             }
-    }
+            if(!refsSet.isEmpty()) {
+                refs = (String[])refsSet.toArray((Object[]) refs);
+            }
+        }
+        DataPod.DisplaySet dSet = null;
 
-    
-    for(ListIterator i = dSet.peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
-        DataPod.Pea p = (DataPod.Pea)i.next();
+        if(exemplarCityOnly) {
+            dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*exemplarCity.*"));
+        } else if(exemplarCityExclude) {
+            dSet = pod.getDisplaySet(sortMode, Pattern.compile(".*/((short)|(long))/.*"));
+        } else {
+            dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
+        }
         
-        if(partialPeas) { // are we only showing some peas?
-            if((only_base_xpath != -1) && (only_base_xpath != p.base_xpath)) { // print only this one xpath
-                continue; 
+        boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
+        int moveSkip=-1;  // move the "skip" marker?
+        int xfind = ctx.fieldInt("xfind");
+        if((xfind != -1) && !partialPeas) {
+            // see if we can find this base_xpath somewhere..
+            int pn = 0;
+            for(Iterator i = peas.iterator();(moveSkip==-1)&&i.hasNext();) {
+                DataPod.Pea p = (DataPod.Pea)i.next();
+                if(p.base_xpath == xfind) {
+                    moveSkip = pn;
+                }
+                pn++;
             }
+            if(moveSkip != -1) {
+                oskip = (moveSkip / ctx.prefCodesPerPage())*ctx.prefCodesPerPage(); // make it fall on a page boundary.
+            }
+        }
+        // -----
+        if(!partialPeas) {
+            skip = showSkipBox(ctx, dSet.size(), dSet, true, sortMode, oskip);
+        } else {
+            skip = 0;
+        }
+        
+        if(!partialPeas) {
+            ctx.printUrlAsHiddenFields();   
+        }
             
-            if((only_prefix_xpath!=null) && !pod.xpath(p).startsWith(only_prefix_xpath)) {
-                continue;
-            }
+        if(disputedOnly==true){
+            ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
         }
-        
-        if((!partialPeas) && checkPartitions) {
-            for(int j = 0;j<dSet.partitions.length;j++) {
-                if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
-                    ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
-                        "<a name='" + dSet.partitions[j].name + "'>" +
-                        dSet.partitions[j].name + "</a>" +
-                        "</th></tr>");
-                }
-            }
-        }
-        
-        try {
-            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths,refs,checkCldr, zoomedIn);
-            if(exemplarCityOnly) {
-                String zone = p.type;
-                int n = zone.lastIndexOf('/');
-                if(n!=-1) {
-                    zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
-                }
-            
-                ctx.println("<tr><td colspan=4>Click to view this time zone: <a href='"+ctx.base()+"?"+
-                        "_="+ctx.locale+"&amp;x=timezones&amp;zone="+zone+"' class='notselected'>"+zone+"</a></td></tr>");
-            }
-        } catch(Throwable t) {
-            // failed to show pea. 
-            ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br>");
-            ctx.print(t);
-            ctx.print("</td></tr>");
-        }
-        if(p.subPeas != null) {
-            for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
-                DataPod.Pea subPea = (DataPod.Pea)e.next();
-                try {
-                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths,refs,checkCldr, zoomedIn);
-                } catch(Throwable t) {
-                    // failed to show sub-pea.
-                    ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+pod.xpath(subPea)+"."+subPea.altType+"</b><br>");
-                    ctx.print(t);
-                    ctx.print("</td></tr>");
-                }
-            }
-        }
-    }
-    if(!partialPeas) {
-        printPodTableClose(ctx, pod);
-    
-        if(canModify && 
-            pod.xpathPrefix.indexOf("references")!=-1) {
-            ctx.println("<hr>");
-            ctx.println("<table class='listb' summary='New Reference Box'>");
-            ctx.println("<tr><th colspan=2 >Add New Reference ( click '"+xSAVE+"' after filling in the fields.)</th></tr>");
-            ctx.println("<tr><td align='right'>Reference: </th><td><input size='80' name='"+MKREFERENCE+"_v'></td></tr>");
-            ctx.println("<tr><td align='right'>URI: </th><td><input size='80' name='"+MKREFERENCE+"_u'></td></tr>");
-            ctx.println("</table>");
-        }
-        
-        
-        /*skip = */ showSkipBox(ctx, dSet.size(), dSet, false, sortMode, oskip);
-        
-        if(!canModify) {
-            ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
-        }
-    }
-}
 
-boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSource ourSrc) {
-    String ourDir = getDirectionFor(ctx.locale);
-    boolean someDidChange = false;
-    if(oldPod != null) {
-        for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+        if(!partialPeas) {
+            ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
+            printPodTableOpen(ctx, pod, zoomedIn);
+        }
+
+                    
+        int peaStart = skip; // where should it start?
+        int peaCount = ctx.prefCodesPerPage(); // hwo many to show?
+        
+        if(disputedOnly) {
+                for(int j = 0;j<dSet.partitions.length;j++) {
+                        if(dSet.partitions[j].name.equals(DataPod.CHANGES_DISPUTED)) {
+                                peaStart=dSet.partitions[j].start;
+                                peaCount=(dSet.partitions[j].limit - peaStart);
+                        }
+                }
+        }
+
+        
+        for(ListIterator i = dSet.peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
             DataPod.Pea p = (DataPod.Pea)i.next();
-            someDidChange = processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc) || someDidChange;
+            
+            if(partialPeas) { // are we only showing some peas?
+                if((only_base_xpath != -1) && (only_base_xpath != p.base_xpath)) { // print only this one xpath
+                    continue; 
+                }
+                
+                if((only_prefix_xpath!=null) && !pod.xpath(p).startsWith(only_prefix_xpath)) {
+                    continue;
+                }
+            }
+            
+            if((!partialPeas) && checkPartitions) {
+                for(int j = 0;j<dSet.partitions.length;j++) {
+                    if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
+                        ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
+                            "<a name='" + dSet.partitions[j].name + "'>" +
+                            dSet.partitions[j].name + "</a>" +
+                            "</th></tr>");
+                    }
+                }
+            }
+            
+            try {
+                if(exemplarCityOnly) {
+                    String zone = p.type;
+                    int n = zone.lastIndexOf('/');
+                    if(n!=-1) {
+                        zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
+                    }
+                    showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,ctx.base()+"?"+
+                            "_="+ctx.locale+"&amp;x=timezones&amp;zone="+zone,refs,checkCldr, zoomedIn);                
+                } else {
+                    showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
+                }
+            } catch(Throwable t) {
+                // failed to show pea. 
+                ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br>");
+                ctx.print(t);
+                ctx.print("</td></tr>");
+            }
             if(p.subPeas != null) {
                 for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
                     DataPod.Pea subPea = (DataPod.Pea)e.next();
-                    someDidChange = processPeaChanges(ctx, oldPod, subPea, ourDir, cf, ourSrc) || someDidChange;
-                }
-            }
-        }            
-        if(oldPod.xpathPrefix.indexOf("references")!=-1) {
-            String newRef = ctx.field(MKREFERENCE+"_v");
-            String uri = ctx.field(MKREFERENCE+"_u");
-            if(newRef.length()>0) {
-                String dup = null;
-                for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
-                    DataPod.Pea p = (DataPod.Pea)i.next();
-                    /*
-                    someDidChange = processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc) || someDidChange;
-                    if(p.subPeas != null) {
-                        for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
-                            DataPod.Pea subPea = (DataPod.Pea)e.next();
-                            */
-                            DataPod.Pea subPea = p;
-                            for(Iterator j = p.items.iterator();j.hasNext();) {
-                                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-                                if(item.value.equals(newRef)) {
-                                    dup = p.type;
-                                } else {
-                                }
-                            }
-                            /*
-                        }
-                    }*/
-                }            
-                ctx.print("<b>Adding new reference...</b> ");
-                if(dup != null) {
-                    ctx.println("Ref already exists, not adding: <tt class='codebox'>"+dup+"</tt> " + newRef + "<br>");
-                } else {
-                    String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.locale.toString(), ctx.session.user.id, newRef, uri);
-                    if(newType == null) {
-                        ctx.print("<i>Error.</i>");
-                    } else {
-                        ctx.print("<tt class='codebox'>"+newType+"</tt>");
-                        ctx.print(" added.. " + newRef +" @ " +uri);
-                        someDidChange=true;
-                    }
-                }
-            }
-        }
-    }
-	if(someDidChange) {
-		lcr.invalidateLocale(oldPod.locale);
-	}
-    return someDidChange;
-}
-
-boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
-    String fieldHash = pod.fieldHash(p);
-    String altType = p.altType;
-    String choice = ctx.field(fieldHash); // checkmark choice
-    if(choice.length()==0) {
-        return false; // nothing to see..
-    }
-    
-    String fullPathFull = pod.xpath(p);
-    int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
-    int oldVote = vet.queryVote(pod.locale, ctx.session.user.id, base_xpath);
-    // do modification here. 
-    String choice_v = ctx.field(fieldHash+"_v"); // choice + value
-    String choice_r = ctx.field(fieldHash+"_r"); // choice + value
-    String choice_refDisplay = ""; // display value for ref
-    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps;
-    
-    if(choice_r.length()>0) {
-        choice_refDisplay = " Ref: "+choice_r;
-    }
-    if(!choice.equals(CHANGETO)) {
-        choice_v=""; // so that the value is ignored, as it is not changing
-    }
-    
-    /* handle inherited value */
-    if(choice.equals(INHERITED_VALUE)) {
-        if(p.inheritedValue == null) {
-            throw new InternalError(p+" has no inherited value!");
-        }
-        
-        // remap. Will cause the 2nd if branch to be followed, below.se
-        choice = CHANGETO;
-        choice_v = p.inheritedValue.value;
-    }
-    
-    if(choice.equals(CHANGETO)&& choice_v.length()==0) {
-        ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. <!-- Use 'remove' to request removal. --><br>");
-    } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
-         (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
-        if(!canSubmit) {
-            ctx.println("You are not allowed to submit data at this time.<br>");
-            return false;
-        }
-        String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
-        for(Iterator j = p.items.iterator();j.hasNext();) {
-            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-            if(choice_v.equals(item.value)  && 
-                !((item.altProposed==null) && (item.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom))) { // OK to override code fallbacks
-                String theirReferences = item.references;
-                if(theirReferences == null) {
-                    theirReferences="";
-                }
-                if(theirReferences.equals(choice_r)) {
-                    ctx.println("<tt class='codebox'>" + p.displayName +"</tt>  - Not accepting value, as it is already present under " + 
-                        ((item.altProposed==null)?" non-draft item ":(" <tt>"+item.altProposed+"</tt><br> ")));
-                    // reject the value
-                    if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
-                        ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
-                    }
-                    return false;
-                } else {
-                    ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - <i>Note, differs only in references</i> ("+theirReferences+")<br>");
-                }
-            }
-        }
-        String altPrefix = null;
-        // handle FFT
-                
-        if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
-            throw new RuntimeException("Missing fake flex thing");
-        } else {
-            altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
-        }
-        // user requested a new alternate.
-        String newAlt = ctx.field(fieldHash+"_alt").trim();
-        if(newAlt.length()>0) {
-            altType = newAlt;
-        }
-        String aDisplayName = p.displayName;
-        if(pod.xpath(p).startsWith("//ldml/characters") && 
-            ((aDisplayName == null) || "null".equals(aDisplayName))) {
-            aDisplayName = "standard";
-        }
-        ctx.print("<tt class='codebox'>" + aDisplayName + "</tt> <b>change: " + choice_v +"</b> : ");
-        // Test: is the value valid?
-        {
-            /* cribbed from elsewhere */
-            UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-            // Set up checks
-            CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-            List checkCldrResult = new ArrayList();
-            
-            checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(), checkCldrResult);  // they get the full course
-            
-            if(!checkCldrResult.isEmpty()) {
-                boolean doFail = false;
-                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if(status.getType().equals(status.errorType)) {
-                        doFail = true;
-                    }
-                    try{ 
-                        if (!status.getType().equals(status.exampleType)) {
-                            String cls = shortClassName(status.getCause());
-                            ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
-                            ctx.print(ctx.iconThing("stop",cls));
-                            ctx.println(": "+ status.toString() + "<br>");
-                        }
+                    try {
+                        showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
                     } catch(Throwable t) {
-                        ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
+                        // failed to show sub-pea.
+                        ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+pod.xpath(subPea)+"."+subPea.altType+"</b><br>");
+                        ctx.print(t);
+                        ctx.print("</td></tr>");
                     }
-                }
-                if(doFail) {
-                    // reject the value
-                    if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
-                        ctx.temporaryStuff.put(fieldHash+"_v", choice_v);
-                    }
-                    ctx.println("<b>This item was not accepted because of test failures.</b><hr>");
-                    return false;
                 }
             }
         }
+        if(!partialPeas) {
+            printPodTableClose(ctx, pod);
         
-        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, altType, 
-            altPrefix, ctx.session.user.id, choice_v, choice_r);
-        // update implied vote
-        ctx.print(" : <b>" + newProp+"</b>");
-        if(HAVE_REMOVE&&choice.equals(REMOVE)) {
-            ctx.print(" <i>(removal)</i>");
+            if(canModify && 
+                pod.xpathPrefix.indexOf("references")!=-1) {
+                ctx.println("<hr>");
+                ctx.println("<table class='listb' summary='New Reference Box'>");
+                ctx.println("<tr><th colspan=2 >Add New Reference ( click '"+xSAVE+"' after filling in the fields.)</th></tr>");
+                ctx.println("<tr><td align='right'>Reference: </th><td><input size='80' name='"+MKREFERENCE+"_v'></td></tr>");
+                ctx.println("<tr><td align='right'>URI: </th><td><input size='80' name='"+MKREFERENCE+"_u'></td></tr>");
+                ctx.println("</table>");
+            }
+            
+            
+            /*skip = */ showSkipBox(ctx, dSet.size(), dSet, false, sortMode, oskip);
+            
+            if(!canModify) {
+                ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
+            }
         }
-        doUnVote(ctx, pod.locale, base_xpath);
-        int n = vet.updateImpliedVotes(pod.locale);
-        ctx.println("updated " + n + " implied votes due to new data submission.");
-        ctx.println("<br>");
+    }
+
+    boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSource ourSrc) {
+        String ourDir = getDirectionFor(ctx.locale);
+        boolean someDidChange = false;
+        if(oldPod != null) {
+            for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+                DataPod.Pea p = (DataPod.Pea)i.next();
+                someDidChange = processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc) || someDidChange;
+                if(p.subPeas != null) {
+                    for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                        DataPod.Pea subPea = (DataPod.Pea)e.next();
+                        someDidChange = processPeaChanges(ctx, oldPod, subPea, ourDir, cf, ourSrc) || someDidChange;
+                    }
+                }
+            }            
+            if(oldPod.xpathPrefix.indexOf("references")!=-1) {
+                String newRef = ctx.field(MKREFERENCE+"_v");
+                String uri = ctx.field(MKREFERENCE+"_u");
+                if(newRef.length()>0) {
+                    String dup = null;
+                    for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+                        DataPod.Pea p = (DataPod.Pea)i.next();
+                        DataPod.Pea subPea = p;
+                        for(Iterator j = p.items.iterator();j.hasNext();) {
+                            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                            if(item.value.equals(newRef)) {
+                                dup = p.type;
+                            } else {
+                            }
+                        }
+                    }            
+                    ctx.print("<b>Adding new reference...</b> ");
+                    if(dup != null) {
+                        ctx.println("Ref already exists, not adding: <tt class='codebox'>"+dup+"</tt> " + newRef + "<br>");
+                    } else {
+                        String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.localeString(), ctx.session.user.id, newRef, uri);
+                        if(newType == null) {
+                            ctx.print("<i>Error.</i>");
+                        } else {
+                            ctx.print("<tt class='codebox'>"+newType+"</tt>");
+                            ctx.print(" added.. " + newRef +" @ " +uri);
+                            someDidChange=true;
+                        }
+                    }
+                }
+            }
+        }
+        if(someDidChange) {
+            lcr.invalidateLocale(oldPod.locale);
+        }
+        return someDidChange;
+    }
+
+    boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
+        String fieldHash = pod.fieldHash(p);
+        String altType = p.altType;
+        String choice = ctx.field(fieldHash); // checkmark choice
+        if(choice.length()==0) {
+            return false; // nothing to see..
+        }
+        
+        String fullPathFull = pod.xpath(p);
+        int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
+        int oldVote = vet.queryVote(pod.locale, ctx.session.user.id, base_xpath);
+        // do modification here. 
+        String choice_v = ctx.field(fieldHash+"_v"); // choice + value
+        String choice_r = ctx.field(fieldHash+"_r"); // choice + value
+        String choice_refDisplay = ""; // display value for ref
+        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps;
+        
+        if(p.toggleWith != null) {
+            if(!canSubmit) {
+                return false;
+            }
+            // special handling for toggles.
+            if(p.toggleValue == false) { // we only work with the 'true' side.
+                return false;
+            }
+            
+            
+            // load the negative side of things
+            DataPod.Pea falsePea = p.toggleWith;
+            String falsePath = pod.xpath(falsePea);
+            int false_xpath = xpt.xpathToBaseXpathId(falsePath);
+            int oldFalseVote = vet.queryVote(pod.locale, ctx.session.user.id, false_xpath);
+            
+            boolean isDontcare = choice.equals(DONTCARE);
+            boolean isChangeto = choice.equals(CHANGETO);
+
+            if(isDontcare || (isChangeto && choice_v.length()==0)) {
+                boolean hadChange = false;
+                if(oldVote != -1) {
+                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: Removing vote <br>");
+                    hadChange = doVote(ctx, pod.locale, -1, base_xpath) || hadChange;
+                }
+                if(oldFalseVote != -1) {
+                    ctx.print("<tt class='codebox'>"+ falsePea.displayName +"</tt>: Removing vote <br>");
+                    hadChange = doVote(ctx, pod.locale, -1, false_xpath) || hadChange;
+                }
+                return hadChange;
+            } else if(isChangeto) {
+                boolean choice_b = choice_v.equals("true");
+                if(!choice_b) choice_v="false";
+                
+                // create a parallel set of these items, depending on which way we are going. YES = user's vote. NO = not user's vote.
+                DataPod.Pea yesPea = choice_b?p:falsePea;
+                DataPod.Pea noPea  = !choice_b?p:falsePea;
+                String      yesPath = choice_b?fullPathFull:falsePath;
+                String      noPath = !choice_b?fullPathFull:falsePath;
+                int         yesVote = choice_b?oldVote:oldFalseVote;
+                int         noVote = !choice_b?oldVote:oldFalseVote;
+                int         yesXpid = choice_b?base_xpath:false_xpath;
+                int         noXpid = !choice_b?base_xpath:false_xpath;
+                
+                boolean updateImpliedVotes = false;
+                boolean hadChange = false;
+
+                // look for a 'choice_v' value in  the yesPea to vote for
+                DataPod.Pea.Item yesItem = null;
+                for(Object o : yesPea.items) {
+                    DataPod.Pea.Item i = (DataPod.Pea.Item)o;
+                    if(choice_v.equals(i.value)) {
+                        yesItem = i;
+                    }
+                }
+                
+                String altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
+                
+                if(yesItem == null) {
+                    // no yesItem - have to create one.
+                    String yesPathMinusAlt = XPathTable.removeAlt(yesPath);
+                    String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, yesPathMinusAlt, yesPea.altType, 
+                        altPrefix, ctx.session.user.id, choice_v, choice_r);
+                    doUnVote(ctx, pod.locale, yesXpid); // remove explicit vote - the implied votes will pick up the vote
+                    updateImpliedVotes = true;
+                    hadChange = true;
+                    ctx.print("<tt class='codebox'>"+ yesPea.displayName +"</tt>: voting for new item <br>");
+                } else if(yesVote != yesItem.xpathId) {
+                    doVote(ctx, pod.locale, yesItem.xpathId, yesXpid);
+                    hadChange = true;
+                    ctx.print("<tt class='codebox'>"+ yesPea.displayName +"</tt>: voting for item <br>");
+                }
+                
+                // now, the no item
+                
+                // look for a 'removal' value in  the yesPea to vote for
+                DataPod.Pea.Item noItem = null;
+                for(Object o : noPea.items) {
+                    DataPod.Pea.Item i = (DataPod.Pea.Item)o;
+                    if("".equals(i.value)) {
+                        noItem = i;
+                    }
+                }
+                
+                if(noItem == null) {
+                    // no yesItem - have to create one.
+                    String noPathMinusAlt = XPathTable.removeAlt(noPath);
+                    String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, noPathMinusAlt, noPea.altType, 
+                        altPrefix, ctx.session.user.id, "", choice_r); // removal
+                    doUnVote(ctx, pod.locale, noXpid); // remove explicit vote - the implied votes will pick up the vote
+                    updateImpliedVotes = true;
+                    hadChange = true;
+                    ctx.print("<tt class='codebox'>"+ noPea.displayName +"</tt>: voting for new item <br>");
+                } else if(noVote != noItem.xpathId) {
+                    doVote(ctx, pod.locale, noItem.xpathId, noXpid);
+                    hadChange = true;
+                    ctx.print("<tt class='codebox'>"+ noPea.displayName +"</tt>: voting for item <br>");
+                }
+                
+                if(updateImpliedVotes) {
+                    int n = vet.updateImpliedVotes(pod.locale);
+                }
+                
+            } else {
+                return false;
+            }
+        }
+        
+        if(choice_r.length()>0) {
+            choice_refDisplay = " Ref: "+choice_r;
+        }
+        if(!choice.equals(CHANGETO)) {
+            choice_v=""; // so that the value is ignored, as it is not changing
+        }
+        
+        /* handle inherited value */
+        if(choice.equals(INHERITED_VALUE)) {
+            if(p.inheritedValue == null) {
+                throw new InternalError(p+" has no inherited value!");
+            }
+            
+            // remap. Will cause the 2nd if branch to be followed, below.se
+            choice = CHANGETO;
+            choice_v = p.inheritedValue.value;
+        }
+        
+        if(choice.equals(CHANGETO)&& choice_v.length()==0) {
+            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+            ctx.println(ctx.iconHtml("stop","empty value")+ " value was left empty. <!-- Use 'remove' to request removal. --><br>");
+            ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
+        } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
+             (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
+            if(!canSubmit) {
+                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
+                return false;
+            }
+            String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+            for(Iterator j = p.items.iterator();j.hasNext();) {
+                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                if(choice_v.equals(item.value)  && 
+                    !((item.altProposed==null) && (item.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom))) { // OK to override code fallbacks
+                    String theirReferences = item.references;
+                    if(theirReferences == null) {
+                        theirReferences="";
+                    }
+                    if(theirReferences.equals(choice_r)) {
+                        if(oldVote != item.xpathId) {
+                            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                            ctx.println(ctx.iconHtml("warn","duplicate")+" This value was already entered, accepting your vote for " + 
+                                ((item.altProposed==null)?" the current item. <br>":(" the proposal <tt>"+item.altProposed+"</tt>.<br>")));
+                            return doVote(ctx, pod.locale, item.xpathId);
+                        } else {
+                            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                            ctx.println(ctx.iconHtml("warn","duplicate")+" Your current vote is already for " + 
+                                ((item.altProposed==null)?" the current item ":(" the proposal <tt>"+item.altProposed+"</tt> "))+" which has the same value.<br>");
+                            return false;
+                        }
+                    } else {
+//                        ctx.println(ctx.iconHtml("warn","duplicate")+"<i>Note, differs only in references</i> ("+theirReferences+")<br>");
+                    }
+                }
+            }
+            String altPrefix = null;
+            // handle FFT
+                    
+            if(p.type.equals(DataPod.FAKE_FLEX_THING)) {
+                throw new RuntimeException("Missing fake flex thing");
+            } else {
+                altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
+            }
+            // user requested a new alternate.
+            String newAlt = ctx.field(fieldHash+"_alt").trim();
+            if(newAlt.length()>0) {
+                altType = newAlt;
+            }
+            String aDisplayName = p.displayName;
+            if(pod.xpath(p).startsWith("//ldml/characters") && 
+                ((aDisplayName == null) || "null".equals(aDisplayName))) {
+                aDisplayName = "standard";
+            }
+            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+            ctx.print("&nbsp;&nbsp; New value: <b>" + choice_v +"</b>  ");
+            // Test: is the value valid?
+            {
+                /* cribbed from elsewhere */
+                UserLocaleStuff uf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+                // Set up checks
+                CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
+                List checkCldrResult = new ArrayList();
+                
+                checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(), checkCldrResult);  // they get the full course
+                
+                if(!checkCldrResult.isEmpty()) {
+                    boolean doFail = false;
+                    boolean hadWarnings = false;
+                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                        if(status.getType().equals(status.errorType)) {
+                            doFail = true;
+                        }
+                        try{ 
+                            if (!status.getType().equals(status.exampleType)) {
+                                if(!hadWarnings) {
+                                    hadWarnings = true;
+                                    ctx.print("<br>");
+                                }
+                                String cls = shortClassName(status.getCause());
+                                ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+                                if(status.getType().equals(status.errorType)) {
+                                    ctx.print(ctx.iconHtml("stop",cls));
+                                } else {
+                                    ctx.print(ctx.iconHtml("warn",cls));
+                                }
+                                ctx.println(" "+ status.toString() + "<br>" );
+                            }
+                        } catch(Throwable t) {
+                            ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
+                        }
+                    }
+                    if(doFail) {
+                        // reject the value
+                        if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
+                            ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
+                        }
+                        ctx.println("<b>This item was not accepted because of test failures.</b><br>");
+                        return false;
+                    }
+                }
+            }
+            
+            String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, altType, 
+                altPrefix, ctx.session.user.id, choice_v, choice_r);
+            // update implied vote
+//            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
+            if(HAVE_REMOVE&&choice.equals(REMOVE)) {
+                ctx.print(" <i>(removal)</i>");
+            }
+            doUnVote(ctx, pod.locale, base_xpath);
+            int n = vet.updateImpliedVotes(pod.locale);
+            //ctx.println("updated " + n + " implied votes due to new data submission.");
+            ctx.println(" "+ctx.iconHtml("okay","new")+" <br>");
+            return true;
+        } else if(choice.equals(CONFIRM)) {
+            if(oldVote != base_xpath) {
+                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + " --> " + 
+                        ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
+                return doVote(ctx, pod.locale, base_xpath); // vote with xpath
+            }
+        } else if (choice.equals(DONTCARE)) {
+            if(oldVote != -1) {
+                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":-1 replacing " + oldVote + " -->" + 
+                    ctx.iconHtml("okay","voted")+" Removing vote. <br>");
+                return doVote(ctx, pod.locale, -1, base_xpath);
+            }
+        } else {
+            for(Iterator j = p.items.iterator();j.hasNext();) {
+                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                if(choice.equals(item.altProposed)) {
+                    if(oldVote != item.xpathId) {
+                        ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                        ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":" + item.xpathId + " replacing " + oldVote + " --> " + 
+                                ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
+                        return doVote(ctx, pod.locale, item.xpathId);
+                    } else {
+                        return false; // existing vote.
+                    }
+                }
+            }
+            ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+            ctx.println(ctx.iconHtml("stop","unknown")+"<tt title='"+pod.locale+":"+base_xpath+"' class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
+        }
+        return false;
+    }
+
+    boolean doVote(WebContext ctx, String locale, int xpath) {
+        int base_xpath = xpt.xpathToBaseXpathId(xpath);
+        return doVote(ctx, locale, xpath, base_xpath);
+    }
+
+    boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
+        // TODO: checks
+        vet.vote( locale,  base_xpath, ctx.session.user.id, xpath, Vetting.VET_EXPLICIT);
+        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
         return true;
-    } else if(choice.equals(CONFIRM)) {
-        if(oldVote != base_xpath) {
-            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + "<br>");
-            return doVote(ctx, pod.locale, base_xpath); // vote with xpath
+    }
+
+    int doUnVote(WebContext ctx, String locale, int base_xpath) {
+        // TODO: checks
+        int rs = vet.unvote( locale,  base_xpath, ctx.session.user.id);
+        lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
+        return rs;
+    }
+
+    void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
+        showPea(ctx,pod,p,ourDir,cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
+    }
+
+    /*
+    // TODO: trim unused params
+    void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr) {
+        
+        boolean zoomedIn=true;
+            
+        //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
+        //    return;
+        //}
+        
+        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
+            || (canModify&&p.hasProps); // or, there's modified data.
+
+        String localeLangName = ctx.locale.getDisplayLanguage(ctx.displayLocale);
+
+        boolean showedRemoveButton = false; 
+        String fullPathFull = pod.xpath(p); 
+        String boxClass = canModify?"actionbox":"disabledbox";
+        boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
+        WebContext refCtx = new WebContext(ctx);
+        refCtx.setQuery("_",ctx.locale.getLanguage());
+        refCtx.setQuery(QUERY_SECTION,"references");
+        //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
+
+        String fieldHash = pod.fieldHash(p);
+        
+        // voting stuff
+        int ourVote = -1;
+        String ourVoteXpath = null;
+        boolean somethingChecked = false; // have we presented a 'vote' yet?
+        int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
+        int resultType[] = new int[1];
+        int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
+        String resultXpath = null;
+        if(resultXpath_id != -1) {
+            resultXpath = xpt.getById(resultXpath_id); 
         }
-    } else if (choice.equals(DONTCARE)) {
-        if(oldVote != -1) {
-            ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":-1 replacing " + oldVote + "<br>");
-            return doVote(ctx, pod.locale, -1, base_xpath);
-        }
-    } else {
-        for(Iterator j = p.items.iterator();j.hasNext();) {
-            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-            if(choice.equals(item.altProposed)) {
-                if(oldVote != item.xpathId) {
-                    ctx.println("Registering vote for "+base_xpath+" - "+pod.locale+":" + item.xpathId+" replacing " + oldVote + "<br>");
-                    return doVote(ctx, pod.locale, item.xpathId);
-                } else {
-                    return false; // existing vote.
-                }
+        if(ctx.session.user != null) {
+            ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
+                base_xpath);
+            
+            //System.err.println(base_xpath + ": vote is " + ourVote);
+            if(ourVote != -1) {
+                ourVoteXpath = xpt.getById(ourVote);
             }
         }
-        ctx.println("<tt title='"+pod.locale+":"+base_xpath+"' class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet. <br>");
-    }
-    return false;
-}
-
-boolean doVote(WebContext ctx, String locale, int xpath) {
-    int base_xpath = xpt.xpathToBaseXpathId(xpath);
-    return doVote(ctx, locale, xpath, base_xpath);
-}
-
-boolean doVote(WebContext ctx, String locale, int xpath, int base_xpath) {
-    // TODO: checks
-    vet.vote( locale,  base_xpath, ctx.session.user.id, xpath, Vetting.VET_EXPLICIT);
-    lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
-    return true;
-}
-
-int doUnVote(WebContext ctx, String locale, int base_xpath) {
-    // TODO: checks
-    int rs = vet.unvote( locale,  base_xpath, ctx.session.user.id);
-    lcr.invalidateLocale(locale); // throw out this pod next time, cause '.votes' are now wrong.
-    return rs;
-}
-
-void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr)  {
-    showPea(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr,false);
-}
-
-/*
-// TODO: trim unused params
-void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr) {
-    
-    boolean zoomedIn=true;
         
-    //if(p.type.equals(DataPod.FAKE_FLEX_THING) && !UserRegistry.userIsTC(ctx.session.user)) {
-    //    return;
-    //}
-    
-    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
-        || (canModify&&p.hasProps); // or, there's modified data.
-
-    String localeLangName = ctx.locale.getDisplayLanguage(ctx.displayLocale);
-
-    boolean showedRemoveButton = false; 
-    String fullPathFull = pod.xpath(p); 
-    String boxClass = canModify?"actionbox":"disabledbox";
-    boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
-    WebContext refCtx = new WebContext(ctx);
-    refCtx.setQuery("_",ctx.locale.getLanguage());
-    refCtx.setQuery(QUERY_SECTION,"references");
-    //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
-
-    String fieldHash = pod.fieldHash(p);
-    
-    // voting stuff
-    int ourVote = -1;
-    String ourVoteXpath = null;
-    boolean somethingChecked = false; // have we presented a 'vote' yet?
-    int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
-    int resultType[] = new int[1];
-    int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
-    String resultXpath = null;
-    if(resultXpath_id != -1) {
-        resultXpath = xpt.getById(resultXpath_id); 
-    }
-    if(ctx.session.user != null) {
-        ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
-            base_xpath);
-        
-        //System.err.println(base_xpath + ": vote is " + ourVote);
-        if(ourVote != -1) {
-            ourVoteXpath = xpt.getById(ourVote);
+        /*  TOP BAR */
+        /*
+        ctx.println("<tr class='topbar'>");
+        ctx.println("<th class='rowinfo'>Code / " + BASELINE_NAME + "</th>"); // ##0 title
+        String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
+        if(p.displayName != null) { // have a display name - code gets its own box
+            ctx.println("<th class='botgray' colspan='1' valign='top' align='left'>");
+            ctx.println("<tt title='"+baseInfo+"' class='codebox'>"
+                        + p.type + 
+                        "</tt>");
+        } else { // no display name - same box for code+alt
+            ctx.println("<th class='botgray' colspan='5' valign='top' align='left'>");
         }
-    }
-    
-    /*  TOP BAR */
-    /*
-    ctx.println("<tr class='topbar'>");
-    ctx.println("<th class='rowinfo'>Code / " + BASELINE_NAME + "</th>"); // ##0 title
-    String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
-    if(p.displayName != null) { // have a display name - code gets its own box
-        ctx.println("<th class='botgray' colspan='1' valign='top' align='left'>");
-        ctx.println("<tt title='"+baseInfo+"' class='codebox'>"
-                    + p.type + 
-                    "</tt>");
-    } else { // no display name - same box for code+alt
-        ctx.println("<th class='botgray' colspan='5' valign='top' align='left'>");
-    }
-    if(p.altType != null) {
-        ctx.println(" ("+p.altType+" alternative)");
-    }
-    if(p.displayName != null) {
-        ctx.println("</th>");
-        ctx.println("<th style='padding-left: 4px;' colspan='3' valign='top' align='right' class='botgray'>");
-        ctx.println(p.displayName);
-    } else {
-        ctx.println("<tt title='"+baseInfo+"' >"+p.type+"</tt>");
-
-    }
-    if(showFullXpaths) {
-        ctx.println("<br>"+fullPathFull);
-    }
-    
-    if(true==false) {
-        ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
-    }
-    ctx.println("</th> ");
-    // Example
-    String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.IN);
-    if(baseExample != null) {
-        ctx.print("<td align='left' valign='top' class='generatedexample' >"+ baseExample + "</td>");
-    } else {
-        ctx.print("<td></td>");
-    }
-    ctx.println("</tr>");
-    
-    
-    if((p.hasInherited == true) && (p.type != null) && (*//*item.inheritFrom == null*//*false)) { // by code
-        String pClass = "class='warnrow'";
-        ctx.print("<tr " + pClass + ">");
-        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-        ctx.print("<td  colspan='3' valign='top' align='right'>");
-        ctx.print("<span class='actionbox'>missing</span>");
-        if(canModify) {
-            ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio'>");
+        if(p.altType != null) {
+            ctx.println(" ("+p.altType+" alternative)");
+        }
+        if(p.displayName != null) {
+            ctx.println("</th>");
+            ctx.println("<th style='padding-left: 4px;' colspan='3' valign='top' align='right' class='botgray'>");
+            ctx.println(p.displayName);
         } else {
-            ctx.print("<input type='radio' disabled>");
+            ctx.println("<tt title='"+baseInfo+"' >"+p.type+"</tt>");
+
         }
-        ctx.print("<tt>");
-        ctx.println("</td>");
-        ctx.println("<td dir='" + ourDir +"'>");
-        ctx.println(p.type + "</tt></td>");
-        ctx.println("<td class='warncell'>Missing, using code.</td>");
+//        if(showFullXpaths) {
+//            ctx.println("<br>"+fullPathFull);
+//        }
+        
+        if(true==false) {
+            ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
+        }
+        ctx.println("</th> ");
+        // Example
+        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.IN);
+        if(baseExample != null) {
+            ctx.print("<td align='left' valign='top' class='generatedexample' >"+ baseExample + "</td>");
+        } else {
+            ctx.print("<td></td>");
+        }
         ctx.println("</tr>");
-    }*/
-    /*
-    if(p.pathWhereFound != null) { // is the pea tagged with another path?
-        // middle common string match
-        String a = fullPathFull;
-        String b = p.pathWhereFound;
-        
-        // run them through the wringer..
-        a = xpt.getById(xpt.xpathToBaseXpathId(a));   // full path (source)
-        b = xpt.getById(xpt.xpathToBaseXpathId(b));   // full path (target)
         
         
-        int alen = a.length();
-        int blen = b.length();
-        
-        int prefixSize;
-        int suffixSize;
-        
-        // find a common prefix
-        for(prefixSize=0;a.substring(0,prefixSize).equals(b.substring(0,prefixSize));prefixSize++)
-            ;
-        int maxlen = (alen>blen)?alen:blen;
-        
-// System.err.println("A:"+a);
-// System.err.println("B:"+b); 
-        
-        // find a common suffix
-        for(suffixSize=0;((suffixSize+prefixSize)<maxlen)&&
-            a.substring(alen-suffixSize,alen).equals(b.substring(blen-suffixSize,blen));suffixSize++)
-            ;
-//                    System.err.println("SUFF"+suffixSize+": ["+a+"] -> "+a.substring(alen-suffixSize,alen));
-        
-        // at least the slash (/) is a prefix
-        if(prefixSize==0) {
-            prefixSize=1;
-        }
-        
-        String xa = a.substring(prefixSize-1,alen-suffixSize+1);
-        String xb = b.substring(prefixSize-1,blen-suffixSize+1);
-        
-        if((xa.length()+xb.length())>0) {
-            // Aliases: from xa to xb
+        if((p.hasInherited == true) && (p.type != null) && (*//*item.inheritFrom == null*//*false)) { // by code
+            String pClass = "class='warnrow'";
+            ctx.print("<tr " + pClass + ">");
+            ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+            ctx.print("<td  colspan='3' valign='top' align='right'>");
+            ctx.print("<span class='actionbox'>missing</span>");
+            if(canModify) {
+                ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio'>");
+            } else {
+                ctx.print("<input type='radio' disabled>");
+            }
+            ctx.print("<tt>");
+            ctx.println("</td>");
+            ctx.println("<td dir='" + ourDir +"'>");
+            ctx.println(p.type + "</tt></td>");
+            ctx.println("<td class='warncell'>Missing, using code.</td>");
+            ctx.println("</tr>");
+        }*/
+        /*
+        if(p.pathWhereFound != null) { // is the pea tagged with another path?
+            // middle common string match
+            String a = fullPathFull;
+            String b = p.pathWhereFound;
+            
+            // run them through the wringer..
+            a = xpt.getById(xpt.xpathToBaseXpathId(a));   // full path (source)
+            b = xpt.getById(xpt.xpathToBaseXpathId(b));   // full path (target)
+            
+            
+            int alen = a.length();
+            int blen = b.length();
+            
+            int prefixSize;
+            int suffixSize;
+            
+            // find a common prefix
+            for(prefixSize=0;a.substring(0,prefixSize).equals(b.substring(0,prefixSize));prefixSize++)
+                ;
+            int maxlen = (alen>blen)?alen:blen;
+            
+    // System.err.println("A:"+a);
+    // System.err.println("B:"+b); 
+            
+            // find a common suffix
+            for(suffixSize=0;((suffixSize+prefixSize)<maxlen)&&
+                a.substring(alen-suffixSize,alen).equals(b.substring(blen-suffixSize,blen));suffixSize++)
+                ;
+    //                    System.err.println("SUFF"+suffixSize+": ["+a+"] -> "+a.substring(alen-suffixSize,alen));
+            
+            // at least the slash (/) is a prefix
+            if(prefixSize==0) {
+                prefixSize=1;
+            }
+            
+            String xa = a.substring(prefixSize-1,alen-suffixSize+1);
+            String xb = b.substring(prefixSize-1,blen-suffixSize+1);
+            
+            if((xa.length()+xb.length())>0) {
+                // Aliases: from xa to xb
+                ctx.println("<tr>");
+                ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
+                ctx.print("<td colspan='3'><i><tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
+                ctx.printHelpLink("/AliasedFrom","Help",true,false);
+                ctx.println("</td></tr>");
+            } else {
+                // Aliased - no further information
+                ctx.println("<tr>");
+                ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
+                ctx.println("<td colspan='3'>");
+                ctx.printHelpLink("/AliasedFrom","Help",true,false);
+                ctx.println("</td></tr>");
+            }
+        }*/
+        /* else *//* if(isAlias) {   
+    //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")*//*,fullPathFull.length()*//*);
+    //<tt class='codebox'>["+shortStr+"]</tt>
             ctx.println("<tr>");
-            ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
-            ctx.print("<td colspan='3'><i><tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
-            ctx.printHelpLink("/AliasedFrom","Help",true,false);
-            ctx.println("</td></tr>");
-        } else {
-            // Aliased - no further information
-            ctx.println("<tr>");
-            ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
-            ctx.println("<td colspan='3'>");
-            ctx.printHelpLink("/AliasedFrom","Help",true,false);
-            ctx.println("</td></tr>");
-        }
-    }*/
-    /* else *//* if(isAlias) {   
-//        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")*//*,fullPathFull.length()*//*);
-//<tt class='codebox'>["+shortStr+"]</tt>
-        ctx.println("<tr>");
-        ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-        ctx.println("<td colspan='3'><i>Alias</i></td></tr>");
-        for(Iterator j = p.items.iterator();j.hasNext();) {
+            ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+            ctx.println("<td colspan='3'><i>Alias</i></td></tr>");
+            for(Iterator j = p.items.iterator();j.hasNext();) {
+                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                String pClass ="";
+                if(item.pathWhereFound != null) {
+                    pClass = "class='alias'";
+                } else if((item.inheritFrom != null)) {
+                    pClass = "class='fallback'";
+                } else if(item.altProposed != null) {
+                    pClass = "class='proposed'";
+    //            } else if(p.inheritFrom != null) {
+    //                pClass = "class='missing'";
+                } 
+                ctx.println("<tr>");
+                ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
+                if(item.inheritFrom != null) {
+                    ctx.println("<td class='fallback'>Inherited from: " + item.inheritFrom+"</td>");
+                } else {
+                    ctx.print("<td " + pClass + " >");
+                    if(item.altProposed!=null) {
+                        ctx.print(item.altProposed);
+                    }
+                    ctx.print("</td>");
+                }
+                ctx.print("<td colspan='4'><tt>"+item.value+"</tt></td></tr>");
+            }
+
+        } else if (p.items.isEmpty()) {
+            // there weren't any normal items to show. show an example anyways.
+            ctx.print("<tr>");
+            ctx.println("<th class='rowinfo'>"+localeLangName+":</th>"); // ##0 title 
+            ctx.print("<td colspan='5' align='right' valign='top'></td>");
+            // example
+            String itemExample = pod.exampleGenerator.getExampleHtml(fullPathFull, null, ExampleGenerator.Zoomed.IN);
+            if(itemExample != null) {
+                ctx.print("<td class='generatedexample'  align='left' valign='top'>"+  itemExample + "</td>");// item.xpath+"//"+ 
+            } else {
+                ctx.print("<td></td>");
+            }
+            ctx.println("</tr>");
+        } else for(Iterator j = p.items.iterator();j.hasNext();) { // non alias
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             String pClass ="";
             if(item.pathWhereFound != null) {
                 pClass = "class='alias'";
-            } else if((item.inheritFrom != null)) {
+            } else if((item.inheritFrom != null)) {//&&(p.inheritFrom==null)
                 pClass = "class='fallback'";
             } else if(item.altProposed != null) {
                 pClass = "class='proposed'";
-//            } else if(p.inheritFrom != null) {
-//                pClass = "class='missing'";
+          /// } else if(p.inheritFrom != null) {
+        //pClass = "class='missing'";
             } 
-            ctx.println("<tr>");
-            ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-            if(item.inheritFrom != null) {
-                ctx.println("<td class='fallback'>Inherited from: " + item.inheritFrom+"</td>");
-            } else {
-                ctx.print("<td " + pClass + " >");
-                if(item.altProposed!=null) {
-                    ctx.print(item.altProposed);
-                }
-                ctx.print("</td>");
-            }
-            ctx.print("<td colspan='4'><tt>"+item.value+"</tt></td></tr>");
-        }
-
-    } else if (p.items.isEmpty()) {
-        // there weren't any normal items to show. show an example anyways.
-        ctx.print("<tr>");
-        ctx.println("<th class='rowinfo'>"+localeLangName+":</th>"); // ##0 title 
-        ctx.print("<td colspan='5' align='right' valign='top'></td>");
-        // example
-        String itemExample = pod.exampleGenerator.getExampleHtml(fullPathFull, null, ExampleGenerator.Zoomed.IN);
-        if(itemExample != null) {
-            ctx.print("<td class='generatedexample'  align='left' valign='top'>"+  itemExample + "</td>");// item.xpath+"//"+ 
-        } else {
-            ctx.print("<td></td>");
-        }
-        ctx.println("</tr>");
-    } else for(Iterator j = p.items.iterator();j.hasNext();) { // non alias
-        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-        String pClass ="";
-        if(item.pathWhereFound != null) {
-            pClass = "class='alias'";
-        } else if((item.inheritFrom != null)) {//&&(p.inheritFrom==null)
-            pClass = "class='fallback'";
-        } else if(item.altProposed != null) {
-            pClass = "class='proposed'";
-      /// } else if(p.inheritFrom != null) {
-    //pClass = "class='missing'";
-        } 
-        ctx.print("<tr>");
-        ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- "+pClass+" --></th>"); // ##0 title
-        ctx.print("<td colspan='1' align='right' valign='top'>");
-//ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
-        if(((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly)
-            || (!j.hasNext()&&!showedRemoveButton)) {
-            showedRemoveButton = true;
-            if(HAVE_REMOVE){
-                ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
-                if(canModify&&canSubmit) {
-                    ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");
-                } else {
-                    ctx.print("<input type='radio' disabled>");
-                }
-            }
-        }
-        ctx.print("</td>");
-        
-                
-        ctx.print("<td  "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
-        if(item.altProposed != null) {
-        
-            // NB: don't show user under 'alt' for now. just show votes.
-            
-            int uid = XPathTable.altProposedToUserid(item.altProposed);
-            UserRegistry.User theU = null;
-            if(uid != -1) {
-                theU = reg.getInfo(uid);
-            }
-            String aTitle = null;
-            if((theU!=null)&&
-               (ctx.session.user!=null)&&
-                    ((uid==ctx.session.user.id) ||   //if it's us or..
-                    (UserRegistry.userIsTC(ctx.session.user) ||  //or  TC..
-                    (UserRegistry.userIsVetter(ctx.session.user) && (canModify ||  // approved vetter or ..
-                                                    ctx.session.user.org.equals(theU.org)))))) { // vetter&same org
-                if((ctx.session.user==null)||(ctx.session.user.org == null)) {
-                    throw new InternalError("null: c.s.u.o");
-                }
-                if((theU!=null)&&(theU.org == null)) {
-                    throw new InternalError("null: theU.o");
-                }
-//                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
-                aTitle = "From: &lt;"+theU.email+"&gt; " + theU.name + " (" + theU.org + ")";
-            }
-            
-            ctx.print("<span ");
-            if(aTitle != null) {
-                ctx.print("title='"+aTitle+"' ");
-            }
-            ctx.print("class='"+boxClass+"'>"+CONFIRM+" " + item.altProposed + "</span>");
-            
-            if(item.inheritFrom != null) {
-                ctx.println("<br><span class='fallback'>Inherited from: " + item.inheritFrom+"</span>");
-            }
-        } else {
-            if(item.inheritFrom != null) {
-                if(item.inheritFrom.equals(XMLSource.CODE_FALLBACK_ID)) {
-                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" " + item.inheritFrom + "</span>");
-                } else {
-                    ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" inherited [" + item.inheritFrom + "]</span>");
-                }
-            } else {
-                ctx.print("<span class='"+boxClass+"'>" + CONFIRM + "</span>");
-            }
-        }
-        if(canModify) {
-            boolean checkThis = !somethingChecked 
-                            && (ourVoteXpath!=null) 
-                            && (item.xpath!=null)
-                            &&  ourVoteXpath.equals(item.xpath);
-            if(checkThis) {
-                somethingChecked = true;
-            } else {
-//                if(ourVoteXpath != null) {
-//                    System.err.println("FAIL:  " + item.xpath + " != " + ourVoteXpath);
-//                }
-            }
-            ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
-                ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
-        } else {
-            ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
-        }
-        if(item.votes != null) {
-            ctx.println("<br>");
-            //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
-            ctx.print("<span title='vote count' class='votes'>");
-            if(UserRegistry.userIsVetter(ctx.session.user)) {
-                for(Iterator iter=item.votes.iterator();iter.hasNext();) {
-                    UserRegistry.User theU  = (UserRegistry.User) iter.next();
-                    if(theU != null) {
-                        ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
-                        if(iter.hasNext()) {
-                            ctx.print("<br>");
-                        }
+            ctx.print("<tr>");
+            ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- "+pClass+" --></th>"); // ##0 title
+            ctx.print("<td colspan='1' align='right' valign='top'>");
+    //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
+            if(((item.altProposed==null)&&(item.inheritFrom==null)&&!p.confirmOnly)
+                || (!j.hasNext()&&!showedRemoveButton)) {
+                showedRemoveButton = true;
+                if(HAVE_REMOVE){
+                    ctx.print("<span class='"+boxClass+"'>"+REMOVE+"</span>");
+                    if(canModify&&canSubmit) {
+                        ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio'>");
                     } else {
-                        ctx.println("<!-- null user -->");
+                        ctx.print("<input type='radio' disabled>");
                     }
                 }
-            } else {
-                int n = item.votes.size();
-                ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
             }
-            ctx.print("</span>");
-        }
-        ctx.print("</span>");
-        ctx.println("</td>");
-        boolean winner = 
-            ((resultXpath!=null)&&
-            (item.xpath!=null)&&
-            (item.xpath.equals(resultXpath)));
-        
-        ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
-        String itemSpan = null;
-        
-        if(winner) {
-            itemSpan = "approved";
-        } else if((item.votes!=null)&&(resultType[0]==Vetting.RES_INSUFFICIENT)) {
-            itemSpan = "insufficient";
-        } else if(resultType[0]==Vetting.RES_DISPUTED) {
-            itemSpan = "disputed";      
-        }
-        
-        if(itemSpan != null) {
-            ctx.print("<span class='"+itemSpan+"'>");
-        }
-        if(item.value.length()!=0) {
-            ctx.print(item.value);
-        } else {
-            ctx.print("<i>(empty)</i>");
-        }
-        if(itemSpan != null) {
-            ctx.print("</span>");
-        }
-		if(winner && resultType[0]==Vetting.RES_ADMIN) {
-			ctx.println("<br>");
-			ctx.printHelpLink("/AdminOverride","Admin Override");
-		}
-        ctx.print("</td>");
-        
-        // example
-        String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value, ExampleGenerator.Zoomed.IN);
-        if(itemExample != null) {
-            ctx.print("<td class='generatedexample' align='left' valign='top'>"+  itemExample + "</td>"); //item.xpath+"//"+ 
-        } else {
-            ctx.print("<td></td>");
-        }
-        
-        
-        if((item.tests != null) || (item.examples != null)) {
-            if(item.tests != null) {
-                ctx.println("<td class='warncell'>");
-                for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if (!status.getType().equals(status.exampleType)) {
-                        ctx.println("<span class='warning'>");
-                        String cls = shortClassName(status.getCause());
-                        if(status.getType().equals(status.errorType)) {
-                            ctx.print(ctx.iconThing("stop","Error: "+cls));
-                        } else {
-                            ctx.print(ctx.iconThing("warn","Warning: "+cls));
-                        }
-                        printShortened(ctx,status.toString());
-                        ctx.println("</span>");
-                        if(cls != null) {
-                            ctx.printHelpLink("/"+cls+"","Help");
-                        }
-                        ctx.print("<br>");
-                    }
-                }
-            } else {
-                ctx.println("<td class='examplecell'>");
-            }
+            ctx.print("</td>");
             
-            if(item.examples != null) {
-            //
-//                if(true) { throw new InternalError("had Old examples?  Not supposed to happen.."); }
-            }
-
-//            List examples = new ArrayList();
-//                ctx.println("Examples: ");
-                boolean first = true;
-                for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
-                    DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
-                    if(first==false) {
-                    }
-                    String cls = shortClassName(e.status.getCause());
-                    if(e.status.getType().equals(e.status.exampleType)) {
-                        printShortened(ctx,e.status.toString());
-                        if(cls != null) {
-                            ctx.printHelpLink("/"+cls+"","Help");
-                        }
-                        ctx.println("<br>");
-                    } else {                        
-                        String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.superPea.base_xpath));
-                        if(theMenu==null) {
-                            theMenu="raw";
-                        }
-                        ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
-                        ctx.print(cls);
-                        ctx.print("</a>");
-                    }
-                    first = false;
+                    
+            ctx.print("<td  "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
+            if(item.altProposed != null) {
+            
+                // NB: don't show user under 'alt' for now. just show votes.
+                
+                int uid = XPathTable.altProposedToUserid(item.altProposed);
+                UserRegistry.User theU = null;
+                if(uid != -1) {
+                    theU = reg.getInfo(uid);
                 }
-//                    ctx.println(status.getHTMLMessage()+"<br>");
-            }
-            ctx.println("</td>");
-        }
-        
-        // Print 'em, For now.
-        if(item.references != null) {
-           String references[] = UserRegistry.tokenizeLocale(item.references); //TODO: rename to 'tokenize string'
-           if(references != null) {
-                ctx.print("<td style='border-left: 1px solid gray;margin: 3px; padding: 2px;'>(Ref:");           
-                for(int i=0;i<references.length;i++) {
-                    if(i!=0) {
-                        ctx.print(", ");
+                String aTitle = null;
+                if((theU!=null)&&
+                   (ctx.session.user!=null)&&
+                        ((uid==ctx.session.user.id) ||   //if it's us or..
+                        (UserRegistry.userIsTC(ctx.session.user) ||  //or  TC..
+                        (UserRegistry.userIsVetter(ctx.session.user) && (canModify ||  // approved vetter or ..
+                                                        ctx.session.user.org.equals(theU.org)))))) { // vetter&same org
+                    if((ctx.session.user==null)||(ctx.session.user.org == null)) {
+                        throw new InternalError("null: c.s.u.o");
                     }
-                    ctx.print("<b><a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"#REF_" + references[i] + "'>"+references[i]+"</a></b>");
+                    if((theU!=null)&&(theU.org == null)) {
+                        throw new InternalError("null: theU.o");
+                    }
+    //                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
+                    aTitle = "From: &lt;"+theU.email+"&gt; " + theU.name + " (" + theU.org + ")";
                 }
-                ctx.print(")</td>");
-            }
-        }
-        
-        ctx.println("</tr>");
-    }
-    
-    if(true && !isAlias) {
-        String pClass = "";
-         // dont care
-        ctx.print("<tr " + pClass + ">");
-        ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- changeto --></th>"); // ##0 title
-        ctx.print("<td  valign='top' align='right'>");
-        ctx.print("<span class='"+boxClass+"'>" + DONTCARE + "</span>");
-        if(canModify) {
-            ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
-                +((!somethingChecked )?"CHECKED":"")+" >"); //ourVoteXpath==null
-            somethingChecked = true;
-        } else {
-            ctx.print("<input type='radio' disabled>");
-        }
-        ctx.println("</td>");
-        ctx.println("<td></td>");
-        // change
-        ctx.print("<td nowrap valign='top' align='right'>");
-        if(!p.confirmOnly) {
-
-            if(!zoomedIn) {
-                //if(canModify && canSubmit) {
-                    fora.showForumLink(ctx, pod, p, p.superPea.base_xpath);
-                //}
+                
+                ctx.print("<span ");
+                if(aTitle != null) {
+                    ctx.print("title='"+aTitle+"' ");
+                }
+                ctx.print("class='"+boxClass+"'>"+CONFIRM+" " + item.altProposed + "</span>");
+                
+                if(item.inheritFrom != null) {
+                    ctx.println("<br><span class='fallback'>Inherited from: " + item.inheritFrom+"</span>");
+                }
             } else {
-                ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
-                if(canModify && canSubmit ) {
-                    ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+                if(item.inheritFrom != null) {
+                    if(item.inheritFrom.equals(XMLSource.CODE_FALLBACK_ID)) {
+                        ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" " + item.inheritFrom + "</span>");
+                    } else {
+                        ctx.print("<span class='"+boxClass+"'>"+CONFIRM+" inherited [" + item.inheritFrom + "]</span>");
+                    }
                 } else {
-                    ctx.print("<input type='radio' disabled>");
+                    ctx.print("<span class='"+boxClass+"'>" + CONFIRM + "</span>");
                 }
             }
-        }
-        ctx.println("</td>");
-        if(zoomedIn && canSubmit && canModify && !p.confirmOnly) {
-            String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
-            String fClass = "inputbox";
-            ctx.print("<td colspan='2'>");
-            boolean badInputBox = false;
-            if(oldValue==null) {
-                oldValue="";
+            if(canModify) {
+                boolean checkThis = !somethingChecked 
+                                && (ourVoteXpath!=null) 
+                                && (item.xpath!=null)
+                                &&  ourVoteXpath.equals(item.xpath);
+                if(checkThis) {
+                    somethingChecked = true;
+                } else {
+    //                if(ourVoteXpath != null) {
+    //                    System.err.println("FAIL:  " + item.xpath + " != " + ourVoteXpath);
+    //                }
+                }
+                ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
+                    ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
             } else {
-                badInputBox = true;
-                ctx.print("<span class='ferrbox'>"+ctx.iconThing("stop","this item was not accepted."));
-                fClass = "badinputbox";
+                ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
             }
-            ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
-            if(badInputBox) {
+            if(item.votes != null) {
+                ctx.println("<br>");
+                //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
+                ctx.print("<span title='vote count' class='votes'>");
+                if(UserRegistry.userIsVetter(ctx.session.user)) {
+                    for(Iterator iter=item.votes.iterator();iter.hasNext();) {
+                        UserRegistry.User theU  = (UserRegistry.User) iter.next();
+                        if(theU != null) {
+                            ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
+                            if(iter.hasNext()) {
+                                ctx.print("<br>");
+                            }
+                        } else {
+                            ctx.println("<!-- null user -->");
+                        }
+                    }
+                } else {
+                    int n = item.votes.size();
+                    ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
+                }
                 ctx.print("</span>");
             }
+            ctx.print("</span>");
             ctx.println("</td>");
-            // references
-            if(refs.length>0) {
-                ctx.print("<td ><label>");
-                ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
-                ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
-                ctx.print("<option value='' SELECTED></option>");
-                for(int i=0;i<refs.length;i++) {
-                    ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
-                }
-                ctx.println("</select></label></td>");
+            boolean winner = 
+                ((resultXpath!=null)&&
+                (item.xpath!=null)&&
+                (item.xpath.equals(resultXpath)));
+            
+            ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
+            String itemSpan = null;
+            
+            if(winner) {
+                itemSpan = "approved";
+            } else if((item.votes!=null)&&(resultType[0]==Vetting.RES_INSUFFICIENT)) {
+                itemSpan = "insufficient";
+            } else if(resultType[0]==Vetting.RES_DISPUTED) {
+                itemSpan = "disputed";      
             }
-        }
-        ctx.println("</tr>");
-    }
-}
-
-*/
-
-/**
- * Show a single pea
- */
-void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-    CLDRDBSource ourSrc, boolean canModify, boolean showFullXpaths, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
-
-/*
-    // this loads the OLD ( alternate look ) individual pea
-    if(zoomedIn==true) {
-        showPeaZoomedIn_OLD(ctx,pod,p,ourDir,cf,ourSrc,canModify,showFullXpaths,refs,checkCldr);
-        return;
-    }
-*/
-
-    String ourAlign = "left";
-    if(ourDir.equals("rtl")) {
-        ourAlign = "right";
-    }
-    
-    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
-        || (canModify&&p.hasProps); // or, there's modified data.
-
-    boolean showedRemoveButton = false; 
-    String fullPathFull = pod.xpath(p); 
-    String boxClass = canModify?"actionbox":"disabledbox";
-    boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
-    WebContext refCtx = new WebContext(ctx);
-    refCtx.setQuery("_",ctx.locale.getLanguage());
-    refCtx.setQuery(QUERY_SECTION,"references");
-    //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
-
-    String fieldHash = pod.fieldHash(p);
-    
-    // voting stuff
-    int ourVote = -1;
-    String ourVoteXpath = null;
-    boolean somethingChecked = false; // have we presented a 'vote' yet?
-    int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
-    int resultType[] = new int[1];
-    int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
-    String resultXpath = null;
-    boolean noWinner = false;
-    if(resultXpath_id != -1) {
-        resultXpath = xpt.getById(resultXpath_id); 
-    } else {
-        noWinner = true;
-    }
-    if(ctx.session.user != null) {
-        ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
-            base_xpath);
-        
-        //System.err.println(base_xpath + ": vote is " + ourVote);
-        if(ourVote != -1) {
-            ourVoteXpath = xpt.getById(ourVote);
-        }
-    }
-    
-    // let's see what's inside.
-    // TODO: move this into the DataPod itself?
-    List<DataPod.Pea.Item> currentItems = new ArrayList<DataPod.Pea.Item>();
-    List<DataPod.Pea.Item> proposedItems = new ArrayList<DataPod.Pea.Item>();
-    
-    for(Iterator j = p.items.iterator();j.hasNext();) {
-        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-        if(item.altProposed != null) {
-            proposedItems.add(item);
-        } else {
-            currentItems.add(item);
-        }
-    }
-    // if there is an inherited value available - see if we need to show it.
-    if(p.inheritedValue != null) {
-        if(currentItems.isEmpty()) {  // no other current items.. 
-            currentItems.add(p.inheritedValue); 
-        } else {
-            boolean found = false;
-            for( DataPod.Pea.Item i : currentItems ) {
-                if(p.inheritedValue.value.equals(i.value)) {
-                    found = true;
-                }
+            
+            if(itemSpan != null) {
+                ctx.print("<span class='"+itemSpan+"'>");
             }
-            if (!found) for( DataPod.Pea.Item i : proposedItems ) {
-                if(p.inheritedValue.value.equals(i.value)) {
-                    found = true;
-                }
+            if(item.value.length()!=0) {
+                ctx.print(item.value);
+            } else {
+                ctx.print("<i>(empty)</i>");
             }
-            if(!found) {
-                proposedItems.add(p.inheritedValue);
+            if(itemSpan != null) {
+                ctx.print("</span>");
             }
-        }
-    }
-    
-    // calculate the max height of the current row.
-    int rowSpan = Math.max(proposedItems.size(),currentItems.size()); // what is the rowSpan needed for general items?
-    rowSpan = Math.max(rowSpan,1);
-    
-    /*  TOP BAR */
-    // Mark the line as disputed or insufficient, depending.
-    String rclass = "vother";
-    boolean foundError = p.hasErrors;
-    boolean foundWarning = p.hasWarnings;
-    
-    List<DataPod.Pea.Item> warningsList = new ArrayList<DataPod.Pea.Item>();
-
-    // calculate the class of data items
-    String statusIcon="";
-    {
-        int s = resultType[0];
-        
-        if(foundError) {
-//            rclass = "warning";
-            statusIcon = ctx.iconThing("stop","Errors - please zoom in");            
-        } else if(foundWarning) {
-            rclass = "okay";
-            statusIcon = ctx.iconThing("warn","Warnings - please zoom in");            
-
-            /*
+            if(winner && resultType[0]==Vetting.RES_ADMIN) {
+                ctx.println("<br>");
+                ctx.printHelpLink("/AdminOverride","Admin Override");
+            }
+            ctx.print("</td>");
+            
+            // example
+            String itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value, ExampleGenerator.Zoomed.IN);
+            if(itemExample != null) {
+                ctx.print("<td class='generatedexample' align='left' valign='top'>"+  itemExample + "</td>"); //item.xpath+"//"+ 
+            } else {
+                ctx.print("<td></td>");
+            }
+            
+            
             if((item.tests != null) || (item.examples != null)) {
                 if(item.tests != null) {
                     ctx.println("<td class='warncell'>");
                     for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
                         CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                         if (!status.getType().equals(status.exampleType)) {
-                            
                             ctx.println("<span class='warning'>");
                             String cls = shortClassName(status.getCause());
+                            if(status.getType().equals(status.errorType)) {
+                                ctx.print(ctx.iconHtml("stop","Error: "+cls));
+                            } else {
+                                ctx.print(ctx.iconHtml("warn","Warning: "+cls));
+                            }
                             printShortened(ctx,status.toString());
                             ctx.println("</span>");
                             if(cls != null) {
@@ -5365,1313 +5202,1589 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 } else {
                     ctx.println("<td class='examplecell'>");
                 }
-            */
-            
-        } else if((s & Vetting.RES_DISPUTED)>0) {
-            rclass= "disputedrow";
-            statusIcon = (ctx.iconThing("ques","Unconfirmed: disputed"));
-        } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
-            rclass = "insufficientrow";
-            statusIcon = (ctx.iconThing("ques","Unconfirmed: insufficient"));            
-        } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-            statusIcon = (ctx.iconThing("okay","ok"));
-            rclass = "okay";
-        } else {
-            rclass = "vother";
-        }
-/*        if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
-            rclass = "insufficientrow";
-        }*/
-    }
-    
-    ctx.println("<tr class='topbar'>");
-    String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
-    
-     
-    ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
-    if(!zoomedIn) {
-        fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,statusIcon);
-    } else {
-        ctx.print(statusIcon);
-    }
-    ctx.println("</th>");
-    
-    // ##2 code
-    ctx.print("<th rowspan='"+rowSpan+"' class='botgray' colspan='1' valign='top' align='left'>");
-    //if(p.displayName != null) { // have a display name - code gets its own box
-    int xfind = ctx.fieldInt("xfind");
-    if(xfind==base_xpath) {
-        ctx.print("<a name='x"+xfind+"'>");
-    }
-
-    {
-        ctx.print("<tt title='"+baseInfo+"' >");
-        String typeShown = p.type.replaceAll("/","/\u200b");
-        if(!zoomedIn) {
-            fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown);
-        } else {
-            ctx.print(typeShown);
-        }
-        ctx.print("</tt>");
-    }
-    
-    if(p.altType != null) {
-        ctx.print("<br> ("+p.altType+" alternative)");
-    }
-    if(xfind==base_xpath) {
-        ctx.print("</a>"); // for the <a name..>
-    }
-    ctx.println("</th>");
-    
-    // ##3 display / Baseline
-
-    String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
-    int baseCols = 2;
-    if(baseExample != null) {
-        baseCols = 1;
-    }
-
-    ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='"+baseCols+"' valign='top' align='left' class='botgray'>");
-    if(p.displayName != null) {
-        ctx.println(p.displayName); // ##3 display/Baseline
-    }
-/*
-    if(showFullXpaths) {
-        ctx.println("<br>"+fullPathFull);
-    }
-
-    if(true==false) {
-        ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
-    }
-*/
-    ctx.println("</th>");
-    
-    // ##2 and a half - baseline sample
-    if(baseExample != null) {
-        ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
-    }
-    
-    // ##5 current control
-    DataPod.Pea.Item topCurrent = null;
-    if(currentItems.size() > 0) {
-        topCurrent = currentItems.get(0);
-    }
-    printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
-
-    // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
-    DataPod.Pea.Item topProposed = null;
-    if(proposedItems.size() > 0) {
-        topProposed = proposedItems.get(0);
-    }
-    printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
-    
-     
-    if(phaseSubmit==true) {
-        String changetoBox = "<td class='noborder' rowspan='"+rowSpan+"' valign='top'>";
-        // ##7 Change
-        if(canModify && canSubmit ) {
-            changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
-        } else {
-            //changetoBox = changetoBox+("<input type='radio' disabled>"); /* don't show the empty input box */
-        }
-        
-        changetoBox=changetoBox+("</td>");
-        
-        if(!"rtl".equals(ourDir)) {
-            ctx.println(changetoBox);
-        }
-        
-        ctx.print("<td class='noborder' rowspan='"+rowSpan+"' valign='top'>");
-        
-        boolean badInputBox = false;
-        
-        if(canSubmit && canModify && !p.confirmOnly) {
-            String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
-            String fClass = "inputbox";
-            if(oldValue==null) {
-                oldValue="";
-            } else {
-                ctx.print("<span class='ferrbox'>"+ctx.iconThing("stop","this item was not accepted."));
-                fClass = "badinputbox";
-                badInputBox = true;
-            }
-            ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
-            // references
-            if(badInputBox) {
-                ctx.print("</span>");
-            }
-
-            if(canModify && zoomedIn && (p.altType == null)) {  // show 'Alt' popup for zoomed in main items
-                ctx.println ("<br> ");
-                ctx.println ("<span id='h_alt"+fieldHash+"'>");
-                ctx.println ("<input onclick='javascript:show(\"alt" + fieldHash + "\")' type='button' value='Create Alternate'></span>");
-                ctx.println ("<!-- <noscript> </noscript> -->" + 
-                            "<span style='display: none' id='alt" + fieldHash + "'>");
-                String[] altList = supplemental.getValidityChoice("$altList");
-                ctx.println ("<label>Alt: <select name='"+fieldHash+"_alt'>");
-                ctx.println ("  <option value=''></option>");
-                for(String s : altList) {
-                    ctx.println ("  <option value='"+s+"'>"+s+"</option>");
+                
+                if(item.examples != null) {
+                //
+    //                if(true) { throw new InternalError("had Old examples?  Not supposed to happen.."); }
                 }
-                ctx.println ("</select></label></span>");
+
+    //            List examples = new ArrayList();
+    //                ctx.println("Examples: ");
+                    boolean first = true;
+                    for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
+                        DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
+                        if(first==false) {
+                        }
+                        String cls = shortClassName(e.status.getCause());
+                        if(e.status.getType().equals(e.status.exampleType)) {
+                            printShortened(ctx,e.status.toString());
+                            if(cls != null) {
+                                ctx.printHelpLink("/"+cls+"","Help");
+                            }
+                            ctx.println("<br>");
+                        } else {                        
+                            String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.superPea.base_xpath));
+                            if(theMenu==null) {
+                                theMenu="raw";
+                            }
+                            ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                            ctx.print(cls);
+                            ctx.print("</a>");
+                        }
+                        first = false;
+                    }
+    //                    ctx.println(status.getHTMLMessage()+"<br>");
+                }
+                ctx.println("</td>");
             }
             
-            ctx.println("</td>");
-        } else  {
-            ctx.println("</td>");
-        }
-
-        if("rtl".equals(ourDir)) {
-            ctx.println(changetoBox);
-        }
-
-    } else {
-        ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");
-    }
-    // ##8 References
-    ctx.print("<td rowspan='"+rowSpan+"'>");
-    if(refs.length>0) {
-        String refHash = fieldHash;
-        ctx.print("<span id='h_ref"+refHash+"'>");
-        ctx.print("<a style='text-decoration: none;' href='javascript:show(\"ref" + refHash + "\")'>" + "[refs]" /* right arrow with tail */ +"</a></span>");
-        ctx.print("<!-- <noscript> </noscript> -->" + 
-                    "<span style='display: none' id='ref" + refHash + "'>");
-        ctx.print("<label>");
-        ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "[hide]" +"</a>&nbsp;");
-        ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
-        if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
-            ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
-            ctx.print("<option value='' SELECTED></option>");
-            for(int i=0;i<refs.length;i++) {
-                ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+            // Print 'em, For now.
+            if(item.references != null) {
+               String references[] = UserRegistry.tokenizeLocale(item.references); //TODO: rename to 'tokenize string'
+               if(references != null) {
+                    ctx.print("<td style='border-left: 1px solid gray;margin: 3px; padding: 2px;'>(Ref:");           
+                    for(int i=0;i<references.length;i++) {
+                        if(i!=0) {
+                            ctx.print(", ");
+                        }
+                        ctx.print("<b><a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"#REF_" + references[i] + "'>"+references[i]+"</a></b>");
+                    }
+                    ctx.print(")</td>");
+                }
             }
-            ctx.println("</select>");
-        }
-        ctx.print("</label>");
-        ctx.print("</span>");
-    }
-    ctx.println("</td>");
-
-    // NV
-    ctx.print("<td rowspan='"+rowSpan+"'>");
-    if(canModify) {
-        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
-            +((ourVoteXpath==null)?"CHECKED":"")+" >");
-    }
-    ctx.print("</td>");
-
-    
-    ctx.println("</tr>");
-    if(rowSpan > 1) {
-        for(int row=1;row<rowSpan;row++){
-            // do the rest of the rows
-            ctx.print("<tr>");
-
-            DataPod.Pea.Item item = null;
-            // current item
-            if(currentItems.size() > row) {
-                item = currentItems.get(row);
-            } else {
-                item = null;
-            }
-            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
-            
-            // #6.1, 6.2 - proposed items
-            if(proposedItems.size() > row) {
-                item = proposedItems.get(row);
-            } else {
-                item = null;
-            }
-            printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
             
             ctx.println("</tr>");
         }
-    }
-    
-    // now, if the warnings list isn't empty..
-    if(!warningsList.isEmpty()) {
-        int mySuperscriptNumber =0;
-        for(DataPod.Pea.Item item : warningsList) {
-            mySuperscriptNumber++;
-            ctx.println("<tr><td>#<span class='warningTarget'>"+mySuperscriptNumber+"</sup></td>");
-            if(item.tests != null) {
-                ctx.println("<td colspan='" + (PODTABLE_WIDTH-1) + "' class='warncell'>");
-                for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if (!status.getType().equals(status.exampleType)) {
-                        ctx.println("<span class='warningLine'>");
-                        String cls = shortClassName(status.getCause());
-                        if(status.getType().equals(status.errorType)) {
-                            ctx.print(ctx.iconThing("stop","Error: "+cls));
-                        } else {
-                            ctx.print(ctx.iconThing("warn","Warning: "+cls));
-                        }
-                        ctx.print(status.toString());
-                        ctx.println("</span>");
-                        if(cls != null) {
-                            ctx.printHelpLink("/"+cls+"","Help");
-                        }
-                        ctx.print("<br>");
-                    }
-                }
+        
+        if(true && !isAlias) {
+            String pClass = "";
+             // dont care
+            ctx.print("<tr " + pClass + ">");
+            ctx.println("<th class='rowinfo'>"+localeLangName+"<!-- changeto --></th>"); // ##0 title
+            ctx.print("<td  valign='top' align='right'>");
+            ctx.print("<span class='"+boxClass+"'>" + DONTCARE + "</span>");
+            if(canModify) {
+                ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
+                    +((!somethingChecked )?"CHECKED":"")+" >"); //ourVoteXpath==null
+                somethingChecked = true;
             } else {
-                ctx.println("<td class='examplecell'>");
+                ctx.print("<input type='radio' disabled>");
             }
-            if(item.examples != null) {
-                boolean first = true;
-                for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
-                    DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
-                    if(first==false) {
+            ctx.println("</td>");
+            ctx.println("<td></td>");
+            // change
+            ctx.print("<td nowrap valign='top' align='right'>");
+            if(!p.confirmOnly) {
+
+                if(!zoomedIn) {
+                    //if(canModify && canSubmit) {
+                        fora.showForumLink(ctx, pod, p, p.superPea.base_xpath);
+                    //}
+                } else {
+                    ctx.print("<span class='"+boxClass+"'>" + CHANGETO + "</span>");
+                    if(canModify && canSubmit ) {
+                        ctx.print("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+                    } else {
+                        ctx.print("<input type='radio' disabled>");
                     }
-                    String cls = shortClassName(e.status.getCause());
-                    if(e.status.getType().equals(e.status.exampleType)) {
-                        printShortened(ctx,e.status.toString());
-                        if(cls != null) {
-                            ctx.printHelpLink("/"+cls+"","Help");
-                        }
-                        ctx.println("<br>");
-                    } else {                        
-                        String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.superPea.base_xpath));
-                        if(theMenu==null) {
-                            theMenu="raw";
-                        }
-                        ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
-                        ctx.print(cls);
-                        ctx.print("</a>");
-                    }
-                    first = false;
                 }
             }
             ctx.println("</td>");
+            if(zoomedIn && canSubmit && canModify && !p.confirmOnly) {
+                String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
+                String fClass = "inputbox";
+                ctx.print("<td colspan='2'>");
+                boolean badInputBox = false;
+                if(oldValue==null) {
+                    oldValue="";
+                } else {
+                    badInputBox = true;
+                    ctx.print("<span class='ferrbox'>"+ctx.iconHtml("stop","this item was not accepted."));
+                    fClass = "badinputbox";
+                }
+                ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+                if(badInputBox) {
+                    ctx.print("</span>");
+                }
+                ctx.println("</td>");
+                // references
+                if(refs.length>0) {
+                    ctx.print("<td ><label>");
+                    ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
+                    ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
+                    ctx.print("<option value='' SELECTED></option>");
+                    for(int i=0;i<refs.length;i++) {
+                        ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+                    }
+                    ctx.println("</select></label></td>");
+                }
+            }
+            ctx.println("</tr>");
         }
     }
-}
 
-/**
- *  print the cells which have to do with the item
- * this may be called with NULL if there isn't a proposed item for this slot.
- * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
- * @param warningsList if an item has warnings or errors, or demos, add them to this list.
- */ 
-void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
-    boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataPod.Pea.Item> warningsList) {
-    // ##6.1 proposed - print the TOP item
-    
-    int colspan = 3;
-    String itemExample = null;
-    boolean haveTests = false;
-    
-    if(item != null) {
-        itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
-                    zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
-        if(itemExample != null) {
-            colspan --;
-        }
-        if(zoomedIn && ((item.tests != null) || (item.examples != null))) {
-            haveTests = true;
-            colspan --;
-        }
-    }
-    
-    ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
-    if(item != null) {
-        printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
-    }
-    ctx.println("</td>");    
-    // 6.3 - error 
-    if(haveTests) {
-        warningsList.add(item);
-        int mySuperscriptNumber = warningsList.size();  // which # is this item?
-        if(item.tests != null) {
-            ctx.println("<td nowrap class='warncell'>");
-            ctx.println("<span class='warningReference'>");
-            ctx.print(ctx.iconThing("warn","Warning"));
-        } else {
-            ctx.println("<td nowrap class='examplecell'>");
-            ctx.println("<span class='warningReference'>");
-        }
-        ctx.println("#"+mySuperscriptNumber+"</span>");
-        ctx.println("</td>");
-    }
+    */
 
-    // ##6.2 proposed ex
-    if(itemExample!=null) {
-        ctx.print("<td class='generatedexample' valign='top' align='left'>");
-        ctx.print(itemExample);
-        ctx.println("</td>");
-    }
-}
+    /**
+     * Show a single pea
+     */
+    void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
-void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify) {
-//ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
-    boolean winner = 
-        ((resultXpath!=null)&&
-        (item.xpath!=null)&&
-        (item.xpath.equals(resultXpath))&&
-        !item.isFallback);
-        
-
-    String pClass ="";
-    if(winner) {
-        pClass = "class='winner' title='Winning item.'";
-    } else if(item.pathWhereFound != null) {
-        pClass = "class='alias' title='alias from somewhere'";
-    } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
-        pClass = "class='fallback' title='Fallback from "+item.inheritFrom+"'";
-    } else if(item.altProposed != null) {
-        pClass = "class='loser' title='proposed, losing item'";
-/*    } else if(p.inheritFrom != null) {
-        pClass = "class='missing'"; */
-    } else {
-        pClass = "class='loser'";
-    }
-
-    ctx.println("<span "+pClass+">");
-    if(canModify) {      
-        boolean checkThis = 
-            ((ourVoteXpath!=null)&&
-            (item.xpath!=null)&&
-            (item.xpath.equals(ourVoteXpath)));
-        
-        if(!item.isFallback) {
-            ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
-                ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
-        } else {
-            ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+INHERITED_VALUE+"' type='radio'>");
-        }
-    } else {
-        ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
-    }
-    
-    if(item.value.length()!=0) {
-        ctx.print(item.value);
-    } else {
-        ctx.print("<i dir='ltr'>(empty)</i>");
-    }
-    ctx.println("</span>");
     /*
+        // this loads the OLD ( alternate look ) individual pea
+        if(zoomedIn==true) {
+            showPeaZoomedIn_OLD(ctx,pod,p,ourDir,cf,ourSrc,canModify,specialUrl,refs,checkCldr);
+            return;
+        }
+    */
 
-        if(item.votes != null) {
-            ctx.println("<br>");
-            //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
-            ctx.print("<span title='vote count' class='votes'>");
-            if(UserRegistry.userIsVetter(ctx.session.user)) {
-                for(Iterator iter=item.votes.iterator();iter.hasNext();) {
-                    UserRegistry.User theU  = (UserRegistry.User) iter.next();
-                    if(theU != null) {
-                        ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
-                        if(iter.hasNext()) {
-                            ctx.print("<br>");
-                        }
-                    } else {
-                        ctx.println("<!-- null user -->");
+        String ourAlign = "left";
+        if(ourDir.equals("rtl")) {
+            ourAlign = "right";
+        }
+        
+        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
+            || (canModify&&p.hasProps); // or, there's modified data.
+
+        boolean showedRemoveButton = false; 
+        String fullPathFull = pod.xpath(p); 
+        String boxClass = canModify?"actionbox":"disabledbox";
+        boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
+        WebContext refCtx = new WebContext(ctx);
+        refCtx.setQuery("_",ctx.locale.getLanguage());
+        refCtx.setQuery(QUERY_SECTION,"references");
+        //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
+
+        String fieldHash = pod.fieldHash(p);
+        
+        // voting stuff
+        int ourVote = -1;
+        String ourVoteXpath = null;
+        boolean somethingChecked = false; // have we presented a 'vote' yet?
+        int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
+        int resultType[] = new int[1];
+        int resultXpath_id =  vet.queryResult(pod.locale, base_xpath, resultType);
+        String resultXpath = null;
+        boolean noWinner = false;
+        if(resultXpath_id != -1) {
+            resultXpath = xpt.getById(resultXpath_id); 
+        } else {
+            noWinner = true;
+        }
+        if(ctx.session.user != null) {
+            ourVote = vet.queryVote(pod.locale, ctx.session.user.id, 
+                base_xpath);
+            
+            //System.err.println(base_xpath + ": vote is " + ourVote);
+            if(ourVote != -1) {
+                ourVoteXpath = xpt.getById(ourVote);
+            }
+        }
+        
+        // let's see what's inside.
+        // TODO: move this into the DataPod itself?
+        List<DataPod.Pea.Item> currentItems = new ArrayList<DataPod.Pea.Item>();
+        List<DataPod.Pea.Item> proposedItems = new ArrayList<DataPod.Pea.Item>();
+        
+        for(Iterator j = p.items.iterator();j.hasNext();) {
+            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+            if(item.altProposed != null) {
+                proposedItems.add(item);
+            } else {
+                currentItems.add(item);
+            }
+        }
+        // if there is an inherited value available - see if we need to show it.
+        if(p.inheritedValue != null) {
+            if(currentItems.isEmpty()) {  // no other current items.. 
+                currentItems.add(p.inheritedValue); 
+            } else {
+                boolean found = false;
+                for( DataPod.Pea.Item i : currentItems ) {
+                    if(p.inheritedValue.value.equals(i.value)) {
+                        found = true;
                     }
                 }
-            } else {
-                int n = item.votes.size();
-                ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
+                if (!found) for( DataPod.Pea.Item i : proposedItems ) {
+                    if(p.inheritedValue.value.equals(i.value)) {
+                        found = true;
+                    }
+                }
+                if(!found) {
+                    proposedItems.add(p.inheritedValue);
+                }
             }
+        }
+        
+        // calculate the max height of the current row.
+        int rowSpan = Math.max(proposedItems.size(),currentItems.size()); // what is the rowSpan needed for general items?
+        rowSpan = Math.max(rowSpan,1);
+        
+        /*  TOP BAR */
+        // Mark the line as disputed or insufficient, depending.
+        String rclass = "vother";
+        boolean foundError = p.hasErrors;
+        boolean foundWarning = p.hasWarnings;
+        
+        List<DataPod.Pea.Item> warningsList = new ArrayList<DataPod.Pea.Item>();
+
+        // calculate the class of data items
+        String statusIcon="";
+        {
+            int s = resultType[0];
+            
+            if(foundError) {
+    //            rclass = "warning";
+                statusIcon = ctx.iconHtml("stop","Errors - please zoom in");            
+            } else if(foundWarning) {
+                rclass = "okay";
+                statusIcon = ctx.iconHtml("warn","Warnings - please zoom in");            
+
+                /*
+                if((item.tests != null) || (item.examples != null)) {
+                    if(item.tests != null) {
+                        ctx.println("<td class='warncell'>");
+                        for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                            CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                            if (!status.getType().equals(status.exampleType)) {
+                                
+                                ctx.println("<span class='warning'>");
+                                String cls = shortClassName(status.getCause());
+                                printShortened(ctx,status.toString());
+                                ctx.println("</span>");
+                                if(cls != null) {
+                                    ctx.printHelpLink("/"+cls+"","Help");
+                                }
+                                ctx.print("<br>");
+                            }
+                        }
+                    } else {
+                        ctx.println("<td class='examplecell'>");
+                    }
+                */
+                
+            } else if((s & Vetting.RES_DISPUTED)>0) {
+                rclass= "disputedrow";
+                statusIcon = (ctx.iconHtml("ques","Unconfirmed: disputed"));
+            } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
+                rclass = "insufficientrow";
+                statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
+            } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
+                statusIcon = (ctx.iconHtml("okay","ok"));
+                rclass = "okay";
+            } else {
+                rclass = "vother";
+            }
+    /*        if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
+                rclass = "insufficientrow";
+            }*/
+        }
+        
+        ctx.println("<tr class='topbar'>");
+        String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
+        
+         
+        ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
+        if(!zoomedIn) {
+            if(specialUrl != null) {
+                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+statusIcon+"</a>");
+            } else {
+                fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,statusIcon);
+            }
+        } else {
+            ctx.print(statusIcon);
+        }
+        ctx.println("</th>");
+        
+        // ##2 code
+        ctx.print("<th rowspan='"+rowSpan+"' class='botgray' colspan='1' valign='top' align='left'>");
+        //if(p.displayName != null) { // have a display name - code gets its own box
+        int xfind = ctx.fieldInt("xfind");
+        if(xfind==base_xpath) {
+            ctx.print("<a name='x"+xfind+"'>");
+        }
+
+        {
+            ctx.print("<tt title='"+baseInfo+"' >");
+            String typeShown = p.type.replaceAll("/","/\u200b");
+            if(!zoomedIn) {
+                if(specialUrl != null) {
+                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+typeShown+"</a>");
+                } else {
+                    fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown);
+                }
+            } else {
+                ctx.print(typeShown);
+            }
+            ctx.print("</tt>");
+        }
+        
+        if(p.altType != null) {
+            ctx.print("<br> ("+p.altType+" alternative)");
+        }
+        if(xfind==base_xpath) {
+            ctx.print("</a>"); // for the <a name..>
+        }
+        ctx.println("</th>");
+        
+        // ##3 display / Baseline
+
+        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
+        int baseCols = 2;
+        if(baseExample != null) {
+            baseCols = 1;
+        }
+
+        ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='"+baseCols+"' valign='top' align='left' class='botgray'>");
+        if(p.displayName != null) {
+            ctx.println(p.displayName); // ##3 display/Baseline
+        }
+    /*
+        if(specialUrl) {
+            ctx.println("<br>"+fullPathFull);
+        }
+
+        if(true==false) {
+            ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
+        }
+    */
+        ctx.println("</th>");
+        
+        // ##2 and a half - baseline sample
+        if(baseExample != null) {
+            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
+        }
+        
+        // ##5 current control
+        DataPod.Pea.Item topCurrent = null;
+        if(currentItems.size() > 0) {
+            topCurrent = currentItems.get(0);
+        }
+        printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+
+        // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
+        DataPod.Pea.Item topProposed = null;
+        if(proposedItems.size() > 0) {
+            topProposed = proposedItems.get(0);
+        }
+        printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+        
+         
+        if(phaseSubmit==true) {
+            String changetoBox = "<td class='noborder' rowspan='"+rowSpan+"' valign='top'>";
+            // ##7 Change
+            if(canModify && canSubmit ) {
+                changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
+            } else {
+                //changetoBox = changetoBox+("<input type='radio' disabled>"); /* don't show the empty input box */
+            }
+            
+            changetoBox=changetoBox+("</td>");
+            
+            if(!"rtl".equals(ourDir)) {
+                ctx.println(changetoBox);
+            }
+            
+            ctx.print("<td class='noborder' rowspan='"+rowSpan+"' valign='top'>");
+            
+            boolean badInputBox = false;
+            
+            if(canSubmit && canModify && !p.confirmOnly) {
+                String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
+                String fClass = "inputbox";
+                if(oldValue==null) {
+                    oldValue="";
+                } else {
+                    ctx.print("<span class='ferrbox'>"+ctx.iconHtml("stop","this item was not accepted."));
+                    fClass = "badinputbox";
+                    badInputBox = true;
+                }
+                if((p.toggleWith != null)&&(p.toggleValue == true)) {
+                    ctx.print("<select onclick=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'>");
+                    ctx.print("  <option value=''></option> ");
+                    ctx.print("  <option value='true'>true</option> ");
+                    ctx.print("  <option value='false'>false</option> ");
+                    ctx.println("</select>");
+                } else {
+                    ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
+                }
+                // references
+                if(badInputBox) {
+                    ctx.print("</span>");
+                }
+
+                if(canModify && zoomedIn && (p.altType == null) && UserRegistry.userIsTC(ctx.session.user)) {  // show 'Alt' popup for zoomed in main items
+                    ctx.println ("<br> ");
+                    ctx.println ("<span id='h_alt"+fieldHash+"'>");
+                    ctx.println ("<input onclick='javascript:show(\"alt" + fieldHash + "\")' type='button' value='Create Alternate'></span>");
+                    ctx.println ("<!-- <noscript> </noscript> -->" + 
+                                "<span style='display: none' id='alt" + fieldHash + "'>");
+                    String[] altList = supplemental.getValidityChoice("$altList");
+                    ctx.println ("<label>Alt: <select name='"+fieldHash+"_alt'>");
+                    ctx.println ("  <option value=''></option>");
+                    for(String s : altList) {
+                        ctx.println ("  <option value='"+s+"'>"+s+"</option>");
+                    }
+                    ctx.println ("</select></label></span>");
+                }
+                
+                ctx.println("</td>");
+            } else  {
+                ctx.println("</td>");
+            }
+
+            if("rtl".equals(ourDir)) {
+                ctx.println(changetoBox);
+            }
+
+        } else {
+            ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");
+        }
+        // ##8 References
+        ctx.print("<td rowspan='"+rowSpan+"'>");
+        if((refs.length>0) && zoomedIn) {
+            String refHash = fieldHash;
+            ctx.print("<span id='h_ref"+refHash+"'>");
+            ctx.print("<a style='text-decoration: none;' href='javascript:show(\"ref" + refHash + "\")'>" + "[refs]" /* right arrow with tail */ +"</a></span>");
+            ctx.print("<!-- <noscript> </noscript> -->" + 
+                        "<span style='display: none' id='ref" + refHash + "'>");
+            ctx.print("<label>");
+            ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "[hide]" +"</a>&nbsp;");
+            ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
+            if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
+                ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
+                ctx.print("<option value='' SELECTED></option>");
+                for(int i=0;i<refs.length;i++) {
+                    ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+                }
+                ctx.println("</select>");
+            }
+            ctx.print("</label>");
             ctx.print("</span>");
         }
-  */
-}
+        ctx.println("</td>");
 
-
-void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
-    WebContext nuCtx = new WebContext(ctx);
-    nuCtx.addQuery(PREF_SORTMODE, aMode);
-    if(!sortMode.equals(aMode)) {
-        nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
-    } else {
-        nuCtx.print("<span class='selected'>");
-    }
-    nuCtx.print(aDesc);
-    if(!sortMode.equals(aMode)) {
-        nuCtx.println("</a>");
-    } else {
-        nuCtx.println("</span>");
-    }
-    
-    nuCtx.println(" ");
-}
-
-public int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet,
-    boolean showSearchMode, String sortMode, int skip) {
-showSearchMode = true;// all
-    List displayList = null;
-    if(displaySet != null) {
-        displayList = displaySet.displayPeas;
-    }
-    ctx.println("<div class='pager' style='margin: 2px'>");
-    if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString())) { // at least street level
-        if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
-            ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:left'
+        // NV
+        ctx.print("<td rowspan='"+rowSpan+"'>");
+        if(canModify) {
+            ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
+                +((ourVoteXpath==null)?"CHECKED":"")+" >");
         }
-    }
-    if(showSearchMode) {
-        ctx.println("<p > " +  //float: right; tyle='margin-left: 3em;'
-            "<b>Sorted:</b>  ");
-        {
-            boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-            
-            //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
-            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
-            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
-            if(displaySet.canName) {
-                showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
-            }
-        }
-        ctx.println("</p>");
-    }
+        ctx.print("</td>");
 
-    // TODO: replace with ctx.fieldValue("skip",-1)
-    if(skip<=0) {
-        skip = 0;
-    } 
+        
+        ctx.println("</tr>");
+        if(rowSpan > 1) {
+            for(int row=1;row<rowSpan;row++){
+                // do the rest of the rows
+                ctx.print("<tr>");
 
-    // calculate nextSkip
-    int from = skip+1;
-    int to = from + ctx.prefCodesPerPage()-1;
-    if(to >= total) {
-        to = total;
-    }
-
-    // Print navigation
-    if(showSearchMode) {
-        ctx.println("Displaying items " + from + " to " + to + " of " + total);        
-
-        if(total>=(ctx.prefCodesPerPage())) {
-            int prevSkip = skip - ctx.prefCodesPerPage();
-            if(prevSkip<0) {
-                prevSkip = 0;
-            }
-            ctx.print("<div>");
-            if(skip<=0) {
-                ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/* + ctx.prefCodesPerPage() */ + "" +
-                        "</span>&nbsp;");  
-            } else {
-                ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + 
-                        ctx.urlConnector() + "skip=" + new Integer(prevSkip) + "\">" +
-                        "\u2190&nbsp;prev"/* + ctx.prefCodesPerPage()*/ + "");
-                ctx.print("</a>&nbsp;");
-            }
-            int nextSkip = skip + ctx.prefCodesPerPage(); 
-            if(nextSkip >= total) {
-                nextSkip = -1;
-                if(total>=(ctx.prefCodesPerPage())) {
-                    ctx.println(" <span class='pagerl_inactive' >" +
-                                "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
-                                "</span>");
+                DataPod.Pea.Item item = null;
+                // current item
+                if(currentItems.size() > row) {
+                    item = currentItems.get(row);
+                } else {
+                    item = null;
                 }
-            } else {
-                ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + 
-                            ctx.urlConnector() +"skip=" + new Integer(nextSkip) + "\">" +
-                            "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
-                            "</a>");
+                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+                
+                // #6.1, 6.2 - proposed items
+                if(proposedItems.size() > row) {
+                    item = proposedItems.get(row);
+                } else {
+                    item = null;
+                }
+                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+                
+                ctx.println("</tr>");
             }
-            ctx.print("</div>");
         }
-        ctx.println("<br/>");
+        
+        // now, if the warnings list isn't empty..
+        if(!warningsList.isEmpty()) {
+            int mySuperscriptNumber =0;
+            for(DataPod.Pea.Item item : warningsList) {
+                mySuperscriptNumber++;
+                ctx.println("<tr><td><span class='warningTarget'>#"+mySuperscriptNumber+"</span></td>");
+                if(item.tests != null) {
+                    ctx.println("<td colspan='" + (PODTABLE_WIDTH-1) + "' class='warncell'>");
+                    for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                        if (!status.getType().equals(status.exampleType)) {
+                            ctx.println("<span class='warningLine'>");
+                            String cls = shortClassName(status.getCause());
+                            if(status.getType().equals(status.errorType)) {
+                                ctx.print(ctx.iconHtml("stop","Error: "+cls));
+                            } else {
+                                ctx.print(ctx.iconHtml("warn","Warning: "+cls));
+                            }
+                            ctx.print(status.toString());
+                            ctx.println("</span>");
+                            if(cls != null) {
+                                ctx.printHelpLink("/"+cls+"","Help");
+                            }
+                            ctx.print("<br>");
+                        }
+                    }
+                } else {
+                    ctx.println("<td class='examplecell'>");
+                }
+                if(item.examples != null) {
+                    boolean first = true;
+                    for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
+                        DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
+                        if(first==false) {
+                        }
+                        String cls = shortClassName(e.status.getCause());
+                        if(e.status.getType().equals(e.status.exampleType)) {
+                            printShortened(ctx,e.status.toString());
+                            if(cls != null) {
+                                ctx.printHelpLink("/"+cls+"","Help");
+                            }
+                            ctx.println("<br>");
+                        } else {                        
+                            String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.superPea.base_xpath));
+                            if(theMenu==null) {
+                                theMenu="raw";
+                            }
+                            ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.locale)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.locale+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                            ctx.print(cls);
+                            ctx.print("</a>");
+                        }
+                        first = false;
+                    }
+                }
+                ctx.println("</td>");
+            }
+        }
     }
 
-    if(total>=(ctx.prefCodesPerPage())) {
-        if(displaySet.partitions.length > 1) {
-            ctx.println("<table summary='navigation box' style='border-collapse: collapse'><tr valign='top'><td>");
-        }
-        if(skip>0) {
-            if(skip>=total) {
-                skip = 0;
+    /**
+     *  print the cells which have to do with the item
+     * this may be called with NULL if there isn't a proposed item for this slot.
+     * it will be called once in the 'main' row, and once for any extra rows needed for proposed items
+     * @param warningsList if an item has warnings or errors, or demos, add them to this list.
+     */ 
+    void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
+        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataPod.Pea.Item> warningsList) {
+        // ##6.1 proposed - print the TOP item
+        
+        int colspan = 3;
+        String itemExample = null;
+        boolean haveTests = false;
+        
+        if(item != null) {
+            itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
+                        zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+            if(itemExample != null) {
+                colspan --;
+            }
+            if(zoomedIn && ((item.tests != null) || (item.examples != null))) {
+                haveTests = true;
+                colspan --;
             }
         }
-        if(displaySet.partitions.length > 1) {
+        
+        ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
+        if(item != null) {
+            printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
+        }
+        ctx.println("</td>");    
+        // 6.3 - error 
+        if(haveTests) {
+            warningsList.add(item);
+            int mySuperscriptNumber = warningsList.size();  // which # is this item?
+            if(item.tests != null) {
+                ctx.println("<td nowrap class='warncell'>");
+                ctx.println("<span class='warningReference'>");
+                //ctx.print(ctx.iconHtml("warn","Warning"));
+            } else {
+                ctx.println("<td nowrap class='examplecell'>");
+                ctx.println("<span class='warningReference'>");
+            }
+            ctx.println("#"+mySuperscriptNumber+"</span>");
             ctx.println("</td>");
         }
-        for(int j=0;j<displaySet.partitions.length;j++) {
-            if(j>0) { 
-                ctx.println("<tr valign='top'><td></td>");
+
+        // ##6.2 proposed ex
+        if(itemExample!=null) {
+            ctx.print("<td class='generatedexample' valign='top' align='left'>");
+            ctx.print(itemExample);
+            ctx.println("</td>");
+        }
+    }
+
+    void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify) {
+    //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
+        boolean winner = 
+            ((resultXpath!=null)&&
+            (item.xpath!=null)&&
+            (item.xpath.equals(resultXpath))&&
+            !item.isFallback);
+            
+
+        String pClass ="";
+        if(winner) {
+            pClass = "class='winner' title='Winning item.'";
+        } else if(item.pathWhereFound != null) {
+            pClass = "class='alias' title='alias from somewhere'";
+        } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
+            pClass = "class='fallback' title='Fallback from "+item.inheritFrom+"'";
+        } else if(item.altProposed != null) {
+            pClass = "class='loser' title='proposed, losing item'";
+    /*    } else if(p.inheritFrom != null) {
+            pClass = "class='missing'"; */
+        } else {
+            pClass = "class='loser'";
+        }
+
+        ctx.println("<span "+pClass+">");
+        if(canModify) {      
+            boolean checkThis = 
+                ((ourVoteXpath!=null)&&
+                (item.xpath!=null)&&
+                (item.xpath.equals(ourVoteXpath)));
+            
+            if(!item.isFallback) {
+                ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
+                    ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
+            } else {
+                ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+INHERITED_VALUE+"' type='radio'>");
             }
-            if(displaySet.partitions[j].name != null) {
-                ctx.print("<td  class='pagerln' align='left'><p style='margin-top: 2px; margin-bottom: 2px;' class='hang'><b>" + displaySet.partitions[j].name + ":</b>"
-                    /*+ "</td><td class='pagerln'>"*/);
+        } else {
+            ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
+        }
+        
+        if(item.value.length()!=0) {
+            ctx.print(item.value);
+        } else {
+            ctx.print("<i dir='ltr'>(empty)</i>");
+        }
+        ctx.println("</span>");
+        /*
+
+            if(item.votes != null) {
+                ctx.println("<br>");
+                //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
+                ctx.print("<span title='vote count' class='votes'>");
+                if(UserRegistry.userIsVetter(ctx.session.user)) {
+                    for(Iterator iter=item.votes.iterator();iter.hasNext();) {
+                        UserRegistry.User theU  = (UserRegistry.User) iter.next();
+                        if(theU != null) {
+                            ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
+                            if(iter.hasNext()) {
+                                ctx.print("<br>");
+                            }
+                        } else {
+                            ctx.println("<!-- null user -->");
+                        }
+                    }
+                } else {
+                    int n = item.votes.size();
+                    ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
+                }
+                ctx.print("</span>");
             }
-            int ourStart = displaySet.partitions[j].start;
-            int ourLimit = displaySet.partitions[j].limit;
-            for(int i=ourStart;i<ourLimit;i = (i - (i%ctx.prefCodesPerPage())) + ctx.prefCodesPerPage()) {
-                int pageStart = i - (i%ctx.prefCodesPerPage()); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
-                int end = pageStart + ctx.prefCodesPerPage()-1;
-                if(end>=ourLimit) {
-                    end = ourLimit-1;
+      */
+    }
+
+
+    void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
+        WebContext nuCtx = new WebContext(ctx);
+        nuCtx.addQuery(PREF_SORTMODE, aMode);
+        if(!sortMode.equals(aMode)) {
+            nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
+        } else {
+            nuCtx.print("<span class='selected'>");
+        }
+        nuCtx.print(aDesc);
+        if(!sortMode.equals(aMode)) {
+            nuCtx.println("</a>");
+        } else {
+            nuCtx.println("</span>");
+        }
+        
+        nuCtx.println(" ");
+    }
+
+    public int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet,
+        boolean showSearchMode, String sortMode, int skip) {
+    showSearchMode = true;// all
+        List displayList = null;
+        if(displaySet != null) {
+            displayList = displaySet.displayPeas;
+        }
+        ctx.println("<div class='pager' style='margin: 2px'>");
+        if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString())) { // at least street level
+            if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
+                ctx.println("<input  type='submit' value='" + xSAVE + "'>"); // style='float:left'
+            }
+        }
+        if(showSearchMode) {
+            ctx.println("<p > " +  //float: right; tyle='margin-left: 3em;'
+                "<b>Sorted:</b>  ");
+            {
+                boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+                
+                //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
+                showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
+                showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
+                if(displaySet.canName) {
+                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
                 }
-    // \u2013 = --
-    // \u2190 = <--
-    // \u2026 = ...
-                boolean isus = (pageStart == skip);
-                if(isus) {
-                    if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
-                        ctx.print(" <b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
-                    } else {
-                        ctx.println(" <b class='selected'>");
+            }
+            ctx.println("</p>");
+        }
+
+        // TODO: replace with ctx.fieldValue("skip",-1)
+        if(skip<=0) {
+            skip = 0;
+        } 
+
+        // calculate nextSkip
+        int from = skip+1;
+        int to = from + ctx.prefCodesPerPage()-1;
+        if(to >= total) {
+            to = total;
+        }
+
+        // Print navigation
+        if(showSearchMode) {
+            ctx.println("Displaying items " + from + " to " + to + " of " + total);        
+
+            if(total>=(ctx.prefCodesPerPage())) {
+                int prevSkip = skip - ctx.prefCodesPerPage();
+                if(prevSkip<0) {
+                    prevSkip = 0;
+                }
+                ctx.print("<div>");
+                if(skip<=0) {
+                    ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/* + ctx.prefCodesPerPage() */ + "" +
+                            "</span>&nbsp;");  
+                } else {
+                    ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + 
+                            ctx.urlConnector() + "skip=" + new Integer(prevSkip) + "\">" +
+                            "\u2190&nbsp;prev"/* + ctx.prefCodesPerPage()*/ + "");
+                    ctx.print("</a>&nbsp;");
+                }
+                int nextSkip = skip + ctx.prefCodesPerPage(); 
+                if(nextSkip >= total) {
+                    nextSkip = -1;
+                    if(total>=(ctx.prefCodesPerPage())) {
+                        ctx.println(" <span class='pagerl_inactive' >" +
+                                    "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
+                                    "</span>");
                     }
                 } else {
-                    ctx.print(" <a class='notselected' href=\"" + ctx.url() + 
-                                ctx.urlConnector() +"skip=" + pageStart);
-                    if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
-                        ctx.println("#"+displaySet.partitions[j].name);
-                    }
-                    ctx.println("\">"); // skip to the pageStart
+                    ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + 
+                                ctx.urlConnector() +"skip=" + new Integer(nextSkip) + "\">" +
+                                "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
+                                "</a>");
                 }
-                if(displayList != null) {
-                    String iString = displayList.get(i).toString();
-                    String endString = displayList.get(end).toString();
-                    if(iString.length() > 20) {
-                        iString = iString.substring(0,20)+"\u2026";
-                        endString="";
-                    }
-                    if(endString.length()>20) {
-                        endString = endString.substring(0,20)+"\u2026";
-                    }
-                    if(end>i) {
-                        ctx.print(iString+"\u2013"+endString);
-                    } else {
-                        ctx.print(iString);
-                    }
-                } else {
-                    ctx.print( ""+(i+1) );
-                    ctx.print( "\u2013" + (end+1));
-                }
-                if(isus) {
-                    if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
-                        ctx.print("</a></b> ");
-                    } else {
-                        ctx.println("</b> ");
-                    }
-                } else {
-                    ctx.println("</a> ");
+                ctx.print("</div>");
+            }
+            ctx.println("<br/>");
+        }
+
+        if(total>=(ctx.prefCodesPerPage())) {
+            if(displaySet.partitions.length > 1) {
+                ctx.println("<table summary='navigation box' style='border-collapse: collapse'><tr valign='top'><td>");
+            }
+            if(skip>0) {
+                if(skip>=total) {
+                    skip = 0;
                 }
             }
             if(displaySet.partitions.length > 1) {
-                ctx.print("</p>");
+                ctx.println("</td>");
             }
-            if(displaySet.partitions.length > 1) {
-                ctx.println("</td></tr>");
-            }
-        }
-        if(displaySet.partitions.length > 1) {
-            ctx.println("</table>");
-        }
-    } // no multiple pages
-    else {
-        if(displaySet.partitions.length > 1) {
-            ctx.println("<br><b>Items:</b><ul>");
             for(int j=0;j<displaySet.partitions.length;j++) {
-                ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
-                ctx.print(displaySet.partitions[j].name + "</a></b> ");
-                if(j<displaySet.partitions.length-1) {
-                    ctx.println("<br>");
+                if(j>0) { 
+                    ctx.println("<tr valign='top'><td></td>");
+                }
+                if(displaySet.partitions[j].name != null) {
+                    ctx.print("<td  class='pagerln' align='left'><p style='margin-top: 2px; margin-bottom: 2px;' class='hang'><b>" + displaySet.partitions[j].name + ":</b>"
+                        /*+ "</td><td class='pagerln'>"*/);
+                }
+                int ourStart = displaySet.partitions[j].start;
+                int ourLimit = displaySet.partitions[j].limit;
+                for(int i=ourStart;i<ourLimit;i = (i - (i%ctx.prefCodesPerPage())) + ctx.prefCodesPerPage()) {
+                    int pageStart = i - (i%ctx.prefCodesPerPage()); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
+                    int end = pageStart + ctx.prefCodesPerPage()-1;
+                    if(end>=ourLimit) {
+                        end = ourLimit-1;
+                    }
+        // \u2013 = --
+        // \u2190 = <--
+        // \u2026 = ...
+                    boolean isus = (pageStart == skip);
+                    if(isus) {
+                        if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
+                            ctx.print(" <b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
+                        } else {
+                            ctx.println(" <b class='selected'>");
+                        }
+                    } else {
+                        ctx.print(" <a class='notselected' href=\"" + ctx.url() + 
+                                    ctx.urlConnector() +"skip=" + pageStart);
+                        if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
+                            ctx.println("#"+displaySet.partitions[j].name);
+                        }
+                        ctx.println("\">"); // skip to the pageStart
+                    }
+                    if(displayList != null) {
+                        String iString = displayList.get(i).toString();
+                        String endString = displayList.get(end).toString();
+                        if(iString.length() > 20) {
+                            iString = iString.substring(0,20)+"\u2026";
+                            endString="";
+                        }
+                        if(endString.length()>20) {
+                            endString = endString.substring(0,20)+"\u2026";
+                        }
+                        if(end>i) {
+                            ctx.print(iString+"\u2013"+endString);
+                        } else {
+                            ctx.print(iString);
+                        }
+                    } else {
+                        ctx.print( ""+(i+1) );
+                        ctx.print( "\u2013" + (end+1));
+                    }
+                    if(isus) {
+                        if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
+                            ctx.print("</a></b> ");
+                        } else {
+                            ctx.println("</b> ");
+                        }
+                    } else {
+                        ctx.println("</a> ");
+                    }
+                }
+                if(displaySet.partitions.length > 1) {
+                    ctx.print("</p>");
+                }
+                if(displaySet.partitions.length > 1) {
+                    ctx.println("</td></tr>");
                 }
             }
-            ctx.println("</ul>");
-        }
-    }
-    ctx.println("</div>");
-    return skip;
-}
-
-public static int pages=0;
-public static int xpages=0;
-/**
-* Main setup
- */
-static  boolean isSetup = false;
-
-private void createBasicCldr(File homeFile) {
-    System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
-
-    try {
-        homeFile.mkdir();
-        File propsFile = new File(homeFile, "cldr.properties");
-        OutputStream file = new FileOutputStream(propsFile, false); // Append
-        PrintWriter pw = new PrintWriter(file);
-
-        pw.println("## autogenerated cldr.properties config file");
-        pw.println("## generated on " + localhost() + " at "+new Date());
-        pw.println("## see the readme at \n## "+URL_CLDR+"data/tools/java/org/unicode/cldr/web/data/readme.txt ");
-        pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
-        pw.println("##");
-        pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
-        pw.println();
-        pw.println("## your password. Login as user 'admin@' and this password for admin access.");
-        pw.println("CLDR_VAP="+UserRegistry.makePassword("admin@"));
-        pw.println();
-        pw.println("## Special message shown to users as to why survey tool is down.");
-        pw.println("## Comment out for normal start-up.");
-        pw.println("CLDR_MESSAGE=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties. Comment out CLDR_MESSAGE to continue normal startup.");
-        pw.println();
-        pw.println("## Special message shown to users.");
-        pw.println("CLDR_HEADER=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.");
-        pw.println();
-        pw.println("## CLDR common data. Default value shown, uncomment to override");
-        pw.println("CLDR_COMMON="+homeFile.getAbsolutePath()+"/common");
-        pw.println();
-        pw.println("## SMTP server. Mail is disabled by default.");
-        pw.println("#CLDR_SMTP=127.0.0.1");
-        pw.println();
-        pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
-        pw.println("#CLDR_FROM=bad_administrator@"+localhost());
-        pw.println();
-        pw.println("# That's all!");
-        pw.close();
-        file.close();
-    }
-    catch(IOException exception){
-      System.err.println("While writing "+homeFile.getAbsolutePath()+" props: "+exception);
-      exception.printStackTrace();
-    }
-}
-public synchronized void doStartup() throws ServletException {
-        if(isSetup == true) {
-            return;
-        }
-        
-        // set up CheckCLDR
-        //CheckCLDR.SHOW_TIMES=true;
-        
-        survprops = new java.util.Properties(); 
-                
-        if(cldrHome == null) {
-            cldrHome = System.getProperty("catalina.home");
-            if(cldrHome == null) {  
-                busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
-                return;
-            } 
-            File homeFile = new File(cldrHome, "cldr");
-            
-            if(!homeFile.isDirectory()) {
-                createBasicCldr(homeFile); // attempt to create
+            if(displaySet.partitions.length > 1) {
+                ctx.println("</table>");
             }
-            
-            if(!homeFile.isDirectory()) {
-                busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
-                return;
+        } // no multiple pages
+        else {
+            if(displaySet.partitions.length > 1) {
+                ctx.println("<br><b>Items:</b><ul>");
+                for(int j=0;j<displaySet.partitions.length;j++) {
+                    ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
+                    ctx.print(displaySet.partitions[j].name + "</a></b> ");
+                    if(j<displaySet.partitions.length-1) {
+                        ctx.println("<br>");
+                    }
+                }
+                ctx.println("</ul>");
             }
-            cldrHome = homeFile.getAbsolutePath();
         }
-
-        logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
-        
-        try {
-            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
-            survprops.load(is);
-            is.close();
-        } catch(java.io.IOException ioe) {
-            /*throw new UnavailableException*/
-            logger.log(Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
-            busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
-                   + ioe.toString()); /* .initCause(ioe);*/
-                   return;
-        }
-
-    vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-    File vetdir = new File(vetdata);
-    if(!vetdir.isDirectory()) {
-        vetdir.mkdir();
-        System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
-    }
-    if(!vetdir.isDirectory()) {
-        busted("CLDR_VET_DATA isn't a directory: " + vetdata);
-        return;
-    }
-    if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
-        try {
-            loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
-            loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
-            logger.addHandler(loggingHandler);
-            logger.setUseParentHandlers(false);
-        } catch(Throwable ioe){
-            busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
-            return;
-        }
+        ctx.println("</div>");
+        return skip;
     }
 
-    vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
-    if((vap==null)||(vap.length()==0)) {
-        /*throw new UnavailableException*/
-        busted("No vetting password set. (CLDR_VAP in cldr.properties)");
-        return;
-    }
-    if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
-        isUnofficial = false;
-    }
-    vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
-    cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-    // System.getProperty("CLDR_COMMON") + "/main" is ignored.
-    fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
-    specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
-    specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
-
-    if(!new File(fileBase).isDirectory()) {
-        busted("CLDR_COMMON isn't a directory: " + fileBase);
-        return;
-    }
-
-    if(!new File(vetweb).isDirectory()) {
-        busted("CLDR_VET_WEB isn't a directory: " + vetweb);
-        return;
-    }
-
-    File cacheDir = new File(cldrHome, "cache");
-//    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
-    CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
-    CachingEntityResolver.createAndEmptyCacheDir();
-
-    supplemental = new SupplementalData(fileBase + "/../supplemental/");
-
-    isSetup = true;
-
-
-
-    int status = 0;
-//    logger.info(" ------------------ " + new Date().toString() + " ---------------");
-    if(isBusted != null) {
-        return; // couldn't write the log
-    }
-    if ((specialMessage!=null)&&(specialMessage.length()>0)) {
-        logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
-        busted("message: " + specialMessage);
-    }
-    /*
-     SurveyMain m = new SurveyMain();  ???
-     
-     if(!m.reg.read()) {
-         busted("Couldn't load user registry [at least put an empty file there]   - exiting");
-         return;
-     }
+    public static int pages=0;
+    public static int xpages=0;
+    /**
+    * Main setup
      */
-    if(!readWarnings()) {
-        // already busted
-        return;
-    }
+    static  boolean isSetup = false;
 
-    doStartupDB();
+    private void createBasicCldr(File homeFile) {
+        System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
 
-    logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
-}
-
-public void destroy() {
-    logger.warning("SurveyTool shutting down..");
-    doShutdownDB();
-    busted("servlet destroyed");
-    super.destroy();
-}
-
-protected void startCell(WebContext ctx, String background) {
-    ctx.println("<td bgcolor=\"" + background + "\">");
-}
-
-protected void endCell(WebContext ctx) {
-    ctx.println("</td>");
-}
-
-protected void doCell(WebContext ctx, String type, String value) {
-    startCell(ctx,"#FFFFFF");
-    ctx.println(value);
-    endCell(ctx);
-}
-
-protected void doDraftCell(WebContext ctx, String type, String value) {
-    startCell(ctx,"#DDDDDD");
-    ctx.println("<i>Draft</i><br/>");
-    ctx.println(value);
-    endCell(ctx);
-}
-
-protected void doPropCell(WebContext ctx, String type, String value) {
-    startCell(ctx,"#DDFFDD");
-    ctx.println("<i>Proposed:</i><br/>");
-    ctx.println(value);
-    endCell(ctx);
-}
-
-// utils
-private Node getVettedNode(Node context, String resToFetch){
-    NodeList list = LDMLUtilities.getChildNodes(context, resToFetch);
-    Node node =null;
-    if(list!=null){
-        for(int i =0; i<list.getLength(); i++){
-            node = list.item(i);
-            if(LDMLUtilities.isNodeDraft(node)){
-                continue;
-            }
-            /*
-             if(isAlternate(node)){
-                 continue;
-             }
-             */
-            return node;
-        }
-    }
-    return null;
-}
-
-static protected File[] getInFiles() {
-    // 1. get the list of input XML files
-    FileFilter myFilter = new FileFilter() {
-        public boolean accept(File f) {
-            String n = f.getName();
-            return(!f.isDirectory()
-                   &&n.endsWith(".xml")
-                   &&!n.startsWith(".")
-                   &&!n.startsWith("supplementalData") // not a locale
-                   /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
-        }
-    };
-    File baseDir = new File(fileBase);
-    return baseDir.listFiles(myFilter);
-}
-
-private static Set localeListSet = null;
-
-static synchronized protected Set getLocalesSet() {
-    if(localeListSet == null ) {
-        File inFiles[] = getInFiles();
-        int nrInFiles = inFiles.length;
-        Set s = new HashSet();
-        for(int i=0;i<nrInFiles;i++) {
-            String fileName = inFiles[i].getName();
-            int dot = fileName.indexOf('.');
-            if(dot !=  -1) {
-                String locale = fileName.substring(0,dot);
-                s.add(locale);
-            }
-        }
-        localeListSet = s;
-    }
-    return localeListSet;
-}
-
-static protected String[] getLocales() {
-    return (String[])getLocalesSet().toArray(new String[0]);
-}
-
-/**
- * Returns a Map of all interest groups.
- * en -> en, en_US, en_MT, ...
- * fr -> fr, fr_BE, fr_FR, ...
- */
-static protected Map getIntGroups() {
-    // TODO: rewrite as iterator
-    String[] locales = getLocales();
-    Map h = new HashMap();
-    for(int i=0;i<locales.length;i++) {
-        String locale = locales[i];
-        String group = locale;
-        int dash = locale.indexOf('_');
-        if(dash !=  -1) {
-            group = locale.substring(0,dash);
-        }
-        Set s = (Set)h.get(group);
-        if(s == null) {
-            s = new HashSet();
-            h.put(group,s);
-        }
-        s.add(locale);
-    }
-    return h;
-}
-
-public boolean isValidLocale(String locale) {
-    return getLocalesSet().contains(locale);
-}
-
-/* returns a map of String localegroup -> Set [ User interestedUser,  ... ]
-*/ 
-protected Map getIntUsers(Map intGroups) {
-    Map m = new HashMap();
-    try {
-        synchronized(reg) {
-            java.sql.ResultSet rs = reg.list(null);
-            if(rs == null) {
-                return m;
-            }
-            while(rs.next()) {
-                int theirLevel = rs.getInt(2);
-                if(theirLevel > UserRegistry.VETTER) {
-                    continue; // will not receive notice.
-                }
-                
-                int theirId = rs.getInt(1);
-                UserRegistry.User u = reg.getInfo(theirId);
-                //String theirName = rs.getString(3);
-                //String theirEmail = rs.getString(4);
-                //String theirOrg = rs.getString(5);
-                String theirLocales = rs.getString(6);                
-                String theirIntlocs = rs.getString(7);
-                
-                String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
-                
-                if((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all locales
-                    localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
-                }
-                
-                if(localeArray.length == 0) {
-                    for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
-                        String group = (String)li.next();
-                        Set v = (Set)m.get(group);
-                        if(v == null) {
-                            v=new HashSet();
-                            m.put(group, v);
-                        }
-                        v.add(u);
-                    //    System.err.println(group + " - " + u.email + " (ALL)");
-                    }
-                } else {
-                    for(int i=0;i<localeArray.length;i++) {
-                        String group= localeArray[i];
-                        Set v = (Set)m.get(group);
-                        if(v == null) {
-                            v=new HashSet();
-                            m.put(group, v);
-                        }
-                        v.add(u);
-                 //       System.err.println(group + " - " + u.email + "");
-                    }
-                }
-            }
-        }
-    } catch (SQLException se) {
-        throw new RuntimeException("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
-    }
-    return m;
-}
-
-
-void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
-    writeRadio(ctx, xpath, type, value, checked.equals(value));        
-}
-
-void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
-    ctx.println("<input type=radio name='" + fieldsToHtml(xpath,type) + "' value='" + value + "' " +
-                (checked?" CHECKED ":"") + "/>");
-}
-
-
-public static final com.ibm.icu.text.Transliterator hexXML
-    = com.ibm.icu.text.Transliterator.getInstance(
-    "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
-
-// like above, but quote " 
-public static final com.ibm.icu.text.Transliterator quoteXML 
-    = com.ibm.icu.text.Transliterator.getInstance(
-     "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
-
-public static int usedK() {
-    Runtime r = Runtime.getRuntime();
-    double total = r.totalMemory();
-    total = total / 1024;
-    double free = r.freeMemory();
-    free = free / 1024;
-    return (int)(Math.floor(total-free));
-}
-
-
-private void busted(String what) {
-    System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
-    isBusted = what;
-    logger.severe(what);
-}
-
-private void appendLog(WebContext ctx, String what) {
-    String ipInfo =  ctx.userIP();
-    appendLog(what, ipInfo);
-}
-
-public void appendLog(String what) {
-    logger.info(what);
-}
-
-public synchronized void appendLog(String what, String ipInfo) {
-    logger.info(what + " [@" + ipInfo + "]");
-}
-
-TreeMap allXpaths = new TreeMap();    
-public static Set draftSet = Collections.synchronizedSet(new HashSet());
-
-
-static final public String[] distinguishingAttributes =  { "key", "registry", "alt", "iso4217", "iso3166", "type", "default",
-    "measurementSystem", "mapping", "abbreviationFallback", "preferenceOrdering" };
-
-static int xpathCode = 0;
-
-/**
-* convert a XPATH:TYPE form to an html field.
- * if type is null, means:  hash the xpath
- */
-String fieldsToHtml(String xpath, String type)
-{
-    if(type == null) {
-        String r = (String)allXpaths.get(xpath);
-        if(r == null) synchronized(allXpaths) {
-            // we've found a totally new xpath. Mint a new key.
-            r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
-            allXpaths.put(xpt.poolx(xpath), r);
-        }
-        return r;
-    } else {
-        return xpath + "/" + type;
-    }
-}
-
-private void printWarning(WebContext ctx, String myxpath) {
-    if(myxpath == null) {
-        return;
-    }
-    String warnHash = "W"+fieldsToHtml(myxpath,null);
-    String warning = getWarning(ctx.locale.toString(), myxpath);
-    if(warning != null) {
-        String warningTitle = quoteXML.transliterate(warning);
-        ctx.println("<a href='javascript:show(\"" + warnHash + "\")'>" + 
-                    "<img border=0 align=right src='" + CLDR_ALERT_ICON + "' width=16 height=16 alt=\"" +   
-                    warningTitle + "\" title=\"" + warningTitle + "\"></a>");
-        ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                    "<div style='display: none' class='warning' id='" + warnHash + "'>" +
-                    warningTitle + "</div>");
-    }
-}
-
-static long shortN = 0;
-static final int MAX_CHARS = 100;
-static final String SHORT_A = "(Click to show entire warning.)";
-static final String SHORT_B = "(hide.)";
-private synchronized void printShortened(WebContext ctx, String str) {
-    if(str.length()<(MAX_CHARS+1+SHORT_A.length())) {
-        ctx.println(str);
-    } else {
-        String key = CookieSession.cheapEncode(shortN++);
-        printShortened(ctx,str.substring(0,MAX_CHARS), str, key); 
-    }
-}
-
-private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
-        ctx.println("<span id='h_ww"+warnHash+"'>" + shortStr + "... ");
-        ctx.print("<a href='javascript:show(\"ww" + warnHash + "\")'>" + 
-                    SHORT_A+"</a></span>");
-        ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                    "<span style='display: none'  id='ww" + warnHash + "'>" +
-                    longStr + "<a href='javascript:hide(\"ww" + warnHash + "\")'>" + 
-                    SHORT_B+"</a></span>");
-}
-
-
-Hashtable xpathWarnings = new Hashtable();
-
-String getWarning(String locale, String xpath) {
-    return (String)xpathWarnings.get(locale+" "+xpath);
-}
-
-
-boolean readWarnings() {
-    int lines  = 0;
-    try {
-        BufferedReader in
-        = BagFormatter.openUTF8Reader(cldrHome, "surveyInfo.txt");
-        String line;
-        while ((line = in.readLine())!=null) {
-            lines++;
-            if((line.length()<=0) ||
-               (line.charAt(0)=='#')) {
-                continue;
-            }
-            String[] result = line.split("\t");
-            // result[0];  locale
-            // result[1];  xpath
-            // result[2];  warning
-            xpathWarnings.put(result[0] + " /" + result[1], result[2]);
-        }
-    } catch (java.io.FileNotFoundException t) {
-        //            System.err.println(t.toString());
-        //            t.printStackTrace();
-        //logger.warning("Warning: Can't read xpath warnings file.  " + cldrHome + "/surveyInfo.txt - To remove this warning, create an empty file there.");
-        return true;
-    }  catch (java.io.IOException t) {
-        System.err.println(t.toString());
-        t.printStackTrace();
-        busted("Error: trying to read xpath warnings file.  " + cldrHome + "/surveyInfo.txt");
-        return true;
-    }
-    
-    //        System.err.println("xpathWarnings" + ": " + lines + " lines read.");
-    return true;
-}
-
-private static Hashtable stringHash = new Hashtable();
-
-static int stringHashIdentity = 0; // # of x==y hits
-static int stringHashHit = 0;
-
-static final String pool(String x) {
-    if(x==null) {
-        return null;
-    }
-    String y = (String)stringHash.get(x);
-    if(y==null) {
-        stringHash.put(x,x);
-        return x;
-    } else {
-        return y;
-    }
-}
-
-
-// DB stuff
-public String db_driver = "org.apache.derby.jdbc.EmbeddedDriver";
-public String db_protocol = "jdbc:derby:";
-public static final String CLDR_DB_U = "cldrdb_user";
-public String cldrdb_u = null;
-public static final String CLDR_DB = "cldrdb";
-public String cldrdb = null;
-
-private Connection getDBConnection()
-{
-    return getDBConnection("");
-}
-
-private Connection getU_DBConnection()
-{
-    return getU_DBConnection("");
-}
-
-
-private Connection getDBConnection(String options)
-{
-    try{ 
-        Properties props = new Properties();
-        props.put("user", "cldr_user");
-        props.put("password", "cldr_password");
-        cldrdb =  dbDir.getAbsolutePath();
-        Connection nc =  DriverManager.getConnection(db_protocol +
-                                                     cldrdb + options, props);
-        nc.setAutoCommit(false);
-        return nc;
-    } catch (SQLException se) {
-        busted("Fatal in getDBConnection: " + unchainSqlException(se));
-        return null;
-    }
-}
-
-private Connection getU_DBConnection(String options)
-{
-    try{ 
-        Properties props = new Properties();
-        props.put("user", "cldr_user");
-        props.put("password", "cldr_password");
-        cldrdb_u =  dbDir_u.getAbsolutePath();
-        Connection nc =  DriverManager.getConnection(db_protocol +
-                                                     cldrdb_u + options, props);
-        nc.setAutoCommit(false);
-        return nc;
-    } catch (SQLException se) {
-        busted("Fatal in getDBConnection: " + unchainSqlException(se));
-        return null;
-    }
-}
-
-File dbDir = null;
-File dbDir_u = null;
-static String dbInfo = null;
-
-private void doStartupDB()
-{
-    dbDir = new File(cldrHome,CLDR_DB);
-    dbDir_u = new File(cldrHome,CLDR_DB_U);
-    boolean doesExist = dbDir.isDirectory();
-///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
-    
-//    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
-    try
-    { 
-        Object o = Class.forName(db_driver).newInstance();
         try {
-            java.sql.Driver drv = (java.sql.Driver)o;
-            dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
-         //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
-        } catch(Throwable t) {
-            dbInfo = "unknown";
+            homeFile.mkdir();
+            File propsFile = new File(homeFile, "cldr.properties");
+            OutputStream file = new FileOutputStream(propsFile, false); // Append
+            PrintWriter pw = new PrintWriter(file);
+
+            pw.println("## autogenerated cldr.properties config file");
+            pw.println("## generated on " + localhost() + " at "+new Date());
+            pw.println("## see the readme at \n## "+URL_CLDR+"data/tools/java/org/unicode/cldr/web/data/readme.txt ");
+            pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
+            pw.println("##");
+            pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
+            pw.println();
+            pw.println("## your password. Login as user 'admin@' and this password for admin access.");
+            pw.println("CLDR_VAP="+UserRegistry.makePassword("admin@"));
+            pw.println();
+            pw.println("## Special message shown to users as to why survey tool is down.");
+            pw.println("## Comment out for normal start-up.");
+            pw.println("CLDR_MESSAGE=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties. Comment out CLDR_MESSAGE to continue normal startup.");
+            pw.println();
+            pw.println("## Special message shown to users.");
+            pw.println("CLDR_HEADER=Welcome to SurveyTool@"+localhost()+". Please edit "+homeFile.getAbsolutePath()+"/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.");
+            pw.println();
+            pw.println("## CLDR common data. Default value shown, uncomment to override");
+            pw.println("CLDR_COMMON="+homeFile.getAbsolutePath()+"/common");
+            pw.println();
+            pw.println("## SMTP server. Mail is disabled by default.");
+            pw.println("#CLDR_SMTP=127.0.0.1");
+            pw.println();
+            pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
+            pw.println("#CLDR_FROM=bad_administrator@"+localhost());
+            pw.println();
+            pw.println("# That's all!");
+            pw.close();
+            file.close();
         }
-//        logger.info("loaded driver " + o + " - " + dbInfo);
-        Connection conn = getDBConnection(";create=true");
-//        logger.info("Connected to database " + cldrdb);
-///*U*/        Connection conn_u = getU_DBConnection(";create=true");
-//        logger.info("Connected to user database " + cldrdb_u);
-        
-        // set up our main tables.
-        if(doesExist == false) {
-            // nothing to setup.
+        catch(IOException exception){
+          System.err.println("While writing "+homeFile.getAbsolutePath()+" props: "+exception);
+          exception.printStackTrace();
         }
-        conn.commit();        
-        conn.close(); 
-        
-///*U*/        conn_u.commit();
-///*U*/        conn_u.close();
     }
-    catch (SQLException e)
+    public synchronized void doStartup() throws ServletException {
+            if(isSetup == true) {
+                return;
+            }
+            
+            // set up CheckCLDR
+            //CheckCLDR.SHOW_TIMES=true;
+            
+            survprops = new java.util.Properties(); 
+                    
+            if(cldrHome == null) {
+                cldrHome = System.getProperty("catalina.home");
+                if(cldrHome == null) {  
+                    busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
+                    return;
+                } 
+                File homeFile = new File(cldrHome, "cldr");
+                
+                if(!homeFile.isDirectory()) {
+                    createBasicCldr(homeFile); // attempt to create
+                }
+                
+                if(!homeFile.isDirectory()) {
+                    busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+                    return;
+                }
+                cldrHome = homeFile.getAbsolutePath();
+            }
+
+            logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
+            
+            try {
+                java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
+                survprops.load(is);
+                is.close();
+            } catch(java.io.IOException ioe) {
+                /*throw new UnavailableException*/
+                logger.log(Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
+                busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
+                       + ioe.toString()); /* .initCause(ioe);*/
+                       return;
+            }
+
+        vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
+        File vetdir = new File(vetdata);
+        if(!vetdir.isDirectory()) {
+            vetdir.mkdir();
+            System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
+        }
+        if(!vetdir.isDirectory()) {
+            busted("CLDR_VET_DATA isn't a directory: " + vetdata);
+            return;
+        }
+        if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
+            try {
+                loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
+                loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
+                logger.addHandler(loggingHandler);
+                logger.setUseParentHandlers(false);
+            } catch(Throwable ioe){
+                busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
+                return;
+            }
+        }
+
+        vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
+        if((vap==null)||(vap.length()==0)) {
+            /*throw new UnavailableException*/
+            busted("No vetting password set. (CLDR_VAP in cldr.properties)");
+            return;
+        }
+        if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
+            isUnofficial = false;
+        }
+        vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
+        cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+        // System.getProperty("CLDR_COMMON") + "/main" is ignored.
+        fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
+        specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
+        specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
+
+        if(!new File(fileBase).isDirectory()) {
+            busted("CLDR_COMMON isn't a directory: " + fileBase);
+            return;
+        }
+
+        if(!new File(vetweb).isDirectory()) {
+            busted("CLDR_VET_WEB isn't a directory: " + vetweb);
+            return;
+        }
+
+        File cacheDir = new File(cldrHome, "cache");
+    //    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+        CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
+        CachingEntityResolver.createAndEmptyCacheDir();
+
+        supplemental = new SupplementalData(fileBase + "/../supplemental/");
+
+        isSetup = true;
+
+
+
+        int status = 0;
+    //    logger.info(" ------------------ " + new Date().toString() + " ---------------");
+        if(isBusted != null) {
+            return; // couldn't write the log
+        }
+        if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+            logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
+            busted("message: " + specialMessage);
+        }
+        /*
+         SurveyMain m = new SurveyMain();  ???
+         
+         if(!m.reg.read()) {
+             busted("Couldn't load user registry [at least put an empty file there]   - exiting");
+             return;
+         }
+         */
+        if(!readWarnings()) {
+            // already busted
+            return;
+        }
+
+        doStartupDB();
+
+        logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
+    }
+
+    public void destroy() {
+        logger.warning("SurveyTool shutting down..");
+        doShutdownDB();
+        busted("servlet destroyed");
+        super.destroy();
+    }
+
+    protected void startCell(WebContext ctx, String background) {
+        ctx.println("<td bgcolor=\"" + background + "\">");
+    }
+
+    protected void endCell(WebContext ctx) {
+        ctx.println("</td>");
+    }
+
+    protected void doCell(WebContext ctx, String type, String value) {
+        startCell(ctx,"#FFFFFF");
+        ctx.println(value);
+        endCell(ctx);
+    }
+
+    protected void doDraftCell(WebContext ctx, String type, String value) {
+        startCell(ctx,"#DDDDDD");
+        ctx.println("<i>Draft</i><br/>");
+        ctx.println(value);
+        endCell(ctx);
+    }
+
+    protected void doPropCell(WebContext ctx, String type, String value) {
+        startCell(ctx,"#DDFFDD");
+        ctx.println("<i>Proposed:</i><br/>");
+        ctx.println(value);
+        endCell(ctx);
+    }
+
+    // utils
+    private Node getVettedNode(Node context, String resToFetch){
+        NodeList list = LDMLUtilities.getChildNodes(context, resToFetch);
+        Node node =null;
+        if(list!=null){
+            for(int i =0; i<list.getLength(); i++){
+                node = list.item(i);
+                if(LDMLUtilities.isNodeDraft(node)){
+                    continue;
+                }
+                /*
+                 if(isAlternate(node)){
+                     continue;
+                 }
+                 */
+                return node;
+            }
+        }
+        return null;
+    }
+
+    static protected File[] getInFiles() {
+        // 1. get the list of input XML files
+        FileFilter myFilter = new FileFilter() {
+            public boolean accept(File f) {
+                String n = f.getName();
+                return(!f.isDirectory()
+                       &&n.endsWith(".xml")
+                       &&!n.startsWith(".")
+                       &&!n.startsWith("supplementalData") // not a locale
+                       /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
+            }
+        };
+        File baseDir = new File(fileBase);
+        return baseDir.listFiles(myFilter);
+    }
+
+    private static Set localeListSet = null;
+
+    static synchronized protected Set getLocalesSet() {
+        if(localeListSet == null ) {
+            File inFiles[] = getInFiles();
+            int nrInFiles = inFiles.length;
+            Set s = new HashSet();
+            for(int i=0;i<nrInFiles;i++) {
+                String fileName = inFiles[i].getName();
+                int dot = fileName.indexOf('.');
+                if(dot !=  -1) {
+                    String locale = fileName.substring(0,dot);
+                    s.add(locale);
+                }
+            }
+            localeListSet = s;
+        }
+        return localeListSet;
+    }
+
+    static protected String[] getLocales() {
+        return (String[])getLocalesSet().toArray(new String[0]);
+    }
+
+    /**
+     * Returns a Map of all interest groups.
+     * en -> en, en_US, en_MT, ...
+     * fr -> fr, fr_BE, fr_FR, ...
+     */
+    static protected Map getIntGroups() {
+        // TODO: rewrite as iterator
+        String[] locales = getLocales();
+        Map h = new HashMap();
+        for(int i=0;i<locales.length;i++) {
+            String locale = locales[i];
+            String group = locale;
+            int dash = locale.indexOf('_');
+            if(dash !=  -1) {
+                group = locale.substring(0,dash);
+            }
+            Set s = (Set)h.get(group);
+            if(s == null) {
+                s = new HashSet();
+                h.put(group,s);
+            }
+            s.add(locale);
+        }
+        return h;
+    }
+
+    public boolean isValidLocale(String locale) {
+        return getLocalesSet().contains(locale);
+    }
+
+    /* returns a map of String localegroup -> Set [ User interestedUser,  ... ]
+    */ 
+    protected Map getIntUsers(Map intGroups) {
+        Map m = new HashMap();
+        try {
+            synchronized(reg) {
+                java.sql.ResultSet rs = reg.list(null);
+                if(rs == null) {
+                    return m;
+                }
+                while(rs.next()) {
+                    int theirLevel = rs.getInt(2);
+                    if(theirLevel > UserRegistry.VETTER) {
+                        continue; // will not receive notice.
+                    }
+                    
+                    int theirId = rs.getInt(1);
+                    UserRegistry.User u = reg.getInfo(theirId);
+                    //String theirName = rs.getString(3);
+                    //String theirEmail = rs.getString(4);
+                    //String theirOrg = rs.getString(5);
+                    String theirLocales = rs.getString(6);                
+                    String theirIntlocs = rs.getString(7);
+                    
+                    String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
+                    
+                    if((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all locales
+                        localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
+                    }
+                    
+                    if(localeArray.length == 0) {
+                        for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
+                            String group = (String)li.next();
+                            Set v = (Set)m.get(group);
+                            if(v == null) {
+                                v=new HashSet();
+                                m.put(group, v);
+                            }
+                            v.add(u);
+                        //    System.err.println(group + " - " + u.email + " (ALL)");
+                        }
+                    } else {
+                        for(int i=0;i<localeArray.length;i++) {
+                            String group= localeArray[i];
+                            Set v = (Set)m.get(group);
+                            if(v == null) {
+                                v=new HashSet();
+                                m.put(group, v);
+                            }
+                            v.add(u);
+                     //       System.err.println(group + " - " + u.email + "");
+                        }
+                    }
+                }
+            }
+        } catch (SQLException se) {
+            throw new RuntimeException("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
+        }
+        return m;
+    }
+
+
+    void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
+        writeRadio(ctx, xpath, type, value, checked.equals(value));        
+    }
+
+    void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
+        ctx.println("<input type=radio name='" + fieldsToHtml(xpath,type) + "' value='" + value + "' " +
+                    (checked?" CHECKED ":"") + "/>");
+    }
+
+
+    public static final com.ibm.icu.text.Transliterator hexXML
+        = com.ibm.icu.text.Transliterator.getInstance(
+        "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+
+    // like above, but quote " 
+    public static final com.ibm.icu.text.Transliterator quoteXML 
+        = com.ibm.icu.text.Transliterator.getInstance(
+         "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+
+    public static int usedK() {
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024;
+        double free = r.freeMemory();
+        free = free / 1024;
+        return (int)(Math.floor(total-free));
+    }
+
+
+    private void busted(String what) {
+        System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
+        isBusted = what;
+        logger.severe(what);
+    }
+
+    private void appendLog(WebContext ctx, String what) {
+        String ipInfo =  ctx.userIP();
+        appendLog(what, ipInfo);
+    }
+
+    public void appendLog(String what) {
+        logger.info(what);
+    }
+
+    public synchronized void appendLog(String what, String ipInfo) {
+        logger.info(what + " [@" + ipInfo + "]");
+    }
+
+    TreeMap allXpaths = new TreeMap();    
+    public static Set draftSet = Collections.synchronizedSet(new HashSet());
+
+
+    static final public String[] distinguishingAttributes =  { "key", "registry", "alt", "iso4217", "iso3166", "type", "default",
+        "measurementSystem", "mapping", "abbreviationFallback", "preferenceOrdering" };
+
+    static int xpathCode = 0;
+
+    /**
+    * convert a XPATH:TYPE form to an html field.
+     * if type is null, means:  hash the xpath
+     */
+    String fieldsToHtml(String xpath, String type)
     {
-        busted("On DB startup: " + unchainSqlException(e));
-        return;
-    }
-    catch (Throwable t)
-    {
-        busted("Some error on DB startup: " + t.toString());
-        t.printStackTrace();
-        return;
-    }
-    // now other tables..
-    try {
-        Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
-        boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
-        reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u, this);
-        if(!doesExist_u) { // only import users on first run through..
-            reg.importOldUsers(vetdata);
+        if(type == null) {
+            String r = (String)allXpaths.get(xpath);
+            if(r == null) synchronized(allXpaths) {
+                // we've found a totally new xpath. Mint a new key.
+                r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
+                allXpaths.put(xpt.poolx(xpath), r);
+            }
+            return r;
+        } else {
+            return xpath + "/" + type;
         }
-		
-		String doMigrate = survprops.getProperty("CLDR_MIGRATE");
-		if((doMigrate!=null) && (doMigrate.length()>0)) {
-			System.err.println("** User DB migrate");
-			reg.migrateFrom(getU_DBConnection());
-		}
-		
-    } catch (SQLException e) {
-        busted("On UserRegistry startup: " + unchainSqlException(e));
-        return;
     }
-    try {
-        xpt = XPathTable.createTable(logger, getDBConnection(), !doesExist, this);
-    } catch (SQLException e) {
-        busted("On XPathTable startup: " + unchainSqlException(e));
-        return;
+
+    private void printWarning(WebContext ctx, String myxpath) {
+        if(myxpath == null) {
+            return;
+        }
+        String warnHash = "W"+fieldsToHtml(myxpath,null);
+        String warning = getWarning(ctx.localeString(), myxpath);
+        if(warning != null) {
+            String warningTitle = quoteXML.transliterate(warning);
+            ctx.println("<a href='javascript:show(\"" + warnHash + "\")'>" + 
+                        "<img border=0 align=right src='" + CLDR_ALERT_ICON + "' width=16 height=16 alt=\"" +   
+                        warningTitle + "\" title=\"" + warningTitle + "\"></a>");
+            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                        "<div style='display: none' class='warning' id='" + warnHash + "'>" +
+                        warningTitle + "</div>");
+        }
     }
-    // note: make xpt before CLDRDBSource..
-    try {
-        CLDRDBSource.setupDB(logger, getDBConnection(), !doesExist, this);
-    } catch (SQLException e) {
-        busted("On CLDRDBSource startup: " + unchainSqlException(e));
-        return;
+
+    static long shortN = 0;
+    static final int MAX_CHARS = 100;
+    static final String SHORT_A = "(Click to show entire warning.)";
+    static final String SHORT_B = "(hide.)";
+    private synchronized void printShortened(WebContext ctx, String str) {
+        if(str.length()<(MAX_CHARS+1+SHORT_A.length())) {
+            ctx.println(str);
+        } else {
+            String key = CookieSession.cheapEncode(shortN++);
+            printShortened(ctx,str.substring(0,MAX_CHARS), str, key); 
+        }
     }
-    try {
-        vet = Vetting.createTable(logger, getDBConnection(), this);
-    } catch (SQLException e) {
-        busted("On Vetting startup: " + unchainSqlException(e));
-        return;
+
+    private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
+            ctx.println("<span id='h_ww"+warnHash+"'>" + shortStr + "... ");
+            ctx.print("<a href='javascript:show(\"ww" + warnHash + "\")'>" + 
+                        SHORT_A+"</a></span>");
+            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                        "<span style='display: none'  id='ww" + warnHash + "'>" +
+                        longStr + "<a href='javascript:hide(\"ww" + warnHash + "\")'>" + 
+                        SHORT_B+"</a></span>");
     }
-    try {
-        fora = SurveyForum.createTable(logger, getDBConnection(), this);
-    } catch (SQLException e) {
-        busted("On Fora startup: " + unchainSqlException(e));
-        return;
+
+
+    Hashtable xpathWarnings = new Hashtable();
+
+    String getWarning(String locale, String xpath) {
+        return (String)xpathWarnings.get(locale+" "+xpath);
     }
-    if(!doesExist) {
-        logger.info("all dbs setup");
+
+
+    boolean readWarnings() {
+        int lines  = 0;
+        try {
+            BufferedReader in
+            = BagFormatter.openUTF8Reader(cldrHome, "surveyInfo.txt");
+            String line;
+            while ((line = in.readLine())!=null) {
+                lines++;
+                if((line.length()<=0) ||
+                   (line.charAt(0)=='#')) {
+                    continue;
+                }
+                String[] result = line.split("\t");
+                // result[0];  locale
+                // result[1];  xpath
+                // result[2];  warning
+                xpathWarnings.put(result[0] + " /" + result[1], result[2]);
+            }
+        } catch (java.io.FileNotFoundException t) {
+            //            System.err.println(t.toString());
+            //            t.printStackTrace();
+            //logger.warning("Warning: Can't read xpath warnings file.  " + cldrHome + "/surveyInfo.txt - To remove this warning, create an empty file there.");
+            return true;
+        }  catch (java.io.IOException t) {
+            System.err.println(t.toString());
+            t.printStackTrace();
+            busted("Error: trying to read xpath warnings file.  " + cldrHome + "/surveyInfo.txt");
+            return true;
+        }
+        
+        //        System.err.println("xpathWarnings" + ": " + lines + " lines read.");
+        return true;
     }
-}    
+
+    private static Hashtable stringHash = new Hashtable();
+
+    static int stringHashIdentity = 0; // # of x==y hits
+    static int stringHashHit = 0;
+
+    static final String pool(String x) {
+        if(x==null) {
+            return null;
+        }
+        String y = (String)stringHash.get(x);
+        if(y==null) {
+            stringHash.put(x,x);
+            return x;
+        } else {
+            return y;
+        }
+    }
+
+
+    // DB stuff
+    public String db_driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    public String db_protocol = "jdbc:derby:";
+    public static final String CLDR_DB_U = "cldrdb_user";
+    public String cldrdb_u = null;
+    public static final String CLDR_DB = "cldrdb";
+    public String cldrdb = null;
+
+    private Connection getDBConnection()
+    {
+        return getDBConnection("");
+    }
+
+    private Connection getU_DBConnection()
+    {
+        return getU_DBConnection("");
+    }
+
+
+    private Connection getDBConnection(String options)
+    {
+        try{ 
+            Properties props = new Properties();
+            props.put("user", "cldr_user");
+            props.put("password", "cldr_password");
+            cldrdb =  dbDir.getAbsolutePath();
+            Connection nc =  DriverManager.getConnection(db_protocol +
+                                                         cldrdb + options, props);
+            nc.setAutoCommit(false);
+            return nc;
+        } catch (SQLException se) {
+            busted("Fatal in getDBConnection: " + unchainSqlException(se));
+            return null;
+        }
+    }
+
+    private Connection getU_DBConnection(String options)
+    {
+        try{ 
+            Properties props = new Properties();
+            props.put("user", "cldr_user");
+            props.put("password", "cldr_password");
+            cldrdb_u =  dbDir_u.getAbsolutePath();
+            Connection nc =  DriverManager.getConnection(db_protocol +
+                                                         cldrdb_u + options, props);
+            nc.setAutoCommit(false);
+            return nc;
+        } catch (SQLException se) {
+            busted("Fatal in getDBConnection: " + unchainSqlException(se));
+            return null;
+        }
+    }
+
+    File dbDir = null;
+    File dbDir_u = null;
+    static String dbInfo = null;
+
+    private void doStartupDB()
+    {
+        dbDir = new File(cldrHome,CLDR_DB);
+        dbDir_u = new File(cldrHome,CLDR_DB_U);
+        boolean doesExist = dbDir.isDirectory();
+    ///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
+        
+    //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
+        try
+        { 
+            Object o = Class.forName(db_driver).newInstance();
+            try {
+                java.sql.Driver drv = (java.sql.Driver)o;
+                dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
+             //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
+            } catch(Throwable t) {
+                dbInfo = "unknown";
+            }
+    //        logger.info("loaded driver " + o + " - " + dbInfo);
+            Connection conn = getDBConnection(";create=true");
+    //        logger.info("Connected to database " + cldrdb);
+    ///*U*/        Connection conn_u = getU_DBConnection(";create=true");
+    //        logger.info("Connected to user database " + cldrdb_u);
+            
+            // set up our main tables.
+            if(doesExist == false) {
+                // nothing to setup.
+            }
+            conn.commit();        
+            conn.close(); 
+            
+    ///*U*/        conn_u.commit();
+    ///*U*/        conn_u.close();
+        }
+        catch (SQLException e)
+        {
+            busted("On DB startup: " + unchainSqlException(e));
+            return;
+        }
+        catch (Throwable t)
+        {
+            busted("Some error on DB startup: " + t.toString());
+            t.printStackTrace();
+            return;
+        }
+        // now other tables..
+        try {
+            Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
+            boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
+            reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u, this);
+            if(!doesExist_u) { // only import users on first run through..
+                reg.importOldUsers(vetdata);
+            }
+            
+            String doMigrate = survprops.getProperty("CLDR_MIGRATE");
+            if((doMigrate!=null) && (doMigrate.length()>0)) {
+                System.err.println("** User DB migrate");
+                reg.migrateFrom(getU_DBConnection());
+            }
+            
+        } catch (SQLException e) {
+            busted("On UserRegistry startup: " + unchainSqlException(e));
+            return;
+        }
+        try {
+            xpt = XPathTable.createTable(logger, getDBConnection(), !doesExist, this);
+        } catch (SQLException e) {
+            busted("On XPathTable startup: " + unchainSqlException(e));
+            return;
+        }
+        // note: make xpt before CLDRDBSource..
+        try {
+            CLDRDBSource.setupDB(logger, getDBConnection(), !doesExist, this);
+        } catch (SQLException e) {
+            busted("On CLDRDBSource startup: " + unchainSqlException(e));
+            return;
+        }
+        try {
+            vet = Vetting.createTable(logger, getDBConnection(), this);
+        } catch (SQLException e) {
+            busted("On Vetting startup: " + unchainSqlException(e));
+            return;
+        }
+        try {
+            fora = SurveyForum.createTable(logger, getDBConnection(), this);
+        } catch (SQLException e) {
+            busted("On Fora startup: " + unchainSqlException(e));
+            return;
+        }
+        if(!doesExist) {
+            logger.info("all dbs setup");
+        }
+    }    
 
     public static final String unchainSqlException(SQLException e) {
         String echain = "SQL exception: \n ";

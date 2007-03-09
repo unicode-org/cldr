@@ -2691,10 +2691,11 @@ public class SurveyMain extends HttpServlet {
                 return; // Disable viewing of default content
                 
             } else if (dcChild != null) {
-                ctx.println("<div class='fnotebox'>This locale uses the default content for <b>"+
-                    getLocaleLink(ctx,dcChild,null)+
+                String dcChildDisplay = new ULocale(dcChild).getDisplayName(ctx.displayLocale);
+                ctx.println("<div class='fnotebox'>This locale supplies the default content for <b>"+
+                    dcChildDisplay+
                     "</b>. Please make sure that all the changes that you make here are appropriate for <b>"+
-                    getLocaleLink(ctx,dcChild,null)+
+                    dcChildDisplay+
                     "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values.<br>");
                 ctx.printHelpLink("/DefaultContent","Help with Default Content");
                 ctx.print("</div>");
@@ -4209,15 +4210,15 @@ public class SurveyMain extends HttpServlet {
                     " <th>St.</th>\n"+                  // 1
                     " <th>Code</th>\n"+                 // 2
                     " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
-                    " <th title='Example'><i>Ex</i></th>\n" + 
+                    " <th title='"+BASELINE_NAME+" Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2'>Current</th>\n"+  // 6
-                    " <th title='Example'><i>Ex</i></th>\n" + 
+                    " <th title='Current Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2'>Proposed</th>\n"+ // 7
-                    " <th title='Example'><i>Ex</i></th>\n" + 
+                    " <th title='Proposed Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2' width='20%'>Change</th>\n"+               // 8
                     " <th title='Reference'>" +
                         (zoomedIn?"Rf":"")  + "</th>\n"+           // 9
-                    " <th title='No Vote (Abstain)'>n/a</th>\n"+                   // 5
+                    " <th title='No Opinion'>n/o</th>\n"+                   // 5
                     "</tr>");
     }
 
@@ -5606,6 +5607,13 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("  <option value='true'>true</option> ");
                     ctx.print("  <option value='false'>false</option> ");
                     ctx.println("</select>");
+                } else if(p.valuesList != null) {
+                    ctx.print("<select onclick=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'>");
+                    ctx.print("  <option value=''></option> ");
+                    for(String s : p.valuesList ) {
+                        ctx.print("  <option value='"+s+"'>"+s+"</option> ");
+                    }
+                    ctx.println("</select>");
                 } else {
                     ctx.print("<input onfocus=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v' value='"+oldValue+"' class='"+fClass+"'>");
                 }
@@ -5830,7 +5838,11 @@ public class SurveyMain extends HttpServlet {
         } else if(item.pathWhereFound != null) {
             pClass = "class='alias' title='alias from somewhere'";
         } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
-            pClass = "class='fallback' title='Fallback from "+item.inheritFrom+"'";
+            if("root".equals(item.inheritFrom)) {
+                pClass = "class='fallback_root' title='Untranslated Code'";
+            } else {
+                pClass = "class='fallback' title='Translated in "+new ULocale(item.inheritFrom).getDisplayName(ctx.displayLocale)+" and inherited here.'";
+            }
         } else if(item.altProposed != null) {
             pClass = "class='loser' title='proposed, losing item'";
     /*    } else if(p.inheritFrom != null) {

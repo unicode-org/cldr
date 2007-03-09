@@ -48,6 +48,8 @@ public class DataPod extends Registerable {
     public static final String EXEMPLAR_ONLY = "//ldml/dates/timeZoneNames/zone/*/exemplarCity";
     public static final String EXEMPLAR_EXCLUDE = "!exemplarCity";
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
+    
+    public String[] LAYOUT_INTEXT_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" }; // layout/inText/* - from UTS35
 
     public String xpathPrefix = null;
     
@@ -154,10 +156,16 @@ public class DataPod extends Registerable {
     
     public class Pea {
         Pea superPea = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
+        
+        // what kind of pea is this?
         public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
         public Pea toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
         public boolean toggleValue = false;
+        String[] valuesList = null; // if non null - list of acceptable values.
+        
         public String type = null;
+        
+        
         public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
@@ -1289,6 +1297,11 @@ public class DataPod extends Registerable {
                 if(p.toggleWith == null) {
                     p.updateToggle(fullPath, isToggleFor);
                 }
+            }
+            
+            if(p.type.startsWith("layout/inText")) {
+                p.valuesList = LAYOUT_INTEXT_VALUES;
+                superP.valuesList = LAYOUT_INTEXT_VALUES;
             }
 
 //if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));

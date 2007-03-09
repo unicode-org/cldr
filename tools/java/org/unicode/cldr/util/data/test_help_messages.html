@@ -173,7 +173,9 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 		<p>Some language codes are more complex, of the form &quot;en_AU&quot; for <i>Australian English</i>. If you don&#39;t add a translation, then those will be 
 		respresented by a format like &quot;αγγλικά (Αυστραλία)&quot;. That is, the translation would be the native name for &quot;English&quot;, followed by the native word for 
 		&quot;Australia&quot; in parentheses. If that format is ok, then you don&#39;t need to translate the more complex language code. The codes zh_Hant and zh_Hans (for 
-		Traditional and Simplified Chinese) on the other hand, should always be translated.</td>
+		Traditional and Simplified Chinese) on the other hand, should always be translated. 
+		<p>&quot;Iberian Portuguese&quot; is the style of Portuguese used in Portugal (as 
+		opposed to Brazil); similarly &quot;Iberian Spanish&quot; is the style of Spanish used in Spain (as opposed to Latin America).</td>
 	</tr>
 	<tr>
 		<td>//ldml/localeDisplayNames/scripts.*</td>
@@ -396,7 +398,9 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 			</tr>
 		</table>
 		<p align="left">Some languages use two different forms of strings (<i>stand-alone</i> 
-		and <i>format</i>) depending on the context. Make sure that the correct 
+		and <i>format</i>) depending on the context. Typically the <i>stand-alone</i> version is the nominative form of the word, and the <i>format</i> version is 
+		in the genitive.</p>
+		<p align="left">Make sure that the correct 
 		form is chosen, especially for the months. That is, suppose that the 
 		language uses &quot;Dezembro&quot; for December when standing alone, but &quot;Dezembru&quot; 
 		when with a date (meaning the nth day <em>of</em> that month). Then the 
@@ -427,7 +431,8 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 				<td align="center">1 Dez. 53</td>
 			</tr>
 			</table>
-</td>
+			<p align="left">That is, if your language uses two different forms, then make sure that there are two forms of the months or days where necessary,
+			<i>and</i> in all of the date patterns, use LLL or LLLL stand-alone form where it is needed (instead MMM and MMMM).</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*timeFormatLength</td>
@@ -520,44 +525,136 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 	<tr>
 		<td>.*/timeZoneNames.*</td>
 		<td>
-		In the standard used for timezones, a timezone is an area of a country 
-		that has the offset from Greenwich Mean Time, and has the same 
-		daylight-savings behavior (transition dates). This means that timezones 
+		<p align="left">In the standard used for time zones, a <i>time zone</i> is an area of a country that has consistent behavior in terms of its offset from 
+		Greenwich Mean Time. In particular, within that zone, the same 
+		daylight-savings (summer-time) behavior is observed, now and in the past and future (as far as is known). This means that time zones 
 		are fairly fine granularity, as you can see by consulting
 		<span class="loser">
 		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">
-		Territory Containment</a>.</span></td>
+		Territory Containment</a>. </span>The name of the time zone is taken from the 
+		most populous city. Here are some examples of time zones, and why they are distinct from America/Denver.</p>
+				<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table9">
+			<caption><b>&nbsp;Time Zone Different from <code>America/Denver</code></b></caption>
+			<tr>
+				<th style="vertical-align: top; "><strong>Time zone</strong></th>
+
+				<td align="center"><strong>Reason</strong></td>
+			</tr>
+			<tr>
+				<td align="center"><b><code>America/​Phoenix</code></b></td>
+				<td>Phoenix doesn&#39;t have daylight savings time.</td>
+			</tr>
+			<tr>
+
+				<td align="center"><b><code>America/​Edmonton</code></b></td>
+				<td>Although it follows the same rules, it is in a different country</td>
+			</tr>
+			</table>
+		<p align="left"><span class="loser">Time zones can be displayed in a variety of ways, depending on the environment and program requirements. Here are 
+		some examples&quot;</span><table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table8">
+			<caption><b>Sample Time Zone Formats</b></caption>
+			<tr>
+				<th style="vertical-align: top; ">Named</th>
+
+				<th style="vertical-align: top; "><strong>List Format</strong></th>
+
+				<td align="center"><b>Abbreviated</b></td>
+
+				<td align="center" colspan="2"><strong>With a Time</strong></td>
+
+			</tr>
+			<tr>
+				<td rowspan="2">Country-Based</td>
+				<td colspan="2" align="center">United States (Los Angeles) Time</td>
+				<td colspan="2">12:43 pm United States (Los Angeles) Time</td>
+			</tr>
+			<tr>
+
+				<td colspan="2" align="center">Italy Time</td>
+				<td colspan="2">12:43 pm Italy Time</td>
+				</tr>
+			<tr>
+
+				<td rowspan="3">Named<p>&nbsp;</td>
+
+				<td align="center">Pacific Time</td>
+				<td align="center">PT</td>
+				<td>12:43 pm Pacific Time</td>
+				<td>12:43 pm PT</td>
+			</tr>
+			<tr>
+
+				<td align="center">Central European Time</td>
+				<td align="center">CET</td>
+				<td>12:43 pm Central European Time</td>
+				<td>12:43 pm CET</td>
+				</tr>
+			<tr>
+
+				<td align="center">Pacific Standard Time</td>
+				<td align="center">PST</td>
+				<td>12:43 pm Pacific Standard Time</td>
+				<td>12:43 pm PST</td>
+			</tr>
+			<tr>
+
+				<td rowspan="2">GMT</td>
+
+				<td colspan="2" align="center">GMT-8:00</td>
+				<td colspan="2">12:43 pm GMT-8:00</td>
+			</tr>
+			<tr>
+
+				<td colspan="2" align="center">GMT+2:00</td>
+				<td colspan="2">12:43 pm GMT+2:00</td>
+			</tr>
+			</table>
+			<p align="left">These are composed from different pieces that you translate. </p>
+		<ul>
+			<li>
+			<p align="left">For the country-based formats, you&#39;ll be translating the country names anyway, but also city names where a country has multiple 
+			zones. You&#39;ll also be translating a pattern for the &quot;Time&quot; portion (or leaving it blank if that is better for your language).</li>
+			<li>
+			<p align="left">For the named formats, you&#39;ll have the opportunity to translate specific names for that zone, or names common to groupings of time 
+			zones (called <i>metazones</i>) that span multiple time zones. You have 6 possible strings to translate: generic (Pacific Time), standard (Pacific 
+			Standard Time), daylight (Pacific Daylight Time), plus abbreviations of those.<i><b> You only want to provide names (and especially abbreviations) 
+			where those are customarily understood by speakers of your language. Just because they are in English doesn&#39;t mean they should always be translated 
+			in your language.</b></i></li>
+			<li>
+			<p align="left">For the GMT format, you&#39;ll be translating the term &quot;GMT&quot; (if necessary for your language), and the format for the hours (eg, +8:45 
+			vs. +8.45).</li>
+		</ul>
+			</td>
 	</tr>
 	<tr>
 		<td>.*/exemplarCity.*</td>
 		<td>
-		For generic references to timezones, the country is used if possible, 
-		composed with a pattern that in English appears as &quot;{0} Time&quot;. Thus a 
-		timezone may appear as &quot;Bolivia Time&quot;. If the country has multiple 
-		timezones, then a city is used to distinguish which one, thus &quot;Argentina 
+		For generic references to time zones, the country is used if possible, 
+		composed with a pattern that in English appears as &quot;{0} Time&quot;. Thus a time zone may appear as &quot;Bolivia Time&quot;. If the country has multiple 
+		time zones, then a city is used to distinguish which one, thus &quot;Argentina 
 		(La Rioja) Time&quot;. Thus for basic coverage, cities thus only need to be 
 		translated if they are in a country with multiple time zones.</td>
 	</tr>
 	<tr>
 		<td>.*/(usesM|m)etazone.*</td>
 		<td>
-		For some timezones, the survey tool will state that a particular <i>
-		metazone</i> is in effect. A metazone is simply a grouping of timezones 
+		For some time zones, the survey tool will state that a particular <i>
+		metazone</i> is in effect. A metazone is simply a grouping of time zones 
 		that share a common display name in customary usage. For example, <code>
 		Europe/Paris</code>, <code>Europe/Berlin</code>, and many other 
-		timezones share a common display name &quot;Central European Time&quot;, and have 
+		time zones share a common display name &quot;Central European Time&quot;, and have 
 		a common metazone <code>Europe_Central</code>. Use of a metazone allows 
 		us to translate this text only once while it can be use in many 
-		different timezones. The survey tool will show the default mappings of 
+		different time zones. The survey tool will show the default mappings for 
 		when a particular metazone was in use for a particular time zone. If you 
 		believe the mappings to be incorrect for your locality, please use the 
 		link to record any desired changes to the metazone mappings. Metazones 
 		have the same display fields as regular time zones, except that they 
 		have no exemplar city associated with them.
-		<p>Often there are situations where a particular timezone has an 
+		<p>Often there are situations where a particular time zone has an 
 		abbreviation, but the abbreviation is so seldom used that most people 
 		would not recognize it. The &quot;commonlyUsed&quot; field for a metazone is used 
-		to indicate that abbreviations for a particular timezone or metazone are 
+		to indicate that abbreviations for a particular time zone or metazone are 
 		in common use in the locale. You have two choices:</p>
 		<ul>
 			<li>If the GMT format would be understood better, set commonlyUsed 
@@ -604,8 +701,7 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 	<tr>
 		<td>//ldml/dates/timeZoneNames/fallbackFormat</td>
 		<td>
-		Modify this fieldto control the formatting when a country has multiple 
-		timezones. {0} will be replaced by the city and {1} will be the country. 
+		Modify this field to control the formatting when a country has multiple time zones. {0} will be replaced by the city and {1} will be the country. 
 		This is normally not changed, except perhaps in languages that don&#39;t use 
 		spaces. </td>
 	</tr>
@@ -626,7 +722,7 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 	<tr>
 		<td>//ldml/dates/timeZoneNames/regionFormat</td>
 		<td>
-		Modify this field if you want text around the timezone, eg for <em>New 
+		Time zones can be identified in different ways: such as around the time zone, eg for <em>New 
 		York Time</em> use <em>{0} Time</em>. This is a new item, and the word 
 		&quot;Time&quot; is in English, so you will undoubtedly want to change it.</td>
 	</tr>
@@ -644,8 +740,10 @@ interprets this expects a particular format, so don&#39;t make arbitrary changes
 	<tr>
 		<td>//ldml/fallback</td>
 		<td>
-		You can add here a list of locales that would be most natural to fall back to: that is, to use when no translation is available. This is mostly useful 
-		for minority languages. For example, for Breton the most natural language to fall back to might be French.</td>
+		You can add here a list of locales that would be most natural to use when no translation is available (this is called a <i>fallback)</i>. This is mostly useful 
+		for minority languages. For example, for Breton the most natural language to fall back to might be French, that is, to use French names for countries 
+		that aren&#39;t translated. The codes you need to use are <a target="_blank" href="http://unicode.org/cldr/apps/survey?p_codes=t">locale codes</a>, not the 
+		names or translations; thus you would put in &quot;<code>fr</code>&quot; or &quot;<code>fr_BE</code>&quot;,<i> not</i> &quot;French&quot; or &quot;<span class="loser">français</span>&quot;.</td>
 	</tr>
 </table>
 <p>The text to insert can be fairly arbitrary HTML. The software that reads this table will search the first column (eg between 

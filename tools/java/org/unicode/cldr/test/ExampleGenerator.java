@@ -189,6 +189,8 @@ public class ExampleGenerator {
           parts.set(xpath);
           result = MessageFormat.format(value, new Object[] { setBackground("CODE") });
           result = finalizeBackground(result);
+        } else if (xpath.contains("_") && xpath.contains("/languages")) {
+          result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
         }
         break main;
       }

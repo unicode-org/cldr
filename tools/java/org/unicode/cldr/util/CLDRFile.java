@@ -833,6 +833,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return dataSource.iterator(prefix);
   }
   
+  public Iterator iterator(Matcher pathFilter) {
+    return dataSource.iterator(pathFilter);
+  }
+  
   public Iterator iterator(String prefix, Comparator comparator) {
     Iterator it = (prefix == null || prefix.length() == 0) 
     ? dataSource.iterator() 
@@ -1722,22 +1726,51 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public synchronized String getName(String localeOrTZID, boolean skipDraft) {
     String name = getName(LANGUAGE_NAME, localeOrTZID, skipDraft);
     // TODO - handle arbitrary combinations
-    if (name != null) return name;
+    if (name != null && !name.contains("_")) {
+      return name;
+    }
     lparser.set(localeOrTZID);
     String original;
-    name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
-    if (name == null) name = original;
-    String sname = original = lparser.getScript();
-    if (sname.length() != 0) {
-      sname = getName(SCRIPT_NAME, sname, skipDraft);
-      name += " - " + (sname == null ? original : sname);
+
+    // we need to check for prefixes, for lang+script or lang+country
+    boolean haveScript = false;
+    boolean haveRegion = false;
+    // try lang+script
+    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION), skipDraft);
+    if (name != null && !name.contains("_")) {
+      haveScript = haveRegion = true;
+    } else {
+      name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT), skipDraft);
+      if (name != null && !name.contains("_")) {
+        haveScript = true;
+      } else {
+        name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION), skipDraft);
+        if (name != null && !name.contains("_")) {
+          haveRegion = true;
+        } else {
+          name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
+          if (name == null) name = original;
+        }
+      }
     }
+    
+    String sname;
     String extras = "";
-    original = sname = lparser.getRegion();
-    if (sname.length() != 0) {
-      if (extras.length() != 0) extras += ", ";
-      sname = getName(TERRITORY_NAME, sname, skipDraft);
-      extras += (sname == null ? original : sname);
+    if (!haveScript) {
+      sname = original = lparser.getScript();
+      if (sname.length() != 0) {
+        if (extras.length() != 0) extras += ", ";
+        sname = getName(SCRIPT_NAME, sname, skipDraft);
+        extras += (sname == null ? original : sname);
+      }
+    }
+    if (!haveRegion) {
+      original = sname = lparser.getRegion();
+      if (sname.length() != 0) {
+        if (extras.length() != 0) extras += ", ";
+        sname = getName(TERRITORY_NAME, sname, skipDraft);
+        extras += (sname == null ? original : sname);
+      }
     }
     List variants = lparser.getVariants();
     for (int i = 0; i < variants.size(); ++i) {
@@ -2311,5 +2344,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     return result;
   }
+
   
 }

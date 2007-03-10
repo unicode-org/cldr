@@ -328,7 +328,13 @@ public abstract class XMLSource implements Freezable {
    * SUBCLASSING: Normally overridden for efficiency
    */
   public Iterator iterator(String prefix) {
+    if (prefix == null || prefix.length() ==0) return iterator();
     return new com.ibm.icu.impl.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+  }
+  
+  public Iterator iterator(Matcher pathFilter) {
+    if (pathFilter == null) return iterator();
+    return new com.ibm.icu.impl.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
   }
   
   /**

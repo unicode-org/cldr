@@ -27,6 +27,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.MapComparator;
@@ -712,7 +713,7 @@ public class ShowLanguages {
         double gdp = Double.parseDouble((String)results.get("gdp"));
         if (language == null) {
           Comparable[] items = new Comparable[]{
-              english.getName("und", false) + msg,
+              getLanguageName("und") + msg,
               "und",
               //bug,
               territoryName,
@@ -735,7 +736,7 @@ public class ShowLanguages {
               languageliteracy = territoryLiteracy;
             }
             Comparable[] items = new Comparable[]{
-                english.getName(languageCode, false) + msg,
+                getLanguageName(languageCode) + msg,
                 languageCode,
                 //bug,
                 territoryName,
@@ -752,10 +753,10 @@ public class ShowLanguages {
       }
       for (String languageCode : languages) {
         Comparable[] items = new Comparable[]{
-            english.getName(languageCode, false) + msg,
+            getLanguageName(languageCode) + msg,
             languageCode,
             //bug,
-            addBug(1217, "<i>add new</i>", "<email>", "add territory to " + english.getName(languageCode, false) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
+            addBug(1217, "<i>add new</i>", "<email>", "add territory to " + getLanguageName(languageCode) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
             "",
             0.0d,
 //          0.0d,
@@ -770,6 +771,16 @@ public class ShowLanguages {
       String value = tablePrinter.addRows(flattened).toTable();
       pw2.println(value);
       pw2.close();
+    }
+    
+    private String getLanguageName(String languageCode) {
+      String result = english.getName(languageCode, false);
+      if (!result.equals(languageCode)) return result;
+      Set<String> names = Iso639Data.getNames(languageCode);
+      if (names != null && names.size() != 0) {
+          return names.iterator().next();
+      }
+      return languageCode;
     }
     
     private void showCoverageGoals(PrintWriter pw) throws IOException {
@@ -810,9 +821,9 @@ public class ShowLanguages {
         }
         list.clear();
         String baseLang = ltp.set(locale).getLanguage();
-        String baseLangName = english.getName(baseLang, false);
+        String baseLangName = getLanguageName(baseLang);
         list.add(baseLangName);
-        list.add(baseLang.equals(locale) ? "" : english.getName(locale, false));
+        list.add(baseLang.equals(locale) ? "" : getLanguageName(locale));
         list.add(locale);
         list.add(cldrFactory.getAvailable().contains(locale) ? "\u00A0" : baseLang.equals(locale) ? "No" : "<i>(No)</i>");
         for (String vendor : vendordata.keySet()) {
@@ -888,7 +899,7 @@ public class ShowLanguages {
           "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
           "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
           "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
-          "Languages with a population of less than 100,000 or 1% of the territory population are currently omitted. " +
+          "Languages with a population of less than 100,000 and less than 1% of the territory population are currently omitted. " +
           "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
           "</p></div>"));
       PrintWriter pw2 = pw21;
@@ -962,11 +973,11 @@ public class ShowLanguages {
           addOtherCountryData(tablePrinter, worldData, countryData);
           
           tablePrinter
-          .addCell(english.getName(languageCode, false))
+          .addCell(getLanguageName(languageCode))
           .addCell(languageCode)
           .addCell(languagePopulation)
           .addCell(languageliteracy)
-          .addCell(addBug(1217, "<i>bug</i>", "<email>", "fix info for " + english.getName(languageCode, false) + " (" + languageCode + ")"
+          .addCell(addBug(1217, "<i>bug</i>", "<email>", "fix info for " + getLanguageName(languageCode) + " (" + languageCode + ")"
               + " in " + territoryName + " (" + territoryCode + ")",
           "<fixed data for territory, plus references>"))
           .finishRow();
@@ -1032,8 +1043,10 @@ public class ShowLanguages {
     }
     
     private String getCurrencyNames(String territoryCode) {
+      Set<String> currencies = territoriesToModernCurrencies.getAll(territoryCode);
+      if (currencies == null || currencies.size() == 0) return "";
       StringBuilder buffer = new StringBuilder();
-      for (String code : territoriesToModernCurrencies.getAll(territoryCode)) {
+      for (String code : currencies) {
         if (buffer.length() != 0) buffer.append("<br>");
         buffer.append(getName(CLDRFile.CURRENCY_NAME, code, false));
       }
@@ -1622,7 +1635,7 @@ public class ShowLanguages {
     }
     
     private String getName(String locale, boolean codeFirst) {
-      String ename = english.getName(locale, false);
+      String ename = getLanguageName(locale);
       return codeFirst ? "[" + locale + "]\t" + (ename == null ? locale : ename) : (ename == null ? locale : ename) + "\t[" + locale + "]";
     }
     

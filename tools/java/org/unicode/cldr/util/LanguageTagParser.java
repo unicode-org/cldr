@@ -11,6 +11,7 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -69,14 +70,15 @@ public class LanguageTagParser {
 	public String getOriginal() {
 		return original;
 	}
-	/**
-	 * @return Returns the language-script (or language) part of a tag.
-	 */
-	public String getLanguageScript() {
-		if (script.length() != 0) return language + "_" + script;
-		return language;
-	}	
-	/**
+  /**
+   * @return Returns the language-script (or language) part of a tag.
+   */
+  public String getLanguageScript() {
+    if (script.length() != 0) return language + "_" + script;
+    return language;
+  } 
+
+  /**
 	 * @param in Collection of language tag strings
 	 * @return Returns each of the language-script tags in the collection.
 	 */
@@ -312,6 +314,24 @@ public class LanguageTagParser {
     }
     return result;
   }
+  
+  public enum Fields {LANGUAGE, SCRIPT, REGION, VARIANTS};
+  public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT));
+  public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.REGION));
+  public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT, Fields.REGION));
+  
+  public String toString(Set<Fields> selection) {
+    String result = language;
+    if (selection.contains(Fields.SCRIPT) && script.length() != 0) result += "_" + script;
+    if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
+    if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
+      for (String variant : (Collection<String>) variants) {
+        result += "_" + variant;
+      }
+    }
+    return result;
+  }
+
   public static String getParent(String localeCode) {
     if (localeCode == null || localeCode.equals("root")) return null;
     int pos = localeCode.lastIndexOf('_');

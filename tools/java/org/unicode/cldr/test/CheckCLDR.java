@@ -112,7 +112,7 @@ abstract public class CheckCLDR {
   DATE_FORMATS = 6,
   ORGANIZATION = 7,
   SHOWALL = 8,
-  PRETTY = 9,
+  PATH_FILTER = 9,
   ERRORS_ONLY = 10,
   CHECK_ON_SUBMIT = 11,
   NO_ALIASES = 12
@@ -128,7 +128,7 @@ abstract public class CheckCLDR {
     UOption.create("date_formats", 'd', UOption.NO_ARG),
     UOption.create("organization", 'o', UOption.REQUIRES_ARG),
     UOption.create("showall", 's', UOption.NO_ARG),
-    UOption.create("pretty", 'p', UOption.NO_ARG),
+    UOption.create("path_filter", 'p',  UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("errors_only", 'e', UOption.NO_ARG),
     UOption.create("check-on-submit", 'k', UOption.NO_ARG),
     UOption.create("noaliases", 'n', UOption.NO_ARG),
@@ -136,10 +136,11 @@ abstract public class CheckCLDR {
   
   private static String[] HelpMessage = {
     "-h \t This message",
-    "-f xxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
-    "-c xxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
-    "-t xxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
-    "-o xxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
+    "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
+    "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
+    "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
+    "-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
+    "-oxxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
     "-s \t Show all paths",
@@ -174,7 +175,11 @@ abstract public class CheckCLDR {
     SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
     boolean showAll = options[SHOWALL].doesOccur; 
     boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
-    boolean pretty = options[PRETTY].doesOccur; 
+    String pathFilterString = options[PATH_FILTER].value;
+    Matcher pathFilter = null;
+    if (!pathFilterString.equals(".*")) {
+      pathFilter = Pattern.compile(pathFilterString).matcher("");
+    }
     boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur; 
     boolean noaliases = options[NO_ALIASES].doesOccur; 
     
@@ -273,7 +278,7 @@ abstract public class CheckCLDR {
         subtotalCount.add(status.type, 1);
       }
       paths.clear();
-      CollectionUtilities.addAll(file.iterator(), paths);
+      CollectionUtilities.addAll(file.iterator(pathFilter), paths);
       UnicodeSet missingExemplars = new UnicodeSet();
       if (checkFlexibleDates) {
         fset.set(file);

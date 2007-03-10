@@ -14,6 +14,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.SupplementalDataInfo.LanguageData;
@@ -53,9 +54,13 @@ import java.util.regex.Pattern;
 
 public class ConvertLanguageData {
   
+  static final Comparator GENERAL_COLLATOR = new GeneralCollator();
+  static final Comparator INVERSE_GENERAL = new InverseComparator(GENERAL_COLLATOR);
+
   static final double populationFactor = 1;
   static final double gdpFactor = 1;
-  static final int COUNTRY_CODE = 2, LANGUAGE_POPULATION = 3, LANGUAGE_LITERACY = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, BAD_LANGUAGE_CODE = 7, COUNTRY_POPULATION = 8, COUNTRY_LITERACY = 9, COUNTRY_GDP = 10, COMMENT=17;
+  // static final int COUNTRY_CODE = 2, LANGUAGE_POPULATION = 3, LANGUAGE_LITERACY = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, BAD_LANGUAGE_CODE = 7, COUNTRY_POPULATION = 8, COUNTRY_LITERACY = 9, COUNTRY_GDP = 10, COMMENT=17;
+  static final int BAD_COUNTRY_NAME = 0, COUNTRY_CODE = 1, COUNTRY_POPULATION = 2, COUNTRY_LITERACY = 3, COUNTRY_GDP = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, LANGUAGE_POPULATION = 7, LANGUAGE_LITERACY = 8, COMMENT=9;
   static final Map<String, CodeAndPopulation> languageToMaxCountry = new TreeMap<String, CodeAndPopulation>();
   static final Map<String, CodeAndPopulation> languageToMaxScript = new TreeMap<String, CodeAndPopulation>();
   static Map<String,String> defaultContent = new TreeMap<String,String>();
@@ -67,6 +72,10 @@ public class ConvertLanguageData {
   
   static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
   static NumberFormat pf = NumberFormat.getPercentInstance(ULocale.ENGLISH);
+  static NumberFormat pf2 = NumberFormat.getPercentInstance(ULocale.ENGLISH);
+  static {
+    pf2.setMinimumFractionDigits(2);
+  }
   
   static SupplementalDataInfo supplementalData = new SupplementalDataInfo("C:/cvsdata/unicode/cldr/common/supplemental/supplementalData.xml");
   
@@ -180,7 +189,9 @@ public class ConvertLanguageData {
     double languageLiteracy;
     String comment = "";
     String badLanguageName = "";
-    String badLanguageCode = "";
+    //String badLanguageCode = "";
+    
+    static Set<String> countryCodes = StandardCodes.make().getGoodAvailableCodes("territory");
     
     RowData() {
       
@@ -188,8 +199,14 @@ public class ConvertLanguageData {
     
     RowData(List<String> row) throws ParseException {
       countryCode = row.get(COUNTRY_CODE);
+      if (!countryCodes.contains(countryCode)) {
+        System.err.println("WRONG COUNTRY CODE: " + row);
+      }
       languagePopulation = parseDecimal(row.get(LANGUAGE_POPULATION));
       languageCode = row.get(LANGUAGE_CODE);
+      if (languageCode.startsWith("*") || languageCode.startsWith("§")) {
+        languageCode = languageCode.substring(1);
+      }
       countryPopulation = parseDecimal(row.get(COUNTRY_POPULATION));
       countryGdp = parseDecimal(row.get(COUNTRY_GDP));
       countryLiteracy = parsePercent(row.get(COUNTRY_LITERACY));
@@ -199,10 +216,6 @@ public class ConvertLanguageData {
           : parsePercent(stringLanguageLiteracy);
       if (row.size() > COMMENT) {
         comment = row.get(COMMENT);
-      }
-      badLanguageCode = row.get(BAD_LANGUAGE_CODE);
-      if (badLanguageCode.startsWith("*")) {
-        badLanguageCode = badLanguageCode.substring(1);
       }
       badLanguageName = row.get(BAD_LANGUAGE_NAME);
     }
@@ -234,8 +247,7 @@ public class ConvertLanguageData {
     public double getLanguageLiteratePopulation() {
       return languageLiteracy * languagePopulation;
     }
-    static final Comparator GENERAL_COLLATOR = new GeneralCollator();
-    static final Comparator INVERSE_GENERAL = new InverseComparator(GENERAL_COLLATOR);
+
     public int compareTo(Object o) {
       RowData that = (RowData)o;
       int result;
@@ -250,28 +262,78 @@ public class ConvertLanguageData {
       + "\t" + languageLiteracy
       + "\t" + countryLiteracy;
     }
+    
+    static boolean MARK_OUTPUT = false;
+    
     public String getRickLanguageCode() {
-      if (languageCode.length() != 0) {
-        return languageCode;
+      if (languageCode.contains("_")) return languageCode;
+        Source source = Iso639Data.getSource(languageCode);
+      if (source == null) {
+        return "§" + languageCode;
       }
-      if (Iso639Data.getAvailable().contains(badLanguageCode)) {
-        return "*" + badLanguageCode;
+      if (MARK_OUTPUT) {
+      if (source == Source.ISO_639_3) {
+        return "*" + languageCode;
       }
-      return "§" + badLanguageCode;
+      }
+      return languageCode;
     }
     public String getRickLanguageName() {
-      if (languageCode.length() != 0) {
-        return new ULocale(languageCode).getDisplayName();
-      }
-      Set<String> names = Iso639Data.getNames(badLanguageCode);
+      String result = new ULocale(languageCode).getDisplayName();
+      if (!result.equals(languageCode)) return getExcelQuote(result);
+      Set<String> names = Iso639Data.getNames(languageCode);
       if (names != null && names.size() != 0) {
-        return "*" + names.iterator().next();
+        if (MARK_OUTPUT) {
+          return getExcelQuote("*" + names.iterator().next());
+        } else {
+        return getExcelQuote(names.iterator().next());
+        }
       }
-      return "§" + badLanguageName;
+      return getExcelQuote("§" + badLanguageName);
     }
+
+    public String getCountryName() {
+      return getExcelQuote(getDisplayCountry(countryCode));
+    }
+
+    public String getCountryGdpString() {
+      return getExcelQuote(nf.format(countryGdp));
+    }
+
+    public String getCountryLiteracyString() {
+      return pf2.format(countryLiteracy);
+    }
+
+    public String getCountryPopulationString() {
+      return getExcelQuote(nf.format(countryPopulation));
+    }
+
+    public String getLanguageLiteracyString() {
+      return pf2.format(languageLiteracy);
+    }
+
+    public String getLanguagePopulationString() {
+      return getExcelQuote(nf.format(languagePopulation));
+    }
+
   }
   
-  
+  public static String getExcelQuote (String comment) {
+    return comment == null || comment.length() == 0 ? "" 
+        : comment.contains(",") ?  '"' + comment + '"'
+            : comment.contains("\"") ?  '"' + comment.replace("\"", "\"\"") + '"'
+            : comment;
+  }
+
+  static class RickComparator implements Comparator<RowData> {
+    public int compare(RowData me, RowData that) {
+        int result;
+        if (0 != (result = GENERAL_COLLATOR.compare(me.getCountryName(),that.getCountryName()))) return result;
+        if (0 != (result = GENERAL_COLLATOR.compare(me.getRickLanguageName(),that.getRickLanguageName()))) return result;
+        return me.compareTo(that);
+    }  
+  }
+
   private static void writeTerritoryLanguageData(List<String> failures, Set<RowData> sortedInput) {
     
     System.out.println();
@@ -311,7 +373,7 @@ public class ConvertLanguageData {
             + " literacyPercent=\"" + nf.format(countryLiteracy) + "\""
             + " population=\"" + countryPopulation + "\">");
         lastCountryCode = countryCode;
-        System.out.println("\t<!--" + ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH) + "-->");
+        System.out.println("\t<!--" + getDisplayCountry(countryCode) + "-->");
       }
       
       if (languageCode.length() != 0 
@@ -334,9 +396,9 @@ public class ConvertLanguageData {
             + " populationPercent=\"" + nf.format(languagePopulationPercent) + "\""
             + addReference(row.comment)
             + "/>");
-        System.out.println("\t<!--" + ULocale.getDisplayName(languageCode, ULocale.ENGLISH) + "-->");
+        System.out.println("\t<!--" + getLanguageName(languageCode) + "-->");
       } else {
-        failures.add(row + "\tLess than 1% or no language code");
+        failures.add(row + "\tLess than 1% or 100,000 speakers or no language code");
       }
       //if (first) {
       if (false) System.out.print(
@@ -369,6 +431,29 @@ public class ConvertLanguageData {
     }
     System.out.println("\t</references>");
   }
+
+  private static String getDisplayCountry(String countryCode) {
+    String result = ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
+    if (!result.equals(countryCode)) {
+      return result;
+    }
+    result = StandardCodes.make().getData("territory", countryCode);
+    if (result != null) {
+      return result;
+    }
+    return countryCode;
+    // new ULocale("und-" + countryCode).getDisplayCountry()
+  }
+
+  private static String getLanguageName(String languageCode) {
+    String result = new ULocale(languageCode).getDisplayName();
+    if (!result.equals(languageCode)) return result;
+    Set<String> names = Iso639Data.getNames(languageCode);
+    if (names != null && names.size() != 0) {
+        return names.iterator().next();
+    }
+    return languageCode;
+  }
   
   static Map<String,String> reference_to_Rxxx = new TreeMap();
   static Map<String,String> Rxxx_to_reference = new TreeMap();
@@ -391,14 +476,16 @@ public class ConvertLanguageData {
     System.out.println();
     
     String dir = "C:\\Documents and Settings\\markdavis\\My Documents\\" +
-    "Excel Stuff\\countryLanguagePopulation\\";
-    List<List<String>> input = SpreadSheet.convert(dir + "country_language_population3.txt");
+      "Excel Stuff\\countryLanguagePopulation\\";
+    List<List<String>> input = SpreadSheet.convert("C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/country_language_population_raw.txt");
     
     StandardCodes sc = StandardCodes.make();
     Set<String> languages = languagesNeeded; // sc.getGoodAvailableCodes("language");
     
     Set<String> territories = new TreeSet(sc.getGoodAvailableCodes("territory"));
     territories.removeAll(supplementalData.getContainers());
+    territories.remove("QU");
+    territories.remove("QO");
     
     Set<String> countriesNotFound = new TreeSet(territories);
     Set<String> languagesNotFound = new TreeSet(languages);
@@ -414,6 +501,9 @@ public class ConvertLanguageData {
         RowData x = new RowData(row);
         countriesNotFound.remove(x.countryCode);
         languagesNotFound.remove(x.languageCode);
+        if (x.languageCode.contains("_")) {
+          languagesNotFound.remove(x.languageCode.substring(0,x.languageCode.indexOf('_')));
+        }
         localeToRowData.put(x.languageCode + "_" + x.countryCode, x);
         sortedInput.add(x);
       } catch (ParseException e) {
@@ -446,18 +536,22 @@ public class ConvertLanguageData {
         "\tLLiteracy" +
         "\tReference"
     );
-    for (RowData row : sortedInput) {
+    RickComparator rickSorting = new RickComparator();
+    Set<RowData> rickSorted = new TreeSet(rickSorting);
+    rickSorted.addAll(sortedInput);
+    
+    for (RowData row : rickSorted) {
       log.println(
-          new ULocale("und-" + row.countryCode).getDisplayCountry()
+          row.getCountryName()
           + "\t" + row.countryCode
-          + "\t" + row.countryPopulation
-          + "\t" + row.countryLiteracy
-          + "\t" + row.countryGdp
+          + "\t" + row.getCountryPopulationString()
+          + "\t" + row.getCountryLiteracyString()
+          + "\t" + row.getCountryGdpString()
           + "\t" + row.getRickLanguageName()
           + "\t" + row.getRickLanguageCode()
-          + "\t" + row.languagePopulation
-          + "\t" + row.languageLiteracy
-          + "\t" + (row.comment == null ? "" : row.comment)
+          + "\t" + row.getLanguagePopulationString()
+          + "\t" + row.getLanguageLiteracyString()
+          + "\t" + getExcelQuote(row.comment)
       );  
     }
     log.close();
@@ -906,7 +1000,7 @@ public class ConvertLanguageData {
     }
   }
   
-  static Set languagesNeeded = new TreeSet(Arrays.asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na no rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv".split("\\s")));
+  static Set languagesNeeded = new TreeSet(Arrays.asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na nb rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv".split("\\s")));
   
   static void generateIso639_2Data() {
     for (String languageSubtag : StandardCodes.make().getAvailableCodes("language")) {

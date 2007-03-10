@@ -26,7 +26,7 @@ public class QuickCheck {
   private static final Set skipAttributes = new HashSet(Arrays.asList(new String[]{
       "alt", "draft", "references"}));
 
-  private static final String localeRegex = "root"; // normally .*
+  private static final String localeRegex = ".*"; // normally .*
   
   private static boolean showInfo = false;
   
@@ -93,9 +93,13 @@ public class QuickCheck {
       System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");
     }
     PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
+    Set<String> badPaths = new TreeSet();
     for (String path : pathToLocale.keySet()) {
       String prettied = prettyPath.getPrettyPath(path, false);
-      if (showInfo) System.out.println(path + "\t" + prettied);
+      if (showInfo) System.out.println(path + "\t" + prettied + "\t");
+      if (prettied.contains("%%") && !path.contains("/alias")) {
+        badPaths.add(path);
+      }
     }
     // now remove root
     
@@ -105,7 +109,7 @@ public class QuickCheck {
 
     CLDRFile root = cldrFactory.make("root", true);
     for (Iterator<String> it = root.iterator(); it.hasNext();) {
-      pathToLocale.remove(it.next());
+      pathToLocale.removeAll(it.next());
     }
     if (showInfo) for (String path : pathToLocale.keySet()) {
       if (skipPaths.reset(path).find()) {
@@ -114,6 +118,9 @@ public class QuickCheck {
       System.out.println(path + "\t" + pathToLocale.getAll(path));
     }
 
+    if (badPaths.size() != 0) {
+      System.out.println("Error: " + badPaths.size() + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
+    }
   }
 
 }

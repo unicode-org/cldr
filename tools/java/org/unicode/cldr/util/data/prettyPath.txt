@@ -13,8 +13,8 @@ $element=[a-zA-Z0-9]+;
 '/localeDisplayNames/territories/alias' > '0-names|territory|alias';
 
 '/layout/orientation' > '1-misc|layout|orientation';
-'/characters/exemplarCharacters[@type="auxiliary"]' > '1-misc|exemplarCharacters|1-auxiliary';
-'/characters/exemplarCharacters' > '1-misc|exemplarCharacters|2-standard';
+'/characters/exemplarCharacters[@type="' ($avalue) '"]' > '1-misc|exemplarCharacters|2-' $1;
+'/characters/exemplarCharacters' > '1-misc|exemplarCharacters|1-standard';
 '/delimiters/'(.*) > '1-misc|delimiters|' $1;
 '/fallback' > '1-misc|fallback|locales' ;
 
@@ -85,7 +85,10 @@ $element=[a-zA-Z0-9]+;
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/exemplarCity' > '0-names|zone|' $1;
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/' ($element) '/' ($element) > '0-names|zone|' $1 '-' $2 '-' $3;
 '/dates/timeZoneNames/' (.*) > '3-time-zone|formatting|' $1;
+'/dates/dateRangePattern' > '3-time-zone|formatting|date-range';
 
+'/numbers/currencies/currency[@type="' ($avalue) '"]/displayName[@type="' ($avalue) '"]' > '0-names|currency|' $1 ':name-' $2;
+'/numbers/currencies/currency[@type="' ($avalue) '"]/displayName' > '0-names|currency|' $1 ':name';
 '/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > '0-names|currency|' $1 ':' $2 '-' $3;
 '/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > '0-names|currency|' $1 ':' $2;
 
@@ -103,7 +106,8 @@ $element=[a-zA-Z0-9]+;
 
 '/alias' > 'whole|file|alias';
 '/characters/mapping[@registry="' ($element) '"]' > '1-misc|charset-registry|' $1;
-'/layout/inList' > '1-misc|inList|casing';
+'/layout/inList' > '1-misc|casing|in_lists';
+'/layout/inText[@type="' ($avalue) '"]' > '1-misc|casing|' $1;
 
 '/numbers/scientificFormats/default' > 'numbers|scientificFormats|default';
 '$%%/dateTimeFormats/default' > '|date+time|default';

@@ -5,6 +5,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="http://unicode.org/cldr/apps/surveytool.css" />
 <title>Help Text file for Survey tool</title>
+<style>
+<!--
+DIV.chat {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+DIV.in {
+	HEIGHT: 1px; TEXT-ALIGN: left
+}
+DIV.1st {
+	PADDING-TOP: 4px
+}
+-->
+</style>
 </head>
 
 <body>
@@ -129,12 +142,23 @@ arbitrary changes (see the end). </b></p>
 			<li>A common question is whether to capitalize or not. With a new locale, use whatever is normal practice for what should occur in menus. For an existing 
 			locale, follow what is used for the other items already translated. This is good practice for territories and other types of items too.</li>
 		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td>//ldml/localeDisplayNames/languages.*\[@type=&quot;[^&quot;]*_[^&quot;]*&quot;\].*</td>
+		<td>
 		<p>Some language codes are more complex, of the form &quot;en_AU&quot; for <i>Australian English</i>. If you don&#39;t add a translation, then those will be respresented 
 		by a format like &quot;αγγλικά (Αυστραλία)&quot;. That is, the translation would be the native name for &quot;English&quot;, followed by the native word for &quot;Australia&quot; in 
 		parentheses. If that format is ok, then you don&#39;t need to translate the more complex language code. The codes zh_Hant and zh_Hans (for Traditional and Simplified 
 		Chinese) on the other hand, should always be translated. </p>
-		<p>&quot;Iberian Portuguese&quot; is the style of Portuguese used in Portugal (as opposed to Brazil); similarly &quot;Iberian Spanish&quot; is the style of Spanish used in 
-		Spain (as opposed to Latin America).</p>
+		<p>There are a few special cases: </p>
+		<ul>
+			<li>&quot;Iberian Portuguese&quot; is the style of Portuguese used in Portugal (as opposed to Brazil)</li>
+			<li>Similarly &quot;Iberian Spanish&quot; is the style of Spanish used in 
+		Spain (as opposed to Latin America).</li>
+			<li>&quot;Swiss High German&quot; (<i>Schweizer Hochdeutsch</i>), also called &quot;Swiss Standard German&quot;, has the code <code>de_CH</code>.</li>
+			<li>&quot;Swiss German&quot; (<i>Schwyzerdütsch</i>) has the code <code>gsw</code>.</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>

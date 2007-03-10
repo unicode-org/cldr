@@ -10,11 +10,17 @@ import java.util.regex.Pattern;
 
 public class CheckNew extends CheckCLDR {
   // this list should be updated with each release.
-  static final Matcher stuffToCheckFor = Pattern.compile(".*/("
-  // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
-      + "inList"
+  static final Matcher stuffToCheckFor = Pattern.compile(".*/(" +
+      // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
+      "inList" +
       // + "|availableFormats"
-      + "|hourFormat|gmtFormat|regionFormat|fallbackFormat" + "|relative" + "|calendars.*/fields"
+      "|hourFormat" +
+      "|gmtFormat" +
+      "|regionFormat" +
+      "|fallbackFormat" + 
+      "|relative" + 
+      "|calendars.*/fields" +
+      "|languages.*_"
       //+ "|exemplarCharacters\\[.*auxiliary"
       + ").*").matcher("");
 

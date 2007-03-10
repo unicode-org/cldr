@@ -4215,14 +4215,54 @@ public class SurveyMain extends HttpServlet {
                     " <th title='Current Example'><i>Ex</i></th>\n" + 
                     " <th colspan='2'>Proposed</th>\n"+ // 7
                     " <th title='Proposed Example'><i>Ex</i></th>\n" + 
-                    " <th colspan='2' width='20%'>Change</th>\n"+               // 8
-                    " <th title='Reference'>" +
-                        (zoomedIn?"Rf":"")  + "</th>\n"+           // 9
-                    " <th title='No Opinion'>n/o</th>\n"+                   // 5
+                    " <th colspan='2' width='20%'>Change</th>\n");  // 8
+        if(zoomedIn) {
+            ctx.println(" <th title='Reference'>" +
+                        "Rf"  + "</th>\n"+           // 9
+                    " <th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
                     "</tr>");
+        } else { 
+            ctx.println(" <th colspan='2' title='No Opinion'>n/o</th>\n"+                   // 5
+                    "</tr>");
+        }
+        if(zoomedIn) {
+            List<String> refsList = new ArrayList<String>();
+            ctx.temporaryStuff.put("references", refsList);
+        }
     }
 
     static void printPodTableClose(WebContext ctx, DataPod pod) {
+        List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
+        if((refsList != null) && (!refsList.isEmpty())) {
+            ctx.println("<tr></tr>");
+            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>References</th></tr>");
+            int n = 0;
+            
+            Hashtable<String,DataPod.Pea> refsHash = (Hashtable<String, DataPod.Pea>)ctx.temporaryStuff.get("refsHash");
+            
+            for(String ref: refsList) {
+                n++;
+                ctx.println("<tr><th><img src='http://unicode.org/cldr/data/dropbox/misc/images/reference.jpg'>#"+n+"</th>");
+                ctx.println("<td colspan='"+1+"'>"+ref+"</td>");
+                ctx.print("<td colspan='"+(PODTABLE_WIDTH-2)+"'>");
+                if(refsHash != null) {
+                    DataPod.Pea refPea = refsHash.get(ref);
+                    if(refPea != null) {
+                        // ? 
+                        ctx.print(refPea.displayName);
+                    } else {
+                        ctx.print("<i>unknown reference</i>");
+                    }
+                }
+                ctx.print("</td>");
+                ctx.println("</tr>");
+            }
+            
+        }
+        if(refsList != null) {
+            ctx.temporaryStuff.remove("references");
+        }
+        
         ctx.println("</table>");
     }
 
@@ -4278,6 +4318,8 @@ public class SurveyMain extends HttpServlet {
         }
 
         String refs[] = new String[0];
+        Hashtable<String,DataPod.Pea> refsHash = new Hashtable<String, DataPod.Pea>();
+        
         String ourDir = getDirectionFor(ctx.locale);
 //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
         // calculate references
@@ -4293,12 +4335,14 @@ public class SurveyMain extends HttpServlet {
                 for(Iterator j = p.items.iterator();j.hasNext();) {
                     DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
                     if(item.inheritFrom == null) {
-                            refsSet.add(p.type);
+                        refsSet.add(p.type);
+                        refsHash.put(p.type, p);
                     }
                 }
             }
             if(!refsSet.isEmpty()) {
                 refs = (String[])refsSet.toArray((Object[]) refs);
+                ctx.temporaryStuff.put("refsHash",refsHash);
             }
         }
         DataPod.DisplaySet dSet = null;
@@ -5429,6 +5473,7 @@ public class SurveyMain extends HttpServlet {
         boolean foundWarning = p.hasWarnings;
         
         List<DataPod.Pea.Item> warningsList = new ArrayList<DataPod.Pea.Item>();
+        List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
 
         // calculate the class of data items
         String statusIcon="";
@@ -5562,18 +5607,18 @@ public class SurveyMain extends HttpServlet {
         if(currentItems.size() > 0) {
             topCurrent = currentItems.get(0);
         }
-        printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+        printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
         DataPod.Pea.Item topProposed = null;
         if(proposedItems.size() > 0) {
             topProposed = proposedItems.get(0);
         }
-        printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+        printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
         
          
         if(phaseSubmit==true) {
-            String changetoBox = "<td class='noborder' rowspan='"+rowSpan+"' valign='top'>";
+            String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit ) {
                 changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
@@ -5650,31 +5695,29 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");
         }
         // ##8 References
-        ctx.print("<td rowspan='"+rowSpan+"'>");
-        if((refs.length>0) && zoomedIn) {
-            String refHash = fieldHash;
-            ctx.print("<span id='h_ref"+refHash+"'>");
-            ctx.print("<a style='text-decoration: none;' href='javascript:show(\"ref" + refHash + "\")'>" + "[refs]" /* right arrow with tail */ +"</a></span>");
-            ctx.print("<!-- <noscript> </noscript> -->" + 
-                        "<span style='display: none' id='ref" + refHash + "'>");
-            ctx.print("<label>");
-            ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "[hide]" +"</a>&nbsp;");
-            ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
-            if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
-                ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
-                ctx.print("<option value='' SELECTED></option>");
-                for(int i=0;i<refs.length;i++) {
-                    ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+        if(zoomedIn) {
+            ctx.print("<td rowspan='"+rowSpan+"'>");
+            if((refs.length>0) && zoomedIn) {
+                String refHash = fieldHash;
+                ctx.print("<label>");
+                ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "[hide]" +"</a>&nbsp;");
+                ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
+                if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
+                    ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
+                    ctx.print("<option value='' SELECTED></option>");
+                    for(int i=0;i<refs.length;i++) {
+                        ctx.print("<option value='"+refs[i]+"'>"+refs[i]+"</option>");
+                    }
+                    ctx.println("</select>");
                 }
-                ctx.println("</select>");
+                ctx.print("</label>");
             }
-            ctx.print("</label>");
-            ctx.print("</span>");
+            ctx.println("</td>");
         }
-        ctx.println("</td>");
 
         // NV
-        ctx.print("<td rowspan='"+rowSpan+"'>");
+        ctx.print("<td colspan='"+
+            (zoomedIn?1:2)+"' rowspan='"+rowSpan+"'>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
                 +((ourVoteXpath==null)?"CHECKED":"")+" >");
@@ -5695,7 +5738,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
                 
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
@@ -5703,7 +5746,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList);
+                printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
                 
                 ctx.println("</tr>");
             }
@@ -5775,12 +5818,13 @@ public class SurveyMain extends HttpServlet {
      * @param warningsList if an item has warnings or errors, or demos, add them to this list.
      */ 
     void printCells(WebContext ctx, DataPod pod, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath,
-        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataPod.Pea.Item> warningsList) {
+        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataPod.Pea.Item> warningsList, List<String> refsList) {
         // ##6.1 proposed - print the TOP item
         
         int colspan = 3;
         String itemExample = null;
         boolean haveTests = false;
+        boolean haveReferences = (item != null) && (item.references!=null) && (refsList != null);
         
         if(item != null) {
             itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
@@ -5791,6 +5835,8 @@ public class SurveyMain extends HttpServlet {
             if(zoomedIn && ((item.tests != null) || (item.examples != null))) {
                 haveTests = true;
                 colspan --;
+            } else if(haveReferences) {
+                colspan --;
             }
         }
         
@@ -5800,9 +5846,7 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.println("</td>");    
         // 6.3 - error 
-        if(haveTests) {
-            warningsList.add(item);
-            int mySuperscriptNumber = warningsList.size();  // which # is this item?
+        if(haveTests || haveReferences) {
             if(item.tests != null) {
                 ctx.println("<td nowrap class='warncell'>");
                 ctx.println("<span class='warningReference'>");
@@ -5811,7 +5855,23 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<td nowrap class='examplecell'>");
                 ctx.println("<span class='warningReference'>");
             }
-            ctx.println("#"+mySuperscriptNumber+"</span>");
+            if(haveTests) {
+                warningsList.add(item);
+                int mySuperscriptNumber = warningsList.size();  // which # is this item?
+                ctx.println("#"+mySuperscriptNumber+"</span>");
+                if(haveReferences) {
+                    ctx.println("<br>");
+                }
+            }
+            if(haveReferences) {
+                int myNumber = refsList.indexOf(item.references);
+                if(myNumber == -1) {                
+                    myNumber = refsList.size();
+                    refsList.add(item.references);
+                }
+                myNumber++; // 1 based
+                ctx.print("<span class='referenceReference'><img src='http://unicode.org/cldr/data/dropbox/misc/images/reference.jpg'>#"+myNumber+"</span>");
+            }
             ctx.println("</td>");
         }
 
@@ -5838,8 +5898,10 @@ public class SurveyMain extends HttpServlet {
         } else if(item.pathWhereFound != null) {
             pClass = "class='alias' title='alias from somewhere'";
         } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
-            if("root".equals(item.inheritFrom)) {
-                pClass = "class='fallback_root' title='Untranslated Code'";
+            if(XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom)) {
+                pClass = "class='fallback_code' title='Untranslated Code'";
+            } else if("root".equals(item.inheritFrom)) {
+                pClass = "class='fallback_root' title='Fallback from Root'";
             } else {
                 pClass = "class='fallback' title='Translated in "+new ULocale(item.inheritFrom).getDisplayName(ctx.displayLocale)+" and inherited here.'";
             }
@@ -5851,7 +5913,6 @@ public class SurveyMain extends HttpServlet {
             pClass = "class='loser'";
         }
 
-        ctx.println("<span "+pClass+">");
         if(canModify) {      
             boolean checkThis = 
                 ((ourVoteXpath!=null)&&
@@ -5867,13 +5928,15 @@ public class SurveyMain extends HttpServlet {
         } else {
             ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
         }
+
+        ctx.print("<span "+pClass+">");
         
         if(item.value.length()!=0) {
             ctx.print(item.value);
         } else {
             ctx.print("<i dir='ltr'>(empty)</i>");
         }
-        ctx.println("</span>");
+        ctx.print("</span>");
         /*
 
             if(item.votes != null) {

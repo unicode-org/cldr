@@ -755,6 +755,10 @@ import com.ibm.icu.util.ULocale;
      */
     public boolean hasValueAtDPath(String path) // d path
     {
+        if(finalData) {
+            return (getValueAtDPath(path) != null); // TODO: optimize this
+        }
+    
         if(conn == null) {
             throw new InternalError("No DB connection!");
         }

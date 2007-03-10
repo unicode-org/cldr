@@ -80,11 +80,18 @@ A.nodraft:visited {
 }
 
 .fallback {
-	background-color: #3da;
-	border: 1px dotted #9b7dff;
+/*	background-color: #3da; 
+	border: 1px dotted #9b7dff; */
+	border: 1px solid #0cc;
+	background-color:  #0ff;
 }
 
 .fallback_root {
+   border:1px dotted #f00; 
+   background-color: #FFDDDD;
+}
+
+.fallback_code {
    border:1px dotted #f00; 
    background-color: #FFDDDD;
 }

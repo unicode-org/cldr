@@ -303,11 +303,20 @@ public class DataPod extends Registerable {
             
             if(value != null) {
                 inheritedValue = new Item();
-                inheritedValue.inheritFrom = vettedParent.getLocaleID();
+
+                CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+                String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
+
+                inheritedValue.inheritFrom = sourceLocale;
                 inheritedValue.value = value;
                 inheritedValue.xpath = xpath;
                 inheritedValue.xpathId = base_xpath;
                 inheritedValue.isFallback = true;
+                
+/*                if(value.equals("Angika-sprache")) {
+                    System.err.println("anp: fb " + this + " / " + inheritedValue + " ," );
+                    System.err.println("x:"+xpath+", v:"+value+", s:"+sourceLocale);
+                } */
             }
         }
         

@@ -204,7 +204,6 @@ tr.warnrow {
 
 .inputbox {
 	width: 100%;
-	height: 100%;
 }
 
 .badinputbox {
@@ -214,8 +213,10 @@ tr.warnrow {
 }
 
 .hang {
-	text-indent: -3em;
-	margin-left: 3em;
+	text-indent: -2em;
+	margin-left: 2em;
+	margin-bottom: .4em;
+	margin-top: .4em;
 }
 
 .hangsml {
@@ -229,6 +230,12 @@ table.data {
 
 .data {
 	border-collapse: collapse;
+}
+
+table.data {
+	border-left:  2px solid #252;
+	border-right:  2px solid #252;
+	border-bottom:  3px solid #252;
 }
 
 table.data td, table.data th {
@@ -315,6 +322,15 @@ table.userlist {
 
 th.botgray {
     border-bottom: 1px solid #ddd;
+}
+
+tr.warningRow td {
+	border-top:  1px solid #222;
+	border-bottom:  1px solid #222;
+}
+tr.referenceRow td {
+	border-top:  1px solid #222;
+	border-bottom:  1px solid #222;
 }
 
 tr.heading {
@@ -560,11 +576,13 @@ table.sqlbox form {
 
 
 .ferrbox {
+	background-color:  #ddd;
 	border: 1px solid red; margin: 1em; padding: 1em;	
 }
 
 .fnotebox {
-	border: 1px solid green; margin: 1em; padding: 1em;	
+	background-color:  #ddd;
+	border: 1px solid green; margin: 0.5em; padding: 0.2em;	
 }
 
 .specialHeader {

@@ -1025,16 +1025,16 @@ public class Vetting {
                     ResultSet crs= queryValue.executeQuery();
                     if(!crs.next()) {
 //                        if(vote_xpath==base_xpath){
-///*srl, et al*/              System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
+/*srl, et al*/              System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
                         c.removal=true; // always a removal.
                     } else {
                         String v = crs.getString(1);
                         if(v.length()==0) {
                             if(vote_xpath!=base_xpath){
-//                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
+                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
                                 c.removal=true;
                             } else {
-//                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
+                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
                             }
                         }
                     }

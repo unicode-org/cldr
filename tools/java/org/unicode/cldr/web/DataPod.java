@@ -72,8 +72,8 @@ public class DataPod extends Registerable {
         intgroup = new ULocale(loc).getLanguage(); // calculate interest group
     }
     private static int n =0;
-    protected static synchronized int getN() { return ++n; }
-    
+    protected static synchronized int getN() { return ++n; } // serial number
+        
     /** 
      * This class represents an Example box, so that it can be stored and restored.
      */ 
@@ -162,6 +162,7 @@ public class DataPod extends Registerable {
         public Pea toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
         public boolean toggleValue = false;
         String[] valuesList = null; // if non null - list of acceptable values.
+        public AttributeChoice attributeChoice = null; // pea is an attributed list of items
         
         public String type = null;
         
@@ -1149,6 +1150,18 @@ public class DataPod extends Registerable {
             int base_xpath = src.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = src.xpt.getById(base_xpath);
             
+            String originalBaseXpath = baseXpath;
+
+            // Check for attribute types
+            AttributeChoice attributeChoice = AttributeChoice.createChoice(baseXpath);
+            if(attributeChoice != null) {
+                // MAY need a remapping.
+                String attributeBasePath = attributeChoice.baseXpath;
+                if(!attributeBasePath.equals(baseXpath)) {
+                    System.err.println("BasePath " + baseXpath + " >> " + attributeBasePath);
+                    baseXpath = attributeBasePath;
+                }
+            }
             
             if(fullPath == null) {
                 System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
@@ -1225,10 +1238,10 @@ public class DataPod extends Registerable {
                 }
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
-            } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
-                isToggleFor = "used";
-            } else if(xpath.indexOf("/layout/inList")!=-1) {
-                confirmOnly = true;
+            //} else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+            //    isToggleFor = "used";
+            //} else if(xpath.indexOf("/layout/inList")!=-1) {
+            //    confirmOnly = true;
             }
             
             if(useShorten) {
@@ -1280,9 +1293,10 @@ public class DataPod extends Registerable {
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
+            
             Pea p = getPea(type, altType);
             
-///*srl*/ if(xpath.indexOf("Adak")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
+///*srl*/ if(xpath.indexOf("Acre")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
 
             
 ///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
@@ -1298,11 +1312,13 @@ public class DataPod extends Registerable {
 
             p.confirmOnly = superP.confirmOnly = confirmOnly;
 
-            if(p.inheritedValue == null) {
-                p.updateInheritedValue(vettedParent);
-            }
-            if(superP.inheritedValue == null) {
-                superP.updateInheritedValue(vettedParent);
+            if(!isReferences) {
+                if(p.inheritedValue == null) {
+                    p.updateInheritedValue(vettedParent);
+                }
+                if(superP.inheritedValue == null) {
+                    superP.updateInheritedValue(vettedParent);
+                }
             }
             if(isToggleFor != null) {
                 if(superP.toggleWith == null) {
@@ -1310,6 +1326,17 @@ public class DataPod extends Registerable {
                 }
                 if(p.toggleWith == null) {
                     p.updateToggle(fullPath, isToggleFor);
+                }
+            }
+            
+            
+            if(attributeChoice != null) {
+                p.attributeChoice = attributeChoice;
+                p.valuesList = p.attributeChoice.valuesList;
+
+                if(superP.attributeChoice == null) {
+                    superP.attributeChoice = p.attributeChoice;
+                    superP.valuesList = p.valuesList;
                 }
             }
             
@@ -1372,10 +1399,18 @@ public class DataPod extends Registerable {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
             }
-            String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
+            String sourceLocale = aFile.getSourceLocaleID(originalBaseXpath, sourceLocaleStatus);
             
             boolean isInherited = !(sourceLocale.equals(locale));
-            
+            if(attributeChoice==null && isInherited) {
+                if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
+                    isInherited = false;
+                    sourceLocale = locale;
+                }
+            }
+///*SRL*/     if(xpath.indexOf("Acre")>-1) {
+//                System.err.println(locale + " - CHI0 - " + xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
+//            }
             // ** IF it is inherited, do NOT add any Items.   
             if(isInherited) {
                 continue;
@@ -1405,7 +1440,7 @@ public class DataPod extends Registerable {
                 }
             }
             
-///*SRL*/     if(xpath.indexOf("Chicago")>-1) {
+///*SRL*/     if(xpath.indexOf("Acre")>-1) {
 //                System.err.println(locale + " - CHI - " + xpath + " V:"+value+" - I:"+isInherited);
 //            }
             
@@ -1417,6 +1452,13 @@ public class DataPod extends Registerable {
                 checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
             }
             DataPod.Pea.Item myItem;
+            
+            if(p.attributeChoice != null) {
+                String newValue = p.attributeChoice.valueOfXpath(fullPath);
+       System.err.println("ac:"+fullPath+" -> " + newValue);
+                value = newValue;
+            }
+            
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
             if(checkCldrResult.isEmpty()) {
                myItem = p.addItem( value, altProposed, null);
@@ -1536,12 +1578,12 @@ public class DataPod extends Registerable {
                                 "/short/generic",
                                 "/short/daylight",
                                 "/short/standard",
-                                "/commonlyUsed[@used=\"true\"]"
+                                "/commonlyUsed" // [@used=\"true\"]
             };
             
             String suffs[];
             if(isMetazones) {
-                suffs = mzsuffs;            
+                suffs = mzsuffs;
             } else {
                 suffs = tzsuffs;
             }        
@@ -1577,9 +1619,16 @@ public class DataPod extends Registerable {
                     }
         ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
 
-                    if(suff.indexOf("commonlyUsed[@used")!=-1) {
-                        myp.updateToggle(base_xpath_string, "used");
+                    if(isMetazones) {
+                        myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);
+                        if(myp.attributeChoice != null) {
+                            myp.valuesList = myp.attributeChoice.valuesList;
+                        }
                     }
+                    
+/*                    if(suff.indexOf("commonlyUsed[@used")!=-1) {
+                        myp.updateToggle(base_xpath_string, "used");
+                    }*/
 
 
                     if(myp.items.isEmpty()) {

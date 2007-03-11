@@ -424,9 +424,9 @@ public class SurveyForum {
         
         DataPod pod = ctx.getPod(podBase);
         
-        SurveyMain.printPodTableOpen(ctx, pod, true);
+        sm.printPodTableOpen(ctx, pod, true);
         sm.showPeas(ctx, pod, canModify, base_xpath, true);
-        SurveyMain.printPodTableClose(ctx, pod);
+        sm.printPodTableClose(ctx, pod);
         sm.printPathListClose(ctx);
         
         ctx.printHelpHtml(pod, xpath);

@@ -111,18 +111,18 @@
 					<p><span class="changed">Most proposed data (new or corrections) should be entered via the </span><a href="survey_tool.html">CLDR Survey Tool</a><span class="changed">.
 					</span></p>
 					<p>Bugs may be filed for defects in the survey tool, for adding or changing non-language data (such as currency usage), for additions or changes 
-					to data that is not yet handled by the survey tool (collation, segmentation, and transliteration), and for feature requests in CLDR or LDML.</p>
+					to data that is not yet handled by the survey tool (collation, segmentation, and transliteration), and for feature requests in CLDR or <a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data Markup Language (LDML)</a>.</p>
 					<p>To file such a bug, go to <a href="http://www.unicode.org/cldr/bugs/locale-bugs">Locale Bugs</a>. Try to give as much information as possible 
 					to help address the issue, and please group related bugs (such as a list of problems with the LDML specification) into a single bug report. 
 					Some specific cases are covered below.</p>
 					<h2><a name="Collation_Bugs">Collation Bugs</a></h2>
 					<p>The exact collation sequence for a given language may be difficult to determine. The base ordering of characters can be fairly straightforward, 
 					but there are quite a few other complications involved. </p>
-					<p><span>Most standards that specify collation, such as DIN or CS, are not targeted at algorithmic sorting, and are not fully complete algorithmic 
+					<p><span>Most standards that specify collation, such as DIN or CS, are not targeted at algorithmic sorting, and are not complete algorithmic 
 					specifications. For example, CSN 97 6030 requires transliteration of foreign scripts, but there are many choices as to how to transliterate, 
 					and the exact mechanism is not specified. It also specifies that geometric shapes are sorted by the number of vertices and edges, which is, 
-					at a minimum, difficult to determine; and are subject to variation in glyphs.</span></p>
-					<p><span>With respect to sorting standards, the CLDR goals are to match the sorting of exemplar letters, numbers, and common punctuation and 
+					at a minimum, difficult to determine; and are subject to variation in glyphs. </span>T<span>he CLDR goals are to match the sorting of exemplar letters 
+					and common punctuation and 
 					leave everything else to the standard UCA ordering. </span>For more information, see
 					<a href="http://www.unicode.org/reports/tr10/#Introduction">UTS #10: Unicode Collation Algorithm</a> (UCA).</p>
 					<p>For readability, the rules are presented here in Java/ICU rule format, rather than XML; for the same reason, we prefer the bug reports to 
@@ -251,8 +251,8 @@
 					<p>The goal is to follow common, customary practice. For example, language or territory display names should use the most recognizable name 
 					in common usage. This is generally not the official name. For example, one would use &quot;Switzerland&quot; not &quot;Swiss Confederation&quot;.</p>
 					<p>Here are some possible resources for comparison of locale data. <i>This is <b>not</b> an endorsement of the sources, merely a collation of 
-					possibly-useful links. </i></p>
-					<p>We can add to this over time; if you have suggestions, add a reply to <a href="http://www.unicode.org/cldr/bugs/locale-bugs?findid=163">Bug 
+					possibly-useful links. </i><font color="black" face="Arial" size="3"><span style="font-size: 12pt;">To suggest additions, add a reply to</span></font>
+					<a href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=163">Bug 
 					163</a><i>.</i></p>
 					<h3>Territory names; Language names; Gregorian/non-Gregorian month names; Day names; Exemplar characters, and Collation</h3>
 					<ul>

@@ -1155,12 +1155,16 @@ public class DataPod extends Registerable {
             // Check for attribute types
             AttributeChoice attributeChoice = AttributeChoice.createChoice(baseXpath);
             if(attributeChoice != null) {
+                confirmOnly = true;
+                attributeChoice = null;
+/*                
                 // MAY need a remapping.
                 String attributeBasePath = attributeChoice.baseXpath;
                 if(!attributeBasePath.equals(baseXpath)) {
-                    System.err.println("BasePath " + baseXpath + " >> " + attributeBasePath);
+//                    System.err.println("BasePath " + baseXpath + " >> " + attributeBasePath);
                     baseXpath = attributeBasePath;
                 }
+*/
             }
             
             if(fullPath == null) {
@@ -1264,7 +1268,9 @@ public class DataPod extends Registerable {
             
             if(value == null) {
 //                throw new InternalError("Value of " + xpath + " is null.");
+                if(attributeChoice == null) {
                   System.err.println("Value of " + xpath + " is null.");
+                }
                  value = "(NOTHING)";
             }
             
@@ -1402,7 +1408,9 @@ public class DataPod extends Registerable {
             String sourceLocale = aFile.getSourceLocaleID(originalBaseXpath, sourceLocaleStatus);
             
             boolean isInherited = !(sourceLocale.equals(locale));
-            if(attributeChoice==null && isInherited) {
+            
+            // with xpath munging, attributeChoice items show up as code fallback. Correct it.
+            if(attributeChoice!=null && isInherited) {
                 if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
                     isInherited = false;
                     sourceLocale = locale;
@@ -1455,7 +1463,7 @@ public class DataPod extends Registerable {
             
             if(p.attributeChoice != null) {
                 String newValue = p.attributeChoice.valueOfXpath(fullPath);
-       System.err.println("ac:"+fullPath+" -> " + newValue);
+//       System.err.println("ac:"+fullPath+" -> " + newValue);
                 value = newValue;
             }
             
@@ -1622,7 +1630,11 @@ public class DataPod extends Registerable {
                     if(isMetazones) {
                         myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);
                         if(myp.attributeChoice != null) {
+                            myp.attributeChoice = null;
+                            myp.confirmOnly = true;
+                            /*
                             myp.valuesList = myp.attributeChoice.valuesList;
+                            */
                         }
                     }
                     

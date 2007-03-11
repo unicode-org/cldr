@@ -4738,6 +4738,12 @@ public class SurveyMain extends HttpServlet {
                 unvote = true;
             } else if(choice.equals(CHANGETO) && (choice_v.length()>0)) {
                 voteForChoice = choice_v;
+                for(Iterator j = p.items.iterator();j.hasNext();) {
+                    DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                    if(item.value.equals(voteForChoice)) {
+                        voteForItem = item; // found an item
+                    }
+                }
             } else {
                 return false;
             }

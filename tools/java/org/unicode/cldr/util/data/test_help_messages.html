@@ -467,7 +467,8 @@ arbitrary changes (see the end). </b></p>
 		Greenwich Mean Time. In particular, within that zone, the same daylight-savings (summer-time) behavior is observed, now and in the past and future (as far 
 		as is known). This means that time zones are fairly fine granularity, as you can see by consulting <span class="loser">
 		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>. </span>The name of the time 
-		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from America/Denver.</p>
+		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from 
+		<b><code>America/Denver</code></b>.</p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table9">
 			<tr>
 				<th style="vertical-align: top; "><strong>Time zone</strong></th>
@@ -596,8 +597,38 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/layout/in(List|Text).*</td>
 		<td>
 		<h3>Casing Verification</h3>
-		<p>This should be one of the words uppercase, titlecase, lowercase, or mixed. For example, if your language usually has the names of countries in lowercase, 
-		then set the value for territories to be &quot;lowercase&quot;. This will cause country names that are not in lowercase to be flagged for special consideration.</td>
+		<p>These values can be used to help testing. If the value is set to anything but &quot;mixed&quot;, then the items of that type will be checked whether they 
+		match, to help to catch inconsistencies. For example, if your language usually has the names of territories in lowercase, then set the value for 
+		territories to be &quot;lowercase-words&quot;. The values are:</p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table10">
+			<tr>
+				<th style="vertical-align: top; "><strong>Values</strong></th>
+				<td align="center"><strong>Example</strong></td>
+			</tr>
+			<tr>
+				<td><code><b>mixed</b></code></td>
+				<td>This is a mixture of Titlecase and lowercase.</td>
+			</tr>
+			<tr>
+				<td><code><b>lowercase-words</b></code></td>
+				<td>this is a mixture of titlecase and lowercase.</td>
+			</tr>
+			<tr>
+				<td><code><b>titlecase-words</b></code></td>
+				<td>This Is A Mixture Of Titlecase And Lowercase</td>
+			</tr>
+			<tr>
+				<td><code><b>titlecase-firstword</b></code></td>
+				<td>This is a mixture of titlecase and lowercase.</td>
+			</tr>
+		</table>
+		<p>The <a target="target=" surveytool:n:fr class="forumlink" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=5831">
+		<tt title="1-misc|casing|in_lists">layout/​inList</tt></a> item has the same values, but a different use. It signals that if the items are put into a 
+		list (such as a menu on a computer), then they should be mechanically changed. For example, suppose that names of languages are normally lowercase, but 
+		when put into a menu they should normally have the first letter of the first word capitalized. If that&#39;s true, then you should set this value to <code>
+		<b>titlecase-firstword</b></code>.</p>
+		<p>If that value is wrong for any individual item, then you can override that particular item by adding an &quot;alt&quot; value. To do so, contact your 
+		administrator.</td>
 	</tr>
 	<tr>
 		<td>//ldml/delimiters/.*</td>

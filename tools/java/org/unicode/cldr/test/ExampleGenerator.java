@@ -414,7 +414,7 @@ public class ExampleGenerator {
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(xpath).matches()) {
           if (result.length() != 0) {
-            result.append("<hr>\r\n");
+            result.append("\r\n");
           }
           result.append(values.get(i));
         }

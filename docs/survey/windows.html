@@ -12,16 +12,21 @@
 table {border-collapse: collapse;}
 span.test_root   { border: 1px solid #00CCCC; background-color: #00FFFF }
 table.main2 {border-top: 2px solid #666666; border-bottom: 2px solid #666666; }
-td { margin-left:1px; margin-right:1px }
-th.main2 {vertical-align:top; text-align:left;  margin-left:1px; margin-right:1px }
-.buttonCell  { border-left: 1px solid #C0C0C0; border-right: 1px solid #808080; 
-               border-top: 1px solid #C0C0C0; border-bottom: 1px solid #808080; 
-               padding: 0 }
+
+td.normal,th.normal { padding: 1px; border-right: 0px solid black; border-left: 1px solid #CCC}
+
+th.main2 {padding:1px }
 th.main2           { border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
 
 th.main2-narrow {width:1% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
 th.main2-medium {width:25% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
 th.main2-medium2 {width:15% ; border: 1px solid #999999; border-top: 1px solid #666666; border-bottom:1px solid #666666; background-color: #CCCCCC }
+
+.leftborder {border-left: 1px solid black}
+
+.buttonCell  { border-left: 1px solid #C0C0C0; border-right: 1px solid #808080; 
+               border-top: 1px solid #C0C0C0; border-bottom: 1px solid #808080; 
+               padding: 0 }
 
 .narrow {width:1%}
 .wide {width:100%}
@@ -29,7 +34,7 @@ th.main2-medium2 {width:15% ; border: 1px solid #999999; border-top: 1px solid #
 .narrow-noborder {width:1%; border: 0 solid white}
 
 .parent { border:1px solid #ff0000; background-color: #FFdddd }
-.code { background-color: #EEEEFF }
+.code {  }
 
 h2           { text-indent: -1em }
 
@@ -37,7 +42,7 @@ td, th { vertical-align: top; text-align:left}
 td.source, th.source      { border-style:solid; border-width:1; background-color: #CCCCCC }
 td.target, th.target    { border-style:solid; border-width:1; background-color: #CCFFCC }
 caption           { font-size: 150%; margin-top: 2em }
-table {border-collapse: collapse}
+
 -->
 </style>
 </head>
@@ -168,68 +173,68 @@ table {border-collapse: collapse}
 				<th class="main2-narrow">n/o</th>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+				<td title="Warning: push zoom to see details" class="normal">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
-				<td><code>bho </code></td>
-				<td>Bhojpuri </td>
-				<td width="1%"><input value="V1" name="R2" type="radio" /></td>
-				<td>bhojpuri</td>
-				<td width="1%"><span><input value="V12" name="R1" type="radio" checked /></span></td>
-				<td style="vertical-align: top; text-align: left"><span class="fallback">bho</span></td>
-				<td width="1%"><input value="V18" name="R1" type="radio" /></td>
-				<td><input name="T4" size="20" class="wide" /></td>
-				<td><input value="V1" name="R7" type="radio" /></td>
+				<td class="leftborder"><code>bho </code></td>
+				<td class="leftborder">Bhojpuri </td>
+				<td width="1%" class="leftborder"><input value="V1" name="R2" type="radio" /></td>
+				<td class="normal">bhojpuri</td>
+				<td width="1%" class="leftborder"><span><input value="V12" name="R1" type="radio" checked /></span></td>
+				<td class="normal"><span class="fallback">bho</span></td>
+				<td width="1%" class="leftborder"><input value="V18" name="R1" type="radio" /></td>
+				<td class="normal"><input name="T4" size="20" class="wide" /></td>
+				<td class="leftborder"><input value="V1" name="R7" type="radio" /></td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: left" title="Error: push zoom to see details">
+				<td title="Error: push zoom to see details" class="normal">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=1636">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0" /></a></td>
-				<td><code>bi </code></td>
-				<td>Bislama </td>
-				<td><span><input value="V1" name="R3" type="radio" checked /></span></td>
-				<td><span class="winner">bichlamar</span></td>
-				<td><span><input value="V13" name="R1" type="radio" /></span></td>
-				<td style="vertical-align: top; text-align: left"><span class="fallback_root">grc</span></td>
-				<td width="1%"><input value="V19" name="R1" type="radio" /></td>
-				<td><input name="T9" size="20" class="wide" /></td>
-				<td><input value="V1" name="R8" type="radio" checked /></td>
+				<td class="leftborder"><code>bi </code></td>
+				<td class="leftborder">Bislama </td>
+				<td class="leftborder"><span><input value="V1" name="R3" type="radio" checked /></span></td>
+				<td class="normal"><span class="winner">bichlamar</span></td>
+				<td class="leftborder"><span><input value="V13" name="R1" type="radio" /></span></td>
+				<td class="normal"><span class="fallback_root">grc</span></td>
+				<td width="1%" class="leftborder"><input value="V19" name="R1" type="radio" /></td>
+				<td class="normal"><input name="T9" size="20" class="wide" /></td>
+				<td class="leftborder"><input value="V1" name="R8" type="radio" checked /></td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: left" title="Unconfirmed: push zoom to see details" rowspan="3">
+				<td title="Unconfirmed: push zoom to see details" rowspan="3" class="normal">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1203">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/ques.png" title="Unconfirmed: insufficient" border="0" /></a></td>
-				<td rowspan="3"><code>byn </code></td>
-				<td rowspan="3">Blin </td>
-				<td rowspan="3"><input value="V1" name="R4" type="radio" /></td>
-				<td rowspan="3">blin</td>
-				<td><input value="V3" name="R5" type="radio" /></td>
-				<td style="vertical-align: top; text-align: left">blinu</td>
-				<td rowspan="3" width="1%"><input value="V20" name="R1" type="radio" /></td>
-				<td rowspan="3"><input name="T10" size="20" class="wide" /></td>
-				<td rowspan="3"><input value="V1" name="R9" type="radio" /></td>
+				<td rowspan="3" class="leftborder"><code>byn </code></td>
+				<td rowspan="3" class="leftborder">Blin </td>
+				<td rowspan="3" class="leftborder"><input value="V1" name="R4" type="radio" /></td>
+				<td rowspan="3" class="normal">blin</td>
+				<td class="leftborder"><input value="V3" name="R5" type="radio" /></td>
+				<td class="normal">blinu</td>
+				<td rowspan="3" width="1%" class="leftborder"><input value="V20" name="R1" type="radio" /></td>
+				<td rowspan="3" class="normal"><input name="T10" size="20" class="wide" /></td>
+				<td rowspan="3" class="leftborder"><input value="V1" name="R9" type="radio" /></td>
 			</tr>
 			<tr>
-				<td><span><input value="V1" name="R6" type="radio" /></span></td>
-				<td style="vertical-align: top; text-align: left"><span class="winner">bliinu</span></td>
+				<td class="leftborder"><span><input value="V1" name="R6" type="radio" /></span></td>
+				<td class="normal"><span class="winner">bliinu</span></td>
 			</tr>
 			<tr>
-				<td><span><input value="V14" name="R1" type="radio" /></span></td>
-				<td style="vertical-align: top; text-align: left"><span class="fallback">byn</span></td>
+				<td class="leftborder"><span><input value="V14" name="R1" type="radio" /></span></td>
+				<td class="normal"><span class="fallback">byn</span></td>
 			</tr>
 			<tr>
-				<td style="vertical-align: top; text-align: left">
+				<td class="normal">
 				<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
 				<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0" /></a></td>
-				<td><code>bug </code></td>
-				<td>Buginese </td>
-				<td><span><input value="V1" name="R1" type="radio" /></span></td>
-				<td><span class="fallback">bug</span></td>
-				<td><span><input value="V4" name="R5" type="radio" checked /></span></td>
-				<td style="vertical-align: top; text-align: left"><span class="alias">bugg</span></td>
-				<td nowrap width="1%"><input value="V21" name="R1" type="radio" /></td>
-				<td nowrap><input name="T11" size="20" class="wide" /></td>
-				<td><input value="V1" name="R10" type="radio" checked /></td>
+				<td class="leftborder"><code>bug </code></td>
+				<td class="leftborder">Buginese </td>
+				<td class="leftborder"><span><input value="V1" name="R1" type="radio" /></span></td>
+				<td class="normal"><span class="fallback">bug</span></td>
+				<td class="leftborder"><span><input value="V4" name="R5" type="radio" checked /></span></td>
+				<td class="normal"><span class="alias">bugg</span></td>
+				<td nowrap width="1%" class="leftborder"><input value="V21" name="R1" type="radio" /></td>
+				<td nowrap class="normal"><input name="T11" size="20" class="wide" /></td>
+				<td class="leftborder"><input value="V1" name="R10" type="radio" checked /></td>
 			</tr>
 		</table>
 		<p>Here is what all these symbols and backgrounds mean. Most of the buttons have a short explanation if you &quot;hover&quot; your mouse over them. When pushed, they 
@@ -248,10 +253,10 @@ table {border-collapse: collapse}
 			<td style="vertical-align: top; text-align: center">
 			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=aa&forum=aa&xpath=1577">
 			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/okay.png" title="ok" border="0" /></a></td>
-			<td style="vertical-align: top; text-align: left"><b>no problems:</b> have been mechanically detected. (The value could, of course, still be 
-			linguistically incorrect.)</td>
-			<td style="vertical-align: top; text-align: left" rowspan="4"><span style="background-color: #FFFFCC; font-weight:700"><i>Click on any of these to zoom in on details: 
-			warnings, examples, and demos (as available)</i></span></td>
+			<td style="vertical-align: top; text-align: left"><b>no problems:</b> have been mechanically detected. (The value could, of course, still be linguistically 
+			incorrect.)</td>
+			<td style="vertical-align: top; text-align: left" rowspan="4"><span style="background-color: #FFFFCC; font-weight:700"><i>Click on any of these to zoom 
+			in on details: warnings, examples, and demos (as available)</i></span></td>
 		</tr>
 		<tr>
 			<td style="vertical-align: top; text-align: center">
@@ -276,7 +281,8 @@ table {border-collapse: collapse}
 			<p style="text-align: left"><b>Code</b></p>
 			</td>
 			<td style="vertical-align: top; text-align: left"><code>bho </code></td>
-			<td style="vertical-align: top; text-align: left"><b>code: </b>This is an internal, constant code used to access the translation, both in English and in other languages.</td>
+			<td style="vertical-align: top; text-align: left"><b>code: </b>This is an internal, constant code used to access the translation, both in English and 
+			in other languages.</td>
 			<td style="vertical-align: top; text-align: left">&nbsp;</td>
 		</tr>
 		<tr>
@@ -284,9 +290,10 @@ table {border-collapse: collapse}
 			<td style="vertical-align: top; text-align:left" nowrap><span class="winner"><input value="V1" name="R32" type="radio" checked />bichlamar</span></td>
 			<td style="vertical-align: top; text-align: left"><b>winner:</b> If nothing else is done, this will be confirmed as the value in the release.</td>
 			<td style="vertical-align: top; text-align: left" rowspan="5"><i>&quot;Current&quot; means it was in CLDR v 1.4.</i><p><i>
-			<span style="background-color: #FFFFCC">If the </span></i><span class="winner">bichlamar</span><i><span style="background-color: #FFFFCC"> item is 
-			the right one, you can continue. Otherwise, <br />
-			select the right value (<input value="V1" name="R37" type="radio" checked />) or add a new value.</span></i></td>
+			<span style="background-color: #FFFFCC">If the </span></i><span class="winner">bichlamar</span><i><span style="background-color: #FFFFCC"> item is the 
+			right one, you can continue. Otherwise, <br />
+			select the right value (<input value="V1" name="R37" type="radio" checked />) or add a new value.</span></i></p>
+			</td>
 		</tr>
 		<tr>
 			<td style="vertical-align: top; text-align:left" nowrap><input value="V1" name="R35" type="radio" checked />blin</td>
@@ -312,8 +319,7 @@ table {border-collapse: collapse}
 			<td style="vertical-align: top; text-align: left">1,234.56</td>
 			<td style="vertical-align: top; text-align: left"><b>example: </b>Provides examples of patterns in usage. If text is substituted in a pattern, it is 
 			shown in gray. For example, there is a pattern used in timezones &quot;{0} Time&quot;. In the example, a sample value is used to show what it would look like, 
-			as &quot;<span style="background-color: silver;">Japan</span> 
-			Time&quot;</td>
+			as &quot;<span style="background-color: silver;">Japan</span> Time&quot;</td>
 			<td style="vertical-align: top; text-align: left">&nbsp;</td>
 		</tr>
 		<tr>
@@ -326,7 +332,8 @@ table {border-collapse: collapse}
 				</tr>
 			</table>
 			</td>
-			<td style="vertical-align: top; text-align: left"><b>add proposed value: </b>Allows you to add new proposed value. Do this if none of the other values are correct.</td>
+			<td style="vertical-align: top; text-align: left"><b>add proposed value: </b>Allows you to add new proposed value. Do this if none of the other values 
+			are correct.</td>
 			<td style="vertical-align: top; text-align: left">&nbsp;</td>
 		</tr>
 		<tr>
@@ -334,7 +341,7 @@ table {border-collapse: collapse}
 			<p style="text-align: left"><b>n/o</b></p>
 			</td>
 			<td style="vertical-align: top; text-align: left"><input value="V1" name="R38" type="radio" checked /></td>
-			<td style="vertical-align: top; text-align: left"><b>no opinion:</b>&nbsp;If you have no opinion, select <b>n/o</b>.</td>
+			<td style="vertical-align: top; text-align: left"><b>no opinion:</b> If you have no opinion, select <b>n/o</b>.</td>
 			<td style="vertical-align: top; text-align: left">&nbsp;</td>
 		</tr>
 	</table>
@@ -355,18 +362,18 @@ table {border-collapse: collapse}
 			<th class="main2-narrow">n/a</th>
 		</tr>
 		<tr>
-			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details">
+			<td class="leftborder" title="Warning: push zoom to see details">
 			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
 			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a></td>
-			<td class="code"><tt title="#1144, w[N]:1144">
+			<td class="leftborder"><tt title="#1144, w[N]:1144">
 			<a target="target=" surveytool:n:el class="forumlink" href="http://unicode.org/cldr/apps/survey?_=el&forum=el&xpath=1144">currency/​standard/​standard</a></tt></td>
-			<td>¤#,##0.00</td>
-			<td><font face="Times New Roman">£1,234.56</font></td>
-			<td style="vertical-align: top; text-align: left"><input value="V1" name="R15" type="radio" checked />#,##0.00¤</td>
-			<td style="vertical-align: top; text-align: left"><font face="Times New Roman">1&#39;234,56£</font></td>
-			<td><input value="V1" name="R16" type="radio" checked />¤#,##0.00</td>
-			<td><font face="Times New Roman">£1&#39;234,56</font></td>
-			<td style="vertical-align: top; text-align: left">
+			<td class="leftborder">¤#,##0.00</td>
+			<td class="normal"><font face="Times New Roman">£1,234.56</font></td>
+			<td class="leftborder"><input value="V1" name="R15" type="radio" checked />#,##0.00¤</td>
+			<td class="normal"><font face="Times New Roman">1&#39;234,56£</font></td>
+			<td class="leftborder"><input value="V1" name="R16" type="radio" checked />¤#,##0.00</td>
+			<td class="normal"><font face="Times New Roman">£1&#39;234,56</font></td>
+			<td class="leftborder">
 			<table class="wide-noborder" id="table16">
 				<tr>
 					<td class="narrow-noborder"><input value="V1" name="R17" type="radio" checked /></td>
@@ -374,7 +381,7 @@ table {border-collapse: collapse}
 				</tr>
 			</table>
 			</td>
-			<td style="vertical-align: top; text-align: left"><input value="V1" name="R19" type="radio" checked /></td>
+			<td class="leftborder"><input value="V1" name="R19" type="radio" checked /></td>
 		</tr>
 	</table>
 	<p>In this case the value that you can choose is a pattern that indicates how a number is to be formatted for your language. This is very much like the &quot;custom 
@@ -390,76 +397,83 @@ table {border-collapse: collapse}
 	<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0" /></a></p>
 	<h2><a name="Zoom_View">Zoom View</a></h2>
 	<p>Once you hit the zoom button, then you get a separate window with a more detailed view of just that item. With some browsers, this window isn&#39;t brought up 
-	to the front, so it helps to make your main view smaller than the full screen, and put this window to the side<i>.</i> The contents of the zoom view will 
-	look like the following.</p>
-	<p><span style="background-color: #FFF88D">Note that only TC members will see the Create Alternate button (don&#39;t use this unless you know what you are 
-	doing). Whenever an item is controversial, you should add a reference for it. Use the Refs link to see the available references, add a new one if you need 
-	to, then pick the number from the list.</span></p>
+	to the front, so it helps to make your main view smaller than the full screen, and put this window to the side<i>.</i> The contents of the zoom view will look 
+	like the following.</p>
+	<p><span style="background-color: #FFF88D">Note that only TC members will see the Create Alternate button (don&#39;t use this unless you know what you are doing). 
+	Whenever an item is controversial, you should add a reference for it. Use the Refs link to see the available references, add a new one if you need to, then 
+	pick the number from the list.</span></p>
 	<table class="main2" style="border-collapse: collapse;" summary="Data Items for fr //ldml/localeDisplayNames/languages/language" border="1" cellspacing="0" id="table35">
 		<tr>
 			<th class="main2-narrow" width="7%">Code</th>
 			<th class="main2-medium">English</th>
-			<th class="main2-medium" style="width: 1%">Ex</th>
-			<th class="main2-medium" colspan="3">Current</th>
-			<th class="main2-medium" style="width: 1%">Ex</th>
-			<th class="main2-medium" colspan="3">Proposed</th>
-			<th class="main2-medium" style="width: 1%">Ex</th>
+			<th class="main2-medium" style="width: 1%"><i>Ex</i></th>
+			<th class="main2-medium" colspan="2">Current</th>
+			<th class="main2-medium" style="width: 1%"><i>Ex</i></th>
+			<th class="main2-medium" colspan="2">Proposed</th>
+			<th class="main2-medium" style="width: 1%"><i>Ex</i></th>
 			<th class="main2-medium" colspan="2">Change</th>
 			<th class="main2-narrow">n/o</th>
 		</tr>
 		<tr>
-			<td style="vertical-align: top; text-align: left" title="Warning: push zoom to see details" rowspan="3"><tt title="#1144, w[N]:1144">
+			<td title="Warning: push zoom to see details" rowspan="3" class="normal"><tt title="#1144, w[N]:1144">
 			<a target="target=" surveytool:n:el class="forumlink" href="http://unicode.org/cldr/apps/survey?_=el&forum=el&xpath=1144">currency/​standard/​standard</a></tt></td>
-			<td style="vertical-align: top; text-align: left" rowspan="3">¤#,##0.00;(¤#,##0.00)</td>
-			<td style="vertical-align: top; text-align: left" width="1%" rowspan="3">XXX12,345.68</td>
-			<td width="1%" style="vertical-align: top; text-align: left" rowspan="3"><input value="V1" name="R44" type="radio" checked /></td>
-			<td style="vertical-align: top; text-align: left" rowspan="3"><span class="winner" title="Winning item.">###0.00¤</span></td>
-			<td style="vertical-align: top; text-align: left" width="1%" nowrap rowspan="3">
-			<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a>1</td>
-			<td style="vertical-align: top; text-align: left" rowspan="3">123</td>
-			<td width="1%" style="vertical-align: top; text-align: left" rowspan="3"><span><input value="V1" name="R45" type="radio" checked /></span></td>
-			<td style="vertical-align: top; text-align: left" rowspan="3">¤#,##0.00¤</td>
-			<td style="vertical-align: top; text-align: left" width="1%" nowrap rowspan="3">
-			<img alt="[stop]" style="width: 16px; height: 16px" src="http://unicode.org/cldr/apps/stop.png" title="Error: CheckAttributeValues" border="0" />2<br />
-			<img border="0" src="../../dropbox/misc/images/reference.jpg" width="16" height="16" />3</td>
-			<td style="vertical-align: top; text-align: left" rowspan="3">&nbsp;</td>
-			<td width="1%" style="vertical-align: top; text-align: left" rowspan="3"><input value="V1" name="R46" type="radio" checked /></td>
-			<td style="vertical-align: top; text-align: left"><input name="T20" size="20" class="wide" /></td>
-			<td style="vertical-align: top; text-align: left" rowspan="3"><input value="V1" name="R47" type="radio" checked /></td>
+			<td rowspan="3" class="leftborder">¤#,##0.00;(¤#,##0.00)</td>
+			<td width="1%" rowspan="3" class="normal">XXX12,345.68</td>
+			<td width="1%" rowspan="3" class="leftborder" nowrap><input value="V1" name="R44" type="radio" checked /><sup><font color="#808080">1</font></sup></td>
+			<td rowspan="3" class="normal"><span class="winner" title="Winning item.">###0.00¤</span></td>
+			<td rowspan="3" class="normal" >123</td>
+			<td width="1%" class="leftborder" nowrap><span><input value="V1" name="R45" type="radio" checked /></span><font color="#808080"><sup>2</sup></font></td>
+			<td class="normal">¤#,##0.00¤</td>
+			<td rowspan="3" class="normal">&nbsp;</td>
+			<td width="1%" rowspan="3" class="leftborder"><input value="V1" name="R46" type="radio" /></td>
+			<td class="normal"><input name="T20" size="20" class="wide" /></td>
+			<td rowspan="3" class="leftborder"><input value="V1" name="R47" type="radio" /></td>
 		</tr>
 		<tr>
-			<td style="vertical-align: top; text-align: left"><select name='vb:uuvf:nlfubue_r' size="1"><option SELECTED>none</option><option value='R019'>R019</option><option value='R026'>R026</option><option value='R020'>R020</option><option value='RP1'>RP1</option><option value='R024'>R024</option><option value='R022'>R022</option><option value='R028'>R028</option><option value='R029'>R029</option><option value='R027'>R027</option><option value='R025'>R025</option><option value='R021'>R021</option><option value='R023'>R023</option></select>
-			<a target="references" href="http://unicode.org/cldr/apps/survey?_=de&x=references">Refs</a></td>
+			<td width="1%" rowspan="2" class="leftborder" nowrap>
+			<span>
+			<input value="V1" name="R48" type="radio" checked /></span><font color="#808080"><sup>3</sup></font></td>
+			<td style="vertical-align: top; text-align: left" rowspan="2" class="normal">#,##0.00 ¤</td>
+			<td style="vertical-align: top; text-align: left" class="normal"><select name="vb:uuvf:nlfubue_r" size="1">
+			<option selected>none</option>
+			<option value="R019">R019</option>
+			<option value="R026">R026</option>
+			<option value="R020">R020</option>
+			<option value="RP1">RP1</option>
+			<option value="R024">R024</option>
+			<option value="R022">R022</option>
+			<option value="R028">R028</option>
+			<option value="R029">R029</option>
+			<option value="R027">R027</option>
+			<option value="R025">R025</option>
+			<option value="R021">R021</option>
+			<option value="R023">R023</option>
+			</select> <a target="references" href="http://unicode.org/cldr/apps/survey?_=de&x=references">Refs</a></td>
 		</tr>
 		<tr>
-			<td style="vertical-align: top; text-align: left"><input type="button" value="Create Alternate" name="B6"></td>
+			<td style="vertical-align: top; text-align: left" class="normal"><input type="button" value="Create Alternate" name="B6"></td>
 		</tr>
 	</table>
 	<form name="stform" method="post" action="http://unicode.org/cldr/apps/survey">
-		<p><b>Warnings, Errors, and References</b><span style="background-color: #FFF88D"> the numbers refer to the items above.</span></p>
+		<p><b>Warnings, Errors, and References</b><span style="background-color: #FFF88D"> The numbers refer to the items above.</span></p>
 	</form>
 	<form name="stform0" method="post" action="http://unicode.org/cldr/apps/survey">
 		<blockquote>
 			<table summary="Data Items for el //ldml/localeDisplayNames/territories/territory" class="list" border="2" id="table34" style="border-collapse: collapse" bordercolor="#C0C0C0">
 				<tr>
-					<td bordercolor="#808080" style="border-style:solid; border-width:1px; ">
+					<td bordercolor="#808080" style="border-style:solid; border-width:1px; "><font color="#808080"><sup>1</sup></font></td>
+					<td class="warncell" bordercolor="#808080" style="border-style:solid; border-width:1px; ">
 					<a target="_blank" title="zoom" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=28">
-			<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a>1</td>
-					<td class="warncell" bordercolor="#808080" style="border-style:solid; border-width:1px; ">There is no thousands separator in this pattern</td>
+					<img style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/warn.png" title="Warning: push zoom to see details" border="0" /></a>There 
+					is no thousands separator in this pattern</td>
 				</tr>
 				<tr>
-					<td bordercolor="#808080" style="border-style:solid; border-width:1px; ">
-					<img alt="[stop]" style="width: 16px; height: 16px" src="http://unicode.org/cldr/apps/stop.png" title="Error: CheckAttributeValues" border="0" />2</td>
-					<td class="warncell" bordercolor="#808080" style="border-style:solid; border-width:1px; ">There are two currency symbols (¤) in the pattern; 
-					there must be exactly one.
-					<!-- <noscript>Warning: </noscript> --></td>
-				</tr>
-				<tr>
-					<td bordercolor="#808080" style="border-style:solid; border-width:1px; vertical-align:top; text-align:left">
-					<img border="0" src="../../dropbox/misc/images/reference.jpg" width="16" height="16" />3</td>
-					<td class="warncell" bordercolor="#808080" style="border-style:solid; border-width:1px; "><span class="loser" title="proposed, losing item">
-					ISO 4217 - Liste des codes des monnaies et des types de fonds;<br>
+					<td bordercolor="#808080" style="border-style:solid; border-width:1px; "><font color="#808080"><sup>2</sup></font></td>
+					<td class="warncell" bordercolor="#808080" style="border-style:solid; border-width:1px; ">
+					<img alt="[stop]" style="width: 16px; height: 16px" src="http://unicode.org/cldr/apps/stop.png" title="Error: CheckAttributeValues" border="0" />There 
+					are two currency symbols (¤) in the pattern; there must be exactly one.<br>
+					<img border="0" src="../../dropbox/misc/images/reference.jpg" width="16" height="16" /><span class="loser" title="proposed, losing item"> ISO 
+					4217 - Liste des codes des monnaies et des types de fonds;<br>
 					</span><a href="http://www.iso.org/iso/fr/prods-services/popstds/currencycodeslist.html">http://www.iso.org/iso/fr/prods-services/popstds/currencycodeslist.html</a></td>
 				</tr>
 			</table>

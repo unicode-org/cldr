@@ -303,7 +303,7 @@ public class CheckNumbers extends CheckCLDR {
       return this;
     }
     public SimpleDemo getDemo() {
-      return new MyDemo().setFormat(df, context);
+      return new MyDemo().setFormat(df);
     }
   }
   
@@ -320,9 +320,8 @@ public class CheckNumbers extends CheckCLDR {
     protected String getSampleInput() {
       return String.valueOf(ExampleGenerator.NUMBER_SAMPLE);
     }
-    public MyDemo setFormat(DecimalFormat df, String context) {
+    public MyDemo setFormat(DecimalFormat df) {
       this.df = df;
-      currentContext = context;
       return this;
     }
     

@@ -356,7 +356,7 @@ abstract public class CheckCLDR {
           if (help != null) {
             showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
           }
-          continue; // don't show problems
+          //continue; // don't show problems
         }
 
         if (checkFlexibleDates) {
@@ -730,7 +730,6 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   
   public static abstract class FormatDemo extends SimpleDemo {
     protected String currentPattern, currentInput, currentFormatted, currentReparsed;
-    protected String currentContext = "";
     protected ParsePosition parsePosition = new ParsePosition(0);
     
     protected abstract String getPattern();
@@ -741,15 +740,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       getArguments(postArguments);
       StringBuffer htmlMessage = new StringBuffer();
       FormatDemo.appendTitle(htmlMessage);
-      FormatDemo.appendLine(htmlMessage, currentPattern, currentContext, currentInput, currentFormatted, currentReparsed);
+      FormatDemo.appendLine(htmlMessage, currentPattern, currentInput, currentFormatted, currentReparsed);
       htmlMessage.append("</table>");
       return htmlMessage.toString();
     }
     
     public String getPlainText(Map postArguments) {
       getArguments(postArguments);
-      return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\", \"{2}\"> \u2192 \"\u200E{3}\u200E\" \u2192 \"{4}\"",
-          new String[] {currentPattern, currentContext, currentInput, currentFormatted, currentReparsed});
+      return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\"> \u2192 \"\u200E{2}\u200E\" \u2192 \"{3}\"",
+          new String[] {currentPattern, currentInput, currentFormatted, currentReparsed});
     }
     
     /**
@@ -759,11 +758,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      * @param formatted
      * @param reparsed
      */
-    public static void appendLine(StringBuffer htmlMessage, String pattern, String context, String input, String formatted, String reparsed) {
+    public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted, String reparsed) {
       htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
       .append(TransliteratorUtilities.toXML.transliterate(pattern))
-      .append("'></td><td><input type='text' name='context' value='")
-      .append(TransliteratorUtilities.toXML.transliterate(context))
       .append("'></td><td><input type='text' name='input' value='")
       .append(TransliteratorUtilities.toXML.transliterate(input))
       .append("'></td><td>")
@@ -783,7 +780,6 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
           //" style='border-collapse: collapse' style='width: 100%'" +
           "><tr>" +
           "<th>Pattern</th>" +
-          "<th>Context</th>" +
           "<th>Unlocalized Input</th>" +
           "<th></th>" +
           "<th>Localized Format</th>" +

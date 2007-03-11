@@ -37,10 +37,9 @@ arbitrary changes (see the end). </b></p>
 		<h3>Display Names</h3>
 		<p>Languages, scripts (writing systems), territories (countries and regions), currencies, and time zones are represented in computers by internal codes, 
 		such as &quot;<code>fr</code>&quot; for the French language or &quot;<code>CA</code>&quot; for the country of Canada.</p>
-		<p>You should supply the most customary name used in your 
-		language, even if it is not the official name. For example, for the territory name in English you would use &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, 
-		and use &quot;United Kingdom&quot; instead of &quot;The United Kingdom of Great Britain and Northern Ireland&quot;. All names must be unique within a given category: thus one 
-		cannot use the same translated name for the following two codes; only one can be called &quot;Congo&quot;:</p>
+		<p>You should supply the most customary name used in your language, even if it is not the official name. For example, for the territory name in English 
+		you would use &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The United Kingdom of Great Britain and Northern Ireland&quot;. 
+		All names must be unique within a given category: thus one cannot use the same translated name for the following two codes; only one can be called &quot;Congo&quot;:</p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table3">
 			<tr>
 				<th style="vertical-align: top; text-align: left">Code</th>
@@ -69,8 +68,9 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/localeDisplayNames/(keys|types).*</td>
 		<td>
 		<h3 align="left">Keys</h3>
-		<p align="left">The <strong style="font-weight: 400">keys</strong> page lists the key names for translation. These identify particular key words used to identify particular <i>types</i> 
-		of variants. The calendar types are typically only used with certain languages, however, they can be used with almost any language: </p>
+		<p align="left">The <strong style="font-weight: 400">keys</strong> page lists the key names for translation. These identify particular key words used to 
+		identify particular <i>types</i> of variants. The calendar types are typically only used with certain languages, however, they can be used with almost any 
+		language: </p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table4">
 			<tr>
 				<th style="vertical-align: top; text-align: left">Locale Code</th>
@@ -135,10 +135,10 @@ arbitrary changes (see the end). </b></p>
 		you can&#39;t give the same name to the country <i>South Africa</i> (the country) and to <i>Southern Africa</i> (the southern region of the continent of Africa), 
 		even though there may be no distinction in your language between the terms for &quot;<i>South</i>&quot; and &quot;<i>Southern</i>&quot;. Similarly, <i>North America</i> is 
 		the continent that extends down to Panama; <i>Northern America</i> is the region of the Americas north of Mexico.</p>
-		<p>The country name should be the most 
-		natural; you may have to adjust the name of the region. So you might say the equivalent of &quot;South Region of Africa&quot;, or add clarifying language like &quot;<span class="loser"><i>Amérique 
-		du Nord continentale</i>&quot; vs &quot;<i>Amérique du Nord</i>&quot;. If you have any question as to the extent of any region, see
-		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>. </span></p>
+		<p>The country name should be the most natural; you may have to adjust the name of the region. So you might say the equivalent of &quot;South Region of Africa&quot;, 
+		or add clarifying language like &quot;<span class="loser"><i>Amérique du Nord continentale</i>&quot; vs &quot;<i>Amérique du Nord</i>&quot;. If you have any question as to 
+		the extent of any region, see <a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>.
+		</span></p>
 		</td>
 	</tr>
 	<tr>
@@ -146,8 +146,7 @@ arbitrary changes (see the end). </b></p>
 		<td>
 		<h3>Languages</h3>
 		<p>There are a lot of languages here (around 500), and you <em>don&#39;t</em> need to look at them all! Many are relatively obscure, and not worth translating 
-		in a first path.
-		</p>
+		in a first path. </p>
 		<ul>
 			<li>A common question is whether to capitalize or not. With a new locale, use whatever is normal practice for what should occur in menus. For an existing 
 			locale, follow what is used for the other items already translated. This is good practice for territories and other types of items too.</li>
@@ -165,8 +164,7 @@ arbitrary changes (see the end). </b></p>
 		<p>There are a few special cases: </p>
 		<ul>
 			<li>&quot;Iberian Portuguese&quot; is the style of Portuguese used in Portugal (as opposed to Brazil)</li>
-			<li>Similarly &quot;Iberian Spanish&quot; is the style of Spanish used in 
-		Spain (as opposed to Latin America).</li>
+			<li>Similarly &quot;Iberian Spanish&quot; is the style of Spanish used in Spain (as opposed to Latin America).</li>
 			<li>&quot;Swiss High German&quot; (<i>Schweizer Hochdeutsch</i>), also called &quot;Swiss Standard German&quot;, has the code <code>de_CH</code>.</li>
 			<li>&quot;Swiss German&quot; (<i>Schwyzerdütsch</i>) has the code <code>gsw</code>.</li>
 		</ul>
@@ -177,14 +175,15 @@ arbitrary changes (see the end). </b></p>
 		<td>
 		<h3>Scripts</h3>
 		<p>Normally only a few scripts are really necessary to translate: those that are used in distinguishing the most common languages that are written in multiple 
-		ways. These are Hant and Hans (for traditional and simplified Chinese), Cyrillic, Arabic, and Latin.</td>
+		ways. These are Hant and Hans (for traditional and simplified Chinese), Cyrillic, Arabic, and Latin.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>.*/currencies.*</td>
 		<td>
 		<h3>Currencies</h3>
-		<p>This is a long list that contains the currency names and currency symbols for each country, plus historical codes. The coverage level option tries to pick out the ones that 
-		are most important to translate. Each currency code can be translated in two ways:</p>
+		<p>This is a long list that contains the currency names and currency symbols for each country, plus historical codes. The coverage level option tries to 
+		pick out the ones that are most important to translate. Each currency code can be translated in two ways:</p>
 		<ul>
 			<li>As a symbol for use in formatting amounts (such as &quot;12 345,68 <b>US$</b>&quot;), and</li>
 			<li>As a name, typically used to show a list of currencies (such as &quot;<b>dollar des États-Unis</b>&quot;)</li>
@@ -195,11 +194,10 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/characters/exemplarCharacters.*</td>
 		<td>
 		<h3>Exemplar Character Set</h3>
-		<p>The exemplar character set contains the commonly used letters for a given modern form of a language. These are used for testing and for determining 
-		the appropriate repertoire of letters for charset conversion or text comparison. The term &quot;letter&quot; is interpreted broadly, and includes characters used 
-		to form words, such as 是 or 가. If a sequence of characters is considered a &quot;letter&quot;, it will be listed between { and }. For example, <em>{ch}</em>.</p>
-		<p>There 
-		are three categories:</p>
+		<p>The exemplar character set contains the commonly used letters for a given modern form of a language. These are used for testing and for determining the 
+		appropriate repertoire of letters for charset conversion or text comparison. The term &quot;letter&quot; is interpreted broadly, and includes characters used to form 
+		words, such as 是 or 가. If a sequence of characters is considered a &quot;letter&quot;, it will be listed between { and }. For example, <em>{ch}</em>.</p>
+		<p>There are three categories:</p>
 		<ul>
 			<li>The <i>standard</i> characters are those used in customary writing, such as [a-z] for English.</li>
 			<li>The <i>auxiliary</i> characters are additional characters used in foreign words found in typical magazines, newspapers, &amp;c. For example, you could 
@@ -389,23 +387,24 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/dates/calendars/calendar.*/quarters/.*</td>
 		<td>
 		<h3>Quarters</h3>
-		<p>The quarters of a year are used in formats such as &quot;2006Q3&quot;, typically used for financial periods. If your language doesn&#39;t have a common term for this, you might 
-		use the equivalent of &quot;Jan-Mar&quot;.</td>
+		<p>The quarters of a year are used in formats such as &quot;2006Q3&quot;, typically used for financial periods. If your language doesn&#39;t have a common term for this, 
+		you might use the equivalent of &quot;Jan-Mar&quot;.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*/fields.*displayName.*</td>
 		<td>
 		<h3>Date Field Labels</h3>
-		<p>The date field labels are the names of the dates or time field, such as &quot;Month&quot; or &quot;Hour&quot;, suitable for labels in dialogs or menus.</td>
+		<p>The date field labels are the names of the dates or time field, such as &quot;Month&quot; or &quot;Hour&quot;, suitable for labels in dialogs or menus.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*/fields.*relative.*</td>
 		<td>
 		<h3>Relative Periods of Time</h3>
-		<p>Relative fields of time are used to indicate a period relative to today, like &quot;Yesterday&quot; or &quot;Tomorrow&quot;. Some languages don&#39;t have words or short phrases for some of these. For example, 
-		English does not have a word for &quot;the day before yesterday&quot; as some languages do, such as &quot;Vorgestern&quot; in German.</p>
-		<p>If your language doesn&#39;t have a natural 
-		term for one of these, pick the &quot;inherited&quot; value, such as <span class="fallback" title="Fallback from root">
+		<p>Relative fields of time are used to indicate a period relative to today, like &quot;Yesterday&quot; or &quot;Tomorrow&quot;. Some languages don&#39;t have words or short phrases 
+		for some of these. For example, English does not have a word for &quot;the day before yesterday&quot; as some languages do, such as &quot;Vorgestern&quot; in German.</p>
+		<p>If your language doesn&#39;t have a natural term for one of these, pick the &quot;inherited&quot; value, such as <span class="fallback" title="Fallback from root">
 		<input title="#63133" disabled type="radio" value="V1" checked name="R1" />The day after tomorrow</span><span title="Fallback from root">. </span>The English 
 		phrase supplied here is just to let you know what to translate, and is not part of the actually English CLDR file.</p>
 		</td>
@@ -414,14 +413,16 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/dates/calendars/calendar.*/(a|p)m</td>
 		<td>
 		<h3>AM and PM</h3>
-		<p>Note that even if your language doesn&#39;t use <b>am/pm</b> in any patterns, strings for those need to be defined for testing.</td>
+		<p>Note that even if your language doesn&#39;t use <b>am/pm</b> in any patterns, strings for those need to be defined for testing.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/calendars/calendar.*dateTimeFormatLength.*</td>
 		<td>
 		<h3>Date-Time Pattern</h3>
-		<p>The date-time pattern is used to make a date + time out of separate date and time patterns. The date will be substituted for {1} and the time for {0}. It usually 
-		doesn&#39;t need to be changed. </td>
+		<p>The date-time pattern is used to make a date + time out of separate date and time patterns. The date will be substituted for {1} and the time for {0}. 
+		It usually doesn&#39;t need to be changed. </p>
+		</td>
 	</tr>
 	<tr>
 		<td>.*narrow.*</td>
@@ -429,7 +430,8 @@ arbitrary changes (see the end). </b></p>
 		<h3>Narrow Date Fields</h3>
 		<p>The narrow date fields are the shortest possible names (in terms of width in common fonts), and are not guaranteed to be unique. Think of what you might 
 		find on a credit-card-sized wallet or checkbook calendar, such as in English for days of the week:</p>
-		<p><i>S M T W T F S</i></td>
+		<p><i>S M T W T F S</i></p>
+		</td>
 	</tr>
 	<tr>
 		<td>.*/eras.*</td>
@@ -437,16 +439,16 @@ arbitrary changes (see the end). </b></p>
 		<h3>Eras</h3>
 		<p>There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and &quot;AD&quot;. These values can be translated into other languages, like &quot;a.C.&quot; and and 
 		&quot;d.C.&quot; for Spanish, but there are no other eras in the Gregorian calendar.</p>
-		<p>Other calendars have a different numbers of eras. The names for eras are often specific to the given calendar, such as the Japanese era names. You 
-		only typically need to translate these if the calendar in question is in common use in one of the countries that uses your language.</td>
+		<p>Other calendars have a different numbers of eras. The names for eras are often specific to the given calendar, such as the Japanese era names. You only 
+		typically need to translate these if the calendar in question is in common use in one of the countries that uses your language.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>.*/references.*</td>
 		<td>
 		<h3>References</h3>
 		<p>References are used to document more controversial cases. Whenever there is a disagreement between translators, or when the choice of translation might 
-		not be understood, you should add a reference.
-		</p>
+		not be understood, you should add a reference. </p>
 		<ul>
 			<li>Fill in a descriptive title for the reference, such as <strong>&quot;The Economist Style Guide&quot;</strong>
 			<ul>
@@ -467,7 +469,7 @@ arbitrary changes (see the end). </b></p>
 		Greenwich Mean Time. In particular, within that zone, the same daylight-savings (summer-time) behavior is observed, now and in the past and future (as far 
 		as is known). This means that time zones are fairly fine granularity, as you can see by consulting <span class="loser">
 		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>. </span>The name of the time 
-		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from 
+		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from
 		<b><code>America/Denver</code></b>.</p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table9">
 			<tr>
@@ -561,7 +563,8 @@ arbitrary changes (see the end). </b></p>
 		<h3>Time Zone Exemplar Cities</h3>
 		<p>For generic references to time zones, the country is used if possible, composed with a pattern that in English appears as &quot;{0} Time&quot;. Thus a time zone 
 		may appear as &quot;Bolivia Time&quot;. If the country has multiple time zones, then a city is used to distinguish which one, thus &quot;Argentina (La Rioja) Time&quot;. Thus 
-		for basic coverage, cities thus only need to be translated if they are in a country with multiple time zones.</td>
+		for basic coverage, cities thus only need to be translated if they are in a country with multiple time zones.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>.*(M|m)etazone.*</td>
@@ -590,16 +593,17 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/posix/messages.*</td>
 		<td>
 		<h3>POSIX Yes and No</h3>
-		<p>The POSIX yes and no strings should be whatever should count for &quot;No&quot; and &quot;Yes&quot; in your language, plus abbreviations. Don&#39;t worry about uppercases, that will be done automatically. Multiple forms can 
-		be entered separated by &quot;:&quot;, such as &quot;ne:n&quot;.</td>
+		<p>The POSIX yes and no strings should be whatever should count for &quot;No&quot; and &quot;Yes&quot; in your language, plus abbreviations. Don&#39;t worry about uppercases, that 
+		will be done automatically. Multiple forms can be entered separated by &quot;:&quot;, such as &quot;ne:n&quot;.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/layout/in(List|Text).*</td>
 		<td>
 		<h3>Casing Verification</h3>
-		<p>These values can be used to help testing. If the value is set to anything but &quot;mixed&quot;, then the items of that type will be checked whether they 
-		match, to help to catch inconsistencies. For example, if your language usually has the names of territories in lowercase, then set the value for 
-		territories to be &quot;lowercase-words&quot;. The values are:</p>
+		<p>These values can be used to help testing. If the value is set to anything but &quot;mixed&quot;, then the items of that type will be checked whether they match, 
+		to help to catch inconsistencies. For example, if your language usually has the names of territories in lowercase, then set the value for territories to 
+		be &quot;lowercase-words&quot;. The values are:</p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table10">
 			<tr>
 				<th style="vertical-align: top; "><strong>Values</strong></th>
@@ -623,70 +627,76 @@ arbitrary changes (see the end). </b></p>
 			</tr>
 		</table>
 		<p>The <a target="target=" surveytool:n:fr class="forumlink" href="http://unicode.org/cldr/apps/survey?_=fr&forum=fr&xpath=5831">
-		<tt title="1-misc|casing|in_lists">layout/​inList</tt></a> item has the same values, but a different use. It signals that if the items are put into a 
-		list (such as a menu on a computer), then they should be mechanically changed. For example, suppose that names of languages are normally lowercase, but 
-		when put into a menu they should normally have the first letter of the first word capitalized. If that&#39;s true, then you should set this value to <code>
-		<b>titlecase-firstword</b></code>.</p>
-		<p>If that value is wrong for any individual item, then you can override that particular item by adding an &quot;alt&quot; value. To do so, contact your 
-		administrator.</td>
+		<tt title="1-misc|casing|in_lists">layout/​inList</tt></a> item has the same values, but a different use. It signals that if the items are put into a list 
+		(such as a menu on a computer), then they should be mechanically changed. For example, suppose that names of languages are normally lowercase, but when 
+		put into a menu they should normally have the first letter of the first word capitalized. If that&#39;s true, then you should set this value to <code><b>titlecase-firstword</b></code>.</p>
+		<p>If that value is wrong for any individual item, then you can override that particular item by adding an &quot;alt&quot; value. To do so, contact your administrator.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/delimiters/.*</td>
 		<td>
 		<h3>Delimiters</h3>
-		<p>Change this field if your language uses different quotation marks. The alternate forms are for embedded quotations, such as &quot;He said &#39;Stop!&#39;&quot;.</td>
+		<p>Change this field if your language uses different quotation marks. The alternate forms are for embedded quotations, such as &quot;He said &#39;Stop!&#39;&quot;.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/dateRangePattern.*</td>
 		<td>
 		<h3>Ranges of Dates</h3>
-		<p>Modify this field to control how a range of dates appears, eg &quot;Oct 12 - Nov 9&quot;. </td>
+		<p>Modify this field to control how a range of dates appears, eg &quot;Oct 12 - Nov 9&quot;. </p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/timeZoneNames/fallbackFormat</td>
 		<td>
 		<h3>Country-Based Time Zone City Pattern</h3>
-		<p>Modify this field to control the formatting of Country-Based time zone display when a country has multiple time zones, and the city is used to 
-		disambiguate them. In the pattern, {0} will be replaced by the city and {1} will be the country. This 
-		is normally not changed, except perhaps in languages that don&#39;t use spaces. </td>
+		<p>Modify this field to control the formatting of Country-Based time zone display when a country has multiple time zones, and the city is used to disambiguate 
+		them. In the pattern, {0} will be replaced by the city and {1} will be the country. This is normally not changed, except perhaps in languages that don&#39;t 
+		use spaces. </p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/timeZoneNames/gmtFormat</td>
 		<td>
 		<h3>GMT Pattern</h3>
-		<p>Modify this field if the format for GMT time uses different letters, such as <em>HUA+0200</em> for <em>GMT+02:00</em>, or if the letters GMT occur 
-		after the time. Make sure you include the <em>
-		{0}</em>; that is where the actual time value will go! </td>
+		<p>Modify this field if the format for GMT time uses different letters, such as <em>HUA+0200</em> for <em>GMT+02:00</em>, or if the letters GMT occur after 
+		the time. Make sure you include the <em>{0}</em>; that is where the actual time value will go! </p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/timeZoneNames/hourFormat</td>
 		<td>
 		<h3>GMT Hours Pattern</h3>
 		<p>This field controls the format for the time used with the GMT Pattern. It contains two patterns separated by a &quot;;&quot;. The first controls positive time 
-		values (and zero), and the second controls the negative values. So to get <em>GMT+02.00</em> for positive values, and <em>GMT-02.00</em> for negative 
-		values, you&#39;d use <em>+HH.mm;-HH.mm</em>. </td>
+		values (and zero), and the second controls the negative values. So to get <em>GMT+02.00</em> for positive values, and <em>GMT-02.00</em> for negative values, 
+		you&#39;d use <em>+HH.mm;-HH.mm</em>. </p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/timeZoneNames/regionFormat</td>
 		<td>
 		<h3>Country-Based Time Zone Pattern</h3>
 		<p>Time zones can be identified in different ways: such as around the time zone, eg for <em>New York Time</em> use <em>{0} Time</em>. This is a new item, 
-		and the word &quot;Time&quot; is in English, so you will undoubtedly want to change it. This will be used both for display in lists, and in use with 
-		times. Some languages would normally have grammatical adjustments depending on what the name of the city is. For example, one might have &quot;12:43 pm <u>
-		Tempo d&#39;</u>Australia&quot; but &quot;12:43 pm <u>Tempo de </u>Paris&quot;. In that case, it might be better to either omit the phrasing and just have &quot;12:43 pm 
-		Australia&quot; and &quot;12:43 pm Paris&quot;, or to use a &quot;form&quot; style phrasing, like &quot;12:43 pm <u>Tempo de: </u>Australia&quot; and &quot;12:43 pm <u>Tempo de: </u>Paris&quot;.</td>
+		and the word &quot;Time&quot; is in English, so you will undoubtedly want to change it. This will be used both for display in lists, and in use with times. Some languages 
+		would normally have grammatical adjustments depending on what the name of the city is. For example, one might have &quot;12:43 pm <u>Tempo d&#39;</u>Australia&quot; but 
+		&quot;12:43 pm <u>Tempo de </u>Paris&quot;. In that case, it might be better to either omit the phrasing and just have &quot;12:43 pm Australia&quot; and &quot;12:43 pm Paris&quot;, 
+		or to use a &quot;form&quot; style phrasing, like &quot;12:43 pm <u>Tempo de: </u>Australia&quot; and &quot;12:43 pm <u>Tempo de: </u>Paris&quot;.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/.*/days/.*</td>
 		<td>
 		<h3>Days of the Week</h3>
-		<p>This field is one of the days of the week, such as Sunday or Monday.</td>
+		<p>This field is one of the days of the week, such as Sunday or Monday.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/dates/.*/months/.*</td>
 		<td>
 		<h3>Months of the Year</h3>
-		<p>This field is one of the months of the year, such as January or February.</td>
+		<p>This field is one of the months of the year, such as January or February.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>//ldml/fallback</td>
@@ -695,7 +705,8 @@ arbitrary changes (see the end). </b></p>
 		<p>You can add here a list of locales that would be most natural to use when no translation is available (this is called a <i>fallback)</i>. This is mostly 
 		useful for minority languages. For example, for Breton the most natural language to fall back to might be French, that is, to use French names for countries 
 		that aren&#39;t translated. The codes you need to use are <a target="_blank" href="http://unicode.org/cldr/apps/survey?p_codes=t">locale codes</a>, not the 
-		names or translations; thus you would put in &quot;<code>fr</code>&quot; or &quot;<code>fr_BE</code>&quot;,<i> not</i> &quot;French&quot; or &quot;<span class="loser">français</span>&quot;.</td>
+		names or translations; thus you would put in &quot;<code>fr</code>&quot; or &quot;<code>fr_BE</code>&quot;,<i> not</i> &quot;French&quot; or &quot;<span class="loser">français</span>&quot;.</p>
+		</td>
 	</tr>
 </table>
 <p>The text to insert can be fairly arbitrary HTML. The software that reads this table will search the first column (eg between &lt;td&gt; and &lt;/td&gt;) and return the contents 

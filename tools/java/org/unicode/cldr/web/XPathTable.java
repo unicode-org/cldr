@@ -413,6 +413,10 @@ public class XPathTable {
         }
     }
     
+    public String getPrettyPath(int path) {
+        return getPrettyPath(getById(path)); 
+    }
+    
     /**
      * Get original path. ONLY works if getPrettyPath was called with the original!
      * @param prettyPath

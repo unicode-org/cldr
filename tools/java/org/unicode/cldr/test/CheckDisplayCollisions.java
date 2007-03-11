@@ -48,7 +48,6 @@ public class CheckDisplayCollisions extends CheckCLDR {
               .setCheckOnSubmit(false)
               .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
 					result.add(item);
-/*srl*/System.err.println(getCldrFileToCheck().getLocaleID()+": same translation as " + codes.toString() + " - " + path  + " // " + fullPath + " // " + value);
 				}
 				break;
 			}

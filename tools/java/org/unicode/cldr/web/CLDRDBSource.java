@@ -405,7 +405,7 @@ import com.ibm.icu.util.ULocale;
                         stmts.insert.setString(6,eType);
                         stmts.insert.setString(7,eAlt);
                         stmts.insert.setInt(8,txpid); // tiny
-                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter.
+                        stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
                         stmts.insert.setInt(10, base_xpid);
 
                         stmts.insert.execute();

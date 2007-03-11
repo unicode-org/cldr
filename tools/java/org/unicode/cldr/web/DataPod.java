@@ -869,26 +869,29 @@ public class DataPod extends Registerable {
         SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
   
         CLDRDBSource ourSrc = uf.dbSource;
-        CheckCLDR checkCldr = uf.getCheck(ctx);
-        if(checkCldr == null) {
-            throw new InternalError("checkCldr == null");
+        
+        synchronized(ourSrc) {
+            CheckCLDR checkCldr = uf.getCheck(ctx);
+            if(checkCldr == null) {
+                throw new InternalError("checkCldr == null");
+            }
+            com.ibm.icu.dev.test.util.ElapsedTimer et;
+            if(SHOW_TIME) {
+                et= new com.ibm.icu.dev.test.util.ElapsedTimer();
+                System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
+            }
+            CLDRFile baselineFile = ctx.sm.getBaselineFile();
+            pod.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
+            if(SHOW_TIME) {
+                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
+            }
+            com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
+            pod.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
+            if(SHOW_TIME) {
+                System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
+            }
+            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true));
         }
-        com.ibm.icu.dev.test.util.ElapsedTimer et;
-        if(SHOW_TIME) {
-            et= new com.ibm.icu.dev.test.util.ElapsedTimer();
-            System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
-        }
-        CLDRFile baselineFile = ctx.sm.getBaselineFile();
-        pod.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
-        if(SHOW_TIME) {
-            System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
-        }
-        com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        pod.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
-        if(SHOW_TIME) {
-            System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
-        }
-        pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true));
 		return pod;
 	}
     
@@ -1224,6 +1227,8 @@ public class DataPod extends Registerable {
                 confirmOnly = true; // can't acccept new data for this.
             } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
                 isToggleFor = "used";
+            } else if(xpath.indexOf("/layout/inList")!=-1) {
+                confirmOnly = true;
             }
             
             if(useShorten) {
@@ -1408,14 +1413,8 @@ public class DataPod extends Registerable {
             boolean isCodeFallback = (setInheritFrom!=null)&&
                 (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
             if((checkCldr != null)/*&&(altProposed == null)*/) {
-                if(altProposed == null) {
-                    checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
-                    checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
-                } else {
-                    // hose the Xpath off first
-                    checkCldr.check(baseXpath, baseXpath, value, options, checkCldrResult);
-                    checkCldr.getExamples(baseXpath, baseXpath, value, options, examplesResult);
-                }
+                checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
+                checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
             }
             DataPod.Pea.Item myItem;
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));

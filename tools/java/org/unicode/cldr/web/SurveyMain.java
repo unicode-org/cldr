@@ -287,6 +287,7 @@ public class SurveyMain extends HttpServlet {
         */
         if(request.getRemoteAddr().equals("66.154.103.161") ||
 		   request.getRemoteAddr().equals("203.148.64.17") ||
+           request.getRemoteAddr().equals("65.55.212.188") || // MSFT search.live.com
            request.getRemoteAddr().equals("38.98.120.72") || // 38.98.120.72 - feb 7, 2007-  lots of connections
            false) {
             response.sendRedirect(URL_CLDR);
@@ -296,6 +297,7 @@ public class SurveyMain extends HttpServlet {
         response.setDateHeader("Expires",0);
         response.setHeader("Pragma","no-cache");
         response.setDateHeader("Max-Age",0);
+        response.setHeader("Robots", "noindex,nofollow");
         
         // handle raw xml
         if(doRawXml(request,response)) {
@@ -3542,9 +3544,9 @@ public class SurveyMain extends HttpServlet {
             //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
             subCtx.removeQuery(QUERY_SECTION);
 
-           if(phaseVetting != true) {
+           if(phaseVetting == true) {
                 if((numNoVotes+numInsufficient)>0) {
-                    ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" insufficient items</span> </h4>");
+                    ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
                     for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
                         String item = (String)li.next();
                         printMenu(subCtx, "", item);
@@ -3554,7 +3556,7 @@ public class SurveyMain extends HttpServlet {
                     }
                 }
                 if(numDisputed>0) {
-                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" disputed< items/span> </h4>");
+                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" items with conflicting votes. </span> </h4>");
                     for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
                         String item = (String)li.next();
                         printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
@@ -5700,7 +5702,6 @@ public class SurveyMain extends HttpServlet {
             if((refs.length>0) && zoomedIn) {
                 String refHash = fieldHash;
                 ctx.print("<label>");
-                ctx.print("<a style='text-decoration: none;' href='javascript:hide(\"ref" + refHash + "\")'>" + "[hide]" +"</a>&nbsp;");
                 ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
                 if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
                     ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");

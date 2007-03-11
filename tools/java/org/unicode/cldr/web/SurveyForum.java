@@ -219,8 +219,10 @@ public class SurveyForum {
     void doZoom(WebContext ctx, String sessionMessage) {
         int base_xpath = ctx.fieldInt(F_XPATH);
         String xpath = sm.xpt.getById(base_xpath);
-        sm.printHeader(ctx,"Zoom | " + ctx.locale + " | Zoom on #" + base_xpath); // TODO: pretty path?
+        String prettyPath = sm.xpt.getPrettyPath(base_xpath);
+        sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | ") ); // TODO: pretty path?
         sm.printUserTable(ctx);
+        ctx.println("<h2>"+prettyPath+"</h2>");
         if(sessionMessage != null) {
             ctx.println(sessionMessage+"<hr>");
         }
@@ -316,9 +318,11 @@ public class SurveyForum {
             ctx.println("<br><br> <div class='response'>"+(text==null?("<i>none</i>"):preparePostText(text))+"</div><p>");
             ctx.println("</div><hr>");
         } else {
-            sm.printHeader(ctx,"Fora | " + forum + " | Zoom on #" + base_xpath);
+            String prettyPath = sm.xpt.getPrettyPath(base_xpath);
+            sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | "));
             printForumMenu(ctx, forum);
             ctx.println("<a href='"+forumUrl(ctx,forum)+"'>Return to " + forum + " forum</a>");
+            ctx.println("<h2>"+prettyPath+"</h2>");
         }
         
         if(replyTo != -1) {

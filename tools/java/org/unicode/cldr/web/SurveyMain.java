@@ -67,7 +67,7 @@ public class SurveyMain extends HttpServlet {
     public static final boolean phaseDisputed = false;
 	public static final boolean phaseReadonly = false;
     
-    public static final boolean phaseBeta = true;
+    public static final boolean phaseBeta = false;
 
     // Unofficial?
     public static       boolean isUnofficial = true;
@@ -4193,7 +4193,7 @@ public class SurveyMain extends HttpServlet {
         return sortMode;
     }
 
-    static int PODTABLE_WIDTH = 14; /** width, in columns, of the typical data table **/
+    static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
 
     static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
         ctx.println("<table summary='Data Items for "+ctx.localeString()+" " + pod.xpathPrefix + "' class='data' border='0'>");
@@ -4226,15 +4226,8 @@ public class SurveyMain extends HttpServlet {
                         " <th colspan='3'>Proposed</th>\n"+ // 7
                         " <th colspan='2' width='20%'>Change</th>\n");  // 8
         }
-        if(zoomedIn) {
-            ctx.println(" <th title='Reference'>" +
-                        "Rf"  + "</th>\n"+           // 9
-                    " <th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
+        ctx.println( "<th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
                     "</tr>");
-        } else { 
-            ctx.println(" <th colspan='2' title='No Opinion'>n/o</th>\n"+                   // 5
-                    "</tr>");
-        }
         if(zoomedIn) {
             List<String> refsList = new ArrayList<String>();
             ctx.temporaryStuff.put("references", refsList);
@@ -4259,7 +4252,7 @@ public class SurveyMain extends HttpServlet {
                 if(refsHash != null) {
                     DataPod.Pea refPea = refsHash.get(ref);
                     DataPod.Pea.Item refPeaItem = refsItemHash.get(ref);
-                    if(refPeaItem != null) {
+                    if((refPeaItem != null)&&(refPea!=null)) {
                         ctx.print(refPeaItem.value);
                         if(refPea.displayName != null) {
                             ctx.println("<br>"+refPea.displayName);
@@ -4369,7 +4362,9 @@ public class SurveyMain extends HttpServlet {
                 if(winner == null) {
                     winner = someItem; // pick a random item. 
                 }
-                refsItemHash.put(p.type, winner);
+                if(winner != null) {
+                    refsItemHash.put(p.type, winner);
+                }
             }
             if(!refsSet.isEmpty()) {
                 refs = (String[])refsSet.toArray((Object[]) refs);
@@ -5508,7 +5503,44 @@ public class SurveyMain extends HttpServlet {
                     }
                     ctx.println ("</select></label></span>");
                 }
-                
+               
+                // references
+                if(zoomedIn) {
+                    ctx.print("<br>");
+                    if((refs.length>0) && zoomedIn) {
+                        String refHash = fieldHash;
+                        Hashtable<String,DataPod.Pea.Item> refsItemHash = (Hashtable<String, DataPod.Pea.Item>)ctx.temporaryStuff.get("refsItemHash");
+                        ctx.print("<label>");
+                        ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
+                        if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
+                            ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
+                            ctx.print("<option value='' SELECTED></option>");
+                            for(int i=0;i<refs.length;i++) {
+                                String refValue = null;
+                                // 1: look for a confirmed value
+                                
+                                DataPod.Pea.Item refItem = refsItemHash.get(refs[i]);
+                                if(refItem != null) {
+                                    refValue = refItem.value;
+                                }
+                                if(refValue == null) {
+                                    refValue = " (null) ";
+                                } else {
+                                    if(refValue.length()>(REFS_SHORTEN_WIDTH-1)) {
+                                        refValue = refValue.substring(0,REFS_SHORTEN_WIDTH)+"\u2026"; // "..."
+                                    }
+                                }
+                                
+                                ctx.print("<option value='"+refs[i]+"'>"+refs[i]+": " + refValue+"</option>");
+                            }
+                            ctx.println("</select>");
+                        }
+                        ctx.print("</label>");
+                    } else {
+                        ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Add Reference</a>");
+                    }
+                }
+                  
                 ctx.println("</td>");
             } else  {
                 ctx.println("</td>");
@@ -5520,41 +5552,6 @@ public class SurveyMain extends HttpServlet {
 
         } else {
             ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");  // no 'changeto' cells.
-        }
-        // ##8 References
-        if(zoomedIn) {
-            ctx.print("<td rowspan='"+rowSpan+"'>");
-            if((refs.length>0) && zoomedIn) {
-                String refHash = fieldHash;
-                Hashtable<String,DataPod.Pea.Item> refsItemHash = (Hashtable<String, DataPod.Pea.Item>)ctx.temporaryStuff.get("refsItemHash");
-                ctx.print("<label>");
-                ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
-                if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
-                    ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
-                    ctx.print("<option value='' SELECTED></option>");
-                    for(int i=0;i<refs.length;i++) {
-                        String refValue = null;
-                        // 1: look for a confirmed value
-                        
-                        DataPod.Pea.Item refItem = refsItemHash.get(refs[i]);
-                        if(refItem != null) {
-                            refValue = refItem.value;
-                        }
-                        if(refValue == null) {
-                            refValue = " (null) ";
-                        } else {
-                            if(refValue.length()>(REFS_SHORTEN_WIDTH-1)) {
-                                refValue = refValue.substring(0,REFS_SHORTEN_WIDTH)+"\u2026"; // "..."
-                            }
-                        }
-                        
-                        ctx.print("<option value='"+refs[i]+"'>"+refs[i]+": " + refValue+"</option>");
-                    }
-                    ctx.println("</select>");
-                }
-                ctx.print("</label>");
-            }
-            ctx.println("</td>");
         }
 
         // No/Opinion.
@@ -5742,7 +5739,7 @@ public class SurveyMain extends HttpServlet {
         if(winner) {
             pClass = "class='winner' title='Winning item.'";
         } else if(item.pathWhereFound != null) {
-            pClass = "class='alias' title='alias from somewhere'";
+            pClass = "class='alias' title='alias from "+xpt.getPrettyPath(item.pathWhereFound)+"'";
         } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
             if(XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom)) {
                 pClass = "class='fallback_code' title='Untranslated Code'";

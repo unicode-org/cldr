@@ -1516,7 +1516,7 @@ public class DataPod extends Registerable {
             myItem.xpath = xpath;
             myItem.xpathId = src.xpt.getByXpath(xpath);
 
-            if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+            if(!sourceLocaleStatus.pathWhereFound.equals(baseXpath)) {
                 myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
             }
             myItem.inheritFrom = setInheritFrom;

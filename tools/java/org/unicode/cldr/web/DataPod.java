@@ -1153,10 +1153,11 @@ public class DataPod extends Registerable {
             String originalBaseXpath = baseXpath;
 
             // Check for attribute types
+            /*
             AttributeChoice attributeChoice = AttributeChoice.createChoice(baseXpath);
             if(attributeChoice != null) {
                 confirmOnly = true;
-                attributeChoice = null;
+                attributeChoice = null;*/
 /*                
                 // MAY need a remapping.
                 String attributeBasePath = attributeChoice.baseXpath;
@@ -1165,7 +1166,7 @@ public class DataPod extends Registerable {
                     baseXpath = attributeBasePath;
                 }
 */
-            }
+         /*   }*/
             
             if(fullPath == null) {
                 System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
@@ -1242,10 +1243,11 @@ public class DataPod extends Registerable {
                 }
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
-            //} else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+            } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
+                confirmOnly = true;
             //    isToggleFor = "used";
-            //} else if(xpath.indexOf("/layout/inList")!=-1) {
-            //    confirmOnly = true;
+            } else if(xpath.indexOf("/layout/inList")!=-1) {
+                confirmOnly = true;
             }
             
             if(useShorten) {
@@ -1268,9 +1270,9 @@ public class DataPod extends Registerable {
             
             if(value == null) {
 //                throw new InternalError("Value of " + xpath + " is null.");
-                if(attributeChoice == null) {
+/*                if(attributeChoice == null) {
                   System.err.println("Value of " + xpath + " is null.");
-                }
+                }*/
                  value = "(NOTHING)";
             }
             
@@ -1320,10 +1322,10 @@ public class DataPod extends Registerable {
 
             if(!isReferences) {
                 if(p.inheritedValue == null) {
-                    p.updateInheritedValue(vettedParent);
+                    p.updateInheritedValue(vettedParent, checkCldr, checkCldrResult);
                 }
                 if(superP.inheritedValue == null) {
-                    superP.updateInheritedValue(vettedParent);
+                    superP.updateInheritedValue(vettedParent, checkCldr, checkCldrResult);
                 }
             }
             if(isToggleFor != null) {
@@ -1336,7 +1338,7 @@ public class DataPod extends Registerable {
             }
             
             
-            if(attributeChoice != null) {
+/*            if(attributeChoice != null) {
                 p.attributeChoice = attributeChoice;
                 p.valuesList = p.attributeChoice.valuesList;
 
@@ -1344,7 +1346,7 @@ public class DataPod extends Registerable {
                     superP.attributeChoice = p.attributeChoice;
                     superP.valuesList = p.valuesList;
                 }
-            }
+            }*/
             
             if(p.type.startsWith("layout/inText")) {
                 p.valuesList = LAYOUT_INTEXT_VALUES;
@@ -1410,12 +1412,12 @@ public class DataPod extends Registerable {
             boolean isInherited = !(sourceLocale.equals(locale));
             
             // with xpath munging, attributeChoice items show up as code fallback. Correct it.
-            if(attributeChoice!=null && isInherited) {
+/*            if(attributeChoice!=null && isInherited) {
                 if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
                     isInherited = false;
                     sourceLocale = locale;
                 }
-            }
+            }*/
 ///*SRL*/     if(xpath.indexOf("Acre")>-1) {
 //                System.err.println(locale + " - CHI0 - " + xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
 //            }
@@ -1448,9 +1450,6 @@ public class DataPod extends Registerable {
                 }
             }
             
-///*SRL*/     if(xpath.indexOf("Acre")>-1) {
-//                System.err.println(locale + " - CHI - " + xpath + " V:"+value+" - I:"+isInherited);
-//            }
             
             String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
             boolean isCodeFallback = (setInheritFrom!=null)&&
@@ -1461,17 +1460,17 @@ public class DataPod extends Registerable {
             }
             DataPod.Pea.Item myItem;
             
-            if(p.attributeChoice != null) {
+/*            if(p.attributeChoice != null) {
                 String newValue = p.attributeChoice.valueOfXpath(fullPath);
 //       System.err.println("ac:"+fullPath+" -> " + newValue);
                 value = newValue;
-            }
+            }*/
             
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
             if(checkCldrResult.isEmpty()) {
                myItem = p.addItem( value, altProposed, null);
             } else {
-                myItem = p.addItem( value, altProposed, checkCldrResult);
+               myItem = p.addItem( value, altProposed, checkCldrResult);
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 int errorCount = 0;
@@ -1628,14 +1627,18 @@ public class DataPod extends Registerable {
         ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
 
                     if(isMetazones) {
-                        myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);
+                        if(suff.indexOf("commonlyUsed[@used")!=-1) {
+                            myp.confirmOnly = true;
+                        }
+
+                        /*myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);
                         if(myp.attributeChoice != null) {
                             myp.attributeChoice = null;
-                            myp.confirmOnly = true;
+                            myp.confirmOnly = true;*/
                             /*
                             myp.valuesList = myp.attributeChoice.valuesList;
                             */
-                        }
+                        /*}*/
                     }
                     
 /*                    if(suff.indexOf("commonlyUsed[@used")!=-1) {

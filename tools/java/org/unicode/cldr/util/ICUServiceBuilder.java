@@ -273,7 +273,7 @@ public class ICUServiceBuilder {
 //  the following code didn't do anything, so I'm wondering what it was there for?
     // it's to catch errors
     if (result.size() < minimumSize) {
-      throw new RuntimeException(); 
+      throw new RuntimeException("Internal Error: ICUServiceBuilder.getArray():"+cldrFile.getLocaleID()+" "+prefix+lastType+postfix+" - result.size="+result.size() +", less than acceptable minimum " + minimumSize); 
       //Collection s = CollectionUtilities.addAll(cldrFile.iterator(prefix), new TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
       //String item = cldrFile.getStringValue(prefix + lastType + postfix);
       //throw new IllegalArgumentException("Can't find enough items");

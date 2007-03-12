@@ -214,7 +214,44 @@ public class DataPod extends Registerable {
                 System.err.println("I= "+this+" : " + i);
                 return false;
             }*/
-            
+
+            public void setTests(List testList) {
+                tests = testList;
+                // only consider non-example tests as notable.
+                boolean weHaveTests = false;
+                int errorCount = 0;
+                int warningCount =0 ;
+                for (Iterator it3 = tests.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if(status.getType().equals(status.exampleType)) {
+                        //throw new InternalError("Not supposed to be any examples here.");
+                    /*
+                        if(myItem.examples == null) {
+                            myItem.examples = new Vector();
+                        }
+                        myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
+                        */
+                    } else /* if (!(isCodeFallback &&
+                        (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) */ { 
+                        // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
+                        weHaveTests = true;
+                        if(status.getType().equals(status.errorType)) {
+                            errorCount++;
+                        } else if(status.getType().equals(status.warningType)) {
+                            warningCount++;
+                        }
+                    }
+                }
+                if(weHaveTests) {
+                    /* pea */ hasTests = true;
+                    if(errorCount>0) /* pea */ hasErrors = true;
+                    if(warningCount>0) /* pea */ hasWarnings = true;
+                    // propagate to parent
+                    superPea.hasTests = true;
+                    if(errorCount>0) /* pea */ superPea.hasErrors = true;
+                    if(warningCount>0) /* pea */ superPea.hasWarnings = true;
+                }
+            }
         }
         
         Item inheritedValue = null; // vetted value inherited from parent
@@ -288,7 +325,7 @@ public class DataPod extends Registerable {
             return p;
         }
         
-        void updateInheritedValue(CLDRFile vettedParent) {
+        void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr) {
             if(vettedParent == null) {
                 return;
             }
@@ -296,29 +333,41 @@ public class DataPod extends Registerable {
             if(base_xpath == -1) {
                 return;
             }
+            
             String xpath = sm.xpt.getById(base_xpath);
+            
             if(xpath == null) {
                 return;
             }
-            String value = vettedParent.getStringValue(xpath);
             
-            if(value != null) {
-                inheritedValue = new Item();
-
-                CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
-                String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
-
-                inheritedValue.inheritFrom = sourceLocale;
-                inheritedValue.value = value;
-                inheritedValue.xpath = xpath;
-                inheritedValue.xpathId = base_xpath;
-                inheritedValue.isFallback = true;
+            if(inheritedValue == null) {
+                String value = vettedParent.getStringValue(xpath);
                 
-/*                if(value.equals("Angika-sprache")) {
-                    System.err.println("anp: fb " + this + " / " + inheritedValue + " ," );
-                    System.err.println("x:"+xpath+", v:"+value+", s:"+sourceLocale);
-                } */
+                if(value != null) {
+                    inheritedValue = new Item();
+
+                    CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+                    String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
+
+                    inheritedValue.inheritFrom = sourceLocale;
+                    inheritedValue.value = value;
+                    inheritedValue.xpath = xpath;
+                    inheritedValue.xpathId = base_xpath;
+                    inheritedValue.isFallback = true;
+                    
+    /*                if(value.equals("Angika-sprache")) {
+                        System.err.println("anp: fb " + this + " / " + inheritedValue + " ," );
+                        System.err.println("x:"+xpath+", v:"+value+", s:"+sourceLocale);
+                    } */
+                }
             }
+            
+            if((checkCldr != null) && (inheritedValue.tests == null)) {
+                List iTests = new ArrayList();
+             //   checkCldr.check(xpath, fullPath, inheritedValue.value, options, checkCldrResult);
+             //   checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
+            }
+            
         }
         
         private String replaceEndWith(String str, String oldEnd, String newEnd) {
@@ -1150,7 +1199,7 @@ public class DataPod extends Registerable {
             int base_xpath = src.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = src.xpt.getById(base_xpath);
             
-            String originalBaseXpath = baseXpath;
+      //      String originalBaseXpath = baseXpath;
 
             // Check for attribute types
             /*
@@ -1277,7 +1326,7 @@ public class DataPod extends Registerable {
             }
             
 //if(ndebug)    System.err.println("n02  "+(System.currentTimeMillis()-nextTime));
-//            System.out.println("* T=" + type + ", X= " + xpath);
+//if("gsw".equals(type))            System.out.println("* T=" + type + ", X= " + xpath + ", v=" + value);
             String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
 
 //    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
@@ -1310,7 +1359,7 @@ public class DataPod extends Registerable {
 ///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
             Pea superP = getPea(type);
-///*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
+//if("gsw".equals(type)) /*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
                 p.xpathSuffix = peaSuffixXpath;
@@ -1322,10 +1371,10 @@ public class DataPod extends Registerable {
 
             if(!isReferences) {
                 if(p.inheritedValue == null) {
-                    p.updateInheritedValue(vettedParent, checkCldr, checkCldrResult);
+                    p.updateInheritedValue(vettedParent, null);
                 }
                 if(superP.inheritedValue == null) {
-                    superP.updateInheritedValue(vettedParent, checkCldr, checkCldrResult);
+                    superP.updateInheritedValue(vettedParent, null);
                 }
             }
             if(isToggleFor != null) {
@@ -1407,7 +1456,7 @@ public class DataPod extends Registerable {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
             }
-            String sourceLocale = aFile.getSourceLocaleID(originalBaseXpath, sourceLocaleStatus);
+            String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
             
             boolean isInherited = !(sourceLocale.equals(locale));
             
@@ -1423,6 +1472,8 @@ public class DataPod extends Registerable {
 //            }
             // ** IF it is inherited, do NOT add any Items.   
             if(isInherited) {
+//                if("gsw".equals(type)) System.err.println("BAIL?? "+ xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
+
                 continue;
             }
             
@@ -1467,55 +1518,19 @@ public class DataPod extends Registerable {
             }*/
             
  //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
-            if(checkCldrResult.isEmpty()) {
-               myItem = p.addItem( value, altProposed, null);
-            } else {
-               myItem = p.addItem( value, altProposed, checkCldrResult);
-                // only consider non-example tests as notable.
-                boolean weHaveTests = false;
-                int errorCount = 0;
-                int warningCount =0 ;
-                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if(status.getType().equals(status.exampleType)) {
-                        //throw new InternalError("Not supposed to be any examples here.");
-                    /*
-                        if(myItem.examples == null) {
-                            myItem.examples = new Vector();
-                        }
-                        myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
-                        */
-                    } else /* if (!(isCodeFallback &&
-                        (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) */ { 
-                        // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
-                        weHaveTests = true;
-                        if(status.getType().equals(status.errorType)) {
-                            errorCount++;
-                        } else if(status.getType().equals(status.warningType)) {
-                            warningCount++;
-                        }
-                    }
-                }
-                if(weHaveTests) {
-                    p.hasTests = true;
-                    p.hasErrors = (errorCount>0);
-                    p.hasWarnings = (warningCount>0);
-                    // propagate to parent
-                    superP.hasTests = true;
-                    if(p.hasErrors) {
-                        superP.hasErrors = true;
-                    }
-                    if(p.hasWarnings) {
-                        superP.hasWarnings = true;
-                    }
-                }
+            myItem = p.addItem( value, altProposed, null);
+//if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
+            
+            if(!checkCldrResult.isEmpty()) {
+                myItem.setTests(checkCldrResult);
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
             }
             myItem.xpath = xpath;
             myItem.xpathId = src.xpt.getByXpath(xpath);
 
-            if(!sourceLocaleStatus.pathWhereFound.equals(baseXpath)) {
+            if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+//System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
                 myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
             }
             myItem.inheritFrom = setInheritFrom;

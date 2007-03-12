@@ -274,6 +274,15 @@ public class SurveyMain extends HttpServlet {
         doGet(request,response); // eeh.
     }
                     
+    
+    static final private String BAD_IPS [] = {
+                "66.154.103.161",
+                "203.148.64.17",
+                "65.55.212.188", // MSFT search.live.com
+                "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
+                "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
+                 };
+    
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException
     {
@@ -284,15 +293,12 @@ public class SurveyMain extends HttpServlet {
             startupTime = null;
         }
         
-        /* 
-            prevent spidering of the site
-        */
-        if(request.getRemoteAddr().equals("66.154.103.161") ||
-		   request.getRemoteAddr().equals("203.148.64.17") ||
-           request.getRemoteAddr().equals("65.55.212.188") || // MSFT search.live.com
-           request.getRemoteAddr().equals("38.98.120.72") || // 38.98.120.72 - feb 7, 2007-  lots of connections
-           false) {
-            response.sendRedirect(URL_CLDR);
+        String remoteIP = request.getRemoteAddr();
+        
+        for( String badIP : BAD_IPS ) {  // no spiders, please.
+            if(badIP.equals(remoteIP)) {
+                response.sendRedirect(URL_CLDR);
+            }
         }
         
         response.setHeader("Cache-Control", "no-cache");
@@ -3505,6 +3511,7 @@ public class SurveyMain extends HttpServlet {
         String dbVer = makeDBSource(null,ctx.locale).getSourceRevision();
         
         // what should users be notified about?
+        //ElapsedTimer et = new ElapsedTimer();    
         int vetStatus = vet.status(ctx.localeString());
         if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
             ctx.println("<hr>");
@@ -3515,6 +3522,7 @@ public class SurveyMain extends HttpServlet {
          
             Hashtable insItems = new Hashtable();
             Hashtable disItems = new Hashtable();
+
             synchronized(vet.conn) { 
                 try { // moderately expensive.. since we are tying up vet's connection..
                     ResultSet rs = vet.listBadResults(ctx.localeString());
@@ -3538,7 +3546,9 @@ public class SurveyMain extends HttpServlet {
                 } catch (SQLException se) {
                     throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
                 }
+                // et.tostring
             }
+            
             WebContext subCtx = new WebContext(ctx);
             //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
             subCtx.removeQuery(QUERY_SECTION);

@@ -3511,71 +3511,72 @@ public class SurveyMain extends HttpServlet {
         String dbVer = makeDBSource(null,ctx.locale).getSourceRevision();
         
         // what should users be notified about?
-        //ElapsedTimer et = new ElapsedTimer();    
-        int vetStatus = vet.status(ctx.localeString());
-        if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
-            ctx.println("<hr>");
-            int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
-            int numInsufficient = vet.countResultsByType(ctx.localeString(),Vetting.RES_INSUFFICIENT);
-            int numDisputed = vet.countResultsByType(ctx.localeString(),Vetting.RES_DISPUTED);
-    //            rv = rv + ("");
-         
-            Hashtable insItems = new Hashtable();
-            Hashtable disItems = new Hashtable();
+        if(phaseVetting) {
+            int vetStatus = vet.status(ctx.localeString());
+            if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
+                ctx.println("<hr>");
+                int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
+                int numInsufficient = vet.countResultsByType(ctx.localeString(),Vetting.RES_INSUFFICIENT);
+                int numDisputed = vet.countResultsByType(ctx.localeString(),Vetting.RES_DISPUTED);
+             
+                Hashtable insItems = new Hashtable();
+                Hashtable disItems = new Hashtable();
 
-            synchronized(vet.conn) { 
-                try { // moderately expensive.. since we are tying up vet's connection..
-                    ResultSet rs = vet.listBadResults(ctx.localeString());
-                    while(rs.next()) {
-                        int xp = rs.getInt(1);
-                        int type = rs.getInt(2);
-                        
-                        String path = xpt.getById(xp);
-                        
-                        String theMenu = xpathToMenu(path);
-                        
-                        if(theMenu != null) {
-                            if(type == Vetting.RES_DISPUTED) {
-                                disItems.put(theMenu, "");// what goes here?
-                            } else {
-                                insItems.put(theMenu, "");
+                synchronized(vet.conn) { 
+                    try { // moderately expensive.. since we are tying up vet's connection..
+                        ResultSet rs = vet.listBadResults(ctx.localeString());
+                        while(rs.next()) {
+                            int xp = rs.getInt(1);
+                            int type = rs.getInt(2);
+                            
+                            String path = xpt.getById(xp);
+                            
+                            String theMenu = xpathToMenu(path);
+                            
+                            if(theMenu != null) {
+                                if(type == Vetting.RES_DISPUTED) {
+                                    disItems.put(theMenu, "");// what goes here?
+                                } else {
+                                    insItems.put(theMenu, "");
+                                }
+                            }
+                        }
+                        rs.close();
+                    } catch (SQLException se) {
+                        throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+                    }
+                    // et.tostring
+                }
+                
+                WebContext subCtx = new WebContext(ctx);
+                //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+                subCtx.removeQuery(QUERY_SECTION);
+
+               if(phaseVetting == true) {
+                    if((numNoVotes+numInsufficient)>0) {
+                        ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
+                        for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
+                            String item = (String)li.next();
+                            printMenu(subCtx, "", item);
+                            if(li.hasNext() ) {
+                                subCtx.print(" | ");
                             }
                         }
                     }
-                    rs.close();
-                } catch (SQLException se) {
-                    throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
-                }
-                // et.tostring
-            }
-            
-            WebContext subCtx = new WebContext(ctx);
-            //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
-            subCtx.removeQuery(QUERY_SECTION);
-
-           if(phaseVetting == true) {
-                if((numNoVotes+numInsufficient)>0) {
-                    ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
-                    for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
-                        String item = (String)li.next();
-                        printMenu(subCtx, "", item);
-                        if(li.hasNext() ) {
-                            subCtx.print(" | ");
-                        }
-                    }
-                }
-                if(numDisputed>0) {
-                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" items with conflicting votes. </span> </h4>");
-                    for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
-                        String item = (String)li.next();
-                        printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
-                        if(li.hasNext() ) {
-                            subCtx.print(" | ");
+                    if(numDisputed>0) {
+                        ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" items with conflicting votes. </span> </h4>");
+                        for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
+                            String item = (String)li.next();
+                            printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
+                            if(li.hasNext() ) {
+                                subCtx.print(" | ");
+                            }
                         }
                     }
                 }
             }
         }
+        
         ctx.println("<hr/><p><p>");
         ctx.println("<h3>Basic information about the Locale</h3>");
         
@@ -3595,7 +3596,7 @@ public class SurveyMain extends HttpServlet {
         if(dbVer != null) {
             ctx.println( LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "CVS version #" + dbVer + "</a>");
             if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "(Note: " + diskVer + " may be installed soon.)</a>");
+                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.localeString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
             }
         }    
         ctx.println(SLOW_PAGE_NOTICE);

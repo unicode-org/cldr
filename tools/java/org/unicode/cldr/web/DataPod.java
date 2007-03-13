@@ -325,7 +325,11 @@ public class DataPod extends Registerable {
             return p;
         }
         
-        void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr) {
+        void updateInheritedValue(CLDRFile vettedParent) {
+            updateInheritedValue(vettedParent,null, null);
+        }
+        
+        void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr, Map options) {
             if(vettedParent == null) {
                 return;
             }
@@ -364,8 +368,11 @@ public class DataPod extends Registerable {
             
             if((checkCldr != null) && (inheritedValue.tests == null)) {
                 List iTests = new ArrayList();
-             //   checkCldr.check(xpath, fullPath, inheritedValue.value, options, checkCldrResult);
-             //   checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
+                checkCldr.check(xpath, xpath, inheritedValue.value, options, iTests);
+             //   checkCldr.getExamples(xpath, fullPath, value, ctx.getOptionsMap(), examplesResult);
+                if(!iTests.isEmpty()) {
+                    inheritedValue.setTests(iTests);
+                }
             }
             
         }
@@ -1371,10 +1378,10 @@ public class DataPod extends Registerable {
 
             if(!isReferences) {
                 if(p.inheritedValue == null) {
-                    p.updateInheritedValue(vettedParent, null);
+                    p.updateInheritedValue(vettedParent);
                 }
                 if(superP.inheritedValue == null) {
-                    superP.updateInheritedValue(vettedParent, null);
+                    superP.updateInheritedValue(vettedParent);
                 }
             }
             if(isToggleFor != null) {
@@ -1473,7 +1480,9 @@ public class DataPod extends Registerable {
             // ** IF it is inherited, do NOT add any Items.   
             if(isInherited) {
 //                if("gsw".equals(type)) System.err.println("BAIL?? "+ xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
-
+                if(!isReferences) {
+                    p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
+                }
                 continue;
             }
             

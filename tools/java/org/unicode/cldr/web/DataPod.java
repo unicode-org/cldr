@@ -640,10 +640,16 @@ public class DataPod extends Registerable {
     private Partition[] createSubmitPartitions() {
         Partition theTestPartitions[] = 
         {                 
-                new Partition("Errors and Warnings", 
+                new Partition("Errors", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return (p.hasErrors||p.hasWarnings);
+                            return (p.hasErrors);
+                        }
+                    }),
+                new Partition("Warnings", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasWarnings);
                         }
                     }),
                 new Partition("Unconfirmed", 

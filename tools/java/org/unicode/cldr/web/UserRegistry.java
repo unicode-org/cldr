@@ -693,6 +693,7 @@ public class UserRegistry {
                 switch(type) {
                     case INFO_EMAIL: 
                         updateInfoStmt = updateInfoEmailStmt;
+                        value = value.toLowerCase();
                         break;
                     case INFO_NAME:
                         updateInfoStmt = updateInfoNameStmt;
@@ -774,7 +775,7 @@ public class UserRegistry {
             return null;
         }
         // prepare quotes 
-        u.email = u.email.replace('\'', '_');
+        u.email = u.email.replace('\'', '_').toLowerCase();
         u.org = u.org.replace('\'', '_');
         u.name = u.name.replace('\'', '_');
         u.locales = u.locales.replace('\'', '_');

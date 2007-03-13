@@ -953,7 +953,7 @@ public class DataPod extends Registerable {
             if(SHOW_TIME) {
                 System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
             }
-            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true));
+            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), Utility.SUPPLEMENTAL_DIRECTORY);
         }
 		return pod;
 	}

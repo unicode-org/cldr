@@ -3699,7 +3699,7 @@ public class SurveyMain extends HttpServlet {
 
     public synchronized ExampleGenerator getBaselineExample() {
         if(gBaselineExample == null) {
-            gBaselineExample = new ExampleGenerator(getBaselineFile());
+            gBaselineExample = new ExampleGenerator(getBaselineFile(), Utility.SUPPLEMENTAL_DIRECTORY);
         }
         return gBaselineExample;
     }

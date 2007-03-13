@@ -1070,6 +1070,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
       }
       return result;
     }
+
+    public String getSourceDirectory() {
+      return sourceDirectory;
+    }
     
   }
   
@@ -2344,6 +2348,4 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     return result;
   }
-
-  
 }

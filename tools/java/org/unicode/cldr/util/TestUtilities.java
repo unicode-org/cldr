@@ -9,6 +9,26 @@
 
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.GenerateAttributeList;
+import org.unicode.cldr.util.CLDRFile.Factory;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedBreakIterator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UniversalTimeScale;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -23,37 +43,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.tool.GenerateAttributeList;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.xml.sax.XMLFilter;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.CollectionUtilities;
-import com.ibm.icu.impl.ICUResourceBundle;
-import com.ibm.icu.impl.UCharacterProperty;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedBreakIterator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.UResourceBundle;
-import com.ibm.icu.util.UniversalTimeScale;
 
 /**
  * @author davis
@@ -105,7 +99,7 @@ public class TestUtilities {
     Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     CLDRFile english = mainCldrFactory.make("en", true);
     System.out.println("Creating Example Generator");
-    ExampleGenerator englishExampleGenerator = new ExampleGenerator(english);
+    ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, Utility.SUPPLEMENTAL_DIRECTORY);
     // invoke once
     String foo = englishExampleGenerator.getHelpHtml("", null);
     System.out.println("Processing paths");

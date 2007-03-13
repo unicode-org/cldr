@@ -38,7 +38,7 @@ public class TestMisc {
       checkEastAsianWidth();
       if (true) return;
       
-      ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false));
+      ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false), Utility.SUPPLEMENTAL_DIRECTORY);
       System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
       System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
       System.out.println(eg.getHelpHtml("/calendar/pattern",""));

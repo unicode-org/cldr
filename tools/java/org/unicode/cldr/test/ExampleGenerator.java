@@ -2,13 +2,13 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -21,15 +21,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ChoiceFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExampleGenerator {
   private final static boolean DEBUG_SHOW_HELP = false;
+  private static SupplementalDataInfo supplementalDataInfo;
   
   public enum Zoomed {
     /** For the zoomed-out view. */
@@ -80,6 +84,7 @@ public class ExampleGenerator {
   private XPathParts parts = new XPathParts();
   
   private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+  private Set<String> singleCountryZones;
   
   public String getBackgroundEnd() {
     return backgroundEnd;
@@ -111,10 +116,18 @@ public class ExampleGenerator {
     this.backgroundStart = backgroundStart;
   }
   
-  public ExampleGenerator(CLDRFile resolvedCLDRFile) {
+  public ExampleGenerator(CLDRFile resolvedCLDRFile, String supplementalDataDirectory) {
     this.cldrFile = resolvedCLDRFile;
     icuServiceBuilder.setCldrFile(resolvedCLDRFile);
     col = Collator.getInstance(new ULocale(resolvedCLDRFile.getLocaleID()));
+    synchronized (ExampleGenerator.class) {
+      if (supplementalDataInfo == null) {
+        supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
+      }
+    }
+    String singleCountriesPath = resolvedCLDRFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
+    parts.set(singleCountriesPath);
+    singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1,"list").trim().split("\\s+")));
   }
   
   /**
@@ -156,7 +169,28 @@ public class ExampleGenerator {
         break main;
       }
       if (parts.contains("timeZoneNames")) {
-        if (parts.contains("regionFormat")) { // {0} Time
+        if (parts.contains("exemplarCity")) {
+//        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+          String timezone = parts.getAttributeValue(3,"type");
+          String countryCode = supplementalDataInfo.getZone_territory(timezone);
+          if (countryCode == null || countryCode.equals("001")) {
+            break main; // fail, skip
+          }
+          String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
+          boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
+          // we show just country for singlezone countries
+          if (singleZone) {
+            result = countryName;
+          } else {
+            // otherwise we show the fallback with exemplar
+            String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+            String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+            // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+            // = Λος Άντζελες
+            result = MessageFormat.format(fallback, new Object[] { value, countryName });
+            result = MessageFormat.format(timeFormat, new Object[] { result });
+          }
+        } else if (parts.contains("regionFormat")) { // {0} Time
           String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
           result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
         } else if (parts.contains("fallbackFormat")) { // {1} ({0})

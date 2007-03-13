@@ -2,9 +2,13 @@ package org.unicode.cldr.util;
 
 import com.ibm.icu.text.MessageFormat;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -163,17 +167,65 @@ public class SupplementalDataInfo {
   private Set<String> allLanguages = new TreeSet();
   
   private Relation<String,String> containment = new Relation(new TreeMap(), TreeSet.class);
+  
+  private Set<String> multizone = new TreeSet();
+  
+  private Map<String, String> zone_territory = new TreeMap();
+  
+  private Relation<String, String> zone_aliases = new Relation(new TreeMap(), TreeSet.class);
+ 
+  private Map<String, String> alias_zone = new TreeMap();
 
-  public SupplementalDataInfo(String supplementalFileName) {
-    XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
-    xfr.read(supplementalFileName, -1, true);
+  static Map<String,SupplementalDataInfo> directory_instance = new HashMap();
+
+  public static SupplementalDataInfo getInstance(String supplementalDirectory) {
+    synchronized (SupplementalDataInfo.class) {
+      SupplementalDataInfo instance = directory_instance.get(supplementalDirectory);
+      if (instance != null) {
+        return instance;
+      }
+      // canonicalize name & try again
+      String canonicalpath;
+      try {
+        canonicalpath = new File(supplementalDirectory).getCanonicalPath();
+      } catch (IOException e) {
+        throw (IllegalArgumentException) new IllegalArgumentException().initCause(e);
+      }
+      if (!canonicalpath.equals(supplementalDirectory)) {
+        instance = directory_instance.get(canonicalpath);
+        if (instance != null) {
+          directory_instance.put(supplementalDirectory, instance);
+          return instance;
+        }
+      }
+      instance = new SupplementalDataInfo();
+      XMLFileReader xfr = new XMLFileReader().setHandler(instance.new MyHandler());
+      xfr.read(canonicalpath + "/supplementalData.xml", -1, true);
+      instance.makeStuffSafe();
+      // cache
+      directory_instance.put(supplementalDirectory, instance);
+      if (!canonicalpath.equals(supplementalDirectory)) {
+        directory_instance.put(canonicalpath, instance);
+      }
+      return instance;
+    }
+  }
+  
+  private SupplementalDataInfo() {}; // hide
+
+  private void makeStuffSafe() {
     // now make stuff safe
     allLanguages.addAll(languageToPopulation.keySet());
     allLanguages.addAll(baseLanguageToPopulation.keySet());
     allLanguages = Collections.unmodifiableSet(allLanguages);
+    skippedElements = Collections.unmodifiableSet(skippedElements);
+    multizone = Collections.unmodifiableSet(multizone);
+    zone_territory = Collections.unmodifiableMap(zone_territory);
+    alias_zone = Collections.unmodifiableMap(alias_zone);
     
     containment.freeze();
     languageToLanguageData.freeze();
+    zone_aliases.freeze();
   }
 
   class MyHandler extends XMLFileReader.SimpleHandler {
@@ -184,9 +236,9 @@ public class SupplementalDataInfo {
     public void handlePathValue(String path, String value) {
       try {
         parts.set(path);
-        String secondLevel = parts.getElement(1);
+        String level1 = parts.getElement(1);
         // copy the rest from ShowLanguages later
-        if (secondLevel.equals("territoryInfo")) {
+        if (level1.equals("territoryInfo")) {
           //        <territoryInfo>
           //        <territory type="AD" gdp="1840000000" literacyPercent="100" population="66000"> <!--Andorra-->
           //        <languagePopulation type="ca" populationPercent="50"/>  <!--Catalan-->
@@ -233,7 +285,7 @@ public class SupplementalDataInfo {
           }
           return;
         }
-        if (secondLevel.equals("languageData")) {
+        if (level1.equals("languageData")) {
           //        <languageData>
           //        <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--  Reflecting submitted data, cldrbug #1013 -->
           //        <language type="ab" scripts="Cyrl" territories="GE" alt="secondary"/>
@@ -244,18 +296,53 @@ public class SupplementalDataInfo {
           languageToLanguageData.put(language, languageData);
           return;
         }
-        if (secondLevel.equals("generation") || secondLevel.equals("version")) {
+        if (level1.equals("generation") || level1.equals("version")) {
           // skip
           return;
         }
-        if (secondLevel.equals("territoryContainment")) {
+        if (level1.equals("territoryContainment")) {
           // <group type="001" contains="002 009 019 142 150"/>
           containment.putAll(parts.getAttributeValue(-1,"type"), Arrays.asList(parts.getAttributeValue(-1,"contains").split("\\s+")));
           return;
         }
-        if (!skippedElements.contains(secondLevel)) {
-          skippedElements.add(secondLevel);
-          System.out.println("TODO: Skipped Element: " + secondLevel + " - ... " + path + "...");
+        if (level1.equals("timezoneData")) {
+          String level2 = parts.getElement(2);
+          // <zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GL ID KI KZ MH MN MX MY NZ PF PT RU SJ UA UM US UZ" tzidVersion="2007c">
+          // <zoneItem type="Africa/Abidjan" territory="CI"/>
+          // <zoneItem type="Africa/Asmera" territory="ER" aliases="Africa/Asmara"/>
+          if (level2.equals("zoneFormatting")) {
+            if (multizone.size() == 0) {
+              multizone.addAll(Arrays.asList(parts.getAttributeValue(2,"multizone").trim().split("\\s+")));
+            }
+            String zone = parts.getAttributeValue(3,"type");
+            String territory = parts.getAttributeValue(3,"territory");
+            String aliases = parts.getAttributeValue(3,"aliases");
+            if (territory != null) {
+              zone_territory.put(zone, territory);
+            }
+            if (aliases != null) {
+              String[] aliasArray = aliases.split("\\s+");
+              zone_aliases.putAll(zone, Arrays.asList(aliasArray));
+              for (String alias : aliasArray) {
+                alias_zone.put(alias, zone);
+              }
+            }
+            
+            return;
+          }
+          
+          if (!skippedElements.contains(level1 + "/" + level2)) {
+            skippedElements.add(level1 + "/" + level2);
+            if (false) System.out.println("TODO: Skipped Element: " + level1 + " - ... " + path + "...");
+          }
+          //<mapTimezones type="windows"> <mapZone other="Dateline" type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line West-->
+        }
+        
+        // capture elements we didn't look at, since we should cover everything.
+        // this helps for updates
+        
+        if (!skippedElements.contains(level1)) {
+          skippedElements.add(level1);
         }
         //System.out.println("Skipped Element: " + path);
       } catch (Exception e) {
@@ -311,5 +398,34 @@ public class SupplementalDataInfo {
   
   public Set<String> getContainers() {
     return containment.keySet();
+  }
+
+  public Set<String> getSkippedElements() {
+    return skippedElements;
+  }
+
+  public Set<String> getZone_aliases(String zone) {
+    return zone_aliases.getAll(zone);
+  }
+
+  public String getZone_territory(String zone) {
+    return zone_territory.get(zone);
+  }
+
+  public Set<String> getMultizones() {
+    // TODO Auto-generated method stub
+    return multizone;
+  }
+
+  /**
+   * Return the canonicalized zone, or null if there is none.
+   * @param alias
+   * @return
+   */
+  public String getZoneFromAlias(String alias) {
+    String zone = alias_zone.get(alias);
+    if (zone != null) return zone;
+    if (zone_territory.get(alias) != null) return alias;
+    return null;
   }
 }

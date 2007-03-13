@@ -5,7 +5,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.SpreadSheet;
 import org.unicode.cldr.util.StandardCodes;
@@ -20,12 +19,8 @@ import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.SupplementalDataInfo.LanguageData;
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
-
-import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -77,7 +72,7 @@ public class ConvertLanguageData {
     pf2.setMinimumFractionDigits(2);
   }
   
-  static SupplementalDataInfo supplementalData = new SupplementalDataInfo("C:/cvsdata/unicode/cldr/common/supplemental/supplementalData.xml");
+  static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
   
   public static void main(String[] args) throws IOException, ParseException {
     try {

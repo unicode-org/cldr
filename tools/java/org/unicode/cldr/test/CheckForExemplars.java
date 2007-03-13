@@ -68,6 +68,7 @@ public class CheckForExemplars extends CheckCLDR {
     skip = false;
     return this;
   }
+  
   public CheckCLDR handleCheck(String path, String fullPath, String value,
       Map<String, String> options, List<CheckStatus> result) {
     if (skip) return this;

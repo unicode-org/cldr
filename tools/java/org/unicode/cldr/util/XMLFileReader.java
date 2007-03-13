@@ -8,8 +8,11 @@
 */
 package org.unicode.cldr.util;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Stack;
 
 import org.xml.sax.Attributes;
@@ -61,36 +64,45 @@ public class XMLFileReader {
      * @param validating if a validating parse is requested
      * @return list of alternating values.
      */
-	public XMLFileReader read(String fileName, int handlers, boolean validating) {
-    	try {
- 			XMLReader xmlReader = createXMLReader(validating);
- 			DEFAULT_DECLHANDLER.reset();
- 			if ((handlers & CONTENT_HANDLER) != 0) {
-				xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
- 			}
-			if ((handlers & ERROR_HANDLER) != 0) {
-				xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
-			}
-			if ((handlers & LEXICAL_HANDLER) != 0) {
-				xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
-			}
-			if ((handlers & DECLARATION_HANDLER) != 0) {
-				xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
-			}
-			FileInputStream fis = new FileInputStream(fileName);
-			InputSource is = new InputSource(fis);
-			is.setSystemId(fileName);
-			xmlReader.parse(is);
-			fis.close();
-			return this;
-    	} catch (SAXParseException e) {
-    		throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fileName).initCause(e);
-		} catch (SAXException e) {
-			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fileName).initCause(e);
-		} catch (IOException e) {
-			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fileName).initCause(e);
-		}    	 
+    public XMLFileReader read(String fileName, int handlers, boolean validating) {
+      try {
+        FileInputStream fis = new FileInputStream(fileName);
+        return read(fileName, new InputStreamReader(fis), handlers, validating);
+      } catch (IOException e) {
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fileName).initCause(e);
+      }    	 
     }
+    
+    public XMLFileReader read(String systemID, Reader reader, int handlers, boolean validating) {
+      try {
+        XMLReader xmlReader = createXMLReader(validating);
+        DEFAULT_DECLHANDLER.reset();
+        if ((handlers & CONTENT_HANDLER) != 0) {
+          xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
+        }
+        if ((handlers & ERROR_HANDLER) != 0) {
+          xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
+        }
+        if ((handlers & LEXICAL_HANDLER) != 0) {
+          xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
+        }
+        if ((handlers & DECLARATION_HANDLER) != 0) {
+          xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
+        }
+        InputSource is = new InputSource(reader);
+        is.setSystemId(systemID);
+        xmlReader.parse(is);
+        reader.close();
+        return this;
+      } catch (SAXParseException e) {
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID).initCause(e);
+      } catch (SAXException e) {
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID).initCause(e);
+      } catch (IOException e) {
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + systemID).initCause(e);
+      }      
+    }
+
 
     private class MyContentHandler implements ContentHandler, ErrorHandler, LexicalHandler, DeclHandler {
     	StringBuffer chars = new StringBuffer();

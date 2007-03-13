@@ -7,7 +7,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.LanguageData;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import java.util.Collections;
 import java.util.Set;
@@ -25,7 +24,7 @@ public class TestSupplementalData {
   
   static void checkAgainstLanguageScript() {
     StandardCodes sc = StandardCodes.make();
-    SupplementalDataInfo supplementalData = new SupplementalDataInfo("C:/cvsdata/unicode/cldr/common/supplemental/supplementalData.xml");
+    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Relation<String,String> otherTerritoryToLanguages = new Relation(new TreeMap(), TreeSet.class, null);
     // get other language data
     for (String language : sc.getGoodAvailableCodes("language")) {

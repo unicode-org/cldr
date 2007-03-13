@@ -98,7 +98,7 @@ abstract public class CheckCLDR {
   }
   public static void setDisplayInformation(CLDRFile displayInformation) {
     CheckCLDR.displayInformation = displayInformation;
-    englishExampleGenerator = new ExampleGenerator(displayInformation);
+    englishExampleGenerator = new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY);
   }
   static ExampleGenerator englishExampleGenerator;
   
@@ -324,7 +324,7 @@ abstract public class CheckCLDR {
 //        return;
 //      }
       
-      ExampleGenerator exampleGenerator = new ExampleGenerator(file);
+      ExampleGenerator exampleGenerator = new ExampleGenerator(file, Utility.SUPPLEMENTAL_DIRECTORY);
       Status pathStatus = new Status();
       int pathCount = 0;
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {

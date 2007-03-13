@@ -238,6 +238,7 @@ public class Iso639Data {
       prefix_suffix = new Relation(new TreeMap(), LinkedHashSet.class);
       suffix_prefix = new HashMap();
       toSource = new HashMap();
+      toSource.put("sh", Source.ISO_639_1); // add deprecated language
 
       while (true) {
         String line = in.readLine();

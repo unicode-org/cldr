@@ -1948,6 +1948,9 @@ public class SurveyMain extends HttpServlet {
     static final String LIST_MAILUSER = "mailthem";
     static final String LIST_MAILUSER_WHAT = "mailthem_t";
     static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
+
+    static final String LIST_ACTION_CHANGE_EMAIL = "setemail_";
+    static final String LIST_ACTION_CHANGE_NAME = "setname_";
     
     public static final String changeAtTo40(String s) {
         return s.replaceAll("@","%40");
@@ -2233,6 +2236,31 @@ public class SurveyMain extends HttpServlet {
                                 theirLocales = "";
                             }
                             ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
+                        } else if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
+                            // change of other stuff.
+                            if(action.equals(LIST_ACTION_CHANGE_EMAIL) ||
+                                 action.equals(LIST_ACTION_CHANGE_NAME)) {
+                                String what = action.equals(LIST_ACTION_CHANGE_EMAIL)?"Email":"Name";
+                                UserRegistry.InfoType type = action.equals(LIST_ACTION_CHANGE_EMAIL)?UserRegistry.InfoType.INFO_EMAIL:UserRegistry.InfoType.INFO_NAME;
+                                
+                                String s0 = ctx.field("string0"+what);
+                                String s1 = ctx.field("string1"+what);
+                                if(s0.equals(s1)&&s0.length()>0) {
+                                    ctx.println("<h4>Change "+what+" to <tt class='codebox'>"+s0+"</tt></h4>");
+                                    action = ""; // don't popup the menu again.
+                                    
+                                    msg = reg.updateInfo(ctx, theirId, theirEmail, type, s0);
+                                    ctx.println("<div class='fnotebox'>"+msg+"</div>");
+                                    ctx.println("<i>click Change again to see changes</i>");                                    
+                                } else {
+                                    ctx.println("<h4>Change " + what+"</h4>");
+                                    if(s0.length()>0) {
+                                        ctx.println("<p class='ferrbox'>Both fields must match.</p>");
+                                    }
+                                    ctx.println("<label><b>New "+what+ ":</b><input name='string0"+what+"' value='"+s0+"'></label><br>");
+                                    ctx.println("<label><b>New "+what+ ":</b><input name='string1"+what+"'> (confirm)</label>");
+                                }
+                            }
                         }
                         // ctx.println("Change to " + action);
                     } else {
@@ -2261,13 +2289,13 @@ public class SurveyMain extends HttpServlet {
                     { // PRINT MENU
                         ctx.print("<select name='" + theirTag + "'>");
                         // set user to VETTER
-                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                        ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
                         for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
                             int lev = UserRegistry.ALL_LEVELS[i];
                             doChangeUserOption(ctx, lev, theirLevel,
                                                (preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
                         }
-                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");                                                            
+                        ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");                                                            
                         ctx.println("   <option ");
                         if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
                             ctx.println(" SELECTED ");
@@ -2296,6 +2324,25 @@ public class SurveyMain extends HttpServlet {
                                 }
                                 ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
                             }
+                            if(just != null) { // only do these in 'zoomin' view.
+                                ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");     
+                                
+                                                                                                                                              
+                                // CHANGE EMAIL
+                                ctx.print (" <option ");
+                                if(LIST_ACTION_CHANGE_EMAIL.equals(action)) {
+                                    ctx.print (" SELECTED ");
+                                }
+                                ctx.println(" value='" + LIST_ACTION_CHANGE_EMAIL + "'>Change Email...</option>");
+                                
+                                
+                                // CHANGE NAME
+                                ctx.print(" <option  ");
+                                if(LIST_ACTION_CHANGE_NAME.equals(action)) {
+                                    ctx.print (" SELECTED ");
+                                }
+                                ctx.println(" value='" + LIST_ACTION_CHANGE_NAME + "'>Change Name...</option>");
+                            }
                         }
                         ctx.println("    </select>");
                     } // end menu
@@ -2303,9 +2350,9 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</td>");
                 
                 if(theirLevel <= UserRegistry.TC) {
-                    ctx.println("   <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
+                    ctx.println(" <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
                 } else {
-                    ctx.println("    <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
+                    ctx.println(" <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
                 }
                 
                 // are they logged in?

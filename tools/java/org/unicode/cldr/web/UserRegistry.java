@@ -78,6 +78,8 @@ public class UserRegistry {
     PreparedStatement queryStmt = null;
     PreparedStatement queryIdStmt = null;
     PreparedStatement queryEmailStmt = null;
+    PreparedStatement updateInfoEmailStmt = null;
+    PreparedStatement updateInfoNameStmt = null;
     PreparedStatement touchStmt = null;
     
     /**
@@ -300,6 +302,9 @@ public class UserRegistry {
           queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             touchStmt = conn.prepareStatement("UPDATE CLDR_USERS set lastlogin=CURRENT_TIMESTAMP where id=?");
+            
+            updateInfoEmailStmt = conn.prepareStatement("UPDATE CLDR_USERS set email=? WHERE id=? AND email=?");
+            updateInfoNameStmt = conn.prepareStatement("UPDATE CLDR_USERS set name=? WHERE id=? AND email=?");
         }
       }finally{
         if(queryStmt == null) {
@@ -313,6 +318,12 @@ public class UserRegistry {
         }
         if(touchStmt == null) {
             logger.severe("touchStmt failed to initialize");
+        }
+        if(updateInfoEmailStmt == null) {
+            logger.severe("updateInfoStmt failed to initialize");
+        }
+        if(updateInfoNameStmt == null) {
+            logger.severe("updateInfoStmt failed to initialize");
         }
       }
     }
@@ -665,6 +676,59 @@ public class UserRegistry {
         
         return msg;
     }
+    
+    public enum InfoType { INFO_EMAIL, INFO_NAME };
+    
+    String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
+        if(ctx.session.user.userlevel > TC) {
+            return ("[Permission Denied]");
+        }
+
+        String msg = "";
+        synchronized(conn) {
+            try {
+                PreparedStatement updateInfoStmt = null;
+                
+                //updateInfoStmt = conn.prepareStatement("UPDATE CLDR_USERS set ?=? WHERE id=? AND email=?");
+                switch(type) {
+                    case INFO_EMAIL: 
+                        updateInfoStmt = updateInfoEmailStmt;
+                        break;
+                    case INFO_NAME:
+                        updateInfoStmt = updateInfoNameStmt;
+                        break;
+                    default:
+                        return("[unknown type: " + type.toString() +"]");
+                }
+                updateInfoStmt.setString(1, value);
+                updateInfoStmt.setInt(2,theirId);
+                updateInfoStmt.setString(3,theirEmail);
+                
+                logger.info("Attempt user UPDATE by " + ctx.session.user.email + ": " + type.toString() + " = " + value);
+                int n = updateInfoStmt.executeUpdate();
+                conn.commit();
+                zapInfo(theirId);
+                if(n == 0) {
+                    msg = msg + " [Error: no users were updated!] ";
+                    logger.severe("Error: 0 users updated.");
+                } else if(n != 1) {
+                    msg = msg + " [Error in updated users!] ";
+                    logger.severe("Error: " + n + " updated removed!");
+                } else {
+                    msg = msg + " [updated OK]";
+                }
+            } catch (SQLException se) {
+                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+            } catch (Throwable t) {
+                msg = msg + " exception: " + t.toString();
+            } finally  {
+              //  s.close();
+            }
+        }
+        
+        return msg;
+    }
+    
 
     public String getPassword(WebContext ctx, int theirId)  {
         ResultSet rs = null;

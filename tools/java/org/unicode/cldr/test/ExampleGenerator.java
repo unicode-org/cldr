@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 
@@ -172,6 +173,9 @@ public class ExampleGenerator {
         if (parts.contains("exemplarCity")) {
 //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
           String timezone = parts.getAttributeValue(3,"type");
+          if (value == null) {
+            value = TimezoneFormatter.getFallbackName(timezone);
+          }
           String countryCode = supplementalDataInfo.getZone_territory(timezone);
           if (countryCode == null || countryCode.equals("001")) {
             break main; // fail, skip

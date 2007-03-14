@@ -348,17 +348,7 @@ abstract public class CheckCLDR {
         String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
 
         if (SHOW_EXAMPLES) {
-          if (example != null) {
-            checkCldr.showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
-          }
-          String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN);
-          if (longExample != null && !longExample.equals(example)) {
-            checkCldr.showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
-          }
-          String help = exampleGenerator.getHelpHtml(path, value);
-          if (help != null) {
-            checkCldr.showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
-          }
+          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example);
           //continue; // don't show problems
         }
 
@@ -429,6 +419,17 @@ abstract public class CheckCLDR {
       if (checkFlexibleDates) {
         fset.showFlexibles();
       }
+      if (SHOW_EXAMPLES) {
+//      ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity
+        for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
+          String path = "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
+          if (!pathFilter.reset(path).matches()) continue;
+          String fullPath = file.getStringValue(path);
+          if (fullPath != null) continue;
+          String example = exampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT);
+          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example);
+        }
+      }
     }
     for (Iterator it2 = new TreeSet(totalCount.keySet()).iterator(); it2.hasNext();) {
       String type = (String)it2.next();
@@ -437,6 +438,20 @@ abstract public class CheckCLDR {
     
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+  }
+
+  private static void showExamples(CheckCLDR checkCldr, PrettyPath prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example) {
+    if (example != null) {
+      checkCldr.showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
+    }
+    String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN);
+    if (longExample != null && !longExample.equals(example)) {
+      checkCldr.showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
+    }
+    String help = exampleGenerator.getHelpHtml(path, value);
+    if (help != null) {
+      checkCldr.showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
+    }
   }
 
   private void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {

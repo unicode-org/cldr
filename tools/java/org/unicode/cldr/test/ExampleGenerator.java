@@ -144,9 +144,6 @@ public class ExampleGenerator {
    * @return
    */
   public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
-    if (value == null) {
-      return null; // for now
-    }
     String result = null;
     String cacheKey;
     if (CACHING) {

@@ -77,7 +77,7 @@ public class CheckForExemplars extends CheckCLDR {
     } else if(getCldrFileToCheck() == null) {
       throw new InternalError("no file to check!");
     }
-    String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path, null);
+    String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
     if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
       return this;
     } else if ("root".equals(sourceLocale)) {

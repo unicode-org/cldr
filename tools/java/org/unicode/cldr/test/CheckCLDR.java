@@ -54,7 +54,7 @@ import com.ibm.icu.dev.tool.UOption;
 abstract public class CheckCLDR {
   private CLDRFile cldrFileToCheck;
   private CLDRFile resolvedCldrFileToCheck;
-  private static CLDRFile displayInformation;
+  private CLDRFile displayInformation;
   
   static boolean SHOW_LOCALE = true;
   static boolean SHOW_EXAMPLES = false;
@@ -93,14 +93,14 @@ abstract public class CheckCLDR {
    * @param locale
    * @return
    */
-  public static CLDRFile getDisplayInformation() {
+  public CLDRFile getDisplayInformation() {
     return displayInformation;
   }
-  public static void setDisplayInformation(CLDRFile displayInformation) {
-    CheckCLDR.displayInformation = displayInformation;
+  public void setDisplayInformation(CLDRFile displayInformation) {
+    this.displayInformation = displayInformation;
     englishExampleGenerator = new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY);
   }
-  static ExampleGenerator englishExampleGenerator;
+  private ExampleGenerator englishExampleGenerator;
   
   private static final int
   HELP1 = 0,
@@ -220,8 +220,8 @@ abstract public class CheckCLDR {
     // set up the test
     Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
     CheckCLDR checkCldr = getCheckAll(checkFilter);
-    setDisplayInformation(cldrFactory.make("en", true));
-    PathShower pathShower = new PathShower();
+    checkCldr.setDisplayInformation(cldrFactory.make("en", true));
+    PathShower pathShower = checkCldr.new PathShower();
     
     // call on the files
     Set locales = cldrFactory.getAvailable();
@@ -273,7 +273,7 @@ abstract public class CheckCLDR {
         if (checkOnSubmit) {
           if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
         }
-        System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+        System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\t");
         System.out.println(statusString);
         subtotalCount.add(status.type, 1);
       }
@@ -346,15 +346,15 @@ abstract public class CheckCLDR {
 
         if (SHOW_EXAMPLES) {
           if (example != null) {
-            showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
+            checkCldr.showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
           }
           String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN);
           if (longExample != null && !longExample.equals(example)) {
-            showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
+            checkCldr.showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
           }
           String help = exampleGenerator.getHelpHtml(path, value);
           if (help != null) {
-            showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
+            checkCldr.showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
           }
           //continue; // don't show problems
         }
@@ -397,7 +397,7 @@ abstract public class CheckCLDR {
               }
               continue;
             }
-            showValue(prettyPath, localeID, example, path, value, fullPath, statusString);
+            checkCldr.showValue(prettyPath, localeID, example, path, value, fullPath, statusString);
 
             subtotalCount.add(status.type, 1);
             totalCount.add(status.type, 1);
@@ -414,14 +414,14 @@ abstract public class CheckCLDR {
           }
         }
       }
-      System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
+      System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
       if (missingExemplars.size() != 0) {
-        System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+        System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\t");
         System.out.println("Total missing:\t" + missingExemplars);
       }
       for (Iterator it2 = new TreeSet(subtotalCount.keySet()).iterator(); it2.hasNext();) {
         String type = (String)it2.next();
-        System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
+        System.out.println("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
       }
       if (checkFlexibleDates) {
         fset.showFlexibles();
@@ -436,7 +436,7 @@ abstract public class CheckCLDR {
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
   }
 
-  private static void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
+  private void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
@@ -485,7 +485,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       "|preferenceOrdering" + // deprecated
       ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
   
-  public static class PathShower {
+  public class PathShower {
     String localeID;
     boolean newLocale = true;
     String lastPath;
@@ -504,9 +504,11 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       lastPath = null;
       lastSplitPath = null;
     }
+    
     public void setDisplayInformation(CLDRFile displayInformation) {
-      CheckCLDR.setDisplayInformation(displayInformation); 
+      setDisplayInformation(displayInformation); 
     }
+    
     public void showHeader(String path, String value) {
       if (newLocale) {
         System.out.println("Locale:\t" + getLocaleAndName(localeID));
@@ -564,15 +566,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     }
   }
   
-  private static void showValue(String path, String value, boolean showEnglish, String localeID) {
+  private void showValue(String path, String value, boolean showEnglish, String localeID) {
     System.out.println( "\tValue:\t" + value + (showEnglish ? "\t" + getEnglishPathValue(path) : "") + "\tLocale:\t" + localeID);
   }
 
-  private static String getEnglishPathValue(String path) {
-    String englishValue = CheckCLDR.displayInformation.getStringValue(path);
+  private String getEnglishPathValue(String path) {
+    String englishValue = displayInformation.getStringValue(path);
     if (englishValue == null) {
       String path2 = CLDRFile.getNondraftNonaltXPath(path);
-      englishValue = CheckCLDR.displayInformation.getStringValue(path2);
+      englishValue = displayInformation.getStringValue(path2);
     }
     return englishValue;
   }
@@ -947,7 +949,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
    * @param locale
    * @return
    */
-  public static String getLocaleAndName(String locale) {
+  public String getLocaleAndName(String locale) {
     String localizedName = displayInformation.getName(locale, false);
     if (localizedName == null || localizedName.equals(locale)) return locale;
     return locale + " [" + localizedName + "]";

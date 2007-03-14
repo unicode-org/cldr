@@ -32,65 +32,85 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class to generate examples and help messages for the Survey tool (or console version).
+ * @author markdavis
+ *
+ */
 public class ExampleGenerator {
   private final static boolean DEBUG_SHOW_HELP = false;
+
   private static SupplementalDataInfo supplementalDataInfo;
-  
+
+  /**
+   * Zoomed status.
+   * @author markdavis
+   *
+   */
   public enum Zoomed {
     /** For the zoomed-out view. */
     OUT,
     /** For the zoomed-in view */
     IN
   };
-  
+
   private final static boolean CACHING = false;
-  
+
   public final static double NUMBER_SAMPLE = 12345.6789;
-  
+
   public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
-  
+
   public final static Date DATE_SAMPLE;
-  
+
   private final static Date DATE_SAMPLE2;
-  
-  private final static String EXEMPLAR_CITY = "Europe/Rome";
-  
+
+  //private final static String EXEMPLAR_CITY = "Europe/Rome";
+
   private String backgroundStart = "<span class='substituted'>";
-  
+
   private String backgroundEnd = "</span>";
-  
+
+  private Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
+
   static {
-    Calendar c = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
-    c.set(1999, 8, 14, 13, 25, 59); // 1999-09-13 13:25:59
-    DATE_SAMPLE = c.getTime();
-    c.set(1999, 9, 27, 13, 25, 59); // 1999-09-13 13:25:59
-    DATE_SAMPLE2 = c.getTime();
+    Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
+    calendar.set(1999, 8, 14, 13, 25, 59); // 1999-09-13 13:25:59
+    DATE_SAMPLE = calendar.getTime();
+    calendar.set(1999, 9, 27, 13, 25, 59); // 1999-09-13 13:25:59
+    DATE_SAMPLE2 = calendar.getTime();
   }
-  
+
   private Collator col;
-  
+
   private CLDRFile cldrFile;
-  
+
   private Map<String, String> cache = new HashMap();
-  
+
   private static final String NONE = "\uFFFF";
-  
+
   private static final String backgroundStartSymbol = "\uE1234";
-  
+
   private static final String backgroundEndSymbol = "\uE1235";
-  
+
   // Matcher skipMatcher = Pattern.compile(
   // "/localeDisplayNames(?!"
   // ).matcher("");
   private XPathParts parts = new XPathParts();
-  
+
   private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+
   private Set<String> singleCountryZones;
-  
+
+  /**
+   * For getting the end of the "background" style. Default is "</span>". It is
+   * used in composing patterns, so it can show the part that corresponds to the
+   * value.
+   * @return
+   */
   public String getBackgroundEnd() {
     return backgroundEnd;
   }
-  
+
   /**
    * For setting the end of the "background" style. Default is "</span>". It is
    * used in composing patterns, so it can show the part that corresponds to the
@@ -101,11 +121,18 @@ public class ExampleGenerator {
   public void setBackgroundEnd(String backgroundEnd) {
     this.backgroundEnd = backgroundEnd;
   }
-  
+
+  /**
+   * For getting the "background" style. Default is "<span
+   * style='background-color: gray'>". It is used in composing patterns, so it
+   * can show the part that corresponds to the value.
+   * 
+   * @return
+   */
   public String getBackgroundStart() {
     return backgroundStart;
   }
-  
+
   /**
    * For setting the "background" style. Default is "<span
    * style='background-color: gray'>". It is used in composing patterns, so it
@@ -116,7 +143,12 @@ public class ExampleGenerator {
   public void setBackgroundStart(String backgroundStart) {
     this.backgroundStart = backgroundStart;
   }
-  
+
+  /**
+   * Create an Example Generator. If this is shared across threads, it must be synchronized.
+   * @param resolvedCLDRFile
+   * @param supplementalDataDirectory
+   */
   public ExampleGenerator(CLDRFile resolvedCLDRFile, String supplementalDataDirectory) {
     this.cldrFile = resolvedCLDRFile;
     icuServiceBuilder.setCldrFile(resolvedCLDRFile);
@@ -128,9 +160,9 @@ public class ExampleGenerator {
     }
     String singleCountriesPath = resolvedCLDRFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
     parts.set(singleCountriesPath);
-    singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1,"list").trim().split("\\s+")));
+    singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1, "list").trim().split("\\s+")));
   }
-  
+
   /**
    * Returns an example string, in html, if there is one for this path,
    * otherwise null. For use in the survey tool, an example might be returned
@@ -140,7 +172,7 @@ public class ExampleGenerator {
    * The result is valid HTML.
    * 
    * @param xpath
-   * @param zoomed
+   * @param zoomed status (IN, or OUT) Out is a longer version only called in Zoom mode. IN is called in both.
    * @return
    */
   public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
@@ -157,7 +189,7 @@ public class ExampleGenerator {
       }
     }
     // result is null at this point. Get the real value if we can.
-    
+
     main: {
       parts.set(xpath);
       if (parts.contains("dateRangePattern")) { // {0} - {1}
@@ -168,28 +200,39 @@ public class ExampleGenerator {
       }
       if (parts.contains("timeZoneNames")) {
         if (parts.contains("exemplarCity")) {
-//        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-          String timezone = parts.getAttributeValue(3,"type");
+          //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+          String timezone = parts.getAttributeValue(3, "type");
           String countryCode = supplementalDataInfo.getZone_territory(timezone);
-          if (countryCode == null || countryCode.equals("001")) {
+          if (countryCode == null) {
             break main; // fail, skip
           }
-          String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
-          boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
-          // we show just country for singlezone countries
-          if (singleZone) {
-            result = countryName;
-          } else {
-            if (value == null) {
-              value = TimezoneFormatter.getFallbackName(timezone);
+          if (countryCode.equals("001")) {
+            // GMT code, so format.
+            try {
+              String hourOffset = timezone.substring(timezone.contains("+") ? 8 : 7);
+              int hours = Integer.parseInt(hourOffset);
+              result = getGMTFormat(null, null, hours);
+            } catch (RuntimeException e) {
+              break main; // fail, skip
             }
-            // otherwise we show the fallback with exemplar
-            String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-            String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
-            // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-            // = Λος Άντζελες
-            result = MessageFormat.format(fallback, new Object[] { value, countryName });
-            result = MessageFormat.format(timeFormat, new Object[] { result });
+          } else {
+            String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
+            boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
+            // we show just country for singlezone countries
+            if (singleZone) {
+              result = countryName;
+            } else {
+              if (value == null) {
+                value = TimezoneFormatter.getFallbackName(timezone);
+              }
+              // otherwise we show the fallback with exemplar
+              String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+              String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+              // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+              // = Λος Άντζελες
+              result = MessageFormat.format(fallback, new Object[] { value, countryName });
+              result = MessageFormat.format(timeFormat, new Object[] { result });
+            }
           }
         } else if (parts.contains("regionFormat")) { // {0} Time
           String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
@@ -203,9 +246,9 @@ public class ExampleGenerator {
           result = MessageFormat.format(value, new Object[] { LosAngeles, us });
           result = MessageFormat.format(timeFormat, new Object[] { result });
         } else if (parts.contains("gmtFormat")) { // GMT{0}
-          result = getGMTFormat(null, value);
+          result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
-          result = getGMTFormat(value, null);
+          result = getGMTFormat(value, null, -8);
         }
         result = finalizeBackground(result);
         break main;
@@ -231,7 +274,7 @@ public class ExampleGenerator {
       }
       if (parts.contains("currency") && parts.contains("symbol")) {
         String currency = parts.getAttributeValue(-2, "type");
-        String fullPath = cldrFile.getFullXPath(xpath,false);
+        String fullPath = cldrFile.getFullXPath(xpath, false);
         if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
           ChoiceFormat cf = new ChoiceFormat(value);
           value = cf.format(NUMBER_SAMPLE);
@@ -286,7 +329,7 @@ public class ExampleGenerator {
     }
     return result;
   }
-  
+
   /**
    * Put a background on an item, skipping enclosed patterns.
    * 
@@ -297,7 +340,12 @@ public class ExampleGenerator {
     Matcher m = PARAMETER.matcher(inputPattern);
     return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol) + backgroundEndSymbol;
   }
-  
+
+  /**
+   * This is called just before we return a result. It fixes the special characters that were added by setBackground.
+   * @param input string with special characters from setBackground.
+   * @return string with HTML for the background.
+   */
   private String finalizeBackground(String input) {
     return input == null ? input : input.replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove
         // null
@@ -306,29 +354,41 @@ public class ExampleGenerator {
         // runs
         .replace(backgroundStartSymbol, backgroundStart).replace(backgroundEndSymbol, backgroundEnd);
   }
-  
+
   static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
-  
-  private String getGMTFormat(String gmtHourString, String gmtFormat) {
-    if (gmtFormat == null) {
-      gmtFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
-    }
+
+  /**
+   * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's all
+   * the TZDB IDs need. Should merge this eventually into TimeZoneFormatter and call there.
+   * @param gmtHourString
+   * @param gmtFormat
+   * @param hours
+   * @return
+   */
+  private String getGMTFormat(String gmtHourString, String gmtFormat, int hours) {
     boolean hoursBackground = false;
     if (gmtHourString == null) {
       hoursBackground = true;
       gmtHourString = cldrFile.getStringValue("//ldml/dates/timeZoneNames/hourFormat");
     }
-    String[] plusMinus = gmtHourString.split(";");
-    SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", plusMinus[0]);
-    dateFormat.setTimeZone(ZONE_SAMPLE);
-    String hours = dateFormat.format(DATE_SAMPLE);
-    if (hoursBackground) {
-      hours = setBackground(hours);
+    if (gmtFormat == null) {
+      hoursBackground = false; // for the hours case
+      gmtFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
     }
-    String result = MessageFormat.format(gmtFormat, new Object[] { hours });
+    String[] plusMinus = gmtHourString.split(";");
+    // the following is <= because the TZDB inverts the hours
+    SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", plusMinus[hours <= 0 ? 0 : 1]);
+    dateFormat.setTimeZone(ZONE_SAMPLE);
+    calendar.set(1999, 9, 27, Math.abs(hours), 0, 0); // 1999-09-13 13:25:59
+    Date sample = calendar.getTime();
+    String hourString = dateFormat.format(sample);
+    if (hoursBackground) {
+      hourString = setBackground(hourString);
+    }
+    String result = MessageFormat.format(gmtFormat, new Object[] { hourString });
     return result;
   }
-  
+
   /**
    * Return a help string, in html, that should be shown in the Zoomed view.
    * Presumably at the end of each help section is something like: <br>
@@ -346,27 +406,32 @@ public class ExampleGenerator {
       helpMessages = new HelpMessages();
     }
     return helpMessages.find(xpath);
-//  if (xpath.contains("/exemplarCharacters")) {
-//  result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
-//  + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
-//  + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
-//  }
-//  return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
+    //  if (xpath.contains("/exemplarCharacters")) {
+    //  result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
+    //  + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
+    //  + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
+    //  }
+    //  return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
   }
-  
+
   HelpMessages helpMessages;
-  
+
+  /**
+   * Private class to get the messages from a help file.
+   */
   private static class HelpMessages {
     List<Matcher> keys = new ArrayList();
+
     List<String> values = new ArrayList();
-    
+
     enum Status {
       BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
     };
-    
+
     StringBuilder[] currentColumn = new StringBuilder[2];
+
     int column = 0;
-    
+
     HelpMessages() {
       currentColumn[0] = new StringBuilder();
       currentColumn[1] = new StringBuilder();
@@ -399,7 +464,7 @@ public class ExampleGenerator {
                 status = Status.IN_CELL;
                 line = line.substring(4);
               }
-              // fall through
+            // fall through
             case IN_CELL:
               boolean done = false;
               if (line.startsWith("<table")) {
@@ -408,12 +473,13 @@ public class ExampleGenerator {
                 status = Status.IN_INSIDE_TABLE;
               } else {
                 if (line.endsWith("</td>")) {
-                  line = line.substring(0,line.length()-5);
+                  line = line.substring(0, line.length() - 5);
                   status = Status.BEFORE_CELL;
                   done = true;
                 }
                 appendLine(line);
-                if (done) column++;
+                if (done)
+                  column++;
               }
               break;
             case IN_INSIDE_TABLE:
@@ -443,7 +509,7 @@ public class ExampleGenerator {
         currentColumn[column].append(line);
       }
     }
-    
+
     public String find(String xpath) {
       StringBuilder result = new StringBuilder();
       for (int i = 0; i < keys.size(); ++i) {
@@ -459,7 +525,7 @@ public class ExampleGenerator {
       }
       return null;
     }
-    
+
     private void addHelpMessages() {
       if (DEBUG_SHOW_HELP) {
         System.out.println(currentColumn[0].toString() + " => " + currentColumn[1].toString());

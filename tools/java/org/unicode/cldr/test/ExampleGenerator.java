@@ -173,9 +173,6 @@ public class ExampleGenerator {
         if (parts.contains("exemplarCity")) {
 //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
           String timezone = parts.getAttributeValue(3,"type");
-          if (value == null) {
-            value = TimezoneFormatter.getFallbackName(timezone);
-          }
           String countryCode = supplementalDataInfo.getZone_territory(timezone);
           if (countryCode == null || countryCode.equals("001")) {
             break main; // fail, skip
@@ -186,6 +183,9 @@ public class ExampleGenerator {
           if (singleZone) {
             result = countryName;
           } else {
+            if (value == null) {
+              value = TimezoneFormatter.getFallbackName(timezone);
+            }
             // otherwise we show the fallback with exemplar
             String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
             String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));

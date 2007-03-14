@@ -50,6 +50,8 @@ public class DataPod extends Registerable {
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
     
     public String[] LAYOUT_INTEXT_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" }; // layout/inText/* - from UTS35
+    public String[] LAYOUT_INLIST_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed"}; // layout/inList/* - from UTS35
+    public String[] METAZONE_COMMONLYUSED_VALUES = { "true","false" }; // layout/inText/* - from UTS35
 
     public String xpathPrefix = null;
     
@@ -357,16 +359,13 @@ public class DataPod extends Registerable {
                     inheritedValue.value = value;
                     inheritedValue.xpath = xpath;
                     inheritedValue.xpathId = base_xpath;
-                    inheritedValue.isFallback = true;
-                    
-    /*                if(value.equals("Angika-sprache")) {
-                        System.err.println("anp: fb " + this + " / " + inheritedValue + " ," );
-                        System.err.println("x:"+xpath+", v:"+value+", s:"+sourceLocale);
-                    } */
+                    inheritedValue.isFallback = true;                    
+                } else {
+                   // throw new InternalError("could not get inherited value: " + xpath);
                 }
             }
             
-            if((checkCldr != null) && (inheritedValue.tests == null)) {
+            if((checkCldr != null) && (inheritedValue != null) && (inheritedValue.tests == null)) {
                 List iTests = new ArrayList();
                 checkCldr.check(xpath, xpath, inheritedValue.value, options, iTests);
              //   checkCldr.getExamples(xpath, fullPath, value, ctx.getOptionsMap(), examplesResult);
@@ -953,7 +952,7 @@ public class DataPod extends Registerable {
             if(SHOW_TIME) {
                 System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
             }
-            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), Utility.SUPPLEMENTAL_DIRECTORY);
+            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
         }
 		return pod;
 	}
@@ -1305,17 +1304,11 @@ public class DataPod extends Registerable {
                 }
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
-            } else if(xpath.indexOf("commonlyUsed[@used")!=-1) { // For now, don't allow input for commonlyUsed
-                confirmOnly = true;
-            //    isToggleFor = "used";
-            } else if(xpath.indexOf("/layout/inList")!=-1) {
-                confirmOnly = true;
             }
             
             if(useShorten) {
                 if((xpath.indexOf("/orientation")!=-1)||
-                   (xpath.indexOf("/alias")!=-1)||
-                   (xpath.indexOf("/inList")!=-1)) {
+                   (xpath.indexOf("/alias")!=-1)) {
                     if((value !=null)&&(value.length()>0)) {
                         throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
                     }
@@ -1412,8 +1405,15 @@ public class DataPod extends Registerable {
             
             if(p.type.startsWith("layout/inText")) {
                 p.valuesList = LAYOUT_INTEXT_VALUES;
-                superP.valuesList = LAYOUT_INTEXT_VALUES;
+                superP.valuesList = p.valuesList;
+            } else if(p.type.indexOf("commonlyUsed")!=-1) { // For now, don't allow input for commonlyUsed
+                p.valuesList = METAZONE_COMMONLYUSED_VALUES;
+                superP.valuesList = p.valuesList;
+            } else if(p.type.startsWith("layout/inList")) {
+                p.valuesList = LAYOUT_INLIST_VALUES;
+                superP.valuesList = p.valuesList;
             }
+            
 
 //if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
 
@@ -1599,7 +1599,7 @@ public class DataPod extends Registerable {
             if(isMetazones) {
                 zoneIterator = sm.getMetazones().iterator();
             } else {
-                zoneIterator = StandardCodes.make().getAvailableCodes("tzid").iterator();
+                zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid").iterator();
             }
             
             final String tzsuffs[] = {  "/long/generic",
@@ -1657,8 +1657,8 @@ public class DataPod extends Registerable {
         ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
 
                     if(isMetazones) {
-                        if(suff.indexOf("commonlyUsed[@used")!=-1) {
-                            myp.confirmOnly = true;
+                        if(suff.equals("/commonlyUsed")) {
+                            myp.valuesList = METAZONE_COMMONLYUSED_VALUES;
                         }
 
                         /*myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);

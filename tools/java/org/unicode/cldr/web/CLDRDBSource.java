@@ -799,7 +799,8 @@ import com.ibm.icu.util.ULocale;
     
         String locale = getLocaleID();
         int xpath = xpt.getByXpath(path);
-///*srl*/logger.info(locale + ":" + path);
+///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
+//if(showDebug) /*srl*/logger.info(locale + ":" + path);
             try {
                 ResultSet rs;
                 if(finalData) {
@@ -815,21 +816,21 @@ import com.ibm.icu.util.ULocale;
                 if(!rs.next()) {
                     if(!finalData) {
                         rs.close();                    
-//                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
+//if(showDebug)                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
                         return null;
                     } else {
-//                        System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original");
+//if(showDebug)                        System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original");
                         // plan B: look for original data
                         stmts.queryValue.setString(1,locale);
                         stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
                         rs = stmts.queryValue.executeQuery();
                         
                         if(!rs.next()) {
-//                            System.err.println("Fallback search failed for "+xpath+":"+path);
+//if(showDebug)                            System.err.println("Fallback search failed for "+xpath+":"+path);
                             // NOW return null
                             return null;
                         }
-//                        System.err.println(" Plan B OK! - " + rs.getString(1));
+//if(showDebug)                        System.err.println(" Plan B OK! - " + rs.getString(1));
                     }                      
                 }
                 rv = rs.getString(1);
@@ -839,7 +840,7 @@ import com.ibm.icu.util.ULocale;
                    // throw new InternalError(complaint);                    
                 }
                 rs.close();
-///*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
                 return rv;
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));

@@ -2079,8 +2079,8 @@ public class SurveyMain extends HttpServlet {
             } else {
                 ctx.println("<h2>Users for " + org + "</h2>");
                 if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                    ctx.println("<div class='warning' style='border: 1px solid black; padding: 1em; margin: 1em'><b><font size='+2'>NOTE: Changing user level or locales while a user is active (below) will result in  " +
-                                " destruction of their session, don't do that if they have been working recently.</font></b></div>");
+                    ctx.println("<div class='fnotebox'>"+ctx.iconHtml("warn","warning")+"Changing user level or locales while a user is active will result in  " +
+                                " destruction of their session. Check if they have been working recently.</div>");
                 }
             }
             // Preset box
@@ -2096,8 +2096,8 @@ public class SurveyMain extends HttpServlet {
 
             }
             
-            if(/*(just==null) 
-                  &&*/ UserRegistry.userCanModifyUsers(ctx.session.user) && !justme) {
+            if((just==null) 
+                  && UserRegistry.userCanModifyUsers(ctx.session.user) && !justme) {
                 ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
                 ctx.printUrlAsHiddenFields();
@@ -2153,7 +2153,8 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
             }
             ctx.println("<table summary='User List' class='userlist' border='2'>");
-            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Locales</th></tr>");
+            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Locales</th><th>Seen</th></tr>");
+            String oldOrg = null;
             while(rs.next()) {
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
@@ -2172,6 +2173,11 @@ public class SurveyMain extends HttpServlet {
                     continue;
                 }
                 n++;
+                
+                if((just==null)&&(!justme)&&(!theirOrg.equals(oldOrg))) {
+                    ctx.println("<tr class='heading' ><th class='partsection' colspan='5'><a name='"+theirOrg+"'><h4>"+theirOrg+"</h4></a></th></tr>");
+                    oldOrg = theirOrg;
+                }
                 
                 ctx.println("  <tr class='user" + theirLevel + "'>");
                 
@@ -2385,7 +2391,7 @@ public class SurveyMain extends HttpServlet {
             if(!justme && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 if((n>0) && UserRegistry.userCanEmailUsers(ctx.session.user)) { // send a mass email to users
                     if(ctx.field(LIST_MAILUSER).length()==0) {
-                        ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"'>Check this box to mass-mail these " + n + " users (except locked).</label>");
+                        ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"'>Check this box to compose a message to these " + n + " users (excluding LOCKED users).</label>");
                     } else {
                         ctx.println("<p><div class='pager'>");
                         ctx.println("<h4>Mailing "+n+" users</h4>");
@@ -3149,13 +3155,13 @@ public class SurveyMain extends HttpServlet {
         String smtp = survprops.getProperty("CLDR_SMTP",null);
         
         if(smtp == null) {
-            ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+            ctx.println(ctx.iconHtml("okay","mail sent")+"<i>Not sending mail- SMTP disabled.</i><br/>");
             ctx.println("<hr/><pre>" + message + "</pre><hr/>");
             smtp = "NONE";
         } else {
             MailSender.sendMail(smtp, mailFromAddress, mailFromName,  from, theirEmail, subject,
                                 message);
-            ctx.println("Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
+            ctx.println("<br>"+ctx.iconHtml("okay","mail sent")+"Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
         }
         logger.info( "Mail sent to " + theirEmail + "  from " + from + " via " + smtp + " - "+subject);
         /* some debugging. */
@@ -3699,7 +3705,7 @@ public class SurveyMain extends HttpServlet {
 
     public synchronized ExampleGenerator getBaselineExample() {
         if(gBaselineExample == null) {
-            gBaselineExample = new ExampleGenerator(getBaselineFile(), Utility.SUPPLEMENTAL_DIRECTORY);
+            gBaselineExample = new ExampleGenerator(getBaselineFile(), fileBase + "/../supplemental/");
         }
         return gBaselineExample;
     }
@@ -3740,13 +3746,16 @@ public class SurveyMain extends HttpServlet {
         
         public CheckCLDR getCheck(WebContext ctx) {
             CheckCLDR checkCldr = (CheckCLDR)hash.get(CHECKCLDR+ctx.defaultPtype());
-            if (checkCldr == null)   {
+            if (checkCldr == null)  {
                 List checkCldrResult = new ArrayList();
     //                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
     //            long t0 = System.currentTimeMillis();
-                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 
-                checkCldr.setDisplayInformation(getBaselineFile());
+                // make sure CLDR has the latest display information.
+                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+
+                checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
+                
                 if(cldrfile==null) {
                     throw new InternalError("cldrfile was null.");
                 }
@@ -3813,7 +3822,8 @@ public class SurveyMain extends HttpServlet {
         localeListSet = null;
         aliasMap = null;
     }
-
+    
+    
     private static Hashtable aliasMap = null;
 
     /**
@@ -5457,7 +5467,7 @@ public class SurveyMain extends HttpServlet {
         
         // ##3 display / Baseline
 
-        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, ExampleGenerator.Zoomed.OUT);
+        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
         int baseCols = 1;
 
         ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='"+baseCols+"' valign='top' align='left' class='botgray'>");

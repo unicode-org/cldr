@@ -154,7 +154,7 @@ public class CoverageLevel {
       if (!initialized) {
         CLDRFile supplementalMetadata = file.make("supplementalMetadata", false);
         CLDRFile supplementalData = file.make("supplementalData", false);
-        init(supplementalData, supplementalMetadata, options);
+        init(supplementalData, supplementalMetadata);
         initPosixCoverage(file.getLocaleID(), supplementalData);
         initialized = true;
       }
@@ -183,13 +183,18 @@ public class CoverageLevel {
    * @param options
    * @return
    */
-  public Level getRequiredLevel(String localeID, Map options) {
-    parser.set(localeID);
-    String language = parser.getLanguage();
-    Level requiredLevel = (CoverageLevel.Level) locale_requiredLevel.get(parser.getLanguageScript());
-    if (requiredLevel == null) requiredLevel = (CoverageLevel.Level) locale_requiredLevel.get(language);
-    if (requiredLevel == null) requiredLevel = CoverageLevel.Level.BASIC;
-    return requiredLevel;
+  public Level getRequiredLevel(String localeID, Map<String,String> options) {
+    Level result;
+    // see if there is an explicit level
+    String localeType = options.get("CoverageLevel.requiredLevel");
+    if (localeType != null) {
+      result = Level.get(localeType);
+      if (result != Level.UNDETERMINED) {
+        return result;
+      }
+    }
+    // otherwise, see if there is an organization level
+    return sc.getLocaleCoverageLevel(options.get("CoverageLevel.localeType"), localeID);
   }
   
   /**
@@ -326,7 +331,7 @@ public class CoverageLevel {
    * @param value
    * @param override TODO
    */
-  private void putAll(Map targetMap, Collection keyset, Object value, boolean override) {
+  private static void putAll(Map targetMap, Collection keyset, Object value, boolean override) {
     if (keyset == null) return;
     for (Iterator it2 = keyset.iterator(); it2.hasNext();) {
       Object item = it2.next();
@@ -337,14 +342,14 @@ public class CoverageLevel {
     }
   }
   
-  private void addAllToCollectionValue(Map targetMap, Collection keyset, Object value, Class classForNew) {
+  private static void addAllToCollectionValue(Map targetMap, Collection keyset, Object value, Class classForNew) {
     if (keyset == null) return;
     for (Iterator it2 = keyset.iterator(); it2.hasNext();) {
       addToValueSet(targetMap, it2.next(), value, classForNew);
     }
   }
   
-  private void addToValueSet(Map targetMap, Object key, Object value, Class classForNew) {
+  private static void addToValueSet(Map targetMap, Object key, Object value, Class classForNew) {
     Collection valueSet = (Collection) targetMap.get(key);
     if (valueSet == null) try {
       targetMap.put(key, valueSet = (Collection)classForNew.newInstance());
@@ -449,11 +454,18 @@ public class CoverageLevel {
   // ========== Initialization Stuff ===================
 
   /**
-   * Should only be called once, or if the platform changes (options - "CoverageLevel.localeType")
+   * Use version without options.
+   * @deprecated
    */
   public void init(CLDRFile supplementalData, CLDRFile supplementalMetadata, Map options) {
+    init(supplementalData, supplementalMetadata);
+  }
+  /**
+   * Should only be called once.
+   */
+  public static void init(CLDRFile supplementalData, CLDRFile supplementalMetadata) {
     try {
-
+      
       getMetadata(supplementalMetadata);
       getData(supplementalData);
       
@@ -483,76 +495,36 @@ public class CoverageLevel {
       putAll(base_territory_level, modernTerritories, CoverageLevel.Level.MODERN, false);
       //putAll(base_territory_level, sc.getGoodAvailableCodes("territory"), CoverageLevel.Level.COMPREHENSIVE, false);
       
-      // set up the required levels
-      try {
-        // just for now
-        Map platform_local_level = sc.getLocaleTypes();
-        Map locale_level = null;
-        String localeType = (String) options.get("CoverageLevel.localeType"); 
-        
-        if (localeType != null) locale_level = (Map) platform_local_level.get(localeType);
-        
-        // fix up the locale_level by setting the language to be the greatest of the children and itself (if it exists)
-        if (locale_level != null) {
-          for (Iterator it = locale_level.keySet().iterator(); it.hasNext();) {
-            String locale = (String) it.next();
-            parser.set(locale);
-            String level = (String) locale_level.get(locale);
-            
-            Level requiredLevel = Level.get(level);
-            if (requiredLevel == Level.UNDETERMINED) requiredLevel = Level.BASIC;
-            
-            String language = parser.getLanguage();
-            CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_requiredLevel.get(language);
-            if (languageLevel == null || languageLevel.compareTo(requiredLevel) < 0) {
-              locale_requiredLevel.put(language, requiredLevel);
-            }
-            String oldLanguage = language;
-            language = parser.getLanguageScript();
-            if (!language.equals(oldLanguage)) {
-              languageLevel = (CoverageLevel.Level) locale_requiredLevel.get(language);
-              if (languageLevel == null || languageLevel.compareTo(requiredLevel) < 0) {
-                locale_requiredLevel.put(language, requiredLevel);
-              }
-            }
-          }
-        }
-        
-        //if(euroCountries != null) {
-        for (Iterator it = euroCountries.iterator(); it.hasNext();) {
-          String territory = (String) it.next();
-          Collection languages = (Collection)territory_languages.get(territory);
-          euroLanguages.addAll(languages);
-        }
-        //}
-        
-        if (false) {
-          for (Iterator it = territory_currency.keySet().iterator(); it
-          .hasNext();) {
-            String territory = (String) it.next();
-            System.out.print(ULocale.getDisplayCountry("und_"
-                + territory, ULocale.ENGLISH)
-                + "\t" + territory
-                + "\t\u2192\t");
-            Collection languages = (Collection) territory_languages.get(territory);
-            if (languages == null || languages.size() == 0) {
-              System.out.print("-NONE-");
-            } else for (Iterator it2 = languages.iterator(); it2.hasNext();) {
-              String language = (String) it2.next();
-              System.out.print(ULocale.getDisplayLanguage(
-                  language, ULocale.ENGLISH)
-                  + " (" + language + ")"
-                  + ";\t");
-            }
-            System.out.println();
-          }
-        }
-        
-        
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+      //if(euroCountries != null) {
+      for (Iterator it = euroCountries.iterator(); it.hasNext();) {
+        String territory = (String) it.next();
+        Collection languages = (Collection)territory_languages.get(territory);
+        euroLanguages.addAll(languages);
       }
+      //}
+      
+      if (false) {
+        for (Iterator it = territory_currency.keySet().iterator(); it
+        .hasNext();) {
+          String territory = (String) it.next();
+          System.out.print(ULocale.getDisplayCountry("und_"
+              + territory, ULocale.ENGLISH)
+              + "\t" + territory
+              + "\t\u2192\t");
+          Collection languages = (Collection) territory_languages.get(territory);
+          if (languages == null || languages.size() == 0) {
+            System.out.print("-NONE-");
+          } else for (Iterator it2 = languages.iterator(); it2.hasNext();) {
+            String language = (String) it2.next();
+            System.out.print(ULocale.getDisplayLanguage(
+                language, ULocale.ENGLISH)
+                + " (" + language + ")"
+                + ";\t");
+          }
+          System.out.println();
+        }
+      }
+      
       
       if (CheckCoverage.DEBUG) {
         System.out.println("base_language_level: " + base_language_level);               
@@ -655,7 +627,8 @@ public class CoverageLevel {
     //posixCoverage.put("//ldml/collations/collation[@type=\"standard\"]/rules", Level.POSIX);
   }
   
-  private void getMetadata(CLDRFile metadata) {
+  private static void getMetadata(CLDRFile metadata) {
+    XPathParts parts = new XPathParts();
     for (Iterator it = metadata.iterator(); it.hasNext();) {
       String path = (String) it.next();
       path = metadata.getFullXPath(path);
@@ -678,9 +651,11 @@ public class CoverageLevel {
     }
   }
   
-  Set multizoneTerritories = null;
+  private static Set multizoneTerritories = null;
   
-  private void getData(CLDRFile data) {
+  private static void getData(CLDRFile data) {
+    XPathParts parts = new XPathParts();
+
     // optimization -- don't get the paths in sorted order.
     // data.iterator(null, CLDRFile.ldmlComparator)
     for (Iterator it = data.iterator(); it.hasNext();) {

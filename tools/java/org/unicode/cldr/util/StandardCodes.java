@@ -8,6 +8,9 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel.Level;
+
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -223,8 +226,16 @@ public class StandardCodes {
     return (Set) country_modernCurrency.get(countryCode);
   }
   
-  private Map platform_locale_status = null;
+  private Map<String,Map<String,Level>> platform_locale_level = null;
+  private Map<String,Map<String,String>> platform_locale_levelString = null;
   
+  /**
+   * Get rid of this
+   * @param type
+   * @return
+   * @throws IOException
+   * @deprecated
+   */
   public String getEffectiveLocaleType(String type) throws IOException {
     Map m = getLocaleTypes();
     if ((type != null) && (m.get(type) != null)) {
@@ -245,16 +256,55 @@ public class StandardCodes {
   };
   
   /**
-   * Returns locales according to status. It returns a Map of Maps, key 1 is
-   * either IBM or Java (perhaps more later), key 2 is the locale string value
-   * is the status. For IBM, it is G0..G4, while for Java it is Supported or
-   * Unsupported
+   * Returns coverage level of locale according to organization. Returns Level.BASIC if information is missing.
    */
-  public Map<String,Map<String,String>> getLocaleTypes() throws IOException {
-    if (platform_locale_status == null) {
-      LocaleIDParser parser = new LocaleIDParser();
-      platform_locale_status = new TreeMap(caseless);
-      String line;
+  public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
+    synchronized (StandardCodes.class) {
+      if (platform_locale_level == null) {
+        loadPlatformLocaleStatus();
+      }
+    }
+    if (organization == null) return Level.BASIC;
+    Map<String, Level> locale_status = platform_locale_level.get(organization);
+    if (locale_status == null) return Level.BASIC;
+    // see if there is a parent
+    while (desiredLocale != null) {
+      Level status = locale_status.get(desiredLocale);
+      if (status != null && status != Level.UNDETERMINED) return status;
+      desiredLocale = LocaleIDParser.getParent(desiredLocale);
+    }
+    return Level.BASIC;
+  }
+  
+  public Set<String> getLocaleCoverageOrganizations() {
+    synchronized (StandardCodes.class) {
+      if (platform_locale_level == null) {
+        loadPlatformLocaleStatus();
+      }
+    }
+    return platform_locale_level.keySet();
+  }
+  
+  /**
+   * Backwards compat hack; get rid of this
+   * @return
+   * @throws IOException 
+   * @deprecated
+   */
+  public Map<String,Map<String,String>> getLocaleTypes() {
+    synchronized (StandardCodes.class) {
+      if (platform_locale_level == null) {
+        loadPlatformLocaleStatus();
+      }
+    }
+    return platform_locale_levelString;
+  }
+
+  private void loadPlatformLocaleStatus() {
+    LocaleIDParser parser = new LocaleIDParser();
+    platform_locale_level = new TreeMap(caseless);
+    String line;
+    try {
       BufferedReader lstreg = Utility.getUTF8Data("Locales.txt");
       while (true) {
         line = lstreg.readLine();
@@ -268,10 +318,13 @@ public class StandardCodes {
         List stuff = Utility.splitList(line, ';', true);
         String organization = (String) stuff.get(0);
         String locale = (String) stuff.get(1);
-        String status = (String) stuff.get(2);
-        Map locale_status = (Map) platform_locale_status.get(organization);
+        Level status = Level.get((String) stuff.get(2));
+        if (status == Level.UNDETERMINED) {
+          System.out.println("Warning: Level unknown on: " + line);
+        }
+        Map locale_status = (Map) platform_locale_level.get(organization);
         if (locale_status == null) {
-          platform_locale_status.put(organization, locale_status = new TreeMap());
+          platform_locale_level.put(organization, locale_status = new TreeMap());
         }
         parser.set(locale);
         String valid = validate(parser);
@@ -287,9 +340,46 @@ public class StandardCodes {
         if (locale_status.get(lang) == null)
           locale_status.put(lang, status);
       }
-      Utility.protectCollection(platform_locale_status);
+    } catch (IOException e) {
+      throw (IllegalArgumentException) new IllegalArgumentException("Internal Error").initCause(e);
     }
-    return platform_locale_status;
+    
+    // now reset the parent to be the max of the children
+    for (String platform : platform_locale_level.keySet()) {
+      Map<String, Level> locale_level = platform_locale_level.get(platform);
+      for (String locale : locale_level.keySet()) {
+        parser.set(locale);
+        Level childLevel = locale_level.get(locale);
+        
+        String language = parser.getLanguage();
+        if (!language.equals(locale)) {
+          CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_level.get(language);
+          if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
+            locale_level.put(language, childLevel);
+          }
+        }
+        String oldLanguage = language;
+        language = parser.getLanguageScript();
+        if (!language.equals(oldLanguage)) {
+          CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_level.get(language);
+          if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
+            locale_level.put(language, childLevel);
+          }
+        }
+      }
+    }
+    // backwards compat hack
+    platform_locale_levelString = new TreeMap(caseless);
+    for (String platform : platform_locale_level.keySet()) {
+      Map<String,String> locale_levelString = new TreeMap();
+      platform_locale_levelString.put(platform, locale_levelString);
+      Map<String, Level> locale_level = platform_locale_level.get(platform);
+      for (String locale : locale_level.keySet()) {
+        locale_levelString.put(locale, locale_level.get(locale).toString());
+      }
+    }
+    Utility.protectCollection(platform_locale_level);
+    Utility.protectCollection(platform_locale_levelString);
   }
   
   private String validate(LocaleIDParser parser) {
@@ -321,19 +411,7 @@ public class StandardCodes {
    * @return boolean
    */
   public boolean isLocaleInGroup(String locale, String group, String org) {
-    try {
-      Map map = getLocaleTypes();
-      Map locMap = (Map) map.get(org);
-      if (locMap != null) {
-        String gp = (String) locMap.get(locale);
-        if (gp != null && gp.equals(group)) {
-          return true;
-        }
-      }
-      return false;
-    } catch (IOException ex) {
-      return false;
-    }
+    return group.equals(getGroup(locale,org));
   }
   
   /**
@@ -344,17 +422,7 @@ public class StandardCodes {
    * @return group if availble, null if not
    */
   public String getGroup(String locale, String org) {
-    try {
-      Map map = getLocaleTypes();
-      Map locMap = (Map) map.get(org);
-      if (locMap != null) {
-        String gp = (String) locMap.get(locale);
-        return gp;
-      }
-      return null;
-    } catch (IOException ex) {
-      return null;
-    }
+    return getLocaleCoverageLevel(org,locale).toString();
   }
   
   // ========== PRIVATES ==========

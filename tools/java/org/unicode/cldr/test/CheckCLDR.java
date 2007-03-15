@@ -197,10 +197,9 @@ abstract public class CheckCLDR {
     
     String organization = options[ORGANIZATION].value;
     if (organization != null) {
-      StandardCodes sc = StandardCodes.make();
-      Map foo = sc.getLocaleTypes();
-      if (!foo.keySet().contains(organization)) {
-        throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: " + foo.keySet());
+      Set<String> organizations = StandardCodes.make().getLocaleCoverageOrganizations();
+      if (!organizations.contains(organization)) {
+        throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: " + organizations);
       }
     }
     

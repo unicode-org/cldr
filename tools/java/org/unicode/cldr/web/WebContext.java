@@ -641,7 +641,7 @@ public class WebContext {
        return getSC().getLocaleCoverageOrganizations().toArray(new String[0]);
    }
     
-    private String getChosenLocaleType() {
+    public String getChosenLocaleType() {
         String org = pref(SurveyMain.PREF_COVTYP, "default");
         if(org.equals("default")) {
             org = null;

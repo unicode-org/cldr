@@ -277,6 +277,7 @@ public class SurveyMain extends HttpServlet {
     
     static final private String BAD_IPS [] = {
                 "66.154.103.161",
+                "66.249.66.5", // googlebot
                 "203.148.64.17",
                 "65.55.212.188", // MSFT search.live.com
                 "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
@@ -1015,6 +1016,7 @@ public class SurveyMain extends HttpServlet {
             System.err.println("**** noindex,nofollow is disabled");
         }
         */
+        ctx.println("<META NAME=\"ROBOTS\" CONTENT=\"INDEX,NOFOLLOW\"> ");
         ctx.println("<meta name='robots' content='noindex,nofollow'>");
         ctx.println("<meta name=\"gigabot\" content=\"noindex\">");
         ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
@@ -1345,19 +1347,23 @@ public class SurveyMain extends HttpServlet {
         if(ctx.session.user == null)  {
             ctx.println("You are a <b>Visitor</b>. <a class='notselected' href='" + ctx.jspLink("login.jsp") +"'>Login</a><br>");
             
-            printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-            ctx.print(" | ");
+            if(phaseVetting) {
+                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
+                ctx.print(" | ");
+            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
             ctx.println("<br>");
         } else {
             ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
             ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a><br>");
-            printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-            ctx.print(" | ");
+            if(phaseVetting) {
+                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
+                ctx.print(" | ");
+            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
             ctx.print(" | ");
             printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
-            ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
+            //ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
             ctx.println("<br/>");
             if(UserRegistry.userIsAdmin(ctx.session.user)) {
                 ctx.println("<b>You are an Admin:</b> ");
@@ -2561,29 +2567,40 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
         ctx.addQuery(QUERY_DO,"options");
         ctx.println("<h2>My Options</h2>");
-        ctx.println("<h4>Advanced Options</h4>");
-        boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
-
-        if(adv == true) {
-            ctx.println("<div class='ferrbox'><i>Do not enable these items unless instructed.</i><br>");
-            showTogglePref(ctx, PREF_NOPOPUPS, "Reduce popup windows");
-    
-            showTogglePref(ctx, PREF_XPID, "show XPATH ids");
-            showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
-            ctx.println("</div>");
-        }
-    
-        showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
-
-        ctx.println("<br>");
+  
+        ctx.println("<h4>Coverage</h4>");
+        ctx.print("<blockquote>");
+        ctx.println("<p class='hang'>For more information on coverage, see "+
+            "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
         String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
-
+        
         if(lev.equals("default")) {
             ctx.print("&nbsp;");
             ctx.print("&nbsp;");
             showListPref(ctx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
+        } else {
+            ctx.print("&nbsp;");
+            ctx.print("&nbsp;<span class='deactivated'>Coverage Type: <b>n/a</b></span><br>");
         }
-        ctx.println("(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
+        ctx.println("<br>(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
+        
+        ctx.println("</blockquote>");
+        
+        ctx.print("<hr>");
+        
+        ctx.println("<h4>Advanced Options</h4>");
+        ctx.print("<blockquote>");
+        boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
+        ctx.println("</blockquote>");
+
+        if(adv == true) {
+            ctx.println("<div class='ferrbox'><i>Do not enable these items unless instructed.</i><br>");
+            showTogglePref(ctx, PREF_NOPOPUPS, "Reduce popup windows");
+            showTogglePref(ctx, PREF_XPID, "show XPATH ids");
+            showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
+            showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
+            ctx.println("</div>");
+        }
         
         printFooter(ctx);
     }
@@ -3634,15 +3651,21 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<hr/><p><p>");
         ctx.println("<h3>Basic information about the Locale</h3>");
         
-        String ourOrg = "IBM";
-        if(ctx.session != null &&
-            ctx.session.user != null) {
-            ourOrg = ctx.session.user.org;
+        // coverage level
+        {
+            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
+                    StandardCodes.make().getLocaleCoverageLevel(ctx.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.localeString) ;
+        
+            String def = ctx.pref(SurveyMain.PREF_COVLEV,"default");
+            if(def.equals("default")) {
+                ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
+            } else {
+                ctx.print("Coverage Level: <tt class='codebox'>"+def+"</tt>  ( overriding <tt>"+itsLevel.toString()+"</tt>)<br>");
+            }
+            ctx.print("<ul><li>To change your coverage level, see ");
+            printMenu(ctx, "", "options", "My Options", QUERY_DO);
+            ctx.println("</li></ul>");
         }
-        org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-                StandardCodes.make().getLocaleCoverageLevel(ourOrg, ctx.localeString) ;
-    
-        ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
     
         
         ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+

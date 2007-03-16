@@ -297,7 +297,8 @@ public class ExampleGenerator {
             dateFormat = date2;
           } else {
             String id = parts.findAttributeValue("dateFormatItem", "id");
-            if ("NEW".equals(id)) {
+            if ("NEW".equals(id) || value == null) {
+              result = "<i>n/a</i>";
               break main;
             } else {
               dateFormat = icuServiceBuilder.getDateFormat(calendar, value);

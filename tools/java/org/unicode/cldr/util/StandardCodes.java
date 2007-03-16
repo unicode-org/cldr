@@ -237,8 +237,7 @@ public class StandardCodes {
    * @deprecated
    */
   public String getEffectiveLocaleType(String type) throws IOException {
-    Map m = getLocaleTypes();
-    if ((type != null) && (m.get(type) != null)) {
+    if ((type != null) && (getLocaleCoverageOrganizations().contains(type))) {
       return type;
     } else {
       return "IBM"; // the default.. for now..
@@ -285,21 +284,6 @@ public class StandardCodes {
     return platform_locale_level.keySet();
   }
   
-  /**
-   * Backwards compat hack; get rid of this
-   * @return
-   * @throws IOException 
-   * @deprecated
-   */
-  public Map<String,Map<String,String>> getLocaleTypes() {
-    synchronized (StandardCodes.class) {
-      if (platform_locale_level == null) {
-        loadPlatformLocaleStatus();
-      }
-    }
-    return platform_locale_levelString;
-  }
-
   private void loadPlatformLocaleStatus() {
     LocaleIDParser parser = new LocaleIDParser();
     platform_locale_level = new TreeMap(caseless);

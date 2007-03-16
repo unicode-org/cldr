@@ -638,11 +638,7 @@ public class WebContext {
     }
     
    static synchronized String[] getLocaleTypes() {
-    try {
-       return (String[])getSC().getLocaleTypes().keySet().toArray(new String[0]);
-    } catch (IOException ioe) {
-        return new String[0];
-    }
+       return getSC().getLocaleCoverageOrganizations().toArray(new String[0]);
    }
     
     private String getChosenLocaleType() {
@@ -662,12 +658,16 @@ public class WebContext {
         Map options = new HashMap();
         if(!def.equals("default")) {
             options.put("CheckCoverage.requiredLevel",def);
-        } else {
-            String org = getChosenLocaleType();
-            if(org!=null) {
-                options.put("CoverageLevel.localeType",session.user.org);
-            }
         }
+        
+        String org = getEffectiveLocaleType(getChosenLocaleType());
+        if(org!=null) {
+            options.put("CoverageLevel.localeType",org);
+        }
+        
+        // the following is highly suspicious. But, CheckCoverage seems to require it.
+        options.put("submission", "true");
+                
         return options;
     }
     

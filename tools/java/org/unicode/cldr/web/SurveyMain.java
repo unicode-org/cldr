@@ -13,7 +13,7 @@ import java.lang.ref.SoftReference;
 import java.util.regex.*;
 
 // logging
-import java.util.logging.Level;
+//import java.util.logging.Level; // conflicts with coverage level
 import java.util.logging.Logger;
 
 // servlet imports
@@ -1705,7 +1705,7 @@ public class SurveyMain extends HttpServlet {
             // #level $name $email $org
             rs.close();
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
             ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
         }
 
@@ -1993,7 +1993,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("\t</user>");
             }            
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
             ctx.println("<!-- Failure: " + unchainSqlException(se) + " -->");
         }
         ctx.println("</users>");
@@ -2490,7 +2490,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</form>");
             }
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
             ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
         }
         if(just!=null) {
@@ -3633,6 +3633,17 @@ public class SurveyMain extends HttpServlet {
         
         ctx.println("<hr/><p><p>");
         ctx.println("<h3>Basic information about the Locale</h3>");
+        
+        String ourOrg = "IBM";
+        if(ctx.session != null &&
+            ctx.session.user != null) {
+            ourOrg = ctx.session.user.org;
+        }
+        org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
+                StandardCodes.make().getLocaleCoverageLevel(ourOrg, ctx.localeString) ;
+    
+        ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
+    
         
         ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+
                     "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
@@ -6165,7 +6176,7 @@ public class SurveyMain extends HttpServlet {
                 is.close();
             } catch(java.io.IOException ioe) {
                 /*throw new UnavailableException*/
-                logger.log(Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
+                logger.log(java.util.logging.Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
                 busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
                        + ioe.toString()); /* .initCause(ioe);*/
                        return;

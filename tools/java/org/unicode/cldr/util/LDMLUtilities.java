@@ -1990,13 +1990,8 @@ public class LDMLUtilities {
      * @param locale Locale to take the parent of.
      * @return the parent locale, or null if "root" is passed in
      */
-    public static String getParent(String locale) {
-        int pos = locale.lastIndexOf('_');
-        if (pos >= 0) {
-            return locale.substring(0,pos);
-        }
-        if (!locale.equals("root")) return "root";
-        return null;
+    public static final String getParent(String locale) {
+        return LocaleIDParser.getParent(locale);
     }
     
     /** split an alt= tag into pieces. Any piece can be missing (== null)
@@ -2073,6 +2068,4 @@ public class LDMLUtilities {
             return altType + "-" + proposedType; // 'alternate-proposed'
         }
     }
-    
-
 }

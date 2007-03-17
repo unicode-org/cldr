@@ -144,9 +144,9 @@
 					<p>It is important to note that CLDR is a Repository, not a Registration. That is, contributors should not expect that their contributions will 
 					simply be adopted into the repository; instead, it will be vetted against the best available information.</p>
 					<p>All inputs are open, and gathered via the <a href="survey_tool.html">CLDR Survey Tool</a> or recorded in a bug/feature request 
-					database (<a href="filing_bug_reports.html">CLDR Bug Reports</a>). Changes in response 
-					to items the database may be entered into the repository snapshot over time by the maintainers of the repository, but the final approval of 
-					the release of any version of CLDR is up to the decision of the CLDR-TC.</p>
+					database (<a href="filing_bug_reports.html">CLDR Bug Reports</a>). Changes in response to items the database may be entered into the 
+					repository snapshot over time by the maintainers of the repository, but the final approval of the release of any version of CLDR is up to 
+					the decision of the CLDR Technical Committee.</p>
 					<p>For more information on the formal procedures for the Unicode CLDR Technical Committee, see the
 					<a href="http://www.unicode.org/consortium/tc-procedures.html">Technical Committee Procedures for the Unicode Consortium</a>.</p>
 					<h2><a name="specification_changes"></a>2. Specification Changes</h2>
@@ -166,7 +166,7 @@
 					by calling public APIs, to ensure that the data matches what is actually in use. The data is only for comparison, and will 
 					not be changed except where necessary to update the data to match the external source. The only requirement is that all changed data be 
 					versioned, and the Version Numbering Scheme be used.</li>
-						<li><b>Common Data: </b>The contents is decided upon by the CLDR-TC, following its procedures and this process.</li>
+						<li><b>Common Data: </b>The contents is decided upon by the CLDR Technical Committee, following its procedures and this process.</li>
 					</ol>
 					<p>Contributors are encouraged to use local language and country contacts, inside and outside their organization, to help vet current common data 
 					and any new proposals for addition or amendment of common data. In particular, national standards organizations are encouraged to be involved 
@@ -245,7 +245,7 @@
 						<li>Bulk submissions of new data can be done directly (CVS), with all new data marked draft=&quot;unconfirmed&quot;, but only where the data passes 
 						the CheckCLDR console tests.</li>
 						<li>Linguistically-sensitive data should always go through the survey tool. Examples include:<ul>
-							<li>names of months, territories, number formats, changing ascii apostrophe to U+02BC modifier letter apostrophe or U+02BB modifier 
+							<li>names of months, territories, number formats, changing ASCII apostrophe to U+02BC modifier letter apostrophe or U+02BB modifier 
 							letter turned comma, or U+02BD modifier letter reversed comma, adding/removing normal exemplar characters.</li>
 						</ul>
 						</li>
@@ -280,7 +280,7 @@
 					<p>Where a data item is identified as following a particular national standard (or other reference), the goal is to keep that data aligned with 
 					that standard. There is, however, no guarantee that data will be tagged with any or all of the national standards that it follows.</p>
 					<h3>3.3 Dot-Dot Releases</h3>
-					<p>Dot-dot releases, such as 1.4.1, are issued whenever the standard identifiers change (that is, BCP 47 identifiers, Timezone identifiers, 
+					<p>Dot-dot releases, such as 1.4.1, are issued whenever the standard identifiers change (that is, BCP 47 identifiers, Time zone identifiers, 
 					or ISO 4217 Currency identifiers).&nbsp; Updates to identifiers will also mean updating the English names for those identifiers.</p>
 					<p>Corrigenda may also be included in dot-dot releases. Dot-dot releases may also be issued if there are substantive changes to supplemental 
 					(non-language) data. An example of supplemental data additions would be adding more transforms, or adding more script-language info.<br />
@@ -306,7 +306,7 @@
 					<p>Be aware that changes and updates to CLDR will only be taken in response to information entered in the <a href="http://unicode.org/cldr/apps/survey/">Survey Tool</a> 
 					or by filing a <a href="filing_bug_reports.html">Bug Report or Feature Request</a>. 
 					Discussion on public mailing lists is <i>not</i> monitored; no actions will be taken in response to such discussion -- only in response to filed 
-					bugs. The process of checking and entering data takes time and effort; so even when bugs/RFEs are accepted, it may take some time before they 
+					bugs. The process of checking and entering data takes time and effort; so even when bugs/feature requests are accepted, it may take some time before they 
 					are in a release of CLDR.</p>
 					<h2><a name="data_release_process"></a>5. Data Release Process</h2>
 					<h3>5.1 <a name="version_numbering">Version Numbering</a></h3>
@@ -344,7 +344,7 @@
 					<p>The currently-scheduled meetings are listed on the <a href="http://www.unicode.org/timesens/calendar.html">Unicode Calendar</a>. Meetings 
 					are held by phone, every week at 8:00 Pacific Time (-08:00 GMT in winter, -07:00 GMT in summer). Some meetings may be skipped if they conflict 
 					with holidays or other Unicode meetings.</p>
-					<p>There is an internal email list for the Unicode CLDR Technical Committee (CLDR-TC), open to Unicode members and invited experts. All national 
+					<p>There is an internal email list for the Unicode CLDR Technical Committee, open to Unicode members and invited experts. All national 
 					standards bodies who are interested in locale data are also invited to become involved by establishing a
 					<a href="http://www.unicode.org/consortium/join.html">Liaison membership</a> in the Unicode Consortium, to gain access to this list.</p>
 					<p>Notification of the telephone numbers and passcode, and agenda, and any change in schedule are sent out on the this email list.</p>

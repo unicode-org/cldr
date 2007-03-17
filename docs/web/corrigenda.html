@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
 <meta name="VI60_defaultClientScript" content="JavaScript">
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="keywords" content="Unicode, common locale data repository">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>CLDR - Corrigenda</title>
@@ -49,34 +49,29 @@ td, th           { vertical-align: top; text-align: left}
     <td valign="top" width="25%" class="navCol">
     <table class="navColTable" border="0" width="100%" cellspacing="4" cellpadding="0">
       <tr>
-        <td class="navColTitle">CLDR</td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="repository_access.html">CLDR Releases 
-        (Downloads)</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell">Data Formats</td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="filing_bug_reports.html">Filing Bug Reports</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="comparison_charts.html">Comparison Charts</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
-        Locale Data Markup Language (LDML)</a></td>
-      </tr>
+				<td class="navColTitle">Unicode CLDR</td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="repository_access.html">CLDR Releases (Downloads)</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="survey_tool.html">CLDR Survey Tool</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="filing_bug_reports.html">CLDR Bug Reports</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="comparison_charts.html">CLDR Charts</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="process.html">CLDR Process</a></td>
+			</tr>
+		<tr>
+				<td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data Markup Language (LDML)</a></td>
+			</tr>
       <tr>
         <td class="navColTitle">Related Links</td>
       </tr>
@@ -127,14 +122,14 @@ td, th           { vertical-align: top; text-align: left}
           <font face="Arial">— </font>apply these corrigenda to their use of an appropriate version. 
           For example, an implementation may claim conformance to <font face="Arial">“</font>CLDR 
           1.3, as amended by Corrigendum 1<font face="Arial">”</font>. </p>
-          <h2>Corrigendum 1: Timezone and Date Format Pattern Correction</h2>
+          <h2>Corrigendum 1: Time zone and Date Format Pattern Correction</h2>
           <p>In CLDR version 1.3, the policy was that for a given (resolved) locale, uniqueness is 
-          required for timezone display names. That is, two different timezone IDs could not have 
+          required for time zone display names. That is, two different time zone IDs could not have 
           the same display name. This policy turns out to be overly strict, and did not allow for 
           customary names in cases where it does not cause a problem. The committee has relaxed this 
           policy so that where the parsing results would give the same GMT offset, the standard and 
-          daylight display names can be the same across different timezone IDs.</p>
-          <p>The short and long timezone names for Europe/London and Europe/Dublin in the <b><code>
+          daylight display names can be the same across different time zone IDs.</p>
+          <p>The short and long time zone names for Europe/London and Europe/Dublin in the <b><code>
           en.xml</code></b> locale data file had been changed because of the old policy. In 
           accordance with this new policy, they are corrected by this corrigendum as follows:</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
@@ -414,8 +409,8 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="4" style="text-align: center"><font size="2">z</font></td>
                   <td style="text-align: center"><font size="2">1</font></td>
                   <td><font size="2">PT</font></td>
-                  <td rowspan="4"><span><font size="2">Timezone. Use 1 for short wall (generic) 
-                  time, 2 for long wall time, 3 for the short timezone (i.e. PST) or 4 for the full 
+                  <td rowspan="4"><span><font size="2">Time zone. Use 1 for short wall (generic) 
+                  time, 2 for long wall time, 3 for the short time zone (i.e. PST) or 4 for the full 
                   name (Pacific Standard Time). If there&#39;s no name for the zone, fallbacks may be 
                   used, depending on available data.</font></span></td>
                 </tr>
@@ -450,8 +445,8 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="2"><font size="2">z</font></td>
                   <td><span class="changed"><font size="2">1..</font></span><font size="2">3</font></td>
                   <td><span class="changed"><font size="2">PDT</font></span></td>
-                  <td rowspan="2"><span class="changed"><span><font size="2">Timezone - Use one to 
-                  three letters for the short timezone or four for the full name. For more 
+                  <td rowspan="2"><span class="changed"><span><font size="2">Time zone - Use one to 
+                  three letters for the short time zone or four for the full name. For more 
                   information, see </font></span><font size="2">Appendix J: </font>
                   <a href="#Time_Zone_Fallback"><span><font size="2">Time Zone Fallback</font></span></a></span></td>
                 </tr>

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -20,13 +21,18 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.print.attribute.standard.MediaSize.Engineering;
+
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.Iso639Data.Source;
+import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -644,9 +650,9 @@ public class CoverageLevel {
         // pt ru zh"/>
         CoverageLevel.Level level = CoverageLevel.Level.get(type);
         String values = parts.getAttributeValue(-1, "values");
-        Utility.addTreeMapChain(coverageData, new Object[] {
+        Utility.addTreeMapChain(coverageData, 
             lastElement, level,
-            new TreeSet(Arrays.asList(values.split("\\s+"))) });
+            new TreeSet(Arrays.asList(values.split("\\s+"))));
       }
     }
   }
@@ -654,6 +660,8 @@ public class CoverageLevel {
   private static Set multizoneTerritories = null;
   
   private static void getData(CLDRFile data) {
+    String lastCurrencyYear = Integer.toString(1900 + new Date().getYear() - 2);
+    
     XPathParts parts = new XPathParts();
 
     // optimization -- don't get the paths in sorted order.
@@ -685,8 +693,8 @@ public class CoverageLevel {
         // we have element, type, subtype, and values
         Set values = new TreeSet(
             Arrays.asList((parts.getAttributeValue(-1, "territories")).split("\\s+")));
-        Utility.addTreeMapChain(coverageData, new Object[] {
-            lastElement, type, values });
+        Utility.addTreeMapChain(coverageData, 
+            lastElement, type, values);
         addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);
       } else if (parts.containsElement("languageData")) {
         // <language type="ab" scripts="Cyrl" territories="GE"
@@ -699,8 +707,7 @@ public class CoverageLevel {
           Set scriptSet = new TreeSet(Arrays.asList(scripts
               .split("\\s+")));
           modernScripts.addAll(scriptSet);
-          Utility.addTreeMapChain(language_scripts,
-              new Object[] {type, scriptSet});
+          Utility.addTreeMapChain(language_scripts, type, scriptSet);
         }
         String territories = parts.getAttributeValue(-1, "territories");
         if (territories != null) {
@@ -708,8 +715,7 @@ public class CoverageLevel {
               .asList(territories
                   .split("\\s+")));
           modernTerritories.addAll(territorySet);
-          Utility.addTreeMapChain(language_territories,
-              new Object[] {type, territorySet});
+          Utility.addTreeMapChain(language_territories, type, territorySet);
           addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
         }
       } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
@@ -717,7 +723,7 @@ public class CoverageLevel {
         // if the 'to' value is less than 10 years, it is not modern
         String to = parts.getAttributeValue(-1, "to");
         String currency = parts.getAttributeValue(-1, "iso4217");
-        if (to == null || to.compareTo("1995") >= 0) {
+        if (to == null || to.compareTo(lastCurrencyYear) >= 0) {
           modernCurrencies.add(currency);
           // only add current currencies to must have list
           if (to == null) {
@@ -736,6 +742,30 @@ public class CoverageLevel {
         }
       }
     }
+    // filter out non-modern
+    
+//    Set<String> old = modernLanguages;
+//    modernCurrencies = new TreeSet();
+//    for (String language : old) {
+//      Type type = Iso639Data.getType(language);
+//      if (type == Type.Living) {
+//        //System.out.println("*Adding " + language + "\t" + Iso639Data.getNames(language));
+//        modernLanguages.add(language);
+//      } else {
+//        System.out.println("*Skipping " + language + "\t" + Iso639Data.getNames(language));
+//      }
+//    }
+//    if (false) for (String language : Iso639Data.getAvailable()) {
+//      if (old.contains(language)) continue;
+//      if (Iso639Data.getSource(language) == Source.ISO_639_3) continue;
+//      Type type = Iso639Data.getType(language);
+//      if (type == Type.Living) {
+//        System.out.println("**Living " + language + "\t" + Iso639Data.getNames(language));
+//      } else {
+//        System.out.println("**Nonliving " + language + "\t" + Iso639Data.getNames(language));
+//      }
+//    }
+    
     if(euroCountries == null) {
       euroCountries = new TreeSet(); // placate other parts of the code
       euroCountriesMissing = true;

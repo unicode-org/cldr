@@ -146,19 +146,19 @@ public class ExampleGenerator {
 
   /**
    * Create an Example Generator. If this is shared across threads, it must be synchronized.
-   * @param resolvedCLDRFile
+   * @param resolvedCldrFile
    * @param supplementalDataDirectory
    */
-  public ExampleGenerator(CLDRFile resolvedCLDRFile, String supplementalDataDirectory) {
-    this.cldrFile = resolvedCLDRFile;
-    icuServiceBuilder.setCldrFile(resolvedCLDRFile);
-    col = Collator.getInstance(new ULocale(resolvedCLDRFile.getLocaleID()));
+  public ExampleGenerator(CLDRFile resolvedCldrFile, String supplementalDataDirectory) {
+    cldrFile = resolvedCldrFile.getResolved();
+    icuServiceBuilder.setCldrFile(cldrFile);
+    col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
     synchronized (ExampleGenerator.class) {
       if (supplementalDataInfo == null) {
         supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
       }
     }
-    String singleCountriesPath = resolvedCLDRFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
+    String singleCountriesPath = cldrFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
     parts.set(singleCountriesPath);
     singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1, "list").trim().split("\\s+")));
   }

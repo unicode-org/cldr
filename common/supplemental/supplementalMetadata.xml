@@ -384,7 +384,7 @@
 			</variable>
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
-            <variable id="$casing" type="list">titlecase-words titlecase-firstword lowercase-words mixed</variable>
+            <variable id="$casing" type="choice">titlecase-words titlecase-firstword lowercase-words mixed</variable>
     
             <!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
             <variable id="$allow" type="regex">(verbatim)</variable>

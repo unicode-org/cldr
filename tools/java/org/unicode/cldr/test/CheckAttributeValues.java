@@ -307,7 +307,7 @@ public class CheckAttributeValues extends CheckCLDR {
         } else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
            result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
         } else {
-            System.out.println("unknown type; value: <" + value + ">,\t" + attributes + ",\t" + path);
+            System.out.println("unknown type; value: <" + value + ">,\t" + typeAttribute + ",\t" + attributes + ",\t" + path);
             return null;
         }
         return result;

@@ -406,7 +406,7 @@ abstract public class CheckCLDR {
           }
         }
       }
-      System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
+      System.out.println("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
       if (missingExemplars.size() != 0) {
         System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\t");
         System.out.println("Total missing:\t" + missingExemplars);

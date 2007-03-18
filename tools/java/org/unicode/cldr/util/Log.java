@@ -59,4 +59,12 @@ public class Log {
 		log = BagFormatter.openUTF8Writer("", file);
 		log.print('\uFEFF');
 	}
+
+  public static void println() {
+    log.println();
+  }
+
+  public static void println(String string) {
+    log.println(string);
+  }
 }

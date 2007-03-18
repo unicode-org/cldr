@@ -592,7 +592,7 @@ public class Utility {
         }
     }
 
-    public static void addTreeMapChain(Map coverageData, Object[] objects) {
+    public static void addTreeMapChain(Map coverageData, Object... objects) {
         Map base = coverageData;
         for (int i = 0; i < objects.length-2; ++i) {
             Map nextOne = (Map) base.get(objects[i]);

@@ -2348,4 +2348,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     return result;
   }
+  
+  /**
+   * Return true if this item is the user's choice (for overriding in survey tool)
+   * @param path
+   * @return
+   */
+  public boolean isUserChoice(String path) {
+    return false;
+  }
 }

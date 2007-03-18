@@ -38,6 +38,7 @@ public class CheckNew extends CheckCLDR {
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
     if (cldrFileToCheck == null)
       return this;
+    super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     String locale = cldrFileToCheck.getLocaleID();
     isEnglishOrRoot = locale.startsWith("en_") || locale.equals("en") || locale.equals("root");
     isNotBase = locale.contains("_");
@@ -46,8 +47,12 @@ public class CheckNew extends CheckCLDR {
   }
 
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    // skip if the user voted for the current item
+    if (getCldrFileToCheck().isUserChoice(path)) {
+      return this;
+    }
+    
     boolean skip = false;
-
     // now see if our value is the same as Root's for certain items
     if (!isEnglishOrRoot && shouldntBeRoot.reset(path).matches()) {
       if (value.equals(root.getStringValue(path))) {

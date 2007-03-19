@@ -1,12 +1,35 @@
 ﻿# Short IDs for zone names: country code + last part of TZID
-# First are items that would be masked, and are moved forwards
+# First are items that would be masked, and are moved forwards and sorted in reverse order
 
+# ZZ	Unknown or Invalid Region
+	'Etc/GMT+12'	>	'ZZ/GMT+12';
+	'Etc/GMT+11'	>	'ZZ/GMT+11';
+	'Etc/GMT+10'	>	'ZZ/GMT+10';
+	'Etc/GMT+9'	>	'ZZ/GMT+9';
+	'Etc/GMT+8'	>	'ZZ/GMT+8';
+	'Etc/GMT+7'	>	'ZZ/GMT+7';
+	'Etc/GMT+6'	>	'ZZ/GMT+6';
+	'Etc/GMT+5'	>	'ZZ/GMT+5';
+	'Etc/GMT+4'	>	'ZZ/GMT+4';
+	'Etc/GMT+3'	>	'ZZ/GMT+3';
+	'Etc/GMT+2'	>	'ZZ/GMT+2';
+	'Etc/GMT+1'	>	'ZZ/GMT+1';
+	'Etc/GMT-14'	>	'ZZ/GMT-14';
+	'Etc/GMT-13'	>	'ZZ/GMT-13';
+	'Etc/GMT-12'	>	'ZZ/GMT-12';
+	'Etc/GMT-11'	>	'ZZ/GMT-11';
+	'Etc/GMT-10'	>	'ZZ/GMT-10';
+	'Etc/GMT-9'	>	'ZZ/GMT-9';
+	'Etc/GMT-8'	>	'ZZ/GMT-8';
+	'Etc/GMT-7'	>	'ZZ/GMT-7';
+	'Etc/GMT-6'	>	'ZZ/GMT-6';
+	'Etc/GMT-5'	>	'ZZ/GMT-5';
+	'Etc/GMT-4'	>	'ZZ/GMT-4';
+	'Etc/GMT-3'	>	'ZZ/GMT-3';
+	'Etc/GMT-2'	>	'ZZ/GMT-2';
+	'Etc/GMT-1'	>	'ZZ/GMT-1';
 # CA	Canada
 	'America/Dawson_Creek'	>	'CA/Dawson_Creek';
-# ZZ	Unknown or Invalid Region
-	'Etc/GMT-10'	>	'ZZ/GMT-10';
-	'Etc/GMT+1'	>	'ZZ/GMT+1';
-	'Etc/GMT+10'	>	'ZZ/GMT+10';
 
 # Normal items, sorted by country code
 
@@ -644,27 +667,4 @@
 	'Africa/Harare'	>	'ZW/Harare';
 # ZZ	Unknown or Invalid Region
 	'Etc/GMT'	>	'ZZ/GMT';
-	'Etc/GMT-1'	>	'ZZ/GMT-1';
-	'Etc/GMT-2'	>	'ZZ/GMT-2';
-	'Etc/GMT-3'	>	'ZZ/GMT-3';
-	'Etc/GMT-4'	>	'ZZ/GMT-4';
-	'Etc/GMT-5'	>	'ZZ/GMT-5';
-	'Etc/GMT-6'	>	'ZZ/GMT-6';
-	'Etc/GMT-7'	>	'ZZ/GMT-7';
-	'Etc/GMT-8'	>	'ZZ/GMT-8';
-	'Etc/GMT-9'	>	'ZZ/GMT-9';
-	'Etc/GMT-11'	>	'ZZ/GMT-11';
-	'Etc/GMT-12'	>	'ZZ/GMT-12';
-	'Etc/GMT-13'	>	'ZZ/GMT-13';
-	'Etc/GMT-14'	>	'ZZ/GMT-14';
-	'Etc/GMT+2'	>	'ZZ/GMT+2';
-	'Etc/GMT+3'	>	'ZZ/GMT+3';
-	'Etc/GMT+4'	>	'ZZ/GMT+4';
-	'Etc/GMT+5'	>	'ZZ/GMT+5';
-	'Etc/GMT+6'	>	'ZZ/GMT+6';
-	'Etc/GMT+7'	>	'ZZ/GMT+7';
-	'Etc/GMT+8'	>	'ZZ/GMT+8';
-	'Etc/GMT+9'	>	'ZZ/GMT+9';
-	'Etc/GMT+11'	>	'ZZ/GMT+11';
-	'Etc/GMT+12'	>	'ZZ/GMT+12';
 	'Etc/Unknown'	>	'ZZ/Unknown';

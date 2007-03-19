@@ -422,17 +422,87 @@ public class CountItems {
       System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
     }
     
-    public static void genSupplementalZoneData() {
+    public static void genSupplementalZoneData() throws IOException {
       genSupplementalZoneData(false);
     }
     
-    public static void genSupplementalZoneData(boolean skipUnaliased) {
+    public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
         RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
         col.setNumericCollation(true);
         StandardCodes sc = StandardCodes.make();
-
-        Map zone_country = sc.getZoneToCounty();
+        Map<String,String> zone_country = sc.getZoneToCounty();
         Map country_zone = sc.getCountryToZoneSet();
+        Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+        CLDRFile english = cldrFactory.make("en", true);
+        
+        System.out.println("Writing zonePrettyPath");
+        Set<String> masked = new HashSet();
+        Map<String,String> zoneNew_Old = new TreeMap(col);
+        String lastZone = "XXX";
+        for (String zone : new TreeSet<String>(zone_country.keySet())) {
+          String[] parts = zone.split("/");
+          String newPrefix = zone_country.get(zone); // english.getName("tzid", zone_country.get(zone), false).replace(' ', '_');
+          if (newPrefix.equals("001")) {
+            newPrefix = "ZZ";
+          }
+          parts[0] = newPrefix;
+          String newName;
+          if (parts.length > 2) {
+            System.out.println("\tMultifield: " + zone);
+            if (parts.length == 3 && parts[1].equals("Argentina")) {
+              newName = parts[0] + "/" + parts[1]; 
+            } else {
+              newName = Utility.join(parts, "/");
+            }
+          } else {
+            newName = Utility.join(parts, "/");
+          }
+          zoneNew_Old.put(newName, zone);
+          if (zone.startsWith(lastZone)) {
+            masked.add(zone); // find "masked items" and do them first.
+          } else {
+            lastZone = zone;
+          }
+        }
+        
+        
+        Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
+        String lastCountry = "";
+        for (int i = 0; i < 2; ++i) {
+          Set<String> orderedList = zoneNew_Old.keySet();
+          if (i == 0) {
+            Log.println("# Short IDs for zone names: country code + last part of TZID");
+            Log.println("# First are items that would be masked, and are moved forwards and sorted in reverse order");
+            Log.println();
+            Comparator c;
+            Set<String> temp = new TreeSet(new ReverseComparator(col));
+            temp.addAll(orderedList);
+            orderedList = temp;
+          } else {
+            Log.println();
+            Log.println("# Normal items, sorted by country code");
+            Log.println();
+          }
+          
+          // do masked items first
+          
+        for (String newName : orderedList) {
+          String oldName = zoneNew_Old.get(newName);
+          if (masked.contains(oldName) != (i == 0)) {
+            continue;
+          }
+          String newCountry = newName.split("/")[0];
+          if (!newCountry.equals(lastCountry)) {
+            Log.println("# " + newCountry + "\t" + english.getName("territory", newCountry, false));
+            lastCountry = newCountry;
+          }
+          Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
+        }
+        }
+        Log.close();
+        System.out.println("Done Writing zonePrettyPath");
+        
+
         Map old_new = sc.getZoneLinkold_new();
         Map new_old = new TreeMap();
 
@@ -512,6 +582,16 @@ public class CountItems {
         String broken = Utility.breakLines(tzid, sep, Pattern.compile("((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""), 80);
         assert(tzid.toString().equals(broken.replace(sep," ")));
         System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
+    }
+    
+    public static class ReverseComparator<T>  implements Comparator<T> {
+      Comparator<T> other;
+      public ReverseComparator(Comparator<T> other) {
+        this.other = other;
+      }
+      public int compare(T o1, T o2) {
+        return other.compare(o2,o1);
+      }     
     }
     
     public static void getSubtagVariables() {

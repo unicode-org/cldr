@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
@@ -15,10 +16,12 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.ULocale;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.text.ParseException;
 import java.util.Arrays;
@@ -77,6 +80,7 @@ public class GenerateEnums {
     gen.showLanguages();
     gen.showScripts();
     gen.showRegionCodeInfo();
+    System.out.println("DONE");
   }
 
   private void showCounts() {
@@ -85,15 +89,17 @@ public class GenerateEnums {
     System.out.format("Territory Subtags: %s\r\n", sc.getGoodAvailableCodes("territory").size());
   }
 
-  private void showCurrencies() {
-    System.out.println();
-    System.out.println("Currency Data");
-    System.out.println();
+  private void showCurrencies() throws IOException {
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/currency_enum.txt");
+    Log.println();
+    Log.println("Currency Data");
+    Log.println();
+    showGeneratedCommentStart(CODE_INDENT);
     compareSets("currencies from sup.data", currencyCodes, "valid currencies", validCurrencyCodes);
     Set unused = new TreeSet(validCurrencyCodes);
     unused.removeAll(currencyCodes);
     showCurrencies(currencyCodes);
-    System.out.println();
+    Log.println();
     showCurrencies(unused);
     Map<String,String> sorted = new TreeMap(Collator.getInstance(ULocale.ENGLISH));
     for (String code : validCurrencyCodes) {
@@ -102,8 +108,10 @@ public class GenerateEnums {
     }
     int lineLength = "  /** Belgian Franc */                                            BEF,".length();
     for (String name : sorted.keySet()) {
-      printRow(sorted.get(name), name, "currency", null, lineLength);
+      printRow(Log.getLog(), sorted.get(name), name, "currency", null, lineLength);
     }
+    showGeneratedCommentEnd(CODE_INDENT);
+    Log.close();
   }
 
   private void showCurrencies(Set both) {
@@ -119,25 +127,29 @@ public class GenerateEnums {
     }
   }
 
-  private void showScripts() {
-    System.out.println();
-    System.out.println("Script Data");
-    System.out.println();
+  private void showScripts() throws IOException {
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/script_enum.txt");
+    Log.println();
+    Log.println("Script Data");
+    Log.println();
 
     showGeneratedCommentStart(CODE_INDENT);
     Map code_replacements = new TreeMap();
+    int len = "  /** Arabic */                                        Arab,".length();
     for (Iterator it = scripts.iterator(); it.hasNext();) {
       String code = (String) it.next();
       String englishName = english.getName(CLDRFile.SCRIPT_NAME, code, false);
       if (englishName == null)
         continue;
-      printRow(code, null, "script", code_replacements, 80);
-      //System.out.println("     /**" + englishName + "*/    " + code + ",");
+      printRow(Log.getLog(), code, null, "script", code_replacements, len);
+      //Log.println("     /**" + englishName + "*/    " + code + ",");
     }
     showGeneratedCommentEnd(CODE_INDENT);
+    Log.close();
   }
 
-  private void showLanguages() {
+  private void showLanguages() throws IOException {
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/language_enum.txt");
     System.out.println();
     System.out.println("Language Data");
     System.out.println();
@@ -165,7 +177,7 @@ public class GenerateEnums {
         continue;
       }
       if (code.charAt(0) != lastChar || buffer.length() + 1 + code.length() > lineLimit) {
-        if (buffer.length() != 0) System.out.println(LIST_INDENT + "+ \"" + buffer + "\"");
+        if (buffer.length() != 0) Log.println(LIST_INDENT + "+ \"" + buffer + "\"");
         buffer.setLength(0);
         lastChar = code.charAt(0);
       }
@@ -175,9 +187,10 @@ public class GenerateEnums {
     if (buffer.charAt(buffer.length()-1) == ' ') {
       buffer.setLength(buffer.length() - 1);
     }
-    System.out.println(LIST_INDENT + "+ \"" + buffer + "\"");
+    Log.println(LIST_INDENT + "+ \"" + buffer + "\"");
     
     showGeneratedCommentEnd(LIST_INDENT);
+    Log.close();
   }
 
   private Object join(Collection collection, String separator) {
@@ -399,7 +412,7 @@ public class GenerateEnums {
     Set startingFromWorld = new TreeSet();
     addContains("001", startingFromWorld);
     compareSets("World", startingFromWorld, "CLDR", cldrCodes);
-    generateContains();
+    //generateContains();
   }
 
   private void generateContains() {
@@ -410,7 +423,7 @@ public class GenerateEnums {
       
       String setAsString = Utility.join(plain," ");
       //String setAsString2 = recursive.equals(plain) ? "" : ", " + Utility.join(recursive," ");
-      System.out.println("\t\tadd(\"" + region + "\", \"" + setAsString + "\");");
+      Log.println("\t\tadd(\"" + region + "\", \"" + setAsString + "\");");
     }
   }
 
@@ -465,8 +478,10 @@ public class GenerateEnums {
 
   /**
    * Get the RegionCode Enum
+   * @throws IOException 
    */
-  private void showRegionCodeInfo() {
+  private void showRegionCodeInfo() throws IOException {
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/region_enum.txt");
     System.out.println();
     System.out.println("Data for RegionCode");
     System.out.println();
@@ -475,15 +490,18 @@ public class GenerateEnums {
     Set reordered = new TreeSet(new LengthFirstComparator());
     reordered.addAll(enum_UN.keySet());
     Map<String,String> code_replacements = new TreeMap<String,String>();
+    int len = "  /** Polynesia */                                    UN061,".length();
     for (Iterator it = reordered.iterator(); it.hasNext();) {
       String region = (String) it.next();
-      printRow(region, null, "territory", code_replacements, 80);
+      printRow(Log.getLog(), region, null, "territory", code_replacements, len);
     }
     showGeneratedCommentEnd(CODE_INDENT);
-
-    System.out.println();
-    System.out.println("Data for ISO Region Codes");
-    System.out.println();
+    Log.close();
+    
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/region_info.txt");
+    Log.println();
+    Log.println("Data for ISO Region Codes");
+    Log.println();
     showGeneratedCommentStart(DATA_INDENT);
     // addInfo(RegionCode.US, 840, "USA", "US", "US/XX", ....); ... are
     // containees
@@ -500,14 +518,13 @@ public class GenerateEnums {
       String isoCode = (String) enum_alpha3.get(region);
       if (isoCode == null)
         continue;
-      System.out.println(DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode." + region + ");");
+      Log.println(DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode." + region + ");");
     }
     doAliases(code_replacements);
     showGeneratedCommentEnd(DATA_INDENT);
-    
-    System.out.println();
-    System.out.println("Data for M.49 Region Codes");
-    System.out.println();
+    Log.println();
+    Log.println("Data for M.49 Region Codes");
+    Log.println();
     showGeneratedCommentStart(DATA_INDENT);
 
     for (Iterator it = reordered.iterator(); it.hasNext();) {
@@ -517,7 +534,7 @@ public class GenerateEnums {
                                                                             // name
       int un = Integer.parseInt((String) enum_UN.get(region),10); // get around dumb octal
                                                                   // syntax
-      System.out.println(DATA_INDENT + "add(" + un + ", " + "RegionCode." + region + ");");
+      Log.println(DATA_INDENT + "add(" + un + ", " + "RegionCode." + region + ");");
     }
     doAliases(code_replacements);
     
@@ -538,28 +555,29 @@ public class GenerateEnums {
     showGeneratedCommentEnd(DATA_INDENT);
     
     getContainment();
+    Log.close();
   }
 
   private void doAliases(Map<String, String> code_replacements) {
     for (String code : code_replacements.keySet()) {
       String newCode = code_replacements.get(code);
       if (newCode.length() == 0) newCode = "ZZ";
-      System.out.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", \"" + newCode + "\");");
+      Log.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", \"" + newCode + "\");");
     }
   }
 
   private void showGeneratedCommentEnd(String indent) {
-    System.out.println(indent + "/* End of generated code. */");    
+    Log.println(indent + "/* End of generated code. */");    
   }
 
   private void showGeneratedCommentStart(String indent) {
-    System.out.println(indent + "/*");
-    System.out.println(indent + " * The following information is generated from a tool,");
-    System.out.println(indent + " * as described on");
-    System.out.println(indent + " * http://wiki/Main/InternationalIdentifierUpdates.");
-    System.out.println(indent + " * Do not edit manually.");
-    System.out.println(indent + " * Start of generated code.");
-    System.out.println(indent + " */");
+    Log.println(indent + "/*");
+    Log.println(indent + " * The following information is generated from a tool,");
+    Log.println(indent + " * as described on");
+    Log.println(indent + " * http://wiki/Main/InternationalIdentifierUpdates.");
+    Log.println(indent + " * Do not edit manually.");
+    Log.println(indent + " * Start of generated code.");
+    Log.println(indent + " */");
   }
 
   public final static class LengthFirstComparator implements Comparator {
@@ -613,35 +631,42 @@ public class GenerateEnums {
     return replacement;
   }
   
-  private void printRow(String codeName, String englishName, String type, Map<String,String> code_replacements, int lineLength) {
+  static Transliterator doFallbacks = Transliterator.createFromRules("id", "[’ʻ] > ''; ", Transliterator.FORWARD);
+  
+  private void printRow(PrintWriter out, String codeName, String englishName, String type, Map<String,String> code_replacements, int lineLength) {
     //int numeric = Integer.parseInt((String) enum_UN.get(codeName));
     //String alpha3 = (String) enum_alpha3.get(codeName);
     String cldrName = codeName.length() < 5 ? codeName : codeName.substring(2); // fix UN name
     String replacement = getDeprecatedReplacement(type, cldrName);
+    
     String resolvedEnglishName = englishName != null ? englishName
       : type.equals("territory") ? getEnglishName(codeName) 
       : type.equals("currency") ? english.getName(CLDRFile.CURRENCY_NAME, codeName, false)
       : english.getName(CLDRFile.SCRIPT_NAME, codeName, false);
+    resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
+    
     String prefix = CODE_INDENT + "/** " + resolvedEnglishName; //  + " - " + threeDigit.format(numeric);
     String printedCodeName = codeName;
     if (replacement != null) {
       code_replacements.put(codeName, replacement);
-      System.out.println(prefix);
+      out.println(prefix);
       prefix = CODE_INDENT + " * @deprecated" + (replacement.length() == 0 ? "" : " see " + replacement);
       printedCodeName = "@Deprecated " + printedCodeName;
     }
     prefix += " */";
 
     if (codeName.equals("UN001")) {
-      System.out.println();
+      out.println();
     }
-    System.out.print(prefix);
-    System.out.print(Utility.repeat(" ",lineLength - (prefix.length() + printedCodeName.length() + 1)));
-    System.out.println(printedCodeName
-    //                    + "\t(" + numeric + 
-        //                    (alpha3 != null ? ", " + quote(alpha3) : "")
-        //                    + ")"
-        + ",");
+    if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
+      // break at last space
+      int lastFit = prefix.lastIndexOf(' ', lineLength - (printedCodeName.length() + 1) - 2);
+      out.println(prefix.substring(0,lastFit));
+      prefix = CODE_INDENT + " *" + prefix.substring(lastFit);     
+    }
+    out.print(prefix);
+    out.print(Utility.repeat(" ", lineLength - (prefix.length() + printedCodeName.length() + 1)));
+    out.println(printedCodeName + ",");
   }
 
   private String getEnglishName(String codeName) {

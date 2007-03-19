@@ -83,7 +83,7 @@ public class GenerateSidewaysView {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
     UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "charts\\by_type\\"),
+    UOption.DESTDIR().setDefault(Utility.BASE_DIRECTORY + "diff/by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
     UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
@@ -140,12 +140,14 @@ public class GenerateSidewaysView {
         out = start(out, main, types);
       }
       String key = partial[0];
+      String anchor = toHTML.transliterate(key);
       if (usePrettyPath) {
           String originalPath = prettyPath.getOriginal(path);
           String englishValue = english.getStringValue (originalPath);
           if (englishValue != null) key += " (English: " + englishValue + ")";
       }
-      out.println("<tr><th colSpan='2' class='path'>" + toHTML.transliterate(key) + "</th><tr>");
+
+      out.println("<tr><th colSpan='2' class='path'><a name=\"" + anchor + "\">" + toHTML.transliterate(key) + "</a></th><tr>");
       Map value_locales = (Map) path_value_locales.get(path);
       for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
         String value = (String)it2.next();
@@ -192,6 +194,8 @@ public class GenerateSidewaysView {
     for (Iterator it = alllocales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
       System.out.println("Loading: " + localeID);
+      System.out.flush();
+      
       CLDRFile cldrFile = cldrFactory.make(localeID, localeID.equals("root"));
       if (cldrFile.isNonInheriting()) continue;
       for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
@@ -268,14 +272,18 @@ public class GenerateSidewaysView {
   /**
    * 
    */
-  private static String getFileName(String path, String[] partial) {
+  private static String getFileName(String inputPath, String[] partial) {
     if (usePrettyPath) {
-      path = prettyPath.getOutputForm(path);
+      String path = prettyPath.getOutputForm(inputPath);
       int pos = path.lastIndexOf('|');
       partial[0] = path.substring(pos+1);
-      return path.substring(0,pos).replace('|','.');
+      try {
+        return path.substring(0,pos).replace('|','.');
+      } catch (RuntimeException e) {
+        throw (IllegalArgumentException) new IllegalArgumentException("input path: " + inputPath + "\tpretty: " + path).initCause(e);
+      }
     }
-    parts.set(path);
+    parts.set(inputPath);
     int start = 1;
     String main = parts.getElement(start);
     if (main.equals("localeDisplayNames")

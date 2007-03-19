@@ -976,7 +976,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   
   public static Transliterator getTransliteratorFromFile(String ID, String file) {
     try {
-      BufferedReader br = Utility.getUTF8Data("prettyPath.txt");
+      BufferedReader br = Utility.getUTF8Data(file);
       StringBuffer input = new StringBuffer();
       while (true) {
         String line = br.readLine();

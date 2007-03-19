@@ -21,7 +21,14 @@ import com.ibm.icu.text.Replaceable;
 import com.ibm.icu.text.Transliterator;
 
 public class PrettyPath {
-	private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
+  private Transliterator prettyPathZoneTransform;
+  {
+    prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
+    Transliterator.registerInstance(prettyPathZoneTransform);
+    Transliterator foo = Transliterator.getInstance("prettyPathZone");
+  }
+  private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
+
 	private Map prettyPath_path = new HashMap();
   private Map path_prettyPath_sortable = new HashMap();
   private Map path_prettyPath = new HashMap();

@@ -26,11 +26,13 @@ public class QuickCheck {
   private static final Set skipAttributes = new HashSet(Arrays.asList(new String[]{
       "alt", "draft", "references"}));
 
-  private static final String localeRegex = ".*"; // normally .*
+  private static String localeRegex;
   
   private static boolean showInfo = false;
   
   public static void main(String[] args) {
+    localeRegex = System.getProperty("LOCALE");
+    if (localeRegex == null) localeRegex = ".*";
     showInfo = System.getProperty("SHOW") != null;
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
     double deltaTime = System.currentTimeMillis();
@@ -96,7 +98,7 @@ public class QuickCheck {
     Set<String> badPaths = new TreeSet();
     for (String path : pathToLocale.keySet()) {
       String prettied = prettyPath.getPrettyPath(path, false);
-      if (showInfo) System.out.println(path + "\t" + prettied + "\t");
+      if (showInfo) System.out.println(prettied + "\t\t" + path);
       if (prettied.contains("%%") && !path.contains("/alias")) {
         badPaths.add(path);
       }

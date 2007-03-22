@@ -43,7 +43,7 @@ public class GenerateTransformCharts {
     "[\u09D7\u0B56-\u0B57\u0BD7\u0C56\u0CD5-\u0CD6\u0D57\u0C55\u0CD5]");
     
     static         String testString = "\u0946\u093E";
-    private static boolean useICU = true;
+    private static boolean useICU;
     
     // Latin    Arabic  Bengali     Cyrillic    Devanagari  Greek   Greek/UNGEGN    Gujarati    Gurmukhi    Hangul  Hebrew  Hiragana    Kannada     Katakana    Malayalam   Oriya   Tamil   Telugu  Thai
     
@@ -53,6 +53,8 @@ public class GenerateTransformCharts {
     }
     
     public static void main(String[] args) throws IOException {
+      useICU = System.getProperty("USEICU") != null;
+
         System.out.println("Start");
         try {
             if (true) {

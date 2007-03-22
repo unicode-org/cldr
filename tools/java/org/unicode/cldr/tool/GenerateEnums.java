@@ -592,6 +592,12 @@ public class GenerateEnums {
     }
   }
   
+  public static Set<String> ArchaicScripts = new TreeSet();
+  public static boolean isScriptModern(String script) {
+    return false;
+//  Xsux, Ugar, Xpeo, Goth, Ital, Cprt, Linb, Phnx, Khar, Phag, Glag, Shaw, Dsrt, Runr, Ogam
+  }
+  
   public final class DeprecatedAndLengthFirstComparator implements Comparator {
     String type;
     DeprecatedAndLengthFirstComparator(String type) {

@@ -112,7 +112,7 @@ public class CLDRTransforms {
             Transliterator.registerInstance(t);
             if (false) System.out.println("Registered new Transliterator: " + id);
         } catch (RuntimeException e) {
-            System.out.println("ERROR: couldn't register new Transliterator: " + id); // + "\t" + e.getMessage());
+            System.out.println("ERROR: couldn't register new Transliterator: " + id + "\t" + e.getMessage());
         }
     }
 }

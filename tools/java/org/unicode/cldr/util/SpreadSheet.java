@@ -30,4 +30,19 @@ public class SpreadSheet {
     }
     return result;
   }
+  
+//for (int i = 0; i < line.length(); ++i) {
+//char ch = line.charAt(i); // don't worry about supplementaries
+//if (inQuote) {
+//  if (ch == '"') {
+//    inQuote = false;
+//  }
+//} else {
+//  if (ch == ',' || ch == "\t") {
+//    
+//  }
+//}
+//
+//}
+
 }

@@ -6,7 +6,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.SupplementalDataInfo.LanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 
 import java.util.Collections;
 import java.util.Set;
@@ -28,9 +28,9 @@ public class TestSupplementalData {
     Relation<String,String> otherTerritoryToLanguages = new Relation(new TreeMap(), TreeSet.class, null);
     // get other language data
     for (String language : sc.getGoodAvailableCodes("language")) {
-      Set<LanguageData> newLanguageData = supplementalData.getLanguageData(language);
+      Set<BasicLanguageData> newLanguageData = supplementalData.getBasicLanguageData(language);
       if (newLanguageData != null) {
-        for (LanguageData languageData : newLanguageData) {
+        for (BasicLanguageData languageData : newLanguageData) {
         Set<String> territories = new TreeSet(languageData.getTerritories());
         territories.addAll(languageData.getTerritories());
         if (territories != null) {

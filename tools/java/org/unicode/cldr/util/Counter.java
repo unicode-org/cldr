@@ -75,7 +75,7 @@ public final class Counter<T> implements Iterable<T> {
         return map.size();
     }
 
-    public Set getKeysetSortedByCount(boolean ascending) {
+    public Set<T> getKeysetSortedByCount(boolean ascending) {
         Map count_key = new TreeMap();
         int counter = 0; // original order
         for (Iterator<T> it =  map.keySet().iterator(); it.hasNext();) {
@@ -93,18 +93,18 @@ public final class Counter<T> implements Iterable<T> {
         return result;
     }
     
-    public Set getKeysetSortedByKey() {
+    public Set<T> getKeysetSortedByKey() {
         return new TreeSet(map.keySet());
     }
 
-    public Set getKeysetSortedByKey(Comparator comparator) {
+    public Set<T> getKeysetSortedByKey(Comparator comparator) {
     	Set s = new TreeSet(comparator);
     	s.addAll(map.keySet());
         return s;
     }
 
 
-    public Map getKeyToKey() {
+    public Map<T,RWInteger> getKeyToKey() {
         Map result = new HashMap();
         Iterator it = map.keySet().iterator();
         while (it.hasNext()) {
@@ -114,7 +114,7 @@ public final class Counter<T> implements Iterable<T> {
         return result;
     }
 
-    public Set keySet() {
+    public Set<T> keySet() {
         return map.keySet();
     }
     

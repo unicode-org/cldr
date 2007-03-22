@@ -16,7 +16,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LocaleIDParser.Level;
-import org.unicode.cldr.util.SupplementalDataInfo.LanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -47,6 +47,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+/**
+ * Put source into C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/country_language_population_raw.txt
+ * @author markdavis
+ *
+ */
 public class ConvertLanguageData {
   
   static final Comparator GENERAL_COLLATOR = new GeneralCollator();
@@ -55,7 +60,7 @@ public class ConvertLanguageData {
   static final double populationFactor = 1;
   static final double gdpFactor = 1;
   // static final int COUNTRY_CODE = 2, LANGUAGE_POPULATION = 3, LANGUAGE_LITERACY = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, BAD_LANGUAGE_CODE = 7, COUNTRY_POPULATION = 8, COUNTRY_LITERACY = 9, COUNTRY_GDP = 10, COMMENT=17;
-  static final int BAD_COUNTRY_NAME = 0, COUNTRY_CODE = 1, COUNTRY_POPULATION = 2, COUNTRY_LITERACY = 3, COUNTRY_GDP = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, LANGUAGE_POPULATION = 7, LANGUAGE_LITERACY = 8, COMMENT=9;
+  static final int BAD_COUNTRY_NAME = 0, COUNTRY_CODE = 1, COUNTRY_POPULATION = 2, COUNTRY_LITERACY = 3, COUNTRY_GDP = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, LANGUAGE_POPULATION = 7, LANGUAGE_LITERACY = 8, COMMENT=9, NOTES=10;
   static final Map<String, CodeAndPopulation> languageToMaxCountry = new TreeMap<String, CodeAndPopulation>();
   static final Map<String, CodeAndPopulation> languageToMaxScript = new TreeMap<String, CodeAndPopulation>();
   static Map<String,String> defaultContent = new TreeMap<String,String>();
@@ -183,6 +188,7 @@ public class ConvertLanguageData {
     double languagePopulation;
     double languageLiteracy;
     String comment = "";
+    String notes = "";
     String badLanguageName = "";
     //String badLanguageCode = "";
     
@@ -211,6 +217,9 @@ public class ConvertLanguageData {
           : parsePercent(stringLanguageLiteracy);
       if (row.size() > COMMENT) {
         comment = row.get(COMMENT);
+      }
+      if (row.size() > NOTES) {
+        notes = row.get(NOTES);
       }
       badLanguageName = row.get(BAD_LANGUAGE_NAME);
     }
@@ -499,7 +508,11 @@ public class ConvertLanguageData {
         if (x.languageCode.contains("_")) {
           languagesNotFound.remove(x.languageCode.substring(0,x.languageCode.indexOf('_')));
         }
-        localeToRowData.put(x.languageCode + "_" + x.countryCode, x);
+        String locale = x.languageCode + "_" + x.countryCode;
+        if (localeToRowData.get(locale) != null) {
+          System.out.println("WARNING: duplicate data for: " + x.languageCode + " with " + x.countryCode);
+        }
+        localeToRowData.put(locale, x);
         sortedInput.add(x);
       } catch (ParseException e) {
         failures.add(join(row,"\t") + "\t" + e.getMessage() + "\t" + join(Arrays.asList(e.getStackTrace()),";\t"));
@@ -529,7 +542,8 @@ public class ConvertLanguageData {
         "\tLCode" +
         "\tLPopulation" +
         "\tLLiteracy" +
-        "\tReference"
+        "\tReferences" +
+        "\tNotes"
     );
     RickComparator rickSorting = new RickComparator();
     Set<RowData> rickSorted = new TreeSet(rickSorting);
@@ -547,6 +561,7 @@ public class ConvertLanguageData {
           + "\t" + row.getLanguagePopulationString()
           + "\t" + row.getLanguageLiteracyString()
           + "\t" + getExcelQuote(row.comment)
+          + "\t" + getExcelQuote(row.notes)
       );  
     }
     log.close();
@@ -1026,9 +1041,9 @@ public class ConvertLanguageData {
     }
     nameToTerritoryCode.put("iran",nameToTerritoryCode.get("iran, islamic republic of")); // 
     
-    LanguageData languageData = new LanguageData();
+    BasicLanguageData languageData = new BasicLanguageData();
     
-    Relation<String, LanguageData> allLanguageData = new Relation(new TreeMap(), TreeSet.class);
+    Relation<String, BasicLanguageData> allLanguageData = new Relation(new TreeMap(), TreeSet.class);
     
     BufferedReader in = Utility.getUTF8Data("extraLanguagesAndScripts.txt");
     while (true) {
@@ -1102,17 +1117,17 @@ public class ConvertLanguageData {
      //     <language type="de" scripts="Latn" territories="IT" alt="secondary"/>
      // we're going to go ahead and set these all to secondary.
      if (scripts.size() != 0) {
-       allLanguageData.put(languageSubtag, new LanguageData().setType(LanguageData.Type.secondary).setScripts(scripts).setTerritories(territories));
+       allLanguageData.put(languageSubtag, new BasicLanguageData().setType(BasicLanguageData.Type.secondary).setScripts(scripts).setTerritories(territories));
      }
      if (scriptsAlt.size() != 0) {
-       allLanguageData.put(languageSubtag, new LanguageData().setType(LanguageData.Type.secondary).setScripts(scriptsAlt).setTerritories(territories));
+       allLanguageData.put(languageSubtag, new BasicLanguageData().setType(BasicLanguageData.Type.secondary).setScripts(scriptsAlt).setTerritories(territories));
      }
     }
     in.close();
     
     // add other data, and print
-    for (String languageSubtag : supplementalData.getLanguageDataLanguages()) {
-      Set<LanguageData> otherData = supplementalData.getLanguageData(languageSubtag);
+    for (String languageSubtag : supplementalData.getBasicLanguageDataLanguages()) {
+      Set<BasicLanguageData> otherData = supplementalData.getBasicLanguageData(languageSubtag);
       allLanguageData.putAll(languageSubtag, otherData);
     }
     
@@ -1126,14 +1141,14 @@ public class ConvertLanguageData {
       primaryCombos.clear();
       secondaryCombos.clear();
       
-      for (LanguageData item : allLanguageData.getAll(languageSubtag)) {
+      for (BasicLanguageData item : allLanguageData.getAll(languageSubtag)) {
         Set<String> scripts = item.getScripts();
         if (scripts.size() == 0) scripts = new TreeSet(Arrays.asList(new String[]{"Zzzz"}));
         for (String script : scripts) {
           Set<String> territories = item.getTerritories();
           if (territories.size() == 0) territories = new TreeSet(Arrays.asList(new String[]{"ZZ"}));
           for (String territory : territories) {
-            if (item.getType().equals(LanguageData.Type.primary)) {
+            if (item.getType().equals(BasicLanguageData.Type.primary)) {
               primaryCombos.put(script, territory);
             } else {
               secondaryCombos.put(script, territory);
@@ -1142,14 +1157,14 @@ public class ConvertLanguageData {
         }
       }
       secondaryCombos.removeAll(primaryCombos);
-      showLanguageData(languageSubtag, primaryCombos, null, LanguageData.Type.primary);
-      showLanguageData(languageSubtag, secondaryCombos, primaryCombos.keySet(), LanguageData.Type.secondary);
+      showLanguageData(languageSubtag, primaryCombos, null, BasicLanguageData.Type.primary);
+      showLanguageData(languageSubtag, secondaryCombos, primaryCombos.keySet(), BasicLanguageData.Type.secondary);
       //System.out.println(item.toString(languageSubtag) + duplicate);
       //duplicate = " <!-- " + "**" + " -->";
     }
   }
 
-  private static void showLanguageData(String languageSubtag, Relation<String,String> primaryCombos, Set<String> suppressEmptyScripts, LanguageData.Type type) {
+  private static void showLanguageData(String languageSubtag, Relation<String,String> primaryCombos, Set<String> suppressEmptyScripts, BasicLanguageData.Type type) {
     Set<String> scriptsWithSameTerritories = new TreeSet<String>();
     Set<String> lastTerritories = Collections.EMPTY_SET;
     for (String script : primaryCombos.keySet()) {
@@ -1168,7 +1183,7 @@ public class ConvertLanguageData {
     showLanguageData2(languageSubtag, scriptsWithSameTerritories, suppressEmptyScripts, lastTerritories, type);
   }
 
-  private static void showLanguageData2(String languageSubtag, Set<String> scripts, Set<String> suppressEmptyScripts, Set<String> territories, LanguageData.Type type) {
+  private static void showLanguageData2(String languageSubtag, Set<String> scripts, Set<String> suppressEmptyScripts, Set<String> territories, BasicLanguageData.Type type) {
     scripts.remove("Zzzz");
     territories.remove("ZZ");
     if (territories.size() == 0 && suppressEmptyScripts != null) {
@@ -1178,7 +1193,7 @@ public class ConvertLanguageData {
     System.out.println("\t\t<language type=\"" + languageSubtag + "\"" +
         (scripts.size() == 0 ? "" : " scripts=\"" + Utility.join(scripts, " ") + "\"") +
         (territories.size() == 0 ? "" : " territories=\"" + Utility.join(territories, " ") + "\"") + 
-        (type == LanguageData.Type.primary ? "" : " alt=\"" + type + "\"") + 
+        (type == BasicLanguageData.Type.primary ? "" : " alt=\"" + type + "\"") + 
     "/>");
   }
   

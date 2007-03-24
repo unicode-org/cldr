@@ -255,6 +255,20 @@ public class StandardCodes {
   };
   
   /**
+   * Returns locales according to status. It returns a Map of Maps, key 1 is
+   * either IBM or Java (perhaps more later), key 2 is the Level.
+   * @deprecated
+   */
+  public Map<String, Map<String, Level>> getLocaleTypes() {
+    synchronized (StandardCodes.class) {
+      if (platform_locale_level == null) {
+        loadPlatformLocaleStatus();
+      }
+    }
+    return platform_locale_level;
+  }
+
+  /**
    * Returns coverage level of locale according to organization. Returns Level.BASIC if information is missing.
    */
   public Level getLocaleCoverageLevel(String organization, String desiredLocale) {

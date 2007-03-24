@@ -26,6 +26,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -802,7 +803,7 @@ public class ShowLanguages {
       .addColumn("Code", "class='source'", "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
       .addColumn("CLDR", "class='source'", null, "class='source'", false)
       ;
-      Map<String, Map<String, String>> vendordata = sc.getLocaleTypes();
+      Map<String, Map<String, Level>> vendordata = sc.getLocaleTypes();
       Set<String> locales = new TreeSet();
       for (String vendor : vendordata.keySet()) {
         if (vendor.equals("Java")) continue;

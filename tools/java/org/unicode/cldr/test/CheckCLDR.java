@@ -246,7 +246,7 @@ abstract public class CheckCLDR {
       
       // if the organization is set, skip any locale that doesn't have a value in Locales.txt
       if (organization != null) {
-        Map<String,String> locale_status = StandardCodes.make().getLocaleTypes().get(organization);
+        Map<String,Level> locale_status = StandardCodes.make().getLocaleTypes().get(organization);
         if (locale_status == null) continue;
         if (locale_status.get(localeID) == null) continue;
       } else if (!isLanguageLocale) {

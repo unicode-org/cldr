@@ -1,12 +1,15 @@
 package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import org.unicode.cldr.util.Relation;
@@ -74,6 +77,7 @@ public class GenerateEnums {
 
   public static void main(String[] args) throws IOException {
     GenerateEnums gen = new GenerateEnums();
+    gen.showLanguageInfo();
     gen.loadCLDRData();
     gen.showCounts();
     gen.showCurrencies();
@@ -145,6 +149,37 @@ public class GenerateEnums {
       //Log.println("     /**" + englishName + "*/    " + code + ",");
     }
     showGeneratedCommentEnd(CODE_INDENT);
+    Log.close();
+  }
+  
+  private void showLanguageInfo() throws IOException {
+    Log.setLog(Utility.GEN_DIRECTORY + "/enum/language_info.txt");
+    System.out.println();
+    System.out.println("Language Converter");
+    System.out.println();
+    StringBuilder buffer = new StringBuilder();
+    // language information
+    for (String language: sc.getAvailableCodes("language")) {
+      Scope scope = Iso639Data.getScope(language);
+      if (scope == Scope.PrivateUse) {
+        continue;
+      }
+      buffer.setLength(0);
+      Type type = Iso639Data.getType(language);
+      if (type != Type.Living) {
+        buffer.append(".add(Type." + type + ")");
+      }
+       if (scope != Scope.Individual) {
+         buffer.append(".add(Scope." + scope + ")");
+      }
+      String alpha3 = Iso639Data.toAlpha3(language);
+      if (alpha3 != null) {
+        buffer.append(".add(\"" + alpha3 + "\")");
+      }
+      if (buffer.length() > 0) {
+        Log.println("\t\tto(\"" + language + "\")" + buffer + ";");
+      }
+    }
     Log.close();
   }
 

@@ -45,6 +45,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -63,6 +64,7 @@ public class ConvertLanguageData {
   static final int BAD_COUNTRY_NAME = 0, COUNTRY_CODE = 1, COUNTRY_POPULATION = 2, COUNTRY_LITERACY = 3, COUNTRY_GDP = 4, BAD_LANGUAGE_NAME = 5, LANGUAGE_CODE = 6, LANGUAGE_POPULATION = 7, LANGUAGE_LITERACY = 8, COMMENT=9, NOTES=10;
   static final Map<String, CodeAndPopulation> languageToMaxCountry = new TreeMap<String, CodeAndPopulation>();
   static final Map<String, CodeAndPopulation> languageToMaxScript = new TreeMap<String, CodeAndPopulation>();
+  private static final boolean ALLOW_SMALL_NUMBERS = false;
   static Map<String,String> defaultContent = new TreeMap<String,String>();
   
   static CLDRFile english;
@@ -381,7 +383,7 @@ public class ConvertLanguageData {
       }
       
       if (languageCode.length() != 0 
-          && (languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw"))
+          && (ALLOW_SMALL_NUMBERS || languagePopulationPercent >= 1 || languagePopulationRaw > 100000 || languageCode.equals("haw"))
       ) {
         // add best case
         addBestRegion(languageCode, countryCode, languagePopulationRaw);
@@ -418,17 +420,15 @@ public class ConvertLanguageData {
     System.out.println("\t\t</territory>");
     // <reference type="R034" uri="isbn:0-321-18578-1">The Unicode Standard 4.0</reference>
     System.out.println("\t<references>");
+    Matcher URI = Pattern.compile("([a-z]+\\://[\\S]+)\\s?(.*)").matcher("");
     for (String Rxxx : Rxxx_to_reference.keySet()) {
       String htmlReferenceBody = TransliteratorUtilities.toHTML.transliterate(Rxxx_to_reference.get(Rxxx));
       String uri = "";
-      if (htmlReferenceBody.startsWith("http:")) {
-        int pos = htmlReferenceBody.indexOf(' ');
-        if (pos < 0) {
-          uri = " uri=\"" + htmlReferenceBody + "\"";
+      if (URI.reset(htmlReferenceBody).matches()) {
+        uri = " uri=\"" + URI.group(1) + "\"";
+        htmlReferenceBody = URI.group(2);
+        if (htmlReferenceBody == null || htmlReferenceBody.length() == 0) {
           htmlReferenceBody = "[missing]";
-        } else {
-          uri = " uri=\"" + htmlReferenceBody.substring(0,pos) + "\"";
-          htmlReferenceBody = htmlReferenceBody.substring(pos+1);
         }
       }
       System.out.println("\t\t<reference type=\"" + Rxxx + "\"" + uri + ">" + htmlReferenceBody + "</reference>");

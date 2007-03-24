@@ -67,4 +67,8 @@ public class Log {
   public static void println(String string) {
     log.println(string);
   }
+
+  public static void print(String string) {
+    log.print(string);
+  }
 }

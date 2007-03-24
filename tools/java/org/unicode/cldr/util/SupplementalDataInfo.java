@@ -96,8 +96,8 @@ public class SupplementalDataInfo {
     public String toString() {
       return MessageFormat
           .format(
-              "[pop: {0,number,#,##0},\t lit%: {1,number,#,##0.00},\t gdp: {2,number,#,##0}]",
-              new Object[] { population, literatePopulation/population, gdp });
+              "[pop: {0,number,#,##0},\t lit: {1,number,#,##0.00},\t gdp: {2,number,#,##0}]",
+              new Object[] { population, literatePopulation, gdp });
     }
 
     private boolean frozen;
@@ -312,6 +312,8 @@ public class SupplementalDataInfo {
   }
 
   class MyHandler extends XMLFileReader.SimpleHandler {
+    private static final double MAX_POPULATION = 3000000000.0;
+
     XPathParts parts = new XPathParts();
 
     LanguageTagParser languageTagParser = new LanguageTagParser();
@@ -330,15 +332,15 @@ public class SupplementalDataInfo {
 
           Map<String, String> territoryAttributes = parts.getAttributes(2);
           String territory = territoryAttributes.get("type");
-          double territoryPopulation = parseDouble(territoryAttributes
-              .get("population"));
-          double territoryLiteracyPercent = parseDouble(territoryAttributes
-              .get("literacyPercent")) / 100.0;
+          double territoryPopulation = parseDouble(territoryAttributes.get("population"));
+          if (failsRangeCheck("population", territoryPopulation, 0, MAX_POPULATION)) return;
+          
+          double territoryLiteracyPercent = parseDouble(territoryAttributes.get("literacyPercent"));
           double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
           if (territoryToPopulationData.get(territory) == null) {
             territoryToPopulationData.put(territory, new PopulationData()
                 .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation)
+                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
                 .setGdp(territoryGdp));
           }
           if (parts.size() > 3) {
@@ -346,14 +348,11 @@ public class SupplementalDataInfo {
             Map<String, String> languageInTerritoryAttributes = parts
                 .getAttributes(3);
             String language = languageInTerritoryAttributes.get("type");
-            double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes
-                .get("literacyPercent"));
+            double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("literacyPercent"));
             if (Double.isNaN(languageLiteracyPercent))
               languageLiteracyPercent = territoryLiteracyPercent;
-            double languagePopulationPercent = parseDouble(languageInTerritoryAttributes
-                .get("populationPercent")) / 100;
-            double languagePopulation = languagePopulationPercent
-                * territoryPopulation;
+            double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
+            double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
             //double languageGdp = languagePopulationPercent * territoryGdp;
 
             // store
@@ -365,7 +364,7 @@ public class SupplementalDataInfo {
             }
             PopulationData newData = new PopulationData()
             .setPopulation(languagePopulation)
-            .setLiteratePopulation(languageLiteracyPercent * languagePopulation)
+            .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
             //.setGdp(languageGdp)
             ;
             newData.freeze();
@@ -373,17 +372,22 @@ public class SupplementalDataInfo {
               System.out
                   .println("Internal Problem in supplementalData: multiple data items for "
                       + language + ", " + territory + "\tSkipping " + newData);
-            } else {
-              territoryLanguageToPopulation.put(language, newData);
+              return;
             }
-
+            
+            territoryLanguageToPopulation.put(language, newData);
             languageToTerritories.put(language, territory);
 
             // now collect data for languages globally
             PopulationData data = languageToPopulation.get(language);
-            if (data == null)
-              languageToPopulation.put(language, data = new PopulationData());
-            data.add(newData);
+            if (data == null) {
+              languageToPopulation.put(language, data = new PopulationData().set(newData));
+            } else {
+              data.add(newData);
+            }
+            if (false && language.equals("en")) {
+              System.out.println(territory + "\tnewData:\t" + newData + "\tdata:\t" + data);   
+            }
             String baseLanguage = languageTagParser.set(language).getLanguage();
             if (!baseLanguage.equals(language)) {
               languageToScriptVariants.put(baseLanguage,language);
@@ -477,6 +481,17 @@ public class SupplementalDataInfo {
       }
     }
 
+    private boolean failsRangeCheck(String path, double input, double min, double max) {
+      if (input >= min && input <= max) {
+        return false;
+      }
+      System.out
+      .println("Internal Problem in supplementalData: range check fails for "
+          + input + ", min: " + min + ", max:" + max + "\t" + path);
+
+      return false;
+    }
+
     private double parseDouble(String literacyString) {
       return literacyString == null ? Double.NaN : Double
           .parseDouble(literacyString);
@@ -486,18 +501,14 @@ public class SupplementalDataInfo {
   Set<String> skippedElements = new TreeSet();
 
   /**
-   * Get the population data for a language.
+   * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
    * 
    * @param language
    * @param output
    * @return
    */
   public PopulationData getLanguagePopulationData(String language) {
-    PopulationData result = languageToPopulation.get(language);
-    if (result == null) {
-      result = baseLanguageToPopulation.get(language);
-    }
-    return result;
+    return languageToPopulation.get(language);
   }
 
   public Set<String> getLanguages() {
@@ -591,7 +602,7 @@ public class SupplementalDataInfo {
   public double getApproximateEconomicWeight(String targetLanguage) {
     double weight = 0;
     Set<String> territories = getTerritoriesForPopulationData(targetLanguage);
-    if (territories == null) return Double.NaN;
+    if (territories == null) return weight;
     for (String territory : territories) {
       Set<String> languagesInTerritory = getTerritoryToLanguages(territory);
       double totalLiteratePopulation = 0;

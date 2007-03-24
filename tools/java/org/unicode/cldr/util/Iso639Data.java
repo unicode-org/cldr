@@ -80,7 +80,7 @@ public class Iso639Data {
    * </p>
    */
   public enum Scope {
-    Individual, Macrolanguage, Special, Collection, PrivateUse
+    Individual, Macrolanguage, Special, Collection, PrivateUse, Unknown
   };
 
   /**
@@ -118,7 +118,7 @@ public class Iso639Data {
    * </p>
    */
   public enum Type {
-    Ancient, Constructed, Extinct, Historical, Living, Special
+    Ancient, Constructed, Extinct, Historical, Living, Special, Collection, Unknown
   };
 
   /**
@@ -181,7 +181,7 @@ public class Iso639Data {
       getData();
     }
     if (!toNames.keySet().contains(languageSubtag))
-      return null;
+      return Scope.Unknown;
     Scope result = toScope.get(languageSubtag);
     if (result != null)
       return result;
@@ -193,7 +193,7 @@ public class Iso639Data {
       getData();
     }
     if (!toNames.keySet().contains(languageSubtag))
-      return null;
+      return Type.Unknown;
     Type result = toType.get(languageSubtag);
     if (result != null)
       return result;

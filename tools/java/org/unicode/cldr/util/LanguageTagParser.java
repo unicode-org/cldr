@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -170,25 +171,26 @@ public class LanguageTagParser {
 			throwError(subtag, "Invalid language subtag");
 		}
 		try { // The try block is to catch the out-of-tokens case. Easier than checking each time.
-			language = subtag;
+			language = subtag.toLowerCase(Locale.ENGLISH);
 			subtag = getSubtag(st); // prepare for next
 			
 			// check for extlangs, three letters
 			while (subtag.length() == 3 && ALPHA.containsAll(subtag)) {
-				extlangs.add(subtag);
+				extlangs.add(subtag.toLowerCase(Locale.ENGLISH));
 				subtag = getSubtag(st); // prepare for next
 			}
 			
 			// check for script, 4 letters
 			if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
 				script = subtag;
+        script = script.substring(0,1).toUpperCase(Locale.ENGLISH) + script.substring(1).toLowerCase(Locale.ENGLISH);
 				subtag = getSubtag(st); // prepare for next
 			}
 			
 			// check for region, 2 letters or 3 digits
 			if (subtag.length() == 2 && ALPHA.containsAll(subtag)
 					|| subtag.length() == 3 && DIGIT.containsAll(subtag)) {
-				region = subtag;
+				region = subtag.toUpperCase(Locale.ENGLISH);
 				subtag = getSubtag(st); // prepare for next
 			}
 			

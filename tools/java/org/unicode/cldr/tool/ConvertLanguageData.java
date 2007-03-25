@@ -108,6 +108,9 @@ public class ConvertLanguageData {
       addLanguageScriptData();
 
       writeTerritoryLanguageData(failures, sortedInput);
+      
+      checkBasicData(localeToRowData);
+      
       Set<String> defaultLocaleContent = new TreeSet();
 
       showDefaults(cldrParents, nf, defaultContent, localeToRowData, defaultLocaleContent);
@@ -134,6 +137,64 @@ public class ConvertLanguageData {
   }
 
   
+  private static void checkBasicData(Map<String, RowData> localeToRowData) {
+    // find languages with multiple scripts
+    Relation<String,String> languageToScripts = new Relation(new TreeMap(), TreeSet.class);
+    for (String languageSubtag : allLanguageData.keySet()) {
+      for (BasicLanguageData item : allLanguageData.getAll(languageSubtag)) {
+        Set<String> scripts = new TreeSet();
+        languageToScripts.putAll(languageSubtag, item.getScripts());
+      }
+    }
+    // get primary combinations
+    Set<String> primaryCombos = new TreeSet();
+    for (String languageSubtag : allLanguageData.keySet()) {
+      for (BasicLanguageData item : allLanguageData.getAll(languageSubtag)) {
+        Set<String> scripts = new TreeSet();
+        scripts.addAll(item.getScripts());
+        languageToScripts.putAll(languageSubtag, scripts);
+        if (scripts.size() == 0) {
+          scripts.add("Zzzz");
+        }
+        Set<String> territories = new TreeSet();
+        territories.addAll(item.getTerritories());
+        if (territories.size() == 0) {
+          territories.add("ZZ");
+        }
+        for (String script : scripts) {
+          for (String territory : territories) {
+            String locale = languageSubtag 
+            + (script.equals("Zzzz") ? "" : languageToScripts.getAll(languageSubtag).size() <= 1 ? "" : "_" + script)
+            + (script.equals("ZZ") ? "" : "_" + territory)
+            ;
+            primaryCombos.add(locale);
+          }
+        }
+      }
+    }
+    Set<String> populationOver20 = new TreeSet();
+    for (String locale : localeToRowData.keySet()) {
+      RowData rowData = localeToRowData.get(locale);
+      if (rowData.languagePopulation / rowData.countryPopulation >= 0.2) {
+        populationOver20.add(locale);
+      }
+    }
+    Set<String> inBasicButNotPopulation = new TreeSet(primaryCombos);
+    inBasicButNotPopulation.removeAll(populationOver20);
+    System.out.println("In Basic Data but not Population > 20%" + inBasicButNotPopulation);
+    for (String locale : inBasicButNotPopulation) {
+      System.out.println("\t" + locale + "\t" + getLanguageName(locale) + "\t" + localeToRowData.get(locale));
+    }
+
+    Set<String> inPopulationButNotBasic = new TreeSet(populationOver20);
+    inPopulationButNotBasic.removeAll(primaryCombos);
+    System.out.println("In Population>20% but not Basic Data:");
+    for (String locale : inPopulationButNotBasic) {
+      System.out.println("\t" + locale + "\t" + getLanguageName(locale) + "\t" + localeToRowData.get(locale));
+    }
+  }
+
+
   static class LanguageInfo {
     static LanguageInfo INSTANCE = new LanguageInfo();
     
@@ -1094,12 +1155,14 @@ public class ConvertLanguageData {
     }
   }
   
+  static Relation<String, BasicLanguageData> allLanguageData = new Relation(new TreeMap(), TreeSet.class);
+
   static void addLanguageScriptData() throws IOException {
     // check to make sure that every language subtag is in 639-3
     Set<String> langRegistryCodes = StandardCodes.make().getGoodAvailableCodes("language");
     Set<String> iso639_2_missing = new TreeSet(langRegistryCodes);
     iso639_2_missing.removeAll(Iso639Data.getAvailable());
-    System.out.println(iso639_2_missing);
+    System.out.println("Missing Lang/Script data:\t" + iso639_2_missing);
     
     Map<String,String> nameToTerritoryCode = new TreeMap();
     for (String territoryCode : StandardCodes.make().getGoodAvailableCodes("territory")) {
@@ -1109,7 +1172,6 @@ public class ConvertLanguageData {
     
     BasicLanguageData languageData = new BasicLanguageData();
     
-    Relation<String, BasicLanguageData> allLanguageData = new Relation(new TreeMap(), TreeSet.class);
     
     BufferedReader in = Utility.getUTF8Data("extraLanguagesAndScripts.txt");
     while (true) {

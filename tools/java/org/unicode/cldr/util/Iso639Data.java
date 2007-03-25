@@ -347,7 +347,7 @@ public class Iso639Data {
         toSource.put(languageSubtag, languageSubtag.length() == 2 ? Source.ISO_639_1 : Source.ISO_639_2);
         if (!toNames.containsKey(languageSubtag)) {
           // we don't have it already,
-          System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" + Arrays.asList(english));
+          //System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" + Arrays.asList(english));
           if (languageSubtag.length() == 2) {
             toAlpha3.put(languageSubtag, alpha3);
             fromAlpha3.put(alpha3, languageSubtag);

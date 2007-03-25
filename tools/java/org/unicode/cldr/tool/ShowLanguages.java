@@ -260,7 +260,11 @@ public class ShowLanguages {
       XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
       for (Iterator it = supp.iterator(); it.hasNext();) {
         String path = (String) it.next();
-        parts.set(supp.getFullXPath(path));
+        String fullPath = supp.getFullXPath(path);
+        if (fullPath == null) {
+          supp.getFullXPath(path);
+        }
+        parts.set(fullPath);
         if (path.indexOf("/territoryContainment") >= 0) {
           Map attributes = parts.findAttributes("group");
           String type = (String) attributes.get("type");
@@ -873,8 +877,9 @@ public class ShowLanguages {
       return lpt2.toString();
     }
     
-    private String getVendorStatus(String locale, String vendor, Map<String, Map<String, String>> vendordata) {
-      String status = vendordata.get(vendor).get(locale);
+    private String getVendorStatus(String locale, String vendor, Map<String, Map<String, Level>> vendordata) {
+      Level statusLevel = vendordata.get(vendor).get(locale);
+      String status = statusLevel == null ? null : statusLevel.toString();
       String curLocale = locale;
       while (status == null) {
         curLocale = LanguageTagParser.getParent(curLocale);
@@ -882,9 +887,9 @@ public class ShowLanguages {
           status = "<i>[n/a]</i>";
           break;
         }
-        status = vendordata.get(vendor).get(curLocale);
-        if (status != null) {
-          status = "<i>(" + status + ")</i>";
+        statusLevel = vendordata.get(vendor).get(curLocale);
+        if (statusLevel != null) {
+          status = "<i>(" + statusLevel + ")</i>";
         }
       }
       return status;
@@ -924,7 +929,7 @@ public class ShowLanguages {
       tablePrinter.addColumn("Language", "class='target'", null, "class='target'", false)
       .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>", "class='target'", false)
       .addColumn("Lang. Pop.%", "class='target'", "{0,number,#.0}%", "class='targetRight'", true).setSortAscending(false).setSortPriority(1)
-      .addColumn("Lang. Liter\u00ADacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
+      .addColumn("Writ. Lang. Pop.%", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
       .addColumn("Report Bug", "class='target'", null, "class='target'", false)
       ;
       

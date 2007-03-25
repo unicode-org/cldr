@@ -614,7 +614,7 @@ public class XPathParts {
 				}
 				try {
 					result.append(prefix).append(attribute).append("=\"")
-							.append(TransliteratorUtilities.toHTML.transliterate(value)).append(postfix);
+							.append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value).append(postfix);
 				} catch (RuntimeException e) {
 					throw e; // for debugging
 				}

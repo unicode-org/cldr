@@ -830,7 +830,24 @@ public class Utility {
     if (a == null) {
       return b == null;
     }
+    if (b == null) {
+      return false;
+    }
     return a.equals(b);
+  }
+
+  public static int checkCompare(Comparable a, Comparable b) {
+    if (a == null) {
+      return b == null ? 0 : -1;
+    }
+    if (b == null) {
+      return 1;
+    }
+    return a.compareTo(b);
+  }
+  
+  public static int checkHash(Object a) {
+    return a == null ? 0 : a.hashCode();
   }
 
   public class IterableComparator<T extends Iterable<Comparable>> implements Comparator<T> {

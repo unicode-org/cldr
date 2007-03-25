@@ -728,9 +728,9 @@ public class ShowLanguages {
           data.add(items);
         } else {
           for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
-            double languagePopulation = languageCodePair.first;
-            double languageliteracy = languageCodePair.second.first;
-            String languageCode = languageCodePair.second.second;
+            double languagePopulation = languageCodePair.getFirst();
+            double languageliteracy = languageCodePair.getSecond().getFirst();
+            String languageCode = languageCodePair.getSecond().getSecond();
             languages.add(languageCode);
             double territoryLiteracy = Double.parseDouble((String)results.get("literacyPercent"));
             if (Double.isNaN(languageliteracy)) {
@@ -940,9 +940,9 @@ public class ShowLanguages {
         Map countryData = (Map) territoryData.get(getName(CLDRFile.TERRITORY_NAME, territoryCode, false)); 
         
         if (language != null) for (Pair<Double,Pair<Double,String>> languageCodePair : language) {
-          double languagePopulation = languageCodePair.first;
-          double languageliteracy = languageCodePair.second.first;
-          String languageCode = languageCodePair.second.second;
+          double languagePopulation = languageCodePair.getFirst();
+          double languageliteracy = languageCodePair.getSecond().getFirst();
+          String languageCode = languageCodePair.getSecond().getSecond();
           
           if (Double.isNaN(languageliteracy)) {
             languageliteracy = territoryLiteracy;

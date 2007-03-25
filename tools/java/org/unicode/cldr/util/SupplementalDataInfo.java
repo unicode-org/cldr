@@ -285,6 +285,7 @@ public class SupplementalDataInfo {
     multizone = Collections.unmodifiableSet(multizone);
     zone_territory = Collections.unmodifiableMap(zone_territory);
     alias_zone = Collections.unmodifiableMap(alias_zone);
+    references = Collections.unmodifiableMap(references);
 
     containment.freeze();
     languageToBasicLanguageData.freeze();
@@ -467,6 +468,12 @@ public class SupplementalDataInfo {
           // type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line
           // West-->
         }
+        
+        if (level1.equals("references")) {
+          String type = parts.getAttributeValue(-1, "type");
+          String uri = parts.getAttributeValue(-1, "uri");
+          references.put(type, (Pair)new Pair(uri, value).freeze());
+        }
 
         // capture elements we didn't look at, since we should cover everything.
         // this helps for updates
@@ -499,6 +506,8 @@ public class SupplementalDataInfo {
   }
 
   Set<String> skippedElements = new TreeSet();
+
+  private Map<String, Pair<String, String>> references = new TreeMap();
 
   /**
    * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
@@ -628,5 +637,9 @@ public class SupplementalDataInfo {
   
   public Set<String> getScriptVariantsForPopulationData(String language) {
     return languageToScriptVariants.getAll(language);
+  }
+
+  public Map<String, Pair<String, String>> getReferences() {
+    return references;
   }
 }

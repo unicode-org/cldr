@@ -1,12 +1,25 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.XMLReader;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -30,16 +43,77 @@ public class QuickCheck {
   
   private static boolean showInfo = false;
   
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
     if (localeRegex == null) localeRegex = ".*";
     showInfo = System.getProperty("SHOW") != null;
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
     double deltaTime = System.currentTimeMillis();
+    checkDtds();
     checkPaths();
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
     System.out.println("Basic Test Passes");
+  }
+
+  private static void checkDtds() throws IOException {
+    checkDtds(Utility.COMMON_DIRECTORY + "collation");
+    checkDtds(Utility.COMMON_DIRECTORY + "main");
+    checkDtds(Utility.COMMON_DIRECTORY + "segments");
+    checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
+    checkDtds(Utility.COMMON_DIRECTORY + "transforms");
+  }
+
+  private static void checkDtds(String directory) throws IOException {
+    File directoryFile = new File(directory);
+    File[] listFiles = directoryFile.listFiles();
+    String canonicalPath = directoryFile.getCanonicalPath();
+    if (listFiles == null) {
+      throw new IllegalArgumentException("Empty directory: " + canonicalPath);
+    }
+    System.out.println("Checking files in " + canonicalPath);
+    for (File fileName : listFiles) {
+      if (!fileName.toString().endsWith(".xml")) {
+        continue;
+      }
+      check(fileName);
+    }
+  }
+
+  static class MyErrorHandler implements ErrorHandler {
+    public void error(SAXParseException exception) throws SAXException {
+      System.out.println("error: " + XMLFileReader.showSAX(exception));
+      throw exception;
+    }
+    public void fatalError(SAXParseException exception) throws SAXException {
+      System.out.println("fatalError: " + XMLFileReader.showSAX(exception));
+      throw exception;
+    }
+    public void warning(SAXParseException exception) throws SAXException {
+      System.out.println("warning: " + XMLFileReader.showSAX(exception));
+      throw exception;
+    }
+  }
+  
+  public static void check(File systemID) {
+    try {
+      FileInputStream fis = new FileInputStream(systemID);
+      XMLReader xmlReader = XMLFileReader.createXMLReader(true);
+      xmlReader.setErrorHandler(new MyErrorHandler());
+      InputSource is = new InputSource(fis);
+      is.setSystemId(systemID.toString());
+      xmlReader.parse(is);
+      fis.close();
+    } catch (SAXParseException e) {
+      System.out.println("\t" + "Can't read " + systemID);
+      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+    } catch (SAXException e) {
+      System.out.println("\t" + "Can't read " + systemID);
+      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+    } catch (IOException e) {
+      System.out.println("\t" + "Can't read " + systemID);
+      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+    }      
   }
 
   static Matcher skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed").matcher("");
@@ -49,6 +123,7 @@ public class QuickCheck {
     Relation<String,String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     XPathParts parts = new XPathParts();
     Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, localeRegex);
+    
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator), TreeSet.class, null);
     for (String locale : cldrFactory.getAvailable()) {
       if (locale.equals("root") && !localeRegex.equals("root"))

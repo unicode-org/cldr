@@ -424,6 +424,7 @@ public class ShowLanguages {
                     new Pair(literacy == null ? Double.NaN : Double.parseDouble(literacy),
                         attributes.get("type"))));
           }
+          // <languagePopulation type="tet" populationPercent="5.38" references="R1048"/> <!--Tetum-->
 //        supplementalData/territoryTestData/territory[@type="AU"][@gdp="640100000000"][@literacy="0.99"][@population="20000000"]/languagePopulation[@type="zh_Hant"][@functionallyLiterate="420000"]
 //        supplementalData/territoryTestData/territory[@type="GP"][@gdp="3513000000"][@literacy="0.99"][@population="450000"]
           continue;

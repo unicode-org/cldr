@@ -878,4 +878,13 @@ public class Utility {
     }
   }
 
+  public static double roundToDecimals(double input, int places) {
+    double log10 = Math.log10(input); // 15000 => 4.xxx
+    double intLog10 = Math.floor(log10);
+    double scale = Math.pow(10, intLog10 - places + 1);
+    double factored = Math.round(input / scale) * scale;
+    //System.out.println("###\t" +input + "\t" + factored);
+    return factored;
+  }
+
 }

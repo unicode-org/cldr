@@ -18,6 +18,7 @@ package org.unicode.cldr.util;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -70,5 +71,40 @@ public class Log {
 
   public static void print(String string) {
     log.print(string);
+  }
+
+  /**
+   * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle strings.
+   * @param format
+   * @param args
+   */
+  public static void formatln(String format, Object... args) {
+    String value = String.format(Locale.ENGLISH, format, args);
+    if (value.length() <= 80) {
+      log.println(value);
+      return;
+    }
+    // if it is too long, see if there is a comment
+    int commentLocation = value.lastIndexOf("//");
+    String comment = "";
+    if (commentLocation > 0) {
+      comment = value.substring(commentLocation);
+      value = value.substring(0,commentLocation);
+    }
+    while (value.length() > 80) {
+      int lastSpace = value.lastIndexOf(' ', 80);
+      if (lastSpace == -1) {
+        log.println(value);
+        break;
+      }
+      log.println(value.substring(0, lastSpace));
+      value = value.substring(lastSpace);
+    }
+    if (value.length() + comment.length() < 79) {
+      log.println(value + " " + comment);
+      return;
+    }
+    log.println(value);
+    log.println("    " + comment);
   }
 }

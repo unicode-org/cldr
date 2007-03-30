@@ -542,6 +542,14 @@ public class SupplementalDataInfo {
     }
     return result.get(language);
   }
+  
+  public Set<String> getTerritoriesWithPopulationData() {
+    return territoryToLanguageToPopulationData.keySet();
+  }
+
+  public Set<String> getLanguagesForTerritoryWithPopulationData(String territory) {
+    return territoryToLanguageToPopulationData.get(territory).keySet();
+  }
 
   public Set<BasicLanguageData> getBasicLanguageData(String language) {
     return languageToBasicLanguageData.getAll(language);

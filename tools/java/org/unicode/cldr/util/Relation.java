@@ -27,11 +27,16 @@ public class Relation<K, V> implements Freezable {
     this(map, setCreator, null);
   }
   
-  public Relation(Map<K, Set<V>> map, Class<Set<V>> setCreator, Comparator setComparator) {
+  public Relation(Map<K, Set<V>> map, Class<Set<V>> setCreator, Comparator<V> setComparator) {
     try {
       setComparatorParam = setComparator == null ? null : new Object[]{setComparator};
-      this.setCreator = setCreator.getConstructor();
-      this.setCreator.newInstance(setComparatorParam); // check to make sure compiles
+      if (setComparator == null) {
+        this.setCreator = setCreator.getConstructor();
+        this.setCreator.newInstance(setComparatorParam); // check to make sure compiles
+      } else {
+        this.setCreator = setCreator.getConstructor(Comparator.class);
+        this.setCreator.newInstance(setComparatorParam); // check to make sure compiles        
+      }
       data = map == null ? new HashMap() : map;     
     } catch (Exception e) {
       throw (RuntimeException) new IllegalArgumentException("Can't create new set").initCause(e);

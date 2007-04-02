@@ -158,26 +158,26 @@ public class CoverageLevel {
   public void setFile(CLDRFile file, Map options, CheckCLDR cause, List possibleErrors) {
     synchronized (sync) {
       if (!initialized) {
-        CLDRFile supplementalMetadata = file.make("supplementalMetadata", false);
-        CLDRFile supplementalData = file.make("supplementalData", false);
+        CLDRFile supplementalMetadata = file.getSupplementalMetadata();
+        CLDRFile supplementalData = file.getSupplementalData();
         init(supplementalData, supplementalMetadata);
         initPosixCoverage(file.getLocaleID(), supplementalData);
         initialized = true;
       }
     }
     boolean exemplarsContainA_Z = false;
-    UnicodeSet exemplars = file.getResolved().getExemplarSet(""); // need to use resolved version to get exemplars
+    UnicodeSet exemplars = file.getResolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
     
     if(exemplars == null) {
         throw new InternalError("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
     }
     
-    UnicodeSet auxexemplars = file.getExemplarSet("auxiliary");
+    UnicodeSet auxexemplars = file.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');
     
     boolean currencyExemplarsContainA_Z = false;
-    auxexemplars = file.getExemplarSet("currencySymbol");
+    auxexemplars = file.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) currencyExemplarsContainA_Z = auxexemplars.contains('A','Z');
 
     setFile(file.getLocaleID(), exemplarsContainA_Z, currencyExemplarsContainA_Z, options, cause, possibleErrors);

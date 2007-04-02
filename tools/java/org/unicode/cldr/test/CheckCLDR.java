@@ -8,6 +8,7 @@
 package org.unicode.cldr.test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
@@ -29,10 +30,12 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.impl.CollectionUtilities;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -118,7 +121,9 @@ abstract public class CheckCLDR {
   PATH_FILTER = 9,
   ERRORS_ONLY = 10,
   CHECK_ON_SUBMIT = 11,
-  NO_ALIASES = 12
+  NO_ALIASES = 12,
+  SOURCE_DIRECTORY = 13,
+  USER = 14
   ;
   
   private static final UOption[] options = {
@@ -130,15 +135,18 @@ abstract public class CheckCLDR {
     UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("date_formats", 'd', UOption.NO_ARG),
     UOption.create("organization", 'o', UOption.REQUIRES_ARG),
-    UOption.create("showall", 's', UOption.NO_ARG),
+    UOption.create("showall", 'a', UOption.NO_ARG),
     UOption.create("path_filter", 'p',  UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("errors_only", 'e', UOption.NO_ARG),
     UOption.create("check-on-submit", 'k', UOption.NO_ARG),
     UOption.create("noaliases", 'n', UOption.NO_ARG),
+    UOption.create("source_directory", 's',  UOption.REQUIRES_ARG).setDefault(Utility.MAIN_DIRECTORY),
+    UOption.create("user", 'u',  UOption.REQUIRES_ARG),
   };
   
   private static String[] HelpMessage = {
     "-h \t This message",
+    "-s \t Source directory, default = " + Utility.MAIN_DIRECTORY,
     "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
     "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
     "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
@@ -146,9 +154,10 @@ abstract public class CheckCLDR {
     "-oxxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
-    "-s \t Show all paths",
+    "-A \t Show all paths",
     "-e \t Show errors only",
     "-n \t No aliases",
+    "-u \t User, eg -uu148",
   };
   
   /**
@@ -209,6 +218,10 @@ abstract public class CheckCLDR {
 //  System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
     
     
+    String sourceDirectory = options[SOURCE_DIRECTORY].value;
+    String user = options[USER].value;
+    
+    System.out.println("source directory: " + sourceDirectory + "\t" + new File(sourceDirectory).getCanonicalPath());
     System.out.println("factoryFilter: " + factoryFilter);
     System.out.println("test filter: " + checkFilter);
     System.out.println("organization: " + organization);
@@ -220,7 +233,7 @@ abstract public class CheckCLDR {
     System.out.println("errors only?: " + errorsOnly);
     
     // set up the test
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
+    Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter);
     CheckCLDR checkCldr = getCheckAll(checkFilter);
     checkCldr.setDisplayInformation(cldrFactory.make("en", true));
     PathShower pathShower = checkCldr.new PathShower();
@@ -262,6 +275,9 @@ abstract public class CheckCLDR {
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
       CLDRFile file = cldrFactory.make(localeID, isLanguageLocale);
+      if (user != null) {
+        file = new CLDRFile.TestUser(file, user, isLanguageLocale);
+      }
       checkCldr.setCldrFileToCheck(file, options, result);
       
       subtotalCount.clear();

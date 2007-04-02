@@ -995,11 +995,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
       result.matchString = matchString;
       Matcher m = Pattern.compile(matchString).matcher("");
       result.localeList = getMatchingXMLFiles(sourceDirectory, m);
-      try {
-        result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
-      } catch(Throwable t) {
-        throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
-      }
+//      try {
+//        result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
+//      } catch(Throwable t) {
+//        throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
+//      }
       return result;
     }
     
@@ -2117,9 +2117,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return this;
   }
   
-  public UnicodeSet getExemplarSet(String type) {
+  public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice) {
     if (type.length() != 0) type = "[@type=\"" + type + "\"]";
-    String v = getStringValue("//ldml/characters/exemplarCharacters" + type);
+    String path = "//ldml/characters/exemplarCharacters" + type;
+    if (winningChoice == WinningChoice.WINNING) {
+      path = getWinningPath(path);
+    }
+    String v = getStringValue(path);
     if (v == null) return null;
     UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
     result.remove(0x20);
@@ -2350,11 +2354,117 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   /**
-   * Return true if this item is the user's choice (for overriding in survey tool)
+   * Return true if this item is the "winner" in the survey tool
    * @param path
    * @return
    */
-  public boolean isUserChoice(String path) {
-    return false;
+  public boolean isWinningPath(String path) {
+    return dataSource.isWinningPath(path);
+  }
+  
+  /**
+   * Returns the "winning" path, for use in the survey tool tests, out of all
+   * those paths that only differ by having "alt proposed". The exact meaning
+   * may be tweaked over time, but the user's choice (vote) has precedence, then
+   * any undisputed choice, then the "best" choice of the remainders. A value is
+   * always returned if there is a valid path, and the returned value is always
+   * a valid path <i>in the resolved file</i>; that is, it may be valid in the
+   * parent, or valid because of aliasing.
+   * 
+   * @param path
+   * @return path, perhaps with an alt proposed added.
+   */
+  public String getWinningPath(String path) {
+    return dataSource.getWinningPath(path);
+  }
+  
+  public enum WinningChoice {NORMAL, WINNING};
+  
+  // TODO This stuff needs some rethinking, but just to get it going for now...
+  
+  public CLDRFile getSupplementalData() {
+    try {
+      return make("supplementalData", false);
+    } catch (RuntimeException e) {
+      return Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*").make("supplementalData", false);
+    }
+  }
+  
+  public CLDRFile getSupplementalMetadata() {
+    try {
+      return make("supplementalMetadata", false);
+    } catch (RuntimeException e) {
+      return Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*").make("supplementalMetadata", false);
+    }
+  }
+  
+  /**
+   * Used in TestUser to get the "winning" path. Simple implementation just for testing.
+   * @author markdavis
+   *
+   */
+  static class WinningComparator implements Comparator {
+    String user;
+    public WinningComparator(String user) {
+      this.user = user;
+    }
+    /**
+     * if it contains the user, sort first. Otherwise use normal string sorting. A better implementation would look at
+     * the number of votes next, and whither there was an approved or provisional path.
+     */
+    public int compare(Object oo1, Object oo2) {
+      String o1 = (String) oo1;
+      String o2 = (String) oo2;
+      if (o1.contains(user)) {
+        if (!o2.contains(user)) {
+          return -1; // if it contains user
+        }
+      } else if (o2.contains(user)) {
+        return 1; // if it contains user
+      }
+      return o1.compareTo(o2);
+    }
+  }
+  
+  /**
+   * This is a test class used to simulate what the survey tool would do.
+   * @author markdavis
+   *
+   */
+  public static class TestUser extends CLDRFile {
+
+    private CLDRFile baseFile;
+    Map<String,String> userOverrides = new HashMap();
+
+    public TestUser(CLDRFile baseFile, String user, boolean resolved) {
+      super(baseFile.dataSource, resolved);
+      Relation<String,String> pathMap = new Relation(new HashMap(), TreeSet.class, new WinningComparator(user));
+      this.baseFile = baseFile;
+      for (String path : baseFile) {
+        String newPath = getNondraftNonaltXPath(path);
+        pathMap.put(newPath, path);
+      }
+      // now reduce the storage by just getting the winning ones
+      // so map everything but the first path to the first path
+      for (String path : pathMap.keySet()) {
+        String winner = null;
+        for (String rowPath : pathMap.getAll(path)) {
+          if (winner == null) {
+            winner = rowPath;
+            continue;
+          }
+          userOverrides.put(rowPath, winner);
+        }
+      }
+    }
+
+    @Override
+    public String getWinningPath(String path) {
+      String trial = userOverrides.get(path);
+      if (trial != null) {
+        return trial;
+      }
+      return path;
+    }
   }
 }

@@ -45,7 +45,7 @@ public class CheckExemplars extends CheckCLDR {
         	if (path.indexOf("auxiliary") < 0) {
         		// check for auxiliary anyway
         		
-        		UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary");
+        		UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
         		
         		if (auxiliarySet == null) {
         			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
@@ -56,7 +56,7 @@ public class CheckExemplars extends CheckCLDR {
         		
         	} else { // auxiliary
         		UnicodeSet auxiliarySet = new UnicodeSet(value);
-        		UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("");
+        		UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
         		if (auxiliarySet.containsSome(mainSet)) {
         			UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
         			if (overlap.size() != 0) {

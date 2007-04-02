@@ -46,7 +46,7 @@ public class CheckForExemplars extends CheckCLDR {
     spaceCol.setStrength(col.PRIMARY);
     
     CLDRFile resolvedFile = cldrFile.getResolved();
-    exemplars = resolvedFile.getExemplarSet("");
+    exemplars = resolvedFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING);
     if (exemplars == null) {
       CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
       .setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
@@ -55,11 +55,11 @@ public class CheckForExemplars extends CheckCLDR {
     }
     //UnicodeSet temp = resolvedFile.getExemplarSet("standard");
     //if (temp != null) exemplars.addAll(temp);
-    UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary");
+    UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
     if (auxiliary != null) exemplars.addAll(auxiliary);
     exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
     scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
-    currencySymbolExemplars = resolvedFile.getExemplarSet("currencySymbol");
+    currencySymbolExemplars = resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (currencySymbolExemplars == null) {
       currencySymbolExemplars = new UnicodeSet(exemplars);
     } else {

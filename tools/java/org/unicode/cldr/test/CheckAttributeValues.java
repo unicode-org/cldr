@@ -111,7 +111,7 @@ public class CheckAttributeValues extends CheckCLDR {
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
             if (!initialized) {
-                CLDRFile metadata = cldrFileToCheck.make("supplementalMetadata", false);
+                CLDRFile metadata = cldrFileToCheck.getSupplementalMetadata();
                 getMetadata(metadata);
                 initialized = true;
                 for (Iterator it = missing.iterator(); it.hasNext();) {

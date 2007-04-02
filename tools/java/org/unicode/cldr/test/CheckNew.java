@@ -48,7 +48,7 @@ public class CheckNew extends CheckCLDR {
 
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     // skip if the user voted for the current item
-    if (getCldrFileToCheck().isUserChoice(path)) {
+    if (getCldrFileToCheck().isWinningPath(path)) {
       return this;
     }
     

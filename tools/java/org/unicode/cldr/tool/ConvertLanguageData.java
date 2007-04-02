@@ -268,13 +268,15 @@ public class ConvertLanguageData {
     }
   }
   
+  enum OfficialStatus {unknown, de_facto_official, official, official_regional, official_minority};
+  
   static class RowData implements Comparable {
     String countryCode = "";
     double countryGdp;
     double countryLiteracy;
     double countryPopulation;
     String languageCode = "";
-    String officialStatus = "";
+    OfficialStatus officialStatus = OfficialStatus.unknown;
     double languagePopulation;
     double languageLiteracy;
     String comment = "";
@@ -294,9 +296,18 @@ public class ConvertLanguageData {
         System.err.println("WRONG COUNTRY CODE: " + row);
       }
       languagePopulation = parseDecimal(row.get(LANGUAGE_POPULATION));
-      officialStatus = row.get(OFFICIAL_STATUS).trim().replace(' ', '_');
-      if (officialStatus.equals("national")) {
-        officialStatus = "official";
+      String officialStatusString = row.get(OFFICIAL_STATUS).trim().replace(' ', '_');
+      if (officialStatusString.equals("national")) {
+        officialStatusString = "official";
+      } else if (officialStatusString.equals("regional_official")) {
+        officialStatusString = "official_regional";
+      } else if (officialStatusString.length() == 0) {
+        officialStatusString = "unknown";
+      }
+      try {
+        officialStatus = OfficialStatus.valueOf(officialStatusString);
+      } catch (RuntimeException e) {
+        throw new IllegalArgumentException("Can't interpret offical-status: " + officialStatusString);
       }
       languageCode = row.get(LANGUAGE_CODE);
         if (languageCode.startsWith("*") || languageCode.startsWith("§")) {
@@ -506,6 +517,7 @@ public class ConvertLanguageData {
         Log.print("\t\t\t<languagePopulation type=\"" + languageCode + "\""
             + (languageLiteracy != countryLiteracy ? " writingPercent=\"" + nf.format(languageLiteracy) + "\"" : "")
             + " populationPercent=\"" + nf.format(languagePopulationPercent) + "\""
+            + (row.officialStatus != OfficialStatus.unknown ? " officialStatus=\"" + row.officialStatus + "\"" : "")
             + references.addReference(row.comment)
             + "/>");
         Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
@@ -638,7 +650,7 @@ public class ConvertLanguageData {
     territories.remove("QO");
     
     Set<String> countriesNotFound = new TreeSet(territories);
-    Set<String> statusFound = new TreeSet();
+    Set<OfficialStatus> statusFound = new TreeSet();
     Set<String> countriesWithoutOfficial = new TreeSet(territories);
     Set<String> languagesNotFound = new TreeSet(languages);
     Set<RowData> sortedInput = new TreeSet();
@@ -651,7 +663,7 @@ public class ConvertLanguageData {
       }
       try {
         RowData x = new RowData(row);
-        if (x.officialStatus.length() != 0) {
+        if (x.officialStatus != OfficialStatus.unknown) {
           countriesWithoutOfficial.remove(x.countryCode);
         }
         statusFound.add(x.officialStatus);
@@ -700,8 +712,8 @@ public class ConvertLanguageData {
         "\tCPopulation" +
         "\tCLiteracy" +
         "\tCGdp" +
-        "\tLanguage" +
         "\tOfficialStatus" +
+        "\tLanguage" +
         "\tLCode" +
         "\tLPopulation" +
         "\tWritingPop" +
@@ -719,6 +731,7 @@ public class ConvertLanguageData {
           + "\t" + row.getCountryPopulationString()
           + "\t" + row.getCountryLiteracyString()
           + "\t" + row.getCountryGdpString()
+          + "\t" + row.officialStatus
           + "\t" + row.getRickLanguageName()
           + "\t" + row.getRickLanguageCode()
           + "\t" + row.getLanguagePopulationString()

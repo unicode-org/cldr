@@ -797,4 +797,21 @@ public abstract class XMLSource implements Freezable {
       return mySource.getAvailableLocales();
     }
   }
+  /**
+   * See CLDRFile isWinningPath for documentation
+   * @param path
+   * @return
+   */
+  public boolean isWinningPath(String path) {
+    return getWinningPath(path).equals(path);
+  }
+
+  /**
+   * See CLDRFile getWinningPath for documentation.
+   * @param path
+   * @return
+   */
+  public String getWinningPath(String path) {
+    return path;
+  }
 }

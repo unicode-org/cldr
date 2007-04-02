@@ -42,12 +42,17 @@ public class QuickCheck {
   private static String localeRegex;
   
   private static boolean showInfo = false;
+
+  private static String sourceDirectory;
   
   public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
     if (localeRegex == null) localeRegex = ".*";
     showInfo = System.getProperty("SHOW") != null;
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
+    sourceDirectory = System.getProperty("SOURCE");
+    if (sourceDirectory == null) sourceDirectory = Utility.COMMON_DIRECTORY + "main";
+    System.out.println("Main Source Directory: " + showInfo + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
     double deltaTime = System.currentTimeMillis();
     checkDtds();
     checkPaths();
@@ -58,7 +63,7 @@ public class QuickCheck {
 
   private static void checkDtds() throws IOException {
     checkDtds(Utility.COMMON_DIRECTORY + "collation");
-    checkDtds(Utility.COMMON_DIRECTORY + "main");
+    checkDtds(sourceDirectory);
     checkDtds(Utility.COMMON_DIRECTORY + "segments");
     checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
     checkDtds(Utility.COMMON_DIRECTORY + "transforms");

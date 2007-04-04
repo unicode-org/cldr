@@ -301,7 +301,7 @@ public class ConvertLanguageData {
         officialStatusString = "official";
       } else if (officialStatusString.equals("regional_official")) {
         officialStatusString = "official_regional";
-      } else if (officialStatusString.length() == 0) {
+      } else if (officialStatusString.length() == 0 || officialStatusString.equals("uninhabited")) {
         officialStatusString = "unknown";
       }
       try {
@@ -652,6 +652,8 @@ public class ConvertLanguageData {
     Set<String> countriesNotFound = new TreeSet(territories);
     Set<OfficialStatus> statusFound = new TreeSet();
     Set<String> countriesWithoutOfficial = new TreeSet(territories);
+    countriesWithoutOfficial.remove("ZZ");
+    
     Set<String> languagesNotFound = new TreeSet(languages);
     Set<RowData> sortedInput = new TreeSet();
     int count = 0;
@@ -663,7 +665,7 @@ public class ConvertLanguageData {
       }
       try {
         RowData x = new RowData(row);
-        if (x.officialStatus != OfficialStatus.unknown) {
+        if (x.officialStatus == OfficialStatus.de_facto_official || x.officialStatus == OfficialStatus.official || x.countryPopulation < 1000) {
           countriesWithoutOfficial.remove(x.countryCode);
         }
         statusFound.add(x.officialStatus);
@@ -1209,7 +1211,10 @@ public class ConvertLanguageData {
     Set<String> langRegistryCodes = StandardCodes.make().getGoodAvailableCodes("language");
     Set<String> iso639_2_missing = new TreeSet(langRegistryCodes);
     iso639_2_missing.removeAll(Iso639Data.getAvailable());
-    System.out.println("Missing Lang/Script data:\t" + iso639_2_missing);
+    iso639_2_missing.remove("root");
+    if (iso639_2_missing.size() != 0) {
+      System.out.println("Missing Lang/Script data:\t" + iso639_2_missing);
+    }
     
     Map<String,String> nameToTerritoryCode = new TreeMap();
     for (String territoryCode : StandardCodes.make().getGoodAvailableCodes("territory")) {

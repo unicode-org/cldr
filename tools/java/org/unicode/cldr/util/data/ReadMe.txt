@@ -148,3 +148,26 @@ E. Check in the new supplemental files and the data files in ...org\unicode\cldr
 
 (Note: the code in CountItems and StandardCodes means that we have to duplicate a bit of process above, but
 for now it's not worth fixing.)
+
+
+UPDATING LANGUAGE/COUNTRY INFORMATION
+  Below, the directory C:\cvsdata\unicode stands for wherever the cldr directory is for the locale CVS.
+
+1. Get the spreadsheet from Rick, with a name of the form: country_language_population-0403.xls
+2. Open, and pick the Save As... menu
+Pick "Save as type:" Text (Tab delimited) (*.txt)
+And "File name:" C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt
+Respond OK, Yes; then close Excel (clicking No)
+3. In CVS, diff the spreadsheet and sanity-check the changes.
+4. Run the tool ConvertLanguageData.
+5. At the bottom are a list of Failures. It will also warn if a country doesn't have an official
+or de facto official language. Send those back to Rick. 
+6. Also send the lists: In Basic Data but not Population > 20% and the reverse.
+7. Diff the following two files as a sanity check. The fragment only has certain portions of supplemental data, so ignore the parts
+it doesn't have:
+C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment.xml
+C:\cvsdata\unicode\cldr\common\supplemental\supplementalData.xml
+8. If all looks well, paste in the sections into supplementalData.xml
+<territoryInfo>
+<references>
+9. Then run QuickCheck to verify that the DTD is in order, and check in.

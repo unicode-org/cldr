@@ -1114,29 +1114,11 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity>Pasqua</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>Ora Standard Cina</standard>
-					<daylight>Ora Standard Cina</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
-			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Canarie</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<long>
-					<standard>Ora Standard Europa Centrale</standard>
-					<daylight>Ora Legale Europa Centrale</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEDT</daylight>
-				</short>
 				<exemplarCity>Parigi</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
@@ -1147,25 +1129,9 @@
 				<exemplarCity>Giacarta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<long>
-					<standard>Ora Standard Israele</standard>
-					<daylight>Ora Legale Israele</daylight>
-				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Gerusalemme</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Ora Standard Giappone</standard>
-					<daylight>Ora Standard Giappone</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
-				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
@@ -1182,39 +1148,81 @@
 				<exemplarCity>Lisbona</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
+				<exemplarCity>Bucarest</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>Mosca</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity>Samarcanda</exemplarCity>
+			</zone>
+			<metazone type="Alaska">
+				<long>
+					<standard>Ora Standard Alaska</standard>
+					<daylight>Ora Legale Alaska</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<standard>Ora Standard Cina</standard>
+					<daylight>Ora Standard Cina</daylight>
+				</long>
+				<short>
+					<standard>CST (Cina)</standard>
+					<daylight>CDT (Cina)</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<standard>Ora Standard Europa Centrale</standard>
+					<daylight>Ora Legale Europa Centrale</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ora Standard Europa Orientale</standard>
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
-					<daylight>EEDT</daylight>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>Bucarest</exemplarCity>
-			</zone>
-			<zone type="Europe/Moscow">
-				<exemplarCity>Mosca</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
+			</metazone>
+			<metazone type="Hawaii">
 				<long>
 					<standard>Ora Standard Hawaii</standard>
-					<daylight>Ora Standard Hawaii</daylight>
+					<daylight>Ora Legale Hawaii</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<daylight>HDT</daylight>
 				</short>
-			</zone>
-			<zone type="America/Anchorage">
+			</metazone>
+			<metazone type="Israel">
 				<long>
-					<standard>Ora Standard Alaska</standard>
-					<daylight>Ora Legale Alaska</daylight>
+					<standard>Ora Standard Israele</standard>
+					<daylight>Ora Legale Israele</daylight>
 				</long>
-			</zone>
-			<!-- Uzbekistan -->
-			<zone type="Asia/Samarkand">
-				<exemplarCity>Samarcanda</exemplarCity>
-			</zone>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Ora Standard Giappone</standard>
+					<daylight>Ora Legale Giappone</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

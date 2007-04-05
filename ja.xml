@@ -1709,15 +1709,6 @@
 				<exemplarCity>エルサレム</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>日本標準時</standard>
-					<daylight>日本夏時間</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
-				<commonlyUsed>true</commonlyUsed>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<!-- Kiribati -->
@@ -2101,6 +2092,17 @@
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
 				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>日本標準時</standard>
+					<daylight>日本夏時間</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>

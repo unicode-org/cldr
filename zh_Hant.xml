@@ -1193,11 +1193,6 @@
 				<exemplarCity>加亞布拉</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>日本標準時間</standard>
-					<daylight draft="provisional">日本夏令時間</daylight>
-					<daylight alt="proposed-x999">日本日光節約時間</daylight>
-				</long>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<!-- Kiribati -->
@@ -1511,6 +1506,13 @@
 					<standard>以色列標準時間</standard>
 					<daylight draft="provisional">以色列夏令時間</daylight>
 					<daylight alt="proposed-x999">以色列日光節約時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>日本標準時間</standard>
+					<daylight draft="provisional">日本夏令時間</daylight>
+					<daylight alt="proposed-x999">日本日光節約時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">

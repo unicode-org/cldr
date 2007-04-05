@@ -1132,15 +1132,6 @@
 				<exemplarCity>예루살렘</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>일본 표준시</standard>
-					<daylight draft="provisional">일본 서머타임</daylight>
-					<daylight alt="proposed-x999">일본 기준시</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>도쿄</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
@@ -1302,6 +1293,17 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>일본 표준시</standard>
+					<daylight draft="provisional">일본 서머타임</daylight>
+					<daylight alt="proposed-x999">일본 기준시</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Korea">

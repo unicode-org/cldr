@@ -1165,12 +1165,6 @@
 			<regionFormat>وقت {0}</regionFormat>
 			<fallbackFormat>وقت {0} ({1})</fallbackFormat>
 			<zone type="Asia/Kabul">
-				<long>
-					<generic>وقت افغانستان</generic>
-				</long>
-				<short>
-					<generic>AFT</generic>
-				</short>
 				<exemplarCity>کابل</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
@@ -1318,16 +1312,6 @@
 				<exemplarCity>جاکارتا</exemplarCity>
 			</zone>
 			<zone type="Asia/Tehran">
-				<long>
-					<generic>وقت ایران</generic>
-					<standard references="R046">وقت عادی ایران</standard>
-					<daylight references="R046">وقت تابستانی ایران</daylight>
-				</long>
-				<short>
-					<generic>IRT</generic>
-					<standard references="R046">IRST</standard>
-					<daylight references="R046">IRDT</daylight>
-				</short>
 				<exemplarCity>تهران</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
@@ -1432,6 +1416,26 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>تاشکند</exemplarCity>
 			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<generic>وقت افغانستان</generic>
+				</long>
+				<short>
+					<generic>AFT</generic>
+				</short>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>وقت ایران</generic>
+					<standard references="R046">وقت عادی ایران</standard>
+					<daylight references="R046">وقت تابستانی ایران</daylight>
+				</long>
+				<short>
+					<generic>IRT</generic>
+					<standard references="R046">IRST</standard>
+					<daylight references="R046">IRDT</daylight>
+				</short>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

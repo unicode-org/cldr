@@ -1606,14 +1606,6 @@
 				<exemplarCity>耶路撒冷</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>日本标准时间</standard>
-					<daylight>日本夏令时间</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>东京</exemplarCity>
 			</zone>
 			<!-- Kiribati -->
@@ -2015,6 +2007,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>日本标准时间</standard>
+					<daylight>日本夏令时间</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

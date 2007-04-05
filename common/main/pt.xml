@@ -1169,14 +1169,6 @@
 				<exemplarCity>Jerusalém</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Horário Padrão do Japão</standard>
-					<daylight>Horário de Verão do Japão</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>Tóquio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
@@ -1334,6 +1326,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Horário Padrão do Japão</standard>
+					<daylight>Horário de Verão do Japão</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

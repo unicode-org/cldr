@@ -1376,14 +1376,6 @@
 				<exemplarCity>Jérusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Heure normale du Japon</standard>
-					<daylight>Heure avancée du Japon</daylight>
-				</long>
-				<short>
-					<standard>HNJ</standard>
-					<daylight>HAJ</daylight>
-				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<!-- Kazakhstan -->
@@ -1584,6 +1576,16 @@
 				<short>
 					<standard>HNI</standard>
 					<daylight>HAI</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Heure normale du Japon</standard>
+					<daylight>Heure avancée du Japon</daylight>
+				</long>
+				<short>
+					<standard>HNJ</standard>
+					<daylight>HAJ</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

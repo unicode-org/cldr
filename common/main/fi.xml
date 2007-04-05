@@ -1225,14 +1225,6 @@
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Japanin normaaliaika</standard>
-					<daylight>Japanin kesäaika</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>Tokio</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
@@ -1400,6 +1392,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Japanin normaaliaika</standard>
+					<daylight>Japanin kesäaika</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

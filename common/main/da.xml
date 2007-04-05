@@ -1684,15 +1684,9 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-					<standard>Japansk normaltid</standard>
 					<standard alt="proposed-u165-1" draft="provisional">Tokyo, normaltid</standard>
-					<daylight>Japansk sommertid</daylight>
 					<daylight alt="proposed-u165-1" draft="provisional">Tokyo, sommertid</daylight>
 				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
@@ -1875,6 +1869,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Japansk normaltid</standard>
+					<daylight>Japansk sommertid</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

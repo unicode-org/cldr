@@ -1225,14 +1225,6 @@
 				<exemplarCity>Jeruzalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Japanse standaardtijd</standard>
-					<daylight>Japanse zomertijd</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 				<exemplarCity alt="proposed-u10-1" draft="provisional">Tokio</exemplarCity>
 			</zone>
@@ -1412,6 +1404,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Japanse standaardtijd</standard>
+					<daylight>Japanse zomertijd</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

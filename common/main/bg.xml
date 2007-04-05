@@ -1230,14 +1230,6 @@
 				<exemplarCity>Йерусалим</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Японска часова зона</standard>
-					<daylight>Японска часова зона</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
 				<exemplarCity>Токио</exemplarCity>
 			</zone>
 			<!-- Kiribati -->
@@ -1607,6 +1599,16 @@
 				<short>
 					<standard>IST</standard>
 					<daylight>IDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<standard>Японска часова зона</standard>
+					<daylight>Японска часова зона</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">

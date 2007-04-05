@@ -290,7 +290,11 @@ public class TablePrinter {
         result.append('>');
         
         if (columnsFlat[j].cellPattern != null) {
-          result.append(columnsFlat[j].cellPattern.format(new Object[]{sortedFlat[i][j]}));
+          try {
+            result.append(columnsFlat[j].cellPattern.format(new Object[]{sortedFlat[i][j]}));
+          } catch (RuntimeException e) {
+            throw (RuntimeException) new IllegalArgumentException("<" + i + ", " + j + "> = " + sortedFlat[i][j]).initCause(e);
+          }
         } else {
           result.append(sortedFlat[i][j]);
         }

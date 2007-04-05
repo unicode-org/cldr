@@ -35,9 +35,12 @@ import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -741,12 +744,13 @@ public class ShowLanguages {
             if (Double.isNaN(languageliteracy)) {
               languageliteracy = territoryLiteracy;
             }
+            String territoryCode = (String)results.get("code");
             Comparable[] items = new Comparable[]{
                 getLanguageName(languageCode) + msg,
                 languageCode,
                 //bug,
-                territoryName,
-                (String)results.get("code"),
+                territoryName  + getOfficialStatus(territoryCode, languageCode),
+                territoryCode,
                 languagePopulation/100 * population,
 //              population,
 //              languageliteracy,
@@ -906,7 +910,8 @@ public class ShowLanguages {
           "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
           "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
           "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
-          "Languages with a population of less than 100,000 and less than 1% of the territory population are currently omitted. " +
+          "Languages with a small population may be omitted. " +
+          "<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>" + 
           "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
           "</p></div>"));
       PrintWriter pw2 = pw21;
@@ -980,7 +985,7 @@ public class ShowLanguages {
           addOtherCountryData(tablePrinter, worldData, countryData);
           
           tablePrinter
-          .addCell(getLanguageName(languageCode))
+          .addCell(getLanguageName(languageCode) + getOfficialStatus(territoryCode, languageCode))
           .addCell(languageCode)
           .addCell(languagePopulation)
           .addCell(languageliteracy)
@@ -1027,6 +1032,14 @@ public class ShowLanguages {
       String value = tablePrinter.toTable();
       pw2.println(value);
       pw2.close();
+    }
+    
+    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    
+    private String getOfficialStatus(String territoryCode, String languageCode) {
+      PopulationData x = supplementalDataInfo.getLangaugeAndTerritoryPopulationData(languageCode, territoryCode);
+      if (x == null || x.getOfficialStatus() == OfficialStatus.unknown) return "";
+      return " <span title='" + x.getOfficialStatus().toString().replace('_', ' ') + "'>{" + x.getOfficialStatus().toShortString() + "}</span>";
     }
     
     private void addOtherCountryData(TablePrinter tablePrinter, Map worldData, Map countryData) {

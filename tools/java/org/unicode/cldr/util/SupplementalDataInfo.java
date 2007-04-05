@@ -18,6 +18,21 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 public class SupplementalDataInfo {
+  
+  public enum OfficialStatus {
+    unknown, de_facto_official, official, official_regional, official_minority;
+    
+    public String toShortString() {
+      switch (this) {
+        case unknown: return "U";
+        case de_facto_official: return "DO";
+        case official: return "O";
+        case official_regional: return "OR";
+        case official_minority: return "OM";
+      }
+      throw new IllegalArgumentException("Missing value");
+    }
+  };
 
   /**
    * Struct for return data
@@ -28,6 +43,8 @@ public class SupplementalDataInfo {
     private double literatePopulation = Double.NaN;
 
     private double gdp = Double.NaN;
+    
+    private OfficialStatus officialStatus = OfficialStatus.unknown;
 
     public double getGdp() {
       return gdp;
@@ -113,6 +130,15 @@ public class SupplementalDataInfo {
 
     public Object cloneAsThawed() {
       throw new UnsupportedOperationException("not yet implemented");
+    }
+
+    public OfficialStatus getOfficialStatus() {
+      return officialStatus;
+    }
+
+    public PopulationData setOfficialStatus(OfficialStatus officialStatus) {
+      this.officialStatus = officialStatus;
+      return this;
     }
   }
 
@@ -363,9 +389,14 @@ public class SupplementalDataInfo {
               territoryToLanguageToPopulationData.put(territory,
                   territoryLanguageToPopulation = new TreeMap());
             }
+            OfficialStatus officialStatus = OfficialStatus.unknown;
+            String officialStatusString = languageInTerritoryAttributes.get("officialStatus");
+            if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
+            
             PopulationData newData = new PopulationData()
             .setPopulation(languagePopulation)
             .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+            .setOfficialStatus(officialStatus)
             //.setGdp(languageGdp)
             ;
             newData.freeze();

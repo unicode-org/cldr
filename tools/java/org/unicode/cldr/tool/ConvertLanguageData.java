@@ -19,6 +19,7 @@ import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -268,7 +269,7 @@ public class ConvertLanguageData {
     }
   }
   
-  enum OfficialStatus {unknown, de_facto_official, official, official_regional, official_minority};
+  // public enum OfficialStatus {unknown, de_facto_official, official, official_regional, official_minority};
   
   static class RowData implements Comparable {
     String countryCode = "";

@@ -171,3 +171,4 @@ C:\cvsdata\unicode\cldr\common\supplemental\supplementalData.xml
 <territoryInfo>
 <references>
 9. Then run QuickCheck to verify that the DTD is in order, and check in.
+10. Then run ShowLanguages to generate the charts

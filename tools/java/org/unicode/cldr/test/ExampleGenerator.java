@@ -229,7 +229,6 @@ public class ExampleGenerator {
               String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
               String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
               // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-              // = Λος Άντζελες
               result = MessageFormat.format(fallback, new Object[] { value, countryName });
               result = MessageFormat.format(timeFormat, new Object[] { result });
             }
@@ -241,7 +240,6 @@ public class ExampleGenerator {
           String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
           String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
           // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-          // = Λος Άντζελες
           String LosAngeles = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
           result = MessageFormat.format(value, new Object[] { LosAngeles, us });
           result = MessageFormat.format(timeFormat, new Object[] { result });
@@ -249,6 +247,8 @@ public class ExampleGenerator {
           result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
           result = getGMTFormat(value, null, -8);
+        } else if (parts.contains("metazone")) { // Metazone string
+          result = getMZTimeFormat() + " " + value;
         }
         result = finalizeBackground(result);
         break main;
@@ -387,6 +387,20 @@ public class ExampleGenerator {
       hourString = setBackground(hourString);
     }
     String result = MessageFormat.format(gmtFormat, new Object[] { hourString });
+    return result;
+  }
+
+  private String getMZTimeFormat() {
+    String timeFormat = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat/pattern");
+    if ( timeFormat == null ) {
+       timeFormat = "h:mm a";
+    }
+    // the following is <= because the TZDB inverts the hours
+    SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", timeFormat);
+    dateFormat.setTimeZone(ZONE_SAMPLE);
+    calendar.set(1999, 9, 13, 13, 25, 59); // 1999-09-13 13:25:59
+    Date sample = calendar.getTime();
+    String result = setBackground(dateFormat.format(sample));
     return result;
   }
 

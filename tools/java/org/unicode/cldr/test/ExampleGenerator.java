@@ -247,7 +247,7 @@ public class ExampleGenerator {
           result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
           result = getGMTFormat(value, null, -8);
-        } else if (parts.contains("metazone")) { // Metazone string
+        } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
           result = getMZTimeFormat() + " " + value;
         }
         result = finalizeBackground(result);
@@ -391,7 +391,7 @@ public class ExampleGenerator {
   }
 
   private String getMZTimeFormat() {
-    String timeFormat = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat/pattern");
+    String timeFormat = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
     if ( timeFormat == null ) {
        timeFormat = "h:mm a";
     }

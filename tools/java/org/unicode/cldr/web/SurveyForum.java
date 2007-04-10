@@ -19,8 +19,9 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.test.CheckCLDR;
 
 import com.sun.syndication.feed.synd.*;
@@ -43,6 +44,8 @@ public class SurveyForum {
     public static String DB_FORA = "SF_FORA";    //  forum name -> id
     public static String DB_POSTS = "SF_POSTS";  // 
     public static String DB_READERS = "SF_READERS";  // 
+
+    public static String DB_LOC2FORUM = "SF_LOC2FORUM";  // locale -> forum.. for selects.
 
     /* --------- FORUM ------------- */
     static final String F_FORUM = "forum";
@@ -219,10 +222,23 @@ public class SurveyForum {
     void doZoom(WebContext ctx, String sessionMessage) {
         int base_xpath = ctx.fieldInt(F_XPATH);
         String xpath = sm.xpt.getById(base_xpath);
+        if((xpath == null)&&(base_xpath != -1)) {
+            sm.printHeader(ctx, "Missing Item");
+            sm.printUserTable(ctx);
+            ctx.println("<div class='ferrbox'>Sorry, the item you were attempting to view does not exist.  Note that zoomed-in URLs are not permanent.</div>");
+            sm.printFooter(ctx);
+            return;
+        }
         String prettyPath = sm.xpt.getPrettyPath(base_xpath);
-        sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | ") ); // TODO: pretty path?
+        if(prettyPath != null) {
+            sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | ") ); // TODO: pretty path?
+        } else {
+            sm.printHeader(ctx, "Forum");
+        }
         sm.printUserTable(ctx);
-        ctx.println("<h2>"+prettyPath+"</h2>");
+        if(prettyPath != null) {
+            ctx.println("<h2>"+prettyPath+"</h2>");
+        }
         if(sessionMessage != null) {
             ctx.println(sessionMessage+"<hr>");
         }
@@ -319,10 +335,16 @@ public class SurveyForum {
             ctx.println("</div><hr>");
         } else {
             String prettyPath = sm.xpt.getPrettyPath(base_xpath);
-            sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | "));
+            if(prettyPath != null) {
+                sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | "));
+            } else {
+                sm.printHeader(ctx, forum + " | Forum");
+            }
             printForumMenu(ctx, forum);
             ctx.println("<a href='"+forumUrl(ctx,forum)+"'>Return to " + forum + " forum</a>");
-            ctx.println("<h2>"+prettyPath+"</h2>");
+            if(prettyPath != null) {
+                ctx.println("<h2>"+prettyPath+"</h2>");
+            }
         }
         
         if(replyTo != -1) {
@@ -350,8 +372,8 @@ public class SurveyForum {
                         "(<b>-</b> Don't post comment)</a>");
         }
                 
+        ctx.print("<a name='replyto'></a>");
         ctx.println("<form method='POST' action='"+ctx.base()+"'>");
-        
         ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+forum+"'>");
         ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
         ctx.println("<input type='hidden' name='_' value='"+ctx.locale+"'>");
@@ -579,7 +601,7 @@ public class SurveyForum {
         ctx.println("<span class='reply'><a href='"+
             forumUrl(ctx,forum)+
                 ((loc!=null)?("&_="+loc):"")+
-                "&"+F_DO+"="+F_REPLY+"&replyto="+id+"'>Reply</a></span>");
+                "&"+F_DO+"="+F_REPLY+"&replyto="+id+"#replyto'>Reply</a></span>");
         ctx.println("</div>");
         ctx.println("<h3>"+subj+" </h3>");
             
@@ -606,7 +628,34 @@ public class SurveyForum {
 //                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
             aLink = "<a href='mailto:"+theU.email+"'>" + theU.name + " (" + theU.org + ")</a>";
         } else if(theU != null) {
-            aLink = "("+theU.org+" vetter "+uid+")";
+            aLink = "("+theU.org+" vetter #"+uid+")";
+        } else {
+            aLink = "(#"+uid+")";
+        }
+        
+        return aLink;
+   }
+
+   String getNameTextFromUid(UserRegistry.User me, int uid) {
+        UserRegistry.User theU = null;
+        theU = sm.reg.getInfo(uid);
+        String aLink = null;
+        if((theU!=null)&&
+           (me!=null)&&
+                ((uid==me.id) ||   //if it's us or..
+                (UserRegistry.userIsTC(me) ||  //or  TC..
+                (UserRegistry.userIsVetter(me) && (true ||  // approved vetter or ..
+                                                me.org.equals(theU.org)))))) { // vetter&same org
+            if((me==null)||(me.org == null)) {
+                throw new InternalError("null: c.s.u.o");
+            }
+            if((theU!=null)&&(theU.org == null)) {
+                throw new InternalError("null: theU.o");
+            }
+//                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
+            aLink = theU.name + " (" + theU.org + ")";
+        } else if(theU != null) {
+            aLink = "("+theU.org+" vetter #"+uid+")";
         } else {
             aLink = "(#"+uid+")";
         }
@@ -720,6 +769,56 @@ public class SurveyForum {
                 conn.commit();
                 what="?";
             }
+            
+            {
+                ElapsedTimer et = new ElapsedTimer("setting up DB_LOC2FORUM");
+                    Statement s = conn.createStatement();
+                if(!sm.hasTable(conn, DB_LOC2FORUM)) { // user attribute
+                    what=DB_LOC2FORUM;
+                    sql="";
+                    
+                   // System.err.println("setting up "+DB_LOC2FORUM);
+                    sql = "CREATE TABLE " + DB_LOC2FORUM +
+                          " ( " + 
+                              " locale VARCHAR(255) NOT NULL, " +
+                              " forum VARCHAR(255) NOT NULL" +
+                            " )";
+                    s.execute(sql);
+                    sql = "CREATE UNIQUE INDEX " + DB_LOC2FORUM + "_loc ON " + DB_LOC2FORUM + " (locale) ";
+                    s.execute(sql); 
+                    sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
+                    s.execute(sql); 
+                } else {
+                    int n = s.executeUpdate("delete from " + DB_LOC2FORUM);
+                    //System.err.println("Deleted " + n + " from " + DB_LOC2FORUM);
+                }
+                s.close();
+                
+                PreparedStatement initbl = prepareStatement("initbl", "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
+                int updates = 0;
+                int errs = 0;
+                for(Object o : sm.getLocalesSet()) {
+                    String l = (String)o;
+                    initbl.setString(1,l);
+                    String forum = new ULocale(l).getLanguage();
+                    initbl.setString(2,forum);
+                    try {
+                        int n = initbl.executeUpdate();
+                        if(n>0) {
+                            updates++;
+                        }
+                    } catch(SQLException se) {
+                        if(errs==0) {
+                            System.err.println("While updating " + DB_LOC2FORUM + " -  " + SurveyMain.unchainSqlException(se) + " - " + l+":"+forum+",  [This and further errors, ignored]");
+                        }
+                        errs++;
+                    }
+                }
+                initbl.close();
+                conn.commit();
+                //System.err.println("Updated "+DB_LOC2FORUM+": " + et + ", "+updates+" updates, and " + errs + " SQL complaints");
+                what="?";
+            }
         }
     }
     
@@ -750,9 +849,10 @@ public class SurveyForum {
     PreparedStatement pList = null;
     PreparedStatement pAdd = null;
     PreparedStatement pAll = null;
+    PreparedStatement pForMe = null;
     PreparedStatement pGet = null;
     PreparedStatement pCount = null;
-
+  //  PreparedStatement pAllN = null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -768,15 +868,17 @@ public class SurveyForum {
             " WHERE (id = ?)");
             pAdd = prepareStatement("pAdd", "INSERT INTO " + DB_POSTS + " (poster,subj,text,forum,parent,loc,xpath) values (?,?,?,?,?,?,?)");
             
-            pAll = prepareStatement("pAll", "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
+            final String pAllResult = DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
+            pAll = prepareStatement("pAll", "SELECT "+pAllResult+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
+//            pMine = prepareStatement("pAll", "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
+            //pAllN = prepareStatement("pAllN", "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
+            pForMe = prepareStatement("pForMe", 
+                "SELECT "+ pAllResult + " FROM " + DB_POSTS +","+DB_FORA+" " // same as pAll  
+                    +" where (SF_POSTS.FORUM=SF_FORA.id) AND exists ( select CLDR_INTEREST.forum from CLDR_INTEREST,SF_FORA where CLDR_INTEREST.uid=? AND CLDR_INTEREST.forum=SF_FORA.loc AND SF_FORA.id=SF_POSTS.forum) ORDER BY "+DB_POSTS+".LAST_TIME DESC");
         }
     } 
     
        
-    // "link" UI
-    static public String forumUrl(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-        return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath;
-    }
     void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath, String contents) {
         //if(ctx.session.user == null) {     
         //    return; // no user?
@@ -792,7 +894,10 @@ public class SurveyForum {
     void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
             showForumLink(ctx,pod,p,xpath,ctx.iconHtml("zoom","zoom"));
     }
-
+    // "link" UI
+    static public String forumUrl(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
+        return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath;
+    }
     static String forumUrl(WebContext ctx, String forum) {
         return (ctx.base()+"?"+F_FORUM+"="+forum);
     }
@@ -813,7 +918,7 @@ public class SurveyForum {
     }
 
 public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
-throws IOException, ServletException {
+    throws IOException, ServletException {
     
         response.setContentType("application/rss+xml; charset=utf-8");
         
@@ -842,60 +947,138 @@ throws IOException, ServletException {
         String kind = request.getParameter("kind");
         String loc = request.getParameter("_");
         
-        if((loc==null) || (!UserRegistry.userCanModifyLocale(user, loc))) {
-            sendErr(request, response, "permission denied for "+loc);
+        if((loc!=null) && (!UserRegistry.userCanModifyLocale(user, loc))) {
+            sendErr(request, response, "permission denied for locale "+loc);
             return true;
         }
         
+        DateFormat dateParser = new SimpleDateFormat(DATE_FORMAT);
+        
         try {
-            DateFormat dateParser = new SimpleDateFormat(DATE_FORMAT);
-            
             SyndFeed feed = new SyndFeedImpl();
             feed.setFeedType(feedType);
-            
-            feed.setTitle("CLDR Feed for " + loc);
-            feed.setLink(base);
-            feed.setDescription("test feed");
-            
             List entries = new ArrayList();
-            SyndEntry entry;
-            SyndContent description;
-            
-            synchronized (conn) {
+            feed.setLink(base);
+
+            if(loc != null) {
+                feed.setTitle("CLDR Feed for " + loc);
+                feed.setDescription("test feed");
                 
-                int forumNumber = getForumNumberFromDB(loc);
-                int count=0;
-                if(forumNumber != -1) try {
-                    pList.setInt(1, forumNumber);
-                    ResultSet rs = pList.executeQuery();
+                SyndEntry entry;
+                SyndContent description;
+                
+                synchronized (conn) {
                     
-                    while(rs.next()) {                        
+                    int forumNumber = getForumNumberFromDB(loc);
+                    int count=0;
+                    if(forumNumber != -1) try {
+                        pList.setInt(1, forumNumber);
+                        ResultSet rs = pList.executeQuery();
+                        
+                        while(rs.next()) {                        
+                            int poster = rs.getInt(1);
+                            String subj = rs.getString(2);
+                            String text = rs.getString(3);
+                            int id = rs.getInt(4);
+                            java.sql.Timestamp lastDate = rs.getTimestamp(5);
+                            String ploc = rs.getString(6);
+                            int xpath = rs.getInt(7);
+                            
+                            String nameLink = getNameTextFromUid(user,poster);
+                            
+                            entry = new SyndEntryImpl();
+                            entry.setTitle(subj);
+                            entry.setAuthor(nameLink);
+                            entry.setLink(base+"?forum="+loc+"&amp;"+F_DO+"="+F_VIEW+"&amp;id="+id+"&amp;email="+
+                                          email + "&amp;pw="+pw);
+                            entry.setPublishedDate(lastDate); // dateParser.parse("2004-06-08"));
+                            description = new SyndContentImpl();
+                            description.setType("text/html");
+                            description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
+                            entry.setDescription(description);
+                            entries.add(entry);
+                            
+                            count++;
+                        }
+                    } catch (SQLException se) {
+                        String complaint = "SurveyForum:  Couldn't use forum " +loc + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                        logger.severe(complaint);
+                        throw new RuntimeException(complaint);
+                    }
+                }
+            } else {  
+                feed.setTitle("CLDR Feed for " + user.email);
+                String locs[] = user.getInterestList();
+                if(locs == null) {
+                    feed.setDescription("All CLDR locales.");
+                } else if(locs.length == 0) {
+                    feed.setDescription("No locales.");
+                } else {
+                    String locslist = null;
+                    for(String l : locs) {
+                        if(locslist == null) {
+                            locslist = l;
+                        } else {
+                            locslist = locslist + " " + l;
+                        }
+                    }
+                    feed.setDescription("Your locales: "+locslist);
+                }
+                
+                SyndEntry entry;
+                SyndContent description;
+                // not a specific locale, but ALL [of my locales]
+                
+                try {
+                    // first, articles.
+                    ResultSet rs = null; // list of articles.
+                    
+                    if(locs == null) {
+                        rs = pAll.executeQuery();
+                    } else {
+                        pForMe.setInt(1, user.id);
+                        rs = pForMe.executeQuery();
+                    }
+                    
+                    int count =0;
+
+                    while(rs.next() && true) {
                         int poster = rs.getInt(1);
                         String subj = rs.getString(2);
                         String text = rs.getString(3);
-                        int id = rs.getInt(4);
-                        java.sql.Timestamp lastDate = rs.getTimestamp(5);
-                        String ploc = rs.getString(6);
-                        int xpath = rs.getInt(7);
+                        java.sql.Timestamp lastDate = rs.getTimestamp(4);
+                        int id = rs.getInt(5);
+                        String forum = rs.getString(6);
+                        String ploc = rs.getString(7);
                         
-                        String nameLink = getNameLinkFromUid(user,poster);
+                        String forumText = new ULocale(ploc).getLanguage();
+                        String nameLink = getNameTextFromUid(user,poster);
                         
                         entry = new SyndEntryImpl();
-                        entry.setTitle(subj);
+                        String forumPrefix = forumText+":";
+                        if(subj.startsWith(forumText)) {
+                            entry.setTitle(subj);
+                        } else {
+                            entry.setTitle(forumText+":"+subj);
+                        }
                         entry.setAuthor(nameLink);
-                        entry.setLink(base+"?forum="+loc+"&amp;"+F_DO+"="+F_VIEW+"&amp;id="+id+"&amp;email="+
+                        entry.setLink(base+"?forum="+forumText+"&amp;"+F_DO+"="+F_VIEW+"&amp;id="+id+"&amp;email="+
                                       email + "&amp;pw="+pw);
                         entry.setPublishedDate(lastDate); // dateParser.parse("2004-06-08"));
                         description = new SyndContentImpl();
                         description.setType("text/html");
-                        description.setValue("From: "+nameLink+"<br><hr>"+ text);
+                        description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
                         entry.setDescription(description);
                         entries.add(entry);
                         
                         count++;
                     }
+                    
+                    // now, data??
+                    // select CLDR_DATA.value,SF_LOC2FORUM.locale from SF_LOC2FORUM,CLDR_INTEREST,CLDR_DATA where SF_LOC2FORUM.forum=CLDR_INTEREST.forum AND CLDR_INTEREST.uid=2 AND CLDR_DATA.locale=SF_LOC2FORUM.locale AND CLDR_DATA.submitter is null ORDER BY CLDR_DATA.modtime DESC
+                    
                 } catch (SQLException se) {
-                    String complaint = "SurveyForum:  Couldn't use forum " +loc + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                    String complaint = "SurveyForum:  Couldn't use forum s for RSS- " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
                     logger.severe(complaint);
                     throw new RuntimeException(complaint);
                 }
@@ -916,12 +1099,37 @@ throws IOException, ServletException {
         return true;
     }
     
+    private static String shortenText(String s) {
+        if(s.length()<100) {
+            return s;
+        } else {
+            return s.substring(0,100)+"...";
+        }
+    }
+    
     String forumFeedStuff(WebContext ctx) {
         if(ctx.session == null ||
-           ctx.session.user == null) {
+           ctx.session.user == null ||
+           !UserRegistry.userIsStreet(ctx.session.user)) {
             return "";
         }
         String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+            ctx.session.user.password+"&amp;");
+        return 
+             "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" +
+              "<link rel=\"alternate\" type=\"application/rdf+xml\" title=\"RSS 1.0\" href=\""+feedUrl+"&feed=rss_1.0\">"+
+             "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"RSS 2.0\" href=\""+feedUrl+"&feed=rss_2.0\">" 
+           ;
+    }
+
+    String mainFeedStuff(WebContext ctx) {
+        if(ctx.session == null ||
+           ctx.session.user == null ||
+           !UserRegistry.userIsStreet(ctx.session.user)) {
+            return "";
+        }
+
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?email="+ctx.session.user.email+"&amp;pw="+
             ctx.session.user.password+"&amp;");
         return 
              "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" +

@@ -248,6 +248,9 @@ public class WebContext {
      */
     boolean prefBool(String x, boolean defVal)
     {
+        if(session == null) {
+            return defVal;
+        }
         boolean ret = fieldBool(x, session.prefGetBool(x, defVal));
         session.prefPut(x, ret);
         return ret;

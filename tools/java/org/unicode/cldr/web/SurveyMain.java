@@ -283,6 +283,23 @@ public class SurveyMain extends HttpServlet {
                 "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
                 "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
                 "128.194.135.94", // crawler4.irl.cs.tamu.edu
+                
+                /*
+                209.249.11.4		see | be | kick
+10:32	Guest
+64.5.245.50	 German (Liechtenstein)	see | be | kick
+11:32	Guest
+64.5.245.50	 German (Liechtenstein)	see | be | kick
+11:11	Guest
+209.249.11.4		see | be | kick
+12:32	Guest
+64.5.245.50	 German (Liechtenstein)	see | be | kick
+12:02	Guest
+209.249.11.4		see | be | kick
+12:12	Guest
+209.249.11.4		see | be | kick
+13:32	Guest
+*/
                  };
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -1030,9 +1047,15 @@ public class SurveyMain extends HttpServlet {
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         
-        if(isUnofficial &&  // no RSS on the official site- for now
-                ctx.locale != null) {
-            ctx.println(fora.forumFeedStuff(ctx));
+        if(isUnofficial || 
+                ctx.prefBool(PREF_GROTTY)) {  // no RSS on the official site- for now
+            if(ctx.locale != null) {
+                ctx.println(fora.forumFeedStuff(ctx));
+            } else {
+                if(!ctx.hasField("x")&&!ctx.hasField("do")&&!ctx.hasField("sql")&&!ctx.hasField("dump")) {
+                    ctx.println(fora.mainFeedStuff(ctx));
+                }
+            }
         }
         
         ctx.println("</head>");
@@ -1743,7 +1766,9 @@ public class SurveyMain extends HttpServlet {
         for(Iterator li = allLanguages.iterator();li.hasNext();) {
             String lang = (String)(li.next());
             String group = sc.getGroup(lang, missingLocalesForOrg);
-            if(group != null ) {
+            if((group != null) &&
+                (!"basic".equals(group)) && // exclude it for being basic
+                (null==supplemental.defaultContentToParent(group)) ) {
                 //System.err.println("getGroup("+lang+", " + missingLocalesForOrg + ") = " + group);
                 if(!isValidLocale(lang)) {
                     //System.err.println("-> not in lm: " + lang);
@@ -1830,7 +1855,10 @@ public class SurveyMain extends HttpServlet {
 					ctx.println("</ul>");
 				}
 			}
-			if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
+            boolean localeIsDefaultContent = (null!=supplemental.defaultContentToParent(aLocale));
+			if(localeIsDefaultContent) {
+                        ctx.println(" (<i>default content</i>)");
+            } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
 				Hashtable what = (Hashtable)nullStatus.get(aLocale);				
 				if(what!=null) {
 					ctx.println("<br><blockquote> <b>Did not participate:</b> ");
@@ -1882,6 +1910,8 @@ public class SurveyMain extends HttpServlet {
                     if(showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
+                    boolean isDc = (null!=supplemental.defaultContentToParent(subLocale));
+                    
 					if(localeStatus!=null&&!nullStatus.isEmpty()) {
 						Hashtable what = (Hashtable)localeStatus.get(subLocale);
 						if(what!=null) {
@@ -1892,7 +1922,9 @@ public class SurveyMain extends HttpServlet {
 							ctx.println("</ul>");
 						}
 					}
-					if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
+                    if(isDc) {
+                        ctx.println(" (<i>default content</i>)");
+                    } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
 						Hashtable what = (Hashtable)nullStatus.get(subLocale);				
 						if(what!=null) {
 							ctx.println("<br><blockquote><b>Did not participate:</b> ");
@@ -2119,6 +2151,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println(" <label>to");
                 ctx.println("<select name='preset_do'>");
                 ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+        /*
                 for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
                     ctx.println("<option class='user" + UserRegistry.ALL_LEVELS[i] + "' ");
                     ctx.println(" value='"+LIST_ACTION_SETLEVEL+UserRegistry.ALL_LEVELS[i]+"'>" + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]) + "</option>");
@@ -2126,9 +2159,10 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
                 ctx.println("   <option value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
                 ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+        */
                 ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
                 ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
-                ctx.println("   <option value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
+//                ctx.println("   <option value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
                 ctx.println("</select></label> <br>");
                 if(just!=null) {
                     ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
@@ -2142,7 +2176,8 @@ public class SurveyMain extends HttpServlet {
                 }
                 ctx.println("</div>");
             }
-            int preset_fromint = ctx.fieldInt("preset_from", -1);
+//            int preset_fromint = ctx.fieldInt("preset_from", -1);
+            int preset_fromint = -1;
             String preset_do = ctx.field("preset_do");
             if(preset_do.equals(LIST_ACTION_NONE)) {
                 preset_do="nothing";
@@ -2157,10 +2192,10 @@ public class SurveyMain extends HttpServlet {
             if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.printUrlAsHiddenFields();
                 ctx.println("<input type='hidden' name='do' value='"+listName+"'>");
-                ctx.println("<input type='submit' name='doBtn' value='Change'>");
+                ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
             }
             ctx.println("<table summary='User List' class='userlist' border='2'>");
-            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Locales</th><th>Seen</th></tr>");
+            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr>");
             String oldOrg = null;
             while(rs.next()) {
                 int theirId = rs.getInt(1);
@@ -2182,7 +2217,7 @@ public class SurveyMain extends HttpServlet {
                 n++;
                 
                 if((just==null)&&(!justme)&&(!theirOrg.equals(oldOrg))) {
-                    ctx.println("<tr class='heading' ><th class='partsection' colspan='5'><a name='"+theirOrg+"'><h4>"+theirOrg+"</h4></a></th></tr>");
+                    ctx.println("<tr class='heading' ><th class='partsection' colspan='6'><a name='"+theirOrg+"'><h4>"+theirOrg+"</h4></a></th></tr>");
                     oldOrg = theirOrg;
                 }
                 
@@ -2209,6 +2244,10 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("<br/><i>Logging out user session " + theUser.id + " and deleting all unsaved changes</i>");
                             theUser.remove();
                         }
+                        UserRegistry.User newThem = reg.getInfo(theirId);
+                        if(newThem != null) {
+                            theirLocales = newThem.locales; // update
+                        }
                         ctx.println("</td>");
                     } else if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) { // other actions
                         ctx.println("<td class='framecell'>");
@@ -2216,13 +2255,17 @@ public class SurveyMain extends HttpServlet {
                         // check an explicit list. Don't allow random levels to be set.
                         for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
                             if(action.equals(LIST_ACTION_SETLEVEL + UserRegistry.ALL_LEVELS[i])) {
-                                msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
-                                ctx.println("Setting to level " + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
-                                ctx.println(": " + msg);
-                                theirLevel = UserRegistry.ALL_LEVELS[i];
-                                if(theUser != null) {
-                                    ctx.println("<br/><i>Logging out user session " + theUser.id + "</i>");
-                                    theUser.remove();
+                                if((just==null)&&(UserRegistry.ALL_LEVELS[i]<=UserRegistry.TC)) {
+                                    ctx.println("<b>Must be zoomed in on a user to promote them to TC</b>");
+                                } else {
+                                    msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
+                                    ctx.println("Set user level to " + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
+                                    ctx.println(": " + msg);
+                                    theirLevel = UserRegistry.ALL_LEVELS[i];
+                                    if(theUser != null) {
+                                        ctx.println("<br/><i>Logging out user session " + theUser.id + "</i>");
+                                        theUser.remove();
+                                    }
                                 }
                             }
                         }
@@ -2295,20 +2338,26 @@ public class SurveyMain extends HttpServlet {
 
                 ctx.println("    <td valign='top'><font size='-1'>#" + theirId + " </font> <a name='u_"+theirEmail+"'>" +  theirName + "</a>");                
                 ctx.println("    <a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>");
+                ctx.print("</td><td>");
                 if(havePermToChange) {
                     // Was something requested?
-                    ctx.println("<br>");
                     
                     { // PRINT MENU
                         ctx.print("<select name='" + theirTag + "'>");
+                        
                         // set user to VETTER
-                        ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
-                        for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                            int lev = UserRegistry.ALL_LEVELS[i];
-                            doChangeUserOption(ctx, lev, theirLevel,
-                                               (preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
+                        ctx.println("   <option value=''>" + LIST_ACTION_NONE + "</option>");
+                        if(just != null)  {
+                            for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
+                                int lev = UserRegistry.ALL_LEVELS[i];
+                                if((just==null)&&(lev<=UserRegistry.TC)) {
+                                    continue; // no promotion to TC from zoom out
+                                }
+                                doChangeUserOption(ctx, lev, theirLevel,
+                                                  false&&(preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
+                            }
+                            ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");                                                            
                         }
-                        ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");                                                            
                         ctx.println("   <option ");
                         if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
                             ctx.println(" SELECTED ");
@@ -2319,23 +2368,26 @@ public class SurveyMain extends HttpServlet {
                             ctx.println(" SELECTED ");
                         }
                         ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
-                        if(theirLevel > UserRegistry.TC) {
-                            ctx.println("   <option ");
-                            if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
-                                ctx.println(" SELECTED ");
-                            }
-                            ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
-                        }
-                        if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
-                            ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                            if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
-                                ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
-                            } else {
+
+                        if(just != null)  {
+                            if(theirLevel > UserRegistry.TC) {
                                 ctx.println("   <option ");
-                                if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_DELETE0)) {
-                                    ctx.println(" SELECTED ");
+                                if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
+                              //      ctx.println(" SELECTED ");
                                 }
-                                ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
+                                ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
+                            }
+                            if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
+                                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                                if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
+                                    ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
+                                } else {
+                                    ctx.println("   <option ");
+                                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_DELETE0)) {
+                                    //    ctx.println(" SELECTED ");
+                                    }
+                                    ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
+                                }
                             }
                             if(just != null) { // only do these in 'zoomin' view.
                                 ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");     
@@ -2455,24 +2507,26 @@ public class SurveyMain extends HttpServlet {
                     
                     if(intlocs_change) {
                         if(ctx.field("intlocs_change").equals("t")) {
-                            String newIntLocs = ctx.field("intlocs").trim();
+                            String newIntLocs = ctx.field("intlocs");
+                            
                             String msg = reg.setLocales(ctx, ctx.session.user.id, ctx.session.user.email, newIntLocs, true);
                             
-                            if(msg == null) {
-                                ctx.println("Interest Locales set.<br>");
-                                ctx.session.user.intlocs = newIntLocs;
-                            } else {
-                                ctx.println(msg);
+                            if(msg != null) {
+                                ctx.println(msg+"<br>");
+                            }
+                            UserRegistry.User newMe = reg.getInfo(ctx.session.user.id);
+                            if(newMe != null) {
+                                ctx.session.user.intlocs = newMe.intlocs; // update
                             }
                         }
                     
                     
                         ctx.println("<input type='hidden' name='intlocs_change' value='t'>");
-                        ctx.println("<input name='intlocs' ");
+                        ctx.println("<label>Locales: <input name='intlocs' ");
                         if(ctx.session.user.intlocs != null) {
                             ctx.println("value='"+ctx.session.user.intlocs.trim()+"' ");
                         }
-                        ctx.println("</input>");
+                        ctx.println("</input></label>");
                         if(ctx.session.user.intlocs == null) {
                             ctx.println("<br><i>List languages only, separated by spaces.  Example: <tt class='codebox'>en fr zh</tt>. leave blank for 'all locales'.</i>");
                         }
@@ -2492,7 +2546,7 @@ public class SurveyMain extends HttpServlet {
             }
             if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<br>");
-                ctx.println("<input type='submit' name='doBtn' value='Change'>");
+                ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
                 ctx.println("</form>");
             }
         }/*end synchronized(reg)*/ } catch(SQLException se) {
@@ -2508,7 +2562,7 @@ public class SurveyMain extends HttpServlet {
     private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected)
     {
         if(UserRegistry.userCanChangeLevel(ctx.session.user, theirLevel, newLevel)) {
-            ctx.println("    <option " + (selected?" SELECTED ":"") + "value='" + LIST_ACTION_SETLEVEL + newLevel + "'>Make " +
+            ctx.println("    <option " + /* (selected?" SELECTED ":"") + */ "value='" + LIST_ACTION_SETLEVEL + newLevel + "'>Make " +
                         UserRegistry.levelToStr(ctx,newLevel) + "</option>");
         }
     }
@@ -2699,7 +2753,7 @@ public class SurveyMain extends HttpServlet {
             }
 
             // Option wasn't found
-            sessionMessage = ("<i>Problem trying to do '"+doWhat+"'. You may need to be logged in first.</i>");
+            sessionMessage = ("<i>Could not do the action '"+doWhat+"'. You may need to be logged in first.</i>");
         }
         
         String title = " " + which;
@@ -3660,7 +3714,7 @@ public class SurveyMain extends HttpServlet {
             if(def.equals("default")) {
                 ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
             } else {
-                ctx.print("Coverage Level: <tt class='codebox'>"+def+"</tt>  ( overriding <tt>"+itsLevel.toString()+"</tt>)<br>");
+                ctx.print("Coverage Level: <tt class='codebox'>"+def+"</tt>  (overriding <tt>"+itsLevel.toString()+"</tt>)<br>");
             }
             ctx.print("<ul><li>To change your coverage level, see ");
             printMenu(ctx, "", "options", "My Options", QUERY_DO);
@@ -3872,7 +3926,9 @@ public class SurveyMain extends HttpServlet {
             System.err.println("Beginning alias check/parse of " + locales.size() + " locales..");
             for(Object loc : locales) {
                 try {
-                    Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", true);
+                    Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
+                    
+                    
                     
                     Node[] aliasItems = 
                                 LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
@@ -5019,8 +5075,8 @@ public class SurveyMain extends HttpServlet {
                         if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
                             ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
                         }
-                        ctx.println("<b>This item was not accepted because of test failures.</b><br>");
-                        return false;
+                        ctx.println("<b>This item had test failures.</b><br>");
+                        //return false;
                     }
                 }
             }
@@ -6762,7 +6818,7 @@ public class SurveyMain extends HttpServlet {
         try {
             Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
             boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
-            reg = UserRegistry.createRegistry(logger, uConn, !doesExist_u, this);
+            reg = UserRegistry.createRegistry(logger, uConn, this);
             if(!doesExist_u) { // only import users on first run through..
                 reg.importOldUsers(vetdata);
             }

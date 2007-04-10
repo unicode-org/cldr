@@ -243,6 +243,9 @@ public class XPathTable {
      * API for get by ID 
      */
     public final String getById(int id) {
+        if(id==-1) {
+            return null;
+        }
         String s = idToString_get(id);
         if(s!=null) {
             return s;
@@ -408,12 +411,18 @@ public class XPathTable {
      * @return
      */
     public String getPrettyPath(String path) {
+        if(path == null) {
+            return null;
+        }
         synchronized(ppath) {
             return ppath.getPrettyPath(path);
         }
     }
     
     public String getPrettyPath(int path) {
+        if(path == -1) {
+            return null;
+        }
         return getPrettyPath(getById(path)); 
     }
     

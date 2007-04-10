@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 /**
  * This class represents the list of all registered users.  It contains an inner class, UserRegistry.User, 
@@ -81,6 +82,10 @@ public class UserRegistry {
     PreparedStatement updateInfoEmailStmt = null;
     PreparedStatement updateInfoNameStmt = null;
     PreparedStatement touchStmt = null;
+
+
+    PreparedStatement removeIntLoc = null;
+    PreparedStatement updateIntLoc = null;
     
     /**
      * This nested class is the representation of an individual user. 
@@ -112,6 +117,27 @@ public class UserRegistry {
         public boolean interestedIn(String locale) {
             return UserRegistry.localeMatchesLocaleList(intlocs, locale);
         }
+        
+        /** 
+         * List of interest groups the user is interested in.
+         * @return list of locales, or null for ALL locales, or a 0-length list for NO locales.
+         */
+        public String[] getInterestList() {
+            if(userIsExpert(this)) {
+                if(intlocs == null || intlocs.length()==0) {
+                    return null;
+                } else {
+                    if(intlocs.equals("none")) {
+                        return new String[0];
+                    }
+                    return tokenizeLocale(intlocs);
+                }
+            } else if(userIsStreet(this)) {
+                return tokenizeLocale(locales);
+            } else {
+                return new String[0];
+            }
+        }
     }
         
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -123,6 +149,7 @@ public class UserRegistry {
      * The name of the user sql database
      */
     public static final String CLDR_USERS = "cldr_users";
+    public static final String CLDR_INTEREST = "cldr_interest";
     
     /** 
      * Called by SM to create the reg
@@ -130,15 +157,12 @@ public class UserRegistry {
      * @param ourConn the conn to use
      * @param isNew  true if should CREATE TABLEs
      */
-    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, boolean isNew, SurveyMain theSm) 
+    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain theSm) 
       throws SQLException
     {
         sm = theSm;
         UserRegistry reg = new UserRegistry(xlogger,ourConn);
-        if(isNew) {
-            reg.setupDB();
-        }
-        reg.myinit();
+        reg.setupDB();
 //        logger.info("UserRegistry DB: created");
         return reg;
     }
@@ -160,30 +184,57 @@ public class UserRegistry {
     {
         synchronized(conn) {
 //            logger.info("UserRegistry DB: initializing...");
-            Statement s = conn.createStatement();
-            s.execute("create table " + CLDR_USERS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                    "userlevel int not null, " +
-                                                    "name varchar(256) not null, " +
-                                                    "email varchar(256) not null UNIQUE, " +
-                                                    "org varchar(256) not null, " +
-                                                    "password varchar(100) not null, " +
-                                                    "audit varchar(1024) , " +
-                                                    "locales varchar(1024) , " +
-                                                    "prefs varchar(1024) , " +
-                                                    "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                    "lastlogin TIMESTAMP, " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
-                                                    "primary key(id))"); 
-            s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
-                                                    "VALUES(" + ADMIN +"," + 
-                                                    "'admin'," + 
-                                                    "'SurveyTool'," +
-                                                    "'admin@'," +
-                                                    "'" + sm.vap +"')");
-            logger.info("DB: added user Admin");
+            boolean hadUserTable = sm.hasTable(conn,CLDR_USERS);
+            if(!hadUserTable) {
+                Statement s = conn.createStatement();
             
-            s.close();
-            conn.commit();
+                s.execute("create table " + CLDR_USERS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+                                                        "userlevel int not null, " +
+                                                        "name varchar(256) not null, " +
+                                                        "email varchar(256) not null UNIQUE, " +
+                                                        "org varchar(256) not null, " +
+                                                        "password varchar(100) not null, " +
+                                                        "audit varchar(1024) , " +
+                                                        "locales varchar(1024) , " +
+                                                        "prefs varchar(1024) , " +
+                                                        "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
+                                                        "lastlogin TIMESTAMP, " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                        "primary key(id))"); 
+                s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
+                                                        "VALUES(" + ADMIN +"," + 
+                                                        "'admin'," + 
+                                                        "'SurveyTool'," +
+                                                        "'admin@'," +
+                                                        "'" + sm.vap +"')");
+                logger.info("DB: added user Admin");
+                
+                s.close();
+                conn.commit();
+            }
+
+            boolean hadInterestTable = sm.hasTable(conn,CLDR_INTEREST);
+            if(!hadInterestTable) {
+                Statement s = conn.createStatement();
+            
+                s.execute("create table " + CLDR_INTEREST + " (uid INT NOT NULL , " +
+                                                        "forum  varchar(256) not null " +
+                                                        ")"); 
+                String sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_loc ON " + CLDR_INTEREST + " (uid) ";
+                s.execute(sql); 
+                logger.info("DB: created "+CLDR_INTEREST);
+                
+                s.close();
+                conn.commit();
+            }
+            
+            myinit(); // initialize the prepared statements
+            
+            if(!hadInterestTable) {
+                setupIntLocs();  // set up user -> interest table mapping
+            }
+
         }
+            
     }
     
     /**
@@ -297,7 +348,7 @@ public class UserRegistry {
                                                     "VALUES(?,?,?,?,?,?)" );
           queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs from " + CLDR_USERS +" where id=?",
+          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
           queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
@@ -305,6 +356,9 @@ public class UserRegistry {
             
             updateInfoEmailStmt = conn.prepareStatement("UPDATE CLDR_USERS set email=? WHERE id=? AND email=?");
             updateInfoNameStmt = conn.prepareStatement("UPDATE CLDR_USERS set name=? WHERE id=? AND email=?");
+            
+            removeIntLoc = conn.prepareStatement("DELETE FROM "+CLDR_INTEREST+" WHERE uid=?");
+            updateIntLoc = conn.prepareStatement("INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)");
         }
       }finally{
         if(queryStmt == null) {
@@ -380,6 +434,11 @@ public class UserRegistry {
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
+                    u.intlocs = rs.getString(5);
+                    u.locales = rs.getString(6);
+                    u.last_connect = rs.getTimestamp(7);
+                    //          queryIdStmt = conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,lastlogin,password from " + CLDR_USERS +" where id=?",
+
 //                    System.err.println("SQL Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
                     ret = u; // let it finish..
 
@@ -465,7 +524,7 @@ public class UserRegistry {
                     logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                     return null;
                 }
-                if(!ip.startsWith("RSS@")) {
+                if(!ip.startsWith("RSS@") && !ip.equals("INTERNAL")) {
                     logger.info("Login: " + email + " @ " + ip);
                     if(!FOR_ADDING.equals(ip)) {
                         touchStmt.setInt(1, u.id);
@@ -538,6 +597,89 @@ public class UserRegistry {
         
         return rs;
     }
+    
+    void setupIntLocs() throws SQLException {
+        ResultSet rs = list(null);
+        ElapsedTimer et = new ElapsedTimer();
+        int count=0;
+        while(rs.next()) {
+            int user = rs.getInt(1);
+            String who = rs.getString(4);
+            
+            updateIntLocs(user);
+            count++;
+        }
+        System.err.println("update:" + count + " user's locales updated " + et);
+    }
+    /**
+     * assumes caller has a lock on conn
+     */
+    String updateIntLocs(int user) throws SQLException {
+        return updateIntLocs(user, true);
+    }
+    
+    static String normalizeLocaleList(String list) {
+        list = list.trim();
+        if(list.length()>0) {
+            if(list.equals("none")) {
+                return "none";
+            }
+            Set<String> s = new TreeSet<String>();
+            for(String l : UserRegistry.tokenizeLocale(list) ) {
+                String forum = new ULocale(l).getLanguage();
+                s.add(forum);
+            }
+            list = null;
+            for(String forum : s) {
+                if(list == null) {
+                    list = forum;
+                } else {
+                    list = list+" "+forum;
+                }
+            }
+        }
+        return list;
+    }
+    
+    /**
+     * assumes caller has a lock on conn
+     */
+    String updateIntLocs(int id, boolean doCommit) throws SQLException {
+        // do something
+        User user = getInfo(id);
+        if(user==null) {
+            return "";
+        }
+        
+        removeIntLoc.setInt(1,id);
+        int n = removeIntLoc.executeUpdate();
+        //System.err.println(id+":"+user.email+" - removed intlocs " + n);
+        
+        n = 0;
+        
+        String[] il = user.getInterestList();
+        if(il != null ) {
+            updateIntLoc.setInt(1,id);
+            Set<String> s = new HashSet<String>();
+            for(String l : il ) {
+                //System.err.println(" << " + l);
+                String forum = new ULocale(l).getLanguage();
+                s.add(forum);
+            }
+            for(String forum : s) {
+                //System.err.println(" >> " + forum);
+                updateIntLoc.setString(2,forum);
+                n += updateIntLoc.executeUpdate();
+            }
+        }
+        
+        //System.err.println(id+":"+user.email+" - updated intlocs " + n);
+        
+        if(doCommit) {
+            conn.commit();
+        }
+        return "";
+    }
 
     String setUserLevel(WebContext ctx, int theirId, String theirEmail, int newLevel) {
         if((newLevel < ctx.session.user.userlevel) || (ctx.session.user.userlevel > TC)) {
@@ -569,6 +711,7 @@ public class UserRegistry {
                     logger.severe("Error: " + n + " records updated!");
                 } else {
                     msg = msg + " [user level set]";
+                    msg = msg + updateIntLocs(theirId);
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
@@ -590,6 +733,8 @@ public class UserRegistry {
         if(!intLocs && ctx.session.user.userlevel > TC) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
             return ("[Permission Denied]");
         }
+        
+        newLocales = normalizeLocaleList(newLocales);
 
         String orgConstraint = null;
         String msg = "";
@@ -617,9 +762,10 @@ public class UserRegistry {
                     logger.severe("Error: " + n + " records updated!");
                 } else {
                     msg = msg + " [locales set]";
-                    if(intLocs) { 
-                        return null;
-                    }
+                    msg = msg + updateIntLocs(theirId);
+                    /*if(intLocs) { 
+                        return updateIntLocs(theirId);
+                    }*/
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
@@ -788,12 +934,14 @@ public class UserRegistry {
                 insertStmt.setString(3, u.org);
                 insertStmt.setString(4, u.email);
                 insertStmt.setString(5, u.password);
-                insertStmt.setString(6, u.locales);
+                insertStmt.setString(6, normalizeLocaleList(u.locales));
                 if(!insertStmt.execute()) {
                     logger.info("Added.");
                     conn.commit();
                     ctx.println("<p>Added user.<p>");
-                    return get(u.password, u.email,FOR_ADDING); // throw away old user
+                    User newu =  get(u.password, u.email,FOR_ADDING); // throw away old user
+                    updateIntLocs(newu.id);
+                    return newu;
                 } else {
                     ctx.println("Couldn't add user.");
                     conn.commit();
@@ -932,6 +1080,7 @@ public class UserRegistry {
     
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
+        if(!userIsStreet(u)) return false;
         if(SurveyMain.phaseReadonly) return false;
         //if(userIsAdmin(u)) return true; // let admins modify all
         if((sm.isLocaleAliased(locale)!=null) ||
@@ -940,8 +1089,11 @@ public class UserRegistry {
         if(SurveyMain.phaseClosed) return false;
         if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;
         if(SurveyMain.phaseVetting && !userIsStreet (u)) return false;
+        if(locale.equals("und")||locale.startsWith("und_")) {  // all user accounts can write to und.
+            return true;
+        }
 //        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
-        if(u.locales == null) return true; // empty = ALL
+        if((u.locales == null) && userIsExpert(u)) return true; // empty = ALL
         String localeArray[] = tokenizeLocale(u.locales);
         return userCanModifyLocale(localeArray,locale);
     }

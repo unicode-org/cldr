@@ -345,7 +345,7 @@ import com.ibm.icu.util.ULocale;
                 }
                 
                 logger.info("loading rev: " + rev + " for " + dir + ":" + locale+".xml"); // LOG that a new item is loaded.
-                
+                //sm.fora.updateBaseLoc(locale); // in case this is a new locale.
                 // Now, start loading stuff in
                 XPathParts xpp=new XPathParts(null,null); // for parsing various xpaths
                 

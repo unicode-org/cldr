@@ -498,11 +498,15 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>						
+						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyy">yyyy</dateFormatItem>
 						<dateFormatItem id="yyMM">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">yy MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy Q</dateFormatItem>

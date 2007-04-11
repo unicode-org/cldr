@@ -758,11 +758,13 @@ public abstract class XMLSource implements Freezable {
             typeDisplayNames[i][0]);
       }
       String[][] relativeValues = {
+          {"Three days ago", "-3"},
           {"The day before yesterday", "-2"},
           {"Yesterday", "-1"},
           {"Today", "0"},
           {"Tomorrow", "1"},
           {"The day after tomorrow", "2"},
+          {"Three days from now", "3"},
       };
       for (int i = 0; i < relativeValues.length; ++i) {
         constructedItems.putValueAtPath(

@@ -41,7 +41,7 @@ public class ExampleGenerator {
   private final static boolean DEBUG_SHOW_HELP = false;
 
   private static SupplementalDataInfo supplementalDataInfo;
-
+  
   /**
    * Zoomed status.
    * @author markdavis
@@ -176,159 +176,167 @@ public class ExampleGenerator {
    * @return
    */
   public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
-    String result = null;
-    String cacheKey;
-    if (CACHING) {
-      cacheKey = xpath + "," + value + "," + zoomed;
-      result = cache.get(cacheKey);
-      if (result != null) {
-        if (result == NONE) {
-          return null;
-        }
-        return result;
-      }
-    }
-    // result is null at this point. Get the real value if we can.
-
-    main: {
-      parts.set(xpath);
-      if (parts.contains("dateRangePattern")) { // {0} - {1}
-        SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-        result = MessageFormat.format(value, new Object[] { setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)) });
-        result = finalizeBackground(result);
-        break main;
-      }
-      if (parts.contains("timeZoneNames")) {
-        if (parts.contains("exemplarCity")) {
-          //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-          String timezone = parts.getAttributeValue(3, "type");
-          String countryCode = supplementalDataInfo.getZone_territory(timezone);
-          if (countryCode == null) {
-            break main; // fail, skip
+    try {
+      String result = null;
+      String cacheKey;
+      if (CACHING) {
+        cacheKey = xpath + "," + value + "," + zoomed;
+        result = cache.get(cacheKey);
+        if (result != null) {
+          if (result == NONE) {
+            return null;
           }
-          if (countryCode.equals("001")) {
-            // GMT code, so format.
-            try {
-              String hourOffset = timezone.substring(timezone.contains("+") ? 8 : 7);
-              int hours = Integer.parseInt(hourOffset);
-              result = getGMTFormat(null, null, hours);
-            } catch (RuntimeException e) {
+          return result;
+        }
+      }
+      // result is null at this point. Get the real value if we can.
+
+      main: {
+        parts.set(xpath);
+        if (parts.contains("dateRangePattern")) { // {0} - {1}
+          SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
+          result = MessageFormat.format(value, new Object[] { setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)) });
+          result = finalizeBackground(result);
+          break main;
+        }
+        if (parts.contains("timeZoneNames")) {
+          if (parts.contains("exemplarCity")) {
+            //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+            String timezone = parts.getAttributeValue(3, "type");
+            String countryCode = supplementalDataInfo.getZone_territory(timezone);
+            if (countryCode == null) {
               break main; // fail, skip
             }
-          } else {
-            String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
-            boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
-            // we show just country for singlezone countries
-            if (singleZone) {
-              result = countryName;
-            } else {
-              if (value == null) {
-                value = TimezoneFormatter.getFallbackName(timezone);
+            if (countryCode.equals("001")) {
+              // GMT code, so format.
+              try {
+                String hourOffset = timezone.substring(timezone.contains("+") ? 8 : 7);
+                int hours = Integer.parseInt(hourOffset);
+                result = getGMTFormat(null, null, hours);
+              } catch (RuntimeException e) {
+                break main; // fail, skip
               }
-              // otherwise we show the fallback with exemplar
-              String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-              String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
-              // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-              result = MessageFormat.format(fallback, new Object[] { value, countryName });
-              result = MessageFormat.format(timeFormat, new Object[] { result });
-            }
-          }
-        } else if (parts.contains("regionFormat")) { // {0} Time
-          String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
-          result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
-        } else if (parts.contains("fallbackFormat")) { // {1} ({0})
-          String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
-          String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
-          // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-          String LosAngeles = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
-          result = MessageFormat.format(value, new Object[] { LosAngeles, us });
-          result = MessageFormat.format(timeFormat, new Object[] { result });
-        } else if (parts.contains("gmtFormat")) { // GMT{0}
-          result = getGMTFormat(null, value, -8);
-        } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
-          result = getGMTFormat(value, null, -8);
-        } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
-          result = getMZTimeFormat() + " " + value;
-        }
-        result = finalizeBackground(result);
-        break main;
-      }
-      if (xpath.contains("/exemplarCharacters")) {
-        if (zoomed == Zoomed.IN) {
-          UnicodeSet unicodeSet = new UnicodeSet(value);
-          if (unicodeSet.size() < 500) {
-            result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
-          }
-        }
-        break main;
-      }
-      if (xpath.contains("/localeDisplayNames")) {
-        if (xpath.contains("/codePatterns")) {
-          parts.set(xpath);
-          result = MessageFormat.format(value, new Object[] { setBackground("CODE") });
-          result = finalizeBackground(result);
-        } else if (xpath.contains("_") && xpath.contains("/languages")) {
-          result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
-        }
-        break main;
-      }
-      if (parts.contains("currency") && parts.contains("symbol")) {
-        String currency = parts.getAttributeValue(-2, "type");
-        String fullPath = cldrFile.getFullXPath(xpath, false);
-        if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
-          ChoiceFormat cf = new ChoiceFormat(value);
-          value = cf.format(NUMBER_SAMPLE);
-        }
-        // TODO fix to use value!!
-        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
-        result = x.format(NUMBER_SAMPLE);
-        result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-        result = finalizeBackground(result);
-        break main;
-      }
-      if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
-        if (parts.contains("calendar")) {
-          String calendar = parts.findAttributeValue("calendar", "type");
-          SimpleDateFormat dateFormat;
-          if (parts.contains("dateTimeFormat")) {
-            SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
-            SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
-            date2.applyPattern(MessageFormat.format(value, new Object[] { setBackground(time.toPattern()), setBackground(date2.toPattern()) }));
-            dateFormat = date2;
-          } else {
-            String id = parts.findAttributeValue("dateFormatItem", "id");
-            if ("NEW".equals(id) || value == null) {
-              result = "<i>n/a</i>";
-              break main;
             } else {
-              dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+              String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
+              boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
+              // we show just country for singlezone countries
+              if (singleZone) {
+                result = countryName;
+              } else {
+                if (value == null) {
+                  value = TimezoneFormatter.getFallbackName(timezone);
+                }
+                // otherwise we show the fallback with exemplar
+                String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+                String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+                // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+                // = Λος Άντζελες
+                result = MessageFormat.format(fallback, new Object[] { value, countryName });
+                result = MessageFormat.format(timeFormat, new Object[] { result });
+              }
+            }
+          } else if (parts.contains("regionFormat")) { // {0} Time
+            String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
+            result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
+          } else if (parts.contains("fallbackFormat")) { // {1} ({0})
+            String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
+            // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+            // = Λος Άντζελες
+            String LosAngeles = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
+            result = MessageFormat.format(value, new Object[] { LosAngeles, us });
+            result = MessageFormat.format(timeFormat, new Object[] { result });
+          } else if (parts.contains("gmtFormat")) { // GMT{0}
+            result = getGMTFormat(null, value, -8);
+          } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
+            result = getGMTFormat(value, null, -8);
+          } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
+            result = getMZTimeFormat() + " " + value;
+          }
+          result = finalizeBackground(result);
+          break main;
+        }
+        if (xpath.contains("/exemplarCharacters")) {
+          if (zoomed == Zoomed.IN) {
+            UnicodeSet unicodeSet = new UnicodeSet(value);
+            if (unicodeSet.size() < 500) {
+              result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
             }
           }
-          dateFormat.setTimeZone(ZONE_SAMPLE);
-          result = dateFormat.format(DATE_SAMPLE);
-          result = finalizeBackground(result);
-        } else if (parts.contains("numbers")) {
-          DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
-          result = numberFormat.format(NUMBER_SAMPLE);
+          break main;
         }
-        break main;
+        if (xpath.contains("/localeDisplayNames")) {
+          if (xpath.contains("/codePatterns")) {
+            parts.set(xpath);
+            result = MessageFormat.format(value, new Object[] { setBackground("CODE") });
+            result = finalizeBackground(result);
+          } else if (xpath.contains("_") && xpath.contains("/languages")) {
+            result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
+          }
+          break main;
+        }
+        if (parts.contains("currency") && parts.contains("symbol")) {
+          String currency = parts.getAttributeValue(-2, "type");
+          String fullPath = cldrFile.getFullXPath(xpath, false);
+          if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
+            ChoiceFormat cf = new ChoiceFormat(value);
+            value = cf.format(NUMBER_SAMPLE);
+          }
+          // TODO fix to use value!!
+          DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
+          result = x.format(NUMBER_SAMPLE);
+          result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
+          result = finalizeBackground(result);
+          break main;
+        }
+        if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
+          if (parts.contains("calendar")) {
+            String calendar = parts.findAttributeValue("calendar", "type");
+            SimpleDateFormat dateFormat;
+            if (parts.contains("dateTimeFormat")) {
+              SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
+              SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
+              date2.applyPattern(MessageFormat.format(value, new Object[] { setBackground(time.toPattern()), setBackground(date2.toPattern()) }));
+              dateFormat = date2;
+            } else {
+              String id = parts.findAttributeValue("dateFormatItem", "id");
+              if ("NEW".equals(id) || value == null) {
+                result = "<i>n/a</i>";
+                break main;
+              } else {
+                dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+              }
+            }
+            dateFormat.setTimeZone(ZONE_SAMPLE);
+            result = dateFormat.format(DATE_SAMPLE);
+            result = finalizeBackground(result);
+          } else if (parts.contains("numbers")) {
+            DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
+            result = numberFormat.format(NUMBER_SAMPLE);
+          }
+          break main;
+        }
+        if (parts.contains("symbol")) {
+          DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
+          result = x.format(NUMBER_SAMPLE);
+          break main;
+        }
       }
-      if (parts.contains("symbol")) {
-        DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
-        result = x.format(NUMBER_SAMPLE);
-        break main;
+      if (CACHING) {
+        if (result == null) {
+          cache.put(cacheKey, NONE);
+        } else {
+          // fix HTML, cache
+          result = TransliteratorUtilities.toHTML.transliterate(result);
+          cache.put(cacheKey, result);
+        }
       }
+      return result;
+    } catch (RuntimeException e) {
+      return zoomed == Zoomed.OUT 
+          ? "<i>internal error</i>"
+          : TransliteratorUtilities.toHTML.transliterate("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>");
     }
-    if (CACHING) {
-      if (result == null) {
-        cache.put(cacheKey, NONE);
-      } else {
-        // fix HTML, cache
-        result = TransliteratorUtilities.toHTML.transliterate(result);
-        cache.put(cacheKey, result);
-      }
-    }
-    return result;
   }
 
   /**

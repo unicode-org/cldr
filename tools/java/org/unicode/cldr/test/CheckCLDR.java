@@ -518,6 +518,21 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       "|preferenceOrdering" + // deprecated
       ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
   
+  /**
+   * These are paths for items that are complicated, and we need to force a zoom on.
+   */
+  public static final Pattern FORCE_ZOOMED_EDIT = Pattern.compile(
+      ".*/(" +
+      "exemplarCharacters" +
+      "|metazone" +
+      "|pattern" +
+      "|dateFormatItem" +
+      "|relative" +
+      "|hourFormat" +
+      "|gmtFormat" +
+      "|regionFormat" +
+      ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
+
   public class PathShower {
     String localeID;
     boolean newLocale = true;

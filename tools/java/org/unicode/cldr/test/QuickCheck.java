@@ -44,15 +44,22 @@ public class QuickCheck {
   private static boolean showInfo = false;
 
   private static String sourceDirectory;
+
+  private static boolean showForceZoom;
   
   public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
     if (localeRegex == null) localeRegex = ".*";
     showInfo = System.getProperty("SHOW") != null;
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
+    
     sourceDirectory = System.getProperty("SOURCE");
     if (sourceDirectory == null) sourceDirectory = Utility.COMMON_DIRECTORY + "main";
     System.out.println("Main Source Directory: " + sourceDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+    
+    showForceZoom = System.getProperty("FORCED") != null;
+    System.out.println("Force Zoomed Edit?: " + showForceZoom + "\t\t(use -DFORCED) to enable");
+    
     double startTime = System.currentTimeMillis();
     checkDtds();
     double deltaTime = System.currentTimeMillis() - startTime;
@@ -152,6 +159,7 @@ public class QuickCheck {
         }
         String inputValue = displayAndInputProcessor.processInput(path, value);
         if (!inputValue.equals(value)) {
+          displayAndInputProcessor.processInput(path, value);
           System.out.println("input value " + value + "\t=>\t" + inputValue + "\t\t" + path);
         }
         
@@ -186,6 +194,14 @@ public class QuickCheck {
         System.out.println("Skipping: " + path);
       }
     }
+    
+    System.out.println("\r\nPaths to force zoom in Survey Tool");
+    for (String path : pathToLocale.keySet()) {
+      if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
+        System.out.println("Forced Zoom Edit: " + path);
+      }
+    }
+
     
     if (showInfo) {
       System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");

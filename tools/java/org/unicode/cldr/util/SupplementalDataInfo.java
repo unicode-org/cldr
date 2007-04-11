@@ -113,8 +113,8 @@ public class SupplementalDataInfo {
     public String toString() {
       return MessageFormat
           .format(
-              "[pop: {0,number,#,##0},\t lit: {1,number,#,##0.00},\t gdp: {2,number,#,##0}]",
-              new Object[] { population, literatePopulation, gdp });
+              "[pop: {0,number,#,##0},\t lit: {1,number,#,##0.00},\t gdp: {2,number,#,##0},\t status: {3}]",
+              new Object[] { population, literatePopulation, gdp, officialStatus});
     }
 
     private boolean frozen;
@@ -145,7 +145,7 @@ public class SupplementalDataInfo {
   static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
 
   public static class BasicLanguageData implements
-      Comparable<BasicLanguageData> {
+      Comparable<BasicLanguageData>, Freezable {
     public enum Type {
       primary, secondary
     };
@@ -176,16 +176,29 @@ public class SupplementalDataInfo {
     }
 
     public BasicLanguageData setScripts(Collection<String> scriptTokens) {
+      if (frozen) {
+        throw new UnsupportedOperationException();
+      }
       // TODO add error checking
-      scripts = scriptTokens == null ? Collections.EMPTY_SET : Collections
-          .unmodifiableSet(new TreeSet(scriptTokens));
+      scripts = Collections.EMPTY_SET;
+      if (scriptTokens != null) {
+        for (String script : scriptTokens) {
+          addScript(script);
+        }
+      }
       return this;
     }
 
     public BasicLanguageData setTerritories(Collection<String> territoryTokens) {
-      // TODO add error checking
-      territories = territoryTokens == null ? Collections.EMPTY_SET
-          : Collections.unmodifiableSet(new TreeSet(territoryTokens));
+      if (frozen) {
+        throw new UnsupportedOperationException();
+      }
+      territories = Collections.EMPTY_SET;
+      if (territoryTokens != null) {
+        for (String territory : territoryTokens) {
+          addTerritory(territory);
+        }
+      }
       return this;
     }
 
@@ -225,6 +238,58 @@ public class SupplementalDataInfo {
       if (0 != (result = Utility.compare(territories, o.territories)))
         return result;
       return 0;
+    }
+
+    public BasicLanguageData addScript(String script) {
+      // simple error checking
+      if (script.length() != 4) {
+        throw new IllegalArgumentException("Illegal Script: " + script);
+      }
+      if (scripts == Collections.EMPTY_SET) {
+        scripts = new TreeSet();
+      }
+      scripts.add(script);
+      return this;
+    }
+    
+    public BasicLanguageData addTerritory(String territory) {
+      // simple error checking
+      if (territory.length() != 2) {
+        throw new IllegalArgumentException("Illegal Territory: " + territory);
+      }
+      if (territories == Collections.EMPTY_SET) {
+        territories = new TreeSet();
+      }
+      territories.add(territory);
+      return this;
+    }
+    
+    boolean frozen = false;
+    
+    public boolean isFrozen() {
+      // TODO Auto-generated method stub
+      return frozen;
+    }
+
+    public Object freeze() {
+      frozen = true;
+      if (scripts != Collections.EMPTY_SET) {
+        scripts = Collections.unmodifiableSet(scripts);
+      }
+      if (territories != Collections.EMPTY_SET) {
+        territories = Collections.unmodifiableSet(territories);
+      }
+      return this;
+    }
+
+    public Object cloneAsThawed() {
+      throw new UnsupportedOperationException();
+    }
+
+    public void addScripts(Set<String> scripts2) {
+      for (String script : scripts2) {
+        addScript(script);
+      }
     }
   }
 

@@ -52,11 +52,14 @@ public class QuickCheck {
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
     sourceDirectory = System.getProperty("SOURCE");
     if (sourceDirectory == null) sourceDirectory = Utility.COMMON_DIRECTORY + "main";
-    System.out.println("Main Source Directory: " + showInfo + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
-    double deltaTime = System.currentTimeMillis();
+    System.out.println("Main Source Directory: " + sourceDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+    double startTime = System.currentTimeMillis();
     checkDtds();
+    double deltaTime = System.currentTimeMillis() - startTime;
+    System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+    System.out.println("Checking paths");
     checkPaths();
-    deltaTime = System.currentTimeMillis() - deltaTime;
+    deltaTime = System.currentTimeMillis() - startTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
     System.out.println("Basic Test Passes");
   }
@@ -76,7 +79,7 @@ public class QuickCheck {
     if (listFiles == null) {
       throw new IllegalArgumentException("Empty directory: " + canonicalPath);
     }
-    System.out.println("Checking files in " + canonicalPath);
+    System.out.println("Checking files for DTD errors in: " + canonicalPath);
     for (File fileName : listFiles) {
       if (!fileName.toString().endsWith(".xml")) {
         continue;
@@ -136,9 +139,22 @@ public class QuickCheck {
       CLDRFile file = cldrFactory.make(locale, false);
       if (file.isNonInheriting())
         continue;
+      DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
+      
       System.out.println(locale);
+      
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
+        String value = file.getStringValue(path);
+        String displayValue = displayAndInputProcessor.processForDisplay(path, value);
+        if (!displayValue.equals(value)) {
+          System.out.println("display value " + value + "\t=>\t" + displayValue + "\t\t" + path);
+        }
+        String inputValue = displayAndInputProcessor.processInput(path, value);
+        if (!inputValue.equals(value)) {
+          System.out.println("input value " + value + "\t=>\t" + inputValue + "\t\t" + path);
+        }
+        
         pathToLocale.put(path, locale);
         
         // also check for non-distinguishing attributes

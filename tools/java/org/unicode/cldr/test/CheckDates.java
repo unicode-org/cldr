@@ -185,8 +185,19 @@ public class CheckDates extends CheckCLDR {
   }
   
   private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
+    String skeleton = dateTimePatternGenerator.getSkeleton(value);
+
     pathParts.set(path);
     if (pathParts.containsElement("dateFormatItem")) {
+      
+      String id = pathParts.getAttributeValue(-1,"id");
+      //String baseSkeleton = dateTimePatternGenerator.getBaseSkeleton(value);
+      if (!id.equals(skeleton)) {
+        String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
+        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+            .setMessage("Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
+                "Please change pattern to match internal ID, such as ({3}) or add new pattern.", id, skeleton, value, fixedValue));                  
+      }
       String failureMessage = (String) flexInfo.getFailurePath(path);
       if (failureMessage != null) {
         result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
@@ -246,7 +257,6 @@ public class CheckDates extends CheckCLDR {
         return; // skip the rest!!
       }
     }
-    String skeleton = dateTimePatternGenerator.getSkeleton(value);
     
     DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
     style += dateTimeLength.ordinal();

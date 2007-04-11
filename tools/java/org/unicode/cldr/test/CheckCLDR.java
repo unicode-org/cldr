@@ -693,7 +693,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       this.messageFormat = message;
       return this;
     }
-    public CheckStatus setMessage(String message, Object[] messageArguments) {
+    public CheckStatus setMessage(String message, Object... messageArguments) {
       this.messageFormat = message;
       this.parameters = messageArguments;
       return this;

@@ -149,65 +149,77 @@ public class ConvertLanguageData {
    */
   private static void writeNewBasicData(Set<RowData> sortedInput) {
     double cutoff = 0.2; // 20%
-    // get default scripts
-    Map<String,String> languageToDefaultScript = new TreeMap();
-    Map<String,String> secondaryLanguageToDefaultScript = new TreeMap();
+    
+    // get current scripts
+    Relation<String,String> languageToDefaultScript = new Relation(new TreeMap(), TreeSet.class);
+    Relation<String,String> secondaryLanguageToDefaultScript = new Relation(new TreeMap(), TreeSet.class);
     for (String languageSubtag : allLanguageData.keySet()) {
       for (BasicLanguageData item : allLanguageData.getAll(languageSubtag)) {
         Set<String> scripts = item.getScripts();
-        if (scripts.size() != 1) {
-          continue;
-        }
         if (item.getType() == BasicLanguageData.Type.secondary) {
-          secondaryLanguageToDefaultScript.put(languageSubtag, item.getScripts().iterator().next());;
+          secondaryLanguageToDefaultScript.putAll(languageSubtag, item.getScripts());;
         } else {
-          languageToDefaultScript.put(languageSubtag, item.getScripts().iterator().next());
+          languageToDefaultScript.putAll(languageSubtag, item.getScripts());
         }
       }
     }
-    for (String language : secondaryLanguageToDefaultScript.keySet()) {
-      if (!languageToDefaultScript.containsKey(language)) {
-        languageToDefaultScript.put(language, secondaryLanguageToDefaultScript.get(language));
-      }
-    }
+    
+//    // if primary has no scripts, add secondary, and vice versa.
+//    for (String language : secondaryLanguageToDefaultScript.keySet()) {
+//      if (!languageToDefaultScript.containsKey(language)) {
+//        languageToDefaultScript.putAll(language, secondaryLanguageToDefaultScript.getAll(language));
+//      }
+//    }
+//    for (String language : languageToDefaultScript.keySet()) {
+//      if (!secondaryLanguageToDefaultScript.containsKey(language)) {
+//        secondaryLanguageToDefaultScript.putAll(language, languageToDefaultScript.getAll(language));
+//      }
+//    }
 
     Relation<String, BasicLanguageData> newLanguageData = new Relation(new TreeMap(), TreeSet.class);
     LanguageTagParser ltp = new LanguageTagParser();
     Map<String,Map<String,Relation<String,String>>> language2script2type2territory = new TreeMap();
     for (RowData rowData : sortedInput) {
+      ltp.set(rowData.languageCode);
+      String languageCode = ltp.getLanguage();
       BasicLanguageData.Type type;
+      Relation<String, String> oldLanguageData;
       if (rowData.officialStatus == OfficialStatus.official 
           || rowData.officialStatus == OfficialStatus.de_facto_official) {
         type = BasicLanguageData.Type.primary;
+        oldLanguageData = languageToDefaultScript;
       } else if (rowData.officialStatus != OfficialStatus.unknown 
           || rowData.languagePopulation >= cutoff * rowData.countryPopulation
           || rowData.languagePopulation >= 1000000
           ) {
         type = BasicLanguageData.Type.secondary;
+        oldLanguageData = secondaryLanguageToDefaultScript;
       } else {
         continue; // skip
       }
-      ltp.set(rowData.languageCode);
-      String languageCode = ltp.getLanguage();
       BasicLanguageData basicLanguageData = new BasicLanguageData().setType(type).addTerritory(rowData.countryCode);
       String script = ltp.getScript();
       if (script.length() != 0) {
         basicLanguageData.addScript(script);
-      } else {
-        script = languageToDefaultScript.get(languageCode);
-        if (script != null) {
-          basicLanguageData.addScript(script);
-        }
+      }
+      Set<String> scripts = oldLanguageData.getAll(languageCode);
+      if (scripts != null) {
+        basicLanguageData.addScripts(scripts);
+        oldLanguageData.removeAll(languageCode);
       }
       newLanguageData.put(languageCode, (BasicLanguageData) basicLanguageData.freeze());
     }
+    
     // now add all the remaining language-script info
     for (String languageSubtag : allLanguageData.keySet()) {
-      for (BasicLanguageData item : allLanguageData.getAll(languageSubtag)) {
-        if (newLanguageData.containsKey(languageSubtag) || item.getScripts().size() == 0) {
-          continue;
-        }
-        newLanguageData.put(languageSubtag, new BasicLanguageData().setType(item.getType()).setScripts(item.getScripts()));
+      Set<String> scripts;
+      scripts = languageToDefaultScript.getAll(languageSubtag);
+      if (scripts != null) {
+        newLanguageData.put(languageSubtag, new BasicLanguageData().setType(BasicLanguageData.Type.primary).setScripts(scripts));
+      }
+      scripts = secondaryLanguageToDefaultScript.getAll(languageSubtag);
+      if (scripts != null) {
+        newLanguageData.put(languageSubtag, new BasicLanguageData().setType(BasicLanguageData.Type.secondary).setScripts(scripts));
       }
     }
     

@@ -564,7 +564,7 @@ public class CoverageLevel {
     
     //      supplementalData[@version="1.4"]/currencyData/region[@iso3166="MG"]/currency[@from="1983-11-01"][@iso4217="MGA"]
     //Need to walk through the file and pick out a from/to values that are valid for now. May be multiple also!!
-    String currencySymbol = supplementalData.getStringValue("//supplementalData[@version=\"1.4\"]/currencyData/region[@iso3166=\""+territory+"\"]/currency");
+    String currencySymbol = supplementalData.getWinningValue("//supplementalData[@version=\"1.4\"]/currencyData/region[@iso3166=\""+territory+"\"]/currency");
 //  if (currencySymbol == null) {
 //  throw new IllegalArgumentException("Internal Error: can't find currency for region: " + territory);
 //  }

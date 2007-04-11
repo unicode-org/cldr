@@ -165,7 +165,7 @@ public class FlexibleDateTime {
         for (Iterator it = currentFile.iterator(); it.hasNext(); ) {
         	String path = (String) it.next();
         	if (!isGregorianPattern(path, parts)) continue;
-        	String value = currentFile.getStringValue(path);
+        	String value = currentFile.getWinningValue(path);
         	result.add(value);
         	//log.println("adding " + path + "\t" + value);
         }
@@ -496,7 +496,7 @@ public class FlexibleDateTime {
             	if (!isGregorianPattern(xpath, parts)) continue;
                 boolean isDate = parts.getElement(4).equals("dateFormats");
                 boolean isTime = parts.getElement(4).equals("timeFormats");
-                String value = item.getStringValue(xpath);
+                String value = item.getWinningValue(xpath);
                 if (isDate || isTime) {
                     String pattern = value;
                     String oldPattern = pattern;

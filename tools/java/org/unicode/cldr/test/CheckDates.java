@@ -73,7 +73,7 @@ public class CheckDates extends CheckCLDR {
     flexInfo.set(resolved);
     
     // load decimal path specially
-    String decimal = resolved.getStringValue(DECIMAL_XPATH);
+    String decimal = resolved.getWinningValue(DECIMAL_XPATH);
     if(decimal != null)  {
       flexInfo.checkFlexibles(DECIMAL_XPATH,decimal,DECIMAL_XPATH);
     }
@@ -81,7 +81,7 @@ public class CheckDates extends CheckCLDR {
     // load gregorian appendItems
     for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
       String path = (String) it.next();
-      String value = resolved.getStringValue(path);
+      String value = resolved.getWinningValue(path);
       String fullPath = resolved.getFullXPath(path);
       flexInfo.checkFlexibles(path, value, fullPath);
     }

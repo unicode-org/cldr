@@ -157,8 +157,8 @@ public class ICUServiceBuilder {
     
     String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
     formatData.setAmPmStrings(last = new String[] {
-        cldrFile.getStringValue(prefix + "am"),
-        cldrFile.getStringValue(prefix + "pm")});
+        cldrFile.getWinningValue(prefix + "am"),
+        cldrFile.getWinningValue(prefix + "pm")});
     checkFound(last);
 //    if (last[0] == null && notGregorian) {
 //      if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
@@ -238,7 +238,7 @@ public class ICUServiceBuilder {
     + dateOrTime + "FormatLength"
     + type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
     
-    String value = cldrFile.getStringValue(key);
+    String value = cldrFile.getWinningValue(key);
     if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + "\r\nvalue: " + value);
     return value;
   }
@@ -266,7 +266,7 @@ public class ICUServiceBuilder {
     String lastType;
     for (int i = firstIndex; ; ++i) {
       lastType = itemNames != null && i < itemNames.length ? itemNames[i] : String.valueOf(i);
-      String item = cldrFile.getStringValue(prefix + lastType + postfix);
+      String item = cldrFile.getWinningValue(prefix + lastType + postfix);
       if (item == null) break;
       result.add(item);
     }
@@ -275,7 +275,7 @@ public class ICUServiceBuilder {
     if (result.size() < minimumSize) {
       throw new RuntimeException("Internal Error: ICUServiceBuilder.getArray():"+cldrFile.getLocaleID()+" "+prefix+lastType+postfix+" - result.size="+result.size() +", less than acceptable minimum " + minimumSize); 
       //Collection s = CollectionUtilities.addAll(cldrFile.iterator(prefix), new TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
-      //String item = cldrFile.getStringValue(prefix + lastType + postfix);
+      //String item = cldrFile.getWinningValue(prefix + lastType + postfix);
       //throw new IllegalArgumentException("Can't find enough items");
     }
     /* <months>
@@ -404,18 +404,18 @@ public class ICUServiceBuilder {
       // /ldml/numbers/currencies/currency[@type="GBP"]
       
       if (currencySymbol == null) {
-        currencySymbol = cldrFile.getStringValue(prefix + "symbol");
+        currencySymbol = cldrFile.getWinningValue(prefix + "symbol");
       }
-      String currencyDecimal = cldrFile.getStringValue(prefix + "decimal");
+      String currencyDecimal = cldrFile.getWinningValue(prefix + "decimal");
       if (currencyDecimal != null) {
         (symbols = cloneIfNeeded(symbols)).setMonetaryDecimalSeparator(currencyDecimal.charAt(0));
       }
-      String currencyPattern = cldrFile.getStringValue(prefix + "pattern");
+      String currencyPattern = cldrFile.getWinningValue(prefix + "pattern");
       if (currencyPattern != null) {
         pattern = currencyPattern;
       }
       
-      String currencyGrouping = cldrFile.getStringValue(prefix + "grouping");
+      String currencyGrouping = cldrFile.getWinningValue(prefix + "grouping");
       if (currencyGrouping != null) {
         (symbols = cloneIfNeeded(symbols)).setMonetaryGroupingSeparator(currencyGrouping.charAt(0));
       }
@@ -436,14 +436,14 @@ public class ICUServiceBuilder {
       
       mc = new MyCurrency(key1, 
           currencySymbol, 
-          cldrFile.getStringValue(prefix + "displayName"),
+          cldrFile.getWinningValue(prefix + "displayName"),
           null, null);
       
 //    String possible = null;
-//    possible = cldrFile.getStringValue(prefix + "decimal"); 
+//    possible = cldrFile.getWinningValue(prefix + "decimal"); 
 //    symbols.setMonetaryDecimalSeparator(possible != null ? possible.charAt(0) : symbols.getDecimalSeparator());
-//    if ((possible = cldrFile.getStringValue(prefix + "pattern")) != null) pattern = possible;
-//    if ((possible = cldrFile.getStringValue(prefix + "group")) != null) symbols.setGroupingSeparator(possible.charAt(0));
+//    if ((possible = cldrFile.getWinningValue(prefix + "pattern")) != null) pattern = possible;
+//    if ((possible = cldrFile.getWinningValue(prefix + "group")) != null) symbols.setGroupingSeparator(possible.charAt(0));
       //; 
     }
     result = new DecimalFormat(pattern, symbols);
@@ -503,33 +503,33 @@ public class ICUServiceBuilder {
     symbols = new DecimalFormatSymbols();
     
     // currently constants
-    // symbols.setPadEscape(cldrFile.getStringValue("//ldml/numbers/symbols/xxx"));
-    // symbols.setSignificantDigit(cldrFile.getStringValue("//ldml/numbers/symbols/patternDigit"));
+    // symbols.setPadEscape(cldrFile.getWinningValue("//ldml/numbers/symbols/xxx"));
+    // symbols.setSignificantDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit"));
     
-    symbols.setDecimalSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/decimal").charAt(0));
-    symbols.setDigit(cldrFile.getStringValue("//ldml/numbers/symbols/patternDigit").charAt(0));
-    symbols.setExponentSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/exponential"));
-    symbols.setGroupingSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/group").charAt(0));
-    symbols.setInfinity(cldrFile.getStringValue("//ldml/numbers/symbols/infinity"));
-    symbols.setMinusSign(cldrFile.getStringValue("//ldml/numbers/symbols/minusSign").charAt(0));
-    symbols.setNaN(cldrFile.getStringValue("//ldml/numbers/symbols/nan"));
-    symbols.setPatternSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/list").charAt(0));
-    symbols.setPercent(cldrFile.getStringValue("//ldml/numbers/symbols/percentSign").charAt(0));
-    symbols.setPerMill(cldrFile.getStringValue("//ldml/numbers/symbols/perMille").charAt(0));
-    symbols.setPlusSign(cldrFile.getStringValue("//ldml/numbers/symbols/plusSign").charAt(0));
-    symbols.setZeroDigit(cldrFile.getStringValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
+    symbols.setDecimalSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/decimal").charAt(0));
+    symbols.setDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit").charAt(0));
+    symbols.setExponentSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/exponential"));
+    symbols.setGroupingSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/group").charAt(0));
+    symbols.setInfinity(cldrFile.getWinningValue("//ldml/numbers/symbols/infinity"));
+    symbols.setMinusSign(cldrFile.getWinningValue("//ldml/numbers/symbols/minusSign").charAt(0));
+    symbols.setNaN(cldrFile.getWinningValue("//ldml/numbers/symbols/nan"));
+    symbols.setPatternSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/list").charAt(0));
+    symbols.setPercent(cldrFile.getWinningValue("//ldml/numbers/symbols/percentSign").charAt(0));
+    symbols.setPerMill(cldrFile.getWinningValue("//ldml/numbers/symbols/perMille").charAt(0));
+    symbols.setPlusSign(cldrFile.getWinningValue("//ldml/numbers/symbols/plusSign").charAt(0));
+    symbols.setZeroDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
     
     symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
     symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
     
     String prefix = "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/";
-    beforeCurrencyMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "currencyMatch"));
-    beforeSurroundingMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "surroundingMatch"));
-    beforeInsertBetween = cldrFile.getStringValue(prefix + "insertBetween");
+    beforeCurrencyMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "currencyMatch"));
+    beforeSurroundingMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "surroundingMatch"));
+    beforeInsertBetween = cldrFile.getWinningValue(prefix + "insertBetween");
     prefix = "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/";
-    afterCurrencyMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "currencyMatch"));
-    afterSurroundingMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "surroundingMatch"));
-    afterInsertBetween = cldrFile.getStringValue(prefix + "insertBetween");
+    afterCurrencyMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "currencyMatch"));
+    afterSurroundingMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "surroundingMatch"));
+    afterInsertBetween = cldrFile.getWinningValue(prefix + "insertBetween");
 
     cacheDecimalFormatSymbols = symbols;
     
@@ -553,7 +553,7 @@ public class ICUServiceBuilder {
     + type + "FormatLength/"
     + type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
     
-    String pattern = cldrFile.getStringValue(path);
+    String pattern = cldrFile.getWinningValue(path);
     if (pattern == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + path);
     return pattern;
   }

@@ -2378,6 +2378,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return dataSource.getWinningPath(path);
   }
   
+  /**
+   * Shortcut for getting the string value for the winning path
+   * @param path
+   * @return
+   */
+  public String getWinningValue(String path) {
+    return getStringValue(getWinningPath(path));
+  }
+  
   public enum WinningChoice {NORMAL, WINNING};
   
   // TODO This stuff needs some rethinking, but just to get it going for now...

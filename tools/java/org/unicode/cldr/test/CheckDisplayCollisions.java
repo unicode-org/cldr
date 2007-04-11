@@ -85,7 +85,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 			// Merge some namespaces
 			if (nameType == CLDRFile.CURRENCY_NAME) nameType = CLDRFile.CURRENCY_SYMBOL;
 			else if (nameType >= CLDRFile.TZ_START && nameType < CLDRFile.TZ_LIMIT) nameType = CLDRFile.TZ_START;
-			String value = cldrFileToCheck.getStringValue(xpath);
+			String value = cldrFileToCheck.getWinningValue(xpath);
 			collisions[nameType].add(xpath, value);
 		}
 		

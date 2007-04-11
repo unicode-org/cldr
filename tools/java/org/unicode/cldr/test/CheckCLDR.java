@@ -619,10 +619,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   }
 
   private String getEnglishPathValue(String path) {
-    String englishValue = displayInformation.getStringValue(path);
+    String englishValue = displayInformation.getWinningValue(path);
     if (englishValue == null) {
       String path2 = CLDRFile.getNondraftNonaltXPath(path);
-      englishValue = displayInformation.getStringValue(path2);
+      englishValue = displayInformation.getWinningValue(path2);
     }
     return englishValue;
   }

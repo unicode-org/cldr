@@ -136,7 +136,7 @@ public class TimezoneFormatter extends UFormat  {
 	 */
 	private String getStringValue(String cleanPath) {
 		checkForDraft(cleanPath);
-		return desiredLocaleFile.getStringValue(cleanPath);
+		return desiredLocaleFile.getWinningValue(cleanPath);
 	}
 
 	private String getName(int territory_name, String country, boolean skipDraft2) {
@@ -399,13 +399,13 @@ public class TimezoneFormatter extends UFormat  {
 			if (path.startsWith(prefix)) {
 				String zoneId = matchesPart(path, prefix, "\"]/exemplarCity");
 				if (zoneId != null) {
-					String name = desiredLocaleFile.getStringValue(path);
+					String name = desiredLocaleFile.getWinningValue(path);
 					if (name != null) exemplar_zone.put(name, zoneId);
 				}
 				for (int i = 0; i < zoneTypes.length; ++i) {
 					zoneId = matchesPart(path, prefix, zoneTypes[i]);
 					if (zoneId != null) {
-						String name = desiredLocaleFile.getStringValue(path);
+						String name = desiredLocaleFile.getWinningValue(path);
 						if (name == null) continue;
 						if (i < WALL_LIMIT) { // wall time
 							localizedExplicit_zone.put(name, zoneId);

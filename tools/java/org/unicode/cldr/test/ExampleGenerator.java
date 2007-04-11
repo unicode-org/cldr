@@ -227,8 +227,8 @@ public class ExampleGenerator {
                   value = TimezoneFormatter.getFallbackName(timezone);
                 }
                 // otherwise we show the fallback with exemplar
-                String fallback = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-                String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+                String fallback = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+                String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
                 // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
                 // = Λος Άντζελες
                 result = MessageFormat.format(fallback, new Object[] { value, countryName });
@@ -239,11 +239,11 @@ public class ExampleGenerator {
             String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
             result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
           } else if (parts.contains("fallbackFormat")) { // {1} ({0})
-            String timeFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+            String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
             String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
             // = Λος Άντζελες
-            String LosAngeles = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
+            String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
             result = MessageFormat.format(value, new Object[] { LosAngeles, us });
             result = MessageFormat.format(timeFormat, new Object[] { result });
           } else if (parts.contains("gmtFormat")) { // GMT{0}
@@ -378,11 +378,11 @@ public class ExampleGenerator {
     boolean hoursBackground = false;
     if (gmtHourString == null) {
       hoursBackground = true;
-      gmtHourString = cldrFile.getStringValue("//ldml/dates/timeZoneNames/hourFormat");
+      gmtHourString = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
     }
     if (gmtFormat == null) {
       hoursBackground = false; // for the hours case
-      gmtFormat = setBackground(cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
+      gmtFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat"));
     }
     String[] plusMinus = gmtHourString.split(";");
     // the following is <= because the TZDB inverts the hours
@@ -399,7 +399,7 @@ public class ExampleGenerator {
   }
 
   private String getMZTimeFormat() {
-    String timeFormat = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+    String timeFormat = cldrFile.getWinningValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
     if ( timeFormat == null ) {
        timeFormat = "h:mm a";
     }

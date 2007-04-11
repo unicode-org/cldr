@@ -23,18 +23,19 @@ public class CheckChildren extends CheckCLDR {
 		
         if (options.get("submission") == null) return this;
 
-		String current = getResolvedCldrFileToCheck().getStringValue(path);
+		//String current = getResolvedCldrFileToCheck().getStringValue(path);
 		tempSet.clear();
 		for (int i = 0; i < immediateChildren.length; ++i) {
 			String otherValue;
 			try {
-				otherValue = immediateChildren[i].getStringValue(path);
+				otherValue = immediateChildren[i].getWinningValue(path);
 			} catch (RuntimeException e) {
 				throw e;
 			}
 			tempSet.put(immediateChildren[i].getLocaleID(), otherValue);
 		}
-		if (tempSet.values().contains(current)) return this;
+		if (tempSet.values().contains(value)) return this;
+    
 		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
     .setCheckOnSubmit(false)
 		.setMessage("Value always overridden in children: {0}", new Object[]{tempSet.keySet().toString()});

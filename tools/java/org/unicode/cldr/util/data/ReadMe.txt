@@ -158,17 +158,25 @@ UPDATING LANGUAGE/COUNTRY INFORMATION
 Pick "Save as type:" Text (Tab delimited) (*.txt)
 And "File name:" C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt
 Respond OK, Yes; then close Excel (clicking No)
-3. In CVS, diff the spreadsheet and sanity-check the changes.
+3. In CVS, diff C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt and sanity-check the changes.
 4. Run the tool ConvertLanguageData.
 5. At the bottom are a list of Failures. It will also warn if a country doesn't have an official
 or de facto official language. Send those back to Rick. 
 6. Also send the lists: In Basic Data but not Population > 20% and the reverse.
+
 7. Diff the following two files as a sanity check. The fragment only has certain portions of supplemental data, so ignore the parts
 it doesn't have:
-C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment.xml
 C:\cvsdata\unicode\cldr\common\supplemental\supplementalData.xml
+C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment.xml
+7a. Also compare the following (for the defaultContent section only) 
+C:\cvsdata\unicode\cldr\common\supplemental\supplementalMetadata.xml
+C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment_metadata.xml
+
 8. If all looks well, paste in the sections into supplementalData.xml
 <territoryInfo>
 <references>
+8a. And into supplementalMetadata.xml
+<defaultContent>
+
 9. Then run QuickCheck to verify that the DTD is in order, and check in.
 10. Then run ShowLanguages to generate the charts

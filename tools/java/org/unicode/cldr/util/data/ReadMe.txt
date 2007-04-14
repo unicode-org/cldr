@@ -1,13 +1,14 @@
 UPDATING CODES
 Periodically, the language, territory, script, currency, and country codes change.
 This document describes how to update CLDR when this happens.
+For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data, and / and \ are equivalent.
 
 1. Do the following to update to a new language tag registry 
 (which updates language codes, script codes, and territory codes):
 
 - Go to http://www.iana.org/assignments/language-subtag-registry
   (you can set up a watch for changes in this page with http://www.watchthatpage.com)
-- Copy into org.unicode.cldr.util.data
+- Save as C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\language-subtag-registry
     - If using Eclipse, refresh the files
 - Diff with the old copy (via CVS) to check for consistency
 - Any new codes need a corresponding update in supplementalMetadata.xml
@@ -180,3 +181,4 @@ C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment_metadata
 
 9. Then run QuickCheck to verify that the DTD is in order, and check in.
 10. Then run ShowLanguages to generate the charts
+11. Sanity check them, and check in.

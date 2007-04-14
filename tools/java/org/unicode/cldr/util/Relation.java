@@ -156,7 +156,11 @@ public class Relation<K, V> implements Freezable {
   public boolean remove(K key, V value) {
     Set<V> set = data.get(key);
     if (set == null) return false;
-    return set.remove(value);
+    boolean result = set.remove(value);
+    if (set.size() == 0) {
+      data.remove(key);
+    }
+    return result;
   }
 
   public int size() {
@@ -256,7 +260,7 @@ public class Relation<K, V> implements Freezable {
     return result;
   }
 
-  private boolean removeAll(K key, Iterable<V> all) {
+  public boolean removeAll(K key, Iterable<V> all) {
     boolean result = false;
     for (V value : all) {
       result |= remove(key, value);

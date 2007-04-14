@@ -230,7 +230,7 @@ public class ExampleGenerator {
                 String fallback = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
                 String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
                 // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-                // = Λος Άντζελες
+
                 result = MessageFormat.format(fallback, new Object[] { value, countryName });
                 result = MessageFormat.format(timeFormat, new Object[] { result });
               }
@@ -242,7 +242,7 @@ public class ExampleGenerator {
             String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
             String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-            // = Λος Άντζελες
+
             String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
             result = MessageFormat.format(value, new Object[] { LosAngeles, us });
             result = MessageFormat.format(timeFormat, new Object[] { result });

@@ -96,6 +96,12 @@ public class StandardCodes {
     return (List) code_data.get(code);
   }
   
+  /**
+   * Get at the language registry values, as a Map from label to value.
+   * @param type
+   * @param code
+   * @return
+   */
   public Map<String,String> getLangData(String type, String code) {
     try {
       if (type.equals("territory")) type = "region";

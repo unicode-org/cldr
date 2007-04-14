@@ -269,7 +269,7 @@ public class Iso639Data {
       System.out.println("Size:\t" + toNames.size());
       in.close();
 
-      // ﻿Id Print_Name Inverted_Name
+      // Id Print_Name Inverted_Name
       in = Utility.getUTF8Data("iso-639-3-macrolanguages_20070205.tab");
       while (true) {
         String line = in.readLine();
@@ -290,7 +290,7 @@ public class Iso639Data {
       System.out.println("Size:\t" + toNames.size());
       in.close();
 
-      // ﻿Id Print_Name Inverted_Name
+      // Id Print_Name Inverted_Name
       in = Utility.getUTF8Data("iso-639-3_Name_Index_20070205.tab");
       while (true) {
         String line = in.readLine();

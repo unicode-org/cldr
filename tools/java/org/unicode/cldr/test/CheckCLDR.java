@@ -487,17 +487,17 @@ abstract public class CheckCLDR {
   }
   
   /**
-   * [Warnings - please zoom in]  dates/​timeZoneNames/​singleCountries   
+   * [Warnings - please zoom in]  dates/timeZoneNames/singleCountries   
 (empty)
         [refs][hide] Ref:     [Zoom...]
-[Warnings - please zoom in]   dates/​timeZoneNames/​hours   {0}/{1}   {0}/{1}
+[Warnings - please zoom in]   dates/timeZoneNames/hours   {0}/{1}   {0}/{1}
         [refs][hide] Ref:     [Zoom...]
-[Warnings - please zoom in]   dates/​timeZoneNames/​hour  +HH:mm;-HH:mm   
+[Warnings - please zoom in]   dates/timeZoneNames/hour  +HH:mm;-HH:mm   
 +HH:mm;-HH:mm
       [refs][hide] Ref:     [Zoom...]
-[ok]  layout/​orientation     (empty)
+[ok]  layout/orientation     (empty)
         [refs][hide] Ref:     [Zoom...]
-[ok]  dates/​localizedPatternChars  GyMdkHmsSEDFwWahKzYeugAZvcL 
+[ok]  dates/localizedPatternChars  GyMdkHmsSEDFwWahKzYeugAZvcL 
 GaMjkHmsSEDFwWxhKzAeugXZvcL
         [refs][hide] Ref:     [Zoom...]*/
   

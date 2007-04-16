@@ -774,7 +774,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
 		} else if(action.equals("srl_dis_nag")) {
 			vet.doDisputeNag("asdfjkl;", null);
-			ctx.println("\u3058\u3083\u3001\u3057\u3064\u308c\u3044\u3057\u307e\u3059\u3002<br/>");
+			ctx.println("\u3058\u3083\u3001\u3057\u3064\u308c\u3044\u3057\u307e\u3059\u3002<br/>"); // ??
         } else if(action.equals("srl_vet_nag")) {
             if(ctx.field("srl_vet_nag").length()>0) {
                 ElapsedTimer et = new ElapsedTimer();
@@ -5583,7 +5583,8 @@ public class SurveyMain extends HttpServlet {
         
         // ##2 and a half - baseline sample
         if(baseExample != null) {
-            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ baseExample + "</td>");
+            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
+                baseExample.replaceAll("\\\\","\u200b\\") + "</td>");
         } else {
             ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
         }
@@ -5883,7 +5884,8 @@ public class SurveyMain extends HttpServlet {
         // ##6.2 example column. always present
         if(itemExample!=null) {
             ctx.print("<td class='generatedexample' valign='top' align='left'>");
-            ctx.print(itemExample);
+            //ctx.print(itemExample.replaceAll("\\\\u","\u200b\\\\u")); // \u200bu
+            ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
             ctx.println("</td>");
         } else {
             ctx.println("<td></td>");

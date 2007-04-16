@@ -808,12 +808,14 @@ import com.ibm.icu.util.ULocale;
             stmts.queryVetXpath.setInt(2,xpath); // TODO: 2 more specificity
             rs = stmts.queryVetXpath.executeQuery();
         }
-        String rv;
+        String rv = null;
         if(!rs.next()) {
             return null;
         }
         int rp = rs.getInt(1);
-        rv = xpt.getById(rp);
+        if(rp != 0) {  // 0  means, fallback xpath
+            rv = xpt.getById(rp);
+        }
         rs.close();
 //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
         return rv;

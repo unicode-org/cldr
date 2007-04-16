@@ -222,7 +222,13 @@ public class XPathTable {
                     if(!rs.next()) {
                         rs.close();
                         logger.severe("XPath: no xpath for ID " + id);
-                        //throw new RuntimeException("no xpath for id " + id);
+                        if(id == 0) {
+                            try {
+                                throw new RuntimeException("no xpath for id " + id);
+                            } catch (Throwable t) {
+                                t.printStackTrace();
+                            }
+                        }
                         return null;
                     }
                                     

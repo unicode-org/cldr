@@ -1950,9 +1950,9 @@ public class SurveyMain extends HttpServlet {
             if(participation) {
                 ctx.println("Selected users have submitted " + totalSubmit + " items, and voted for " + totalVet + " items (including implied votes).<br>");
             }
-            int totalResult=sqlCount(ctx,conn,"select COUNT(*) from CLDR_RESULT");
-            int totalData=sqlCount(ctx,conn,"select COUNT(id) from CLDR_DATA");
-            ctx.println("In all, the SurveyTool has " + totalData + " items (including proposed) and " + totalResult + " items that may need voting.<br>");
+            //int totalResult=sqlCount(ctx,conn,"select COUNT(*) from CLDR_RESULT");
+            //int totalData=sqlCount(ctx,conn,"select COUNT(id) from CLDR_DATA");
+            //ctx.println("In all, the SurveyTool has " + totalResult + " items.<br>");
 			
             if(participation) {
                 ctx.println("<hr>");
@@ -4988,6 +4988,11 @@ public class SurveyMain extends HttpServlet {
                 return false;
             }
             String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+            if(fullPathMinusAlt.indexOf("/alias")!=-1) {
+                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
+                ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
+                return false;
+            }
             for(Iterator j = p.items.iterator();j.hasNext();) {
                 DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
                 if(choice_v.equals(item.value)  && 

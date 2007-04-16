@@ -524,6 +524,28 @@ public abstract class XMLSource implements Freezable {
       }
     }
     
+    public String getWinningPath(String xpath) {
+      XMLSource currentSource = mySource;
+      String result = currentSource.getWinningPath(xpath);
+      if (result != null) return result;
+
+      ParentAndPath parentAndPath = new ParentAndPath();
+      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
+      while (true) {
+        if (parentAndPath.parentID == null) {
+          return xpath; // ran out of parents
+          //return constructedItems.getWinningPath(xpath);
+        }
+        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
+        result = currentSource.getWinningPath(parentAndPath.path);
+        if (result != null) {
+          return result;
+        }
+        parentAndPath.next();
+      }
+    }
+    
+    
     public String getSourceLocaleID(String xpath, CLDRFile.Status status) {
       xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
       XMLSource currentSource = mySource;

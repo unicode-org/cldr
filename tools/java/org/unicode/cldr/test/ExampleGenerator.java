@@ -335,7 +335,7 @@ public class ExampleGenerator {
     } catch (RuntimeException e) {
       return zoomed == Zoomed.OUT 
           ? "<i>internal error</i>"
-          : TransliteratorUtilities.toHTML.transliterate("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>");
+          : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>");
     }
   }
 

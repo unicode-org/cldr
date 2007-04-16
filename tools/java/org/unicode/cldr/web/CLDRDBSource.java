@@ -173,6 +173,7 @@ import com.ibm.icu.util.ULocale;
         public PreparedStatement keyVettingSet = null;
         public PreparedStatement keyUnconfirmedSet = null;
         public PreparedStatement queryVetValue = null;
+        public PreparedStatement queryVetXpath = null;
         public PreparedStatement queryIdStmt = null;
         public PreparedStatement querySource = null;
         public PreparedStatement querySourceInfo = null;
@@ -238,6 +239,10 @@ import com.ibm.icu.util.ULocale;
                                              "SELECT CLDR_DATA.value FROM CLDR_RESULT," + CLDR_DATA +
                                              " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? AND "
                                              +" (CLDR_RESULT.locale=CLDR_DATA.locale) AND (CLDR_RESULT.result_xpath=CLDR_DATA.xpath)"); // TODO: 1 need to be more specific! ! ! !
+
+            queryVetXpath = prepareStatement("queryVetXpath",
+                                             "SELECT CLDR_RESULT.result_xpath FROM CLDR_RESULT " +
+                                             " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? "); 
             
             keyASet = prepareStatement("keyASet",
                                        /*
@@ -783,6 +788,55 @@ import com.ibm.icu.util.ULocale;
             }
         //}
     }
+
+/*
+  // leave the parent implementation for now. 
+  public boolean isWinningPath(String path) {
+    return getWinningPath(path).equals(path);
+  }
+*/
+
+///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
+//if(showDebug) /*srl*/logger.info(locale + ":" + path);
+  private String getWinningPath(int xpath, String locale) {
+    try {
+        ResultSet rs;
+        if(finalData) {
+            throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
+        } else {
+            stmts.queryVetXpath.setString(1,locale);
+            stmts.queryVetXpath.setInt(2,xpath); // TODO: 2 more specificity
+            rs = stmts.queryVetXpath.executeQuery();
+        }
+        String rv;
+        if(!rs.next()) {
+            return null;
+        }
+        int rp = rs.getInt(1);
+        rv = xpt.getById(rp);
+        rs.close();
+//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+        return rv;
+    } catch(SQLException se) {
+        logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+        throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+    }
+  }
+
+  public String getWinningPath(String path) 
+  {
+    int xpath=xpt.xpathToBaseXpathId(path);
+    
+    // look for it in parents
+    for(String locale=getLocaleID();locale!=null;locale=LDMLUtilities.getParent(locale)) {
+        String rv = getWinningPath(xpath, locale);
+        if(rv != null) {
+            return rv;
+        }
+    }
+    return xpt.getById(xpath); // default: winner is original path
+//    throw new InternalError("Can't find winning path for getWinningPath("+path + "#"+xpath+","+getLocaleID()+")");
+  }
     
     
     /**
@@ -1141,7 +1195,6 @@ import com.ibm.icu.util.ULocale;
         xpath.endsWith("/abbreviationFallback") ||
         xpath.endsWith("/preferenceOrdering") ||
         xpath.endsWith("/inList") ||
-        xpath.endsWith("/commonlyUsed") ||
         xpath.endsWith("/firstDay") ) {
         return true;
      }

@@ -251,7 +251,19 @@ public class ExampleGenerator {
           } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
             result = getGMTFormat(value, null, -8);
           } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
-            result = getMZTimeFormat() + " " + value;
+            if ( value != null && value.length() > 0 ) {
+              result = getMZTimeFormat() + " " + value;
+            }
+            else {
+              if (parts.contains("generic")) {
+                result = null; // TODO: Put a fallback generic name based on parsed metazone
+              }
+              else {
+                String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
+                String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
+                result = setBackground(getMZTimeFormat() + " " + getGMTFormat( hourFormat,gmtFormat,0));
+              }
+            }
           }
           result = finalizeBackground(result);
           break main;
@@ -401,14 +413,14 @@ public class ExampleGenerator {
   private String getMZTimeFormat() {
     String timeFormat = cldrFile.getWinningValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
     if ( timeFormat == null ) {
-       timeFormat = "h:mm a";
+       timeFormat = "HH:mm";
     }
     // the following is <= because the TZDB inverts the hours
     SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", timeFormat);
     dateFormat.setTimeZone(ZONE_SAMPLE);
     calendar.set(1999, 9, 13, 13, 25, 59); // 1999-09-13 13:25:59
     Date sample = calendar.getTime();
-    String result = setBackground(dateFormat.format(sample));
+    String result = dateFormat.format(sample);
     return result;
   }
 

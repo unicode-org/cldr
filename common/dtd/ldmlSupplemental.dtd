@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.40 $
-    $Date: 2007-04-04 17:55:41 $
+    $Revision: 1.41 $
+    $Date: 2007-04-17 22:36:08 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, references? ) >
@@ -150,6 +150,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT mapZone EMPTY >
 <!ATTLIST mapZone type CDATA #REQUIRED >
 <!ATTLIST mapZone other CDATA #REQUIRED >
+<!ATTLIST mapZone territory CDATA #IMPLIED >
 <!ATTLIST mapZone references CDATA #IMPLIED >
 
 <!ELEMENT zoneFormatting ( zoneItem* ) >

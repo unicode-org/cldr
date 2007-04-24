@@ -10,6 +10,7 @@ package org.unicode.cldr.util;
 
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.util.Iso639Data.Type;
 
 import java.util.List;
 import java.io.BufferedReader;
@@ -928,6 +929,21 @@ public class StandardCodes {
   }
   
   ZoneParser zoneParser = new ZoneParser();
+
+  static public final Set<String> MODERN_SCRIPTS = Collections
+  .unmodifiableSet(new TreeSet(
+      //"Bali " +
+      // "Bugi " +
+      //"Copt " +
+      //"Hano " +
+      //"Osma " +
+      // "Qaai " +
+      // "Sylo " +
+      // "Syrc " +
+      // "Tagb " +
+      //"Tglg " +
+      Arrays
+          .asList("Hans Hant Jpan Arab Armn Beng Bopo Brai Buhd Cans Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hang Hani Hebr Hira Hrkt Kana Khmr Knda Laoo Latn Limb Mlym Mong Mymr Nkoo Orya Sinh Tale Talu Taml Telu Tfng Thaa Thai Tibt Yiii".split("\\s+"))));
   
   public Map getZone_rules() {
     return zoneParser.getZone_rules();
@@ -967,5 +983,27 @@ public class StandardCodes {
   
   public String getZoneVersion() {
     return zoneParser.getVersion();
+  }
+
+  public static String fixLanguageTag(String languageSubtag) {
+    if (languageSubtag.equals("mo")) { // fix special cases
+      return "ro";
+    } else if (languageSubtag.equals("no")) {
+      return "nb";
+    }
+    return languageSubtag;
+  }
+
+  public static boolean isModernLanguage(String languageCode) {
+      Type type = Iso639Data.getType(languageCode);
+      if (type == Type.Living) return true;
+      if (languageCode.equals("eo")) return true; // exception for Esperanto
+  //    Scope scope = Iso639Data.getScope(languageCode);
+  //    if (scope == Scope.Collection) return false;
+      return false;
+    }
+
+  public static boolean isScriptModern(String script) {
+    return StandardCodes.MODERN_SCRIPTS.contains(script);
   }
 }

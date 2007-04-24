@@ -1704,7 +1704,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public String getName(int type, String code, boolean skipDraft) {
     String path = getKey(type, code);
     if (skipDraft && dataSource.isDraft(path)) return null;
-    return getStringValue(path);
+    String result = getStringValue(path);
+    if (result == null && getLocaleID().equals("en")) {
+      if (type == LANGUAGE_NAME) {
+        Set<String> set = Iso639Data.getNames(code);
+        if (set != null) {
+          return set.iterator().next();
+        }
+      }
+    }
+    return result;
   }
   
   /**

@@ -615,24 +615,56 @@ public class Utility {
 			return transform(input, new ArrayList());
 		}
 	}
+  
+  public static abstract class Apply<T> {
+    public abstract void apply(T item);
+    public <U extends Collection<T>> void applyTo(U collection) {
+      for (T item : collection) {
+        apply(item);
+      }
+    }
+  }
 	
-	public static abstract class Filter {
-		public abstract boolean contains(Object o);
-		public Collection retainAll(Collection c) {
-			for (Iterator it = c.iterator(); it.hasNext();) {
+	public static abstract class Filter<T> {
+    
+		public abstract boolean contains(T item);
+    
+		public <U extends Collection<T>> U retainAll(U c) {
+			for (Iterator<T> it = c.iterator(); it.hasNext();) {
 				if (!contains(it.next())) it.remove();
 			}
 			return c;
 		}
-		public Collection removeAll(Collection c) {
-			for (Iterator it = c.iterator(); it.hasNext();) {
+    
+    public <U extends Collection<T>> U extractMatches(U c, U target) {
+      for (Iterator<T> it = c.iterator(); it.hasNext();) {
+        T item = it.next();
+        if (contains(item)) {
+          target.add(item);
+        }
+      }
+      return target;
+    }
+    
+		public <U extends Collection<T>> U removeAll(U c) {
+			for (Iterator<T> it = c.iterator(); it.hasNext();) {
 				if (contains(it.next())) it.remove();
 			}
 			return c;
 		}
+    
+    public <U extends Collection<T>> U extractNonMatches(U c, U target) {
+      for (Iterator<T> it = c.iterator(); it.hasNext();) {
+        T item = it.next();
+        if (!contains(item)) {
+          target.add(item);
+        }
+      }
+      return target;
+    }
 	}
 	
-	public static class MatcherFilter extends Filter {
+	public static class MatcherFilter<T> extends Filter<T> {
 		private Matcher matcher;
 		public MatcherFilter(String pattern) {
 			this.matcher = Pattern.compile(pattern).matcher("");
@@ -640,7 +672,15 @@ public class Utility {
 		public MatcherFilter(Matcher matcher) {
 			this.matcher = matcher;
 		}
-		public boolean contains(Object o) {
+    public MatcherFilter set(Matcher matcher) {
+      this.matcher = matcher;
+      return this;
+    }
+    public MatcherFilter set(String pattern) {
+      this.matcher = Pattern.compile(pattern).matcher("");
+      return this;
+    }
+		public boolean contains(T o) {
 			return matcher.reset(o.toString()).matches();
 		}		
 	}

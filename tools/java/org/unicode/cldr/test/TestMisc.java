@@ -18,12 +18,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Iso639Data.Scope;
 
 import com.ibm.icu.impl.PrettyPrinter;
 import com.ibm.icu.text.Collator;
@@ -35,8 +37,14 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestMisc {
     public static void main(String[] args) {
       
-      checkEastAsianWidth();
+      // import ICU
+      UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
+      checkCollections();
+      
       if (true) return;
+      
+      checkEastAsianWidth();
+
       
       ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false), Utility.SUPPLEMENTAL_DIRECTORY);
       System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
@@ -68,6 +76,23 @@ public class TestMisc {
       System.out.println("Done");
     }
     
+    private static void checkCollections() {
+      System.out.println("Collections");
+      new org.unicode.cldr.util.Utility.Apply<String>() {
+        public void apply(String item) {
+          if (Iso639Data.getScope(item.toString()) != Scope.Collection) return;
+          System.out.println(item + "\t" + Utility.join(Iso639Data.getNames(item), ", "));
+        }
+      }.applyTo(Iso639Data.getAvailable());
+      System.out.println("\r\nMacrolanguages");
+      new org.unicode.cldr.util.Utility.Apply<String>() {
+        public void apply(String item) {
+          if (Iso639Data.getScope(item.toString()) != Scope.Macrolanguage) return;
+          System.out.println(item + "\t" + Utility.join(Iso639Data.getNames(item), ", "));
+        }
+      }.applyTo(Iso639Data.getAvailable());
+    }
+
     static void checkEastAsianWidth() {
       UnicodeSet dontCares = new UnicodeSet("[[:Cs:][:Cn:][:Cc:][:Noncharacter_Code_Point:]]");
       

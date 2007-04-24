@@ -266,7 +266,7 @@ public class Iso639Data {
         if (type != Type.Living)
           toType.put(languageSubtag, type);
       }
-      System.out.println("Size:\t" + toNames.size());
+      //System.out.println("Size:\t" + toNames.size());
       in.close();
 
       // Id Print_Name Inverted_Name
@@ -287,7 +287,7 @@ public class Iso639Data {
         prefix_suffix.put(prefix, suffix);
         // skip inverted name for now
       }
-      System.out.println("Size:\t" + toNames.size());
+      //System.out.println("Size:\t" + toNames.size());
       in.close();
 
       // Id Print_Name Inverted_Name
@@ -306,7 +306,7 @@ public class Iso639Data {
         toNames.put(languageSubTag, parts[IsoNamesColumn.Print_Name.ordinal()]);
         // skip inverted name for now
       }
-      System.out.println("Size:\t" + toNames.size());
+      //System.out.println("Size:\t" + toNames.size());
       in.close();
 
       in = Utility.getUTF8Data("ISO-639-2_values_8bits.txt");
@@ -359,7 +359,7 @@ public class Iso639Data {
         // skip inverted name for now
       }
       in.close();
-      System.out.println("Size:\t" + toNames.size());
+      //System.out.println("Size:\t" + toNames.size());
 
       // make data unmodifiable, just to prevent mistakes
 

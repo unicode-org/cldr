@@ -3,7 +3,7 @@ package org.unicode.cldr.tool;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
@@ -14,8 +14,6 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import org.unicode.cldr.util.Relation;
-
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
@@ -27,16 +25,13 @@ import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Constructor;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -50,6 +45,8 @@ public class GenerateEnums {
   private static final String DATA_INDENT = "    ";
 
   private static final String LIST_INDENT = "              ";
+
+
 
   private StandardCodes sc = StandardCodes.make();
 
@@ -759,13 +756,7 @@ public class GenerateEnums {
     }
   }
 
-  public static Set<String> ArchaicScripts = new TreeSet();
 
-  public static boolean isScriptModern(String script) {
-    return false;
-    // Xsux, Ugar, Xpeo, Goth, Ital, Cprt, Linb, Phnx, Khar, Phag, Glag, Shaw,
-    // Dsrt, Runr, Ogam
-  }
 
   public final class DeprecatedAndLengthFirstComparator implements Comparator {
     String type;

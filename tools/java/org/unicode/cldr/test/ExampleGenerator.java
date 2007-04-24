@@ -437,8 +437,10 @@ public class ExampleGenerator {
    * @return null if none available.
    */
   public String getHelpHtml(String xpath, String value) {
-    if (helpMessages == null) {
-      helpMessages = new HelpMessages();
+    synchronized (this) {
+      if (helpMessages == null) {
+        helpMessages = new HelpMessages("test_help_messages.html");
+      }
     }
     return helpMessages.find(xpath);
     //  if (xpath.contains("/exemplarCharacters")) {
@@ -454,7 +456,7 @@ public class ExampleGenerator {
   /**
    * Private class to get the messages from a help file.
    */
-  private static class HelpMessages {
+  public static class HelpMessages {
     List<Matcher> keys = new ArrayList();
 
     List<String> values = new ArrayList();
@@ -467,12 +469,12 @@ public class ExampleGenerator {
 
     int column = 0;
 
-    HelpMessages() {
+    public HelpMessages(String filename) {
       currentColumn[0] = new StringBuilder();
       currentColumn[1] = new StringBuilder();
       BufferedReader in;
       try {
-        in = Utility.getUTF8Data("test_help_messages.html");
+        in = Utility.getUTF8Data(filename);
         Status status = Status.BASE;
         int count = 0;
         int tableCount = 0;

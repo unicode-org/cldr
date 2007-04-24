@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
@@ -41,6 +42,7 @@ public class ExampleGenerator {
   private final static boolean DEBUG_SHOW_HELP = false;
 
   private static SupplementalDataInfo supplementalDataInfo;
+  private SupplementalData supplementalData;
   
   /**
    * Zoomed status.
@@ -157,6 +159,7 @@ public class ExampleGenerator {
       if (supplementalDataInfo == null) {
         supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
       }
+      supplementalData = new SupplementalData(supplementalDataDirectory);
     }
     String singleCountriesPath = cldrFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
     parts.set(singleCountriesPath);
@@ -256,12 +259,31 @@ public class ExampleGenerator {
             }
             else {
               if (parts.contains("generic")) {
-                result = null; // TODO: Put a fallback generic name based on parsed metazone
+                String metazone_name = parts.getAttributeValue(3, "type");
+                String timezone = supplementalData.resolveParsedMetazone(metazone_name,"001");
+                String countryCode = supplementalDataInfo.getZone_territory(timezone);
+                String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
+                String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
+                String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""+timezone+"\"]/exemplarCity");
+                if ( exemplarCity == null )
+                   exemplarCity = timezone.substring(timezone.lastIndexOf('/')+1).replace('_',' ');
+
+                String countryName = cldrFile.getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\""+countryCode+"\"]");
+                boolean singleZone = singleCountryZones.contains(timezone) || !(supplementalDataInfo.getMultizones().contains(countryCode));
+
+                if ( singleZone ) {
+                  result = setBackground(getMZTimeFormat() + " " + 
+                            MessageFormat.format(regionFormat, new Object[] { countryName }));
+                }
+                else {
+                  result = setBackground(getMZTimeFormat() + " " + 
+                            MessageFormat.format(fallbackFormat, new Object[] { exemplarCity, countryName }));
+                }
               }
               else {
                 String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
                 String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
-                result = setBackground(getMZTimeFormat() + " " + getGMTFormat( hourFormat,gmtFormat,0));
+                result = setBackground(getMZTimeFormat() + " " + getGMTFormat( hourFormat,gmtFormat,0,0));
               }
             }
           }
@@ -387,6 +409,10 @@ public class ExampleGenerator {
    * @return
    */
   private String getGMTFormat(String gmtHourString, String gmtFormat, int hours) {
+     return getGMTFormat(gmtHourString,gmtFormat,hours,0);
+  }
+
+  private String getGMTFormat(String gmtHourString, String gmtFormat, int hours, int minutes) {
     boolean hoursBackground = false;
     if (gmtHourString == null) {
       hoursBackground = true;
@@ -400,7 +426,7 @@ public class ExampleGenerator {
     // the following is <= because the TZDB inverts the hours
     SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", plusMinus[hours <= 0 ? 0 : 1]);
     dateFormat.setTimeZone(ZONE_SAMPLE);
-    calendar.set(1999, 9, 27, Math.abs(hours), 0, 0); // 1999-09-13 13:25:59
+    calendar.set(1999, 9, 27, Math.abs(hours), minutes, 0); // 1999-09-13 13:25:59
     Date sample = calendar.getTime();
     String hourString = dateFormat.format(sample);
     if (hoursBackground) {

@@ -245,6 +245,26 @@ public class SupplementalData {
         return territoryToZones;
     }
     
+    public String resolveParsedMetazone ( String metazone, String territory )
+    {
+       Node mzLookup = null; 
+
+       mzLookup = LDMLUtilities.getNode(getSupplemental(), "//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone[@other=\""+metazone+"\"][@territory=\""+territory+"\"]");
+
+       if (mzLookup == null ) {
+          System.out.println("Can't find territory specific for "+territory);
+          mzLookup = LDMLUtilities.getNode(getSupplemental(),"//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone[@other=\""+metazone+"\"][@territory=\"001\"]");
+ 
+          if (mzLookup == null ) {
+             System.out.println("Can't find 001 for "+metazone);
+             return null;
+          }
+       }
+       int i = 0;
+       String result = LDMLUtilities.getAttributeValue(mzLookup,LDMLConstants.TYPE);
+       return result;
+    }
+
     // Default Content Locales
     private Hashtable defaultContentToParentHash = null; // list of default content locale IDs -> 'parent ID'
     private Hashtable defaultContentToChildHash = null; // list of default content source IDs -> 'which default content locale ID'

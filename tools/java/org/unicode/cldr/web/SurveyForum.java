@@ -57,7 +57,7 @@ public class SurveyForum {
     static final String F_REPLY = "reply";
     static final String F_POST = "post";
     
-    static final String POST_SPIEL = "Post a comment to other vetters. (Don't use this to report SurveyTool issues.)";    
+    static final String POST_SPIEL = "Post a comment to other vetters. (Don't use this to report SurveyTool issues or propose data changes: use the bug forms.)";    
     /** 
      * prepare text for posting
      */
@@ -80,7 +80,14 @@ public class SurveyForum {
     Hashtable numToName = new Hashtable();
     Hashtable nameToNum = new Hashtable();
     
+    static final int GOOD_FORUM = 0; // 0 or greater
+    static final int BAD_FORUM = -1;
+    static final int NO_FORUM = -2;
+    
     synchronized int getForumNumber(String forum) {
+        if(forum.length()==0) {
+            return NO_FORUM; // all forums
+        }
         // make sure it is a valid src!
         if((forum==null)||(forum.indexOf('_')>=0)||!sm.isValidLocale(forum)) {
             throw new RuntimeException("Invalid forum: " + forum);
@@ -101,7 +108,7 @@ public class SurveyForum {
             ResultSet rs = fGetByLoc.executeQuery();
             if(!rs.next()) {
                 rs.close();
-                return -1;
+                return BAD_FORUM;
             } else {
                 int j = rs.getInt(1);
                 rs.close();
@@ -116,7 +123,7 @@ public class SurveyForum {
     
     private int createForum(String forum) {
         int num =  getForumNumberFromDB(forum);
-        if(num == -1) {
+        if(num == BAD_FORUM) {
             try {
                 fAdd.setString(1, forum);
                 fAdd.executeUpdate();
@@ -129,7 +136,7 @@ public class SurveyForum {
             num = getForumNumberFromDB(forum);
         }
         
-        if(num==-1) {
+        if(num==BAD_FORUM) {
             throw new RuntimeException("Couldn't query ID for forum " + forum);
         }
         // Add to list
@@ -148,11 +155,11 @@ public class SurveyForum {
         boolean loggedout = ((ctx.session==null)||(ctx.session.user==null));
         boolean canModify = false;
 
-        if((ctx.locale == null) && (forumNumber != -1)) {
+        if((ctx.locale == null) && (forumNumber >= GOOD_FORUM)) {
             ctx.setLocale(new ULocale(forum));
         }
         
-        if(!loggedout) {
+        if(!loggedout && (forumNumber >= GOOD_FORUM)) {
             canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
         }
         
@@ -175,7 +182,7 @@ public class SurveyForum {
         }
         
         // User has an account, but does not have access to this forum.
-        if(!canModify) {
+        if(!canModify && !(forumNumber==NO_FORUM && UserRegistry.userIsVetter(ctx.session.user))) {
             sm.printHeader(ctx,"Fora | Access Denied.");
             sm.printUserTable(ctx);
             if(sessionMessage != null) {
@@ -193,7 +200,7 @@ public class SurveyForum {
             doXpathPost(ctx, forum, forumNumber, base_xpath);
         } else if(F_VIEW.equals(pD) && ctx.hasField("id")) {
             doForumView(ctx, forum, forumNumber);
-        } else if(forumNumber == -1) {
+        } else if(forumNumber == BAD_FORUM) {
             sm.printHeader(ctx,"Fora");
             sm.printUserTable(ctx);
             // no forum or bad forum. Do general stuff.
@@ -289,7 +296,7 @@ public class SurveyForum {
             if(ctx.field("post").length()>0) {
                 // do the post!
                 
-                if(forumNumber == -1) {
+                if(forumNumber == BAD_FORUM) {
                     throw new RuntimeException("Bad forum: " + forum);
                 }
                 
@@ -971,7 +978,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
                     
                     int forumNumber = getForumNumberFromDB(loc);
                     int count=0;
-                    if(forumNumber != -1) try {
+                    if(forumNumber >= GOOD_FORUM) try {
                         pList.setInt(1, forumNumber);
                         ResultSet rs = pList.executeQuery();
                         

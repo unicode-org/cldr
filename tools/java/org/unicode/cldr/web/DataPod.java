@@ -161,6 +161,7 @@ public class DataPod extends Registerable {
         
         // what kind of pea is this?
         public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
+        public boolean zoomOnly = false; // if true - don't show any editing in the zoomout view, they must zoom in.
         public Pea toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
         public boolean toggleValue = false;
         String[] valuesList = null; // if non null - list of acceptable values.
@@ -1372,7 +1373,10 @@ public class DataPod extends Registerable {
                 superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath);
 ///*srl*/         if(type.equals("HK")) { System.err.println("SuperP's xps = " + superP.xpathSuffix); }
             }
-
+    
+            if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
+                p.zoomOnly = superP.zoomOnly = true;
+            }
             p.confirmOnly = superP.confirmOnly = confirmOnly;
 
             if(!isReferences) {

@@ -1047,7 +1047,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         
-        if(isUnofficial || 
+        if(true || isUnofficial || 
                 ctx.prefBool(PREF_GROTTY)) {  // no RSS on the official site- for now
             if(ctx.locale != null) {
                 ctx.println(fora.forumFeedStuff(ctx));
@@ -5607,7 +5607,7 @@ public class SurveyMain extends HttpServlet {
         if(phaseSubmit==true) {
             String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
-            if(canModify && canSubmit ) {
+            if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {
                 changetoBox = changetoBox+("<input name='"+fieldHash+"' id='"+fieldHash+"_ch' value='"+CHANGETO+"' type='radio' >");
             } else {
                 //changetoBox = changetoBox+("<input type='radio' disabled>"); /* don't show the empty input box */
@@ -5623,7 +5623,7 @@ public class SurveyMain extends HttpServlet {
             
             boolean badInputBox = false;
             
-            if(canSubmit && canModify && !p.confirmOnly) {
+            if(canSubmit && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly)) {
                 String oldValue = (String)ctx.temporaryStuff.get(fieldHash+"_v");
                 String fClass = "inputbox";
                 if(oldValue==null) {
@@ -5708,6 +5708,9 @@ public class SurveyMain extends HttpServlet {
                   
                 ctx.println("</td>");
             } else  {
+                if(!zoomedIn && p.zoomOnly) {
+                    ctx.println("<i>Must zoom in to edit</i>");
+                }
                 ctx.println("</td>");
             }
 
@@ -5844,7 +5847,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
         if(item != null) {
-            printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify);
+            printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify, zoomedIn);
         }
         ctx.println("</td>");    
         // 6.3 - If we are zoomed in, we WILL have an additional column withtests and/or references.
@@ -5884,7 +5887,6 @@ public class SurveyMain extends HttpServlet {
         // ##6.2 example column. always present
         if(itemExample!=null) {
             ctx.print("<td class='generatedexample' valign='top' align='left'>");
-            //ctx.print(itemExample.replaceAll("\\\\u","\u200b\\\\u")); // \u200bu
             ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
             ctx.println("</td>");
         } else {
@@ -5892,7 +5894,7 @@ public class SurveyMain extends HttpServlet {
         }
     }
 
-    void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify) {
+    void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify, boolean zoomedIn) {
     //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
         boolean winner = 
             ((resultXpath!=null)&&
@@ -5938,8 +5940,27 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
         }
 
+        if(zoomedIn && (item.votes != null)) {
+            int n = item.votes.size();
+            String title=""+ n+" vote"+((n>1)?"s":"");
+            if(canModify&&UserRegistry.userIsVetter(ctx.session.user)) {
+                title=title+": ";
+                for(Iterator iter=item.votes.iterator();iter.hasNext();) {
+                    UserRegistry.User theU  = (UserRegistry.User) iter.next();
+                    if(theU != null) {
+                        String add= theU.name + "@" + theU.org;
+                        title = title + add.replaceAll("'","\u2032"); // quote quotes
+                        if(iter.hasNext()) {
+                            title = title+", ";
+                        }
+                    }
+                }
+            }
+            ctx.print("<span class='notselected' title='"+title+"'>\u2611</span>");
+        }
+
         ctx.print("<span "+pClass+">");
-        
+                
         if(item.value.length()!=0) {
             ctx.print(item.value);
         } else {

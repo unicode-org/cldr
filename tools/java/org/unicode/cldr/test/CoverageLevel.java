@@ -135,6 +135,7 @@ public class CoverageLevel {
   
   private Map script_level = new TreeMap();
   private Map zone_level = new TreeMap();
+  private Map<String, CoverageLevel.Level> metazone_level = new TreeMap();
   
   private Map territory_level = new TreeMap();
   private Map currency_level = new TreeMap();
@@ -161,6 +162,7 @@ public class CoverageLevel {
         CLDRFile supplementalMetadata = file.getSupplementalMetadata();
         CLDRFile supplementalData = file.getSupplementalData();
         init(supplementalData, supplementalMetadata);
+        initMetazoneCoverage(supplementalData);
         initPosixCoverage(file.getLocaleID(), supplementalData);
         initialized = true;
       }
@@ -442,6 +444,8 @@ public class CoverageLevel {
         }
       }
       // <types><type type="big5han" key="collation">Traditional Chinese (Big5)</type>
+    } else if (fullPath.contains("metazone")) {
+       result = metazone_level.get(fullPath);
     } else if (part1.equals("numbers")) {
       /*
        * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
@@ -633,6 +637,204 @@ public class CoverageLevel {
     //posixCoverage.put("//ldml/collations/collation[@type=\"standard\"]/rules", Level.POSIX);
   }
   
+  private void initMetazoneCoverage(CLDRFile supplementalData) {
+    String metazone_prefix = "//ldml/dates/timeZoneNames/metazone";
+
+    metazone_level.clear();
+
+    /* Tier 1 - Most populous and commonly used metazones - Basic coverage */
+
+    String [][] Basic_Metazones = {
+       { "America_Eastern", "generic" },
+       { "America_Central", "generic" },
+       { "America_Mountain", "generic" },
+       { "America_Pacific", "generic" },
+       { "Atlantic", "generic" },
+       { "China", "standard" },
+       { "Europe_Central", "daylight" },
+       { "Europe_Eastern", "daylight" },
+       { "Europe_Western", "daylight" },
+       { "GMT", "standard" },
+       { "India", "standard" },
+       { "Japan", "standard" },
+       { "Korea", "standard" }};
+    
+    for ( int i = 0 ; i < Basic_Metazones.length ; i++ ) {
+      metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/long/standard", Level.BASIC);
+      metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/short/standard", Level.BASIC);
+      if ( Basic_Metazones[i][1].equals("generic") || Basic_Metazones[i][1].equals("daylight")) {
+        metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/long/daylight", Level.BASIC);
+        metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/short/daylight", Level.BASIC);
+        if ( Basic_Metazones[i][1].equals("generic")) {
+          metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/long/generic", Level.BASIC);
+          metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/short/generic", Level.BASIC);
+        }
+      }
+    } 
+
+    /* Tier 2 - Moderate Coverage level for metazones */
+
+    String [][] Moderate_Metazones = {
+       { "Acre", "daylight" },
+       { "Africa_Central", "standard" },
+       { "Africa_Eastern", "standard" },
+       { "Africa_Southern", "standard" },
+       { "Africa_Western", "daylight" },
+       { "Alaska", "generic" },
+       { "Amazon", "daylight" },
+       { "Arabian", "generic" },
+       { "Australia_Central", "generic" },
+       { "Australia_Eastern", "generic" },
+       { "Australia_Western", "generic" },
+       { "Brasilia", "daylight" },
+       { "Hawaii", "standard" },
+       { "Hong_Kong", "daylight" },
+       { "Indochina", "standard" },
+       { "Indonesia_Central", "standard" },
+       { "Indonesia_Eastern", "standard" },
+       { "Indonesia_Western", "standard" },
+       { "Israel", "daylight" },
+       { "Moscow", "daylight" },
+       { "New_Zealand", "generic" },
+       { "Newfoundland", "generic" }};
+
+    for ( int i = 0 ; i < Moderate_Metazones.length ; i++ ) {
+      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/standard", Level.MODERATE);
+      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/standard", Level.MODERATE);
+      if ( Moderate_Metazones[i][1].equals("generic") || Moderate_Metazones[i][1].equals("daylight")) {
+        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/daylight", Level.MODERATE);
+        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/daylight", Level.MODERATE);
+        if ( Moderate_Metazones[i][1].equals("generic")) {
+          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/generic", Level.MODERATE);
+          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/generic", Level.MODERATE);
+        }
+      }
+    } 
+
+    /* 3rd Tier - Metazones in Modern Usage */
+
+    String [][] Modern_Metazones = {
+       { "Afghanistan", "daylight" },
+       { "Anadyr", "daylight" },
+       { "Argentina", "daylight" },
+       { "Armenia", "daylight" },
+       { "Australia_CentralWestern", "daylight" },
+       { "Azerbaijan", "daylight" },
+       { "Azores", "daylight" },
+       { "Bangladesh", "standard" },
+       { "Bhutan", "standard" },
+       { "Bolivia", "standard" },
+       { "Brunei", "standard" },
+       { "Cape_Verde", "daylight" },
+       { "Chamorro", "standard" },
+       { "Chatham", "daylight" },
+       { "Chile", "daylight" },
+       { "Choibalsan", "daylight" },
+       { "Christmas", "standard" },
+       { "Cocos", "standard" },
+       { "Colombia", "daylight" },
+       { "Cook", "standard" },
+       { "Cuba", "daylight" },
+       { "Davis", "standard" },
+       { "DumontDUrville", "standard" },
+       { "East_Timor", "standard" },
+       { "Easter", "daylight" },
+       { "Ecuador", "standard" },
+       { "Falkland", "daylight" },
+       { "Fiji", "daylight" },
+       { "French_Guiana", "standard" },
+       { "French_Southern", "standard" },
+       { "Galapagos", "standard" },
+       { "Gambier", "standard" },
+       { "Georgia", "daylight" },
+       { "Gilbert_Islands", "standard" },
+       { "Greenland_Eastern", "daylight" },
+       { "Greenland_Western", "daylight" },
+       { "Guam", "standard" },
+       { "Guyana", "standard" },
+       { "Hawaii_Aleutian", "generic" },
+       { "Hovd", "daylight" },
+       { "Indian_Ocean", "standard" },
+       { "Iran", "daylight" },
+       { "Irkutsk", "daylight" },
+       { "Kamchatka", "daylight" },
+       { "Kazakhstan_Eastern", "standard" },
+       { "Kazakhstan_Western", "standard" },
+       { "Kosrae", "standard" },
+       { "Krasnoyarsk", "daylight" },
+       { "Kyrgystan", "standard" },
+       { "Line_Islands", "standard" },
+       { "Lord_Howe", "daylight" },
+       { "Magadan", "daylight" },
+       { "Malaysia", "daylight" },
+       { "Maldives", "daylight" },
+       { "Marquesas", "daylight" },
+       { "Marshall_Islands", "standard" },
+       { "Mauritius", "standard" },
+       { "Mawson", "standard" },
+       { "Mongolia", "daylight" },
+       { "Nauru", "standard" },
+       { "Nepal", "standard" },
+       { "New_Caledonia", "daylight" },
+       { "Niue", "standard" },
+       { "Norfolk", "standard" },
+       { "Noronha", "daylight" },
+       { "North_Mariana", "standard" },
+       { "Novosibirsk", "daylight" },
+       { "Omsk", "daylight" },
+       { "Pakistan", "daylight" },
+       { "Palau", "standard" },
+       { "Papua_New_Guinea", "standard" },
+       { "Paraguay", "daylight" },
+       { "Peru", "daylight" },
+       { "Philippines", "daylight" },
+       { "Phoenix_Islands", "standard" },
+       { "Pierre_Miquelon", "daylight" },
+       { "Pitcairn", "standard" },
+       { "Ponape", "standard" },
+       { "Reunion", "standard" },
+       { "Rothera", "standard" },
+       { "Sakhalin", "daylight" },
+       { "Samara", "daylight" },
+       { "Samoa", "standard" },
+       { "Seychelles", "standard" },
+       { "Singapore", "standard" },
+       { "Solomon", "standard" },
+       { "South_Georgia", "standard" },
+       { "Suriname", "standard" },
+       { "Syowa", "standard" },
+       { "Tahiti", "standard" },
+       { "Tajikistan", "standard" },
+       { "Tonga", "daylight" },
+       { "Truk", "standard" },
+       { "Turkmenistan", "daylight" },
+       { "Tuvalu", "standard" },
+       { "Uruguay", "daylight" },
+       { "Uzbekistan", "daylight" },
+       { "Vanuatu", "daylight" },
+       { "Venezuela", "standard" },
+       { "Vladivostok", "daylight" },
+       { "Volgograd", "daylight" },
+       { "Vostok", "standard" },
+       { "Wake", "standard" },
+       { "Wallis", "standard" },
+       { "Yakutsk", "daylight" },
+       { "Yekaterinburg", "daylight" }};
+
+    for ( int i = 0 ; i < Modern_Metazones.length ; i++ ) {
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/standard", Level.MODERN);
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/standard", Level.MODERN);
+      if ( Modern_Metazones[i][1].equals("generic") || Modern_Metazones[i][1].equals("daylight")) {
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/daylight", Level.MODERN);
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/daylight", Level.MODERN);
+        if ( Modern_Metazones[i][1].equals("generic")) {
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/generic", Level.MODERN);
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/generic", Level.MODERN);
+        }
+      }
+    } 
+  }
+
   private static void getMetadata(CLDRFile metadata) {
     XPathParts parts = new XPathParts();
     for (Iterator it = metadata.iterator(); it.hasNext();) {

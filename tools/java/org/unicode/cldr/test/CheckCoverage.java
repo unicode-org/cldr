@@ -55,7 +55,8 @@ public class CheckCoverage extends CheckCLDR {
         // && (isConfirmed || !requireConfirmed)
         
         // we test stuff matching specialsToKeep, or code fallback  
-        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !specialsToTestMatcher.reset(path).matches() ) {
+        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !specialsToTestMatcher.reset(path).matches()
+            && ( path.indexOf("metazone") < 0 ) || ( value != null && value.length() > 0)) {
           // don't test!
             return this;
         }

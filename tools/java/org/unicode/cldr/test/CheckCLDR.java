@@ -303,6 +303,10 @@ abstract public class CheckCLDR {
       }
       paths.clear();
       CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+      
+      // also add the English paths
+      CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
+      
       UnicodeSet missingExemplars = new UnicodeSet();
       if (checkFlexibleDates) {
         fset.set(file);
@@ -359,6 +363,7 @@ abstract public class CheckCLDR {
 //          value = file.getStringValue(path);
 //        }
         String fullPath = file.getFullXPath(path);
+
         if (noaliases) { // this is just for console testing, the survey tool shouldn't do it.
           String sourceLocale = file.getSourceLocaleID(path, pathStatus);
           if (!path.equals(pathStatus.pathWhereFound)) {
@@ -868,12 +873,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     if (path == null) {
       throw new InternalError("CheckCLDR problem: path must not be null");
     }
-    if (fullPath == null) {
-      throw new InternalError("CheckCLDR problem: fullPath must not be null");
-    }
-    if (value == null) {
-      throw new InternalError("CheckCLDR problem: value must not be null");
-    }
+//    if (fullPath == null) {
+//      throw new InternalError("CheckCLDR problem: fullPath must not be null");
+//    }
+//    if (value == null) {
+//      throw new InternalError("CheckCLDR problem: value must not be null");
+//    }
     result.clear();
     return handleCheck(path, fullPath, value, options, result);
   }

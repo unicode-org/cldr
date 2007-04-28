@@ -385,7 +385,7 @@ public class CoverageLevel {
       "|/eraAbbr" +
       "|/pattern" +
       "|/dateFormatItem" +
-      "|/fields" +
+      "|/fields(?!.*relative.*(2|3))" +
       ")" +
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
@@ -398,12 +398,13 @@ public class CoverageLevel {
   }
   /**
    * Returns the coverage level of the path. This is the least level at which the path is required.
-   * @param fullPath (with all information)
+   * @param fullPath (with all information). If this is null, distinguishedPath must not be
+   * @param distinguishedPath the normal key for a cldr file. If this is null, fullPath must not be.
    * @return the coverage level. UNDETERMINED is returned if there is not enough information to determine the level (initially
    * we only look at the long lists of display names, currencies, timezones, etc.).
    */
   public CoverageLevel.Level getCoverageLevel(String fullPath, String distinguishedPath) {
-    if (fullPath.contains("/alias")) {
+    if (fullPath != null && fullPath.contains("/alias")) {
       return CoverageLevel.Level.UNDETERMINED; // skip
     }
     if (distinguishedPath == null) {
@@ -422,7 +423,7 @@ public class CoverageLevel {
     }
     
     // we now do some more complicated tests that depend on the type
-    parts.set(fullPath);
+    parts.set(distinguishedPath);
     String lastElement = parts.getElement(-1);
     String type = parts.getAttributeValue(-1, "type");
     String part1 = parts.getElement(1);
@@ -449,8 +450,8 @@ public class CoverageLevel {
         }
       }
       // <types><type type="big5han" key="collation">Traditional Chinese (Big5)</type>
-    } else if (fullPath.contains("metazone")) {
-       result = metazone_level.get(fullPath);
+    } else if (distinguishedPath.contains("metazone")) {
+       result = metazone_level.get(distinguishedPath);
     } else if (part1.equals("numbers")) {
       /*
        * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
@@ -461,6 +462,8 @@ public class CoverageLevel {
         String currency = parts.getAttributeValue(-2, "type");
         result = (CoverageLevel.Level) currency_level.get(currency);
       }
+    } else if (part1.equals("identity")) {
+      result = Level.UNDETERMINED;
     }
     if (result == null) result = CoverageLevel.Level.COMPREHENSIVE;
     return result;

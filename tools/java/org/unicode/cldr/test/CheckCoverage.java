@@ -52,19 +52,14 @@ public class CheckCoverage extends CheckCLDR {
 
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
         
-        
-        boolean isConfirmed = !fullPath.contains("[@draft=");
-        // && (isConfirmed || !requireConfirmed)
-        
         // if the source is a language locale (that is, not root or code fallback) then we have something already, so skip.
         // we test stuff matching specialsToKeep, or code fallback
         // skip anything else
         if (!source.equals(XMLSource.CODE_FALLBACK_ID) 
             && !source.equals("root")
-//            && !specialsToTestMatcher.reset(path).find()
-//          && ( path.indexOf("metazone") < 0 ) || ( value != null && value.length() > 0)
+            && (path.indexOf("metazone") < 0 || value != null && value.length() > 0)
             ) {
-            return this; // skip!
+          return this; // skip!
         }
         
         if(path == null) { 
@@ -77,12 +72,10 @@ public class CheckCoverage extends CheckCLDR {
         CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath, path);
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
-        if (requiredLevel.compareTo(level) >= 0 || !isConfirmed) {
+        if (requiredLevel.compareTo(level) >= 0) {
             result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
                 .setCheckOnSubmit(false)
-                    .setMessage(isConfirmed ? 
-                        "Needed to meet {0} coverage level." 
-                        : "Confirmed value needed to meet {0} coverage level.", new Object[] { level }));
+                    .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
             System.out.println(level + "\t" + path);
         }

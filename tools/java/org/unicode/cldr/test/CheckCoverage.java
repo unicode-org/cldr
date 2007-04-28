@@ -54,9 +54,12 @@ public class CheckCoverage extends CheckCLDR {
         boolean isConfirmed = !fullPath.contains("[@draft=");
         // && (isConfirmed || !requireConfirmed)
         
-        // we test stuff matching specialsToKeep, or code fallback  
-        if (!source.equals(XMLSource.CODE_FALLBACK_ID) && !specialsToTestMatcher.reset(path).matches()
-            && ( path.indexOf("metazone") < 0 ) || ( value != null && value.length() > 0)) {
+        // we test stuff matching specialsToKeep, or code fallback
+        // skip anything else
+        if (!source.equals(XMLSource.CODE_FALLBACK_ID) 
+            && !specialsToTestMatcher.reset(path).matches()
+//          && ( path.indexOf("metazone") < 0 ) || ( value != null && value.length() > 0)
+            ) {
           // don't test!
             return this;
         }

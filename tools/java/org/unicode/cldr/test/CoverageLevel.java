@@ -6,7 +6,17 @@
  */
 package org.unicode.cldr.test;
 
-import java.io.IOException;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
+
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,22 +30,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.print.attribute.standard.MediaSize.Engineering;
-
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.Iso639Data.Source;
-import org.unicode.cldr.util.Iso639Data.Type;
-
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Supports testing of paths in a file to see if they meet the coverage levels according to the UTS.<br>
@@ -116,13 +110,13 @@ public class CoverageLevel {
   private static Set modernLanguages = new TreeSet();
   private static Set modernScripts = new TreeSet();
   private static Set modernTerritories = new TreeSet();
-  private static Map locale_requiredLevel = new TreeMap();
+  //private static Map locale_requiredLevel = new TreeMap();
   private static Map territory_currency = new TreeMap();
   private static Map territory_timezone = new TreeMap();
   private static Map territory_calendar = new TreeMap();
   private static Set modernCurrencies = new TreeSet();
   
-  private static Map posixCoverage = new TreeMap();
+  private static Map<String,Level> posixCoverage = new TreeMap();
   // current stuff, set according to file
   
   private boolean initialized = false;
@@ -343,7 +337,7 @@ public class CoverageLevel {
     if (keyset == null) return;
     for (Iterator it2 = keyset.iterator(); it2.hasNext();) {
       Object item = it2.next();
-      if (override & targetMap.get(item) != null) {
+      if (!override & targetMap.get(item) != null) {
         continue;
       }
       targetMap.put(item, value);
@@ -382,7 +376,7 @@ public class CoverageLevel {
   Matcher basicPatterns = Pattern.compile(
       "/(" +
       "measurementSystemName" +
-      "|characters/exemplarCharacters" +
+      "|characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
       "|delimiters" +
       "|codePattern" +
       "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
@@ -396,12 +390,14 @@ public class CoverageLevel {
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
       ")").matcher("");
+  
+  // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]
 
   public CoverageLevel.Level getCoverageLevel(String fullPath) {
     return getCoverageLevel(fullPath, null);
   }
   /**
-   * Returns the coverage level of the path.
+   * Returns the coverage level of the path. This is the least level at which the path is required.
    * @param fullPath (with all information)
    * @return the coverage level. UNDETERMINED is returned if there is not enough information to determine the level (initially
    * we only look at the long lists of display names, currencies, timezones, etc.).
@@ -413,17 +409,26 @@ public class CoverageLevel {
     if (distinguishedPath == null) {
       distinguishedPath = CLDRFile.getDistinguishingXPath(fullPath,null,false);
     }
+    
+    // the minimal level is posix, so test for that.
+    CoverageLevel.Level result = posixCoverage.get(distinguishedPath); // default the level to POSIX
+    if (result != null) {
+      return result;
+    }
+
+    // the next check we make is for certain basic patterns, based on a regex
     if (basicPatterns.reset(distinguishedPath).find()) {
       return CoverageLevel.Level.BASIC;
     }
+    
+    // we now do some more complicated tests that depend on the type
     parts.set(fullPath);
     String lastElement = parts.getElement(-1);
-    
     String type = parts.getAttributeValue(-1, "type");
-    CoverageLevel.Level result = null;
     String part1 = parts.getElement(1);
+    
     if (lastElement.equals("exemplarCity")) {
-      type = (String) parts.getAttributeValue(-2, "type"); // it's one level up
+      type = parts.getAttributeValue(-2, "type"); // it's one level up
       if (exemplarsContainA_Z && !type.equals("Etc/Unknown")) {
         result = CoverageLevel.Level.UNDETERMINED;
       } else {
@@ -453,7 +458,7 @@ public class CoverageLevel {
       if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
         result = CoverageLevel.Level.UNDETERMINED;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
-        String currency = (String) parts.getAttributeValue(-2, "type");
+        String currency = parts.getAttributeValue(-2, "type");
         result = (CoverageLevel.Level) currency_level.get(currency);
       }
     }
@@ -551,8 +556,8 @@ public class CoverageLevel {
     parser.set(localeID);
     //String language = parser.getLanguage();
     String territory = parser.getRegion();
-    String language = parser.getLanguage();
-    String script = parser.getScript();
+    //String language = parser.getLanguage();
+    //String script = parser.getScript();
     //String scpt = parser.getScript();
     
     // we have to have the name for our own locale
@@ -582,12 +587,12 @@ public class CoverageLevel {
     posixCoverage.put("//ldml/numbers/currencies/currency[@type=\""+currencySymbol+"\"]/group", Level.POSIX);
     posixCoverage.put("//ldml/numbers/symbols/decimal", Level.POSIX);
     posixCoverage.put("//ldml/numbers/symbols/group", Level.POSIX);
-    posixCoverage.put("//ldml/numbers/symbols/plusSign", Level.POSIX);
-    posixCoverage.put("//ldml/numbers/symbols/minusSign", Level.POSIX);
+//    posixCoverage.put("//ldml/numbers/symbols/plusSign", Level.POSIX); // the inheritance from root is almost always right, so don't require
+//    posixCoverage.put("//ldml/numbers/symbols/minusSign", Level.POSIX); // the inheritance from root is almost always right, so don't require
     posixCoverage.put("//ldml/numbers/symbols/decimal", Level.POSIX);
     posixCoverage.put("//ldml/numbers/symbols/group", Level.POSIX);
     posixCoverage.put("//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat/pattern", Level.POSIX);
-    posixCoverage.put("//ldml/numbers/symbols/nativeZeroDigit", Level.POSIX);
+//    posixCoverage.put("//ldml/numbers/symbols/nativeZeroDigit", Level.POSIX); // the inheritance from root is almost always right, so don't require
     posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat/pattern", Level.POSIX);
     posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern", Level.POSIX);
     posixCoverage.put("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", Level.POSIX);
@@ -929,7 +934,7 @@ public class CoverageLevel {
           modernCurrencies.add(currency);
           // only add current currencies to must have list
           if (to == null) {
-            String region = (String) parts.getAttributes(-2).get("iso3166");
+            String region = parts.getAttributes(-2).get("iso3166");
             Set currencies = (Set) territory_currency.get(region);
             if (currencies == null) territory_currency.put(region, currencies = new TreeSet());
             currencies.add(currency);

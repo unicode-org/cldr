@@ -84,7 +84,7 @@ abstract public class CheckCLDR {
     .add(new CheckForExemplars())
     .add(new CheckNumbers())
     .add(new CheckZones())
-    .add(new CheckAlt())
+    //.add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
     .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
@@ -144,6 +144,7 @@ abstract public class CheckCLDR {
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
   };
   
+  // C:\cvsdata\\unicode\cldr\incoming\vetted\main
   private static String[] HelpMessage = {
     "-h \t This message",
     "-s \t Source directory, default = " + Utility.MAIN_DIRECTORY,
@@ -258,10 +259,16 @@ abstract public class CheckCLDR {
       options.clear();
       
       // if the organization is set, skip any locale that doesn't have a value in Locales.txt
+      Level level = coverageLevel;
+      if (level == null) {
+        level = Level.BASIC;
+      }
       if (organization != null) {
         Map<String,Level> locale_status = StandardCodes.make().getLocaleTypes().get(organization);
         if (locale_status == null) continue;
-        if (locale_status.get(localeID) == null) continue;
+        level = locale_status.get(localeID);
+        if (level == null) continue;
+        if (level.compareTo(Level.BASIC) <= 0) continue;
       } else if (!isLanguageLocale) {
         // otherwise, skip all language locales
         options.put("CheckCoverage.skip","true");
@@ -291,8 +298,7 @@ abstract public class CheckCLDR {
         if (checkOnSubmit) {
           if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
         }
-        System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\t");
-        System.out.println(statusString);
+        showSummary(checkCldr, localeID, level, statusString);
         subtotalCount.add(status.type, 1);
       }
       paths.clear();
@@ -422,14 +428,13 @@ abstract public class CheckCLDR {
           }
         }
       }
-      System.out.println("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tpaths:\t" + pathCount);
+      showSummary(checkCldr, localeID, level, "Paths:\t" + pathCount);
       if (missingExemplars.size() != 0) {
-        System.out.print("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\t");
-        System.out.println("Total missing:\t" + missingExemplars);
+        showSummary(checkCldr, localeID, level, "Total missing:\t" + missingExemplars);
       }
       for (Iterator it2 = new TreeSet(subtotalCount.keySet()).iterator(); it2.hasNext();) {
         String type = (String)it2.next();
-        System.out.println("Locale:\t" + checkCldr.getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
+        showSummary(checkCldr, localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));
       }
       if (checkFlexibleDates) {
         fset.showFlexibles();
@@ -453,6 +458,10 @@ abstract public class CheckCLDR {
     
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+  }
+
+  private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
+    System.out.println(checkCldr.getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value);
   }
 
   private static void showExamples(CheckCLDR checkCldr, PrettyPath prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example) {

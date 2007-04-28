@@ -34,7 +34,7 @@ public class CheckCoverage extends CheckCLDR {
     private Level requiredLevel;
     private boolean skip; // set to null if we should not be checking this file
     private boolean requireConfirmed = true;
-    private Matcher specialsToTestMatcher = CLDRFile.specialsToKeep.matcher("");
+    private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
@@ -51,17 +51,20 @@ public class CheckCoverage extends CheckCLDR {
 //        // skip all items that are in anything but raw codes
 
         String source = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
+        
+        
         boolean isConfirmed = !fullPath.contains("[@draft=");
         // && (isConfirmed || !requireConfirmed)
         
+        // if the source is a language locale (that is, not root or code fallback) then we have something already, so skip.
         // we test stuff matching specialsToKeep, or code fallback
         // skip anything else
         if (!source.equals(XMLSource.CODE_FALLBACK_ID) 
-            && !specialsToTestMatcher.reset(path).matches()
+            && !source.equals("root")
+//            && !specialsToTestMatcher.reset(path).find()
 //          && ( path.indexOf("metazone") < 0 ) || ( value != null && value.length() > 0)
             ) {
-          // don't test!
-            return this;
+            return this; // skip!
         }
         
         if(path == null) { 

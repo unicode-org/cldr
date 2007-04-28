@@ -646,12 +646,12 @@ public class CLDRFile implements Freezable, Iterable<String> {
       "|pattern" +
       ")");
 
-  static final Pattern specialsToPushFromRoot = Pattern.compile(
+  static public final Pattern specialsToPushFromRoot = Pattern.compile(
       "/(" +
       "calendar\\[\\@type\\=\"gregorian\"\\]/" +
         "(?!fields)" +
         "(?!dateTimeFormats/appendItems)" +
-        "(?!.*\\[@type=\"format\"].*[@type=\"narrow\"])" +
+        "(?!.*\\[@type=\"format\"].*\\[@type=\"narrow\"])" +
         "(?!.*\\[@type=\"stand-alone\"].*\\[@type=\"(abbreviated|wide)\"])" +
       "|numbers/symbols/(decimal/group)" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +

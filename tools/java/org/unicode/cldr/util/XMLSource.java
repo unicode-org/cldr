@@ -7,6 +7,12 @@
 
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
+import org.unicode.cldr.util.XPathParts.Comments;
+
+import com.ibm.icu.util.Freezable;
+import com.sun.corba.se.impl.ior.OldPOAObjectKeyTemplate;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,18 +25,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.impl.CollectionUtilities.PrefixIterator;
-
-import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
-import org.unicode.cldr.util.XPathParts.Comments;
-
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Freezable;
-
 public abstract class XMLSource implements Freezable {
   public static final String CODE_FALLBACK_ID = "code-fallback";
+  public static final boolean USE_PARTS_IN_ALIAS = false;
   private transient XPathParts parts = new XPathParts(null, null);
-  private static Map allowDuplicates = new HashMap();
+  private static Map<String,String> allowDuplicates = new HashMap<String,String>();
   
   private String localeID;
   private boolean nonInheriting;
@@ -50,11 +49,11 @@ public abstract class XMLSource implements Freezable {
    * @param tempMap
    * @param conflict_resolution
    */
-  public void putAll(Map tempMap, int conflict_resolution) {
-    for (Iterator it = tempMap.keySet().iterator(); it.hasNext();) {
-      String path = (String) it.next();
+  public void putAll(Map<String,String> tempMap, int conflict_resolution) {
+    for (Iterator<String> it = tempMap.keySet().iterator(); it.hasNext();) {
+      String path = it.next();
       if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtPath(path) != null) continue;
-      putValueAtPath(path, (String) tempMap.get(path));
+      putValueAtPath(path, tempMap.get(path));
     }
   }
   /**
@@ -63,8 +62,8 @@ public abstract class XMLSource implements Freezable {
    * @param conflict_resolution
    */
   public void putAll(XMLSource otherSource, int conflict_resolution) {
-    for (Iterator it = otherSource.iterator(); it.hasNext();) {
-      String path = (String) it.next();
+    for (Iterator<String> it = otherSource.iterator(); it.hasNext();) {
+      String path = it.next();
       if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtDPath(path) != null) continue;
       putValueAtPath(otherSource.getFullPathAtDPath(path), otherSource.getValueAtDPath(path));
     }
@@ -75,9 +74,9 @@ public abstract class XMLSource implements Freezable {
    * WARNING: must be distinguishedPaths
    * @param xpaths
    */
-  public void removeAll(Collection xpaths) {
-    for (Iterator it = xpaths.iterator(); it.hasNext();) {
-      removeValueAtDPath((String) it.next());
+  public void removeAll(Collection<String> xpaths) {
+    for (Iterator<String> it = xpaths.iterator(); it.hasNext();) {
+      removeValueAtDPath(it.next());
     }
   }
   
@@ -88,7 +87,7 @@ public abstract class XMLSource implements Freezable {
    */
   public boolean isDraft(String path) {
     String fullpath = getFullPath(path);
-    if (fullpath.indexOf("[@draft") < 0) return false;
+    if (fullpath.indexOf("[@draft=") < 0) return false;
     return parts.set(fullpath).containsAttribute("draft");
   }
   
@@ -120,36 +119,122 @@ public abstract class XMLSource implements Freezable {
   }
   
   /**
-   * Internal class
+   * Internal class. Immutable!
    */
-  protected static class Alias {
+  public static final class Alias {
     //public String oldLocaleID;
-    public String oldPath;
-    public String newLocaleID;
-    public String newPath;
-    XPathParts partsOld = new XPathParts(null, null);
-    XPathParts partsNew = new XPathParts(null, null);
-    XPathParts partsFull = new XPathParts(null, null);
+    private String newLocaleID;
+    private String oldPath;
+    private String newPath;
+    private boolean pathsEqual;
+    static final Pattern aliasPattern = Pattern.compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?"); // constant, so no need to sync
+    static final Map<String,Alias> cache = new HashMap<String,Alias>();
     
     public static Alias make(String aliasPath) {
-      XPathParts tempAliasParts = new XPathParts(null, null);
-      
       int pos = aliasPath.indexOf("/alias");
       if (pos < 0) return null; // quickcheck
-      if (!tempAliasParts.set(aliasPath).containsElement("alias")) return null;
-      Alias result = new Alias();
-      result.oldPath = aliasPath.substring(0,pos); // this is safe
-      Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
-      result.newLocaleID = (String) attributes.get("source");
-      if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
-      String relativePath = (String) attributes.get("path");
-      if (relativePath == null) result.newPath = result.oldPath;
-      else result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
-      if (result.newPath.equals(result.oldPath) && result.newLocaleID == null) {
-        throw new IllegalArgumentException("Alias must have different path or different source. AliasPath: " + aliasPath + ", Alias: " + result.toString());
+      
+      // check cache
+      synchronized (Alias.class) {
+        Alias result = cache.get(aliasPath);
+        if (result == null) {
+          result = new Alias();
+          result.oldPath = aliasPath.substring(0,pos); // this is safe
+          String relativePath;
+          if (USE_PARTS_IN_ALIAS) {
+            XPathParts tempAliasParts = new XPathParts(null, null);      
+            if (!tempAliasParts.set(aliasPath).containsElement("alias")) return null;
+            Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
+            result.newLocaleID = (String) attributes.get("source");
+            relativePath = (String) attributes.get("path");
+            if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
+            if (relativePath == null) result.newPath = result.oldPath;
+            else result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
+          } else {
+            // do the same as the above with a regex
+            Matcher matcher = aliasPattern.matcher(aliasPath.substring(pos+6));
+            if (matcher.matches()) {
+              result.newLocaleID = matcher.group(1);
+              if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
+              String relativePath2 = matcher.group(2);
+              if (relativePath2 == null) result.newPath = result.oldPath;
+              else result.newPath = addRelative(result.oldPath, relativePath2);
+              
+//            if (false) { // test
+//            if (newLocaleID != null) {
+//            if (!newLocaleID.equals(result.newLocaleID)) {
+//            throw new IllegalArgumentException();
+//            }
+//            } else if (result.newLocaleID != null) {
+//            throw new IllegalArgumentException();
+//            }
+//            if (!relativePath2.equals(relativePath)) {
+//            throw new IllegalArgumentException();
+//            }
+//            if (!newPath.equals(result.newPath)) {
+//            throw new IllegalArgumentException();
+//            }
+//            }
+            } else {
+              throw new IllegalArgumentException("bad alias pattern for " + aliasPath);
+            }
+          }
+          
+          if (result.newPath.equals(result.oldPath) && result.newLocaleID == null) {
+            throw new IllegalArgumentException("Alias must have different path or different source. AliasPath: " + aliasPath + ", Alias: " + result.toString());
+          }
+          result.pathsEqual = result.oldPath.equals(result.newPath);
+          cache.put(aliasPath,result);
+        }
+        return result;
       }
-      return result;
     }
+    
+    /**
+     * Create a new path from an old path + relative portion.
+     * Basically, each ../ at the front of the relative portion removes a trailing
+     * element+attributes from the old path.
+     * WARNINGS: 
+     * 1. It could fail if an attribute value contains '/'. This should not be the
+     * case except in alias elements, but need to verify.
+     * 2. Also assumes that there are no extra /'s in the relative or old path.
+     * 3. If we verified that the relative paths always used " in place of ',
+     * we could also save a step.
+     * 
+     * Maybe we could clean up #2 and #3 when reading in a CLDRFile the first time?
+     * @param oldPath
+     * @param relativePath
+     * @return
+     */
+    static String addRelative(String oldPath, String relativePath) {
+      while (relativePath.startsWith("../")) {
+        relativePath = relativePath.substring(3);
+        // strip extra "/". Shouldn't occur, but just to be safe.
+        while (relativePath.startsWith("/")) {
+          relativePath = relativePath.substring(1);
+        }
+        // strip last element
+        oldPath = stripLastElement(oldPath);
+      }
+      return oldPath + "/" + relativePath.replace('\'', '"');
+    }
+
+    //static final String ATTRIBUTE_PATTERN = "\\[@([^=]+)=\"([^\"]*)\"]";
+    static final Pattern MIDDLE_OF_ATTRIBUTE_VALUE = Pattern.compile("[^\"]*\"\\]");
+
+    public static String stripLastElement(String oldPath) {
+      int oldPos = oldPath.lastIndexOf('/');
+      // verify that we are not in the middle of an attribute value
+      Matcher verifyElement = MIDDLE_OF_ATTRIBUTE_VALUE.matcher(oldPath.substring(oldPos));
+      while (verifyElement.lookingAt()) {
+        oldPos = oldPath.lastIndexOf('/',oldPos-1);
+        // will throw exception if we didn't find anything
+        verifyElement.reset(oldPath.substring(oldPos));
+      }
+      oldPath = oldPath.substring(0, oldPos);
+      return oldPath;
+    }
+    
     public String toString() {
       return 
       //"oldLocaleID: " + oldLocaleID + ", " +
@@ -173,14 +258,17 @@ public abstract class XMLSource implements Freezable {
       
       // fullPath will be the same as newPath, except for some attributes at the end.
       // add those attributes to oldPath, starting from the end.
+      XPathParts partsOld = new XPathParts();
+      XPathParts partsNew = new XPathParts();
+      XPathParts partsFull = new XPathParts();
       partsOld.set(oldPath);
       partsNew.set(newPath);
       partsFull.set(fullPath);
-      Map attributesFull = partsFull.getAttributes(-1);
-      Map attributesNew = partsNew.getAttributes(-1);
-      Map attributesOld = partsOld.getAttributes(-1);
-      for (Iterator it = attributesFull.keySet().iterator(); it.hasNext();) {
-        Object attribute = it.next();
+      Map<String,String> attributesFull = partsFull.getAttributes(-1);
+      Map<String,String> attributesNew = partsNew.getAttributes(-1);
+      Map<String,String> attributesOld = partsOld.getAttributes(-1);
+      for (Iterator<String> it = attributesFull.keySet().iterator(); it.hasNext();) {
+        String attribute = it.next();
         if (attributesNew.containsKey(attribute)) continue;
         attributesOld.put(attribute, attributesFull.get(attribute));
       }
@@ -203,14 +291,40 @@ public abstract class XMLSource implements Freezable {
 //    }
       return result;
     }
+    public String getOldPath() {
+      return oldPath;
+    }
+    public String getNewLocaleID() {
+      return newLocaleID;
+    }
+    public String getNewPath() {
+      return newPath;
+    }
+    
+    public String composeNewAndOldPath(String path) {
+      return newPath + path.substring(oldPath.length());
+    }
+    
+    public String composeOldAndNewPath(String path) {
+      return oldPath + path.substring(newPath.length());
+    }
+
+    public boolean pathsEqual() {
+      return pathsEqual;
+    }
+
+    public static boolean isAliasPath(String path) {
+      return path.contains("/alias");
+    }
   }
   // should be overriden 
   /**
    * returns a map from the aliases' parents in the keyset to the alias path
    */
-  public List addAliases(List output) {
-    for (Iterator it = iterator(); it.hasNext();) {
-      String path = (String) it.next();
+  public List<Alias> addAliases(List<Alias> output) {
+    for (Iterator<String> it = iterator(); it.hasNext();) {
+      String path = it.next();
+      if (!Alias.isAliasPath(path)) continue;
       String fullPath = getFullPathAtDPath(path);
       Alias temp = Alias.make(fullPath);
       if (temp == null) continue;
@@ -327,12 +441,12 @@ public abstract class XMLSource implements Freezable {
    * @return an iterator over the distinguished paths that start with the prefix.
    * SUBCLASSING: Normally overridden for efficiency
    */
-  public Iterator iterator(String prefix) {
+  public Iterator<String> iterator(String prefix) {
     if (prefix == null || prefix.length() ==0) return iterator();
     return new com.ibm.icu.impl.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
   }
   
-  public Iterator iterator(Matcher pathFilter) {
+  public Iterator<String> iterator(Matcher pathFilter) {
     if (pathFilter == null) return iterator();
     return new com.ibm.icu.impl.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
   }
@@ -371,8 +485,8 @@ public abstract class XMLSource implements Freezable {
    */
   public String toString() {
     StringBuffer result = new StringBuffer();
-    for (Iterator it = iterator(); it.hasNext();) {
-      String path = (String) it.next();
+    for (Iterator<String> it = iterator(); it.hasNext();) {
+      String path = it.next();
       String value = getValueAtDPath(path);
       String fullpath = getFullPathAtDPath(path);
       result.append(fullpath).append(" =\t ").append(value).append("\r\n");
@@ -386,8 +500,8 @@ public abstract class XMLSource implements Freezable {
   public String toString(String regex) {
     Matcher matcher = Pattern.compile(regex).matcher("");
     StringBuffer result = new StringBuffer();
-    for (Iterator it = iterator(); it.hasNext();) {
-      String path = (String) it.next();
+    for (Iterator<String> it = iterator(); it.hasNext();) {
+      String path = it.next();
       if (!matcher.reset(path).matches()) continue;
       String value = getValueAtDPath(path);
       String fullpath = getFullPathAtDPath(path);
@@ -422,7 +536,7 @@ public abstract class XMLSource implements Freezable {
     private static class ParentAndPath {
       String parentID;
       String path;
-      List aliases = new ArrayList();
+      List<Alias> aliases = new ArrayList<Alias>();
       //String aliasPart;
       //String newPart;
       XMLSource source;
@@ -442,14 +556,14 @@ public abstract class XMLSource implements Freezable {
       public ParentAndPath next() {
         aliases.clear();
         source.addAliases(aliases);
-        if (aliases.size() != 0) for (Iterator it = aliases.iterator(); it.hasNext();) {
-          Alias alias = (Alias)it.next();
-          if (!path.startsWith(alias.oldPath)) continue;
+        if (aliases.size() != 0) for (Iterator<Alias> it = aliases.iterator(); it.hasNext();) {
+          Alias alias = it.next();
+          if (!path.startsWith(alias.getOldPath())) continue;
           // TODO fix parent, path, and return
-          parentID = alias.newLocaleID;
+          parentID = alias.getNewLocaleID();
           if (parentID == null) parentID = desiredLocaleID;
           source = source.make(parentID);
-          path =  alias.newPath + path.substring(alias.oldPath.length());
+          path = alias.composeNewAndOldPath(path); //  alias.getNewPath() + path.substring(alias.getOldPath().length());
           return this;
         }
         parentID = LocaleIDParser.getParent(parentID);
@@ -585,7 +699,7 @@ public abstract class XMLSource implements Freezable {
      * However, aliases are tricky, so watch it.
      */
     static final boolean TRACE_FILL = false;
-    private void fillKeys(int level, XMLSource currentSource, Alias alias, List excludedAliases, Set resultKeySet) {
+    private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
       if (TRACE_FILL) {
         if (level > 10) throw new IllegalArgumentException("Stack overflow");
         System.out.println(Utility.repeat("\t",level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
@@ -594,28 +708,28 @@ public abstract class XMLSource implements Freezable {
         System.out.println(Utility.repeat("\t",level) + "cachedKeySet.size(): " + resultKeySet.size());
         System.out.println(Utility.repeat("\t",level) + "excludedAliases: " + excludedAliases);
       }
-      List collectedAliases = null;
+      List<Alias> collectedAliases = null;
       // make a pass through, filling all the direct paths, excluding aliases, and collecting others
-      for (Iterator it = currentSource.iterator(); it.hasNext();) {
-        String path = (String) it.next();
+      for (Iterator<String> it = currentSource.iterator(); it.hasNext();) {
+        String path = it.next();
         String originalPath = path;
         if (alias != null) {
-          if (!path.startsWith(alias.newPath)) continue; // skip unless matches alias
-          if (!alias.oldPath.equals(alias.newPath)) { // substitute OLD path
-            path = alias.oldPath + path.substring(alias.newPath.length());
+          if (!path.startsWith(alias.getNewPath())) continue; // skip unless matches alias
+          if (!alias.pathsEqual()) { // substitute OLD path // getOldPath().equals(alias.getNewPath())
+            path = alias.composeOldAndNewPath(path); // alias.getOldPath() + path.substring(alias.getNewPath().length());
           }
         }
         if (excludedAliases != null && startsWith(path, excludedAliases)) {
           //System.out.println("Skipping: " + path);
           continue;
         }
-        if (path.indexOf("/alias") >= 0) { // quick check
+        if (Alias.isAliasPath(path)) { // quick check
           String fullPath = currentSource.getFullPathAtDPath(originalPath);
           // it's ok that the fullpath is not mapped to the old path, since 
           // the only thing the Alias.make cares about is the last bit
           Alias possibleAlias = Alias.make(fullPath);
           if (possibleAlias != null) {
-            if (collectedAliases == null) collectedAliases = new ArrayList();
+            if (collectedAliases == null) collectedAliases = new ArrayList<Alias>();
             collectedAliases.add(possibleAlias);
           }
         }
@@ -631,29 +745,29 @@ public abstract class XMLSource implements Freezable {
         String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
         if (parentID != null) parentSource = make(parentID); // factory.make(parentID, false).dataSource;
         if (collectedAliases != null) {
-          if (excludedAliases == null) excludedAliases = new ArrayList();
+          if (excludedAliases == null) excludedAliases = new ArrayList<Alias>();
           else excludedAliases.addAll(collectedAliases);
         }
         fillKeys(level+1, parentSource, alias, excludedAliases, resultKeySet);
       }
       
       // now recurse on the aliases we found
-      if (collectedAliases != null) for (Iterator it = collectedAliases.iterator(); it.hasNext();) {
+      if (collectedAliases != null) for (Iterator<Alias> it = collectedAliases.iterator(); it.hasNext();) {
         if (TRACE_FILL) {
           System.out.println(Utility.repeat("\t",level) + "Recursing on Alias: ");
         }
-        Alias foundAlias = (Alias)it.next();
+        Alias foundAlias = it.next();
         // this is important. If the new source is null, use *this* (the desired locale)
         XMLSource aliasSource = mySource;
-        if (foundAlias.newLocaleID != null) {
-          aliasSource = make(foundAlias.newLocaleID); // factory.make(foundAlias.newLocaleID, false).dataSource;
+        if (foundAlias.getNewLocaleID() != null) {
+          aliasSource = make(foundAlias.getNewLocaleID()); // factory.make(foundAlias.newLocaleID, false).dataSource;
         }
         fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
       }
       if (TRACE_FILL) System.out.println(Utility.repeat("\t",level) + "=> cachedKeySet.size(): " + resultKeySet.size());
     }
     
-    transient Set cachedKeySet = null;
+    transient Set<String> cachedKeySet = null;
     /**
      * This function is kinda tricky. What it does it come up with the set of all the paths that
      * would return a value, fully resolved. This wouldn't be a problem but for aliases.
@@ -662,12 +776,12 @@ public abstract class XMLSource implements Freezable {
      * Instead from source, you see everything that matches oldpath+relativePath + z, and for each one
      * add oldpath+z
      */
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
       return getCachedKeySet().iterator();
     }
-    private Set getCachedKeySet() {
+    private Set<String> getCachedKeySet() {
       if (cachedKeySet == null) {
-        cachedKeySet = new HashSet();
+        cachedKeySet = new HashSet<String>();
         fillKeys(0, mySource, null, null, cachedKeySet);
         //System.out.println("CachedKeySet: " + cachedKeySet);
         //cachedKeySet.addAll(constructedItems.keySet());
@@ -675,9 +789,9 @@ public abstract class XMLSource implements Freezable {
       }
       return cachedKeySet;
     }
-    private static boolean startsWith(String path, List aliasPaths) {
-      for (Iterator it = aliasPaths.iterator(); it.hasNext();) {
-        if (path.startsWith(((Alias)it.next()).oldPath)) return true;
+    private static boolean startsWith(String path, List<Alias> aliasPaths) {
+      for (Iterator<Alias> it = aliasPaths.iterator(); it.hasNext();) {
+        if (path.startsWith(it.next().getOldPath())) return true;
       }
       return false;
     }
@@ -743,12 +857,12 @@ public abstract class XMLSource implements Freezable {
         String type2 = (typeNo == CLDRFile.CURRENCY_SYMBOL) ? CLDRFile.getNameName(CLDRFile.CURRENCY_NAME)
             : (typeNo >= CLDRFile.TZ_START) ? "tzid"
                 : type;				
-        Set codes = sc.getGoodAvailableCodes(type2);
+        Set<String> codes = sc.getGoodAvailableCodes(type2);
         //String prefix = CLDRFile.NameTable[typeNo][0];
         //String postfix = CLDRFile.NameTable[typeNo][1];
         //String prefix2 = "//ldml" + prefix.substring(6); // [@version=\"" + GEN_VERSION + "\"]
-        for (Iterator codeIt = codes.iterator(); codeIt.hasNext(); ) {
-          String code = (String)codeIt.next();
+        for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
+          String code = codeIt.next();
           String value = code;
           if (typeNo == CLDRFile.TZ_EXEMPLAR) { // skip single-zone countries
             String country = (String) zone_countries.get(code);
@@ -820,6 +934,10 @@ public abstract class XMLSource implements Freezable {
     public Set getAvailableLocales() {
       return mySource.getAvailableLocales();
     }
+    @Override
+    public boolean isHere(String path) {
+      return mySource.isHere(path); // only test one level
+    }
   }
   /**
    * See CLDRFile isWinningPath for documentation
@@ -837,5 +955,15 @@ public abstract class XMLSource implements Freezable {
    */
   public String getWinningPath(String path) {
     return path;
+  }
+
+  /**
+   * return true if the path in this file (without resolution). Default implementation is to just see if the path has a value.
+   * The resolved source must just test the top level.
+   * @param path
+   * @return
+   */
+  public boolean isHere(String path) {
+    return getValueAtPath(path) != null;
   }
 }

@@ -69,6 +69,7 @@ public class CheckNumbers extends CheckCLDR {
    * exit as fast as possible except where the path is one that you are testing.
    */
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    if (fullPath == null) return this; // skip paths that we don't have
     // Do a quick check on the currencyMatch, to make sure that it is a proper UnicodeSet
     if (path.indexOf("/currencyMatch") >= 0) {
       try {

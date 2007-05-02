@@ -46,7 +46,8 @@ public class CheckZones extends CheckCLDR {
     
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map<String, String> options, List<CheckStatus> result) {
-		if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
+    if (fullPath == null) return this; // skip paths that we don't have
+    if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
 			return this;
 		if (timezoneFormatter == null) {
       if (true) return this;

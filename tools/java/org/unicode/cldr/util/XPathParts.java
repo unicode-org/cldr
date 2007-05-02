@@ -6,6 +6,8 @@
 */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,19 +19,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
-
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 
 /**
  * Parser for XPath
  */
 public class XPathParts {
-	private boolean DEBUGGING = false;
-	private List elements = new ArrayList();
+	private static final boolean DEBUGGING = false;
+	private List<Element> elements = new ArrayList();
 	Comparator attributeComparator;
 	Map suppressionMap;
 	
+  static Map<String,XPathParts> cache = new HashMap();
+  
 	public XPathParts() {
 		this(null,null);
 	}
@@ -47,7 +48,7 @@ public class XPathParts {
 	 */
 	public boolean containsElement(String element) {
 		for (int i = 0; i < elements.size(); ++i) {
-			if (((Element)elements.get(i)).getElement().equals(element)) return true;
+			if (elements.get(i).getElement().equals(element)) return true;
 		}
 		return false;
 	}
@@ -73,20 +74,20 @@ public class XPathParts {
 		// write the end of the last one
 		for (int i = lastFullXPath.size()-2; i >= limit; --i) {
 			Utility.indent(pw, i);
-			pw.println(((Element)lastFullXPath.elements.get(i)).toString(XML_CLOSE));
+			pw.println(lastFullXPath.elements.get(i).toString(XML_CLOSE));
 		}
 		if (v == null) return this; // end
 		// now write the start of the current
 		for (int i = limit; i < size()-1; ++i) {
 			filteredXPath.writeComment(pw, xpath_comments, i+1, Comments.PREBLOCK);
 			Utility.indent(pw, i);
-			pw.println(((Element)elements.get(i)).toString(XML_OPEN));
+			pw.println(elements.get(i).toString(XML_OPEN));
 		}
 		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.PREBLOCK);
 
 		// now write element itself
 		Utility.indent(pw, size()-1);
-		Element e = (Element)elements.get(size()-1);
+		Element e = elements.get(size()-1);
 		String eValue = v;
 		if (eValue.length() == 0) {
 			pw.print(e.toString(XML_NO_VALUE));
@@ -214,7 +215,7 @@ public class XPathParts {
 		if (index == 0) return this;
 		String xpath = toString(index);
 		Log.logln(DEBUGGING, "Checking for: " + xpath);
-		String comment = (String) xpath_comments.removeComment(style, xpath);
+		String comment = xpath_comments.removeComment(style, xpath);
 		if (comment != null) {
 			XPathParts.writeComment(pw, index-1, comment, style != Comments.LINE);
 		}
@@ -228,8 +229,8 @@ public class XPathParts {
 		int min = elements.size();
 		if (last.elements.size() < min) min = last.elements.size();
 		for (int i = 0; i < min; ++i) {
-			Element e1 = (Element) elements.get(i);
-			Element e2 = (Element) last.elements.get(i);
+			Element e1 = elements.get(i);
+			Element e2 = last.elements.get(i);
 			if (!e1.equals(e2)) return i;
 		}
 		return min;
@@ -245,16 +246,16 @@ public class XPathParts {
         int min = elements.size();
         if (last.elements.size() < min) min = last.elements.size();
         for (int i = 0; i < min; ++i) {
-            Element e1 = (Element) elements.get(i);
-            Element e2 = (Element) last.elements.get(i);
+            Element e1 = elements.get(i);
+            Element e2 = last.elements.get(i);
             if (!e1.equals(e2)){
                 /* is the current element the last one*/
                 if(i == min-1 ){
-                    String et1 = (String)e1.getAttribute("type");
-                    String et2 = (String)e2.getAttribute("type");
+                    String et1 = e1.getAttribute("type");
+                    String et2 = e2.getAttribute("type");
                     if(et1==null && et2==null){
-                        et1 = (String)e1.getAttribute("id");
-                        et2 = (String)e2.getAttribute("id");
+                        et1 = e1.getAttribute("id");
+                        et2 = e2.getAttribute("id");
                     }
                     if(et1.equals(et2)){
                         return true;
@@ -271,7 +272,7 @@ public class XPathParts {
 	 */
 	public boolean containsAttribute(String attribute) {
 		for (int i = 0; i < elements.size(); ++i) {
-			Element element = (Element) elements.get(i);
+			Element element = elements.get(i);
 			if (element.getAttribute(attribute) != null) return true;
 		}
 		return false;
@@ -281,14 +282,8 @@ public class XPathParts {
 	 */
 	public boolean containsAttributeValue(String attribute, String value) {
 		for (int i = 0; i < elements.size(); ++i) {
-			Map attributes = ((Element)elements.get(i)).getAttributes();
-			for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-				String a = (String) it.next();
-				if (a.equals(attribute)) {
-					String v = (String)attributes.get(a);
-					if (v.equals(value)) return true;
-				}
-			}
+      String otherValue = elements.get(i).getAttribute(attribute);
+      if (otherValue != null && value.equals(otherValue)) return true;
 		}
 		return false;
 	}
@@ -305,20 +300,21 @@ public class XPathParts {
 	 */
 	public String getElement(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
-		return ((Element)elements.get(elementIndex)).getElement();
+		return elements.get(elementIndex).getElement();
 	}
 	
 	/**
 	 * Get the attributes for the nth element (negative index is from end). Returns null or an empty map if there's nothing.
+   * PROBLEM: exposes internal map
 	 */
 	public Map<String,String> getAttributes(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
-		return ((Element)elements.get(elementIndex)).getAttributes();
+		return elements.get(elementIndex).getAttributes();
 	}
 	
 	public int getAttributeCount(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
-		return ((Element)elements.get(elementIndex)).getAttributeCount();
+		return elements.get(elementIndex).getAttributeCount();
 	}
 
 	
@@ -329,7 +325,9 @@ public class XPathParts {
 	 */
 	public Collection<String> getAttributeKeys(int elementIndex) {
 		if (elementIndex < 0) elementIndex += size();
-		return Collections.unmodifiableSet(((Element)elements.get(elementIndex)).getAttributeKeys());
+    Set result = elements.get(elementIndex).getAttributeKeys();
+    if (result == Collections.EMPTY_SET) return result;
+		return Collections.unmodifiableSet(result);
 	}
 
 	/**
@@ -337,19 +335,20 @@ public class XPathParts {
 	 */
 	public String getAttributeValue(int elementIndex, String attribute) {
 		if (elementIndex < 0) elementIndex += size();
-		return (String) ((Element)elements.get(elementIndex)).getAttribute(attribute);
+		return elements.get(elementIndex).getAttribute(attribute);
 	}
 	
 	public void putAttributeValue(int elementIndex, String attribute, String value) {
 		if (elementIndex < 0) elementIndex += size();
-		((Element)elements.get(elementIndex)).putAttribute(attribute, value);
+		elements.get(elementIndex).putAttribute(attribute, value);
 	}
 
 	
 	/**
 	 * Get the attributes for the nth element. Returns null or an empty map if there's nothing.
+   * PROBLEM: exposes internal map
 	 */
-	public Map findAttributes(String elementName) {
+	public Map<String,String> findAttributes(String elementName) {
 		int index = findElement(elementName);
 		if (index == -1) return null;
 		return getAttributes(index);
@@ -376,10 +375,10 @@ public class XPathParts {
 	 * Add an attribute/value pair to the current last element.
 	 */
 	public XPathParts addAttribute(String attribute, String value) {
-		Element e = (Element)elements.get(elements.size()-1);
+		Element e = elements.get(elements.size()-1);
 		attribute = attribute.intern();
 		//AttributeComparator.add(attribute);
-		e.getAttributes().put(attribute, value);
+    e.putAttribute(attribute, value);
 		return this;
 	}
 
@@ -389,7 +388,17 @@ public class XPathParts {
 	 * @return
 	 */
 	public XPathParts set(String xPath) {
-    	return addInternal(xPath, true);
+    if (true) {
+      return addInternal(xPath, true);
+    }
+    
+    // try caching to see if that speeds things up
+    XPathParts cacheResult = cache.get(xPath);
+    if (cacheResult == null) {
+      cacheResult = new XPathParts(attributeComparator, suppressionMap).addInternal(xPath, true);
+      //cache.put(xPath,cacheResult);
+    }
+    return set(cacheResult); // does a deep copy, so ok.
 	}
 	
 	/**
@@ -475,7 +484,7 @@ public class XPathParts {
 		String result = "/";
 		try {
 			for (int i = 0; i < limit; ++i) {
-				result += ((Element)elements.get(i)).toString(XPATH_STYLE);
+				result += elements.get(i).toString(XPATH_STYLE);
 			}
 		} catch (RuntimeException e) {
 			throw e;
@@ -485,7 +494,7 @@ public class XPathParts {
 	public String toString(int start, int limit) {
 		String result = "";
 		for (int i = start; i < limit; ++i) {
-			result += ((Element)elements.get(i)).toString(XPATH_STYLE);
+			result += elements.get(i).toString(XPATH_STYLE);
 		}
 		return result;
 	}
@@ -521,9 +530,9 @@ public class XPathParts {
 	public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
 	public static final String NEWLINE = "\n";
 	
-	private class Element {
+	private class Element implements Cloneable {
 		private String element;
-		private Map<String,String> attributes; // = new TreeMap(AttributeComparator);
+		private TreeMap<String,String> attributes; // = new TreeMap(AttributeComparator);
 
 		public Element(String element) {
       // if we don't intern elements, we'd have to change equals.
@@ -531,6 +540,15 @@ public class XPathParts {
 			this.attributes = null;
 		}
 		
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+      Element result = (Element) super.clone();
+      if (attributes != null) {
+        attributes = (TreeMap<String, String>) attributes.clone();
+      }
+      return result;
+    }
+    
 		public void putAttribute(String attribute, String value) {
 			getAttributes().put(attribute, value);
 		}
@@ -600,7 +618,7 @@ public class XPathParts {
 //			}
 			for (Iterator it = keys.iterator(); it.hasNext();) {
 				String attribute = (String) it.next();
-				String value = (String) getAttribute(attribute);
+				String value = getAttribute(attribute);
 				if (removeLDMLExtras && suppressionMap != null) {
 					Map attribute_value = (Map) suppressionMap.get(element);
 					if (attribute_value == null) attribute_value = (Map) suppressionMap.get("*");
@@ -657,7 +675,7 @@ public class XPathParts {
 
 		private String getAttribute(String attribute) {
 			if (attributes == null) return null;
-			return (String) attributes.get(attribute);
+			return attributes.get(attribute);
 		}
 	}
 
@@ -667,7 +685,7 @@ public class XPathParts {
 	 */
 	public int findElement(String elementName) {
 		for (int i = 0; i < elements.size(); ++i) {
-			Element e = (Element) elements.get(i);
+			Element e = elements.get(i);
 			if (!e.getElement().equals(elementName)) continue;
 			return i;
 		}
@@ -709,9 +727,15 @@ public class XPathParts {
 	 * @param parts
 	 */
 	public XPathParts set(XPathParts parts) {
-		elements.clear();
-		elements.addAll(parts.elements);
-		return this;
+		try {
+      elements.clear();
+      for (Element element : parts.elements) {
+        elements.add((Element)element.clone());
+      }
+      return this;
+    } catch (CloneNotSupportedException e) {
+      throw (InternalError) new InternalError().initCause(e);
+    }
 	}
 	/**
 	 * Replace up to i with parts
@@ -719,7 +743,7 @@ public class XPathParts {
 	 * @param parts
 	 */
 	public XPathParts replace(int i, XPathParts parts) {
-		List temp = elements;
+		List<Element> temp = elements;
 		elements = new ArrayList();
 		set(parts);
 		for (;i < temp.size(); ++i) {
@@ -819,12 +843,12 @@ public class XPathParts {
 	
 	public XPathParts removeProposed() {
 		for (int i = 0; i < elements.size(); ++i) {
-			Element element = (Element) elements.get(i);
+			Element element = elements.get(i);
 			if (element.attributes == null) continue;
 			for (Iterator it = element.attributes.keySet().iterator(); it.hasNext();) {
 				String attribute = (String) it.next();
 				if (!attribute.equals("alt")) continue;
-				String attributeValue = (String) element.attributes.get(attribute);
+				String attributeValue = element.attributes.get(attribute);
 				int pos = attributeValue.indexOf("proposed");
 				if (pos < 0) break;
 				if (pos > 0 && attributeValue.charAt(pos-1) == '-') --pos; // backup for "...-proposed"

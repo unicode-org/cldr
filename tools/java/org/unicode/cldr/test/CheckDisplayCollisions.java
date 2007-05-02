@@ -36,7 +36,8 @@ public class CheckDisplayCollisions extends CheckCLDR {
 	}
 	
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-		for (int i = 0; i < typesICareAbout.length; ++i) {
+    if (fullPath == null) return this; // skip paths that we don't have
+    for (int i = 0; i < typesICareAbout.length; ++i) {
 			if (path.startsWith(typesICareAbout[i])) {
 				if (!builtCollisions[i]) buildCollisions(i);
 				Set codes = (Set) hasCollisions.get(path);

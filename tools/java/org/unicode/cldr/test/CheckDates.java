@@ -124,6 +124,7 @@ public class CheckDates extends CheckCLDR {
   Collection redundants = new HashSet();
   
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    if (fullPath == null) return this; // skip paths that we don't have
     if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
     try {
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {

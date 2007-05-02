@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -242,7 +243,7 @@ abstract public class CheckCLDR {
     // call on the files
     Set locales = cldrFactory.getAvailable();
     List result = new ArrayList();
-    Set paths = new TreeSet(CLDRFile.ldmlComparator);
+    Set paths = new TreeSet(); // CLDRFile.ldmlComparator);
     Map m = new TreeMap();
     //double testNumber = 0;
     Map options = new HashMap();
@@ -250,7 +251,7 @@ abstract public class CheckCLDR {
     Counter subtotalCount = new Counter();
     FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
     
-    PrettyPath prettyPath = new PrettyPath();
+    PrettyPath prettyPathMaker = new PrettyPath();
     
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
@@ -302,10 +303,12 @@ abstract public class CheckCLDR {
         subtotalCount.add(status.type, 1);
       }
       paths.clear();
-      CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+      //CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+      addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, paths);
       
       // also add the English paths
-      CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
+      //CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
+      addPrettyPaths(checkCldr.getDisplayInformation(), pathFilter, prettyPathMaker, noaliases, paths);
       
       UnicodeSet missingExemplars = new UnicodeSet();
       if (checkFlexibleDates) {
@@ -352,28 +355,29 @@ abstract public class CheckCLDR {
 //        return;
 //      }
       
-      ExampleGenerator exampleGenerator = new ExampleGenerator(file, Utility.SUPPLEMENTAL_DIRECTORY);
-      Status pathStatus = new Status();
+      // only create if we are going to use
+      ExampleGenerator exampleGenerator = SHOW_EXAMPLES ? new ExampleGenerator(file, Utility.SUPPLEMENTAL_DIRECTORY) : null;
+      
+      //Status pathStatus = new Status();
       int pathCount = 0;
+      
       for (Iterator it2 = paths.iterator(); it2.hasNext();) {
         pathCount++;
-        String path = (String) it2.next();
+        String prettyPath = (String) it2.next();
+        String path = prettyPathMaker.getOriginal(prettyPath);
+        if (path == null) {
+          prettyPathMaker.getOriginal(prettyPath);
+        }
         String value = file.getStringValue(path);
 //        if (value == null) {
 //          value = file.getStringValue(path);
 //        }
         String fullPath = file.getFullXPath(path);
 
-        if (noaliases) { // this is just for console testing, the survey tool shouldn't do it.
-          String sourceLocale = file.getSourceLocaleID(path, pathStatus);
-          if (!path.equals(pathStatus.pathWhereFound)) {
-            continue;
-          }
-        }
-        
-        String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
+        String example = "";
 
         if (SHOW_EXAMPLES) {
+          example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
           showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example);
           //continue; // don't show problems
         }
@@ -448,6 +452,7 @@ abstract public class CheckCLDR {
 //      ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity
         for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
           String path = "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
+          String prettyPath = prettyPathMaker.getPrettyPath(path, false);
           if (!pathFilter.reset(path).matches()) continue;
           String fullPath = file.getStringValue(path);
           if (fullPath != null) continue;
@@ -465,11 +470,27 @@ abstract public class CheckCLDR {
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
   }
 
+  private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, Collection<String> target) {
+    Status pathStatus = new Status();
+    for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
+      String path = pit.next();
+      if (noaliases && XMLSource.Alias.isAliasPath(path)) { // this is just for console testing, the survey tool shouldn't do it.
+          continue;
+//        file.getSourceLocaleID(path, pathStatus);
+//        if (!path.equals(pathStatus.pathWhereFound)) {
+//          continue;
+//        }
+      }      
+      String prettyPath = prettyPathMaker.getPrettyPath(path, true); // get sortable version
+      target.add(prettyPath);
+    }
+  }
+
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
     System.out.println(checkCldr.getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value);
   }
 
-  private static void showExamples(CheckCLDR checkCldr, PrettyPath prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example) {
+  private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example) {
     if (example != null) {
       checkCldr.showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
     }
@@ -483,14 +504,14 @@ abstract public class CheckCLDR {
     }
   }
 
-  private void showValue(PrettyPath prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
+  private void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
-        + "\t" + prettyPath.getPrettyPath(path, false)
+        + "\t" + prettyPath
         + "\t" + getEnglishPathValue(path)
         + "\t" + englishExample
         + "\t" + value

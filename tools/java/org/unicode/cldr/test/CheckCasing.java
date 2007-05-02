@@ -36,6 +36,7 @@ public class CheckCasing extends CheckCLDR {
   // If you don't need any file initialization or postprocessing, you only need this one routine
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     // it helps performance to have a quick reject of most paths
+    if (fullPath == null) return this; // skip paths that we don't have
     if (fullPath.indexOf("casing") < 0) return this;
     
     // pick up the casing attributes from the full path

@@ -15,7 +15,8 @@ public class CheckCurrencies extends CheckCLDR {
     // If you don't need any file initialization or postprocessing, you only need this one routine
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
-        if (path.indexOf("/currency") < 0 || path.indexOf("/symbol") < 0) return this;
+      if (fullPath == null) return this; // skip paths that we don't have
+      if (path.indexOf("/currency") < 0 || path.indexOf("/symbol") < 0) return this;
         
         // parts.set(path); // normally you have to parse out a path to get the exact one, but in this case the quick reject suffices
         

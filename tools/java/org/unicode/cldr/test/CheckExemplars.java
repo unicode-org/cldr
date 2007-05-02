@@ -36,7 +36,8 @@ public class CheckExemplars extends CheckCLDR {
 	}
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-		if (path.indexOf("/exemplarCharacters") < 0) return this;
+    if (fullPath == null) return this; // skip paths that we don't have
+    if (path.indexOf("/exemplarCharacters") < 0) return this;
 		boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
         checkExemplar(value, result, isAuxiliary);
         if (options.get("submission") == null) return this;

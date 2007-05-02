@@ -19,7 +19,8 @@ public class CheckChildren extends CheckCLDR {
 	
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map<String, String> options, List<CheckStatus> result) {
-		if (immediateChildren == null) return this; // skip
+    if (fullPath == null) return this; // skip paths that we don't have
+    if (immediateChildren == null) return this; // skip
 		
         if (options.get("submission") == null) return this;
 

@@ -71,6 +71,7 @@ public class CheckForExemplars extends CheckCLDR {
   
   public CheckCLDR handleCheck(String path, String fullPath, String value,
       Map<String, String> options, List<CheckStatus> result) {
+    if (fullPath == null) return this; // skip paths that we don't have
     if (skip) return this;
     /*srl*/ if(path == null) { 
       throw new InternalError("Empty path!");

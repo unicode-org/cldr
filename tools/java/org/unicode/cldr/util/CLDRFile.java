@@ -444,6 +444,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   /**
+   * return true if the path in this file (without resolution)
+   * @param path
+   * @return
+   */
+  public boolean isHere(String path) {
+    return dataSource.isHere(path);
+  }
+  
+  /**
    * Add a new element to a CLDRFile.
    * @param currentFullXPath
    * @param value
@@ -829,11 +838,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return dataSource.iterator();
   }
   
-  public Iterator iterator(String prefix) {
+  public Iterator<String> iterator(String prefix) {
     return dataSource.iterator(prefix);
   }
   
-  public Iterator iterator(Matcher pathFilter) {
+  public Iterator<String> iterator(Matcher pathFilter) {
     return dataSource.iterator(pathFilter);
   }
   

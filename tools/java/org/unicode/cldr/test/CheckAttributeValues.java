@@ -41,6 +41,7 @@ public class CheckAttributeValues extends CheckCLDR {
 
     XPathParts parts = new XPathParts(null, null);
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+      if (fullPath == null) return this; // skip paths that we don't have
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
         	if (parts.getAttributeCount(i) == 0) continue;

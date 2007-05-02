@@ -18,15 +18,16 @@ import org.unicode.cldr.util.XPathParts;
 public class CheckAlt extends CheckCLDR {
 	
 	XPathParts parts = new XPathParts();
-	CLDRFile.Status status = new CLDRFile.Status();
+	//CLDRFile.Status status = new CLDRFile.Status();
 	Set seenSoFar = new HashSet();
 	
 	// determine if we have an alt=...proposed
 	// if we have one, and there is not a non-proposed version -- in this same file, unaliased, there's a problem.
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map<String, String> options, List<CheckStatus> result) {
+    if (fullPath == null) return this; // skip paths that we don't have
 		if (path.indexOf("proposed") <= 0) return this;
-		String localeID = getCldrFileToCheck().getSourceLocaleID(path, status);
+		String localeID = getCldrFileToCheck().getSourceLocaleID(path, null);
 		if (!localeID.equals(getCldrFileToCheck().getLocaleID())) return this; // must be same file
 		//if (!status.pathWhereFound.equals(path)) return this; // must be unaliased
 		
@@ -38,7 +39,7 @@ public class CheckAlt extends CheckCLDR {
 		String strippedPath = removeProposed(path);
 		if (strippedPath.equals(path)) return this; // happened to match "proposed" but wasn't in 'alt';
 		
-		localeID = getCldrFileToCheck().getSourceLocaleID(strippedPath, status);
+		localeID = getCldrFileToCheck().getSourceLocaleID(strippedPath, null);
 		// if localeID is null, or if it is CODE_FALLBACK_ID or root, we have a potential problem.
 		if (localeID == null || localeID.equals(XMLSource.CODE_FALLBACK_ID)) { //  || localeID.equals("root")
 			String message = strippedPath;

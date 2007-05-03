@@ -181,6 +181,8 @@ import com.ibm.icu.util.ULocale;
         public PreparedStatement insertSource = null;
         public PreparedStatement oxpathFromXpath = null;
         public PreparedStatement keyNoVotesSet = null;
+        public PreparedStatement removeItem = null;
+        public PreparedStatement getSubmitterId = null;
         
         /**
          * called to initialize one of the preparedstatement fields
@@ -275,6 +277,12 @@ import com.ibm.icu.util.ULocale;
             
             insertSource = prepareStatement("insertSource",
                                             "INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)");
+                                            
+            getSubmitterId = prepareStatement("getSubmitterId",
+                                            "SELECT submitter from " + CLDR_DATA + " where locale=? AND xpath=? AND ( submitter is not null )"); // don't return anything if the submitter isn't set.
+                                            
+            removeItem = prepareStatement("removeItem",
+                                        "DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=? AND submitter=?");
         }
         
     }
@@ -753,6 +761,33 @@ import com.ibm.icu.util.ULocale;
          throw new InternalError("read-only");
     }
 
+    /**
+     * Remove an item from the DB. Only works for items with a 'submitter' id, i.e., which are from
+     * user entry to ST.
+     * @param locale locale of item
+     * @param xpathId id to remove
+     * @param submitter submitter's id - not strictly necessary, but it's a check.
+     */
+    public void removeItem(String locale, int xpathId, int submitter) {
+        if(conn == null) {
+            throw new InternalError("No DB connection!");
+        }
+        try {
+            stmts.removeItem.setString(1, locale);
+            stmts.removeItem.setInt(2, xpathId);
+            stmts.removeItem.setInt(3, submitter);
+            int n = stmts.removeItem.executeUpdate();
+            if(n != 1) {
+                throw new InternalError("Trying to remove "+locale+":"+xpathId+"@"+submitter + " and the path wasn't found.");
+            }
+            conn.commit();
+        } catch(SQLException se) {
+            String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@"+submitter +" : " + SurveyMain.unchainSqlException(se));
+            logger.severe(problem);
+            throw new InternalError(problem);
+        }
+    }
+
    /** 
      * XMLSource API. Returns whether or not a value exists. 
      * @param path a distinguished path
@@ -796,9 +831,35 @@ import com.ibm.icu.util.ULocale;
   }
 */
 
+  public int getSubmitterId(String locale, int xpath) {
+    try {
+        ResultSet rs;
+        stmts.getSubmitterId.setString(1,locale);
+        stmts.getSubmitterId.setInt(2,xpath);
+        rs = stmts.getSubmitterId.executeQuery();
+        if(!rs.next()) {
+///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
+            return -1;
+        }
+        int rp = rs.getInt(1);
+        rs.close();
+///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
+        if(rp > 0) {
+            return rp;
+        } else {
+            return -1;
+        }
+    } catch(SQLException se) {
+        logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
+        throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+    }
+  }
+
+
+
 ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
 //if(showDebug) /*srl*/logger.info(locale + ":" + path);
-  private String getWinningPath(int xpath, String locale) {
+  public int getWinningPathId(int xpath, String locale) {
     try {
         ResultSet rs;
         if(finalData) {
@@ -808,20 +869,29 @@ import com.ibm.icu.util.ULocale;
             stmts.queryVetXpath.setInt(2,xpath); // TODO: 2 more specificity
             rs = stmts.queryVetXpath.executeQuery();
         }
-        String rv = null;
         if(!rs.next()) {
-            return null;
+            return -1;
         }
         int rp = rs.getInt(1);
-        if(rp != 0) {  // 0  means, fallback xpath
-            rv = xpt.getById(rp);
-        }
         rs.close();
-//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-        return rv;
+        if(rp != 0) {  // 0  means, fallback xpath
+            return rp;
+        } else {
+            return -1;
+        }
+        //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
     } catch(SQLException se) {
         logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
         throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+    }
+  }
+
+  public String getWinningPath(int xpath, String locale) {
+    int rp = getWinningPathId(xpath, locale);
+    if(rp > 0) {
+        return xpt.getById(rp);
+    } else {
+        return null;
     }
   }
 

@@ -174,9 +174,20 @@ public class DataPod extends Registerable {
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
         int base_xpath = -1;
+        
+        // true even if only the non-winning subitems have tests.
         boolean hasTests = false;
+
+        // the xpath id of the winner. If no winner or n/a, -1. 
+        int winningXpathId = -1;
+        
+        // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
         boolean hasWarnings = false;
+        
+        // do any items have warnings or errs?
+        boolean anyItemHasWarnings = false;
+        
         boolean hasProps = false;
         boolean hasInherited = false;
         public int voteType = 0; // bitmask of all voting types included
@@ -187,6 +198,7 @@ public class DataPod extends Registerable {
             String pathWhereFound = null;
             String inheritFrom = null;
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
+            public int submitter = -1; // if this was submitted via ST, record user id. ( NOT from XML - in other words, we won't be parsing 'proposed-uXX' items. ) 
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
             public List tests = null;
@@ -247,12 +259,15 @@ public class DataPod extends Registerable {
                 }
                 if(weHaveTests) {
                     /* pea */ hasTests = true;
-                    if(errorCount>0) /* pea */ hasErrors = true;
-                    if(warningCount>0) /* pea */ hasWarnings = true;
-                    // propagate to parent
                     superPea.hasTests = true;
-                    if(errorCount>0) /* pea */ superPea.hasErrors = true;
-                    if(warningCount>0) /* pea */ superPea.hasWarnings = true;
+                                        
+                    if((winningXpathId==-1) || (xpathId == winningXpathId)) {
+                        if(errorCount>0) /* pea */ hasErrors = true;
+                        if(warningCount>0) /* pea */ hasWarnings = true;
+                        // propagate to parent
+                        if(errorCount>0) /* pea */ superPea.hasErrors = true;
+                        if(warningCount>0) /* pea */ superPea.hasWarnings = true;
+                    }
                 }
             }
         }
@@ -954,6 +969,7 @@ public class DataPod extends Registerable {
                 System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
             }
             pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
+            pod.exampleGenerator.setVerboseErrors(ctx.sm.twidBool("ExampleGenerator.setVerboseErrors"));
         }
 		return pod;
 	}
@@ -1360,6 +1376,8 @@ public class DataPod extends Registerable {
             
             Pea p = getPea(type, altType);
             
+            p.winningXpathId = src.getWinningPathId(base_xpath, locale);
+            
 ///*srl*/ if(xpath.indexOf("Acre")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
 
             
@@ -1540,13 +1558,21 @@ public class DataPod extends Registerable {
             myItem = p.addItem( value, altProposed, null);
 //if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
             
+            myItem.xpath = xpath;
+            myItem.xpathId = src.xpt.getByXpath(xpath);
+
             if(!checkCldrResult.isEmpty()) {
                 myItem.setTests(checkCldrResult);
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
             }
-            myItem.xpath = xpath;
-            myItem.xpathId = src.xpt.getByXpath(xpath);
+            /*
+                Was this item submitted via SurveyTool? Let's find out.
+            */
+            myItem.submitter = src.getSubmitterId(locale, myItem.xpathId);
+            if(myItem.submitter != -1) {
+///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
+            }
 
             if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
 //System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);

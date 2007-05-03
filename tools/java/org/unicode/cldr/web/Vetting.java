@@ -1208,7 +1208,7 @@ public class Vetting {
         }
         
         if(id == -1) { 
-            // Not an existing vote:  insert a new oen
+            // Not an existing vote:  insert a new one
             // insert 
         // insertResult: "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             insertResult.setInt(2,base_xpath);

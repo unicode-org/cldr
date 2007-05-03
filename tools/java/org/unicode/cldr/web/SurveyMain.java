@@ -174,6 +174,8 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     
+    static final String PREF_SHOWDELETE = "p_delete";
+    
     static final String  BASELINE_ID = "en";
     static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
     static final String  BASELINE_NAME = BASELINE_LOCALE.getDisplayName(BASELINE_LOCALE);
@@ -596,6 +598,10 @@ public class SurveyMain extends HttpServlet {
         } else {
             return b.booleanValue();
         }
+	}
+
+	private boolean twidGetBool(String key) {
+        return twidGetBool(key,false);
 	}
 	
 	void twidPut(String key, boolean val) {
@@ -1166,7 +1172,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 u=u+"|"+k+"="+v;
             }
-            ctx.println("| <a href='" + bugReplyUrl(BUG_ST_FOLDER, BUG_ST, "Feedback on URL ?" + u)+"'>Report Problem in Tool</a>");
+            ctx.println("| <a href='" + bugFeedbackUrl("Feedback on URL ?" + u)+"'>Report Problem in Tool</a>");
         } catch (Throwable t) {
             System.err.println(t.toString());
             t.printStackTrace();
@@ -1546,7 +1552,7 @@ public class SurveyMain extends HttpServlet {
 
         WebContext subCtx = new WebContext(ctx);
         subCtx.setQuery(QUERY_DO,"coverage");
-        boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown");
+        boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown (click to toggle)");
         String missingLocalesForOrg = org;
         if(missingLocalesForOrg == null) {
             missingLocalesForOrg = showListPref(subCtx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
@@ -2655,6 +2661,11 @@ public class SurveyMain extends HttpServlet {
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
             ctx.println("</div>");
         }
+
+
+        ctx.println("<h4>Deletion</h4>");
+        ctx.print("<br>Show controls for deleting unused items in zoomed-in view: ");
+        boolean delete = showTogglePref(ctx, PREF_SHOWDELETE, "(Click to toggle)");
         
         printFooter(ctx);
     }
@@ -3796,6 +3807,7 @@ public class SurveyMain extends HttpServlet {
         if(gBaselineExample == null) {
             gBaselineExample = new ExampleGenerator(getBaselineFile(), fileBase + "/../supplemental/");
         }
+        gBaselineExample.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
         return gBaselineExample;
     }
 
@@ -4870,11 +4882,14 @@ public class SurveyMain extends HttpServlet {
         
         // . . .
         DataPod.Pea.Item voteForItem = null;
+        DataPod.Pea.Item deleteItem = null; // remove item
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(choice.equals(item.altProposed)) {
                 voteForItem = item;
+            } else if(choice.equals(item.altProposed+"_DEL")) {
+                deleteItem = item;
             }
         }
         
@@ -5121,6 +5136,18 @@ public class SurveyMain extends HttpServlet {
                 return doVote(ctx, pod.locale, item.xpathId);
             } else {
                 return false; // existing vote.
+            }
+        } else if(deleteItem != null) {
+            DataPod.Pea.Item item = deleteItem;
+            if((item.submitter != -1) && 
+                !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
+                    ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:  Removing alternate \""+item.value+
+                        "\" ("+item.altProposed+")<br>");
+                ourSrc.removeItem(pod.locale, item.xpathId, item.submitter);
+                return true;
+            } else {
+                ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
             }
         } else {
             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
@@ -5956,7 +5983,7 @@ public class SurveyMain extends HttpServlet {
                     }
                 }
             }
-            ctx.print("<span class='notselected' title='"+title+"'>\u2611</span>");
+            ctx.print("<span class='notselected' title='"+title+"'>\u2611</span>"); // ballot box symbol
         }
 
         ctx.print("<span "+pClass+">");
@@ -5967,6 +5994,17 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<i dir='ltr'>(empty)</i>");
         }
         ctx.print("</span>");
+        
+        if(item.votes == null) {
+            boolean deleteShown = ctx.prefBool(PREF_SHOWDELETE);
+            if(deleteShown && canModify && (item.submitter != -1) && zoomedIn &&
+                !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
+                ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                    ctx.println("<label class='ferrbox' style='padding: 4px;'>"+ "<input type='radio' title='#"+item.xpathId+
+                        "' value='"+item.altProposed+"_DEL' name='"+fieldHash+"'>" +"<span class='notselected'>Delete&nbsp;this&nbsp;item</span></label>");
+            }
+        }
+        
         /*
 
             if(item.votes != null) {
@@ -6052,6 +6090,15 @@ public class SurveyMain extends HttpServlet {
                     showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
                 }
             }
+            
+            {
+                WebContext subCtx = new WebContext(ctx);
+                if(skip > 0) {
+                    subCtx.setQuery("skip",new Integer(skip).toString());
+                }
+            }
+            
+            
             ctx.println("</p>");
         }
 
@@ -7111,6 +7158,10 @@ public class SurveyMain extends HttpServlet {
     
     public static String bugReplyUrl(String folder, int number, String subject) {
         return BUG_URL_BASE + "/"+folder+"?compose="+number+"&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
+    }
+
+    public static String bugFeedbackUrl(String subject) {
+        return BUG_URL_BASE +"?newbug=survey-feedback&amp;subject="+java.net.URLEncoder.encode(subject)+"&amp;locksubj=y";
     }
     
 

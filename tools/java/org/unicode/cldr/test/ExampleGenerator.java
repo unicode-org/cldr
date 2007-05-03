@@ -20,6 +20,8 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.IOException;
 import java.text.ChoiceFormat;
 import java.util.ArrayList;
@@ -71,6 +73,8 @@ public class ExampleGenerator {
   private String backgroundStart = "<span class='substituted'>";
 
   private String backgroundEnd = "</span>";
+  
+  private boolean verboseErrors = false;
 
   private Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
 
@@ -144,6 +148,15 @@ public class ExampleGenerator {
    */
   public void setBackgroundStart(String backgroundStart) {
     this.backgroundStart = backgroundStart;
+  }
+  
+  /**
+   * Set the verbosity level of internal errors. 
+   * For example, setVerboseErrors(true) will cause 
+   * full stack traces to be shown in some cases.
+   */
+  public void setVerboseErrors(boolean verbosity) {
+    this.verboseErrors = verbosity;
   }
 
   /**
@@ -378,11 +391,25 @@ public class ExampleGenerator {
       }
       return result;
     } catch (RuntimeException e) {
+      String unchained = verboseErrors?("<br>"+unchainException(e)):"";
       return zoomed == Zoomed.OUT 
           ? "<i>internal error</i>"
-          : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>");
+          : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>"+unchained);
     }
   }
+
+  public static final String unchainException(Exception e) {
+    String stackStr = "[unknown stack]<br>";
+    try {
+        StringWriter asString = new StringWriter();
+        e.printStackTrace(new PrintWriter(asString));
+        stackStr = "<pre>" + asString.toString() +"</pre>";
+    } catch ( Throwable tt ) {
+        // ...
+    }
+    return stackStr;
+  }
+
 
   /**
    * Put a background on an item, skipping enclosed patterns.

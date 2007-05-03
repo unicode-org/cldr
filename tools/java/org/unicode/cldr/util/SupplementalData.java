@@ -248,20 +248,19 @@ public class SupplementalData {
     public String resolveParsedMetazone ( String metazone, String territory )
     {
        Node mzLookup = null; 
+       String result = "Etc/GMT";
 
        mzLookup = LDMLUtilities.getNode(getSupplemental(), "//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone[@other=\""+metazone+"\"][@territory=\""+territory+"\"]");
 
        if (mzLookup == null ) {
-          System.out.println("Can't find territory specific for "+territory);
           mzLookup = LDMLUtilities.getNode(getSupplemental(),"//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone[@other=\""+metazone+"\"][@territory=\"001\"]");
  
           if (mzLookup == null ) {
-             System.out.println("Can't find 001 for "+metazone);
-             return null;
+             return result;
           }
        }
-       int i = 0;
-       String result = LDMLUtilities.getAttributeValue(mzLookup,LDMLConstants.TYPE);
+
+       result = LDMLUtilities.getAttributeValue(mzLookup,LDMLConstants.TYPE);
        return result;
     }
 

@@ -9,11 +9,9 @@ package org.unicode.cldr.util;
 
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.XMLSource.ResolvingSource.AliasLocation;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.util.Freezable;
-import com.sun.corba.se.impl.ior.OldPOAObjectKeyTemplate;
 
 import java.util.ArrayList;
 import java.util.Collection;

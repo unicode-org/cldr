@@ -8,6 +8,8 @@
 package org.unicode.cldr.util;
 
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
+import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.XMLSource.ResolvingSource.AliasLocation;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.util.Freezable;
@@ -531,7 +533,7 @@ public abstract class XMLSource implements Freezable {
    */
   private static class ResolvingSource extends XMLSource {
     private XMLSource mySource;
-    private Alias tempAlias = new Alias();
+//    private Alias tempAlias = new Alias();
     
     private static class ParentAndPath {
       String parentID;
@@ -584,94 +586,190 @@ public abstract class XMLSource implements Freezable {
      */
     public static final boolean TRACE_VALUE = false;
     
+//    Map<String,String> getValueAtDPathCache = new HashMap();
+    
     public String getValueAtDPath(String xpath) {
-      XMLSource currentSource = mySource;
       if (TRACE_VALUE) System.out.println("xpath: " + xpath
-          + "\r\n\tsource: " + currentSource.getClass().getName()
-          + "\r\n\tlocale: " + currentSource.getLocaleID()
+          + "\r\n\tsource: " + mySource.getClass().getName()
+          + "\r\n\tlocale: " + mySource.getLocaleID()
       );
-      String result = currentSource.getValueAtDPath(xpath);
-      if (result != null) {
-        if (TRACE_VALUE) System.out.println("result: " + result);
-        return result;
-      }
+      String result = mySource.getValueAtDPath(xpath);
       
-      ParentAndPath parentAndPath = new ParentAndPath();
-      
-      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-      while (true) {
-        if (parentAndPath.parentID == null) {
-          return constructedItems.getValueAtDPath(xpath);
+      if (result == null) {
+        AliasLocation fullStatus = getCachedFullStatus(xpath);
+        if (fullStatus != null) {
+          result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
         }
-        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-        if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
-            + "\r\n\tsource: " + currentSource.getClass().getName()
-            + "\r\n\tlocale: " + currentSource.getLocaleID()
-        );
-        result = currentSource.getValueAtDPath(parentAndPath.path);
-        if (result != null) {
-          if (TRACE_VALUE) System.out.println("result: " + result);
-          return result;
-        }
-        parentAndPath.next();
       }
+      if (TRACE_VALUE) System.out.println("result: " + result);
+      return result;
     }
+    
+    public XMLSource getSource(AliasLocation fullStatus) {
+      return fullStatus.localeWhereFound.equals(mySource.localeID) ? mySource 
+          : fullStatus.localeWhereFound.equals(CODE_FALLBACK_ID) ? constructedItems
+            : make(fullStatus.localeWhereFound);
+    }
+
+    
+//    public String _getValueAtDPath(String xpath) {
+//      XMLSource currentSource = mySource;
+//      String result;
+//      ParentAndPath parentAndPath = new ParentAndPath();
+//      
+//      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
+//      while (true) {
+//        if (parentAndPath.parentID == null) {
+//          return constructedItems.getValueAtDPath(xpath);
+//        }
+//        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
+//        if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
+//            + "\r\n\tsource: " + currentSource.getClass().getName()
+//            + "\r\n\tlocale: " + currentSource.getLocaleID()
+//        );
+//        result = currentSource.getValueAtDPath(parentAndPath.path);
+//        if (result != null) {
+//          if (TRACE_VALUE) System.out.println("result: " + result);
+//          return result;
+//        }
+//        parentAndPath.next();
+//      }
+//    }
+    
+    //Map<String,String> getFullPathAtDPathCache = new HashMap();
     
     public String getFullPathAtDPath(String xpath) {
-      XMLSource currentSource = mySource;
-      String result = currentSource.getValueAtDPath(xpath);
-      if (result != null) return currentSource.getFullPathAtDPath(xpath);
-
-      ParentAndPath parentAndPath = new ParentAndPath();
-      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-      while (true) {
-        if (parentAndPath.parentID == null) {
-          return constructedItems.getFullPathAtDPath(xpath);
-        }
-        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-        result = currentSource.getValueAtDPath(parentAndPath.path);
-        if (result != null) {
-          result = currentSource.getFullPathAtDPath(parentAndPath.path);
-          return tempAlias.changeNewToOld(result, parentAndPath.path, xpath);
-        }
-        parentAndPath.next();
+      String result = mySource.getValueAtDPath(xpath);
+      if (result != null) {
+        return mySource.getFullPathAtDPath(xpath);
       }
+      AliasLocation fullStatus = getCachedFullStatus(xpath);
+      if (fullStatus != null) {
+        result = getSource(fullStatus).getFullPathAtDPath(fullStatus.pathWhereFound);
+      }
+//
+//      result = getFullPathAtDPathCache.get(xpath);
+//      if (result == null) {
+//        if (getCachedKeySet().contains(xpath)) {
+//          result = _getFullPathAtDPath(xpath);
+//          getFullPathAtDPathCache.put(xpath, result);
+//        }
+//      }
+      return result;
     }
+
+    private AliasLocation getCachedFullStatus(String xpath) {
+      AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
+      if (fullStatus == null) {
+        fullStatus = new AliasLocation();
+        Status status = new Status();
+        fullStatus.localeWhereFound = _getSourceLocaleID(xpath, status);
+        fullStatus.pathWhereFound = status.pathWhereFound;
+        getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
+      }
+      return fullStatus;
+    }
+    
+//    private String _getFullPathAtDPath(String xpath) {
+//      String result = null;
+//      XMLSource currentSource = mySource;
+//      ParentAndPath parentAndPath = new ParentAndPath();
+//      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
+//      while (true) {
+//        if (parentAndPath.parentID == null) {
+//          return constructedItems.getFullPathAtDPath(xpath);
+//        }
+//        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
+//        result = currentSource.getValueAtDPath(parentAndPath.path);
+//        if (result != null) {
+//          result = currentSource.getFullPathAtDPath(parentAndPath.path);
+//          return tempAlias.changeNewToOld(result, parentAndPath.path, xpath);
+//        }
+//        parentAndPath.next();
+//      }
+//    }
     
     public String getWinningPath(String xpath) {
-      XMLSource currentSource = mySource;
-      String result = currentSource.getWinningPath(xpath);
+      String result = mySource.getWinningPath(xpath);
       if (result != null) return result;
-
-      ParentAndPath parentAndPath = new ParentAndPath();
-      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-      while (true) {
-        if (parentAndPath.parentID == null) {
-          return xpath; // ran out of parents
-          //return constructedItems.getWinningPath(xpath);
-        }
-        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-        result = currentSource.getWinningPath(parentAndPath.path);
-        if (result != null) {
-          return result;
-        }
-        parentAndPath.next();
+      AliasLocation fullStatus = getCachedFullStatus(xpath);
+      if (fullStatus != null) {
+        result = getSource(fullStatus).getWinningPath(fullStatus.pathWhereFound);
+      } else {
+        result = xpath;
+      }
+//
+//      result = getWinningPathCache.get(xpath);
+//      if (result == null) {
+//        if (!getCachedKeySet().contains(xpath)) {
+//          return xpath;
+//        }
+//        result = _getWinningPath(xpath);
+//        getWinningPathCache.put(xpath, result);
+//      }
+      return result;
+    }
+    
+//    Map<String,String> getWinningPathCache = new HashMap();
+//    
+//    public String _getWinningPath(String xpath) {
+//      XMLSource currentSource = mySource;
+//      ParentAndPath parentAndPath = new ParentAndPath();
+//      parentAndPath.set(xpath, currentSource, getLocaleID()).next();
+//      while (true) {
+//        if (parentAndPath.parentID == null) {
+//          return xpath; // ran out of parents
+//          //return constructedItems.getWinningPath(xpath);
+//        }
+//        currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
+//        String result = currentSource.getWinningPath(parentAndPath.path);
+//        if (result != null) {
+//          return result;
+//        }
+//        parentAndPath.next();
+//      }
+//    }
+    
+    class AliasLocation {
+      public String pathWhereFound;
+      public String localeWhereFound;
+      
+      public AliasLocation set(AliasLocation status) {
+        pathWhereFound = status.pathWhereFound;
+        localeWhereFound = status.localeWhereFound;
+        return this;
       }
     }
     
+    private transient Map<String,AliasLocation> getSourceLocaleIDCache = new HashMap();
     
-    public String getSourceLocaleID(String xpath, CLDRFile.Status status) {
-      xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
-      XMLSource currentSource = mySource;
-      boolean result = currentSource.hasValueAtDPath(xpath);
+    public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
+      //xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
+      boolean hasValue = mySource.hasValueAtDPath(distinguishedXPath);
       //String result = currentSource.getValueAtDPath(xpath);
-      if (result != false) {
+      if (hasValue) {
         if (status != null) {
-          status.pathWhereFound = xpath;
+          status.pathWhereFound = distinguishedXPath;
         }
-        return mySource.getLocaleID(); // was: null
+        return mySource.getLocaleID();
       }
-      
+      // otherwise, it might be an alias; figure that out and return
+      AliasLocation fullStatus = getCachedFullStatus(distinguishedXPath);
+      if (fullStatus == null) {
+        fullStatus = new AliasLocation();
+        if (status == null) {
+          status = new Status();
+        }
+        fullStatus.localeWhereFound = _getSourceLocaleID(distinguishedXPath, status);
+        fullStatus.pathWhereFound = status.pathWhereFound;
+        getSourceLocaleIDCache.put(distinguishedXPath, fullStatus); // cache copy
+        
+      }
+      return fullStatus.localeWhereFound;
+    }
+    
+    public String _getSourceLocaleID(String xpath, CLDRFile.Status status) {
+      XMLSource currentSource = mySource;
       ParentAndPath parentAndPath = new ParentAndPath();
       parentAndPath.set(xpath, currentSource, getLocaleID()).next();
       while (true) {
@@ -682,7 +780,7 @@ public abstract class XMLSource implements Freezable {
           return CODE_FALLBACK_ID;
         }
         currentSource = make(parentAndPath.parentID);
-        result = currentSource.hasValueAtDPath(parentAndPath.path);
+        boolean result = currentSource.hasValueAtDPath(parentAndPath.path);
         //result = currentSource.getValueAtDPath(parentAndPath.path);
         if(result != false) { // was: null
           /*result = */ currentSource.getFullPathAtDPath(parentAndPath.path); // what does this do?
@@ -767,7 +865,7 @@ public abstract class XMLSource implements Freezable {
       if (TRACE_FILL) System.out.println(Utility.repeat("\t",level) + "=> cachedKeySet.size(): " + resultKeySet.size());
     }
     
-    transient Set<String> cachedKeySet = null;
+    private transient Set<String> cachedKeySet = null;
     /**
      * This function is kinda tricky. What it does it come up with the set of all the paths that
      * would return a value, fully resolved. This wouldn't be a problem but for aliases.
@@ -842,7 +940,7 @@ public abstract class XMLSource implements Freezable {
       { "pinyin", "collation" },
       { "stroke", "collation" },
       { "traditional", "collation" } };
-    static XMLSource constructedItems = new SimpleXMLSource(null, null);
+    private static XMLSource constructedItems = new SimpleXMLSource(null, null);
     
     static {
       StandardCodes sc = StandardCodes.make();

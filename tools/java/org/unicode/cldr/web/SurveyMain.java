@@ -714,6 +714,9 @@ public class SurveyMain extends HttpServlet {
             
             ctx.println("String hash has " + stringHash.size() + " items.<br/>");
             ctx.println("xString hash info: " + xpt.statistics() +"<br>");
+            if(gBaselineHash != null) {
+                ctx.println("baselinecache info: " + (gBaselineHash.size()) + " items."  +"<br>");
+            }
             ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
             ctx.println("</div>");
             
@@ -3802,6 +3805,20 @@ public class SurveyMain extends HttpServlet {
         }
         return gBaselineFile;
     }
+    
+    HashMap<String,String> gBaselineHash = new HashMap<String,String>();
+
+    public synchronized String baselineFileGetStringValue(String xpath) {
+        String res = gBaselineHash.get(xpath);
+        if(res == null) {
+            res = getBaselineFile().getStringValue(xpath);
+            if(res == null) {
+                res = "";
+            }
+            gBaselineHash.put(xpath,res);
+        }
+        return res;
+    }
 
     public synchronized ExampleGenerator getBaselineExample() {
         if(gBaselineExample == null) {
@@ -3853,7 +3870,7 @@ public class SurveyMain extends HttpServlet {
     //            long t0 = System.currentTimeMillis();
                 
                 // make sure CLDR has the latest display information.
-                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
 
                 checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
                 
@@ -3922,6 +3939,8 @@ public class SurveyMain extends HttpServlet {
         allMetazones = null;
         localeListSet = null;
         aliasMap = null;
+        gBaselineFile=null;
+        gBaselineHash=null;
     }
     
     

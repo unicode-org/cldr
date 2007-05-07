@@ -708,6 +708,12 @@ public class WebContext {
     }
     
     DataPod getPod(String prefix, String ptype) {
+        if(hasField("srl_veryslow")&&sm.isUnofficial) {
+            for(int q=0;q<50;q++) {
+                DataPod.make(this, locale.toString(), prefix, false);
+            }
+        }
+    
         String loadString = "data was loaded.";
         synchronized(this) {
             DataPod pod = getExistingPod(prefix, ptype);

@@ -196,8 +196,10 @@ public class CheckDates extends CheckCLDR {
       if (!id.equals(skeleton)) {
         String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
         result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-            .setMessage("Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
-                "Please change pattern to match internal ID, such as ({3}) or add new pattern.", id, skeleton, value, fixedValue));                  
+            // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
+            .setMessage("Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). " +
+                "Please change your pattern to match what was asked for ID, such as ({3}): but with different puncuation and/or ordering.",
+                id, skeleton, value, fixedValue));                  
       }
       String failureMessage = (String) flexInfo.getFailurePath(path);
       if (failureMessage != null) {

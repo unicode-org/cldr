@@ -658,14 +658,10 @@ public class CoverageLevel {
        { "America_Mountain", "generic" },
        { "America_Pacific", "generic" },
        { "Atlantic", "generic" },
-       { "China", "standard" },
        { "Europe_Central", "daylight" },
        { "Europe_Eastern", "daylight" },
        { "Europe_Western", "daylight" },
-       { "GMT", "standard" },
-       { "India", "standard" },
-       { "Japan", "standard" },
-       { "Korea", "standard" }};
+       { "GMT", "standard" }};
     
     for ( int i = 0 ; i < Basic_Metazones.length ; i++ ) {
       metazone_level.put(metazone_prefix+"[@type=\""+Basic_Metazones[i][0]+"\"]/long/standard", Level.BASIC);
@@ -683,28 +679,16 @@ public class CoverageLevel {
     /* Tier 2 - Moderate Coverage level for metazones */
 
     String [][] Moderate_Metazones = {
-       { "Acre", "daylight" },
        { "Africa_Central", "standard" },
        { "Africa_Eastern", "standard" },
        { "Africa_Southern", "standard" },
        { "Africa_Western", "daylight" },
-       { "Alaska", "generic" },
-       { "Amazon", "daylight" },
        { "Arabian", "generic" },
-       { "Australia_Central", "generic" },
-       { "Australia_Eastern", "generic" },
-       { "Australia_Western", "generic" },
-       { "Brasilia", "daylight" },
-       { "Hawaii", "standard" },
-       { "Hong_Kong", "daylight" },
-       { "Indochina", "standard" },
-       { "Indonesia_Central", "standard" },
-       { "Indonesia_Eastern", "standard" },
-       { "Indonesia_Western", "standard" },
+       { "China", "standard" },
+       { "India", "standard" },
        { "Israel", "daylight" },
-       { "Moscow", "daylight" },
-       { "New_Zealand", "generic" },
-       { "Newfoundland", "generic" }};
+       { "Japan", "standard" },
+       { "Korea", "standard" }};
 
     for ( int i = 0 ; i < Moderate_Metazones.length ; i++ ) {
       metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/standard", Level.MODERATE);
@@ -719,14 +703,42 @@ public class CoverageLevel {
       }
     } 
 
-    /* 3rd Tier - Metazones in Modern Usage */
-
     String [][] Modern_Metazones = {
+       { "Acre", "daylight" },
+       { "Amazon", "daylight" },
+       { "Australia_Central", "generic" },
+       { "Australia_Eastern", "generic" },
+       { "Australia_Western", "generic" },
+       { "Australia_CentralWestern", "daylight" },
+       { "Brasilia", "daylight" },
+       { "Hong_Kong", "daylight" },
+       { "Indochina", "standard" },
+       { "Indonesia_Central", "standard" },
+       { "Indonesia_Eastern", "standard" },
+       { "Indonesia_Western", "standard" },
+       { "Moscow", "daylight" },
+       { "New_Zealand", "generic" }};
+
+    for ( int i = 0 ; i < Modern_Metazones.length ; i++ ) {
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/standard", Level.MODERN);
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/standard", Level.MODERN);
+      if ( Modern_Metazones[i][1].equals("generic") || Modern_Metazones[i][1].equals("daylight")) {
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/daylight", Level.MODERN);
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/daylight", Level.MODERN);
+        if ( Modern_Metazones[i][1].equals("generic")) {
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/generic", Level.MODERN);
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/generic", Level.MODERN);
+        }
+      }
+    } 
+    /* 4th Tier - Comprehensive Level */
+
+    String [][] Comprehensive_Metazones = {
        { "Afghanistan", "daylight" },
+       { "Alaska", "generic" },
        { "Anadyr", "daylight" },
        { "Argentina", "daylight" },
        { "Armenia", "daylight" },
-       { "Australia_CentralWestern", "daylight" },
        { "Azerbaijan", "daylight" },
        { "Azores", "daylight" },
        { "Bangladesh", "standard" },
@@ -761,6 +773,7 @@ public class CoverageLevel {
        { "Guam", "standard" },
        { "Guyana", "standard" },
        { "Hawaii_Aleutian", "generic" },
+       { "Hawaii", "standard" },
        { "Hovd", "daylight" },
        { "Indian_Ocean", "standard" },
        { "Iran", "daylight" },
@@ -783,6 +796,7 @@ public class CoverageLevel {
        { "Mongolia", "daylight" },
        { "Nauru", "standard" },
        { "Nepal", "standard" },
+       { "Newfoundland", "generic" },
        { "New_Caledonia", "daylight" },
        { "Niue", "standard" },
        { "Norfolk", "standard" },
@@ -829,15 +843,15 @@ public class CoverageLevel {
        { "Yakutsk", "daylight" },
        { "Yekaterinburg", "daylight" }};
 
-    for ( int i = 0 ; i < Modern_Metazones.length ; i++ ) {
-      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/standard", Level.MODERN);
-      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/standard", Level.MODERN);
-      if ( Modern_Metazones[i][1].equals("generic") || Modern_Metazones[i][1].equals("daylight")) {
-        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/daylight", Level.MODERN);
-        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/daylight", Level.MODERN);
-        if ( Modern_Metazones[i][1].equals("generic")) {
-          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/generic", Level.MODERN);
-          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/generic", Level.MODERN);
+    for ( int i = 0 ; i < Comprehensive_Metazones.length ; i++ ) {
+      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/standard", Level.COMPREHENSIVE);
+      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/standard", Level.COMPREHENSIVE);
+      if ( Comprehensive_Metazones[i][1].equals("generic") || Comprehensive_Metazones[i][1].equals("daylight")) {
+        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/daylight", Level.COMPREHENSIVE);
+        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/daylight", Level.COMPREHENSIVE);
+        if ( Comprehensive_Metazones[i][1].equals("generic")) {
+          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/generic", Level.COMPREHENSIVE);
+          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/generic", Level.COMPREHENSIVE);
         }
       }
     } 

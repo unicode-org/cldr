@@ -1,0 +1,1 @@
+This folder contains data which is modified to have errors, for verification that the CheckCLDR tests detect them.

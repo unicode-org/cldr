@@ -45,14 +45,24 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 
 /**
- * This class provides a foundation for both console-driven CLDR tests, and Survey Tool Tests.
- * <p>To add a test, subclass CLDRFile and override handleCheck and possibly setCldrFileToCheck.
- * Then put the test into getCheckAll.
- * <p>To use the test, take a look at the main below. Note that you need to call setDisplayInformation
- * with the CLDRFile for the locale that you want the display information (eg names for codes) to be in.
- * <p>TODO
- * <br>add CheckCoverage
- * <br>add CheckAttributeValue
+ * This class provides a foundation for both console-driven CLDR tests, and
+ * Survey Tool Tests.
+ * <p>
+ * To add a test, subclass CLDRFile and override handleCheck and possibly
+ * setCldrFileToCheck. Then put the test into getCheckAll.
+ * <p>
+ * To use the test, take a look at the main below. Note that you need to call
+ * setDisplayInformation with the CLDRFile for the locale that you want the
+ * display information (eg names for codes) to be in. Some common other source
+ * directories:
+ * 
+ * <pre>
+ *  -s C:/cvsdata/unicode/cldr/incoming/vetted/main
+ *  -s C:/cvsdata/unicode/cldr/incoming/proposed/main
+ *  -s C:/cvsdata/unicode/cldr/incoming/proposed/main
+ *  -s C:/cvsdata/unicode/cldr/testdata/main
+ * </pre>
+ * 
  * @author davis
  */
 abstract public class CheckCLDR {
@@ -84,7 +94,7 @@ abstract public class CheckCLDR {
     .add(new CheckExemplars())
     .add(new CheckForExemplars())
     .add(new CheckNumbers())
-    .add(new CheckZones())
+    //.add(new CheckZones())
     //.add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
@@ -101,12 +111,9 @@ abstract public class CheckCLDR {
     return displayInformation;
   }
   public void setDisplayInformation(CLDRFile displayInformation) {
-    setDisplayInformation(displayInformation, new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY));
-  }
-  public void setDisplayInformation(CLDRFile displayInformation, ExampleGenerator exampleGenerator) {
     this.displayInformation = displayInformation;
-    englishExampleGenerator = exampleGenerator;
   }
+
   private ExampleGenerator englishExampleGenerator;
   
   private static final int
@@ -145,14 +152,13 @@ abstract public class CheckCLDR {
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
   };
   
-  // C:\cvsdata\\unicode\cldr\incoming\vetted\main
   private static String[] HelpMessage = {
     "-h \t This message",
     "-s \t Source directory, default = " + Utility.MAIN_DIRECTORY,
     "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
     "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
     "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
-    "-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*",
+    "-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*. To check all BUT a given test, use the style -t ((?!.*CheckZones).*)",
     "-oxxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
@@ -471,7 +477,7 @@ abstract public class CheckCLDR {
   }
 
   private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, Collection<String> target) {
-    Status pathStatus = new Status();
+//    Status pathStatus = new Status();
     for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
       String path = pit.next();
       if (noaliases && XMLSource.Alias.isAliasPath(path)) { // this is just for console testing, the survey tool shouldn't do it.
@@ -506,7 +512,13 @@ abstract public class CheckCLDR {
 
   private void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
     example = example == null ? "" : "<" + example + ">";
-    String englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+    String englishExample = null;
+    if (SHOW_EXAMPLES) {
+      if (englishExampleGenerator == null) {
+        englishExampleGenerator = new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY);
+      }
+      englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+    }
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
     System.out.println(getLocaleAndName(localeID)

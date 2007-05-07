@@ -437,10 +437,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   /**
    * Find out where the value was found (for resolving locales)
+   * @param distinguishedXPath path (must be distinguished!)
    * @param status the distinguished path where the item was found. Pass in null if you don't care.
    */
-  public String getSourceLocaleID(String xpath, CLDRFile.Status status) {
-    return dataSource.getSourceLocaleID(xpath, status);
+  public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
+    return dataSource.getSourceLocaleID(distinguishedXPath, status);
   }
   
   /**
@@ -2293,8 +2294,6 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public static class Status {
     public String pathWhereFound;
   }
-  
-  
   
   public static boolean isLOG_PROGRESS() {
     return LOG_PROGRESS;

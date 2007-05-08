@@ -285,7 +285,6 @@ public class SurveyMain extends HttpServlet {
                 "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
                 "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
                 "128.194.135.94", // crawler4.irl.cs.tamu.edu
-                
                 /*
                 209.249.11.4		see | be | kick
 10:32	Guest
@@ -3808,16 +3807,23 @@ public class SurveyMain extends HttpServlet {
     
     HashMap<String,String> gBaselineHash = new HashMap<String,String>();
 
+    /* Sentinel value indicating that there was no baseline string available. */
+    private static final String NULL_STRING = "";
+
     public synchronized String baselineFileGetStringValue(String xpath) {
         String res = gBaselineHash.get(xpath);
         if(res == null) {
             res = getBaselineFile().getStringValue(xpath);
             if(res == null) {
-                res = "";
+                res = NULL_STRING;
             }
             gBaselineHash.put(xpath,res);
         }
-        return res;
+        if(res == NULL_STRING) {
+            return null;
+        } else {
+            return res;
+        }
     }
 
     public synchronized ExampleGenerator getBaselineExample() {
@@ -4079,27 +4085,6 @@ public class SurveyMain extends HttpServlet {
 
     public void showMetaZones(WebContext ctx) {
         showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
-    /*
-        Set s = getMetazones();
-        int n = 0;
-        ctx.println("<h4>Metazones ("+s.size()+")</h4>");
-        ctx.print("<table class='tzbox'>");
-        ctx.print("<tr class='topbar'>");
-        WebContext subCtx = new WebContext(ctx);
-        subCtx.setQuery("x","timezones");
-        for(Object o : s) {
-            if(0==(n%4)) {
-                ctx.println("</tr>");
-                ctx.print("<tr>");
-            }
-            String mzone = o.toString();
-            subCtx.setQuery("mzone",mzone);
-            ctx.print("<td><a class='notselected' href='"+subCtx.url()+"'>"+mzone+"</a></td>");
-            n++;
-        }
-        ctx.println("</tr>");
-        ctx.println("</table>");
-        */
     }
 
     /**
@@ -4311,7 +4296,7 @@ public class SurveyMain extends HttpServlet {
         ctx.printHelpHtml(pod, zoneXpath);
         
         printPathListClose(ctx);
-      }
+    }
         
 
     /**
@@ -5465,6 +5450,8 @@ public class SurveyMain extends HttpServlet {
         List<DataPod.Pea.Item> currentItems = new ArrayList<DataPod.Pea.Item>();
         List<DataPod.Pea.Item> proposedItems = new ArrayList<DataPod.Pea.Item>();
         
+        boolean inheritedValueHasTestForCurrent = false; // if (no current items) && (inheritedValue.hastests) 
+        
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(item.altProposed != null) {
@@ -5474,7 +5461,8 @@ public class SurveyMain extends HttpServlet {
             }
         }
         // if there is an inherited value available - see if we need to show it.
-        if(p.inheritedValue != null) {
+        if((p.inheritedValue != null) &&
+            (p.inheritedValue.value != null)) { // and it isn't a shim
             if(currentItems.isEmpty()) {  // no other current items.. 
                 currentItems.add(p.inheritedValue); 
             } else {
@@ -5493,6 +5481,11 @@ public class SurveyMain extends HttpServlet {
                     proposedItems.add(p.inheritedValue);
                 }
             }
+        }
+        
+        // Does the inheritedValue contain a test that we need to display?
+        if(currentItems.isEmpty() && p.inheritedValue!=null && p.inheritedValue.value==null && p.inheritedValue.tests!=null) {
+            inheritedValueHasTestForCurrent = true;
         }
         
         // calculate the max height of the current row.
@@ -5639,6 +5632,9 @@ public class SurveyMain extends HttpServlet {
         DataPod.Pea.Item topCurrent = null;
         if(currentItems.size() > 0) {
             topCurrent = currentItems.get(0);
+        }
+        if((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring in the inheritedValue if it has a meaningful test..
+            topCurrent = p.inheritedValue;
         }
         printCells(ctx,pod,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
 
@@ -5884,15 +5880,17 @@ public class SurveyMain extends HttpServlet {
         boolean haveReferences = (item != null) && (item.references!=null) && (refsList != null);
         
         if(item != null) {
-            itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
-                        zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+            if(item.value != null) {
+                itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
+                            zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+            }
             if((item.tests != null) || (item.examples != null)) {
                 haveTests = true;
             }
         }
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
-        if(item != null) {
+        if((item != null)&&(item.value != null)) {
             printPeaItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify, zoomedIn);
         }
         ctx.println("</td>");    

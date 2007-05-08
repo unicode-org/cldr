@@ -229,8 +229,9 @@ public class DataPod extends Registerable {
                 System.err.println("I= "+this+" : " + i);
                 return false;
             }*/
-
-            public void setTests(List testList) {
+            
+            /* return true if any valid tests were found */
+            public boolean setTests(List testList) {
                 tests = testList;
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
@@ -269,6 +270,7 @@ public class DataPod extends Registerable {
                         if(warningCount>0) /* pea */ superPea.hasWarnings = true;
                     }
                 }
+                return weHaveTests;
             }
         }
         
@@ -362,7 +364,7 @@ public class DataPod extends Registerable {
                 return;
             }
             
-            if(inheritedValue == null) {
+            if((vettedParent != null) && (inheritedValue == null)) {
                 String value = vettedParent.getStringValue(xpath);
                 
                 if(value != null) {
@@ -391,7 +393,30 @@ public class DataPod extends Registerable {
             }
             
         }
+ 
+        void setShimTests(int base_xpath,String base_xpath_string,CheckCLDR checkCldr,Map options) {
+            Item shimItem = inheritedValue;
+            
+            if(shimItem == null) {
+                shimItem = new Item();
+
+                shimItem.value = null;
+                shimItem.xpath = base_xpath_string;
+                shimItem.xpathId = base_xpath;
+                shimItem.isFallback = false;                    
         
+                List iTests = new ArrayList();
+                checkCldr.check(base_xpath_string, base_xpath_string, null, options, iTests);
+                if(!iTests.isEmpty()) {
+                    // Got a bite.
+                    if(shimItem.setTests(iTests)) {
+                        // had valid tests
+                        inheritedValue = shimItem;
+                    }
+                }
+            }
+        }
+       
         private String replaceEndWith(String str, String oldEnd, String newEnd) {
             if(!str.endsWith(oldEnd)) {
                 throw new InternalError("expected " + str + " to end with " + oldEnd);
@@ -1428,7 +1453,7 @@ public class DataPod extends Registerable {
             if(p.type.startsWith("layout/inText")) {
                 p.valuesList = LAYOUT_INTEXT_VALUES;
                 superP.valuesList = p.valuesList;
-            } else if(p.type.indexOf("commonlyUsed")!=-1) { // For now, don't allow input for commonlyUsed
+            } else if(p.type.indexOf("commonlyUsed")!=-1) { 
                 p.valuesList = METAZONE_COMMONLYUSED_VALUES;
                 superP.valuesList = p.valuesList;
             } else if(p.type.startsWith("layout/inList")) {
@@ -1645,7 +1670,7 @@ public class DataPod extends Registerable {
                                 "/short/generic",
                                 "/short/daylight",
                                 "/short/standard",
-                                "/commonlyUsed" // [@used=\"true\"]
+                                "/commonlyUsed"
             };
             
             String suffs[];
@@ -1683,45 +1708,25 @@ public class DataPod extends Registerable {
                     
                     if(myp.xpathSuffix == null) {
                         myp.xpathSuffix = ourSuffix+suff;
-                    }
-        ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
+                        
+                        // set up the pea
+                        if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(base_xpath_string).matches()) {
+                            myp.zoomOnly = true;
+                        }
 
+                        // set up tests
+                        myp.setShimTests(base_xpath,base_xpath_string,checkCldr,options);
+                    }
+                    
+                    ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
                     if(isMetazones) {
                         if(suff.equals("/commonlyUsed")) {
                             myp.valuesList = METAZONE_COMMONLYUSED_VALUES;
                         }
-
-                        /*myp.attributeChoice = AttributeChoice.createChoice(base_xpath_string);
-                        if(myp.attributeChoice != null) {
-                            myp.attributeChoice = null;
-                            myp.confirmOnly = true;*/
-                            /*
-                            myp.valuesList = myp.attributeChoice.valuesList;
-                            */
-                        /*}*/
                     }
                     
-/*                    if(suff.indexOf("commonlyUsed[@used")!=-1) {
-                        myp.updateToggle(base_xpath_string, "used");
-                    }*/
-
-
-                    if(myp.items.isEmpty()) {
-            /*
-                        String formatted = CheckZones.exampleTextForXpath(parts, timezoneFormatter, 
-                            podBase+ourSuffix+suff);
-                        if (suff.indexOf("commonlyUsed")>-1) {
-                            formatted = "true"; // set to true...
-                        } else if(whichMZone != null) {
-                            formatted = "???";
-                        }
-                        if(formatted != null) {
-                            DataPod.Pea.Item item = myp.addItem(formatted, null, null); // <<<<<< THIS IS BAD. 
-                            item.inheritFrom = XMLSource.CODE_FALLBACK_ID;
-                        }
-            */
-                    }                  
-                    myp.displayName = baselineFile.getStringValue(podBase+ourSuffix+suff); // isn't this what it's for?
+                    myp.displayName = baselineFile.getStringValue(podBase+ourSuffix+suff); // use the baseline (English) data for display name.
+                    
                 }
             }
         } // tz

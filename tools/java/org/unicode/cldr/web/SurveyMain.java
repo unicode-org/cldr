@@ -1067,7 +1067,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         ctx.println("</head>");
-        ctx.println("<body>");
+        ctx.println("<body onload='this.focus();'>");
         if(/*!isUnofficial && */ 
             ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||
                 false)) {

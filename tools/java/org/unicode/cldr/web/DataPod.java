@@ -1599,7 +1599,7 @@ public class DataPod extends Registerable {
 ///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
             }
 
-            if(!sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+            if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
 //System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
                 myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
             }

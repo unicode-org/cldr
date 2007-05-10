@@ -2149,6 +2149,21 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return result;
   }
   
+  public String getCurrentMetazone(String zone) {
+    for (Iterator it2 = iterator(); it2.hasNext();) {
+      String xpath = (String)it2.next();
+      if ( xpath.startsWith("//ldml/dates/timeZoneNames/zone[@type=\""+zone+"\"]/usesMetazone")) {
+        XPathParts parts = new XPathParts(null,null);
+        parts.set(xpath);
+        if (!parts.containsAttribute("to")) {
+           String mz = parts.getAttributeValue(4,"mzone");
+           return mz;
+        }
+      }
+    }
+    return null;
+  }
+
   transient CLDRFile resolvedVersion;
   
   public CLDRFile getResolved() {

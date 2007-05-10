@@ -10,6 +10,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -134,6 +135,8 @@ public class CoverageLevel {
   private Map territory_level = new TreeMap();
   private Map currency_level = new TreeMap();
   private Map calendar_level = new TreeMap();
+
+  private static Map<String,String> defaultTerritory = new TreeMap();
   
   StandardCodes sc = StandardCodes.make();
   
@@ -156,7 +159,7 @@ public class CoverageLevel {
         CLDRFile supplementalMetadata = file.getSupplementalMetadata();
         CLDRFile supplementalData = file.getSupplementalData();
         init(supplementalData, supplementalMetadata);
-        initMetazoneCoverage(supplementalData);
+        initMetazoneCoverage(file, supplementalData, supplementalMetadata);
         initPosixCoverage(file.getLocaleID(), supplementalData);
         initialized = true;
       }
@@ -645,9 +648,33 @@ public class CoverageLevel {
     //posixCoverage.put("//ldml/collations/collation[@type=\"standard\"]/rules", Level.POSIX);
   }
   
-  private void initMetazoneCoverage(CLDRFile supplementalData) {
+  private void initMetazoneCoverage(CLDRFile file, CLDRFile supplementalData, CLDRFile supplementalMetadata) {
     String metazone_prefix = "//ldml/dates/timeZoneNames/metazone";
+    String localeID = file.getLocaleID();
+    parser.set(localeID);
+    String territory = parser.getRegion();
 
+    if ( territory == null || territory.length() == 0) {
+       territory = defaultTerritory.get(localeID);
+    }
+
+    Set timezones = (Set) territory_timezone.get(territory);
+
+    Set usedMetazones = new HashSet();
+    usedMetazones.clear();
+
+    if ( timezones != null && !timezones.isEmpty() ) {
+
+      for (Iterator it = timezones.iterator(); it.hasNext();) {
+        String tz = (String) it.next();
+        XPathParts parts = new XPathParts(null,null);
+        String usedMetazone = file.getResolved().getCurrentMetazone(tz);
+        if ( !usedMetazones.contains(usedMetazone)) {
+          usedMetazones.add(usedMetazone);
+        }
+      }
+    }
+    
     metazone_level.clear();
 
     /* Tier 1 - Most populous and commonly used metazones - Basic coverage */
@@ -691,14 +718,21 @@ public class CoverageLevel {
        { "Korea", "standard" }};
 
     for ( int i = 0 ; i < Moderate_Metazones.length ; i++ ) {
-      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/standard", Level.MODERATE);
-      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/standard", Level.MODERATE);
+      
+      CoverageLevel.Level level;
+      if ( usedMetazones.contains(Moderate_Metazones[i][0]))
+         level = Level.BASIC;
+      else
+         level = Level.MODERATE;
+
+      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/standard", level);
+      metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/standard", level);
       if ( Moderate_Metazones[i][1].equals("generic") || Moderate_Metazones[i][1].equals("daylight")) {
-        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/daylight", Level.MODERATE);
-        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/daylight", Level.MODERATE);
+        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/daylight", level);
+        metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/daylight", level);
         if ( Moderate_Metazones[i][1].equals("generic")) {
-          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/generic", Level.MODERATE);
-          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/generic", Level.MODERATE);
+          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/long/generic", level);
+          metazone_level.put(metazone_prefix+"[@type=\""+Moderate_Metazones[i][0]+"\"]/short/generic", level);
         }
       }
     } 
@@ -720,14 +754,21 @@ public class CoverageLevel {
        { "New_Zealand", "generic" }};
 
     for ( int i = 0 ; i < Modern_Metazones.length ; i++ ) {
-      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/standard", Level.MODERN);
-      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/standard", Level.MODERN);
+
+      CoverageLevel.Level level;
+      if ( usedMetazones.contains(Modern_Metazones[i][0]))
+         level = Level.BASIC;
+      else
+         level = Level.MODERN;
+
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/standard", level);
+      metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/standard", level);
       if ( Modern_Metazones[i][1].equals("generic") || Modern_Metazones[i][1].equals("daylight")) {
-        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/daylight", Level.MODERN);
-        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/daylight", Level.MODERN);
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/daylight", level);
+        metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/daylight", level);
         if ( Modern_Metazones[i][1].equals("generic")) {
-          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/generic", Level.MODERN);
-          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/generic", Level.MODERN);
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/long/generic", level);
+          metazone_level.put(metazone_prefix+"[@type=\""+Modern_Metazones[i][0]+"\"]/short/generic", level);
         }
       }
     } 
@@ -844,14 +885,21 @@ public class CoverageLevel {
        { "Yekaterinburg", "daylight" }};
 
     for ( int i = 0 ; i < Comprehensive_Metazones.length ; i++ ) {
-      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/standard", Level.COMPREHENSIVE);
-      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/standard", Level.COMPREHENSIVE);
+
+      CoverageLevel.Level level;
+      if ( usedMetazones.contains(Comprehensive_Metazones[i][0]))
+         level = Level.BASIC;
+      else
+         level = Level.COMPREHENSIVE;
+
+      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/standard", level);
+      metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/standard", level);
       if ( Comprehensive_Metazones[i][1].equals("generic") || Comprehensive_Metazones[i][1].equals("daylight")) {
-        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/daylight", Level.COMPREHENSIVE);
-        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/daylight", Level.COMPREHENSIVE);
+        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/daylight", level);
+        metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/daylight", level);
         if ( Comprehensive_Metazones[i][1].equals("generic")) {
-          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/generic", Level.COMPREHENSIVE);
-          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/generic", Level.COMPREHENSIVE);
+          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/long/generic", level);
+          metazone_level.put(metazone_prefix+"[@type=\""+Comprehensive_Metazones[i][0]+"\"]/short/generic", level);
         }
       }
     } 
@@ -877,6 +925,18 @@ public class CoverageLevel {
         Utility.addTreeMapChain(coverageData, 
             lastElement, level,
             new TreeSet(Arrays.asList(values.split("\\s+"))));
+      }
+      else if (parts.containsElement("defaultContent")) {
+        String defContent = parts.getAttributeValue(-1, "locales");
+        String [] defLocales = defContent.split(" ");
+        for ( int i = 0 ; i < defLocales.length ; i++ ) {
+           int pos = defLocales[i].lastIndexOf('_');
+           String defLang = defLocales[i].substring(0,pos);
+           String defTerr = defLocales[i].substring(pos+1);
+           if ( defTerr.length() == 2 ) {
+              defaultTerritory.put(defLang,defTerr);
+           }
+        } 
       }
     }
   }
@@ -907,7 +967,7 @@ public class CoverageLevel {
         }
         //<zoneItem type="Africa/Abidjan" territory="CI"/>
         String territory = parts.getAttributeValue(-1, "territory");
-        if (!multizoneTerritories.contains(territory)) continue;
+        // if (!multizoneTerritories.contains(territory)) continue;
         Set territories = (Set) territory_timezone.get(territory);
         if (territories == null) territory_timezone.put(territory, territories = new TreeSet());
         territories.add(type);

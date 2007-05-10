@@ -281,24 +281,24 @@ public class CheckDates extends CheckCLDR {
   enum DateTimeLengths {SHORT, MEDIUM, LONG, FULL};
   
   Pattern[] dateTimePatterns = {
-      Pattern.compile("(h|hh|H|HH)mm"), // time-short
-      Pattern.compile("(h|hh|H|HH)mmss"), // time-medium
-      Pattern.compile("(h|hh|H|HH)mmss(z+)"), // time-long
-      Pattern.compile("(h|hh|H|HH)mmss(v+)"), // time-full
-      Pattern.compile("y{2,4}M{1,2}d{1,2}"), // date-short
-      Pattern.compile("yyyyM{1,3}d{1,2}"), // date-medium
-      Pattern.compile("yyyyM{1,4}d{1,2}"), // date-long
-      Pattern.compile("G*yyyyM{1,4}E*d{1,2}"), // date-full
+      Pattern.compile("(h|hh|H|HH)(m|mm)"), // time-short
+      Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
+      Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-long
+      Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(v+)"), // time-full
+      Pattern.compile("y{2,4}M{1,2}(d|dd)"), // date-short
+      Pattern.compile("yyyyM{1,3}(d|dd)"), // date-medium
+      Pattern.compile("yyyyM{1,4}(d|dd)"), // date-long
+      Pattern.compile("G*yyyyM{1,4}E*(d|dd)"), // date-full
   };
   String[] dateTimeMessage = {
-      "hours (H,HH,h,hh), and minutes (mm)", // time-short
-      "hours (H,HH,h,hh), minutes (mm), and seconds (ss)", // time-medium
-      "hours (H,HH,h,hh), minutes (mm), and seconds (ss); optionally timezone (z or zzzz)", // time-long
-      "hours (H,HH,h,hh), minutes (mm), seconds (ss), and timezone (v or vvvv)", // time-full
-      "year (yy,yyyy), month (M,MM), and day (d,dd)", // date-short
-      "year (yyyy), month (M-MMM), and day (d,dd)", // date-medium
-      "year (yyyy), month (M-MMMM), and day (d,dd)", // date-long
-      "year (yyyy), month (M-MMMM), and day (d,dd); optionally day of week (EEEE) or era (G)", // date-full
+      "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short
+      "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss)", // time-medium
+      "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss); optionally timezone (z or zzzz)", // time-long
+      "hours (H, HH, h, or hh), minutes (m or mm), seconds (s or ss), and timezone (v or vvvv)", // time-full
+      "year (yy or yyyy), month (M or MM), and day (d or dd)", // date-short
+      "year (yyyy), month (M, MM, or MMM), and day (d or dd)", // date-medium
+      "year (yyyy), month (M, ... MMMM), and day (d or dd)", // date-long
+      "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally day of week (EEEE) or era (G)", // date-full
   };
   
   

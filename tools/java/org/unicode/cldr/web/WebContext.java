@@ -168,6 +168,25 @@ public class WebContext {
     }
 
     /**
+     * return a field's values, or a 0 length array if none
+     * @param x field name
+     */
+    public final String[] fieldValues(String x) {
+        String values[] = request.getParameterValues(x);
+		if(values == null) {
+			// make it a 0-length array.
+			values = new String[0];
+		} else {
+			// decode utf-8, etc.
+			for(int n=0;n<values.length;n++) {
+				values[n] = decodeFieldString(values[n]);
+			}
+		}
+		
+		return values;
+    }
+
+    /**
      * return a field's value, else def
      * @param x field name
      * @param def default value
@@ -183,6 +202,13 @@ public class WebContext {
             return def;    // don't try to transcode null.
         }
         
+		return decodeFieldString(res);
+	}
+
+	/*
+	 * Decode a single string
+	 */
+	private String decodeFieldString(String res) {
         byte asBytes[] = new byte[res.length()];
         boolean wasHigh = false;
         int n;

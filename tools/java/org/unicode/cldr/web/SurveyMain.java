@@ -174,7 +174,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     
-    static final String PREF_SHOWDELETE = "p_delete";
+    static final String PREF_NOSHOWDELETE = "p_nodelete";
     
     static final String  BASELINE_ID = "en";
     static final ULocale BASELINE_LOCALE = new ULocale(BASELINE_ID);
@@ -1067,7 +1067,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         ctx.println("</head>");
-        ctx.println("<body onload='this.focus();'>");
+        ctx.println("<body onload='this.focus(); top.focus(); ContextWindow.focus(); top.parent.focus(); '>");
         if(/*!isUnofficial && */ 
             ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||
                 false)) {
@@ -2661,13 +2661,10 @@ public class SurveyMain extends HttpServlet {
             showTogglePref(ctx, PREF_XPID, "show XPATH ids");
             showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
+			showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
             ctx.println("</div>");
         }
 
-
-        ctx.println("<h4>Deletion</h4>");
-        ctx.print("<br>Show controls for deleting unused items in zoomed-in view: ");
-        boolean delete = showTogglePref(ctx, PREF_SHOWDELETE, "(Click to toggle)");
         
         printFooter(ctx);
     }
@@ -4373,13 +4370,15 @@ public class SurveyMain extends HttpServlet {
     static void printPodTableOpen(WebContext ctx, DataPod pod, boolean zoomedIn) {
         ctx.println("<table summary='Data Items for "+ctx.localeString()+" " + pod.xpathPrefix + "' class='data' border='0'>");
 
-        if(!zoomedIn) {
+        if(/* !zoomedIn */ true) {
             ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'><i>For details and help on any item, zoom in by clicking on the status icon: " +
                 ctx.iconHtml("okay",null) + ", " +
                 ctx.iconHtml("ques",null) + ", " +
                 ctx.iconHtml("warn",null) + ", " +
                 ctx.iconHtml("stop",null) + " " +
-                    "</i></td></tr>");
+                    "</i><br>"+
+					"To see other voters, hover over the <b>\u2611</b> symbol. "+
+					"</td></tr>");
         }
         if(!pod.xpathPrefix.equals("//ldml/references")) {
             ctx.println("<tr class='headingb'>\n"+
@@ -4886,15 +4885,29 @@ public class SurveyMain extends HttpServlet {
         
         // . . .
         DataPod.Pea.Item voteForItem = null;
-        DataPod.Pea.Item deleteItem = null; // remove item
+        Set<DataPod.Pea.Item> deleteItems = null; // remove item
+		String[] deleteAlts = ctx.fieldValues(fieldHash+"_del");
+		Set<String> deleteAltsSet = null;
+		
+		if(deleteAlts.length > 0) {
+			deleteAltsSet = new HashSet<String>();
+			deleteItems = new HashSet<DataPod.Pea.Item>();
+			for(String anAlt : deleteAlts) {
+				deleteAltsSet.add(anAlt);
+			}
+		}
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(choice.equals(item.altProposed)) {
                 voteForItem = item;
-            } else if(choice.equals(item.altProposed+"_DEL")) {
-                deleteItem = item;
-            }
+			}
+			
+			if((item.altProposed != null) && 
+			   (deleteAltsSet != null) &&
+			   (deleteAltsSet.contains(item.altProposed))) {
+				deleteItems.add(item);
+			}
         }
         
         if(p.attributeChoice != null) {
@@ -4994,6 +5007,32 @@ public class SurveyMain extends HttpServlet {
 //        if(choice_r.length()>0) {
 //        }
         
+		
+		boolean didSomething = false;
+		
+		if(deleteItems != null) {
+			for(DataPod.Pea.Item item : deleteItems) {
+				if((item.submitter != -1) && 
+					!( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
+						( (item.votes == null) ||   // nobody voted for it, or
+							((item.votes.size()==1)&& item.votes.contains(ctx.session.user) )) && // only user voted for it
+						( (item.submitter>0&&UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id) ) ) // user is TC or user is submitter
+				{
+					ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:  Removing alternate \""+item.value+
+							"\" ("+item.altProposed+")<br>");
+					if(voteForItem == item) {
+						ctx.println(" <i>Also, removing your vote for it</i><br>");
+						choice = DONTCARE;
+						voteForItem = null;
+					}
+					ourSrc.removeItem(pod.locale, item.xpathId, item.submitter);
+					didSomething = true;
+				} else {
+					ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
+				}
+			}
+		}
+		
         
         if(choice.equals(CHANGETO)&& choice_v.length()==0) {
             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
@@ -5004,13 +5043,13 @@ public class SurveyMain extends HttpServlet {
             if(!canSubmit) {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                 ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
-                return false;
+                return didSomething;
             }
             String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
             if(fullPathMinusAlt.indexOf("/alias")!=-1) {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                 ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
-                return false;
+                return didSomething;
             }
             for(Iterator j = p.items.iterator();j.hasNext();) {
                 DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
@@ -5025,12 +5064,12 @@ public class SurveyMain extends HttpServlet {
                             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                             ctx.println(ctx.iconHtml("warn","duplicate")+" This value was already entered, accepting your vote for " + 
                                 ((item.altProposed==null)?" the current item. <br>":(" the proposal <tt>"+item.altProposed+"</tt>.<br>")));
-                            return doVote(ctx, pod.locale, item.xpathId);
+                            return doVote(ctx, pod.locale, item.xpathId) || didSomething;
                         } else {
                             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                             ctx.println(ctx.iconHtml("warn","duplicate")+" Your current vote is already for " + 
                                 ((item.altProposed==null)?" the current item ":(" the proposal <tt>"+item.altProposed+"</tt> "))+" which has the same value.<br>");
-                            return false;
+							return didSomething;
                         }
                     } else {
 //                        ctx.println(ctx.iconHtml("warn","duplicate")+"<i>Note, differs only in references</i> ("+theirReferences+")<br>");
@@ -5122,14 +5161,14 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                 ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":" + base_xpath+" (base_xpath) replacing " + oldVote + " --> " + 
                         ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
-                return doVote(ctx, pod.locale, base_xpath); // vote with xpath
+                return doVote(ctx, pod.locale, base_xpath) || didSomething; // vote with xpath
             }
         } else if (choice.equals(DONTCARE)) {
             if(oldVote != -1) {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                 ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":-1 replacing " + oldVote + " -->" + 
                     ctx.iconHtml("okay","voted")+" Removing vote. <br>");
-                return doVote(ctx, pod.locale, -1, base_xpath);
+                return doVote(ctx, pod.locale, -1, base_xpath) || didSomething;
             }
         } else if(voteForItem != null)  {
             DataPod.Pea.Item item = voteForItem;
@@ -5137,27 +5176,15 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
                 ctx.println("<!-- Registering vote for "+base_xpath+" - "+pod.locale+":" + item.xpathId + " replacing " + oldVote + " --> " + 
                         ctx.iconHtml("okay","voted")+" Vote accepted. <br>");
-                return doVote(ctx, pod.locale, item.xpathId);
+                return doVote(ctx, pod.locale, item.xpathId) || didSomething;
             } else {
-                return false; // existing vote.
+                return didSomething; // existing vote.
             }
-        } else if(deleteItem != null) {
-            DataPod.Pea.Item item = deleteItem;
-            if((item.submitter != -1) && 
-                !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-                    ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
-                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:  Removing alternate \""+item.value+
-                        "\" ("+item.altProposed+")<br>");
-                ourSrc.removeItem(pod.locale, item.xpathId, item.submitter);
-                return true;
-            } else {
-                ctx.println(" <p class='ferrbox'>Warning: You don't have permission to remove this item: " +item.altProposed + ".</p>");
-            }
-        } else {
+		} else {
             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
             ctx.println(ctx.iconHtml("stop","unknown")+"<tt title='"+pod.locale+":"+base_xpath+"' class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
         }
-        return false;
+        return didSomething;
     }
 
     boolean doVote(WebContext ctx, String locale, int xpath) {
@@ -5718,10 +5745,10 @@ public class SurveyMain extends HttpServlet {
                         String refHash = fieldHash;
                         Hashtable<String,DataPod.Pea.Item> refsItemHash = (Hashtable<String, DataPod.Pea.Item>)ctx.temporaryStuff.get("refsItemHash");
                         ctx.print("<label>");
-                        ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Ref:</a>");
+                        ctx.print("<a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"'>Add/Lookup References</a><br>");
                         if(phaseSubmit && canSubmit && canModify && !p.confirmOnly) {
                             ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
-                            ctx.print("<option value='' SELECTED></option>");
+                            ctx.print("<option value='' SELECTED>(pick reference)</option>");
                             for(int i=0;i<refs.length;i++) {
                                 String refValue = null;
                                 // 1: look for a confirmed value
@@ -5880,14 +5907,17 @@ public class SurveyMain extends HttpServlet {
         boolean haveReferences = (item != null) && (item.references!=null) && (refsList != null);
         
         if(item != null) {
-            if(item.value != null) {
+            //if(item.value != null) {  // Always generate examples, even on null values.
                 itemExample = pod.exampleGenerator.getExampleHtml(item.xpath, item.value,
                             zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
-            }
+            //}
             if((item.tests != null) || (item.examples != null)) {
                 haveTests = true;
             }
-        }
+        } else {
+			itemExample = pod.exampleGenerator.getExampleHtml(pod.xpath(p), null,
+						zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+		}
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
         if((item != null)&&(item.value != null)) {
@@ -5989,14 +6019,16 @@ public class SurveyMain extends HttpServlet {
             String title=""+ n+" vote"+((n>1)?"s":"");
             if(canModify&&UserRegistry.userIsVetter(ctx.session.user)) {
                 title=title+": ";
-                for(Iterator iter=item.votes.iterator();iter.hasNext();) {
-                    UserRegistry.User theU  = (UserRegistry.User) iter.next();
+				boolean first = true;
+                for(UserRegistry.User theU : item.votes) {
                     if(theU != null) {
-                        String add= theU.name + "@" + theU.org;
+                        String add= theU.name + " of " + theU.org;
                         title = title + add.replaceAll("'","\u2032"); // quote quotes
-                        if(iter.hasNext()) {
+                        if(first) {
                             title = title+", ";
-                        }
+                        } else {
+							first = false;
+						}
                     }
                 }
             }
@@ -6012,13 +6044,14 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.print("</span>");
         
-        if(item.votes == null) {
-            boolean deleteShown = ctx.prefBool(PREF_SHOWDELETE);
-            if(deleteShown && canModify && (item.submitter != -1) && zoomedIn &&
+        if( (item.votes == null) ||   // nobody voted for it, or
+			((item.votes.size()==1)&& item.votes.contains(ctx.session.user) ))  { // .. only this user voted for it
+            boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
+            if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&
                 !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-                ( UserRegistry.userIsAdmin(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
-                    ctx.println("<label class='ferrbox' style='padding: 4px;'>"+ "<input type='radio' title='#"+item.xpathId+
-                        "' value='"+item.altProposed+"_DEL' name='"+fieldHash+"'>" +"<span class='notselected'>Delete&nbsp;this&nbsp;item</span></label>");
+                ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                    ctx.println("<label class='ferrbox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
+                        "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"<span class='notselected'>Delete&nbsp;this&nbsp;item</span></label>");
             }
         }
         

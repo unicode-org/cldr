@@ -502,7 +502,7 @@ public class Vetting {
      * @param base_xpath string xpath to gather for
      * @return a Set of UserRegistry.User objects
      */
-    public Set gatherVotes(String locale, String base_xpath) {
+    public Set<UserRegistry.User> gatherVotes(String locale, String base_xpath) {
         int base_xpath_id = sm.xpt.getByXpath(base_xpath);
         synchronized(conn) {
             try {
@@ -510,10 +510,10 @@ public class Vetting {
                 queryVoteForXpath.setInt(2, base_xpath_id);
                 ResultSet rs = queryVoteForXpath.executeQuery();
                // System.err.println("Vf: " + base_xpath_id + " / " + base_xpath);
-                Set result = null;
+                Set<UserRegistry.User> result = null;
                 while(rs.next()) {
                     if(result == null) {
-                        result = new HashSet();
+                        result = new HashSet<UserRegistry.User>();
                     }
                     int vote_user = rs.getInt(1);
                    // System.err.println("...u#"+vote_user);

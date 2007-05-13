@@ -102,6 +102,13 @@ public class UserRegistry {
         public String locales;
         public String intlocs = null;
         public String ip;
+		public boolean equals(Object other ) {
+			if(!(other instanceof User)) {
+				return false;
+			}
+			User u = (User)other;
+			return(u.id == id);
+		}
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
         }

@@ -209,7 +209,7 @@ public class DataPod extends Registerable {
             int xpathId = -1;
             boolean isFallback = false; // item is from the parent locale - don't consider it a win.
             
-            public Set votes = null; // Set of Users who voted for this.
+            public Set<UserRegistry.User> votes = null; // Set of Users who voted for this.
             
             public String example = "";
             

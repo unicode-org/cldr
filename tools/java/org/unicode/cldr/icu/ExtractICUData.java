@@ -179,7 +179,7 @@ public class ExtractICUData {
 	
 	private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
 		
-		ICUResourceBundle bundle, transIDs, colBund;
+		UResourceBundle bundle, transIDs, colBund;
 		bundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
 		transIDs = bundle.get(RB_RULE_BASED_IDS);
 		
@@ -190,7 +190,7 @@ public class ExtractICUData {
 		for (int row = 0; row < maxRows; row++) {
 			colBund = transIDs.get(row);
 			String ID = colBund.getKey();
-			ICUResourceBundle res = colBund.get(0);
+			UResourceBundle res = colBund.get(0);
 			String type = res.getKey();
 			if (type.equals("file") || type.equals("internal")) {
 //				// Rest of line is <resource>:<encoding>:<direction>

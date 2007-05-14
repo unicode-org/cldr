@@ -575,7 +575,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   public static final Pattern FORCE_ZOOMED_EDIT = Pattern.compile(
       ".*/(" +
       "exemplarCharacters" +
-      "|metazone" +
+      /*"|metazone" +*/
       "|pattern" +
       "|dateFormatItem" +
       "|relative" +

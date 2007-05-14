@@ -70,7 +70,8 @@ public class CoverageLevel {
     BASIC = new Level(40,"basic", "G3"),
     MODERATE = new Level(60, "moderate", "G2"),
     MODERN = new Level(80, "modern", "G1"),
-    COMPREHENSIVE = new Level(100, "comprehensive", "G0");
+    COMPREHENSIVE = new Level(100, "comprehensive", "G0"),
+    OPTIONAL = new Level(101,"none", "none");
     
     public static Level get(String name) {
       for (int i = 0; i < all.size(); ++i) {
@@ -468,7 +469,15 @@ public class CoverageLevel {
     } else if (part1.equals("identity")) {
       result = Level.UNDETERMINED;
     }
-    if (result == null) result = CoverageLevel.Level.COMPREHENSIVE;
+    if (result == null) {
+       if (distinguishedPath.contains("metazone") || distinguishedPath.contains("usesMetazone")) {
+         result = CoverageLevel.Level.OPTIONAL;
+       }
+       else {
+         result = CoverageLevel.Level.COMPREHENSIVE;
+       }
+    }
+   
     return result;
   }
   

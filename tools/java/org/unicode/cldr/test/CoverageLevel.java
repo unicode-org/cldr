@@ -784,7 +784,7 @@ public class CoverageLevel {
     /* 4th Tier - Comprehensive Level */
 
     String [][] Comprehensive_Metazones = {
-       { "Afghanistan", "daylight" },
+       { "Afghanistan", "standard" },
        { "Alaska", "generic" },
        { "Anadyr", "daylight" },
        { "Argentina", "daylight" },
@@ -837,9 +837,9 @@ public class CoverageLevel {
        { "Line_Islands", "standard" },
        { "Lord_Howe", "daylight" },
        { "Magadan", "daylight" },
-       { "Malaysia", "daylight" },
-       { "Maldives", "daylight" },
-       { "Marquesas", "daylight" },
+       { "Malaysia", "standard" },
+       { "Maldives", "standard" },
+       { "Marquesas", "standard" },
        { "Marshall_Islands", "standard" },
        { "Mauritius", "standard" },
        { "Mawson", "standard" },

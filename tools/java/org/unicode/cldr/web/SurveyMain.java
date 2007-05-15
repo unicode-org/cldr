@@ -173,6 +173,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
+	static final String PREF_SHOW_VOTING_ALTS = "p_vetting_details";
     
     static final String PREF_NOSHOWDELETE = "p_nodelete";
     
@@ -2580,8 +2581,12 @@ public class SurveyMain extends HttpServlet {
         WebContext nuCtx = new WebContext(ctx);
         nuCtx.addQuery(pref, !val);
 //        nuCtx.println("<div class='pager' style='float: right;'>");
-        nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + ": "+
-            ((val)?"<span class='selected'>Yes</span>":"<span class='notselected'>No</span>") + "</a><br>");
+        nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + " is currently ");
+		ctx.println(
+			((val)?"<span class='selected'>On</span>":"<span style='color: #ddd' class='notselected'>On</span>") + 
+				"&nbsp;/&nbsp;" +
+			((!val)?"<span class='selected'>Off</span>":"<span style='color: #ddd' class='notselected'>Off</span>") );
+		ctx.println("</a><br>");
 //        nuCtx.println("</div>");
         return val;
     }
@@ -2649,6 +2654,10 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</blockquote>");
         
         ctx.print("<hr>");
+
+		if(UserRegistry.userIsTC(ctx.session.user)) {
+			showTogglePref(ctx, PREF_SHOW_VOTING_ALTS, "Show details about vetting");
+		}
         
         ctx.println("<h4>Advanced Options</h4>");
         ctx.print("<blockquote>");
@@ -5889,6 +5898,210 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("</td>");
             }
         }
+		
+		
+		boolean showVotingAlts = ctx.prefBool(PREF_SHOW_VOTING_ALTS);
+		
+		/* show plan A and plan B voting */
+		if(UserRegistry.userIsTC(ctx.session.user) && showVotingAlts /* && zoomedIn */ && p.items!=null) {
+			ctx.print("<tr><td colspan="+PODTABLE_WIDTH+">");
+			
+			// Determine what the org votes are. 
+			Hashtable<String,Set<DataPod.Pea.Item>> theOrgs = new Hashtable<String,Set<DataPod.Pea.Item>>();
+/*			Set<DataPod.Pea.Item> theItems = new TreeSet<DataPod.Pea.Item>();
+			for(Object anotherItem : p.items) {
+				theItems.add((DataPod.Pea.Item)anotherItem);
+			}*/
+			
+			//if(p.inheritedValue!=null && p.inheritedValue.value!=null) {
+			//	theItems.add(p.inheritedValue);
+			//}  // Do not add this one- it cannot be voted for.
+			
+			// get a list of which org voted for what.
+			for(/*DataPod.Pea.Item anItem*/ Object anObject : p.items) {
+				DataPod.Pea.Item anItem = (DataPod.Pea.Item)anObject;
+				if(anItem.votes != null)  {
+				    for(UserRegistry.User aUser : anItem.votes) {
+						Set<DataPod.Pea.Item> theirSet = theOrgs.get(aUser.org);
+						if(theirSet == null) {
+							theirSet = new TreeSet<DataPod.Pea.Item>();
+							theOrgs.put(aUser.org,theirSet);
+						}
+						theirSet.add(anItem);
+					}
+				}
+			}
+			
+			class OrgVote implements Comparable {
+				String org;
+				public DataPod.Pea.Item item = null;
+				int strength=0;
+				
+				public int compareTo(Object o) {
+					if(o==this) { 
+						return 0;
+					}
+					OrgVote other = (OrgVote)o;
+					if(other.strength>strength) {
+						return 1;
+					} else if(other.strength < strength) {
+						return -1;
+					} else {
+						return org.compareTo(other.org);
+					}
+				}
+			}
+			
+			Hashtable<String, OrgVote> orgVotes = new Hashtable<String,OrgVote>();
+			
+			// calculate the org's choice
+			for(String org : theOrgs.keySet()) {
+				OrgVote best = new OrgVote();
+				best.org = org;
+				int lowest = 1000;
+				Set<DataPod.Pea.Item> theirSet = theOrgs.get(org);
+				for(DataPod.Pea.Item item : theirSet) {
+					int lowestUserLevel = 1000;
+					for(UserRegistry.User aUser : item.votes) {
+						if(!aUser.org.equals(org)) continue;
+						if(lowestUserLevel>aUser.userlevel) {
+							lowestUserLevel = aUser.userlevel;
+						}
+					}
+					if(lowestUserLevel<1000) {
+						if(lowestUserLevel<lowest) {
+							lowest = lowestUserLevel;
+							best.item=item;
+						} else if (lowestUserLevel == lowest) {
+							// Dispute.
+							lowest = -1;
+							best.item = null;
+						}
+					}
+				}
+				// now, rate based on lowest user level ( = highest rank )
+				if(best.item != null) {
+					if(lowest <= UserRegistry.EXPERT) {
+						best.strength = 8; // "2" * 4
+					} else if(lowest <= UserRegistry.VETTER) {
+						best.strength = 4; // "1" * 4
+					} else if(lowest <= UserRegistry.STREET) {
+						best.strength = 1; // "1/4" * 4
+					} else {
+						best = null;  // no vote cast
+					}
+				} else if(lowest == -1) {
+					best.strength = -1; // dispute
+				} else {
+					best = null;
+				}
+				
+				if(best != null) {
+					orgVotes.put(org, best);
+				}
+			}
+			
+			class Tally {
+				public DataPod.Pea.Item item = null;
+				public Set<OrgVote> orgs = new TreeSet<OrgVote>();
+				public int score = 0;
+
+				public Tally(DataPod.Pea.Item item) {
+					this.item = item;
+				}
+				public void add(OrgVote votes) {
+					orgs.add(votes);
+					score += votes.strength;
+				}
+			}
+			
+			Hashtable<DataPod.Pea.Item,Tally> tallys = new Hashtable<DataPod.Pea.Item,Tally>(); 
+			for(String org : orgVotes.keySet()) {
+				OrgVote theVote = orgVotes.get(org);
+				if(theVote.item==null || theVote.strength == -1) continue;
+				Tally t = tallys.get(theVote.item);
+				if(t == null) {
+					t = new Tally(theVote.item);
+					tallys.put(theVote.item,t);
+				}
+				t.add(theVote);
+			}
+			
+			// find the highest scoring item(s)
+			Set<DataPod.Pea.Item> disputes = new TreeSet<DataPod.Pea.Item>();
+			Tally bestItem = null;
+			int highest = 0;
+			
+			for(Tally t : tallys.values()) {
+				if(t.score > highest) {
+					disputes.clear();
+					bestItem = t;
+					highest = t.score;
+				} else if(t.score == highest) {
+					disputes.add(bestItem.item); // record the disputed items.
+					bestItem = t;
+				}
+			}
+			
+			
+			// print
+			ctx.println("<i>votes by organization [proposed vetting structure]:</i><br>");
+			for(String org : orgVotes.keySet()) {
+				OrgVote theVote = orgVotes.get(org);
+				ctx.print("<b>"+org+"</b>: ");
+				if(theVote.strength == -1) {
+					ctx.print("X No Consensus. ");
+				} else {
+					ctx.print("\u2611"+theVote.item.value+", strength "+theVote.strength+".");
+				}
+				ctx.print("<smaller>All votes:<ul>");
+				for(DataPod.Pea.Item item : theOrgs.get(org)) {
+					ctx.print("<li>");
+					if(item==theVote.item) {
+						ctx.print("<b>");
+					}
+					ctx.print(item.value+": ");
+					if(item==theVote.item) {
+						ctx.print("</b>");
+					}
+					for(UserRegistry.User u : item.votes)  { 
+						if(!u.org.equals(org)) continue;
+						ctx.print(u+", ");
+					}
+					ctx.println("</li>");
+				}
+				ctx.println("</ul></smaller>");
+			}
+			
+			if(bestItem != null ) {
+				ctx.print("<b>Optimal field</b>: "+bestItem.item.value+", score: "+bestItem.score);
+			} else {
+				ctx.print("no optimal item found.");
+			}
+			ctx.println("<br><i>scores by item</i><ul>");
+			for(Tally t : tallys.values()) {
+				ctx.print("<li>");
+				if(t == bestItem) {
+					ctx.print("<b>");
+				}
+				ctx.print(t.item.value+": score "+t.score);
+				if(t == bestItem) {
+					ctx.print("</b> ");
+				} else if(disputes.contains(t.item)) {
+					ctx.print("<i>tie vote</i>");
+				}
+				
+				for(OrgVote theVote : t.orgs ) {
+					ctx.print("\u2611"+theVote.org+":");
+					ctx.print(theVote.strength+", ");
+				}
+				
+				ctx.print("</li>");
+			}
+			ctx.println("</ul>");
+			
+			ctx.print("</td></tr>");
+		}
     }
 
     /**

@@ -194,7 +194,7 @@ public class DataPod extends Registerable {
         public int reservedForSort = -1; // reserved to use in collator.
 //        String inheritFrom = null;
 //        String pathWhereFound = null;
-        public class Item {
+        public class Item implements java.lang.Comparable {
             String pathWhereFound = null;
             String inheritFrom = null;
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
@@ -216,6 +216,18 @@ public class DataPod extends Registerable {
             public String toString() { 
                 return "{Item v='"+value+"', altProposed='"+altProposed+"', inheritFrom='"+inheritFrom+"'}";
             }
+			
+			public int compareTo(Object other) {
+                if(other == this) {
+                    return 0;
+                }
+				Item i = (Item) other;
+				int rv = value.compareTo(i.value);
+				if(rv == 0) {
+					rv = xpath.compareTo(i.xpath);
+				}
+				return rv;
+			}
             
            /* public boolean equals(Object other) {
                 if(other == this) {

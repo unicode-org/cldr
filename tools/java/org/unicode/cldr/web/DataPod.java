@@ -168,7 +168,7 @@ public class DataPod extends Registerable {
         public AttributeChoice attributeChoice = null; // pea is an attributed list of items
         
         public String type = null;
-        
+        public String uri = null; // URI for the type
         
         public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
         public String displayName = null;
@@ -228,20 +228,7 @@ public class DataPod extends Registerable {
 				}
 				return rv;
 			}
-            
-           /* public boolean equals(Object other) {
-                if(other == this) {
-                    return true;
-                }
-                if(!(other instanceof DataPod.Pea.Item)) {
-                    return false;
-                }
-                Item i = (Item)other;
-                
-                System.err.println("I= "+this+" : " + i);
-                return false;
-            }*/
-            
+          
             /* return true if any valid tests were found */
             public boolean setTests(List testList) {
                 tests = testList;
@@ -990,20 +977,22 @@ public class DataPod extends Registerable {
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            com.ibm.icu.dev.test.util.ElapsedTimer et;
+			
+            com.ibm.icu.dev.test.util.ElapsedTimer cet;
             if(SHOW_TIME) {
-                et= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("DP: Starting populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
+                cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
+                System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
             }
             CLDRFile baselineFile = ctx.sm.getBaselineFile();
             pod.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
-            if(SHOW_TIME) {
+			int popCount = pod.getAll().size();
+/*            if(SHOW_TIME) {
                 System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
-            }
-            com.ibm.icu.dev.test.util.ElapsedTimer cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
+            }*/
             pod.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
             if(SHOW_TIME) {
-                System.err.println("DP: Time taken to complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + pod.getAll().size());
+				int allCount = pod.getAll().size();
+                System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
             }
             pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
             pod.exampleGenerator.setVerboseErrors(ctx.sm.twidBool("ExampleGenerator.setVerboseErrors"));
@@ -1130,7 +1119,7 @@ public class DataPod extends Registerable {
         int count=0;
         long countStart = 0;
         if(SHOW_TIME) {
-            countStart = System.currentTimeMillis();
+            lastTime = countStart = System.currentTimeMillis();
         }
         // what to exclude under 'misc'
         int t = 10;
@@ -1224,7 +1213,9 @@ public class DataPod extends Registerable {
                 
             if(SHOW_TIME) {
                 count++;
-                if((count%250)==0) {
+				nextTime = System.currentTimeMillis();
+				if((nextTime - lastTime) > 10000) {
+					lastTime = nextTime;
                     System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
                         (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
                 }
@@ -1483,10 +1474,13 @@ public class DataPod extends Registerable {
                    if(eUri.startsWith("isbn:")) {
                         // linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).  
                         // could also go to wikipedia's  ISBN special page.              
-                        p.displayName = /*type + " - "+*/ "<a href='http://my.linkbaton.com/isbn/"+
-                            eUri.substring(5,eUri.length())+"'>"+eUri+"</a>";
+						p.uri = "http://my.linkbaton.com/isbn/"+
+                            eUri.substring(5,eUri.length());
+                        p.displayName = eUri;
                     } else {
-                        p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
+						p.uri = eUri;
+						p.displayName = eUri.replaceAll("(/|&)","\u200b$0");  //  put zwsp before "/" or "&"
+                        //p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
                     }
                 } else {
                     p.displayName = null;

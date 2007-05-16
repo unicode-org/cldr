@@ -1582,7 +1582,7 @@ import com.ibm.icu.util.ULocale;
                     ResultSet rs = stmts.queryValue.executeQuery();
                     if(rs.next()) {
                         // already taken..
-                        logger.info("Taken: " + altProposed);
+                        //logger.info("Taken: " + altProposed);
                         rs.close();
                         continue;
                     }

@@ -3966,24 +3966,22 @@ public class SurveyMain extends HttpServlet {
             Hashtable h = new Hashtable();
             Set locales  = getLocalesSet();
             ElapsedTimer et = new ElapsedTimer();    
-            System.err.println("Beginning alias check/parse of " + locales.size() + " locales..");
+            System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
             for(Object loc : locales) {
                 try {
                     Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
-                    
-                    
-                    
                     Node[] aliasItems = 
                                 LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
-                    if((aliasItems==null) || (aliasItems.length==0)){
+								
+                    if((aliasItems==null) || (aliasItems.length==0)) {
                         continue;
                     } else if(aliasItems.length>1) {
                         throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
                     }
 
                     String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
+					
                     h.put(loc.toString(),aliasTo);
-                    
                 } catch (Throwable t) {
                     System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                     t.printStackTrace();
@@ -3991,7 +3989,7 @@ public class SurveyMain extends HttpServlet {
                     throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                 }
             }
-            System.err.println("Finished alias check/parse of " + locales.size()+ " in " + et.toString());
+            System.err.println("Finished verify+alias check of " + locales.size()+ ", " + h.size() + " aliased locales found in " + et.toString());
             aliasMap = h;
         }
         return (String)aliasMap.get(id);
@@ -4518,7 +4516,7 @@ public class SurveyMain extends HttpServlet {
 //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
         // calculate references
         if(pod.xpathPrefix.indexOf("references")==-1) {
-            Set refsSet = new HashSet();
+            Set refsSet = new TreeSet();
             WebContext refCtx = new WebContext(ctx);
             refCtx.setQuery("_",ctx.locale.getLanguage());
             refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
@@ -4741,6 +4739,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         if(someDidChange) {
+            int n = vet.updateImpliedVotes(oldPod.locale);
             lcr.invalidateLocale(oldPod.locale);
         }
         return someDidChange;
@@ -4763,115 +4762,6 @@ public class SurveyMain extends HttpServlet {
         String choice_refDisplay = ""; // display value for ref
         boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps;
         
-/*
-        if(p.toggleWith != null) {
-            if(!canSubmit) {
-                return false;
-            }
-            // special handling for toggles.
-            if(p.toggleValue == false) { // we only work with the 'true' side.
-                return false;
-            }
-            
-            
-            // load the negative side of things
-            DataPod.Pea falsePea = p.toggleWith;
-            String falsePath = pod.xpath(falsePea);
-            int false_xpath = xpt.xpathToBaseXpathId(falsePath);
-            int oldFalseVote = vet.queryVote(pod.locale, ctx.session.user.id, false_xpath);
-            
-            boolean isDontcare = choice.equals(DONTCARE);
-            boolean isChangeto = choice.equals(CHANGETO);
-
-            if(isDontcare || (isChangeto && choice_v.length()==0)) {
-                boolean hadChange = false;
-                if(oldVote != -1) {
-                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: Removing vote <br>");
-                    hadChange = doVote(ctx, pod.locale, -1, base_xpath) || hadChange;
-                }
-                if(oldFalseVote != -1) {
-                    ctx.print("<tt class='codebox'>"+ falsePea.displayName +"</tt>: Removing vote <br>");
-                    hadChange = doVote(ctx, pod.locale, -1, false_xpath) || hadChange;
-                }
-                return hadChange;
-            } else if(isChangeto) {
-                boolean choice_b = choice_v.equals("true");
-                if(!choice_b) choice_v="false";
-                
-                // create a parallel set of these items, depending on which way we are going. YES = user's vote. NO = not user's vote.
-                DataPod.Pea yesPea = choice_b?p:falsePea;
-                DataPod.Pea noPea  = !choice_b?p:falsePea;
-                String      yesPath = choice_b?fullPathFull:falsePath;
-                String      noPath = !choice_b?fullPathFull:falsePath;
-                int         yesVote = choice_b?oldVote:oldFalseVote;
-                int         noVote = !choice_b?oldVote:oldFalseVote;
-                int         yesXpid = choice_b?base_xpath:false_xpath;
-                int         noXpid = !choice_b?base_xpath:false_xpath;
-                
-                boolean updateImpliedVotes = false;
-                boolean hadChange = false;
-
-                // look for a 'choice_v' value in  the yesPea to vote for
-                DataPod.Pea.Item yesItem = null;
-                for(Object o : yesPea.items) {
-                    DataPod.Pea.Item i = (DataPod.Pea.Item)o;
-                    if(choice_v.equals(i.value)) {
-                        yesItem = i;
-                    }
-                }
-                
-                
-                if(yesItem == null) {
-                    // no yesItem - have to create one.
-                    String yesPathMinusAlt = XPathTable.removeAlt(yesPath);
-                    String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, yesPathMinusAlt, yesPea.altType, 
-                        altPrefix, ctx.session.user.id, choice_v, choice_r);
-                    doUnVote(ctx, pod.locale, yesXpid); // remove explicit vote - the implied votes will pick up the vote
-                    updateImpliedVotes = true;
-                    hadChange = true;
-                    ctx.print("<tt class='codebox'>"+ yesPea.displayName +"</tt>: voting for new item <br>");
-                } else if(yesVote != yesItem.xpathId) {
-                    doVote(ctx, pod.locale, yesItem.xpathId, yesXpid);
-                    hadChange = true;
-                    ctx.print("<tt class='codebox'>"+ yesPea.displayName +"</tt>: voting for item <br>");
-                }
-                
-                // now, the no item
-                
-                // look for a 'removal' value in  the yesPea to vote for
-                DataPod.Pea.Item noItem = null;
-                for(Object o : noPea.items) {
-                    DataPod.Pea.Item i = (DataPod.Pea.Item)o;
-                    if("".equals(i.value)) {
-                        noItem = i;
-                    }
-                }
-                
-                if(noItem == null) {
-                    // no yesItem - have to create one.
-                    String noPathMinusAlt = XPathTable.removeAlt(noPath);
-                    String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, noPathMinusAlt, noPea.altType, 
-                        altPrefix, ctx.session.user.id, "", choice_r); // removal
-                    doUnVote(ctx, pod.locale, noXpid); // remove explicit vote - the implied votes will pick up the vote
-                    updateImpliedVotes = true;
-                    hadChange = true;
-                    ctx.print("<tt class='codebox'>"+ noPea.displayName +"</tt>: voting for new item <br>");
-                } else if(noVote != noItem.xpathId) {
-                    doVote(ctx, pod.locale, noItem.xpathId, noXpid);
-                    hadChange = true;
-                    ctx.print("<tt class='codebox'>"+ noPea.displayName +"</tt>: voting for item <br>");
-                }
-                
-                if(updateImpliedVotes) {
-                    int n = vet.updateImpliedVotes(pod.locale);
-                }
-                
-            } else {
-                return false;
-            }
-        }
-*/
-
         //NOT a toggle.. proceed 'normally'
         
         if(choice_r.length()>0) {
@@ -4998,9 +4888,6 @@ public class SurveyMain extends HttpServlet {
                     }
                 }
 
-                if(updateImpliedVotes) {
-                    int n = vet.updateImpliedVotes(pod.locale);
-                }
 
                 if(hadChange) {
                     ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: vote succeeded <br>");
@@ -5161,7 +5048,6 @@ public class SurveyMain extends HttpServlet {
                 ctx.print(" <i>(removal)</i>");
             }
             doUnVote(ctx, pod.locale, base_xpath);
-            int n = vet.updateImpliedVotes(pod.locale);
             //ctx.println("updated " + n + " implied votes due to new data submission.");
             ctx.println(" "+ctx.iconHtml("okay","new")+" <br>");
             return true;
@@ -5643,7 +5529,13 @@ public class SurveyMain extends HttpServlet {
 
         ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='"+baseCols+"' valign='top' align='left' class='botgray'>");
         if(p.displayName != null) {
-            ctx.println(p.displayName); // ##3 display/Baseline
+			if(p.uri != null) {
+				ctx.print("<a class='refuri' href='"+p.uri+"'>");
+			}
+            ctx.print(p.displayName); // ##3 display/Baseline
+			if(p.uri != null) {
+				ctx.print("</a>");
+			}
         }
     /*
         if(specialUrl) {
@@ -5763,18 +5655,20 @@ public class SurveyMain extends HttpServlet {
                                 // 1: look for a confirmed value
                                 
                                 DataPod.Pea.Item refItem = refsItemHash.get(refs[i]);
+								String refValueFull = "";
                                 if(refItem != null) {
-                                    refValue = refItem.value;
+                                    refValueFull = refValue = refItem.value;
                                 }
                                 if(refValue == null) {
-                                    refValue = " (null) ";
+                                    refValueFull = refValue = " (null) ";
                                 } else {
-                                    if(refValue.length()>(REFS_SHORTEN_WIDTH-1)) {
-                                        refValue = refValue.substring(0,REFS_SHORTEN_WIDTH)+"\u2026"; // "..."
+                                    if(refValue.length()>((REFS_SHORTEN_WIDTH*2)-1)) {
+                                        refValue = refValue.substring(0,REFS_SHORTEN_WIDTH)+"\u2026"+
+													refValue.substring(refValue.length()-REFS_SHORTEN_WIDTH); // "..."
                                     }
                                 }
                                 
-                                ctx.print("<option value='"+refs[i]+"'>"+refs[i]+": " + refValue+"</option>");
+                                ctx.print("<option title='"+refValueFull+"' value='"+refs[i]+"'>"+refs[i]+": " + refValue+"</option>");
                             }
                             ctx.println("</select>");
                         }

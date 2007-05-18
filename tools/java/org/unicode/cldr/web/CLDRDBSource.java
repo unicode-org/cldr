@@ -1074,10 +1074,11 @@ import com.ibm.icu.util.ULocale;
                     return xpt.getById(pathid); // not found - should be null?
                 }
                 int result = rs.getInt(1);
+				/*
                 if(rs.next()) {
                     logger.severe("getOrigXpath returns two results: " + locale + " " + xpt.getById(pathid));
                     // fail?? what?
-                }
+                }*/
                 rs.close();
                 return xpt.getById(result);
             } catch(SQLException se) {

@@ -888,95 +888,315 @@ public class Vetting {
         }
     }
 
-    
+	/**
+	 * Inner classes used for vote tallying 
+	 */
+
+	public static final String EXISTING_VOTE =  "Existing Vote";
+
     /**
      * This class represents a particular item that can be voted for,
      * a single "contest" if you will.
-     * TODO: implement the Chadless version of the survey tool.
      */
-    class Chad {
-        public int xpath; /** xpath of this item **/
-        public Set voters = new HashSet(); /** Set of users which voted for this. **/
-        
-        // calculated:
-        public boolean admin_voted_for = false; /** did an admin vote for it ? **/
-        public boolean quorum = false; /** do we have a quorum? **/
-        public boolean someone_voted_for = false; /** did anyone at all vote for it? **/
-        public boolean removal = false; /** is this a vote for Removal? **/
-        
-        /**
-         * construct a Chad over a certain xpath id
-         * @param x the id
-         */
-        Chad(int x) {
-            xpath = x;
-        }
-        
-        /**
-         * Register a vote for a particular user
-         * @param u the user
-         */
-        void vote(UserRegistry.User u) {
-            voters.add(u);
-            
-            if(UserRegistry.userIsVetter(u)) {
-                someone_voted_for=true;
-            }
-            
-            if(UserRegistry.userIsAdmin(u)) {
-                admin_voted_for = true;
-                quorum = true;
-			    if(VET_VERBOSE) System.err.println(" +Quorum: admin  " + u + " --> "+toString());
-            } else if(UserRegistry.userIsExpert(u)) {
-                quorum = true;
-			    if(VET_VERBOSE) System.err.println(" +Quorum: expert " + u + " --> "+toString());
-            } else if(UserRegistry.userIsVetter(u)) {
-                /* did at least one vetter from another user vote for it? */
-                if(!quorum) {
-                    for(Iterator i = voters.iterator();!quorum&&i.hasNext();) {
-                        UserRegistry.User them = (UserRegistry.User)i.next();
-                        if(!them.org.equals(u.org) &&
-                            UserRegistry.userIsVetter(them)) {
-                            quorum=true;
-							if(VET_VERBOSE) System.err.println(" +Quorum: got " + u + " and " + them + " --> "+toString());
-							return;
+	public class Race {
+		// The vote of a particular organization for this item.
+		class Organization implements Comparable {
+			String name; // org's name
+			Chad vote = null; // the winning item: -1 for unknown
+			int strength=0; // strength of the vote
+			public boolean dispute = false;
+			
+			Set<Chad> votes = new TreeSet<Chad>(); // the set of chads
+			
+			public Organization(String name) {
+				this.name = name;
+			}
+			
+			/**
+			 * Factory function - create an existing Vote
+			 */
+			public Organization(Chad existingItem) {
+				name = EXISTING_VOTE;
+				vote = existingItem;
+				strength = 1 * 4;
+			}
+			
+			// we have some interest in this race
+			public void add(Chad c) {
+				votes.add(c);
+			}
+			
+			// All votes have been cast, decide which one this org votes for.
+			Chad calculateVote() {
+				if(vote == null) {
+					int lowest = 1000;
+					for(Chad c : votes) {
+						int lowestUserLevel = 1000;
+						for(UserRegistry.User aUser : c.voters) {
+							if(!aUser.org.equals(name)) continue;
+							if(lowestUserLevel>aUser.userlevel) {
+								lowestUserLevel = aUser.userlevel;
+							}
+						}
+						if(lowestUserLevel<1000) {
+							if(lowestUserLevel<lowest) {
+								lowest = lowestUserLevel;
+								vote = c;
+							} else if (lowestUserLevel == lowest) {
+								// Dispute.
+								lowest = -1;
+								vote = null;
+							}
+						}
+					}
+					
+					// now, rate based on lowest user level ( = highest rank )
+					if(vote != null) {
+						if(lowest <= UserRegistry.EXPERT) {
+							strength = 8; // "2" * 4
+						} else if(lowest <= UserRegistry.VETTER) {
+							strength = 4; // "1" * 4
+						} else if(lowest <= UserRegistry.STREET) {
+							strength = 1; // "1/4" * 4
+							// TODO: liason / guest vote levels go here.
+						} else {
+							vote = null;  // no vote cast
+						}
+					} else if(lowest == -1) {
+						strength = 0;
+						dispute = true;
+						vote = null;
+					}
+				}
+				return vote;
+			}
+			
+			public int compareTo(Object o) {
+				if(o==this) { 
+					return 0;
+				}
+				Organization other = (Organization)o;
+				if(other.strength>strength) {
+					return 1;
+				} else if(other.strength < strength) {
+					return -1;
+				} else {
+					return name.compareTo(other.name);
+				}
+			}
+		}
+
+		// All votes for a particular item
+		class Chad implements Comparable {
+			public int xpath = -1;
+			public Set<UserRegistry.User> voters = new HashSet<UserRegistry.User>(); //Set of users which voted for this.
+			public Set<Organization> orgs = new TreeSet<Organization>(); // who voted for this?
+			public int score = 0;
+			public String value = null;
+
+			public Chad(int xpath, String value) {
+				this.xpath = xpath;
+				this.value = value;
+			}
+			public void add(Organization votes) {
+				orgs.add(votes);
+				score += votes.strength;
+			}
+			public void vote(UserRegistry.User user) {
+				voters.add(user);
+			}
+
+			public int compareTo(Object o) {
+				if(o==this) { 
+					return 0;
+				}
+				Chad other = (Chad)o;
+				
+				if(other.xpath == xpath) {
+					return 0;
+				}
+				
+				if(value == null) {
+					return "".compareTo(other.value);
+				} else {
+					return value.compareTo(other.value);
+				}
+			}
+		}
+
+		// Race variables
+		public int base_xpath;
+		public String locale;
+		public Hashtable<Integer,Chad> chads = new Hashtable<Integer,Chad>();
+		public Hashtable<String, Organization> orgVotes = new Hashtable<String,Organization>();
+		public Set<Chad> disputes = new TreeSet<Chad>();
+		public Chad winner = null;
+		
+		/* reset all */
+		public void clear() {
+			chads.clear();
+			orgVotes.clear();
+			disputes.clear();
+			winner = null;
+		}
+		
+		/* Reset this for a new item */
+		public void clear(int base_xpath, String locale) {
+			clear();
+			this.base_xpath = base_xpath;
+			this.locale = locale;
+		}
+		
+		/**
+		 * calculate the optimal item, if any
+		 * recalculate any items
+		 */
+		public int optimal() throws SQLException {
+			gatherVotes();
+			calculateOrgVotes();
+			
+			Chad optimal = calculateWinner();
+			if(optimal == null) {
+				return -1;
+			} else {
+				return optimal.xpath;
+			}
+		}
+
+
+		private final void existingVote(int vote_xpath, String value) {
+			vote(null, vote_xpath, value);
+		}
+		
+		private void vote(UserRegistry.User user, int vote_xpath, String value) {
+			// add this vote to the chads, or create one if not present
+			Integer vote_xpath_int = new Integer(vote_xpath);
+			Chad c = chads.get(vote_xpath_int);
+			if(c == null) {
+				c = new Chad(vote_xpath, value);
+				chads.put(vote_xpath_int, c);
+			}
+			
+			if(user != null) {
+				c.vote(user);
+				
+				// add the chad to the set of orgs' chads
+				Organization theirOrg = orgVotes.get(user.org);
+				if(theirOrg == null) {
+					theirOrg = new Organization(user.org);
+					orgVotes.put(user.org,theirOrg);
+				}
+				theirOrg.add(c);
+			} else {
+				// "existing" vote
+				Organization existingOrg = new Organization(c);
+				orgVotes.put(existingOrg.name, existingOrg);
+			}
+		}
+		
+		/**
+		 * @returns number of votes counted, including abstentions
+		 */ 
+		private int gatherVotes() throws SQLException {
+			queryVoteForBaseXpath.setString(1,locale);
+            queryVoteForBaseXpath.setInt(2,base_xpath);
+
+			queryValue.setString(1,locale);
+			
+            ResultSet rs = queryVoteForBaseXpath.executeQuery();
+            int count =0;
+            while(rs.next()) {
+                count++;
+                int submitter = rs.getInt(1);
+                int vote_xpath = rs.getInt(2);
+/*                String vote_value = rs.getString(4); */
+                if(vote_xpath==-1) {
+                    continue; // abstention
+                }
+
+				queryValue.setInt(2,vote_xpath);
+				ResultSet crs = queryValue.executeQuery();
+				String itemValue = "(unknown)";
+				if(crs.next()) {
+					itemValue = crs.getString(1);
+				}
+
+                UserRegistry.User u = sm.reg.getInfo(submitter);
+				vote(u, vote_xpath, itemValue);
+
+				/*   // This type of removal has been removed.
+                    // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
+                    queryValue.setXXX(1, ???);
+					queryValue.setInt(2,vote_xpath);			
+                    ResultSet crs= queryValue.executeQuery();
+                    if(!crs.next()) {
+//                        if(vote_xpath==base_xpath){
+////                   System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
+                        c.removal=true; // always a removal.
+                    } else {
+                        String v = crs.getString(1);
+                        if(v.length()==0) {
+                            if(vote_xpath!=base_xpath){
+                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
+                                c.removal=true;
+                            } else {
+                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
+                            }
                         }
                     }
-                }
+                    crs.close();
+					*/
             }
+			
+			queryValue.setInt(2,base_xpath);
+			rs = queryValue.executeQuery();
+			if(rs.next()) {
+				String itemValue = rs.getString(1);
+				existingVote(base_xpath, itemValue);
+			}
+			
+		    return count;
         }
-        
-        /**
-         * return a Chad in string format
-         * for debugging
-         */
-        public String toString() {
-            String rs ="";
-            if(quorum) {
-                rs = "QUORUM: ";
-            } else {
-                rs = "        ";
-            }
-            if(admin_voted_for) {
-                rs = rs + " [ADMIN] ";
-            }
-            if(someone_voted_for) {
-                rs = rs + " [V] ";
-            }
-            for(Iterator i = voters.iterator();i.hasNext();) {
-                UserRegistry.User them = (UserRegistry.User)i.next();
-                rs = rs + "{"+them.toString()+"}";
-                if(i.hasNext()) {
-                    rs = rs + ", ";
-                }
-            }
-            rs = rs + " - " + voters.size()+"voters";
-            return rs + " #"+xpath;
-        }
-    };
-    
-     
-    Map chads = new HashMap();
+		
+		private void calculateOrgVotes() {
+			// calculate the org's choice
+			for(Organization org : orgVotes.values()) {
+				Chad vote = org.calculateVote();
+				if(vote != null) {
+					vote.add(org); // add that org's vote to the chad
+				}
+			}
+		}
+		
+		private Chad calculateWinner() {
+			int highest = 0;
+			
+			for(Chad c : chads.values()) {
+				if(c.score > highest) {
+					disputes.clear();
+					winner = c;
+					highest = c.score;
+				} else if(c.score == highest) {
+					disputes.add(winner); // record the disputed items.
+					winner = c;
+				}
+			}
+			return winner;
+		}
+	} // end Race
+	
+	
+	public Race getRace(String locale, int base_xpath) throws SQLException {
+		synchronized(conn) {
+			// Step 0: gather all votes
+			Race r = new Race();
+			r.clear(base_xpath, locale);
+			r.optimal();
+			
+			return r;
+		}
+	}
+		
 
     /**
      * This function doesn't acquire a lock, so ONLY call it from updateResults().  Also, it does not call commmit().
@@ -994,8 +1214,6 @@ public class Vetting {
      * @return the type of the vetting result. 
      */     
     private int updateResults(int id, String locale, int base_xpath) throws SQLException {
-        chads.clear();
-
         int resultXpath = -1;
         int type = -1;
         int fallbackXpath = -1;
@@ -1004,51 +1222,24 @@ public class Vetting {
         queryValue.setString(1,locale);
         
         // Step 0: gather all votes
-        {
-            queryVoteForBaseXpath.setInt(2,base_xpath);
-            ResultSet rs = queryVoteForBaseXpath.executeQuery();
-            int count =0;
-            while(rs.next()) {
-                count++;
-                int submitter = rs.getInt(1);
-                int vote_xpath = rs.getInt(2);
-                if(vote_xpath==-1) {
-                    continue; // abstention
-                } 
-                Integer vote_int = new Integer(vote_xpath);
-                Chad c = (Chad)chads.get(new Integer(vote_xpath));
-                if(c==null) {
-                    c = new Chad(vote_xpath);
-                    
-                    // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
-                    queryValue.setInt(2,vote_xpath);
-                    ResultSet crs= queryValue.executeQuery();
-                    if(!crs.next()) {
-//                        if(vote_xpath==base_xpath){
-/*srl, et al*/              System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
-                        c.removal=true; // always a removal.
-                    } else {
-                        String v = crs.getString(1);
-                        if(v.length()==0) {
-                            if(vote_xpath!=base_xpath){
-                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
-                                c.removal=true;
-                            } else {
-                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
-                            }
-                        }
-                    }
-                    crs.close();
-                }
-                UserRegistry.User u = sm.reg.getInfo(submitter);
-                c.vote(u);
-                chads.put(vote_int, c); // TODO: should be able to do this only when it wasnt present
-            }
-            if(count>0) {
-                //System.err.println(locale+":"+base_xpath+" - Collected "+count+" votes in " + chads.size() + " chads");                
-            }
-        }
-        
+		Race r = new Race();
+		r.clear(base_xpath, locale);
+		resultXpath = r.optimal();
+		
+		// Examine the results
+		if(resultXpath != -1) {
+			if(!r.disputes.isEmpty()) {
+				type = RES_DISPUTED;
+			} else {
+				type = RES_GOOD;
+			}
+		} else {
+			if(!r.chads.isEmpty()) {
+				type = RES_INSUFFICIENT;
+			}
+		}
+		
+/*        
         if((type==-1) && !chads.isEmpty()) { // no resolution AND someone did vote.
             int number_voted_for=0;
             boolean sawQuorum = false;
@@ -1087,7 +1278,7 @@ public class Vetting {
             if(sawQuorum && (type==-1)) {
                 // We have a winner.
                 if(quorumChad.removal) {
-///*srl*/                    System.err.println("RESULT: "+locale+":"+base_xpath+" = RES_REMOVAL");
+//srl                    System.err.println("RESULT: "+locale+":"+base_xpath+" = RES_REMOVAL");
                     type = RES_REMOVAL; // quorum is to remove an item. Needed to suppress base_xpath from iterator()
                 } else if(chads.size()==1) {
                     type = RES_UNANIMOUS; // not shown if TC also voted.
@@ -1198,15 +1389,18 @@ public class Vetting {
             throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+" - no type");
         }
         
+*/
+
         // --------
         // Now, update the vote results
         int setXpath = resultXpath;
         
         if(setXpath==-1) {
             // fallback situation
-            setXpath = fallbackXpath;
+//            setXpath = fallbackXpath;
         }
-        
+
+
         if(id == -1) { 
             // Not an existing vote:  insert a new one
             // insert 
@@ -1219,14 +1413,14 @@ public class Vetting {
                 insertResult.setNull(3,java.sql.Types.SMALLINT); // no fallback.
             }
             insertResult.setInt(4,type);
-            /*
-            if((type != RES_NO_CHANGE) && // boring ones..
-                (type != RES_NO_VOTES)) {
-                System.err.println("V: "+locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+")");
-            }
-            */
+            
+//            if((type != RES_NO_CHANGE) && // boring ones..
+//                (type != RES_NO_VOTES)) {
+//                System.err.println("V: "+locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+")");
+//            }
+            
             int res = insertResult.executeUpdate();
-            //conn.commit(); // should this be not done, for perf?
+			// no commit
             if(res != 1) {
                 throw new RuntimeException(locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+") - insert failed.");
             }
@@ -1235,7 +1429,12 @@ public class Vetting {
             // existing vote: get the old one
             // ... for now, just do an update
             // update CLDR_RESULT set vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
-            updateResult.setInt(1, setXpath);
+
+            if(setXpath != -1) {
+                updateResult.setInt(1,setXpath);
+            } else {
+                updateResult.setNull(1,java.sql.Types.SMALLINT); // no fallback.
+            }
             updateResult.setInt(2, type);
             updateResult.setInt(3, id);
             int res = updateResult.executeUpdate();

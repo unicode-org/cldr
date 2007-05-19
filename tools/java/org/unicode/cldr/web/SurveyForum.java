@@ -324,6 +324,9 @@ public class SurveyForum {
                 }
                 
                 // Apparently, it posted.
+				
+				// Do email- 
+				
                 
                 
                 ctx.redirect(ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+forum+"&didpost=t");

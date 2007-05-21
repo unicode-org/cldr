@@ -69,31 +69,29 @@ Finding words in: "many!"
  * @author markdavis
  * 
  */
-public abstract class Dictionary {
+public abstract class Dictionary<T> {
   protected CharSequence text;
 
   protected int offset;
 
   protected int matchEnd;
 
-  protected int matchValue;
-
-  /*
-   * A Dictionary may also have a builder, that allows the dictionary to be
-   * built at runtime.
-   */
-  public interface Builder {
-    /**
-     * Add strings to the dictionary. It is an error to add the null string, or
-     * to add a string that is less than a previously added strings. That is,
-     * the strings must be added in ascending codepoint order.
-     * 
-     * @param text
-     * @param result
-     * @return
-     */
-    public Builder addMapping(CharSequence text, int result);
-  }
+//  /*
+//   * A Dictionary may also have a builder, that allows the dictionary to be
+//   * built at runtime.
+//   */
+//  public interface Builder<T> {
+//    /**
+//     * Add strings to the dictionary. It is an error to add the null string, or
+//     * to add a string that is less than a previously added strings. That is,
+//     * the strings must be added in ascending codepoint order.
+//     * 
+//     * @param text
+//     * @param result
+//     * @return
+//     */
+//    public Dictionary<T> getInstance(Map<CharSequence,T> source);
+//  }
 
   /**
    * Set the target text to match within; also resets the offset to zero.
@@ -124,7 +122,6 @@ public abstract class Dictionary {
    */
   public Dictionary setOffset(int offset) {
     this.offset = offset;
-    matchValue = 0;
     matchEnd = offset;
     return this;
   }
@@ -152,8 +149,19 @@ public abstract class Dictionary {
    * 
    * @return
    */
-  public int getMatchValue() {
-    return matchValue;
+  public abstract T getMatchValue();
+
+  /**
+   * Get the latest match value after calling next(); see next() for more information. 
+   * 
+   * @return
+   */
+  public int getIntMatchValue() {
+    try {
+      return (Integer)getMatchValue();
+    } catch (Exception e) {
+      return Integer.MIN_VALUE;
+    }
   }
 
   /**
@@ -231,17 +239,17 @@ public abstract class Dictionary {
    * 
    * @return
    */
-  public abstract Map<CharSequence, Integer> getMapping();
+  public abstract Map<CharSequence, T> getMapping();
   
   /**
    * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
    */
-  public int get(CharSequence text) {
+  public T get(CharSequence text) {
     setText(text); // set the text to operate on
     while (true) {
       Status next1 = next();
       if (next1 != Status.MATCH) {
-        return Integer.MIN_VALUE;
+        return null;
       } else if (getMatchEnd() == text.length()) {
         return getMatchValue();
       }

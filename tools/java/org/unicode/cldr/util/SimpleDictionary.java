@@ -1,11 +1,9 @@
 package org.unicode.cldr.util;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -13,25 +11,55 @@ import java.util.TreeSet;
  * This is a simple dictionary class used for testing.
  * @author markdavis
  */
-public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
-  private TreeMap<CharSequence, Integer> data = new TreeMap<CharSequence, Integer>();
+public class SimpleDictionary<T> extends Dictionary<T> {
+  private TreeMap<CharSequence, T> data = new TreeMap<CharSequence, T>();
   private Set<CharSequence> possibleMatchesBefore;
   private Set<CharSequence> possibleMatchesAfter;
   private Status finalStatus;
   boolean done;
   private int matchCount;
   private CharSequence lastEntry = "";
+  private T matchValue;
+ 
+  public SimpleDictionary(Map<CharSequence,T> source) {
+    for (CharSequence text : source.keySet()) {
+     addMapping(text, source.get(text));
+    }
+  }
+  
+//  private List<T> results;
+//  
+//  public static <U> Dictionary<U> getInstance(Map<CharSequence, U> source) {
+//    SimpleDictionary<U> result = new SimpleDictionary<U>();
+//    // if T is not an integer, then get the results, and assign each a number
+//    Map<U,Integer> valueToInt = new HashMap<U,Integer>();
+//    result.results = new ArrayList<U>();
+//    int count = 0;
+//    for (U value : source.values()) {
+//      Integer oldValue = valueToInt.get(value);
+//      if (oldValue == null) {
+//        result.results.add(value);
+//        valueToInt.put(value, count++);
+//      }
+//    }
+//    
+//    
+//    for (CharSequence text : source.keySet()) {
+//      result.addMapping(text, valueToInt.get(source.get(text)));
+//    }
+//    return result;
+//  }
 
-  public Builder addMapping(CharSequence text, int result) {
+  
+  private void addMapping(CharSequence text, T result) {
     if (compare(text,lastEntry) <= 0) {
       throw new IllegalArgumentException("Each string must be greater than the previous one.");
     }
     lastEntry = text;
     data.put(text, result);
-    return this;
   }
 
-  public Map<CharSequence, Integer> getMapping() {
+  public Map<CharSequence, T> getMapping() {
     return Collections.unmodifiableMap(data);
   }
 
@@ -39,7 +67,15 @@ public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
   public Dictionary setOffset(int offset) {
     possibleMatchesBefore = data.keySet();
     done = false;
+    matchValue = null;
     return super.setOffset(offset);
+  }
+  
+  /**
+   * return the matchValue, or null if there is none.
+   */
+  public T getMatchValue() {
+    return matchValue;
   }
 
   /**
@@ -59,7 +95,7 @@ public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
     // everything should already be set to make this work.
     if (done) {
       if (finalStatus == Status.NONE) {
-        matchValue = matchValue = Integer.MIN_VALUE;
+        matchValue = null;
       }
       return finalStatus;
     }
@@ -103,7 +139,7 @@ public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
     done = true;
     
     if (matchEnd == offset || possibleMatchesBefore.size() == 0) {
-      matchValue = Integer.MIN_VALUE;
+      matchValue = null;
       return finalStatus = Status.NONE;
     }
     if (firstMatch == null) { // just in case we skipped the above loop
@@ -127,7 +163,7 @@ public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
    */
   private CharSequence filterToStartsWith(CharSequence probe) {
     CharSequence result = null;
-    possibleMatchesAfter = new TreeSet();
+    possibleMatchesAfter = new TreeSet<CharSequence>();
     for (Iterator<CharSequence> it = possibleMatchesBefore.iterator(); it.hasNext();) {
       CharSequence item = it.next();
       if (startsWith(item, probe)) {
@@ -156,7 +192,7 @@ public class SimpleDictionary extends Dictionary implements Dictionary.Builder {
     return data.containsKey(text);
   }
   
-  public int get(CharSequence text) {
+  public T get(CharSequence text) {
     return data.get(text);
   }
 //  public static class GeqGetter<K> {

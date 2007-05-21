@@ -1,12 +1,46 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class StateDictionaryBuilder extends Dictionary implements
-    Dictionary.Builder {
+public class StateDictionaryBuilder<T> extends Dictionary<T> {
+  
+  private List<T> results;
+  private int intMatchValue = -1;
+  
+  public StateDictionaryBuilder(Map<CharSequence, T> source) {
+    // if T is not an integer, then get the results, and assign each a number
+    Map<T, Integer> valueToInt = new HashMap<T,Integer>();
+    results = new ArrayList<T>();
+    int count = 0;
+    for (T value : source.values()) {
+      Integer oldValue = valueToInt.get(value);
+      if (oldValue == null) {
+        results.add(value);
+        valueToInt.put(value, count++);
+      }
+    }
+        
+    for (CharSequence text : source.keySet()) {
+      addMapping(text, valueToInt.get(source.get(text)));
+    }
+  }
+  
+  public T getMatchValue() {
+    try {
+      return results.get(intMatchValue);
+    } catch (Exception e) {
+      return null;
+    }
+  }
+  
+  public int getIntMatchValue() {
+    return intMatchValue;
+  }
   /**
    * Internals. The text is transformed into a byte stream. A state table is
    * used to successively map {state, byte, result} to {newstate, newresult,
@@ -203,7 +237,7 @@ public class StateDictionaryBuilder extends Dictionary implements
 
   private CharSequence lastEntry = "";
 
-  public Builder addMapping(CharSequence text, int result) {
+  private void addMapping(CharSequence text, int result) {
     if (compare(text,lastEntry) <= 0) {
       throw new IllegalArgumentException("Each string must be greater than the previous one.");
     }
@@ -233,7 +267,6 @@ public class StateDictionaryBuilder extends Dictionary implements
     if (maxByteLength < bytesUsed) {
       maxByteLength = bytesUsed;
     }
-    return this;
   }
 
   Row currentAddRow;
@@ -271,13 +304,14 @@ public class StateDictionaryBuilder extends Dictionary implements
   @Override
   public Dictionary setOffset(int offset) {
     currentRow = baseRow;
+    intMatchValue = 0;
     return super.setOffset(offset);
   }
 
   @Override
   public Status next() {
     if (currentRow == null) {
-      matchValue = Integer.MIN_VALUE;
+      intMatchValue = -1;
       return Status.NONE;
     }
     Status result = Status.PARTIAL;
@@ -310,7 +344,7 @@ public class StateDictionaryBuilder extends Dictionary implements
           result = Status.PARTIAL;
         }
         if (result == Status.NONE) {
-          matchValue = Integer.MIN_VALUE;
+          intMatchValue = -1;
         }
         break;
       }
@@ -337,7 +371,7 @@ public class StateDictionaryBuilder extends Dictionary implements
     if (cell == null) {
       return Status.NONE;
     }
-    matchValue += cell.deltaResult;
+    intMatchValue += cell.deltaResult;
     currentRow = cell.nextRow;
     if (cell.returns) {
       return Status.MATCH;
@@ -360,7 +394,7 @@ public class StateDictionaryBuilder extends Dictionary implements
       Cell firstCell = myRow.cells.get(myRow.cells.firstKey());
       // if we have a returns flag AND a next row, then we are splitting
       // plus, whenever we get a returns flag, we stop adding values
-      matchValue += firstCell.deltaResult;
+      intMatchValue += firstCell.deltaResult;
       myRow = firstCell.nextRow;
       if (firstCell.returns) {
         if (myRow != null) {
@@ -374,25 +408,25 @@ public class StateDictionaryBuilder extends Dictionary implements
 
   public String toString() {
     StringBuilder result = new StringBuilder();
-    TreeSet<Row> rowSet = new TreeSet(rows);
+    TreeSet<Row> rowSet = new TreeSet<Row>(rows);
     for (Row row : rowSet) {
       result.append(row.toString()).append("\r\n");
     }
     return result.toString();
   }
 
-  public Map<CharSequence, Integer> getMapping() {
+  public Map<CharSequence, T> getMapping() {
     return new TextFetcher().getWords();
   }
 
   private class TextFetcher {
-    Map<CharSequence, Integer> result = new TreeMap<CharSequence, Integer>();
+    Map<CharSequence, T> result = new TreeMap<CharSequence, T>();
 
     byte[] soFar = new byte[maxByteLength];
 
     StringBuilder buffer = new StringBuilder();
 
-    public Map<CharSequence, Integer> getWords() {
+    public Map<CharSequence, T> getWords() {
       result.clear();
       getWords(0, 0, baseRow);
       return result;
@@ -405,7 +439,9 @@ public class StateDictionaryBuilder extends Dictionary implements
         soFar[byteLength] = key;
         int currentValue = resultSoFar + cell.deltaResult;
         if (cell.returns) {
-          result.put(stringFromBytes(soFar, byteLength + 1), currentValue);
+          CharSequence key2 = stringFromBytes(soFar, byteLength + 1);
+          T value2 = results.get(currentValue);
+          result.put(key2, value2);
         }
         if (cell.nextRow != null) {
           getWords(byteLength + 1, currentValue, cell.nextRow);
@@ -413,7 +449,7 @@ public class StateDictionaryBuilder extends Dictionary implements
       }
     }
 
-    private String stringFromBytes(byte[] soFar, int len) {
+    private CharSequence stringFromBytes(byte[] soFar, int len) {
       buffer.setLength(0);
       for (int i = 0; i < len;) {
         char b = (char) (soFar[i++] & 0xFF);

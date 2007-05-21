@@ -3,8 +3,13 @@ package org.unicode.cldr.util;
 import org.unicode.cldr.util.Dictionary.Status;
 
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -13,20 +18,31 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
-public class TestStateDictionaryBuilder {
-  private static final boolean SHOW_STATES = false;
+public class TestStateDictionaryBuilder<T extends CharSequence> {
+  private static final boolean SHORT_TEST = true;
 
-  static boolean SIMPLE_ONLY = false;
+  private final boolean SHOW_STATES = false;
 
-  static boolean TEST_AGAINST_SIMPLE = true;
+  boolean SIMPLE_ONLY = false;
 
-  static Dictionary stateDictionary = new StateDictionaryBuilder();
+  boolean TEST_AGAINST_SIMPLE = true;
 
-  static Dictionary simpleDictionary = new SimpleDictionary();
+  Dictionary<T> stateDictionary;
+
+  Dictionary<T> simpleDictionary;
+  
+  Map<CharSequence,T> baseMapping = new TreeMap<CharSequence,T>();
 
   public static void main(String[] args) {
     
     try {
+      new TestStateDictionaryBuilder<String>().test();
+    } finally {
+      System.out.println("DONE");
+    }
+  }
+  
+  public void test() {
       addToBoth("man", 1);
       addToBoth("manner", 100);
       addToBoth("many", 10);
@@ -50,8 +66,6 @@ public class TestStateDictionaryBuilder {
       
       //if (true) return;
       // clear out
-      stateDictionary = new StateDictionaryBuilder();
-      simpleDictionary = new SimpleDictionary();
 
       addToBoth("fish", 10);
       showDictionaryContents();
@@ -69,24 +83,38 @@ public class TestStateDictionaryBuilder {
       compare();
 
       // clear out
-      stateDictionary = new StateDictionaryBuilder();
-      simpleDictionary = new SimpleDictionary();
-
-      testWithUnicodeNames();
-      compare();
       
+      // check some non-latin
+      String[] zoneIDs = TimeZone.getAvailableIDs();
+      SimpleDateFormat dt = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.LONG, new ULocale("el"));
+      dt.applyPattern("vvvv");
+      for (String zoneID : zoneIDs) {
+        TimeZone zone = TimeZone.getTimeZone(zoneID);
+        dt.setTimeZone(zone);
+        String zoneName = dt.format(0);
+        addToBoth(zoneName, (T)zoneID);
+      }
+      compare();
+      showDictionaryContents();
+
       if (false) {
-        ((StateDictionaryBuilder) stateDictionary).flatten();
+        testWithUnicodeNames();
+        
+        ((StateDictionaryBuilder<T>) stateDictionary).flatten();
         compare();
         System.out.println();
         showDictionaryContents();
       }
-    } finally {
-      System.out.println("DONE");
-    }
+
   }
 
-  private static void showDictionaryContents() {
+  private void showDictionaryContents() {
+    simpleDictionary = new SimpleDictionary<T>(baseMapping);
+    stateDictionary = new StateDictionaryBuilder<T>(baseMapping);
+    baseMapping.clear();
+//    ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
+//    ((Dictionary.Builder) stateDictionary).addMapping(string, i);
+
     if (SHOW_STATES) {
     System.out.println("States:\r\n" + stateDictionary);
     }
@@ -94,14 +122,12 @@ public class TestStateDictionaryBuilder {
     System.out.println();
   }
 
-  private static void testWithUnicodeNames() {
-    stateDictionary = new StateDictionaryBuilder();
-    simpleDictionary = new SimpleDictionary();
+  private void testWithUnicodeNames() {
     UnicodeSet testSet = new UnicodeSet(
         "[[:assigned:] - [:ideographic:] - [:Co:] - [:Cs:]]"); // &
                                                                 // [\\u0000-\\u0FFF]
     int count = 0;
-    Map<String,Integer> data = new TreeMap();
+    Map<String,T> data = new TreeMap<String,T>();
     for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next();) {
       String name = UCharacter.getExtendedName(it.codepoint);
       if (name == null) {
@@ -111,25 +137,31 @@ public class TestStateDictionaryBuilder {
         System.out.println(count + ":\t"
             + com.ibm.icu.impl.Utility.hex(it.codepoint) + "\t" + name);
       }
-      data.put(name, it.codepoint);
+      data.put(name, (T)com.ibm.icu.impl.Utility.hex(it.codepoint,4));
       if (false) for (String item : name.split("\\s+")) {
-        data.put(item, it.codepoint);
+        data.put(item, (T)com.ibm.icu.impl.Utility.hex(it.codepoint,4));
       }
     }
+    count = 0;
     for (String item : data.keySet()) {
+      if (SHORT_TEST && count++ > 1000) continue; // 
       addToBoth(item, data.get(item));
     }
+    simpleDictionary = new SimpleDictionary<T>(baseMapping);
+    stateDictionary = new StateDictionaryBuilder<T>(baseMapping);
+    baseMapping.clear();
+    compare();
   }
 
-  private static void compare() {
+  private void compare() {
     System.out.println("Comparing results: " + simpleDictionary.getMapping().size());
-    Map<CharSequence, Integer> dictionaryData = stateDictionary.getMapping();
-    Map<CharSequence, Integer> simpleDictionaryData = simpleDictionary.getMapping();
+    Map<CharSequence, T> dictionaryData = stateDictionary.getMapping();
+    Map<CharSequence, T> simpleDictionaryData = simpleDictionary.getMapping();
     assert dictionaryData.equals(simpleDictionaryData) : showDifference(dictionaryData, simpleDictionaryData);
     if (SHOW_STATES) {
       System.out.println("Size: " + dictionaryData.size());
       System.out.println("Rows: "
-          + ((StateDictionaryBuilder) stateDictionary).getRowCount());
+          + ((StateDictionaryBuilder<T>) stateDictionary).getRowCount());
     }
     System.out.println("Checking values: state dictionary");
     checkSimpleMatches(stateDictionary, dictionaryData);
@@ -147,13 +179,13 @@ public class TestStateDictionaryBuilder {
     }
   }
 
-  private static String showDifference(Map<CharSequence, Integer> dictionaryData, Map<CharSequence, Integer> simpleDictionaryData) {
+  private String showDifference(Map<CharSequence, T> dictionaryData, Map<CharSequence, T> simpleDictionaryData) {
     System.out.println(dictionaryData.size() + ", " + simpleDictionaryData.size());
-    Iterator<Entry<CharSequence, Integer>> it1 = dictionaryData.entrySet().iterator();
-    Iterator<Entry<CharSequence, Integer>> it2 = simpleDictionaryData.entrySet().iterator();
+    Iterator<Entry<CharSequence, T>> it1 = dictionaryData.entrySet().iterator();
+    Iterator<Entry<CharSequence, T>> it2 = simpleDictionaryData.entrySet().iterator();
     while (it1.hasNext() || it2.hasNext()) {
-      Entry<CharSequence, Integer> item1 = it1.hasNext() ? it1.next() : null;
-      Entry<CharSequence, Integer> item2 = it2.hasNext() ? it2.next() : null;
+      Entry<CharSequence, T> item1 = it1.hasNext() ? it1.next() : null;
+      Entry<CharSequence, T> item2 = it2.hasNext() ? it2.next() : null;
       System.out.println(item1 + ", " + item2);
       if (item1 == null || item2 == null || !item1.equals(item2)) {
         return item1 + "!=" + item2;
@@ -162,7 +194,7 @@ public class TestStateDictionaryBuilder {
     return "no difference";
   }
 
-  private static void crossCheck(CharSequence myText) {
+  private void crossCheck(CharSequence myText) {
     stateDictionary.setText(myText); // set the text to operate on
     simpleDictionary.setText(myText); // set the text to operate on
     for (int i = 0; i < stateDictionary.getText().length(); ++i) {
@@ -190,11 +222,11 @@ public class TestStateDictionaryBuilder {
     }
   }
 
-  private static String showValues(Status stateStatus, Status simpleStatus) {
+  private String showValues(Status stateStatus, Status simpleStatus) {
     return "\r\nSTATE:\t" + showValues(stateStatus, stateDictionary) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleDictionary);
   }
 
-  private static String showValues(Status status, Dictionary dictionary) {
+  private String showValues(Status status, Dictionary<T> dictionary) {
     boolean uniquePartial = status == Status.PARTIAL && dictionary.nextUniquePartial(); // sets matchValue for PARTIAL
     return String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %d%s",
         dictionary.getOffset(),
@@ -211,7 +243,7 @@ public class TestStateDictionaryBuilder {
    * @param dictionary
    * @param data
    */
-  private static void checkSimpleMatches(Dictionary dictionary, Map<CharSequence, Integer> data) {
+  private void checkSimpleMatches(Dictionary<T> dictionary, Map<CharSequence, T> data) {
     int count = 0;
     for (CharSequence myText : data.keySet()) {
       if ((count++ & 0xFF) == 0xFF) {
@@ -221,7 +253,7 @@ public class TestStateDictionaryBuilder {
 
       dictionary.setOffset(0);
       int matchEnd = -1;
-      int matchValue = -1;
+      CharSequence matchValue = null;
       while (true) {
         Dictionary.Status next1 = dictionary.next();
         if (next1 == Dictionary.Status.MATCH) {
@@ -236,17 +268,20 @@ public class TestStateDictionaryBuilder {
     }
   }
 
-  private static void addToBoth(String string, int i) {
-    if (simpleDictionary.contains(string)) return;
-    ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
-    ((Dictionary.Builder) stateDictionary).addMapping(string, i);
-    if (!stateDictionary.contains(string)) {
-      stateDictionary.contains(string);
-    }
-    assert stateDictionary.contains(string);
+  private void addToBoth(CharSequence string, int i) {
+    baseMapping.put(string, (T)(i+"/"+string));
+  }
+  
+  private void addToBoth(CharSequence string, T i) {
+    baseMapping.put(string, i);
+//    if (simpleDictionary.contains(string)) return;
+//    if (!stateDictionary.contains(string)) {
+//      stateDictionary.contains(string);
+//    }
+//    assert stateDictionary.contains(string);
   }
 
-  private static void showWords(String myText) {
+  private void showWords(String myText) {
     System.out.format("Finding words in: \"%s\"\r\n", myText);
     if (SIMPLE_ONLY) {
       showWords("", simpleDictionary, myText);
@@ -258,18 +293,18 @@ public class TestStateDictionaryBuilder {
         System.out.println("  DIFFERENCE");
         showWords("Simple", simpleDictionary, myText);
         showWords("STATE", stateDictionary, myText);
-        Set simpleMinusState = new LinkedHashSet(simpleResult);
+        Set<String> simpleMinusState = new LinkedHashSet<String>(simpleResult);
         simpleMinusState.removeAll(stateResult);
         System.out.println("Simple-State" + simpleMinusState);
-        Set stateMinusSimple = new LinkedHashSet(stateResult);
+        Set<String> stateMinusSimple = new LinkedHashSet<String>(stateResult);
         stateMinusSimple.removeAll(simpleResult);
         System.out.println("State-Simple" + stateMinusSimple);
       }
     }
   }
   
-  private static Set<String> showWords(String title, Dictionary dictionary, String myText) {
-    Set<String> result = new LinkedHashSet();
+  private Set<String> showWords(String title, Dictionary<T> dictionary, String myText) {
+    Set<String> result = new LinkedHashSet<String>();
     dictionary.setText(myText); // set the text to operate on
     title = title.equals("") ? "" : "\tType: " + title;
     boolean uniquePartial = false;
@@ -280,7 +315,7 @@ public class TestStateDictionaryBuilder {
         if (status == Status.PARTIAL) {
           uniquePartial = dictionary.nextUniquePartial(); // sets matchValue for PARTIAL
         }
-        String info = String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %d%s",
+        String info = String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %s%s",
             dictionary.getOffset(),
             dictionary.getMatchEnd(),
             status,

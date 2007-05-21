@@ -35,7 +35,8 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
 	- Post to http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html
 	
 2. Do the following to update to new currency codes.
-
+  [Note: this is more complicated than it should be: we should simplify the process]
+  
 - Go to http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
   (you can set up a watch for changes in this page with http://www.watchthatpage.com)
   WARNING: this needs to be checked periodically, since ISO does not keep accurate histories!
@@ -54,19 +55,14 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
   Run CountItems -Dmethod=generateCurrencyItems to generate the new currency list.
   Verify that no currencies are removed. If one would be, add it to IsoCurrencyParser.oldValues,
   and rerun CountItems.
-- It will print a list of items at the end that need to be added to the ISO4217.txt file. Do that.
+- It will print a list of items at the end that need to be added to the ISO4217.txt file. Add as described below.
 - CountItems will also list the data from the file, for cross-checking SupplementalData
   If any country changes the use of a currency,
     verify that there is a corresponding entry in SupplementalData
     Since ISO doesn't publish the exact data change (!), just make sure it is ballpark.
     For new stuff, see below.
     
-  
-  
 - Adding a currency:
-  
-  Add the currency to supplementalMetadata.xml, in 
-  <variable id="$currency" type="choice">ADP AED AFA AFN .... ZAL ZAR ZMK ZRN ZRZ ZWD</variable>
   
   In SupplementalData:
   If it has unusual rounding or number of digits, add to:
@@ -77,7 +73,8 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
           <region iso3166="TR">
             <currency iso4217="TRY" from="2005-01-01"/>
 
-  Add the code to the test file /util/data/ISO4217.txt
+  Add the code to the file /util/data/ISO4217.txt. This is important, since it is used
+  to get the valid codes for the survey tool. Example:
   		currency	|	TRY	|	new Turkish Lira	|	TR	|	TURKEY	|	C
   
 - Changing currency.

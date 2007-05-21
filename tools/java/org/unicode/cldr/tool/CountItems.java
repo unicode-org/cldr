@@ -418,7 +418,7 @@ public class CountItems {
       // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
       String broken = Utility.breakLines(list.toString(), sep, Pattern.compile("([A-Z])[A-Z][A-Z]").matcher(""), 80);
       assert(list.toString().equals(broken.replace(sep," ")));
-      System.out.println("<!-- version " + isoCurrencyParser.getVersion() + " -->");
+      System.out.println("\t\t\t<!-- currency version " + isoCurrencyParser.getVersion() + " -->");
       System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
     }
     

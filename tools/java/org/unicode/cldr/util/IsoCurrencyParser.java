@@ -150,7 +150,7 @@ public class IsoCurrencyParser {
   Set<String> oldValues = new TreeSet(Arrays.asList(new String[]{
       "ADP", "AFA", "AOK", "AON", "AOR", "ARA", "ARP", "ATS", "AZM", 
       "BAD", "BEC", "BEF", "BEL", "BGL", "BOP", "BRB", "BRC", "BRE", "BRN", "BRR", "BUK", "BYB",
-      "CSK",
+      "CSD", "CSK",
       "DDM", "DEM",
       "ECS", "ECV", "EQE", "ESA", "ESB", "ESP",
       "FIM", "FRF",
@@ -162,7 +162,7 @@ public class IsoCurrencyParser {
       "NIC", "NLG",
       "PEI", "PES", "PLZ", "PTE",
       "RHD", "RSD", "RUR",
-      "SDP", "SRG", "SUR",
+      "SDD", "SDP", "SRG", "SUR",
       "TJR", "TPE", "TRL",
       "UAK", "UGS", "UYP",
       "XEU", "XRE",

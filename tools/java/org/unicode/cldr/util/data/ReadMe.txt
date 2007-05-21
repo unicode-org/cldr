@@ -50,9 +50,9 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
   You should now have a tab-delimited plaintext file
   Use CVS Diff to verify the contents.
 - If you are using Eclipse, refresh the file system (F5)
-  Run CountItems -Dmethod=genSupplementalZoneData to generate the new currency list.
-  Verify that no currencies are removed. If one would be, add it to IsoCurrencyParser.oldValues
-  
+  Run CountItems -Dmethod=generateCurrencyItems to generate the new currency list.
+  Verify that no currencies are removed. If one would be, add it to IsoCurrencyParser.oldValues,
+  and rerun CountItems.
 - CountItems will also list the data from the file, for cross-checking SupplementalData
   If any country changes the use of a currency,
     verify that there is a corresponding entry in SupplementalData

@@ -420,6 +420,10 @@ public class CountItems {
       assert(list.toString().equals(broken.replace(sep," ")));
       System.out.println("\t\t\t<!-- currency version " + isoCurrencyParser.getVersion() + " -->");
       System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">" + broken + "\r\n\t\t\t</variable>");
+      Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes("currency");
+      Set temp = new TreeSet(codeList.keySet());
+      temp.removeAll(isoTextFileCodes);
+      System.out.println("Missing from ISO4217.txt file: " + temp);
     }
     
     public static void genSupplementalZoneData() throws IOException {

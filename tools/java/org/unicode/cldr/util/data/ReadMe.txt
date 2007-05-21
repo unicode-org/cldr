@@ -41,6 +41,7 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
   WARNING: this needs to be checked periodically, since ISO does not keep accurate histories!
   Best is to get on the notification list. If one is missed, try
   http://web.archive.org/web/*sa_/http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
+  Also see http://publications.europa.eu/code/en/en-5000700.htm for background info.
 - Open the page in IE (not other browsers), and 
   select from just before the first character in the line "ISO 4217 Currency names and code elements"
   to just after the last character in "Last modified yyyy-mm-dd", and copy.
@@ -53,11 +54,13 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
   Run CountItems -Dmethod=generateCurrencyItems to generate the new currency list.
   Verify that no currencies are removed. If one would be, add it to IsoCurrencyParser.oldValues,
   and rerun CountItems.
+- It will print a list of items at the end that need to be added to the ISO4217.txt file. Do that.
 - CountItems will also list the data from the file, for cross-checking SupplementalData
   If any country changes the use of a currency,
     verify that there is a corresponding entry in SupplementalData
     Since ISO doesn't publish the exact data change (!), just make sure it is ballpark.
     For new stuff, see below.
+    
   
   
 - Adding a currency:

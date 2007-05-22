@@ -171,6 +171,7 @@ import com.ibm.icu.util.ULocale;
         public PreparedStatement keySet = null;
         public PreparedStatement keyASet = null;
         public PreparedStatement keyVettingSet = null;
+		public PreparedStatement oxpathFromVetXpath = null;
         public PreparedStatement keyUnconfirmedSet = null;
         public PreparedStatement queryVetValue = null;
         public PreparedStatement queryVetXpath = null;
@@ -237,15 +238,23 @@ import com.ibm.icu.util.ULocale;
                                           "SELECT value FROM " + CLDR_DATA +
                                           " WHERE locale=? AND xpath=?"); // TODO: 1 need to be more specific! ! ! !
             
+
             queryVetValue = prepareStatement("queryVetValue",
-                                             "SELECT CLDR_DATA.value FROM CLDR_RESULT," + CLDR_DATA +
-                                             " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? AND "
-                                             +" (CLDR_RESULT.locale=CLDR_DATA.locale) AND (CLDR_RESULT.result_xpath=CLDR_DATA.xpath)"); // TODO: 1 need to be more specific! ! ! !
+                                             "SELECT CLDR_DATA.value FROM CLDR_OUTPUT," + CLDR_DATA +
+                                             " WHERE CLDR_OUTPUT.locale=? AND CLDR_OUTPUT.output_xpath=? AND "
+                                             +" (CLDR_OUTPUT.locale=CLDR_DATA.locale) AND (CLDR_OUTPUT.data_xpath=CLDR_DATA.xpath)"); 
+
+            oxpathFromVetXpath = prepareStatement("oxpathFromVetXpath",
+                                             "SELECT CLDR_OUTPUT.output_full_xpath FROM CLDR_OUTPUT " +
+                                             " WHERE CLDR_OUTPUT.locale=? AND CLDR_OUTPUT.output_xpath=? "); 
 
             queryVetXpath = prepareStatement("queryVetXpath",
                                              "SELECT CLDR_RESULT.result_xpath FROM CLDR_RESULT " +
                                              " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? "); 
-            
+
+            keyVettingSet = prepareStatement("keyVettingSet",
+                                             "SELECT output_xpath from CLDR_OUTPUT where locale=?" ); // wow, that is pretty straightforward...
+
             keyASet = prepareStatement("keyASet",
                                        /*
                                         "SELECT "+CLDR_DATA+".xpath from "+
@@ -260,8 +269,6 @@ import com.ibm.icu.util.ULocale;
             keySet = prepareStatement("keySet",
                                       "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                                       " WHERE locale=?"); // TODO: 1 need to be more specific!
-            keyVettingSet = prepareStatement("keyVettingSet",
-                                             "SELECT base_xpath from CLDR_RESULT where locale=? AND result_xpath IS NOT NULL AND result_xpath > 0 AND type<"+Vetting.RES_REMOVAL );
             keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
                                                  "select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
             keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
@@ -931,7 +938,7 @@ import com.ibm.icu.util.ULocale;
                 ResultSet rs;
                 if(finalData) {
                     stmts.queryVetValue.setString(1,locale);
-                    stmts.queryVetValue.setInt(2,xpath); // TODO: 2 more specificity
+                    stmts.queryVetValue.setInt(2,xpath); 
                     rs = stmts.queryVetValue.executeQuery();
                 } else {
                     stmts.queryValue.setString(1,locale);
@@ -981,13 +988,16 @@ import com.ibm.icu.util.ULocale;
      */
     public String getFullPathAtDPath(String path) {
         if(finalData) { // show only final data?
-            
+            int id = xpt.getByXpath(path); // get id..
+			if(true==true) { // does NOT deal wiht references 
+				return getOrigXpath(id);
+			}
+			
             String aPath = path;
             // note: we don't call: getOrigXpath(xpt.getByXpath(path))  here, because 'path' may not have an original xpath. 
             
             // this is going to be a little bit slow!
             String locale = getLocaleID();
-            int id = xpt.getByXpath(path); // get id..
             int base_id = xpt.xpathToBaseXpathId(id);
             int type[] = new int[1];
             int res = sm.vet.queryResult(locale, base_id, type);
@@ -1065,9 +1075,18 @@ import com.ibm.icu.util.ULocale;
         String locale = getLocaleID();
         //synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
             try {
-                stmts.oxpathFromXpath.setInt(1,pathid);
-                stmts.oxpathFromXpath.setString(2,locale);
-                ResultSet rs = stmts.oxpathFromXpath.executeQuery();
+				ResultSet rs;
+				
+				if(!finalData) {
+					stmts.oxpathFromXpath.setInt(1,pathid);
+					stmts.oxpathFromXpath.setString(2,locale);
+					rs = stmts.oxpathFromXpath.executeQuery();
+				} else {
+					stmts.oxpathFromVetXpath.setString(1, locale);
+					stmts.oxpathFromVetXpath.setInt(2, pathid);
+					rs = stmts.oxpathFromVetXpath.executeQuery();
+				}
+				
                 if(!rs.next()) {
                     rs.close();
                     logger.severe("getOrigXpath not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
@@ -1219,7 +1238,8 @@ import com.ibm.icu.util.ULocale;
 				//rs.getString(2); // origXpath
 			}
 			rs.close();
-			
+/*
+			// keySet has  prov/unc already.
 			if(finalData) {
 				// also add provisional and unconfirmed items
 
@@ -1244,6 +1264,7 @@ import com.ibm.icu.util.ULocale;
 				}
 				rs.close();
 			}
+*/
 			return Collections.unmodifiableSet(s);
 		} catch(SQLException se) {
 			logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));

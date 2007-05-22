@@ -35,6 +35,9 @@ public class UserRegistry {
     public static final int VETTER  = 5;  /** regular Vetter **/
     public static final int STREET  = 10; /** Guest Vetter **/
     public static final int LOCKED  = 999;/** Locked user - can't login **/
+	
+	public static final int LIMIT_LEVEL = 10000;  /** max level **/
+	public static final int NO_LEVEL  = -1;  /** min level **/
     
     public static final String FOR_ADDING= "(for adding)"; /** special "IP" value referring to a user being added **/ 
 

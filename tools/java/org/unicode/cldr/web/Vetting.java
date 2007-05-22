@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.test.CheckCLDR;
 
@@ -40,6 +41,8 @@ public class Vetting {
     public static final String CLDR_VET = "cldr_vet"; /** constant for table access **/
     public static final String CLDR_INTGROUP = "cldr_intgroup"; /** constant for table access **/
     public static final String CLDR_STATUS = "cldr_status"; /** constant for table access **/
+    public static final String CLDR_OUTPUT = "cldr_output"; /** constant for table access **/
+    public static final String CLDR_ORGDISPUTE = "cldr_orgdispute"; /** constant for table access **/
     
     
     public static final int VET_EXPLICIT = 0; /** 0: vote was explicitly made by user **/
@@ -145,9 +148,9 @@ public class Vetting {
                                                         "result_xpath INT, " +
                                                         "modtime TIMESTAMP, " +
                                                         "type SMALLINT NOT NULL, "+
-                                                        "old_result_xpath INT, "+
+                                                      /*"old_result_xpath INT, "+
                                                         "old_modtime INT, "+
-                                                        "old_type SMALLINT, "+
+                                                        "old_type SMALLINT, "+*/
                                                         "unique(locale,base_xpath))";
                 logger.info("Vet: " + sql);
                 s.execute(sql);
@@ -199,6 +202,36 @@ public class Vetting {
                                                         "last_sent_update TIMESTAMP," +
                                                         "unique(intgroup))");
                 s.execute("CREATE UNIQUE INDEX "+CLDR_INTGROUP+"_unique_loc on " + CLDR_INTGROUP +" (intgroup)");
+                s.close();
+                conn.commit();
+            }
+
+			String theTable = CLDR_OUTPUT;
+            if(!sm.hasTable(conn, theTable)) {
+                logger.info("Vetting DB: setting up " + theTable);
+                Statement s = conn.createStatement();
+                s.execute("create table " + theTable + " " +
+                                                        "(locale VARCHAR(20) NOT NULL, " +
+                                                        "base_xpath INT NOT NULL," +
+                                                        "output_xpath INT NOT NULL," +
+                                                        "output_full_xpath INT NOT NULL," +
+                                                        "data_xpath INT NOT NULL)");
+                s.execute("CREATE INDEX "+theTable+"_fetchem on "   + theTable +" (locale,base_xpath)");
+                s.execute("CREATE INDEX "+theTable+"_fetchfull on " + theTable +" (locale,output_xpath)");
+                s.close();
+                conn.commit();
+            }
+
+			theTable = CLDR_ORGDISPUTE;
+            if(!sm.hasTable(conn, theTable)) {
+                logger.info("Vetting DB: setting up " + theTable);
+                Statement s = conn.createStatement();
+                s.execute("create table " + theTable + " " +
+                                                        "(org varchar(256) not null, " +
+														"locale VARCHAR(20) not null, " +
+                                                        "base_xpath INT not null, unique(org,locale,base_xpath))");
+                s.execute("CREATE UNIQUE INDEX "+theTable+"_U on " + theTable +" (org,locale,base_xpath)");
+                s.execute("CREATE INDEX "+theTable+"_fetchem on " + theTable +" (locale,base_xpath)");
                 s.close();
                 conn.commit();
             }
@@ -267,6 +300,16 @@ public class Vetting {
     PreparedStatement listBadResults= null;
 	PreparedStatement highestVetter = null;
     PreparedStatement lookupByXpath = null;
+	
+	// CLDR_OUTPUT
+	PreparedStatement outputDelete = null;
+	PreparedStatement outputInsert = null;
+					// outputQuery will be in CLDRDBSource, the consumer
+	// CLDR_ORGDISPUTE
+	PreparedStatement orgDisputeDelete = null;
+	PreparedStatement orgDisputeInsert = null;
+					// query?
+	
     /**
      * initialize prepared statements
      */
@@ -333,6 +376,23 @@ public class Vetting {
                         " WHERE locale=? AND xpath=?");
 			highestVetter = prepareStatement("highestVetter",
 				"select CLDR_USERS.userlevel from CLDR_VET,CLDR_USERS where CLDR_USERS.id=CLDR_VET.submitter AND CLDR_VET.locale=? AND CLDR_VET.vote_xpath=? ORDER BY CLDR_USERS.userlevel");
+				
+			// CLDR_OUTPUT
+			outputDelete = prepareStatement("outputDelete", // loc, basex
+				"delete from CLDR_OUTPUT where locale=? AND base_xpath=?");
+			outputInsert = prepareStatement("outputInsert", // loc, basex, outx, outFx, datax
+				"insert into CLDR_OUTPUT (locale, base_xpath, output_xpath, output_full_xpath, data_xpath) values (?,?,?,?,?)");
+
+			// CLDR_ORGDISPUTE
+			orgDisputeDelete = prepareStatement("orgDisputeDelete", // loc, basex
+				"delete from CLDR_ORGDISPUTE where locale=? AND base_xpath=?");
+			orgDisputeInsert = prepareStatement("orgDisputeInsert", // org, locale, base_xpath
+				"insert into CLDR_ORGDISPUTE (org, locale, base_xpath) values (?,?,?)");
+
+			PreparedStatement orgDisputeDelete = null;
+			PreparedStatement orgDisputeInsert = null;
+				
+				
         }
     }
     
@@ -887,12 +947,60 @@ public class Vetting {
             return ncount + ucount;
         }
     }
+	
+	/** 
+	 * Parameters used for vote tallying.
+	 * Note that "*4" is because the original specification was in terms of (1/4) vote, 1 vote, 2 votes.. normalized by multiplying everything *4
+	 */
+	public static final int EXPERT_VOTE		= 8;  // 2 * 4
+	public static final int EXISTING_VOTE	= 4;  // 1 * 4
+	public static final int VETTER_VOTE		= 4;  // 1 * 4
+	public static final int STREET_VOTE		= 1;  // .25 * 4
 
+	public static final int CONFIRMED_MINIMUM = 8; // 2 * 4 - min required for confirmed status
+	
+	public static final int OUTPUT_MINIMUM = 4; // Don't even show items that aren't at least this.  1*4
+
+	public enum Status { 
+		INDETERMINATE,
+		CONFIRMED,
+		CONTRIBUTED,
+		PROVISIONAL,
+		UNCONFIRMED
+	}
+	
+	public int makeXpathId(String baseNoAlt, String altvariant, String altproposed, Status status) {
+		return sm.xpt.getByXpath(makeXpath(baseNoAlt, altvariant, altproposed, status));
+	}
+	
+	public String makeXpath(String baseNoAlt, String altvariant, String altproposed, Status status) {
+		String out = baseNoAlt;
+		
+		if((altvariant != null) || (altproposed != null)) {
+			out = out + "[@alt=\""+ LDMLUtilities.formatAlt(altvariant, altproposed) +"\"]";
+		}
+
+		if(status != Status.INDETERMINATE) { 
+			String statustype = "indeterminate";
+			switch(status) {
+				case INDETERMINATE: statustype = "indeterminate"; break;
+				case CONTRIBUTED: statustype = "contributed"; break;
+				case PROVISIONAL: statustype = "provisional"; break;
+				case UNCONFIRMED: statustype = "unconfirmed"; break;
+				case CONFIRMED: statustype = "confirmed"; break;
+			}
+			
+			out = out + "[@draft=\""+statustype+"\"]";
+		}
+		
+		return out;
+	}
+	
 	/**
 	 * Inner classes used for vote tallying 
 	 */
 
-	public static final String EXISTING_VOTE =  "Existing Vote";
+	public static final String EXISTING_ITEM_NAME =  "Existing Item";
 
     /**
      * This class represents a particular item that can be voted for,
@@ -916,9 +1024,9 @@ public class Vetting {
 			 * Factory function - create an existing Vote
 			 */
 			public Organization(Chad existingItem) {
-				name = EXISTING_VOTE;
+				name = EXISTING_ITEM_NAME;
 				vote = existingItem;
-				strength = 1 * 4;
+				strength = EXISTING_VOTE;
 			}
 			
 			// we have some interest in this race
@@ -929,22 +1037,22 @@ public class Vetting {
 			// All votes have been cast, decide which one this org votes for.
 			Chad calculateVote() {
 				if(vote == null) {
-					int lowest = 1000;
+					int lowest = UserRegistry.LIMIT_LEVEL;
 					for(Chad c : votes) {
-						int lowestUserLevel = 1000;
+						int lowestUserLevel = UserRegistry.LIMIT_LEVEL;
 						for(UserRegistry.User aUser : c.voters) {
 							if(!aUser.org.equals(name)) continue;
 							if(lowestUserLevel>aUser.userlevel) {
 								lowestUserLevel = aUser.userlevel;
 							}
 						}
-						if(lowestUserLevel<1000) {
+						if(lowestUserLevel<UserRegistry.LIMIT_LEVEL) {
 							if(lowestUserLevel<lowest) {
 								lowest = lowestUserLevel;
 								vote = c;
 							} else if (lowestUserLevel == lowest) {
 								// Dispute.
-								lowest = -1;
+								lowest = UserRegistry.NO_LEVEL;
 								vote = null;
 							}
 						}
@@ -953,11 +1061,11 @@ public class Vetting {
 					// now, rate based on lowest user level ( = highest rank )
 					if(vote != null) {
 						if(lowest <= UserRegistry.EXPERT) {
-							strength = 8; // "2" * 4
+							strength = EXPERT_VOTE; // "2" * 4
 						} else if(lowest <= UserRegistry.VETTER) {
-							strength = 4; // "1" * 4
+							strength = VETTER_VOTE; // "1" * 4
 						} else if(lowest <= UserRegistry.STREET) {
-							strength = 1; // "1/4" * 4
+							strength = STREET_VOTE; // "1/4" * 4
 							// TODO: liason / guest vote levels go here.
 						} else {
 							vote = null;  // no vote cast
@@ -989,13 +1097,15 @@ public class Vetting {
 		// All votes for a particular item
 		class Chad implements Comparable {
 			public int xpath = -1;
+			public int full_xpath = -1;
 			public Set<UserRegistry.User> voters = new HashSet<UserRegistry.User>(); //Set of users which voted for this.
 			public Set<Organization> orgs = new TreeSet<Organization>(); // who voted for this?
 			public int score = 0;
 			public String value = null;
 
-			public Chad(int xpath, String value) {
+			public Chad(int xpath, int full_xpath, String value) {
 				this.xpath = xpath;
+				this.full_xpath = full_xpath;
 				this.value = value;
 			}
 			public void add(Organization votes) {
@@ -1011,7 +1121,7 @@ public class Vetting {
 					return 0;
 				}
 				Chad other = (Chad)o;
-				
+								
 				if(other.xpath == xpath) {
 					return 0;
 				}
@@ -1030,7 +1140,11 @@ public class Vetting {
 		public Hashtable<Integer,Chad> chads = new Hashtable<Integer,Chad>();
 		public Hashtable<String, Organization> orgVotes = new Hashtable<String,Organization>();
 		public Set<Chad> disputes = new TreeSet<Chad>();
+		
+		// winning info
 		public Chad winner = null;
+		public Status status = Status.INDETERMINATE;
+		public Chad existing = null; // existing vote
 		
 		/* reset all */
 		public void clear() {
@@ -1038,6 +1152,8 @@ public class Vetting {
 			orgVotes.clear();
 			disputes.clear();
 			winner = null;
+			existing=null;
+			base_xpath = -1;
 		}
 		
 		/* Reset this for a new item */
@@ -1064,16 +1180,16 @@ public class Vetting {
 		}
 
 
-		private final void existingVote(int vote_xpath, String value) {
-			vote(null, vote_xpath, value);
+		private final void existingVote(int vote_xpath, int full_xpath, String value) {
+			vote(null, vote_xpath, full_xpath, value);
 		}
 		
-		private void vote(UserRegistry.User user, int vote_xpath, String value) {
+		private void vote(UserRegistry.User user, int vote_xpath, int full_xpath, String value) {
 			// add this vote to the chads, or create one if not present
 			Integer vote_xpath_int = new Integer(vote_xpath);
 			Chad c = chads.get(vote_xpath_int);
 			if(c == null) {
-				c = new Chad(vote_xpath, value);
+				c = new Chad(vote_xpath, full_xpath, value);
 				chads.put(vote_xpath_int, c);
 			}
 			
@@ -1091,6 +1207,7 @@ public class Vetting {
 				// "existing" vote
 				Organization existingOrg = new Organization(c);
 				orgVotes.put(existingOrg.name, existingOrg);
+				existing = c;
 			}
 		}
 		
@@ -1122,7 +1239,7 @@ public class Vetting {
 				}
 
                 UserRegistry.User u = sm.reg.getInfo(submitter);
-				vote(u, vote_xpath, itemValue);
+				vote(u, vote_xpath, vote_xpath, itemValue);
 
 				/*   // This type of removal has been removed.
                     // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
@@ -1152,7 +1269,7 @@ public class Vetting {
 			rs = queryValue.executeQuery();
 			if(rs.next()) {
 				String itemValue = rs.getString(1);
-				existingVote(base_xpath, itemValue);
+				existingVote(base_xpath, base_xpath, itemValue);
 			}
 			
 		    return count;
@@ -1170,19 +1287,146 @@ public class Vetting {
 		
 		private Chad calculateWinner() {
 			int highest = 0;
+			int nexthighest = 0;
 			
 			for(Chad c : chads.values()) {
 				if(c.score > highest) {
 					disputes.clear();
 					winner = c;
+					nexthighest = highest;
 					highest = c.score;
-				} else if(c.score == highest) {
-					disputes.add(winner); // record the disputed items.
+				} else if((highest>0) && (c.score == highest)) {
+					if(winner != null) {
+						disputes.add(winner); // record the disputed items.
+					}
 					winner = c;
 				}
 			}
+			
+			if(highest > 0) {
+				// Compare the optimal item vote O to the next highest vote getter N:
+				if(!disputes.isEmpty()) { // had disputes = tie vote
+					// O = N
+					status = Status.UNCONFIRMED;
+				} else if(highest > (2*nexthighest)) {
+					// O > 2N
+					if(highest >= CONFIRMED_MINIMUM || // "2" votes
+						     (winner == existing)) { // OR existing item
+						status = Status.CONFIRMED;
+					} else {
+						status = Status.CONTRIBUTED;
+					}
+				} else {
+					// O > N
+					status = Status.PROVISIONAL;
+				}
+			}
+			
 			return winner;
 		}
+		
+		/**
+		 * This function is called to update the CLDR_OUTPUT and CLDR_ORGDISPUTE tables.
+		 * assumes a lock on (conn) held by caller.
+		 */
+		public int updateDB() throws SQLException {
+			// First, zap old data
+			int rowsUpdated = 0;
+			
+			// zap old CLDR_OUTPUT rows
+			outputDelete.setString(1, locale);
+			outputDelete.setInt(2, base_xpath);
+			rowsUpdated += outputDelete.executeUpdate();
+			
+			orgDisputeDelete.setString(1, locale);
+			orgDisputeDelete.setInt(2, base_xpath);
+			rowsUpdated += orgDisputeDelete.executeUpdate();
+			
+			outputInsert.setString(1, locale);
+			outputInsert.setInt(2, base_xpath);
+			orgDisputeInsert.setString(2, locale);
+			orgDisputeInsert.setInt(3, base_xpath);
+			// Now, IF there was a valid result, store it.
+			// 			outputInsert = prepareStatement("outputInsert", // loc, basex, outx, outFx, datax
+			//   outputInsert:  #1 locale, #2 basex, #3 OUTx (the "user" xpath, i.e., no alt confirmed), #4 outFx #5 DATAx (where the data really lives.  For the eventual join that will find the data.)
+			String baseString = sm.xpt.getById(base_xpath);
+
+			XPathParts xpp = new XPathParts(null,null);
+            xpp.clear();
+            xpp.initialize(baseString);
+            String lelement = xpp.getElement(-1);
+            String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+
+			String alts[] = LDMLUtilities.parseAlt(eAlt);
+			String altvariant = null;
+			String baseNoAlt = baseString;
+			
+			if(alts[0] != null) { // it has an alt, so deconstruct it.
+				altvariant = alts[0];
+				baseNoAlt = sm.xpt.removeAlt(baseString);
+			}
+				
+			if(winner != null) {
+				int winnerPath = base_xpath; // shortcut - this IS the base xpath.
+	
+				String baseFString = sm.xpt.getById(winner.full_xpath);
+				String baseFNoAlt = baseFString;
+				if(alts[0]!=null) {
+					baseFNoAlt = sm.xpt.removeAlt(baseFString);
+				}
+				
+				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "draft");
+				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "alt");
+
+				int winnerFullPath = makeXpathId(baseFNoAlt, altvariant, null, status);
+			
+				outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e. no alt/proposed.
+				outputInsert.setInt(4, winnerFullPath); // outputFullxpath = base, i.e. no alt/proposed.
+				outputInsert.setInt(5, winner.xpath); // data = winner.xpath
+				rowsUpdated += outputInsert.executeUpdate();
+			}
+		
+			// If any of the others have at least 1 vote, add them as is. (?)
+			int j = 1;
+			for (Chad other : chads.values()) {
+				// skip if:
+				if( (other == winner) ||				 // skip the winner, of course
+					(other.score < OUTPUT_MINIMUM) ||	 // if it wasn't at least this threshhold
+					( (other==existing) && other.voters.isEmpty()) ) {		 // No-one voted for it (existing vote)
+						continue;
+				}
+				j++;
+				String altproposed = "proposed-xl"+j;
+				int aPath = makeXpathId(baseNoAlt,  altvariant, altproposed, Status.INDETERMINATE);
+				
+				String baseFString = sm.xpt.getById(other.full_xpath);
+				String baseFNoAlt = baseFString;
+				if(alts[0]!=null) {
+					baseFNoAlt = sm.xpt.removeAlt(baseFString);
+				}
+				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "draft");
+				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "alt");
+				int aFullPath = makeXpathId(baseFNoAlt, altvariant, altproposed, status);
+
+				// otherwise, show it under something.
+				outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no alt/proposed.
+				outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e. no alt/proposed.
+				outputInsert.setInt(5, other.xpath); // data = winner.xpath
+				rowsUpdated += outputInsert.executeUpdate();
+			}
+			
+			// update disputes, if any
+			for(Organization org : orgVotes.values()) {
+				if(org.dispute) {
+					orgDisputeInsert.setString(1, org.name);
+					rowsUpdated += orgDisputeInsert.executeUpdate();
+				}
+			}
+			
+			conn.commit(); //?
+			return rowsUpdated;
+		}
+		
 	} // end Race
 	
 	
@@ -1226,6 +1470,9 @@ public class Vetting {
 		r.clear(base_xpath, locale);
 		resultXpath = r.optimal();
 		
+		// make the Race update itself ( we don't do this if it's just investigatory)
+		r.updateDB();
+		
 		// Examine the results
 		if(resultXpath != -1) {
 			if(!r.disputes.isEmpty()) {
@@ -1236,6 +1483,8 @@ public class Vetting {
 		} else {
 			if(!r.chads.isEmpty()) {
 				type = RES_INSUFFICIENT;
+			} else {
+				type = RES_NO_VOTES;
 			}
 		}
 		

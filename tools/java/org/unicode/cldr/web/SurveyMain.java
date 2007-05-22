@@ -61,8 +61,8 @@ import com.ibm.icu.lang.UCharacter;
 public class SurveyMain extends HttpServlet {
 
     // phase?
-    public static final boolean phaseSubmit = true; 
-    public static final boolean phaseVetting = false;
+    public static final boolean phaseSubmit = false;
+    public static final boolean phaseVetting = true;  // <<<<< VETTING
     public static final boolean phaseClosed = false;
     public static final boolean phaseDisputed = false;
 	public static final boolean phaseReadonly = false;
@@ -524,6 +524,7 @@ public class SurveyMain extends HttpServlet {
                 logger.severe(complaint);
             } catch(Throwable t) {
                 String complaint = t.toString();
+				t.printStackTrace();
                 ctx.println("<pre class='ferrbox'>" + complaint + "</pre>" );
                 logger.severe("Err in SQL execute: " + complaint);
             }
@@ -5845,9 +5846,16 @@ public class SurveyMain extends HttpServlet {
 				}
 				
 				if(r.winner != null ) {
-					ctx.print("<b>Optimal field</b>: <span title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, score: "+r.winner.score);
+					ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
 				} else {
 					ctx.print("no optimal item found.");
+				}
+				if(!r.disputes.isEmpty()) {
+					ctx.print("<br>( Disputed with: ");
+					for(Vetting.Race.Chad disputor : r.disputes) {
+						ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
+					}
+					ctx.print(")");
 				}
 				ctx.print("<br>");
 		/*

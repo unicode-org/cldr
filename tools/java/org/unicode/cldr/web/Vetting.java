@@ -690,9 +690,9 @@ public class Vetting {
                 if(ncount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses, due to implied vote\n");
+                        System.err.println("updated " + uscnt + " statuses\n");  // not always because of implied vote.
                     } else {
-                        System.err.println("No statuses updated due to impliedvote.\n");
+                        System.err.println("No statuses updated.\n");
                     }
                     conn.commit();
                 }
@@ -980,7 +980,8 @@ public class Vetting {
 			out = out + "[@alt=\""+ LDMLUtilities.formatAlt(altvariant, altproposed) +"\"]";
 		}
 
-		if(status != Status.INDETERMINATE) { 
+		if((status != Status.INDETERMINATE) && 
+			(status != Status.CONFIRMED) ) { 
 			String statustype = "indeterminate";
 			switch(status) {
 				case INDETERMINATE: statustype = "indeterminate"; break;
@@ -1387,7 +1388,7 @@ public class Vetting {
 			}
 		
 			// If any of the others have at least 1 vote, add them as is. (?)
-			int j = 1;
+			int j = 0;
 			for (Chad other : chads.values()) {
 				// skip if:
 				if( (other == winner) ||				 // skip the winner, of course

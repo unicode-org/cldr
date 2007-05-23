@@ -1090,8 +1090,8 @@ public class UserRegistry {
     
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
-        if(!userIsStreet(u)) return false;
-        if(SurveyMain.phaseReadonly) return false;
+        if(!userIsStreet(u)) return false; // at least street level
+        if(SurveyMain.phaseReadonly) return false; // readonly = locked for ALL
         //if(userIsAdmin(u)) return true; // let admins modify all
         if((sm.isLocaleAliased(locale)!=null) ||
             sm.supplemental.defaultContentToParent(locale)!=null) return false; // it's a defaultcontent locale or a pure alias.
@@ -1109,11 +1109,16 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmitLocale(User u, String locale) {
+		return userCanSubmitLocaleWhenDisputed(u, locale, false);
+    }
+	
+
+    static final boolean userCanSubmitLocaleWhenDisputed(User u, String locale, boolean disputed) {
 		if(SurveyMain.phaseReadonly) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.phaseClosed) return false;
-        if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
+		if(SurveyMain.phaseVetting && !disputed && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanModifyLocale(u,locale);
     }
 

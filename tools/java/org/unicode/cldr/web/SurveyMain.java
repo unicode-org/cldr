@@ -71,6 +71,8 @@ public class SurveyMain extends HttpServlet {
 
     // Unofficial?
     public static       boolean isUnofficial = true;
+	static final String CURRENT_NAME="CLDR&nbsp;1.4";
+	static final String PROPOSED_NAME= "Proposed&nbsp;1.5";
 
     // Special bug numbers.
     public static final String BUG_METAZONE_FOLDER = "data";
@@ -4403,9 +4405,9 @@ public class SurveyMain extends HttpServlet {
                         " <th>Code</th>\n"+                 // 2
                         " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
                         " <th title='"+BASELINE_NAME+" Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2'>Current</th>\n"+  // 6
+                        " <th colspan='2'>"+CURRENT_NAME+"</th>\n"+  // 6
                         " <th title='Current Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2'>Proposed</th>\n"+ // 7
+                        " <th colspan='2'>"+PROPOSED_NAME+"</th>\n"+ // 7
                         " <th title='Proposed Example'><i>Ex</i></th>\n" + 
                         " <th colspan='2' width='20%'>Change</th>\n");  // 8
         } else {
@@ -4413,8 +4415,8 @@ public class SurveyMain extends HttpServlet {
                         " <th>St.</th>\n"+                  // 1
                         " <th>Code</th>\n"+                 // 2
                         " <th colspan='2'>"+"URI"+"</th>\n"+              // 3
-                        " <th colspan='3'>Current</th>\n"+  // 6
-                        " <th colspan='3'>Proposed</th>\n"+ // 7
+                        " <th colspan='3'>"+CURRENT_NAME+"</th>\n"+  // 6
+                        " <th colspan='3'>"+PROPOSED_NAME+"</th>\n"+ // 7
                         " <th colspan='2' width='20%'>Change</th>\n");  // 8
         }
         ctx.println( "<th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
@@ -5386,7 +5388,10 @@ public class SurveyMain extends HttpServlet {
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-            if(item.altProposed != null) {
+			if(p.base_xpath == 16255) {
+/*srl*/				System.err.println("item: x=:"+item.xpath+", altProposed = "+item.altProposed);
+			}
+            if((item.altProposed != null) && (item.xpathId!=p.base_xpath)) {
                 proposedItems.add(item);
             } else {
                 currentItems.add(item);
@@ -5584,7 +5589,9 @@ public class SurveyMain extends HttpServlet {
         printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
         
          
-        if(phaseSubmit==true) {
+        if((phaseSubmit==true)
+			|| UserRegistry.userIsTC(ctx.session.user)
+			|| ( phaseVetting && (resultType[0]== Vetting.RES_DISPUTED) )) {
             String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {
@@ -5814,7 +5821,7 @@ public class SurveyMain extends HttpServlet {
 				Vetting.Race r =  vet.getRace(pod.locale, p.base_xpath);
 				
 				// print
-				ctx.println("<i>votes by organization [proposed vetting structure]:</i><br>");
+				//ctx.println("<i>votes by organization [proposed vetting structure]:</i><br>");
 				for(Vetting.Race.Organization org : r.orgVotes.values()) {
 					ctx.print("<b>");
 					ctx.print(org.name+"</b>: ");
@@ -5858,6 +5865,15 @@ public class SurveyMain extends HttpServlet {
 					ctx.print(")");
 				}
 				ctx.print("<br>");
+				
+				
+				if(isUnofficial) {
+					int type[] = new int[1];
+					int vres = vet.queryResult(pod.locale,p.base_xpath, type);
+					ctx.println("Res: xp#"+vres+", status "+ type[0] +" ("+ vet.typeToStr(type[0])+")");	
+					ctx.print("<br>");
+				}
+				
 		/*
 				ctx.println("<br><i>scores by item</i><ul>");
 				for(Tally t : tallys.values()) {
@@ -5883,10 +5899,72 @@ public class SurveyMain extends HttpServlet {
 		*/
 				
 			} catch (SQLException se) {
-				ctx.println("<div class='ferrbox'>Something Bad Happened:<br>"+se.toString()+"</div>");
+				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
 			}
 			
 			
+			ctx.println("</td></tr>");
+		} else if(zoomedIn) {
+			ctx.print("<tr>");
+			ctx.print("<th colspan=2>Votes</th>");
+			ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
+			
+			try {
+				Vetting.Race r =  vet.getRace(pod.locale, p.base_xpath);
+
+				for(Vetting.Race.Organization org : r.orgVotes.values()) {
+					ctx.print("<b>");
+					ctx.print(org.name+"</b>: ");
+					if(org.vote == null) {
+						ctx.print("X No Consensus. ");
+						if(org.dispute) {
+							ctx.print(" (Dispute among vetters) ");
+						}
+					} else {
+						ctx.print(org.strength+"\u2611 "+"<span title='#"+org.vote.xpath+"'>"+org.vote.value+"</span>");
+					}
+				/*
+					ctx.print("<smaller>All votes:<ul>");
+					for(Vetting.Race.Chad item : org.votes) {
+						ctx.print("<li>");
+						if(item==org.vote) {
+							ctx.print("<b>");
+						}
+						ctx.print("<span title='#"+item.xpath+"'>"+item.value+"</span>: ");
+						if(item==org.vote) {
+							ctx.print("</b>");
+						}
+						for(UserRegistry.User u : item.voters)  { 
+							if(!u.org.equals(org.name)) continue;
+							ctx.print(u+", ");
+						}
+						ctx.println("</li>");
+					}
+					ctx.println("</ul></smaller>");
+				  */
+					ctx.print("<br>");
+				}
+
+/*				
+				if(r.winner != null ) {
+					ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
+				} else {
+					ctx.print("no optimal item found.");
+				}
+				if(!r.disputes.isEmpty()) {
+					ctx.print("<br>( Disputed with: ");
+					for(Vetting.Race.Chad disputor : r.disputes) {
+						ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
+					}
+					ctx.print(")");
+				}
+				ctx.print("<br>");
+*/
+
+			} catch (SQLException se) {
+				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
+			}
+				
 			ctx.println("</td></tr>");
 		}
     }

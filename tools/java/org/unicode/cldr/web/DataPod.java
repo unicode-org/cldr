@@ -613,14 +613,14 @@ public class DataPod extends Registerable {
 
 
     private Partition[] createVettingPartitions() {
-        Partition theTestPartitions[] = 
+        Partition theVetPartitions[] = 
         {                 
                 new Partition("Changes Proposed: Insufficient Votes", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
 //		System.err.println("CPI: "+Vetting.typeToStr(p.voteType)+" - " + p.type);
-                            return  (p.voteType == Vetting.RES_INSUFFICIENT) ||
-                                (p.voteType == Vetting.RES_NO_VOTES);
+                            return  ((p.voteType & Vetting.RES_INSUFFICIENT)>0) ||
+                                ((p.voteType & Vetting.RES_NO_VOTES)>0);
                         }
                     }),
                 new Partition(CHANGES_DISPUTED, 
@@ -647,8 +647,8 @@ public class DataPod extends Registerable {
                 new Partition("No Changes Proposed: Questionable Values", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return (p.hasTests&&!p.hasProps) && ((p.voteType==0) || (p.voteType==Vetting.RES_NO_VOTES)
-                                    || (p.voteType==Vetting.RES_NO_CHANGE));
+                            return (p.hasTests&&!p.hasProps) && ((p.voteType==0) || ((p.voteType & Vetting.RES_NO_VOTES)>0)
+                                    || ((p.voteType & Vetting.RES_NO_CHANGE)>0));
                         }
                     }),
         /*
@@ -663,7 +663,7 @@ public class DataPod extends Registerable {
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
-                                    (p.voteType == Vetting.RES_NO_CHANGE));
+                                    ((p.voteType & Vetting.RES_NO_CHANGE)>0));
                         }
                     }),
                 new Partition("No Changes Proposed: Inherited", 
@@ -673,7 +673,7 @@ public class DataPod extends Registerable {
                         }
                     }),
         };
-        return theTestPartitions;
+        return theVetPartitions;
     }
 
     private Partition[] createSubmitPartitions() {
@@ -1620,6 +1620,7 @@ public class DataPod extends Registerable {
                 vtypes[0]=0;
                 /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
                 p.voteType |= vtypes[0];
+				superP.voteType |= p.voteType;
             }
             
             if(!examplesResult.isEmpty()) {

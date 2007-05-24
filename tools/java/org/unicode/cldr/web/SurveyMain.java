@@ -2881,6 +2881,14 @@ public class SurveyMain extends HttpServlet {
                     "</b>.<br>");
                 ctx.printHelpLink("/AliasedLocale","Help with Aliased Locale");
                 ctx.print("</div>");
+                
+
+                ctx.println("<div class='ferrbox'><h1>"+ctx.iconHtml("stop",null)+"We apologise for the inconvenience, but there is currently an error with how these aliased locales are resolved.  Kindly ignore this locale for the time being. You must make all changes in <b>"+
+                    getLocaleLink(ctx,dcParent,null)+
+                    "</b>.</h1>");
+                ctx.print("</div>");
+                
+                
             }
         }
         
@@ -3462,7 +3470,9 @@ public class SurveyMain extends HttpServlet {
                             if (!status.getType().equals(status.exampleType)) {
                                 String cls = shortClassName(status.getCause());
                                 ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
-                                ctx.println(": "+ status.toString() + "<br>");
+                                ctx.println(": ");
+                                printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
+                                ctx.print("<br>");
                             } else {
                                 ctx.println("<i>example available</i><br>");
                             }
@@ -3894,7 +3904,11 @@ public class SurveyMain extends HttpServlet {
     //            long t0 = System.currentTimeMillis();
                 
                 // make sure CLDR has the latest display information.
-                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+                if(phaseVetting) {
+                    checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+                } else {
+                    checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+                }
 
                 checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
                 
@@ -5814,7 +5828,7 @@ public class SurveyMain extends HttpServlet {
 		boolean showVotingAlts = ctx.prefBool(PREF_SHOW_VOTING_ALTS);
 		
 		/* show plan A and plan B voting */
-		if(UserRegistry.userIsTC(ctx.session.user) && showVotingAlts /* && zoomedIn */ && p.items!=null) {
+		if(false&&UserRegistry.userIsTC(ctx.session.user) && showVotingAlts /* && zoomedIn */ && p.items!=null) {
 			ctx.print("<tr><td colspan="+PODTABLE_WIDTH+">");
 			
 			try {
@@ -5923,43 +5937,45 @@ public class SurveyMain extends HttpServlet {
 					} else {
 						ctx.print(org.strength+"\u2611 "+"<span title='#"+org.vote.xpath+"'>"+org.vote.value+"</span>");
 					}
-				/*
-					ctx.print("<smaller>All votes:<ul>");
-					for(Vetting.Race.Chad item : org.votes) {
-						ctx.print("<li>");
-						if(item==org.vote) {
-							ctx.print("<b>");
-						}
-						ctx.print("<span title='#"+item.xpath+"'>"+item.value+"</span>: ");
-						if(item==org.vote) {
-							ctx.print("</b>");
-						}
-						for(UserRegistry.User u : item.voters)  { 
-							if(!u.org.equals(org.name)) continue;
-							ctx.print(u+", ");
-						}
-						ctx.println("</li>");
-					}
-					ctx.println("</ul></smaller>");
-				  */
-					ctx.print("<br>");
+                    
+                    if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
+                        ctx.print("<ul class='orgvotes'>");
+                        for(Vetting.Race.Chad item : org.votes) {
+                            ctx.print("<li>");
+                            if(item==org.vote) {
+                                ctx.print("<b>");
+                            }
+                            ctx.print("<span title='#"+item.xpath+"'>"+item.value+"</span>: ");
+                            if(item==org.vote) {
+                                ctx.print("</b>");
+                            }
+                            for(UserRegistry.User u : item.voters)  { 
+                                if(!u.org.equals(org.name)) continue;
+                                ctx.print(u+", ");
+                            }
+                            ctx.println("</li>");
+                        }
+                        ctx.println("</ul>");
+                    } else {   
+                        ctx.print("<br>");
+                    }
 				}
 
-/*				
-				if(r.winner != null ) {
-					ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
-				} else {
-					ctx.print("no optimal item found.");
-				}
-				if(!r.disputes.isEmpty()) {
-					ctx.print("<br>( Disputed with: ");
-					for(Vetting.Race.Chad disputor : r.disputes) {
-						ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
-					}
-					ctx.print(")");
-				}
-				ctx.print("<br>");
-*/
+                if(UserRegistry.userIsTC(ctx.session.user)) {
+                    if(r.winner != null ) {
+                        ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
+                    } else {
+                        ctx.print("no optimal item found.");
+                    }
+                    if(!r.disputes.isEmpty()) {
+                        ctx.print("<br>( Disputed with: ");
+                        for(Vetting.Race.Chad disputor : r.disputes) {
+                            ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
+                        }
+                        ctx.print(")");
+                    }
+                    ctx.print("<br>");
+                }
 
 			} catch (SQLException se) {
 				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
@@ -6128,8 +6144,8 @@ public class SurveyMain extends HttpServlet {
             if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&
                 !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
                 ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
-                    ctx.println("<label class='ferrbox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
-                        "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"<span class='notselected'>Delete&nbsp;this&nbsp;item</span></label>");
+                    ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
+                        "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
             }
         }
         
@@ -6833,14 +6849,40 @@ public class SurveyMain extends HttpServlet {
 
     static long shortN = 0;
     static final int MAX_CHARS = 100;
+    static final int LARGER_MAX_CHARS = 256;
     static final String SHORT_A = "(Click to show entire warning.)";
     static final String SHORT_B = "(hide.)";
     private synchronized void printShortened(WebContext ctx, String str) {
-        if(str.length()<(MAX_CHARS+1+SHORT_A.length())) {
+        printShortened(ctx, str, MAX_CHARS);
+    }
+    
+    private synchronized void printShortened(WebContext ctx, String str, int max) {
+        if(str.length()<(max+1+SHORT_A.length())) {
             ctx.println(str);
         } else {
+            int cutlen = max;
             String key = CookieSession.cheapEncode(shortN++);
-            printShortened(ctx,str.substring(0,MAX_CHARS), str, key); 
+            int newline = str.indexOf('\n');
+            if((newline > 2) && (newline < cutlen)) {
+                cutlen = newline;
+            }
+            newline = str.indexOf("Exception:");
+            if((newline > 2) && (newline < cutlen)) {
+                cutlen = newline;
+            }
+            newline = str.indexOf("Message:");
+            if((newline > 2) && (newline < cutlen)) {
+                cutlen = newline;
+            }
+            newline = str.indexOf("<br>");
+            if((newline > 2) && (newline < cutlen)) {
+                cutlen = newline;
+            }
+            newline = str.indexOf("<p>");
+            if((newline > 2) && (newline < cutlen)) {
+                cutlen = newline;
+            }
+            printShortened(ctx,str.substring(0,cutlen), str, key); 
         }
     }
 

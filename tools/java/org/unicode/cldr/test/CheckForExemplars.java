@@ -46,7 +46,17 @@ public class CheckForExemplars extends CheckCLDR {
     spaceCol.setStrength(col.PRIMARY);
     
     CLDRFile resolvedFile = cldrFile.getResolved();
-    exemplars = resolvedFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+    UnicodeSet exemplars;
+
+    try {
+        exemplars = resolvedFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+    } catch(IllegalArgumentException iae) {
+      possibleErrors.add(new CheckStatus()
+          .setCause(this).setType(CheckStatus.errorType)
+          .setMessage("Could not get exemplar set: " + iae.toString()));
+      return this;
+    }
+    
     if (exemplars == null) {
       CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
       .setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});

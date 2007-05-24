@@ -166,7 +166,15 @@ public class CoverageLevel {
       }
     }
     boolean exemplarsContainA_Z = false;
-    UnicodeSet exemplars = file.getResolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
+    UnicodeSet exemplars;
+    try {
+        exemplars = file.getResolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
+    } catch(IllegalArgumentException iae) {
+      possibleErrors.add(new CheckStatus()
+          .setCause(cause).setType(CheckStatus.errorType)
+          .setMessage("Could not get exemplar set: " + iae.toString()));
+      return;
+    }
     
     if(exemplars == null) {
         throw new InternalError("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");

@@ -175,7 +175,7 @@ public class SurveyMain extends HttpServlet {
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
-	static final String PREF_SHOW_VOTING_ALTS = "p_vetting_details";
+//	static final String PREF_SHOW_VOTING_ALTS = "p_vetting_details";
     
     static final String PREF_NOSHOWDELETE = "p_nodelete";
     
@@ -2667,9 +2667,9 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("<hr>");
 
-		if(UserRegistry.userIsTC(ctx.session.user)) {
+/*		if(UserRegistry.userIsTC(ctx.session.user)) {
 			showTogglePref(ctx, PREF_SHOW_VOTING_ALTS, "Show details about vetting");
-		}
+		}*/
         
         ctx.println("<h4>Advanced Options</h4>");
         ctx.print("<blockquote>");
@@ -5825,7 +5825,7 @@ public class SurveyMain extends HttpServlet {
         }
 		
 		
-		boolean showVotingAlts = ctx.prefBool(PREF_SHOW_VOTING_ALTS);
+		boolean showVotingAlts = false; //ctx.prefBool(PREF_SHOW_VOTING_ALTS);
 		
 		/* show plan A and plan B voting */
 		if(false&&UserRegistry.userIsTC(ctx.session.user) && showVotingAlts /* && zoomedIn */ && p.items!=null) {

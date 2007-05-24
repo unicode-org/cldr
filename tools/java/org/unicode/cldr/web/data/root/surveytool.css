@@ -5,6 +5,7 @@
 	http://nestor.priv:8080/cldr-apps/surveytool.css
 	http://tintin.priv:8080/cldr-apps/surveytool.css
 	http://nestor.local:8080/cldr-apps/surveytool.css
+	http://unicode.org/cldr/apps/surveytool.css
 */
 
 td {
@@ -578,6 +579,11 @@ table.sqlbox form {
 	border: 1px solid red; margin: 1em; padding: 1em;	
 }
 
+.deletebox {
+	background-color:  #ddd;
+	border: 1px solid red; margin: 1em; padding: 1em;	
+}
+
 .fnotebox {
 	background-color:  #ddd;
 	border: 1px solid green; margin: 0.5em; padding: 0.2em;	
@@ -617,4 +623,16 @@ th.rowinfo {
 a.refuri {
 	color:  #000;
 	font-size: smaller;
+}
+
+ul.orgvotes {
+	margin:  0px;	
+}
+
+ul.orgvotes li {
+	margin:  0px;	
+	font-size:  small;
+	list-style-type: circle;
+	list-style-position: outside;
+	opacity: 1;
 }

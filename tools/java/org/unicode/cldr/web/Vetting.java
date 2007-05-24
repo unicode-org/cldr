@@ -372,7 +372,7 @@ public class Vetting {
             intUpdateUpdate = prepareStatement("intUpdateUpdate",
                 "update CLDR_INTGROUP  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
             queryValue = prepareStatement("queryValue",
-                "SELECT value FROM " + CLDRDBSource.CLDR_DATA +
+                "SELECT value,origxpath FROM " + CLDRDBSource.CLDR_DATA +
                         " WHERE locale=? AND xpath=?");
 			highestVetter = prepareStatement("highestVetter",
 				"select CLDR_USERS.userlevel from CLDR_VET,CLDR_USERS where CLDR_USERS.id=CLDR_VET.submitter AND CLDR_VET.locale=? AND CLDR_VET.vote_xpath=? ORDER BY CLDR_USERS.userlevel");
@@ -1146,7 +1146,8 @@ public class Vetting {
 		public Chad winner = null;
 		public Status status = Status.INDETERMINATE;
 		public Chad existing = null; // existing vote
-		
+        public Status existingStatus = Status.INDETERMINATE;
+                		
 		/* reset all */
 		public void clear() {
 			chads.clear();
@@ -1209,6 +1210,27 @@ public class Vetting {
 				Organization existingOrg = new Organization(c);
 				orgVotes.put(existingOrg.name, existingOrg);
 				existing = c;
+                
+                if(vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut: 
+                    existingStatus = Status.CONFIRMED; 
+///*srl*/             System.err.println("fastpath #"+vote_xpath);
+                } else {
+                    String fullpathstr = sm.xpt.getById(full_xpath);
+                    //xpp.clear();
+                    XPathParts xpp = new XPathParts(null,null);
+                    xpp.initialize(fullpathstr);
+                    String lelement = xpp.getElement(-1);
+                    //String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+                    //String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
+                    String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
+                    if(eDraft==null || eDraft.equals("confirmed")) {
+///*srl*/                 System.err.println("vote #"+vote_xpath+" - CONF="+eDraft);
+                        existingStatus = Status.CONFIRMED;
+                    } else {
+                        existingStatus = Status.UNCONFIRMED;
+///*srl*/                 System.err.println("vote #"+vote_xpath+" - unconf="+eDraft);
+                    }
+                }
 			}
 		}
 		
@@ -1234,13 +1256,15 @@ public class Vetting {
 
 				queryValue.setInt(2,vote_xpath);
 				ResultSet crs = queryValue.executeQuery();
+                int orig_xpath = vote_xpath;
 				String itemValue = "(unknown)";
 				if(crs.next()) {
 					itemValue = crs.getString(1);
+					orig_xpath = crs.getInt(2);
 				}
 
                 UserRegistry.User u = sm.reg.getInfo(submitter);
-				vote(u, vote_xpath, vote_xpath, itemValue);
+				vote(u, vote_xpath, orig_xpath, itemValue);
 
 				/*   // This type of removal has been removed.
                     // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
@@ -1270,7 +1294,8 @@ public class Vetting {
 			rs = queryValue.executeQuery();
 			if(rs.next()) {
 				String itemValue = rs.getString(1);
-				existingVote(base_xpath, base_xpath, itemValue);
+				int origXpath = rs.getInt(2);
+				existingVote(base_xpath, origXpath, itemValue);
 			}
 			
 		    return count;
@@ -1311,10 +1336,11 @@ public class Vetting {
 					status = Status.UNCONFIRMED;
 				} else if(highest > (2*nexthighest)) {
 					// O > 2N
-					if(highest >= CONFIRMED_MINIMUM || // "2" votes
-						     (winner == existing)) { // OR existing item
+					if(highest >= CONFIRMED_MINIMUM) {  // "2" votes
 						status = Status.CONFIRMED;
-					} else {
+					} else if((winner==existing) && (existingStatus == Status.CONFIRMED)) { // it was already confirmed-
+                        status = Status.CONFIRMED; 
+                    } else {
 						status = Status.CONTRIBUTED;
 					}
 				} else {
@@ -1472,7 +1498,8 @@ public class Vetting {
 		resultXpath = r.optimal();
 		
 		// make the Race update itself ( we don't do this if it's just investigatory)
-		r.updateDB();
+		int rowsUpdated = r.updateDB();
+//        System.err.println(locale+" updated "+rowsUpdated+" rows: "+ base_xpath +" -> "+resultXpath);
 		
 		// Examine the results
 		if(resultXpath != -1) {

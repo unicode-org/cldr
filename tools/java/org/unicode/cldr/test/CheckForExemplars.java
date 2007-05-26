@@ -46,16 +46,9 @@ public class CheckForExemplars extends CheckCLDR {
     spaceCol.setStrength(col.PRIMARY);
     
     CLDRFile resolvedFile = cldrFile.getResolved();
-    UnicodeSet exemplars;
-
-    try {
-        exemplars = resolvedFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING);
-    } catch(IllegalArgumentException iae) {
-      possibleErrors.add(new CheckStatus()
-          .setCause(this).setType(CheckStatus.errorType)
-          .setMessage("Could not get exemplar set: " + iae.toString()));
-      return this;
-    }
+    boolean[] ok = new boolean[1];
+    exemplars = safeGetExemplars("", possibleErrors, resolvedFile, ok);
+    if (!ok[0]) exemplars = new UnicodeSet();
     
     if (exemplars == null) {
       CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
@@ -65,11 +58,13 @@ public class CheckForExemplars extends CheckCLDR {
     }
     //UnicodeSet temp = resolvedFile.getExemplarSet("standard");
     //if (temp != null) exemplars.addAll(temp);
-    UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+    UnicodeSet auxiliary = safeGetExemplars("auxiliary", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
     if (auxiliary != null) exemplars.addAll(auxiliary);
     exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
+    
     scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
-    currencySymbolExemplars = resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
+    
+    currencySymbolExemplars = safeGetExemplars("currencySymbol", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (currencySymbolExemplars == null) {
       currencySymbolExemplars = new UnicodeSet(exemplars);
     } else {
@@ -77,6 +72,20 @@ public class CheckForExemplars extends CheckCLDR {
     }
     skip = false;
     return this;
+  }
+
+  private UnicodeSet safeGetExemplars(String type, List possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
+    UnicodeSet result = null;
+    try {
+        result = resolvedFile.getExemplarSet(type, CLDRFile.WinningChoice.WINNING);
+        ok[0] = true;
+    } catch(IllegalArgumentException iae) {
+      possibleErrors.add(new CheckStatus()
+          .setCause(this).setType(CheckStatus.errorType)
+          .setMessage("Could not get exemplar set: " + iae.toString()));
+      ok[0] = false;
+    }
+    return result;
   }
   
   public CheckCLDR handleCheck(String path, String fullPath, String value,

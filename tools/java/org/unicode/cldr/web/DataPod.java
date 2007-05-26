@@ -190,7 +190,8 @@ public class DataPod extends Registerable {
         
         boolean hasProps = false;
         boolean hasInherited = false;
-        public int voteType = 0; // bitmask of all voting types included
+        public int allVoteType = 0; // bitmask of all voting types included
+        public int voteType = 0; // status of THIS item
         public int reservedForSort = -1; // reserved to use in collator.
 //        String inheritFrom = null;
 //        String pathWhereFound = null;
@@ -618,37 +619,37 @@ public class DataPod extends Registerable {
                 new Partition("Changes Proposed: Insufficient Votes", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-//		System.err.println("CPI: "+Vetting.typeToStr(p.voteType)+" - " + p.type);
-                            return  ((p.voteType & Vetting.RES_INSUFFICIENT)>0) ||
-                                ((p.voteType & Vetting.RES_NO_VOTES)>0);
+//		System.err.println("CPI: "+Vetting.typeToStr(p.allVoteType)+" - " + p.type);
+                            return  ((p.allVoteType & Vetting.RES_INSUFFICIENT)>0) ||
+                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0);
                         }
                     }),
                 new Partition(CHANGES_DISPUTED, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return ((p.voteType & Vetting.RES_DISPUTED)>0);
+                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0);
                         }
                     }),
                 new Partition("Changes Proposed: Tentatively Approved", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((p.hasProps)&&
-                                ((p.voteType & Vetting.RES_BAD_MASK)==0)&&
-                                    (p.voteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                                ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
+                                    (p.allVoteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
                         }
                     }),
 /*                new Partition("Other "+DATAPOD_VETPROB + " [internal error]",  // should not appear?
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return ((p.voteType & Vetting.RES_BAD_MASK)>0);
+                            return ((p.allVoteType & Vetting.RES_BAD_MASK)>0);
                         }
                     }),
     */
                 new Partition("No Changes Proposed: Questionable Values", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return (p.hasTests&&!p.hasProps) && ((p.voteType==0) || ((p.voteType & Vetting.RES_NO_VOTES)>0)
-                                    || ((p.voteType & Vetting.RES_NO_CHANGE)>0));
+                            return (p.hasTests&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
+                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
                         }
                     }),
         /*
@@ -663,7 +664,7 @@ public class DataPod extends Registerable {
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
-                                    ((p.voteType & Vetting.RES_NO_CHANGE)>0));
+                                    ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
                         }
                     }),
                 new Partition("No Changes Proposed: Inherited", 
@@ -695,16 +696,16 @@ public class DataPod extends Registerable {
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             // == insufficient votes
-                            return  (p.voteType == Vetting.RES_INSUFFICIENT) ||
-                                (p.voteType == Vetting.RES_NO_VOTES);
+                            return  (p.allVoteType == Vetting.RES_INSUFFICIENT) ||
+                                (p.allVoteType == Vetting.RES_NO_VOTES);
                         }
                     }),
                 new Partition("Changes Proposed: Tentatively Approved", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((p.hasProps)&&
-                                ((p.voteType & Vetting.RES_BAD_MASK)==0)&&
-                                    (p.voteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                                ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
+                                    (p.allVoteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
                         }
                     }),
                 new Partition("Others", 
@@ -1619,8 +1620,9 @@ public class DataPod extends Registerable {
                 int vtypes[] = new int[1];
                 vtypes[0]=0;
                 /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
-                p.voteType |= vtypes[0];
-				superP.voteType |= p.voteType;
+                p.allVoteType |= vtypes[0];
+				superP.allVoteType |= p.allVoteType;
+                p.voteType = vtypes[0]; // no mask
             }
             
             if(!examplesResult.isEmpty()) {

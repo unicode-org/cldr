@@ -71,7 +71,7 @@ public class SurveyMain extends HttpServlet {
 
     // Unofficial?
     public static       boolean isUnofficial = true;
-	static final String CURRENT_NAME="CLDR&nbsp;1.4";
+	static final String CURRENT_NAME="Others";
 	static final String PROPOSED_NAME= "Proposed&nbsp;1.5";
 
     // Special bug numbers.
@@ -4409,8 +4409,9 @@ public class SurveyMain extends HttpServlet {
                 ctx.iconHtml("ques",null) + ", " +
                 ctx.iconHtml("warn",null) + ", " +
                 ctx.iconHtml("stop",null) + " " +
+                ctx.iconHtml("squo",null) + " " +
                     "</i><br>"+
-					"To see other voters, hover over the <b>\u2611</b> symbol. "+
+					"To see other voters, hover over the <b>"+ctx.iconHtml("vote","Voting Mark")+"</b> symbol. "+
 					"</td></tr>");
         }
         if(!pod.xpathPrefix.equals("//ldml/references")) {
@@ -4419,18 +4420,18 @@ public class SurveyMain extends HttpServlet {
                         " <th>Code</th>\n"+                 // 2
                         " <th colspan='1'>"+BASELINE_NAME+"</th>\n"+              // 3
                         " <th title='"+BASELINE_NAME+" Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2'>"+CURRENT_NAME+"</th>\n"+  // 6
-                        " <th title='Current Example'><i>Ex</i></th>\n" + 
                         " <th colspan='2'>"+PROPOSED_NAME+"</th>\n"+ // 7
                         " <th title='Proposed Example'><i>Ex</i></th>\n" + 
+                        " <th colspan='2'>"+CURRENT_NAME+"</th>\n"+  // 6
+                        " <th title='Current Example'><i>Ex</i></th>\n" + 
                         " <th colspan='2' width='20%'>Change</th>\n");  // 8
         } else {
             ctx.println("<tr class='headingb'>\n"+
                         " <th>St.</th>\n"+                  // 1
                         " <th>Code</th>\n"+                 // 2
                         " <th colspan='2'>"+"URI"+"</th>\n"+              // 3
-                        " <th colspan='3'>"+CURRENT_NAME+"</th>\n"+  // 6
                         " <th colspan='3'>"+PROPOSED_NAME+"</th>\n"+ // 7
+                        " <th colspan='3'>"+CURRENT_NAME+"</th>\n"+  // 6
                         " <th colspan='2' width='20%'>Change</th>\n");  // 8
         }
         ctx.println( "<th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
@@ -5402,13 +5403,13 @@ public class SurveyMain extends HttpServlet {
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-			if(p.base_xpath == 16255) {
-/*srl*/				System.err.println("item: x=:"+item.xpath+", altProposed = "+item.altProposed);
-			}
-            if((item.altProposed != null) && (item.xpathId!=p.base_xpath)) {
-                proposedItems.add(item);
+            if(
+                (item.xpathId == resultXpath_id) && 
+                !(item.isFallback || (item.inheritFrom != null))) {
+                currentItems.add(item); 
             } else {
-                currentItems.add(item);
+//    System.err.println("MM: " + p.base_xpath+ "- v:"+item.value+", xp:"+item.xpathId+", result:"+resultXpath_id);
+                proposedItems.add(item);
             }
         }
         // if there is an inherited value available - see if we need to show it.
@@ -5418,12 +5419,12 @@ public class SurveyMain extends HttpServlet {
                 currentItems.add(p.inheritedValue); 
             } else {
                 boolean found = false;
-                for( DataPod.Pea.Item i : currentItems ) {
+                for( DataPod.Pea.Item i : proposedItems ) {
                     if(p.inheritedValue.value.equals(i.value)) {
                         found = true;
                     }
                 }
-                if (!found) for( DataPod.Pea.Item i : proposedItems ) {
+                if (!found) for( DataPod.Pea.Item i : currentItems ) {
                     if(p.inheritedValue.value.equals(i.value)) {
                         found = true;
                     }
@@ -5435,7 +5436,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         // Does the inheritedValue contain a test that we need to display?
-        if(currentItems.isEmpty() && p.inheritedValue!=null && p.inheritedValue.value==null && p.inheritedValue.tests!=null) {
+        if(proposedItems.isEmpty() && p.inheritedValue!=null && p.inheritedValue.value==null && p.inheritedValue.tests!=null) {
             inheritedValueHasTestForCurrent = true;
         }
         
@@ -5494,7 +5495,11 @@ public class SurveyMain extends HttpServlet {
                 rclass = "insufficientrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
             } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-                statusIcon = (ctx.iconHtml("okay","ok"));
+                if((s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
+                    statusIcon = (ctx.iconHtml("squo","ok - no change"));
+                } else {
+                    statusIcon = (ctx.iconHtml("okay","ok"));
+                }
                 rclass = "okay";
             } else {
                 rclass = "vother";
@@ -5585,7 +5590,7 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
         }
         
-        // ##5 current control
+        // ##5 current control ---
         DataPod.Pea.Item topCurrent = null;
         if(currentItems.size() > 0) {
             topCurrent = currentItems.get(0);
@@ -5601,8 +5606,8 @@ public class SurveyMain extends HttpServlet {
             topProposed = proposedItems.get(0);
         }
         printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
-        
-         
+
+        // submit box
         if((phaseSubmit==true)
 			|| UserRegistry.userIsTC(ctx.session.user)
 			|| ( phaseVetting && (resultType[0]== Vetting.RES_DISPUTED) )) {
@@ -5746,6 +5751,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.print("<tr>");
 
                 DataPod.Pea.Item item = null;
+
                 // current item
                 if(currentItems.size() > row) {
                     item = currentItems.get(row);
@@ -5753,7 +5759,7 @@ public class SurveyMain extends HttpServlet {
                     item = null;
                 }
                 printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
-                
+
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
                     item = proposedItems.get(row);
@@ -5761,7 +5767,7 @@ public class SurveyMain extends HttpServlet {
                     item = null;
                 }
                 printCells(ctx,pod, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
-                
+                                
                 ctx.println("</tr>");
             }
         }
@@ -5842,7 +5848,7 @@ public class SurveyMain extends HttpServlet {
 					if(org.vote == null) {
 						ctx.print("X No Consensus. ");
 					} else {
-						ctx.print("\u2611 "+"<span title='#"+org.vote.xpath+"'>"+org.vote.value+"</span>"+", strength "+org.strength+".");
+						ctx.print(ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>"+", strength "+org.strength+".");
 					}
 					if(org.dispute) {
 						ctx.print(" <b><i>(DISPUTED votes within org)</i></b> ");
@@ -5935,7 +5941,7 @@ public class SurveyMain extends HttpServlet {
 							ctx.print(" (Dispute among vetters) ");
 						}
 					} else {
-						ctx.print(org.strength+"\u2611 "+"<span title='#"+org.vote.xpath+"'>"+org.vote.value+"</span>");
+						ctx.print(org.strength+ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>");
 					}
                     
                     if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
@@ -5964,16 +5970,17 @@ public class SurveyMain extends HttpServlet {
                 if(UserRegistry.userIsTC(ctx.session.user)) {
                     if(r.winner != null ) {
                         ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
-                    } else {
-                        ctx.print("no optimal item found.");
                     }
-                    if(!r.disputes.isEmpty()) {
-                        ctx.print("<br>( Disputed with: ");
-                        for(Vetting.Race.Chad disputor : r.disputes) {
-                            ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
-                        }
-                        ctx.print(")");
+                }
+                  
+                if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
+                    ctx.print("<i>not enough votes to overturn confirmed item</i><br>");
+                } else if(!r.disputes.isEmpty()) {
+                    ctx.print("Disputed with: ");
+                    for(Vetting.Race.Chad disputor : r.disputes) {
+                        ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
                     }
+                    ctx.print("");
                     ctx.print("<br>");
                 }
 
@@ -6069,14 +6076,17 @@ public class SurveyMain extends HttpServlet {
             (item.xpath!=null)&&
             (item.xpath.equals(resultXpath))&& // todo: replace string.equals with comparison to item.xpathId . .
             !item.isFallback);
-            
+        boolean fallback = false;
 
         String pClass ="";
         if(winner) {
             pClass = "class='winner' title='Winning item.'";
+            /* todo: distinguish confirmed from unconfirmed */
         } else if(item.pathWhereFound != null) {
+            fallback = true;
             pClass = "class='alias' title='alias from "+xpt.getPrettyPath(item.pathWhereFound)+"'";
         } else if (item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) {
+            fallback = true; // this item is nver 'in' this localel
             if(XMLSource.CODE_FALLBACK_ID.equals(item.inheritFrom)) {
                 pClass = "class='fallback_code' title='Untranslated Code'";
             } else if("root".equals(item.inheritFrom)) {
@@ -6126,7 +6136,7 @@ public class SurveyMain extends HttpServlet {
                     }
                 }
             }
-            ctx.print("<span class='notselected' title='"+title+"'>\u2611</span>"); // ballot box symbol
+            ctx.print("<span class='notselected' >"+ctx.iconHtml("vote",title)+"</span>"); // ballot box symbol
         }
 
         ctx.print("<span "+pClass+">");
@@ -6137,6 +6147,9 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<i dir='ltr'>(empty)</i>");
         }
         ctx.print("</span>");
+        if(!fallback && item.xpathId == p.base_xpath) {
+            ctx.print(ctx.iconHtml("star","CLDR 1.4 item"));
+        }
         
         if( (item.votes == null) ||   // nobody voted for it, or
 			((item.votes.size()==1)&& item.votes.contains(ctx.session.user) ))  { // .. only this user voted for it

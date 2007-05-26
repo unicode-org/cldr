@@ -959,7 +959,10 @@ public class Vetting {
 
 	public static final int CONFIRMED_MINIMUM = 8; // 2 * 4 - min required for confirmed status
 	
-	public static final int OUTPUT_MINIMUM = 4; // Don't even show items that aren't at least this.  1*4
+	public static final int OUTPUT_MINIMUM = 4; // Don't even show losing items that aren't at least this.  1*4
+
+    public static final int CONTRIBUTED_MINIMUM = 2; // must be at least 2 to be contributed (2 guests)
+    public static final int PROVISIONAL_MINIMUM = 2; // must be at least 2 to be provisional (2 guests)
 
 	public enum Status { 
 		INDETERMINATE,
@@ -1147,7 +1150,8 @@ public class Vetting {
 		public Status status = Status.INDETERMINATE;
 		public Chad existing = null; // existing vote
         public Status existingStatus = Status.INDETERMINATE;
-                		
+        int nexthighest = 0;
+            
 		/* reset all */
 		public void clear() {
 			chads.clear();
@@ -1156,6 +1160,7 @@ public class Vetting {
 			winner = null;
 			existing=null;
 			base_xpath = -1;
+            nexthighest = 0;
 		}
 		
 		/* Reset this for a new item */
@@ -1207,8 +1212,8 @@ public class Vetting {
 				theirOrg.add(c);
 			} else {
 				// "existing" vote
-				Organization existingOrg = new Organization(c);
-				orgVotes.put(existingOrg.name, existingOrg);
+				//Organization existingOrg = new Organization(c);
+				//orgVotes.put(existingOrg.name, existingOrg);
 				existing = c;
                 
                 if(vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut: 
@@ -1313,7 +1318,6 @@ public class Vetting {
 		
 		private Chad calculateWinner() {
 			int highest = 0;
-			int nexthighest = 0;
 			
 			for(Chad c : chads.values()) {
 				if(c.score > highest) {
@@ -1334,20 +1338,35 @@ public class Vetting {
 				if(!disputes.isEmpty()) { // had disputes = tie vote
 					// O = N
 					status = Status.UNCONFIRMED;
-				} else if(highest > (2*nexthighest)) {
+				} else if(highest >= (2*nexthighest)) {
 					// O > 2N
 					if(highest >= CONFIRMED_MINIMUM) {  // "2" votes
 						status = Status.CONFIRMED;
-					} else if((winner==existing) && (existingStatus == Status.CONFIRMED)) { // it was already confirmed-
+					} else if((winner==existing) &&    
+                            (existingStatus == Status.CONFIRMED)) { // it was already confirmed-
                         status = Status.CONFIRMED; 
                     } else {
-						status = Status.CONTRIBUTED;
+                        if(highest >= CONTRIBUTED_MINIMUM) {
+                            status = Status.CONTRIBUTED;
+                        } else {
+                            status = Status.UNCONFIRMED;
+                        }
 					}
 				} else {
-					// O > N
-					status = Status.PROVISIONAL;
+					// O > N:  - always at least 2 votes
+                    status = Status.PROVISIONAL;
 				}
-			}
+            }
+            
+            // was there a confirmed item that wasn't replaced by a confirmed item?
+            if(existing != null) {
+                if( (existingStatus == Status.CONFIRMED) && 
+                    ( (winner == null) || (status != Status.CONFIRMED))) {
+                    winner = existing;
+                    status = existingStatus;
+                    nexthighest = highest; // record that the highest was not the winner.
+                }
+            }
 			
 			return winner;
 		}
@@ -1499,14 +1518,18 @@ public class Vetting {
 		
 		// make the Race update itself ( we don't do this if it's just investigatory)
 		int rowsUpdated = r.updateDB();
-//        System.err.println(locale+" updated "+rowsUpdated+" rows: "+ base_xpath +" -> "+resultXpath);
+///*srl*/            System.err.println(locale+" updated "+rowsUpdated+" rows: "+ base_xpath +" -> "+resultXpath);
 		
 		// Examine the results
 		if(resultXpath != -1) {
 			if(!r.disputes.isEmpty()) {
 				type = RES_DISPUTED;
 			} else {
-				type = RES_GOOD;
+                /*if(r.orgVotes.isEmpty()) {
+                    type = RES_NO_VOTES; 
+                } else */ {
+                    type = RES_GOOD;
+                }
 			}
 		} else {
 			if(!r.chads.isEmpty()) {

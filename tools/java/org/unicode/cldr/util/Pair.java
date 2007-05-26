@@ -41,9 +41,18 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
     return second;
   }
   
-  public Pair (T first, U second) {
+  public Pair set(Pair<T, U> name) {
+    setFirst(name.getFirst());
+    setSecond(name.getSecond());
+    return this;
+  }
+  
+  public Pair(T first, U second) {
     this.first = first;
     this.second = second;
+  }
+  
+  public Pair() {
   }
   
   public int hashCode() {
@@ -98,5 +107,4 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
       return null;
     }
   }
-  
 }

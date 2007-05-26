@@ -111,7 +111,7 @@ abstract public class CheckCLDR {
     return displayInformation;
   }
   public void setDisplayInformation(CLDRFile displayInformation) {
-     setDisplayInformation(displayInformation, new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY));
+     setDisplayInformation(displayInformation, null);
   }
   public void setDisplayInformation(CLDRFile displayInformation, ExampleGenerator exampleGenerator) {
     this.displayInformation = displayInformation;

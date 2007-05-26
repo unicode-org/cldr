@@ -49,10 +49,9 @@ public class CheckExemplars extends CheckCLDR {
         		UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
         		
         		if (auxiliarySet == null) {
-        			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        			result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
         					.setMessage("Missing Auxiliary Set")
-        					.setHTMLMessage("Missing Auxiliary Set:" +
-        					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			
+        					.setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   			
         		}
         		
         	} else { // auxiliary
@@ -71,7 +70,7 @@ public class CheckExemplars extends CheckCLDR {
  		return this;
 	}
 
-	private void checkExemplar(String v, List result, boolean isAuxiliary) {
+	private void checkExemplar(String v, List<CheckStatus> result, boolean isAuxiliary) {
 		if (v == null) return;
 		UnicodeSet exemplar1;
     	try {
@@ -101,10 +100,16 @@ public class CheckExemplars extends CheckCLDR {
 	    			new Object[]{fixedExemplar1}));
     		}
     	} else if (!isRoot && exemplar1.size() == 0) {
-   			result.add(new CheckStatus().setCause(this).setType(isAuxiliary ? CheckCLDR.finalErrorType : CheckStatus.errorType)
-   					.setMessage("Exemplar set must not be empty.")
-   					.setHTMLMessage("Exemplar set must not be empty:" +
-   					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			
+        if (isAuxiliary) {
+          result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+              .setMessage("Empty Auxiliary Set.")
+              .setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   
+        } else {
+          result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+              .setMessage("Exemplar set must not be empty.")
+              .setHTMLMessage("Exemplar set must not be empty:" +
+              " see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));    
+        }
     	}
 	}
 }

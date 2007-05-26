@@ -131,7 +131,7 @@ public class CheckForExemplars extends CheckCLDR {
     // check for spaces 
     if (!path.startsWith("//ldml/references/reference") && !path.endsWith("/insertBetween")) {
       if (!value.equals(value.trim())) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
         .setMessage("This item must not start or end with whitespace."));
       }
     }

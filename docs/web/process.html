@@ -44,7 +44,7 @@
 				<td valign="top" class="navColCell" colspan="2"><a href="#specification_changes">Specification Changes</a></td>
 			</tr>
 			<tr>
-				<td valign="top" class="navColCell" colspan="2"><a href="#data_vetting_process">Data Vetting Process</a></td>
+				<td valign="top" class="navColCell" colspan="2"><a href="#data_vetting_process">Data Submission and Vetting Process</a></td>
 			</tr>
 			<tr>
 				<td valign="top" class="navColCell" width="1em">&nbsp;</td>
@@ -157,7 +157,7 @@
 					<p>There is a standing policy for structural changes that require non-trivial code for proper implementation, such as time zone fallback or alias 
 					mechanisms. These require the existence of at least a prototype implementation that demonstrates correct function according to the proposed 
 					specification.</p>
-					<h2><a name="data_vetting_process"></a>3. Data Vetting Process</h2>
+					<h2><a name="data_vetting_process"></a>3. Data Submission and Vetting Process</h2>
 					<p>Once data for a country and language has been received, the data from the different sources will be compared to show agreements and differences. 
 					Initial data contributions are normally marked as &quot;draft=provisional&quot;; this may be changed once the data is vetted.</p>
 					<p>Note that there are two types of data in the repository:</p>
@@ -172,10 +172,24 @@
 					and any new proposals for addition or amendment of common data. In particular, national standards organizations are encouraged to be involved 
 					in the data vetting process.</p>
 					<h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
-					<p>The following procedure is used when resolving differences in submitted data.</p>
-					<p>There are multiple levels of access and control:<br />
-					<br />
-					<i>Committee Vetters (Technical Committee members) </i></p>
+					<p>The following procedure is used when resolving differences in submitted data.<span style="background-color: #FFFF00"> At the end, for 
+					each field a single item will be chosen as optimal, while the others will have an </span><i><span style="background-color: #FFFF00">
+					alt=proposed</span></i><span style="background-color: #FFFF00"> attribute. The </span> <i><span style="background-color: #FFFF00">draft</span></i><span style="background-color: #FFFF00"> attribute 
+					on all the items will be 
+					set to one of 4 states:</span></p>
+					<ul>
+						<li><i><span style="font-weight:700; background-color:#FFFF00">unconfirmed</span></i></li>
+						<li><b><i><span style="background-color: #FFFF00">provisional</span></i></b></li>
+						<li><b><i><span style="background-color: #FFFF00">contributed</span></i></b></li>
+						<li><i><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> (equivalent to an absent draft attribute)</span></i></li>
+					</ul>
+					<p><span style="background-color: #FFFF00">Implementations may choose the level at which they wish to accept data. They may choose to accept even 
+					<b>unconfirmed</b> data, especially if 
+					there is no translated alternative. </span>Approved data is approved by the Technical Committee, as described by the resolution process below. This 
+					does not mean that the data is guaranteed to be error-free -- this is simply the best judgment of the committee according to the process.</p>
+					<h4>User Levels</h4>
+					<p>There are multiple levels of access and control:</p>
+					<p><i>Committee Vetters (Technical Committee (TC) members) </i></p>
 					<ul>
 						<li>Can vet and submit data for all locales </li>
 						<li>Can manage users in their organization</li>
@@ -193,46 +207,88 @@
 						<li>Cannot manage other users. </li>
 						<li>Cannot see email addresses.</li>
 					</ul>
-					<p>A <i>locale group</i> is the set of all locales that share the same first field (the language subtag). For example, en plus anything that starts with &quot;en_&quot;. The 
-					group of non-guest vetters who are authorized for a locale group is called the <i>interest group</i> for the locale.<br />
-					<br />
-					Fields with multiple proposals where some non-guest vetters do not agree on a single proposal are called <i>conflicted</i>. Correspondingly, 
-					a locale with any conflicted fields is a <i>conflicted locale</i>; a locale group with any conflicted locales is a <i>conflicted locale group</i>.
-					</p>
-					<p>The <i>draft</i> attribute in the data can have 3 states:</p>
-					<ul>
-						<li><i><span style="font-weight:700">unconfirmed</span><b>:</b></i> entered by guest vetter without other confirmation, or conflicted. (Equals 
-						CLDR 1.3 draft value of <b><i>true.</i></b>)</li>
-						<li><b><i>provisional</i></b><i><b>:</b></i> entered by regular vetter (or above), without conflict, but not yet approved. Implementations 
-						may choose to accept the provisional data, especially if there is no translated alternative.</li>
-						<li><i><b>approved:</b> </i>approved by the Technical Committee, as described by the resolution process below. This does not mean that the 
-						data is guaranteed to be error-free -- this is the best judgment of the committee. (Equals the CLDR 1.3 draft value of <i>
-						<span style="font-weight:700">false</span></i>, or an absent <i>draft</i> attribute.)</li>
-					</ul>
-					<p>In the vetting phase:</p>
-					<ul>
-						<li>Any vetter, including guest vetters, can see a summary of all the conflicted fields for a given locale group.</li>
-						<li>Vetters can change their preferred value (a vote). </li>
-						<li>Anyone on the interest group is notified (batched daily) if a vote is changed.</li>
-						<li>For each conflicted locale group, periodically (weekly at first, then daily) an email is sent to the interest group summarizing all 
-						the conflicted fields. The email will encourage the interest group to resolve any conflicts. The interest group will also have access to 
-						all the vetters&#39; emails for the locale group, to ask questions and resolve issues.</li>
-						<li>Normally the &quot;change to&quot; button is frozen during the <span id="mail-highlight-id">vetting process</span>, except for committee and expert 
-						vetters. However, when a field has any proposals, the &quot;change to&quot; button is enabled for non-guest vetters.</li>
-					</ul>
-					<p>At the end of the <span id="mail-highlight-id">vetting process:</span></p>
-					<ul>
-						<li>All non-conflicted fields that meet a quorum are normally approved.</li>
-						<li>Once a field is approved, the other proposals for that field are removed (or made into alternates, according to Technical Committee 
-						decision).</li>
-						<li>The quorum is at least one expert vetter, or at least two regular vetters from different organizations.</li>
-						<li>If the quorum is not met, then the data remains, marked as draft=&quot;unconfirmed&quot; if it has no votes, or draft=&quot;provisional&quot; if it has 
-						at least one vote.</li>
-						<li>The Technical Committee may decide to make a particular conflicted field <i>approved</i>, or have it remain conflicted (thus <i>provisional
-						</i>or<i> unconfirmed</i>).</li>
-						<li>The Technical Committee is ultimately responsible for resolving any issues.</li>
-					</ul>
-					<p>This process can be fine-tuned by the Technical Committee as needed, to resolve any problems that turn up.</p>
+<p><span style="background-color: #FFFF00">These levels are decided by the TC representative for the respective organizations. </span> </p>
+<ul>
+	<li><span style="background-color: #FFFF00">Unicode TC members (full/associate/supporting) can assign its users to any level. </span> </li>
+	<li><span style="background-color: #FFFF00">Liaison or associate members can assign to Guest, or to other levels with approval of the TC.</span><ul>
+	<li><span style="background-color: #FFFF00">The liaison/associate member him/erself gets TC status 
+	in order to manage users, but gets a Guest status in terms of voting, unless the committee approves a higher level.</span></li>
+</ul>
+	</li>
+	<li><span style="background-color: #FFFF00">Users assigned to &quot;</span><a href="http://unicode.org"><span style="background-color: #FFFF00">unicode.org</span></a><span style="background-color: #FFFF00">&quot; are normally assigned 
+	as Guest, but the committee can assign a different level.</span></li>
+</ul>
+<h4><span style="background-color: #FFFF00">Voting</span></h4>
+<ul>
+	<li><span style="background-color: #FFFF00">Each user gets one vote on each item, but the </span> <i><span style="background-color: #FFFF00">strength</span></i><span style="background-color: #FFFF00"> of the vote varies according to the user level:</span><ul>
+		<li><span style="background-color: #FFFF00">A Guest vote counts 1, a Vetter vote counts 4, and an Expert/TC vote counts 8</span></li>
+		<li><span style="background-color: #FFFF00">If a user is locked or removed, then his/er vote is zero.</span></li>
+	</ul>
+	</li>
+	<li><span style="background-color: #FFFF00">All items with syntax errors get zero votes<b> <i>(Issue: this is a new constraint)</i></b></span><ul>
+	<li><span style="background-color: #FFFF00">For example, a date pattern of &quot;14. september&quot; instead of &quot;dd MMM&quot;.</span></li>
+</ul></li>
+	<li><span style="background-color: #FFFF00">For each item, each organization gets a vote based on the </span><i><span style="background-color: #FFFF00">
+	maximum</span></i><span style="background-color: #FFFF00"> (not cumulative) strength of the votes of its users.</span><ul>
+	<li><span style="background-color: #FFFF00">That is, even if an organization has 10 Vetters voting for an item, the vote count attributed to the 
+	organization as a whole is 4 (the strength of 1 Vetter).</span></li>
+</ul></li>
+	<li><span style="background-color: #FFFF00">If there is a dispute (two votes for different items) 
+	at the strongest level, then no vote is counted for the organization.</span><ul>
+	<li><b><i><span style="background-color: #FFFF00">Issue: I think we should instead use the &quot;winning&quot; vote within the organization, that is:</span></i></b></li>
+	<li><span style="font-style: italic; background-color: #FFFF00">If there is a dispute (two votes for different values), then the winning vote for that 
+	organization is chosen. If there is a tie, then no vote is counted for the organization.</span></li>
+</ul>
+					</li>
+	<li><span style="background-color: #FFFF00">Batch data (marked with x999, for example) gets a status based on committee decision.</span></li>
+</ul>
+					<p><span style="background-color: #FFFF00">Any field that has no new submissions or votes during the data submission and vetting phase 
+					remains the same in the next release. Any other fields are assessed as follows:</span></p>
+<h4><span style="font-weight: bold; background-color:#FFFF00">Optimal Field</span></h4>
+					<p><span style="background-color: #FFFF00">For each release, there is one optimal field determined by the following:</span></p>
+<ul>
+	<li><span style="background-color: #FFFF00">Add up the votes for each item from each organization.</span></li>
+	<li><span style="background-color: #FFFF00">Out of all the possible alternative values for a given field, pick the one with the most votes. </li>
+	If there was a tie, pick the least one (in UCA order).</span><ul>
+	<li><span style="background-color: #FFFF00">An example of an error is where the value has a syntax error for a pattern.</span></li>
+</ul>
+	</li>
+</ul>
+<h4><span style="font-weight: bold; background-color:#FFFF00">Draft Status of Optimal Field</span></h4>
+<ul>
+	<li><span style="background-color: #FFFF00">Compare the optimal item vote </span> <span style="font-weight: bold; background-color:#FFFF00">O </span>
+	<span style="background-color: #FFFF00">to the next highest vote getter </span> <span style="font-weight: bold; background-color:#FFFF00">N:</span><ul>
+		<li style="font-weight: bold;"><span style="background-color: #FFFF00">O &gt; 2</span><font face="Arial"><span style="background-color: #FFFF00">×</span></font><span style="background-color: #FFFF00">N</span><ul>
+			<li><span style="background-color: #FFFF00">At least 8 votes: </span> <span style="font-weight: bold; background-color:#FFFF00">draft status=approved</span></li>
+			<li><span style="background-color: #FFFF00">Less than 8 votes: </span> <span style="font-weight: bold; background-color:#FFFF00">draft status=contributed</span></li>
+		</ul>
+		</li>
+		<li><span style="font-weight: bold; background-color:#FFFF00">O &gt; N</span><ul>
+			<li> <span style="font-weight: bold; background-color:#FFFF00">draft status=provisional </span></li>
+		</ul>
+		</li>
+		<li><span style="font-weight: bold; background-color:#FFFF00">O = N</span><ul>
+		<li> <span style="font-weight: bold; background-color:#FFFF00">draft status=unconfirmed</span></li>
+	</ul>
+		</li>
+	</ul>
+	</li>
+	<li><span style="background-color: #FFFF00">If the previous release had an </span> <span style="font-weight: bold; background-color:#FFFF00">approved </span>
+	<span style="background-color: #FFFF00">value which is different than the optimal value, then it becomes the 
+	optimal item unless the new optimal value would have status of </span> <b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00">.</span></li>
+	<li><span style="background-color: #FFFF00">If there was an </span> <i><span style="background-color: #FFFF00">alt=proposed</span></i><span style="background-color: #FFFF00"> on the optimal value, it is removed.</span></li>
+</ul>
+<h4><span style="font-weight: bold; background-color:#FFFF00">Status of Remaining Fields</span></h4>
+<ul>
+	<li><span style="background-color: #FFFF00">If a field has no votes, then it is removed from the release (but archived).</span></li>
+	<li><span style="background-color: #FFFF00">Others are retained in the release.</span></li>
+	<li><span style="background-color: #FFFF00">They are marked with </span> <i><span style="background-color: #FFFF00">alt=proposed</span></i><span style="background-color: #FFFF00"> and given the draft status:</span><span style="font-weight: bold; background-color:#FFFF00"> 
+	unconfirmed</span><ul>
+	<li><i><span style="background-color: #FFFF00">Issue: should we make the &quot;weightier ones&quot; <b>contributed </b>or<b> provisional</b>?</span></i></li>
+</ul> </li>
+</ul>
+					<p>This process can be fine-tuned by the Technical Committee as needed, to resolve any problems that turn up. A committee decision can also override any of the above process 
+					for any specific items.</p>
 					<p><span style="font-weight: 700; ">Notes:</span></p>
 					<ul>
 						<li>If data has a formal problem, it can be fixed directly (in CVS) without going through the above process. Examples include:<ul>
@@ -291,7 +347,8 @@
 					content of resolved data.</p>
 					<h2>4. <a name="public_feedback">Public Feedback Process</a></h2>
 					<p>The public can supply formal feedback into CLDR via the <a href="http://unicode.org/cldr/apps/survey/">Survey Tool</a> or by filing a <a href="filing_bug_reports.html">Bug Report or Feature Request</a>. 
-					There is also a public forum for questions at <a href="http://www.unicode.org/consortium/distlist.html#cldr_list">CLDR Mailing List</a>.</p>
+					There is also a public forum for questions at <a href="http://www.unicode.org/consortium/distlist.html#cldr_list">CLDR Mailing List</a>
+					<span style="background-color: #FFFF00">(details on archives are found there).</span></p>
 					<p>Anyone can also asked to be added to a list that will receive 
 					notification of new CLDR bugs, so they can track issues if they want. Anyone can also to reply to any bug report to add comments or 
 					questions.</p>
@@ -300,7 +357,9 @@
 						line.</li>
 						<li>To unsubscribe, put &quot;unsubscribe cldr-bugrfe&quot; in the subject line instead.</li>
 					</ul>
-					<p>The email archive (in raw form) are in the <a href="http://www.unicode.org/~ecartis/cldr/">CLDR Email Archives</a>.</p>
+					<p><span style="background-color: #FFFF00">There is also a members-only </span><a href="http://www.unicode.org/members/index.html#cldr">
+					<span style="background-color: #FFFF00">CLDR mailing list</span></a><span style="background-color: #FFFF00"> for members of the CLDR 
+					Technical Committee.</span></p>
 					<p><a href="http://www.unicode.org/review/">Public Review Issues</a> may be posted in cases where broader public feedback is desired on a particular 
 					issue.</p>
 					<p>Be aware that changes and updates to CLDR will only be taken in response to information entered in the <a href="http://unicode.org/cldr/apps/survey/">Survey Tool</a> 

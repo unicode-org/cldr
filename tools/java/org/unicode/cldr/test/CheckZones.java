@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -51,7 +52,7 @@ public class CheckZones extends CheckCLDR {
 			return this;
 		if (timezoneFormatter == null) {
       if (true) return this;
-			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+			throw new InternalCldrException("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
 		}
 		parts.set(path);
 
@@ -138,7 +139,7 @@ public class CheckZones extends CheckCLDR {
 			return this;
         }
 		if (timezoneFormatter == null) {
-			throw new InternalError("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+			throw new InternalCldrException("This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
 		}
         String formatted = exampleTextForXpath(parts, timezoneFormatter, path);
 

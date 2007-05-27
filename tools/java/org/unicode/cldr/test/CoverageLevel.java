@@ -8,6 +8,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
@@ -177,7 +178,7 @@ public class CoverageLevel {
     }
     
     if(exemplars == null) {
-        throw new InternalError("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
+        throw new InternalCldrException("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
     }
     
     UnicodeSet auxexemplars = file.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
@@ -1083,9 +1084,9 @@ public class CoverageLevel {
     }
     
     if(path == null) { 
-      throw new InternalError("Empty path!");
+      throw new InternalCldrException("Empty path!");
     } else if(file == null) {
-      throw new InternalError("no file to check!");
+      throw new InternalCldrException("no file to check!");
     }
     //parts.set(fullPath);
     //parts.equals()

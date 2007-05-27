@@ -107,8 +107,7 @@ public class CheckExemplars extends CheckCLDR {
         } else {
           result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
               .setMessage("Exemplar set must not be empty.")
-              .setHTMLMessage("Exemplar set must not be empty:" +
-              " see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));    
+              .setHTMLMessage("Exemplar set must not be empty -- that would imply that this language uses no letters!"));    
         }
     	}
 	}

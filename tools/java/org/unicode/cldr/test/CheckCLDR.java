@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
@@ -68,7 +69,7 @@ import com.ibm.icu.dev.tool.UOption;
 abstract public class CheckCLDR {
   private CLDRFile cldrFileToCheck;
   private CLDRFile resolvedCldrFileToCheck;
-  private CLDRFile displayInformation;
+  private static CLDRFile displayInformation;
   
   static boolean SHOW_LOCALE = true;
   static boolean SHOW_EXAMPLES = false;
@@ -107,18 +108,24 @@ abstract public class CheckCLDR {
    * @param locale
    * @return
    */
-  public CLDRFile getDisplayInformation() {
+  public static synchronized CLDRFile getDisplayInformation() {
     return displayInformation;
   }
-  public void setDisplayInformation(CLDRFile displayInformation) {
+  public static synchronized void setDisplayInformation(CLDRFile displayInformation) {
      setDisplayInformation(displayInformation, null);
   }
-  public void setDisplayInformation(CLDRFile displayInformation, ExampleGenerator exampleGenerator) {
-    this.displayInformation = displayInformation;
-    englishExampleGenerator = exampleGenerator;
+  public static synchronized void setDisplayInformation(CLDRFile inputDisplayInformation, ExampleGenerator inputExampleGenerator) {
+    displayInformation = inputDisplayInformation;
+    englishExampleGenerator = inputExampleGenerator;
   }
+  public static synchronized void setExampleGenerator(ExampleGenerator inputExampleGenerator) {
+    englishExampleGenerator = inputExampleGenerator;
+ }
+  public static synchronized ExampleGenerator getExampleGenerator() {
+    return englishExampleGenerator;
+ }
 
-  private ExampleGenerator englishExampleGenerator;
+  private static ExampleGenerator englishExampleGenerator;
   
   private static final int
   HELP1 = 0,
@@ -263,6 +270,10 @@ abstract public class CheckCLDR {
     
     PrettyPath prettyPathMaker = new PrettyPath();
     
+    Set<String> fatalErrors = new TreeSet();
+    
+    if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
+
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
       if (CLDRFile.isSupplementalName(localeID)) continue;
@@ -288,11 +299,19 @@ abstract public class CheckCLDR {
       if (coverageLevel != null) options.put("CheckCoverage.requiredLevel", coverageLevel.toString());
       if (organization != null) options.put("CoverageLevel.localeType", organization);
       if (true) options.put("submission", "true");
-      if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
+      if (SHOW_LOCALE) System.out.println();
       
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
-      CLDRFile file = cldrFactory.make(localeID, isLanguageLocale);
+      CLDRFile file;
+      try {
+        file = cldrFactory.make(localeID, isLanguageLocale);
+      } catch (RuntimeException e) {
+        fatalErrors.add(localeID);
+        System.out.println("FATAL ERROR: " + localeID);
+        e.printStackTrace(System.out);
+        continue;
+      }
       if (user != null) {
         file = new CLDRFile.TestUser(file, user, isLanguageLocale);
       }
@@ -478,6 +497,9 @@ abstract public class CheckCLDR {
     
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+    if (fatalErrors.size() != 0) {
+      System.out.println("FATAL ERRORS:" );
+    }
   }
 
   private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, Collection<String> target) {
@@ -518,10 +540,10 @@ abstract public class CheckCLDR {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = null;
     if (SHOW_EXAMPLES) {
-      if (englishExampleGenerator == null) {
-        englishExampleGenerator = new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY);
+      if (getExampleGenerator() == null) {
+        setExampleGenerator(new ExampleGenerator(displayInformation, Utility.SUPPLEMENTAL_DIRECTORY));
       }
-      englishExample = englishExampleGenerator.getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+      englishExample = getExampleGenerator().getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
     }
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
@@ -905,10 +927,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
    */
   public final CheckCLDR check(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     if(cldrFileToCheck == null) {
-      throw new InternalError("CheckCLDR problem: cldrFileToCheck must not be null");
+      throw new InternalCldrException("CheckCLDR problem: cldrFileToCheck must not be null");
     }
     if (path == null) {
-      throw new InternalError("CheckCLDR problem: path must not be null");
+      throw new InternalCldrException("CheckCLDR problem: path must not be null");
     }
 //    if (fullPath == null) {
 //      throw new InternalError("CheckCLDR problem: fullPath must not be null");

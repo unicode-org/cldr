@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.impl.CollectionUtilities;
@@ -93,9 +94,9 @@ public class CheckForExemplars extends CheckCLDR {
     if (fullPath == null) return this; // skip paths that we don't have
     if (skip) return this;
     /*srl*/ if(path == null) { 
-      throw new InternalError("Empty path!");
+      throw new InternalCldrException("Empty path!");
     } else if(getCldrFileToCheck() == null) {
-      throw new InternalError("no file to check!");
+      throw new InternalCldrException("no file to check!");
     }
     String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
     if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {

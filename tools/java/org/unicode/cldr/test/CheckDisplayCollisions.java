@@ -46,6 +46,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
           //String code = CLDRFile.getCode(path);
           //Set codes = new TreeSet(s);
           //codes.remove(code); // don't show self
+
           CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
           .setCheckOnSubmit(false)
           .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
@@ -123,6 +124,11 @@ public class CheckDisplayCollisions extends CheckCLDR {
             if (itemType == CLDRFile.TZ_START) {
               int type = CLDRFile.getNameType(path);
               codeName += " (" + CLDRFile.getNameName(type) + ")";
+            } else {
+              String english = getDisplayInformation().getStringValue(otherPath);
+              if (english != null) {
+                codeName += " (" + english + ")";
+              }
             }
             hasCollisions.put(path, codeName);          
           }

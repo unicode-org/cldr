@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.XMLSource;
 
 
@@ -63,9 +64,9 @@ public class CheckCoverage extends CheckCLDR {
         }
         
         if(path == null) { 
-            throw new InternalError("Empty path!");
+            throw new InternalCldrException("Empty path!");
         } else if(getCldrFileToCheck() == null) {
-            throw new InternalError("no file to check!");
+            throw new InternalCldrException("no file to check!");
         }
 
         // check to see if the level is good enough

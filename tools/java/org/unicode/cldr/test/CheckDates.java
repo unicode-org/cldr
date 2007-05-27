@@ -198,7 +198,7 @@ public class CheckDates extends CheckCLDR {
         result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
             // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
             .setMessage("Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). " +
-                "Please change your pattern to match what was asked for ID, such as ({3}): but with different puncuation and/or ordering.",
+                "Please change your pattern to match what was asked, such as ({3}), with the right puncuation and/or ordering for your language.",
                 id, skeleton, value, fixedValue));                  
       }
       String failureMessage = (String) flexInfo.getFailurePath(path);

@@ -211,7 +211,7 @@ public class ExampleGenerator {
         parts.set(xpath);
         if (parts.contains("dateRangePattern")) { // {0} - {1}
           SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-          result = MessageFormat.format(value, new Object[] { setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)) });
+          result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)));
           result = finalizeBackground(result);
           break main;
         }
@@ -247,21 +247,24 @@ public class ExampleGenerator {
                 String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
                 // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
 
-                result = MessageFormat.format(fallback, new Object[] { value, countryName });
-                result = MessageFormat.format(timeFormat, new Object[] { result });
+                result = format(fallback, value, countryName);
+                result = format(timeFormat, result);
               }
             }
           } else if (parts.contains("regionFormat")) { // {0} Time
             String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
-            result = MessageFormat.format(value, new Object[] { setBackground(sampleTerritory) });
+            result = format(value, setBackground(sampleTerritory));
           } else if (parts.contains("fallbackFormat")) { // {1} ({0})
+            if (value == null) {
+              break main;
+            }
             String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
             String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
 
             String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
-            result = MessageFormat.format(value, new Object[] { LosAngeles, us });
-            result = MessageFormat.format(timeFormat, new Object[] { result });
+            result = format(value, LosAngeles, us);
+            result = format(timeFormat, result);
           } else if (parts.contains("gmtFormat")) { // GMT{0}
             result = getGMTFormat(null, value, -8);
           } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
@@ -271,6 +274,7 @@ public class ExampleGenerator {
               result = getMZTimeFormat() + " " + value;
             }
             else {
+              // TODO check for value
               if (parts.contains("generic")) {
                 String metazone_name = parts.getAttributeValue(3, "type");
                 String timezone = supplementalData.resolveParsedMetazone(metazone_name,"001");
@@ -286,11 +290,11 @@ public class ExampleGenerator {
 
                 if ( singleZone ) {
                   result = setBackground(getMZTimeFormat() + " " + 
-                            MessageFormat.format(regionFormat, new Object[] { countryName }));
+                            format(regionFormat, countryName));
                 }
                 else {
                   result = setBackground(getMZTimeFormat() + " " + 
-                            MessageFormat.format(fallbackFormat, new Object[] { exemplarCity, countryName }));
+                            format(fallbackFormat, exemplarCity, countryName));
                 }
               }
               else {
@@ -315,18 +319,20 @@ public class ExampleGenerator {
           break main;
         }
         if (xpath.contains("/exemplarCharacters")) {
-          if (zoomed == Zoomed.IN) {
-            UnicodeSet unicodeSet = new UnicodeSet(value);
-            if (unicodeSet.size() < 500) {
-              result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
+          if (value != null) {
+            if (zoomed == Zoomed.IN) {
+              UnicodeSet unicodeSet = new UnicodeSet(value);
+              if (unicodeSet.size() < 500) {
+                result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
+              }
             }
           }
           break main;
         }
         if (xpath.contains("/localeDisplayNames")) {
           if (xpath.contains("/codePatterns")) {
-            parts.set(xpath);
-            result = MessageFormat.format(value, new Object[] { setBackground("CODE") });
+            //parts.set(xpath);
+            result = format(value, setBackground("CODE"));
             result = finalizeBackground(result);
           } else if (xpath.contains("_") && xpath.contains("/languages")) {
             result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
@@ -354,7 +360,7 @@ public class ExampleGenerator {
             if (parts.contains("dateTimeFormat")) {
               SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
               SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
-              date2.applyPattern(MessageFormat.format(value, new Object[] { setBackground(time.toPattern()), setBackground(date2.toPattern()) }));
+              date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
               dateFormat = date2;
             } else {
               String id = parts.findAttributeValue("dateFormatItem", "id");
@@ -390,12 +396,19 @@ public class ExampleGenerator {
         }
       }
       return result;
+    } catch (NullPointerException e) {
+      return null;
     } catch (RuntimeException e) {
       String unchained = verboseErrors?("<br>"+unchainException(e)):"";
       return zoomed == Zoomed.OUT 
           ? "<i>internal error</i>"
           : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>"+unchained);
     }
+  }
+  
+  public String format(String format, Object...objects ) {
+    if (format == null) return null;
+    return MessageFormat.format(format, objects);
   }
 
   public static final String unchainException(Exception e) {

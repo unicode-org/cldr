@@ -1766,10 +1766,9 @@ public class Vetting {
 				
                 if(rs.next()) {
                     type[0] = rs.getInt(2);
-                    if(type[0]>RES_BAD_MAX) {
-                        rv = rs.getInt(1);
-                    } else {
-                        rv = -1; // F
+                    rv = rs.getInt(1);
+                    if(rv <= 0) {
+                        rv = -1;
                     }
 					rs.close();
                 } else {

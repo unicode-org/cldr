@@ -374,6 +374,12 @@ public class DataPod extends Registerable {
                     String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
 
                     inheritedValue.inheritFrom = sourceLocale;
+                    
+                    if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+        //System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
+                        inheritedValue.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                    }
+                    
                     inheritedValue.value = value;
                     inheritedValue.xpath = xpath;
                     inheritedValue.xpathId = base_xpath;
@@ -1111,7 +1117,6 @@ public class DataPod extends Registerable {
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
-        CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
         final boolean ndebug = false;
         long lastTime = -1;
         long longestTime = -1;
@@ -1523,7 +1528,13 @@ public class DataPod extends Registerable {
                     p.displayName = superP.displayName; // too: unscramble this a little bit
                 }
             }
+            CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
+
+                    if(base_xpath == 2898) {
+/*srl*/                 System.err.println("inher 2898: xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
+                    }
+
             
             boolean isInherited = !(sourceLocale.equals(locale));
             

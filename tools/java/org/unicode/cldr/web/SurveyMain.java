@@ -3551,13 +3551,14 @@ public class SurveyMain extends HttpServlet {
 
     public static final String XML_PREFIX="/xml/main";
     public static final String VXML_PREFIX="/vxml/main";
+    public static final String RXML_PREFIX="/rxml/main";
     public static final String FEED_PREFIX="/feed";
 
     public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
-        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
+        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
             return false;
         }
         
@@ -3566,6 +3567,7 @@ public class SurveyMain extends HttpServlet {
         }
 
         boolean finalData = false;
+        boolean resolved = false;
         
         if(s.startsWith(VXML_PREFIX)) {
             finalData = true;
@@ -3576,6 +3578,16 @@ public class SurveyMain extends HttpServlet {
                 return true;
             }
             s = s.substring(VXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else if(s.startsWith(RXML_PREFIX)) {
+            finalData = true;
+            resolved=true;
+
+            if(s.equals(RXML_PREFIX)) {
+                WebContext ctx = new WebContext(request,response);
+                response.sendRedirect(ctx.schemeHostPort()+ctx.base()+RXML_PREFIX+"/");
+                return true;
+            }
+            s = s.substring(RXML_PREFIX.length()+1,s.length()); //   "foo.xml"
         } else {
             if(s.equals(XML_PREFIX)) {
                 WebContext ctx = new WebContext(request,response);
@@ -3630,7 +3642,12 @@ public class SurveyMain extends HttpServlet {
             } else {
                 response.setContentType("application/xml; charset=utf-8");
                 CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale), finalData);
-                CLDRFile file = makeCLDRFile(dbSource);
+                CLDRFile file;
+                if(resolved == false) {
+                    file= makeCLDRFile(dbSource);
+                } else { 
+                    file = new CLDRFile(dbSource,true);
+                }
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
                 file.write(response.getWriter());
             }

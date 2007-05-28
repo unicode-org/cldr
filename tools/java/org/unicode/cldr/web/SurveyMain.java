@@ -3922,7 +3922,7 @@ public class SurveyMain extends HttpServlet {
                 
                 // make sure CLDR has the latest display information.
                 if(phaseVetting) {
-                    checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+                    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
                 } else {
                     checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
                 }

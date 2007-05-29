@@ -225,21 +225,17 @@
 		<li><span style="background-color: #FFFF00">If a user is locked or removed, then his/er vote is zero.</span></li>
 	</ul>
 	</li>
-	<li><span style="background-color: #FFFF00">All items with syntax errors get zero votes<b> <i>(Issue: this is a new constraint)</i></b></span><ul>
+	<li><span style="background-color: #FFFF00">All items with syntax errors get zero votes</span><ul>
 	<li><span style="background-color: #FFFF00">For example, a date pattern of &quot;14. september&quot; instead of &quot;dd MMM&quot;.</span></li>
+	<li><span style="background-color: #FFFF00">They cannot be voted for, and show a visible error.</span></li>
 </ul></li>
 	<li><span style="background-color: #FFFF00">For each item, each organization gets a vote based on the </span><i><span style="background-color: #FFFF00">
 	maximum</span></i><span style="background-color: #FFFF00"> (not cumulative) strength of the votes of its users.</span><ul>
 	<li><span style="background-color: #FFFF00">That is, even if an organization has 10 Vetters voting for an item, the vote count attributed to the 
 	organization as a whole is 4 (the strength of 1 Vetter).</span></li>
 </ul></li>
-	<li><span style="background-color: #FFFF00">If there is a dispute (two votes for different items) 
-	at the strongest level, then no vote is counted for the organization.</span><ul>
-	<li><b><i><span style="background-color: #FFFF00">Issue: I think we should instead use the &quot;winning&quot; vote within the organization, that is:</span></i></b></li>
-	<li><span style="font-style: italic; background-color: #FFFF00">If there is a dispute (two votes for different values), then the winning vote for that 
+	<li><span style="background-color: #FFFF00">If there is a dispute (votes for different values) within an organization, then the majority vote for that 
 	organization is chosen. If there is a tie, then no vote is counted for the organization.</span></li>
-</ul>
-					</li>
 	<li><span style="background-color: #FFFF00">Batch data (marked with x999, for example) gets a status based on committee decision.</span></li>
 </ul>
 					<p><span style="background-color: #FFFF00">Any field that has no new submissions or votes during the data submission and vetting phase 
@@ -257,31 +253,18 @@
 <h4><span style="font-weight: bold; background-color:#FFFF00">Draft Status of Optimal Field</span></h4>
 <ul>
 	<li><span style="background-color: #FFFF00">Compare the optimal item vote </span> <span style="font-weight: bold; background-color:#FFFF00">O </span>
-	<span style="background-color: #FFFF00">to the next highest vote getter </span> <span style="font-weight: bold; background-color:#FFFF00">N:</span><ul>
-		<li style="font-weight: bold;"><span style="background-color: #FFFF00">O &gt; 2</span><font face="Arial"><span style="background-color: #FFFF00">×</span></font><span style="background-color: #FFFF00">N</span><ul>
-			<li><span style="background-color: #FFFF00">At least 8 votes: </span> <span style="font-weight: bold; background-color:#FFFF00">draft status=approved</span></li>
-			<li><span style="background-color: #FFFF00">Less than 8 votes: </span> <span style="font-weight: bold; background-color:#FFFF00">draft status=contributed</span></li>
-		</ul>
-		</li>
-		<li><span style="font-weight: bold; background-color:#FFFF00">O &gt; N</span><ul>
-			<li> <span style="font-weight: bold; background-color:#FFFF00">draft status=provisional </span></li>
-		</ul>
-		</li>
-		<li><span style="font-weight: bold; background-color:#FFFF00">O = N</span><ul>
-		<li> <span style="font-weight: bold; background-color:#FFFF00">draft status=unconfirmed</span></li>
+	<span style="background-color: #FFFF00">to the next highest vote getter </span> <span style="font-weight: bold; background-color:#FFFF00">N</span><span style="background-color:#FFFF00">, 
+	and assign the status according to the first of the conditions below that applies.</span><ul>
+		<li style="font-weight: bold;"><span style="background-color: rgb(255, 255, 0);">O &gt; 2</span><font face="Arial"><span style="background-color: rgb(255, 255, 0);">×</span></font><span style="background-color: rgb(255, 255, 0);">N 
+		and O &gt;= 8 votes: draft status=approved</span></li>
+		<li><b><span style="background-color: rgb(255, 255, 0);">O &gt; 2</span><font face="Arial"><span style="background-color: rgb(255, 255, 0);">×</span></font><span style="background-color: rgb(255, 255, 0);">N 
+		and O &gt;= 4 votes: draft status=contributed</span></b></li>
+		<li><span style="font-weight: 700; background-color: rgb(255, 255, 0);">O &gt; N and O &gt;= 2 votes: draft status=provisional </span></li>
+		<li><span style="font-weight: 700; background-color: rgb(255, 255, 0);">Otherwise: draft status=unconfirmed</span></li>
 	</ul>
-		</li>
-	</ul>
-	</li>
-	<li><span style="background-color: #FFFF00">If the previous release had an </span> <span style="font-weight: bold; background-color:#FFFF00">approved </span>
+	<p><span style="background-color: #FFFF00">If the previous release had an </span><span style="font-weight: bold; background-color:#FFFF00">approved </span>
 	<span style="background-color: #FFFF00">value which is different than the optimal value, then it becomes the 
-	optimal item unless the new optimal value would have status of </span> <b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00">.</span><ul>
-	<li><i><span style="background-color: #FFFF00">Issue: should we downgrade items if they have warnings. Example
-	<a href="http://unicode.org/cldr/apps/survey?_=el&forum=el&xpath=86883">http://unicode.org/cldr/apps/survey?_=el&amp;forum=el&amp;xpath=86883</a>, where </span>
-	<span class="winner" title="Winning item."><span style="background-color: #FFFF00">Δηνάριο Bahraini</span></span><span style="background-color: #FFFF00"><img alt="[star]" style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/star.png" title="CLDR 1.4 item" border="0"> 
-	causes a warning (uses non-Greek characters)</span></i></li>
-</ul>
-	</li>
+	optimal item unless the new optimal value would have status of </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00">.</span></li>
 	<li><span style="background-color: #FFFF00">If there was an </span> <i><span style="background-color: #FFFF00">alt=proposed</span></i><span style="background-color: #FFFF00"> on the optimal value, it is removed.</span></li>
 </ul>
 <h4><span style="font-weight: bold; background-color:#FFFF00">Status of Remaining Fields</span></h4>
@@ -289,9 +272,7 @@
 	<li><span style="background-color: #FFFF00">If a field has no votes, then it is removed from the release (but archived).</span></li>
 	<li><span style="background-color: #FFFF00">Others are retained in the release.</span></li>
 	<li><span style="background-color: #FFFF00">They are marked with </span> <i><span style="background-color: #FFFF00">alt=proposed</span></i><span style="background-color: #FFFF00"> and given the draft status:</span><span style="font-weight: bold; background-color:#FFFF00"> 
-	unconfirmed</span><ul>
-	<li><i><span style="background-color: #FFFF00">Issue: should we make the &quot;weightier ones&quot; <b>contributed </b>or<b> provisional</b>?</span></i></li>
-</ul> </li>
+	unconfirmed</span></li>
 </ul>
 					<p>This process can be fine-tuned by the Technical Committee as needed, to resolve any problems that turn up. A committee decision can also override any of the above process 
 					for any specific items.</p>

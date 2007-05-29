@@ -175,8 +175,12 @@ public class ExampleGenerator {
       supplementalData = new SupplementalData(supplementalDataDirectory);
     }
     String singleCountriesPath = cldrFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
-    parts.set(singleCountriesPath);
-    singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1, "list").trim().split("\\s+")));
+    if(singleCountriesPath == null) {
+        System.err.println("Failure: in "+cldrFile.getLocaleID()+" examplegenerator- cldrFile.getFullXPath(//ldml/dates/timeZoneNames/singleCountries)==null");
+    } else {
+        parts.set(singleCountriesPath);
+        singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1, "list").trim().split("\\s+")));
+    }
   }
 
   /**

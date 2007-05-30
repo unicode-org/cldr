@@ -12,7 +12,10 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -36,10 +39,11 @@ class ExtractMessages {
   
   public static boolean SKIPEQUALS = true;
   public static boolean SKIPIFCLDR = true;
+  public static String DIR = Utility.GEN_DIRECTORY + "/../additions/";
   
   public static void main(String[] args) throws IOException {
     double startTime = System.currentTimeMillis();
-    output = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "additions/", "additions.txt");
+    output = BagFormatter.openUTF8Writer(DIR, "additions.txt");
     int totalCount = 0;
     try {
       String sourceDirectory = getProperty("SOURCE", null);
@@ -117,7 +121,7 @@ class ExtractMessages {
             }
           }
         }
-        PrintWriter cldrOut = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "additions/", otherHandler.getLocale() + ".xml");
+        PrintWriter cldrOut = BagFormatter.openUTF8Writer(DIR, otherHandler.getLocale() + ".xml");
         newFile.write(cldrOut);
         cldrOut.close();
         
@@ -171,14 +175,17 @@ class ExtractMessages {
     }
   }
   
+  public static Collator col = Collator.getInstance(ULocale.ENGLISH);
+  static {
+    col.setStrength(Collator.SECONDARY);
+  }
+  
   private static OtherHandler otherHandler = new OtherHandler();
-  enum CasingAction {NONE, FORCE_TITLE, FORCE_LOWER};
   
   private static class OtherHandler extends XMLFileReader.SimpleHandler {
     private String locale;
     private ULocale uLocale;
     CLDRFile cldrFile;
-    CasingAction languageCasing = CasingAction.NONE;
     boolean usesLatin;
     
     public void handlePathValue(String path, String value) {
@@ -191,23 +198,20 @@ class ExtractMessages {
       Pair<String,DataHandler> id_handler = numericId_Id.get(numericId);
       if (id_handler == null) return;
       String id = id_handler.getFirst();
-      
-      value = TransliteratorUtilities.fromXML.transliterate(value);
-      if (languageCasing == CasingAction.FORCE_LOWER) {
-        value = UCharacter.toLowerCase(value);
-      } else if (languageCasing == CasingAction.FORCE_TITLE) {
-        value = UCharacter.toTitleCase(uLocale, value, null);
-      }
+      DataHandler dataHandler = id_handler.getSecond();
       
       if (!usesLatin && LATIN_SCRIPT.containsSome(value)) {
         // output.println(locale + "\tSkipping item with latin characters\t" + id + "\t" + value);
         return;
       }
       
-      DataHandler handler = id_handler.getSecond();
-      String cldrValue = handler.getCldrValue(cldrFile, id);
+      // this should be reorganized to put more in the DataHandler, but for now...
+      
+      value = dataHandler.fixValue(uLocale, value);
+      
+      String cldrValue = dataHandler.getCldrValue(cldrFile, id);
       if (cldrValue != null) {
-        if (cldrValue.equals(value)) {
+        if (col.compare(cldrValue, value) == 0) {
           //System.out.println("Duplicate for " + id + "\t" + value);
           if (SKIPEQUALS) return;
         } else {
@@ -215,7 +219,7 @@ class ExtractMessages {
           //output.println(locale + "\tDifferent value for\t" + id + "\t" + value + "\tcldr:\t" + cldrValue);
         }
       }
-      handler.addValues(id, value, cldrValue);
+      dataHandler.addValues(id, value, cldrValue);
     }
     
     public void setLocale(String locale) {
@@ -224,6 +228,7 @@ class ExtractMessages {
       // as, sa bad
       // ku cldr-latin, g-arabic
       // ml, my, pa, te has mixed english
+      // TODO move this into datahandler eventually
       locale = fixLocale(locale);
       this.locale = locale;
       this.uLocale = new ULocale(locale);
@@ -234,12 +239,8 @@ class ExtractMessages {
       cldrFile = cldrFactory.make(locale, false);
       UnicodeSet exemplars = cldrFile.getExemplarSet("",WinningChoice.WINNING);
       usesLatin = exemplars.containsSome(LATIN_SCRIPT);
-      String enValue = cldrFile.getName(CLDRFile.LANGUAGE_NAME, "en", false);
-      languageCasing = enValue == null ? CasingAction.NONE 
-          : enValue.equals(UCharacter.toLowerCase(enValue)) ? CasingAction.FORCE_LOWER
-              : CasingAction.FORCE_TITLE;
       for (DataHandler dataHandler : dataHandlers) {
-        dataHandler.reset();
+        dataHandler.reset(cldrFile);
       }
     }
     
@@ -306,21 +307,58 @@ class ExtractMessages {
     new DataHandler(Type.TIMEZONE, ".*is a display name for a timezone.*"),
   };
   
+  enum CasingAction {NONE, FORCE_TITLE, FORCE_LOWER}
+
   static class DataHandler implements Comparable {
     // mostly stable
     private Matcher matcher;
     private Type type;
-    private Map<String,String> name_code = new TreeMap();
+    private Map<String,String> name_code = new TreeMap<String,String>();
     //private Map<String,String> code_name = new TreeMap();
-    private Set<String> missing = new TreeSet();
+    private Set<String> missing = new TreeSet<String>();
     
     // changes with each locale, must call reset
-    private Relation<String,String> id_to_value = new Relation(new TreeMap(), TreeSet.class);
-    private Map<String,String> id_to_cldrValue = new TreeMap();
+    private Relation<String,String> id_to_value = new Relation(new TreeMap<String,String>(), TreeSet.class);
+    private Map<String,String> id_to_cldrValue = new TreeMap<String,String>();
+    private CasingAction forceCasing = CasingAction.NONE;
     
-    public void reset() {
+    public void reset(CLDRFile cldrFile) {
       id_to_value.clear();
       id_to_cldrValue.clear();
+      forceCasing = CasingAction.NONE;
+      String key = null;
+      switch (type) {
+        case LANGUAGE: key = "en"; break;
+        case REGION: key = "FR"; break;
+        case CURRENCY: key = "GBP"; break;
+        case MONTH: case MONTHSHORT: key = "1"; break;
+        case DAY: case DAYSHORT: key = "mon"; break;
+        case TIMEZONE: key = "America/New_York"; break;
+      }
+      String sample = getCldrValue(cldrFile, key);
+      if (sample != null) {
+        if (UCharacter.isLowerCase(sample.charAt(0))) {
+          forceCasing = CasingAction.FORCE_LOWER;
+        } else if (UCharacter.isUpperCase(sample.charAt(0))) {
+          forceCasing = CasingAction.FORCE_TITLE;
+        }
+      }
+    }
+    
+    public String fixValue(ULocale uLocale, String value) {
+      value = TransliteratorUtilities.fromXML.transliterate(value);
+      
+      if (forceCasing == CasingAction.FORCE_LOWER) {
+        if (!UCharacter.isLowerCase(value.charAt(0))) {
+          value = UCharacter.toLowerCase(value);
+        }
+      } else if (forceCasing == CasingAction.FORCE_TITLE) {
+        if (!UCharacter.isUpperCase(value.charAt(0))) {
+          value = UCharacter.toTitleCase(uLocale, value, null);
+        }
+      }
+      
+      return value;
     }
     
     public void addValues(String id, String value, String cldrValue) {
@@ -329,15 +367,15 @@ class ExtractMessages {
         id_to_cldrValue.put(id, cldrValue);
       }
     }
-
+    
     public void addName(String name, String code, boolean skipMessage) {
       //String old = code_name.get(code);
-//      if (old != null) {
-//        if (!skipMessage) {
-//          System.out.println("Name collision:\t" + code + "\tnew: " + name + "\tkeeping: " + old);
-//        }
-//      } else {
-//      }
+//    if (old != null) {
+//    if (!skipMessage) {
+//    System.out.println("Name collision:\t" + code + "\tnew: " + name + "\tkeeping: " + old);
+//    }
+//    } else {
+//    }
       //code_name.put(code, name);
       name_code.put(name, code);
     }
@@ -500,50 +538,50 @@ class ExtractMessages {
           //addName("Eastern Time - Hobart", "Australia/Hobart", true);
           //addName("Eastern Time - Iqaluit", "America/Iqaluit", true);
           //addName("Eastern Time - Melbourne, Sydney", "XXX", true);
-//          addName("Eastern Time - Montreal", "XXX", true);
-//          addName("Eastern Time - Toronto", "XXX", true);
-//          addName("GMT (no daylight saving)", "XXX", true);
-//          addName("Greenwich Mean Time", "XXX", true);
+//        addName("Eastern Time - Montreal", "XXX", true);
+//        addName("Eastern Time - Toronto", "XXX", true);
+//        addName("GMT (no daylight saving)", "XXX", true);
+//        addName("Greenwich Mean Time", "XXX", true);
           //addName("Hanoi", "XXX", true);
-//          addName("Hawaii Time", "XXX", true);
-//          addName("India Standard Time", "XXX", true);
-//          addName("International Date Line West", "XXX", true);
-//          addName("Japan Time", "XXX", true);
-//          addName("Moscow+00", "XXX", true);
-//          addName("Moscow+01 - Samara", "XXX", true);
-//          addName("Moscow+02 - Yekaterinburg", "XXX", true);
-//          addName("Moscow+03 - Omsk, Novosibirsk", "XXX", true);
-//          addName("Moscow+04 - Krasnoyarsk", "XXX", true);
-//          addName("Moscow+05 - Irkutsk", "XXX", true);
-//          addName("Moscow+06 - Yakutsk", "XXX", true);
-//          addName("Moscow+07 - Vladivostok, Sakhalin", "XXX", true);
-//          addName("Moscow+07 - Yuzhno-Sakhalinsk", "XXX", true);
-//          addName("Moscow+08 - Magadan", "XXX", true);
-//          addName("Moscow+09 - Kamchatka, Anadyr", "XXX", true);
-//          addName("Moscow+09 - Petropavlovsk-Kamchatskiy", "XXX", true);
-//          addName("Moscow-01 - Kaliningrad", "XXX", true);
-//          addName("Mountain Time", "XXX", true);
-//          addName("Mountain Time - Arizona", "XXX", true);
-//          addName("Mountain Time - Chihuahua, Mazatlan", "XXX", true);
-//          addName("Mountain Time - Dawson Creek", "XXX", true);
-//          addName("Mountain Time - Edmonton", "XXX", true);
-//          addName("Mountain Time - Hermosillo", "XXX", true);
-//          addName("Mountain Time - Yellowknife", "XXX", true);
-//          addName("Newfoundland Time - St. Johns", "XXX", true);
-//          addName("Pacific Time", "XXX", true);
-//          addName("Pacific Time - Tijuana", "XXX", true);
-//          addName("Pacific Time - Vancouver", "XXX", true);
-//          addName("Pacific Time - Whitehorse", "XXX", true);
+//        addName("Hawaii Time", "XXX", true);
+//        addName("India Standard Time", "XXX", true);
+//        addName("International Date Line West", "XXX", true);
+//        addName("Japan Time", "XXX", true);
+//        addName("Moscow+00", "XXX", true);
+//        addName("Moscow+01 - Samara", "XXX", true);
+//        addName("Moscow+02 - Yekaterinburg", "XXX", true);
+//        addName("Moscow+03 - Omsk, Novosibirsk", "XXX", true);
+//        addName("Moscow+04 - Krasnoyarsk", "XXX", true);
+//        addName("Moscow+05 - Irkutsk", "XXX", true);
+//        addName("Moscow+06 - Yakutsk", "XXX", true);
+//        addName("Moscow+07 - Vladivostok, Sakhalin", "XXX", true);
+//        addName("Moscow+07 - Yuzhno-Sakhalinsk", "XXX", true);
+//        addName("Moscow+08 - Magadan", "XXX", true);
+//        addName("Moscow+09 - Kamchatka, Anadyr", "XXX", true);
+//        addName("Moscow+09 - Petropavlovsk-Kamchatskiy", "XXX", true);
+//        addName("Moscow-01 - Kaliningrad", "XXX", true);
+//        addName("Mountain Time", "XXX", true);
+//        addName("Mountain Time - Arizona", "XXX", true);
+//        addName("Mountain Time - Chihuahua, Mazatlan", "XXX", true);
+//        addName("Mountain Time - Dawson Creek", "XXX", true);
+//        addName("Mountain Time - Edmonton", "XXX", true);
+//        addName("Mountain Time - Hermosillo", "XXX", true);
+//        addName("Mountain Time - Yellowknife", "XXX", true);
+//        addName("Newfoundland Time - St. Johns", "XXX", true);
+//        addName("Pacific Time", "XXX", true);
+//        addName("Pacific Time - Tijuana", "XXX", true);
+//        addName("Pacific Time - Vancouver", "XXX", true);
+//        addName("Pacific Time - Whitehorse", "XXX", true);
           addName("Salvador", "America/El_Salvador", true);
           addName("St. Kitts", "America/St_Kitts", true);
           addName("St. Lucia", "America/St_Lucia", true);
           addName("St. Thomas", "America/St_Thomas", true);
           addName("St. Vincent", "America/St_Vincent", true);
           //addName("Tel Aviv", "XXX", true);
-//          addName("Western European Time", "XXX", true);
-//          addName("Western European Time - Canary Islands", "XXX", true);
-//          addName("Western European Time - Ceuta", "XXX", true);
-//          addName("Western Time - Perth", "XXX", true);
+//        addName("Western European Time", "XXX", true);
+//        addName("Western European Time - Canary Islands", "XXX", true);
+//        addName("Western European Time - Ceuta", "XXX", true);
+//        addName("Western Time - Perth", "XXX", true);
           break;
         case MONTH:
         case MONTHSHORT:          

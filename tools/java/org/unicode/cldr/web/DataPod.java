@@ -185,6 +185,8 @@ public class DataPod extends Registerable {
         boolean hasErrors = false;
         boolean hasWarnings = false;
         
+        Vetting.Status confirmStatus = Vetting.Status.INDETERMINATE;
+        
         // do any items have warnings or errs?
         boolean anyItemHasWarnings = false;
         
@@ -1531,9 +1533,9 @@ public class DataPod extends Registerable {
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
 
-                    if(base_xpath == 2898) {
-/*srl*/                 System.err.println("inher 2898: xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
-                    }
+            if(base_xpath == 85091) {
+    /*srl*/  System.err.println("inher "+locale+":"+base_xpath+": xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
+           }
 
             
             boolean isInherited = !(sourceLocale.equals(locale));
@@ -1631,6 +1633,7 @@ public class DataPod extends Registerable {
                 int vtypes[] = new int[1];
                 vtypes[0]=0;
                 /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
+                p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
                 p.allVoteType |= vtypes[0];
 				superP.allVoteType |= p.allVoteType;
                 p.voteType = vtypes[0]; // no mask

@@ -215,7 +215,8 @@ public class Vetting {
                                                         "base_xpath INT NOT NULL," +
                                                         "output_xpath INT NOT NULL," +
                                                         "output_full_xpath INT NOT NULL," +
-                                                        "data_xpath INT NOT NULL)");
+                                                        "data_xpath INT NOT NULL, " +
+                                                        "status SMALLINT)");
                 s.execute("CREATE INDEX "+theTable+"_fetchem on "   + theTable +" (locale,base_xpath)");
                 s.execute("CREATE INDEX "+theTable+"_fetchfull on " + theTable +" (locale,output_xpath)");
                 s.close();
@@ -300,10 +301,12 @@ public class Vetting {
     PreparedStatement listBadResults= null;
 	PreparedStatement highestVetter = null;
     PreparedStatement lookupByXpath = null;
+
 	
 	// CLDR_OUTPUT
 	PreparedStatement outputDelete = null;
 	PreparedStatement outputInsert = null;
+    PreparedStatement outputQueryStatus = null;
 					// outputQuery will be in CLDRDBSource, the consumer
 	// CLDR_ORGDISPUTE
 	PreparedStatement orgDisputeDelete = null;
@@ -381,7 +384,9 @@ public class Vetting {
 			outputDelete = prepareStatement("outputDelete", // loc, basex
 				"delete from CLDR_OUTPUT where locale=? AND base_xpath=?");
 			outputInsert = prepareStatement("outputInsert", // loc, basex, outx, outFx, datax
-				"insert into CLDR_OUTPUT (locale, base_xpath, output_xpath, output_full_xpath, data_xpath) values (?,?,?,?,?)");
+				"insert into CLDR_OUTPUT (locale, base_xpath, output_xpath, output_full_xpath, data_xpath, status) values (?,?,?,?,?,?)");
+			outputQueryStatus = prepareStatement("outputQueryStatus", // loc, basex, outx, outFx, datax
+				"select status from CLDR_OUTPUT where locale=? AND output_xpath=?");
 
 			// CLDR_ORGDISPUTE
 			orgDisputeDelete = prepareStatement("orgDisputeDelete", // loc, basex
@@ -690,9 +695,9 @@ public class Vetting {
                 if(ncount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses\n");  // not always because of implied vote.
+                        System.err.println("updated " + uscnt + " statuses");  // not always because of implied vote.
                     } else {
-                        System.err.println("No statuses updated.\n");
+                        System.err.println("No statuses updated.");
                     }
                     conn.commit();
                 }
@@ -712,9 +717,9 @@ public class Vetting {
                 if(ucount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change\n");
+                        System.err.println("updated " + uscnt + " statuses, due to vote change");
                     } else {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change??\n");
+                        System.err.println("updated " + uscnt + " statuses, due to vote change??");
                     }
                     conn.commit();
                 }
@@ -926,9 +931,9 @@ public class Vetting {
                 if(ucount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change\n");
+                        System.err.println("updated " + uscnt + " statuses, due to vote change");
                     } else {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change??\n");
+                        System.err.println("updated " + uscnt + " statuses, due to vote change??");
                     }
                     conn.commit();
                 }
@@ -962,14 +967,40 @@ public class Vetting {
 	public static final int OUTPUT_MINIMUM = 4; // Don't even show losing items that aren't at least this.  1*4
 
     public static final int CONTRIBUTED_MINIMUM = 2; // must be at least 2 to be contributed (2 guests)
+    public static final int CONTRIBUTED_MINIMUM_ORGS = 2; // must be at least 2 orgs to be contributed
     public static final int PROVISIONAL_MINIMUM = 2; // must be at least 2 to be provisional (2 guests)
 
 	public enum Status { 
-		INDETERMINATE,
-		CONFIRMED,
-		CONTRIBUTED,
-		PROVISIONAL,
-		UNCONFIRMED
+		INDETERMINATE (-1),
+		CONFIRMED (0),
+		CONTRIBUTED (1),
+		PROVISIONAL (2),
+		UNCONFIRMED (3);
+        
+        Status(int n) {
+            this.asInt = n;
+            this.asAttribute = this.toString().toLowerCase();
+        }
+        
+        int asInt;
+        String asAttribute;
+        
+        int intValue() {
+            return asInt;
+        }
+        
+        String attribute() {
+            return asAttribute;
+        }
+        
+        public static Status find(int n) {
+            for (Status s : EnumSet.allOf(Status.class)) {
+                if(s.intValue() == n) {
+                    return s;
+                }
+            }
+            return INDETERMINATE;
+        }
 	}
 	
 	public int makeXpathId(String baseNoAlt, String altvariant, String altproposed, Status status) {
@@ -1262,7 +1293,7 @@ public class Vetting {
 				queryValue.setInt(2,vote_xpath);
 				ResultSet crs = queryValue.executeQuery();
                 int orig_xpath = vote_xpath;
-				String itemValue = "(unknown)";
+				String itemValue = "(unknown#"+vote_xpath+")";
 				if(crs.next()) {
 					itemValue = crs.getString(1);
 					orig_xpath = crs.getInt(2);
@@ -1335,26 +1366,20 @@ public class Vetting {
 			
 			if(highest > 0) {
 				// Compare the optimal item vote O to the next highest vote getter N:
-				if(!disputes.isEmpty()) { // had disputes = tie vote
-					// O = N
-					status = Status.UNCONFIRMED;
-				} else if(highest >= (2*nexthighest)) {
-					// O > 2N
-					if(highest >= CONFIRMED_MINIMUM) {  // "2" votes
-						status = Status.CONFIRMED;
-					} else if((winner==existing) &&    
+				if((winner==existing) &&    
                             (existingStatus == Status.CONFIRMED)) { // it was already confirmed-
-                        status = Status.CONFIRMED; 
-                    } else {
-                        if(highest >= CONTRIBUTED_MINIMUM) {
-                            status = Status.CONTRIBUTED;
-                        } else {
-                            status = Status.UNCONFIRMED;
-                        }
-					}
-				} else {
-					// O > N:  - always at least 2 votes
-                    status = Status.PROVISIONAL;
+                    status = Status.CONFIRMED; 
+                } else if(!disputes.isEmpty()) { // had disputes
+					status = Status.UNCONFIRMED;
+				} else if(highest >= (2*nexthighest) && highest >= CONFIRMED_MINIMUM) {
+                    status = Status.CONFIRMED;
+                } else if(highest >= (2*nexthighest) && highest >= CONTRIBUTED_MINIMUM 
+                        && winner.orgs.size()>= CONTRIBUTED_MINIMUM_ORGS) {
+                    status = Status.CONTRIBUTED;
+                } else if(highest > nexthighest && highest >= PROVISIONAL_MINIMUM) {
+                    status= Status.PROVISIONAL;
+                } else {
+                    status = Status.UNCONFIRMED;
 				}
             }
             
@@ -1429,11 +1454,12 @@ public class Vetting {
 				outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e. no alt/proposed.
 				outputInsert.setInt(4, winnerFullPath); // outputFullxpath = base, i.e. no alt/proposed.
 				outputInsert.setInt(5, winner.xpath); // data = winner.xpath
+                outputInsert.setInt(6, status.intValue());
 				rowsUpdated += outputInsert.executeUpdate();
 			}
 		
 			// If any of the others have at least 1 vote, add them as is. (?)
-			int j = 0;
+			int j = 1000;
 			for (Chad other : chads.values()) {
 				// skip if:
 				if( (other == winner) ||				 // skip the winner, of course
@@ -1442,7 +1468,8 @@ public class Vetting {
 						continue;
 				}
 				j++;
-				String altproposed = "proposed-xl"+j;
+                Status proposedStatus = Status.UNCONFIRMED;
+				String altproposed = "proposed-x"+j;
 				int aPath = makeXpathId(baseNoAlt,  altvariant, altproposed, Status.INDETERMINATE);
 				
 				String baseFString = sm.xpt.getById(other.full_xpath);
@@ -1452,12 +1479,13 @@ public class Vetting {
 				}
 				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "draft");
 				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "alt");
-				int aFullPath = makeXpathId(baseFNoAlt, altvariant, altproposed, status);
+				int aFullPath = makeXpathId(baseFNoAlt, altvariant, altproposed, proposedStatus);
 
 				// otherwise, show it under something.
 				outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no alt/proposed.
 				outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e. no alt/proposed.
 				outputInsert.setInt(5, other.xpath); // data = winner.xpath
+                outputInsert.setInt(6, proposedStatus.intValue());
 				rowsUpdated += outputInsert.executeUpdate();
 			}
 			
@@ -1780,6 +1808,36 @@ public class Vetting {
             } catch ( SQLException se ) {
                 type[0]=0; // doesn't matter here..
                 String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+    }
+    
+    Status queryResultStatus(String locale, int base_xpath) {
+        // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
+        synchronized(conn) {
+            try {
+                outputQueryStatus.setString(1, locale);
+                outputQueryStatus.setInt(2, base_xpath);
+
+                ResultSet rs = outputQueryStatus.executeQuery();
+				int rv = -1;
+				
+                if(rs.next()) {
+                    rv = rs.getInt(1);
+                    if(rv < 0) {
+                        rv = -1;
+                    }
+					rs.close();
+                } else {
+					rv = -1;
+				}
+				rs.close();
+                return Status.find(rv);
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't query outputQueryStatus for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);

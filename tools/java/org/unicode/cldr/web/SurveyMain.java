@@ -135,6 +135,7 @@ public class SurveyMain extends HttpServlet {
     // SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
+    File vetdir = null;
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     static String fileBase = null; // not static - may change lager
@@ -281,6 +282,7 @@ public class SurveyMain extends HttpServlet {
                     
     
     static final private String BAD_IPS [] = {
+                "199.89.199.82",
                 "66.154.103.161",
                 "66.249.66.5", // googlebot
                 "203.148.64.17",
@@ -288,7 +290,7 @@ public class SurveyMain extends HttpServlet {
                 "65.55.212.188", // MSFT search.live.com
                 "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
                 "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
-                "128.194.135.94", // crawler4.irl.cs.tamu.edu
+                //"128.194.135.94", // crawler4.irl.cs.tamu.edu
                 /*
                 209.249.11.4		see | be | kick
 10:32	Guest
@@ -424,6 +426,39 @@ public class SurveyMain extends HttpServlet {
         boolean tblsel = false;        
         printAdminMenu(ctx, "/AdminSql");
         ctx.println("<h1>SQL Console</h1>");
+        
+        if((dbDir == null) || (isBusted != null)) {
+            ctx.println("<h4>ST busted, attempting to make SQL available via " + cldrHome + "</h4>");
+            ctx.println("<pre>");
+            specialMessage = "<b>SurveyTool is in an administrative mode- please log off.</b>";
+            try {
+                if(cldrHome == null) {
+                    cldrHome = System.getProperty("catalina.home");
+                    if(cldrHome == null) {  
+                        busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
+                        return;
+                    } 
+                    File homeFile = new File(cldrHome, "cldr");
+                    
+                    if(!homeFile.isDirectory()) {
+                        throw new InternalError("CLDR basic does not exist- delete parent and start over.");
+//                        createBasicCldr(homeFile); // attempt to create
+                    }
+                    
+                    if(!homeFile.isDirectory()) {
+                        busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+                        return;
+                    }
+                    cldrHome = homeFile.getAbsolutePath();
+                }
+                ctx.println("home: " + cldrHome);
+                doStartupDB();
+            } catch(Throwable t) {
+                ctx.println("Caught: " + t.toString()+"\n");
+            }
+            ctx.println("</pre>");
+        }
+        
         if(q.length() == 0) {
             q = "select tablename from SYS.SYSTABLES where tabletype='T'";
             tblsel = true;
@@ -694,6 +729,9 @@ public class SurveyMain extends HttpServlet {
             */
             printMenu(actionCtx, action, "srl_vet_wash", "Clear out old votes", "action");       
             actionCtx.println(" | ");
+            printMenu(actionCtx, action, "srl_output", "Output Vetting Data", "action");       
+            actionCtx.println(" | ");
+            
             
             printMenu(actionCtx, action, "srl_twiddle", "twiddle params", "action");       
             ctx.println("</div></ul>");
@@ -894,6 +932,52 @@ public class SurveyMain extends HttpServlet {
             resetLocaleCaches();
             mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
             ctx.println("<br>");
+        } else if(action.equals("srl_output")) {
+            WebContext subCtx = new WebContext(ctx);
+            subCtx.addQuery("dump",vap);
+            subCtx.addQuery("action",action);
+            
+            String output = actionCtx.field("output");
+            
+            ctx.println("<br>");
+            ctx.print("<b>Output:</b> ");
+            printMenu(subCtx, output, "xml", "XML", "output");
+            subCtx.print(" | ");
+            printMenu(subCtx, output, "vxml", "VXML", "output");
+            subCtx.print(" | ");
+            printMenu(subCtx, output, "rxml", "RXML", "output");
+            subCtx.print(" | ");
+            printMenu(subCtx, output, "misc", "MISC", "output");
+            subCtx.print(" | ");
+            printMenu(subCtx, output, "daily", "DAILY", "output");
+            subCtx.print(" | ");
+            
+            ctx.println("<br>");
+
+            ElapsedTimer aTimer = new ElapsedTimer();
+            int files = 0;
+            boolean daily = false;
+            if(output.equals("daily")) {
+                daily = true;
+            }
+            
+            if(daily || output.equals("xml")) {
+                files += doOutput("xml");
+                ctx.println("xml" + "<br>");
+            }
+            if(daily || output.equals("vxml")) {
+                files += doOutput("vxml");
+                ctx.println("vxml" + "<br>");
+            }
+            if(output.equals("rxml")) {
+                files += doOutput("rxml");
+                ctx.println("rxml" + "<br>");
+            }
+                
+            if(output.length()>0) {
+                ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
+            }
+            
         } else if(action.equals("srl_db_update")) {
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("dump",vap);
@@ -3553,6 +3637,95 @@ public class SurveyMain extends HttpServlet {
     public static final String VXML_PREFIX="/vxml/main";
     public static final String RXML_PREFIX="/rxml/main";
     public static final String FEED_PREFIX="/feed";
+    
+    private int doOutput(String kind) {
+        boolean vetted;
+        boolean resolved;
+        if(kind.equals("xml")) {
+            vetted = false;
+            resolved = false;
+        } else if(kind.equals("vxml")) {
+            vetted = true;
+            resolved = false;
+        } else if(kind.equals("rxml")) {
+            vetted = true;
+            resolved = true;
+        } else {
+            throw new IllegalArgumentException("unknown output: " + kind);
+        }
+        
+        File outdir = new File(vetdir, kind);
+        if(outdir.exists() && outdir.isDirectory()) {
+            File backup = new File(vetdir, kind+".old");
+            
+            // delete backup
+            if(backup.exists() && backup.isDirectory()) {
+                File cachedFiles[] = backup.listFiles();
+                if(cachedFiles != null) {
+                    for(File f : cachedFiles) {
+                        if(f.isFile()) {
+                            f.delete();
+                        }
+                    }
+                }
+                if(!backup.delete()) {
+                    throw new InternalError("Can't delete backup: " + backup.getAbsolutePath());
+                }
+            }
+            
+            if(!outdir.renameTo(backup)) {
+                throw new InternalError("Can't move outdir " + outdir.getAbsolutePath() + " to backup " + backup);
+            }
+        }
+        
+        if(!outdir.mkdir()) {
+            throw new InternalError("Can't create outdir " + outdir.getAbsolutePath());
+        }
+        
+        System.err.println("Writing " + kind);
+        long lastTime = System.currentTimeMillis();
+        long countStart = lastTime;
+
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        for(int i=0;i<nrInFiles;i++) {
+            String fileName = inFiles[i].getName();
+            int dot = fileName.indexOf('.');
+            String localeName = fileName.substring(0,dot);
+            
+            File outFile = new File(outdir, fileName);
+            
+            CLDRDBSource dbSource = makeDBSource(null, new ULocale(localeName), vetted);
+            CLDRFile file;
+            if(resolved == false) {
+                file = makeCLDRFile(dbSource);
+            } else { 
+                file = new CLDRFile(dbSource,true);
+            }
+
+            long nextTime = System.currentTimeMillis();
+            if((nextTime - lastTime) > 10000) {
+                lastTime = nextTime;
+                System.err.println("output: " + kind + " / " + localeName + ": #"+i+"/"+nrInFiles+", or "+
+                    (((double)(System.currentTimeMillis()-countStart))/i)+"ms per.");
+            }
+            
+            try {
+                PrintWriter utf8OutStream = new PrintWriter(
+                    new OutputStreamWriter(
+                        new FileOutputStream(outFile), "UTF8"));
+                file.write(utf8OutStream);
+                utf8OutStream.close();
+//            } catch (UnsupportedEncodingException e) {
+//                throw new InternalError("UTF8 unsupported?").setCause(e);
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new InternalError("IO Exception "+e.toString());
+            }
+        }
+        
+        return nrInFiles;
+    }
 
     public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
@@ -4429,6 +4602,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.iconHtml("squo",null) + " " +
                     "</i><br>"+
 					"To see other voters, hover over the <b>"+ctx.iconHtml("vote","Voting Mark")+"</b> symbol. "+
+					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR 1.4. "+
 					"</td></tr>");
         }
         if(!pod.xpathPrefix.equals("//ldml/references")) {
@@ -6097,7 +6271,13 @@ public class SurveyMain extends HttpServlet {
 
         String pClass ="";
         if(winner) {
-            pClass = "class='winner' title='Winning item.'";
+            if(p.confirmStatus == Vetting.Status.CONFIRMED) {
+                pClass = "class='winner' title='Winning item.'";
+            } else {
+                if(p.confirmStatus != Vetting.Status.INDETERMINATE) {
+                    pClass = "title='"+p.confirmStatus+"' ";
+                }
+            }
             /* todo: distinguish confirmed from unconfirmed */
         } else if(item.pathWhereFound != null) {
             fallback = true;
@@ -6511,7 +6691,7 @@ public class SurveyMain extends HttpServlet {
             }
 
         vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-        File vetdir = new File(vetdata);
+        vetdir = new File(vetdata);
         if(!vetdir.isDirectory()) {
             vetdir.mkdir();
             System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
@@ -7124,6 +7304,7 @@ public class SurveyMain extends HttpServlet {
         try {
             vet = Vetting.createTable(logger, getDBConnection(), this);
         } catch (SQLException e) {
+            e.printStackTrace();
             busted("On Vetting startup: " + unchainSqlException(e));
             return;
         }

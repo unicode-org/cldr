@@ -252,9 +252,12 @@ import com.ibm.icu.util.ULocale;
                                              "SELECT CLDR_RESULT.result_xpath FROM CLDR_RESULT " +
                                              " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? "); 
 
+            //keyVettingSet = prepareStatement("keyVettingSet",
+              //                               "SELECT output_xpath from CLDR_OUTPUT where locale=?" ); // wow, that is pretty straightforward...
             keyVettingSet = prepareStatement("keyVettingSet",
-                                             "SELECT output_xpath from CLDR_OUTPUT where locale=?" ); // wow, that is pretty straightforward...
-
+                                             "SELECT CLDR_OUTPUT.output_xpath from CLDR_OUTPUT where CLDR_OUTPUT.locale=? AND EXISTS "+
+                                                    " ( SELECT * from CLDR_DATA where CLDR_DATA.LOCALE=CLDR_OUTPUT.LOCALE AND CLDR_DATA.xpath=CLDR_OUTPUT.output_xpath )");
+                                            
             keyASet = prepareStatement("keyASet",
                                        /*
                                         "SELECT "+CLDR_DATA+".xpath from "+
@@ -934,51 +937,56 @@ import com.ibm.icu.util.ULocale;
         int xpath = xpt.getByXpath(path);
 ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
 //if(showDebug) /*srl*/logger.info(locale + ":" + path);
-            try {
-                ResultSet rs;
-                if(finalData) {
-                    stmts.queryVetValue.setString(1,locale);
-                    stmts.queryVetValue.setInt(2,xpath); 
-                    rs = stmts.queryVetValue.executeQuery();
-                } else {
-                    stmts.queryValue.setString(1,locale);
-                    stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
-                    rs = stmts.queryValue.executeQuery();
-                }
-                String rv;
-                if(!rs.next()) {
-                    if(!finalData) {
-                        rs.close();                    
-//if(showDebug)                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
-                        return null;
-                    } else {
-//if(showDebug)                        System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original");
-                        // plan B: look for original data
-                        stmts.queryValue.setString(1,locale);
-                        stmts.queryValue.setInt(2,xpath); // TODO: 2 more specificity
-                        rs = stmts.queryValue.executeQuery();
-                        
-                        if(!rs.next()) {
-//if(showDebug)                            System.err.println("Fallback search failed for "+xpath+":"+path);
-                            // NOW return null
-                            return null;
-                        }
-//if(showDebug)                        System.err.println(" Plan B OK! - " + rs.getString(1));
-                    }                      
-                }
-                rv = rs.getString(1);
-                if(rs.next()) {
-                    String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
-                    logger.severe(complaint);
-                   // throw new InternalError(complaint);                    
-                }
-                rs.close();
-//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-                return rv;
-            } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
-                return null;
+        try {
+            ResultSet rs;
+            if(finalData) {
+                stmts.queryVetValue.setString(1,locale);
+                stmts.queryVetValue.setInt(2,xpath); 
+                rs = stmts.queryVetValue.executeQuery();
+            } else {
+                stmts.queryValue.setString(1,locale);
+                stmts.queryValue.setInt(2,xpath);
+                rs = stmts.queryValue.executeQuery();
             }
+            String rv;
+            if(!rs.next()) {
+                if(!finalData) {
+                    rs.close();                    
+//if(showDebug)                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
+                    return null;
+                } else {
+                    rs.close();
+            //System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
+                    //if(locale.equals("de")) {
+                    //    return "fork";
+                    //} else {
+
+                    /*
+                        if(oldKeySet().contains(path)) {
+                            System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
+                        } else {
+                            System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
+                        }
+                    */
+                    
+                        return null;
+                    //}
+                    //return null;                    
+                }                      
+            }
+            rv = rs.getString(1);
+            if(rs.next()) {
+                String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
+                logger.severe(complaint);
+               // throw new InternalError(complaint);                    
+            }
+            rs.close();
+//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+            return rv;
+        } catch(SQLException se) {
+            logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
+            return null;
+        }
     }
 
     /*
@@ -987,82 +995,7 @@ import com.ibm.icu.util.ULocale;
      * @return the full path
      */
     public String getFullPathAtDPath(String path) {
-        if(finalData) { // show only final data?
-            int id = xpt.getByXpath(path); // get id..
-			if(true==true) { // does NOT deal wiht references 
-				return getOrigXpath(id);
-			}
-			
-            String aPath = path;
-            // note: we don't call: getOrigXpath(xpt.getByXpath(path))  here, because 'path' may not have an original xpath. 
-            
-            // this is going to be a little bit slow!
-            String locale = getLocaleID();
-            int base_id = xpt.xpathToBaseXpathId(id);
-            int type[] = new int[1];
-            int res = sm.vet.queryResult(locale, base_id, type);
-            
-            // extract the 'reference' (and any others?)
-            {
-                XPathParts xpp = new XPathParts(null,null);
-                xpp.clear();
-                if(res>=0) {
-                    xpp.initialize(getOrigXpath(res));
-                } else {
-                    xpp.initialize(getOrigXpath(xpt.getByXpath(path)));
-                }
-                
-                Map lastAtts = xpp.getAttributes(-1);
-                
-                for(Iterator i = lastAtts.keySet().iterator();i.hasNext();) { // reconstruct the path  but- 
-                    String attName = i.next().toString();
-                    if( !attName.equals(LDMLConstants.DRAFT) &&  // NOT draft
-                        !CLDRFile.isDistinguishing(xpp.getElement(-1),attName)) {  // NOT un-distinguishing elements
-                        String att = (String)lastAtts.get(attName);
-                        if(att!=null) {
-                            aPath = aPath + "[@"+attName+"=\""+att+"\"]";
-                        }
-                    }
-                }
-            }
-            
-            if((res!=id) && // this was the "loser" of the voting  AND - 
-               true /*	!((res<=Vetting.RES_BAD_MAX && (base_id==id)))  */) { // (formerly checked: not a fallback from an insufficient/disputed)
-
-                // But: Did any regular vetters vote for this?
-                int highest =  sm.vet.highestLevelVotedFor(locale,id);  // what is the 'highest' level of user who voted for it?
-                
-                if(xpathThatNeedsOrig(path)) { // Does it need its original path back?
-                    aPath = XPathTable.removeAttribute(getOrigXpath(xpt.getByXpath(path)), LDMLConstants.DRAFT); // original- minus draft. (Draft will be re-added later.)
-                }
-                
-                if((type[0]==Vetting.RES_INSUFFICIENT)&&(base_id==id)) { // no, it is a fallback - no 'provisional' needed.
-                    return aPath;
-                }
-                
-                if(highest == -1) {  // No highest level
-                    if(type[0]==Vetting.RES_NO_VOTES) { // no votes at all-
-                        return aPath+"[@draft=\"unconfirmed\"]"; // could have been a draft=true
-                    } else {
-                        return aPath; // +"[@reference=\"nobody_voted_for:"+id+"!"+res+"at"+base_id+"\"]"; // other resolution.
-                    }
-                } else if(highest>UserRegistry.VETTER) { 
-                    return aPath+"[@draft=\"unconfirmed\"]";   // vetter level voted for it-
-                } else {
-                    return aPath+"[@draft=\"provisional\"]"; // no vetter voted for it - provisional.
-                }
-            }
-            
-            // otherwise - not an odd case - a winning item.
-            if(xpathThatNeedsOrig(path)) {
-                return getOrigXpath(xpt.getByXpath(path)); // it needs the original xpath (reference, etc) - return it
-            } else {
-                return aPath; // don't need origpath. This is a 'winning' item.
-            }
-        } else {
-            // proposed-  always returns origpath
-            return getOrigXpath(xpt.getByXpath(path));
-        }
+        return getOrigXpath(xpt.getByXpath(path));
     }
     
     /**

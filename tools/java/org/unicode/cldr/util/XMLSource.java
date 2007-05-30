@@ -762,6 +762,9 @@ public abstract class XMLSource implements Freezable {
         fullStatus.pathWhereFound = status.pathWhereFound;
         getSourceLocaleIDCache.put(distinguishedXPath, fullStatus); // cache copy
         
+      } else if(status != null) {
+        // copy pathWhereFound from cache
+        status.pathWhereFound = fullStatus.pathWhereFound;
       }
       return fullStatus.localeWhereFound;
     }

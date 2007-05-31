@@ -152,7 +152,7 @@
 					<p>It is important to note that CLDR is a Repository, not a Registration. That is, contributors should not expect that their contributions will 
 					simply be adopted into the repository; instead, it will be vetted against the best available information.</p>
 					<p>All inputs are open, and gathered via the <a href="survey_tool.html">CLDR Survey Tool</a> or recorded in a bug/feature request 
-					database (<a href="filing_bug_reports.html">CLDR Bug Reports</a>). Changes in response to items the database may be entered into the 
+					database (<a href="filing_bug_reports.html">CLDR Bug Reports</a>). Changes in response to requests in the database may be entered into the 
 					repository snapshot over time by the maintainers of the repository, but the final approval of the release of any version of CLDR is up to 
 					the decision of the CLDR Technical Committee.</p>
 					<p>For more information on the formal procedures for the Unicode CLDR Technical Committee, see the
@@ -181,8 +181,8 @@
 					in the data vetting process.</p>
 					<h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
 					<p>The following procedure is used when resolving differences in submitted data. At the end, for 
-					each field a single item will be chosen as optimal, while the others will have an <i>alt=proposed</i> attribute. The <i>draft</i> attribute 
-					on all the items will be 
+					each field a single value will be chosen as optimal, while the others will have an <i>alt=proposed</i> attribute. The <i>draft</i> attribute 
+					on all the values will be 
 					set to one of 4 states:</p>
 					<ul>
 						<li><i><span style="font-weight:700; ">unconfirmed</span></i></li>
@@ -227,17 +227,17 @@
 </ul>
 <h4>Voting</h4>
 <ul>
-	<li>Each user gets one vote on each item, but the <i>strength</i> of the vote varies according to the user level:<ul>
+	<li>Each user gets one vote on each value, but the <i>strength</i> of the vote varies according to the user level:<ul>
 		<li>A Guest vote counts 1, a Vetter vote counts 4, and an Expert/TC vote counts 8</li>
 		<li>If a user is locked or removed, then his/er vote is zero.</li>
 	</ul>
 	</li>
-	<li>All items with syntax errors get zero votes<ul>
+	<li>All values with syntax errors get zero votes<ul>
 	<li>For example, a date pattern of &quot;14. september&quot; instead of &quot;dd MMM&quot;.</li>
 	<li>They cannot be voted for, and show a visible error.</li>
 </ul></li>
-	<li>For each item, each organization gets a vote based on the <i>maximum</i> (not cumulative) strength of the votes of its users.<ul>
-	<li>That is, even if an organization has 10 Vetters voting for an item, the vote count attributed to the 
+	<li>For each value, each organization gets a vote based on the <i>maximum</i> (not cumulative) strength of the votes of its users.<ul>
+	<li>That is, even if an organization has 10 Vetters voting for an value, the vote count attributed to the 
 	organization as a whole is 4 (the strength of 1 Vetter).</li>
 </ul></li>
 	<li>If there is a dispute (votes for different values) within an organization, then the majority vote for that 
@@ -246,7 +246,7 @@
 </ul>
 					<p>Any field that has no new submissions or votes during the data submission and vetting phase 
 					remains the same in the next release. Any other fields are assessed as follows:</p>
-<h4><span style="font-weight: bold; ">Optimal Field</span></h4>
+<h4><span style="font-weight: bold; ">Optimal Field Value</span></h4>
 					<p>For each release, there is one optimal field value determined by the following:</p>
 <ul>
 	<li>Add up the votes for each value from each organization.</li>
@@ -256,7 +256,7 @@
 </ul>
 	</li>
 </ul>
-<h4><span style="font-weight: bold; ">Draft Status of Optimal Field</span></h4>
+<h4><span style="font-weight: bold; ">Draft Status of Optimal Field Value</span></h4>
 <ul>
 	<li>Compare the optimal value&#39;s vote <span style="font-weight: bold; ">O </span>
 	to the next highest vote getter <span style="font-weight: bold; ">N</span>, and assign the status according to the first of the conditions below that 
@@ -273,7 +273,7 @@
 </ul>
 <h4><span style="font-weight: bold; ">Status of Remaining Values</span></h4>
 <ul>
-	<li>If a field has no votes, then it is removed from the release (but archived).</li>
+	<li>If a value has no votes, then it is removed from the release (but archived).</li>
 	<li>Others are retained in the release.</li>
 	<li>They are marked with <i>alt=proposed</i> and given the draft status:<span style="font-weight: bold; "> 
 	unconfirmed</span></li>
@@ -328,7 +328,7 @@
 	Open fields can be affected during vetting:<ul>
 		<li>votes changed (the voting is shown in the Zoomed view)</li>
 		<li>values added via the Change column.</li>
-		<li>values deleted (by the originator, if there are no other votes for the item)</li>
+		<li>values deleted (by the originator, if there are no other votes for the value)</li>
 		<li>TC members can also make these changes to closed fields.</li>
 	</ul>
 	<p>Open fields are sorted at the top of the page, in two categories:</p>
@@ -354,7 +354,7 @@
 					as possible. Where the common practice in the country deviates from the national standard, or if there are multiple conflicting common practices, 
 					or options in conforming to the national standard, or conflicting national standards, multiple variants may be entered into the CLDR, distinguished 
 					by keyword variants or variant locale identifiers.</p>
-					<p>Where a data item is identified as following a particular national standard (or other reference), the goal is to keep that data aligned with 
+					<p>Where a data value is identified as following a particular national standard (or other reference), the goal is to keep that data aligned with 
 					that standard. There is, however, no guarantee that data will be tagged with any or all of the national standards that it follows.</p>
 					<h3>3.4 <a name="Dot-Dot_Releases">Dot-Dot Releases</a></h3>
 					<p>Dot-dot releases, such as 1.4.1, are issued whenever the standard identifiers change (that is, BCP 47 identifiers, Time zone identifiers, 

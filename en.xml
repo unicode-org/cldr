@@ -376,8 +376,8 @@
 			<language type="ps" references="R034">Pashto</language>
 			<language type="ps" alt="variant">Pushto</language>
 			<language type="pt">Portuguese</language>
-			<language type="pt_PT">Iberian Portuguese</language>
 			<language type="pt_BR">Brazilian Portuguese</language>
+			<language type="pt_PT">Iberian Portuguese</language>
 			<language type="qu">Quechua</language>
 			<language type="raj">Rajasthani</language>
 			<language type="rap">Rapanui</language>
@@ -1808,14 +1808,6 @@
 					<daylight>FRUST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Gambier">
-				<long>
-					<standard>Gambier Time</standard>
-				</long>
-				<short>
-					<standard>GAMT</standard>
-				</short>
-			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwich Mean Time</standard>
@@ -1831,6 +1823,14 @@
 				</long>
 				<short>
 					<standard>GALT</standard>
+				</short>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>Gambier Time</standard>
+				</long>
+				<short>
+					<standard>GAMT</standard>
 				</short>
 			</metazone>
 			<metazone type="Georgia">
@@ -2329,14 +2329,6 @@
 					<standard>NFT</standard>
 				</short>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>North Mariana Islands Time</standard>
-				</long>
-				<short>
-					<standard>MPT</standard>
-				</short>
-			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<standard>Fernando de Noronha Time</standard>
@@ -2345,6 +2337,14 @@
 				<short>
 					<standard>FNT</standard>
 					<daylight>FNST</daylight>
+				</short>
+			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard>North Mariana Islands Time</standard>
+				</long>
+				<short>
+					<standard>MPT</standard>
 				</short>
 			</metazone>
 			<metazone type="Novosibirsk">

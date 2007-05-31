@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and   *
+ * Copyright (C) 2004, 2007 International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -1005,9 +1005,19 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if(name.equals(LDMLConstants.MAP_ZONE)){
                String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
                String other = LDMLUtilities.getAttributeValue(node, LDMLConstants.OTHER);
+               String territory = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORY);
+               String result;
                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-               str.name = type;
-               str.val  = other;
+               if ( territory != null && territory.length() > 0 ) {
+                 result = "meta:" + other + "_" + territory;
+                 str.name = "\"" + result + "\"";
+                 str.val  = type;
+               }
+               else {
+                 result = type;
+                 str.name = "\"" + result.replaceAll("/",":") + "\"";
+                 str.val  = other;
+               }
                res = str;
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
@@ -1070,7 +1080,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.ZONE_ITEM)){
 
                 ICUResourceWriter.ResourceTable zi = new ICUResourceWriter.ResourceTable();
-                zi.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                zi.name = "\"" + LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/",":") + "\"";
                 String territory = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORY);
                 ICUResourceWriter.ResourceString ter = new ICUResourceWriter.ResourceString();
                 ter.name =  LDMLConstants.TERRITORY;

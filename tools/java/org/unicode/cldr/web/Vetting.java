@@ -983,7 +983,7 @@ public class Vetting {
 	public static final int VETTER_VOTE		= 4;  // 1 * 4
 	public static final int STREET_VOTE		= 1;  // .25 * 4
 
-    public static final int OUTPUT_MINIMUM = 4; // Don't even show losing items that aren't at least this.  1*4
+    public static final int OUTPUT_MINIMUM = 1; // Don't even show losing items that aren't at least this.   [ was 4]
 
 	public enum Status { 
 		INDETERMINATE (-1),

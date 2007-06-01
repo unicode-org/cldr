@@ -201,6 +201,7 @@ public class DataPod extends Registerable {
         public class Item implements java.lang.Comparable {
             String pathWhereFound = null;
             String inheritFrom = null;
+            boolean isParentFallback = false; // true if it is not actually part of this locale,but is just the parent fallback ( Pea.inheritedValue );
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public int submitter = -1; // if this was submitted via ST, record user id. ( NOT from XML - in other words, we won't be parsing 'proposed-uXX' items. ) 
             public String value = null; // actual value
@@ -283,6 +284,7 @@ public class DataPod extends Registerable {
             }
         }
         
+        Item previousItem = null;
         Item inheritedValue = null; // vetted value inherited from parent
         
         public String toString() {
@@ -378,6 +380,7 @@ public class DataPod extends Registerable {
                 
                 if(value != null) {
                     inheritedValue = new Item();
+                    inheritedValue.isParentFallback=true;
 
                     CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
                     String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
@@ -427,6 +430,7 @@ public class DataPod extends Registerable {
                     if(shimItem.setTests(iTests)) {
                         // had valid tests
                         inheritedValue = shimItem;
+                        inheritedValue.isParentFallback = true;
                     }
                 }
             }
@@ -1612,6 +1616,9 @@ public class DataPod extends Registerable {
             
             myItem.xpath = xpath;
             myItem.xpathId = src.xpt.getByXpath(xpath);
+            if(myItem.xpathId == base_xpath) {
+                p.previousItem = myItem; // did have a previous item.
+            }
 
             if(!checkCldrResult.isEmpty()) {
                 myItem.setTests(checkCldrResult);

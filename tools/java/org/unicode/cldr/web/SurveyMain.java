@@ -6482,7 +6482,9 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<i dir='ltr'>(empty)</i>");
         }
         ctx.print("</span>");
-        if(!fallback && item.xpathId == p.base_xpath) {
+        if((!fallback||((p.previousItem==null)&&item.isParentFallback)||  // it's either: not inherited OR not a "shim"  and..
+            (item.pathWhereFound != null)) &&    // .. or it's an alias (that is still the 1.4 item)
+            item.xpathId == p.base_xpath) {   // its xpath is the base xpath.
             ctx.print(ctx.iconHtml("star","CLDR 1.4 item"));
         }
         

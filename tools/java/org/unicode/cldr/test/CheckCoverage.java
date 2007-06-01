@@ -74,7 +74,8 @@ public class CheckCoverage extends CheckCLDR {
         
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+            result.add(new CheckStatus().setCause(this)
+                .setType(level.compareTo(Level.MINIMAL) > 0 ? CheckStatus.warningType : CheckCLDR.finalErrorType)
                 .setCheckOnSubmit(false)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {

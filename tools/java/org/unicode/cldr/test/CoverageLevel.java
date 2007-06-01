@@ -100,7 +100,13 @@ public class CoverageLevel {
   private static Map base_language_level = new TreeMap();
   private static Map base_script_level = new TreeMap();
   private static Map base_territory_level = new TreeMap();
+  private static Map base_currency_level = new TreeMap();
+  private static Map base_timezone_level = new TreeMap();
+  
+  private static Set minimalCurrencies;
   private static Set minimalTimezones;
+  private static Set moderateTimezones;
+  
   private static Set euroCountries;
   private static Set territoryContainment = new TreeSet();
   private static Set euroLanguages = new TreeSet();
@@ -294,7 +300,7 @@ public class CoverageLevel {
       Set timezones = (Set) territory_timezone.get(territory);
       if (timezones != null) {
         // only worry about the ones that are "moderate"
-        timezones.retainAll(minimalTimezones);
+        timezones.retainAll(moderateTimezones);
         setIfBetter(zone_level, timezones, level, false);
       }
     }
@@ -311,12 +317,8 @@ public class CoverageLevel {
       setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), CoverageLevel.Level.BASIC, true);
     }
     
-    // special case XXX, Etc/Unknown
-    setIfBetter(currency_level, "XXX", CoverageLevel.Level.MINIMAL, false);
-    setIfBetter(zone_level, "Etc/Unknown", CoverageLevel.Level.MINIMAL, false);
-    setIfBetter(language_level, "und", CoverageLevel.Level.MINIMAL, false);
-    setIfBetter(script_level, "Zzzz", CoverageLevel.Level.MINIMAL, false);
-    setIfBetter(territory_level, "ZZ", CoverageLevel.Level.MINIMAL, false);
+    setIfBetter(currency_level, minimalCurrencies, Level.MINIMAL, true);
+    setIfBetter(zone_level, minimalTimezones, Level.MINIMAL, true);
     
     if (CheckCoverage.DEBUG) {
       System.out.println("language_level: " + language_level);               
@@ -518,8 +520,14 @@ public class CoverageLevel {
       Map type_territories = (Map) coverageData.get("territoryCoverage");
       Utility.putAllTransposed(type_territories, base_territory_level);
       
+      Map type_currencies = (Map) coverageData.get("currencyCoverage");
+      Utility.putAllTransposed(type_territories, base_currency_level);
       Map type_timezones = (Map) coverageData.get("timezoneCoverage");
-      minimalTimezones = (Set) type_timezones.get(CoverageLevel.Level.MODERATE);
+      Utility.putAllTransposed(type_territories, base_timezone_level);
+
+      minimalCurrencies = (Set) type_currencies.get(CoverageLevel.Level.MINIMAL);
+      minimalTimezones = (Set) type_timezones.get(CoverageLevel.Level.MINIMAL);
+      moderateTimezones = (Set) type_timezones.get(CoverageLevel.Level.MODERATE);
       
       // add the modern stuff, after doing both of the above
       

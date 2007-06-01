@@ -638,9 +638,9 @@ public abstract class XMLSource implements Freezable {
     Map<String,String> getFullPathAtDPathCache = new HashMap();
     
     public String getFullPathAtDPath(String xpath) {
-      String result = mySource.getValueAtDPath(xpath);
+      String result = mySource.getFullPathAtDPath(xpath);
       if (result != null) {
-        return mySource.getFullPathAtDPath(xpath);
+        return result;
       }
       // This is tricky. We need to find the alias location's path and full path.
       // then we need to the the non-distinguishing elements from them,
@@ -648,7 +648,9 @@ public abstract class XMLSource implements Freezable {
       AliasLocation fullStatus = getCachedFullStatus(xpath);
       if (fullStatus != null) {
         String fullPathWhereFound = getSource(fullStatus).getFullPathAtDPath(fullStatus.pathWhereFound);
-        if (fullPathWhereFound.equals(fullStatus.pathWhereFound)) {
+        if (fullPathWhereFound == null) {
+          result = null;
+        } else if (fullPathWhereFound.equals(fullStatus.pathWhereFound)) {
           result = xpath; // no difference
         } else {
           result = getFullPathAtDPathCache.get(xpath);

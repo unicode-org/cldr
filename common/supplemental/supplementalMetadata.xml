@@ -390,7 +390,7 @@
     
             <!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
             <variable id="$allow" type="regex">(verbatim)</variable>
-            <variable id="$alt" type="regex">((variant|list|secondary|email|www|short)(-proposed(([-](u|x)?)?[1-9][0-9]*)*)?)|(proposed(([-](u|x)?)?[1-9][0-9]*)*)</variable>
+            <variable id="$alt" type="regex">((variant|list|secondary|email|www|short)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
             <variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>
             <variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>
@@ -581,20 +581,29 @@
             <deprecatedItems attributes="draft" values="true false"/>
         </deprecated>
         <coverageAdditions>
-            <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant und"/>
-            <languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>
+            <languageCoverage type="minimal" values="und"/>            
+            <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant"/>
+            <languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>            
             <languageCoverage type="modern" values="de_CH de_AT en_AU en_CA en_GB en_US es_419 es_ES fr_CA fr_CH nl_BE pt_BR pt_PT"/> 
             <!-- <languageCoverage type="moderate" subtype="EU" values="da el fi sv cs et lv lt hu mt sk sl"/> -->
             <!-- <languageCoverage type="modern" values="sr"/> from languageInfo -->
-            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab Zzzz Zxxx"/>
-            <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US ZZ"/>
+            
+            <scriptCoverage type="minimal" values="Zzzz Zxxx"/>
+            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab"/>
+
+            <territoryCoverage type="minimal" values="ZZ"/>
+            <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US"/>           
             <territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW 419"/>		
+
+            <currencyCoverage type="minimal" values="XXX"/>
+
+            <timezoneCoverage type="minimal" values="Etc/Unknown"/>
             <timezoneCoverage type="moderate" values="America/Buenos_Aires America/Rio_Branco America/Campo_Grande America/Sao_Paulo
                 Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart
                 America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns
                 America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City
                 Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago 
-                America/Indianapolis America/New_York Etc/Unknown"	/>	
+                America/Indianapolis America/New_York Etc/Unknown"/>	
         </coverageAdditions>
         <skipDefaultLocale services="segmentation collation"/>
         <defaultContent locales="

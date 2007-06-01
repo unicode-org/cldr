@@ -262,15 +262,20 @@
 	<li>Compare the optimal value&#39;s vote <span style="font-weight: bold; ">O </span>
 	to the next highest vote getter <span style="font-weight: bold; ">N</span>, and assign the status according to the first of the conditions below that 
 	applies. <font size="3">Assign the value G to the number of organizations that voted for the optimal value.</font><ul>
-		<li style="font-weight: bold;"><span style="font-weight: 400">O &gt; 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 8 votes: 
+		<li style="font-weight: bold;"><span style="font-weight: 400">O <span style="background-color: #FFFF00"> <font face="Times New Roman">≥</font></span> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 8 votes: 
 		draft status = </span>approved</li>
-		<li>O &gt; 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 2 votes and G <font face="Times New Roman">≥</font> 2: draft status =<b> contributed</b></li>
-		<li>O &gt; N and O <font face="Times New Roman">≥</font> 2 votes: draft status =<b> provisional</b> </li>
+		<li>O <span style="font-weight: 400; background-color:#FFFF00"> <font face="Times New Roman">≥</font></span> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 2 votes and G <font face="Times New Roman">≥</font> 2: draft status =<b> contributed</b></li>
+		<li>O <span style="font-weight: 400; background-color:#FFFF00"> <font face="Times New Roman">≥</font></span> N and O <font face="Times New Roman">≥</font> 2 votes: draft status =<b> provisional</b> </li>
 		<li>Otherwise: draft status =<b> unconfirmed</b></li>
 	</ul></li>
-	<li>If the new optimal value does not have the status of <b>approved</b>, and the previous release had an <span style="font-weight: bold; ">approved </span>value, then 
-	that previously-released value stays <b>approved</b> and becomes the 
-	optimal value.</li>
+	<li><span style="background-color: #FFFF00">An </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> 
+	item from the previous release remains </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> unless 
+	a new <b>approved</b> optimal value overrides it.</span><ul>
+	<li><span style="background-color: #FFFF00">That is,</span> if the new optimal value does not have the status of <b>approved</b>, and the previous release had an 
+	<span style="font-weight: bold; ">approved </span>value, then 
+	that previously-released value stays <b>approved</b> and replaces the optimal value in the following steps.</li>
+</ul>
+					</li>
 	<li>If there was an <i>alt=proposed</i> on the optimal value, the <i>alt=proposed</i> is removed.</li>
 </ul>
 					<h4><span style="background-color: #FFFF00">Remaining Errors</span></h4>

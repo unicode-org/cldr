@@ -232,9 +232,10 @@
 		<li>If a user is locked or removed, then his/er vote is zero.</li>
 	</ul>
 	</li>
-	<li>All values with syntax errors get zero votes<ul>
+	<li>All values with survey tool errors get zero votes<ul>
 	<li>For example, a date pattern of &quot;14. september&quot; instead of &quot;dd MMM&quot;.</li>
 	<li>They cannot be voted for, and show a visible error.</li>
+	<li><span style="background-color: #FFFF00">Collision errors are an exception, and are not subject to this treatment.</span></li>
 </ul></li>
 	<li>For each value, each organization gets a vote based on the <i>maximum</i> (not cumulative) strength of the votes of its users.<ul>
 	<li>That is, even if an organization has 10 Vetters voting for an value, the vote count attributed to the 
@@ -267,15 +268,22 @@
 		<li>O &gt; N and O <font face="Times New Roman">≥</font> 2 votes: draft status =<b> provisional</b> </li>
 		<li>Otherwise: draft status =<b> unconfirmed</b></li>
 	</ul></li>
-	<li>If the previous release had an <span style="font-weight: bold; ">approved </span>value which is different than the optimal value, then it becomes the 
-	optimal value <i>unless</i> the new optimal value would have status of <b>approved</b>.</li>
-	<li>If there was an <i>alt=proposed</i> on the optimal value, it is removed.</li>
+	<li>If the new optimal value does not have the status of <b>approved</b>, and the previous release had an <span style="font-weight: bold; ">approved </span>value, then 
+	that previously-released value stays <b>approved</b> and becomes the 
+	optimal value.</li>
+	<li>If there was an <i>alt=proposed</i> on the optimal value, the <i>alt=proposed</i> is removed.</li>
 </ul>
+					<h4><span style="background-color: #FFFF00">Remaining Errors</span></h4>
+					<ul>
+						<li><span style="background-color: #FFFF00">After all other resolution is done, any remaining error values are removed.</span></li>
+						<li><span style="background-color: #FFFF00">In the case of collisions, this is done by retaining one of the values (unless it has other 
+						errors) and removing the other (thus removing the error on the first). The choice is based on which field is most commonly used.</span></li>
+					</ul>
 <h4><span style="font-weight: bold; ">Status of Remaining Values</span></h4>
 <ul>
-	<li>If a value has no votes, then it is removed from the release (but archived).</li>
-	<li>Others are retained in the release.</li>
-	<li>They are marked with <i>alt=proposed</i> and given the draft status:<span style="font-weight: bold; "> 
+	<li><span style="text-decoration: line-through; background-color: #FFFF00">If a value has no votes, then it is removed from the release (but archived).</span></li>
+	<li><span style="text-decoration: line-through; background-color: #FFFF00">Others are retained in the release.</span></li>
+	<li>Remaining values are marked with <i>alt=proposed </i>and given the draft status:<span style="font-weight: bold; "> 
 	unconfirmed</span></li>
 </ul>
 					<p>This process can be fine-tuned by the Technical Committee as needed, to resolve any problems that turn up. A committee decision can also override any of the above process 

@@ -311,6 +311,11 @@ public class Vetting {
 	// CLDR_ORGDISPUTE
 	PreparedStatement orgDisputeDelete = null;
 	PreparedStatement orgDisputeInsert = null;
+    
+	PreparedStatement orgDisputeLocs = null;  // org -> loc, #
+	PreparedStatement orgDisputePaths = null; // org/locale -> paths
+	PreparedStatement orgDisputePathCount = null; // org/locale -> paths
+	PreparedStatement orgDisputeQuery = null; // org/locale/base  - t/f
 					// query?
 	
     /**
@@ -393,10 +398,15 @@ public class Vetting {
 				"delete from CLDR_ORGDISPUTE where locale=? AND base_xpath=?");
 			orgDisputeInsert = prepareStatement("orgDisputeInsert", // org, locale, base_xpath
 				"insert into CLDR_ORGDISPUTE (org, locale, base_xpath) values (?,?,?)");
-
-			PreparedStatement orgDisputeDelete = null;
-			PreparedStatement orgDisputeInsert = null;
-				
+                
+            orgDisputeLocs = prepareStatement("orgDisputeLocs", 
+                "select locale,count(*) from CLDR_ORGDISPUTE where org=? group by locale  order by locale");
+            orgDisputePaths = prepareStatement("orgDisputePaths", 
+                "select base_xpath from CLDR_ORGDISPUTE where org=? AND locale=?");
+            orgDisputePathCount = prepareStatement("orgDisputePathCount", 
+                "select COUNT(base_xpath) from CLDR_ORGDISPUTE where org=? AND locale=?");
+            orgDisputeQuery = prepareStatement("orgDisputeQuery", 
+                "select * from CLDR_ORGDISPUTE where org=? AND locale=? and base_xpath=?");
 				
         }
     }
@@ -2390,6 +2400,89 @@ public class Vetting {
             }
         }
         return ts;
+    }
+    
+    int getOrgDisputeCount(String org, String locale) {
+        int count = 0;
+        synchronized(conn) {
+            try {
+                orgDisputePathCount.setString(1,org);
+                orgDisputePathCount.setString(2,locale);
+                
+                ResultSet rs = orgDisputePathCount.executeQuery();
+                if(rs.next()) {
+                    count =  rs.getInt(1);
+                }
+                rs.close();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  query org dispute count " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+        return count;  
+    }
+
+    boolean queryOrgDispute(String org, String locale, int base_xpath) {
+        boolean result = false;
+        synchronized(conn) {
+            try {
+                orgDisputeQuery.setString(1,org);
+                orgDisputeQuery.setString(2,locale);
+                orgDisputeQuery.setInt(3,base_xpath);
+                
+                ResultSet rs = orgDisputeQuery.executeQuery();
+                if(rs.next()) {
+                    result =  true;
+                }
+                rs.close();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter: couldn't  query org dispute count " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
+            }
+        }
+        return result;  
+    }
+    
+    void doOrgDisputePage(WebContext ctx) {
+        if(ctx.session.user == null ||
+            ctx.session.user.org == null) {
+                return;
+        }
+        
+        String loc = ctx.field("_");
+        final String org = ctx.session.user.org;
+        if(loc.equals("")) {
+            synchronized(conn) {
+                try {
+                    orgDisputeLocs.setString(1,org);
+                    
+                    ResultSet rs = orgDisputeLocs.executeQuery();
+                    if(rs.next()) {
+                        ctx.println("<h4>Vetting Disputes for "+ctx.session.user.org+"</h4>");
+                        
+                        do{
+                            loc = rs.getString(1);
+                            int cnt = rs.getInt(2);
+                            
+                            sm.printLocaleLink(ctx,loc,new ULocale(loc).getDisplayName());
+                            ctx.println(" "+cnt+" vetting disputes for " + org + "<br>");
+                        } while(rs.next());
+                    }
+                    rs.close();
+                } catch ( SQLException se ) {
+                    String complaint = "Vetter:  couldn't  query orgdisputes " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    se.printStackTrace();
+                    throw new RuntimeException(complaint);
+                }
+            }
+        } else {
+            // individual locale
+        }
     }
 	
     /**

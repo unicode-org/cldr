@@ -1138,7 +1138,7 @@ public class SurveyMain extends HttpServlet {
             System.err.println("**** noindex,nofollow is disabled");
         }
         */
-        ctx.println("<META NAME=\"ROBOTS\" CONTENT=\"INDEX,NOFOLLOW\"> ");
+        ctx.println("<META NAME=\"ROBOTS\" CONTENT=\"NOINDEX,NOFOLLOW\"> "); // NO index
         ctx.println("<meta name='robots' content='noindex,nofollow'>");
         ctx.println("<meta name=\"gigabot\" content=\"noindex\">");
         ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
@@ -2715,7 +2715,11 @@ public class SurveyMain extends HttpServlet {
         printUserTableWithHelp(ctx, "/DisputedItems");
         
         ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
+
+        vet.doOrgDisputePage(ctx);
+
         ctx.addQuery(QUERY_DO,"disputed");
+
         ctx.println("<h2>DisputedItems</h2>");
 
         vet.doDisputePage(ctx);
@@ -3137,6 +3141,10 @@ public class SurveyMain extends HttpServlet {
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
             rv = rv + (modifyThing(ctx));
+            int odisp = 0;
+            if(phaseVetting && ((odisp=vet.getOrgDisputeCount(ctx.session.user.org,localeName))>0)) {
+                rv = rv + ctx.iconHtml("stop","("+odisp+" org disputes)");
+            }
         }
         rv = rv + ("</a>");
 //        ctx.print(hasDraft?"</b>":"") ;
@@ -3868,7 +3876,47 @@ public class SurveyMain extends HttpServlet {
         
         // what should users be notified about?
         if(phaseVetting) {
-            int vetStatus = vet.status(ctx.localeString());
+            String localeName = ctx.localeString();
+            int vetStatus = vet.status(localeName);
+            
+            int orgDisp = 0;
+            if(ctx.session.user != null) {
+                orgDisp = vet.getOrgDisputeCount(ctx.session.user.org,localeName);
+                
+                if(orgDisp > 0) {
+                    
+                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>"+(orgDisp)+" items with conflicts among "+ctx.session.user.org+" vetters.</span> "+ctx.iconHtml("stop","Vetter Dispute")+"</h4>");
+                    
+                    Set<String> odItems = new TreeSet<String>();
+                    synchronized(vet.conn) { 
+                        try { // moderately expensive.. since we are tying up vet's connection..
+                            vet.orgDisputePaths.setString(1,ctx.session.user.org);
+                            vet.orgDisputePaths.setString(2,localeName);
+                            ResultSet rs = vet.orgDisputePaths.executeQuery();
+                            while(rs.next()) {
+                                int xp = rs.getInt(1);                               
+                                String path = xpt.getById(xp);                               
+                                String theMenu = xpathToMenu(path);
+                                if(theMenu != null) {
+                                    odItems.add(theMenu);
+                                }
+                            }
+                        } catch (SQLException se) {
+                            throw new RuntimeException("SQL error listing OD results - " + SurveyMain.unchainSqlException(se));
+                        }
+                    }
+                    WebContext subCtx = new WebContext(ctx);
+                    //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
+                    subCtx.removeQuery(QUERY_SECTION);
+                    for(String item : odItems) {
+                        printMenu(subCtx, "", item);
+                        subCtx.print(" | ");
+                    }
+                    ctx.println("<br>");
+                }
+            }
+            
+            
             if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
                 ctx.println("<hr>");
                 int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
@@ -3909,6 +3957,7 @@ public class SurveyMain extends HttpServlet {
                 subCtx.removeQuery(QUERY_SECTION);
 
                if(phaseVetting == true) {
+                    
                     if((numNoVotes+numInsufficient)>0) {
                         ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
                         for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
@@ -5737,6 +5786,11 @@ public class SurveyMain extends HttpServlet {
                 ctx.print(typeShown);
             }
             ctx.print("</tt>");
+            if(canModify) {
+                if(vet.queryOrgDispute(ctx.session.user.org, pod.locale, p.base_xpath)) {
+                    ctx.print(ctx.iconHtml("stop","Vetter Dispute"));
+                }
+            }
         }
         
         if(p.altType != null) {
@@ -6129,6 +6183,9 @@ public class SurveyMain extends HttpServlet {
 					if(org.vote == null) {
 						ctx.print("X No Consensus. ");
 						if(org.dispute) {
+                            if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
+                                ctx.print(ctx.iconHtml("stop","Vetter Dispute"));
+                            }
 							ctx.print(" (Dispute among vetters) ");
 						}
 					} else {

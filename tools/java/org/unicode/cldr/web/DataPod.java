@@ -1533,7 +1533,7 @@ public class DataPod extends Registerable {
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
 
-            if(base_xpath == 85091) {
+            if(sm.isUnofficial && base_xpath == 85091) {
     /*srl*/  System.err.println("inher "+locale+":"+base_xpath+": xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
            }
 

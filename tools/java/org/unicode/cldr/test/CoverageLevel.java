@@ -72,7 +72,7 @@ public class CoverageLevel {
     MODERATE = new Level(60, "moderate", "G2"),
     MODERN = new Level(80, "modern", "G1"),
     COMPREHENSIVE = new Level(100, "comprehensive", "G0"),
-    OPTIONAL = new Level(101,"none", "none");
+    OPTIONAL = new Level(101, "optional", "optional");
     
     public static Level get(String name) {
       for (int i = 0; i < all.size(); ++i) {
@@ -312,14 +312,11 @@ public class CoverageLevel {
     }
     
     // special case XXX, Etc/Unknown
-    Set temp = new HashSet();
-    temp.add("XXX");
-    setIfBetter(currency_level, temp, CoverageLevel.Level.BASIC, false);
-    
-    Set temp2 = new HashSet();
-    temp2.add("Etc/Unknown");
-    setIfBetter(zone_level, temp, CoverageLevel.Level.BASIC, false);
-    
+    setIfBetter(currency_level, "XXX", CoverageLevel.Level.MINIMAL, false);
+    setIfBetter(zone_level, "Etc/Unknown", CoverageLevel.Level.MINIMAL, false);
+    setIfBetter(language_level, "und", CoverageLevel.Level.MINIMAL, false);
+    setIfBetter(script_level, "Zzzz", CoverageLevel.Level.MINIMAL, false);
+    setIfBetter(territory_level, "ZZ", CoverageLevel.Level.MINIMAL, false);
     
     if (CheckCoverage.DEBUG) {
       System.out.println("language_level: " + language_level);               
@@ -377,12 +374,16 @@ public class CoverageLevel {
   private void setIfBetter(Map targetMap, Collection keyCollection, CoverageLevel.Level level, boolean show) {
     if (keyCollection == null) return;
     for (Iterator it2 = keyCollection.iterator(); it2.hasNext();) {
-      Object script = it2.next();
-      CoverageLevel.Level old = (CoverageLevel.Level) targetMap.get(script);
-      if (old == null || level.compareTo(old) < 0) {
-        if (CheckCoverage.DEBUG_SET && show) System.out.println("\t" + script + "\t(" + old + " \u2192 " + level + ")");
-        targetMap.put(script, level);
-      }
+      Object item = it2.next();
+      setIfBetter(targetMap, item, level, show);
+    }
+  }
+
+  private void setIfBetter(Map targetMap, Object item, CoverageLevel.Level level, boolean show) {
+    CoverageLevel.Level old = (CoverageLevel.Level) targetMap.get(item);
+    if (old == null || level.compareTo(old) < 0) {
+      if (CheckCoverage.DEBUG_SET && show) System.out.println("\t" + item + "\t(" + old + " \u2192 " + level + ")");
+      targetMap.put(item, level);
     }
   }
   
@@ -444,7 +445,7 @@ public class CoverageLevel {
     if (lastElement.equals("exemplarCity")) {
       type = parts.getAttributeValue(-2, "type"); // it's one level up
       if (exemplarsContainA_Z && !type.equals("Etc/Unknown")) {
-        result = CoverageLevel.Level.UNDETERMINED;
+        result = CoverageLevel.Level.OPTIONAL;
       } else {
         result = (CoverageLevel.Level) zone_level.get(type);
       }
@@ -470,7 +471,7 @@ public class CoverageLevel {
        * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
        */
       if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
-        result = CoverageLevel.Level.UNDETERMINED;
+        result = CoverageLevel.Level.OPTIONAL;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
         String currency = parts.getAttributeValue(-2, "type");
         result = (CoverageLevel.Level) currency_level.get(currency);

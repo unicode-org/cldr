@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLFileReader;
 
 import java.io.File;
@@ -17,14 +18,14 @@ public class SearchXml {
   private static int count = 0;
 
   public static void main(String[] args) throws IOException {
-    String sourceDirectory = getProperty("SOURCE", null);
+    String sourceDirectory = Utility.getProperty("SOURCE", null);
     if (sourceDirectory == null) {
       System.out.println("Need Source Directory! ");
       return;
     }
-    fileMatcher = Pattern.compile(getProperty("FILE", ".*")).matcher("");
-    pathMatcher = Pattern.compile(getProperty("XMLPATH", ".*")).matcher("");
-    valueMatcher = Pattern.compile(getProperty("VALUE", ".*"), Pattern.DOTALL)
+    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher("");
+    pathMatcher = Pattern.compile(Utility.getProperty("XMLPATH", ".*")).matcher("");
+    valueMatcher = Pattern.compile(Utility.getProperty("VALUE", ".*"), Pattern.DOTALL)
         .matcher("");
 
     double startTime = System.currentTimeMillis();
@@ -53,14 +54,6 @@ public class SearchXml {
           | XMLFileReader.ERROR_HANDLER, false);
       System.out.flush();
     }
-  }
-
-  private static String getProperty(String key, String defaultValue) {
-    String fileRegex = System.getProperty(key);
-    if (fileRegex == null)
-      fileRegex = defaultValue;
-    System.out.println("-D" + key + "=" + fileRegex);
-    return fileRegex;
   }
 
   static MyHandler myHandler = new MyHandler();

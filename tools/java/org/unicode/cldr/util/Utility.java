@@ -927,4 +927,12 @@ public class Utility {
     return factored;
   }
 
+  public static String getProperty(String key, String defaultValue) {
+    String fileRegex = System.getProperty(key);
+    if (fileRegex == null)
+      fileRegex = defaultValue;
+    System.out.println("-D" + key + "=" + fileRegex);
+    return fileRegex;
+  }
+
 }

@@ -2273,6 +2273,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
           }
           
           result = distinguishingParts.toString();
+          if (result.equals(xpath)) { // don't save the copy if we don't have to.
+            result = xpath;
+          }
           distinguishingMap.put(xpath, result);
         }
         if (normalizedPath != null) {

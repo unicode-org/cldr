@@ -87,6 +87,7 @@ public abstract class XMLSource implements Freezable {
    */
   public boolean isDraft(String path) {
     String fullpath = getFullPath(path);
+    if (path == null) return false;
     if (fullpath.indexOf("[@draft=") < 0) return false;
     return parts.set(fullpath).containsAttribute("draft");
   }
@@ -634,16 +635,48 @@ public abstract class XMLSource implements Freezable {
 //      }
 //    }
     
-    //Map<String,String> getFullPathAtDPathCache = new HashMap();
+    Map<String,String> getFullPathAtDPathCache = new HashMap();
     
     public String getFullPathAtDPath(String xpath) {
       String result = mySource.getValueAtDPath(xpath);
       if (result != null) {
         return mySource.getFullPathAtDPath(xpath);
       }
+      // This is tricky. We need to find the alias location's path and full path.
+      // then we need to the the non-distinguishing elements from them,
+      // and add them into the requested path.
       AliasLocation fullStatus = getCachedFullStatus(xpath);
       if (fullStatus != null) {
-        result = getSource(fullStatus).getFullPathAtDPath(fullStatus.pathWhereFound);
+        String fullPathWhereFound = getSource(fullStatus).getFullPathAtDPath(fullStatus.pathWhereFound);
+        if (fullPathWhereFound.equals(fullStatus.pathWhereFound)) {
+          result = xpath; // no difference
+        } else {
+          result = getFullPathAtDPathCache.get(xpath);
+          if (result == null) {
+            // find the differences, and add them into xpath
+            // we do this by walking through each element, adding the corresponding attribute values.
+            // we add attributes FROM THE END, in case the lengths are different!
+            XPathParts xpathParts = new XPathParts().set(xpath);
+            XPathParts fullPathWhereFoundParts = new XPathParts().set(fullPathWhereFound);
+            XPathParts pathWhereFoundParts = new XPathParts().set(fullStatus.pathWhereFound);
+            int offset = xpathParts.size() - pathWhereFoundParts.size();
+            for (int i = 0; i < pathWhereFoundParts.size(); ++i) {
+              Map<String,String> fullAttributes = fullPathWhereFoundParts.getAttributes(i);
+              Map<String,String> attributes = pathWhereFoundParts.getAttributes(i);
+              if (!attributes.equals(fullAttributes)) { // add differences
+                Map<String,String> targetAttributes = xpathParts.getAttributes(i + offset);
+                for (String key : fullAttributes.keySet()) {
+                  if (!attributes.containsKey(key)) {
+                    String value = fullAttributes.get(key);
+                    targetAttributes.put(key, value);
+                  }
+                }
+              }
+            }
+            result = xpathParts.toString();
+            getFullPathAtDPathCache.put(xpath, result);
+          }
+        }
       }
 //
 //      result = getFullPathAtDPathCache.get(xpath);

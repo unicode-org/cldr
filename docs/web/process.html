@@ -269,13 +269,15 @@
 		<li>Otherwise: draft status =<b> unconfirmed</b></li>
 	</ul></li>
 	<li><span style="background-color: #FFFF00">An </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> 
-	item from the previous release remains </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> unless 
-	a new <b>approved</b> optimal value overrides it.</span><ul>
+	value from the previous release remains </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> unless 
+	a different value would be <b>approved,</b> according to the above voting.</span><ul>
 	<li><span style="background-color: #FFFF00">That is,</span> if the new optimal value does not have the status of <b>approved</b>, and the previous release had an 
 	<span style="font-weight: bold; ">approved </span>value, then 
 	that previously-released value stays <b>approved</b> and replaces the optimal value in the following steps.</li>
 </ul>
 					</li>
+	<li><span style="background-color: #FFFF00">If the optimal value was the optimal value in the previous release, it keeps its previous status unless the new 
+	status would be better, according to the above voting.</span></li>
 	<li>If there was an <i>alt=proposed</i> on the optimal value, the <i>alt=proposed</i> is removed.</li>
 </ul>
 					<h4><span style="background-color: #FFFF00">Remaining Errors</span></h4>

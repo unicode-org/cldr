@@ -2464,7 +2464,7 @@ public class Vetting {
                     if(rs.next()) {
                         ctx.println("<h4>Vetting Disputes for "+ctx.session.user.org+"</h4>");
                         
-                        do{
+                        do {
                             loc = rs.getString(1);
                             int cnt = rs.getInt(2);
                             

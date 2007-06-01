@@ -204,7 +204,7 @@ public class SurveyForum {
             sm.printHeader(ctx,"Fora");
             sm.printUserTable(ctx);
             // no forum or bad forum. Do general stuff.
-//            doForumForum(ctx, pF, pD);
+            // doForumForum(ctx, pF, pD);
         } else {
             // list what is in a certain forum
             doForumForum(ctx, forum, forumNumber);
@@ -325,8 +325,44 @@ public class SurveyForum {
                 
                 // Apparently, it posted.
 				
+                ElapsedTimer et = new ElapsedTimer("Sending email to "+forum);
+                int emailCount=0;
 				// Do email- 
-				
+				synchronized(conn) {
+                    try {
+                        pIntUsers.setString(1, forum);
+                        
+                        ResultSet rs = pIntUsers.executeQuery();
+                        
+                        Set<String> emails = new HashSet<String>();
+                        
+                        while(rs.next()) {
+                            int uid = rs.getInt(1);
+                            
+                            UserRegistry.User u = sm.reg.getInfo(uid);
+                            if(u != null && u.email != null && u.email.length()>0) {
+                                emails.add(u.email);
+                                emailCount++;
+                            }
+                        }
+
+                        String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
+                        String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
+                        
+                        String subject = "New CLDR forum post for: " + forum;
+                        
+                        String body = "Someone has posted to the CLDR forum, in the subject:\n  "+subj+"\n\n"+
+                                        "to read it, login to survey tool and view the forum at: " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n";
+                        
+                        MailSender.sendBccMail(smtp, null, null, from, emails, subject, body);                        
+                    } catch ( SQLException se ) {
+                        String complaint = "SurveyForum:  Couldn't add post to " +forum + " - " + SurveyMain.unchainSqlException(se) + " - pIntUsers";
+                        logger.severe(complaint);
+                        throw new RuntimeException(complaint);
+                    }
+                }
+                
+                System.err.println(et.toString()+" - # of users:" + emailCount);
                 
                 
                 ctx.redirect(ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+forum+"&didpost=t");
@@ -335,7 +371,6 @@ public class SurveyForum {
             } else {
                 sm.printHeader(ctx,"Fora | " + forum + " | Preview post on #" + base_xpath);
                 printForumMenu(ctx, forum);
-                
             }
 
             ctx.println("<div class='odashbox'><h3>Preview</h3>");
@@ -489,6 +524,8 @@ public class SurveyForum {
         sm.printHeader(ctx, "Fora | " + forum);
         printForumMenu(ctx, forum);
                 
+        ctx.print(forumFeedIcon(ctx, forum));
+        
         ctx.println("<hr>");
         if(didpost) {
             ctx.println("<b>Posted your response.</b><hr>");
@@ -863,6 +900,8 @@ public class SurveyForum {
     PreparedStatement pGet = null;
     PreparedStatement pCount = null;
   //  PreparedStatement pAllN = null;
+  
+    PreparedStatement pIntUsers = null;
     
     public void myinit() throws SQLException {
         synchronized(conn) {
@@ -885,6 +924,9 @@ public class SurveyForum {
             pForMe = prepareStatement("pForMe", 
                 "SELECT "+ pAllResult + " FROM " + DB_POSTS +","+DB_FORA+" " // same as pAll  
                     +" where (SF_POSTS.FORUM=SF_FORA.id) AND exists ( select CLDR_INTEREST.forum from CLDR_INTEREST,SF_FORA where CLDR_INTEREST.uid=? AND CLDR_INTEREST.forum=SF_FORA.loc AND SF_FORA.id=SF_POSTS.forum) ORDER BY "+DB_POSTS+".LAST_TIME DESC");
+                    
+            pIntUsers = prepareStatement("pIntUsers",
+                "SELECT uid from CLDR_INTEREST where forum=?");
         }
     } 
     
@@ -1126,11 +1168,28 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
         String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
             ctx.session.user.password+"&amp;");
         return 
-             "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" +
+            /* "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom 1.0\" href=\""+feedUrl+"&feed=atom_1.0\">" + */
               "<link rel=\"alternate\" type=\"application/rdf+xml\" title=\"RSS 1.0\" href=\""+feedUrl+"&feed=rss_1.0\">"+
              "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"RSS 2.0\" href=\""+feedUrl+"&feed=rss_2.0\">" 
            ;
     }
+    
+    
+    
+    String forumFeedIcon(WebContext ctx, String forum) {
+        if(ctx.session == null ||
+           ctx.session.user == null ||
+           !UserRegistry.userIsStreet(ctx.session.user)) {
+            return "";
+        }
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.locale.getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
+            ctx.session.user.password+"&amp;");
+        
+        return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"rss</a>"; /* | " +
+                "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 1.0")+"RSS 1.0</a>"; */
+            
+    }
+
 
     String mainFeedStuff(WebContext ctx) {
         if(ctx.session == null ||
@@ -1147,5 +1206,21 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
              "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"RSS 2.0\" href=\""+feedUrl+"&feed=rss_2.0\">" 
            ;
     }
+    
+    
+    String mainFeedIcon(WebContext ctx) {
+        if(ctx.session == null ||
+           ctx.session.user == null ||
+           !UserRegistry.userIsStreet(ctx.session.user)) {
+            return "";
+        }
+        String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?email="+ctx.session.user.email+"&amp;pw="+
+            ctx.session.user.password+"&amp;");
+        
+        return  "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"RSS 2.0</a>"; /* | " +
+                "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 1.0")+"RSS 1.0</a>"; */
+            
+    }
+    
 }
 

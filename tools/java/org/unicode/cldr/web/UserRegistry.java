@@ -231,6 +231,8 @@ public class UserRegistry {
                                                         ")"); 
                 String sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_loc ON " + CLDR_INTEREST + " (uid) ";
                 s.execute(sql); 
+                sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_for ON " + CLDR_INTEREST + " (forum) ";
+                s.execute(sql); 
                 logger.info("DB: created "+CLDR_INTEREST);
                 
                 s.close();

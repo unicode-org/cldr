@@ -3214,6 +3214,8 @@ public class SurveyMain extends HttpServlet {
             nuCtx.println("</div>");
         }
         ctx.println("<h1>Locales</h1>");
+
+        ctx.print(fora.mainFeedIcon(ctx)+"<br>");
 				
         ctx.println(SLOW_PAGE_NOTICE);
         TreeMap lm = getLocaleListMap();
@@ -3496,6 +3498,7 @@ public class SurveyMain extends HttpServlet {
             subCtx.println("<p class='hang'>Forum: ");
             String forum = ctx.locale.getLanguage();
             subCtx.println("<strong><a href='"+fora.forumUrl(subCtx, forum)+"'>Forum: "+forum+"</a></strong>");
+            subCtx.println(" <br> " + fora.forumFeedIcon(subCtx, forum));
             subCtx.println("</p>");
         }
         if(ctx.prefBool(PREF_ADV)) {

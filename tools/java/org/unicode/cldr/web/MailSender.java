@@ -83,7 +83,9 @@ public class MailSender {
             }
             ourMessage.setSubject(subject);
             ourMessage.setText(body+footer);
-            Transport.send(ourMessage);
+            if(smtp != null) {
+                Transport.send(ourMessage);
+            }
             log(to,subject,null);
         } catch(Throwable t) {  
             System.err.println("MAIL ERR: for" + to + ", " + t.toString() + " - check cldrmail.log");
@@ -91,6 +93,51 @@ public class MailSender {
             log(to,"FAIL: "+subject,t);
         }
     }
+    /**
+     * Send a piece of mail
+     * @param smtp smtp server
+     * @param from From: user
+     * @param to to: user
+     * @param subject mail subject
+     * @param body mail body
+     */
+    public static synchronized void sendBccMail(String smtp, String mailFromAddress, String mailFromName, String from, Set<String> bcc, String subject, String body) {
+        try {
+            Properties env = System.getProperties();
+            if(smtp != null) {
+                env.put("mail.host", smtp);
+            }
+            MimeMessage ourMessage = new MimeMessage(Session.getInstance(env, null));
+            ourMessage.setFrom(new InternetAddress(from, "CLDR Survey Tool"));
+            for(String anaddr : bcc) {
+                if(anaddr.equals("admin@")) continue;
+                ourMessage.addRecipients(Message.RecipientType.BCC, InternetAddress.parse(anaddr));
+            }
+            if(mailFromAddress != null) {
+                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName) };
+                ourMessage.setReplyTo(replyTo);
+            }
+            ourMessage.setSubject(subject);
+            ourMessage.setText(body+footer);
+            if(smtp != null) {
+                if(bcc.size() >0) {
+                    Transport.send(ourMessage);
+                }
+            } else {
+                String out = "";
+                for(String anaddr : bcc) { 
+                    out = out + ", " + anaddr;
+                }
+                System.err.println("subj:  " + subject + " - bcc to " + out + ", body: " + body);
+            }
+            log("BCC to " + bcc.size() +" addrs",subject,null);
+        } catch(Throwable t) {  
+            System.err.println("MAIL ERR: BCC to " + bcc.size() +" addrs, " + t.toString() + " - check cldrmail.log");
+            t.printStackTrace();
+            log("MAIL ERR: BCC to " + bcc.size() +" addrs, ","FAIL: "+subject,t);
+        }
+    }
+    
     /*
     public static synchronized void sendMail(String smtp, String from, Address[] bcc, String subject, String body) {
     try {

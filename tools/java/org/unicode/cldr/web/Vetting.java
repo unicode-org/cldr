@@ -10,6 +10,7 @@ package org.unicode.cldr.web;
 
 import java.io.*;
 import java.util.*;
+import java.lang.ref.*;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -28,7 +29,6 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-
 /**
  * This class does the calculations for which item wins a vetting,
  * and also manages some notifications,
@@ -288,6 +288,8 @@ public class Vetting {
     PreparedStatement queryVoteId = null;
     PreparedStatement updateVote = null;
     PreparedStatement rmResult = null;
+    PreparedStatement rmResultAll = null;
+    PreparedStatement rmResultLoc = null;
     PreparedStatement queryTypes = null;
     PreparedStatement insertStatus = null;
     PreparedStatement updateStatus = null;
@@ -317,6 +319,8 @@ public class Vetting {
 	PreparedStatement orgDisputePathCount = null; // org/locale -> paths
 	PreparedStatement orgDisputeQuery = null; // org/locale/base  - t/f
 					// query?
+                    
+    PreparedStatement googData = null;
 	
     /**
      * initialize prepared statements
@@ -353,6 +357,10 @@ public class Vetting {
                 "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             rmResult = prepareStatement("rmResult", 
                 "delete from CLDR_RESULT where (locale=?)AND(base_xpath=?)");
+            rmResultAll = prepareStatement("rmResultAll", 
+                "delete from CLDR_RESULT");
+            rmResultLoc = prepareStatement("rmResultLoc", 
+                "delete from CLDR_RESULT where locale=?");
             queryResult = prepareStatement("queryResult",
                 "select CLDR_RESULT.result_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
             countResultByType = prepareStatement("countResultByType",
@@ -407,7 +415,9 @@ public class Vetting {
                 "select COUNT(base_xpath) from CLDR_ORGDISPUTE where org=? AND locale=?");
             orgDisputeQuery = prepareStatement("orgDisputeQuery", 
                 "select * from CLDR_ORGDISPUTE where org=? AND locale=? and base_xpath=?");
-				
+                
+            googData = prepareStatement("googData",
+                "select xpath,origxpath,value from CLDR_DATA where alt_type='proposed-x650' and locale=? and base_xpath=?");
         }
     }
     
@@ -537,8 +547,8 @@ public class Vetting {
      */
     static private Collator getOurCollator() {
         RuleBasedCollator rbc = 
-            ((RuleBasedCollator)Collator.getInstance());
-        rbc.setNumericCollation(true);
+            ((RuleBasedCollator)Collator.getInstance(new ULocale("root")));
+        //rbc.setNumericCollation(true);
         return rbc;
     }
     
@@ -704,11 +714,11 @@ public class Vetting {
                 }
                 if(ncount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
-                    if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses");  // not always because of implied vote.
-                    } else {
-                        System.err.println("No statuses updated.");
-                    }
+                    //if(uscnt>0) {
+                    //    //System.err.println("updated " + uscnt + " statuses");  // not always because of implied vote.
+                    //} else {
+                    //    //System.err.println("No statuses updated.");
+                    //}
                     conn.commit();
                 }
                 
@@ -727,9 +737,9 @@ public class Vetting {
                 if(ucount > 0) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change");
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change");
                     } else {
-                        System.err.println("updated " + uscnt + " statuses, due to vote change??");
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to vote change??");
                     }
                     conn.commit();
                 }
@@ -969,16 +979,11 @@ public class Vetting {
 	 */
 	public static final int EXPERT_VOTE		= 8;  // 2 * 4
 	public static final int EXISTING_VOTE	= 4;  // 1 * 4
+	public static final int DEFAULT_ORG_VOTE= 4;  // 1 * 4
 	public static final int VETTER_VOTE		= 4;  // 1 * 4
 	public static final int STREET_VOTE		= 1;  // .25 * 4
 
-	public static final int CONFIRMED_MINIMUM = 8; // 2 * 4 - min required for confirmed status
-	
-	public static final int OUTPUT_MINIMUM = 4; // Don't even show losing items that aren't at least this.  1*4
-
-    public static final int CONTRIBUTED_MINIMUM = 2; // must be at least 2 to be contributed (2 guests)
-    public static final int CONTRIBUTED_MINIMUM_ORGS = 2; // must be at least 2 orgs to be contributed
-    public static final int PROVISIONAL_MINIMUM = 2; // must be at least 2 to be provisional (2 guests)
+    public static final int OUTPUT_MINIMUM = 4; // Don't even show losing items that aren't at least this.  1*4
 
 	public enum Status { 
 		INDETERMINATE (-1),
@@ -1078,12 +1083,20 @@ public class Vetting {
 			public void add(Chad c) {
 				votes.add(c);
 			}
+            
+            // this is the org's default vote. 
+            public void setDefaultVote(Chad c) {
+                //votes.add(c); // so it is in the list
+                vote = c; // and it is the winning vote
+                strength = DEFAULT_ORG_VOTE;
+            }
 			
 			// All votes have been cast, decide which one this org votes for.
 			Chad calculateVote() {
 				if(vote == null) {
 					int lowest = UserRegistry.LIMIT_LEVEL;
 					for(Chad c : votes) {
+                        if(c.disqualified) continue;
 						int lowestUserLevel = UserRegistry.LIMIT_LEVEL;
 						for(UserRegistry.User aUser : c.voters) {
 							if(!aUser.org.equals(name)) continue;
@@ -1147,15 +1160,35 @@ public class Vetting {
 			public Set<Organization> orgs = new TreeSet<Organization>(); // who voted for this?
 			public int score = 0;
 			public String value = null;
+            
+            public Set<Organization> orgsDefaultFor = null; // if non-null: this Chad is the default choice for the org[s] involved, iff they didn't already vote.
+            
+            boolean disqualified;
 
 			public Chad(int xpath, int full_xpath, String value) {
 				this.xpath = xpath;
 				this.full_xpath = full_xpath;
 				this.value = value;
+                
+                //disqualified = test(locale, base_xpath, xpath, value);
 			}
+            
+            /**
+             * Call this if the item is a default vote for an organization
+             */
+            public void addDefault(Organization org) {
+                // do NOT add to 'orgs'
+                if(orgsDefaultFor == null) {
+                    orgsDefaultFor = new HashSet<Organization>();
+                }
+                orgsDefaultFor.add(org);
+            }
+            
 			public void add(Organization votes) {
 				orgs.add(votes);
-				score += votes.strength;
+                if(!disqualified) {
+                    score += votes.strength;
+                }
 			}
 			public void vote(UserRegistry.User user) {
 				voters.add(user);
@@ -1217,6 +1250,7 @@ public class Vetting {
 		 */
 		public int optimal() throws SQLException {
 			gatherVotes();
+            
 			calculateOrgVotes();
 			
 			Chad optimal = calculateWinner();
@@ -1227,54 +1261,63 @@ public class Vetting {
 			}
 		}
 
-
-		private final void existingVote(int vote_xpath, int full_xpath, String value) {
-			vote(null, vote_xpath, full_xpath, value);
-		}
-		
-		private void vote(UserRegistry.User user, int vote_xpath, int full_xpath, String value) {
-			// add this vote to the chads, or create one if not present
+        private Chad getChad(int vote_xpath, int full_xpath, String value) {
 			Integer vote_xpath_int = new Integer(vote_xpath);
 			Chad c = chads.get(vote_xpath_int);
 			if(c == null) {
 				c = new Chad(vote_xpath, full_xpath, value);
 				chads.put(vote_xpath_int, c);
 			}
+            return c;
+        }
+        
+        private Organization getOrganization(String org) {
+            Organization theirOrg = orgVotes.get(org);
+            if(theirOrg == null) {
+                theirOrg = new Organization(org);
+                orgVotes.put(org,theirOrg);
+            }
+            return theirOrg;
+        }
+
+		private final void existingVote(int vote_xpath, int full_xpath, String value) {
+			vote(null, vote_xpath, full_xpath, value);
+		}
+        
+        private final void defaultVote(String org, int vote_xpath, int full_xpath, String value) {
+            Chad c = getChad(vote_xpath, full_xpath, value);
+            c.addDefault(getOrganization(org));
+        }
+		
+		private void vote(UserRegistry.User user, int vote_xpath, int full_xpath, String value) {
+			// add this vote to the chads, or create one if not present
+            Chad c = getChad(vote_xpath, full_xpath, value);
 			
 			if(user != null) {
 				c.vote(user);
 				
 				// add the chad to the set of orgs' chads
-				Organization theirOrg = orgVotes.get(user.org);
-				if(theirOrg == null) {
-					theirOrg = new Organization(user.org);
-					orgVotes.put(user.org,theirOrg);
-				}
-				theirOrg.add(c);
+				Organization theirOrg = getOrganization(user.org);
+                theirOrg.add(c);
 			} else {
 				// "existing" vote
 				//Organization existingOrg = new Organization(c);
 				//orgVotes.put(existingOrg.name, existingOrg);
 				existing = c;
                 
-                if(vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut: 
+                if(vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut: base=full means it is confirmed.
                     existingStatus = Status.CONFIRMED; 
-///*srl*/             System.err.println("fastpath #"+vote_xpath);
                 } else {
                     String fullpathstr = sm.xpt.getById(full_xpath);
                     //xpp.clear();
                     XPathParts xpp = new XPathParts(null,null);
                     xpp.initialize(fullpathstr);
                     String lelement = xpp.getElement(-1);
-                    //String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-                    //String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
                     String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
                     if(eDraft==null || eDraft.equals("confirmed")) {
-///*srl*/                 System.err.println("vote #"+vote_xpath+" - CONF="+eDraft);
                         existingStatus = Status.CONFIRMED;
                     } else {
                         existingStatus = Status.UNCONFIRMED;
-///*srl*/                 System.err.println("vote #"+vote_xpath+" - unconf="+eDraft);
                     }
                 }
 			}
@@ -1311,29 +1354,6 @@ public class Vetting {
 
                 UserRegistry.User u = sm.reg.getInfo(submitter);
 				vote(u, vote_xpath, orig_xpath, itemValue);
-
-				/*   // This type of removal has been removed.
-                    // Is it removal?   either: #1 base_xpath=vote_xpath but no data (i.e. 'inherited'), or #2 non-base xpath, but value="". '(empty)'
-                    queryValue.setXXX(1, ???);
-					queryValue.setInt(2,vote_xpath);			
-                    ResultSet crs= queryValue.executeQuery();
-                    if(!crs.next()) {
-//                        if(vote_xpath==base_xpath){
-////                   System.err.println(locale+":"+vote_xpath + " = remmoval: MISSING value in base_xpath=vote_xpath");
-                        c.removal=true; // always a removal.
-                    } else {
-                        String v = crs.getString(1);
-                        if(v.length()==0) {
-                            if(vote_xpath!=base_xpath){
-                                System.err.println(locale+":"+vote_xpath + " = remmoval: 0-length value in vote_xpath");
-                                c.removal=true;
-                            } else {
-                                System.err.println(locale+":"+vote_xpath + " = no err - 0 length value.");
-                            }
-                        }
-                    }
-                    crs.close();
-					*/
             }
 			
 			queryValue.setInt(2,base_xpath);
@@ -1344,10 +1364,38 @@ public class Vetting {
 				existingVote(base_xpath, origXpath, itemValue);
 			}
 			
+            // Check for default votes
+            
+            // Google: (proposed-x650)
+            googData.setString(1,locale);
+            googData.setInt(2,base_xpath);
+            rs = googData.executeQuery(); // select xpath,origxpath,value from CLDR_DATA where alt_type='proposed-x650' and locale='af' and base_xpath=194130
+            if(rs.next()) {
+                int vote_xpath = rs.getInt(1);
+                int origXpath = rs.getInt(2);
+                String value = rs.getString(3);
+                defaultVote("Google", vote_xpath, origXpath, value);
+            }
+            
 		    return count;
         }
 		
 		private void calculateOrgVotes() {
+            // look for any default votes. 
+            for(Chad c : chads.values()) {
+                if(c.disqualified) continue;
+                if(c.orgsDefaultFor != null) {
+                    for(Organization o : c.orgsDefaultFor) {
+                        if(o.votes.isEmpty()) {
+                            // org 'o' is default for chad 'c', and didn't already vote for anything.
+                            
+                            // #2 pre-set the vote
+                            o.setDefaultVote(c);
+                        }
+                    }
+                }
+            }
+
 			// calculate the org's choice
 			for(Organization org : orgVotes.values()) {
 				Chad vote = org.calculateVote();
@@ -1361,46 +1409,48 @@ public class Vetting {
 			int highest = 0;
 			
 			for(Chad c : chads.values()) {
-				if(c.score > highest) {
+                if((c.score==0) || c.disqualified) continue;  // item had an error or is otherwise out of the running
+                
+				if(c.score > highest) { // new highest score
 					disputes.clear();
 					winner = c;
-					nexthighest = highest;
+					nexthighest = highest; // save old nexthighest for 'N'
 					highest = c.score;
-				} else if((highest>0) && (c.score == highest)) {
-					if(winner != null) {
-						disputes.add(winner); // record the disputed items.
-					}
-					winner = c;
-				}
+				} else if(c.score == highest) { // same level
+					nexthighest = highest; // save old nexthighest for 'N' ( == )
+                    if(gOurCollator.compare(c.value, winner.value)<0) {
+                        disputes.add(winner);  
+                        winner = c; // new item (c) is lower in UCA, so use it
+                    } else {
+                        disputes.add(c);  // new item (c) was higher in UCA, add it to the disputes list
+                    }
+				} // else: losing item
 			}
 			
-			if(highest > 0) {
-				// Compare the optimal item vote O to the next highest vote getter N:
-				if((winner==existing) &&    
-                            (existingStatus == Status.CONFIRMED)) { // it was already confirmed-
-                    status = Status.CONFIRMED; 
-                } else if(!disputes.isEmpty()) { // had disputes
-					status = Status.UNCONFIRMED;
-				} else if(highest >= (2*nexthighest) && highest >= CONFIRMED_MINIMUM) {
-                    status = Status.CONFIRMED;
-                } else if(highest >= (2*nexthighest) && highest >= CONTRIBUTED_MINIMUM 
-                        && winner.orgs.size()>= CONTRIBUTED_MINIMUM_ORGS) {
+            // http://www.unicode.org/cldr/process.html#resolution_procedure
+            if(highest > 0) {
+                // Compare the optimal item vote O to the next highest vote getter N:
+                if(highest >= (2*nexthighest) && highest >= 8) {      // O >= 2N && O >= 8
+                    status = Status.CONFIRMED; // approved
+                } else if(highest >= (2*nexthighest) && highest >= 2  // O>=2N && O>= 2 && G>= 2
+                        && winner.orgs.size() >= 2) { 
                     status = Status.CONTRIBUTED;
-                } else if(highest > nexthighest && highest >= PROVISIONAL_MINIMUM) {
-                    status= Status.PROVISIONAL;
+                } else if(highest > nexthighest && highest >= 2) {    // O>N && O>=2
+                    status = Status.PROVISIONAL;
                 } else {
                     status = Status.UNCONFIRMED;
-				}
+                }
             }
             
             // was there a confirmed item that wasn't replaced by a confirmed item?
-            if(existing != null) {
-                if( (existingStatus == Status.CONFIRMED) && 
-                    ( (winner == null) || (status != Status.CONFIRMED))) {
+            if( (existing != null) && (existingStatus == Status.CONFIRMED) &&  (!existing.disqualified) && // good existing value
+                ( (winner == null) || (status != Status.CONFIRMED))) // no new winner OR not-confirmed winner
+            {
+                if(winner != existing) {  // is it a different item entirely?
                     winner = existing;
-                    status = existingStatus;
-                    nexthighest = highest; // record that the highest was not the winner.
+                    nexthighest = highest; // record that the highest scoring was not the winner. "not enough votes to.."
                 }
+                status = Status.CONFIRMED; // mark it confirmed. ( == existingStatus )
             }
 			
 			return winner;
@@ -1511,8 +1561,17 @@ public class Vetting {
 			return rowsUpdated;
 		}
 		
+
 	} // end Race
 	
+    Collator gOurCollator = createOurCollator();
+
+    private static Collator createOurCollator() {
+        RuleBasedCollator rbc = 
+            ((RuleBasedCollator)Collator.getInstance());
+        rbc.setNumericCollation(true);
+        return rbc;
+    }
 	
 	public Race getRace(String locale, int base_xpath) throws SQLException {
 		synchronized(conn) {
@@ -2588,5 +2647,83 @@ public class Vetting {
             }
         }
         return false;
+    }
+    
+    Hashtable<String, Reference<DataTester>> hash = new Hashtable<String, Reference<DataTester>>();
+
+    public boolean test(String locale, int xpath, int fxpath, String value) {
+        return test(locale, sm.xpt.getById(xpath), sm.xpt.getById(fxpath), value);
+    }
+    
+    public boolean test(String locale, String xpath, String fxpath, String value) {
+        DataTester tester = get(locale);
+        return tester.test(xpath, fxpath, value);
+    }
+
+    private DataTester get(String locale) {
+        Reference<DataTester> ref = hash.get(locale);
+        DataTester d = null;
+        if(ref != null) {
+            d = ref.get();
+        }
+        if(d != null) {
+            if(!d.isValid()) {
+                d.reset();
+            }
+        }
+        if(d == null) {
+            d = new DataTester(locale);
+            d.register();
+            hash.put(locale, new SoftReference(d));
+        }
+        return d;
+    }
+
+    private class DataTester extends Registerable {
+
+        //////
+        
+        CLDRFile file;
+        CheckCLDR check;
+        List overallResults = new ArrayList();
+        List individualResults = new ArrayList();
+        Map options = sm.basicOptionsMap();
+        
+        void reset() {
+            System.err.println("vetting::checker reset " + locale);
+            CLDRDBSource dbSource = sm.makeDBSource(null, new ULocale(locale), false);
+            //if(resolved == false) {
+                file = sm.makeCLDRFile(dbSource);
+            //} else { 
+            //    file = new CLDRFile(dbSource,true);
+            //}
+            
+            // [md] Set the coverage level to minimal and organization to none. That will override the organization and be consistent across all users.
+
+            overallResults.clear();
+            check = sm.createCheck();
+            check.setCldrFileToCheck(file, options, overallResults);
+            setValid();
+        }
+        
+        private DataTester(String locale) 
+        {
+            super(sm.lcr, locale);
+            reset();
+        }
+        
+        boolean test(String xpath, String fxpath, String value) {
+            individualResults.clear();
+            check.handleCheck(xpath, fxpath, value, options, individualResults);  // they get the full course
+            if(!individualResults.isEmpty()) {
+                for(Object o : individualResults) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus)o;
+                    if(status.getType().equals(status.errorType)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

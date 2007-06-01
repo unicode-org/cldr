@@ -683,8 +683,11 @@ public class WebContext {
     }
     
     public Map getOptionsMap() {
+        return getOptionsMap(sm.basicOptionsMap());
+    }
+    
+    public Map getOptionsMap(Map options) {
         String def = pref(SurveyMain.PREF_COVLEV,"default");
-        Map options = new HashMap();
         if(!def.equals("default")) {
             options.put("CheckCoverage.requiredLevel",def);
         }
@@ -693,9 +696,6 @@ public class WebContext {
         if(org!=null) {
             options.put("CoverageLevel.localeType",org);
         }
-        
-        // the following is highly suspicious. But, CheckCoverage seems to require it.
-        options.put("submission", "true");
                 
         return options;
     }

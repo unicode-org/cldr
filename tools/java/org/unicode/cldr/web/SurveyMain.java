@@ -845,30 +845,55 @@ public class SurveyMain extends HttpServlet {
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
             String what = actionCtx.field("srl_vet_res");
+            boolean reupdate = actionCtx.hasField("reupdate");
             if(what.equals("ALL")) {
                 ctx.println("<h4>Update All</h4>");
+                if(reupdate) {
+                    synchronized(vet.conn) {
+                        int del = sqlUpdate(ctx, vet.conn, vet.rmResultAll);
+                        ctx.println("<em>"+del+" results of ALL locales removed</em><br>");
+                        System.err.println("update: "+del+" results of ALL locales removed");
+                    }
+                }
+                
                 ElapsedTimer et = new ElapsedTimer();
                 int n = vet.updateResults();
                 ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-				lcr.invalidateLocale("root");
-				ElapsedTimer zet = new ElapsedTimer();
-				int zn = vet.updateStatus();
-				ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
+                lcr.invalidateLocale("root");
+                ElapsedTimer zet = new ElapsedTimer();
+                int zn = vet.updateStatus();
+                ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
             } else {
-                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all</a> ]<br>");
+                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all</a> ] | ");
+                ctx.println(" [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>RE</b>Update all</a> ]<br>");
                 if(what.length()>0) {
+                    if(reupdate) {
+                        try {
+                            synchronized(vet.conn) {
+                                vet.rmResultLoc.setString(1,what);
+                                int del = sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
+                                ctx.println("<em>"+del+" results of "+what+" locale removed</em><br>");
+                                System.err.println("update: "+del+" results of "+what+" locale removed");
+                            }
+                        } catch(SQLException se) {
+                            se.printStackTrace();
+                            ctx.println("<b>Err while trying to delete results:</b> <pre>" + unchainSqlException(se)+"</pre>");
+                        }
+                    }
+                    
                     ctx.println("<h4>Update "+what+"</h4>");
                     ElapsedTimer et = new ElapsedTimer();
                     int n = vet.updateResults(what);
                     ctx.println("Done updating "+n+" vote results in: " + et + "<br>");
-					lcr.invalidateLocale(what);
-					ElapsedTimer zet = new ElapsedTimer();
-					int zn = vet.updateStatus();
-					ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
+                    lcr.invalidateLocale(what);
+                    ElapsedTimer zet = new ElapsedTimer();
+                    int zn = vet.updateStatus();
+                    ctx.println("Done updating "+zn+" statuses [locales] in: " + zet + "<br>");
                 }
             }
             actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
             actionCtx.printUrlAsHiddenFields();
+            actionCtx.println("<label><input type='checkbox' name='reupdate' value='reupdate'>Delete before update?</label><br>");
             actionCtx.println("Update just: <input name='srl_vet_res' value='"+what+"'><input type='submit' value='Update'></form>");
         } else if(action.equals("srl_twiddle")) {
 			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
@@ -1622,6 +1647,18 @@ public class SurveyMain extends HttpServlet {
             rs.close();
         } catch ( SQLException se ) {
             String complaint = " Couldn't query count - " + SurveyMain.unchainSqlException(se) + " -  ps";
+            System.err.println(complaint);
+            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
+        }
+        return rv;
+    }
+
+    private static int sqlUpdate(WebContext ctx, Connection conn, PreparedStatement ps) {
+        int rv = -1;
+        try {
+            rv = ps.executeUpdate();
+        } catch ( SQLException se ) {
+            String complaint = " Couldn't sqlUpdate  - " + SurveyMain.unchainSqlException(se) + " -  ps";
             System.err.println(complaint);
             ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
         }
@@ -4119,6 +4156,42 @@ public class SurveyMain extends HttpServlet {
             return "ltr";
         }
     }
+    
+    public Map basicOptionsMap() {
+        Map options = new HashMap();
+        
+        // the following is highly suspicious. But, CheckCoverage seems to require it.
+        options.put("submission", "true");
+        
+        // pass in the current ST phase
+        if(phaseVetting) {
+            options.put("vetting", "true");
+            options.put("phaseVetting", "true");
+        }
+        if(phaseSubmit) {
+            options.put("phaseSubmit", "true");
+        }
+        
+        return options;
+    }
+
+    public CheckCLDR createCheck() {
+            CheckCLDR checkCldr;
+            
+//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+//            long t0 = System.currentTimeMillis();
+            
+            // make sure CLDR has the latest display information.
+            //if(phaseVetting) {
+            //    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
+            //} else {
+                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+            //}
+
+            checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
+            
+            return checkCldr;
+    }
 
     public class UserLocaleStuff extends Registerable {
         public CLDRFile cldrfile = null;
@@ -4142,22 +4215,13 @@ public class SurveyMain extends HttpServlet {
             CheckCLDR checkCldr = (CheckCLDR)hash.get(CHECKCLDR+ctx.defaultPtype());
             if (checkCldr == null)  {
                 List checkCldrResult = new ArrayList();
-    //                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
-    //            long t0 = System.currentTimeMillis();
                 
-                // make sure CLDR has the latest display information.
-                if(phaseVetting) {
-                    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
-                } else {
-                    checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
-                }
-
-                checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
+                checkCldr = createCheck();
                 
                 if(cldrfile==null) {
                     throw new InternalError("cldrfile was null.");
                 }
-                checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(), checkCldrResult);
+                checkCldr.setCldrFileToCheck(cldrfile, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);
     //            logger.info("fileToCheck set . . . on "+ checkCldr.toString());
                 hash.put(CHECKCLDR+ctx.defaultPtype(), checkCldr);
                 if(!checkCldrResult.isEmpty()) {
@@ -4654,7 +4718,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.iconHtml("squo",null) + " " +
                     "</i><br>"+
 					"To see other voters, hover over the <b>"+ctx.iconHtml("vote","Voting Mark")+"</b> symbol. "+
-					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR 1.4. "+
+					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR 1.4. A green value indicates that it is confirmed. "+
 					"</td></tr>");
         }
         if(!pod.xpathPrefix.equals("//ldml/references")) {
@@ -5270,7 +5334,7 @@ public class SurveyMain extends HttpServlet {
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
                 List checkCldrResult = new ArrayList();
                 
-                checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(), checkCldrResult);  // they get the full course
+                checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
                 
                 if(!checkCldrResult.isEmpty()) {
                     boolean doFail = false;
@@ -5858,6 +5922,7 @@ public class SurveyMain extends HttpServlet {
         // submit box
         if((phaseSubmit==true)
 			|| UserRegistry.userIsTC(ctx.session.user)
+            || (phaseVetting && p.hasErrors )
 			|| ( phaseVetting && (resultType[0]== Vetting.RES_DISPUTED) )) {
             String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
@@ -6193,6 +6258,9 @@ public class SurveyMain extends HttpServlet {
 						}
 					} else {
 						ctx.print(org.strength+ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>");
+                        if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
+                            ctx.print(" (default vote)");
+                        }
 					}
                     
                     if(UserRegistry.userIsTC(ctx.session.user) && !org.votes.isEmpty()) {
@@ -6202,7 +6270,13 @@ public class SurveyMain extends HttpServlet {
                             if(item==org.vote) {
                                 ctx.print("<b>");
                             }
+                            if(item.disqualified) {
+                                ctx.print("<strike>");
+                            }
                             ctx.print("<span title='#"+item.xpath+"'>"+item.value+"</span>: ");
+                            if(item.disqualified) {
+                                ctx.print("</strike>");
+                            }
                             if(item==org.vote) {
                                 ctx.print("</b>");
                             }
@@ -6225,6 +6299,7 @@ public class SurveyMain extends HttpServlet {
                 }
                   
                 if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
+                    // This says that the optimal value was NOT the numeric winner.
                     ctx.print("<i>not enough votes to overturn confirmed item</i><br>");
                 } else if(!r.disputes.isEmpty()) {
                     ctx.print("Disputed with: ");
@@ -6359,20 +6434,23 @@ public class SurveyMain extends HttpServlet {
             pClass = "class='loser'";
         }
 
-        if(canModify) {      
-            boolean checkThis = 
-                ((ourVoteXpath!=null)&&
-                (item.xpath!=null)&&
-                (item.xpath.equals(ourVoteXpath)));
-            
-            if(!item.isFallback) {
-                ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
-                    ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
+
+        if(true /* !item.itemErrors */) {  // exclude item from voting due to errors?
+            if(canModify) {      
+                boolean checkThis = 
+                    ((ourVoteXpath!=null)&&
+                    (item.xpath!=null)&&
+                    (item.xpath.equals(ourVoteXpath)));
+                
+                if(!item.isFallback) {
+                    ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+
+                        ((item.altProposed!=null)?item.altProposed:CONFIRM)+"' "+(checkThis?"CHECKED":"")+"  type='radio'>");
+                } else {
+                    ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+INHERITED_VALUE+"' type='radio'>");
+                }
             } else {
-                ctx.print("<input title='#"+item.xpathId+"' name='"+fieldHash+"'  value='"+INHERITED_VALUE+"' type='radio'>");
+                ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
             }
-        } else {
-            ctx.print("<input title='#"+item.xpathId+"' type='radio' disabled>");
         }
 
         if(zoomedIn && (item.votes != null)) {
@@ -7504,7 +7582,7 @@ public class SurveyMain extends HttpServlet {
                         if(cf==null) {
                             throw new InternalError("cf was null.");
                         }
-                        checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(), checkCldrResult);
+                        checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);
                         System.err.println("fileToCheck set . . . on "+ checkCldr.toString());
                         ctx.putByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype(), checkCldr);
                         {

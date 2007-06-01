@@ -189,6 +189,7 @@ public class DataPod extends Registerable {
         
         // do any items have warnings or errs?
         boolean anyItemHasWarnings = false;
+        boolean anyItemHasErrors = false;
         
         boolean hasProps = false;
         boolean hasInherited = false;
@@ -205,6 +206,7 @@ public class DataPod extends Registerable {
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
             public List tests = null;
+            boolean itemErrors = false;
             public Vector examples = null; 
             //public List examplesList = null;
             String references = null;
@@ -271,6 +273,11 @@ public class DataPod extends Registerable {
                         if(errorCount>0) /* pea */ superPea.hasErrors = true;
                         if(warningCount>0) /* pea */ superPea.hasWarnings = true;
                     }
+                   
+                    if(errorCount>0) /* pea */ { itemErrors=true;  anyItemHasErrors = true;  superPea.anyItemHasErrors = true; }
+                    if(warningCount>0) /* pea */ anyItemHasWarnings = true;
+                    // propagate to parent
+                    if(warningCount>0) /* pea */ superPea.anyItemHasWarnings = true;
                 }
                 return weHaveTests;
             }

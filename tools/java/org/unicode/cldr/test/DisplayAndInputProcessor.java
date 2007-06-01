@@ -33,6 +33,15 @@ public class DisplayAndInputProcessor {
   }
 
   /**
+   * Constructor, taking locale.
+   * @param locale
+   */
+  public DisplayAndInputProcessor(ULocale locale) {
+    col = Collator.getInstance(locale);
+    spaceCol = Collator.getInstance(locale);
+  }
+
+  /**
    * Process the value for display. The result is a string for display in the
    * Survey tool or similar program.
    * 

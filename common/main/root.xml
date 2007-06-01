@@ -657,7 +657,7 @@
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -675,7 +675,26 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<alias source="locale" path="../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']"/>
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1019,7 +1038,7 @@
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<alias source="locale" path="../../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Farvardin</month>
@@ -1037,7 +1056,26 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<alias source="locale" path="../../../calendar[@type='gregorian']/months/monthContext[@type='stand-alone']"/>
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>

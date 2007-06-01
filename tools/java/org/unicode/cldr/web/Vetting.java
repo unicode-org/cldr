@@ -987,7 +987,7 @@ public class Vetting {
 
 	public enum Status { 
 		INDETERMINATE (-1),
-		CONFIRMED (0),
+		APPROVED (0),
 		CONTRIBUTED (1),
 		PROVISIONAL (2),
 		UNCONFIRMED (3);
@@ -1030,14 +1030,14 @@ public class Vetting {
 		}
 
 		if((status != Status.INDETERMINATE) && 
-			(status != Status.CONFIRMED) ) { 
+			(status != Status.APPROVED) ) { 
 			String statustype = "indeterminate";
 			switch(status) {
 				case INDETERMINATE: statustype = "indeterminate"; break;
 				case CONTRIBUTED: statustype = "contributed"; break;
 				case PROVISIONAL: statustype = "provisional"; break;
 				case UNCONFIRMED: statustype = "unconfirmed"; break;
-				case CONFIRMED: statustype = "confirmed"; break;
+				case APPROVED: statustype = "approved"; break;
 			}
 			
 			out = out + "[@draft=\""+statustype+"\"]";
@@ -1306,7 +1306,7 @@ public class Vetting {
 				existing = c;
                 
                 if(vote_xpath == full_xpath && vote_xpath == base_xpath) { // shortcut: base=full means it is confirmed.
-                    existingStatus = Status.CONFIRMED; 
+                    existingStatus = Status.APPROVED; 
                 } else {
                     String fullpathstr = sm.xpt.getById(full_xpath);
                     //xpp.clear();
@@ -1314,8 +1314,8 @@ public class Vetting {
                     xpp.initialize(fullpathstr);
                     String lelement = xpp.getElement(-1);
                     String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-                    if(eDraft==null || eDraft.equals("confirmed")) {
-                        existingStatus = Status.CONFIRMED;
+                    if(eDraft==null || eDraft.equals("approved")) {
+                        existingStatus = Status.APPROVED;
                     } else {
                         existingStatus = Status.UNCONFIRMED;
                     }
@@ -1431,7 +1431,7 @@ public class Vetting {
             if(highest > 0) {
                 // Compare the optimal item vote O to the next highest vote getter N:
                 if(highest >= (2*nexthighest) && highest >= 8) {      // O >= 2N && O >= 8
-                    status = Status.CONFIRMED; // approved
+                    status = Status.APPROVED; // approved
                 } else if(highest >= (2*nexthighest) && highest >= 2  // O>=2N && O>= 2 && G>= 2
                         && winner.orgs.size() >= 2) { 
                     status = Status.CONTRIBUTED;
@@ -1442,15 +1442,21 @@ public class Vetting {
                 }
             }
             
-            // was there a confirmed item that wasn't replaced by a confirmed item?
-            if( (existing != null) && (existingStatus == Status.CONFIRMED) &&  (!existing.disqualified) && // good existing value
-                ( (winner == null) || (status != Status.CONFIRMED))) // no new winner OR not-confirmed winner
+            // was there an approved item that wasn't replaced by a confirmed item?
+            if( (existing != null) && (existingStatus == Status.APPROVED) &&  (!existing.disqualified) && // good existing value
+                ( (winner == null) || (status != Status.APPROVED))) // no new winner OR not-confirmed winner
             {
                 if(winner != existing) {  // is it a different item entirely?
                     winner = existing;
                     nexthighest = highest; // record that the highest scoring was not the winner. "not enough votes to.."
                 }
-                status = Status.CONFIRMED; // mark it confirmed. ( == existingStatus )
+                status = Status.APPROVED; // mark it confirmed. ( == existingStatus )
+            }
+            
+            // or, was there any existing item at all?
+            if((winner == null) && (existing != null) && (!existing.disqualified)) {
+                winner = existing;
+                status = existingStatus; // whatever it is
             }
 			
 			return winner;

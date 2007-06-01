@@ -1022,8 +1022,10 @@ import com.ibm.icu.util.ULocale;
 				
                 if(!rs.next()) {
                     rs.close();
-                    logger.severe("getOrigXpath not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
-                    return xpt.getById(pathid); // not found - should be null?
+                    return null;
+//                    throw new InternalError  /* logger.severe */ ("getOrigXpath["+finalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
+                    //return xpt.getById(pathid); // not found - should be null?
+                
                 }
                 int result = rs.getInt(1);
 				/*

@@ -3771,7 +3771,7 @@ public class SurveyMain extends HttpServlet {
                 throw new InternalError("IO Exception "+e.toString());
             }
         }
-        
+        System.err.println("output: " + kind + " - DONE, files: " + nrInFiles);
         return nrInFiles;
     }
 
@@ -4718,7 +4718,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.iconHtml("squo",null) + " " +
                     "</i><br>"+
 					"To see other voters, hover over the <b>"+ctx.iconHtml("vote","Voting Mark")+"</b> symbol. "+
-					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR 1.4. A green value indicates that it is confirmed. "+
+					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR 1.4. A green value indicates that it is tentatively confirmed. "+
 					"</td></tr>");
         }
         if(!pod.xpathPrefix.equals("//ldml/references")) {
@@ -5103,6 +5103,8 @@ public class SurveyMain extends HttpServlet {
         }
         if(!choice.equals(CHANGETO)) {
             choice_v=""; // so that the value is ignored, as it is not changing
+        } else if (choice_v.length()>0) {
+            choice_v = ctx.processor.processInput(xpt.getById(p.base_xpath),choice_v);
         }
         
         /* handle inherited value */
@@ -5711,7 +5713,8 @@ public class SurveyMain extends HttpServlet {
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(
-                (item.xpathId == resultXpath_id) && 
+                (  (item.xpathId == resultXpath_id) ||
+                  (resultXpath_id==-1 && item.xpathId==p.base_xpath)  ) && 
                 !(item.isFallback || (item.inheritFrom != null))) {
                 currentItems.add(item); 
             } else {
@@ -5759,6 +5762,13 @@ public class SurveyMain extends HttpServlet {
         
         List<DataPod.Pea.Item> warningsList = new ArrayList<DataPod.Pea.Item>();
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
+        
+        String okayIcon;
+        if(p.confirmStatus == Vetting.Status.APPROVED) {
+            okayIcon = ctx.iconHtml("okay", "Approved Item");
+        } else {
+            okayIcon = ctx.iconHtml("warn", p.confirmStatus + " Item");
+        }
 
         // calculate the class of data items
         String statusIcon="";
@@ -5802,10 +5812,10 @@ public class SurveyMain extends HttpServlet {
                 rclass = "insufficientrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
             } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-                if((s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
+                if((!p.hasInherited&&!p.hasProps) || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
                     statusIcon = (ctx.iconHtml("squo","ok - no change"));
                 } else {
-                    statusIcon = (ctx.iconHtml("okay","ok"));
+                    statusIcon = okayIcon;
                 }
                 rclass = "okay";
             } else {
@@ -6300,7 +6310,7 @@ public class SurveyMain extends HttpServlet {
                   
                 if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
                     // This says that the optimal value was NOT the numeric winner.
-                    ctx.print("<i>not enough votes to overturn confirmed item</i><br>");
+                    ctx.print("<i>not enough votes to overturn approved item</i><br>");
                 } else if(!r.disputes.isEmpty()) {
                     ctx.print("Disputed with: ");
                     for(Vetting.Race.Chad disputor : r.disputes) {
@@ -6406,14 +6416,11 @@ public class SurveyMain extends HttpServlet {
 
         String pClass ="";
         if(winner) {
-            if(p.confirmStatus == Vetting.Status.CONFIRMED) {
+            if(p.confirmStatus == Vetting.Status.APPROVED) {
                 pClass = "class='winner' title='Winning item.'";
-            } else {
-                if(p.confirmStatus != Vetting.Status.INDETERMINATE) {
-                    pClass = "title='"+p.confirmStatus+"' ";
-                }
+            } else if(p.confirmStatus != Vetting.Status.INDETERMINATE) {
+                pClass = "title='"+p.confirmStatus+"' ";
             }
-            /* todo: distinguish confirmed from unconfirmed */
         } else if(item.pathWhereFound != null) {
             fallback = true;
             pClass = "class='alias' title='alias from "+xpt.getPrettyPath(item.pathWhereFound)+"'";
@@ -6477,15 +6484,17 @@ public class SurveyMain extends HttpServlet {
         ctx.print("<span "+pClass+">");
                 
         if(item.value.length()!=0) {
-            ctx.print(item.value);
+            ctx.print(ctx.processor.processForDisplay(xpt.getById(p.base_xpath),item.value));
         } else {
             ctx.print("<i dir='ltr'>(empty)</i>");
         }
         ctx.print("</span>");
         if((!fallback||((p.previousItem==null)&&item.isParentFallback)||  // it's either: not inherited OR not a "shim"  and..
-            (item.pathWhereFound != null)) &&    // .. or it's an alias (that is still the 1.4 item)
+            (item.pathWhereFound != null && !item.isFallback )) &&    // .. or it's an alias (that is still the 1.4 item)
             item.xpathId == p.base_xpath) {   // its xpath is the base xpath.
             ctx.print(ctx.iconHtml("star","CLDR 1.4 item"));
+        } else if (isUnofficial && item.isParentFallback) {
+            ctx.print(ctx.iconHtml("okay","parent fallback"));
         }
         
         if( (item.votes == null) ||   // nobody voted for it, or

@@ -11,6 +11,7 @@ import org.w3c.dom.Document;
 import java.io.*;
 import java.util.*;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.test.*;
 import com.ibm.icu.util.ULocale;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -105,6 +106,7 @@ public class WebContext {
         conn = other.conn;
         dbsrc = other.dbsrc;
         sm = other.sm;
+        processor = other.processor;
         temporaryStuff = other.temporaryStuff;
     }
     
@@ -478,10 +480,12 @@ public class WebContext {
         return LDMLUtilities.getParent(id);
     }
     
-
+    public DisplayAndInputProcessor processor = null;
+    
     void setLocale(ULocale l) {
         locale = l;
         localeString = locale.getBaseName();
+        processor = new DisplayAndInputProcessor(l);
         String parents = null;
         Vector localesVector = new Vector();
         parents = l.toString();

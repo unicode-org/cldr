@@ -635,6 +635,13 @@ public class DataPod extends Registerable {
     private Partition[] createVettingPartitions() {
         Partition theVetPartitions[] = 
         {                 
+                new Partition("Error Values", 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return (p.hasTests&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
+                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
+                        }
+                    }),
                 new Partition("Changes Proposed: Insufficient Votes", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
@@ -646,7 +653,9 @@ public class DataPod extends Registerable {
                 new Partition(CHANGES_DISPUTED, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0);
+                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ||
+                                (p.confirmStatus!=Vetting.Status.APPROVED &&
+                                    p.confirmStatus!=Vetting.Status.INDETERMINATE);
                         }
                     }),
                 new Partition("Changes Proposed: Tentatively Approved", 
@@ -654,7 +663,8 @@ public class DataPod extends Registerable {
                         public boolean isMember(Pea p) {
                             return ((p.hasProps)&&
                                 ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
-                                    (p.allVoteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                                    (p.allVoteType>0) &&
+                                        (p.confirmStatus==Vetting.Status.APPROVED) ); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
                         }
                     }),
 /*                new Partition("Other "+DATAPOD_VETPROB + " [internal error]",  // should not appear?
@@ -664,13 +674,6 @@ public class DataPod extends Registerable {
                         }
                     }),
     */
-                new Partition("No Changes Proposed: Questionable Values", 
-                    new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
-                            return (p.hasTests&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
-                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
-                        }
-                    }),
         /*
                 new Partition("Changes Propsed: [internal error]", 
                     new PartitionMembership() { 

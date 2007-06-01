@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.42 $
-    $Date: 2007-05-24 17:36:51 $
+    $Revision: 1.43 $
+    $Date: 2007-06-01 07:04:52 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, references? ) >
@@ -262,7 +262,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems values CDATA #IMPLIED >
 
-<!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, timezoneCoverage* ) >
+<!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, currencyCoverage*, timezoneCoverage* ) >
 <!ATTLIST coverageAdditions draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT languageCoverage ( #PCDATA ) >
@@ -279,6 +279,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territoryCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST territoryCoverage values NMTOKENS #IMPLIED >
+
+<!ELEMENT currencyCoverage ( #PCDATA ) >
+<!ATTLIST currencyCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST currencyCoverage type NMTOKEN #IMPLIED >
+<!ATTLIST currencyCoverage values NMTOKENS #IMPLIED >
 
 <!ELEMENT timezoneCoverage ( #PCDATA ) >
 <!ATTLIST timezoneCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

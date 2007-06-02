@@ -45,6 +45,11 @@ import com.ibm.icu.util.ULocale;
     public boolean finalData = false;
     
     /**
+     * for vetting? 
+     */
+    private Vetting vetting = null;
+    
+    /**
      * the logger to use, from SurveyMain
      **/
     private static Logger logger;
@@ -1387,6 +1392,10 @@ import com.ibm.icu.util.ULocale;
         return result;
     }
     
+    public void vettingMode(Vetting v) {
+        vetting = v;
+    }
+    
     /**
      * Cloner. Shares the DB connection. 
      */
@@ -1404,6 +1413,7 @@ import com.ibm.icu.util.ULocale;
             result.stmts = stmts;
             result.srcHash = srcHash;
             result.aliasTable = aliasTable;
+            result.vetting = vetting;
             // do something here?
             return result;
 		} catch (CloneNotSupportedException e) {

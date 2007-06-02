@@ -378,7 +378,7 @@ public class Vetting {
             staleResult = prepareStatement("staleResult",
                 "select CLDR_RESULT.id,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.locale=? AND exists (select * from CLDR_VET where (CLDR_VET.base_xpath=CLDR_RESULT.base_xpath) AND (CLDR_VET.locale=CLDR_RESULT.locale) AND (CLDR_VET.modtime>CLDR_RESULT.modtime))");
             updateResult = prepareStatement("updateResult",
-                "update CLDR_RESULT set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?");
+                "update CLDR_RESULT set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where base_xpath=? and locale=?");
             intQuery = prepareStatement("intQuery",
                 "select last_sent_nag,last_sent_update from CLDR_INTGROUP where intgroup=?");
             intAdd = prepareStatement("intAdd",
@@ -690,6 +690,9 @@ public class Vetting {
         // two lists here.
         //  #1  results that are missing (unique CLDR_DATA.base_xpath but no CLDR_RESULT).  Use 'insert' instead of 'update', no 'old' data.
         //  #2  results that are out of date (CLDR_VET with same base_xpath but later modtime.).  Use 'update' instead of 'insert'. (better yet, use an updatable resultset).
+        
+        Set<Race> racesToUpdate = new HashSet<Race>();
+        
         synchronized(conn) {
             try {
                 //dataByUserAndBase.setString(3, locale);
@@ -702,27 +705,17 @@ public class Vetting {
                 queryVoteForBaseXpath.setString(1,locale);
                 insertResult.setString(1,locale);
                 
-                
+                // Missing results...
                 ResultSet rs = missingResults.executeQuery();
                 while(rs.next()) {
                     ncount++;
                     base_xpath = rs.getInt(1);
                     
-                    int rc = updateResults(-1, locale, base_xpath);
+                    int rc = updateResults(-1, locale, base_xpath, racesToUpdate);
 
                     updates |= rc;
                 }
-                if(ncount > 0) {
-                    int uscnt = updateStatus(locale, true);// update results
-                    //if(uscnt>0) {
-                    //    //System.err.println("updated " + uscnt + " statuses");  // not always because of implied vote.
-                    //} else {
-                    //    //System.err.println("No statuses updated.");
-                    //}
-                    conn.commit();
-                }
-                
-                // out of date
+                // out of date results..
                 staleResult.setString(1,locale);
                 rs = staleResult.executeQuery();  // id, base_xpath
                 while(rs.next()) {
@@ -730,11 +723,12 @@ public class Vetting {
                     int id = rs.getInt(1);
                     base_xpath = rs.getInt(2);
                     
-                    int rc = updateResults(id, locale, base_xpath);
+                    int rc = updateResults(id, locale, base_xpath, racesToUpdate);
                     //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
                     updates |= rc;
                 }
-                if(ucount > 0) {
+                // if anything changed, commit it
+                if((ucount > 0) || (ncount > 0)) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
                         System.err.println(locale+": updated " + uscnt + " statuses, due to vote change");
@@ -743,6 +737,23 @@ public class Vetting {
                     }
                     conn.commit();
                 }
+                
+                // Now that we've committed, should be OK to look for errs.
+                Set<Race> errorRaces = searchForErrors(racesToUpdate);
+                
+                if(!errorRaces.isEmpty()) {
+                    correctErrors(errorRaces);
+
+                    // if anything changed, commit it
+                    int uscnt = updateStatus(locale, true);// update results
+                    if(uscnt>0) {
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to error change");
+                    } else {
+                        System.err.println(locale+": updated " + uscnt + " statuses, due to error change??");
+                    }
+                    conn.commit();
+                }
+                
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
                     "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
@@ -753,6 +764,32 @@ public class Vetting {
             type[0] = updates;
             return ncount + ucount;
         }
+    }
+    
+    private Set<Race> searchForErrors(Set<Race> racesToUpdate) {
+        System.err.println(racesToUpdate.size() + " to check");
+        Set<Race> errorRaces = new HashSet<Race>();
+        
+        for(Race r : racesToUpdate) {
+            if(r.recountIfHadDisqualified()) {
+                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
+                errorRaces.add(r);
+            }
+        }
+        
+        return errorRaces;
+    }
+    
+    private int correctErrors(Set<Race> errorRaces) throws SQLException {
+        int n = 0;
+        System.err.println(errorRaces.size() + " to correct");
+        for(Race r : errorRaces) {
+            r.updateDB();
+            n++;
+        }
+        conn.commit();
+        System.err.println(n+" items corrected");
+        return n;
     }
 
     /**
@@ -1170,8 +1207,19 @@ public class Vetting {
 				this.full_xpath = full_xpath;
 				this.value = value;
                 
-                //disqualified = test(locale, base_xpath, xpath, value);
 			}
+            
+            boolean checkDisqualified() {
+                if(disqualified) {
+                    return true;
+                }
+                disqualified = test(locale, base_xpath, xpath, value); 
+                if(disqualified) {
+                    score = 0;
+                    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
+                }
+                return disqualified;
+            }
             
             /**
              * Call this if the item is a default vote for an organization
@@ -1225,6 +1273,8 @@ public class Vetting {
 		public Chad existing = null; // existing vote
         public Status existingStatus = Status.INDETERMINATE;
         int nexthighest = 0;
+        
+        int id; // for writing
             
 		/* reset all */
 		public void clear() {
@@ -1239,9 +1289,15 @@ public class Vetting {
 		
 		/* Reset this for a new item */
 		public void clear(int base_xpath, String locale) {
+            clear(base_xpath, locale, -1);
+		}
+
+		/* Reset this for a new item */
+		public void clear(int base_xpath, String locale, int id) {
 			clear();
 			this.base_xpath = base_xpath;
 			this.locale = locale;
+            this.id = id;
 		}
 		
 		/**
@@ -1260,6 +1316,26 @@ public class Vetting {
 				return optimal.xpath;
 			}
 		}
+        
+        /* check for errors */
+        boolean recountIfHadDisqualified() {
+            if(winner == null) {
+                return false;
+            }
+            if(!winner.checkDisqualified()) {
+                return false;
+            }
+            winner = null; // no winner
+            nexthighest = 0;
+            for(Chad c : chads.values()) {
+                c.checkDisqualified();
+            }
+            calculateOrgVotes();
+
+            calculateWinner();
+            return true;
+        }
+        
 
         private Chad getChad(int vote_xpath, int full_xpath, String value) {
 			Integer vote_xpath_int = new Integer(vote_xpath);
@@ -1383,6 +1459,7 @@ public class Vetting {
 		private void calculateOrgVotes() {
             // look for any default votes. 
             for(Chad c : chads.values()) {
+                c.score = 0;
                 if(c.disqualified) continue;
                 if(c.orgsDefaultFor != null) {
                     for(Organization o : c.orgsDefaultFor) {
@@ -1465,6 +1542,7 @@ public class Vetting {
 		/**
 		 * This function is called to update the CLDR_OUTPUT and CLDR_ORGDISPUTE tables.
 		 * assumes a lock on (conn) held by caller.
+         * @return type
 		 */
 		public int updateDB() throws SQLException {
 			// First, zap old data
@@ -1562,12 +1640,72 @@ public class Vetting {
 					rowsUpdated += orgDisputeInsert.executeUpdate();
 				}
 			}
-			
-			conn.commit(); //?
-			return rowsUpdated;
-		}
-		
+        //    return rowsUpdated;
+        //}
+		//public int updateResultsDB() throws SQLException {
+            // Now, update the vote results
+            int resultXpath= -1;
+            int type = 0;
+            if(winner != null) {
+                resultXpath = winner.xpath;
+            }
+            
+            // Examine the results
+            if(resultXpath != -1) {
+                if(!disputes.isEmpty()) {
+                    type = RES_DISPUTED;
+                } else {
+                    /*if(r.orgVotes.isEmpty()) {
+                        type = RES_NO_VOTES; 
+                    } else */ {
+                        type = RES_GOOD;
+                    }
+                }
+            } else {
+                if(!chads.isEmpty()) {
+                    type = RES_INSUFFICIENT;
+                } else {
+                    type = RES_NO_VOTES;
+                }
+            }
 
+            if(id == -1) { 
+                // Not an existing vote:  insert a new one
+                // insert 
+                insertResult.setInt(2,base_xpath);
+                if(resultXpath != -1) {
+                    insertResult.setInt(3,resultXpath);
+                } else {
+                    insertResult.setNull(3,java.sql.Types.SMALLINT); // no fallback.
+                }
+                insertResult.setInt(4,type);
+
+                int res = insertResult.executeUpdate();
+                // no commit
+                if(res != 1) {
+                    throw new RuntimeException(locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+") - insert failed.");
+                }
+                id = -2; // unknown id
+            } else {
+                // existing vote: get the old one
+                // ... for now, just do an update
+                // update CLDR_RESULT set vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
+
+                if(resultXpath != -1) {
+                    updateResult.setInt(1,resultXpath);
+                } else {
+                    updateResult.setNull(1,java.sql.Types.SMALLINT); // no fallback.
+                }
+                updateResult.setInt(2, type);
+                updateResult.setInt(3, base_xpath);
+                updateResult.setString(4, locale);
+                int res = updateResult.executeUpdate();
+                if(res != 1) {
+                    throw new RuntimeException(locale+":"+base_xpath+"@"+id+"="+resultXpath+ " ("+typeToStr(type)+") - update failed.");
+                }
+            }
+			return type;
+		}
 	} // end Race
 	
     Collator gOurCollator = createOurCollator();
@@ -1585,7 +1723,7 @@ public class Vetting {
 			Race r = new Race();
 			r.clear(base_xpath, locale);
 			r.optimal();
-			
+			r.recountIfHadDisqualified();
 			return r;
 		}
 	}
@@ -1606,7 +1744,7 @@ public class Vetting {
      * @param base_xpath the base xpath that is being considered
      * @return the type of the vetting result. 
      */     
-    private int updateResults(int id, String locale, int base_xpath) throws SQLException {
+    private int updateResults(int id, String locale, int base_xpath, Set<Race> racesToUpdate) throws SQLException {
         int resultXpath = -1;
         int type = -1;
         int fallbackXpath = -1;
@@ -1616,236 +1754,15 @@ public class Vetting {
         
         // Step 0: gather all votes
 		Race r = new Race();
-		r.clear(base_xpath, locale);
+		r.clear(base_xpath, locale, id);
 		resultXpath = r.optimal();
 		
+        racesToUpdate.add(r);
+        
 		// make the Race update itself ( we don't do this if it's just investigatory)
-		int rowsUpdated = r.updateDB();
-///*srl*/            System.err.println(locale+" updated "+rowsUpdated+" rows: "+ base_xpath +" -> "+resultXpath);
-		
-		// Examine the results
-		if(resultXpath != -1) {
-			if(!r.disputes.isEmpty()) {
-				type = RES_DISPUTED;
-			} else {
-                /*if(r.orgVotes.isEmpty()) {
-                    type = RES_NO_VOTES; 
-                } else */ {
-                    type = RES_GOOD;
-                }
-			}
-		} else {
-			if(!r.chads.isEmpty()) {
-				type = RES_INSUFFICIENT;
-			} else {
-				type = RES_NO_VOTES;
-			}
-		}
-		
-/*        
-        if((type==-1) && !chads.isEmpty()) { // no resolution AND someone did vote.
-            int number_voted_for=0;
-            boolean sawQuorum = false;
-            boolean tcOverride = false;
-            Chad quorumChad = null;
-			Chad adminChad = null;
-            for(Iterator i=chads.values().iterator();i.hasNext();) { // see if any chads win.  Collect admin chad.  This could set DISPUTED. 
-                Chad c = (Chad)i.next();
-				if((adminChad == null) && c.admin_voted_for) {
-					adminChad = c;
-				}
-                if(c.someone_voted_for) {
-                    number_voted_for++;
-                    if(number_voted_for>1) {
-                        type = RES_DISPUTED;  // if more than one chad has a legit vote - disputed.
-                    }
-                }
-                if(VET_VERBOSE) System.err.println("  "+c);
-                if(c.quorum) {
-                    if(sawQuorum) {
-                        type = RES_DISPUTED; // Note: don't handle TC or admin ability to override, yet. Probably handle with an admin supervote.
-                    } else {
-                        sawQuorum = true;
-                        quorumChad = c;
-                    }
-                }
-            }
-			if((type==RES_DISPUTED)&&(adminChad != null)) { // If it was already unanimous - no need to consider it an override. Keep the noise down.
-				type = RES_ADMIN;
-                resultXpath = adminChad.xpath;
-                fallbackXpath = resultXpath;
-				if(adminChad.removal) {
-					type = RES_REMOVAL; // admin override removal : no special type for this.
-				}
-			}
-            if(sawQuorum && (type==-1)) {
-                // We have a winner.
-                if(quorumChad.removal) {
-//srl                    System.err.println("RESULT: "+locale+":"+base_xpath+" = RES_REMOVAL");
-                    type = RES_REMOVAL; // quorum is to remove an item. Needed to suppress base_xpath from iterator()
-                } else if(chads.size()==1) {
-                    type = RES_UNANIMOUS; // not shown if TC also voted.
-                } else if(quorumChad.admin_voted_for) {
-                    type = RES_ADMIN;
-                } else {
-                    type = RES_GOOD; // we have a winner, anyways.
-                }
-                resultXpath = quorumChad.xpath;
-                fallbackXpath = resultXpath;
-            }
-            
-            if((type==-1)&&(sawQuorum == false) && !chads.isEmpty()) {
-                type = RES_INSUFFICIENT; // Some people voted, but no quorum.
-            }
-        } 
-//System.err.println(base_xpath+": resu="+resultXpath);
-        if(resultXpath == -1) { // No type set yet and no votes
-            // Step 1: gather the winner (if any)
-              //              "select xpath,origxpath,value,type,alt_type,submitter,modtime FROM CLDR_DATA WHERE " + 
-              //          "(locale=?) AND (base_xpath=?)");
-              // NB this is too heavyweight for this common case!
-            dataByBase.setInt(2,base_xpath);
-            boolean sawProposed = false; // any 'proposed' items at all?
-            boolean sawExisting = false; // any existing items at all?
-            
-            ResultSet rs = dataByBase.executeQuery();
-            int updated=0;
-            int count = 0;
-            int existingXpath = -1;
-            
-            while(rs.next()) {
-                count++;
-                int xpath       = rs.getInt(1);
-                int orig_xpath  = rs.getInt(2);
-                String alt_type = rs.getString(3);
-                boolean altNull = rs.wasNull();
-                boolean isDraft = false;
-//    System.err.println(xpath+":"+orig_xpath+" - "+alt_type);
-                if(orig_xpath!=xpath) {
-                    final String draftString = "[@draft=\"";
-                    String ourXpath=sm.xpt.getById(orig_xpath);
-                    int draftLoc = ourXpath.indexOf(draftString);
-                    if(draftLoc != -1) {
-                        String sub = ourXpath.substring(draftLoc+draftString.length());
-                        if(sub.startsWith("true") ||
-                           sub.startsWith("provisional") ||
-                           sub.startsWith("unconfirmed")) {
-                            isDraft=true;
-                        }
-                    }
-                }
-
-                if((orig_xpath==base_xpath)&&(fallbackXpath == -1)) {
-                    fallbackXpath = base_xpath; // fall back to base
-                }
-                
-                if(!altNull) {
-                    String typeAndProposed[] = LDMLUtilities.parseAlt(alt_type);
-                    String altProposed = typeAndProposed[1];
-                    String altType = typeAndProposed[0];
-                
-                    if(((altProposed==null) ||
-                        altProposed.length()==0)&&
-                            !isDraft) {
-                        sawExisting = true; // non-proposed alternate of some sort.
-                        existingXpath = xpath;
-                    } else {
-                        sawProposed = true;
-                    }
-                } else { // alt was null.
-                    if(!isDraft) {
-                        sawExisting = true;
-                        existingXpath = xpath;
-                    } else {
-                        sawProposed = true;
-                    }
-                }
-            }
-
- //   System.err.println(base_xpath+": fb="+fallbackXpath+", x="+existingXpath+", t="+type+", count="+count+", sawX="+new Boolean(sawExisting)+", sawP="+new Boolean(sawProposed)+".");
-            if(fallbackXpath == -1) {
-                fallbackXpath = existingXpath;
-            }
-                        
-            if(type==-1) {
-                // no other resolution - was there an existing item?
-                if((count==1) && sawExisting && !sawProposed) {
-                    resultXpath = existingXpath;
-                    //System.err.println(base_xpath + " - no new data (existing " + resultXpath+")");
-                    type = RES_NO_CHANGE; // Existing data.. nobody voted.. we'll take it.
-                } else {
-                    //System.err.println("V: "+locale+":"+base_xpath+"=" + "? - count="+count+", sawX="+new Boolean(sawExisting)+", sawP="+new Boolean(sawProposed)+".");
-                    type = RES_NO_VOTES; // Nobody voted.. something was proposed, though.
-                }
-            }
-        } // end no-votes
+		type = r.updateDB();
         
-        // resulted in -1 and was bad - sanity check. Should have fallen back to something. 
-        if((resultXpath==-1)&&
-           (type>RES_BAD_MAX)) {
-            throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+
-                    " - no resultXpath and type is " + typeToStr(type));
-        }
-        
-        if(type==-1) {
-            // another sanity check. Should have had a resolution here.
-            throw new RuntimeException("Internal Error: Can't update "+locale+":"+base_xpath+" - no type");
-        }
-        
-*/
-
-        // --------
-        // Now, update the vote results
-        int setXpath = resultXpath;
-        
-        if(setXpath==-1) {
-            // fallback situation
-//            setXpath = fallbackXpath;
-        }
-
-
-        if(id == -1) { 
-            // Not an existing vote:  insert a new one
-            // insert 
-        // insertResult: "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
-            insertResult.setInt(2,base_xpath);
-//System.err.println(base_xpath+"::fb="+fallbackXpath+", rx="+resultXpath);
-            if(setXpath != -1) {
-                insertResult.setInt(3,setXpath);
-            } else {
-                insertResult.setNull(3,java.sql.Types.SMALLINT); // no fallback.
-            }
-            insertResult.setInt(4,type);
-            
-//            if((type != RES_NO_CHANGE) && // boring ones..
-//                (type != RES_NO_VOTES)) {
-//                System.err.println("V: "+locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+")");
-//            }
-            
-            int res = insertResult.executeUpdate();
-			// no commit
-            if(res != 1) {
-                throw new RuntimeException(locale+":"+base_xpath+"=" + resultXpath+ " ("+typeToStr(type)+") - insert failed.");
-            }
-            return type;
-        } else {
-            // existing vote: get the old one
-            // ... for now, just do an update
-            // update CLDR_RESULT set vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
-
-            if(setXpath != -1) {
-                updateResult.setInt(1,setXpath);
-            } else {
-                updateResult.setNull(1,java.sql.Types.SMALLINT); // no fallback.
-            }
-            updateResult.setInt(2, type);
-            updateResult.setInt(3, id);
-            int res = updateResult.executeUpdate();
-            if(res != 1) {
-                throw new RuntimeException(locale+":"+base_xpath+"@"+id+"="+resultXpath+ " ("+typeToStr(type)+") - update failed.");
-            }
-            return type;
-        }
+        return type;
     }
     
     /**
@@ -2674,12 +2591,15 @@ public class Vetting {
         }
         if(d != null) {
             if(!d.isValid()) {
+                System.err.println("vetting::checker STALE " + locale);
                 d.reset();
             }
         }
         if(d == null) {
+            if(ref != null) {
+                System.err.println("vetting::checker EXPIRED " + locale);
+            }
             d = new DataTester(locale);
-            d.register();
             hash.put(locale, new SoftReference(d));
         }
         return d;
@@ -2698,6 +2618,7 @@ public class Vetting {
         void reset() {
             System.err.println("vetting::checker reset " + locale);
             CLDRDBSource dbSource = sm.makeDBSource(null, new ULocale(locale), false);
+            dbSource.vettingMode(sm.vet);
             //if(resolved == false) {
                 file = sm.makeCLDRFile(dbSource);
             //} else { 
@@ -2710,11 +2631,16 @@ public class Vetting {
             check = sm.createCheck();
             check.setCldrFileToCheck(file, options, overallResults);
             setValid();
+            register();
         }
         
         private DataTester(String locale) 
         {
             super(sm.lcr, locale);
+
+            options.put("CheckCoverage.requiredLevel","minimal");
+            options.put("CoverageLevel.localeType","");
+
             reset();
         }
         

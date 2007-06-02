@@ -4162,14 +4162,14 @@ public class SurveyMain extends HttpServlet {
         
         // the following is highly suspicious. But, CheckCoverage seems to require it.
         options.put("submission", "true");
-        
+
         // pass in the current ST phase
         if(phaseVetting) {
-            options.put("vetting", "true");
-            options.put("phaseVetting", "true");
-        }
-        if(phaseSubmit) {
-            options.put("phaseSubmit", "true");
+            options.put("phase", "vetting");
+        } else if(phaseSubmit) {
+            options.put("phase", "submit");
+        } else {
+            options.put("phase", "unknown");
         }
         
         return options;
@@ -5932,8 +5932,8 @@ public class SurveyMain extends HttpServlet {
         // submit box
         if((phaseSubmit==true)
 			|| UserRegistry.userIsTC(ctx.session.user)
-            || (phaseVetting && p.hasErrors )
-			|| ( phaseVetting && (resultType[0]== Vetting.RES_DISPUTED) )) {
+            || (phaseVetting && ( p.hasErrors  ||
+                                  p.hasProps ||  (resultType[0]== Vetting.RES_DISPUTED) ))) {
             String changetoBox = "<td width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {

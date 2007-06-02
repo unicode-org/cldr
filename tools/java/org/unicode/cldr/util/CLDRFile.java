@@ -2422,6 +2422,27 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return getStringValue(getWinningPath(path));
   }
   
+  /**
+   * Return the paths that have the specified value. The pathPrefix and pathMatcher
+   * can be used to restrict the returned paths to those matching.
+   * The pathMatcher can be null (equals .*).
+   * @param pathPrefix
+   * @param valueToMatch
+   * @return
+   */
+  public Set<String> getPathsWithValue(String pathPrefix, Matcher pathMatcher, String valueToMatch) {
+    Set<String> result = new HashSet();
+    for (Iterator<String> it = iterator(pathPrefix); it.hasNext();) {
+      String path = it.next();
+      String possibleValue = getStringValue(path);
+      if (possibleValue.equals(valueToMatch) 
+          && (pathMatcher == null || pathMatcher.reset(path).matches())) {
+        result.add(path);
+      }
+    }
+    return result;
+  }
+  
   public enum WinningChoice {NORMAL, WINNING};
   
   // TODO This stuff needs some rethinking, but just to get it going for now...

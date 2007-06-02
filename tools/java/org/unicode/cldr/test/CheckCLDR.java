@@ -174,7 +174,7 @@ abstract public class CheckCLDR {
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
     "-A \t Show all paths",
-    "-e \t Show errors only",
+    "-e \t Show errors only (with -ef, only final processing errors)",
     "-n \t No aliases",
     "-u \t User, eg -uu148",
   };
@@ -201,7 +201,9 @@ abstract public class CheckCLDR {
     String factoryFilter = options[FILE_FILTER].value; 
     String checkFilter = options[TEST_FILTER].value;
     errorsOnly = options[ERRORS_ONLY].doesOccur;
-    if (errorsOnly) finalErrorType = CheckStatus.warningType;
+    if ("f".equals(options[ERRORS_ONLY].value)) {
+      finalErrorType = CheckStatus.warningType;
+    }
     
     SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
     boolean showAll = options[SHOWALL].doesOccur; 

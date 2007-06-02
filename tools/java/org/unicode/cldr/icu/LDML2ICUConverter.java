@@ -1122,6 +1122,19 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             xpath.delete(oldLength, xpath.length());
         }
         xpath.delete(savedLength, xpath.length());
+
+        // Now add the multi-zone list to the table
+        String multizone = LDMLUtilities.getAttributeValue(root,LDMLConstants.MULTIZONE);
+        ICUResourceWriter.ResourceArray mz;
+        mz = getResourceArray(multizone, LDMLConstants.MULTIZONE);
+        if(current == null){
+            table.first = mz;
+            current = findLast(mz);
+        }else{
+            current.next = mz;
+            current = findLast(mz);
+        }
+
         if(table.first!=null){
             return table;
         }

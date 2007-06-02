@@ -227,6 +227,7 @@ public class LDMLConstants {
     public static final String MAP_ZONE          = "mapZone";
     public static final String OTHER             = "other";
     public static final String ZONE_FORMATTING   = "zoneFormatting";
+    public static final String MULTIZONE         = "multizone";
     
     //PN added
     public static final String MEDIUM          = "medium";

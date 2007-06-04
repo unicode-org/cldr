@@ -998,6 +998,12 @@ public class SurveyMain extends HttpServlet {
                 files += doOutput("rxml");
                 ctx.println("rxml" + "<br>");
             }
+            if(daily || output.equals("misc")) {
+                files += doOutput("users");
+                ctx.println("users" + "<br>");
+                files += doOutput("translators");
+                ctx.println("translators" + "<br>");
+            }
                 
             if(output.length()>0) {
                 ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
@@ -3687,8 +3693,11 @@ public class SurveyMain extends HttpServlet {
     public static final String FEED_PREFIX="/feed";
     
     private int doOutput(String kind) {
-        boolean vetted;
-        boolean resolved;
+        boolean vetted=false;
+        boolean resolved=false;
+        boolean users=false;
+        boolean translators=false;
+        int nrOutFiles = 0;
         if(kind.equals("xml")) {
             vetted = false;
             resolved = false;
@@ -3698,6 +3707,10 @@ public class SurveyMain extends HttpServlet {
         } else if(kind.equals("rxml")) {
             vetted = true;
             resolved = true;
+        } else if(kind.equals("users")) {
+            users = true;
+        } else if(kind.equals("translators")) {
+            translators = true;
         } else {
             throw new IllegalArgumentException("unknown output: " + kind);
         }
@@ -3734,45 +3747,150 @@ public class SurveyMain extends HttpServlet {
         long lastTime = System.currentTimeMillis();
         long countStart = lastTime;
 
-        File inFiles[] = getInFiles();
-        int nrInFiles = inFiles.length;
-        for(int i=0;i<nrInFiles;i++) {
-            String fileName = inFiles[i].getName();
-            int dot = fileName.indexOf('.');
-            String localeName = fileName.substring(0,dot);
-            
-            File outFile = new File(outdir, fileName);
-            
-            CLDRDBSource dbSource = makeDBSource(null, new ULocale(localeName), vetted);
-            CLDRFile file;
-            if(resolved == false) {
-                file = makeCLDRFile(dbSource);
-            } else { 
-                file = new CLDRFile(dbSource,true);
-            }
-
-            long nextTime = System.currentTimeMillis();
-            if((nextTime - lastTime) > 10000) {
-                lastTime = nextTime;
-                System.err.println("output: " + kind + " / " + localeName + ": #"+i+"/"+nrInFiles+", or "+
-                    (((double)(System.currentTimeMillis()-countStart))/i)+"ms per.");
-            }
-            
+        if(users) {
+            File outFile = new File(outdir,"users.xml");
             try {
-                PrintWriter utf8OutStream = new PrintWriter(
+                PrintWriter out = new PrintWriter(
                     new OutputStreamWriter(
                         new FileOutputStream(outFile), "UTF8"));
-                file.write(utf8OutStream);
-                utf8OutStream.close();
-//            } catch (UnsupportedEncodingException e) {
-//                throw new InternalError("UTF8 unsupported?").setCause(e);
+    //            } catch (UnsupportedEncodingException e) {
+    //                throw new InternalError("UTF8 unsupported?").setCause(e);
+                out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+        //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
+                out.println("<users host=\""+localhost()+"\">");
+                String org = null;
+                try { synchronized(reg) {
+                    java.sql.ResultSet rs = reg.list(org);
+                    if(rs == null) {
+                        out.println("\t<!-- No results -->");
+                        return 0;
+                    }
+                    while(rs.next()) {
+                        int theirId = rs.getInt(1);
+                        int theirLevel = rs.getInt(2);
+                        String theirName = rs.getString(3);
+                        String theirEmail = rs.getString(4);
+                        String theirOrg = rs.getString(5);
+                        String theirLocales = rs.getString(6);
+                        
+                        out.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
+                        out.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
+                        out.println("\t\t<name>"+theirName+"</name>");
+                        out.println("\t\t<org>"+theirOrg+"</org>");
+                        out.println("\t\t<locales type=\"edit\">");
+                        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
+                        for(int i=0;i<theirLocalesList.length;i++) {
+                            out.println("\t\t\t<locale id=\""+theirLocalesList[i]+"\"/>");
+                        }
+                        out.println("\t\t</locales>");
+                        out.println("\t</user>");
+                    }            
+                }/*end synchronized(reg)*/ } catch(SQLException se) {
+                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+                    out.println("<!-- Failure: " + unchainSqlException(se) + " -->");
+                }
+                out.println("</users>");
+                out.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new InternalError("IO Exception "+e.toString());
+                throw new InternalError("writing " + kind + " - IO Exception "+e.toString());
+            }
+            nrOutFiles++;
+        } else if(translators) {
+            File outFile = new File(outdir,"cldr-translators.txt");
+            try {
+                PrintWriter out = new PrintWriter(
+                    new OutputStreamWriter(
+                        new FileOutputStream(outFile), "UTF8"));
+    //        ctx.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+    //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
+    //        ctx.println("<users host=\""+ctx.serverHostport()+"\">");
+                String org = null;
+                try { synchronized(reg) {
+                    java.sql.ResultSet rs = reg.list(org);
+                    if(rs == null) {
+                        out.println("# No results");
+                        return 0;
+                    }
+                    while(rs.next()) {
+                        int theirId = rs.getInt(1);
+                        int theirLevel = rs.getInt(2);
+                        String theirName = rs.getString(3);
+                        String theirEmail = rs.getString(4);
+                        String theirOrg = rs.getString(5);
+                        String theirLocales = rs.getString(6);
+                        
+                        if(theirLevel >= UserRegistry.LOCKED) {
+                            continue;
+                        }
+                        
+                        out.println(theirEmail);//+" : |NOPOST|");
+                      /*
+                        ctx.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
+                        ctx.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
+                        ctx.println("\t\t<name>"+theirName+"</name>");
+                        ctx.println("\t\t<org>"+theirOrg+"</org>");
+                        ctx.println("\t\t<locales type=\"edit\">");
+                        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
+                        for(int i=0;i<theirLocalesList.length;i++) {
+                            ctx.println("\t\t\t<locale id=\""+theirLocalesList[i]+"\"/>");
+                        }
+                        ctx.println("\t\t</locales>");
+                        ctx.println("\t</user>");
+                       */
+                    }            
+                } } catch(SQLException se) {
+                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+                    out.println("# Failure: " + unchainSqlException(se) + " -->");
+                }
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new InternalError("writing " + kind + " - IO Exception "+e.toString());
+            }
+            nrOutFiles++;
+        } else {
+            File inFiles[] = getInFiles();
+            int nrInFiles = inFiles.length;
+            for(int i=0;i<nrInFiles;i++) {
+                String fileName = inFiles[i].getName();
+                int dot = fileName.indexOf('.');
+                String localeName = fileName.substring(0,dot);
+                
+                File outFile = new File(outdir, fileName);
+                
+                CLDRDBSource dbSource = makeDBSource(null, new ULocale(localeName), vetted);
+                CLDRFile file;
+                if(resolved == false) {
+                    file = makeCLDRFile(dbSource);
+                } else { 
+                    file = new CLDRFile(dbSource,true);
+                }
+
+                long nextTime = System.currentTimeMillis();
+                if((nextTime - lastTime) > 10000) {
+                    lastTime = nextTime;
+                    System.err.println("output: " + kind + " / " + localeName + ": #"+i+"/"+nrInFiles+", or "+
+                        (((double)(System.currentTimeMillis()-countStart))/i)+"ms per.");
+                }
+                
+                try {
+                    PrintWriter utf8OutStream = new PrintWriter(
+                        new OutputStreamWriter(
+                            new FileOutputStream(outFile), "UTF8"));
+                    file.write(utf8OutStream);
+                    nrOutFiles++;
+                    utf8OutStream.close();
+    //            } catch (UnsupportedEncodingException e) {
+    //                throw new InternalError("UTF8 unsupported?").setCause(e);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw new InternalError("IO Exception "+e.toString());
+                }
             }
         }
-        System.err.println("output: " + kind + " - DONE, files: " + nrInFiles);
-        return nrInFiles;
+        System.err.println("output: " + kind + " - DONE, files: " + nrOutFiles);
+        return nrOutFiles;
     }
 
     public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
@@ -5328,6 +5446,9 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
             ctx.print("&nbsp;&nbsp; New value: <b>" + choice_v +"</b>  ");
+
+            boolean doFail = false;
+
             // Test: is the value valid?
             {
                 /* cribbed from elsewhere */
@@ -5339,7 +5460,6 @@ public class SurveyMain extends HttpServlet {
                 checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
                 
                 if(!checkCldrResult.isEmpty()) {
-                    boolean doFail = false;
                     boolean hadWarnings = false;
                     for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                         CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
@@ -5367,10 +5487,9 @@ public class SurveyMain extends HttpServlet {
                     }
                     if(doFail) {
                         // reject the value
-                        if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
-                            ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
-                        }
-                        ctx.println("<b>This item had test failures.</b><br>");
+                        //if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
+                        //    ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
+                        //}
                         //return false;
                     }
                 }
@@ -5385,7 +5504,11 @@ public class SurveyMain extends HttpServlet {
             }
             doUnVote(ctx, pod.locale, base_xpath);
             //ctx.println("updated " + n + " implied votes due to new data submission.");
-            ctx.println(" "+ctx.iconHtml("okay","new")+" <br>");
+            if(!doFail) {
+                ctx.println(" "+ctx.iconHtml("okay","new")+" <br>");
+            } else {
+                ctx.println("<br><b>This item had test failures, but was added.</b><br>");
+            }
             return true;
         } else if(choice.equals(CONFIRM)) {
             if(oldVote != base_xpath) {
@@ -5961,8 +6084,8 @@ public class SurveyMain extends HttpServlet {
                 if(oldValue==null) {
                     oldValue="";
                 } else {
-                    ctx.print("<span class='ferrbox'>"+ctx.iconHtml("stop","this item was not accepted."));
-                    fClass = "badinputbox";
+                    ctx.print(ctx.iconHtml("stop","this item was not accepted.")+"this item was not accepted.<br>");
+                    //fClass = "badinputbox";
                     badInputBox = true;
                 }
                 if((p.toggleWith != null)&&(p.toggleValue == true)) {
@@ -5983,7 +6106,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 // references
                 if(badInputBox) {
-                    ctx.print("</span>");
+                   // ctx.print("</span>");
                 }
 
                 if(canModify && zoomedIn && (p.altType == null) && UserRegistry.userIsTC(ctx.session.user)) {  // show 'Alt' popup for zoomed in main items

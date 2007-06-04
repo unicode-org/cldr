@@ -638,7 +638,7 @@ public class DataPod extends Registerable {
                 new Partition("Error Values", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return (p.hasTests&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
+                            return (p.hasErrors&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
                                     || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
                         }
                     }),

@@ -351,8 +351,9 @@ public class SurveyForum {
                         
                         String subject = "New CLDR forum post for: " + forum;
                         
-                        String body = "Someone has posted to the CLDR forum, in the subject:\n  "+subj+"\n\n"+
-                                        "to read it, login to survey tool and view the forum at: " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n";
+                        String body = "This is a post to the CLDR "+forum+" forum, in the subject:\n  "+subj+"\n\n"+
+                                        "For details and to respond, login to survey tool and then click on this link:\n\t " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n" +
+                                            "-----------------\n\n"+text;
                         
                         MailSender.sendBccMail(smtp, null, null, from, emails, subject, body);                        
                     } catch ( SQLException se ) {

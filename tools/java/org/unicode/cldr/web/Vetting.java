@@ -579,14 +579,14 @@ public class Vetting {
             }
         }
     }
-    
-    
+
     /**
      * get a Set consisting of all of the users which voted on a certain path
      * @param locale which locale
      * @param base_xpath string xpath to gather for
      * @return a Set of UserRegistry.User objects
      */
+     
     public Set<UserRegistry.User> gatherVotes(String locale, String base_xpath) {
         int base_xpath_id = sm.xpt.getByXpath(base_xpath);
         synchronized(conn) {

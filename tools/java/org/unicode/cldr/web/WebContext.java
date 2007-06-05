@@ -31,7 +31,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  * This is the per-client context passed to basically all functions
  * it has print*() like functions, and so can be written to.
  */
-public class WebContext {
+public class WebContext implements Cloneable {
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
     public SurveyMain sm = null;
@@ -46,6 +46,7 @@ public class WebContext {
     public Connection conn = null;
     public ElapsedTimer reqTimer = null;
     public Hashtable temporaryStuff = new Hashtable();
+    
     
 // private fields
     protected PrintWriter out = null;
@@ -80,7 +81,7 @@ public class WebContext {
      */
     public WebContext(boolean fake)throws IOException  {
         dontCloseMe=false;
-        out=openUTF8Writer(System.err);
+        out=openUTF8Writer(System.out);
     }
     
     /**
@@ -88,6 +89,9 @@ public class WebContext {
      * useful for sub-contexts with different base urls.
      */
     public WebContext( WebContext other) {
+        if((other instanceof URLWebContext) && !(this instanceof URLWebContext)) {
+            throw new InternalError("Can't slice a URLWebContext - use clone()");
+        }
         doc = other.doc;
         docLocale = other.docLocale;
         displayLocale = other.displayLocale;
@@ -379,7 +383,7 @@ public class WebContext {
     }
     
     String base() { 
-        return request.getContextPath() + request.getServletPath();
+        return context() + request.getServletPath();
     }
     
     public String context() { 
@@ -387,7 +391,7 @@ public class WebContext {
     }
 
     public String context(String s) { 
-        return request.getContextPath() + "/" + s;
+        return context() + "/" + s;
     }
     
     public String jspLink(String s) {
@@ -825,5 +829,9 @@ public class WebContext {
     }
     public String iconHtml(String icon, String message) {
         return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
+    }
+    
+    public Object clone() {
+        return new WebContext(this);
     }
 }

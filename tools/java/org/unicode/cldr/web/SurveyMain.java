@@ -621,7 +621,7 @@ public class SurveyMain extends HttpServlet {
 			ctx.println("<div style='float: right;'><b class='disputed'>changed</b></div>");
 		}
         boolean val = twidGetBool(pref, false);
-        WebContext nuCtx = new WebContext(ctx);
+        WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(qKey, new Boolean(!val).toString());
 //        nuCtx.println("<div class='pager' style='float: right;'>");
         nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + ": "+
@@ -686,9 +686,9 @@ public class SurveyMain extends HttpServlet {
         if(action.equals("")) {
             action = "sessions";
         }
-        WebContext actionCtx = new WebContext(ctx);
+        WebContext actionCtx = (WebContext)ctx.clone();
         actionCtx.addQuery("dump",vap);
-		WebContext actionSubCtx = new WebContext(actionCtx);
+		WebContext actionSubCtx = (WebContext)actionCtx.clone();
 		actionSubCtx.addQuery("action",action);
 
         printMenu(actionCtx, action, "sessions", "Sessions", "action");    
@@ -813,7 +813,7 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.println("</table>");
         } else if(action.equals("srl_vet_imp")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
             ctx.println("<br>");
             ElapsedTimer et = new ElapsedTimer();
@@ -841,7 +841,7 @@ public class SurveyMain extends HttpServlet {
 //            int n = vet.updateStatus();
 //            ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
         } else if(action.equals("srl_vet_res")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
             String what = actionCtx.field("srl_vet_res");
@@ -910,7 +910,7 @@ public class SurveyMain extends HttpServlet {
 			
 			
         } else if(action.equals("srl_vet_wash")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             ctx.println("<br>");
             String what = actionCtx.field("srl_vet_wash");
@@ -950,7 +950,7 @@ public class SurveyMain extends HttpServlet {
 			
 			
 		} else if(action.equals("upd_src")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             ctx.println("<br>(locale caches reset..)<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
@@ -958,7 +958,7 @@ public class SurveyMain extends HttpServlet {
             mySrc.manageSourceUpdates(actionCtx, this); // What does this button do?
             ctx.println("<br>");
         } else if(action.equals("srl_output")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
             subCtx.addQuery("action",action);
             
@@ -1010,7 +1010,7 @@ public class SurveyMain extends HttpServlet {
             }
             
         } else if(action.equals("srl_db_update")) {
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
             subCtx.addQuery("action","srl_db_update");
             ctx.println("<br>");
@@ -1282,8 +1282,8 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.print("#" + pages + " served in " + ctx.reqTimer + "</div>");
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='"+URL_CLDR+"'>Common Locale Data Repository</a>");
-        try {
-            Map m = new TreeMap(ctx.request.getParameterMap());
+        if(ctx.request != null) try {
+            Map m = new TreeMap(ctx.getParameterMap());
             m.remove("sql");
             m.remove("pw");
             m.remove(QUERY_PASSWORD_ALT);
@@ -1364,6 +1364,11 @@ public class SurveyMain extends HttpServlet {
         String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
         user = reg.get(password,email,ctx.userIP());
+
+        if(ctx.request == null && ctx.session != null) {
+            return "using canned session"; // already set - for testing
+        }
+
         HttpSession httpSession = ctx.request.getSession(true);
         boolean idFromSession = false;
         if(myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
@@ -1614,7 +1619,7 @@ public class SurveyMain extends HttpServlet {
             } else {
                 ctx.println("<i>user added.</i>");
                 registeredUser.printPasswordLink(ctx);
-                WebContext nuCtx = new WebContext(ctx);
+                WebContext nuCtx = (WebContext)ctx.clone();
                 nuCtx.addQuery(QUERY_DO,"list");
                 nuCtx.addQuery(LIST_JUST, changeAtTo40(new_email));
                 ctx.println("<p>The password wasn't emailed to this user. You can do so in the '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>manage users</a></b>' page.</p>");
@@ -1692,7 +1697,7 @@ public class SurveyMain extends HttpServlet {
         
         StandardCodes sc = StandardCodes.make();
 
-        WebContext subCtx = new WebContext(ctx);
+        WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery(QUERY_DO,"coverage");
         boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown (click to toggle)");
         String missingLocalesForOrg = org;
@@ -2717,7 +2722,7 @@ public class SurveyMain extends HttpServlet {
 
     boolean showTogglePref(WebContext ctx, String pref, String what) {
         boolean val = ctx.prefBool(pref);
-        WebContext nuCtx = new WebContext(ctx);
+        WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(pref, !val);
 //        nuCtx.println("<div class='pager' style='float: right;'>");
         nuCtx.println("<a href='" + nuCtx.url() + "'>" + what + " is currently ");
@@ -2737,13 +2742,13 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<b>"+what+"</b>: ");
 //        ctx.println("<select name='"+pref+"'>");
         if(doDef) {
-            WebContext nuCtx = new WebContext(ctx);
+            WebContext nuCtx = (WebContext)ctx.clone();
             nuCtx.addQuery(pref, "default");
             ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals("default")?"selected":"notselected")+"'>"+"default"+"</a> ");
         }
         for(int n=0;n<list.length;n++) {
 //            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
-            WebContext nuCtx = new WebContext(ctx);
+            WebContext nuCtx = (WebContext)ctx.clone();
             nuCtx.addQuery(pref, list[n]);
             ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
         }
@@ -2927,7 +2932,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println(sessionMessage);
         }
         
-        WebContext baseContext = new WebContext(ctx);
+        WebContext baseContext = (WebContext)ctx.clone();
         
 
         // print 'shopping cart'
@@ -3250,7 +3255,7 @@ public class SurveyMain extends HttpServlet {
         boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
         
         {
-            WebContext nuCtx = new WebContext(ctx);
+            WebContext nuCtx = (WebContext)ctx.clone();
             nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
             nuCtx.println("<div class='pager' style='float: right;'>");
             nuCtx.println("<a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a>");
@@ -3481,7 +3486,7 @@ public class SurveyMain extends HttpServlet {
     void printLocaleTreeMenu(WebContext ctx, String which) {
         int n = ctx.docLocale.length;
         int i,j;
-        WebContext subCtx = new WebContext(ctx);
+        WebContext subCtx = (WebContext)ctx.clone();
         subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
 
         ctx.println("<table summary='locale info' width='95%' border=0><tr><td >"); // width='25%'
@@ -3625,7 +3630,7 @@ public class SurveyMain extends HttpServlet {
             
             // Find which pod they want, and show it.
             // NB keep these sections in sync with DataPod.xpathToPodBase() 
-            WebContext subCtx = new WebContext(ctx);
+            WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
             subCtx.addQuery(QUERY_SECTION,which);
             for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
@@ -4063,7 +4068,7 @@ public class SurveyMain extends HttpServlet {
                             throw new RuntimeException("SQL error listing OD results - " + SurveyMain.unchainSqlException(se));
                         }
                     }
-                    WebContext subCtx = new WebContext(ctx);
+                    WebContext subCtx = (WebContext)ctx.clone();
                     //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                     subCtx.removeQuery(QUERY_SECTION);
                     for(String item : odItems) {
@@ -4110,7 +4115,7 @@ public class SurveyMain extends HttpServlet {
                     // et.tostring
                 }
                 
-                WebContext subCtx = new WebContext(ctx);
+                WebContext subCtx = (WebContext)ctx.clone();
                 //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                 subCtx.removeQuery(QUERY_SECTION);
 
@@ -4612,7 +4617,7 @@ public class SurveyMain extends HttpServlet {
 
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString()));
         
-        WebContext subCtx = new WebContext(ctx);
+        WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery(QUERY_ZONE, zone);
         
         Map metaMap = new TreeMap();
@@ -4969,7 +4974,7 @@ public class SurveyMain extends HttpServlet {
         // calculate references
         if(pod.xpathPrefix.indexOf("references")==-1) {
             Set refsSet = new TreeSet();
-            WebContext refCtx = new WebContext(ctx);
+            WebContext refCtx = (WebContext)ctx.clone();
             refCtx.setQuery("_",ctx.locale.getLanguage());
             refCtx.setLocale(new ULocale(ctx.locale.getLanguage())); // ensure it is from the language
             DataPod refPod = refCtx.getPod("//ldml/references");
@@ -5364,8 +5369,8 @@ public class SurveyMain extends HttpServlet {
 			for(DataPod.Pea.Item item : deleteItems) {
 				if((item.submitter != -1) && 
 					!( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-						( (item.votes == null) ||   // nobody voted for it, or
-							((item.votes.size()==1)&& item.votes.contains(ctx.session.user) )) && // only user voted for it
+						( (item.getVotes() == null) ||   // nobody voted for it, or
+							((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) )) && // only user voted for it
 						( (item.submitter>0&&UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id) ) ) // user is TC or user is submitter
 				{
 					ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:  Removing alternate \""+item.value+
@@ -5795,7 +5800,7 @@ public class SurveyMain extends HttpServlet {
         String fullPathFull = pod.xpath(p); 
         String boxClass = canModify?"actionbox":"disabledbox";
         boolean isAlias = (fullPathFull.indexOf("/alias")!=-1);
-        WebContext refCtx = new WebContext(ctx);
+        WebContext refCtx = (WebContext)ctx.clone();
         refCtx.setQuery("_",ctx.locale.getLanguage());
         refCtx.setQuery(QUERY_SECTION,"references");
         //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
@@ -5890,7 +5895,7 @@ public class SurveyMain extends HttpServlet {
         if(p.confirmStatus == Vetting.Status.APPROVED) {
             okayIcon = ctx.iconHtml("okay", "Approved Item");
         } else {
-            okayIcon = ctx.iconHtml("warn", p.confirmStatus + " Item");
+            okayIcon = ctx.iconHtml("ques", p.confirmStatus + " Item");
         }
 
         // calculate the class of data items
@@ -5935,7 +5940,7 @@ public class SurveyMain extends HttpServlet {
                 rclass = "insufficientrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
             } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-                if((!p.hasInherited&&!p.hasProps) 
+                if((!p.hasInherited&&!p.hasMultipleProposals) 
                             || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
                     if(p.confirmStatus != Vetting.Status.APPROVED) {
                         statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
@@ -5943,7 +5948,11 @@ public class SurveyMain extends HttpServlet {
                         statusIcon = ctx.iconHtml("okay", "Approved Item");
                     }
                 } else {
-                    statusIcon = okayIcon;
+                    if(!p.hasMultipleProposals && (p.confirmStatus != Vetting.Status.APPROVED)) {
+                        statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
+                    } else {
+                        statusIcon = okayIcon;
+                    }
                 }
                 rclass = "okay";
             } else {
@@ -6600,13 +6609,13 @@ public class SurveyMain extends HttpServlet {
             }
         }
 
-        if(zoomedIn && (item.votes != null)) {
-            int n = item.votes.size();
+        if(zoomedIn && (item.getVotes() != null)) {
+            int n = item.getVotes().size();
             String title=""+ n+" vote"+((n>1)?"s":"");
             if(canModify&&UserRegistry.userIsVetter(ctx.session.user)) {
                 title=title+": ";
 				boolean first = true;
-                for(UserRegistry.User theU : item.votes) {
+                for(UserRegistry.User theU : item.getVotes()) {
                     if(theU != null) {
                         String add= theU.name + " of " + theU.org;
                         title = title + add.replaceAll("'","\u2032"); // quote quotes
@@ -6637,14 +6646,16 @@ public class SurveyMain extends HttpServlet {
             ctx.print(ctx.iconHtml("okay","parent fallback"));
         }
         
-        if( (item.votes == null) ||   // nobody voted for it, or
-			((item.votes.size()==1)&& item.votes.contains(ctx.session.user) ))  { // .. only this user voted for it
-            boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
-            if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&
-                !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-                ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
-                    ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
-                        "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
+        if(zoomedIn) {
+            if( (item.getVotes() == null) ||   // nobody voted for it, or
+                ((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) ))  { // .. only this user voted for it
+                boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
+                if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&
+                    !( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
+                    ( UserRegistry.userIsTC(ctx.session.user) || (item.submitter == ctx.session.user.id) ) ) {
+                        ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
+                            "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
+                }
             }
         }
         
@@ -6677,7 +6688,7 @@ public class SurveyMain extends HttpServlet {
 
 
     void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
-        WebContext nuCtx = new WebContext(ctx);
+        WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(PREF_SORTMODE, aMode);
         if(!sortMode.equals(aMode)) {
             nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
@@ -6735,7 +6746,7 @@ public class SurveyMain extends HttpServlet {
             }
             
             {
-                WebContext subCtx = new WebContext(ctx);
+                WebContext subCtx = (WebContext)ctx.clone();
                 if(skip > 0) {
                     subCtx.setQuery("skip",new Integer(skip).toString());
                 }
@@ -7671,16 +7682,12 @@ public class SurveyMain extends HttpServlet {
             logger.info("Database shut down normally");
         }
     }
-/*
- private void smok(int i) {
-     System.out.println("#" + i + " = " + xpt.getById(i));
- }*/
 
-    public static void main(String arg[]) {
+    public static void main(String args[]) {
         System.out.println("Starting some test of SurveyTool locally....");
         try{
-            cldrHome="/data/jakarta/cldr";
-            vap="NO_VAP";
+            cldrHome="/xsrl/T/cldr";
+            vap="testingvap";
             SurveyMain sm=new SurveyMain();
             System.out.println("sm created.");
             sm.doStartup();
@@ -7688,18 +7695,45 @@ public class SurveyMain extends HttpServlet {
             sm.doStartupDB();
             System.out.println("DB started.");
             if(isBusted != null)  {
+                System.err.println("Bustification: " + isBusted);
                 return;
             }
-            /*  sm.smok(4);
-            sm.smok(3);
-            sm.smok(2);
-            sm.smok(1);
-            sm.smok(33);
-            sm.smok(333);
-            sm.smok(1333);  */
+            
+            System.err.println("--- Starting processing of requests ---");
+            CookieSession cs = new CookieSession(true);
+            for ( String arg : args ) {
+                if(arg.equals("-wait")) {
+                    try {
+                        System.err.println("*** WAITING ***");
+                        System.in.read();
+                    } catch(Throwable t) {}
+                    continue;
+                }
+                com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
+                System.err.println("***********\n* "+arg);
+                WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + arg);
+                xctx.sm = sm;
+                xctx.session=cs;
+
+                xctx.reqTimer = reqTimer;
+                            
+                if(xctx.field("dump").equals(vap)) {
+                    sm.doDump(xctx);
+                } else if(xctx.field("sql").equals(vap)) {
+                    sm.doSql(xctx);
+                } else {
+                    sm.doSession(xctx); // Session-based Survey main
+                }
+                //xctx.close();
+                System.err.println("\n\n"+reqTimer+" for " + arg);
+            }
+            System.err.println("--- Ending processing of requests ---");
+
+            /*
             String ourXpath = "//ldml/numbers";
             
             System.out.println("xpath xpt.getByXpath("+ourXpath+") = " + sm.xpt.getByXpath(ourXpath));
+            */
 /*            
             
             if(arg.length>0) {

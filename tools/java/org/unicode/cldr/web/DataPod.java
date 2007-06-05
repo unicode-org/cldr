@@ -192,6 +192,7 @@ public class DataPod extends Registerable {
         boolean anyItemHasErrors = false;
         
         boolean hasProps = false;
+        boolean hasMultipleProposals = false;
         boolean hasInherited = false;
         public int allVoteType = 0; // bitmask of all voting types included
         public int voteType = 0; // status of THIS item
@@ -216,6 +217,15 @@ public class DataPod extends Registerable {
             boolean isFallback = false; // item is from the parent locale - don't consider it a win.
             
             public Set<UserRegistry.User> votes = null; // Set of Users who voted for this.
+            boolean checkedVotes = false;
+            
+            public Set<UserRegistry.User> getVotes() {
+                if(!checkedVotes) {
+                    votes = sm.vet.gatherVotes(locale, xpath);
+                    checkedVotes = true;
+                }
+                return votes;
+            }
             
             public String example = "";
             
@@ -1587,6 +1597,9 @@ public class DataPod extends Registerable {
             } else {
                 if(!isInherited) {
                     p.hasProps = true;
+                    if(altProposed != SurveyMain.PROPOSED_DRAFT) {  // 'draft=true'
+                        p.hasMultipleProposals = true; 
+                    }
                     superP.hasProps = true;
                 } else {
                     // inherited, proposed
@@ -1643,7 +1656,7 @@ public class DataPod extends Registerable {
             myItem.inheritFrom = setInheritFrom;
 
             // store who voted for what. [ this could be loaded at displaytime..]
-            myItem.votes = sm.vet.gatherVotes(locale, xpath);
+           //myItem.votes = sm.vet.gatherVotes(locale, xpath);
 
             // bitwise OR in the voting types. Needed for sorting.
             if(p.voteType == 0) {

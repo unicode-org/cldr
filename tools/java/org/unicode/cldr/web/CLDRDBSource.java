@@ -261,7 +261,7 @@ import com.ibm.icu.util.ULocale;
               //                               "SELECT output_xpath from CLDR_OUTPUT where locale=?" ); // wow, that is pretty straightforward...
             keyVettingSet = prepareStatement("keyVettingSet",
                                              "SELECT CLDR_OUTPUT.output_xpath from CLDR_OUTPUT where CLDR_OUTPUT.locale=? AND EXISTS "+
-                                                    " ( SELECT * from CLDR_DATA where CLDR_DATA.LOCALE=CLDR_OUTPUT.LOCALE AND CLDR_DATA.xpath=CLDR_OUTPUT.output_xpath )");
+                                                    " ( SELECT * from CLDR_DATA where CLDR_DATA.LOCALE=CLDR_OUTPUT.LOCALE AND CLDR_DATA.xpath=CLDR_OUTPUT.data_xpath )");
                                             
             keyASet = prepareStatement("keyASet",
                                        /*
@@ -960,20 +960,19 @@ import com.ibm.icu.util.ULocale;
 //if(showDebug)                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
                     return null;
                 } else {
-                    rs.close();
             //System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
                     //if(locale.equals("de")) {
                     //    return "fork";
                     //} else {
 
-                    /*
+                    if(false && sm.isUnofficial) {
                         if(oldKeySet().contains(path)) {
                             System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
                         } else {
-                            System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
+//                            System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
                         }
-                    */
-                    
+                    }
+                    rs.close();
                         return null;
                     //}
                     //return null;                    

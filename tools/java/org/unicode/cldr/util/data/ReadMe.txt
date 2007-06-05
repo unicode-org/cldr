@@ -1,4 +1,4 @@
-UPDATING CODES
+﻿UPDATING CODES
 Periodically, the language, territory, script, currency, and country codes change.
 This document describes how to update CLDR when this happens.
 For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data, and / and \ are equivalent.
@@ -73,9 +73,13 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
           <region iso3166="TR">
             <currency iso4217="TRY" from="2005-01-01"/>
 
-  Add the code to the file /util/data/ISO4217.txt. This is important, since it is used
+  Add the code to the file java/org/unicode/cldr/util/data/ISO4217.txt. This is important, since it is used
   to get the valid codes for the survey tool. Example:
   		currency	|	TRY	|	new Turkish Lira	|	TR	|	TURKEY	|	C
+
+  Mark the old code in java/org/unicode/cldr/util/data/ISO4217.txt as deprecated.
+
+  		currency	|	TRL	|	Old Turkish Lira	|	TR	|	TURKEY	|	O
   
 - Changing currency.
   If the currency goes out of use in a country, then add the last day of use, such as:

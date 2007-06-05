@@ -767,7 +767,7 @@ public class Vetting {
     }
     
     private Set<Race> searchForErrors(Set<Race> racesToUpdate) {
-        System.err.println(racesToUpdate.size() + " to check");
+//        System.err.println(racesToUpdate.size() + " to check");
         Set<Race> errorRaces = new HashSet<Race>();
         
         for(Race r : racesToUpdate) {
@@ -782,13 +782,13 @@ public class Vetting {
     
     private int correctErrors(Set<Race> errorRaces) throws SQLException {
         int n = 0;
-        System.err.println(errorRaces.size() + " to correct");
+//        System.err.println(errorRaces.size() + " to correct");
         for(Race r : errorRaces) {
             r.updateDB();
             n++;
         }
         conn.commit();
-        System.err.println(n+" items corrected");
+//        System.err.println(n+" items corrected");
         return n;
     }
 
@@ -947,7 +947,6 @@ public class Vetting {
                             if(newSource > oldSource) {
                                 // content must be from a newer xml file than the most recent vote.
                                 if((newXpath == base_xpath) && (newXpath == newOXpath)) { // 
-                                    //System.err.println("Ho yeah, "+newXpath+"//"+newValue.length()+"//"+newSource+"//"+newOXpath);
                                     vettedValue = newXpath; // vetted - drop the other one
                                 } else {
                                     cachedProps.put(newValue,new Integer(newXpath));
@@ -1216,7 +1215,7 @@ public class Vetting {
                 disqualified = test(locale, base_xpath, xpath, value); 
                 if(disqualified) {
                     score = 0;
-                    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
+//                    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
                 }
                 return disqualified;
             }
@@ -2591,13 +2590,13 @@ public class Vetting {
         }
         if(d != null) {
             if(!d.isValid()) {
-                System.err.println("vetting::checker STALE " + locale);
+//                System.err.println("vetting::checker STALE " + locale);
                 d.reset();
             }
         }
         if(d == null) {
             if(ref != null) {
-                System.err.println("vetting::checker EXPIRED " + locale);
+//                System.err.println("vetting::checker EXPIRED " + locale);
             }
             d = new DataTester(locale);
             hash.put(locale, new SoftReference(d));
@@ -2616,7 +2615,7 @@ public class Vetting {
         Map options = sm.basicOptionsMap();
         
         void reset() {
-            System.err.println("vetting::checker reset " + locale);
+//            System.err.println("vetting::checker reset " + locale);
             CLDRDBSource dbSource = sm.makeDBSource(null, new ULocale(locale), false);
             dbSource.vettingMode(sm.vet);
             //if(resolved == false) {

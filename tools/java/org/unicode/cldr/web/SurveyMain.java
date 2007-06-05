@@ -3186,7 +3186,7 @@ public class SurveyMain extends HttpServlet {
             rv = rv + (modifyThing(ctx));
             int odisp = 0;
             if(phaseVetting && ((odisp=vet.getOrgDisputeCount(ctx.session.user.org,localeName))>0)) {
-                rv = rv + ctx.iconHtml("stop","("+odisp+" org disputes)");
+                rv = rv + ctx.iconHtml("disp","("+odisp+" org disputes)");
             }
         }
         rv = rv + ("</a>");
@@ -4043,7 +4043,7 @@ public class SurveyMain extends HttpServlet {
                 
                 if(orgDisp > 0) {
                     
-                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>"+(orgDisp)+" items with conflicts among "+ctx.session.user.org+" vetters.</span> "+ctx.iconHtml("stop","Vetter Dispute")+"</h4>");
+                    ctx.print("<h4><span style='padding: 1px;' class='disputed'>"+(orgDisp)+" items with conflicts among "+ctx.session.user.org+" vetters.</span> "+ctx.iconHtml("disp","Vetter Dispute")+"</h4>");
                     
                     Set<String> odItems = new TreeSet<String>();
                     synchronized(vet.conn) { 
@@ -5935,8 +5935,13 @@ public class SurveyMain extends HttpServlet {
                 rclass = "insufficientrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
             } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-                if((!p.hasInherited&&!p.hasProps) || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
-                    statusIcon = (ctx.iconHtml("squo","ok - no change"));
+                if((!p.hasInherited&&!p.hasProps) 
+                            || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
+                    if(p.confirmStatus != Vetting.Status.APPROVED) {
+                        statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
+                    } else {
+                        statusIcon = ctx.iconHtml("okay", "Approved Item");
+                    }
                 } else {
                     statusIcon = okayIcon;
                 }
@@ -5974,23 +5979,24 @@ public class SurveyMain extends HttpServlet {
         }
 
         {
+            String disputeIcon = "";
+            if(canModify) {
+                if(vet.queryOrgDispute(ctx.session.user.org, pod.locale, p.base_xpath)) {
+                    disputeIcon = ctx.iconHtml("disp","Vetter Dispute");
+                }
+            }
             ctx.print("<tt title='"+xpt.getPrettyPath(base_xpath)+"' >");
             String typeShown = p.type.replaceAll("/","/\u200b");
             if(!zoomedIn) {
                 if(specialUrl != null) {
-                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+typeShown+"</a>");
+                    ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.locale.toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
                 } else {
-                    fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown);
+                    fora.showForumLink(ctx,pod,p,p.superPea.base_xpath,typeShown+disputeIcon);
                 }
             } else {
-                ctx.print(typeShown);
+                ctx.print(typeShown+disputeIcon);
             }
             ctx.print("</tt>");
-            if(canModify) {
-                if(vet.queryOrgDispute(ctx.session.user.org, pod.locale, p.base_xpath)) {
-                    ctx.print(ctx.iconHtml("stop","Vetter Dispute"));
-                }
-            }
         }
         
         if(p.altType != null) {
@@ -6396,9 +6402,9 @@ public class SurveyMain extends HttpServlet {
 						ctx.print("X No Consensus. ");
 						if(org.dispute) {
                             if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
-                                ctx.print(ctx.iconHtml("stop","Vetter Dispute"));
+                                ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
                             }
-							ctx.print(" (Dispute among vetters) ");
+							ctx.print(" (Dispute among "+org.name+" vetters) ");
 						}
 					} else {
 						ctx.print(org.strength+ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>");

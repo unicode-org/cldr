@@ -179,6 +179,9 @@
 					<p>Contributors are encouraged to use local language and country contacts, inside and outside their organization, to help vet current common data 
 					and any new proposals for addition or amendment of common data. In particular, national standards organizations are encouraged to be involved 
 					in the data vetting process.</p>
+					<p>For CLDR to add a new language just requires that the proposer to commit to providing at least the minimal localization (months, days, 
+					date/time formats, translations for a few countries, languages, currencies, etc). It then becomes available for confirmation during the next 
+					review cycle.</p>
 					<h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
 					<p>The following procedure is used when resolving differences in submitted data. At the end, for 
 					each field a single value will be chosen as optimal, while the others will have an <i>alt=proposed</i> attribute. The <i>draft</i> attribute 
@@ -235,7 +238,7 @@
 	<li>All values with survey tool errors get zero votes<ul>
 	<li>For example, a date pattern of &quot;14. september&quot; instead of &quot;dd MMM&quot;.</li>
 	<li>They cannot be voted for, and show a visible error.</li>
-	<li><span style="background-color: #FFFF00">Collision errors are an exception, and are not subject to this treatment.</span></li>
+	<li>Collision errors are an exception, and are not subject to this treatment.</li>
 </ul></li>
 	<li>For each value, each organization gets a vote based on the <i>maximum</i> (not cumulative) strength of the votes of its users.<ul>
 	<li>That is, even if an organization has 10 Vetters voting for an value, the vote count attributed to the 
@@ -262,34 +265,34 @@
 	<li>Compare the optimal value&#39;s vote <span style="font-weight: bold; ">O </span>
 	to the next highest vote getter <span style="font-weight: bold; ">N</span>, and assign the status according to the first of the conditions below that 
 	applies. <font size="3">Assign the value G to the number of organizations that voted for the optimal value.</font><ul>
-		<li style="font-weight: bold;"><span style="font-weight: 400">O <span style="background-color: #FFFF00"> <font face="Times New Roman">≥</font></span> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 8 votes: 
+		<li style="font-weight: bold;"><span style="font-weight: 400">O <font face="Times New Roman">≥</font> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 8 votes: 
 		draft status = </span>approved</li>
-		<li>O <span style="font-weight: 400; background-color:#FFFF00"> <font face="Times New Roman">≥</font></span> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 2 votes and G <font face="Times New Roman">≥</font> 2: draft status =<b> contributed</b></li>
-		<li>O <span style="font-weight: 400; background-color:#FFFF00"> <font face="Times New Roman">≥</font></span> N and O <font face="Times New Roman">≥</font> 2 votes: draft status =<b> provisional</b> </li>
+		<li>O <span style="font-weight: 400; "> <font face="Times New Roman">≥</font></span> 2<font face="Arial">×</font>N and O <font face="Times New Roman">≥</font> 2 votes and G <font face="Times New Roman">≥</font> 2: draft status =<b> contributed</b></li>
+		<li>O <span style="font-weight: 400; "> <font face="Times New Roman">≥</font></span> N and O <font face="Times New Roman">≥</font> 2 votes: draft status =<b> provisional</b> </li>
 		<li>Otherwise: draft status =<b> unconfirmed</b></li>
 	</ul></li>
-	<li><span style="background-color: #FFFF00">An </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> 
-	value from the previous release remains </span><b><span style="background-color: #FFFF00">approved</span></b><span style="background-color: #FFFF00"> unless 
-	a different value would be <b>approved,</b> according to the above voting.</span><ul>
-	<li><span style="background-color: #FFFF00">That is,</span> if the new optimal value does not have the status of <b>approved</b>, and the previous release had an 
+	<li>An <b>approved</b> 
+	value from the previous release remains <b>approved</b> unless 
+	a different value would be <b>approved,</b> according to the above voting.<ul>
+	<li>That is, if the new optimal value does not have the status of <b>approved</b>, and the previous release had an 
 	<span style="font-weight: bold; ">approved </span>value, then 
 	that previously-released value stays <b>approved</b> and replaces the optimal value in the following steps.</li>
 </ul>
 					</li>
-	<li><span style="background-color: #FFFF00">If the optimal value was the optimal value in the previous release, it keeps its previous status unless the new 
-	status would be better, according to the above voting.</span></li>
+	<li>If the optimal value was the optimal value in the previous release, it keeps its previous status unless the new 
+	status would be better, according to the above voting.</li>
 	<li>If there was an <i>alt=proposed</i> on the optimal value, the <i>alt=proposed</i> is removed.</li>
 </ul>
-					<h4><span style="background-color: #FFFF00">Remaining Errors</span></h4>
+					<h4>Remaining Errors</h4>
 					<ul>
-						<li><span style="background-color: #FFFF00">After all other resolution is done, any remaining error values are removed.</span></li>
-						<li><span style="background-color: #FFFF00">In the case of collisions, this is done by retaining one of the values (unless it has other 
-						errors) and removing the other (thus removing the error on the first). The choice is based on which field is most commonly used.</span></li>
+						<li>After all other resolution is done, any remaining error values are removed.</li>
+						<li>In the case of collisions, this is done by retaining one of the values (unless it has other 
+						errors) and removing the other (thus removing the error on the first). The choice is based on which field is most commonly used.</li>
 					</ul>
+					<p>If a locale does not have minimal data (at least at a provisional level), then it may be excluded from the release. Where this is done, 
+					it is restored to the repository for the next submission cycle.</p>
 <h4><span style="font-weight: bold; ">Status of Remaining Values</span></h4>
 <ul>
-	<li><span style="text-decoration: line-through; background-color: #FFFF00">If a value has no votes, then it is removed from the release (but archived).</span></li>
-	<li><span style="text-decoration: line-through; background-color: #FFFF00">Others are retained in the release.</span></li>
 	<li>Remaining values are marked with <i>alt=proposed </i>and given the draft status:<span style="font-weight: bold; "> 
 	unconfirmed</span></li>
 </ul>

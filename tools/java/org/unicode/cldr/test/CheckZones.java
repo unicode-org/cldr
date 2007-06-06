@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -30,7 +31,14 @@ public class CheckZones extends CheckCLDR {
 	
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFile == null) return this;
-		super.setCldrFileToCheck(cldrFile, options, possibleErrors);
+    if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+      setSkipTest(false); // ok
+    } else {
+      setSkipTest(true);
+      return this;
+    }
+
+    super.setCldrFileToCheck(cldrFile, options, possibleErrors);
 		try {
 			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck(), true);
 		} catch (RuntimeException e) {

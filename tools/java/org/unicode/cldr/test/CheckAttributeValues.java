@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
@@ -108,6 +109,13 @@ public class CheckAttributeValues extends CheckCLDR {
     
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
+        if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+          setSkipTest(false); // ok
+        } else {
+          setSkipTest(true);
+          return this;
+        }
+
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {

@@ -1100,4 +1100,16 @@ public abstract class XMLSource implements Freezable {
   public boolean isHere(String path) {
     return getValueAtPath(path) != null;
   }
+
+  /**
+   * Find all the distinguished paths having values matching valueToMatch, and add them to result.
+   * @param pathPrefix
+   * @param valueToMatch
+   * @param result
+   */
+  public void getPathsWithValue(String pathPrefix, String valueToMatch, Set<String> result) {
+    for (Iterator<String> it = iterator(pathPrefix); it.hasNext();) {
+      result.add(it.next());
+    }
+  }
 }

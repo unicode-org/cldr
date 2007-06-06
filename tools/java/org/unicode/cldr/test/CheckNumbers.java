@@ -56,7 +56,7 @@ public class CheckNumbers extends CheckCLDR {
    * It is called for each new file needing testing. The first two lines will always
    * be the same; checking for null, and calling the super.
    */
-  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFileToCheck == null) return this;
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());

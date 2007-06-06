@@ -1084,7 +1084,6 @@ public class CoverageLevel {
   }
   public void checkPosixCoverage(String path, String fullPath, String value,
       Map options, List result, CLDRFile file, CLDRFile resolved) {
-    if (options.get("submission") == null) return;
     
     // skip all items that are in anything but raw codes
     String source = resolved.getSourceLocaleID(path, null);

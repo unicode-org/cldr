@@ -19,10 +19,10 @@ public class CheckChildren extends CheckCLDR {
 	
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map<String, String> options, List<CheckStatus> result) {
+    if (isSkipTest()) return this; // disabled
     if (fullPath == null) return this; // skip paths that we don't have
     if (immediateChildren == null) return this; // skip
 		
-        if (options.get("submission") == null) return this;
 
 		//String current = getResolvedCldrFileToCheck().getStringValue(path);
 		tempSet.clear();
@@ -45,8 +45,16 @@ public class CheckChildren extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFileToCheck == null) return this;
+    // Skip if the phase is not final testing
+    if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+      setSkipTest(false); // ok
+    } else {
+      setSkipTest(true);
+      return this;
+    }
+    
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		Matcher myLocalePlus = Pattern.compile(cldrFileToCheck.getLocaleID() + "_[^_]*").matcher("");
 		Set children = cldrFileToCheck.getAvailableLocales();

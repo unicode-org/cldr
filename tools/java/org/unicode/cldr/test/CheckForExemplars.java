@@ -33,7 +33,7 @@ public class CheckForExemplars extends CheckCLDR {
   Collator spaceCol;
   String informationMessage;
   
-  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map options, List possibleErrors) {
+  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFile == null) return this;
     skip = true;
     super.setCldrFileToCheck(cldrFile, options, possibleErrors);

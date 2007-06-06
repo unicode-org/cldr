@@ -56,8 +56,21 @@ import java.util.regex.Pattern;
  * Preferences - Java - Code Style - Code Templates
  */
 public class TestUtilities {
+  enum State {a, b, c;
+    public static State cc = c;
+  };
+  
   public static void main(String[] args) throws Exception {
     try {
+      System.out.println(State.a + ", " + State.b  + ", " + State.c + ", " + State.cc);
+      
+      ULocale myLocale = null;
+      String string1 = null, string2 = null;
+      RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(myLocale);
+      col.setNumericCollation(true);
+      col.compare(string1, string2); // compare strings
+      col.getRawCollationKey(string1, null); // get sort key (for indexing)
+      
       testNames();
       testExampleGenerator();
       if (true)

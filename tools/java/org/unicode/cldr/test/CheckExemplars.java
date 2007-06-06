@@ -24,7 +24,7 @@ public class CheckExemplars extends CheckCLDR {
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]"));
 	//Allowed[:script=common:][:script=inherited:][:alphabetic=false:]
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFileToCheck == null) return this;
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		String locale = cldrFileToCheck.getLocaleID();
@@ -40,7 +40,7 @@ public class CheckExemplars extends CheckCLDR {
     if (path.indexOf("/exemplarCharacters") < 0) return this;
 		boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
         checkExemplar(value, result, isAuxiliary);
-        if (options.get("submission") == null) return this;
+
         // check relation to auxiliary set
         try {       	
         	if (path.indexOf("auxiliary") < 0) {

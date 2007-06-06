@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
@@ -21,27 +22,29 @@ import org.unicode.cldr.util.XMLSource;
 /**
  * Checks locale data for coverage.<br>
  * Options:<br>
- * CheckCoverage.requiredLevel=value to override the required level. values: comprehensive, modern, moderate, basic<br>
- * CheckCoverage.skip=true to skip a locale. For console testing, you want to skip the non-language locales, since
- * they don't typically add, just replace. See CheckCLDR for an example.
+ * CheckCoverage.requiredLevel=value to override the required level. values:
+ * comprehensive, modern, moderate, basic...<br>
+ * Use the option CheckCoverage.skip=true to skip a locale. For console testing,
+ * you want to skip the non-language locales, since they don't typically add,
+ * just replace. See CheckCLDR for an example.
  * CoverageLevel.localeType=organization to override the organization.
+ * 
  * @author davis
- *
+ * 
  */
 public class CheckCoverage extends CheckCLDR {
     static final boolean DEBUG = false;
     static final boolean DEBUG_SET = false;
     private static CoverageLevel coverageLevel = new CoverageLevel();
     private Level requiredLevel;
-    private boolean skip; // set to null if we should not be checking this file
-    private boolean requireConfirmed = true;
-    private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
+
+    //private boolean requireConfirmed = true;
+    //private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
-        // for now, skip all but localeDisplayNames
-        if (skip) return this;
-        if (options.get("submission") == null) return this;
+
+        if (isSkipTest()) return this;
         
 //        if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
 //        	System.out.println("debug: " + value);
@@ -66,7 +69,7 @@ public class CheckCoverage extends CheckCLDR {
         if(path == null) { 
             throw new InternalCldrException("Empty path!");
         } else if(getCldrFileToCheck() == null) {
-            throw new InternalCldrException("no file to check!");
+            throw new InternalCldrException("No file to check!");
         }
 
         // check to see if the level is good enough
@@ -84,30 +87,38 @@ public class CheckCoverage extends CheckCLDR {
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        skip = true;
-        if (options != null && options.get("CheckCoverage.skip") != null) return this;   
+        setSkipTest(true);
+        if (options != null && options.get("CheckCoverage.skip") != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
-        requiredLevel = null;
-        if (options != null) {
-            String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
-            if (optionLevel != null) requiredLevel = CoverageLevel.Level.get(optionLevel);
-        }
-        if (requiredLevel == null) {
-        	requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
-        }
+        
+        // Set to minimal if not in data submission
+        if (Phase.SUBMISSION.isEquivalentTo(options.get("phase"))) {
+          requiredLevel = Level.MINIMAL;
+        } else {
+          requiredLevel = null;
+          if (options != null) {
+              String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
+              if (optionLevel != null) {
+                requiredLevel = CoverageLevel.Level.get(optionLevel);
+              }
+          }
+          if (requiredLevel == null) {
+            requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
+          }
 
-        if (requiredLevel == null) { 
-             requiredLevel = Level.BASIC; 
+          if (requiredLevel == null) { 
+               requiredLevel = Level.BASIC; 
+          }
         }
         if (DEBUG) {
           System.out.println("requiredLevel: " + requiredLevel);
         }
 
-        skip = false;
+        setSkipTest(false);
         return this;
     }
     public void setRequiredLevel(Level level){

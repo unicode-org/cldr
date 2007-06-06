@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -80,8 +81,16 @@ public class CheckAlt extends CheckCLDR {
 		return strippedPath;
 	}
 
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFileToCheck == null) return this;
+    // Skip if the phase is not final testing
+    if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+      setSkipTest(false); // ok
+    } else {
+      setSkipTest(true);
+      return this;
+    }
+
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		seenSoFar.clear();
 		return this;

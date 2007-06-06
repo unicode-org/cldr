@@ -269,7 +269,7 @@ public class LDMLUtilities {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             serializer.setOutputStream(os);
             DOMSerializer ds = serializer.asDOMSerializer();
-            ds.serialize(doc);
+            //ds.serialize(doc);
             os.flush();
             ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
             doc = parse(new InputSource(is),"Fully resolved: "+fileName, false);

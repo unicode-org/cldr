@@ -106,7 +106,7 @@ public class CheckAttributeValues extends CheckCLDR {
     
     LocaleIDParser localeIDParser = new LocaleIDParser();
     
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());

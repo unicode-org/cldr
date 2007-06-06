@@ -25,7 +25,7 @@ public class CheckCasing extends CheckCLDR {
   ULocale uLocale = null;
   BreakIterator breaker = null;
   
-  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFileToCheck == null) return this;
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     uLocale = new ULocale(cldrFileToCheck.getLocaleID());

@@ -2423,7 +2423,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   /**
-   * Return the paths that have the specified value. The pathPrefix and pathMatcher
+   * Return the distinguished paths that have the specified value. The pathPrefix and pathMatcher
    * can be used to restrict the returned paths to those matching.
    * The pathMatcher can be null (equals .*).
    * @param pathPrefix
@@ -2432,12 +2432,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
    */
   public Set<String> getPathsWithValue(String pathPrefix, Matcher pathMatcher, String valueToMatch) {
     Set<String> result = new HashSet();
-    for (Iterator<String> it = iterator(pathPrefix); it.hasNext();) {
+    dataSource.getPathsWithValue(pathPrefix, valueToMatch, result);
+    if (pathMatcher == null) {
+      return result;
+    }
+    for (Iterator<String> it = result.iterator(); it.hasNext();) {
       String path = it.next();
-      String possibleValue = getStringValue(path);
-      if (possibleValue.equals(valueToMatch) 
-          && (pathMatcher == null || pathMatcher.reset(path).matches())) {
-        result.add(path);
+      if (!pathMatcher.reset(path).matches()) {
+        it.remove();
       }
     }
     return result;

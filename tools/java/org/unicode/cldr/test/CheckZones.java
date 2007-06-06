@@ -28,7 +28,7 @@ public class CheckZones extends CheckCLDR {
 
 	private TimezoneFormatter timezoneFormatter;
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map options, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFile == null) return this;
 		super.setCldrFileToCheck(cldrFile, options, possibleErrors);
 		try {

@@ -58,7 +58,7 @@ public class CheckDates extends CheckCLDR {
   
   private static final String DECIMAL_XPATH = "//ldml/numbers/symbols/decimal";
   
-  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFileToCheck == null) return this;
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());

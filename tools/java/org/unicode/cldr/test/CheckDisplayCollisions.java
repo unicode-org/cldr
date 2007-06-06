@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.XPathParts;
@@ -58,7 +59,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
     return this;
   }
   
-  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+  public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFileToCheck == null) return this;
     cldrFileToCheck = cldrFileToCheck.getResolved(); // check resolved cases
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);

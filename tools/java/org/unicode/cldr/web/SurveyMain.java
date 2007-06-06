@@ -203,6 +203,8 @@ public class SurveyMain extends HttpServlet {
     static final String METAZONES = "metazones";
     static final String MEASNAMES = "measurementSystemNames";
     static final String MEASNAME = "measurementSystemName";
+    static final String CODEPATTERNS = "codePatterns";
+    static final String CODEPATTERN = "codePattern";
     public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/"+CURRENCIES;
     public static final String CURRENCYTYPE = "//ldml/"+NUMBERSCURRENCIES+"/currency[@type='";
     /**
@@ -214,6 +216,7 @@ public class SurveyMain extends HttpServlet {
         CURRENCIES,
         TIMEZONES,
         METAZONES,
+        CODEPATTERNS,
         MEASNAMES
     };
     public static String xMAIN = "general";
@@ -3464,6 +3467,8 @@ public class SurveyMain extends HttpServlet {
             subtype = LDMLConstants.SCRIPT;
         } else if(type.equals(MEASNAMES)) {
             subtype = MEASNAME;
+        } else if(type.equals(CODEPATTERNS)) {
+            subtype = CODEPATTERN;
         } else if(type.equals(LDMLConstants.TERRITORIES)) {
             subtype = LDMLConstants.TERRITORY;
         } else if(type.equals(LDMLConstants.VARIANTS)) {
@@ -3702,6 +3707,7 @@ public class SurveyMain extends HttpServlet {
         boolean resolved=false;
         boolean users=false;
         boolean translators=false;
+        String lastfile = null;
         int nrOutFiles = 0;
         if(kind.equals("xml")) {
             vetted = false;
@@ -3861,7 +3867,7 @@ public class SurveyMain extends HttpServlet {
                 String fileName = inFiles[i].getName();
                 int dot = fileName.indexOf('.');
                 String localeName = fileName.substring(0,dot);
-                
+                lastfile = fileName;
                 File outFile = new File(outdir, fileName);
                 
                 CLDRDBSource dbSource = makeDBSource(null, new ULocale(localeName), vetted);
@@ -3886,11 +3892,16 @@ public class SurveyMain extends HttpServlet {
                     file.write(utf8OutStream);
                     nrOutFiles++;
                     utf8OutStream.close();
+                    lastfile = null;
     //            } catch (UnsupportedEncodingException e) {
     //                throw new InternalError("UTF8 unsupported?").setCause(e);
                 } catch (IOException e) {
                     e.printStackTrace();
                     throw new InternalError("IO Exception "+e.toString());
+                } finally {
+                    if(lastfile != null) {
+                        System.err.println("Last file written: " + kind + " / " + lastfile);
+                    }
                 }
             }
         }

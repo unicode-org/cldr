@@ -37,9 +37,13 @@ arbitrary changes (see the end). </b></p>
 		<h3>Display Names</h3>
 		<p>Languages, scripts (writing systems), territories (countries and regions), currencies, and time zones are represented in computers by internal codes, 
 		such as &quot;<code>fr</code>&quot; for the French language or &quot;<code>CA</code>&quot; for the country of Canada.</p>
-		<p>You should supply the most customary name used in your language, even if it is not the official name. For example, for the territory name in English 
-		you would use &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The United Kingdom of Great Britain and Northern Ireland&quot;. 
-		All names must be unique within a given category: thus one cannot use the same translated name for the following two codes; only one can be called &quot;Congo&quot;:</p>
+		<p><i>The ISO names and the &quot;official&quot; names are often not the best ones for CLDR.</i> The goal is the most customary name used in your language, even if it is not the official name. 
+		For example, for the territory name in English you would use &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The 
+		United Kingdom of Great Britain and Northern Ireland&quot;. The best source for customary usage is to look at what common publications such as newspapers and 
+		magazines do. For example, to see how Congo is used in French, one might search
+		<a target="_blank" onclick="return top.js.OpenExtLink(window,event,this)" href="http://www.google.com/search?q=Congo+site%3Alemonde.fr">
+		http://www.google.com/search?q<wbr>=Congo+site%3Alemonde.fr</a> and other publications.</p>
+		<p>All names <b>must</b> be unique within a given category: thus one cannot use the same translated name for the following two codes; <i>only one can be called &quot;Congo&quot;:</i></p>
 		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table3">
 			<tr>
 				<th style="vertical-align: top; text-align: left">Code</th>
@@ -60,9 +64,8 @@ arbitrary changes (see the end). </b></p>
 				<td style="vertical-align: top; text-align: left"><i>Congo</i></td>
 			</tr>
 		</table>
-		<p>The typical behavior when no particular translation is available is to display some form of the internal code. Thus if there is no translation of &quot;<code>CA</code>&quot;, 
-		then the string &quot;CA&quot; will appear.</p>
-		</td>
+		<p>Avoid using commas and avoid inverting the name (eg &quot;Congo, Democratic Republic of the&quot;). The characters &quot;(&quot; and &quot;)&quot; are discouraged, since they will 
+		be confusing in combination with countries in locale names.</td>
 	</tr>
 	<tr>
 		<td>//ldml/localeDisplayNames/(keys|types).*</td>
@@ -146,15 +149,16 @@ arbitrary changes (see the end). </b></p>
 		<td>
 		<h3>Languages</h3>
 		<p>There are a lot of languages here (around 500), and you <em>don&#39;t</em> need to look at them all! Many are relatively obscure, and not worth translating 
-		in a first path. Please also look at the following points.</p>
+		in a first pass. Please also look at the following points.</p>
 		<ul>
 			<li>Please use phrasing corresponding to the English &quot;Baltic Language&quot; for language collections. That is, use terms that would be 
 			appropriate to use for indicating that the target text is &quot;a&quot; Baltic Language, without terms that imply exclusion or multiplicity such as &quot;other&quot; (autre), 
 			etc. or &quot;languages&quot; (plural).</li>
 			<li>A common question is whether to capitalize or not. With a new locale, use whatever is normal practice for what should occur in menus. For an existing 
 			locale, <i>especially during the vetting period,</i> follow what is used for the other items already translated. This is the practice for territories and other types of items too.<ul>
-			<li>If the capitalization convention as a whole for a language needs to be changed, that should be done before the data submission phase for a 
-			release. Please file a bug to request that this be done.</li>
+			<li><i>If the capitalization convention as a whole for a language needs to be changed, that should be done before the data submission phase for the 
+			next 
+			release. Please file a bug to request that this be done.</i></li>
 		</ul>
 			</li>
 		</ul>
@@ -411,7 +415,7 @@ arbitrary changes (see the end). </b></p>
 		<h3>Relative Periods of Time</h3>
 		<p>Relative fields of time are used to indicate a period relative to today, like &quot;Yesterday&quot; or &quot;Tomorrow&quot;. Some languages don&#39;t have words or short phrases 
 		for some of these. For example, English does not have a word for &quot;the day before yesterday&quot; as some languages do, such as &quot;Vorgestern&quot; in German.</p>
-		<p>If your language doesn&#39;t have a natural term for one of these, please do <em>not</em> supply a translation: instead, pick the &quot;inherited&quot; value, such as <span class="fallback" title="Fallback from root">
+		<p>If your language doesn&#39;t have a natural term for one of these, please <b><i>do </i> <em>not</em></b> supply a translation: instead, pick the &quot;inherited&quot; value, such as <span class="fallback" title="Fallback from root">
 		<input title="#63133" disabled type="radio" value="V1" checked name="R1" />The day after tomorrow</span><span title="Fallback from root">. </span>The English 
 		phrase supplied here is just a placeholder to let you know what the field means, and is not part of the actual English locale data.</p>
 		</td>

@@ -31,6 +31,7 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UnicodeSet;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -61,10 +62,11 @@ import com.ibm.icu.lang.UCharacter;
 public class SurveyMain extends HttpServlet {
 
     // phase?
-    public static final boolean phaseSubmit = false;
+    public static final boolean phaseSubmit = false;  // SUBMISSION
     public static final boolean phaseVetting = true;  // <<<<< VETTING
     public static final boolean phaseClosed = false;
     public static final boolean phaseDisputed = false;
+    public static final boolean phaseFinalTesting = false;  //FINAL_TESTING
 	public static final boolean phaseReadonly = false;
     
     public static final boolean phaseBeta = false;
@@ -4130,7 +4132,7 @@ public class SurveyMain extends HttpServlet {
                 //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                 subCtx.removeQuery(QUERY_SECTION);
 
-               if(phaseVetting == true) {
+               if(false && phaseVetting == true) {
                     
                     if((numNoVotes+numInsufficient)>0) {
                         ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
@@ -4301,9 +4303,9 @@ public class SurveyMain extends HttpServlet {
         if(phaseVetting) {
             options.put("phase", "vetting");
         } else if(phaseSubmit) {
-            options.put("phase", "submit");
-        } else {
-            options.put("phase", "unknown");
+            options.put("phase", "submission");
+        } else if(phaseFinalTesting) {
+            options.put("phase", "final_testing");
         }
         
         return options;
@@ -4322,7 +4324,7 @@ public class SurveyMain extends HttpServlet {
                 checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
             //}
 
-            checkCldr.setDisplayInformation(getBaselineFile(), getBaselineExample());
+            checkCldr.setDisplayInformation(getBaselineFile() /*, getBaselineExample()*/);
             
             return checkCldr;
     }
@@ -6078,7 +6080,7 @@ public class SurveyMain extends HttpServlet {
         }
         printCells(ctx,pod,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
 
-        boolean areShowingInputBox = (canSubmit && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
+        boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
 
         // submit box
         if((phaseSubmit==true)
@@ -6557,13 +6559,15 @@ public class SurveyMain extends HttpServlet {
 
         // ##6.2 example column. always present
         if(itemExample!=null) {
-            ctx.print("<td class='generatedexample' valign='top' align='left'>");
+            ctx.print("<td class='generatedexample' valign='top' align='"+ourAlign+"' dir='"+ourDir+"' >");
             ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
             ctx.println("</td>");
         } else {
             ctx.println("<td></td>");
         }
     }
+
+    static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 
     void printPeaItem(WebContext ctx, DataPod.Pea p, DataPod.Pea.Item item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify, boolean zoomedIn) {
     //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
@@ -6642,11 +6646,13 @@ public class SurveyMain extends HttpServlet {
         }
 
         ctx.print("<span "+pClass+">");
-                
+        String processed = null;
         if(item.value.length()!=0) {
-            ctx.print(ctx.processor.processForDisplay(xpt.getById(p.base_xpath),item.value));
+            processed = ctx.processor.processForDisplay(xpt.getById(p.base_xpath),item.value);
+            ctx.print(processed);
         } else {
             ctx.print("<i dir='ltr'>(empty)</i>");
+            processed = null;
         }
         ctx.print("</span>");
         if((!fallback||((p.previousItem==null)&&item.isParentFallback)||  // it's either: not inherited OR not a "shim"  and..
@@ -6667,6 +6673,12 @@ public class SurveyMain extends HttpServlet {
                         ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"+ "<input type='checkbox' title='#"+item.xpathId+
                             "' value='"+item.altProposed+"' name='"+fieldHash+"_del'>" +"Delete&nbsp;item</label>");
                 }
+            }
+            
+            if(processed != null && /* ourDir.equals("rtl")&& */ CallOut.containsSome(processed)) {
+                String altProcessed = processed.replaceAll("\u200F","\u200F<b dir=rtl>RLM</b>\u200F")
+                                               .replaceAll("\u200E","\u200E<b>LRM</b>\u200E");
+                ctx.print("<br><span class=marks>" + altProcessed + "</span>");
             }
         }
         

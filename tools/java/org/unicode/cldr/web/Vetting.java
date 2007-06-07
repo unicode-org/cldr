@@ -662,7 +662,7 @@ public class Vetting {
     
     /**
      * update the results of a specific locale, without caring what kind of results were had.  This is a convenience
-     * function so you don't have to new up an array.
+     * function so you don't have to new up an array.
      * @param locale which locale
      * @return number of results changed
      */
@@ -772,7 +772,7 @@ public class Vetting {
         
         for(Race r : racesToUpdate) {
             if(r.recountIfHadDisqualified()) {
-                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
+//                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
                 errorRaces.add(r);
             }
         }
@@ -1215,7 +1215,9 @@ public class Vetting {
                 disqualified = test(locale, base_xpath, xpath, value); 
                 if(disqualified) {
                     score = 0;
-//                    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
+                   // if(/*sm.isUnofficial && */ base_xpath==85942) {
+                   //     System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
+                   // }
                 }
                 return disqualified;
             }
@@ -2650,6 +2652,9 @@ public class Vetting {
                 for(Object o : individualResults) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus)o;
                     if(status.getType().equals(status.errorType)) {
+                      //  if(/*sm.isUnofficial &&*/ xpath.indexOf("und")!=-1) {
+                      //      System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
+                      //  }
                         return true;
                     }
                 }

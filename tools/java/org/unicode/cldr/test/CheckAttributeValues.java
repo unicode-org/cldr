@@ -107,7 +107,7 @@ public class CheckAttributeValues extends CheckCLDR {
     
     LocaleIDParser localeIDParser = new LocaleIDParser();
     
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
           setSkipTest(false); // ok

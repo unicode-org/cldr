@@ -2,25 +2,38 @@ $letter = [:letter:] ;
 $nletter = [:^letter:] ;
 
 $vowel = [aeiou æ ɑ ə ɛ ɪ ʊ] ;
-$cons = [bcdfghjklmnpqrstvxz ð ŋ ʃ ʒ θ] ;
-
 $nvowel = [^$vowel] ;
+
 $nvowelOrY = [^$vowel [y]] ;
 
-$cg_softener = [iey] ; # soften's c
-$drop_y = [ndtlryszyiw ð ŋ ʃ ʒ θ] ; # new, dew, lew, rew, tew, yew, view 
-$hard = [fpthkcsxqθ] ; # cause s to be SS at end, and d to be t.
-$sib = [xgzsc ʃ ʒ] ; # sibulent
-$eot = \uFFFF ; # end or start of text
+$cons = [bcdfghjklmnpqrstvxz ð ŋ ʃ ʒ θ] ;
 
-$e_special = $nvowel $nvowel $nvowel $nvowelOrY ;
-$e_special2 = $eot $nvowel* $nvowelOrY? ;
+# these soften a c or g if they occur after
+$cg_softener = [iey] ;
 
+# if a long u (ew or eu also) comes after these, it is dropped
+$drop_y = [n d t l r s z j i w θ ð ŋ ʃ ʒ ] ; # new, dew, tune, lune, rune, sue, zune, yew, iew wew thune*, shew
+
+# cause s to be s at end (not z), and d to be t.
+$hard = [fpthkcsxqθ] ; 
+
+# cause plural es to be ɛz
+$sib = [x g z s c ʃ ʒ] ; # sibulent
+
+$eot = \uFFFF ; # end or start of text (also $)
+
+# for exceptions to final e
+$no_syllable = $nletter $cons* ;
+
+# final suffixes e, es, ed, er
 $final_ersd = $cons? e [sdr]? $nletter ;
+
+# final suffixes ing
+$final_ing = $cons? ing $nletter;
 
 # prefixes
 
-#Combinations
+# ========== Combinations ==========
 
 $nletter {post} > post ;
 $nletter {pre} > pri ;
@@ -28,53 +41,63 @@ $nletter {over} > ovər ;
 character > kerɪktər ;
 cally } $nletter → kli ;
 national > næʃənəl ;
+ary } $nletter > eri ;
+# ing } $nletter > iŋ;
+$letter { able } $nletter > əbəl ; # readable
+$letter { lion } $nletter > ljən ; # million
+$letter { nion } $nletter > njən ; # ???
+
+
+s { t } l $vowel $nletter > ; # listen
 
 # -le, -re
-$cons { re } $nletter > ər  ;
-$cons { le } $nletter > əl  ;
+$cons { re } $nletter > ər  ; # theatre
+$cons { le } $nletter > əl  ; # able
 
 # silent e at end
-$e_special { e } $nletter > i ;
-$e_special2 { e } $nletter > i ;
-e } $nletter >  ;
+$no_syllable { e } $nletter > i ; # be
+e } $nletter >  ;		# tire
 
-$cons { les } $nletter > ə l z ;
-$cons { res } $nletter > ə r z ;
-$cons { led } $nletter > ə l d ;
-$cons { red } $nletter > ə r d ;
+$cons { les } $nletter > əlz ; # battles
+$cons { res } $nletter > ərz ; # theatres
+#$cons { le } [rd] $nletter > əl ; # battler battled
+#$cons { re } [rd] $nletter > ər ; # theatrer, theatred
 
-$e_special { es } $nletter > ɛ s ;
-$e_special2 { es } $nletter > ɛ s ;
-# $nletter { yes } $nletter > ɛ s ;
-$sib { es } $nletter > ɛ z ;
-$hard { es } $nletter > s ;
-e s } $nletter > z ;
-$hard { s } $nletter > s ;
-u s } $nletter > ə s ;
-s } $nletter > z ;
+# Handle final es. Tricky, since it could also have an s or d added to a long (bake, bakes, baked... baker)
+$no_syllable { es } $nletter > ɛ s ; # ???
 
-$e_special { ed } $nletter > ɛ d ;
-$e_special2 { ed } $nletter > ɛ d ;
-t { ed } $nletter > ɛ d ;
-d { ed } $nletter > ɛ d ;
-$vowel s { ed } $nletter > ɛ d ;
-$hard { ed } $nletter > t ;
-ed } $nletter > d ;
+$sib { es } $nletter > ɛz ; # cases
+$hard { es } $nletter > s ; # rates
+es } $nletter > z ; # fades
+$hard { s } $nletter > s ; # cats
+us } $nletter > ə s ; # bus
+ss > s ; # ness
+s } $nletter > z ; # fads
 
-tiou > ʃ ə  ;
-tio > ʃ ə ;
-tia > ʃ ə ;
-tual $nletter > t ʃ ə l ;
-ture $nletter > t ʃ ə r ;
+$no_syllable { ed } $nletter > ɛ d ; #???
 
+t { ed } $nletter > ɛd ; # rated
+d { ed } $nletter > ɛd ; # kidded
+$vowel s { ed } $nletter > ɛd ; # based
+$hard { ed } $nletter > t ; # baked
+ed } $nletter > d ; # fished
 
-$vowel { sio > ʒ ə ;
-$vowel { sia > ʒ ə ;
-sio > ʃ ə ;
-sia > ʃ ə ;
+tiou > ʃə  ; # audatious
+tio > ʃə ; # nation
+tia > ʃə ; # Croatia
 
-ciou > ʃ ə  ;
-cio > ʃ ə ;
+tu } $vowel > tʃ ; # mutual
+tu } [rl] $vowel > tʃ ; # mature
+
+zure } $nletter > ʒər ; # azure
+
+$vowel { sio > ʒ ə ;  # commission
+$vowel { sia > ʒ ə ; # Russian
+sio > ʃ ə ; # fusion
+sia > ʃ ə ; # asia
+
+cious > ʃəs  ; # judicious
+# cio > ʃ ə ; # racio
 cia > ʃ ə ;
 
 xiou > gʒ ə  ;
@@ -82,43 +105,42 @@ xio > gʒ ə ;
 #xia > gʒ ə ;
 
 aa > ɑ  ; # maastricht ;
-a } e >  ; # archaeological ;
-ai > e  ;
-ay > e  ;
-au > ɑ  ;
-aw > ɑ  ;
+ae } i >  ; # archaeological ;
+a[iy] > e  ;
+a[uw] > ɑ  ;
+ao > ɑʊ  ;
 w { a } $nvowel > ɑ  ;
+$nvowel { a } $final_ersd > e ;
+$nvowel { a } $final_ing > e ;
 $nvowel { a } tion > e ;
-$nvowel { a } $cons e $nletter > e ;
-$nvowel { a } $cons es $nletter > e ;
-$nvowel { a } $cons ed $nletter > e ;
-$nvowel { a } $cons ing $nletter > e ;
-$nvowel { a } $cons er $nletter > e ;
+
 a } ge $nletter > ɪ ;
 #[dnt] { al } $nletter > əl ;
-# $letter { a } l > ɑ ;
+a } l [rsmtdl] > ɑ ; # also, already, wall, bald, although, almost.
+$letter a { l } k > ; # walk
 a } r > ɑ ;
 a } $nletter > ɑ ;
 # $nletter { a } $cons $vowel > ə ;
 ah } $nvowel > ɑ ;
+a } $vowel > e ; # ???
 a > æ ;
 
 eigh > e   ;
 eau >  ju ;
+ey > i;
 e[aeiyo] > i  ;
 $drop_y { eu > u ;
 eu > ju ;
 $drop_y { ew > u ;
 ew > ju ;
-$nvowel { e } $cons e $nletter > i ;
-$nvowel { e } $cons es $nletter > i ;
-$nvowel { e } $cons ed $nletter > i ;
-$nvowel { e } $cons er $nletter > i ;
-$nvowel { e } $cons ing $nletter > i ;
+$nvowel { e } $final_ersd > i ;
+$nvowel { e } $final_ing > i ;
+
 #[dnt] { el } $nletter > əl ;
 #[dt] { el } $nletter > əl ;
 #[dt] { el } $nletter > əl ;
 er > ə | r ;
+e } $vowel > i ;
 e > ɛ ;
 
 $drop_y { ieu >  u ;
@@ -130,21 +152,19 @@ iou > i ə  ;
 i } o > i ;
 i } u > i ;
 ie > i  ;
+
 igh > ɑɪ  ;
 ism } $nvowel > ɪ z ə m ;
-$nvowel { i } $cons e $nletter > ɑɪ ;
-$nvowel { i } $cons es $nletter > ɑɪ ;
-$nvowel { i } $cons ed $nletter > ɑɪ ;
-$nvowel { i } $cons er $nletter > ɑɪ ;
-$nvowel { i } $cons ing $nletter > ɑɪ ;
+$nvowel { i } $final_ersd > ɑɪ ;
+$nvowel { i } $final_ing > ɑɪ ;
 $cons { i } $nletter > i ;
+i } $vowel > ɑɪ ; # bias
 i > ɪ ;
 
 oa > o  ;
 oe > o  ;
-o } ing $nletter > o ;
-oi > oɪ ;
-oy > oɪ ;
+# o } ing $nletter > o ;
+o[iy] > oɪ ;
 oo } d > ʊ  ;
 oo } k > ʊ  ;
 # oo } r > ɑ  ;
@@ -154,27 +174,26 @@ ough > o   ;
 oul } d > ʊ  ;
 ous } $nletter > əs  ;
 ou > ɑʊ ;
-# ow > ɑʊ ;
-ow > o ;
+ow } $nletter > o ; # slow
+ow > ɑʊ ; 
 $nvowel { o } $final_ersd > o ;
-$nvowel { o } $cons? ing $nletter > o ;
+$nvowel { o } $final_ing > o ;
 o } r > o ;
 $cons { o } $nletter > o ;
 oh } $nvowel > o ;
+o } $vowel > o ; # boa
+o } $nletter > o ; # hello
 o > ɑ ;
 
 
 $drop_y { u } $final_ersd > u ;
 $nvowel { u } $final_ersd > ju ;
 
-#$drop_y { u } $cons? e [sdr]? $nletter > u ;
-#$nvowel { u } $cons? e [sdr]? $nletter > ju ;
+$drop_y { u } $final_ing > u ;
+$nvowel { u } $final_ing > ju ;
 
-$drop_y { u } $cons? ing $nletter > u ;
-$nvowel { u } $cons? ing $nletter > ju ;
-
-#$drop_y { u } tion > u ;
-#$nvowel { u } tion > ju ;
+$drop_y { u } tion > u ;
+$nvowel { u } tion > ju ;
 
 $drop_y { u } $nletter > u ;
 $nvowel { u } $nletter > ju ;
@@ -187,129 +206,143 @@ ui > ɪ ;
 
 $drop_y { ugh > u  ;
 $nvowel { ugh > ju  ;
+$drop_y { u } $vowel > u ; # manual
+u } $vowel > ju ; # ???
+u } $nletter > u ; # haiku
 u > ə ;
 
-y { j >  ;
-$e_special { y } $nletter > ɑɪ ;
-$e_special2 { y } $nletter > ɑɪ ;
-$nvowel { y } $cons? e $nletter > ɑɪ ;
-$nvowel { y } $cons? es $nletter > ɑɪ ;
-$nvowel { y } $cons? ed $nletter > ɑɪ ;
-$nvowel { y } $cons? er $nletter > ɑɪ ;
-$nvowel { y } $cons? ing $nletter > ɑɪ ;
-
-# $nvowel { y } e $nletter > ɑɪ ;
-# $nvowel { y } es $nletter > ɑɪ ;
-# $nvowel { y } ed $nletter > ɑɪ ;
-# $nvowel { y } er $nletter > ɑɪ ;
-# $nvowel { y } ing $nletter > ɑɪ ;
+y { y >  ;
+$no_syllable { y } $nletter > ɑɪ ;
+$nvowel { y } $final_ersd > ɑɪ ;
+$nvowel { y } $final_ing > ɑɪ ;
 
 y } $nletter > i ;
+ye } $nletter > ɑɪ ;
 y } $vowel > j ;
-y > ɪ ;
+$vowel { y > j ;
+y > | i ;
 
-b } b >  ;
+b } b >  ;		# babble
 
-p } p >  ;
-ph > f  ;
-$nletter { p } n >  ;
-$nletter { p } s >  ;
-$nletter { p } f >  ;
+p } p >  ;		# happy
+ph > f  ;	# graph
+$nletter { p } n >  ;		# pneumatic
+$nletter { p } s >  ;		# psalm
+$nletter { p } f >  ;		# ptomaine
 
-v } v >  ;
+v } v >  ; # bovver
 
-f } f >  ;
+f } f >  ; 	# off
 
 w } w >  ;
-$nletter { wh } o > h ;
-wh > w ;
-$nletter { w } r >  ;
+$nletter { wh } o > h ;	# who
+wh > w ;	# which
+$nletter { w } r >  ;	# wrote
 
 
-dg } $cons > d ʒ ;
-d } g $cg_softener >  ;
-d } d >  ;
-d } j >  ;
+# dg } $cons > d ʒ ;
+d } g $cg_softener >  ; 		# edge
+d } d >  ;		# ladder
+d } j >  ;		# adjust
 
 
-$vowel { th } $vowel > ð  ;
-th > θ  ;
-t } t >  ;
-t } ch >  ;
-t } sch >  ;
+$vowel { th } $vowel > ð  ; # breathe
+th } $nletter > θ ; 	# breath
+th > ð  ;	# this
+t } t >  ;		# bitter
+t } ch >  ;	# batch
+t } sch >  ;	# ??
 
 
-s s >  s ;
-s } c $cg_softener >  ;
-$vowel { s } $vowel > z ;
-sh > ʃ  ;
-sch > s k  ;
+s } c $cg_softener >  ;	# scion
+[$vowel-[a]] { s } $vowel > z ;	# rose but base
+sh > ʃ  ;	# bash
+sch >  ʃ  ;	#  schist
+# sch > s k  ;	# school
 
-z } z >  ;
-z > z ;
+# many more 's' cases at top
 
-ch > t ʃ  ;
-x { c } $cg_softener >  ;
-c } $cg_softener > s ;
-c } c $cg_softener > k ;
-c } c >  ;
-c } q >  ;
-c } k >  ;
-c > k ;
+z } z >  ; 		# jazz
+# z > z ;
 
-$vowel { k } h $vowel > k ;
- k h > k ;
+ch > tʃ  ; # church
+$nletter { c } t > ;	#ctenoid
 
-$vowel { r } h $vowel > r ;
- r h > r ;
+x { c } $cg_softener >  ;	# ??
+c } $cg_softener > s ;		# ace, cite, cycle
+c } c $cg_softener > k ;	# accept
+c } c >  ; # account
+c } q >  ; # acquire
+c } k >  ; # back
+c > k ; 		# cat
+
+$vowel { k } h $vowel > k ; # backhouse
+ kh > k ; # khaki
 
 j } j >  ;
-j > d ʒ ;
+j > dʒ ; # jet
 
-$vowel } gh >  ;
-gh > g ;
-gu } $vowel > g  ;
-g } $cg_softener > d ʒ ;
-# gg } ed $nletter > g ;
+$vowel } gh >  ; #neighbor
+gh > g ; # ghost
+# $nletter { gu } $vowel > g  ; #guide
+# gu } $nletter > g  ; #plague
+gu } $vowel > g  ;# plague, guide
+$letter { ge } $vowel > dʒ ; # changeable
+g } $cg_softener > dʒ ; # gentle, magic, gyrate
+
+
+# gg } ed $nletter > g ; 
 # gg } er $nletter > g ;
 # gg } est $nletter > g ;
 # gg } ing $nletter > g ;
 # gg } y $nletter > g ;
 # g } g $cg_softener > g ;
-gg > g ;
+
+gg > g ; # bagger
 g } g >  ;
-$nletter { g } n >  ;
+$nletter { g } n >  ; # gnu
+
+ks} h > ;	# exhibit, exhaust
+gz} h > ;	# exhibit, exhaust
 
 k } k >  ;
-$nletter { k } n >  ;
+$nletter { k } n >  ; #knew
 
-q } q >  ;
-que } $nletter > k ;
-qu > k w ;
-q > k ;
+q } q >  ; # ??
+que } $nletter > k ;	# banque
+qu > kw ;	# quit
+q > k ;	# Iraq
 
 m } m >  ;
+m } b $nletter > ;	# climb
+$nletter { m } n > ; 	# mnemonic
 
-n } c $cg_softener > n ;
-n } ch > n ;
-n } c > ŋ ;
-n } g $cg_softener > n ;
-ng > ŋ ; # ŋ
-n } k > ŋ ;
-n } x > ŋ ;
-n } q > ŋ ;
-n } n >  ;
 
-ll } k > l ;
-l } l >  ;
-# l } k >  ;
+n } c $cg_softener > n ;	# cancer
+n } ch > n ;	# bench
+n } c > ŋ ;	# zinc
+n } g $cg_softener > n ;	# singe, but finger, singer
+n } g[rl] > ŋ ; # angry
+ng > ŋ ; # bang
+n } k > ŋ ; # bank
+n } x > ŋ ; # manx
+n } q > ŋ ; # banque
+n } n >  ;		# banner
+m { n } $nletter > ; 	# damn
 
-r } r >  ;
+l } l >  ;		# hall
+
+r } r >  ;	# terrier
+$vowel { r } h $vowel > r ; # barhouse
+ rh > r ; # rhotic
+
 
 x } x >  ;
-$nletter { x > z ;
-#$vowel { x } $vowel > gz ;
-x > ks ;
+$nletter { x > z ;		# xenophobe
+x } c $cg_softener > k ; # excited
+$nletter e { x } $vowel > gz ; # exist
+x } u $vowel > kʃ ;
+x > ks ;	# ax
 
 h { h >  ;
 

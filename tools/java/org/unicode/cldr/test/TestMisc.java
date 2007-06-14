@@ -27,8 +27,10 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
 
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.PrettyPrinter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -37,13 +39,17 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestMisc {
     public static void main(String[] args) {
       
+      testToRegex();
+      //checkEastAsianWidth();
+      if (true) return;
       // import ICU
       UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
+      
       checkCollections();
       
-      if (true) return;
+
       
-      checkEastAsianWidth();
+
 
       
       ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(Utility.MAIN_DIRECTORY,".*").make("en",false), Utility.SUPPLEMENTAL_DIRECTORY);
@@ -93,22 +99,84 @@ public class TestMisc {
       }.applyTo(Iso639Data.getAvailable());
     }
 
+    static void testToRegex() {
+      String[] tests = {"\\-", "a", "d-f", "\\u2000" , "\\uAC00-\\uAC12", "{AB}", "{CDE}", "\\uFFF0-\\U0010000F", "\\U0010100F-\\U0010300F"}; // }; //
+      for (int i =(1<<tests.length) - 1; i >= 0; --i) {
+        String test = "[";
+        for (int j = 0; j < tests.length; ++j) {
+          if ((i & (1<<j)) != 0) {
+            test += tests[j];
+          }
+        }
+        test += "]";
+        testToRegex(new UnicodeSet(test));
+      }
+    }
+
+    private static void testToRegex(UnicodeSet test) {
+      String formatted = Utility.toRegex(test);
+      System.out.println(test + "\t->\t" + formatted);
+      Matcher newTest = Pattern.compile(formatted).matcher("");
+      UnicodeSet failures = new UnicodeSet();
+      for (UnicodeSetIterator it = new UnicodeSetIterator(test); it.next();) {
+        if (!newTest.reset(it.getString()).matches()) {
+          failures.add(it.getString());
+        }
+      }
+      if (failures.size() != 0) {
+        System.out.println("\tFailed on: " + failures);
+      }
+      System.out.flush();
+    }
+    
     static void checkEastAsianWidth() {
-      UnicodeSet dontCares = new UnicodeSet("[[:Cs:][:Cn:][:Cc:][:Noncharacter_Code_Point:]]");
+      UnicodeSet dontCares = (UnicodeSet) new UnicodeSet("[[:surrogate:][:unassigned:][:control:]]").freeze();
+      UnicodeSet dontCares2 = (UnicodeSet) new UnicodeSet("[:^letter:]").freeze();
       
-      UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); // remove supplementaries
-      System.out.format("Wide %s\r\n\r\n", wide);
-      System.out.format("Wide(spanned) %s\r\n\r\n", Utility.addDontCareSpans(wide, dontCares));
-      UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove supplementaries
-      System.out.format("ZeroWidth %s\r\n\r\n", zeroWidth);
-      System.out.format("ZeroWidth(spanned) %s\r\n\r\n", Utility.addDontCareSpans(zeroWidth, dontCares));
+//      UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); // remove supplementaries
+//      System.out.format("Wide %s\r\n\r\n", wide);
+//      System.out.format("Wide(spanned) %s\r\n\r\n", Utility.addDontCareSpans(wide, dontCares));
+//      UnicodeSet zeroWidth = new UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove supplementaries
+//      System.out.format("ZeroWidth %s\r\n\r\n", zeroWidth);
+//      System.out.format("ZeroWidth(spanned) %s\r\n\r\n", Utility.addDontCareSpans(zeroWidth, dontCares));
       
       // P2. In each paragraph, find the first character of type L, AL, or R.
-      UnicodeSet strongBIDI = new UnicodeSet("[[:BidiClass=L:]-[:unassigned:]]"); // remove supplementaries
-      System.out.format("BIDI (L,R,AL - spanned) %s\r\n\r\n", Utility.addDontCareSpans(strongBIDI, dontCares));
-      UnicodeSet strongRAL = new UnicodeSet("[[:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]&[:Letter:]]"); // remove supplementaries
-      System.out.format("BIDI (R,AL - spanned) %s\r\n\r\n", Utility.addDontCareSpans(strongRAL, dontCares));
+      UnicodeSet strongL = (UnicodeSet) new UnicodeSet("[[:BidiClass=L:]-[:unassigned:]]").freeze(); // 
+      showSpans("Bidi L", strongL, dontCares);
+      showSpans("Bidi L*", strongL, dontCares2);
+      
+      UnicodeSet strongRAL = (UnicodeSet) new UnicodeSet("[[:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]").freeze();
+      showSpans("Bidi R,AL", strongRAL, dontCares);
+      showSpans("Bidi R,AL*", strongRAL, dontCares2);
+      
+      UnicodeSet strong = (UnicodeSet) new UnicodeSet("[[:BidiClass=L:][:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]").freeze();
+      showSpans("Strong", strong, dontCares);
+      showSpans("Strong*", strong, dontCares2);
+
     }
+
+    private static void showSpans(String title, UnicodeSet sourceSet, UnicodeSet dontCares) {
+      System.out.println(title);
+      System.out.format("\tSource Set: %s\r\n", sourceSet);
+      System.out.format("\tDon't Cares: %s\r\n", dontCares);
+      UnicodeSet spanned = Utility.addDontCareSpans(new UnicodeSet(sourceSet), dontCares);
+      spanned = spanned.complement().complement();
+      String spannedString = spanned.toString();
+      String unescapedString = spanned.toPattern(false);
+      System.out.format("\tRanges: %d\r\n", spanned.getRangeCount());
+      System.out.format("\tStrlen(\\u): %d\r\n", spannedString.length());
+      System.out.format("\tStrlen(!\\u): %d\r\n", unescapedString.length());
+      String title2 = "Result";
+      String sample = spannedString;
+      if (false) {
+        if (sample.length() > 60) {
+          title2 = "Sample";
+          sample = sample.substring(0,60) + " ...";
+        }
+      }
+      System.out.format("\t%s: %s\r\n", title2, sample);
+      System.out.println();
+     }
     
 
     static int[] extraCJK = {

@@ -54,11 +54,12 @@ oy	←	o[iɪj] ;
 ū	←	ju ;
 j ← dʒ;
 
-$short_a = a ; # ă
+$short_a = ă ; # ă
 $short_e = ĕ ; # ĕ
-$short_i = i; # ĭ
-$short_o = o; #ŏ
-$short_u = u; #ŭ
+$short_i = ĭ; # ĭ
+$short_o = á; #ŏ
+$short_oo = ŏŏ; #ŏ
+$short_u = ŭ; #ŭ
 
 $short_a	←	a 	;
 $short_a	←	æ 	 ; # 00E6 raised open front unrounded
@@ -126,9 +127,9 @@ ny	←	ɲ 	 ; # 0272 vd palatal nasal
 n	←	ɳ 	 ; # 0273 vd retroflex nasal
 ng	←	ŋ 	 ; # 014B vd velar nasal
 	
-$short_o$short_o	←	ø 	 ; # 00F8 front close-mid rounded
-$short_o$short_o	←	œ 	 ; # 0153 front open-mid rounded
-$short_o$short_o	←	ɶ 	 ; # 0276 front open rounded
+$short_oo	←	ø 	 ; # 00F8 front close-mid rounded
+$short_oo	←	œ 	 ; # 0153 front open-mid rounded
+$short_oo	←	ɶ 	 ; # 0276 front open rounded
 $short_a	←	ɔ 	 ; # 0254 open-mid back rounded
 $short_a	←	ɵ 	 ; # 0275 rounded schwa
 # p	←	p 	;
@@ -155,7 +156,7 @@ t	←	ʈ 	 ; # 0288 vl retroflex plosive
 w	←	ɥ 	 ; # 0265 labial-palatal approximant
 ōō	←	ɯ 	 ; # 026F close back unrounded
 y	←	ɰ 	 ; # 0270 velar approximant
-$short_o$short_o	←	ʊ 	 ; # 028A lax close back rounded
+$short_oo	←	ʊ 	 ; # 028A lax close back rounded
 # v	←	v 	;
 $short_u 	←	ʋ 	 ; # 028B vd labiodental approximant
 $short_u 	←	ʌ 	 ; # 028C open-mid back unrounded
@@ -163,12 +164,12 @@ $short_u 	←	ʌ 	 ; # 028C open-mid back unrounded
 w	←	ʷ 	 ; # 02B7 labialized
 w	←	ʍ 	 ; # 028D vl labial-velar fricative
 kh	←	x 	;
-$short_o$short_o	←	y 	;
-$short_o$short_o	←	ʏ 	 ; # 028F lax close front rounded
+$short_oo	←	y 	;
+$short_oo	←	ʏ 	 ; # 028F lax close front rounded
 # z	←	z 	;
 z	←	ʐ 	 ; # 0290 vd retroflex fricative
 z	←	ʑ 	 ; # 0291 vd alveolopalatal fricative
-jh	←	ʒ 	 ; # 0292 vd postalveolar fricative
+ž	←	ʒ 	 ; # 0292 vd postalveolar fricative
 ''	←	ʔ 	 ; # 0294 glottal plosive
 ''	←	ʼ 	 ; # 02BC ejective
 ''	←	ʕ 	 ; # 0295 vd pharyngeal fricative

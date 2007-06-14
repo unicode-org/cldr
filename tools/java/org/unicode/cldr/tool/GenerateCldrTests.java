@@ -991,7 +991,7 @@ public class GenerateCldrTests {
         return target;
     }
     
-    static class UnicodeSetComparator implements Comparator {
+    public static class UnicodeSetComparator implements Comparator {
     	UnicodeSetIterator ait = new UnicodeSetIterator();
     	UnicodeSetIterator bit = new UnicodeSetIterator();
 		public int compare(Object o1, Object o2) {

@@ -576,6 +576,180 @@ public class Utility {
     return input;
   }
   
+  /**
+   * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that are in the UnicodeSet, Supplementary ranges, and escaping
+   * @param source  The source set
+   * @param escaper A transliterator that is used to escape the characters according to the requirements of the regex.
+   * @return
+   */
+  public static String toRegex(UnicodeSet source) {
+    return toRegex(source, null, false);
+  }
+  
+  private static final  Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
+      "foo", 
+      "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
+//      + " ([:c:]) > &hex($1);"
+      + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+      Transliterator.FORWARD);
+
+  /**
+   * Convert a UnicodeSet into a string that can be embedded into a Regex.
+   * Handles strings that are in the UnicodeSet, Supplementary ranges, and
+   * escaping
+   * 
+   * @param source
+   *          The source set
+   * @param escaper
+   *          A transliterator that is used to escape the characters according
+   *          to the requirements of the regex. The default puts a \\ before [, -,
+   *          \, and ], and converts controls and Ascii whitespace to hex.
+   *          Alternatives can be supplied. Note that some Regex engines,
+   *          including Java 1.5, don't really deal with escaped supplementaries
+   *          well.
+   * @param onlyBmp
+   *          Set to true if the Regex only accepts BMP characters. In that
+   *          case, ranges of supplementary characters are converted to lists of
+   *          ranges. For example, [\uFFF0-\U0010000F \U0010100F-\U0010300F]
+   *          converts into:
+   *          <pre>
+   *          [\uD800][\uDC00-\uDFFF]
+   *          [\uD801-\uDBBF][\uDC00-\uDFFF]
+   *          [\uDBC0][\uDC00-\uDC0F]</pre>
+   *          and<pre>
+   *          [\uDBC4][\uDC0F-\uDFFF]
+   *          [\uDBC5-\uDBCB][\uDC00-\uDFFF]
+   *          [\uDBCC][\uDC00-\uDC0F]
+   *          </pre>
+   *          These are then coalesced into a list of alternatives by sharing
+   *          parts where feasible. For example, the above turns into 3 pairs of ranges:
+   *          <pre>
+   *          [\uDBC0\uDBCC][\uDC00-\uDC0F]|\uDBC4[\uDC0F-\uDFFF]|[\uD800-\uDBBF\uDBC5-\uDBCB][\uDC00-\uDFFF]
+   *          </pre>
+   * 
+   * @return escaped string. Something like [a-z] or (?:[a-m]|{zh}) if there is
+   *         a string zh in the set, or a more complicated case for
+   *         supplementaries. <br>
+   *         Special cases: [] returns "", single item returns a string
+   *         (escaped), like [a] => "a", or [{abc}] => "abc"<br>
+   *         Supplementaries are handled specially, as described under onlyBmp.
+   */
+  public static String toRegex(UnicodeSet source, Transliterator escaper, boolean onlyBmp) {
+    if (escaper == null) {
+      escaper = DEFAULT_REGEX_ESCAPER;
+    }
+    UnicodeSetIterator it = new UnicodeSetIterator(source);
+    // if there is only one item, return it
+    if (source.size() == 0) {
+      return "";
+    }
+    if (source.size() == 1) {
+      it.next();
+      return escaper.transliterate(it.getString());
+    }
+    // otherwise, we figure out what is in the set, and will return 
+    StringBuilder base = new StringBuilder("[");
+    StringBuilder alternates = new StringBuilder();
+    Map<UnicodeSet,UnicodeSet> lastToFirst = new TreeMap<UnicodeSet,UnicodeSet>(new UnicodeSetComparator());
+    int alternateCount = 0;
+    while(it.nextRange()) {
+      if (it.codepoint == it.IS_STRING) {
+        ++alternateCount;
+        alternates.append('|').append(escaper.transliterate(it.string));
+      } else if (!onlyBmp || it.codepointEnd <= 0xFFFF) { // BMP
+        addBmpRange(it.codepoint, it.codepointEnd, escaper, base);
+      } else { // supplementary
+        if (it.codepoint <= 0xFFFF) {
+          addBmpRange(it.codepoint, 0xFFFF, escaper, base);
+          it.codepoint = 0x10000; // reset the range
+        }
+        // this gets a bit ugly; we are trying to minimize the extra ranges for supplementaries
+        // we do this by breaking up X-Y based on the Lead and Trail values for X and Y
+        // Lx [Tx - Ty])         (if Lx == Ly)
+        // Lx [Tx - DFFF] | Ly [DC00-Ty]        (if Lx == Ly - 1)
+        // Lx [Tx - DFFF] | [Lx+1 - Ly-1][DC00-DFFF] | Ly [DC00-Ty] (otherwise)
+        int leadX = UTF16.getLeadSurrogate(it.codepoint);
+        int trailX = UTF16.getTrailSurrogate(it.codepoint);
+        int leadY = UTF16.getLeadSurrogate(it.codepointEnd);
+        int trailY = UTF16.getTrailSurrogate(it.codepointEnd);
+        if (leadX == leadY) {
+          addSupplementalRange(leadX, leadX, trailX, trailY, escaper, lastToFirst);
+        } else {
+          addSupplementalRange(leadX, leadX, trailX, 0xDFFF, escaper, lastToFirst);
+          if (leadX != leadY - 1) {
+            addSupplementalRange(leadX+1, leadY-1, 0xDC00, 0xDFFF, escaper, lastToFirst);
+          }
+          addSupplementalRange(leadY, leadY, 0xDC00, trailY, escaper, lastToFirst);  
+        }
+      }
+    }
+    // add in the supplementary ranges 
+    if (lastToFirst.size() != 0) {
+      for (UnicodeSet last : lastToFirst.keySet()) {
+        ++alternateCount;
+        alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp)).append(toRegex(last, escaper, onlyBmp));
+      }
+    }
+    // Return the output. We separate cases in order to get the minimal extra apparatus
+    base.append("]");
+    if (alternateCount == 0) {
+      return base.toString();
+    } else if (base.length() > 2) {
+        return "(?:" + base + "|" + alternates.substring(1) + ")";
+    } else if (alternateCount == 1) {
+      return alternates.substring(1);
+    }else {
+      return "(?:" + alternates.substring(1) + ")";
+    }
+  }
+
+  private static void addSupplementalRange(int leadX, int leadY, int trailX, int trailY, Transliterator escaper, Map<UnicodeSet, UnicodeSet> lastToFirst) {
+    System.out.println("\tadding: " + new UnicodeSet(leadX, leadY) + "\t" + new UnicodeSet(trailX, trailY) );
+    UnicodeSet last = new UnicodeSet(trailX, trailY);
+    UnicodeSet first = lastToFirst.get(last);
+    if (first == null) {
+      lastToFirst.put(last, first = new UnicodeSet());
+    }
+    first.add(leadX, leadY);
+  }
+
+  private static void addBmpRange(int start, int limit, Transliterator escaper, StringBuilder base) {
+    base.append(escaper.transliterate(UTF16.valueOf(start)));
+    if (start != limit) {
+      base.append("-").append(escaper.transliterate(UTF16.valueOf(limit)));
+    }
+  }
+  
+  public static class UnicodeSetComparator implements Comparator {
+    UnicodeSetIterator ait = new UnicodeSetIterator();
+    UnicodeSetIterator bit = new UnicodeSetIterator();
+  public int compare(Object o1, Object o2) {
+    if (o1 == o2) return 0;
+    if (o1 == null) return -1;
+    if (o2 == null) return 1;
+    UnicodeSet a = (UnicodeSet)o1;
+    UnicodeSet b = (UnicodeSet)o2;
+    if (a.size() != b.size()) {
+      return a.size() < b.size() ? -1 : 1;
+    }
+    ait.reset(a);
+    bit.reset(b);
+    while (ait.nextRange()) {
+      bit.nextRange();
+      if (ait.codepoint != bit.codepoint) {
+        return ait.codepoint < bit.codepoint ? -1 : 1;
+      }
+      if (ait.codepoint == UnicodeSetIterator.IS_STRING) {
+        int result = ait.string.compareTo(bit.string);
+        if (result != 0) return result;
+      } else if (ait.codepointEnd != bit.codepointEnd) {
+        return ait.codepointEnd < bit.codepointEnd ? -1 : 1;
+      }
+    }
+    return 0;
+  }
+  }
+
 
     /**
      * Replaces all occurances of piece with replacement, and returns new String

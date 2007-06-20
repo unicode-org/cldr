@@ -2245,16 +2245,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
                 res = getDefaultResource(node, xpath, name);
             }else if(name.equals(LDMLConstants.LPC)){
-                getXPath(node, xpath);
-                if(isNodeNotConvertible(node, xpath)){
-                    xpath.setLength(oldLength);
-                    continue;
-                }
-                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-                str.name = (String) keyNameMap.get(name);
-                str.val = LDMLUtilities.getNodeValue(node);
-                res = str;
-
+               // localized pattern chars are deprecated
             }else if(name.equals(LDMLConstants.CALENDARS)){
                 res = parseCalendars(node, xpath);
             }else if(name.equals(LDMLConstants.TZN)){

@@ -1087,8 +1087,17 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 ter.val = territory;
                 zi.first = ter;
                 String aliases = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALIASES);
-                if(aliases!=null){
-                    String[] arr = aliases.split("\\s+");
+                String icu_aliases = getICUAlias(LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE));
+                String all_aliases = aliases;
+                if (icu_aliases != null) {
+                    if ( aliases == null ) {
+                        all_aliases = icu_aliases;
+                    } else {
+                        all_aliases = aliases + " " + icu_aliases;
+                    }
+                }
+                if(all_aliases!=null){
+                    String[] arr = all_aliases.split("\\s+");
                     ICUResourceWriter.ResourceArray als = new ICUResourceWriter.ResourceArray();
                     als.name = LDMLConstants.ALIASES;
                     ICUResourceWriter.Resource cur=null;
@@ -1140,6 +1149,43 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }     
+
+    private String getICUAlias(String tzid){
+    //  This function is used to return the compatibility aliases for ICU.
+    //  It should match the ICUZONES file in ICU4C source/tools/tzcode/icuzones.
+    //  Note that since we don't expect this to change AT ALL over time, it is
+    //  easier to just hard code the information here.  We only include those
+    //  aliases that are NOT in CLDR.
+
+        if ( tzid.equals("Australia/Darwin")) return("ACT");
+        if ( tzid.equals("Australia/Sydney")) return("AET");
+        if ( tzid.equals("America/Argentina/Buenos_Aires")) return("AGT");
+        if ( tzid.equals("Africa/Cairo")) return("ART");
+        if ( tzid.equals("America/Anchorage")) return("AST");
+        if ( tzid.equals("America/Sao_Paulo")) return("BET");
+        if ( tzid.equals("Asia/Dhaka")) return("BST");
+        if ( tzid.equals("Africa/Harare")) return("CAT");
+        if ( tzid.equals("America/St_Johns")) return("CNT");
+        if ( tzid.equals("America/Chicago")) return("CST");
+        if ( tzid.equals("Asia/Shanghai")) return("CTT");
+        if ( tzid.equals("Africa/Addis_Ababa")) return("EAT");
+        if ( tzid.equals("Europe/Paris")) return("ECT");
+        if ( tzid.equals("America/Indianapolis")) return("IET");
+        if ( tzid.equals("Asia/Calcutta")) return("IST");
+        if ( tzid.equals("Asia/Tokyo")) return("JST");
+        if ( tzid.equals("Pacific/Apia")) return("MIT");
+        if ( tzid.equals("Asia/Yerevan")) return("NET");
+        if ( tzid.equals("Pacific/Auckland")) return("NST");
+        if ( tzid.equals("Asia/Karachi")) return("PLT");
+        if ( tzid.equals("America/Phoenix")) return("PNT");
+        if ( tzid.equals("America/Puerto_Rico")) return("PRT");
+        if ( tzid.equals("America/Los_Angeles")) return("PST");
+        if ( tzid.equals("Pacific/Guadalcanal")) return("SST");
+        if ( tzid.equals("Asia/Saigon")) return("VST");
+
+        return null;
+    }
+
     private ICUResourceWriter.Resource parseCurrencyFraction(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -3206,7 +3252,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 continue;
             }
             getXPath(node, xpath);
-            if(isNodeNotConvertible(node, xpath)&& isNodeFromRoot==false){
+            if(isNodeNotConvertible(node, xpath)){
                 xpath.setLength(saveLength);
                 continue;
             }

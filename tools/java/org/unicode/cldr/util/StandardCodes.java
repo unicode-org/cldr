@@ -445,6 +445,9 @@ public class StandardCodes {
           String line = originalLine = lstreg.readLine();
           if (line == null)
             break;
+          if (line.startsWith("\uFEFF")) {
+            line = line.substring(1);
+          }
           line = line.trim();
           int commentPos = line.indexOf('#');
           String comment = "";

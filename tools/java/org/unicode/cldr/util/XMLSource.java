@@ -128,7 +128,7 @@ public abstract class XMLSource implements Freezable {
     private String oldPath;
     private String newPath;
     private boolean pathsEqual;
-    static final Pattern aliasPattern = Pattern.compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?"); // constant, so no need to sync
+    static final Pattern aliasPattern = Pattern.compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?(?:\\[@draft=\"([^\"]*)\"])?"); // constant, so no need to sync
     static final Map<String,Alias> cache = new HashMap<String,Alias>();
     
     public static Alias make(String aliasPath) {

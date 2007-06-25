@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
@@ -934,6 +935,7 @@ public class CoverageLevel {
 
   private static void getMetadata(CLDRFile metadata) {
     XPathParts parts = new XPathParts();
+    LanguageTagParser languageTagParser = new LanguageTagParser();
     for (Iterator it = metadata.iterator(); it.hasNext();) {
       String path = (String) it.next();
       path = metadata.getFullXPath(path);
@@ -957,12 +959,18 @@ public class CoverageLevel {
         String defContent = parts.getAttributeValue(-1, "locales");
         String [] defLocales = defContent.split(" ");
         for ( int i = 0 ; i < defLocales.length ; i++ ) {
-           int pos = defLocales[i].lastIndexOf('_');
-           String defLang = defLocales[i].substring(0,pos);
-           String defTerr = defLocales[i].substring(pos+1);
-           if ( defTerr.length() == 2 ) {
-              defaultTerritory.put(defLang,defTerr);
-           }
+//           int pos = defLocales[i].lastIndexOf('_');
+//           String defLang = defLocales[i].substring(0,pos);
+//           String defTerr = defLocales[i].substring(pos+1);
+//           if ( defTerr.length() == 2 ) {
+//              defaultTerritory.put(defLang,defTerr);
+//           }
+          // not sure what the above code was trying to do, but it did not put a value in for "uz" which caused the line:
+          //        territory = defaultTerritory.get(localeID);
+          // to still return null, and thus causes a null exception.
+          // Am guessing that what it is trying to do is get the language subtag.
+          languageTagParser.set(defLocales[i]);
+          defaultTerritory.put(languageTagParser.getLanguage(), languageTagParser.getRegion());
         } 
       }
     }

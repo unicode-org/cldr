@@ -144,22 +144,36 @@ public abstract class XMLSource implements Freezable {
           String relativePath;
           if (USE_PARTS_IN_ALIAS) {
             XPathParts tempAliasParts = new XPathParts(null, null);      
-            if (!tempAliasParts.set(aliasPath).containsElement("alias")) return null;
+            if (!tempAliasParts.set(aliasPath).containsElement("alias")) {
+              return null;
+            }
             Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
             result.newLocaleID = (String) attributes.get("source");
             relativePath = (String) attributes.get("path");
-            if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
-            if (relativePath == null) result.newPath = result.oldPath;
-            else result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
+            if (result.newLocaleID != null && result.newLocaleID.equals("locale")) {
+              result.newLocaleID = null;
+            }
+            if (relativePath == null) {
+              result.newPath = result.oldPath;
+            }
+            else {
+              result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
+            }
           } else {
             // do the same as the above with a regex
             Matcher matcher = aliasPattern.matcher(aliasPath.substring(pos+6));
             if (matcher.matches()) {
               result.newLocaleID = matcher.group(1);
-              if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
+              if (result.newLocaleID != null && result.newLocaleID.equals("locale")) {
+                result.newLocaleID = null;
+              }
               String relativePath2 = matcher.group(2);
-              if (relativePath2 == null) result.newPath = result.oldPath;
-              else result.newPath = addRelative(result.oldPath, relativePath2);
+              if (relativePath2 == null) {
+                result.newPath = result.oldPath;
+              }
+              else {
+                result.newPath = addRelative(result.oldPath, relativePath2);
+              }
               
 //            if (false) { // test
 //            if (newLocaleID != null) {
@@ -208,6 +222,9 @@ public abstract class XMLSource implements Freezable {
      * @return
      */
     static String addRelative(String oldPath, String relativePath) {
+      if (relativePath.startsWith("//")) {
+        return relativePath;
+      }
       while (relativePath.startsWith("../")) {
         relativePath = relativePath.substring(3);
         // strip extra "/". Shouldn't occur, but just to be safe.

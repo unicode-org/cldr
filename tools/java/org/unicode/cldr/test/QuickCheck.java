@@ -47,6 +47,8 @@ public class QuickCheck {
 
   private static boolean showForceZoom;
   
+  private static boolean resolved;
+  
   public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
     if (localeRegex == null) localeRegex = ".*";
@@ -59,7 +61,10 @@ public class QuickCheck {
     
     showForceZoom = System.getProperty("FORCED") != null;
     System.out.println("Force Zoomed Edit?: " + showForceZoom + "\t\t(use -DFORCED) to enable");
-    
+ 
+    resolved = System.getProperty("RESOLVED") != null;
+    System.out.println("Resolved?: " + resolved + "\t\t(use -RESOLVED) to enable");
+
     double startTime = System.currentTimeMillis();
     checkDtds();
     double deltaTime = System.currentTimeMillis() - startTime;
@@ -137,13 +142,13 @@ public class QuickCheck {
     Relation<String,String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     Relation<String,String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     XPathParts parts = new XPathParts();
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, localeRegex);
+    Factory cldrFactory = Factory.make(sourceDirectory, localeRegex);
     
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator), TreeSet.class, null);
     for (String locale : cldrFactory.getAvailable()) {
       if (locale.equals("root") && !localeRegex.equals("root"))
         continue;
-      CLDRFile file = cldrFactory.make(locale, false);
+      CLDRFile file = cldrFactory.make(locale, resolved);
       if (file.isNonInheriting())
         continue;
       DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
@@ -152,15 +157,21 @@ public class QuickCheck {
       
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
+        if (path.endsWith("/alias")) {
+          continue;
+        }
         String value = file.getStringValue(path);
+        if (value == null) {
+          throw new IllegalArgumentException(locale + "\tError: in null value at " + path);
+        }
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
         if (!displayValue.equals(value)) {
-          System.out.println("display value " + value + "\t=>\t" + displayValue + "\t\t" + path);
+          System.out.println(locale + "\tdisplayAndInputProcessor changes display value " + value + "\t=>\t" + displayValue + "\t\t" + path);
         }
         String inputValue = displayAndInputProcessor.processInput(path, value);
         if (!inputValue.equals(value)) {
           displayAndInputProcessor.processInput(path, value);
-          System.out.println("input value " + value + "\t=>\t" + inputValue + "\t\t" + path);
+          System.out.println(locale + "\tdisplayAndInputProcessor changes input value " + value + "\t=>\t" + inputValue + "\t\t" + path);
         }
         
         pathToLocale.put(path, locale);

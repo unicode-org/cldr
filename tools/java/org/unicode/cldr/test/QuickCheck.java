@@ -166,12 +166,12 @@ public class QuickCheck {
         }
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
         if (!displayValue.equals(value)) {
-          System.out.println(locale + "\tdisplayAndInputProcessor changes display value " + value + "\t=>\t" + displayValue + "\t\t" + path);
+          System.out.println(locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
         }
         String inputValue = displayAndInputProcessor.processInput(path, value);
         if (!inputValue.equals(value)) {
           displayAndInputProcessor.processInput(path, value);
-          System.out.println(locale + "\tdisplayAndInputProcessor changes input value " + value + "\t=>\t" + inputValue + "\t\t" + path);
+          System.out.println(locale + "\tdisplayAndInputProcessor changes input value <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
         }
         
         pathToLocale.put(path, locale);

@@ -72,8 +72,10 @@ public class DisplayAndInputProcessor {
    */
   public String processInput(String path, String value) {
     String original = value;
-    // all of our values should not have leading or trailing spaces
-    value = value.trim();
+    // all of our values should not have leading or trailing spaces, except insertBetween
+    if (!path.contains("/insertBetween")) {
+      value = value.trim();
+    }
 
     // check specific cases
     if (path.contains("/exemplarCharacters")) {

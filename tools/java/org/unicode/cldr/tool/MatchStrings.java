@@ -1,3 +1,5 @@
+package org.unicode.cldr.tool;
+
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 

@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,9 +28,14 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.impl.PrettyPrinter;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -39,6 +45,8 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestMisc {
     public static void main(String[] args) {
       
+      testScripts();
+      if (true) return;
       testToRegex();
       //checkEastAsianWidth();
       if (true) return;
@@ -82,6 +90,131 @@ public class TestMisc {
       System.out.println("Done");
     }
     
+    private static void testScripts() {
+      BagFormatter bf = new BagFormatter();
+      
+      
+      UnicodeSet caseFolded = new  UnicodeSet();
+      UnicodeSet simpleCaseFolded = new  UnicodeSet();
+      for (int i = 0; i < 0x10FFFF; ++i) {
+        String form = UTF16.valueOf(i);
+        if (UCharacter.foldCase(form,true).equals(form)) {
+          caseFolded.add(i);
+        }
+        if (UCharacter.foldCase(i,true) == i) {
+          simpleCaseFolded.add(i);
+        }
+      }
+      caseFolded.freeze();
+      simpleCaseFolded.freeze();
+      
+      
+    
+      UnicodeSet functionalExceptCase = (UnicodeSet) new UnicodeSet("[" +
+          "[:L:][:Mc:][:Mn:][:Nd:]" +
+          "&[:^NFKC_QuickCheck=No:]" +
+          "&[:^default_ignorable_code_point:]]").freeze();
+      
+      UnicodeSet asciiIdn = (UnicodeSet) new UnicodeSet("[-A-Z0-9]").freeze();
+      
+      UnicodeSet archaic =(UnicodeSet) new UnicodeSet("[" +
+          "[:script=Bugi:]" +
+          "[:script=Copt:]" +
+          "[:script=Cprt:]" +
+          "[:script=Dsrt:]" +
+          "[:script=Glag:]" +
+          "[:script=Goth:]" +
+          "[:script=Hano:]" +
+          "[:script=Ital:]" +
+          "[:script=Khar:]" +
+          "[:script=Linb:]" +
+          "[:script=Ogam:]" +
+          "[:script=Osma:]" +
+          "[:script=Phag:]" +
+          "[:script=Phnx:]" +
+          "[:script=Runr:]" +
+          "[:script=Shaw:]" +
+          "[:script=Sylo:]" +
+          "[:script=Syrc:]" +
+          "[:script=Tagb:]" +
+          "[:script=Tglg:]" +
+          "[:script=Ugar:]" +
+          "[:script=Xpeo:]" +
+          "[:script=Xsux:]" +
+          "[:script=Arab:]" +
+          "[:script=Armn:]" +
+          "[:script=Beng:]" +
+          "[:script=Bopo:]" +
+          "[:block=Combining_Diacritical_Marks _for_Symbols:]" +
+          "[:block=Musical_Symbols:]" +
+          "[:block=Ancient_Greek_Musical_Notation:]]").freeze();
+      
+      System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:\r\n" 
+          +  bf.showSetNames(new UnicodeSet(simpleCaseFolded)
+              .removeAll(caseFolded)
+              .retainAll(functionalExceptCase)
+              .removeAll(archaic).
+              removeAll(asciiIdn)
+              ));
+      
+     UnicodeSet  functional = (UnicodeSet) new UnicodeSet(functionalExceptCase).retainAll(caseFolded).freeze();
+     System.out.println("functional: " + functional.size());
+     UnicodeSet  functionalAndNotArchaic = (UnicodeSet) new UnicodeSet(functional).removeAll(archaic).freeze();
+     System.out.println("archaic: " + archaic.size());
+     System.out.println("functionalAndNotArchaic: " + functionalAndNotArchaic.size());
+
+      //System.out.println(bf.showSetNames("Case Folded", caseFolded,"Simple Case Folded", simpleCaseFolded));
+
+      UnicodeSet functionalCommon = new UnicodeSet("[:script=common:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
+      System.out.println("Common & Functional & !Archaic:\r\n" + bf.showSetNames(functionalCommon));
+ 
+      UnicodeSet functionalInherited = new UnicodeSet("[:script=inherited:]").retainAll(functional).removeAll(archaic).removeAll(asciiIdn);
+      System.out.println("Inherited & Functional & !Archaic:\r\n" + bf.showSetNames(functionalInherited));
+      
+      UnicodeSet nl =new UnicodeSet("[:Nl:]").retainAll(functional).removeAll(archaic);
+      System.out.println("Nl:\r\n" + bf.showSetNames(new UnicodeSet("[:Nl:]")));
+      System.out.println("Nl & Functional & !Archaic:\r\n" + bf.showSetNames(nl));
+      
+      UnicodeSet restrictedXidContinue = new UnicodeSet(
+          "[[:xid_continue:]" +
+          "&[:^NFKC_QuickCheck=No:]" +
+          "&[:^default_ignorable_code_point:]" +
+          "&[:^Pc:]]").retainAll(caseFolded);
+
+      System.out.println(bf.showSetDifferences("IDNA Functional", functional,"Unicode XID & NFKC &!DefaultIgnorable &! Pc", restrictedXidContinue));
+      
+      StringTransform t = Transliterator.getInstance("lower");
+      System.out.println("ABC " + t.transform("ABC"));
+      /*
+     generalCategory(cp) is {Ll, Lu, Lo, Lm, Mn, Mc, Nd}, AND
+    * NFKC(cp) == cp, AND
+    * casefold(cp) == cp, AND
+    * !defaultIgnorableCodePoint(cp)
+       */
+      BitSet scripts = new BitSet();
+      for (int cp = 0; cp < 0x10FFFF; ++cp) {
+        int script = UScript.getScript(cp);
+        if (script == UScript.COMMON || script == UScript.UNKNOWN || script == UScript.INHERITED) {
+          continue;
+        }
+        scripts.set(script);
+      }
+      Set<String> toPrint = new TreeSet();
+      for (int script= 0; script < scripts.size(); ++script) {
+        if (!scripts.get(script)) continue;
+        String code = UScript.getShortName(script);
+        String name = UScript.getName(script);
+        if (StandardCodes.isScriptModern(code)) {
+          toPrint.add("modern\t" + code + "\t" + name);
+        } else {
+          toPrint.add("archaic\t" + code + "\t" + name);
+        }
+      }
+      for (String line : toPrint) {
+        System.out.println(line);
+      }
+    }
+
     private static void checkCollections() {
       System.out.println("Collections");
       new org.unicode.cldr.util.Utility.Apply<String>() {

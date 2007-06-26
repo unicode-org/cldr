@@ -18,6 +18,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
@@ -75,7 +77,8 @@ public class GenerateSidewaysView {
   TZADIR = 6,
   NONVALIDATING = 7,
   SHOW_DTD = 8,
-  TRANSLIT = 9;
+  TRANSLIT = 9,
+  PATH = 10;
   
   private static final String NEWLINE = "\n";
   
@@ -90,6 +93,7 @@ public class GenerateSidewaysView {
     UOption.create("nonvalidating", 'n', UOption.NO_ARG),
     UOption.create("dtd", 'w', UOption.NO_ARG),
     UOption.create("transliterate", 'y', UOption.NO_ARG),
+    UOption.create("path", 'p', UOption.REQUIRES_ARG),
   };
   private static String timeZoneAliasDir = null;
   private static Map path_value_locales = new TreeMap();
@@ -104,13 +108,20 @@ public class GenerateSidewaysView {
   
   private static CLDRFile english;
   private static  DataShower dataShower = new DataShower();
+  private static  Matcher pathMatcher;
   
   public static void main(String[] args) throws SAXException, IOException {
     startTime = System.currentTimeMillis();
     Utility.registerExtraTransliterators();
     UOption.parseArgs(args, options);
+    
+    pathMatcher = options[PATH].value == null ? null : Pattern.compile(options[PATH].value).matcher("");
+
     Factory cldrFactory = CLDRFile.Factory.make(options[SOURCEDIR].value, options[MATCH].value);
     english = cldrFactory.make("en", true);
+    
+    // now get the info
+    
     loadInformation(cldrFactory);
     String oldMain = "";
     PrintWriter out = null;
@@ -200,6 +211,9 @@ public class GenerateSidewaysView {
       if (cldrFile.isNonInheriting()) continue;
       for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
         String path = (String) it2.next();
+        if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
+          continue;
+        }
         if (path.indexOf("/alias") >= 0) continue;
         if (path.indexOf("/identity") >= 0) continue;
         if (path.indexOf("/references") >= 0) continue;

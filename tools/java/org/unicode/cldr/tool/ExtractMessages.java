@@ -45,6 +45,8 @@ class ExtractMessages {
     double startTime = System.currentTimeMillis();
     output = BagFormatter.openUTF8Writer(DIR, "additions.txt");
     int totalCount = 0;
+    Set<String> skipped = new TreeSet();
+
     try {
       String sourceDirectory = getProperty("SOURCE", null);
       if (sourceDirectory == null) {
@@ -63,24 +65,30 @@ class ExtractMessages {
       xfr.read(src+"/en.xmb", XMLFileReader.CONTENT_HANDLER
           | XMLFileReader.ERROR_HANDLER, false);
       
+
       for (File file : src.listFiles()) {
         if (file.isDirectory())
           continue;
         if (file.length() == 0)
           continue;
         String canonicalFile = file.getCanonicalPath();
-        if (!fileMatcher.reset(canonicalFile).matches())
+        if (!canonicalFile.endsWith(".xtb")) {
           continue;
-        if (!canonicalFile.endsWith(".xtb"))
-          continue;
-        System.out.println("* " + canonicalFile);
-        
+        }
+
         String name = file.getName();
         name = name.substring(0,name.length()-4);
+
+        if (!fileMatcher.reset(name).matches()) {
+          continue;
+        }
+        System.out.println("* " + canonicalFile);
+        
         try {
           otherHandler.setLocale(name);
         } catch (RuntimeException e1) {
-          System.out.println("Skipping, no CLDR locale file: " + name + "\t" + english.getName(name,false));
+          System.out.println("Skipping, no CLDR locale file: " + name + "\t" + english.getName(name,false) + "\t" + e1.getClass().getName() + "\t" + e1.getMessage() );
+          skipped.add(name);
           continue;
         }
         
@@ -130,6 +138,10 @@ class ExtractMessages {
         output.flush();
         System.out.println("\titems: " + itemCount);
         totalCount += itemCount;
+      }
+      
+      for (String name : skipped) {
+        System.out.println("\tSkipping, no CLDR locale file: " + name + "\t" + english.getName(name,false));
       }
       double deltaTime = System.currentTimeMillis() - startTime;
       System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
@@ -238,7 +250,7 @@ class ExtractMessages {
       }
       cldrFile = cldrFactory.make(locale, false);
       UnicodeSet exemplars = cldrFile.getExemplarSet("",WinningChoice.WINNING);
-      usesLatin = exemplars.containsSome(LATIN_SCRIPT);
+      usesLatin = exemplars != null && exemplars.containsSome(LATIN_SCRIPT);
       for (DataHandler dataHandler : dataHandlers) {
         dataHandler.reset(cldrFile);
       }

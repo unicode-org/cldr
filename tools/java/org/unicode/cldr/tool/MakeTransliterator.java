@@ -16,6 +16,7 @@ import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -59,6 +60,7 @@ public class MakeTransliterator {
   static String cldrDataDir = "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
   
   public static void main(String[] args) throws IOException {
+    setTranslitDebug(true);
     
     Locale fil = new Locale("fil");
     System.out.println(fil);
@@ -82,7 +84,7 @@ public class MakeTransliterator {
     String coreForeRules = createFromFile(cldrDataDir + "internal_baseEnglishToIpa.txt", null, null);
     coreBase = Transliterator.createFromRules("foo", coreForeRules, Transliterator.FORWARD);
     if (CHECK_BASE != null) {
-      Transliterator.DEBUG = true;
+      setTranslitDebug(true);
       System.out.println(coreBase.transliterate(CHECK_BASE));
       return;
     }
@@ -91,7 +93,7 @@ public class MakeTransliterator {
       String foo = createFromFile(cldrDataDir + "en-IPA.txt", null, null);
       Transliterator fooTrans = Transliterator.createFromRules("foo", foo, Transliterator.FORWARD);
 
-      Transliterator.DEBUG = true;
+      setTranslitDebug(true);
       System.out.println(fooTrans.transliterate(CHECK_BUILT));
       return;
     }
@@ -174,10 +176,10 @@ public class MakeTransliterator {
           if (SHOW_OVERRIDES) System.out.println("Overriding\t" + source + " → ! " + target + " → " + override);
           if (override.length() != 0) {
             if (TEST_STRING != null && source.equals(TEST_STRING)) {
-              Transliterator.DEBUG = true;
+              setTranslitDebug(true);
             }
             target = fixBadIpa.transliterate(override);
-            Transliterator.DEBUG = false;
+            setTranslitDebug(false);
             addSourceTarget(skippedOut, source, target, originalLine, store);      
           }
           break;
@@ -393,6 +395,16 @@ public class MakeTransliterator {
     System.out.println("frequencyTotal: " + nf.format(frequencyAdded + frequencySkipped));
     System.out.println("frequencyAdded: " + nf.format(frequencyAdded));
     System.out.println("frequencySkipped: " + nf.format(frequencySkipped));
+  }
+
+  private static void setTranslitDebug(boolean newSetting) {
+    //Transliterator.DEBUG = newSetting;
+    try {
+      Field debug = Transliterator.class.getField("DEBUG");
+      debug.setBoolean(Transliterator.class, newSetting);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
   
   private static void addSourceTarget(PrintWriter skippedOut, String source, String target, String originalLine, Relation<String, Pair<String, Long>> store) {

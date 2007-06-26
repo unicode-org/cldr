@@ -20,8 +20,11 @@ import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -160,7 +163,11 @@ public class ConsoleCheckCLDR {
     
     Phase phase = Phase.VETTING;
     if (options[PHASE].doesOccur) {
-      phase = Phase.valueOf(options[PHASE].value);
+      try {
+        phase = Phase.valueOf(options[PHASE].value);
+      } catch (RuntimeException e) {
+        throw (IllegalArgumentException) new IllegalArgumentException("Incorrect Phase value: should be one of " + Arrays.asList(Phase.values())).initCause(e);
+      }
     }
     
     // check stuff
@@ -193,13 +200,14 @@ public class ConsoleCheckCLDR {
     // call on the files
     Set locales = cldrFactory.getAvailable();
     List result = new ArrayList();
-    Set paths = new TreeSet(); // CLDRFile.ldmlComparator);
+    Set<String> paths = new TreeSet<String>(); // CLDRFile.ldmlComparator);
     Map m = new TreeMap();
     //double testNumber = 0;
     Map<String,String> options = new HashMap<String,String>();
     Counter totalCount = new Counter();
     Counter subtotalCount = new Counter();
     FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
+    Set<String> englishPaths = null;
     
     PrettyPath prettyPathMaker = new PrettyPath();
     
@@ -268,11 +276,17 @@ public class ConsoleCheckCLDR {
       }
       paths.clear();
       //CollectionUtilities.addAll(file.iterator(pathFilter), paths);
-      addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, paths);
+      addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, false, paths);
       
       // also add the English paths
       //CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
-      addPrettyPaths(checkCldr.getDisplayInformation(), pathFilter, prettyPathMaker, noaliases, paths);
+      // initialize the first time in.
+      if (englishPaths == null) {
+        englishPaths = new HashSet<String>();
+        addPrettyPaths(checkCldr.getDisplayInformation(), pathFilter, prettyPathMaker, noaliases, true, englishPaths);
+        englishPaths = Collections.unmodifiableSet(englishPaths); // for robustness
+      }
+      paths.addAll(englishPaths);
       
       UnicodeSet missingExemplars = new UnicodeSet();
       if (checkFlexibleDates) {
@@ -455,7 +469,7 @@ public class ConsoleCheckCLDR {
     }
   }
 
-  private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, Collection<String> target) {
+  private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, boolean filterDraft, Collection<String> target) {
 //  Status pathStatus = new Status();
   for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
     String path = pit.next();
@@ -465,7 +479,16 @@ public class ConsoleCheckCLDR {
 //      if (!path.equals(pathStatus.pathWhereFound)) {
 //        continue;
 //      }
-    }      
+    }
+    if (filterDraft) {
+      String newPath = CLDRFile.getNondraftNonaltXPath(path);
+      if (!newPath.equals(path)) {
+        String value = file.getStringValue(newPath);
+        if (value != null) {
+          continue;
+        }
+      }
+    }
     String prettyPath = prettyPathMaker.getPrettyPath(path, true); // get sortable version
     target.add(prettyPath);
   }

@@ -1101,10 +1101,18 @@ public abstract class XMLSource implements Freezable {
 
   /**
    * See CLDRFile getWinningPath for documentation.
+   * Default implementation is that it removes draft and  [@alt="...proposed..." if possible
    * @param path
    * @return
    */
   public String getWinningPath(String path) {
+    String newPath = CLDRFile.getNondraftNonaltXPath(path);
+    if (!newPath.equals(path)) {
+      String value = getValueAtPath(newPath); // ensure that it still works
+      if (value != null) {
+        return newPath;
+      }
+    }
     return path;
   }
 

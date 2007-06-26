@@ -46,6 +46,11 @@ public class CheckCoverage extends CheckCLDR {
 
         if (isSkipTest()) return this;
         
+        // skip if we are not the winning path
+        if (!getResolvedCldrFileToCheck().isWinningPath(path)) {
+          return this;
+        }
+        
 //        if (false && path.indexOf("localeDisplayNames") >= 0 && path.indexOf("\"wo") >= 0) {
 //        	System.out.println("debug: " + value);
 //        }

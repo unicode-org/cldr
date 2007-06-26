@@ -87,12 +87,18 @@ public class CheckDisplayCollisions extends CheckCLDR {
     for (Iterator it2 = cldrFileToCheck.iterator(typesICareAbout[ii]); it2.hasNext();) {
       String xpath = (String) it2.next();
       int thisItemType = CLDRFile.getNameType(xpath);
-      if (thisItemType < 0) continue;
+      if (thisItemType < 0) {
+        continue;
+      }
+      // only check winning paths
+      if (!cldrFileToCheck.isWinningPath(xpath)) {
+        continue;
+      }
       itemType = thisItemType;
       // Merge some namespaces
       if (itemType == CLDRFile.CURRENCY_NAME) itemType = CLDRFile.CURRENCY_SYMBOL;
       else if (itemType >= CLDRFile.TZ_START && itemType < CLDRFile.TZ_LIMIT) itemType = CLDRFile.TZ_START;
-      String value = cldrFileToCheck.getWinningValue(xpath);
+      String value = cldrFileToCheck.getStringValue(xpath);
       collisions.add(xpath, value);
     }
     

@@ -338,8 +338,15 @@ public class ExampleGenerator {
             //parts.set(xpath);
             result = format(value, setBackground("CODE"));
             result = finalizeBackground(result);
-          } else if (xpath.contains("_") && xpath.contains("/languages")) {
-            result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
+          } else if (parts.contains("languages") ) {
+            String type = parts.getAttributeValue(-1, "type");
+            if (type.contains("_")) {
+              if (value != null && !value.equals(type)) {
+                result = value;
+              } else {
+                result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
+              }
+            }
           }
           break main;
         }

@@ -1212,12 +1212,12 @@ public class Vetting {
                 if(disqualified) {
                     return true;
                 }
-                disqualified = test(locale, base_xpath, xpath, value); 
+                disqualified = test(locale, xpath, full_xpath, value); 
                 if(disqualified) {
                     score = 0;
-                   // if(/*sm.isUnofficial && */ base_xpath==85942) {
-                   //     System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
-                   // }
+                    //if(/*sm.isUnofficial && */ base_xpath==83422) {
+                    //    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
+                    //}
                 }
                 return disqualified;
             }
@@ -2086,57 +2086,71 @@ public class Vetting {
     /**
      * Send out the Nag emails.
      */
-    void doNag() {
-        Map mailBucket = new HashMap(); // mail bucket: 
+    int doNag() {
+        //Map mailBucket = new HashMap(); // mail bucket: 
     
         Map intGroups = sm.getIntGroups();
-        Map intUsers = sm.getIntUsers(intGroups);
         
         System.err.println("--- nag ---");
-        
+        int skipped=0;
+        int mailed = 0;
         for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
             String group = (String)li.next();
-            Set s = (Set)intGroups.get(group);            
-            doNag(mailBucket, (Set)intUsers.get(group), group, s);
+            if(sm.isUnofficial && !group.equals("tlh") && !group.equals("und")) {
+                skipped++;
+                continue;
+            }
+            Set s = (Set)intGroups.get(group);
+            mailed += doNag(group, s);
         }
-        
+        /*
         if(mailBucket.isEmpty()) {
             System.err.println("--- nag: nothing to send.");
         } else {
             int n= sendBucket(mailBucket, "CLDR Unresolved Issues Report");
             System.err.println("--- nag: " + n + " emails sent.");
-        }
+        }*/
+        return mailed;
     }
     
     /** 
      * compose nags for one group
-     * @param mailBucket IN/OUT of mail waiting to go out
      * @param intUsers interested users in this group
      * @param group the interest group being processed
      * @param s the list of locales contained in interest group 'group'
      */
-    void doNag(Map mailBucket, Set intUsers, String group, Set s) {
+    int doNag(String group, Set s) {
         // First, are there any problems here?
         String complain = null;
+        int mailsent=0;
+        boolean didPrint =false;
         
-        if((intUsers==null) || intUsers.isEmpty()) {
-            // if noone cares ...
-            return;
+        Set<String> cc_emails = new HashSet<String>();
+        Set<String> bcc_emails = new HashSet<String>();
+        
+        int emailCount = sm.fora.gatherInterestedUsers(group, cc_emails, bcc_emails);
+
+        if(emailCount == 0) {
+            return 0; // no interested users.
         }
         
-        boolean didPrint =false;
+        // for each locale in this interest group..
         for(Iterator li=s.iterator();li.hasNext();) {
             String loc = (String)li.next();
             
             int locStatus = status(loc);
-            if((locStatus&RES_BAD_MASK)>0) {
+            if(locStatus>=0 && (locStatus&RES_BAD_MASK)>0) {
                 int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
                 int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
                 
                 if(complain == null) {
 //                    System.err.println(" -nag: " + group);
-                    complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
+                    if(group.equals("tlh")) {
+                        complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  is without honor!  ";
+                    } else {
+                        complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
+                    }
                 }
 //                System.err.println("  -nag: " + loc + " - " + typeToStr(locStatus));
                 String problem = "";
@@ -2150,19 +2164,29 @@ public class Vetting {
                 complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
             }
         }
-        if(complain != null) {
-            for(Iterator li = intUsers.iterator();li.hasNext();) {
-                UserRegistry.User u = (UserRegistry.User)li.next();
-                Integer intid = new Integer(u.id);
-                String body = (String)mailBucket.get(intid);
-                if(body == null) {
-                    body = "The following is an automatic message, periodically generated to update vetters on the progress on their locales. We are working on a short time schedule, so we'd appreciate your looking at the cases below.\r\n"+
-                    "\r\nFor more information, see http://unicode.org/cldr/wiki?VettingProcess\nYou will need to be logged-in before making changes.\r\n\r\n";
-                }
-                body = body + complain + "\n";
-                mailBucket.put(intid,body);
+        
+        if(complain != null) { // anything to send?
+            String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
+            String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
+            
+            String disp = new ULocale(group).getDisplayName();
+            
+            String subject = "CLDR Vetting update: "+group + " (" + disp + ")";
+            String body = "The following is an automatic message, periodically generated to update vetters on the progress on their locales. We are working on a short time schedule, so we'd appreciate your looking at the cases below.\r\n"+
+                "\r\nFor more information, see http://unicode.org/cldr/wiki?VettingProcess\nYou will need to be logged-in before making changes.\r\n\r\n";
+            body = body + complain + "\n";
+
+            if(!bcc_emails.isEmpty()) {
+                mailsent++;
+                MailSender.sendBccMail(smtp, null, null, from, bcc_emails, subject, body);
             }
+            if(!cc_emails.isEmpty()) {
+                mailsent++;
+                MailSender.sendToMail (smtp, null, null, from,  cc_emails, subject, body);
+            }
+            
         }
+        return mailsent;
     }
 
 
@@ -2474,13 +2498,15 @@ public class Vetting {
      */
     void doDisputePage(WebContext ctx) {
         Map m = new TreeMap();
+        WebContext subCtx = (WebContext)ctx.clone();
+        subCtx.setQuery("do","");
         int n = 0;
         int locs=0;
         synchronized(conn) {
          try {
                 // select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
             Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.type=4");
+            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type=4)");
 			while(rs.next()) {
 				n++;
 				String aLoc = rs.getString(1);
@@ -2512,30 +2538,53 @@ public class Vetting {
          }
         }
 
+        boolean showAllXpaths = ctx.prefBool(sm.PREF_GROTTY);
+        
+        ctx.println("<table class='list'>");
+        ctx.println("<tr class='botbar'><th>#</th><th align='left' class='botgray'>Locale</th><th align='left'  class='botgray'>Disputed Sections</th></tr>");
+        int nn=0;
 		for(Iterator i = m.keySet().iterator();i.hasNext();) {
 			String loc = (String)i.next();
-			ctx.println("<h4>");
-			sm.printLocaleLink(ctx,loc,new ULocale(loc).getDisplayName());
-			ctx.println("</h4>");
-			ctx.println("<ul>");
 			Hashtable ht = (Hashtable)m.get(loc);
+
+            // calculate the # of total disputed items in this locale
+            int totalbad = 0;
+            for(Object o : ht.values()) {
+                Set subSet = (Set)o;
+                totalbad += subSet.size();
+            }
+            
+			ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+            ctx.print("<th align='left'>"+totalbad+"</th>");
+            ctx.print("<th class='hang' align='left'>");
+			sm.printLocaleLink(subCtx,loc,new ULocale(loc).getDisplayName().replaceAll("\\(",
+                    "<br>(")); // subCtx = no 'do' portion, for now.
+			ctx.println("</th>");
+            ctx.println("<td>");
+            int jj=0;
 			for(Iterator ii = ht.keySet().iterator();ii.hasNext();) {
+                if((jj++)>0) {
+                    ctx.print(", ");
+                }
 				String theMenu = (String)ii.next();
-				ctx.print("<li><a style='text-decoration: none;' href='"+ctx.base()+"?"+
-					"_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+theMenu+"</a><pre>");
-				for(Iterator iii = ((Set)ht.get(theMenu)).iterator();iii.hasNext();) {
-					String xp = (String)iii.next();
-					ctx.println(xp);
-				}
-				ctx.print("</pre></li>");
+                Set subSet = (Set)ht.get(theMenu);
+				ctx.print("<a href='"+ctx.base()+"?"+
+					"_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+
+                       theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
+                    
+                if(showAllXpaths) {
+                    ctx.print("<br><pre>");
+                    for(Iterator iii = (subSet).iterator();iii.hasNext();) {
+                        String xp = (String)iii.next();
+                        ctx.println(xp);
+                    }
+                    ctx.print("</pre>");
+                }
 			}
-			ctx.println("</ul>");
-			/*
-				if(theMenu != null) {
-				}
-				ctx.print(path);
-				*/
+            ctx.print("</td>");
+            ctx.println("</tr>");
 		}
+        ctx.println("</table>");
 	}
     
     /**
@@ -2647,14 +2696,15 @@ public class Vetting {
         
         boolean test(String xpath, String fxpath, String value) {
             individualResults.clear();
-            check.handleCheck(xpath, fxpath, value, options, individualResults);  // they get the full course
+            check.check(xpath, fxpath, value, options, individualResults);  // they get the full course
             if(!individualResults.isEmpty()) {
                 for(Object o : individualResults) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus)o;
                     if(status.getType().equals(status.errorType)) {
-                      //  if(/*sm.isUnofficial &&*/ xpath.indexOf("und")!=-1) {
-                      //      System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
-                      //  }
+                        if(locale.equals("fr")) {
+                      //  if(/*sm.isUnofficial &&*/ xpath.indexOf("ii")!=-1) {
+                            System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
+                        }
                         return true;
                     }
                 }

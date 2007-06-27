@@ -93,6 +93,16 @@ public class MailSender {
             log(to,"FAIL: "+subject,t);
         }
     }
+    
+    public static void sendBccMail(String smtp, String mailFromAddress, String mailFromName, String from, Set<String> bcc, String subject, String body) {
+        sendMail(smtp, mailFromAddress, mailFromName, from, Message.RecipientType.BCC, bcc, subject, body);
+    }
+    public static void sendCcMail(String smtp, String mailFromAddress, String mailFromName, String from, Set<String> bcc, String subject, String body) {
+        sendMail(smtp, mailFromAddress, mailFromName, from, Message.RecipientType.CC, bcc, subject, body);
+    }
+    public static void sendToMail(String smtp, String mailFromAddress, String mailFromName, String from, Set<String> bcc, String subject, String body) {
+        sendMail(smtp, mailFromAddress, mailFromName, from, Message.RecipientType.TO, bcc, subject, body);
+    }
     /**
      * Send a piece of mail
      * @param smtp smtp server
@@ -101,20 +111,29 @@ public class MailSender {
      * @param subject mail subject
      * @param body mail body
      */
-    public static synchronized void sendBccMail(String smtp, String mailFromAddress, String mailFromName, String from, Set<String> bcc, String subject, String body) {
+    public static synchronized void sendMail(String smtp, String mailFromAddress, String mailFromName, String from, Message.RecipientType recipType, Set<String> bcc, String subject, String body) {
+        String typeStr = "?";
+        if(recipType == Message.RecipientType.BCC) {
+            typeStr = "BCC";
+        } else if(recipType == Message.RecipientType.TO) {
+            typeStr = "TO";
+        } else if(recipType == Message.RecipientType.CC) {
+            typeStr = "CC";
+        }
+        
         try {
             Properties env = System.getProperties();
             if(smtp != null) {
                 env.put("mail.host", smtp);
             }
             MimeMessage ourMessage = new MimeMessage(Session.getInstance(env, null));
-            ourMessage.setFrom(new InternetAddress(from, "CLDR Survey Tool"));
+            ourMessage.setFrom(new InternetAddress(from, (mailFromName!=null)?mailFromName + " (CLDR)":"CLDR Survey Tool"));
             for(String anaddr : bcc) {
                 if(anaddr.equals("admin@")) continue;
-                ourMessage.addRecipients(Message.RecipientType.BCC, InternetAddress.parse(anaddr));
+                ourMessage.addRecipients(recipType, InternetAddress.parse(anaddr));
             }
             if(mailFromAddress != null) {
-                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName) };
+                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
                 ourMessage.setReplyTo(replyTo);
             }
             ourMessage.setSubject(subject);
@@ -128,13 +147,13 @@ public class MailSender {
                 for(String anaddr : bcc) { 
                     out = out + ", " + anaddr;
                 }
-                System.err.println("subj:  " + subject + " - bcc to " + out + ", body: " + body);
+                System.err.println("from: " + from + "/"+mailFromName+"/"+mailFromAddress+" subj:  " + subject + " - "+typeStr+" to " + out + ", body: " + body);
             }
-            log("BCC to " + bcc.size() +" addrs",subject,null);
+            log(""+typeStr+" to " + bcc.size() +" addrs",subject,null);
         } catch(Throwable t) {  
-            System.err.println("MAIL ERR: BCC to " + bcc.size() +" addrs, " + t.toString() + " - check cldrmail.log");
+            System.err.println("MAIL ERR: "+typeStr+" to " + bcc.size() +" addrs, " + t.toString() + " - check cldrmail.log");
             t.printStackTrace();
-            log("MAIL ERR: BCC to " + bcc.size() +" addrs, ","FAIL: "+subject,t);
+            log("MAIL ERR: "+typeStr+" to " + bcc.size() +" addrs, ","FAIL: "+subject,t);
         }
     }
     

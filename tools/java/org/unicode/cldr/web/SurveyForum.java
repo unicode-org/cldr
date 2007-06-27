@@ -145,6 +145,36 @@ public class SurveyForum {
         nameToNum.put(i,forum);
         return num;
     }
+
+    public int gatherInterestedUsers(String forum, Set<String> cc_emails, Set<String> bcc_emails) {
+        int emailCount = 0;
+        synchronized(conn) {
+            try {
+                pIntUsers.setString(1, forum);
+                
+                ResultSet rs = pIntUsers.executeQuery();
+                
+                while(rs.next()) {
+                    int uid = rs.getInt(1);
+                    
+                    UserRegistry.User u = sm.reg.getInfo(uid);
+                    if(u != null && u.email != null && u.email.length()>0) {
+                        if(UserRegistry.userIsVetter(u)) {
+                            cc_emails.add(u.email);
+                        } else {
+                            bcc_emails.add(u.email);
+                        }
+                        emailCount++;
+                    }
+                }
+            } catch ( SQLException se ) {
+                String complaint = "SurveyForum:  Couldn't gather interested users for " +forum + " - " + SurveyMain.unchainSqlException(se) + " - pIntUsers";
+                logger.severe(complaint);
+                throw new RuntimeException(complaint);
+            }
+        }
+        return emailCount;
+    }
     
     void doForum(WebContext ctx, String sessionMessage) throws IOException { 
         /* OK, let's see what we are doing here. */
@@ -328,40 +358,37 @@ public class SurveyForum {
                 ElapsedTimer et = new ElapsedTimer("Sending email to "+forum);
                 int emailCount=0;
 				// Do email- 
-				synchronized(conn) {
-                    try {
-                        pIntUsers.setString(1, forum);
-                        
-                        ResultSet rs = pIntUsers.executeQuery();
-                        
-                        Set<String> emails = new HashSet<String>();
-                        
-                        while(rs.next()) {
-                            int uid = rs.getInt(1);
-                            
-                            UserRegistry.User u = sm.reg.getInfo(uid);
-                            if(u != null && u.email != null && u.email.length()>0) {
-                                emails.add(u.email);
-                                emailCount++;
-                            }
+                Set<String> cc_emails = new HashSet<String>();
+                Set<String> bcc_emails = new HashSet<String>();
+                
+                emailCount = gatherInterestedUsers(forum, cc_emails, bcc_emails);
+                
+                String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
+                String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
+                
+                String subject = "New CLDR forum post for: " + forum;
+                
+                String body = "This is a post to the CLDR "+forum+" forum, in the subject:\n  "+subj+"\n\n"+
+                                "For details and to respond, login to survey tool and then click on this link:\n\t " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n" +
+                                    "-----------------\n\n"+text;
+                
+                if(!bcc_emails.isEmpty()) {
+                    MailSender.sendBccMail(smtp, null, null, from, bcc_emails, subject, body);
+                }
+                if(!cc_emails.isEmpty()) {
+                    String theFrom = from;
+                    if(UserRegistry.userIsVetter(ctx.session.user)) {
+                        theFrom = ctx.session.user.email;
+                        if(theFrom.equals("admin@")) {
+                            theFrom = from;
                         }
-
-                        String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
-                        String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
-                        
-                        String subject = "New CLDR forum post for: " + forum;
-                        
-                        String body = "This is a post to the CLDR "+forum+" forum, in the subject:\n  "+subj+"\n\n"+
-                                        "For details and to respond, login to survey tool and then click on this link:\n\t " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n" +
-                                            "-----------------\n\n"+text;
-                        
-                        MailSender.sendBccMail(smtp, null, null, from, emails, subject, body);                        
-                    } catch ( SQLException se ) {
-                        String complaint = "SurveyForum:  Couldn't add post to " +forum + " - " + SurveyMain.unchainSqlException(se) + " - pIntUsers";
-                        logger.severe(complaint);
-                        throw new RuntimeException(complaint);
+                        // cc mails, of Vetters, get to see the From address, if they themselves are a vetter.
+                        MailSender.sendCcMail(smtp, theFrom, ctx.session.user.name, from, cc_emails, subject, body);
+                    } else {
+                        MailSender.sendCcMail(smtp, null, null, from, cc_emails, subject, body);
                     }
                 }
+
                 
                 System.err.println(et.toString()+" - # of users:" + emailCount);
                 

@@ -878,7 +878,8 @@ import com.ibm.icu.util.ULocale;
     try {
         ResultSet rs;
         if(finalData) {
-            throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
+            return sm.xpt.xpathToBaseXpathId(xpath);
+            //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
         } else {
             stmts.queryVetXpath.setString(1,locale);
             stmts.queryVetXpath.setInt(2,xpath); // TODO: 2 more specificity

@@ -215,7 +215,7 @@ tr.warnrow {
 
 .hang {
 	text-indent: -2em;
-	margin-left: 2em;
+	padding-left: 2em;
 	margin-bottom: .4em;
 	margin-top: .4em;
 }
@@ -319,6 +319,10 @@ table.userlist {
 
 .topbar {
     border-top: 3px solid #040;
+}
+
+.botbar {
+    border-bottom: 3px solid #040;
 }
 
 th.botgray {

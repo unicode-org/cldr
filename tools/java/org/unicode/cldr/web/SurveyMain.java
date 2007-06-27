@@ -143,6 +143,7 @@ public class SurveyMain extends HttpServlet {
     static String fileBase = null; // not static - may change lager
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); //  static - may change later
     static String specialHeader = System.getProperty("CLDR_HEADER"); //  static - may change later
+    static String lockOut = System.getProperty("CLDR_LOCKOUT"); //  static - may change later
     static long specialTimer = 0; // 0 means off.  Nonzero:  expiry time of countdown.
     public static java.util.Properties survprops = null;
     public static String cldrHome = null;
@@ -722,12 +723,10 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_sta", "Update Vetting Status", "action");       
             actionCtx.println(" | ");
-            /*
             printMenu(actionCtx, action, "srl_vet_nag", "MAIL: vet nag [weekly]", "action");       
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_upd", "MAIL: vote change [daily]", "action");       
             actionCtx.println(" | ");
-            */
             /*
             printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
             actionCtx.println(" | ");
@@ -2862,6 +2861,21 @@ public class SurveyMain extends HttpServlet {
         
         String sessionMessage = setSession(ctx);
         
+        
+        if(lockOut != null) {
+            if(ctx.field("unlock").equals(lockOut)) {
+                ctx.session.put("unlock",lockOut);
+            } else {
+                String unlock = (String)ctx.session.get("unlock");
+                if((unlock==null) || (!unlock.equals(lockOut))) {
+                    showSpecialHeader(ctx);
+                    ctx.print("<hr><div class='ferrbox'>Sorry, the Survey Tool has been locked for maintenance work. Please try back later.</div>");
+                    printFooter(ctx);
+                    return;
+                }
+            }
+        }
+        
         if(ctx.hasField(SurveyForum.F_FORUM)) {
             fora.doForum(ctx, sessionMessage);
             return;
@@ -4321,10 +4335,11 @@ public class SurveyMain extends HttpServlet {
             //if(phaseVetting) {
             //    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
             //} else {
-                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+            checkCldr = CheckCLDR.getCheckAll(".*");
+//                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
             //}
 
-            checkCldr.setDisplayInformation(getBaselineFile() /*, getBaselineExample()*/);
+            checkCldr.setDisplayInformation(getBaselineFile());
             
             return checkCldr;
     }
@@ -5475,7 +5490,7 @@ public class SurveyMain extends HttpServlet {
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
                 List checkCldrResult = new ArrayList();
                 
-                checkCldr.handleCheck(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
+                checkCldr.check(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
                 
                 if(!checkCldrResult.isEmpty()) {
                     boolean hadWarnings = false;
@@ -6429,7 +6444,13 @@ public class SurveyMain extends HttpServlet {
 							ctx.print(" (Dispute among "+org.name+" vetters) ");
 						}
 					} else {
+                        if(org.vote.disqualified) {
+                            ctx.print("<strike>");
+                        }
 						ctx.print(org.strength+ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>");
+                        if(org.vote.disqualified) {
+                            ctx.print("</strike>");
+                        }
                         if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
                             ctx.print(" (default vote)");
                         }
@@ -6514,8 +6535,8 @@ public class SurveyMain extends HttpServlet {
                 haveTests = true;
             }
         } else {
-			itemExample = pod.exampleGenerator.getExampleHtml(pod.xpath(p), null,
-						zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+//			itemExample = pod.exampleGenerator.getExampleHtml(pod.xpath(p), null,
+//						zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
 		}
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
@@ -7050,7 +7071,9 @@ public class SurveyMain extends HttpServlet {
         fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
         specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
         specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
-
+        
+        lockOut = survprops.getProperty("CLDR_LOCKOUT");
+        
         if(!new File(fileBase).isDirectory()) {
             busted("CLDR_COMMON isn't a directory: " + fileBase);
             return;

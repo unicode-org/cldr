@@ -179,8 +179,11 @@
 					<p>Contributors are encouraged to use local language and country contacts, inside and outside their organization, to help vet current common data 
 					and any new proposals for addition or amendment of common data. In particular, national standards organizations are encouraged to be involved 
 					in the data vetting process.</p>
-					<p>For CLDR to add a new language just requires that the proposer to commit to providing at least the minimal localization (months, days, 
-					date/time formats, translations for a few countries, languages, currencies, etc). It then becomes available for confirmation during the next 
+					<p>For CLDR to add a new language just requires that the proposer to commit to providing at least the minimal localization (<span style="background-color: #FFFF00">exemplar 
+					characters</span>, months, days, 
+					date/time formats, translations for a few countries, languages, currencies, etc). <span style="background-color: #FFFF00">The exemplar 
+					characters, however, are required before the new locale can be added. </span>The new locale then becomes available for 
+					<span style="background-color: #FFFF00">additional translations and vetting</span> during the next 
 					review cycle.</p>
 					<h3>3.1 <a name="resolution_procedure">Resolution Procedure</a></h3>
 					<p>The following procedure is used when resolving differences in submitted data. At the end, for 
@@ -272,10 +275,10 @@
 		<li>Otherwise: draft status =<b> unconfirmed</b></li>
 	</ul></li>
 	<li>An <b>approved</b> 
-	value from the previous release remains <b>approved</b> unless 
+	value from the previous release <span style="background-color: #FFFF00">(one that does not have an error and is not a fallback) </span>remains <b>approved</b> unless 
 	a different value would be <b>approved,</b> according to the above voting.<ul>
 	<li>That is, if the new optimal value does not have the status of <b>approved</b>, and the previous release had an 
-	<span style="font-weight: bold; ">approved </span>value, then 
+	<span style="font-weight: bold; ">approved </span>value<span style="background-color: #FFFF00"> (one that does not have an error and is not a fallback)</span>, then 
 	that previously-released value stays <b>approved</b> and replaces the optimal value in the following steps.</li>
 </ul>
 					</li>
@@ -286,8 +289,8 @@
 					<h4>Remaining Errors</h4>
 					<ul>
 						<li>After all other resolution is done, any remaining error values are removed.</li>
-						<li>In the case of collisions, this is done by retaining one of the values (unless it has other 
-						errors) and removing the other (thus removing the error on the first). The choice is based on which field is most commonly used.</li>
+						<li>In the case of collisions, this is done by retaining one of the values (unless it has other errors) and removing the other (thus 
+						removing the error on the first). The choice is based on which field is most commonly used.</li>
 					</ul>
 					<p>If a locale does not have minimal data (at least at a provisional level), then it may be excluded from the release. Where this is done, 
 					it is restored to the repository for the next submission cycle.</p>

@@ -167,7 +167,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
   // for refactoring
   
   public CLDRFile setNonInheriting(boolean isSupplemental) {
-    if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    if (locked) {
+      throw new UnsupportedOperationException("Attempt to modify locked object");
+    }
     dataSource.setNonInheriting(isSupplemental);
     return this;
   }
@@ -2426,13 +2428,15 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Return the distinguished paths that have the specified value. The pathPrefix and pathMatcher
    * can be used to restrict the returned paths to those matching.
    * The pathMatcher can be null (equals .*).
-   * @param pathPrefix
    * @param valueToMatch
+   * @param pathPrefix
    * @return
    */
-  public Set<String> getPathsWithValue(String pathPrefix, Matcher pathMatcher, String valueToMatch) {
-    Set<String> result = new HashSet();
-    dataSource.getPathsWithValue(pathPrefix, valueToMatch, result);
+  public Set<String> getPathsWithValue(String valueToMatch, String pathPrefix, Matcher pathMatcher, Set<String> result) {
+    if (result == null) {
+      result = new HashSet();
+    }
+    dataSource.getPathsWithValue(valueToMatch, pathPrefix, result);
     if (pathMatcher == null) {
       return result;
     }

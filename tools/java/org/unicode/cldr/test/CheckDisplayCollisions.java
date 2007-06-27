@@ -8,6 +8,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
 import com.ibm.icu.util.TimeZone;
 
+import java.sql.ResultSet;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,31 +31,112 @@ public class CheckDisplayCollisions extends CheckCLDR {
       //"\"]/displayName", "currency",
       "//ldml/dates/timeZoneNames/zone",	
   };
-  Matcher exclusions = Pattern.compile("[mM]etazones").matcher("");
+  Matcher exclusions = Pattern.compile("[mM]etazone").matcher("");
+  Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*)\"]").matcher("");
   boolean[] builtCollisions;
+  Set<String> paths = new HashSet();
+  Set<String> collidingTypes = new TreeSet();
   
   private transient Relation<String,String> hasCollisions = new Relation(new TreeMap(), HashSet.class);
   
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     if (fullPath == null) return this; // skip paths that we don't have
-    for (int i = 0; i < typesICareAbout.length; ++i) {
-      if (path.startsWith(typesICareAbout[i]) && !exclusions.reset(path).find()) {
-        if (!builtCollisions[i]) {
-          buildCollisions(i);
+    
+    if (true) { // don't use this until memory issues are cleaned up.
+      
+      for (int i = 0; i < typesICareAbout.length; ++i) {
+        if (path.startsWith(typesICareAbout[i]) && !exclusions.reset(path).find()) {
+          if (!builtCollisions[i]) {
+            buildCollisions(i);
+          }
+          Set codes = hasCollisions.getAll(path);
+          if (codes != null) {
+            //String code = CLDRFile.getCode(path);
+            //Set codes = new TreeSet(s);
+            //codes.remove(code); // don't show self
+            
+            CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+            .setCheckOnSubmit(false)
+            .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
+            result.add(item);
+          }
+          break;
         }
-        Set codes = hasCollisions.getAll(path);
-        if (codes != null) {
-          //String code = CLDRFile.getCode(path);
-          //Set codes = new TreeSet(s);
-          //codes.remove(code); // don't show self
-
-          CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-          .setCheckOnSubmit(false)
-          .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
-          result.add(item);
-        }
-        break;
       }
+    } else {
+
+      if (exclusions.reset(path).find()) {
+        return this;
+      }
+      
+      // get the paths with the same value. If there aren't duplicates, continue;
+      paths.clear();
+      getCldrFileToCheck().getPathsWithValue(value, null, null, paths);
+      paths.remove(path);
+      if (paths.isEmpty()) {
+        return this;
+      }
+      
+      // find my type; bail if I don't have one.
+      int myType = -1;
+      for (int i = 0; i < typesICareAbout.length; ++i) {
+        if (path.startsWith(typesICareAbout[i])) {
+          myType = i;
+          break;
+        }
+      }
+      if (myType < 0) {
+        return this;
+      }
+      
+      // filter the paths
+      main:
+        for (Iterator<String> it = paths.iterator(); it.hasNext();) {
+          String dpath = it.next();
+          // make sure it is the winning path
+          if (!getCldrFileToCheck().isWinningPath(dpath)) {
+            it.remove();
+            continue main;
+          }
+          // make sure the collision is with the same type
+          if (dpath.startsWith(typesICareAbout[myType]) && !exclusions.reset(dpath).find()) {
+            continue main;
+          }
+          // no match, remove
+          it.remove();
+        }
+      // check again on size
+      if (paths.isEmpty()) {
+        return this;
+      }
+      
+      // ok, we probably have a collision! Extract the types
+      collidingTypes.clear();
+      for (String dpath : paths) {
+        if (!typePattern.reset(dpath).find()) {
+          System.out.println("Internal error");
+          continue;
+        }
+        collidingTypes.add(typePattern.group(1));
+      }
+      
+      // remove my type, and check again
+      if (!typePattern.reset(path).find()) {
+        System.out.println("Internal error");
+      } else {
+        collidingTypes.remove(typePattern.group(1));
+      }
+      // check one last time...
+      if (collidingTypes.isEmpty()) {
+        return this;
+      }
+      
+      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+      .setCheckOnSubmit(false)
+      .setMessage("Can't have same translation as {0}", new Object[]{collidingTypes.toString()});
+      result.add(item);
+      
+    
     }
     return this;
   }

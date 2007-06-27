@@ -41,6 +41,7 @@ public abstract class XMLSource implements Freezable {
   }
   
   public void setLocaleID(String localeID) {
+    if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     this.localeID = localeID;
   }
   /**
@@ -102,10 +103,13 @@ public abstract class XMLSource implements Freezable {
    * @param value
    */
   public String putValueAtPath(String xpath, String value) {
-    if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    if (locked) {
+      throw new UnsupportedOperationException("Attempt to modify locked object");
+    }
     String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath, nonInheriting);	
     putValueAtDPath(distinguishingXPath, value);
     if (!fixedPath[0].equals(distinguishingXPath)) {
+      clearCache();
       putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
     }
     return distinguishingXPath;
@@ -340,15 +344,47 @@ public abstract class XMLSource implements Freezable {
    * returns a map from the aliases' parents in the keyset to the alias path
    */
   public List<Alias> addAliases(List<Alias> output) {
-    for (Iterator<String> it = iterator(); it.hasNext();) {
+    for (Iterator<String> it = getAliasSet().iterator(); it.hasNext();) {
       String path = it.next();
-      if (!Alias.isAliasPath(path)) continue;
+      //if (!Alias.isAliasPath(path)) continue;
       String fullPath = getFullPathAtDPath(path);
       Alias temp = Alias.make(fullPath);
       if (temp == null) continue;
       output.add(temp);
     }
     return output;
+  }
+  
+  /**
+   * Clear any internal caches.
+   */
+  private void clearCache() {
+    synchronized (ALIAS_CACHE) {
+      UNMOD_ALIAS_CACHE = null;
+    }
+    synchronized (VALUE_TO_PATH_MUTEX) {
+      VALUE_TO_PATH = null;
+    }
+  }
+
+  private Set<String> ALIAS_CACHE = new HashSet<String>();
+  private Set<String> UNMOD_ALIAS_CACHE = null;
+  private Object VALUE_TO_PATH_MUTEX = new Object();
+  private Relation<String,String> VALUE_TO_PATH = null;
+  
+  public Set<String> getAliasSet() {
+    synchronized (ALIAS_CACHE) {
+      if (UNMOD_ALIAS_CACHE == null) {
+        ALIAS_CACHE.clear();
+        for (Iterator<String> it = iterator(); it.hasNext();) {
+          String path = it.next();
+          if (!Alias.isAliasPath(path)) continue;
+          ALIAS_CACHE.add(path);
+        }
+        UNMOD_ALIAS_CACHE = Collections.unmodifiableSet(ALIAS_CACHE);
+      }
+      return UNMOD_ALIAS_CACHE;
+    }
   }
   
   /**
@@ -372,6 +408,7 @@ public abstract class XMLSource implements Freezable {
    */
   public void removeValueAtPath(String xpath) {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    clearCache();
     removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
   }
   /**
@@ -539,6 +576,7 @@ public abstract class XMLSource implements Freezable {
    * @return sets whether supplemental. Normally only called internall.
    */
   public void setNonInheriting(boolean nonInheriting) {
+    if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     this.nonInheriting = nonInheriting;
   }
   
@@ -1128,13 +1166,34 @@ public abstract class XMLSource implements Freezable {
 
   /**
    * Find all the distinguished paths having values matching valueToMatch, and add them to result.
-   * @param pathPrefix
    * @param valueToMatch
+   * @param pathPrefix
    * @param result
    */
-  public void getPathsWithValue(String pathPrefix, String valueToMatch, Set<String> result) {
-    for (Iterator<String> it = iterator(pathPrefix); it.hasNext();) {
-      result.add(it.next());
+  public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+    // build a Relation mapping value to paths, if needed
+    synchronized (VALUE_TO_PATH_MUTEX) {
+      if (VALUE_TO_PATH == null) {
+        VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
+        for (Iterator<String> it = iterator(); it.hasNext();) {
+          String path = it.next();
+          String value = getValueAtDPath(path);
+          VALUE_TO_PATH.put(value, path);
+        }
+      }
+      Set<String> paths = VALUE_TO_PATH.getAll(valueToMatch);
+      if (paths == null) {
+        return;
+      }
+      if (pathPrefix == null || pathPrefix.length() == 0) {
+        result.addAll(paths);
+        return;
+      }
+      for (String path : paths) {
+        if (path.startsWith(pathPrefix)) {
+          result.add(path);
+        }
+      }
     }
   }
 }

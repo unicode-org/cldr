@@ -827,9 +827,9 @@ public class SurveyMain extends HttpServlet {
             ElapsedTimer et = new ElapsedTimer();
             int n = vet.updateStatus();
             ctx.println("Done updating "+n+" statuses [locales] in: " + et + "<br>");
-		} else if(action.equals("srl_dis_nag")) {
-			vet.doDisputeNag("asdfjkl;", null);
-			ctx.println("\u3058\u3083\u3001\u3057\u3064\u308c\u3044\u3057\u307e\u3059\u3002<br/>"); // ??
+		///} else if(action.equals("srl_dis_nag")) {
+		///	vet.doDisputeNag("asdfjkl;", null);
+		///	ctx.println("\u3058\u3083\u3001\u3057\u3064\u308c\u3044\u3057\u307e\u3059\u3002<br/>"); // ??
         } else if(action.equals("srl_vet_nag")) {
             if(ctx.field("srl_vet_nag").length()>0) {
                 ElapsedTimer et = new ElapsedTimer();
@@ -1120,6 +1120,21 @@ public class SurveyMain extends HttpServlet {
                         specialTimer = (timeInMills * offset) + now;
                     }
                 }
+                String setlockout = ctx.field("setlockout");
+                if(lockOut != null) {
+                    if(setlockout.length()==0) {
+                        ctx.println("Lockout: <b>cleared</b><br>");
+                        lockOut = null;
+                    } else if(!lockOut.equals(setlockout)) {
+                        lockOut = setlockout;
+                        ctx.println("Lockout changed to: <tt class='codebox'>"+lockOut+"</tt><br>");
+                    }
+                } else {
+                    if(setlockout.length()>0) {
+                        lockOut = setlockout;
+                        ctx.println("Lockout set to: <tt class='codebox'>"+lockOut+"</tt><br>");
+                    }
+                }
             }
             if((specialHeader != null) && (specialHeader.length()>0)) {
                 ctx.println("<div style='border: 2px solid gray; margin: 0.5em; padding: 0.5em;'>" + specialHeader + "</div><br>");
@@ -1140,6 +1155,8 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<label>Message: <input name='ogm' value='"+((specialHeader==null)?"":specialHeader.replaceAll("'","\"").replaceAll(">","&gt;"))+
                     "' size='80'></label><br>");
             ctx.print("<label>Timer: (use '0' to clear) <input name='ogmtimer' size='10'>"+timeQuantity+"</label><br>");
+            ctx.print("<label>Lockout Password:  [unlock=xxx] <input name='setlockout' value='"+
+                ((lockOut==null)?"":lockOut)+"'></label><br>");
             ctx.print("<input type='submit' value='set'>");
             ctx.print("</form>");
             // OGM---
@@ -4344,6 +4361,25 @@ public class SurveyMain extends HttpServlet {
             return checkCldr;
     }
 
+    public CheckCLDR createCheckWithoutCollisions() {
+            CheckCLDR checkCldr;
+            
+//                logger.info("Initting tests . . . - "+ctx.locale+"|" + ( CHECKCLDR+":"+ctx.defaultPtype()) + "@"+ctx.session.id);
+//            long t0 = System.currentTimeMillis();
+            
+            // make sure CLDR has the latest display information.
+            //if(phaseVetting) {
+            //    checkCldr = CheckCLDR.getCheckAll("(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
+            //} else {
+            //checkCldr = CheckCLDR.getCheckAll(".*");
+                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
+            //}
+
+            checkCldr.setDisplayInformation(getBaselineFile());
+            
+            return checkCldr;
+    }
+
     public class UserLocaleStuff extends Registerable {
         public CLDRFile cldrfile = null;
         public CLDRDBSource dbSource = null;
@@ -6495,12 +6531,14 @@ public class SurveyMain extends HttpServlet {
                     // This says that the optimal value was NOT the numeric winner.
                     ctx.print("<i>not enough votes to overturn approved item</i><br>");
                 } else if(!r.disputes.isEmpty()) {
-                    ctx.print("Disputed with: ");
+                    ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
                     for(Vetting.Race.Chad disputor : r.disputes) {
                         ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
                     }
                     ctx.print("");
                     ctx.print("<br>");
+                } else if(r.hadDisqualifiedWinner) {
+                    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
                 }
 
 			} catch (SQLException se) {

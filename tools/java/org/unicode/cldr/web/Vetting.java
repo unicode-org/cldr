@@ -58,20 +58,21 @@ public class Vetting {
     */
     public static final int RES_NO_VOTES        = 1;      /** 1:0 No votes for data (and some draft data) - NO resolution **/
     public static final int RES_INSUFFICIENT    = 2;      /** 2:I Not enough votes **/
-    public static final int RES_DISPUTED        = 4;      /** 4:D disputed item **/
+    public static final int RES_ERROR           = 4;      /** 2:I Not enough votes **/
+    public static final int RES_DISPUTED        = 8;      /** 4:D disputed item **/
 
     public static final int RES_BAD_MAX = RES_DISPUTED;  /** Data is OK (has a valid xpath in final data) if (type > RES_BAD_MAX) **/
-    public static final int RES_BAD_MASK  = RES_NO_VOTES|RES_INSUFFICIENT|RES_DISPUTED;  /** bitmask for testing 'BAD' (invalid) **/
+    public static final int RES_BAD_MASK  = RES_NO_VOTES|RES_INSUFFICIENT|RES_ERROR|RES_DISPUTED;  /** bitmask for testing 'BAD' (invalid) **/
     
     
-    public static final int RES_ADMIN           = 8;   /** 8:A Admin override **/
-    public static final int RES_TC              = 16;  /** 16:T  TC override (or, TC voted at least..) **/
-    public static final int RES_GOOD            = 32;  /** 32:G good - normal **/
-    public static final int RES_UNANIMOUS       = 64;  /** 64:U  unamimous **/
-    public static final int RES_NO_CHANGE       = 128; /** 128:N no new data **/
-    public static final int RES_REMOVAL         = 256; /** 256: result: removal **/
+    public static final int RES_ADMIN           = 64;   /** 8:A Admin override **/
+    public static final int RES_TC              = 128;  /** 16:T  TC override (or, TC voted at least..) **/
+    public static final int RES_GOOD            = 256;  /** 32:G good - normal **/
+    public static final int RES_UNANIMOUS       = 512;  /** 64:U  unamimous **/
+    public static final int RES_NO_CHANGE       = 1024; /** 128:N no new data **/
+    public static final int RES_REMOVAL         = 2048; /** 256: result: removal **/
 
-    public static final String RES_LIST = "0IDATGUNR"; /** list of strings for type 2**n.  @see typeToStr **/
+    public static final String RES_LIST = "0IXD??ATGUNR"; /** list of strings for type 2**n.  @see typeToStr **/
 	public static final String TWID_VET_VERBOSE = "Vetting_Verbose"; /** option string for toggling verbosity in vetting **/
 	boolean VET_VERBOSE=false; /** option boolean for verbose vetting, defaults to false **/
     
@@ -335,7 +336,7 @@ public class Vetting {
             dataByUserAndBase = prepareStatement("dataByUserAndBase",
                 "select CLDR_DATA.XPATH,CLDR_DATA.ALT_TYPE from CLDR_DATA where submitter=? AND base_xpath=? AND locale=?");
             dataByBase = prepareStatement("dataByBase", /*  1:locale, 2:base_xpath  ->  stuff */
-                "select xpath,origxpath,alt_type FROM CLDR_DATA WHERE " + 
+                "select xpath,origxpath,alt_type,value FROM CLDR_DATA WHERE " + 
                     "(locale=?) AND (base_xpath=?)");
             insertVote = prepareStatement("insertVote",
                 "insert into CLDR_VET (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
@@ -623,9 +624,8 @@ public class Vetting {
      * @return the number of results changed
      */
     public int updateResults() {
-        System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
         ElapsedTimer et = new ElapsedTimer();
-        System.err.println("updating results...");
+        System.err.println("updating results... ***********************************");
         File inFiles[] = sm.getInFiles();
         int tcount = 0;
         int lcount = 0;
@@ -743,6 +743,7 @@ public class Vetting {
                 
                 if(!errorRaces.isEmpty()) {
                     correctErrors(errorRaces);
+                    updates |= RES_ERROR;
 
                     // if anything changed, commit it
                     int uscnt = updateStatus(locale, true);// update results
@@ -1019,7 +1020,7 @@ public class Vetting {
 	public static final int VETTER_VOTE		= 4;  // 1 * 4
 	public static final int STREET_VOTE		= 1;  // .25 * 4
 
-    public static final int OUTPUT_MINIMUM = 1; // Don't even show losing items that aren't at least this.   [ was 4]
+    public static final int OUTPUT_MINIMUM = 0; // Don't even show losing items that aren't at least this.   [ was 4]
 
 	public enum Status { 
 		INDETERMINATE (-1),
@@ -1274,7 +1275,7 @@ public class Vetting {
 		public Chad existing = null; // existing vote
         public Status existingStatus = Status.INDETERMINATE;
         int nexthighest = 0;
-        
+        public boolean hadDisqualifiedWinner = false; // at least one of the winners disqualified
         int id; // for writing
             
 		/* reset all */
@@ -1286,6 +1287,7 @@ public class Vetting {
 			existing=null;
 			base_xpath = -1;
             nexthighest = 0;
+            hadDisqualifiedWinner = false;
 		}
 		
 		/* Reset this for a new item */
@@ -1320,21 +1322,25 @@ public class Vetting {
         
         /* check for errors */
         boolean recountIfHadDisqualified() {
+            boolean hadDisqualified = false;
+            for(Chad c : chads.values()) {
+                if(c.checkDisqualified()) {
+                    hadDisqualified = true;
+                }
+            }
             if(winner == null) {
-                return false;
+                return hadDisqualified;
             }
-            if(!winner.checkDisqualified()) {
-                return false;
+            if(!winner.disqualified) {
+                return hadDisqualified;
             }
+            hadDisqualified = hadDisqualifiedWinner = true;
             winner = null; // no winner
             nexthighest = 0;
-            for(Chad c : chads.values()) {
-                c.checkDisqualified();
-            }
             calculateOrgVotes();
 
             calculateWinner();
-            return true;
+            return hadDisqualified;
         }
         
 
@@ -1453,6 +1459,9 @@ public class Vetting {
                 String value = rs.getString(3);
                 defaultVote("Google", vote_xpath, origXpath, value);
             }
+            
+            // Now, add ALL possible items.
+            
             
 		    return count;
         }
@@ -1603,18 +1612,16 @@ public class Vetting {
 				rowsUpdated += outputInsert.executeUpdate();
 			}
 		
-			// If any of the others have at least 1 vote, add them as is. (?)
-			int j = 1000;
+            // add any other items
+			int jsernum = 1000; // starting point for  x propoed designation
 			for (Chad other : chads.values()) {
 				// skip if:
-				if( (other == winner) ||				 // skip the winner, of course
-					(other.score < OUTPUT_MINIMUM) ||	 // if it wasn't at least this threshhold
-					( (other==existing) && other.voters.isEmpty()) ) {		 // No-one voted for it (existing vote)
-						continue;
+				if( other == winner || other.disqualified) {  // skip the winner and any disqualified items
+                    continue;
 				}
-				j++;
+				jsernum++;
                 Status proposedStatus = Status.UNCONFIRMED;
-				String altproposed = "proposed-x"+j;
+				String altproposed = "proposed-x"+jsernum;
 				int aPath = makeXpathId(baseNoAlt,  altvariant, altproposed, Status.INDETERMINATE);
 				
 				String baseFString = sm.xpt.getById(other.full_xpath);
@@ -1669,7 +1676,9 @@ public class Vetting {
                     type = RES_NO_VOTES;
                 }
             }
-
+            if(hadDisqualifiedWinner) {
+                type = RES_ERROR;
+            }
             if(id == -1) { 
                 // Not an existing vote:  insert a new one
                 // insert 
@@ -2143,6 +2152,7 @@ public class Vetting {
                 int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
                 int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
+                int numErrored = countResultsByType(loc,RES_ERROR);
                 
                 if(complain == null) {
 //                    System.err.println(" -nag: " + group);
@@ -2160,6 +2170,9 @@ public class Vetting {
                 if(numDisputed>0) {
                     problem = problem + " DISPUTED VOTES: "+numDisputed+"";
                 }
+                if(numErrored>0) {
+                    problem = problem + " ERROR ITEMS: "+numErrored+"";
+                }
 
                 complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
             }
@@ -2173,7 +2186,7 @@ public class Vetting {
             
             String subject = "CLDR Vetting update: "+group + " (" + disp + ")";
             String body = "The following is an automatic message, periodically generated to update vetters on the progress on their locales. We are working on a short time schedule, so we'd appreciate your looking at the cases below.\r\n"+
-                "\r\nFor more information, see http://unicode.org/cldr/wiki?VettingProcess\nYou will need to be logged-in before making changes.\r\n\r\n";
+                "\r\nFor more information, see http://unicode.org/cldr/vetting.html\nYou will need to be logged-in before making changes.\r\n\r\n";
             body = body + complain + "\n";
 
             if(!bcc_emails.isEmpty()) {
@@ -2197,6 +2210,7 @@ public class Vetting {
      * @return number of mails sent.
      */
     int doDisputeNag(String message, String org) {
+if(true == true)    throw new InternalError("removed from use.");
         Map mailBucket = new HashMap(); // mail bucket: 
     
         Map intGroups = sm.getIntGroups();
@@ -2247,7 +2261,7 @@ public class Vetting {
             String loc = (String)li.next();
             
             int locStatus = status(loc);
-            if((locStatus&RES_DISPUTED)>0) {  // RES_BAD_MASK
+            if((locStatus&(RES_DISPUTED|RES_ERROR))>0) {  // RES_BAD_MASK
 //                int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
 //                int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
@@ -2324,12 +2338,6 @@ public class Vetting {
         }
     }
 
-    /**
-     * empty function
-     * TODO: why is this function empty?
-     */
-    void doUpdate() {
-    }
     
     /**
      * how many results of this type for this locale? I.e. N disputed .. 
@@ -2506,7 +2514,7 @@ public class Vetting {
          try {
                 // select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
             Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type=4)");
+            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type="+RES_DISPUTED+") or (CLDR_RESULT.type="+RES_ERROR+")");
 			while(rs.next()) {
 				n++;
 				String aLoc = rs.getString(1);
@@ -2529,7 +2537,7 @@ public class Vetting {
 				}
 				st.add(path);
 			}
-			ctx.println("<hr>"+n+" disputed items total in " + m.size() + " locales.<br>");			
+			ctx.println("<hr>"+n+" disputed or error items total in " + m.size() + " locales.<br>");			
          } catch ( SQLException se ) {
             String complaint = "Vetter:  couldn't do DisputePage - " + SurveyMain.unchainSqlException(se);
             logger.severe(complaint);
@@ -2678,7 +2686,7 @@ public class Vetting {
             // [md] Set the coverage level to minimal and organization to none. That will override the organization and be consistent across all users.
 
             overallResults.clear();
-            check = sm.createCheck();
+            check = sm.createCheckWithoutCollisions();
             check.setCldrFileToCheck(file, options, overallResults);
             setValid();
             register();

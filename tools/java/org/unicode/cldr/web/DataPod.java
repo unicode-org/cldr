@@ -645,7 +645,7 @@ public class DataPod extends Registerable {
     private Partition[] createVettingPartitions() {
         Partition theVetPartitions[] = 
         {                 
-                new Partition("Error Values", 
+                new Partition("Error Values, No Changes Proposed", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return (p.hasErrors&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
@@ -664,10 +664,11 @@ public class DataPod extends Registerable {
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ||
+                                ((p.allVoteType & Vetting.RES_ERROR)>0) ||
                                 (p.confirmStatus!=Vetting.Status.APPROVED &&
                                     p.confirmStatus!=Vetting.Status.INDETERMINATE);
                         }
-                    }),
+                    }),                  
                 new Partition("Changes Proposed: Tentatively Approved", 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {

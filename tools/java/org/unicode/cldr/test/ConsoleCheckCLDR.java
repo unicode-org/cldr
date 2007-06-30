@@ -8,17 +8,22 @@ import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.text.UnicodeSet;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,6 +32,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -52,6 +58,10 @@ public class ConsoleCheckCLDR {
   public static boolean errorsOnly = false;
   static boolean SHOW_LOCALE = true;
   static boolean SHOW_EXAMPLES = false;
+  static PrintWriter generated_html = null;
+  static  PrettyPath prettyPathMaker = new PrettyPath();
+  static  String generated_html_directory = null;
+
 
   private static final int
   HELP1 = 0,
@@ -69,7 +79,8 @@ public class ConsoleCheckCLDR {
   NO_ALIASES = 12,
   SOURCE_DIRECTORY = 13,
   USER = 14,
-  PHASE = 15
+  PHASE = 15,
+  GENERATE_HTML = 16
   ;
   
   private static final UOption[] options = {
@@ -89,6 +100,7 @@ public class ConsoleCheckCLDR {
     UOption.create("source_directory", 's',  UOption.REQUIRES_ARG).setDefault(Utility.MAIN_DIRECTORY),
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
     UOption.create("phase", 'z',  UOption.REQUIRES_ARG),
+    UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG),
   };
   
   private static String[] HelpMessage = {
@@ -117,8 +129,8 @@ public class ConsoleCheckCLDR {
    * @throws IOException 
    */
   public static void main(String[] args) throws IOException {
+    ElapsedTimer totalTimer = new ElapsedTimer();
     Utility.showOptions(args);
-    double deltaTime = System.currentTimeMillis();
     UOption.parseArgs(args, options);
     if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
       for (int i = 0; i < HelpMessage.length; ++i) {
@@ -170,6 +182,13 @@ public class ConsoleCheckCLDR {
       }
     }
     
+    if (options[GENERATE_HTML].doesOccur) {
+      generated_html_directory = options[GENERATE_HTML].value;
+      if (generated_html_directory == null) {
+        generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
+      }
+    }
+    
     // check stuff
 //  Comparator cc = StandardCodes.make().getTZIDComparator();
 //  System.out.println(cc.compare("Antarctica/Rothera", "America/Cordoba"));
@@ -190,6 +209,7 @@ public class ConsoleCheckCLDR {
     System.out.println("only check-on-submit: " + checkOnSubmit);
     System.out.println("show all: " + showAll);
     System.out.println("errors only?: " + errorsOnly);
+    System.out.println("generate html: " + generated_html_directory);
     
     // set up the test
     Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter);
@@ -209,16 +229,19 @@ public class ConsoleCheckCLDR {
     FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
     Set<String> englishPaths = null;
     
-    PrettyPath prettyPathMaker = new PrettyPath();
     
     Set<String> fatalErrors = new TreeSet<String>();
     
     if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
+    
 
+    LocaleIDParser localeIDParser = new LocaleIDParser();
+    String lastBaseLanguage = "";
+    
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
       if (CLDRFile.isSupplementalName(localeID)) continue;
-      boolean isLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
+      boolean isLanguageLocale = localeID.equals(localeIDParser.set(localeID).getLanguageScript());
       options.clear();
       
       // if the organization is set, skip any locale that doesn't have a value in Locales.txt
@@ -247,6 +270,7 @@ public class ConsoleCheckCLDR {
       //options.put("CheckCoverage.requiredLevel","comprehensive");
       
       CLDRFile file;
+      ElapsedTimer timer = new ElapsedTimer();
       try {
         file = cldrFactory.make(localeID, isLanguageLocale);
       } catch (RuntimeException e) {
@@ -255,6 +279,18 @@ public class ConsoleCheckCLDR {
         e.printStackTrace(System.out);
         continue;
       }
+      
+      
+      // generate HTML if asked for
+      if (generated_html_directory != null) {
+        String baseLanguage = localeIDParser.set(localeID).getLanguage();
+        
+        if (!baseLanguage.equals(lastBaseLanguage)) {
+          lastBaseLanguage = baseLanguage;
+          openGeneratedHtml(localeID, baseLanguage);
+        }
+      }
+      
       if (user != null) {
         file = new CLDRFile.TestUser(file, user, isLanguageLocale);
       }
@@ -438,17 +474,83 @@ public class ConsoleCheckCLDR {
           showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example);
         }
       }
+      System.out.println("Elapsed time: " + timer);
+      System.out.flush();
     }
+    
+    if (generated_html != null) {
+      closeGeneratedHtml();
+    }
+    
+    if (generated_html_directory != null) {
+     PrintWriter generated_html_index = BagFormatter.openUTF8Writer(generated_html_directory, "index.html");
+      generated_html_index.println("<html>" +
+          "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
+          "<title>Error Report Index</title></head>" +
+          "<body>" +
+          "<h1>Error Report Index</h1>" +
+          "<p>The following errors have been detected in the locales. " +
+          "Please review and correct them.</p>" +
+          "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
+          "(There were production problems in integrating it fully into the Survey tool. " +
+          "However, it should let you see the problems and make sure that they get taken care of.)</i></p>" +
+      "<ul>"); 
+      
+      
+      for (String key : sortedHtmlIndexLines.keySet()) {
+        generated_html_index.println("<li>" + sortedHtmlIndexLines.get(key) + "</li>");
+      }
+      generated_html_index.println("</ul></html>");
+      generated_html_index.close();
+    }
+
     for (Iterator it2 = new TreeSet(totalCount.keySet()).iterator(); it2.hasNext();) {
       String type = (String)it2.next();
       System.out.println("Total " + type + ":\t" + totalCount.getCount(type));
     }
     
-    deltaTime = System.currentTimeMillis() - deltaTime;
-    System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+    System.out.println("Total Elapsed: " + totalTimer);
     if (fatalErrors.size() != 0) {
       System.out.println("FATAL ERRORS:" );
     }
+  }
+
+  private static int htmlErrorsPerBaseLanguage = 0;
+  private static String htmlOpenedFileLanguage = null;
+  private static TreeMap<String,String> sortedHtmlIndexLines = new TreeMap();
+  
+  private static void closeGeneratedHtml() {
+    generated_html.println("</table></body></html>");
+    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage),
+        "<a href='" + htmlOpenedFileLanguage + ".html'>" +
+        getNameAndLocale(htmlOpenedFileLanguage) + "</a> (" + htmlErrorsPerBaseLanguage + ")");
+    generated_html.close();
+    htmlErrorsPerBaseLanguage = 0;
+  }
+
+  private static void openGeneratedHtml(String localeID, String baseLanguage) throws IOException {
+    if (generated_html != null) {
+      closeGeneratedHtml();
+    }
+    generated_html = BagFormatter.openUTF8Writer(generated_html_directory, baseLanguage + ".html");
+    htmlOpenedFileLanguage = baseLanguage;
+    generated_html.println("<html>" +
+        "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
+        "<title>Errors in " + getNameAndLocale(localeID) + "</title></head>" +
+        "<body>" +
+        "<h1>Errors in " + getNameAndLocale(localeID) + "</h1>" +
+        "<p>The following errors have been detected in the locale " + getNameAndLocale(localeID) + ". " +
+            "Please review and correct them. " +
+            "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
+            "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
+            "(There were production problems in integrating it fully into the Survey tool. " +
+            "However, it should let you see the problems and make sure that they get taken care of.)</i></p>"); 
+  }
+
+  private static void startGeneratedTable() {
+    generated_html.println(
+        "<table border='1' style='border-collapse: collapse' bordercolor='#CCCCFF'>" +
+        "<tr><th>Locale</th><th>Section/Code</th><th>English</th><th>Proposed 1.5</th><th>Error Description</th></tr>");
   }
   
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
@@ -505,6 +607,7 @@ public class ConsoleCheckCLDR {
  }
 
   private static ExampleGenerator englishExampleGenerator;
+  private static Object lastLocaleID = null;
   
   private static void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
     example = example == null ? "" : "<" + example + ">";
@@ -517,9 +620,10 @@ public class ConsoleCheckCLDR {
     }
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
+    String cleanPrettyPath = prettyPathMaker.getOutputForm(prettyPath);
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
-        + "\t" + prettyPath
+        + "\t" + cleanPrettyPath
         + "\t" + getEnglishPathValue(path)
         + "\t" + englishExample
         + "\t" + value
@@ -527,6 +631,41 @@ public class ConsoleCheckCLDR {
         + "\t" + statusString
         + "\t" + fullPath
         );
+    if (generated_html != null) {
+      if (!localeID.equals(lastHtmlLocaleID)) {
+        if (htmlErrorsPerLocale != 0) {
+          generated_html.println("</table><br>");
+          htmlErrorsPerLocale = 0;
+        }
+        startGeneratedTable();
+        lastHtmlLocaleID = localeID;
+      }
+      htmlErrorsPerLocale++;
+      htmlErrorsPerBaseLanguage++;
+      generated_html.println( "<tr>" +
+          "<td>"
+          + "<a href='http://www.unicode.org/cldr/apps/survey?_=" + localeID +
+            "'>" + getNameAndLocale(localeID) + "</a>"
+          + "</td><td>"
+          //+ TransliteratorUtilities.toHTML.transliterate(shortStatus)
+          //+ "</td><td>" 
+          + safeForHtml(cleanPrettyPath)
+          + "</td><td>" + safeForHtml(getEnglishPathValue(path))
+          //+ "</td><td>" + englishExample
+          + "</td><td>" + safeForHtml(value)
+          //+ "</td><td>" + example
+          + "</td><td>" + safeForHtml(statusString)
+          //+ "</td><td>" + fullPath
+          + "</td></tr>"
+          );
+    }
+  }
+  
+  static String lastHtmlLocaleID = "";
+  static int htmlErrorsPerLocale = 0;
+
+  private static String safeForHtml(String value) {
+    return value == null ? "" : TransliteratorUtilities.toHTML.transliterate(value);
   }
 
   public static class PathShower {
@@ -631,5 +770,16 @@ public class ConsoleCheckCLDR {
     String localizedName = CheckCLDR.getDisplayInformation().getName(locale, false);
     if (localizedName == null || localizedName.equals(locale)) return locale;
     return locale + " [" + localizedName + "]";
+  }
+  
+  /**
+   * Utility for getting information.
+   * @param locale
+   * @return
+   */
+  public static String getNameAndLocale(String locale) {
+    String localizedName = CheckCLDR.getDisplayInformation().getName(locale, false);
+    if (localizedName == null || localizedName.equals(locale)) return locale;
+    return localizedName  + " [" + locale + "]";
   }
 }

@@ -47,6 +47,7 @@ import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -385,9 +386,10 @@ public class CountItems {
     /**
      * 
      */
-    private static void countItems() {
+    public static void countItems() {
         //CLDRKey.main(new String[]{"-mde.*"});
-        Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+      String dir = Utility.getProperty("SOURCE",Utility.MAIN_DIRECTORY);
+        Factory cldrFactory = CLDRFile.Factory.make(dir, ".*");
         countItems(cldrFactory, false);
    }
     
@@ -736,6 +738,10 @@ public class CountItems {
         }
     }
 
+    static final NumberFormat decimal = NumberFormat.getNumberInstance();
+    static {
+      decimal.setGroupingUsed(true);
+    }
 	/**
 	 * @param cldrFactory
 	 * @param resolved
@@ -778,10 +784,11 @@ public class CountItems {
 			count += current;
 			resolvedCount += resolvedCurrent;
 		}
-		System.out.println("Total Items\t" + count + "\tTotal Resolved Items\t" + resolvedCount);
-		System.out.println("Unique Paths\t" + keys.size());
-		System.out.println("Unique Values\t" + values.size());
-		System.out.println("Unique Full Paths\t" + fullpaths.size());
+		System.out.println("Total Items\t" + decimal.format(count));
+    System.out.println("Total Resolved Items\t" + decimal.format(resolvedCount));
+		System.out.println("Unique Paths\t" + decimal.format(keys.size()));
+		System.out.println("Unique Values\t" + decimal.format(values.size()));
+		System.out.println("Unique Full Paths\t" + decimal.format(fullpaths.size()));
 		return count;
 	}
 

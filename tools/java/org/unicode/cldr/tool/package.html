@@ -7,6 +7,31 @@ For terms of use, see http://www.unicode.org/terms_of_use.html
 -->
 </head>
 <body bgcolor="white">
-Provides tools for manipulating CLDR files. In particular, use CLDRModify -r to canonicalize the format.
+<h1>Tools</h1>
+<p>Provides tools for manipulating CLDR files.
+</p>
+<h2>Canonicalizing</h2>
+<blockquote>
+	<p>Use CLDRModify -r to canonicalize the format. </p>
+</blockquote>
+<h2><b>Statistics</b></h2>
+<p>To generate statistics on CLDR, use: CountItems </p>
+<blockquote>
+	<p>-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\cldr_1_4\main\<br>
+	<br>
+	-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\incoming\vetted\main\</p>
+	<p>It will generate something like:</p>
+	<blockquote>
+		<p>Total Items 66,319<br>
+		Total Resolved Items 1,025,077<br>
+		Unique Paths 4,717<br>
+		Unique Values 45,226<br>
+		Unique Full Paths 9,301</p>
+	</blockquote>
+</blockquote>
+<h2>Error Report</h2>
+<blockquote>
+	<p>ConsoleCheckCldr with options -f(.*) -p(.*) -t(.*) -n -s C:/cvsdata/unicode/cldr/incoming/vetted/main -zFINAL_TESTING -e -cminimal -g</p>
+</blockquote>
 </body>
 </html>

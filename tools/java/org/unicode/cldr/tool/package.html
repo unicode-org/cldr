@@ -30,8 +30,15 @@ For terms of use, see http://www.unicode.org/terms_of_use.html
 	</blockquote>
 </blockquote>
 <h2>Error Report</h2>
-<blockquote>
-	<p>ConsoleCheckCldr with options -f(.*) -p(.*) -t(.*) -n -s C:/cvsdata/unicode/cldr/incoming/vetted/main -zFINAL_TESTING -e -cminimal -g</p>
-</blockquote>
+<ul>
+	<li>Run ConsoleCheckCldr with options<ul>
+		<li>-f(.*) -p(.*) -t(.*) -n -s C:/cvsdata/unicode/cldr/incoming/vetted/main -zFINAL_TESTING -e -cminimal -g</li>
+	</ul>
+	</li>
+	<li>Should take about 6 minutes.</li>
+	<li>Generates data in <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/errors/">C:\cvsdata\unicode\cldr\dropbox\gen\errors\</a> (you can change this by 
+	adding to -g)</li>
+	<li>Once this is done, update with CVS.</li>
+</ul>
 </body>
 </html>

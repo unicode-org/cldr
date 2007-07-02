@@ -1166,6 +1166,8 @@
 			</rules>
 		</collation>
 		<!-- Needed by ICU to list valid locales that use Unihan -->
-		<alias source="root" path="//ldml/collations/collation[@type='unihan']"/>
+		<collation type="unihan" >
+			<alias source="root" path="//ldml/collations/collation[@type='unihan']"/>
+		</collation>
 	</collations>
 </ldml>

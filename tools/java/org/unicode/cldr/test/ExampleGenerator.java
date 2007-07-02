@@ -248,12 +248,13 @@ public class ExampleGenerator {
                 }
                 // otherwise we show the fallback with exemplar
                 String fallback = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-                String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
                 // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
 
                 result = format(fallback, value, countryName);
-                result = format(timeFormat, result);
               }
+              // format with "{0} Time" or equivalent.
+              String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
+              result = format(timeFormat, result);
             }
           } else if (parts.contains("regionFormat")) { // {0} Time
             String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);

@@ -473,108 +473,14 @@ arbitrary changes (see the end). </b></p>
 		</td>
 	</tr>
 	<tr>
-		<td>.*/timeZoneNames.*</td>
-		<td>
-		<h3 align="left">Time Zones</h3>
-		<p align="left">In the standard used for time zones, a <i>time zone</i> is an area of a country that has consistent behavior in terms of its offset from 
-		Greenwich Mean Time. In particular, within that zone, the same daylight-savings (summer-time) behavior is observed, now and in the past and future (as far 
-		as is known). This means that time zones are fairly fine granularity, as you can see by consulting <span class="loser">
-		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>. </span>The name of the time 
-		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from
-		<b><code>America/Denver</code></b>.</p>
-		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table9">
-			<tr>
-				<th style="vertical-align: top; "><strong>Time zone</strong></th>
-				<td align="center"><strong>Reason</strong></td>
-			</tr>
-			<tr>
-				<td><b><code>America/​Chicago</code></b></td>
-				<td>Chicago has a different standard offset from GMT (6 hours) than Denver (7 hours).</td>
-			</tr>
-			<tr>
-				<td><b><code>America/​Phoenix</code></b></td>
-				<td>While Phoenix has the same GMT offset as Denver, it doesn&#39;t have daylight savings time, while Denver does.</td>
-			</tr>
-			<tr>
-				<td><b><code>America/​Edmonton</code></b></td>
-				<td>Although Edmonton has the same offset and daylight savings behavior as Denver, it is in a different country</td>
-			</tr>
-		</table>
-		<p align="left"><span class="loser">Time zones can be displayed in a variety of ways, depending on the environment and program requirements. Here are some 
-		examples:</span></p>
-		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table8">
-			<caption><b>Sample Time Zone Formats</b></caption>
-			<tr>
-				<th style="vertical-align: top; ">Named</th>
-				<th style="vertical-align: top; "><strong>List Format</strong></th>
-				<td align="center"><b>Abbreviated</b></td>
-				<td align="center" colspan="2"><strong>With a Time</strong></td>
-			</tr>
-			<tr>
-				<td rowspan="2">Country-Based</td>
-				<td colspan="2" align="center">United States (Los Angeles) Time</td>
-				<td colspan="2">12:43 pm United States (Los Angeles) Time</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">Italy Time</td>
-				<td colspan="2">12:43 pm Italy Time</td>
-			</tr>
-			<tr>
-				<td rowspan="3">Named<p>&nbsp;</p>
-				</td>
-				<td align="center">Pacific Time</td>
-				<td align="center">PT</td>
-				<td>12:43 pm Pacific Time</td>
-				<td>12:43 pm PT</td>
-			</tr>
-			<tr>
-				<td align="center">Central European Time</td>
-				<td align="center">CET</td>
-				<td>12:43 pm Central European Time</td>
-				<td>12:43 pm CET</td>
-			</tr>
-			<tr>
-				<td align="center">Pacific Standard Time</td>
-				<td align="center">PST</td>
-				<td>12:43 pm Pacific Standard Time</td>
-				<td>12:43 pm PST</td>
-			</tr>
-			<tr>
-				<td rowspan="2">GMT</td>
-				<td colspan="2" align="center">GMT-8:00</td>
-				<td colspan="2">12:43 pm GMT-8:00</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">GMT+2:00</td>
-				<td colspan="2">12:43 pm GMT+2:00</td>
-			</tr>
-		</table>
-		<p align="left">These are composed from different pieces that you translate. </p>
-		<ul>
-			<li>
-			<p align="left">For the country-based formats, you&#39;ll be translating the country names anyway, but also city names where a country has multiple zones. 
-			You&#39;ll also be translating a pattern for the &quot;Time&quot; portion (or leaving it blank if that is better for your language).</p>
-			</li>
-			<li>
-			<p align="left">For the named formats, you&#39;ll have the opportunity to translate specific names for that zone, or names common to groupings of time zones 
-			(called <i>metazones</i>) that span multiple time zones. You have 6 possible strings to translate: generic (Pacific Time), standard (Pacific Standard 
-			Time), daylight (Pacific Daylight Time), plus abbreviations of those.<i><b> You only want to provide names (and especially abbreviations) where those 
-			are customarily understood by speakers of your language. Just because they are in English doesn&#39;t mean they should always be translated in your language.</b></i></p>
-			</li>
-			<li>
-			<p align="left">For the GMT format, you&#39;ll be translating the term &quot;GMT&quot; (if necessary for your language), and the format for the hours (eg, +8:45 vs. 
-			+8.45).</p>
-			</li>
-		</ul>
-		</td>
-	</tr>
-	<tr>
 		<td>.*/exemplarCity.*</td>
 		<td>
 		<h3>Time Zone Exemplar Cities</h3>
-		<p>For generic references to time zones, the country is used if possible, composed with a pattern that in English appears as &quot;{0} Time&quot;. Thus a time zone 
-		may appear as &quot;Bolivia Time&quot;. If the country has multiple time zones, then a city is used to distinguish which one, thus &quot;Argentina (La Rioja) Time&quot;. Thus 
-		for basic coverage, cities thus only need to be translated if they are in a country with multiple time zones.</p>
+		<p>For generic references to time zones, the country is used if possible, composed with a pattern that in English appears as &quot;{0}<span style="background-color: #C0C0C0"> 
+		Time</span>&quot;. Thus a time zone may appear as &quot;Malaysia<span style="background-color: #C0C0C0"> Time</span>&quot; or &quot;<span style="background-color: #C0C0C0">Hora 
+		de </span>Malasia&quot;. If the country has multiple time zones, then a city is used to distinguish which one, thus &quot;Argentina (La Rioja)<span style="background-color: #C0C0C0"> Time</span>&quot;.</p>
+		<p>Thus 
+		normally cities thus only need to be translated if they are in a country with multiple time zones.</p>
 		</td>
 	</tr>
 	<tr>
@@ -688,11 +594,19 @@ arbitrary changes (see the end). </b></p>
 		<td>//ldml/dates/timeZoneNames/regionFormat</td>
 		<td>
 		<h3>Country-Based Time Zone Pattern</h3>
-		<p>Time zones can be identified in different ways: such as around the time zone, eg for <em>New York Time</em> use <em>{0} Time</em>. This is a new item, 
-		and the word &quot;Time&quot; is in English, so you will undoubtedly want to change it. This will be used both for display in lists, and in use with times. Some languages 
-		would normally have grammatical adjustments depending on what the name of the city is. For example, one might have &quot;12:43 pm <u>Tempo d&#39;</u>Australia&quot; but 
-		&quot;12:43 pm <u>Tempo de </u>Paris&quot;. In that case, it might be better to either omit the phrasing and just have &quot;12:43 pm Australia&quot; and &quot;12:43 pm Paris&quot;, 
-		or to use a &quot;form&quot; style phrasing, like &quot;12:43 pm <u>Tempo de: </u>Australia&quot; and &quot;12:43 pm <u>Tempo de: </u>Paris&quot;.</p>
+		<p>For generic references to time zones, the country is used if possible, composed with a pattern that in English appears as &quot;{0}<span style="background-color: #C0C0C0"> 
+		Time</span>&quot;. Thus a time zone may appear as &quot;Malaysia<span style="background-color: #C0C0C0"> Time</span>&quot; or &quot;<span style="background-color: #C0C0C0">Hora 
+		de </span>Malasia&quot;. If the country has multiple time zones, then a city is used to distinguish which one, thus &quot;Argentina (La Rioja)<span style="background-color: #C0C0C0"> Time</span>&quot;.</p>
+		<p>Some languages 
+		would normally have grammatical adjustments depending on what the name of the city is. For example, one might need &quot;12:43 pm
+		<span style="background-color: #C0C0C0">Tempo d&#39;</span>Australia&quot; but 
+		&quot;12:43 pm <span style="background-color: #C0C0C0">Tempo de</span><u> </u>Paris&quot;. In that case, there are two approaches:</p>
+		<ol type="a">
+			<li>Use &quot;{0}&quot;, which will give results like &quot;12:43 pm Australia&quot; and &quot;12:43 pm Paris&quot;, 
+		or</li>
+			<li>Use a &quot;form-style&quot; phrasing such as &quot;<span style="background-color: #C0C0C0">Tempo de: </span>{0}&quot;, which will give results like &quot;12:43 pm
+			<span style="background-color: #C0C0C0">Tempo de: </span>Australia&quot; and &quot;12:43 pm <span style="background-color: #C0C0C0">Tempo de: </span>Paris&quot;.</li>
+		</ol>
 		</td>
 	</tr>
 	<tr>
@@ -700,6 +614,102 @@ arbitrary changes (see the end). </b></p>
 		<td>
 		<h3>Days of the Week</h3>
 		<p>This field is one of the days of the week, such as Sunday or Monday.</p>
+		</td>
+	</tr>
+	<tr>
+		<td>.*/timeZoneNames.*</td>
+		<td>
+		<h3 align="left">Time Zones</h3>
+		<p align="left">In the standard used for time zones, a <i>time zone</i> is an area of a country that has consistent behavior in terms of its offset from 
+		Greenwich Mean Time. In particular, within that zone, the same daylight-savings (summer-time) behavior is observed, now and in the past and future (as far 
+		as is known). This means that time zones are fairly fine granularity, as you can see by consulting <span class="loser">
+		<a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>. </span>The name of the time 
+		zone is taken from the most populous city, such as <b><code>America/Denver</code></b>. Here are some examples of time zones, and why they are distinct from
+		<b><code>America/Denver</code></b>.</p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table11">
+			<tr>
+				<th style="vertical-align: top; "><strong>Time zone</strong></th>
+				<td align="center"><strong>Reason</strong></td>
+			</tr>
+			<tr>
+				<td><b><code>America/​Chicago</code></b></td>
+				<td>Chicago has a different standard offset from GMT (6 hours) than Denver (7 hours).</td>
+			</tr>
+			<tr>
+				<td><b><code>America/​Phoenix</code></b></td>
+				<td>While Phoenix has the same GMT offset as Denver, it doesn&#39;t have daylight savings time, while Denver does.</td>
+			</tr>
+			<tr>
+				<td><b><code>America/​Edmonton</code></b></td>
+				<td>Although Edmonton has the same offset and daylight savings behavior as Denver, it is in a different country</td>
+			</tr>
+		</table>
+		<p align="left"><span class="loser">Time zones can be displayed in a variety of ways, depending on the environment and program requirements. Here are some 
+		examples:</span></p>
+		<table border="1" style="border-collapse: collapse" cellspacing="0" bordercolor="#009900" id="table12">
+			<caption><b>Sample Time Zone Formats</b></caption>
+			<tr>
+				<th style="vertical-align: top; ">Named</th>
+				<th style="vertical-align: top; "><strong>List Format</strong></th>
+				<td align="center"><b>Abbreviated</b></td>
+				<td align="center" colspan="2"><strong>With a Time</strong></td>
+			</tr>
+			<tr>
+				<td rowspan="2">Country-Based</td>
+				<td colspan="2" align="center">United States (Los Angeles) Time</td>
+				<td colspan="2">12:43 pm United States (Los Angeles) Time</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">Italy Time</td>
+				<td colspan="2">12:43 pm Italy Time</td>
+			</tr>
+			<tr>
+				<td rowspan="3">Named<p>&nbsp;</p>
+				</td>
+				<td align="center">Pacific Time</td>
+				<td align="center">PT</td>
+				<td>12:43 pm Pacific Time</td>
+				<td>12:43 pm PT</td>
+			</tr>
+			<tr>
+				<td align="center">Central European Time</td>
+				<td align="center">CET</td>
+				<td>12:43 pm Central European Time</td>
+				<td>12:43 pm CET</td>
+			</tr>
+			<tr>
+				<td align="center">Pacific Standard Time</td>
+				<td align="center">PST</td>
+				<td>12:43 pm Pacific Standard Time</td>
+				<td>12:43 pm PST</td>
+			</tr>
+			<tr>
+				<td rowspan="2">GMT</td>
+				<td colspan="2" align="center">GMT-8:00</td>
+				<td colspan="2">12:43 pm GMT-8:00</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">GMT+2:00</td>
+				<td colspan="2">12:43 pm GMT+2:00</td>
+			</tr>
+		</table>
+		<p align="left">These are composed from different pieces that you translate. </p>
+		<ul>
+			<li>
+			<p align="left">For the country-based formats, you&#39;ll be translating the country names anyway, but also city names where a country has multiple zones. 
+			You&#39;ll also be translating a pattern for the &quot;Time&quot; portion (or leaving it blank if that is better for your language).</p>
+			</li>
+			<li>
+			<p align="left">For the named formats, you&#39;ll have the opportunity to translate specific names for that zone, or names common to groupings of time zones 
+			(called <i>metazones</i>) that span multiple time zones. You have 6 possible strings to translate: generic (Pacific Time), standard (Pacific Standard 
+			Time), daylight (Pacific Daylight Time), plus abbreviations of those.<i><b> You only want to provide names (and especially abbreviations) where those 
+			are customarily understood by speakers of your language. Just because they are in English doesn&#39;t mean they should always be translated in your language.</b></i></p>
+			</li>
+			<li>
+			<p align="left">For the GMT format, you&#39;ll be translating the term &quot;GMT&quot; (if necessary for your language), and the format for the hours (eg, +8:45 vs. 
+			+8.45).</p>
+			</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>

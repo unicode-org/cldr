@@ -144,6 +144,7 @@ public class TablePrinter {
   }
   
   Collection<Comparable> partialRow;
+  
   public TablePrinter addRow() {
     if (partialRow != null) {
       throw new IllegalArgumentException("Cannot add partial row before calling finishRow()");
@@ -194,6 +195,10 @@ public class TablePrinter {
       addRow(row);
     }
     return this;
+  }
+  
+  public String toString() {
+    return toTable();
   }
   
   public String toTable() {

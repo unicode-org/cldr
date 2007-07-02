@@ -141,13 +141,16 @@ public class TestMisc {
           "[:script=Ugar:]" +
           "[:script=Xpeo:]" +
           "[:script=Xsux:]" +
-          "[:script=Arab:]" +
-          "[:script=Armn:]" +
-          "[:script=Beng:]" +
-          "[:script=Bopo:]" +
+//          "[:script=Arab:]" +
+//          "[:script=Armn:]" +
+//          "[:script=Beng:]" +
+//          "[:script=Bopo:]" +
           "[:block=Combining_Diacritical_Marks _for_Symbols:]" +
           "[:block=Musical_Symbols:]" +
           "[:block=Ancient_Greek_Musical_Notation:]]").freeze();
+      
+      System.out.println("functionalExceptCase: " + functionalExceptCase);
+      System.out.println("archaic: " + archaic);
       
       System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:\r\n" 
           +  bf.showSetNames(new UnicodeSet(simpleCaseFolded)

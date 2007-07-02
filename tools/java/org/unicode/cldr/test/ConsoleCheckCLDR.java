@@ -5,12 +5,14 @@ import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -234,6 +236,7 @@ public class ConsoleCheckCLDR {
     
     if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
     
+    SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
 
     LocaleIDParser localeIDParser = new LocaleIDParser();
     String lastBaseLanguage = "";
@@ -241,6 +244,10 @@ public class ConsoleCheckCLDR {
     for (Iterator it = locales.iterator(); it.hasNext();) {
       String localeID = (String) it.next();
       if (CLDRFile.isSupplementalName(localeID)) continue;
+      if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
+        System.out.println("Skipping default content locale: " + localeID);
+        continue;
+      }
       boolean isLanguageLocale = localeID.equals(localeIDParser.set(localeID).getLanguageScript());
       options.clear();
       
@@ -494,13 +501,21 @@ public class ConsoleCheckCLDR {
           "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
           "(There were production problems in integrating it fully into the Survey tool. " +
           "However, it should let you see the problems and make sure that they get taken care of.)</i></p>" +
-      "<ul>"); 
+          "<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
       
-      
+      TablePrinter indexTablePrinter = new TablePrinter().addColumn("Locale Group").addColumn("Error Count").setCellAttributes("align='right'");
       for (String key : sortedHtmlIndexLines.keySet()) {
-        generated_html_index.println("<li>" + sortedHtmlIndexLines.get(key) + "</li>");
+        Pair<String,Integer> pair = sortedHtmlIndexLines.get(key);
+        String htmlOpenedFileLanguage = pair.getFirst();
+        Integer count = pair.getSecond();
+        indexTablePrinter.addRow()
+        .addCell( "<a href='" + htmlOpenedFileLanguage + ".html'>" + getNameAndLocale(htmlOpenedFileLanguage) + "</a>")
+        .addCell(count)
+        .finishRow();
       }
-      generated_html_index.println("</ul></html>");
+      
+      generated_html_index.println(indexTablePrinter.toTable());
+      generated_html_index.println("</table></html>");
       generated_html_index.close();
     }
 
@@ -517,13 +532,12 @@ public class ConsoleCheckCLDR {
 
   private static int htmlErrorsPerBaseLanguage = 0;
   private static String htmlOpenedFileLanguage = null;
-  private static TreeMap<String,String> sortedHtmlIndexLines = new TreeMap();
+  private static TreeMap<String,Pair<String,Integer>> sortedHtmlIndexLines = new TreeMap();  
   
   private static void closeGeneratedHtml() {
     generated_html.println("</table></body></html>");
-    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage),
-        "<a href='" + htmlOpenedFileLanguage + ".html'>" +
-        getNameAndLocale(htmlOpenedFileLanguage) + "</a> (" + htmlErrorsPerBaseLanguage + ")");
+    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage), 
+        new Pair<String,Integer>(htmlOpenedFileLanguage, htmlErrorsPerBaseLanguage));
     generated_html.close();
     htmlErrorsPerBaseLanguage = 0;
   }

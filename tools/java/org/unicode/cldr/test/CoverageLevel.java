@@ -684,6 +684,9 @@ public class CoverageLevel {
 
     if ( territory == null || territory.length() == 0) {
        territory = defaultTerritory.get(localeID);
+       if (territory == null) {
+         territory = "ZZ";
+       }
     }
 
     Set timezones = (Set) territory_timezone.get(territory);

@@ -24,6 +24,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CoverageLevel;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -43,6 +44,7 @@ public class Vetting {
     public static final String CLDR_STATUS = "cldr_status"; /** constant for table access **/
     public static final String CLDR_OUTPUT = "cldr_output"; /** constant for table access **/
     public static final String CLDR_ORGDISPUTE = "cldr_orgdispute"; /** constant for table access **/
+    public static final String CLDR_ALLPATHS = "cldr_allpaths"; /** constant for table access **/
     
     
     public static final int VET_EXPLICIT = 0; /** 0: vote was explicitly made by user **/
@@ -140,6 +142,29 @@ public class Vetting {
         synchronized(conn) {
             String sql = null;
 //            logger.info("Vetting DB: initializing...");
+
+            // remove allpaths table if present
+            if(!sm.hasTable(conn, CLDR_ALLPATHS)) {
+                logger.info("Vetting DB: setting up " + CLDR_ALLPATHS);
+                Statement s = conn.createStatement();
+                sql = "create table " + CLDR_ALLPATHS + " (base_xpath INT NOT NULL , unique(base_xpath))";
+                logger.info("Vet: " + sql);
+                s.execute(sql);
+                sql = ("CREATE UNIQUE INDEX unique_xpath on " + CLDR_ALLPATHS +" (base_xpath)");
+                logger.info("Vet: " + sql);
+                s.execute(sql);
+                logger.info("unique index created " + CLDR_ALLPATHS);
+                s.close();
+                conn.commit();
+            } else {
+                logger.info("Vetting DB: zapping " + CLDR_ALLPATHS);
+                Statement s = conn.createStatement();
+                sql = "delete from " + CLDR_ALLPATHS;
+                int zapcnt = s.executeUpdate(sql);
+                logger.info("Vet: " + sql + " ("+zapcnt+" removed)");
+                s.close();
+                conn.commit();
+            }
             if(!sm.hasTable(conn, CLDR_RESULT)) {
                 logger.info("Vetting DB: setting up " + CLDR_RESULT);
                 Statement s = conn.createStatement();
@@ -281,6 +306,7 @@ public class Vetting {
     PreparedStatement queryVoteForXpath = null;
     PreparedStatement queryVoteForBaseXpath = null;
     PreparedStatement missingResults = null;
+    PreparedStatement missingResults2 = null;
     PreparedStatement rmVote = null;
     PreparedStatement dataByBase = null;
     PreparedStatement insertResult = null;
@@ -320,6 +346,8 @@ public class Vetting {
 	PreparedStatement orgDisputePathCount = null; // org/locale -> paths
 	PreparedStatement orgDisputeQuery = null; // org/locale/base  - t/f
 					// query?
+
+	PreparedStatement allpathsAdd = null; // org/locale -> paths
                     
     PreparedStatement googData = null;
 	
@@ -354,6 +382,8 @@ public class Vetting {
                 "select CLDR_VET.submitter,CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.base_xpath=?");
             missingResults = prepareStatement("missingResults", /*  1:locale  ->  1: base_xpath */
                 "select distinct CLDR_DATA.base_xpath from CLDR_DATA WHERE (locale=?) AND NOT EXISTS ( SELECT * from CLDR_RESULT where (CLDR_DATA.locale=CLDR_RESULT.locale) AND (CLDR_DATA.base_xpath=CLDR_RESULT.base_xpath)  )");
+            missingResults2 = prepareStatement("missingResults2", /*  1:locale  ->  1: base_xpath */
+                "select distinct CLDR_ALLPATHS.base_xpath from CLDR_ALLPATHS WHERE NOT EXISTS ( SELECT * from CLDR_RESULT where (CLDR_RESULT.locale=?) AND (CLDR_ALLPATHS.base_xpath=CLDR_RESULT.base_xpath)  )");
             insertResult = prepareStatement("insertResult", 
                 "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             rmResult = prepareStatement("rmResult", 
@@ -419,6 +449,9 @@ public class Vetting {
                 
             googData = prepareStatement("googData",
                 "select xpath,origxpath,value from CLDR_DATA where alt_type='proposed-x650' and locale=? and base_xpath=?");
+                
+            allpathsAdd = prepareStatement("allpathsAdd",
+                "insert into CLDR_ALLPATHS (base_xpath) values (?)");
         }
     }
     
@@ -674,6 +707,44 @@ public class Vetting {
         return count;
     }
     
+    private Set<Integer> gAllImportantXpaths = null;
+    
+    Set<Integer> getAllImportantXpaths() {
+        int updates = 0;
+        if(gAllImportantXpaths == null) {
+            ElapsedTimer et2 = new ElapsedTimer();
+            Set<Integer> aSet  = new HashSet<Integer>();
+            synchronized(conn) {
+              //  CoverageLevel coverageLevel = new CoverageLevel();
+                
+                try {
+                    for(Iterator<String> paths = sm.getBaselineFile().iterator();
+                            paths.hasNext();) {
+                        String path = paths.next();
+                      //  CoverageLevel.Level level = coverageLevel.getCoverageLevel(path);
+                      //  if (level == CoverageLevel.Level.UNDETERMINED) continue; // continue if we don't know what the status is
+                      //  if (CoverageLevel.Level.MINIMAL.compareTo(level)<0) continue; // continue if too low
+                        
+                        int base_xpath = sm.xpt.getByXpath(path);
+                        Integer xp = new Integer(base_xpath);
+                        aSet.add(xp);
+                        allpathsAdd.setInt(1,base_xpath);
+                        updates+=allpathsAdd.executeUpdate();
+                    }
+                    gAllImportantXpaths = Collections.unmodifiableSet(aSet);
+                    conn.commit();
+                } catch ( SQLException se ) {
+                    String complaint = "Vetter:  couldn't update CLDR_ALLPATHS" + " - " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    se.printStackTrace();
+                    throw new RuntimeException(complaint);
+                }
+            }
+            System.err.println("importantXpaths: calculated in " + et2 + " - " + gAllImportantXpaths.size() + ", "+updates+" updates");
+        }
+        return gAllImportantXpaths;
+    }
+    
     /**
      * update the results of a specific locale, and return the bitwise OR of all types of results had
      * @param locale which locale
@@ -693,6 +764,10 @@ public class Vetting {
         
         Set<Race> racesToUpdate = new HashSet<Race>();
         
+        Set<Integer> allPaths = getAllImportantXpaths();
+        //Set<Integer> todoPaths = new HashSet<Integer>();
+        //todoPaths.addAll(allPaths);
+        
         synchronized(conn) {
             try {
                 //dataByUserAndBase.setString(3, locale);
@@ -711,6 +786,7 @@ public class Vetting {
                     ncount++;
                     base_xpath = rs.getInt(1);
                     
+                    //todoPaths.remove(new Integer(base_xpath));
                     int rc = updateResults(-1, locale, base_xpath, racesToUpdate);
 
                     updates |= rc;
@@ -727,8 +803,30 @@ public class Vetting {
                     //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
                     updates |= rc;
                 }
+
+
+                missingResults2.setString(1,locale);
+                rs = missingResults2.executeQuery();
+                
+                int mcount=0;
+                while(rs.next()) {
+                    mcount++;
+                    base_xpath = rs.getInt(1);
+                    String base_xpath_str = sm.xpt.getById(base_xpath);
+
+                    int rc = updateResults(-1, locale, base_xpath, racesToUpdate);
+                    //    System.err.println("*Updated id " + id + " of " + locale+":"+base_xpath);
+                    updates |= rc;
+
+                    //System.err.println(locale+":"+base_xpath+" missing "+base_xpath_str);
+                }
+                System.err.println("Missing items in "+ locale + " - "+mcount);
+                if(mcount>0) {
+                    conn.commit();
+                }
+
                 // if anything changed, commit it
-                if((ucount > 0) || (ncount > 0)) {
+                if((ucount > 0) || (ncount > 0) || (mcount > 0)) {
                     int uscnt = updateStatus(locale, true);// update results
                     if(uscnt>0) {
                         System.err.println(locale+": updated " + uscnt + " statuses, due to vote change");
@@ -755,6 +853,7 @@ public class Vetting {
                     conn.commit();
                 }
                 
+                
             } catch ( SQLException se ) {
                 String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
                     "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
@@ -773,7 +872,7 @@ public class Vetting {
         
         for(Race r : racesToUpdate) {
             if(r.recountIfHadDisqualified()) {
-//                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
+if(r.base_xpath==85942)                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
                 errorRaces.add(r);
             }
         }
@@ -1014,6 +1113,7 @@ public class Vetting {
 	 * Parameters used for vote tallying.
 	 * Note that "*4" is because the original specification was in terms of (1/4) vote, 1 vote, 2 votes.. normalized by multiplying everything *4
 	 */
+	public static final int ADMIN_VOTE		= 64; // 2 * 4
 	public static final int EXPERT_VOTE		= 8;  // 2 * 4
 	public static final int EXISTING_VOTE	= 4;  // 1 * 4
 	public static final int DEFAULT_ORG_VOTE= 4;  // 1 * 4
@@ -1155,7 +1255,9 @@ public class Vetting {
 					
 					// now, rate based on lowest user level ( = highest rank )
 					if(vote != null) {
-						if(lowest <= UserRegistry.EXPERT) {
+						if(lowest <= UserRegistry.ADMIN) {
+							strength = ADMIN_VOTE; // "2" * 4
+						} else if(lowest <= UserRegistry.EXPERT) {
 							strength = EXPERT_VOTE; // "2" * 4
 						} else if(lowest <= UserRegistry.VETTER) {
 							strength = VETTER_VOTE; // "1" * 4
@@ -1276,6 +1378,7 @@ public class Vetting {
         public Status existingStatus = Status.INDETERMINATE;
         int nexthighest = 0;
         public boolean hadDisqualifiedWinner = false; // at least one of the winners disqualified
+        public boolean hadOtherError = false; // had an error on a missing item (coverage or collision?)
         int id; // for writing
             
 		/* reset all */
@@ -1288,6 +1391,7 @@ public class Vetting {
 			base_xpath = -1;
             nexthighest = 0;
             hadDisqualifiedWinner = false;
+            hadOtherError = false;
 		}
 		
 		/* Reset this for a new item */
@@ -1329,7 +1433,10 @@ public class Vetting {
                 }
             }
             if(winner == null) {
-                return hadDisqualified;
+                /*if(test(locale, base_xpath, base_xpath, null)) { // check the base item - i.e. coverage... 
+                    hadOtherError = true;
+                }*/
+                return hadDisqualified || hadOtherError;
             }
             if(!winner.disqualified) {
                 return hadDisqualified;
@@ -1648,9 +1755,7 @@ public class Vetting {
 					rowsUpdated += orgDisputeInsert.executeUpdate();
 				}
 			}
-        //    return rowsUpdated;
-        //}
-		//public int updateResultsDB() throws SQLException {
+
             // Now, update the vote results
             int resultXpath= -1;
             int type = 0;
@@ -1660,14 +1765,11 @@ public class Vetting {
             
             // Examine the results
             if(resultXpath != -1) {
-                if(!disputes.isEmpty()) {
+                if(!disputes.isEmpty() &&
+                        (status != Status.APPROVED)) { // if it was approved anyways, then it's not makred as disputed.
                     type = RES_DISPUTED;
                 } else {
-                    /*if(r.orgVotes.isEmpty()) {
-                        type = RES_NO_VOTES; 
-                    } else */ {
-                        type = RES_GOOD;
-                    }
+                    type = RES_GOOD;
                 }
             } else {
                 if(!chads.isEmpty()) {
@@ -1676,7 +1778,7 @@ public class Vetting {
                     type = RES_NO_VOTES;
                 }
             }
-            if(hadDisqualifiedWinner) {
+            if(hadDisqualifiedWinner || hadOtherError) {
                 type = RES_ERROR;
             }
             if(id == -1) { 
@@ -2105,20 +2207,16 @@ public class Vetting {
         int mailed = 0;
         for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
             String group = (String)li.next();
-            if(sm.isUnofficial && !group.equals("tlh") && !group.equals("und")) {
+           /* if(sm.isUnofficial && !group.equals("tlh") && !group.equals("und")) {
                 skipped++;
                 continue;
-            }
+            }*/
             Set s = (Set)intGroups.get(group);
             mailed += doNag(group, s);
         }
-        /*
-        if(mailBucket.isEmpty()) {
-            System.err.println("--- nag: nothing to send.");
-        } else {
-            int n= sendBucket(mailBucket, "CLDR Unresolved Issues Report");
-            System.err.println("--- nag: " + n + " emails sent.");
-        }*/
+        if((skipped>0)||(mailed>0)) {
+            System.err.println("--- nag: skipped " + skipped +", mailed " + mailed);
+        }
         return mailed;
     }
     
@@ -2154,15 +2252,24 @@ public class Vetting {
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
                 int numErrored = countResultsByType(loc,RES_ERROR);
                 
+                boolean localeIsDefaultContent = (null!=sm.supplemental.defaultContentToParent(loc));
+                
+                if(localeIsDefaultContent) {
+                    //System.err.println(loc +" - default content, not sending notice. ");
+                    continue;
+                }
+                
+                if(complain == null) {
+                    complain = "";
+                }
+/*
                 if(complain == null) {
 //                    System.err.println(" -nag: " + group);
-                    if(group.equals("tlh")) {
-                        complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  is without honor!  ";
-                    } else {
-                        complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
-                    }
+                    complain = "\n\n* Group '" + group + "' ("+new ULocale(group).getDisplayName()+")  needs attention:  ";
                 }
 //                System.err.println("  -nag: " + loc + " - " + typeToStr(locStatus));
+*/
+/*
                 String problem = "";
                 if((numNoVotes+numInsufficient)>0) {
                     problem = problem + " INSUFFICIENT VOTES: "+(numNoVotes+numInsufficient)+" ";
@@ -2173,8 +2280,8 @@ public class Vetting {
                 if(numErrored>0) {
                     problem = problem + " ERROR ITEMS: "+numErrored+"";
                 }
-
-                complain = complain + "\n "+ new ULocale(loc).getDisplayName() + " - " + problem + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc;
+*/
+                complain = complain +  new ULocale(loc).getDisplayName() + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc+"\n\n";
             }
         }
         
@@ -2185,9 +2292,14 @@ public class Vetting {
             String disp = new ULocale(group).getDisplayName();
             
             String subject = "CLDR Vetting update: "+group + " (" + disp + ")";
-            String body = "The following is an automatic message, periodically generated to update vetters on the progress on their locales. We are working on a short time schedule, so we'd appreciate your looking at the cases below.\r\n"+
-                "\r\nFor more information, see http://unicode.org/cldr/vetting.html\nYou will need to be logged-in before making changes.\r\n\r\n";
-            body = body + complain + "\n";
+            String body = "There are errors or disputes remaining in the locale data for "+disp+".\n"+
+                "\n"+
+                "Please go to http://www.unicode.org/cldr/vetting.html and follow the instructions to address the problems.\n"+
+                "\n"+
+                "WARNING: there are some problems in computing the error and dispute counts, so please read that page even if you have read it before!\n" +
+                "\n" + complain + "\n"+
+                "Once you think that all the problems are addressed, forward this email message to surveytool@unicode.org, asking for your locale to be verified as done. We are working on a short time schedule, so we'd appreciate your resolving the issues as soon as possible. Remember that you will need to be logged-in before making changes.\n"+
+                "\n\nThis is an automatic message, periodically generated to update vetters on the progress on their locales.\n\n";
 
             if(!bcc_emails.isEmpty()) {
                 mailsent++;
@@ -2330,7 +2442,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 Integer intid = new Integer(u.id);
                 String body = (String)mailBucket.get(intid);
                 if(body == null) {
-                    body = message + "\n\nYou will need to be logged-in before making changes at these URLs.\r\n\r\n";
+                    body = message + "\n\nYou will need to be logged-in before making changes at these URLs.\n\n";
                 }
                 body = body + complain + "\n";
                 mailBucket.put(intid,body);
@@ -2348,21 +2460,21 @@ if(true == true)    throw new InternalError("removed from use.");
     int countResultsByType(String locale, int type) {
         int rv = 0;
         synchronized(conn) {
-        try {
-            countResultByType.setString(1,locale);
-            countResultByType.setInt(2, type);
-            
-            ResultSet rs = countResultByType.executeQuery();
-            if(rs.next()) {
-                rv =  rs.getInt(1);
+            try {
+                countResultByType.setString(1,locale);
+                countResultByType.setInt(2, type);
+                
+                ResultSet rs = countResultByType.executeQuery();
+                if(rs.next()) {
+                    rv =  rs.getInt(1);
+                }
+                rs.close();
+            } catch ( SQLException se ) {
+                String complaint = "Vetter:  couldn't  query count - loc=" + locale + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                se.printStackTrace();
+                throw new RuntimeException(complaint);
             }
-            rs.close();
-        } catch ( SQLException se ) {
-            String complaint = "Vetter:  couldn't  query count - loc=" + locale + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
-            logger.severe(complaint);
-            se.printStackTrace();
-            throw new RuntimeException(complaint);
-        }
         }
         return rv;
     }
@@ -2514,13 +2626,14 @@ if(true == true)    throw new InternalError("removed from use.");
          try {
                 // select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
             Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type="+RES_DISPUTED+") or (CLDR_RESULT.type="+RES_ERROR+")");
+            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type>"+RES_NO_VOTES+") AND (CLDR_RESULT.type<="+RES_BAD_MAX+")");
 			while(rs.next()) {
 				n++;
 				String aLoc = rs.getString(1);
 				int aXpath = rs.getInt(2);
 				String path = sm.xpt.getById(aXpath);
 				String theMenu = SurveyMain.xpathToMenu(path);
+                
 				if(theMenu==null) {
 					theMenu="raw";
 				}
@@ -2537,7 +2650,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				}
 				st.add(path);
 			}
-			ctx.println("<hr>"+n+" disputed or error items total in " + m.size() + " locales.<br>");			
+			ctx.println("<hr>"+n+" disputed, error, or insufficient items total in " + m.size() + " locales.<br>");			
          } catch ( SQLException se ) {
             String complaint = "Vetter:  couldn't do DisputePage - " + SurveyMain.unchainSqlException(se);
             logger.severe(complaint);
@@ -2701,7 +2814,7 @@ if(true == true)    throw new InternalError("removed from use.");
 
             reset();
         }
-        
+        //String f2 = sm.xpt.getById(85048);
         boolean test(String xpath, String fxpath, String value) {
             individualResults.clear();
             check.check(xpath, fxpath, value, options, individualResults);  // they get the full course
@@ -2709,10 +2822,11 @@ if(true == true)    throw new InternalError("removed from use.");
                 for(Object o : individualResults) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus)o;
                     if(status.getType().equals(status.errorType)) {
-                        if(locale.equals("fr")) {
+                        //if(locale.equals("fr")) {
                       //  if(/*sm.isUnofficial &&*/ xpath.indexOf("ii")!=-1) {
-                            System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
-                        }
+                       // if(f2.equals(xpath)) {
+                        //    System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
+                      //  }
                         return true;
                     }
                 }

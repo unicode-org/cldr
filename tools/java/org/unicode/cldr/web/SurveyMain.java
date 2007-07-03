@@ -293,7 +293,7 @@ public class SurveyMain extends HttpServlet {
                 "66.249.66.5", // googlebot
                 "203.148.64.17",
 				"209.249.11.4",
-                "65.55.212.188", // MSFT search.live.com
+                "65.55.212.189", // MSFT search.live.com
                 "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
                 "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
                 //"128.194.135.94", // crawler4.irl.cs.tamu.edu
@@ -723,10 +723,10 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
             printMenu(actionCtx, action, "srl_vet_sta", "Update Vetting Status", "action");       
             actionCtx.println(" | ");
-            printMenu(actionCtx, action, "srl_vet_nag", "MAIL: vet nag [weekly]", "action");       
+            printMenu(actionCtx, action, "srl_vet_nag", "MAIL: send out vetting reminder", "action");       
             actionCtx.println(" | ");
-            printMenu(actionCtx, action, "srl_vet_upd", "MAIL: vote change [daily]", "action");       
-            actionCtx.println(" | ");
+/*            printMenu(actionCtx, action, "srl_vet_upd", "MAIL: vote change [daily]", "action");       
+            actionCtx.println(" | "); */
             /*
             printMenu(actionCtx, action, "srl_db_update", "Update <tt>base_xpath</tt>", "action");       
             actionCtx.println(" | ");
@@ -4084,8 +4084,10 @@ public class SurveyMain extends HttpServlet {
         // what should users be notified about?
         if(phaseVetting) {
             String localeName = ctx.localeString();
+            String groupName = ctx.locale.getLanguage();
             int vetStatus = vet.status(localeName);
             
+            ctx.println("<b>Also see</b> the <a href='http://unicode.org/cldr/data/dropbox/gen/errors/"+groupName+".html'>Error Count</a><p>");
             int orgDisp = 0;
             if(ctx.session.user != null) {
                 orgDisp = vet.getOrgDisputeCount(ctx.session.user.org,localeName);
@@ -4125,10 +4127,11 @@ public class SurveyMain extends HttpServlet {
             
             
             if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
-                ctx.println("<hr>");
-                int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
+                ctx.println("<hr><h2>Vetting items which need your attention:</h2>");
+                //int numNoVotes = vet.countResultsByType(ctx.localeString(),Vetting.RES_NO_VOTES);
                 int numInsufficient = vet.countResultsByType(ctx.localeString(),Vetting.RES_INSUFFICIENT);
                 int numDisputed = vet.countResultsByType(ctx.localeString(),Vetting.RES_DISPUTED);
+                int numErrors = vet.countResultsByType(ctx.localeString(),Vetting.RES_ERROR);
              
                 Hashtable insItems = new Hashtable();
                 Hashtable disItems = new Hashtable();
@@ -4147,6 +4150,8 @@ public class SurveyMain extends HttpServlet {
                             if(theMenu != null) {
                                 if(type == Vetting.RES_DISPUTED) {
                                     disItems.put(theMenu, "");// what goes here?
+                                } else if (type == Vetting.RES_ERROR) {
+                                    disItems.put(theMenu, "");
                                 } else {
                                     insItems.put(theMenu, "");
                                 }
@@ -4163,10 +4168,12 @@ public class SurveyMain extends HttpServlet {
                 //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                 subCtx.removeQuery(QUERY_SECTION);
 
-               if(false && phaseVetting == true) {
+               if(true && phaseVetting == true) {
                     
-                    if((numNoVotes+numInsufficient)>0) {
-                        ctx.print("<h4><span style='padding: 1px;' class='insufficient'>"+(numNoVotes+numInsufficient)+" items with insufficient votes.</span> </h4>");
+                    if((/*numNoVotes+*/numInsufficient)>0) {
+                        ctx.print("<b><span style='padding: 1px;' class='insufficient'>"+
+                            ctx.iconHtml("warn","insufficient items")+
+                            (/*numNoVotes+*/numInsufficient)+" items with insufficient votes.</span> </b><blockquote>");
                         for(Iterator li = insItems.keySet().iterator();li.hasNext();) {
                             String item = (String)li.next();
                             printMenu(subCtx, "", item);
@@ -4174,9 +4181,17 @@ public class SurveyMain extends HttpServlet {
                                 subCtx.print(" | ");
                             }
                         }
+                        ctx.println("</blockquote>");
                     }
-                    if(numDisputed>0) {
-                        ctx.print("<h4><span style='padding: 1px;' class='disputed'>" +numDisputed+" items with conflicting votes. </span> </h4>");
+                    if((numDisputed>0)||(numErrors>0)) {
+                        ctx.print("<b><span style='padding: 1px;' class='disputed'>"+ctx.iconHtml("stop","problem items"));
+                        if(numDisputed>0) {
+                            ctx.print(numDisputed+" items with conflicting votes. ");
+                        }
+                        if(numErrors>0) {
+                            ctx.print(numErrors+" items with errors.");
+                        }
+                        ctx.print("</span> </b><blockquote>");
                         for(Iterator li = disItems.keySet().iterator();li.hasNext();) {
                             String item = (String)li.next();
                             printMenu(subCtx, "", item, item, "only=disputed&x", DataPod.CHANGES_DISPUTED);
@@ -4184,6 +4199,7 @@ public class SurveyMain extends HttpServlet {
                                 subCtx.print(" | ");
                             }
                         }
+                        ctx.println("</blockquote>");
                     }
                 }
             }
@@ -4329,7 +4345,8 @@ public class SurveyMain extends HttpServlet {
         
         // the following is highly suspicious. But, CheckCoverage seems to require it.
         options.put("submission", "true");
-
+        options.put("CheckCoverage.requiredLevel", "minimal");
+        
         // pass in the current ST phase
         if(phaseVetting) {
             options.put("phase", "vetting");
@@ -5125,13 +5142,18 @@ public class SurveyMain extends HttpServlet {
         int peaStart = skip; // where should it start?
         int peaCount = ctx.prefCodesPerPage(); // hwo many to show?
         
-        if(disputedOnly) {
-                for(int j = 0;j<dSet.partitions.length;j++) {
-                        if(dSet.partitions[j].name.equals(DataPod.CHANGES_DISPUTED)) {
-                                peaStart=dSet.partitions[j].start;
-                                peaCount=(dSet.partitions[j].limit - peaStart);
+        if(disputedOnly) {            
+            // we want to go from VETTING_PROBLEMS_LIST[0]..VETTING_PROBLEMS_LIST[n] in range.
+            for(int j = 0;j<dSet.partitions.length;j++) {
+                for(String part : DataPod.VETTING_PROBLEMS_LIST) {
+                    if(dSet.partitions[j].name.equals(part)) {
+                        if(peaStart != skip) { // set once
+                            peaStart=dSet.partitions[j].start;
                         }
+                        peaCount=(dSet.partitions[j].limit - peaStart); // keep setting this.
+                    }
                 }
+            }
         }
 
         
@@ -5533,10 +5555,15 @@ public class SurveyMain extends HttpServlet {
                     for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                         CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                         if(status.getType().equals(status.errorType)) {
-                            doFail = true;
+                            if(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) {
+                                // coverage error, ignored
+                            } else {
+                                doFail = true;
+                            }
                         }
                         try{ 
-                            if (!status.getType().equals(status.exampleType)) {
+                            if (!(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) &&
+                                    !status.getType().equals(status.exampleType)) {
                                 if(!hadWarnings) {
                                     hadWarnings = true;
                                     ctx.print("<br>");
@@ -5634,223 +5661,11 @@ public class SurveyMain extends HttpServlet {
         showPea(ctx,pod,p,ourDir,cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
     }
 
-    /*
-     * DEAD CODE>
-     *    - Code donor function. Trimmed everything but what might be useful in the vetting phase.
-     * 
-     
-    void showPeaZoomedIn_OLD(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
-        CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr) {
-        
-
-
-** alias stuff.
-        if(p.pathWhereFound != null) { // is the pea tagged with another path?
-            // middle common string match
-            String a = fullPathFull;
-            String b = p.pathWhereFound;
-            
-            // run them through the wringer..
-            a = xpt.getById(xpt.xpathToBaseXpathId(a));   // full path (source)
-            b = xpt.getById(xpt.xpathToBaseXpathId(b));   // full path (target)
-            
-            
-            int alen = a.length();
-            int blen = b.length();
-            
-            int prefixSize;
-            int suffixSize;
-            
-            // find a common prefix
-            for(prefixSize=0;a.substring(0,prefixSize).equals(b.substring(0,prefixSize));prefixSize++)
-                ;
-            int maxlen = (alen>blen)?alen:blen;
-            
-    // System.err.println("A:"+a);
-    // System.err.println("B:"+b); 
-            
-            // find a common suffix
-            for(suffixSize=0;((suffixSize+prefixSize)<maxlen)&&
-                a.substring(alen-suffixSize,alen).equals(b.substring(blen-suffixSize,blen));suffixSize++)
-                ;
-    //                    System.err.println("SUFF"+suffixSize+": ["+a+"] -> "+a.substring(alen-suffixSize,alen));
-            
-            // at least the slash (/) is a prefix
-            if(prefixSize==0) {
-                prefixSize=1;
-            }
-            
-            String xa = a.substring(prefixSize-1,alen-suffixSize+1);
-            String xb = b.substring(prefixSize-1,blen-suffixSize+1);
-            
-            if((xa.length()+xb.length())>0) {
-                // Aliases: from xa to xb
-                ctx.println("<tr>");
-                ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
-                ctx.print("<td colspan='3'><i><tt span='codebox'>" + xb + "</tt> \u2192 <tt span='codebox'>" + xa + "</tt></i>");
-                ctx.printHelpLink("/AliasedFrom","Help",true,false);
-                ctx.println("</td></tr>");
-            } else {
-                // Aliased - no further information
-                ctx.println("<tr>");
-                ctx.println("<th class='rowinfo'>"+localeLangName+" <i>Alias</i></th>"); // ##0 title
-                ctx.println("<td colspan='3'>");
-                ctx.printHelpLink("/AliasedFrom","Help",true,false);
-                ctx.println("</td></tr>");
-            }
-        }
-        .. if(isAlias) {   
-    //        String shortStr = fullPathFull.substring(fullPathFull.indexOf("/alias")*//*,fullPathFull.length()*//*);
-    //<tt class='codebox'>["+shortStr+"]</tt>
-            ctx.println("<tr>");
-            ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-            ctx.println("<td colspan='3'><i>Alias</i></td></tr>");
-            for(Iterator j = p.items.iterator();j.hasNext();) {
-                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-                String pClass ="";
-                if(item.pathWhereFound != null) {
-                    pClass = "class='alias'";
-                } else if((item.inheritFrom != null)) {
-                    pClass = "class='fallback'";
-                } else if(item.altProposed != null) {
-                    pClass = "class='proposed'";
-    //            } else if(p.inheritFrom != null) {
-    //                pClass = "class='missing'";
-                } 
-                ctx.println("<tr>");
-                ctx.println("<th class='rowinfo'>"+localeLangName+"</th>"); // ##0 title
-                if(item.inheritFrom != null) {
-                    ctx.println("<td class='fallback'>Inherited from: " + item.inheritFrom+"</td>");
-                } else {
-                    ctx.print("<td " + pClass + " >");
-                    if(item.altProposed!=null) {
-                        ctx.print(item.altProposed);
-                    }
-                    ctx.print("</td>");
-                }
-                ctx.print("<td colspan='4'><tt>"+item.value+"</tt></td></tr>");
-            }
-
-
-** Showing the proposer.
-            ctx.print("<td  "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
-            if(item.altProposed != null) {
-            
-                // NB: don't show user under 'alt' for now. just show votes.
-                
-                int uid = XPathTable.altProposedToUserid(item.altProposed);
-                UserRegistry.User theU = null;
-                if(uid != -1) {
-                    theU = reg.getInfo(uid);
-                }
-                String aTitle = null;
-                if((theU!=null)&&
-                   (ctx.session.user!=null)&&
-                        ((uid==ctx.session.user.id) ||   //if it's us or..
-                        (UserRegistry.userIsTC(ctx.session.user) ||  //or  TC..
-                        (UserRegistry.userIsVetter(ctx.session.user) && (canModify ||  // approved vetter or ..
-                                                        ctx.session.user.org.equals(theU.org)))))) { // vetter&same org
-                    if((ctx.session.user==null)||(ctx.session.user.org == null)) {
-                        throw new InternalError("null: c.s.u.o");
-                    }
-                    if((theU!=null)&&(theU.org == null)) {
-                        throw new InternalError("null: theU.o");
-                    }
-    //                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
-                    aTitle = "From: &lt;"+theU.email+"&gt; " + theU.name + " (" + theU.org + ")";
-                }
-
-** showing the votes
-            if(item.votes != null) {
-                ctx.println("<br>");
-                //ctx.println("Showing votes for " + item.altProposed + " - " + item.xpath);
-                ctx.print("<span title='vote count' class='votes'>");
-                if(UserRegistry.userIsVetter(ctx.session.user)) {
-                    for(Iterator iter=item.votes.iterator();iter.hasNext();) {
-                        UserRegistry.User theU  = (UserRegistry.User) iter.next();
-                        if(theU != null) {
-                            ctx.print("\u221A<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
-                            if(iter.hasNext()) {
-                                ctx.print("<br>");
-                            }
-                        } else {
-                            ctx.println("<!-- null user -->");
-                        }
-                    }
-                } else {
-                    int n = item.votes.size();
-                    ctx.print("\u221A&nbsp;"+n+" vote"+((n>1)?"s":""));
-                }
-                ctx.print("</span>");
-            }
-
-** showing the outcome
-            boolean winner = 
-                ((resultXpath!=null)&&
-                (item.xpath!=null)&&
-                (item.xpath.equals(resultXpath)));
-            
-            ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
-            String itemSpan = null;
-            
-            if(winner) {
-                itemSpan = "approved";
-            } else if((item.votes!=null)&&(resultType[0]==Vetting.RES_INSUFFICIENT)) {
-                itemSpan = "insufficient";
-            } else if(resultType[0]==Vetting.RES_DISPUTED) {
-                itemSpan = "disputed";      
-            }
-            
-            if(itemSpan != null) {
-                ctx.print("<span class='"+itemSpan+"'>");
-            }
-            if(item.value.length()!=0) {
-                ctx.print(item.value);
-            } else {
-                ctx.print("<i>(empty)</i>");
-            }
-            if(itemSpan != null) {
-                ctx.print("</span>");
-            }
-            if(winner && resultType[0]==Vetting.RES_ADMIN) {
-                ctx.println("<br>");
-                ctx.printHelpLink("/AdminOverride","Admin Override");
-            }
-
-** print refs            
-            // Print 'em, For now.
-            if(item.references != null) {
-               String references[] = UserRegistry.tokenizeLocale(item.references); //TODO: rename to 'tokenize string'
-               if(references != null) {
-                    ctx.print("<td style='border-left: 1px solid gray;margin: 3px; padding: 2px;'>(Ref:");           
-                    for(int i=0;i<references.length;i++) {
-                        if(i!=0) {
-                            ctx.print(", ");
-                        }
-                        ctx.print("<b><a "+ctx.atarget("ref_"+ctx.locale)+" href='"+refCtx.url()+"#REF_" + references[i] + "'>"+references[i]+"</a></b>");
-                    }
-                    ctx.print(")</td>");
-                }
-            }
-            
-            ctx.println("</tr>");
-        }
-
-    */
-
     /**
      * Show a single pea
      */
     void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
         CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
-
-    /*
-        // this loads the OLD ( alternate look ) individual pea
-        if(zoomedIn==true) {
-            showPeaZoomedIn_OLD(ctx,pod,p,ourDir,cf,ourSrc,canModify,specialUrl,refs,checkCldr);
-            return;
-        }
-    */
 
         String ourAlign = "left";
         if(ourDir.equals("rtl")) {
@@ -5858,7 +5673,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user)  // formally able to submit
-            || (canModify&&p.hasProps); // or, there's modified data.
+            || (canModify/*&&p.hasProps*/); // or, there's modified data.
 
         boolean showedRemoveButton = false; 
         String fullPathFull = pod.xpath(p); 
@@ -5901,13 +5716,16 @@ public class SurveyMain extends HttpServlet {
         List<DataPod.Pea.Item> proposedItems = new ArrayList<DataPod.Pea.Item>();
         
         boolean inheritedValueHasTestForCurrent = false; // if (no current items) && (inheritedValue.hastests) 
+
+        boolean errorNoOutcome = (resultType[0]==Vetting.RES_ERROR)&&(resultXpath_id==-1); // error item - NO result.
         
         for(Iterator j = p.items.iterator();j.hasNext();) {
             DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
             if(
                 (  (item.xpathId == resultXpath_id) ||
-                  (resultXpath_id==-1 && item.xpathId==p.base_xpath)  ) && 
-                !(item.isFallback || (item.inheritFrom != null))) {
+                  (resultXpath_id==-1 && item.xpathId==p.base_xpath
+                        && !errorNoOutcome)  ) &&  // do NOT add as current, if vetting said 'no' to current item.
+                !(item.isFallback || (item.inheritFrom != null))) { 
                 currentItems.add(item); 
             } else {
 //    System.err.println("MM: " + p.base_xpath+ "- v:"+item.value+", xp:"+item.xpathId+", result:"+resultXpath_id);
@@ -6000,13 +5818,20 @@ public class SurveyMain extends HttpServlet {
             } else if((s & Vetting.RES_DISPUTED)>0) {
                 rclass= "disputedrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: disputed"));
-            } else if ((s&(Vetting.RES_INSUFFICIENT|Vetting.RES_NO_VOTES))>0) {
+            } else if((s & Vetting.RES_ERROR)>0) {
+                rclass= "disputedrow";
+                statusIcon = (ctx.iconHtml("stop","Error in Proposals"));
+            } else if ((s&(Vetting.RES_INSUFFICIENT))>0) {
                 rclass = "insufficientrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
+            } else if ((s&(Vetting.RES_NO_VOTES))>0) {
+                statusIcon = (ctx.iconHtml("squo","No Votes"));            
             } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
                 if((!p.hasInherited&&!p.hasMultipleProposals) 
                             || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
-                    if(p.confirmStatus != Vetting.Status.APPROVED) {
+                    if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
+                        statusIcon = ctx.iconHtml("squo", "No New Values");
+                    } else if(p.confirmStatus != Vetting.Status.APPROVED) {
                         statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
                     } else {
                         statusIcon = ctx.iconHtml("okay", "Approved Item");
@@ -6366,101 +6191,8 @@ public class SurveyMain extends HttpServlet {
         }
         
 		
-		// VOTING
-		boolean showVotingAlts = false; //ctx.prefBool(PREF_SHOW_VOTING_ALTS);
-		
-		/* show plan A and plan B voting */
-		if(false&&UserRegistry.userIsTC(ctx.session.user) && showVotingAlts /* && zoomedIn */ && p.items!=null) {
-			ctx.print("<tr><td colspan="+PODTABLE_WIDTH+">");
-			
-			try {
-				Vetting.Race r =  vet.getRace(pod.locale, p.base_xpath);
-				
-				// print
-				//ctx.println("<i>votes by organization [proposed vetting structure]:</i><br>");
-				for(Vetting.Race.Organization org : r.orgVotes.values()) {
-					ctx.print("<b>");
-					ctx.print(org.name+"</b>: ");
-					if(org.vote == null) {
-						ctx.print("X No Consensus. ");
-					} else {
-						ctx.print(ctx.iconHtml("vote","#"+org.vote.xpath)+org.vote.value+"</span>"+", strength "+org.strength+".");
-					}
-					if(org.dispute) {
-						ctx.print(" <b><i>(DISPUTED votes within org)</i></b> ");
-					}
-					ctx.print("<smaller>All votes:<ul>");
-					for(Vetting.Race.Chad item : org.votes) {
-						ctx.print("<li>");
-						if(item==org.vote) {
-							ctx.print("<b>");
-						}
-						ctx.print("<span title='#"+item.xpath+"'>"+item.value+"</span>: ");
-						if(item==org.vote) {
-							ctx.print("</b>");
-						}
-						for(UserRegistry.User u : item.voters)  { 
-							if(!u.org.equals(org.name)) continue;
-							ctx.print(u+", ");
-						}
-						ctx.println("</li>");
-					}
-					ctx.println("</ul></smaller>");
-				}
-				
-				if(r.winner != null ) {
-					ctx.print("<b class='selected'>Optimal field</b>: <span class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.status + ", score: "+r.winner.score);
-				} else {
-					ctx.print("no optimal item found.");
-				}
-				if(!r.disputes.isEmpty()) {
-					ctx.print("<br>( Disputed with: ");
-					for(Vetting.Race.Chad disputor : r.disputes) {
-						ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span>, ");
-					}
-					ctx.print(")");
-				}
-				ctx.print("<br>");
-				
-				
-				if(isUnofficial) {
-					int type[] = new int[1];
-					int vres = vet.queryResult(pod.locale,p.base_xpath, type);
-					ctx.println("Res: xp#"+vres+", status "+ type[0] +" ("+ vet.typeToStr(type[0])+")");	
-					ctx.print("<br>");
-				}
-				
-		/*
-				ctx.println("<br><i>scores by item</i><ul>");
-				for(Tally t : tallys.values()) {
-					ctx.print("<li>");
-					if(t == bestItem) {
-						ctx.print("<b>");
-					}
-					ctx.print(t.item.value+": score "+t.score);
-					if(t == bestItem) {
-						ctx.print("</b> ");
-					} else if(disputes.contains(t.item)) {
-						ctx.print("<i>tie vote</i>");
-					}
-					
-					for(OrgVote theVote : t.orgs ) {
-						ctx.print("\u2611"+theVote.org+":");
-						ctx.print(theVote.strength+", ");
-					}
-					
-					ctx.print("</li>");
-				}
-				ctx.println("</ul>");
-		*/
-				
-			} catch (SQLException se) {
-				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
-			}
-			
-			
-			ctx.println("</td></tr>");
-		} else if(zoomedIn) {
+
+        if(zoomedIn) {
 			ctx.print("<tr>");
 			ctx.print("<th colspan=2>Votes</th>");
 			ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
@@ -6539,6 +6271,9 @@ public class SurveyMain extends HttpServlet {
                     ctx.print("<br>");
                 } else if(r.hadDisqualifiedWinner) {
                     ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
+                }
+                if(isUnofficial && r.hadOtherError) {
+                    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
                 }
 
 			} catch (SQLException se) {

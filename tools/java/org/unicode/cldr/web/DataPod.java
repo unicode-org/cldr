@@ -221,7 +221,9 @@ public class DataPod extends Registerable {
             
             public Set<UserRegistry.User> getVotes() {
                 if(!checkedVotes) {
-                    votes = sm.vet.gatherVotes(locale, xpath);
+                    if(!isFallback) {
+                        votes = sm.vet.gatherVotes(locale, xpath);
+                    }
                     checkedVotes = true;
                 }
                 return votes;
@@ -639,37 +641,46 @@ public class DataPod extends Registerable {
 
     }
 
-	public static String CHANGES_DISPUTED = "Changes Proposed: Disputed";
+	public static String PARTITION_ERRORS = "Error Values";
+	public static String CHANGES_DISPUTED = "Disputed";
+	public static String PARTITION_UNCONFIRMED = "Unconfirmed";
+	public static String TENTATIVELY_APPROVED = "Tentatively Approved";
+	public static String STATUS_QUO = "Status Quo";
+    
+    public static final String VETTING_PROBLEMS_LIST[] = { 
+        PARTITION_ERRORS,
+        CHANGES_DISPUTED,
+        PARTITION_UNCONFIRMED };
 
 
     private Partition[] createVettingPartitions() {
         Partition theVetPartitions[] = 
         {                 
-                new Partition("Error Values, No Changes Proposed", 
+                new Partition(PARTITION_ERRORS, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return (p.hasErrors&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
-                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
-                        }
-                    }),
-                new Partition("Changes Proposed: Insufficient Votes", 
-                    new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
-//		System.err.println("CPI: "+Vetting.typeToStr(p.allVoteType)+" - " + p.type);
-                            return  ((p.allVoteType & Vetting.RES_INSUFFICIENT)>0) ||
-                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0);
+                                    || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0) ) ||
+                                       ((p.allVoteType & Vetting.RES_ERROR)>0) || p.hasErrors;
                         }
                     }),
                 new Partition(CHANGES_DISPUTED, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ||
-                                ((p.allVoteType & Vetting.RES_ERROR)>0) ||
-                                (p.confirmStatus!=Vetting.Status.APPROVED &&
-                                    p.confirmStatus!=Vetting.Status.INDETERMINATE);
+                            return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ;
                         }
                     }),                  
-                new Partition("Changes Proposed: Tentatively Approved", 
+                new Partition(PARTITION_UNCONFIRMED, 
+                    new PartitionMembership() { 
+                        public boolean isMember(Pea p) {
+                            return ((p.confirmStatus!=Vetting.Status.APPROVED &&
+                                    p.confirmStatus!=Vetting.Status.INDETERMINATE)) ||
+                                    
+                                    p.hasProps&&(((p.allVoteType & Vetting.RES_INSUFFICIENT)>0) ||
+                                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0));
+                        }
+                    }),                  
+                new Partition(TENTATIVELY_APPROVED, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((p.hasProps)&&
@@ -678,32 +689,14 @@ public class DataPod extends Registerable {
                                         (p.confirmStatus==Vetting.Status.APPROVED) ); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
                         }
                     }),
-/*                new Partition("Other "+DATAPOD_VETPROB + " [internal error]",  // should not appear?
-                    new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
-                            return ((p.allVoteType & Vetting.RES_BAD_MASK)>0);
-                        }
-                    }),
-    */
-        /*
-                new Partition("Changes Propsed: [internal error]", 
-                    new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
-                            return (p.hasProps);
-                        }
-                    }),
-        */
-                new Partition("No Changes Proposed: Status Quo", 
+                new Partition(STATUS_QUO, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
                             return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
-                                    ((p.allVoteType & Vetting.RES_NO_CHANGE)>0));
-                        }
-                    }),
-                new Partition("No Changes Proposed: Inherited", 
-                    new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
-                            return (p.hasInherited&&!p.hasProps);
+                                        ((p.allVoteType & Vetting.RES_NO_CHANGE)>0)) ||
+                                    (p.hasInherited&&!p.hasProps) ||
+                                    (p.confirmStatus==Vetting.Status.INDETERMINATE) ||
+                                    (!p.hasErrors&&!p.hasProps&&(p.allVoteType == 0));
                         }
                     }),
         };
@@ -1558,9 +1551,9 @@ public class DataPod extends Registerable {
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
 
-            if(sm.isUnofficial && base_xpath == 85091) {
-    /*srl*/  System.err.println("inher "+locale+":"+base_xpath+": xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
-           }
+//            if(sm.isUnofficial && base_xpath == 85091) {
+//    /*srl*/  System.err.println("inher "+locale+":"+base_xpath+": xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
+//           }
 
             
             boolean isInherited = !(sourceLocale.equals(locale));

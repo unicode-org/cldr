@@ -370,7 +370,7 @@ public class SurveyForum {
                 
                 String body = "This is a post to the CLDR "+forum+" forum, in the subject:\n  "+subj+"\n\n"+
                                 "For details and to respond, login to survey tool and then click on this link:\n\t " + "http://" + ctx.serverHostport() + forumUrl(ctx,forum) + "\n" +
-                                    "-----------------\n\n"+text;
+                                    "(Note, if the text does not display properly, please click the link to view the entire message)\n\n-----------------\n\n"+text;
                 
                 if(!bcc_emails.isEmpty()) {
                     MailSender.sendBccMail(smtp, null, null, from, bcc_emails, subject, body);

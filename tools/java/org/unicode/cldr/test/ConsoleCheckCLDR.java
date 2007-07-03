@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -61,6 +62,7 @@ public class ConsoleCheckCLDR {
   static boolean SHOW_LOCALE = true;
   static boolean SHOW_EXAMPLES = false;
   static PrintWriter generated_html = null;
+  static PrintWriter generated_html_count = null;
   static  PrettyPath prettyPathMaker = new PrettyPath();
   static  String generated_html_directory = null;
 
@@ -189,6 +191,7 @@ public class ConsoleCheckCLDR {
       if (generated_html_directory == null) {
         generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
       }
+      generated_html_count = BagFormatter.openUTF8Writer(generated_html_directory, "count.txt");
     }
     
     // check stuff
@@ -490,6 +493,7 @@ public class ConsoleCheckCLDR {
     }
     
     if (generated_html_directory != null) {
+      generated_html_count.close();
      PrintWriter generated_html_index = BagFormatter.openUTF8Writer(generated_html_directory, "index.html");
       generated_html_index.println("<html>" +
           "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
@@ -564,7 +568,7 @@ public class ConsoleCheckCLDR {
   private static void startGeneratedTable() {
     generated_html.println(
         "<table border='1' style='border-collapse: collapse' bordercolor='#CCCCFF'>" +
-        "<tr><th>Locale</th><th>Section/Code</th><th>English</th><th>Proposed 1.5</th><th>Error Description</th></tr>");
+        "<tr><th>Locale</th><th>Section Link</th><th>Section/Code</th><th>English</th><th>Proposed 1.5</th><th>Error Description</th></tr>");
   }
   
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
@@ -649,6 +653,8 @@ public class ConsoleCheckCLDR {
       if (!localeID.equals(lastHtmlLocaleID)) {
         if (htmlErrorsPerLocale != 0) {
           generated_html.println("</table><br>");
+          generated_html_count.println(lastHtmlLocaleID + ";\tcount:\t" + htmlErrorsPerLocale);
+          generated_html_count.flush();
           htmlErrorsPerLocale = 0;
         }
         startGeneratedTable();
@@ -656,11 +662,14 @@ public class ConsoleCheckCLDR {
       }
       htmlErrorsPerLocale++;
       htmlErrorsPerBaseLanguage++;
+      String menuPath = PathUtilities.xpathToMenu(path);
+      String link = "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
       generated_html.println( "<tr>" +
-          "<td>"
-          + "<a href='http://www.unicode.org/cldr/apps/survey?_=" + localeID +
-            "'>" + getNameAndLocale(localeID) + "</a>"
-          + "</td><td>"
+          "<td>" + getNameAndLocale(localeID)
+            + "</td><td>"
+            + "<a href='" + link +
+            "'>" + menuPath + "</a>"
+            + "</td><td>"
           //+ TransliteratorUtilities.toHTML.transliterate(shortStatus)
           //+ "</td><td>" 
           + safeForHtml(cleanPrettyPath)
@@ -673,6 +682,7 @@ public class ConsoleCheckCLDR {
           + "</td></tr>"
           );
     }
+    generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);
   }
   
   static String lastHtmlLocaleID = "";

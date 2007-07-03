@@ -29,6 +29,39 @@
 				<rule id="9"> × $Extend </rule>
 			</segmentRules>
 		</segmentation>
+		<segmentation type="ExtendedGraphemeClusterBreak">
+			<variables>
+				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
+				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
+				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
+				<variable id="$Extend">[\p{Grapheme_Cluster_Break=Extend}
+										\p{Mc} 
+										\p{name=THAI CHARACTER SARA A}
+										\p{name=THAI CHARACTER SARA AA}
+										\p{name=THAI CHARACTER SARA AM}
+										\p{name=THAI CHARACTER LAKKHANGYAO}]
+										\</variable>
+				<!-- PrependBase & Prepend define Thai clusters.    -->
+				<!-- TODO: add Lao to this.                         -->
+				<variable id="$Prepend">[\u0e40-\u0e44]</variable>
+				<variable id="$PrependBase">[\u0E01-\\u0E2E]</variable>
+				<variable id="$L">\p{Grapheme_Cluster_Break=L}</variable>
+				<variable id="$V">\p{Grapheme_Cluster_Break=V}</variable>
+				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
+				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
+				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
+			</variables>
+			<segmentRules>
+				<rule id="3"> $CR × $LF </rule>
+				<rule id="4"> ( $Control | $CR | $LF ) ÷ </rule>
+				<rule id="5"> ÷ ( $Control | $CR | $LF ) </rule>
+				<rule id="6"> $L × ( $L | $V | $LV | $LVT ) </rule>
+				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
+				<rule id="8"> ( $LVT | $T) × $T </rule>
+				<rule id="9"> × $Extend </rule>
+				<rule id="GB9a"> $Prepend × $PrependBase</rule>
+			</segmentRules>
+		</segmentation>
 		<segmentation type="LineBreak">
 			<variables>
 				<!-- Variables -->

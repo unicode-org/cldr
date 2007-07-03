@@ -92,6 +92,15 @@ public class CoverageLevel {
       int otherLevel = ((Level) o).level;
       return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
     }
+    
+    public static int getDefaultWeight(String organization, String desiredLocale) {
+      Level level = sc.getLocaleCoverageLevel(organization, desiredLocale);
+      if (level.compareTo(Level.MODERATE) >= 0) {
+        return 4;
+      }
+      return 1;
+    }
+
   }
   
   private static Object sync = new Object();
@@ -147,7 +156,7 @@ public class CoverageLevel {
 
   private static Map<String,String> defaultTerritory = new TreeMap();
   
-  StandardCodes sc = StandardCodes.make();
+  private static StandardCodes sc = StandardCodes.make();
   
   boolean exemplarsContainA_Z = false;
 

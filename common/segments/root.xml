@@ -59,7 +59,7 @@
 				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
 				<rule id="8"> ( $LVT | $T) × $T </rule>
 				<rule id="9"> × $Extend </rule>
-				<rule id="GB9a"> $Prepend × $PrependBase</rule>
+				<rule id="GB9a"> ($Prepend $Extend*) × $PrependBase</rule>
 			</segmentRules>
 		</segmentation>
 		<segmentation type="LineBreak">

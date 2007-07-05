@@ -94,6 +94,8 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
   If there is a collision between a new and old name, the old one typically changes to
   "old X" or "X (1983-2003)".
 
+- Add the new currency code to <variable id="$currency" type="choice"> in supplementalMetadata.xml
+
 3. NEW TIMEZONE DATABASE
 - Do the following to update to a new timezone database.
 - Download the latest version of the data from ftp://elsie.nci.nih.gov/pub/

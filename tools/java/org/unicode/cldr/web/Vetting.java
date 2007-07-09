@@ -652,45 +652,59 @@ public class Vetting {
      */
     final Collator myCollator = getOurCollator();
 
+    // update all 
+    public int updateResults() {
+        return updateResults(false);
+    }
     /**
      * update all vetting results
      * @return the number of results changed
      */
-    public int updateResults() {
-        ElapsedTimer et = new ElapsedTimer();
-        System.err.println("updating results... ***********************************");
-        File inFiles[] = sm.getInFiles();
-        int tcount = 0;
-        int lcount = 0;
-        int types[] = new int[1];
-        int nrInFiles = inFiles.length;
-        for(int i=0;i<nrInFiles;i++) {
-            // TODO: need a function for this.
-            String fileName = inFiles[i].getName();
-            int dot = fileName.indexOf('.');
-            String localeName = fileName.substring(0,dot);
-            //System.err.println(localeName + " - "+i+"/"+nrInFiles);
-            ElapsedTimer et2 = new ElapsedTimer();
-            types[0]=0;
-            int count = updateResults(localeName,types);
-            tcount += count;
-            if(count>0) {
-                lcount++;
-                System.err.println("updateResults("+localeName+ " ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles+") took " + et2.toString());
-            } else {
-                // no reason to print it.
-            }
-            
-            /*
+    public boolean stopUpdating = false;
+    
+    public int updateResults(boolean removeFirst) {
+        stopUpdating = false;
+        try {
+            sm.progressWhat = "vetting update";
+            ElapsedTimer et = new ElapsedTimer();
+            System.err.println("updating results... ***********************************");
+            File inFiles[] = sm.getInFiles();
+            int tcount = 0;
+            int lcount = 0;
+            int types[] = new int[1];
+            int nrInFiles = inFiles.length;
+            sm.progressMax = nrInFiles;
+            for(int i=0;i<nrInFiles;i++) {
+                sm.progressCount = i;
+                // TODO: need a function for this.
+                String fileName = inFiles[i].getName();
+                int dot = fileName.indexOf('.');
+                String localeName = fileName.substring(0,dot);
+                //System.err.println(localeName + " - "+i+"/"+nrInFiles);
+                ElapsedTimer et2 = new ElapsedTimer();
+                types[0]=0;
+                
+                int count = updateResults(localeName,types, removeFirst);
+                tcount += count;
                 if(count>0) {
-                System.err.println("SRL: Interrupting.");
-                break;
+                    lcount++;
+                    System.err.println("updateResults("+localeName+ " ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles+") took " + et2.toString());
+                } else {
+                    // no reason to print it.
+                }
+                
+                if(stopUpdating) {
+                    stopUpdating = false;
+                    System.err.println("**** Update aborted after ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles);
+                    break;
+                }
             }
-            */
+            System.err.println("Done updating "+tcount+" results votes ("+lcount + " locales). Elapsed:" + et.toString());
+            System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
+            return tcount;
+        } finally {
+            sm.progressWhat = null; // clean up counter.
         }
-        System.err.println("Done updating "+tcount+" results votes ("+lcount + " locales). Elapsed:" + et.toString());
-        System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
-        return tcount;
     }
     
     /**
@@ -709,7 +723,7 @@ public class Vetting {
     
     private Set<Integer> gAllImportantXpaths = null;
     
-    Set<Integer> getAllImportantXpaths() {
+    private synchronized Set<Integer> getAllImportantXpaths() {
         int updates = 0;
         if(gAllImportantXpaths == null) {
             ElapsedTimer et2 = new ElapsedTimer();
@@ -744,6 +758,9 @@ public class Vetting {
         }
         return gAllImportantXpaths;
     }
+    public int updateResults(String locale, int type[]) {
+        return updateResults(locale, type, false);
+    }
     
     /**
      * update the results of a specific locale, and return the bitwise OR of all types of results had
@@ -752,7 +769,7 @@ public class Vetting {
      * contains the bitwise OR of all types of vetting results which were found.
      * @return number of results changed
      **/
-    public int updateResults(String locale, int type[]) {
+    public int updateResults(String locale, int type[], boolean removeFirst) {
 		VET_VERBOSE=sm.twidBool(TWID_VET_VERBOSE); // load user prefs: should we do verbose vetting?
         int ncount = 0; // new count
         int ucount = 0; // update count
@@ -764,12 +781,20 @@ public class Vetting {
         
         Set<Race> racesToUpdate = new HashSet<Race>();
         
-        Set<Integer> allPaths = getAllImportantXpaths();
+        ////Set<Integer> allPaths = getAllImportantXpaths();
         //Set<Integer> todoPaths = new HashSet<Integer>();
         //todoPaths.addAll(allPaths);
         
         synchronized(conn) {
             try {
+            
+                if(removeFirst) {            
+                    rmResultLoc.setString(1, locale);
+                    int del = rmResultLoc.executeUpdate();
+                    System.err.println("** "+ locale + " - "+del+" results removed");
+                    conn.commit();
+                }            
+                
                 //dataByUserAndBase.setString(3, locale);
                 missingResults.setString(1,locale);
                 //insertVote.setString(1,locale);
@@ -804,11 +829,11 @@ public class Vetting {
                     updates |= rc;
                 }
 
-
+                int mcount=0;
+/*
                 missingResults2.setString(1,locale);
                 rs = missingResults2.executeQuery();
                 
-                int mcount=0;
                 while(rs.next()) {
                     mcount++;
                     base_xpath = rs.getInt(1);
@@ -820,10 +845,11 @@ public class Vetting {
 
                     //System.err.println(locale+":"+base_xpath+" missing "+base_xpath_str);
                 }
-                System.err.println("Missing items in "+ locale + " - "+mcount);
                 if(mcount>0) {
+                    System.err.println("Missing items in "+ locale + " - "+mcount);
                     conn.commit();
                 }
+*/
 
                 // if anything changed, commit it
                 if((ucount > 0) || (ncount > 0) || (mcount > 0)) {
@@ -1182,6 +1208,26 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 		
 		return out;
 	}
+    
+    /**
+     * Cache of default vote
+     */
+    private Map<String, Integer>  googleMap = new HashMap<String,Integer>();
+     
+    private int getDefaultWeight(String name, String locale) {
+        if(name.equals("google")) {
+            Integer weightInt = googleMap.get(locale);
+            if(weightInt != null) {
+                return weightInt.intValue();
+            }
+            int weight = 
+                CoverageLevel.Level.getDefaultWeight(name, locale);
+            googleMap.put(locale, weight);
+            return weight;
+        } else {
+            return CoverageLevel.Level.getDefaultWeight(name, locale);
+        }
+    }
 	
 	/**
 	 * Inner classes used for vote tallying 
@@ -1225,7 +1271,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
             public void setDefaultVote(Chad c) {
                 //votes.add(c); // so it is in the list
                 vote = c; // and it is the winning vote
-                strength = DEFAULT_ORG_VOTE;
+                strength = getDefaultWeight(name, locale);
             }
 			
 			// All votes have been cast, decide which one this org votes for.
@@ -1315,6 +1361,9 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
                 if(disqualified) {
                     return true;
                 }
+                if(value == null) {  // non existent item. ignore.
+                    return false;
+                }
                 disqualified = test(locale, xpath, full_xpath, value); 
                 if(disqualified) {
                     score = 0;
@@ -1338,7 +1387,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
             
 			public void add(Organization votes) {
 				orgs.add(votes);
-                if(!disqualified) {
+                if(!disqualified && value!=null) {
                     score += votes.strength;
                 }
 			}
@@ -1536,7 +1585,8 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 				queryValue.setInt(2,vote_xpath);
 				ResultSet crs = queryValue.executeQuery();
                 int orig_xpath = vote_xpath;
-				String itemValue = "(unknown#"+vote_xpath+")";
+				//String itemValue = "(could not find item#"+vote_xpath+")";
+                String itemValue = null;
 				if(crs.next()) {
 					itemValue = crs.getString(1);
 					orig_xpath = crs.getInt(2);
@@ -2236,6 +2286,8 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
         Set<String> bcc_emails = new HashSet<String>();
         
         int emailCount = sm.fora.gatherInterestedUsers(group, cc_emails, bcc_emails);
+        
+        int genCountTotal=0;
 
         if(emailCount == 0) {
             return 0; // no interested users.
@@ -2246,7 +2298,9 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
             String loc = (String)li.next();
             
             int locStatus = status(loc);
-            if(locStatus>=0 && (locStatus&RES_BAD_MASK)>0) {
+            int genCount = sm.externalErrorCount(loc);
+            genCountTotal += genCount;
+            if((genCount>0) || (locStatus>=0 && (locStatus&RES_BAD_MASK)>1)) {
                 int numNoVotes = countResultsByType(loc,RES_NO_VOTES);
                 int numInsufficient = countResultsByType(loc,RES_INSUFFICIENT);
                 int numDisputed = countResultsByType(loc,RES_DISPUTED);
@@ -2257,6 +2311,10 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
                 if(localeIsDefaultContent) {
                     //System.err.println(loc +" - default content, not sending notice. ");
                     continue;
+                }
+                
+                if(numDisputed==0 && sm.isUnofficial) {
+                    System.err.println("got one @ " + genCount + " -- " + loc);
                 }
                 
                 if(complain == null) {
@@ -2280,6 +2338,9 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
                 if(numErrored>0) {
                     problem = problem + " ERROR ITEMS: "+numErrored+"";
                 }
+                if(genCount>0) {
+                    problem = problem + " ERROR ITEMS: "+numErrored+"";
+                }
 */
                 complain = complain +  new ULocale(loc).getDisplayName() + "\n    http://www.unicode.org/cldr/apps/survey?_="+loc+"\n\n";
             }
@@ -2291,13 +2352,19 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
             
             String disp = new ULocale(group).getDisplayName();
             
+            String otherErr = "";
+            if(genCountTotal>0) {
+                otherErr = "\nAlso, there are  " +genCountTotal+" other errors for these locales listed at:\n    "+
+                    sm.externalErrorUrl(group)+"\n\n";
+            }
+            
             String subject = "CLDR Vetting update: "+group + " (" + disp + ")";
             String body = "There are errors or disputes remaining in the locale data for "+disp+".\n"+
                 "\n"+
                 "Please go to http://www.unicode.org/cldr/vetting.html and follow the instructions to address the problems.\n"+
                 "\n"+
-                "WARNING: there are some problems in computing the error and dispute counts, so please read that page even if you have read it before!\n" +
-                "\n" + complain + "\n"+
+//                "WARNING: there are some problems in computing the error and dispute counts, so please read that page even if you have read it before!\n" +
+                "\n" + complain + "\n"+                otherErr+
                 "Once you think that all the problems are addressed, forward this email message to surveytool@unicode.org, asking for your locale to be verified as done. We are working on a short time schedule, so we'd appreciate your resolving the issues as soon as possible. Remember that you will need to be logged-in before making changes.\n"+
                 "\n\nThis is an automatic message, periodically generated to update vetters on the progress on their locales.\n\n";
 
@@ -2662,47 +2729,83 @@ if(true == true)    throw new InternalError("removed from use.");
         boolean showAllXpaths = ctx.prefBool(sm.PREF_GROTTY);
         
         ctx.println("<table class='list'>");
-        ctx.println("<tr class='botbar'><th>#</th><th align='left' class='botgray'>Locale</th><th align='left'  class='botgray'>Disputed Sections</th></tr>");
+        ctx.println("<tr class='botbar'>"+
+//            "<th>Errs</th>" +
+            "<th>#</th><th align='left' class='botgray'>Locale</th><th align='left'  class='botgray'>Disputed Sections</th></tr>");
         int nn=0;
-		for(Iterator i = m.keySet().iterator();i.hasNext();) {
-			String loc = (String)i.next();
+        // todo: sort list..
+        /*
+        if(lm == null) {
+            busted("Can't load CLDR data files from " + fileBase);
+            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+        }
+
+        ctx.println("<table summary='Locale List' border=1 class='list'>");
+        int n=0;
+        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+            n++;
+        */
+        TreeMap lm = sm.getLocaleListMap();
+		for(Iterator i = lm.keySet().iterator();i.hasNext();) {
+            String locName = (String)i.next();
+            String loc = (String)lm.get(locName);
+
 			Hashtable ht = (Hashtable)m.get(loc);
 
             // calculate the # of total disputed items in this locale
             int totalbad = 0;
-            for(Object o : ht.values()) {
-                Set subSet = (Set)o;
-                totalbad += subSet.size();
+            
+            String groupName = new ULocale(loc).getLanguage();
+            
+            int genCount = 0;
+            //genCount = sm.externalErrorCount(loc);
+            
+            if(ht != null) {
+                for(Object o : ht.values()) {
+                    Set subSet = (Set)o;
+                    totalbad += subSet.size();
+                }
             }
             
+            if(totalbad==0 && genCount==0) continue;
+            
 			ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+        /*
+            if(genCount>0) {
+                ctx.print("<th align='left'><a href='"+sm.externalErrorUrl(groupName)+"'>"+genCount+"&nbsp;errs</a></th>");
+            } else {
+                ctx.print("<th></th>");
+            }
+        */
             ctx.print("<th align='left'>"+totalbad+"</th>");
             ctx.print("<th class='hang' align='left'>");
 			sm.printLocaleLink(subCtx,loc,new ULocale(loc).getDisplayName().replaceAll("\\(",
                     "<br>(")); // subCtx = no 'do' portion, for now.
 			ctx.println("</th>");
-            ctx.println("<td>");
-            int jj=0;
-			for(Iterator ii = ht.keySet().iterator();ii.hasNext();) {
-                if((jj++)>0) {
-                    ctx.print(", ");
-                }
-				String theMenu = (String)ii.next();
-                Set subSet = (Set)ht.get(theMenu);
-				ctx.print("<a href='"+ctx.base()+"?"+
-					"_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+
-                       theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
-                    
-                if(showAllXpaths) {
-                    ctx.print("<br><pre>");
-                    for(Iterator iii = (subSet).iterator();iii.hasNext();) {
-                        String xp = (String)iii.next();
-                        ctx.println(xp);
+            if(totalbad > 0) {
+                ctx.println("<td>");
+                int jj=0;
+                for(Iterator ii = ht.keySet().iterator();ii.hasNext();) {
+                    if((jj++)>0) {
+                        ctx.print(", ");
                     }
-                    ctx.print("</pre>");
+                    String theMenu = (String)ii.next();
+                    Set subSet = (Set)ht.get(theMenu);
+                    ctx.print("<a href='"+ctx.base()+"?"+
+                        "_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+
+                           theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
+                        
+                    if(showAllXpaths) {
+                        ctx.print("<br><pre>");
+                        for(Iterator iii = (subSet).iterator();iii.hasNext();) {
+                            String xp = (String)iii.next();
+                            ctx.println(xp);
+                        }
+                        ctx.print("</pre>");
+                    }
                 }
-			}
-            ctx.print("</td>");
+                ctx.print("</td>");
+            }
             ctx.println("</tr>");
 		}
         ctx.println("</table>");

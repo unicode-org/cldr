@@ -978,6 +978,10 @@ public class SurveyForum {
     static public String forumUrl(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
         return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath;
     }
+    static public String forumUrl(WebContext ctx, String locale, int xpath) {
+        ULocale u = new ULocale(locale);
+        return ctx.base()+"?_="+locale+"&"+F_FORUM+"="+u.getLanguage()+"&"+F_XPATH+"="+xpath;
+    }
     static String forumUrl(WebContext ctx, String forum) {
         return (ctx.base()+"?"+F_FORUM+"="+forum);
     }

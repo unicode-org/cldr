@@ -656,22 +656,26 @@ public class WebContext implements Cloneable {
     }
     
     public String defaultPtype() {
-        String def = pref(SurveyMain.PREF_COVLEV,"default");
-        if(!def.equals("default")) {
-            return def;
+        if(sm.phaseSubmit) {
+            String def = pref(SurveyMain.PREF_COVLEV,"default");
+            if(!def.equals("default")) {
+                return def;
+            } else {
+                String org = getChosenLocaleType();
+                String ltype = getEffectiveLocaleType(org);
+                return ltype;
+            }
         } else {
-            String org = getChosenLocaleType();
-            String ltype = getEffectiveLocaleType(org);
-            return ltype;
+            return "Defaults";
         }
     }
     
     static synchronized String getEffectiveLocaleType(String org) {
-            try {
-                return  getSC().getEffectiveLocaleType(org);
-            } catch (java.io.IOException ioe) {
-                return org;
-            }
+        try {
+            return  getSC().getEffectiveLocaleType(org);
+        } catch (java.io.IOException ioe) {
+            return org;
+        }
     }
     
    static synchronized String[] getLocaleTypes() {
@@ -679,15 +683,19 @@ public class WebContext implements Cloneable {
    }
     
     public String getChosenLocaleType() {
-        String org = pref(SurveyMain.PREF_COVTYP, "default");
-        if(org.equals("default")) {
-            org = null;
+        if(sm.phaseSubmit) { 
+            String org = pref(SurveyMain.PREF_COVTYP, "default");
+            if(org.equals("default")) {
+                org = null;
+            }
+            if((org==null) && 
+               (session.user != null)) {
+                org = session.user.org;
+            }
+            return org;
+        } else {
+            return defaultPtype();
         }
-        if((org==null) && 
-           (session.user != null)) {
-            org = session.user.org;
-        }
-        return org;
     }
     
     public Map getOptionsMap() {
@@ -695,14 +703,16 @@ public class WebContext implements Cloneable {
     }
     
     public Map getOptionsMap(Map options) {
-        String def = pref(SurveyMain.PREF_COVLEV,"default");
-        if(!def.equals("default")) {
-            options.put("CheckCoverage.requiredLevel",def);
-        }
-        
-        String org = getEffectiveLocaleType(getChosenLocaleType());
-        if(org!=null) {
-            options.put("CoverageLevel.localeType",org);
+        if(sm.phaseSubmit) { 
+            String def = pref(SurveyMain.PREF_COVLEV,"default");
+            if(!def.equals("default")) {
+                options.put("CheckCoverage.requiredLevel",def);
+            }
+            
+            String org = getEffectiveLocaleType(getChosenLocaleType());
+            if(org!=null) {
+                options.put("CoverageLevel.localeType",org);
+            }
         }
                 
         return options;

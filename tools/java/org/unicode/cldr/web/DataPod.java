@@ -191,6 +191,10 @@ public class DataPod extends Registerable {
         boolean anyItemHasWarnings = false;
         boolean anyItemHasErrors = false;
         
+        // Do some items alias to a different base xpath or locale?
+        String aliasFromLocale  = null; // locale, if different
+        int aliasFromXpath      = -1;   // xpath, if different
+        
         boolean hasProps = false;
         boolean hasMultipleProposals = false;
         boolean hasInherited = false;
@@ -279,7 +283,7 @@ public class DataPod extends Registerable {
                     /* pea */ hasTests = true;
                     superPea.hasTests = true;
                                         
-                    if((winningXpathId==-1) || (xpathId == winningXpathId)) {
+                    if(((winningXpathId==-1)&&(xpathId==base_xpath)) || (xpathId == winningXpathId)) {
                         if(errorCount>0) /* pea */ hasErrors = true;
                         if(warningCount>0) /* pea */ hasWarnings = true;
                         // propagate to parent
@@ -400,8 +404,11 @@ public class DataPod extends Registerable {
                     inheritedValue.inheritFrom = sourceLocale;
                     
                     if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-        //System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
                         inheritedValue.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                        
+                        // set up Pod alias-ness
+                        aliasFromLocale = sourceLocale;
+                        aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
                     }
                     
                     inheritedValue.value = value;
@@ -673,11 +680,12 @@ public class DataPod extends Registerable {
                 new Partition(PARTITION_UNCONFIRMED, 
                     new PartitionMembership() { 
                         public boolean isMember(Pea p) {
-                            return ((p.confirmStatus!=Vetting.Status.APPROVED &&
+                            return (p.allVoteType>0) &&   // make sure it actually has real items.
+                                (((p.confirmStatus!=Vetting.Status.APPROVED &&
                                     p.confirmStatus!=Vetting.Status.INDETERMINATE)) ||
                                     
                                     p.hasProps&&(((p.allVoteType & Vetting.RES_INSUFFICIENT)>0) ||
-                                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0));
+                                                ((p.allVoteType & Vetting.RES_NO_VOTES)>0)));
                         }
                     }),                  
                 new Partition(TENTATIVELY_APPROVED, 
@@ -696,7 +704,7 @@ public class DataPod extends Registerable {
                                         ((p.allVoteType & Vetting.RES_NO_CHANGE)>0)) ||
                                     (p.hasInherited&&!p.hasProps) ||
                                     (p.confirmStatus==Vetting.Status.INDETERMINATE) ||
-                                    (!p.hasErrors&&!p.hasProps&&(p.allVoteType == 0));
+                                    (/* !p.hasErrors&&!p.hasProps&&*/(p.allVoteType == 0));
                         }
                     }),
         };
@@ -1646,6 +1654,9 @@ public class DataPod extends Registerable {
             if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
 //System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
                 myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                // set up Pod alias-ness
+                p.aliasFromLocale = sourceLocale;
+                p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
             }
             myItem.inheritFrom = setInheritFrom;
 

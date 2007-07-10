@@ -18,8 +18,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
@@ -45,9 +47,11 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestMisc {
     public static void main(String[] args) {
       
-      testScripts();
+      testWeights();
       if (true) return;
-      testToRegex();
+            
+      testScripts();
+     testToRegex();
       //checkEastAsianWidth();
       if (true) return;
       // import ICU
@@ -90,6 +94,19 @@ public class TestMisc {
       System.out.println("Done");
     }
     
+    private static void testWeights() {
+      Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+      CLDRFile english = cldrFactory.make("en", true);
+      Set<Pair<Integer,String>> rel = new TreeSet();
+      for (String desiredLocale : cldrFactory.getAvailable()) {
+        int vote = CoverageLevel.Level.getDefaultWeight("google", desiredLocale);
+        rel.add(new Pair(vote, desiredLocale));
+      }
+      for (Pair<Integer,String> p : rel) {
+        System.out.println(p + "\t" + english.getName(p.getSecond(), false));
+      }
+    }
+
     private static void testScripts() {
       BagFormatter bf = new BagFormatter();
       

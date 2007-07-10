@@ -2,11 +2,13 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.CollectionUtilities;
@@ -41,7 +43,7 @@ import java.util.regex.Pattern;
  *
  */
 public class ExampleGenerator {
-  private final static boolean DEBUG_SHOW_HELP = false;
+  private final static boolean DEBUG_SHOW_HELP = true;
 
   private static SupplementalDataInfo supplementalDataInfo;
   private SupplementalData supplementalData;
@@ -567,60 +569,55 @@ public class ExampleGenerator {
         Status status = Status.BASE;
         int count = 0;
         int tableCount = 0;
-        while (true) {
-          String line = in.readLine();
-          count++;
-          if (line == null)
-            break;
-          line = line.trim();
-          // watch for tr, then td. Pick up following strings.
-          switch (status) {
-            case BASE:
-              if (line.equals("<tr>")) {
-                status = Status.BEFORE_CELL;
-              }
-              break;
-            case BEFORE_CELL:
-              if (line.equals("</tr>")) {
-                addHelpMessages();
-                status = Status.BASE;
+
+        boolean inContent = false;
+        // if the table level is 1 (we are in the main table), then we look for <td>...</td><td>...</td>. That means that we have column 1 and column 2.
+        
+        SimpleHtmlParser simple = new SimpleHtmlParser().setReader(in);
+        StringBuilder result = new StringBuilder();
+        boolean hadPop = false;
+        main:
+          while (true) {
+            Type x = simple.next(result);
+            switch (x) {
+              case ELEMENT: // with /table we pop the count
+                if (SimpleHtmlParser.equals("table", result)) {
+                  if (hadPop) { 
+                    --tableCount;
+                  } else {
+                    ++tableCount;
+                  }
+                } else if (tableCount == 1) { 
+                  if (SimpleHtmlParser.equals("tr", result)) {
+                    if (hadPop) {
+                      addHelpMessages();
+                    }
+                    column = 0;
+                  } else if (SimpleHtmlParser.equals("td", result)) {
+                    if (hadPop) { 
+                      inContent = false;
+                      ++column;
+                    } else {
+                      inContent = true;
+                      continue main; // skip adding
+                    }
+                  }
+                }
                 break;
-              }
-              if (line.startsWith("<td>")) {
-                status = Status.IN_CELL;
-                line = line.substring(4);
-              }
-            // fall through
-            case IN_CELL:
-              boolean done = false;
-              if (line.startsWith("<table")) {
-                tableCount++;
-                appendLine(line);
-                status = Status.IN_INSIDE_TABLE;
-              } else {
-                if (line.endsWith("</td>")) {
-                  line = line.substring(0, line.length() - 5);
-                  status = Status.BEFORE_CELL;
-                  done = true;
-                }
-                appendLine(line);
-                if (done)
-                  column++;
-              }
-              break;
-            case IN_INSIDE_TABLE:
-              appendLine(line);
-              if (line.startsWith("<table")) {
-                tableCount++;
-              } else if (line.equals("</table>")) {
-                tableCount--;
-                if (tableCount == 0) {
-                  status = Status.IN_CELL;
-                }
-              }
-              break;
+              case ELEMENT_POP:
+                hadPop = true;
+                break;
+              case ELEMENT_END:
+                hadPop = false;
+                break;
+              case DONE:
+                break main;
+            }
+            if (inContent) {
+              SimpleHtmlParser.writeResult(x, result, currentColumn[column]);
+            }
           }
-        }
+      
         in.close();
       } catch (IOException e) {
         System.err.println("Can't initialize help text");
@@ -653,14 +650,17 @@ public class ExampleGenerator {
     }
 
     private void addHelpMessages() {
-      if (DEBUG_SHOW_HELP) {
-        System.out.println(currentColumn[0].toString() + " => " + currentColumn[1].toString());
-      }
       if (column == 2) { // must have two columns
         try {
-          Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(currentColumn[0].toString()), Pattern.COMMENTS).matcher("");
+          // remove the first character and the last two characters, since the are >....</
+          String key = currentColumn[0].substring(1, currentColumn[0].length()-2).trim();
+          String value = currentColumn[1].substring(1, currentColumn[1].length()-2).trim();
+          if (DEBUG_SHOW_HELP) {
+            System.out.println("{" + key + "} => {" + value + "}");
+          }
+          Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(key), Pattern.COMMENTS).matcher("");
           keys.add(m);
-          values.add(currentColumn[1].toString());
+          values.add(value);
         } catch (RuntimeException e) {
           System.err.println("Help file has illegal regex: " + currentColumn[0]);
         }

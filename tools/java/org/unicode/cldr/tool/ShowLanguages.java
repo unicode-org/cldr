@@ -13,8 +13,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -160,18 +162,20 @@ public class ShowLanguages {
     TablePrinter tablePrinter = new TablePrinter()
     .addColumn("Language", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0).setBreakSpans(true)
     .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true).setSpanRows(true)
+    .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSpanRows(true).setSortPriority(1)
+    .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3)
     .addColumn("Script", "class='target'", null, "class='target'", true).setSortPriority(3)
     .addColumn("Code", "class='target'", null, "class='target'", true)
-    .addColumn("M", "class='target'", null, "class='target'", true).setSortPriority(2)
-    .addColumn("S", "class='target'", null, "class='target'", true).setSortPriority(1);
+    .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSortPriority(2);
     
     TablePrinter tablePrinter2 = new TablePrinter()
     .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0).setBreakSpans(true)
     .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true).setSpanRows(true)
-    .addColumn("M", "class='target'", null, "class='target'", true).setSpanRows(true).setSortPriority(2)
+    .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSpanRows(true).setSortPriority(1)
     .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(3)
     .addColumn("Code", "class='target'", null, "class='target'", true)
-    .addColumn("S", "class='target'", null, "class='target'", true).setSortPriority(1);
+    .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSortPriority(2)
+     .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
     
     // get the codes so we can show the remainder
     Set<String> remainingScripts = new TreeSet(sc.getGoodAvailableCodes("script")); // StandardCodes.MODERN_SCRIPTS);
@@ -209,7 +213,7 @@ public class ShowLanguages {
     for (String language : languages) {
       Set<BasicLanguageData> basicLanguageData = supplementalDataInfo.getBasicLanguageData(language);
       for (BasicLanguageData basicData : basicLanguageData) {
-        String secondary = basicData.getType() == BasicLanguageData.Type.primary ? "\u00A0" : "S";
+        String secondary = basicData.getType() == BasicLanguageData.Type.primary ? "\u00A0" : "N";
         for (String script : basicData.getScripts()) {
           addLanguageScriptCells(tablePrinter, tablePrinter2, language, script, secondary);
           remainingScripts.remove(script);
@@ -218,10 +222,10 @@ public class ShowLanguages {
       }
     }
     for (String language : remainingLanguages) {
-      addLanguageScriptCells(tablePrinter, tablePrinter2, language, "Zzzz", "X");
+      addLanguageScriptCells(tablePrinter, tablePrinter2, language, "Zzzz", "?");
     }
     for (String script : remainingScripts) {
-      addLanguageScriptCells(tablePrinter, tablePrinter2, "und", script, "X");
+      addLanguageScriptCells(tablePrinter, tablePrinter2, "und", script, "?");
     }
     
     pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Scripts", null));
@@ -233,27 +237,32 @@ public class ShowLanguages {
     pw1.close();
     
   }
+  
+  private static Set<Type> oldLanguage = Collections.unmodifiableSet(EnumSet.of(Type.Ancient,Type.Extinct,Type.Historical,Type.Constructed));
 
   private static void addLanguageScriptCells(TablePrinter tablePrinter, TablePrinter tablePrinter2, String language, String script, String secondary) {
     String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language,false);
     if (languageName == null) languageName = "???";
     String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script,false);
-    String scriptModern = StandardCodes.isScriptModern(script) || script.equals("Zzzz") ? "\u00A0" : "N";
+    String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
     Scope s = Iso639Data.getScope(language);
     Type t = Iso639Data.getType(language);
-    if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
-      // ok
-    } else if (!language.equals("und")){
-      scriptModern = "N";
-    }
+//    if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
+//      // ok
+//    } else if (!language.equals("und")){
+//      scriptModern = "N";
+//    }
+    String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
 
     tablePrinter.addRow()
     .addCell(languageName)
     .addCell(language)
+    .addCell(languageModern)
+    .addCell(secondary)
     .addCell(scriptName)
     .addCell(script)
     .addCell(scriptModern)
-    .addCell(secondary).finishRow();
+    .finishRow();
     
     tablePrinter2.addRow()
     .addCell(scriptName)
@@ -261,7 +270,9 @@ public class ShowLanguages {
     .addCell(scriptModern)
     .addCell(languageName)
     .addCell(language)
-    .addCell(secondary).finishRow();
+    .addCell(languageModern)
+    .addCell(secondary)
+    .finishRow();
   }
   
   static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");

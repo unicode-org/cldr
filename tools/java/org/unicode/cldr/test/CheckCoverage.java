@@ -95,6 +95,9 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
+        if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+          return this; // skip testing in final phase
+        }
         if (options != null && options.get("CheckCoverage.skip") != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;

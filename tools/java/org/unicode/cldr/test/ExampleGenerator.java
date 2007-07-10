@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
  *
  */
 public class ExampleGenerator {
-  private final static boolean DEBUG_SHOW_HELP = true;
+  private final static boolean DEBUG_SHOW_HELP = false;
 
   private static SupplementalDataInfo supplementalDataInfo;
   private SupplementalData supplementalData;

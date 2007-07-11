@@ -682,7 +682,9 @@ public class ConsoleCheckCLDR {
           + "</td></tr>"
           );
     }
-    generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);
+    if (generated_html_count != null) {
+      generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);
+    }
   }
   
   static String lastHtmlLocaleID = "";

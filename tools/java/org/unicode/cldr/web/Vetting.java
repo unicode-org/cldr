@@ -36,6 +36,9 @@ import com.ibm.icu.text.RuleBasedCollator;
  * and also records which votes are cast
  */
 public class Vetting {
+
+    private static String EMPTY_STRING = "";
+
     private static java.util.logging.Logger logger;
     
     public static final String CLDR_RESULT = "cldr_result"; /** constant for table access **/
@@ -1246,6 +1249,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 			Chad vote = null; // the winning item: -1 for unknown
 			int strength=0; // strength of the vote
 			public boolean dispute = false;
+            public boolean checked = false; // checked the vote yet?
 			
 			Set<Chad> votes = new TreeSet<Chad>(); // the set of chads
 			
@@ -1268,15 +1272,16 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 			}
             
             // this is the org's default vote. 
-            public void setDefaultVote(Chad c) {
+            public void setDefaultVote(Chad c, int withStrength) {
                 //votes.add(c); // so it is in the list
                 vote = c; // and it is the winning vote
-                strength = getDefaultWeight(name, locale);
+                strength = withStrength;
             }
 			
 			// All votes have been cast, decide which one this org votes for.
 			Chad calculateVote() {
-				if(vote == null) {
+				if(vote == null && !checked) {
+                    checked = true;
 					int lowest = UserRegistry.LIMIT_LEVEL;
 					for(Chad c : votes) {
                         if(c.disqualified) continue;
@@ -1346,6 +1351,8 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 			public int score = 0;
 			public String value = null;
             
+            public String refs = null;
+            
             public Set<Organization> orgsDefaultFor = null; // if non-null: this Chad is the default choice for the org[s] involved, iff they didn't already vote.
             
             boolean disqualified;
@@ -1406,9 +1413,17 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 				}
 				
 				if(value == null) {
-					return "".compareTo(other.value);
+                    if(other.value == null) {
+                        return 0;
+                    } else {
+                        return "".compareTo(other.value);
+                    }
 				} else {
-					return value.compareTo(other.value);
+                    if(other.value == null) {
+                        return 1;
+                    } else {
+                        return value.compareTo(other.value);
+                    }
 				}
 			}
 		}
@@ -1417,6 +1432,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 		public int base_xpath;
 		public String locale;
 		public Hashtable<Integer,Chad> chads = new Hashtable<Integer,Chad>();
+        public Hashtable<String,Chad> chadsByValue = new Hashtable<String,Chad>();
 		public Hashtable<String, Organization> orgVotes = new Hashtable<String,Organization>();
 		public Set<Chad> disputes = new TreeSet<Chad>();
 		
@@ -1433,6 +1449,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 		/* reset all */
 		public void clear() {
 			chads.clear();
+            chadsByValue.clear();
 			orgVotes.clear();
 			disputes.clear();
 			winner = null;
@@ -1499,13 +1516,38 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
             return hadDisqualified;
         }
         
-
         private Chad getChad(int vote_xpath, int full_xpath, String value) {
+            String valueForLookup = (value!=null)?value:EMPTY_STRING;
+           
+            String full_xpath_string = sm.xpt.getById(full_xpath);
+            String theReferences = null;
+            if(full_xpath_string.indexOf(LDMLConstants.REFERENCES)>=0) {
+                XPathParts xpp = new XPathParts(null,null);
+                xpp.initialize(full_xpath_string);
+                String lelement = xpp.getElement(-1);
+                //String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+                theReferences = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
+                if(theReferences != null) {
+                    // disambiguate it from the other value
+                    valueForLookup = valueForLookup + " ["+theReferences+"]";
+                    if(value==null) {
+                        value = "";
+                    }
+                    value = value + "&nbsp;<i title='This item has a Reference.'>(reference)</i>";
+                }
+            }
+            
+            Chad valueChad = chadsByValue.get(valueForLookup);
+            if(valueChad != null) {
+                return valueChad;
+            }
+            
 			Integer vote_xpath_int = new Integer(vote_xpath);
 			Chad c = chads.get(vote_xpath_int);
 			if(c == null) {
 				c = new Chad(vote_xpath, full_xpath, value);
 				chads.put(vote_xpath_int, c);
+                chadsByValue.put(valueForLookup,c);
 			}
             return c;
         }
@@ -1624,22 +1666,9 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
         }
 		
 		private void calculateOrgVotes() {
-            // look for any default votes. 
-            for(Chad c : chads.values()) {
+            for(Chad c : chads.values()) { // reset
                 c.score = 0;
-                if(c.disqualified) continue;
-                if(c.orgsDefaultFor != null) {
-                    for(Organization o : c.orgsDefaultFor) {
-                        if(o.votes.isEmpty()) {
-                            // org 'o' is default for chad 'c', and didn't already vote for anything.
-                            
-                            // #2 pre-set the vote
-                            o.setDefaultVote(c);
-                        }
-                    }
-                }
             }
-
 			// calculate the org's choice
 			for(Organization org : orgVotes.values()) {
 				Chad vote = org.calculateVote();
@@ -1647,6 +1676,57 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 					vote.add(org); // add that org's vote to the chad
 				}
 			}
+
+            // look for any default votes. 
+            
+            for(Chad c : chads.values()) {
+                if(c.disqualified)  {
+                    continue;
+                }
+                if(c.orgsDefaultFor != null) {
+                    for(Organization o : c.orgsDefaultFor) {  // is this the default candidate vote for anyone?
+                        if(o.votes.isEmpty()) {  // if they do not have any other votes..
+                            int newStrength = getDefaultWeight(o.name, locale);
+                            boolean suppressDefault = false; // any reason to suppress the default vote?
+                            
+                            if(newStrength == 1   // if it's only a vote of 1
+                              && c.score == 0) {  // and no other organization voted for it
+                                // See if anyone voted for anything else.
+                                int otherStrengths = 0;
+                                for(Chad k : chads.values()) {
+                                    if(k == c) continue;  // votes for this item are OK 
+                                    if(k.score>0) {
+                                        suppressDefault = true;
+//System.err.println("Suppressing DV on "+locale+":"+base_xpath+" because of other score.");
+                                        break;
+                                    }
+                                }
+                            } else {
+                                int otherStrengths = 0;
+                                for(Chad k : chads.values()) {
+                                    if(k == c) continue;  // votes for this item are OK 
+                                    if(k.score>0) {
+//System.err.println("NOT Suppressing DV on "+locale+":"+base_xpath+" - other score, but newStrength="+newStrength+" and c.score="+c.score+".");
+                                        break;
+                                    }
+                                }
+                            }
+                            if(!suppressDefault) {
+                                // #2 pre-set the vote
+//System.err.println("G voting "+newStrength+"  DV on "+locale+":"+base_xpath+" @:"+c.xpath+".");
+                                o.setDefaultVote(c, newStrength);
+                                // now, count it
+                                Chad vote = o.calculateVote();
+                                if(vote != null) {
+                                    vote.add(o); // add that org's vote to the chad
+                                }
+                            } else {
+                                orgVotes.remove(o.name); // remove the organization - it had no other votes.
+                            }
+                        }
+                    }
+                }
+            }
 		}
 		
 		private Chad calculateWinner() {

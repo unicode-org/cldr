@@ -5533,7 +5533,7 @@ public class SurveyMain extends HttpServlet {
 			for(DataPod.Pea.Item item : deleteItems) {
 				if((item.submitter != -1) && 
 					!( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-						( (item.getVotes() == null) ||   // nobody voted for it, or
+						( (item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||  // nobody voted for it, or
 							((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) )) && // only user voted for it
 						( (item.submitter>0&&UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id) ) ) // user is TC or user is submitter
 				{
@@ -6372,6 +6372,44 @@ public class SurveyMain extends HttpServlet {
                 if(isUnofficial && r.hadOtherError) {
                     ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
                 }
+                
+                ctx.print("<br><hr><i>Voting results by item:</i>");
+                ctx.print("<table class='list' border=1 summary='voting results by item'>");
+                ctx.print("<tr><th>Value</th><th>Score</th><th>Votes</th></tr>");
+                int nn=0;
+                for(Vetting.Race.Chad item : r.chads.values()) {
+                    ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+                    String theValue = item.value;
+                    if(theValue == null) {  
+                        if(item.xpath == r.base_xpath) {
+                            theValue = "<i>(Old Vote for Status Quo)</i>";
+                        } else {
+                            theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+                        }
+                    }
+                    
+                    ctx.print("<td>");
+                    if(item == r.winner) {
+                        ctx.print("<b>");
+                    }
+                    if(item.disqualified) {
+                        ctx.print("<strike>");
+                    }
+                    ctx.print("<span title='#"+item.xpath+"'>"+theValue+"</span> ");
+                    if(item.disqualified) {
+                        ctx.print("</strike>");
+                    }
+                    if(item == r.winner) {
+                        ctx.print("</b>");
+                    }
+                    if(item == r.existing) {
+                        ctx.print(ctx.iconHtml("star","existing item"));
+                    }
+                    ctx.print("</td>");
+                    ctx.print("<td>"+item.score + "</td><td>"+ item.voters.size() +"</td>");
+                    ctx.print("</tr>");
+                }
+                ctx.print("</table>");
 
 			} catch (SQLException se) {
 				ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
@@ -6577,7 +6615,7 @@ public class SurveyMain extends HttpServlet {
         }
         
         if(zoomedIn) {
-            if( (item.getVotes() == null) ||   // nobody voted for it, or
+            if( (item.getVotes() == null) ||  UserRegistry.userIsTC(ctx.session.user) || // nobody voted for it, or
                 ((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) ))  { // .. only this user voted for it
                 boolean deleteHidden = ctx.prefBool(PREF_NOSHOWDELETE);
                 if(!deleteHidden && canModify && (item.submitter != -1) && zoomedIn &&

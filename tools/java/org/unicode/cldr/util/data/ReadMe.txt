@@ -28,7 +28,7 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
 - Update util/data/territory_codes.txt
     - This step will be different once the data is moved into SupplementalData.xml
     - Then run GenerateEnums.java, and make sure it completes with no exceptions.
-- Run CheckCLDR -fen
+- Run ConsoleCheckCLDR -f(en) -c comprehensive
 	- If you missed any codes, you will get error message: "Unexpected Attribute Value"
 - Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html files
     - Generate them in ...\unicode\cldr\diff\supplemental\...
@@ -46,7 +46,8 @@ For the purposes of this document, C:\cvsdata\ is the CVS root for the CLDR data
 - Open the page in IE (not other browsers), and 
   select from just before the first character in the line "ISO 4217 Currency names and code elements"
   to just after the last character in "Last modified yyyy-mm-dd", and copy.
-- Open the page ...org\unicode\cldr\util\data\currencyCodesList.txt from inside Excel
+- Open the page C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\currencyCodesList.txt from inside Excel
+  Use options: UTF-8, no "
   Select all, Delete
   Select A1, Paste, Save
   You should now have a tab-delimited plaintext file

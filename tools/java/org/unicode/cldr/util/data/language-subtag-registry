@@ -1,4 +1,4 @@
-File-Date: 2007-03-22
+File-Date: 2007-07-05
 %%
 Type: language
 Subtag: aa
@@ -1987,7 +1987,7 @@ Added: 2005-10-16
 %%
 Type: language
 Subtag: mis
-Description: Miscellaneous languages
+Description: Uncoded languages
 Added: 2005-10-16
 %%
 Type: language
@@ -2429,6 +2429,11 @@ Type: language
 Subtag: sux
 Description: Sumerian
 Added: 2005-10-16
+%%
+Type: language
+Subtag: syc
+Description: Classical Syriac
+Added: 2007-04-03
 %%
 Type: language
 Subtag: syr
@@ -2904,6 +2909,11 @@ Description: Kannada
 Added: 2005-10-16
 %%
 Type: script
+Subtag: Kore
+Description: Korean (alias for Hangul + Han)
+Added: 2007-07-05
+%%
+Type: script
 Subtag: Lana
 Description: Lanna
 Added: 2006-07-21
@@ -3217,7 +3227,7 @@ Added: 2005-10-16
 %%
 Type: script
 Subtag: Zxxx
-Description: Code for unwritten languages
+Description: Code for unwritten documents
 Added: 2005-10-16
 %%
 Type: script
@@ -4728,6 +4738,36 @@ Added: 2006-09-18
 Prefix: hy
 %%
 Type: variant
+Subtag: baku1926
+Description: Unified Turkic Latin Alphabet (Historical)
+Added: 2007-04-18
+Prefix: az
+Prefix: ba
+Prefix: crh
+Prefix: kk
+Prefix: krc
+Prefix: ky
+Prefix: sah
+Prefix: tk
+Prefix: tt
+Prefix: uz
+Comments: Denotes alphabet used in Turkic republics/regions of the
+  former USSR in late 1920s, and throughout 1930s, which aspired to
+  represent equivalent phonemes in a unified fashion. Also known as: New
+  Turkic Alphabet; Birl&#x4D9;&#x15F;dirilmi&#x15F; Jeni Tyrk
+  &#x4D8;lifbas&#x44C; (Birlesdirilmis Jeni Tyrk Elifbasi);
+  Ja&#x14B;alif (Janalif).
+%%
+Type: variant
+Subtag: biske
+Description: The San Giorgio dialect of Resian
+Description: The Bila dialect of Resian
+Added: 2007-07-05
+Prefix: sl-rozaj
+Comments: The dialect of San Giorgio/Bila is one of the four major local
+  dialects of Resian
+%%
+Type: variant
 Subtag: boont
 Description: Boontling
 Added: 2006-09-18
@@ -4758,6 +4798,24 @@ Added: 2005-10-16
 Prefix: sl
 %%
 Type: variant
+Subtag: njiva
+Description: The Gniva dialect of Resian
+Description: The Njiva dialect of Resian
+Added: 2007-07-05
+Prefix: sl-rozaj
+Comments: The dialect of Gniva/Njiva is one of the four major local
+  dialects of Resian
+%%
+Type: variant
+Subtag: osojs
+Description: The Oseacco dialect of Resian
+Description: The Osojane dialect of Resian
+Added: 2007-07-05
+Prefix: sl-rozaj
+Comments: The dialect of Oseacco/Osojane is one of the four major local
+  dialects of Resian
+%%
+Type: variant
 Subtag: polyton
 Description: Polytonic Greek
 Added: 2006-12-11
@@ -4777,6 +4835,25 @@ Description: Scouse
 Added: 2006-09-18
 Prefix: en
 Comments: English Liverpudlian dialect known as 'Scouse'
+%%
+Type: variant
+Subtag: solba
+Description: The Stolvizza dialect of Resian
+Description: The Solbica dialect of Resian
+Added: 2007-07-05
+Prefix: sl-rozaj
+Comments: The dialect of Stolvizza/Solbica is one of the four major
+  local dialects of Resian
+%%
+Type: variant
+Subtag: tarask
+Description: Belarusian in Taraskievica orthography
+Added: 2007-04-27
+Prefix: be
+Comments: The subtag represents Branislau Taraskievic's Belarusian
+  orthography as published in "Bielaruski klasycny pravapis" by Juras
+  Buslakou, Vincuk Viacorka, Zmicier Sanko, and Zmicier Sauka (Vilnia-
+  Miensk 2005).
 %%
 Type: variant
 Subtag: valencia

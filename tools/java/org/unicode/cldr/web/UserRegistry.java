@@ -150,19 +150,32 @@ public class UserRegistry {
             }
         }
 
-        public final boolean userIsSpecialForCLDR15(String locale) {
-            if(locale.equals("be")||locale.startsWith("be_")) {
-                if( ( id == 315 /* V. P. */ ) || (id == 8 /* S. M. */ ) ) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if ( id == 7 ) {  // Erkki
-                return true;
-            } else {
+        public final boolean userIsSpecialForCLDR15(String locale) {    
+            if(!getSpecialUsers().contains(this)) {
                 return false;
             }
+            if(locale==null) {
+                return true; // if they are special at all
+            } else {
+                if(userIsTC(this)) {
+                    return true;
+                }
+                if((this.locales == null) && userIsExpert(this)) return true; // empty = ALL
+                String localeArray[] = tokenizeLocale(this.locales);
+                return userCanModifyLocale(localeArray,locale);
+            }
         }
+//            if(locale.equals("be")||locale.startsWith("be_")) {
+//                if( ( id == 315 /* V. P. */ ) || (id == 8 /* S. M. */ ) ) {
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            } else if ( id == 7 ) {  // Erkki
+//                return true;
+//            } else {
+//                return false;
+//            }
         
 
     }
@@ -1210,4 +1223,120 @@ public class UserRegistry {
 //        return ret + " [" + localeList + "]";
         return ret;
     }
+    
+    Set<User> specialUsers = null;
+
+    public Set<User> getSpecialUsers() {
+        return getSpecialUsers(false);
+    }
+    
+    public synchronized Set<User> getSpecialUsers(boolean reread) {
+        if(specialUsers == null) {
+            reread = true;
+        }
+        if(reread == true) {
+            doReadSpecialUsers();
+        }
+        return specialUsers;
+    }
+    
+    private synchronized boolean doReadSpecialUsers() {
+        String externalErrorName = sm.cldrHome + "/" + "specialusers.txt";
+
+//        long now = System.currentTimeMillis();
+//        
+//        if((now-externalErrorLastCheck) < 8000) {
+//            //System.err.println("Not rechecking errfile- only been " + (now-externalErrorLastCheck) + " ms");
+//            if(externalErrorSet != null) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+//
+//        externalErrorLastCheck = now;
+        
+        try {
+            File extFile = new File(externalErrorName);
+            
+            if(!extFile.isFile() && !extFile.canRead()) {
+                System.err.println("Can't read special user file: " + externalErrorName);
+               // externalErrorFailed = true;
+                return false;
+            }
+            
+//            long newMod = extFile.lastModified();
+//            
+//            if(newMod == externalErrorLastMod) {
+//                //System.err.println("** e.e. file did not change");
+//                return true;
+//            }
+            
+            // ok, now read it
+            BufferedReader in
+               = new BufferedReader(new FileReader(extFile));
+            String line;
+            int lines=0;
+            Set<User> newSet = new HashSet<User>();
+            System.err.println("* Reading special user file: " + externalErrorName);
+            while ((line = in.readLine())!=null) {
+                lines++;
+                line = line.trim();
+                if((line.length()<=0) ||
+                  (line.charAt(0)=='#')) {
+                    continue;
+                }
+                try {
+                    int theirId = new Integer(line).intValue();
+                    User u = getInfo(theirId);
+                    if(u == null) {
+                        System.err.println("Could not find user: " + line);
+                        continue;
+                    }
+                    newSet.add(u);
+                    System.err.println("*+ User: " + u.toString());
+
+//                    String[] result = line.split("\t");
+//                    String loc = result[0].split(";")[0];
+//                    String what = result[1];
+//                    String val = result[2];
+//                    
+//                    Set<Integer> aSet = newSet.get(loc);
+//                    if(aSet == null) {
+//                        aSet = new HashSet<Integer>();
+//                        newSet.put(loc, aSet);
+//                    }
+//                    
+//                    if(what.equals("path:")) {
+//                        aSet.add(xpt.getByXpath(val));
+//                    } else if(what.equals("count:")) {
+//                        int theirCount = new Integer(val).intValue();
+//                        if(theirCount != aSet.size()) {
+//                            System.err.println(loc + " - count says " + val + ", we got " + aSet.size());
+//                        }
+//                    } else {
+//                        throw new IllegalArgumentException("Unknown parameter: " + what);
+//                    }
+                } catch(Throwable t) {
+                    System.err.println("** " + externalErrorName +":"+ lines + " -  " + t.toString());
+                    //externalErrorFailed = true;
+                    t.printStackTrace();
+                    return false;  
+                }
+            }
+            System.err.println(externalErrorName + " - " + lines + " and " + newSet.size() + " users loaded.");
+            
+//            externalErrorSet = newSet;
+//            externalErrorLastMod = newMod;
+//            externalErrorFailed = false;
+            specialUsers = newSet;
+            return true;
+        } catch(IOException ioe) {
+            System.err.println("Reading externalErrorFile: "  + "specialusers.txt - " + ioe.toString());
+            ioe.printStackTrace();
+            //externalErrorFailed = true;
+            return false;
+        }
+    }
+    
 }

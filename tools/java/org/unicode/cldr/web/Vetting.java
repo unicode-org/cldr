@@ -63,7 +63,7 @@ public class Vetting {
     */
     public static final int RES_NO_VOTES        = 1;      /** 1:0 No votes for data (and some draft data) - NO resolution **/
     public static final int RES_INSUFFICIENT    = 2;      /** 2:I Not enough votes **/
-    public static final int RES_ERROR           = 4;      /** 2:I Not enough votes **/
+    public static final int RES_ERROR           = 4;      /** 2:X Error-in-original **/
     public static final int RES_DISPUTED        = 8;      /** 4:D disputed item **/
 
     public static final int RES_BAD_MAX = RES_DISPUTED;  /** Data is OK (has a valid xpath in final data) if (type > RES_BAD_MAX) **/
@@ -901,7 +901,7 @@ public class Vetting {
         
         for(Race r : racesToUpdate) {
             if(r.recountIfHadDisqualified()) {
-if(r.base_xpath==85942)                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
+//if(r.base_xpath==85942)                System.err.println("Had errs; " + r.locale + " / " + r.base_xpath);
                 errorRaces.add(r);
             }
         }
@@ -1433,6 +1433,7 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 		public String locale;
 		public Hashtable<Integer,Chad> chads = new Hashtable<Integer,Chad>();
         public Hashtable<String,Chad> chadsByValue = new Hashtable<String,Chad>();
+        public Hashtable<String,Chad> chadsByValue2 = new Hashtable<String,Chad>();
 		public Hashtable<String, Organization> orgVotes = new Hashtable<String,Organization>();
 		public Set<Chad> disputes = new TreeSet<Chad>();
 		
@@ -1445,14 +1446,17 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
         public boolean hadDisqualifiedWinner = false; // at least one of the winners disqualified
         public boolean hadOtherError = false; // had an error on a missing item (coverage or collision?)
         int id; // for writing
+        public Set<String> refConflicts=new HashSet<String>(); // had any items that differ only in refs?
             
 		/* reset all */
 		public void clear() {
 			chads.clear();
             chadsByValue.clear();
+            chadsByValue2.clear();
 			orgVotes.clear();
 			disputes.clear();
 			winner = null;
+            refConflicts.clear();
 			existing=null;
 			base_xpath = -1;
             nexthighest = 0;
@@ -1483,6 +1487,73 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 			calculateOrgVotes();
 			
 			Chad optimal = calculateWinner();
+            
+            if(!refConflicts.isEmpty()) {
+                for(String conflictedValue : refConflicts) {
+                    String findings = "";
+                    if(conflictedValue==null) {
+                        conflictedValue="";
+                    }
+                    int numNoRefs = 0;
+                    int numRefs = 0;
+                    int numNoRefsVotes = 0;
+                    int numRefsVotes = 0;
+                    int numVotes=0;
+                    for(Chad c : chads.values()) {
+                        if(!conflictedValue.equals(c.value)) {
+                            continue;
+                        }
+                        if(c==optimal) {
+                            findings = findings + "[winner]";
+                        }
+                        findings=findings+"#"+c.xpath;
+                        int votes = c.voters.size();
+                        if(c.refs!=null) {
+                            findings = findings+","+"ref:"+c.refs;
+                            numNoRefs++;
+                            if(votes>0) {
+                                numRefsVotes++;
+                            }
+                        } else {
+                            numRefs++;
+                            if(votes>0) {
+                                numNoRefsVotes++;
+                            }
+                        }
+                        if(c.score>0) {
+                            findings = findings+",s"+c.score;
+                        }
+                        if(votes>0) {
+                            findings = findings+",v"+votes;
+                            numVotes++;
+                        }
+                        findings = findings +" ";
+                    }
+                    String conclusion="";
+                    if(numVotes==0) {
+                        conclusion="[No votes!]";
+                    } else {
+                        if(numVotes==1) {
+                            if(numRefsVotes>0) {
+                                conclusion="[Unanimous: REF]";
+                            } else {
+                                conclusion="[Unanimous: NO REF]";
+                            }
+                        } else if(numRefsVotes>1) {
+                            conclusion="[Votes for differing references]";
+                        } else if(numRefsVotes>0 && numNoRefsVotes>0) {
+                            conclusion="[Votes for both REF and NONREF]";
+                        } else {
+                            // none of the above.
+                            conclusion="[V"+numVotes+": r"+numRefsVotes+" no"+numNoRefsVotes+" - total: R"+numRefs+
+                                        " NO"+numNoRefs+"]";
+                        }
+                    }
+                        
+                    System.err.println(locale+":"+base_xpath+" - refConflicts: "+conflictedValue+": " + conclusion +" :" +findings);
+                }
+            }
+            
 			if(optimal == null) {
 				return -1;
 			} else {
@@ -1518,7 +1589,8 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
         
         private Chad getChad(int vote_xpath, int full_xpath, String value) {
             String valueForLookup = (value!=null)?value:EMPTY_STRING;
-           
+            String nonEmptyValue = valueForLookup;
+            
             String full_xpath_string = sm.xpt.getById(full_xpath);
             String theReferences = null;
             if(full_xpath_string.indexOf(LDMLConstants.REFERENCES)>=0) {
@@ -1530,16 +1602,21 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
                 if(theReferences != null) {
                     // disambiguate it from the other value
                     valueForLookup = valueForLookup + " ["+theReferences+"]";
-                    if(value==null) {
-                        value = "";
-                    }
-                    value = value + "&nbsp;<i title='This item has a Reference.'>(reference)</i>";
+                    //if(value==null) {
+                    //    value = "";
+                    //}
+                    //value = value + "&nbsp;<i title='This item has a Reference.'>(reference)</i>";
                 }
             }
-            
+
             Chad valueChad = chadsByValue.get(valueForLookup);
             if(valueChad != null) {
                 return valueChad;
+            } else {
+                Chad otherChad = chadsByValue2.get(nonEmptyValue);
+                if(otherChad!=null && otherChad.refs != theReferences) {
+                    refConflicts.add(nonEmptyValue);
+                }
             }
             
 			Integer vote_xpath_int = new Integer(vote_xpath);
@@ -1548,6 +1625,8 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 				c = new Chad(vote_xpath, full_xpath, value);
 				chads.put(vote_xpath_int, c);
                 chadsByValue.put(valueForLookup,c);
+                chadsByValue2.put(nonEmptyValue,c);
+                c.refs = theReferences;
 			}
             return c;
         }
@@ -1638,6 +1717,9 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
 				vote(u, vote_xpath, orig_xpath, itemValue);
             }
 			
+            /**
+             * Get the existing item. 
+             */
 			queryValue.setInt(2,base_xpath);
 			rs = queryValue.executeQuery();
 			if(rs.next()) {
@@ -1659,8 +1741,17 @@ if(r.base_xpath==85942)                System.err.println("Had errs; " + r.local
                 defaultVote("Google", vote_xpath, origXpath, value);
             }
             
-            // Now, add ALL possible items.
-            
+            // Now, add ALL other possible items.
+            dataByBase.setString(1,locale);
+            dataByBase.setInt(2, base_xpath);
+            rs = dataByBase.executeQuery();
+            while(rs.next()) {
+                int xpath = rs.getInt(1);
+                int origXpath = rs.getInt(2);
+                // 3 : alt_type
+                String value = rs.getString(4);
+                Chad c = getChad(xpath, origXpath, value);
+            }
             
 		    return count;
         }
@@ -2773,7 +2864,14 @@ if(true == true)    throw new InternalError("removed from use.");
          try {
                 // select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
             Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type>"+RES_NO_VOTES+") AND (CLDR_RESULT.type<="+RES_BAD_MAX+")");
+            ResultSet rs;
+            
+             if(ctx.hasField("only_err")) {
+                ctx.println("<h1>Only showing ERROR (disqualified winner) items</h1>");
+                rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type="+RES_ERROR+")");
+             } else {
+                rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type>"+RES_NO_VOTES+") AND (CLDR_RESULT.type<="+RES_BAD_MAX+")");
+            }
 			while(rs.next()) {
 				n++;
 				String aLoc = rs.getString(1);
@@ -3008,7 +3106,7 @@ if(true == true)    throw new InternalError("removed from use.");
                         //if(locale.equals("fr")) {
                       //  if(/*sm.isUnofficial &&*/ xpath.indexOf("ii")!=-1) {
                        // if(f2.equals(xpath)) {
-                        //    System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
+//                            System.err.println("ER: "+xpath + " // " + fxpath + " // " + value + " - " + status.toString());
                       //  }
                         return true;
                     }

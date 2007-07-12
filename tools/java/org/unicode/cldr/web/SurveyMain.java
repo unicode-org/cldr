@@ -722,6 +722,8 @@ public class SurveyMain extends HttpServlet {
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "statics", "Statics", "action");       
             actionCtx.println(" | ");
+        printMenu(actionCtx, action, "specialusers", "Specialusers", "action");       
+            actionCtx.println(" | ");
         printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
             actionCtx.println(" | ");
         printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
@@ -1107,6 +1109,20 @@ public class SurveyMain extends HttpServlet {
                 logger.info("Loaded all. " + allTime);
                 ctx.println("Loaded all." + allTime + "<br>");
             }
+        } else if(action.equals("specialusers")) {
+            ctx.println("<hr>Re-reading special users list...<br>");
+            Set<UserRegistry.User> specials = reg.getSpecialUsers(true); // force reload
+
+            ctx.print("<br><hr><i>Users allowed special access:</i>");
+            ctx.print("<table class='list' border=1 summary='special access users'>");
+            ctx.print("<tr><th>"+specials.size()+" Users</th></tr>");
+            int nn=0;
+            for(UserRegistry.User u : specials) {
+                ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+                ctx.println("<td>"+u.toString()+"</td>");
+                ctx.println("</tr>");
+            }
+            ctx.print("</table>");
         } else if(action.equals("specialmsg")) {
             ctx.println("<hr>");
             
@@ -1647,7 +1663,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("(SurveyTool is closed to vetting and data submissions.)");
             }
             ctx.println("<br/>");
-            if((ctx.session != null) && (ctx.session.user != null) && (SurveyMain.phaseVettingClosed && ctx.session.user.userIsSpecialForCLDR15("be"))) {
+            if((ctx.session != null) && (ctx.session.user != null) && (SurveyMain.phaseVettingClosed && ctx.session.user.userIsSpecialForCLDR15(null))) {
                 ctx.println("<b class='selected'>"+ctx.session.user.name+", you have been granted extended privileges for the CLDR 1.5 vetting period.</b><br>");
             }
         }

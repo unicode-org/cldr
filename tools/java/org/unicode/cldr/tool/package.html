@@ -1,44 +1,320 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
+
 <head>
 <!--
 Copyright (C) 2004-2005, Unicode, Inc., International Business Machines Corporation, and others.
 For terms of use, see http://www.unicode.org/terms_of_use.html
 -->
+<link rel="stylesheet" type="text/css" href="../common.css" />
 </head>
+
 <body bgcolor="white">
+
 <h1>Tools</h1>
-<p>Provides tools for manipulating CLDR files.
-</p>
-<h2>Canonicalizing</h2>
-<blockquote>
-	<p>Use CLDRModify -r to canonicalize the format. </p>
-</blockquote>
-<h2><b>Statistics</b></h2>
-<p>To generate statistics on CLDR, use: CountItems </p>
-<blockquote>
-	<p>-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\cldr_1_4\main\<br>
-	<br>
-	-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\incoming\vetted\main\</p>
-	<p>It will generate something like:</p>
-	<blockquote>
-		<p>Total Items 66,319<br>
-		Total Resolved Items 1,025,077<br>
-		Unique Paths 4,717<br>
-		Unique Values 45,226<br>
-		Unique Full Paths 9,301</p>
-	</blockquote>
-</blockquote>
-<h2>Error Report</h2>
+<p>Provides tools for manipulating CLDR files. <i>&nbsp;Warning: these tools are written quickly without 
+much documentation</i></p>
+<p><b>The directory C:\cvsdata\unicode stands for wherever the cldr directory is for the locale 
+CVS.</b></p>
+<table border="1" width="100%" id="table1" style="border-collapse: collapse">
+	<tbody>
+	<tr>
+		<th>Goal</th>
+		<th>Test</th>
+		<th>Typical Options</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><i>For speed, UTF-8 files, showing file creation</i></td>
+		<td><i>Common Options for all of following</i></td>
+		<td>-DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8 -Xmx700M -DSHOW_FILES -DSHOW</td>
+	</tr>
+	<tr>
+		<td>Canonicalizing format</td>
+		<td>CLDRModify </td>
+		<td>General verification of vetted data</td>
+		<td>-r </td>
+	</tr>
+	<tr>
+		<td rowspan="2">Generating Statistics</td>
+		<td rowspan="2">CountItems </td>
+		<td rowspan="2">Generate something like:<pre><font size="1">Total Items 66,319
+Total Resolved Items 1,025,077
+Unique Paths 4,717
+Unique Values 45,226
+Unique Full Paths 9,301</font></pre>
+		</td>
+		<td>-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\cldr_1_4\main\</td>
+	</tr>
+	<tr>
+		<td>-Dmethod=countItems -DSOURCE=C:\cvsdata\unicode\cldr\incoming\vetted\main\</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</tbody>
+</table>
+<h2>UPDATING CODES</h2>
+<p>Periodically, the language, territory, script, currency, and country codes change. This document 
+describes how to update CLDR when this happens. For the purposes of this document, / and \ are equivalent.</p>
+<p><font color="#FF0000"><i><b>Note: All of this is more complicated than it should be: we need to 
+simplify the process. We just haven't gotten there yet with everything else going on!</b></i></font></p>
+<h3>Update to Language Subtag Registry</h3>
+<p>This updates language codes, script codes, and territory codes.</p>
+<p></p>
 <ul>
-	<li>Run ConsoleCheckCldr with options<ul>
-		<li>-f(.*) -p(.*) -t(.*) -n -s C:/cvsdata/unicode/cldr/incoming/vetted/main -zFINAL_TESTING -e -cminimal -g</li>
+	<li>Go to <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a> 
+	<ul>
+		<li>(you can set up a watch for changes in this page with 
+		<a href="http://www.watchthatpage.com">http://www.watchthatpage.com</a> )</li>
 	</ul>
 	</li>
-	<li>Should take about 6 minutes.</li>
-	<li>Generates data in <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/errors/">C:\cvsdata\unicode\cldr\dropbox\gen\errors\</a> (you can change this by 
-	adding to -g)</li>
-	<li>Once this is done, update with CVS.</li>
+	<li>Save as C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\language-subtag-registry</li>
+	<li>If using Eclipse, refresh the files</li>
+	<li>Diff with the old copy (via CVS) to check for consistency</li>
+	<li>Any new codes need a corresponding update in supplementalMetadata.xml<ul>
+		<li>Run CountItems -DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8 -DSHOW_FILES -Xmx512M -Dmethod=getSubtagVariables</li>
+		<li>Replace sections of supplementalMetadata.xml</li>
+	</ul>
+	</li>
+	<li>Edit common/main/en.xml to add the new names, based on the Descriptions in the registry file.<ul>
+		<li>The format of the registry is screwy: you can use 
+		<a href="http://demo.icu-project.org/icu-bin/translit">http://demo.icu-project.org/icu-bin/translit</a> to convert forms like N&amp;#x2019;Ko into N’Ko</li>
+	</ul>
+	</li>
+	<li>If the associations to script or territory are known, edit supplementalData.xml<ul>
+		<li>for example, add to &lt;languageData&gt;</li>
+		<li>&lt;language type=&quot;gsw&quot; scripts=&quot;Latn&quot; territories=&quot;CH&quot;/&gt;</li>
+	</ul>
+	</li>
+	<li>If the code becomes deprecated, then add to supplementalMetadata under &lt;alias&gt;<ul>
+		<li>If there is a single replacement add it.</li>
+	</ul>
+	</li>
+	<li>For territories (regions)<ul>
+		<li>add to the territoryContainment in supplementalData.xml<ul>
+			<li>The data for that is at the UN site: 
+			<a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">http://unstats.un.org/unsd/methods/m49/m49regin.htm</a> 
+			</li>
+		</ul>
+		</li>
+		<li>Grep through supplementalMetadata.xml to fix currencies, etc.</li>
+		<li>Update util/data/territory_codes.txt<ul>
+			<li>This step will be different once the data is moved into SupplementalData.xml</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li>Then run GenerateEnums.java, and make sure it completes with no exceptions.</li>
+	<li>Run ConsoleCheckCLDR -f(en) -c comprehensive<ul>
+		<li>If you missed any codes, you will get error message: &quot;Unexpected Attribute Value&quot;</li>
+	</ul>
+	</li>
+	<li>Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html charts<ul>
+		<li>Generate them in ...\unicode\cldr\diff\supplemental\...</li>
+		<li>Post to http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</li>
+	</ul>
+	</li>
 </ul>
+<p></p>
+<h3>Update New Currency Codes</h3>
+<p></p>
+<ul>
+	<li>Go to <a href="http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html">http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html</a> 
+<ul>
+	<li>(you can set up a watch for changes in this page with <a href="http://www.watchthatpage.com">http://www.watchthatpage.com</a> )</li>
+	<li><b>WARNING: this needs to be checked periodically, since ISO does not keep accurate histories!</b></li>
+	<li>Best is to get on the notification list. If one is missed, try<ul>
+		<li>http://web.archive.org/web/*sa_/http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html</li>
+	</ul></li>
+	<li>Also see <a href="http://publications.europa.eu/code/en/en-5000700.htm">http://publications.europa.eu/code/en/en-5000700.htm</a>&nbsp; for background info.</li>
+</ul>
+	</li>
+	<li>Open the page in IE (not other browsers), and 
+<ul>
+	<li>select from just before the first character in the line &quot;ISO 4217 Currency names and code elements&quot;</li>
+	<li>to just after the last character in &quot;Last modified yyyy-mm-dd&quot;, and copy.</li>
+</ul>
+	</li>
+	<li>Open the page C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\currencyCodesList.txt 
+from inside Excel<ul>
+	<li>Use options: UTF-8, no &quot;</li>
+	<li>Select all, Delete</li>
+	<li>Select A1, Paste, Save</li>
+</ul>
+	</li>
+	<li>You should now have a tab-delimited plaintext file</li>
+	<li>Use CVS Diff to verify the contents.</li>
+	<li>If you are using Eclipse, refresh the file system (F5)</li>
+	<li>Run CountItems -Dmethod=generateCurrencyItems to generate the new currency list.<ul>
+	<li>Verify that no currencies are removed. If one would be, add it to IsoCurrencyParser.oldValues, and rerun CountItems.</li>
+	<li>It will print a list of items at the end that need to be added to the ISO4217.txt file. Add as 
+described below.</li>
+	<li>CountItems will also list the data from the file, for cross-checking SupplementalData</li>
+	<li>If any country changes the use of a currency,</li>
+	<li>verify that there is a corresponding entry in SupplementalData</li>
+	<li>Since ISO doesn't publish the exact data change (!), just make sure it is ballpark.</li>
+	<li>For new stuff, see below.</li>
+</ul>
+	</li>
+	<li>Adding a currency:<ul>
+	<li>In SupplementalData:</li>
+	<li>If it has unusual rounding or number of digits, add to:<ul>
+	<li>&lt;fractions&gt;</li>
+	<li>&lt;info iso4217=&quot;ADP&quot; digits=&quot;0&quot; rounding=&quot;0&quot;/&gt;</li>
+	<li>...</li>
+</ul>
+	</li>
+	<li>For each country in which it comes into use, add a line for when it becomes valid<ul>
+	<li>&lt;region iso3166=&quot;TR&quot;&gt;</li>
+	<li>&lt;currency iso4217=&quot;TRY&quot; from=&quot;2005-01-01&quot;/&gt;</li>
+</ul>
+	</li>
+	<li>Add the code to the file java/org/unicode/cldr/util/data/ISO4217.txt. This is important, since it 
+is used to get the valid codes for the survey tool.<ul>
+	<li>Example:<ul>
+		<li>currency | TRY | new Turkish Lira | TR | TURKEY | C</li>
+	</ul></li>
+	<li>Mark the old code in java/org/unicode/cldr/util/data/ISO4217.txt as deprecated.<ul>
+	<li>currency | TRL | Old Turkish Lira | TR | TURKEY | O</li>
+</ul></li>
+</ul></li>
+</ul></li>
+	<li>Changing currency.<ul>
+	<li>If the currency goes out of use in a country, then add the last day of use, such as:<ul>
+	<li>&lt;region iso3166=&quot;TR&quot;&gt;</li>
+	<li>&lt;currency iso4217=&quot;TRL&quot; from=&quot;1922-11-01&quot;/&gt;</li>
+	<li>=&gt;</li>
+	<li>&lt;region iso3166=&quot;TR&quot;&gt;</li>
+	<li>&lt;currency iso4217=&quot;TRL&quot; from=&quot;1922-11-01&quot; to=&quot;2005-12-31&quot;/&gt;</li>
+</ul></li>
+	<li>Edit common/main/en.xml to add the new names (or change old ones) based on the descriptions.<ul>
+	<li>If there is a collision between a new and old name, the old one typically changes to<ul>
+		<li>&quot;old X&quot; or &quot;X (1983-2003)&quot;.</li>
+	</ul></li>
+</ul></li>
+	<li>Run CountItems -DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8 -DSHOW_FILES -Xmx512M -Dmethod=getSubtagVariables<ul>
+		<li>Replace the section of supplementalMetadata.xml &lt;variable id=&quot;$currency&quot; type=&quot;choice&quot;&gt;</li>
+	</ul>
+	</li>
+</ul></li>
+</ul>
+<p></p>
+<h3>Update New Timezone Database</h3>
+<p>Do the following to update to a new timezone database.</p>
+<ol type="A">
+	<li>Download the latest version of the data from <a href="ftp://elsie.nci.nih.gov/pub/">ftp://elsie.nci.nih.gov/pub/</a> 
+	<ul>
+		<li>Unpack, and copy contents into ...org\unicode\cldr\util\data</li>
+		<li>Edit the file tzdb-version.txt to change the version, eg for the file tzdata2007a.tar.gz, the version 
+is 2007a.</li>
+		<li>If you are using Eclipse, remember to refresh the project.</li>
+	</ul></li>
+	<li>Diff zone.tab.<ul>
+		<li>if any IDs in zone.tab changed name, </li>
+		<li>add the mapping to org.unicode.cldr.util.ZoneParser.FIX_UNSTABLE_TZID_DATA</li>
+		<li>The format is &lt;new name&gt;, &lt;old name&gt;</li>
+		<li>Eg {&quot;America/Argentina/Buenos_Aires&quot;, &quot;America/Buenos_Aires&quot;},</li>
+	</ul></li>
+	<li>Now Verify<ul>
+		<li>Run CountItems -Dmethod=genSupplementalZoneData to generate new data.</li>
+		<li>Paste the zoneItems into supplementalData.xml</li>
+		<li>Paste the $tzid into supplementalMetadata.xml</li>
+		<li>Produce Diffs for both files.</li>
+		<li>CAREFULLY COMPARE THE RESULTS TO THE LAST VERSION FOR BOTH</li>
+		<li>In supplementalData.xml, any changed name from zone.tab must show a diff like:</li>
+		<li>old: &lt;zoneItem type=&quot;Atlantic/Faeroe&quot; territory=&quot;FO&quot;/&gt;</li>
+		<li>new: &lt;zoneItem type=&quot;Atlantic/Faeroe&quot; territory=&quot;FO&quot; aliases=&quot;Atlantic/Faroe&quot;/&gt;</li>
+		<li>That is, the old name must not change, just add new aliases.</li>
+		<li>In both files, any new zone.tab ID must show up, eg.</li>
+		<li>supplementalData.xml, new: &lt;zoneItem type=&quot;Australia/Eucla&quot; territory=&quot;AU&quot;/&gt;</li>
+		<li>supplementalMetadata.xml, new: Australia/Eucla</li>
+	</ul></li>
+	<li>REMOVE IDs. This doesn't happen very often, but requires some real thought when it does.<ul>
+		<li>If there are any $tzid's that are in the last version that are not in the current,</li>
+		<li>find out what &quot;real&quot; alias it should point to. There are 2 types.</li>
+		<li>1. ID was removed completely, like HST. In that case, there will be no item or alias in zoneItem's.<ul>
+			<li>Look at the old supplemental data to determine what it used to map to (eg Pacific/Honolulu)</li>
+			<li>Add to supplementalMetaData</li>
+			<li>&lt;zoneAlias type=&quot;HST&quot; replacement=&quot;Pacific/Honolulu&quot;/&gt;</li>
+			<li>Add CountItems.ADD_ZONE_ALIASES_DATA</li>
+			<li>eg {&quot;HST&quot;, &quot;Pacific/Honolulu&quot;},</li>
+			<li>Rerun CountItems.genSupplementalZoneData()</li>
+		</ul></li>
+		<li>2. ID is no longer in zone.tab (after fixing &quot;A&quot;), but is still linked.<ul>
+			<li>In that case, there will still be a zoneItem as an alias, eg<ul>
+				<li>&lt;zoneItem type=&quot;Africa/Bamako&quot; territory=&quot;ML&quot; aliases=&quot;Africa/Timbuktu&quot;/&gt;</li>
+			</ul></li>
+			<li>Add to supplementalMetadata. Use the zoneItem info<ul>
+				<li>&lt;zoneAlias type=&quot;Africa/Timbuktu&quot; replacement=&quot;Pacific/Honolulu&quot;/&gt;</li>
+			</ul></li>
+			<li>Add to CountItems.FIX_DEPRECATED_ZONE_DATA. Example:<ul>
+				<li>&quot;Africa/Timbuktu&quot;,</li>
+			</ul></li>
+			<li>Rerun CountItems.genSupplementalZoneData()</li>
+			<li>Sometimes the aliases will be on the wrong element. If so, add to org.unicode.cldr.util.ZoneParser.PREFERRED_BASES.</li>
+		</ul>
+		<p></li>
+	</ul></li>
+	<li>Repeat C and D until no changes occur.<ul>
+		<li>When you are all done, there should ONLY be additions to $tzid and zoneItem's.</li>
+	</ul>
+	<p></li>
+	<li>Check in the new supplemental files and the data files in ...org\unicode\cldr\util\data<ul>
+		<li>just the data files that are already checked in (eg check in 'africa', but not 'factory')</li>
+		<li>(Note: the code in CountItems and StandardCodes means that we have to duplicate a bit of process 
+above, but for now it's not worth fixing.)</li>
+	</ul></li>
+</ol>
+<p></p>
+<p></p>
+<h3>Update new Language/Script/Country Information</h3>
+<ol>
+	<li>Get the spreadsheet from Rick, with a name of the form: country_language_population-0403.xls</li>
+	<li>Open, and pick the Save As... menu<ol>
+	<li>Pick &quot;Save as type:&quot; Text (Tab delimited) (*.txt)</li>
+	<li>And &quot;File name:&quot; C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt</li>
+	<li>Respond OK, Yes; then close Excel (clicking No)</li>
+	<li>In CVS, diff C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt 
+and sanity-check the changes.</li>
+</ol>
+	</li>
+	<li>Run the tool ConvertLanguageData.<ol>
+	<li>At the bottom are a list of Failures. It will also warn if a country doesn't have an official or de facto official language. Send those back to Rick. 
+	</li>
+	<li>Also send the lists: In Basic Data but not Population &gt; 20% and the reverse.</li>
+</ol>
+	</li>
+	<li>Diff the following two files as a sanity check. The fragment only has certain portions of supplemental 
+data, so ignore the parts it doesn't have:<ul>
+		<li>C:\cvsdata\unicode\cldr\common\supplemental\supplementalData.xml</li>
+		<li>C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment.xml</li>
+	</ul>
+	</li>
+	<li>Also compare the following (for the defaultContent section only)
+	<ul>
+		<li>C:\cvsdata\unicode\cldr\common\supplemental\supplementalMetadata.xml</li>
+		<li>C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment_metadata.xml</li>
+	</ul>
+	</li>
+	<li>If all looks well, paste in the sections into supplementalData.xml<ul>
+		<li>&lt;territoryInfo&gt;</li>
+		<li>&lt;references&gt;</li>
+	</ul>
+	</li>
+	<li>And into supplementalMetadata.xml<ul>
+		<li>&lt;defaultContent&gt;</li>
+	</ul>
+	</li>
+	<li>Then run QuickCheck to verify that the DTD is in order, and check in.</li>
+	<li>Then run ShowLanguages to generate the charts. Sanity check them, and check in.</li>
+</ol>
+<p>&nbsp;</p>
+
 </body>
+
 </html>

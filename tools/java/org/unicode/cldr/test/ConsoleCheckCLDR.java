@@ -180,7 +180,7 @@ public class ConsoleCheckCLDR {
     Phase phase = Phase.VETTING;
     if (options[PHASE].doesOccur) {
       try {
-        phase = Phase.valueOf(options[PHASE].value);
+        phase = Phase.valueOf(options[PHASE].value.toUpperCase());
       } catch (RuntimeException e) {
         throw (IllegalArgumentException) new IllegalArgumentException("Incorrect Phase value: should be one of " + Arrays.asList(Phase.values())).initCause(e);
       }

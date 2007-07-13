@@ -42,15 +42,29 @@ changes (see the end). </b></p>
 		<p>The percentages may add up to more than 100% due to multilingual populations, or may be less than 100% due to illiteracy or because the data has not 
 		yet been gathered or processed. Languages with a small population may be omitted. </p>
 		<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>
-		<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> links, below.</p>
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with the 
+			<i>bug</i> or <i>add new</i> links, below.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;territoryInfo&gt;, &lt;calendarData&gt;, &lt;weekData&gt;, and 
+			&lt;measurementData&gt; elements)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
 		<td>language_territory_information</td>
 		<td>
-		<p align="left">The language data is provided for localization testing, and is under development for CLDR 1.5. To add a new territory for a language, see 
-		the <i>add new</i> links below. For information on the meaning of the different values, see <a href="territory_language_information.html">Territory-Language 
+		<p align="left">The language data is provided for localization testing, and is under 
+		development for CLDR 1.5. For information on the meaning of the different values, see <a href="territory_language_information.html">Territory-Language 
 		Information</a>.</p>
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, or add a new 
+			territory for a language, see the <i>add new</i> links below.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;territoryInfo&gt; element)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -59,9 +73,14 @@ changes (see the end). </b></p>
 		<p align="left">The following table shows when currencies were in use in different countries. See also <a href="#format_info">Decimal Digits and Rounding</a>. 
 		The digits column shows the number of digits to use; if there is special rounding (such as for CH), that is in parentheses. The Countries column shows which 
 		countries the currency is <font face="Lucida Sans Unicode">—</font> <i>or has been</i> <font face="Lucida Sans Unicode">—</font> used in, officially.</p>
-		<p align="left">If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Currency%20Bug&body=%3ccurrency%2c%20country%2c%20and%20references%20supporting%20change%3e">
-		bug report</a>.</p>
+		bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;currencyData&gt; element)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -99,9 +118,14 @@ changes (see the end). </b></p>
 				<td>The modern script column shows &quot;N&quot; if the script is not in customary modern use.</td>
 			</tr>
 		</table>
-		<p>If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Language-Script%20Bug&body=%3Clanguage%2C%20script%2C%20and%20references%20supporting%20change%3E">
-		bug report</a>.</p>
+		bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;languageData&gt; element)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -141,9 +165,14 @@ changes (see the end). </b></p>
 				<td>The modern script column shows &quot;N&quot; if the script is not in customary modern use.</td>
 			</tr>
 		</table>
-		<p>If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Language-Script%20Bug&body=%3Clanguage%2C%20script%2C%20and%20references%20supporting%20change%3E">
-		bug report</a>.</p>
+		bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;languageData&gt; element)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -152,19 +181,30 @@ changes (see the end). </b></p>
 		<p align="left">The <b>Territory Containment</b> table shows the organization of territories and regions according to
 		<a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN M.49</a>, starting with the World. (CLDR supplements this table with the QO code for outlying 
 		areas that would not otherwise be included.) As the last column, the timezone IDs for that country are listed.</p>
-		<p align="left">If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Territory-Containment%20Bug&body=%3Cterritory%2C%20contained%2C%20and%20references%20supporting%20change%3E">
 		bug report</a>. However, such reports should be limited to cases where the information here deviates from
-		<a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN M.49</a>.</p>
+		<a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN M.49</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> (see the &lt;territoryContainment&gt; and &lt;timezoneData&gt; elements)</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
 		<td>windows_tzid</td>
 		<td>
 		<p align="left">The <b>Windows-Tzid</b> table shows the mapping from Windows timezone IDs to the standard TZIDs.</p>
-		<p align="left">If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please 
+			report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Windows-TZID%20Bug&body=%3Cwindows-id%2C%20tzid%2C%20and%20references%20supporting%20change%3E">
-		bug report</a>.</p>
+			bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
+			supplementalData.xml</a> </li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -177,9 +217,14 @@ changes (see the end). </b></p>
 		is tried; if that fails then <code>toNFKC</code>(<i>value</i>) is tried. (The <b>Explicit</b>, <b>NFC</b>, and <b>NFKC</b> <i>substitutes</i> are shown 
 		in the chart by different colors).<p>Note that the character fallbacks do lose information, and should not be used where there is a viable alternative, 
 		such as HTML escapes.</p>
-		<p>If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Character-Fallback%20Bug&body=%3Ccharacter%2C%20fallback%2C%20and%20references%20supporting%20change%3E">
-		bug report</a>.</p>
+		bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a>&nbsp; 
+			</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -187,9 +232,14 @@ changes (see the end). </b></p>
 		<td>
 		<p align="left"><b>Aliases</b> show how to map deprecated codes or aliases onto the ones that should be used to access CLDR data. Most other metadata is 
 		not shown in tables; the source data should be consulted. Codes are shown in brackets before or after the English name, eg &quot;Vanuatu [VU]&quot;</p>
-		<p>If you find errors or omissions in this data, please report the information with a
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 		<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?compose=1274&from=%3cemail%3e&subject=Aliases%20Bug&body=%3Calias-from%2C%20alias-to%2C%20and%20references%20supporting%20change%3E">
-		bug report</a>.</p>
+		bug report</a>.</li>
+			<li><b>XML Source:</b>
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml">
+			supplementalMetadata.xml</a> (see the &lt;alias&gt; element)</li>
+		</ul>
 		</td>
 	</tr>
 </table>

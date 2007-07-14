@@ -11,7 +11,7 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="sr" draft="provisional">српски</language>
+			<language type="sr" draft="unconfirmed">српски</language>
 		</languages>
 	</localeDisplayNames>
 	<!-- CALENDAR INFORMATION.  Gregorian Only -->
@@ -61,7 +61,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH 'часова', mm 'минута', ss' секунди'</pattern>
+							<pattern alt="proposed-x555">HH 'часова', mm 'минута', ss' секунди'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -77,10 +77,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy.</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
+						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -92,7 +92,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -108,4 +108,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

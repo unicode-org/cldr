@@ -97,7 +97,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">d MMMM yyyy</pattern>
+							<pattern alt="proposed-x555" draft="unconfirmed">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -130,10 +130,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d نچی MMMM</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d نچی MMMM</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">M/d</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="unconfirmed">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -162,4 +162,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

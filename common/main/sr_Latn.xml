@@ -10,10 +10,15 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="af">Afrikanerski</language>
+			<language type="am">Amharski</language>
 			<language type="ar">Arapski</language>
+			<language type="az">Azerbejdžanski</language>
 			<language type="be">Beloruski</language>
 			<language type="bg">Bugarski</language>
+			<language type="bh">Biharski</language>
+			<language type="bn">Bengalski</language>
 			<language type="br">Bretonski</language>
+			<language type="bs">Bosanski</language>
 			<language type="ca">Katalonski</language>
 			<language type="co">Korzikanski</language>
 			<language type="cs">Češki</language>
@@ -21,6 +26,8 @@
 			<language type="de">Nemački</language>
 			<language type="el">Grčki</language>
 			<language type="en">Engleski</language>
+			<language type="en_AU">Engleski (Australija)</language>
+			<language type="en_GB">en_GB</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Španski</language>
 			<language type="et">Estonski</language>
@@ -33,7 +40,8 @@
 			<language type="hi">Hindi</language>
 			<language type="hr">Hrvatski</language>
 			<language type="hu">Mađarski</language>
-			<language type="hy">Armenski</language>
+			<language type="hy">Jermenski</language>
+			<language type="hy" alt="proposed-x1001" draft="unconfirmed">Armenski</language>
 			<language type="id">Indonezijski</language>
 			<language type="is">Islandski</language>
 			<language type="it">Italijanski</language>
@@ -54,12 +62,13 @@
 			<language type="no">Norveški</language>
 			<language type="pl">Poljski</language>
 			<language type="pt">Portugalski</language>
+			<language type="pt_BR">Portugalski (Brazil)</language>
 			<language type="rm">Reto-Romanski</language>
 			<language type="ro">Rumunski</language>
 			<language type="ru">Ruski</language>
 			<language type="sa">Sanskrit</language>
-			<language type="sh" draft="provisional">srpski</language>
-			<language type="sh" alt="proposed-x999">Srpsko-Hrvatski</language>
+			<language type="sh">Srpsko-Hrvatski</language>
+			<language type="sh" alt="proposed-x1001" draft="unconfirmed">srpski</language>
 			<language type="sk">Slovački</language>
 			<language type="sl">Slovenački</language>
 			<language type="sq">Albanski</language>
@@ -68,6 +77,7 @@
 			<language type="sw">Svahili</language>
 			<language type="tr">Turski</language>
 			<language type="uk">Ukrajinski</language>
+			<language type="und">Nepoznat ili nevažeći jezik</language>
 			<language type="vi">Vijetnamski</language>
 			<language type="yi">Jidiš</language>
 			<language type="zh">Kineski</language>
@@ -96,10 +106,14 @@
 			<script type="Latf">Latinica (Fraktur varijanta)</script>
 			<script type="Latn">Latinica</script>
 			<script type="Runr">runsko pismo</script>
+			<script type="Zxxx">Nepisani jezik</script>
+			<script type="Zzzz">Nepoznato ili nevažeće pismo</script>
 		</scripts>
 		<territories>
 			<territory type="001">Svet</territory>
 			<territory type="002">Afrika</territory>
+			<territory type="003">Severnoamerički kontinent</territory>
+			<territory type="003" alt="proposed-x1001" draft="unconfirmed">Severna Amerika</territory>
 			<territory type="005">Južna Amerika</territory>
 			<territory type="009">Okeanija</territory>
 			<territory type="011">Zapadna Afrika</territory>
@@ -112,6 +126,7 @@
 			<territory type="021">Severna Amerika</territory>
 			<territory type="029">Karibi</territory>
 			<territory type="030">Istočna Azija</territory>
+			<territory type="034">Južna Azija</territory>
 			<territory type="035">Jugoistočna Azija</territory>
 			<territory type="039">Južna Evropa</territory>
 			<territory type="053">Australija i Novi Zeland</territory>
@@ -125,6 +140,7 @@
 			<territory type="151">Istočna Evropa</territory>
 			<territory type="154">Severna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
+			<territory type="419">Latinska Amerika i Karibi</territory>
 			<territory type="830">Kanalska ostrva</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Ujedinjeni Arapski Emirati</territory>
@@ -205,6 +221,7 @@
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Gruzija</territory>
 			<territory type="GF">Francuska Gvajana</territory>
+			<territory type="GG">Gurnsi</territory>
 			<territory type="GH">Gana</territory>
 			<territory type="GI">Gibraltar</territory>
 			<territory type="GL">Grenland</territory>
@@ -219,6 +236,8 @@
 			<territory type="GW">Gvineja-Bisao</territory>
 			<territory type="GY">Gvajana</territory>
 			<territory type="HK">Hong Kong (S. A. R. Kina)</territory>
+			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Hong Kong S.A.R. Kine</territory>
+			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Herd i Mekdonald Ostrva</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Hrvatska</territory>
@@ -229,11 +248,13 @@
 			<territory type="IL">Izrael</territory>
 			<territory type="IM">Ostrvo Man</territory>
 			<territory type="IN">Indija</territory>
-			<territory type="IO">British Indian Ocean Territory</territory>
+			<territory type="IO">Britansko Indijska Okeanska Teritorija</territory>
+			<territory type="IO" alt="proposed-x1001" draft="unconfirmed">British Indian Ocean Territory</territory>
 			<territory type="IQ">Irak</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Island</territory>
 			<territory type="IT">Italija</territory>
+			<territory type="JE">Džersi</territory>
 			<territory type="JM">Jamajka</territory>
 			<territory type="JO">Jordan</territory>
 			<territory type="JP">Japan</territory>
@@ -262,6 +283,7 @@
 			<territory type="MA">Maroko</territory>
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldavija</territory>
+			<territory type="ME">Crna Gora</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Maršalska Ostrva</territory>
 			<territory type="MK">Makedonija</territory>
@@ -269,6 +291,8 @@
 			<territory type="MM">Mijanmar</territory>
 			<territory type="MN">Mongolija</territory>
 			<territory type="MO">Makao (S. A. R. Kina)</territory>
+			<territory type="MO" alt="proposed-x1001" draft="unconfirmed">Makao S.A.R. Kine</territory>
+			<territory type="MO" alt="short">Makao</territory>
 			<territory type="MP">Severna Marijanska Ostrva</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mauritanija</territory>
@@ -309,8 +333,10 @@
 			<territory type="PY">Paragvaj</territory>
 			<territory type="QA">Katar</territory>
 			<territory type="QO">Ostala okeanija</territory>
+			<territory type="QU">Evropska unija</territory>
 			<territory type="RE">Rejunion</territory>
 			<territory type="RO">Rumunija</territory>
+			<territory type="RS">Srbija</territory>
 			<territory type="RU">Rusija</territory>
 			<territory type="RW">Ruanda</territory>
 			<territory type="SA">Saudijska Arabija</territory>
@@ -339,7 +365,8 @@
 			<territory type="TH">Tajland</territory>
 			<territory type="TJ">Tadžikistan</territory>
 			<territory type="TK">Tokelau</territory>
-			<territory type="TL">Timor-Leste</territory>
+			<territory type="TL">Istočni Timor</territory>
+			<territory type="TL" alt="proposed-x1001" draft="unconfirmed">Timor-Leste</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunis</territory>
 			<territory type="TO">Tonga</territory>
@@ -368,6 +395,7 @@
 			<territory type="ZA">Južnoafrička Republika</territory>
 			<territory type="ZM">Zambija</territory>
 			<territory type="ZW">Zimbabve</territory>
+			<territory type="ZZ">Nepoznat ili nevažeći region</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Kalendar</key>
@@ -385,15 +413,21 @@
 			<type type="islamic" key="calendar">Islamski kalendar</type>
 			<type type="islamic-civil" key="calendar">Islamski civilni kalendar</type>
 			<type type="japanese" key="calendar">Japanski kalendar</type>
-			<type type="phonebook" key="collation">Sortiranje po azbuci</type>
+			<type type="phonebook" key="collation">Sortiranje kao telefonski imenik</type>
+			<type type="phonebook" key="collation" alt="proposed-x1001" draft="unconfirmed">Sortiranje po azbuci</type>
 			<type type="pinyin" key="collation">Pinjin sortiranje</type>
 			<type type="stroke" key="collation">Sortiranje po broju crta</type>
 			<type type="traditional" key="collation">Tradicionalno sortiranje</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US">SAD</measurementSystemName>
+			<measurementSystemName type="metric">Metrički</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-c ć č d đ {dž} e-l {lj} m n {nj} o p r s š t-v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -420,10 +454,10 @@
 							<month type="3">mart</month>
 							<month type="4">april</month>
 							<month type="5">maj</month>
-							<month type="6">juni</month>
-							<month type="6" alt="proposed-x999">jun</month>
-							<month type="7">juli</month>
-							<month type="7" alt="proposed-x999">jul</month>
+							<month type="6">jun</month>
+							<month type="6" alt="proposed-x1001" draft="unconfirmed">juni</month>
+							<month type="7">jul</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">juli</month>
 							<month type="8">avgust</month>
 							<month type="9">septembar</month>
 							<month type="10">oktobar</month>
@@ -454,8 +488,8 @@
 							<day type="sun">ned</day>
 							<day type="mon">pon</day>
 							<day type="tue">uto</day>
-							<day type="wed">sri</day>
-							<day type="wed" alt="proposed-x999">sre</day>
+							<day type="wed">sre</day>
+							<day type="wed" alt="proposed-x1001" draft="unconfirmed">sri</day>
 							<day type="thu">čet</day>
 							<day type="fri">pet</day>
 							<day type="sat">sub</day>
@@ -464,8 +498,8 @@
 							<day type="sun">nedelja</day>
 							<day type="mon">ponedeljak</day>
 							<day type="tue">utorak</day>
-							<day type="wed">srijeda</day>
-							<day type="wed" alt="proposed-x999">sreda</day>
+							<day type="wed">sreda</day>
+							<day type="wed" alt="proposed-x1001" draft="unconfirmed">srijeda</day>
 							<day type="thu">četvrtak</day>
 							<day type="fri">petak</day>
 							<day type="sat">subota</day>
@@ -492,17 +526,29 @@
 							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">Prvi kvartal</quarter>
-							<quarter type="2" draft="provisional">Drugi kvartal</quarter>
-							<quarter type="3" draft="provisional">Treći kvartal</quarter>
-							<quarter type="4" draft="provisional">Četvrti kvartal</quarter>
+							<quarter type="1">Prvo tromesečje</quarter>
+							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">Prvi kvartal</quarter>
+							<quarter type="2">Drugo tromesečje</quarter>
+							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">Drugi kvartal</quarter>
+							<quarter type="3">Treće tromesečje</quarter>
+							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">Treći kvartal</quarter>
+							<quarter type="4">Četvrto tromesečje</quarter>
+							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">Četvrti kvartal</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1">Prvo tromesečje</quarter>
+							<quarter type="2">Drugo tromesečje</quarter>
+							<quarter type="3">Treće tromesečje</quarter>
+							<quarter type="4">Četvrto tromesečje</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<eras>
 					<eraNames>
-						<era type="0" draft="provisional">Pre nove ere</era>
-						<era type="1" draft="provisional">Nove ere</era>
+						<era type="0">Pre nove ere</era>
+						<era type="1">Nove ere</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p. n. e.</era>
@@ -518,7 +564,7 @@
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dd. MMMM yyyy.</pattern>
-							<pattern alt="proposed-x999">EEEE, d.MM.yyyy.</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, d.MM.yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -535,7 +581,8 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH 'časova', mm 'minuta', ss 'sekundi'</pattern>
+							<pattern>HH 'časova', mm 'minuta', ss 'sekundi' vvvv</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">HH 'časova', mm 'minuta', ss 'sekundi'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -551,16 +598,27 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMMdd" draft="provisional">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy.</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<relative type="2">prekosutra</relative>
+						<relative type="3">za tri dana</relative>
+						<relative type="-2">juče</relative>
+						<relative type="-3">pre tri dana</relative>
+					</field>
+				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Nepoznata vremenska zona</exemplarCity>
+			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni pol</exemplarCity>
@@ -620,7 +678,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="provisional">#,##0.00 ¤</pattern>
+					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -633,7 +691,7 @@
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibilna Marka</displayName>
-				<displayName alt="proposed-x999">Konvertibilna marka</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">Konvertibilna marka</displayName>
 				<symbol>KM.</symbol>
 			</currency>
 			<currency type="BEF">
@@ -727,6 +785,9 @@
 			<currency type="USD">
 				<displayName>Američki dolar</displayName>
 			</currency>
+			<currency type="XXX">
+				<displayName>Nepoznata ili nevažeća valuta</displayName>
+			</currency>
 			<currency type="YUN">
 				<symbol>Din</symbol>
 			</currency>
@@ -739,4 +800,3 @@
 		</messages>
 	</posix>
 </ldml>
-

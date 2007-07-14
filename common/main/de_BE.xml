@@ -43,7 +43,8 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d-MMM-yy</pattern>
+							<pattern>dd.MM.yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">d-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -61,9 +62,9 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMd" draft="provisional">d/MM</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="unconfirmed">MM/yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -82,4 +83,3 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/de_BE.txt?only_
 
 *   Generated from Universal Locales for Linux Project
 -->
-

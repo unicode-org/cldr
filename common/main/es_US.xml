@@ -46,12 +46,23 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMd" draft="provisional">MMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">MMM d</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">M/d</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Alaska">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Hawaii">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
@@ -68,4 +79,3 @@
 <!-- Old Comments. See root.xml for more info.
     MeasurementSystem:int{ 1 } // US system
 -->
-

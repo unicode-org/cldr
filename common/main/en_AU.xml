@@ -35,20 +35,41 @@
 				<timeFormats>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
+							<pattern>h:mm:ss a z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Atlantic">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Australia_Central">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Australia_Western">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="New_Zealand">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencyFormats>
@@ -68,4 +89,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

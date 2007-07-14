@@ -671,37 +671,37 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss v</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="unconfirmed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMd" draft="provisional">d/MM</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="unconfirmed">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -742,9 +742,9 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
-			<regionFormat draft="provisional">{0}</regionFormat>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity draft="unconfirmed">San Pauli dal Brasîl</exemplarCity>
 			</zone>
@@ -897,4 +897,3 @@
 		<reference type="R069" uri="http://en.wikipedia.org/wiki/Friulian#Writing_systems">Wikipedia on Friulian writing</reference>
 	</references>
 </ldml>
-

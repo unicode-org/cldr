@@ -37,7 +37,7 @@
 				<dateFormats>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>EEEE, d.MM.yyyy.</pattern>
+							<pattern alt="proposed-x555">EEEE, d.MM.yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -70,7 +70,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="mmss" draft="provisional">mm.ss</dateFormatItem>
+						<dateFormatItem id="mmss" draft="unconfirmed">mm.ss</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -92,4 +92,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

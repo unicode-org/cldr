@@ -60,8 +60,24 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd‏/MM‏/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d‏/M‏/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 			</calendar>
 		</calendars>
 	</dates>
+	<numbers>
+		<symbols>
+			<exponential draft="provisional">E</exponential>
+		</symbols>
+	</numbers>
 </ldml>
-

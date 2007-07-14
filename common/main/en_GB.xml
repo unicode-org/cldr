@@ -7,15 +7,267 @@
 		<language type="en"/>
 		<territory type="GB"/>
 	</identity>
+	<localeDisplayNames>
+		<types>
+			<type type="big5han" key="collation" draft="provisional">Traditional Chinese Sort Order - Big5</type>
+			<type type="buddhist" key="calendar" draft="provisional">Buddhist Calendar</type>
+			<type type="chinese" key="calendar" draft="provisional">Chinese Calendar</type>
+			<type type="direct" key="collation" draft="provisional">Direct Sort Order</type>
+			<type type="gb2312han" key="collation" draft="provisional">Simplified Chinese Sort Order - GB2312</type>
+			<type type="gregorian" key="calendar" draft="provisional">Gregorian Calendar</type>
+			<type type="hebrew" key="calendar" draft="provisional">Hebrew Calendar</type>
+			<type type="islamic" key="calendar" draft="provisional">Islamic Calendar</type>
+			<type type="islamic-civil" key="calendar" draft="provisional">Islamic-Civil Calendar</type>
+			<type type="japanese" key="calendar" draft="provisional">Japanese Calendar</type>
+			<type type="phonebook" key="collation" draft="provisional">Phonebook Sort Order</type>
+			<type type="pinyin" key="collation" draft="provisional">Pinyin Sort Order</type>
+			<type type="stroke" key="collation" draft="provisional">Stroke Sort Order</type>
+			<type type="traditional" key="collation" draft="provisional">Traditional Sort Order</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="US" draft="provisional">US</measurementSystemName>
+			<measurementSystemName type="metric" draft="provisional">Metric</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
+	<layout>
+		<inList draft="provisional">mixed</inList>
+		<inText type="currency" draft="provisional">mixed</inText>
+		<inText type="fields" draft="provisional">mixed</inText>
+		<inText type="keys" draft="provisional">mixed</inText>
+		<inText type="languages" draft="provisional">mixed</inText>
+		<inText type="long" draft="provisional">mixed</inText>
+		<inText type="measurementSystemNames" draft="provisional">mixed</inText>
+		<inText type="quarterWidth" draft="provisional">mixed</inText>
+		<inText type="scripts" draft="provisional">mixed</inText>
+		<inText type="territories" draft="provisional">mixed</inText>
+		<inText type="types" draft="provisional">mixed</inText>
+		<inText type="variants" draft="provisional">mixed</inText>
+	</layout>
+	<characters>
+		<exemplarCharacters draft="provisional">[a-z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol" draft="provisional">[a-z]</exemplarCharacters>
+	</characters>
 	<delimiters>
 		<quotationStart>‘</quotationStart>
+		<quotationStart alt="proposed-x1001" draft="unconfirmed">“</quotationStart>
 		<quotationEnd>’</quotationEnd>
+		<quotationEnd alt="proposed-x1001" draft="unconfirmed">”</quotationEnd>
 		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">‘</alternateQuotationStart>
 		<alternateQuotationEnd>”</alternateQuotationEnd>
+		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
+		<dateRangePattern draft="provisional">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">Jan</month>
+							<month type="2" draft="provisional">Feb</month>
+							<month type="3" draft="provisional">Mar</month>
+							<month type="4" draft="provisional">Apr</month>
+							<month type="5" draft="provisional">May</month>
+							<month type="6" draft="provisional">Jun</month>
+							<month type="7" draft="provisional">Jul</month>
+							<month type="8" draft="provisional">Aug</month>
+							<month type="9" draft="provisional">Sep</month>
+							<month type="10" draft="provisional">Oct</month>
+							<month type="11" draft="provisional">Nov</month>
+							<month type="12" draft="provisional">Dec</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">J</month>
+							<month type="2" draft="provisional">F</month>
+							<month type="3" draft="provisional">M</month>
+							<month type="4" draft="provisional">A</month>
+							<month type="5" draft="provisional">M</month>
+							<month type="6" draft="provisional">J</month>
+							<month type="7" draft="provisional">J</month>
+							<month type="8" draft="provisional">A</month>
+							<month type="9" draft="provisional">S</month>
+							<month type="10" draft="provisional">O</month>
+							<month type="11" draft="provisional">N</month>
+							<month type="12" draft="provisional">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">January</month>
+							<month type="2" draft="provisional">February</month>
+							<month type="3" draft="provisional">March</month>
+							<month type="4" draft="provisional">April</month>
+							<month type="5" draft="provisional">May</month>
+							<month type="6" draft="provisional">June</month>
+							<month type="7" draft="provisional">July</month>
+							<month type="8" draft="provisional">August</month>
+							<month type="9" draft="provisional">September</month>
+							<month type="10" draft="provisional">October</month>
+							<month type="11" draft="provisional">November</month>
+							<month type="12" draft="provisional">December</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="provisional">Jan</month>
+							<month type="2" draft="provisional">Feb</month>
+							<month type="3" draft="provisional">Mar</month>
+							<month type="4" draft="provisional">Apr</month>
+							<month type="5" draft="provisional">May</month>
+							<month type="6" draft="provisional">Jun</month>
+							<month type="7" draft="provisional">Jul</month>
+							<month type="8" draft="provisional">Aug</month>
+							<month type="9" draft="provisional">Sep</month>
+							<month type="10" draft="provisional">Oct</month>
+							<month type="12" draft="provisional">Dec</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="provisional">J</month>
+							<month type="2" draft="provisional">F</month>
+							<month type="3" draft="provisional">M</month>
+							<month type="4" draft="provisional">A</month>
+							<month type="5" draft="provisional">M</month>
+							<month type="6" draft="provisional">J</month>
+							<month type="7" draft="provisional">J</month>
+							<month type="8" draft="provisional">A</month>
+							<month type="9" draft="provisional">S</month>
+							<month type="10" draft="provisional">O</month>
+							<month type="11" draft="provisional">N</month>
+							<month type="12" draft="provisional">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="provisional">January</month>
+							<month type="2" draft="provisional">February</month>
+							<month type="3" draft="provisional">March</month>
+							<month type="4" draft="provisional">April</month>
+							<month type="5" draft="provisional">May</month>
+							<month type="6" draft="provisional">June</month>
+							<month type="7" draft="provisional">July</month>
+							<month type="8" draft="provisional">August</month>
+							<month type="9" draft="provisional">September</month>
+							<month type="10" draft="provisional">October</month>
+							<month type="12" draft="provisional">December</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">Sun</day>
+							<day type="mon" draft="provisional">Mon</day>
+							<day type="tue" draft="provisional">Tue</day>
+							<day type="wed" draft="provisional">Wed</day>
+							<day type="thu" draft="provisional">Thu</day>
+							<day type="fri" draft="provisional">Fri</day>
+							<day type="sat" draft="provisional">Sat</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">S</day>
+							<day type="mon" draft="provisional">M</day>
+							<day type="tue" draft="provisional">T</day>
+							<day type="wed" draft="provisional">W</day>
+							<day type="thu" draft="provisional">T</day>
+							<day type="fri" draft="provisional">F</day>
+							<day type="sat" draft="provisional">S</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">Sunday</day>
+							<day type="mon" draft="provisional">Monday</day>
+							<day type="tue" draft="provisional">Tuesday</day>
+							<day type="wed" draft="provisional">Wednesday</day>
+							<day type="thu" draft="provisional">Thursday</day>
+							<day type="fri" draft="provisional">Friday</day>
+							<day type="sat" draft="provisional">Saturday</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="provisional">Sun</day>
+							<day type="mon" draft="provisional">Mon</day>
+							<day type="tue" draft="provisional">Tue</day>
+							<day type="wed" draft="provisional">Wed</day>
+							<day type="thu" draft="provisional">Thu</day>
+							<day type="fri" draft="provisional">Fri</day>
+							<day type="sat" draft="provisional">Sat</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="provisional">S</day>
+							<day type="mon" draft="provisional">M</day>
+							<day type="tue" draft="provisional">T</day>
+							<day type="wed" draft="provisional">W</day>
+							<day type="thu" draft="provisional">T</day>
+							<day type="fri" draft="provisional">F</day>
+							<day type="sat" draft="provisional">S</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="provisional">Sunday</day>
+							<day type="mon" draft="provisional">Monday</day>
+							<day type="tue" draft="provisional">Tuesday</day>
+							<day type="wed" draft="provisional">Wednesday</day>
+							<day type="thu" draft="provisional">Thursday</day>
+							<day type="fri" draft="provisional">Friday</day>
+							<day type="sat" draft="provisional">Saturday</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">1st quarter</quarter>
+							<quarter type="2" draft="provisional">2nd quarter</quarter>
+							<quarter type="3" draft="provisional">3rd quarter</quarter>
+							<quarter type="4" draft="provisional">4th quarter</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="provisional">Q1</quarter>
+							<quarter type="2" draft="provisional">Q2</quarter>
+							<quarter type="3" draft="provisional">Q3</quarter>
+							<quarter type="4" draft="provisional">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="provisional">1</quarter>
+							<quarter type="2" draft="provisional">2</quarter>
+							<quarter type="3" draft="provisional">3</quarter>
+							<quarter type="4" draft="provisional">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">1st quarter</quarter>
+							<quarter type="2" draft="provisional">2nd quarter</quarter>
+							<quarter type="3" draft="provisional">3rd quarter</quarter>
+							<quarter type="4" draft="provisional">4th quarter</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<am draft="provisional">AM</am>
+				<pm draft="provisional">PM</pm>
+				<eras>
+					<eraNames>
+						<era type="0" draft="provisional">Before Christ</era>
+						<era type="1" draft="provisional">Anno Domini</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="provisional">BC</era>
+						<era type="1" draft="provisional">AD</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="provisional">BC</era>
+						<era type="1" draft="provisional">AD</era>
+					</eraNarrow>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -61,24 +313,332 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern draft="provisional">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
+						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="provisional">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
+						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="provisional">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" draft="provisional">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="provisional">yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="provisional">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="era">
+						<displayName draft="provisional">Era</displayName>
+					</field>
+					<field type="year">
+						<displayName draft="provisional">Year</displayName>
+					</field>
+					<field type="month">
+						<displayName draft="provisional">Month</displayName>
+					</field>
+					<field type="week">
+						<displayName draft="provisional">Week</displayName>
+					</field>
+					<field type="day">
+						<displayName draft="provisional">Day</displayName>
+						<relative type="0" draft="provisional">Today</relative>
+						<relative type="1" draft="provisional">Tomorrow</relative>
+						<relative type="2" draft="provisional">The day after tomorrow</relative>
+						<relative type="3" draft="provisional">Three days from now</relative>
+						<relative type="-1" draft="provisional">Yesterday</relative>
+						<relative type="-2" draft="provisional">The day before yesterday</relative>
+						<relative type="-3" draft="provisional">Three days ago</relative>
+					</field>
+					<field type="weekday">
+						<displayName draft="provisional">Day of the Week</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName draft="provisional">AM/PM</displayName>
+					</field>
+					<field type="hour">
+						<displayName draft="provisional">Hour</displayName>
+					</field>
+					<field type="minute">
+						<displayName draft="provisional">Minute</displayName>
+					</field>
+					<field type="second">
+						<displayName draft="provisional">Second</displayName>
+					</field>
+					<field type="zone">
+						<displayName draft="provisional">Zone</displayName>
+					</field>
+				</fields>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
+			<regionFormat draft="provisional">{0} Time</regionFormat>
+			<fallbackFormat draft="provisional">{1} ({0})</fallbackFormat>
+			<metazone type="Acre">
+				<long>
+					<standard draft="provisional">Acre Time</standard>
+					<daylight draft="provisional">Acre Summer Time</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ACT</standard>
+					<daylight draft="provisional">ACST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="provisional">Afghanistan Time</standard>
+				</long>
+				<short>
+					<standard draft="provisional">AFT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard draft="provisional">Central Africa Time</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard draft="provisional">East Africa Time</standard>
+				</long>
+				<short>
+					<standard draft="provisional">EAT</standard>
+				</short>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<generic draft="provisional">South Africa Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">SAT</generic>
+				</short>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<long>
+					<generic draft="provisional">Alaska-Hawaii Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">AHT</generic>
+				</short>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<standard draft="provisional">Almaty Time</standard>
+					<daylight draft="provisional">Almaty Summer Time</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">ALMT</standard>
+					<daylight draft="provisional">ALMST</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Eastern">
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Mountain">
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="America_Pacific">
+				<commonlyUsed draft="provisional">true</commonlyUsed>
+			</metazone>
+			<metazone type="Arabian">
+				<short>
+					<generic draft="provisional">AT (Arabian)</generic>
+				</short>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<daylight draft="provisional">Australian Central Western Daylight Time</daylight>
+				</long>
+				<short>
+					<daylight draft="provisional">ACWDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Australia_Western">
+				<short>
+					<generic draft="provisional">AWT</generic>
+				</short>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<standard draft="provisional">Azerbaijan Time</standard>
+					<daylight draft="provisional">Azerbaijan Summer Time</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">AZT</standard>
+					<daylight draft="provisional">AZST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Bering">
+				<short>
+					<generic draft="provisional">BT (Bering)</generic>
+				</short>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<generic draft="provisional">Chamorro Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">ChT</generic>
+				</short>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic draft="provisional">China Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">CT (China)</generic>
+				</short>
+			</metazone>
+			<metazone type="Europe_Central">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Western">
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<generic draft="provisional">Gulf Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">GT</generic>
+				</short>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard draft="provisional">Indochina Time</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ICT</standard>
+				</short>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="provisional">Israel Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic draft="provisional">Japan Time</generic>
+				</long>
+				<short>
+					<generic draft="provisional">JT</generic>
+				</short>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<generic draft="provisional">East Kazakhstan Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<generic draft="provisional">West Kazakhstan Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<short>
+					<generic draft="provisional">KT</generic>
+				</short>
+			</metazone>
+			<metazone type="Lord_Howe">
+				<short>
+					<generic draft="provisional">LHT</generic>
+					<daylight draft="provisional">LHDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="provisional">Moscow Time</generic>
+					<standard draft="provisional">Moscow Standard Time</standard>
+					<daylight draft="provisional">Moscow Summer Time</daylight>
+				</long>
+				<short>
+					<standard draft="provisional">MSK</standard>
+					<daylight draft="provisional">MSKS</daylight>
+				</short>
+			</metazone>
+			<metazone type="New_Zealand">
+				<short>
+					<generic draft="provisional">NZT</generic>
+				</short>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<short>
+					<generic draft="provisional">PMT</generic>
+				</short>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal draft="provisional">.</decimal>
+			<group draft="provisional">,</group>
+			<list draft="provisional">;</list>
+			<percentSign draft="provisional">%</percentSign>
+			<nativeZeroDigit draft="provisional">0</nativeZeroDigit>
+			<patternDigit draft="provisional">#</patternDigit>
+			<plusSign draft="provisional">+</plusSign>
+			<minusSign draft="provisional">-</minusSign>
+			<exponential draft="provisional">E</exponential>
+			<perMille draft="provisional">‰</perMille>
+			<infinity draft="provisional">∞</infinity>
+			<nan draft="provisional">NaN</nan>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="provisional">#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="provisional">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="provisional">#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="proposed-x1001" draft="unconfirmed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
+	<posix>
+		<messages>
+			<yesstr draft="provisional">yes:y</yesstr>
+			<nostr draft="provisional">no:n</nostr>
+		</messages>
+	</posix>
 </ldml>
-

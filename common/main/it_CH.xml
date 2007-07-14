@@ -7,6 +7,13 @@
 		<language type="it"/>
 		<territory type="CH"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="unconfirmed">«</quotationStart>
+		<quotationEnd draft="unconfirmed">»</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">‹</alternateQuotationStart>
+		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">‹	</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">›</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -23,7 +30,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d-MMM-yy</pattern>
+							<pattern alt="proposed-x555">d-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -40,19 +47,19 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd.MM</dateFormatItem>
-						<dateFormatItem id="hhmm" draft="provisional">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" draft="provisional">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">MM.yy</dateFormatItem>
+						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd.MM</dateFormatItem>
+						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -72,4 +79,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

@@ -13,51 +13,51 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R000" draft="provisional">EEEE d MMMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R000" draft="provisional">d MMMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="R000" draft="provisional">d MMM yyyy</pattern>
+							<pattern references="R000" draft="unconfirmed">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern references="R000" draft="provisional">yyyy-MM-dd</pattern>
+							<pattern references="R000" draft="unconfirmed">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss v</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMdd" draft="provisional">MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -73,4 +73,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

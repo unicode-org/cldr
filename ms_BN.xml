@@ -25,12 +25,12 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>h:mm:ss aa</pattern>
+							<pattern alt="proposed-x555">h:mm:ss aa</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H:mm:ss</pattern>
+							<pattern alt="proposed-x555">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -40,13 +40,13 @@
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>H:mm:ss</pattern>
+							<pattern alt="proposed-x555">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Hmm" draft="provisional">H:mm</dateFormatItem>
+						<dateFormatItem id="Hmm" draft="unconfirmed">H:mm</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -71,4 +71,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

@@ -34,10 +34,10 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -47,6 +47,7 @@
 		<currencies>
 			<currency type="HKD">
 				<symbol>$</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">HK$</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>USD</displayName>
@@ -55,4 +56,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

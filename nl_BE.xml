@@ -13,17 +13,22 @@
 			<language type="oc">Occitaans (na 1500); Provençaals</language>
 			<language type="sa">Sanskriet</language>
 			<language type="sh">Servo-Kroatisch</language>
-			<language type="ssa" draft="provisional">Nilo-Saharisch</language>
+			<language type="ssa" draft="provisional">Nilo-Saharaans</language>
+			<language type="ssa" alt="proposed-x1001" draft="unconfirmed">Nilo-Saharisch</language>
 		</languages>
 		<territories>
 			<territory type="013" draft="provisional">Centraal-Amerika</territory>
 			<territory type="172">Gemenebest van Onafhankelijke Staten</territory>
-			<territory type="419" draft="provisional">Latijns-Amerika en de Caraïben</territory>
+			<territory type="419" draft="provisional">Latijns-Amerika en het Caribisch gebied</territory>
+			<territory type="419" alt="proposed-x1001" draft="unconfirmed">Latijns-Amerika en de Caraïben</territory>
 			<territory type="IM">Het Eiland Man</territory>
 			<territory type="KG" draft="provisional">Kirgizië</territory>
-			<territory type="MV" draft="provisional">Malediven</territory>
-			<territory type="SB" draft="provisional">Salomoneilanden</territory>
-			<territory type="TZ" draft="provisional">Tanzanië</territory>
+			<territory type="MV" draft="provisional">Maldiven</territory>
+			<territory type="MV" alt="proposed-x1001" draft="unconfirmed">Malediven</territory>
+			<territory type="SB" draft="provisional">Salomonseilanden</territory>
+			<territory type="SB" alt="proposed-x1001" draft="unconfirmed">Salomoneilanden</territory>
+			<territory type="TZ" draft="provisional">Tanzania</territory>
+			<territory type="TZ" alt="proposed-x1001" draft="unconfirmed">Tanzanië</territory>
 		</territories>
 		<types>
 			<type type="traditional" key="collation">Traditioneel</type>
@@ -35,7 +40,7 @@
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d-MMM-yy</pattern>
+							<pattern alt="proposed-x555">d-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -48,8 +53,10 @@
 					<availableFormats>
 						<dateFormatItem id="MMMd" draft="provisional">d-MMM</dateFormatItem>
 						<dateFormatItem id="MMd" draft="provisional">d/MM</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">MMM-yy</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">MM-yy</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="provisional">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMM-yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -65,4 +72,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

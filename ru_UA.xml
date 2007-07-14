@@ -25,6 +25,12 @@
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<delimiters>
+		<quotationStart draft="provisional">«</quotationStart>
+		<quotationEnd draft="provisional">»</quotationEnd>
+		<alternateQuotationStart draft="provisional">„</alternateQuotationStart>
+		<alternateQuotationEnd draft="provisional">“</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -69,8 +75,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">d MMMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -99,5 +105,10 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<posix>
+		<messages>
+			<yesstr draft="provisional">да:д</yesstr>
+			<nostr draft="provisional">нет:н</nostr>
+		</messages>
+	</posix>
 </ldml>
-

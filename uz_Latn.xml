@@ -9,36 +9,49 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar" draft="unconfirmed">Arabcha</language>
-			<language type="de" draft="unconfirmed">Olmoncha</language>
-			<language type="en" draft="unconfirmed">Inglizcha</language>
-			<language type="es" draft="unconfirmed">Ispancha</language>
-			<language type="fr" draft="unconfirmed">Frantsuzcha</language>
-			<language type="hi" draft="unconfirmed">Hindcha</language>
-			<language type="it" draft="unconfirmed">Italyancha</language>
-			<language type="ja" draft="unconfirmed">Yaponcha</language>
-			<language type="pt" draft="unconfirmed">Portugalcha</language>
-			<language type="ru" draft="unconfirmed">Ruscha</language>
-			<language type="uz" draft="unconfirmed">oʿzbek</language>
-			<language type="zh" draft="unconfirmed">Xitoycha</language>
+			<language type="ar">arabcha</language>
+			<language type="ar" alt="proposed-x1001" draft="unconfirmed">Arabcha</language>
+			<language type="de">olmoncha</language>
+			<language type="de" alt="proposed-x1001" draft="unconfirmed">Olmoncha</language>
+			<language type="en">inglizcha</language>
+			<language type="en" alt="proposed-x1001" draft="unconfirmed">Inglizcha</language>
+			<language type="es">ispancha</language>
+			<language type="es" alt="proposed-x1001" draft="unconfirmed">Ispancha</language>
+			<language type="fr">fransuzcha</language>
+			<language type="fr" alt="proposed-x1001" draft="unconfirmed">Frantsuzcha</language>
+			<language type="hi">hindcha</language>
+			<language type="hi" alt="proposed-x1001" draft="unconfirmed">Hindcha</language>
+			<language type="it">italyancha</language>
+			<language type="it" alt="proposed-x1001" draft="unconfirmed">Italyancha</language>
+			<language type="ja">yaponcha</language>
+			<language type="ja" alt="proposed-x1001" draft="unconfirmed">Yaponcha</language>
+			<language type="pt">portugalcha</language>
+			<language type="pt" alt="proposed-x1001" draft="unconfirmed">Portugalcha</language>
+			<language type="ru">ruscha</language>
+			<language type="ru" alt="proposed-x1001" draft="unconfirmed">Ruscha</language>
+			<language type="uz">o'zbekcha</language>
+			<language type="uz" alt="proposed-x1001" draft="unconfirmed">oʿzbek</language>
+			<language type="zh">xitoycha</language>
+			<language type="zh" alt="proposed-x1001" draft="unconfirmed">Xitoycha</language>
 		</languages>
 		<scripts>
-			<script type="Cyrl" draft="unconfirmed">Kiril</script>
-			<script type="Latn" draft="unconfirmed">Lotin</script>
+			<script type="Cyrl">Kiril</script>
+			<script type="Latn">Lotin</script>
 		</scripts>
 		<territories>
-			<territory type="AF" draft="unconfirmed">Afgʿoniston</territory>
-			<territory type="BR" draft="unconfirmed">Braziliya</territory>
-			<territory type="CN" draft="unconfirmed">Xitoy</territory>
-			<territory type="DE" draft="unconfirmed">Olmoniya</territory>
-			<territory type="FR" draft="unconfirmed">Frantsiya</territory>
-			<territory type="GB" draft="unconfirmed">Birlashgan Qirollik</territory>
-			<territory type="IN" draft="unconfirmed">Hindiston</territory>
-			<territory type="IT" draft="unconfirmed">Italiya</territory>
-			<territory type="JP" draft="unconfirmed">Yaponiya</territory>
-			<territory type="RU" draft="unconfirmed">Rossiya</territory>
-			<territory type="US" draft="unconfirmed">Qo'shma Shtatlar</territory>
-			<territory type="UZ" draft="unconfirmed">Oʿzbekiston</territory>
+			<territory type="AF">Afgʿoniston</territory>
+			<territory type="BR">Braziliya</territory>
+			<territory type="CN">Xitoy</territory>
+			<territory type="DE">Olmoniya</territory>
+			<territory type="FR">Fransiya</territory>
+			<territory type="FR" alt="proposed-x1001" draft="unconfirmed">Frantsiya</territory>
+			<territory type="GB">Birlashgan Qirollik</territory>
+			<territory type="IN">Hindiston</territory>
+			<territory type="IT">Italiya</territory>
+			<territory type="JP">Yaponiya</territory>
+			<territory type="RU">Rossiya</territory>
+			<territory type="US">Qo'shma Shtatlar</territory>
+			<territory type="UZ">Oʿzbekiston</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -93,6 +106,9 @@
 							<month type="11" draft="unconfirmed">N</month>
 							<month type="12" draft="unconfirmed">D</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Yanvar</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -124,7 +140,8 @@
 							<day type="wed" draft="unconfirmed">C</day>
 							<day type="thu" draft="unconfirmed">P</day>
 							<day type="fri" draft="unconfirmed">J</day>
-							<day type="sat" draft="unconfirmed">Sh</day>
+							<day type="sat">S</day>
+							<day type="sat" alt="proposed-x1001" draft="unconfirmed">Sh</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -164,4 +181,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

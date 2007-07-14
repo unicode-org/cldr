@@ -56,10 +56,10 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="provisional">MM/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -94,4 +94,3 @@ MTP { "\u00A3", "Maltese Pound"}  (Obsolete)
                 4        // four days minimal in first week for week numbering  [MSA 200:2003 4.5.5, referencing 8601?]
 Monday is first day of workweek. [MSA 200:2003 4.5.5]
 -->
-

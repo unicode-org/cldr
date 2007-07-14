@@ -13,13 +13,14 @@
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MM d, yy</pattern>
+							<pattern>MMM d, yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">MM d, yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMd" draft="provisional">MM d</dateFormatItem>
+						<dateFormatItem id="MMd" alt="proposed-x555" draft="unconfirmed">MM d</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -33,4 +34,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

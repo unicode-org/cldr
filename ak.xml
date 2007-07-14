@@ -9,10 +9,10 @@
 	<characters>
 		<exemplarCharacters draft="unconfirmed">[a b d e ɛ f-i k-o ɔ p r-u w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c j q v z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" references="R003" alt="proposed-u151-2" draft="unconfirmed">[̃ ã e ĩ õ ũ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" references="R003" alt="proposed-x999">[c j l v]</exemplarCharacters>
-		<exemplarCharacters references="R003" alt="proposed-u151-4" draft="unconfirmed">[a-e ɛ f-o ɔ p r-u w y z]</exemplarCharacters>
-		<exemplarCharacters references="R003" alt="proposed-x999">[a b d e ɛ f-i k m-o ɔ p r-u w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" references="R003" alt="proposed-x1001" draft="unconfirmed">[c j l v]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" references="R003" alt="proposed-x1002" draft="unconfirmed">[̃ ã e ĩ õ ũ]</exemplarCharacters>
+		<exemplarCharacters references="R003" alt="proposed-x1001" draft="unconfirmed">[a-e ɛ f-o ɔ p r-u w y z]</exemplarCharacters>
+		<exemplarCharacters references="R003" alt="proposed-x1002" draft="unconfirmed">[a b d e ɛ f-i k m-o ɔ p r-u w y z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -50,18 +50,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="provisional">1</month>
-							<month type="2" draft="provisional">2</month>
-							<month type="3" draft="provisional">3</month>
-							<month type="4" draft="provisional">4</month>
-							<month type="5" draft="provisional">5</month>
-							<month type="6" draft="provisional">6</month>
-							<month type="7" draft="provisional">7</month>
-							<month type="8" draft="provisional">8</month>
-							<month type="9" draft="provisional">9</month>
-							<month type="10" draft="provisional">10</month>
-							<month type="11" draft="provisional">11</month>
-							<month type="12" draft="provisional">12</month>
+							<month type="1" draft="unconfirmed">1</month>
+							<month type="2" draft="unconfirmed">2</month>
+							<month type="3" draft="unconfirmed">3</month>
+							<month type="4" draft="unconfirmed">4</month>
+							<month type="5" draft="unconfirmed">5</month>
+							<month type="6" draft="unconfirmed">6</month>
+							<month type="7" draft="unconfirmed">7</month>
+							<month type="8" draft="unconfirmed">8</month>
+							<month type="9" draft="unconfirmed">9</month>
+							<month type="10" draft="unconfirmed">10</month>
+							<month type="11" draft="unconfirmed">11</month>
+							<month type="12" draft="unconfirmed">12</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -101,16 +101,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
+							<quarter type="1" draft="unconfirmed">Q1</quarter>
+							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="3" draft="unconfirmed">Q3</quarter>
+							<quarter type="4" draft="unconfirmed">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">Q1</quarter>
-							<quarter type="2" draft="provisional">Q2</quarter>
-							<quarter type="3" draft="provisional">Q3</quarter>
-							<quarter type="4" draft="provisional">Q4</quarter>
+							<quarter type="1" draft="unconfirmed">Q1</quarter>
+							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="3" draft="unconfirmed">Q3</quarter>
+							<quarter type="4" draft="unconfirmed">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -129,71 +129,73 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE, yyyy MMMM dd</pattern>
+							<pattern draft="unconfirmed">EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMMM d</pattern>
+							<pattern draft="unconfirmed">yyyy MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy MMM d</pattern>
+							<pattern draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="provisional">yy/MM/dd</pattern>
+							<pattern draft="unconfirmed">yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss v</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss z</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm:ss</pattern>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="provisional">HH:mm</pattern>
+							<pattern draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="unconfirmed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="yyQ" draft="provisional">Q yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="provisional">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
-			<regionFormat draft="provisional">{0}</regionFormat>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
+			<regionFormat draft="unconfirmed">{0}</regionFormat>
 		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
 			<currency type="GHC">
 				<displayName draft="unconfirmed">Sidi</displayName>
-				<symbol draft="unconfirmed">¢</symbol>
-				<symbol alt="variant" draft="unconfirmed">₵</symbol>
+				<symbol draft="unconfirmed">GH¢</symbol>
+				<symbol alt="proposed-x1001" draft="unconfirmed">¢</symbol>
+				<symbol alt="variant" draft="unconfirmed">GH¢</symbol>
+				<symbol alt="variant-proposed-x1001" draft="unconfirmed">₵</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -202,4 +204,3 @@
 		<reference type="R004" uri="http://www.omniglot.com/writing/akan.htm">Omniglot on Akan alphabet</reference>
 	</references>
 </ldml>
-

@@ -15,6 +15,7 @@
 						<monthWidth type="abbreviated">
 							<month type="1">Jän</month>
 							<month type="3">Mär</month>
+							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mrz</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Jänner</month>
@@ -36,14 +37,15 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm 'Uhr' v</pattern>
+							<pattern>HH:mm:ss v</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm 'Uhr' v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="provisional">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="yyMMdd" draft="provisional">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
+						<dateFormatItem id="yyMMdd" draft="unconfirmed">dd.MM.yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -59,4 +61,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

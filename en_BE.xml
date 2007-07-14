@@ -18,7 +18,8 @@
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>EEE d MMM yyyy</pattern>
+							<pattern>d MMM yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -56,8 +57,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMdd" draft="provisional">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -90,4 +91,3 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_BE.txt?only_
 LocaleString { "en_BE" }
 ShortCountry { "BEL" }
 -->
-

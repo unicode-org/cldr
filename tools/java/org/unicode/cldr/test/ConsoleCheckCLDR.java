@@ -512,6 +512,9 @@ public class ConsoleCheckCLDR {
         Pair<String,Integer> pair = sortedHtmlIndexLines.get(key);
         String htmlOpenedFileLanguage = pair.getFirst();
         Integer count = pair.getSecond();
+        if (count == 0) {
+          continue;
+        }
         indexTablePrinter.addRow()
         .addCell( "<a href='" + htmlOpenedFileLanguage + ".html'>" + getNameAndLocale(htmlOpenedFileLanguage) + "</a>")
         .addCell(count)

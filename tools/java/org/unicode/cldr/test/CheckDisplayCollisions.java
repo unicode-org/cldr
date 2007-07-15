@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.XPathParts;
@@ -38,6 +39,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
   Set<String> collidingTypes = new TreeSet();
   
   private transient Relation<String,String> hasCollisions = new Relation(new TreeMap(), HashSet.class);
+  private boolean finalTesting;
   
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
     if (fullPath == null) return this; // skip paths that we don't have
@@ -145,7 +147,8 @@ public class CheckDisplayCollisions extends CheckCLDR {
     if (cldrFileToCheck == null) return this;
     cldrFileToCheck = cldrFileToCheck.getResolved(); // check resolved cases
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-    
+    finalTesting  = Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"));
+
     // clear old status
     clear();
     return this;
@@ -173,9 +176,10 @@ public class CheckDisplayCollisions extends CheckCLDR {
         continue;
       }
       // only check winning paths
-      if (!cldrFileToCheck.isWinningPath(xpath)) {
+      if (!cldrFileToCheck.isWinningPath(xpath) || finalTesting && xpath.contains("proposed")) {
         continue;
       }
+      //if (pha)
       itemType = thisItemType;
       // Merge some namespaces
       if (itemType == CLDRFile.CURRENCY_NAME) itemType = CLDRFile.CURRENCY_SYMBOL;

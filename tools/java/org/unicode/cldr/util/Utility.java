@@ -533,19 +533,34 @@ public class Utility {
 		}
 	}
 	
-	/**
-	 * Scan the string value from index forward. Stop at any point where the character
-	 * at index is not in the UnicodeSet.
-	 */
-	public static int scan(UnicodeSet uset, String value, int index) {
-		int cp;
-		for (; index < value.length(); index += UTF16.getCharCount(cp)) {
-			cp = UTF16.charAt(value, index);
-			if (!uset.contains(cp)) break;
-		}
-		return index;
-	}
-	
+  /**
+   * Scan the string value from index forward. Stop at any point where the character
+   * at index is not in the UnicodeSet.
+   */
+  public static int scan(UnicodeSet uset, String value, int index) {
+    int cp;
+    for (; index < value.length(); index += UTF16.getCharCount(cp)) {
+      cp = UTF16.charAt(value, index);
+      if (!uset.contains(cp)) break;
+    }
+    return index;
+  }
+  
+  /**
+   * Scan the string value from index forward. Stop at any point where the character
+   * BEFORE index is not in the UnicodeSet.
+   */
+  public static int scanBack(UnicodeSet uset, String value, int index) {
+    int cp;
+    for (; index >= 0; index -= UTF16.getCharCount(cp)) {
+      cp = UTF16.charAt(value, index - 1);
+      if (!uset.contains(cp)) {
+        break;
+      }
+    }
+    return index;
+  }
+  
   /**
    * Scan the string value from index forward. Stop at any point where the character
    * at index is in the UnicodeSet.

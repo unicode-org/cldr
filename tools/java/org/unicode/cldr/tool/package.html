@@ -274,19 +274,40 @@ above, but for now it's not worth fixing.)</li>
 <p></p>
 <h3>Update new Language/Script/Country Information</h3>
 <ol>
-	<li>Get the spreadsheet from Rick, with a name of the form: country_language_population-0403.xls</li>
+	<li>Get the spreadsheets from Rick, with names of the form:<ol>
+	<li><b>country_language_population-0403.xls</b></li>
+	<li><b>language_script_0403.txt</b></li>
+</ol>
+	</li>
 	<li>Open, and pick the Save As... menu<ol>
 	<li>Pick &quot;Save as type:&quot; Text (Tab delimited) (*.txt)</li>
-	<li>And &quot;File name:&quot; C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt</li>
-	<li>Respond OK, Yes; then close Excel (clicking No)</li>
+	<li>And &quot;File name:&quot; C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population<b>_raw</b>.txt</li>
+	<li>Save, responding OK, Yes; then close Excel (clicking No)</li>
 	<li>In CVS, diff C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\country_language_population_raw.txt 
 and sanity-check the changes.</li>
+	<li>Do the same to generate C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\language_script<b>_raw</b>.txt</li>
 </ol>
 	</li>
 	<li>Run the tool ConvertLanguageData.<ol>
-	<li>At the bottom are a list of Failures. It will also warn if a country doesn't have an official or de facto official language. Send those back to Rick. 
+	<li>Look for failures in the language vs script data, following the line:<ul>
+		<li><b>Problems in language_script_raw.txt</b></li>
+	</ul>
 	</li>
-	<li>Also send the lists: In Basic Data but not Population &gt; 20% and the reverse.</li>
+	<li>Look for Territory Language data, following the line:<ul>
+		<li><b>Possible Failures</b> ...
+		<ul>
+			<li>In Basic Data but not Population &gt; 20%</li>
+			<li>and the reverse.</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li>Look for general problems, following the line:<ul>
+		<li><b>Failures in Output.</b></li>
+		<li>It will also warn if a country doesn't have an official or de facto official language.</li>
+	</ul>
+	</li>
+	<li>Send all the error reports back to Rick.</li>
 </ol>
 	</li>
 	<li>Diff the following two files as a sanity check. The fragment only has certain portions of supplemental 

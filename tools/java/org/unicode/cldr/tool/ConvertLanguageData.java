@@ -1451,6 +1451,7 @@ public class ConvertLanguageData {
     
     // #Lcode LanguageName  Status  Scode ScriptName  References
     List<List<String>> input = SpreadSheet.convert("C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/language_script_raw.txt");
+    System.out.println("\r\nProblems in language_script_raw.txt\r\n");
     for (List<String> row : input) {
       try {
         if (row.size() == 0) continue;

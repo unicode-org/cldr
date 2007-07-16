@@ -73,7 +73,7 @@ public class SurveyMain extends HttpServlet {
         BETA
     };
     
-    public static final Phase phase = Phase.VETTING_CLOSED; // TODO: move this to dynamic initialization
+    public static final Phase phase = Phase.READONLY; // TODO: move this to dynamic initialization
 
     // phase?
     public static final boolean phaseSubmit = (phase==Phase.SUBMIT);  

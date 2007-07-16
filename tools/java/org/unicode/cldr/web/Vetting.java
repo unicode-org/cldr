@@ -80,6 +80,7 @@ public class Vetting {
     public static final String RES_LIST = "0IXD??ATGUNR"; /** list of strings for type 2**n.  @see typeToStr **/
 	public static final String TWID_VET_VERBOSE = "Vetting_Verbose"; /** option string for toggling verbosity in vetting **/
 	boolean VET_VERBOSE=false; /** option boolean for verbose vetting, defaults to false **/
+	static boolean MARK_NO_DISQUALIFY = true; // mark items with errors, don't disqualify
     
     /**
      * Convert a vetting type to a string
@@ -1284,7 +1285,7 @@ public class Vetting {
                     checked = true;
 					int lowest = UserRegistry.LIMIT_LEVEL;
 					for(Chad c : votes) {
-                        if(c.disqualified) continue;
+                        if(c.disqualified && !MARK_NO_DISQUALIFY) continue;
 						int lowestUserLevel = UserRegistry.LIMIT_LEVEL;
 						for(UserRegistry.User aUser : c.voters) {
 							if(!aUser.org.equals(name)) continue;
@@ -1372,7 +1373,7 @@ public class Vetting {
                     return false;
                 }
                 disqualified = test(locale, xpath, full_xpath, value); 
-                if(disqualified) {
+                if(disqualified  && !MARK_NO_DISQUALIFY) {
                     score = 0;
                     //if(/*sm.isUnofficial && */ base_xpath==83422) {
                     //    System.err.println("DISQ: " + locale + ":"+xpath + " ("+base_xpath+") - " + value);
@@ -1394,7 +1395,7 @@ public class Vetting {
             
 			public void add(Organization votes) {
 				orgs.add(votes);
-                if(!disqualified && value!=null) {
+                if(!(disqualified && !MARK_NO_DISQUALIFY) && value!=null) {
                     score += votes.strength;
                 }
 			}
@@ -1578,12 +1579,16 @@ public class Vetting {
             if(!winner.disqualified) {
                 return hadDisqualified;
             }
-            hadDisqualified = hadDisqualifiedWinner = true;
-            winner = null; // no winner
-            nexthighest = 0;
-            calculateOrgVotes();
+			
+			if(!MARK_NO_DISQUALIFY) {  
+				// actually remove winner, set to 0, etc.
+				hadDisqualifiedWinner = true;
+				winner = null; // no winner
+				nexthighest = 0;
+				calculateOrgVotes();
 
-            calculateWinner();
+				calculateWinner();
+			}
             return hadDisqualified;
         }
         
@@ -1771,7 +1776,7 @@ public class Vetting {
             // look for any default votes. 
             
             for(Chad c : chads.values()) {
-                if(c.disqualified)  {
+                if(c.disqualified && !MARK_NO_DISQUALIFY)  {
                     continue;
                 }
                 if(c.orgsDefaultFor != null) {
@@ -1824,7 +1829,7 @@ public class Vetting {
 			int highest = 0;
 			
 			for(Chad c : chads.values()) {
-                if((c.score==0) || c.disqualified) continue;  // item had an error or is otherwise out of the running
+                if((c.score==0) || (c.disqualified && !MARK_NO_DISQUALIFY)) continue;  // item had an error or is otherwise out of the running
                 
 				if(c.score > highest) { // new highest score
 					disputes.clear();
@@ -1858,7 +1863,7 @@ public class Vetting {
             }
             
             // was there an approved item that wasn't replaced by a confirmed item?
-            if( (existing != null) && (existingStatus == Status.APPROVED) &&  (!existing.disqualified) && // good existing value
+            if( (existing != null) && (existingStatus == Status.APPROVED) &&  (!(existing.disqualified && !MARK_NO_DISQUALIFY)) && // good existing value
                 ( (winner == null) || (status != Status.APPROVED))) // no new winner OR not-confirmed winner
             {
                 if(winner != existing) {  // is it a different item entirely?
@@ -1869,7 +1874,7 @@ public class Vetting {
             }
             
             // or, was there any existing item at all?
-            if((winner == null) && (existing != null) && (!existing.disqualified)) {
+            if((winner == null) && (existing != null) && (!(existing.disqualified && !MARK_NO_DISQUALIFY))) {
                 winner = existing;
                 status = existingStatus; // whatever it is
             }
@@ -1932,6 +1937,10 @@ public class Vetting {
 				baseFNoAlt = sm.xpt.removeAttribute(baseFNoAlt, "alt");
 
 				int winnerFullPath = makeXpathId(baseFNoAlt, altvariant, null, status);
+				
+				if(winner.disqualified && MARK_NO_DISQUALIFY) {
+					winnerFullPath = makeXpathId(baseFNoAlt, altvariant, "proposed-x555", status);
+				}
 			
 				outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e. no alt/proposed.
 				outputInsert.setInt(4, winnerFullPath); // outputFullxpath = base, i.e. no alt/proposed.
@@ -1944,7 +1953,7 @@ public class Vetting {
 			int jsernum = 1000; // starting point for  x propoed designation
 			for (Chad other : chads.values()) {
 				// skip if:
-				if( other == winner || other.disqualified) {  // skip the winner and any disqualified items
+				if( other == winner || (other.disqualified && !MARK_NO_DISQUALIFY)) {  // skip the winner and any disqualified items
                     continue;
 				}
 				jsernum++;

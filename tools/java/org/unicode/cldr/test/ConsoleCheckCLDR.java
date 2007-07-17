@@ -282,7 +282,7 @@ public class ConsoleCheckCLDR {
       CLDRFile file;
       ElapsedTimer timer = new ElapsedTimer();
       try {
-        file = cldrFactory.make(localeID, isLanguageLocale);
+        file = cldrFactory.make(localeID, true);
       } catch (RuntimeException e) {
         fatalErrors.add(localeID);
         System.out.println("FATAL ERROR: " + localeID);

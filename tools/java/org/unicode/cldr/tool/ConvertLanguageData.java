@@ -662,6 +662,7 @@ public class ConvertLanguageData {
     boolean first = true;
     LanguageTagParser ltp = new LanguageTagParser();
     
+    Log.println(" <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->");
     Log.println("\t<territoryInfo>");
     
     for (RowData row : sortedInput) {

@@ -276,7 +276,16 @@ above, but for now it's not worth fixing.)</li>
 <ol>
 	<li>Get the spreadsheets from Rick, with names of the form:<ol>
 	<li><b>country_language_population-0403.xls</b></li>
-	<li><b>language_script_0403.txt</b></li>
+	<li><b>language_script_0403.txt</b><ol>
+	<li><b>Alt must be secondary if:</b><ul>
+		<li><b>the script is not modern</b></li>
+		<li><b>the language is not modern</b></li>
+		<li><b>the territory doesn't have the language as a major modern language (official or 
+		defacto-official).</b></li>
+	</ul>
+	</li>
+</ol>
+	</li>
 </ol>
 	</li>
 	<li>Open, and pick the Save As... menu<ol>
@@ -310,7 +319,7 @@ and sanity-check the changes.</li>
 	<li>Send all the error reports back to Rick.</li>
 </ol>
 	</li>
-	<li>Diff the following two files as a sanity check. The fragment only has certain portions of supplemental 
+	<li>Once the errors are straightened out, diff the following two files as a sanity check. The fragment only has certain portions of supplemental 
 data, so ignore the parts it doesn't have:<ul>
 		<li>C:\cvsdata\unicode\cldr\common\supplemental\supplementalData.xml</li>
 		<li>C:\cvsdata\unicode\cldr\dropbox\gen\supplemental\language_code_fragment.xml</li>

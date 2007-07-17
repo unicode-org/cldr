@@ -655,7 +655,9 @@ public class ConvertLanguageData {
     System.out.println();
     System.out.println("Territory Language Data");
     System.out.println();
-    
+    System.out.println("Possible Failures");
+    System.out.println();
+   
     String lastCountryCode = "";
     boolean first = true;
     LanguageTagParser ltp = new LanguageTagParser();
@@ -880,15 +882,15 @@ public class ConvertLanguageData {
         if (x.officialStatus == OfficialStatus.de_facto_official || x.officialStatus == OfficialStatus.official || x.countryPopulation < 1000) {
           countriesWithoutOfficial.remove(x.countryCode);
         }
-        if (!checkCode("territory", x.countryCode)) continue;
+        if (!checkCode("territory", x.countryCode, null)) continue;
         statusFound.add(x.officialStatus);
         countriesNotFound.remove(x.countryCode);
         languagesNotFound.remove(x.languageCode);
         if (x.languageCode.contains("_")) {
           ltp.set(x.languageCode);
           languagesNotFound.remove(ltp.getLanguage());
-          if (!checkCode("language", ltp.getLanguage())) continue;
-          if (!checkCode("script", ltp.getScript())) continue;
+          if (!checkCode("language", ltp.getLanguage(), null)) continue;
+          if (!checkCode("script", ltp.getScript(), null)) continue;
         }
         String locale = x.languageCode + "_" + x.countryCode;
         if (localeToRowData.get(locale) != null) {
@@ -990,7 +992,7 @@ public class ConvertLanguageData {
       return;
     }
     System.out.println();
-    System.out.println("Failures");
+    System.out.println("Failures in Output");
     System.out.println();
     
     System.out.println(RowData.toStringHeader());
@@ -1458,9 +1460,10 @@ public class ConvertLanguageData {
         String language = row.get(0).trim();
         if (language.length() == 0 || language.startsWith("#")) continue;
         BasicLanguageData.Type status = BasicLanguageData.Type.valueOf(row.get(2));
-        String script = row.get(3);
-        if (!checkCode("language", language)) continue;
-        if (!checkCode("script", script)) continue;
+        String scripts = row.get(3);
+        if (!checkCode("language", language, row)) continue;
+        for (String script : scripts.split("\\s+")) {
+        if (!checkCode("script", script, row)) continue;
         // if the script is not modern, demote
         if (status == BasicLanguageData.Type.primary && !StandardCodes.isScriptModern(script)) {
           System.out.println("Should be secondary, script is not modern: " + script + "\t" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH));
@@ -1478,6 +1481,7 @@ public class ConvertLanguageData {
           if (reference != null && reference.length() == 0) {
             language_script_references.put(new Pair(language, script), reference);
           }
+        }
         }
       } catch (RuntimeException e) {
         System.err.println(row);
@@ -1553,7 +1557,7 @@ public class ConvertLanguageData {
     return false;
   }
 
-  private static boolean checkCode(String type, String code) {
+  private static boolean checkCode(String type, String code, Object sourceLine) {
     if (StandardCodes.make().getGoodAvailableCodes(type).contains(code)) {
       if (code.equals("no")) {
         return false;
@@ -1567,7 +1571,7 @@ public class ConvertLanguageData {
         return true;
       }
     }
-    System.out.println("Illegitimate Code for " + type + ": " + code);
+    System.out.println("Illegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
     return false;
   }
 

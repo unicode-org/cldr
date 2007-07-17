@@ -1101,7 +1101,7 @@ XXX	Code for transations where no currency is involved
 		<group type="034" contains="AF BD BT IN IR LK MV NP PK"/> <!--Southern Asia -->
 		<group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
 		<group type="QO" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
-		<group type="QU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK"/> <!-- European Union -->
+		<group type="QU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
 	</territoryContainment>
 	<!-- Start of Generated Data: see http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
 	<languageData>
@@ -3284,7 +3284,7 @@ XXX	Code for transations where no currency is involved
     </measurementData>
 	<timezoneData>
 		<mapTimezones type="windows">
-			<mapZone other="Dateline" type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line West-->
+			<mapZone other="Dateline" type="Pacific/Kwajalein"/> <!-- S (GMT-12:00) International Date Line West-->
 			<mapZone other="Samoa" type="Pacific/Apia"/> <!-- S (GMT-11:00) Midway Island, Samoa-->
 			<mapZone other="Hawaiian" type="Pacific/Honolulu"/> <!-- S (GMT-10:00) Hawaii-->
 			<mapZone other="Alaskan" type="America/Anchorage"/> <!-- D (GMT-09:00) Alaska-->

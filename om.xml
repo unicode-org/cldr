@@ -256,7 +256,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern alt="proposed-x555" draft="unconfirmed">dd-MMM-yy</pattern>
+							<pattern draft="unconfirmed">dd-MMM-yyyy</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -270,13 +270,13 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern alt="proposed-x555" draft="unconfirmed">h:mm:ss a</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a v</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern alt="proposed-x555" draft="unconfirmed">h:mm:ss a</pattern>
+							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>

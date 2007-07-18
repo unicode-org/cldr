@@ -1559,18 +1559,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" alt="proposed-x555">ม.ค.</month>
-							<month type="2" alt="proposed-x555">ก.พ.</month>
-							<month type="3" alt="proposed-x555">มี.ค.</month>
-							<month type="4" alt="proposed-x555">เม.ย.</month>
-							<month type="5" alt="proposed-x555">พ.ค.</month>
-							<month type="6" alt="proposed-x555">มิ.ย.</month>
-							<month type="7" alt="proposed-x555">ก.ค.</month>
-							<month type="8" alt="proposed-x555">ส.ค.</month>
-							<month type="9" alt="proposed-x555">ก.ย.</month>
-							<month type="10" alt="proposed-x555">ต.ค.</month>
-							<month type="11" alt="proposed-x555">พ.ย.</month>
-							<month type="12" alt="proposed-x555">ธ.ค.</month>
+							<month type="1">ม.ค.</month>
+							<month type="2">ก.พ.</month>
+							<month type="3">มี.ค.</month>
+							<month type="4">เม.ย.</month>
+							<month type="5">พ.ค.</month>
+							<month type="6">มิ.ย.</month>
+							<month type="7">ก.ค.</month>
+							<month type="8">ส.ค.</month>
+							<month type="9">ก.ย.</month>
+							<month type="10">ต.ค.</month>
+							<month type="11">พ.ย.</month>
+							<month type="12">ธ.ค.</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1593,7 +1593,7 @@
 							<day type="sat" alt="proposed-x1001" draft="unconfirmed">วันเสาร์</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="thu" alt="proposed-x555" draft="provisional">พฤ</day>
+							<day type="thu" draft="provisional">พฤ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">วันอาทิตย์</day>
@@ -1681,12 +1681,12 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern alt="proposed-x555">H' นาฬิกา 'm' นาที 'ss' วินาที'</pattern>
+							<pattern>H' นาฬิกา 'm' นาที 'ss' วินาที' v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern alt="proposed-x555">H' นาฬิกา 'm' นาที'</pattern>
+							<pattern>H' นาฬิกา 'm' นาที' z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">

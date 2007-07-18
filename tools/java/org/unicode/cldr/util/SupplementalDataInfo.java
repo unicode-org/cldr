@@ -325,9 +325,21 @@ public class SupplementalDataInfo {
       TreeSet.class);
   
   private Map<String, String> alias_zone = new TreeMap();
+
+  public Relation<String, Integer> numericTerritoryMapping = new Relation(new HashMap(), HashSet.class);
+  
+  public Relation<String, String> alpha3TerritoryMapping = new Relation(new HashMap(), HashSet.class);
   
   static Map<String, SupplementalDataInfo> directory_instance = new HashMap();
   
+  public Relation<String, String> getAlpha3TerritoryMapping() {
+    return alpha3TerritoryMapping;
+  }
+
+  public Relation<String, Integer> getNumericTerritoryMapping() {
+    return numericTerritoryMapping;
+  }
+
   public static SupplementalDataInfo getInstance(String supplementalDirectory) {
     synchronized (SupplementalDataInfo.class) {
       SupplementalDataInfo instance = directory_instance
@@ -387,6 +399,9 @@ public class SupplementalDataInfo {
     languageToTerritories.freeze();
     zone_aliases.freeze();
     languageToScriptVariants.freeze();
+    
+    numericTerritoryMapping.freeze();
+    alpha3TerritoryMapping.freeze();
     
     // freeze contents
     for (String language : languageToPopulation.keySet()) {
@@ -580,6 +595,17 @@ public class SupplementalDataInfo {
             String defContent = parts.getAttributeValue(-1, "locales").trim();
             String [] defLocales = defContent.split("\\s+");
             defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
+            return;
+          }
+        }
+        
+        if (level1.equals("codeMappings")) {
+          String level2 = parts.getElement(2);
+          if (level2.equals("territoryCodes")) {
+            // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
+            String type = parts.getAttributeValue(-1, "type");
+            numericTerritoryMapping.put(type, Integer.parseInt(parts.getAttributeValue(-1, "numeric")));
+            alpha3TerritoryMapping.put(type, parts.getAttributeValue(-1, "alpha3"));
             return;
           }
         }

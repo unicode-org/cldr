@@ -91,22 +91,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
         return this;
       }
       
-      // filter the paths
-      main:
-        for (Iterator<String> it = paths.iterator(); it.hasNext();) {
-          String dpath = it.next();
-          // make sure it is the winning path
-          if (!getCldrFileToCheck().isWinningPath(dpath)) {
-            it.remove();
-            continue main;
-          }
-          // make sure the collision is with the same type
-          if (dpath.startsWith(typesICareAbout[myType]) && !exclusions.reset(dpath).find()) {
-            continue main;
-          }
-          // no match, remove
-          it.remove();
-        }
+      removeMatches(myType);
       // check again on size
       if (paths.isEmpty()) {
         return this;
@@ -141,6 +126,25 @@ public class CheckDisplayCollisions extends CheckCLDR {
     
     }
     return this;
+  }
+
+  private void removeMatches(int myType) {
+    // filter the paths
+    main:
+      for (Iterator<String> it = paths.iterator(); it.hasNext();) {
+        String dpath = it.next();
+        // make sure it is the winning path
+        if (!getCldrFileToCheck().isWinningPath(dpath)) {
+          it.remove();
+          continue main;
+        }
+        // make sure the collision is with the same type
+        if (dpath.startsWith(typesICareAbout[myType]) && !exclusions.reset(dpath).find()) {
+          continue main;
+        }
+        // no match, remove
+        it.remove();
+      }
   }
   
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {

@@ -25,12 +25,12 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern alt="proposed-x555">h:mm:ss aa</pattern>
+							<pattern >h:mm:ss aa v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern alt="proposed-x555">H:mm:ss</pattern>
+							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -40,7 +40,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern alt="proposed-x555">H:mm:ss</pattern>
+							<pattern>H:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

@@ -67,6 +67,22 @@ simplify the process. We just haven't gotten there yet with everything else goin
 <p>This updates language codes, script codes, and territory codes.</p>
 <p></p>
 <ul>
+	<li>First get the latest ISO 639-3 from <a href="http://www.sil.org/iso639-3/download.asp">
+	http://www.sil.org/iso639-3/download.asp</a><ul>
+	<li>Click on each UTF-8 link, and Save As... without the version number:<ul>
+	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3.tab</li>
+	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3_Name_Index.tab</li>
+	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3-macrolanguages.tab</li>
+	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3_Retirements.tab</li>
+</ul>
+	</li>
+	<li>Take the latest version of any of the files (like iso-639-3_<font color="#FF0000"><b>20070615</b></font>.tab), 
+	and paste into<ul>
+	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3-version.tab</li>
+</ul>
+	</li>
+</ul>
+	</li>
 	<li>Go to <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a> 
 	<ul>
 		<li>(you can set up a watch for changes in this page with 

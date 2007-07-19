@@ -9,98 +9,29 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="afa">afroasiatiskt språk</language>
 			<language type="afa" alt="proposed-x1001" draft="unconfirmed">afro-asiatiskt språk (annat)</language>
-			<language type="cpe">engelskbaserat kreol- eller pidginspråk</language>
-			<language type="cpe" alt="proposed-x1001" draft="unconfirmed">kreolspråk och pidgin, engelskbaserade (annat)</language>
-			<language type="cpf">franskbaserat kreol- eller pidginspråk</language>
-			<language type="cpf" alt="proposed-x1001" draft="unconfirmed">kreolspråk och pidgin, franskbaserade (annat)</language>
-			<language type="cpp">portugisiskbaserat kreol- eller pidginspråk</language>
 			<language type="cpp" alt="proposed-x1001" draft="unconfirmed">kreolspråk och pidgin, portugisiskbaserade (annat)</language>
-			<language type="crh">krimtatariska</language>
 			<language type="crh" alt="proposed-x1001" draft="unconfirmed">krimturkiska; krimtatariska</language>
-			<language type="crp">kreol- eller pidginspråk</language>
-			<language type="crp" alt="proposed-x1001" draft="unconfirmed">kreolspråk och pidgin (annat)</language>
-			<language type="enm">medelengelska</language>
-			<language type="enm" alt="proposed-x1001" draft="unconfirmed">medelengelska (1100-1500)</language>
-			<language type="gil">gilbertiska</language>
-			<language type="gil" alt="proposed-x1001" draft="unconfirmed">gilbertesiska; kiribati</language>
-			<language type="gn">guaraní</language>
-			<language type="iro">irokesiskt språk</language>
-			<language type="khi">khoisanspråk</language>
-			<language type="khi" alt="proposed-x1001" draft="unconfirmed">khoisanspråk (annat)</language>
-			<language type="km">kambodjanska</language>
 			<language type="km" alt="proposed-x1001" draft="unconfirmed">kambodjanska; khmeriska</language>
-			<language type="kn">kannada</language>
-			<language type="kn" alt="proposed-x1001" draft="unconfirmed">kanaresiska; kannada</language>
-			<language type="lol">mongo</language>
-			<language type="lol" alt="proposed-x1001" draft="unconfirmed">lolo; mongo</language>
-			<language type="mga">medeliriska</language>
-			<language type="mga" alt="proposed-x1001" draft="unconfirmed">medeliriska (900-1200)</language>
-			<language type="nah">aztekiska</language>
 			<language type="nah" alt="proposed-x1001" draft="unconfirmed">nahuatl; aztekiska</language>
-			<language type="nds">lågtyska</language>
 			<language type="nds" alt="proposed-x1001" draft="unconfirmed">lågtyska; lågsaxiska</language>
-			<language type="oc">occitanska</language>
 			<language type="oc" alt="proposed-x1001" draft="unconfirmed">provensalska (efter 1500); occitanska</language>
-			<language type="oj">odjibwa</language>
-			<language type="oj" alt="proposed-x1001" draft="unconfirmed">odjibwa; chippewa</language>
-			<language type="phn">feniciska</language>
 			<language type="phn" alt="proposed-x1001" draft="unconfirmed">kananeiska; feniciska</language>
-			<language type="ps">afghanska</language>
 			<language type="ps" alt="proposed-x1001" draft="unconfirmed">pashto; afghanska</language>
-			<language type="rw">kinjarwanda</language>
 			<language type="rw" alt="proposed-x1001" draft="unconfirmed">rwanda; kinjarwanda</language>
-			<language type="sit">sinotibetanskt språk</language>
-			<language type="sit" alt="proposed-x1001" draft="unconfirmed">sinotibetanskt språk (annat)</language>
-			<language type="smi">samiskt språk</language>
 			<language type="smi" alt="proposed-x1001" draft="unconfirmed">samiskt språk (annat)</language>
-			<language type="sn">shona</language>
-			<language type="sn" alt="proposed-x1001" draft="unconfirmed">shona; manshona</language>
 		</languages>
 		<territories>
 			<territory type="UM">USA:s yttre öar</territory>
 			<territory type="UM" references="R221" alt="proposed-x1001" draft="unconfirmed">USAs yttre öar</territory>
 		</territories>
-		<types>
-			<type type="stroke" key="collation">streckordning</type>
-			<type type="stroke" key="collation" alt="proposed-x1001" draft="unconfirmed">kinesiska i streck-ordning</type>
-		</types>
-		<measurementSystemNames>
-			<measurementSystemName type="US" draft="unconfirmed">imperiska enheter</measurementSystemName>
-			<measurementSystemName type="metric" draft="unconfirmed">SI-enheter</measurementSystemName>
-		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters type="auxiliary">[à ã ç é ë í ñ ó š w ÿ ü ž]</exemplarCharacters>
 	</characters>
-	<delimiters>
-		<quotationStart>”</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>’</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM yyyy</pattern>
-							<pattern references="R217" alt="proposed-x1001" draft="unconfirmed">EEEE d MMM yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="hhmm">hh:mm</dateFormatItem>
-						<dateFormatItem id="hhmm" alt="proposed-x1001" draft="unconfirmed">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss">hh:mm:ss</dateFormatItem>
-						<dateFormatItem id="hhmmss" alt="proposed-x1001" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" alt="proposed-x1001" draft="unconfirmed">QQQQ, yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 				<fields>
 					<field type="dayperiod">
 						<displayName>dagsperiod</displayName>
@@ -203,7 +134,6 @@
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0 %</pattern>
 					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>

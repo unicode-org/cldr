@@ -28,30 +28,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd‏/MM‏/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<exponential draft="provisional">اس</exponential>
-		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
@@ -68,3 +48,4 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
+

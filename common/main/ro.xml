@@ -844,7 +844,6 @@
 			<territory type="ZZ">Regiune necunoscută sau incorectă</territory>
 		</territories>
 		<keys>
-			<key type="calendar">calendar</key>
 			<key type="collation">colaționare</key>
 			<key type="collation" alt="proposed-x1001" draft="unconfirmed">sortare</key>
 			<key type="collation" alt="proposed-x1002" draft="unconfirmed">ordonare</key>
@@ -889,15 +888,10 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<inList draft="contributed">mixed</inList>
-		<inText type="currency" draft="contributed">mixed</inText>
 		<inText type="keys" draft="contributed">lowercase-words</inText>
 		<inText type="languages">lowercase-words</inText>
 		<inText type="measurementSystemNames" draft="contributed">lowercase-words</inText>
-		<inText type="quarterWidth" draft="contributed">mixed</inText>
 		<inText type="scripts" draft="contributed">lowercase-words</inText>
-		<inText type="territories" draft="contributed">mixed</inText>
-		<inText type="types" draft="contributed">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a ă â b-i î j-s ș t ț u-z]</exemplarCharacters>
@@ -938,7 +932,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am draft="contributed">AM</am>
 				<eras>
 					<eraNames>
 						<era type="0" draft="contributed">era budistă</era>
@@ -1097,13 +1090,9 @@
 							<quarter type="4">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
 							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">I</quarter>
-							<quarter type="2">2</quarter>
 							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">II</quarter>
-							<quarter type="3">3</quarter>
 							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">III</quarter>
-							<quarter type="4">4</quarter>
 							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
@@ -1317,7 +1306,6 @@
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
 			<regionFormat draft="contributed">{0}</regionFormat>
-			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Necunoscut</exemplarCity>
 			</zone>
@@ -1490,17 +1478,8 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
 			<patternDigit alt="proposed-x1001" draft="unconfirmed">nr.</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2271,3 +2250,4 @@ Comments without bases
 
  See the National Bank of Romania for details http://www.bnro.ro/ 	 - was on: //ldml/numbers/currencies/currency[@type="RON"]/symbol[@alt="proposed"]
 -->
+

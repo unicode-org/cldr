@@ -12,12 +12,6 @@
 			<script type="Ital">اللأيطالية القديمة</script>
 		</scripts>
 	</localeDisplayNames>
-	<delimiters>
-		<quotationStart>”</quotationStart>
-		<quotationEnd>“</quotationEnd>
-		<alternateQuotationStart>’</alternateQuotationStart>
-		<alternateQuotationEnd>‘</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -66,19 +60,8 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<dateFormats>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd‏/MM‏/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 			</calendar>
 		</calendars>
 	</dates>
 </ldml>
+

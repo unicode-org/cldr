@@ -1663,10 +1663,6 @@
 			<territory type="ZZ" alt="proposed-x1002" draft="unconfirmed">ukent region</territory>
 			<territory type="ZZ" alt="proposed-x1003" draft="unconfirmed">Ukendt eller ugyldigt område</territory>
 		</territories>
-		<variants>
-			<variant type="POSIX" draft="contributed">POSIX</variant>
-			<variant type="VALENCIA">VALENCIA</variant>
-		</variants>
 		<keys>
 			<key type="calendar">Kalender</key>
 			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">kalender</key>
@@ -1722,18 +1718,14 @@
 	</localeDisplayNames>
 	<layout>
 		<inText type="currency" draft="contributed">lowercase-words</inText>
-		<inText type="fields" draft="provisional">mixed</inText>
 		<inText type="fields" alt="proposed-x1001" draft="unconfirmed">lowercase-words</inText>
-		<inText type="keys" draft="provisional">mixed</inText>
 		<inText type="keys" alt="proposed-x1001" draft="unconfirmed">lowercase-words</inText>
 		<inText type="languages">lowercase-words</inText>
 		<inText type="long" draft="unconfirmed">lowercase-words</inText>
 		<inText type="measurementSystemNames" draft="provisional">lowercase-words</inText>
 		<inText type="measurementSystemNames" alt="proposed-x1001" draft="unconfirmed">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
 		<inText type="quarterWidth" alt="proposed-x1001" draft="unconfirmed">lowercase-words</inText>
 		<inText type="scripts" draft="contributed">lowercase-words</inText>
-		<inText type="territories" draft="provisional">mixed</inText>
 		<inText type="territories" alt="proposed-x1001" draft="unconfirmed">titlecase-words</inText>
 		<inText type="types" draft="contributed">lowercase-words</inText>
 		<inText type="variants" draft="contributed">lowercase-words</inText>
@@ -1759,7 +1751,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<dateFormats>
@@ -1784,34 +1775,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">yy-MM</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">yy MMM</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="chinese">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -2082,7 +2045,6 @@
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
 			<regionFormat draft="provisional">{0}</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Ukendt</exemplarCity>
 			</zone>
@@ -2445,10 +2407,8 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
 			<list alt="proposed-x1001" draft="unconfirmed">,</list>
 			<minusSign draft="contributed">−</minusSign>
-			<infinity>∞</infinity>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2519,7 +2479,6 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentinsk peso</displayName>
-				<symbol>ARS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Arg$</symbol>
 			</currency>
 			<currency type="ATS">
@@ -2607,7 +2566,6 @@
 			<currency type="BRL">
 				<displayName>Brasiliansk real</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Brasilianske real</displayName>
-				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasiliansk cruzado novo</displayName>
@@ -2689,7 +2647,6 @@
 			<currency type="CZK">
 				<displayName>Tjekkisk koruna</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Tjekkiske koruna</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Østtysk mark</displayName>
@@ -2721,7 +2678,6 @@
 			<currency type="EEK">
 				<displayName>Estisk kroon</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Estisk krone</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Egyptisk pund</displayName>
@@ -2739,7 +2695,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finsk mark</displayName>
@@ -2877,7 +2832,6 @@
 			<currency type="JPY">
 				<displayName>Japansk yen</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Japanske yen</displayName>
-				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenyansk shilling</displayName>
@@ -2935,7 +2889,6 @@
 			<currency type="LTL">
 				<displayName>Litauisk lita</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Litauisk litas</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litauisk talonas</displayName>
@@ -2946,7 +2899,6 @@
 			<currency type="LVL">
 				<displayName>Lettisk lat</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Lettisk lats</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Lettisk rubel</displayName>
@@ -3119,7 +3071,6 @@
 			<currency type="RUB">
 				<displayName>Russisk rubel</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Russiske rubler</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Russisk rubel (1991-1998)</displayName>

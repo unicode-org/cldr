@@ -1081,8 +1081,6 @@
 		<variants>
 			<variant type="1901">Hagyományos német helyesírás</variant>
 			<variant type="1996">1996-os német helyesírás</variant>
-			<variant type="1606NICT" draft="provisional">1606NICT</variant>
-			<variant type="1694ACAD" draft="provisional">1694ACAD</variant>
 			<variant type="AREVELA">Keleti örmény</variant>
 			<variant type="AREVELA" alt="proposed-x1001" draft="unconfirmed">Kelet-örmény</variant>
 			<variant type="AREVMDA">Nyugati örmény</variant>
@@ -1255,12 +1253,6 @@
 							<quarter type="2">N2</quarter>
 							<quarter type="3">N3</quarter>
 							<quarter type="4">N4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">I. negyedév</quarter>
@@ -1458,89 +1450,8 @@
 			<zone type="Pacific/Yap">
 				<exemplarCity>Yap-szigetek</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT+12">
-				<exemplarCity>GMT+12</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-12">
-				<exemplarCity>GMT-12</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+11">
-				<exemplarCity>GMT+11</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-13">
-				<exemplarCity>GMT-13</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+10">
-				<exemplarCity>GMT+10</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-14">
-				<exemplarCity>GMT-14</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+9">
-				<exemplarCity>GMT+9</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+8">
-				<exemplarCity>GMT+8</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+7">
-				<exemplarCity>GMT+7</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+6">
-				<exemplarCity>GMT+6</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+5">
-				<exemplarCity>GMT+5</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+4">
-				<exemplarCity>GMT+4</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+3">
-				<exemplarCity>GMT+3</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+2">
-				<exemplarCity>GMT+2</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT+1">
-				<exemplarCity>GMT+1</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT">
-				<exemplarCity>GMT</exemplarCity>
-			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="provisional">Ismeretlen</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-1">
-				<exemplarCity>GMT-1</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-2">
-				<exemplarCity>GMT-2</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-3">
-				<exemplarCity>GMT-3</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-4">
-				<exemplarCity>GMT-4</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-5">
-				<exemplarCity>GMT-5</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-6">
-				<exemplarCity>GMT-6</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-7">
-				<exemplarCity>GMT-7</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-8">
-				<exemplarCity>GMT-8</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-9">
-				<exemplarCity>GMT-9</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-10">
-				<exemplarCity>GMT-10</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT-11">
-				<exemplarCity>GMT-11</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Jereván</exemplarCity>
@@ -1567,42 +1478,6 @@
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Bécs</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity draft="provisional">Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity draft="provisional">Adelaide</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity draft="provisional">Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity>Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity>Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity draft="provisional">Brisbane</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Barbadosz</exemplarCity>
@@ -1780,7 +1655,6 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kiritimati</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tarawa-sziget</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
@@ -1874,7 +1748,6 @@
 			</zone>
 			<!-- French Polynesia -->
 			<zone type="Pacific/Tahiti">
-				<exemplarCity>Tahiti</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tahiti-sziget</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
@@ -1898,7 +1771,6 @@
 				<exemplarCity alt="proposed-x1002" draft="unconfirmed">Azores</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="provisional">Madeira</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Madeira-sziget</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">

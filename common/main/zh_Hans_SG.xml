@@ -14,7 +14,6 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy年M月d日EEEE</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -26,7 +25,6 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy-M-d</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -40,7 +38,6 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>ahh时mm分ss秒 v</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">a hh:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -54,7 +51,6 @@
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>ahh:mm:ss</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">a hh:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -66,63 +62,14 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Ed" draft="provisional">E d</dateFormatItem>
-						<dateFormatItem id="H" draft="provisional">H</dateFormatItem>
-						<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M月d日</dateFormatItem>
-						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">yy年MMM月</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="provisional">yy年第Q季度</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="provisional">yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="provisional">yyyy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
-	<numbers>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="provisional">#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern draft="provisional">#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern draft="provisional">#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern draft="provisional">¤#,##0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
-	</numbers>
 </ldml>
 

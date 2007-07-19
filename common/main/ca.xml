@@ -581,10 +581,6 @@
 				<am draft="unconfirmed">AM</am>
 				<pm draft="unconfirmed">PM</pm>
 				<eras>
-					<eraNames>
-						<era type="0" draft="unconfirmed">BCE</era>
-						<era type="1" draft="unconfirmed">CE</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" references="R012">aC</era>
 						<era type="1" references="R012">dC</era>
@@ -860,7 +856,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<percentSign draft="provisional">%</percentSign>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -1096,3 +1091,4 @@
 		<reference type="RP3" uri="http://www.grec.net/home/cel/dicc.htm" draft="provisional">Diccionari d'Enciclopèdia Catalana</reference>
 	</references>
 </ldml>
+

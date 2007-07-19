@@ -13,7 +13,6 @@
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM yyyy</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -32,12 +31,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd" alt="proposed-x1001" draft="unconfirmed">dd-MMM</dateFormatItem>
-						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMM-yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd" draft="unconfirmed">EEE d MMM yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -49,3 +44,4 @@
 		</symbols>
 	</numbers>
 </ldml>
+

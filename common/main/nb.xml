@@ -1209,7 +1209,6 @@
 			<variant type="POLYTON">polytonisk rettskriving</variant>
 			<variant type="POLYTON" alt="proposed-x1001" draft="unconfirmed">polytonisk</variant>
 			<variant type="POLYTON" alt="proposed-x1002" draft="unconfirmed">polytonisk rettskrivning</variant>
-			<variant type="POSIX">POSIX</variant>
 			<variant type="REVISED">revidert rettskriving</variant>
 			<variant type="REVISED" alt="proposed-x1001" draft="unconfirmed">revidert rettskrivning</variant>
 			<variant type="REVISED" alt="proposed-x1002" draft="unconfirmed">revidert ortografi</variant>
@@ -1296,7 +1295,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>AM</am>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1326,13 +1324,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-			</calendar>
-			<calendar type="chinese">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyMMM" draft="provisional">yy MMM</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1821,15 +1812,7 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -1856,120 +1839,91 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>andorranske pesetas</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">emiratarabisk dirham</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afghani (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>afghani</displayName>
-				<symbol>AFN</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Af</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>albanske lek</displayName>
-				<symbol>ALL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">lek</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>armenske dram</displayName>
-				<symbol>AMD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">dram</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>nederlandske antillegylden</displayName>
-				<symbol>ANG</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">NA f.</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>angolanske kwanza</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>angolanske kwanza (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>angolanske nye kwanza (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>angolanske kwanza reajustado (1995-1999)</displayName>
-				<symbol>AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>argentinske australer</displayName>
-				<symbol>ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>argentinske pesos (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>argentinske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">argentisk peso</displayName>
-				<symbol>ARS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Arg$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>østerrikske shilling</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>australske dollar</displayName>
-				<symbol>AUD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">$A</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>arubiske gylden</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>aserbajdsjanske manat (1993-2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">aserbajdsjanske manat</displayName>
-				<symbol>AZM</symbol>
-			</currency>
-			<currency type="AZN">
-				<displayName>AZN</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>bosnisk-hercegovinske dinarer</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>bosnisk-hercegovinske mark (konvertible)</displayName>
-				<symbol>BAM</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>barbadiske dollar</displayName>
-				<symbol>BBD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BDS$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>bangladeshiske taka</displayName>
-				<symbol>BDT</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Tk</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>belgiske franc (konvertible)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>belgiske franc</displayName>
-				<symbol>BEF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>belgiske franc (finansielle)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>bulgarske lev (hard)</displayName>
@@ -1980,53 +1934,42 @@
 			<currency type="BGN">
 				<displayName>bulgarske lev</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">bulgarsk lev</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>bahrainske dinarer</displayName>
-				<symbol>BHD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>burundiske franc</displayName>
-				<symbol>BIF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Fbu</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>bermudiske dollar</displayName>
-				<symbol>BMD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Ber$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>bruneiske dollar</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>boliviano</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">boliviansk boliviano</displayName>
-				<symbol>BOB</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Bs</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>bolivianske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">boliviansk pesos</displayName>
-				<symbol draft="provisional">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>bolivianske mvdol</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>brasilianske cruzeiro novo (1967-1986)</displayName>
-				<symbol>BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>brasilianske cruzado</displayName>
-				<symbol>BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>brasilianske cruzeiro (1990-1993)</displayName>
-				<symbol>BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>brasilianske realer</displayName>
@@ -2035,194 +1978,152 @@
 			</currency>
 			<currency type="BRN">
 				<displayName>brasilianske cruzado novo</displayName>
-				<symbol>BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>brasilianske cruzeiro</displayName>
-				<symbol>BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>bahamske dollar</displayName>
-				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>bhutanske ngultrum</displayName>
-				<symbol>BTN</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Nu</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>burmesiske kyat</displayName>
-				<symbol>BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>botswanske pula</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>hviterussiske nye rubler (1994-1999)</displayName>
-				<symbol>BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>hviterussiske rubler</displayName>
-				<symbol>BYR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Rbl</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>beliziske dollar</displayName>
-				<symbol>BZD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">BZ$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>kanadiske dollar</displayName>
-				<symbol>CAD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Can$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>kongolesiske franc (congolais)</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR euro</displayName>
-				<symbol>CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>sveitsiske franc</displayName>
-				<symbol>CHF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SwF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR franc</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>chilenske unidades de fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>chilenske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">chilensk peso</displayName>
-				<symbol>CLP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Ch$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>kinesiske yuan renminbi</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">yuan (renminbi)</displayName>
-				<symbol>CNY</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Y</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>colombianske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">colombiansk peso</displayName>
-				<symbol>COP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Col$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>unidad de valor real</displayName>
-				<symbol>COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>costaricanske colon</displayName>
-				<symbol>CRC</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">C</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>gamle serbiske dinarer</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">serbiske dinarer</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>tsjekkoslovakiske koruna (hard)</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>kubanske pesos</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>kappverdiske escudo</displayName>
-				<symbol>CVE</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">CVEsc</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>kypriotiske pund</displayName>
-				<symbol>CYP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">£C</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>tsjekkiske koruna</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">tsjekkisk krone</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>østtyske ostmark</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>tyske mark</displayName>
-				<symbol>DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>djiboutiske franc</displayName>
-				<symbol>DJF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">DF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>danske kroner</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">danske kroner:</displayName>
-				<symbol>DKK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Dkr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>dominikanske pesos</displayName>
-				<symbol>DOP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">RD$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>algeriske dinarer</displayName>
-				<symbol>DZD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">DA</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>ecuadorianske sucre</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>ecuadorianske unidad de valor constante (UVC)</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>estiske kroon</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">estlandsk krone</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>egyptiske pund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">egyptisk pund</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName>ekwele</displayName>
-				<symbol>EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>eritreiske nakfa</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>spanske peseta (A-konto)</displayName>
-				<symbol>ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>spanske peseta (konvertibel konto)</displayName>
-				<symbol>ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>spanske peseta</displayName>
-				<symbol>ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>etiopiske birr</displayName>
-				<symbol>ETB</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Br</symbol>
 			</currency>
 			<currency type="EUR">
@@ -2231,21 +2132,17 @@
 			</currency>
 			<currency type="FIM">
 				<displayName>finske mark</displayName>
-				<symbol>FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>fijianske dollar</displayName>
-				<symbol>FJD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">F$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland-pund</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Falklandsøyene-pund</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>franske franc</displayName>
-				<symbol>FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>britiske pund sterling</displayName>
@@ -2254,109 +2151,86 @@
 			</currency>
 			<currency type="GEK">
 				<displayName>georgiske kupon larit</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>georgiske lari</displayName>
-				<symbol>GEL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">lari</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ghanesiske cedi</displayName>
-				<symbol>GHC</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>gibraltarske pund</displayName>
-				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>gambiske dalasi</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>guineanske franc</displayName>
-				<symbol>GNF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">GF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>guineanske syli</displayName>
-				<symbol>GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>ekvatorialguineanske ekwele guineana</displayName>
-				<symbol>GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>greske drakmer</displayName>
-				<symbol>GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>guatemalanske quetzal</displayName>
-				<symbol>GTQ</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Q</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>portugisiske guinea escudo</displayName>
-				<symbol>GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea-Bissau-pesos</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>guyanske dollar</displayName>
-				<symbol>GYD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">G$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkong-dollar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">hong kong-dollar</displayName>
-				<symbol>HKD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hoduras Lempira</displayName>
-				<symbol>HNL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">L</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>kroatiske dinarer</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>kroatiske kuna</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">kroatisk kuna</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>haitiske gourde</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ungarske forinter</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">ungarsk forint</displayName>
-				<symbol>HUF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Ft</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>indonesiske rupier</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">indonesisk rupiah</displayName>
-				<symbol>IDR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Rp</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>irske pund</displayName>
-				<symbol>IEP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">IR£</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>israelske pund</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>israelske nye shekler</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">israelske shekel</displayName>
-				<symbol>ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>indiske rupier</displayName>
@@ -2365,18 +2239,15 @@
 			</currency>
 			<currency type="IQD">
 				<displayName>irakske dinarer</displayName>
-				<symbol>IQD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">ID</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>iranske rialer</displayName>
-				<symbol>IRR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">RI</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>islandske kroner</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">islandske kronar</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>italienske lire</displayName>
@@ -2384,12 +2255,10 @@
 			</currency>
 			<currency type="JMD">
 				<displayName>jamaikanske dollar</displayName>
-				<symbol>JMD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">J$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>jordanske dinarer</displayName>
-				<symbol>JOD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">JD</symbol>
 			</currency>
 			<currency type="JPY">
@@ -2398,330 +2267,260 @@
 			</currency>
 			<currency type="KES">
 				<displayName>kenyanske shilling</displayName>
-				<symbol>KES</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">K Sh</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>kirgisiske som</displayName>
-				<symbol>KGS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">som</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>kambodsjanske riel</displayName>
-				<symbol>KHR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">CR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>komoriske franc</displayName>
-				<symbol>KMF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">CF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>nordkoreanske won</displayName>
-				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>sørkoreanske won</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">sør-koreanske won</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>kuwaitiske dinarer</displayName>
-				<symbol>KWD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">KD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>caymanske dollar</displayName>
-				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>kasakhstanske tenge</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">KZT</displayName>
-				<symbol>KZT</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">T</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>laotiske kip</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>libanesiske pund</displayName>
-				<symbol>LBP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">LL</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>srilankiske rupier</displayName>
-				<symbol>LKR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SL Re</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>liberiske dollar</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>lesothiske loti</displayName>
-				<symbol>LSL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">M</symbol>
 			</currency>
 			<currency type="LSM">
 				<displayName>maloti</displayName>
-				<symbol draft="provisional">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>litauiske lita</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">litauisk litas</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>litauiske talonas</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>luxemburgske konvertible franc</displayName>
-				<symbol>LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>luxemburgske franc</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>luxemburgske finansielle franc</displayName>
-				<symbol>LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>latviske lats</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>latviske rubler</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>libyske dinarer</displayName>
-				<symbol>LYD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">LD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>marokkanske dirham</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">marokkansk dirham</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>marokkanske franc</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>moldovske leu</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>madagassiske ariary</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>madagassiske franc</displayName>
-				<symbol>MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>makedonske denarer</displayName>
-				<symbol>MKD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">MDen</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>maliske franc</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>myanmarske kyat</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>mongolske tugrik</displayName>
-				<symbol>MNT</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Tug</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>makaoske pataca</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>mauritanske ouguiya</displayName>
-				<symbol>MRO</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">UM</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>maltesiske lira</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">maltesiske lire</displayName>
-				<symbol>MTL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Lm</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>maltesiske pund</displayName>
-				<symbol>MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>mauritiske rupier</displayName>
-				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>maldiviske rufiyaa</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>malawiske kwacha</displayName>
-				<symbol>MWK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">MK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>meksikanske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">meksikanske peso</displayName>
-				<symbol>MXN</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">MEX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>meksikanske sølvpesos (1861-1992)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>meksikanske unidad de inversion (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>malaysiske ringgit</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">malaysiske ringgitt</displayName>
-				<symbol>MYR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">RM</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>mosambikiske escudo</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>gamle mosambikiske metical</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">mosambikiske metical</displayName>
-				<symbol>MZM</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Mt</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>mosambikiske metical</displayName>
-				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>namibiske dollar</displayName>
-				<symbol>NAD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">N$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>nigerianske naira</displayName>
-				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>nicaraguanske cordoba</displayName>
-				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>nicaraguanske cordoba oro</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>nederlandske gylden</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>norske kroner</displayName>
-				<symbol>NOK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">kr</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>nepalske rupier</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nepalesiske rupier</displayName>
-				<symbol>NPR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Nrs</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>new zealandske dollar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nyzealandske dollar</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">newzealandske dollar</displayName>
-				<symbol>NZD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">$NZ</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>omanske rialer</displayName>
-				<symbol>OMR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">RO</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>panamanske balboa</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>peruvianske inti</displayName>
-				<symbol>PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>peruvianske nye sol</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">peruvianske sol nuevo</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">peruansk nuevo sol</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>peruvianske sol</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>papuanske kina</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>filippinske pesos</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">filippinsk peso</displayName>
-				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>pakistanske rupier</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">pakistansk rupi</displayName>
-				<symbol>PKR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Pra</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>polske zloty</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">polsk ny zloty</displayName>
-				<symbol>PLN</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Zl</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>polske zloty (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>portugisiske escudo</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>paraguayanske guarani</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>qatarske rialer</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">qatarske riyaler</displayName>
-				<symbol>QAR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">QR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>rhodesiske dollar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">RHD</displayName>
-				<symbol>RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>gamle rumenske leu</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">rumenske leu</displayName>
-				<symbol>ROL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">leu</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>rumenske leu</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">rumensk leu</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>serbiske dinarer</displayName>
@@ -2729,182 +2528,144 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>russiske rubler</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>russiske rubler (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>rwandiske franc</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>saudiarabiske riyaler</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">saudiarabiske rialer</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">saudi-arabisk riyal</displayName>
-				<symbol>SAR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SRl</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>salomonske dollar</displayName>
-				<symbol>SBD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>seychelliske rupier</displayName>
-				<symbol>SCR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">SR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>sudanesiske dinarer</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>sudanesiske pund</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>svenske kroner</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">svenske kroner:</displayName>
-				<symbol>SEK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Skr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>singaporske dollar</displayName>
-				<symbol>SGD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">S$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>sankthelenske pund</displayName>
-				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>slovenske tolar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">slovensk tolar</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>slovakiske koruna</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">slovakisk krone</displayName>
-				<symbol>SKK</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Sk</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>sierraleonske leone</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>somaliske shilling</displayName>
-				<symbol>SOS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">So. Sh.</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>surinamske dollar</displayName>
-				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>surinamske gylden</displayName>
-				<symbol>SRG</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Sf</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Sao Tome og Principe-dobra</displayName>
-				<symbol>STD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Db</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>sovjetiske rubler</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>salvadoranske colon</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>syriske pund</displayName>
-				<symbol>SYP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">LS</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>swazilandske lilangeni</displayName>
-				<symbol>SZL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">E</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>thailandske baht</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">thailandsk baht</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>tadsjikiske rubler</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>tadsjikiske somoni</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>turkmenske manat</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>tunisiske dinarer</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>tonganske paʻanga</displayName>
-				<symbol>TOP</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">T$</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>timoresiske escudo</displayName>
-				<symbol>TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>tyrkiske lire</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">tyrkiske lira</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">tyrkisk lira</displayName>
-				<symbol>TRL</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>ny tyrkisk lire</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nye tyrkiske lira</displayName>
-				<symbol draft="provisional">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>trinidadiske dollar</displayName>
-				<symbol>TTD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">TT$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>taiwanske nye dollar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">nye taiwanesiske dollar</displayName>
-				<symbol>TWD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>tanzanianske shilling</displayName>
-				<symbol>TZS</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">T Sh</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ukrainske hryvnia</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">ukrainsle hryvnia</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>ukrainske karbovanetz</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>ugandiske shilling (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>ugandiske shilling</displayName>
-				<symbol>UGX</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">U Sh</symbol>
 			</currency>
 			<currency type="USD">
@@ -2914,172 +2675,131 @@
 			</currency>
 			<currency type="USN">
 				<displayName>amerikanske dollar (neste dag)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>amerikanske dollar (samme dag)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>uruguayanske pesos (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>uruguayanske peso uruguayo</displayName>
-				<symbol>UYU</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Ur$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>usbekiske sum</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>venezuelanske bolivar</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">venezuelansk bolivar</displayName>
-				<symbol>VEB</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Be</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>vietnamesiske dong</displayName>
-				<symbol>VND</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>vanuatiske vatu</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">vanuatisk vatu</displayName>
-				<symbol>VUV</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">VT</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>vestsamoiske tala</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">vestsamoisk tala</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA franc BEAC</displayName>
-				<symbol>XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>sølv</displayName>
-				<symbol>XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>gull</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">XAU</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>europeisk sammensatt enhet</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>europeisk monetær enhet</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>europeisk kontoenhet (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>europeisk kontoenhet (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>østkaribiske dollar</displayName>
-				<symbol>XCD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>spesielle trekkrettigheter</displayName>
-				<symbol>XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>europeisk valutaenhet</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>franske gullfranc</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>franske UIC-franc</displayName>
-				<symbol>XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA franc BCEAO</displayName>
-				<symbol>XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>palladium</displayName>
-				<symbol>XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP franc</displayName>
-				<symbol>XPF</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>platina</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">platinum</displayName>
-				<symbol draft="provisional">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET-fond</displayName>
-				<symbol>XRE</symbol>
-			</currency>
-			<currency type="XTS">
-				<symbol draft="provisional">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>ukjent eller ugyldig valuta</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">ingen valuta</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>jemenittiske dinarer</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>jemenittiske rialer</displayName>
-				<symbol>YER</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">YRl</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>jugoslaviske dinarer (hard)</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>jugoslaviske noviy-dinarer</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>jugoslaviske konvertible dinarer</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>sørafrikanske rand (finansielle)</displayName>
-				<symbol>ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>sørafrikanske rand</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">sør-afrikansk rand</displayName>
-				<symbol>ZAR</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">R</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>zambiske kwacha</displayName>
-				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>zairiske nye zaire</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>zairiske zaire</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>zimbabwiske dollar</displayName>
-				<symbol>ZWD</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">Z$</symbol>
 			</currency>
 		</currencies>
@@ -3139,3 +2859,4 @@ Comments without bases
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
+

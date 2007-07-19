@@ -498,7 +498,6 @@
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<quarters>
@@ -962,7 +961,6 @@
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0} സമയം</regionFormat>
 			<regionFormat alt="proposed-x1001" draft="unconfirmed">{0}</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="provisional">അറിയപ്പെടാത്ത നഗരം</exemplarCity>
 			</zone>
@@ -972,7 +970,6 @@
 		<symbols>
 			<decimal draft="provisional">.</decimal>
 			<group draft="provisional">,</group>
-			<nativeZeroDigit draft="contributed">0</nativeZeroDigit>
 			<nativeZeroDigit alt="proposed-x1001" draft="unconfirmed">൦</nativeZeroDigit>
 		</symbols>
 		<decimalFormats>

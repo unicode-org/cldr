@@ -37,17 +37,10 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss v</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm 'Uhr' v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="yyMMdd" draft="unconfirmed">dd.MM.yy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -61,3 +54,4 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
+

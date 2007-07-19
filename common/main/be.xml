@@ -566,7 +566,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="unconfirmed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<days>
@@ -660,9 +659,7 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
-						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="unconfirmed">MM.yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -712,8 +709,6 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">dd.MM</dateFormatItem>
-						<dateFormatItem id="mmss" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="unconfirmed">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="unconfirmed">MM.yyyy</dateFormatItem>
 					</availableFormats>
@@ -836,12 +831,6 @@
 							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">3-ы кв.</quarter>
 							<quarter type="4">4-ты кв.</quarter>
 							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">4-ы кв.</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1-шы квартал</quarter>
@@ -1003,7 +992,6 @@
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
 			<regionFormat draft="unconfirmed">{0}</regionFormat>
-			<fallbackFormat draft="unconfirmed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Невядомы</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Unknown</exemplarCity>
@@ -1014,16 +1002,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list draft="unconfirmed">;</list>
-			<percentSign draft="unconfirmed">%</percentSign>
-			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
-			<patternDigit draft="unconfirmed">#</patternDigit>
-			<plusSign draft="unconfirmed">+</plusSign>
-			<minusSign draft="unconfirmed">-</minusSign>
-			<exponential draft="contributed">E</exponential>
-			<perMille draft="unconfirmed">‰</perMille>
-			<infinity draft="unconfirmed">∞</infinity>
-			<nan draft="contributed">NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

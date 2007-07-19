@@ -1090,7 +1090,6 @@
 			<type type="islamic-civil" key="calendar">islami ilmalik kalender</type>
 			<type type="japanese" key="calendar">Jaapani kalender</type>
 			<type type="phonebook" key="collation">telefoniraamat</type>
-			<type type="pinyin" key="collation">pinyin</type>
 			<type type="stroke" key="collation">elementide kirjutamise järjekorras</type>
 			<type type="traditional" key="collation">traditsiooniline</type>
 		</types>
@@ -1100,19 +1099,7 @@
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<layout>
-		<inList>mixed</inList>
-		<inText type="currency">mixed</inText>
-		<inText type="fields">mixed</inText>
-		<inText type="keys">mixed</inText>
-		<inText type="languages">mixed</inText>
 		<inText type="languages" alt="proposed-x1001" draft="unconfirmed">lowercase-words</inText>
-		<inText type="long">mixed</inText>
-		<inText type="measurementSystemNames">mixed</inText>
-		<inText type="quarterWidth">mixed</inText>
-		<inText type="scripts">mixed</inText>
-		<inText type="territories">mixed</inText>
-		<inText type="types">mixed</inText>
-		<inText type="variants">mixed</inText>
 	</layout>
 	<characters>
 		<exemplarCharacters>[a-s š z ž t-w õ ä ö ü x y]</exemplarCharacters>
@@ -1128,7 +1115,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -1321,7 +1307,6 @@
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">määramata</exemplarCity>
 			</zone>
@@ -1454,17 +1439,7 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
 			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2147,3 +2122,4 @@ zh_tw { "Hiina (traditsiooniline)" }
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
+

@@ -1901,6 +1901,8 @@
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
@@ -1908,6 +1910,8 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="unconfirmed">EEE d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" draft="unconfirmed">d. MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="contributed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="contributed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
@@ -3398,6 +3402,7 @@
 					<standard>HNAK</standard>
 					<daylight>HAAK</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -3410,6 +3415,7 @@
 					<standard>HNC</standard>
 					<daylight>HAC</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -3422,6 +3428,7 @@
 					<standard>HNE</standard>
 					<daylight>HAE</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -3434,6 +3441,7 @@
 					<standard>HNR</standard>
 					<daylight>HAR</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -3446,6 +3454,7 @@
 					<standard>HNP</standard>
 					<daylight>HAP</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -3458,6 +3467,7 @@
 					<standard>HNA</standard>
 					<daylight>HAA</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="China">
 				<long>
@@ -3535,6 +3545,7 @@
 					<standard>HNT</standard>
 					<daylight>HAT</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 		</timeZoneNames>
 	</dates>

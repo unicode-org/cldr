@@ -1753,6 +1753,8 @@
 						<dateFormatItem id="HHmmss" draft="provisional">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="provisional">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM月d日</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="provisional">dd MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="Md" alt="proposed-x1001" draft="unconfirmed">M月d日</dateFormatItem>
 						<dateFormatItem id="mmss" draft="provisional">mm:ss</dateFormatItem>
@@ -1764,6 +1766,7 @@
 						<dateFormatItem id="yyyy" draft="provisional">yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">yyyy-M</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="provisional">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1827,6 +1830,13 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+			</calendar>
+			<calendar type="islamic-civil">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyM" draft="provisional">yyyy年M月</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -3849,7 +3859,21 @@
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Chamorro">
+				<long>
+					<standard draft="provisional">查莫洛標準時間</standard>
+				</long>
+				<short>
+					<standard draft="provisional">ChST</standard>
+				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
+			</metazone>
+			<metazone type="Changbai">
+				<long>
+					<standard draft="provisional">長白山時間</standard>
+				</long>
+				<short>
+					<standard draft="provisional">CHAT</standard>
+				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
@@ -3944,6 +3968,9 @@
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Ecuador">
+				<long>
+					<standard draft="provisional">厄瓜多爾時間</standard>
+				</long>
 				<short>
 					<generic draft="provisional">ECT</generic>
 					<standard draft="provisional">ECST</standard>
@@ -4093,6 +4120,14 @@
 					<daylight draft="provisional">GDT (Guan)</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="provisional">海灣標準時間</standard>
+				</long>
+				<short>
+					<standard draft="provisional">GST</standard>
+				</short>
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
@@ -4343,6 +4378,9 @@
 					<standard draft="provisional">罗德毫岛标准时间</standard>
 					<daylight draft="provisional">罗德毫岛夏令时间</daylight>
 				</long>
+				<short>
+					<standard draft="provisional">LHDT</standard>
+				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Macau">
@@ -4539,6 +4577,10 @@
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Shevchenko">
+				<long>
+					<standard draft="provisional">舍甫琴科時間</standard>
+					<daylight draft="provisional">舍甫琴科夏令時間</daylight>
+				</long>
 				<short>
 					<generic draft="provisional">SHET</generic>
 					<standard draft="provisional">SHEDT</standard>

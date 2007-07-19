@@ -925,7 +925,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="provisional">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<months>
@@ -938,18 +937,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="yyQ" draft="provisional">yy Q</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="coptic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="provisional">M-d</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1256,13 +1243,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -2304,15 +2284,6 @@
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

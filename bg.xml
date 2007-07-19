@@ -956,7 +956,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -1018,9 +1017,6 @@
 							<day type="thu" alt="proposed-x1001" draft="unconfirmed">чв</day>
 							<day type="fri">пт</day>
 							<day type="sat">сб</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="thu" draft="provisional">5</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">неделя</day>
@@ -2531,13 +2527,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<percentSign draft="unconfirmed">%</percentSign>
-			<nativeZeroDigit draft="unconfirmed">0</nativeZeroDigit>
-			<patternDigit draft="unconfirmed">#</patternDigit>
-			<plusSign draft="unconfirmed">+</plusSign>
-			<minusSign draft="unconfirmed">-</minusSign>
-			<perMille draft="unconfirmed">‰</perMille>
-			<infinity draft="unconfirmed">∞</infinity>
 			<nan draft="unconfirmed">Н/Ч</nan>
 		</symbols>
 		<decimalFormats>

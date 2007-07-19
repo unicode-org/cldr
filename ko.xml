@@ -1201,7 +1201,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="provisional">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<eras>
@@ -1329,12 +1328,6 @@
 							<quarter type="4">4분기</quarter>
 							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">사</quarter>
 							<quarter type="4" alt="proposed-x1002" draft="unconfirmed">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">제 1/4분기</quarter>
@@ -1507,7 +1500,6 @@
 			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
 			<regionFormat draft="provisional">{0} 시간</regionFormat>
 			<regionFormat alt="proposed-x1001" draft="unconfirmed">{0}</regionFormat>
-			<fallbackFormat draft="provisional">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="provisional">알수없는 장소</exemplarCity>
 			</zone>
@@ -2556,16 +2548,6 @@
 		<symbols>
 			<decimal draft="provisional">.</decimal>
 			<group draft="provisional">,</group>
-			<list draft="provisional">;</list>
-			<percentSign draft="provisional">%</percentSign>
-			<nativeZeroDigit draft="provisional">0</nativeZeroDigit>
-			<patternDigit draft="provisional">#</patternDigit>
-			<plusSign draft="provisional">+</plusSign>
-			<minusSign draft="provisional">-</minusSign>
-			<exponential draft="provisional">E</exponential>
-			<perMille draft="provisional">‰</perMille>
-			<infinity draft="provisional">∞</infinity>
-			<nan draft="provisional">NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2598,17 +2580,14 @@
 		<currencies>
 			<currency type="ADP">
 				<displayName>안도라 페세타</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>아랍에미레이트 디르함</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">아랍에미리트 디르햄</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">아랍에미레이트 디나르</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>아프가니 (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>아프가니</displayName>
@@ -2626,7 +2605,6 @@
 			</currency>
 			<currency type="AOA">
 				<displayName>앙골라 콴자</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>앙골라 콴자 (1977-1990)</displayName>
@@ -2656,16 +2634,13 @@
 			</currency>
 			<currency type="AWG">
 				<displayName>아루바 길더</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>아제르바이젠 마나트</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">아제르바이젠 마나트(1993-2006)</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>아제르바이잔 마나트</displayName>
-				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>보스니아-헤르체고비나 디나르</displayName>
@@ -2696,11 +2671,9 @@
 			<currency type="BGN">
 				<displayName>불가리아 신권 렛</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">불가리아 레브</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>바레인 디나르</displayName>
-				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>부룬디 프랑</displayName>
@@ -2743,7 +2716,6 @@
 			</currency>
 			<currency type="BSD">
 				<displayName>바하마 달러</displayName>
-				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>부탄 눌투눔</displayName>
@@ -2753,7 +2725,6 @@
 			</currency>
 			<currency type="BWP">
 				<displayName>보츠와나 폴라</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>벨라루스 신권 루블 (1994-1999)</displayName>
@@ -2771,7 +2742,6 @@
 			</currency>
 			<currency type="CDF">
 				<displayName>콩고 프랑 콩골라스</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName draft="provisional">WIR 유로</displayName>
@@ -2802,14 +2772,12 @@
 			<currency type="CSD">
 				<displayName draft="unconfirmed">고 세르비아 디나르</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">세르비아 디나르</displayName>
-				<symbol>CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>체코슬로바키아 동전 코루나</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>쿠바 페소</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>카보베르데 에스쿠도</displayName>
@@ -2821,7 +2789,6 @@
 			<currency type="CZK">
 				<displayName>체코 공화국 코루나</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">체코 코루나</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>동독 오스트마르크</displayName>
@@ -2847,15 +2814,12 @@
 			</currency>
 			<currency type="EEK">
 				<displayName>에스토니아 크룬</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>이집트 파운드</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>에리트리아 나크파</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="provisional">스페인 페세타(예금)</displayName>
@@ -2872,7 +2836,6 @@
 			<currency type="EUR">
 				<displayName>유로화</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">유로</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>핀란드 마르카</displayName>
@@ -2884,7 +2847,6 @@
 			</currency>
 			<currency type="FKP">
 				<displayName>포클랜드제도 파운드</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>프랑스 프랑</displayName>
@@ -2894,7 +2856,6 @@
 			<currency type="GBP">
 				<displayName>영국령 파운드 스털링</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">영국 파운드</displayName>
-				<symbol>UK£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>그루지야 지폐 라리트</displayName>
@@ -2904,16 +2865,13 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>가나 시디</displayName>
-				<symbol>GHC</symbol>
 				<symbol alt="proposed-x1001" draft="unconfirmed">￠</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>지브롤터 파운드</displayName>
-				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>감비아 달라시</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>기니 프랑</displayName>
@@ -2932,7 +2890,6 @@
 			</currency>
 			<currency type="GWP">
 				<displayName>기네비쏘 페소</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>가이아나 달러</displayName>
@@ -2950,11 +2907,9 @@
 			</currency>
 			<currency type="HRK">
 				<displayName>크로아티아 쿠나</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>하이티 구르드</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>헝가리 포린트</displayName>
@@ -2972,7 +2927,6 @@
 			<currency type="ILS">
 				<displayName>이스라엘 신권 세켈</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">이스라엘 셰켈</displayName>
-				<symbol draft="provisional">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>인도 루피</displayName>
@@ -2986,7 +2940,6 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>아이슬란드 크로나</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>이탈리아 리라</displayName>
@@ -3031,14 +2984,12 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>케이맨 제도 달러</displayName>
-				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>카자흐스탄 텐게</displayName>
 			</currency>
 			<currency type="LAK">
 				<displayName>라오스 키프</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>레바논 파운드</displayName>
@@ -3048,7 +2999,6 @@
 			</currency>
 			<currency type="LRD">
 				<displayName>라이베리아 달러</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>레소토 로티</displayName>
@@ -3059,7 +3009,6 @@
 			<currency type="LTL">
 				<displayName>리투아니아 리타</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">리투아니아 리타스</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>룩셈부르크 타로나</displayName>
@@ -3075,7 +3024,6 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>라트비아 라트</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>라트비아 루블</displayName>
@@ -3086,14 +3034,12 @@
 			<currency type="MAD">
 				<displayName>모로코 디렘</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">모로코 디람</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>모로코 프랑</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>몰도바 레이</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>마다가스카르 아리아리</displayName>
@@ -3359,7 +3305,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>미국 달러</displayName>
-				<symbol draft="provisional">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName draft="provisional">미국 달러(다음날)</displayName>

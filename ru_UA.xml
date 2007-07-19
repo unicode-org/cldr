@@ -14,9 +14,6 @@
 			<language type="mh">маршальский</language>
 			<language type="tlh">клингон</language>
 		</languages>
-		<scripts>
-			<script type="Xsux">Шумеро-аккадская клинопись</script>
-		</scripts>
 		<types>
 			<type type="buddhist" key="calendar">Буддийский календарь</type>
 		</types>
@@ -25,12 +22,6 @@
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<delimiters>
-		<quotationStart draft="provisional">«</quotationStart>
-		<quotationEnd draft="provisional">»</quotationEnd>
-		<alternateQuotationStart draft="provisional">„</alternateQuotationStart>
-		<alternateQuotationEnd draft="provisional">“</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -73,27 +64,11 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencies>
-			<currency type="BAM">
-				<displayName>Конвертируемая марка Боснии и Герцеговины</displayName>
-			</currency>
 			<currency type="ESB">
 				<displayName>ESB</displayName>
 			</currency>
@@ -105,11 +80,5 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
-		<messages>
-			<yesstr draft="provisional">да:д</yesstr>
-			<nostr draft="provisional">нет:н</nostr>
-		</messages>
-	</posix>
 </ldml>
 

@@ -60,25 +60,12 @@
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
-						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<metazone type="Europe_Central">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-			<metazone type="Europe_Eastern">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-			<metazone type="Europe_Western">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencyFormats>
@@ -104,3 +91,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_IE.txt?only_
             "Greenwich Mean Time",   // This doesn't look correct
             "GMT",                   // This doesn't look correct
 -->
+

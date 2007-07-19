@@ -23,7 +23,6 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, yyyy</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">MMM dd,yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -36,20 +35,17 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>h:mm:ss a v</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd MMMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy</dateFormatItem>
 					</availableFormats>
@@ -72,3 +68,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

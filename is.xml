@@ -1166,10 +1166,6 @@
 				<am draft="unconfirmed">AM</am>
 				<pm draft="unconfirmed">PM</pm>
 				<eras>
-					<eraNames>
-						<era type="0" draft="unconfirmed">BCE</era>
-						<era type="1" draft="unconfirmed">CE</era>
-					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">BCE</era>
 						<era type="1" draft="unconfirmed">CE</era>
@@ -1263,7 +1259,6 @@
 			</zone>
 			<!-- Argentina -->
 			<zone type="America/Buenos_Aires">
-				<exemplarCity draft="unconfirmed">Buenos Aires</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Búenos Aíres</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
@@ -1310,7 +1305,6 @@
 				 Chile
 			-->
 			<zone type="America/Santiago">
-				<exemplarCity draft="unconfirmed">Santiago</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Santíagó</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
@@ -1346,7 +1340,6 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kanarí</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
-				<exemplarCity draft="unconfirmed">Madrid</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Madríd</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
@@ -1473,7 +1466,6 @@
 			</zone>
 			<!-- Malaysia -->
 			<zone type="Asia/Kuala_Lumpur">
-				<exemplarCity draft="unconfirmed">Kuala Lumpur</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kúala Lúmpúr</exemplarCity>
 			</zone>
 			<zone type="Europe/Oslo">
@@ -1489,7 +1481,6 @@
 				 French Polynesia
 			-->
 			<zone type="Pacific/Tahiti">
-				<exemplarCity draft="unconfirmed">Tahiti</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tahítí</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
@@ -1503,7 +1494,6 @@
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="unconfirmed">Azores</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Asoreyjar</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
@@ -2239,3 +2229,4 @@ CS { "Serb\u00eda og Svartfjallaland" } // TODO: if we allow this, then SP must 
 MM { "B\u00farma" } // Burma? Should be Myanmar?
         "Latn",  // ISO 15924 Name
 -->
+

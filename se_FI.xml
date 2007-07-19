@@ -66,21 +66,17 @@
 			<language type="sv" alt="proposed-x1001" draft="unconfirmed">ruoŧagiella</language>
 		</languages>
 		<territories>
-			<territory type="001" draft="provisional">máilbmi</territory>
 			<territory type="002" draft="provisional">Afrihká</territory>
 			<territory type="005" draft="provisional">Mátta-Amerihká</territory>
 			<territory type="011" draft="provisional">Oarji-Afrihká</territory>
-			<territory type="011" alt="proposed-x1001" draft="unconfirmed">oarji-Afrihká</territory>
 			<territory type="014">014</territory>
 			<territory type="014" alt="proposed-x1001" draft="unconfirmed">Nuorta-Afrihkká</territory>
 			<territory type="015" draft="provisional">Davvi-Afrihká</territory>
 			<territory type="017" draft="provisional">Gaska-Afrihká</territory>
-			<territory type="018" draft="provisional">mátta-Afrihkká</territory>
 			<territory type="021" draft="provisional">Davvi-Amerihká</territory>
 			<territory type="030" draft="provisional">Nuorta-Ásia</territory>
 			<territory type="034" draft="provisional">Mátta-Ásia</territory>
 			<territory type="039" draft="provisional">Mátta-Eurohpa</territory>
-			<territory type="142" draft="provisional">Ásia</territory>
 			<territory type="143" draft="provisional">Gaska-Ásia</territory>
 			<territory type="145" draft="provisional">Oarji-Ásia</territory>
 			<territory type="150" draft="provisional">Eurohpa</territory>
@@ -114,7 +110,6 @@
 			<territory type="DK">DK</territory>
 			<territory type="DK" alt="proposed-x1001" draft="unconfirmed">Dánmárku</territory>
 			<territory type="EE">EE</territory>
-			<territory type="EE" alt="proposed-x1001" draft="unconfirmed">Estteeana</territory>
 			<territory type="ES">ES</territory>
 			<territory type="ES" alt="proposed-x1001" draft="unconfirmed">Espánnja</territory>
 			<territory type="FI">FI</territory>
@@ -144,7 +139,6 @@
 			<territory type="JP">JP</territory>
 			<territory type="JP" alt="proposed-x1001" draft="unconfirmed">Jáhpan</territory>
 			<territory type="KP">KP</territory>
-			<territory type="KP" alt="proposed-x1001" draft="unconfirmed">Davvi-Korea</territory>
 			<territory type="KR">KR</territory>
 			<territory type="KR" alt="proposed-x1001" draft="unconfirmed">Mátta-Korea</territory>
 			<territory type="LB">LB</territory>
@@ -174,11 +168,9 @@
 			<territory type="NO">NO</territory>
 			<territory type="NO" alt="proposed-x1001" draft="unconfirmed">Norga</territory>
 			<territory type="NZ">NZ</territory>
-			<territory type="NZ" alt="proposed-x1001" draft="unconfirmed">Aotearoa</territory>
 			<territory type="PH">PH</territory>
 			<territory type="PH" alt="proposed-x1001" draft="unconfirmed">Filippiinnat</territory>
 			<territory type="PL">PL</territory>
-			<territory type="PL" alt="proposed-x1001" draft="unconfirmed">Polska</territory>
 			<territory type="PS">PS</territory>
 			<territory type="PS" alt="proposed-x1001" draft="unconfirmed">Palestiinná</territory>
 			<territory type="RU">RU</territory>
@@ -212,12 +204,6 @@
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<delimiters>
-		<quotationStart draft="unconfirmed">”</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">’</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
-	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -313,9 +299,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols>
-			<group draft="unconfirmed"> </group>
-		</symbols>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -348,3 +331,4 @@
 		</messages>
 	</posix>
 </ldml>
+

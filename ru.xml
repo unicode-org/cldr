@@ -1234,10 +1234,6 @@
 							<quarter type="3">3-й кв.</quarter>
 							<quarter type="4">4-й кв.</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1-й квартал</quarter>
 							<quarter type="2">2-й квартал</quarter>
@@ -2822,15 +2818,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
 		</symbols>
 		<scientificFormats>
 			<scientificFormatLength>
@@ -2847,11 +2834,6 @@
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencySpacing>
-				<afterCurrency>
-					<insertBetween> </insertBetween>
-				</afterCurrency>
-			</currencySpacing>
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>#,##0.00 ¤</pattern>
@@ -2925,7 +2907,6 @@
 				<displayName alt="proposed-x1001" draft="unconfirmed">Азербайджанский манат 1993-2006</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Азербайджанский манат</displayName>
 				<displayName alt="proposed-x1003" draft="unconfirmed">Азербайджанский манат (1993-2006)</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Азербайджанский манат</displayName>
@@ -3040,7 +3021,6 @@
 			</currency>
 			<currency type="CDF">
 				<displayName>Конголезский франк</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR Евро</displayName>
@@ -3051,7 +3031,6 @@
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR франк</displayName>
-				<symbol>CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Условная расчетная единица Чили</displayName>
@@ -3084,7 +3063,6 @@
 			</currency>
 			<currency type="CSK">
 				<displayName>Чехословацкая твердая крона</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Кубинское песо</displayName>
@@ -3099,11 +3077,9 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Чешская крона</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Восточногерманская марка</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Немецкая марка</displayName>
@@ -3131,11 +3107,9 @@
 			</currency>
 			<currency type="ECV">
 				<displayName>Постоянная единица стоимости Эквадора</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Эстонская крона</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Египетский фунт</displayName>
@@ -3162,7 +3136,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Финская марка</displayName>
@@ -3244,7 +3217,6 @@
 			</currency>
 			<currency type="HTG">
 				<displayName>Гаитянский гурд</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Венгерский форинт</displayName>
@@ -3355,7 +3327,6 @@
 			<currency type="LTL">
 				<displayName>Литовский лит</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Литовские литы</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Литовский талон</displayName>
@@ -3371,7 +3342,6 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>Латвийский лат</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Латвийский рубль</displayName>
@@ -3384,7 +3354,6 @@
 				<displayName>Марокканский дирхам</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Морокканский дирхам</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Марокканский франк</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Марокканский франк</displayName>
@@ -3395,7 +3364,6 @@
 			<currency type="MGA">
 				<displayName>Ариари</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Мадагаскарская Ариари</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Малагасийский франк</displayName>
@@ -3430,7 +3398,6 @@
 			</currency>
 			<currency type="MUR">
 				<displayName>Маврикийская рупия</displayName>
-				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Мальдивская руфия</displayName>
@@ -3645,7 +3612,6 @@
 			<currency type="THB">
 				<displayName>Таиландский бат</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Тайский бат</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Таджикский рубль</displayName>
@@ -3672,7 +3638,6 @@
 			</currency>
 			<currency type="TRY">
 				<displayName>Новая турецкая лира</displayName>
-				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Доллар Тринидада и Тобаго</displayName>
@@ -3801,7 +3766,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>Неизвестная или недействительная валюта</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Йеменский динар</displayName>

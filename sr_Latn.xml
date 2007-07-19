@@ -27,7 +27,6 @@
 			<language type="el">Grčki</language>
 			<language type="en">Engleski</language>
 			<language type="en_AU">Engleski (Australija)</language>
-			<language type="en_GB">en_GB</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Španski</language>
 			<language type="et">Estonski</language>
@@ -427,7 +426,6 @@
 	<characters>
 		<exemplarCharacters>[a-c ć č d đ {dž} e-l {lj} m n {nj} o p r s š t-v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -598,11 +596,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -622,11 +616,6 @@
 			<!-- Antarctica -->
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni pol</exemplarCity>
-			</zone>
-			<zone type="Europe/Sarajevo">
-				<long>
-					<standard>Srednje Evropsko Vrijeme</standard>
-				</long>
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
@@ -800,3 +789,4 @@
 		</messages>
 	</posix>
 </ldml>
+

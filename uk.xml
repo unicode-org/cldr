@@ -1244,8 +1244,6 @@
 			<variant type="1901">Традиційна німецька орфографія</variant>
 			<variant type="1996" draft="unconfirmed">Нова німецька орфографія (з 1996 р.)</variant>
 			<variant type="1996" alt="proposed-x1001" draft="unconfirmed">Нова німецька орфографія з 1996 р.</variant>
-			<variant type="1606NICT" draft="provisional">1606NICT</variant>
-			<variant type="1694ACAD" draft="provisional">1694ACAD</variant>
 			<variant type="AREVELA" draft="provisional">Східновірменський</variant>
 			<variant type="AREVMDA" draft="provisional">Західновірменський</variant>
 			<variant type="BOONT" draft="provisional">Бунтлінг</variant>
@@ -1261,7 +1259,6 @@
 			<variant type="ROZAJ" alt="proposed-x1001" draft="unconfirmed">Резьянський діалект</variant>
 			<variant type="SAAHO">Сахо</variant>
 			<variant type="SCOUSE" draft="provisional">Ліверпульський</variant>
-			<variant type="VALENCIA" draft="provisional">VALENCIA</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Календар</key>
@@ -1312,7 +1309,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern>{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="coptic">
 				<months>
@@ -1547,13 +1543,9 @@
 							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">1</quarter>
 							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">I</quarter>
-							<quarter type="2" draft="unconfirmed">2</quarter>
 							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">II</quarter>
-							<quarter type="3" draft="unconfirmed">3</quarter>
 							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">III</quarter>
-							<quarter type="4" draft="unconfirmed">4</quarter>
 							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
@@ -1792,7 +1784,6 @@
 			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HHmm;-HHmm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Africa/Timbuktu">
 				<exemplarCity>Тимбукту</exemplarCity>
 			</zone>
@@ -3236,16 +3227,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan draft="provisional">NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -3308,32 +3289,26 @@
 			<currency type="AOA">
 				<displayName>Ангольська кванза</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кванза</displayName>
-				<symbol draft="provisional">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Ангольська кванза (1977-1990)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кванза (1977-1990)</displayName>
-				<symbol draft="provisional">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Ангольська нова кванза (1990-2000)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Нова кванза (1990-2000)</displayName>
-				<symbol draft="provisional">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName draft="unconfirmed">Ангольська кванза реаджастадо (1995-1999)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кванза реаджастадо (1995-1999)</displayName>
-				<symbol draft="provisional">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Аргентинський австрал</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Аустрал</displayName>
-				<symbol draft="provisional">ARA</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName references="R234">Аргентинський песо (1983-1985)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Аргентинське песо (1983-1985)</displayName>
-				<symbol draft="provisional">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName references="R234">Аргентинський песо</displayName>
@@ -3351,22 +3326,18 @@
 			</currency>
 			<currency type="AWG">
 				<displayName>Арубський гульден</displayName>
-				<symbol draft="provisional">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName draft="provisional">Азербайджанський манат (1993-2006)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Азербайджанський манат</displayName>
-				<symbol draft="provisional">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="provisional">Азербайджанський манат</displayName>
-				<symbol draft="provisional">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Динар (Боснія і Герцеговина)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Динар Боснії і Герцеговини</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Динар Боснії і Герцеґовини</displayName>
-				<symbol draft="provisional">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Конвертована марка Боснії і Герцоговини</displayName>
@@ -3387,7 +3358,6 @@
 			<currency type="BEC">
 				<displayName>Бельгійський франк (конвертований)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Бельґійський франк (конвертований)</displayName>
-				<symbol draft="provisional">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Бельгійський франк</displayName>
@@ -3398,7 +3368,6 @@
 				<displayName>Бельгійський франк (фінансовий)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Бельґійський франк (фінансовий)</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Фінансовий франк</displayName>
-				<symbol draft="provisional">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Болгарський твердий лев</displayName>
@@ -3409,7 +3378,6 @@
 				<displayName>Болгарський новий лев</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Болгарський лев</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Болгарський Лев</displayName>
-				<symbol draft="provisional">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Бахрейнський динар</displayName>
@@ -3438,50 +3406,41 @@
 				<displayName>Болівійське песо</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Песо</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Болівійський песо</displayName>
-				<symbol draft="provisional">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Болівійський мвдол</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Мвдол</displayName>
-				<symbol draft="provisional">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Бразильське нове крузейро (1967-1986)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Крузейро (1967-1986)</displayName>
-				<symbol draft="provisional">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Бразильське крузадо</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Бразильський крузадо</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Крузадо</displayName>
-				<symbol draft="provisional">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Бразильське крузейро (1990-1993)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Крузейро (1990-1993)</displayName>
-				<symbol draft="provisional">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразильський реал</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Бразильський ріал</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Бразильский реал</displayName>
 				<displayName references="R234" alt="proposed-x1003" draft="unconfirmed">Бразільський ріал</displayName>
-				<symbol draft="provisional">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Бразильське нове крузадо</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Новий крузадо</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Бразильський новий крузадо</displayName>
-				<symbol draft="provisional">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Бразильське крузейро</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Крузейро ріал</displayName>
-				<symbol draft="provisional">BRR</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Багамський долар</displayName>
-				<symbol draft="provisional">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Бутанський нгултрум</displayName>
@@ -3490,16 +3449,13 @@
 			</currency>
 			<currency type="BUK">
 				<displayName>Бірманський кіат</displayName>
-				<symbol draft="provisional">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Ботсванська пула</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Пула</displayName>
-				<symbol draft="provisional">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Білоруський новий рубль (1994-1999)</displayName>
-				<symbol draft="provisional">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Білоруський рубль</displayName>
@@ -3517,11 +3473,9 @@
 			<currency type="CDF">
 				<displayName>Конголезький франк</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Конґолезький франк</displayName>
-				<symbol draft="provisional">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>Євро WIR</displayName>
-				<symbol draft="provisional">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Швейцарський франк</displayName>
@@ -3530,13 +3484,11 @@
 			</currency>
 			<currency type="CHW">
 				<displayName>Франк WIR</displayName>
-				<symbol draft="provisional">CHW</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Чилійський UF</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Чилійський юнідадес де фоменто</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Юнідадес де фоменто</displayName>
-				<symbol draft="provisional">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName references="R234">Чілійський песо</displayName>
@@ -3559,7 +3511,6 @@
 			</currency>
 			<currency type="COU">
 				<displayName references="R234" draft="provisional">Юнідад де валор ріал</displayName>
-				<symbol draft="provisional">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName references="R234">Костариканський колон</displayName>
@@ -3569,12 +3520,10 @@
 			<currency type="CSD">
 				<displayName draft="provisional">Старий сербський динар</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Сербський динар</displayName>
-				<symbol draft="provisional">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Чехословацька тверда крона</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Коруна</displayName>
-				<symbol draft="provisional">CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName references="R234">Кубинський песо</displayName>
@@ -3591,16 +3540,13 @@
 			<currency type="CZK">
 				<displayName>Чеська крона</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Чеська Коруна</displayName>
-				<symbol draft="provisional">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName references="R234">Марка НДР</displayName>
-				<symbol draft="provisional">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Німецька марка</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Німецькі марки</displayName>
-				<symbol draft="provisional">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Джибутійський франк</displayName>
@@ -3625,27 +3571,22 @@
 			<currency type="ECS">
 				<displayName>Еквадорський сукре</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Еквадорське сукре</displayName>
-				<symbol draft="provisional">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Еквадорський UVС</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Еквадорський юнідад де валор константе</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Юнідад де валор константе</displayName>
-				<symbol draft="provisional">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Естонська крона</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Крона</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Естонська Круна</displayName>
-				<symbol draft="provisional">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Єгипетський фунт</displayName>
-				<symbol draft="provisional">EGP</symbol>
 			</currency>
 			<currency type="EQE">
 				<displayName references="R234">Еквеле</displayName>
-				<symbol draft="provisional">EQE</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Еритрейська накфа</displayName>
@@ -3667,12 +3608,10 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Євро</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Фінляндська марка</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Марка</displayName>
-				<symbol draft="provisional">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Долар Фіджі</displayName>
@@ -3682,12 +3621,10 @@
 			<currency type="FKP">
 				<displayName>Фолклендський фунт</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Фунт Фолклендських островів</displayName>
-				<symbol draft="provisional">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Французький франк</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Французькі франки</displayName>
-				<symbol draft="provisional">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Англійський фунт стерлінгів</displayName>
@@ -3697,7 +3634,6 @@
 			</currency>
 			<currency type="GEK">
 				<displayName references="R234">Грузинський купон</displayName>
-				<symbol draft="provisional">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Грузинський ларі</displayName>
@@ -3707,17 +3643,14 @@
 			<currency type="GHC">
 				<displayName>Ганський седі</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Седі</displayName>
-				<symbol draft="provisional">GHC</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Гібралтарський фунт</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Ґібралтарський фунт</displayName>
-				<symbol draft="provisional">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Гамбійська даласі</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Даласі</displayName>
-				<symbol draft="provisional">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Гвійнейський франк</displayName>
@@ -3728,17 +3661,13 @@
 				<displayName>Гвінейське сілі</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Ґвінейське сілі</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Сілі</displayName>
-				<symbol draft="provisional">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Еквеле (Екваторіальна Ґвінея)</displayName>
-				<!-- ekvele (Equatorial Guinea) -->
-				<symbol draft="provisional">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Грецька драхма</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Драхма</displayName>
-				<symbol draft="provisional">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Гватемальський кетсаль</displayName>
@@ -3749,12 +3678,10 @@
 			<currency type="GWE">
 				<displayName>Ескудо Португальської Гвінеї</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Ґвінейський ескудо</displayName>
-				<symbol draft="provisional">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Песо Гвінеї-Бісау</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Песо Ґвінеї-Бісау</displayName>
-				<symbol draft="provisional">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Гайянський долар</displayName>
@@ -3774,17 +3701,14 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Хорватський динар</displayName>
-				<symbol draft="provisional">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Хорватська куна</displayName>
-				<symbol draft="provisional">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Гаїтянський гурд</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Ґурд</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Гаїтянський ґурд</displayName>
-				<symbol draft="provisional">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Угорський форинт</displayName>
@@ -3804,13 +3728,11 @@
 			<currency type="ILP">
 				<displayName>Ізраїльський фунт</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Фунт</displayName>
-				<symbol draft="provisional">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Ізраїльський новий шекель</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Новий ізраїльський шекель</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Ізраїльський шекель</displayName>
-				<symbol draft="provisional">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Індійська рупія</displayName>
@@ -3868,7 +3790,6 @@
 			<currency type="KPW">
 				<displayName>Вона Північної Кореї</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Північнокорейський вон</displayName>
-				<symbol draft="provisional">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Вона Південної Кореї</displayName>
@@ -3877,7 +3798,6 @@
 				<displayName alt="proposed-x1003" draft="unconfirmed">Вон Південної Кореї</displayName>
 				<displayName alt="proposed-x1004" draft="unconfirmed">Південнокорейський вон</displayName>
 				<displayName alt="proposed-x1005" draft="unconfirmed">Південнокорейська вона</displayName>
-				<symbol draft="provisional">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Кувейтський динар</displayName>
@@ -3885,7 +3805,6 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>Долар Кайманових островів</displayName>
-				<symbol draft="provisional">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Казахстанський тенге</displayName>
@@ -3896,7 +3815,6 @@
 			<currency type="LAK">
 				<displayName>Лаоський кіп</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кіп</displayName>
-				<symbol draft="provisional">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Ліванський фунт</displayName>
@@ -3909,7 +3827,6 @@
 			</currency>
 			<currency type="LRD">
 				<displayName>Ліберійський долар</displayName>
-				<symbol draft="provisional">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Лесотський лоті</displayName>
@@ -3918,39 +3835,29 @@
 			</currency>
 			<currency type="LSM">
 				<displayName references="R234" draft="provisional">Малоті</displayName>
-				<symbol draft="provisional">LSM</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Литовський літ</displayName>
-				<symbol draft="provisional">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Литовський талон</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Талон</displayName>
-				<symbol draft="provisional">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>Люксембурґський франк (Конвертований)</displayName>
-				<!-- Luxemburzki Konvertovani Frank -->
-				<symbol draft="provisional">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Люксембурзький франк</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Люксембурґський франк</displayName>
-				<symbol draft="provisional">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>Люксембурґський франк (Фінансовий)</displayName>
-				<!-- Luxemborg Financial Frank -->
-				<symbol draft="provisional">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Латвійський лат</displayName>
-				<symbol draft="provisional">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Латвійський рубль</displayName>
-				<symbol draft="provisional">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Лівійський динар</displayName>
@@ -3959,24 +3866,19 @@
 			<currency type="MAD">
 				<displayName>Марокканський дирхем</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Мароканський Дірхам</displayName>
-				<symbol draft="provisional">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Марокканський франк</displayName>
-				<symbol draft="provisional">MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Молдовський лей</displayName>
-				<symbol draft="provisional">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Мадагаскарський аріарі</displayName>
-				<symbol draft="provisional">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Мадагаскарський франк</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Малаґасійський франк</displayName>
-				<symbol draft="provisional">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Македонський динар</displayName>
@@ -3986,12 +3888,10 @@
 			</currency>
 			<currency type="MLF">
 				<displayName>Малійський франк</displayName>
-				<symbol draft="provisional">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Кʼят Мʼянми</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">К'ят</displayName>
-				<symbol draft="provisional">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Монгольський тугрик</displayName>
@@ -4003,7 +3903,6 @@
 				<displayName alt="proposed-x1001" draft="unconfirmed">Патака макао</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Патака</displayName>
 				<displayName alt="proposed-x1003" draft="unconfirmed">Патака Макао</displayName>
-				<symbol draft="provisional">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Мавританська угія</displayName>
@@ -4017,16 +3916,13 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Мальтійський фунт</displayName>
-				<symbol draft="provisional">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Маврикійська рупія</displayName>
-				<symbol draft="provisional">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Мальдівська руфія</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Руфія</displayName>
-				<symbol draft="provisional">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Квача (Малаві)</displayName>
@@ -4043,12 +3939,10 @@
 				<displayName>Мексиканське срібне песо (1861-1992)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Мексиканський песо (1861-1992)</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Мексиканський срібний песо (1861-1992)</displayName>
-				<symbol draft="provisional">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Мексиканський UDI</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Мексиканський юнідад де інверсіон</displayName>
-				<symbol draft="provisional">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Малайзійський рингіт</displayName>
@@ -4058,16 +3952,11 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Мозамбіцький ескудо</displayName>
-				<symbol draft="provisional">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Мозамбіцький метикал</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Метикал</displayName>
 				<symbol>Mt</symbol>
-			</currency>
-			<currency type="MZN">
-				<displayName draft="provisional">MZN</displayName>
-				<symbol draft="provisional">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Намібійський долар</displayName>
@@ -4075,21 +3964,17 @@
 			</currency>
 			<currency type="NGN">
 				<displayName>Нігерійська найра</displayName>
-				<symbol draft="provisional">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Нікарагуанська кордоба</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кордоба</displayName>
-				<symbol draft="provisional">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Нікарагуанська кордоба оро</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Кордоба оро</displayName>
-				<symbol draft="provisional">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Нідерландський гульден</displayName>
-				<symbol draft="provisional">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Норвезька крона</displayName>
@@ -4113,35 +3998,29 @@
 			<currency type="PAB">
 				<displayName>Панамська бальбоа</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Бальбоа</displayName>
-				<symbol draft="provisional">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Перуанський інті</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Інті</displayName>
-				<symbol draft="provisional">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Перуанський новий сол</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Новий сол</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Перуанський Нуево Сол</displayName>
-				<symbol draft="provisional">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Перуанський сол</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Сол</displayName>
-				<symbol draft="provisional">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Кіна Папуа Нової Гвінеї</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Кіна Папуа Нової Ґвінеї</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Кіна</displayName>
-				<symbol draft="provisional">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Філіппінське песо</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Філіппінський песо</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Філіпінський Песо</displayName>
-				<symbol draft="provisional">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Пакистанська рупія</displayName>
@@ -4157,19 +4036,16 @@
 			<currency type="PLZ">
 				<displayName>Польський злотий (1950-1995)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Злотий (1950-1995)</displayName>
-				<symbol draft="provisional">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Португальський ескудо</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Портуґальський ескудо</displayName>
-				<symbol draft="provisional">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Парагвайський гуарані</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Параґвайський ґварані</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Парагвайський ґварані</displayName>
 				<displayName references="R234" alt="proposed-x1003" draft="unconfirmed">Ґварані</displayName>
-				<symbol draft="provisional">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Катарський ріал</displayName>
@@ -4177,7 +4053,6 @@
 			</currency>
 			<currency type="RHD">
 				<displayName references="R234" draft="provisional">Родезійський долар</displayName>
-				<symbol draft="provisional">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName draft="provisional">Старий румунський лей</displayName>
@@ -4201,11 +4076,9 @@
 			</currency>
 			<currency type="RUR">
 				<displayName>Російський рубль (1991-1998)</displayName>
-				<symbol draft="provisional">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Руандійський франк</displayName>
-				<symbol draft="provisional">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Саудівський ріал</displayName>
@@ -4222,11 +4095,9 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Суданський динар</displayName>
-				<symbol draft="provisional">SDD</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Суданський фунт</displayName>
-				<symbol draft="provisional">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Шведська крона</displayName>
@@ -4241,12 +4112,10 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Фунт Святої Єлени</displayName>
-				<symbol draft="provisional">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Словенський толар</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Толар</displayName>
-				<symbol draft="provisional">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Словацька крона</displayName>
@@ -4256,7 +4125,6 @@
 			<currency type="SLL">
 				<displayName>Леоне Сьєрра-Леоне</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Леоне</displayName>
-				<symbol draft="provisional">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Сомалійський шилінг</displayName>
@@ -4265,7 +4133,6 @@
 			</currency>
 			<currency type="SRD">
 				<displayName draft="provisional">Суринамський долар</displayName>
-				<symbol draft="provisional">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Суринамський гульден</displayName>
@@ -4298,25 +4165,20 @@
 				<displayName>Таїландський бат</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Тайський Бат</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Бат</displayName>
-				<symbol draft="provisional">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Таджицький рубль</displayName>
-				<symbol draft="provisional">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Таджицький сомоні</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Сомоні</displayName>
-				<symbol draft="provisional">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Туркменський манат</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Манат</displayName>
-				<symbol draft="provisional">TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Туніський динар</displayName>
-				<symbol draft="provisional">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Паанга Тонго</displayName>
@@ -4326,7 +4188,6 @@
 			</currency>
 			<currency type="TPE">
 				<displayName>Тіморський ескудо</displayName>
-				<symbol draft="provisional">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Турецька ліра</displayName>
@@ -4334,7 +4195,6 @@
 			</currency>
 			<currency type="TRY">
 				<displayName>Нова турецька ліра</displayName>
-				<symbol draft="provisional">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Долар Тринідаду і Тобаго</displayName>
@@ -4360,12 +4220,10 @@
 			<currency type="UAK">
 				<displayName>Український карбованець</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Карбованець</displayName>
-				<symbol draft="provisional">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Угандійський шилінг (1966-1987)</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Уґандійський шилінґ (1966-1987)</displayName>
-				<symbol draft="provisional">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Угандійський шилінг</displayName>
@@ -4379,11 +4237,9 @@
 			</currency>
 			<currency type="USN">
 				<displayName references="R234" draft="provisional">Долар США (наступного дня)</displayName>
-				<symbol draft="provisional">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName references="R234" draft="provisional">Долар США (цього дня)</displayName>
-				<symbol draft="provisional">USS</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Уругвайське песо (1975-1993)</displayName>
@@ -4396,7 +4252,6 @@
 			</currency>
 			<currency type="UZS">
 				<displayName>Узбецький сум</displayName>
-				<symbol draft="provisional">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Венесуельський болівар</displayName>
@@ -4407,7 +4262,6 @@
 				<displayName>Вʼєтнамський донг</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">В’єтнамський донг</displayName>
 				<displayName references="R234" alt="proposed-x1002" draft="unconfirmed">Донг</displayName>
-				<symbol draft="provisional">VND</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Вануатська вату</displayName>
@@ -4417,37 +4271,29 @@
 			<currency type="WST">
 				<displayName>Тала Західного Самоа</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Тала</displayName>
-				<symbol draft="provisional">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Франк Центральноафриканського фінансового товариства</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">КФА франк BEAC</displayName>
-				<symbol draft="provisional">XAF</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName references="R234" draft="provisional">Срібло</displayName>
-				<symbol draft="provisional">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Золото</displayName>
-				<symbol draft="provisional">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName references="R234" draft="provisional">Європейська складена валютна одиниця</displayName>
-				<symbol draft="provisional">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName references="R234">Одиниця Європейського валютного фонду</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Європейська грошова одиниця</displayName>
-				<symbol draft="provisional">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Європейська розрахункова одиниця (XBC)</displayName>
-				<symbol draft="provisional">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Європейська розрахункова одиниця (XBD)</displayName>
-				<symbol draft="provisional">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName references="R234">Східнокарибський долар</displayName>
@@ -4457,30 +4303,24 @@
 			<currency type="XDR">
 				<displayName>Спеціальні права запозичення</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">СДР (Спеціальні права запозичення)</displayName>
-				<symbol draft="provisional">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Європейська валютна одиниця</displayName>
-				<symbol draft="provisional">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Французький золотий франк</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Золотий франк</displayName>
-				<symbol draft="provisional">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Французький франк UIC</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">UIC-франк</displayName>
-				<symbol draft="provisional">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Франк Західноафриканського фінансового товариства</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">КФА франк BCEAO</displayName>
-				<symbol draft="provisional">XOF</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName references="R234" draft="provisional">Паладій</displayName>
-				<symbol draft="provisional">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Французький тихоокеанський франк</displayName>
@@ -4489,24 +4329,16 @@
 			</currency>
 			<currency type="XPT">
 				<displayName references="R234" draft="provisional">Платина</displayName>
-				<symbol draft="provisional">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName references="R234">Фонди RINET</displayName>
-				<symbol draft="provisional">XRE</symbol>
-			</currency>
-			<currency type="XTS">
-				<displayName draft="provisional">XTS</displayName>
-				<symbol draft="provisional">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="provisional">Невідома грошова одиниця</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Безвалютні операції</displayName>
-				<symbol draft="provisional">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Єменський динар</displayName>
-				<symbol draft="provisional">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Єменський ріал</displayName>
@@ -4515,24 +4347,20 @@
 			<currency type="YUD">
 				<displayName>Югославський твердий динар</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Новий югославський динар</displayName>
-				<symbol draft="provisional">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Югославський новий динар</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Югославський динар</displayName>
-				<symbol draft="provisional">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Югославський конвертований динар</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Югославський динар [YUN]</displayName>
-				<symbol draft="provisional">YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Південноафриканський ранд [ZAL]</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Південноафриканський ранд (фінансовий)</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">Південноафриканський ренд (фінансовий)</displayName>
 				<displayName references="R234" alt="proposed-x1003" draft="unconfirmed">Фінансовий ренд [ZAL]</displayName>
-				<symbol draft="provisional">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Південноафриканський ранд</displayName>
@@ -4542,18 +4370,14 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Квача (Замбія)</displayName>
-				<!-- Kvatsa (Zambia) -->
-				<symbol draft="provisional">ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Заїрський новий заїр</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Новий заїр</displayName>
-				<symbol draft="provisional">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Заїрський заїр</displayName>
 				<displayName references="R234" alt="proposed-x1001" draft="unconfirmed">Заїр</displayName>
-				<symbol draft="provisional">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Зімбабвійський долар</displayName>
@@ -4592,5 +4416,12 @@ ji { "\u0404\u0432\u0440\u0435\u0439\u0441\u044C\u043A\u0430" }
 jw { "\u042F\u0432\u0430\u043D\u0441\u043A\u0438\u0439" } // Use jv instead
 uk { "\u0443\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430" } // Old value
         "Cyrl"      // ISO 15924 Name
+
+Comments without bases
+
+ Kvatsa (Zambia) 	 - was on: //ldml/numbers/currencies/currency[@type="ZMK"]/symbol
+ ekvele (Equatorial Guinea) 	 - was on: //ldml/numbers/currencies/currency[@type="GQE"]/symbol
+ Luxemburzki Konvertovani Frank 	 - was on: //ldml/numbers/currencies/currency[@type="LUC"]/symbol
+ Luxemborg Financial Frank 	 - was on: //ldml/numbers/currencies/currency[@type="LUL"]/symbol
 -->
 

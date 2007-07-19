@@ -1355,13 +1355,9 @@
 		<variants>
 			<variant type="1901">เยอรมันออร์โธกราฟีดั้งเดิม</variant>
 			<variant type="1996">เยอรมันออร์โธกราฟีปี 1996</variant>
-			<variant type="1606NICT" draft="provisional">1606NICT</variant>
-			<variant type="1694ACAD" draft="provisional">1694ACAD</variant>
 			<variant type="AREVELA">อาร์เมเนียตะวันออก</variant>
 			<variant type="AREVMDA">อาร์เมเนียตะวันตก</variant>
-			<variant type="BOONT" draft="provisional">BOONT</variant>
 			<variant type="FONIPA">สัทอักษรสากล</variant>
-			<variant type="MONOTON" draft="provisional">MONOTON</variant>
 			<variant type="NEDIS">ภาษาพื้นเมืองนาทิโซเน</variant>
 			<variant type="POLYTON">โพลีโทนิก</variant>
 			<variant type="POLYTON" alt="proposed-x1001" draft="unconfirmed">POLYTON</variant>
@@ -1369,12 +1365,10 @@
 			<variant type="REVISED">ออร์โธกราฟิปรับปรุง</variant>
 			<variant type="ROZAJ">เรเซียน</variant>
 			<variant type="SAAHO">ซาโฮ</variant>
-			<variant type="SCOUSE" draft="provisional">SCOUSE</variant>
 		</variants>
 		<keys>
 			<key type="calendar">ปฏิทิน</key>
 			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">calendar</key>
-			<key type="collation" draft="provisional">collation</key>
 			<key type="collation" alt="proposed-x1001" draft="unconfirmed">ส่วนต่าง</key>
 			<key type="collation" alt="proposed-x1002" draft="unconfirmed">ตรวจเทียบ</key>
 			<key type="currency">เงินตรา</key>
@@ -1429,7 +1423,6 @@
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
-		<dateRangePattern draft="provisional">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
 				<am draft="provisional">ก่อนเที่ยง</am>
@@ -1804,7 +1797,6 @@
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
 			<regionFormat draft="provisional">{0}</regionFormat>
-			<fallbackFormat draft="provisional">{1} ({0})</fallbackFormat>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>โคมอดริวาดาเวีย</exemplarCity>
 			</zone>
@@ -3451,16 +3443,6 @@
 		<symbols>
 			<decimal draft="provisional">.</decimal>
 			<group draft="provisional">,</group>
-			<list draft="provisional">;</list>
-			<percentSign draft="provisional">%</percentSign>
-			<nativeZeroDigit draft="provisional">0</nativeZeroDigit>
-			<patternDigit draft="provisional">#</patternDigit>
-			<plusSign draft="provisional">+</plusSign>
-			<minusSign draft="provisional">-</minusSign>
-			<exponential draft="provisional">E</exponential>
-			<perMille draft="provisional">‰</perMille>
-			<infinity draft="provisional">∞</infinity>
-			<nan draft="provisional">NaN</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>

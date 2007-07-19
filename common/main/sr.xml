@@ -747,6 +747,7 @@
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">'уто' 14.</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">'уто' 14. 'сеп'</dateFormatItem>
+						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMdd" draft="unconfirmed">dd.MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM-dd</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
@@ -756,10 +757,13 @@
 						<dateFormatItem id="yyMMMd">d. MMM yy.</dateFormatItem>
 						<dateFormatItem id="yyMMMd" alt="proposed-x1001" draft="unconfirmed">14. 'сеп' 99.</dateFormatItem>
 						<dateFormatItem id="yyMMMd" alt="proposed-x1002" draft="unconfirmed">d. MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyy">yyyy.</dateFormatItem>
 						<dateFormatItem id="yyyy" alt="proposed-x1001" draft="unconfirmed">1999.</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -885,6 +889,11 @@
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Баку</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<long>
+					<standard>Srednje Evropsko Vrijeme</standard>
+				</long>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Барбадос</exemplarCity>

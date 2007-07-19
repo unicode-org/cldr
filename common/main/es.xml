@@ -1295,6 +1295,7 @@
 						<dateFormatItem id="HHmm" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="provisional">d 'de' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMdd" draft="unconfirmed">dd-MMM</dateFormatItem>
 						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">d/M</dateFormatItem>
@@ -1500,6 +1501,9 @@
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Cabo Verde</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="provisional">Praga</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>Berlín</exemplarCity>
@@ -1836,12 +1840,14 @@
 					<standard>AKST</standard>
 					<daylight>AKDT</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
 					<standard draft="provisional">Hora estándar de Alaska-Hawái</standard>
 					<daylight draft="provisional">Hora de verano de Alaska-Hawái</daylight>
 				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -2184,6 +2190,7 @@
 					<standard>HST</standard>
 					<daylight>HDT</daylight>
 				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>

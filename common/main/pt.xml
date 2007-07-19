@@ -1312,6 +1312,14 @@
 		<dateRangePattern draft="contributed">{0} - {1}</dateRangePattern>
 		<calendars>
 			<calendar type="buddhist">
+				<quarters>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">1º trimestre</quarter>
+							<quarter type="2" draft="provisional">2º trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<am draft="contributed">AM</am>
 				<pm>PM</pm>
 				<eras>
@@ -1773,10 +1781,13 @@
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="unconfirmed">MM/dd</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEEEd" draft="provisional">EEE, d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd" draft="provisional">d 'de' MMM 'de' yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM-yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM/yyyy</dateFormatItem>
@@ -1951,6 +1962,14 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<quarters>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">1º trimestre</quarter>
+							<quarter type="2" draft="provisional">2º trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<am>AM</am>
 				<pm draft="contributed">PM</pm>
 				<eras>
@@ -1993,6 +2012,14 @@
 				</eras>
 			</calendar>
 			<calendar type="japanese">
+				<quarters>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="1" draft="provisional">1º trimestre</quarter>
+							<quarter type="2" draft="provisional">2º trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<am draft="contributed">AM</am>
 				<pm>PM</pm>
 				<eras>

@@ -551,13 +551,13 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[’ а-д {дж} {дз} е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[ ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">'</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[']</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[  ’ а б в г ґ д е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я ]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1002" draft="unconfirmed">[ ’ а б в г ґ д е ё ж з і к л м н о п р с т у ф х ц ч ш ы ь э ю я]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1003" draft="unconfirmed">[' а б в г ґ д е ё ж з і к л м н о п р с т у ф х ц ч ш ы ь э ю я]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1004" draft="unconfirmed">' а б в г ґ д е ё ж з і к л м н о п р с т у ф х ц ч ш ы ь э ю я</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[’ а-г ґ д е ё ж з й і к-у ў ф-ш ы-я]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1002" draft="unconfirmed">[’ а-г ґ д е ё ж з і к-ш ы-я]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1003" draft="unconfirmed">[' а-г ґ д е ё ж з і к-ш ы-я]</exemplarCharacters>
+		<exemplarCharacters alt="proposed-x1004" draft="unconfirmed">[' а-г ґ д е ё ж з і к-ш ы-я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationEnd draft="unconfirmed">”</quotationEnd>
@@ -1106,3 +1106,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/be.txt?only_wit
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
 -->
+

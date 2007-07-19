@@ -1185,7 +1185,7 @@
 		<exemplarCharacters>[a ä b-o ö p-s ß t u ü v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[á à ă â å ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ø ō œ ú ù ŭ û ū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[a-z $ £ ¥ ₤ ₧ €]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[\$ £ ¥ ₤ ₧ € a-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -3092,3 +3092,4 @@ Comments without bases
 
  <territory type="057">Mikronesien</territory> 	 - was on: //ldml/localeDisplayNames/territories/territory[@type="057"][@alt="proposed-u212-1"]
 -->
+

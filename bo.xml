@@ -604,7 +604,6 @@
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern draft="unconfirmed">#,##0.###</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">12,345.679</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -612,8 +611,6 @@
 			<percentFormatLength>
 				<percentFormat>
 					<pattern draft="contributed">#,##0%</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">1,234,568%</pattern>
-					<pattern alt="proposed-x1002" draft="unconfirmed">1,234%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -621,10 +618,6 @@
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern draft="unconfirmed">¤ #,##0.00</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">￥112,345.68</pattern>
-					<pattern alt="proposed-x1002" draft="unconfirmed">￥1,234.56</pattern>
-					<pattern alt="proposed-x1003" draft="unconfirmed">￥123,456.78</pattern>
-					<pattern alt="proposed-x1004" draft="unconfirmed">￥12,345.68</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

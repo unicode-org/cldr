@@ -109,7 +109,7 @@ public class CheckAttributeValues extends CheckCLDR {
     
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+        if (Phase.FINAL_TESTING == getPhase()) {
           setSkipTest(false); // ok
         } else {
           setSkipTest(true);

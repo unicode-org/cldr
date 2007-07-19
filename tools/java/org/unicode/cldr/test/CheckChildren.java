@@ -48,7 +48,7 @@ public class CheckChildren extends CheckCLDR {
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFileToCheck == null) return this;
     // Skip if the phase is not final testing
-    if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+    if (Phase.FINAL_TESTING == getPhase()) {
       setSkipTest(false); // ok
     } else {
       setSkipTest(true);

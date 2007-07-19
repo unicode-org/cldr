@@ -16,6 +16,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckNumbers extends CheckCLDR {
+  private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
+
   /**
    * If you are going to use ICU services, then ICUServiceBuilder will allow you to create
    * them entirely from CLDR data, without using the ICU data.
@@ -96,14 +98,24 @@ public class CheckNumbers extends CheckCLDR {
       
       // for the numeric cases, make sure the pattern is canonical
       NumericType type = NumericType.getNumericType(path);
-      if (type != NumericType.NOT_NUMERIC) {
+      if (type == NumericType.NOT_NUMERIC) {
+        return this; // skip
+      }
+      
+      // check all
+        if (FORBIDDEN_NUMERIC_PATTERN_CHARS.containsSome(value)) {
+          UnicodeSet chars = new UnicodeSet().addAll(value);
+          chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
+          result.add(new CheckStatus()
+              .setCause(this).setType(CheckStatus.errorType)
+              .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E", new Object[]{chars.toPattern(false)}));       
+        }
         String pattern = getCanonicalPattern(value, type, isPOSIX);
         if (!pattern.equals(value)) {
           result.add(new CheckStatus()
               .setCause(this).setType(CheckStatus.errorType)
               .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));				
         }
-      }
       // Make sure currency patterns contain a currency symbol
       if ( type == NumericType.CURRENCY ) {
          String [] currencyPatterns = value.split(";",2);

@@ -506,18 +506,18 @@ public class ICUServiceBuilder {
     // symbols.setPadEscape(cldrFile.getWinningValue("//ldml/numbers/symbols/xxx"));
     // symbols.setSignificantDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit"));
     
-    symbols.setDecimalSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/decimal").charAt(0));
-    symbols.setDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit").charAt(0));
-    symbols.setExponentSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/exponential"));
-    symbols.setGroupingSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/group").charAt(0));
-    symbols.setInfinity(cldrFile.getWinningValue("//ldml/numbers/symbols/infinity"));
-    symbols.setMinusSign(cldrFile.getWinningValue("//ldml/numbers/symbols/minusSign").charAt(0));
-    symbols.setNaN(cldrFile.getWinningValue("//ldml/numbers/symbols/nan"));
-    symbols.setPatternSeparator(cldrFile.getWinningValue("//ldml/numbers/symbols/list").charAt(0));
-    symbols.setPercent(cldrFile.getWinningValue("//ldml/numbers/symbols/percentSign").charAt(0));
-    symbols.setPerMill(cldrFile.getWinningValue("//ldml/numbers/symbols/perMille").charAt(0));
-    symbols.setPlusSign(cldrFile.getWinningValue("//ldml/numbers/symbols/plusSign").charAt(0));
-    symbols.setZeroDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
+    symbols.setDecimalSeparator(getSymbolCharacter("decimal"));
+    symbols.setDigit(getSymbolCharacter("patternDigit"));
+    symbols.setExponentSeparator(getSymbolString("exponential"));
+    symbols.setGroupingSeparator(getSymbolCharacter("group"));
+    symbols.setInfinity(getSymbolString("infinity"));
+    symbols.setMinusSign(getSymbolCharacter("minusSign"));
+    symbols.setNaN(getSymbolString("nan"));
+    symbols.setPatternSeparator(getSymbolCharacter("list"));
+    symbols.setPercent(getSymbolCharacter("percentSign"));
+    symbols.setPerMill(getSymbolCharacter("perMille"));
+    symbols.setPlusSign(getSymbolCharacter("plusSign"));
+    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
     
     symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
     symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
@@ -535,6 +535,22 @@ public class ICUServiceBuilder {
     
     return symbols;
   }
+  
+  private char getSymbolCharacter(String key) {
+    return getSymbolString(key).charAt(0);
+  }
+  
+  private String getSymbolString(String key) {
+    String value = null;
+    try {
+      value = cldrFile.getWinningValue("//ldml/numbers/symbols/" + key);
+      value.charAt(0); // just throw error if not big enough or null
+      return value;
+    } catch (RuntimeException e) {
+      throw new IllegalArgumentException("Illegal value <" + value + "> at " + "//ldml/numbers/symbols/" + key);
+    }
+  }
+
   
   UnicodeSet beforeCurrencyMatch;
   UnicodeSet beforeSurroundingMatch;

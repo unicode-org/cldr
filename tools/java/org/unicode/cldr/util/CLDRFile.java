@@ -1241,6 +1241,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
           if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
             System.out.println(currentFullXPath);
           }
+          String former = target.getStringValue(currentFullXPath);
+          if (former != null) {
+            String formerPath = target.getFullXPath(currentFullXPath);
+            if (!former.equals(lastChars) || !currentFullXPath.equals(formerPath)) {
+              System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
+                  "\r\n\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
+            }
+          }
           target.add(currentFullXPath, lastChars);
           lastLeafNode = lastActiveLeafNode = currentFullXPath;
         }

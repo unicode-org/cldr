@@ -72,6 +72,12 @@ public class DisplayAndInputProcessor {
    */
   public String processInput(String path, String value) {
     String original = value;
+    // fix grouping separator if space
+    if (!path.startsWith("//ldml/numbers/symbols/group")) {
+      if (value.equals(" ")) {
+        value = "\u00A0";
+      }
+    }
     // all of our values should not have leading or trailing spaces, except insertBetween
     if (!path.contains("/insertBetween")) {
       value = value.trim();

@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,15 +51,14 @@ abstract public class CheckCLDR {
   private CLDRFile cldrFileToCheck;
   private CLDRFile resolvedCldrFileToCheck;
   private boolean skipTest = false;
+  private Phase phase;
   
   enum Phase {
     SUBMISSION, VETTING, FINAL_TESTING;
 
-    boolean isEquivalentTo(Object other) {
-      return other == null ? false
-        : other instanceof Phase ? other == this
-            : toString().equalsIgnoreCase(other.toString());
-    };
+    static Phase forString(String value) {
+      return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
+    }
   }
   
   public boolean isSkipTest() {
@@ -89,7 +89,7 @@ abstract public class CheckCLDR {
     .add(new CheckNumbers())
     // .add(new CheckZones()) this doesn't work; many spurious errors that user can't correct
     .add(new CheckAlt())
-    .add(new CheckCurrencies())
+   .add(new CheckCurrencies())
     .add(new CheckCasing())
     .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
     ;
@@ -451,6 +451,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       result.clear();
       for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
         CheckCLDR item = (CheckCLDR) it.next();
+        // skip proposed items in final testing.
+        if (Phase.FINAL_TESTING == item.getPhase()) {
+          if (path.contains("proposed") && path.contains("[@alt=")) {
+            continue;
+          }
+        }
         try {
           if (!item.isSkipTest()) {
             item.handleCheck(path, fullPath, value, options, result);
@@ -488,6 +494,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       ElapsedTimer testTime = null, testOverallTime = null;
       if (cldrFileToCheck == null) return this;
       boolean SHOW_TIMES = options.containsKey("SHOW_TIMES");
+      setPhase(Phase.forString(options.get("phase")));
       if(SHOW_TIMES) testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
       super.setCldrFileToCheck(cldrFileToCheck,options,possibleErrors);
       possibleErrors.clear();
@@ -496,6 +503,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         CheckCLDR item = (CheckCLDR) it.next();
         if(SHOW_TIMES) testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
         try {
+          item.setPhase(getPhase());
           item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
           if(SHOW_TIMES) {
             if (item.isSkipTest()) {
@@ -547,6 +555,14 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     } catch (IOException e) {
       return null;
     }
+  }
+
+  public Phase getPhase() {
+    return phase;
+  }
+
+  public void setPhase(Phase phase) {
+    this.phase = phase;
   }
   
 }

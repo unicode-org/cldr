@@ -31,7 +31,7 @@ public class CheckZones extends CheckCLDR {
 	
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFile == null) return this;
-    if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+    if (Phase.FINAL_TESTING == getPhase()) {
       setSkipTest(false); // ok
     } else {
       setSkipTest(true);

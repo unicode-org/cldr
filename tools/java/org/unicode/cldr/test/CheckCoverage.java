@@ -95,7 +95,7 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
-        if (Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"))) {
+        if (Phase.FINAL_TESTING == getPhase()) {
           return this; // skip testing in final phase
         }
         if (options != null && options.get("CheckCoverage.skip") != null) return this;
@@ -104,7 +104,7 @@ public class CheckCoverage extends CheckCLDR {
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         
         // Set to minimal if not in data submission
-        if (Phase.SUBMISSION.isEquivalentTo(options.get("phase"))) {
+        if (Phase.SUBMISSION == getPhase()) {
           requiredLevel = Level.MINIMAL;
         } else {
           requiredLevel = null;

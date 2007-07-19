@@ -151,7 +151,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
     if (cldrFileToCheck == null) return this;
     cldrFileToCheck = cldrFileToCheck.getResolved(); // check resolved cases
     super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-    finalTesting  = Phase.FINAL_TESTING.isEquivalentTo(options.get("phase"));
+    finalTesting  = Phase.FINAL_TESTING == getPhase();
 
     // clear old status
     clear();

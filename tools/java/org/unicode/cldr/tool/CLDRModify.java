@@ -28,6 +28,8 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
+
 import com.ibm.icu.text.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -441,7 +443,12 @@ public class CLDRModify {
 				remove(oldFullPath);
 			}
 			toBeReplaced.add(newFullPath, newValue);
-			System.out.println("%" + localeID + "\t" + reason + "\tAdding/Replacing: " + newValue + "\t at: " + newFullPath);
+      String oldValue = cldrFileToFilter.getStringValue(oldFullPath);
+      if (oldValue != null && !newValue.equals(oldValue)) {
+        System.out.println("%" + localeID + "\t" + reason + "\tReplacing: <" + oldValue + ">\tby <" + newValue + ">\t at: " + newFullPath);
+      } else {
+        System.out.println("%" + localeID + "\t" + reason + "\tAdding: <" + newValue + ">\t at: " + newFullPath);
+      }
 		}
 		public CLDRFile getReplacementFile() {
 			return toBeReplaced;
@@ -584,19 +591,41 @@ public class CLDRModify {
 		});
 		
 		
-		fixList.add('n', "fix numbers", new CLDRFilter() {
-			public void handlePath(String xpath) {
-				byte type = CLDRTest.getNumericType(xpath);
-				if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
-				String value = cldrFileToFilter.getStringValue(xpath);
-				// at this point, we only have currency formats
-				boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
-				String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
-				if (pattern.equals(value)) return;
-				String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-				replace(fullXPath, fullXPath, pattern);
-			}
-		});
+    fixList.add('n', "fix numbers", new CLDRFilter() {
+      public void handlePath(String xpath) {
+        byte type = CLDRTest.getNumericType(xpath);
+        if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
+        String value = cldrFileToFilter.getStringValue(xpath);
+        // at this point, we only have currency formats
+        boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
+        String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
+        if (pattern.equals(value)) return;
+        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+        replace(fullXPath, fullXPath, pattern);
+      }
+    });
+
+    fixList.add('p', "input-processor", new CLDRFilter() {
+      private DisplayAndInputProcessor inputProcessor;
+      public void handleStart() {
+        inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter);
+      }
+      public void handleEnd() {
+        inputProcessor = null; // clean up, just in case
+      }
+      public void handlePath(String xpath) {
+        String value = cldrFileToFilter.getStringValue(xpath);
+        if (!value.equals(value.trim())) {
+          value = value; // for debugging
+        }
+        String newValue = inputProcessor.processInput(xpath, value);
+        if (value.equals(newValue)) {
+          return;
+        }
+        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+        replace(fullXPath, fullXPath, newValue);
+      }
+    });
 
 		fixList.add('f', "NFC (all but transforms, exemplarCharacters, pc, sc, tc, qc, ic)", new CLDRFilter() {
 			public void handlePath(String xpath) {

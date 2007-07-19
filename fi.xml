@@ -1374,12 +1374,12 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d. MMMM'ta' yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE'na 'd. MMMM'ta 'yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE'na' d. MMMM'ta' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d. MMMM'ta 'yyyy</pattern>
+							<pattern>d. MMMM'ta' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1403,7 +1403,7 @@
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>H.mm.ss z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">'klo 'H.mm.ss</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">'klo' H.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -1445,8 +1445,8 @@
 						<dateFormatItem id="yyyyM">M/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMEEEd">EEE d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM' 'yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">MMMM'ta 'yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" alt="proposed-x1001" draft="unconfirmed">MMMM'ta' yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="unconfirmed">QQQQ yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

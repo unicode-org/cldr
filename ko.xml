@@ -1375,12 +1375,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy'년' M'월' d'일' EEEE</pattern>
+							<pattern>yyyy년 M월 d일 EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy'년' M'월' d'일'</pattern>
+							<pattern>yyyy년 M월 d일</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1400,26 +1400,26 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>a hh시 mm분 ss초 v</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a h'시' m'분' s'초'  v</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">a h시 m분 s초  v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>a hh'시' mm'분' ss'초' z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a h'시' m'분' s'초'</pattern>
+							<pattern>a hh시 mm분 ss초 z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">a h시 m분 s초</pattern>
 							<pattern alt="proposed-x1002" draft="unconfirmed">a h시 m분 s초 z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>a h:mm:ss</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a hh'시' mm'분'</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">a hh시 mm분</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>a h:mm</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">a hh'시' mm'분'</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">a hh시 mm분</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1433,9 +1433,9 @@
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms">H'시' m'분' s'초'</dateFormatItem>
+						<dateFormatItem id="Hms">H시 m분 s초</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d'일'</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM. dd</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">MM. dd.</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1002" draft="unconfirmed">MM-dd</dateFormatItem>
@@ -1447,9 +1447,9 @@
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">YY. M.</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1002" draft="unconfirmed">yy. MM.</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1003" draft="unconfirmed">YY/MM</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy'년' MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM">yy년 MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy년 Q분기</dateFormatItem>
-						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy'년도 제'Q'사분기'</dateFormatItem>
+						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy년도 제Q사분기</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1002" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy. MM</dateFormatItem>
 						<dateFormatItem id="yyyyMM" alt="proposed-x1001" draft="unconfirmed">yyyy-MM</dateFormatItem>

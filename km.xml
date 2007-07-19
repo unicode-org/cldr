@@ -416,12 +416,12 @@
 					<default choice="long" draft="unconfirmed"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE' ថ្ងៃ 'd' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE' ថ្ងៃ 'd' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -438,12 +438,12 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">H' ម៉ោង 'm' នាទី 'ss' វិនាទី​'</pattern>
+							<pattern draft="unconfirmed">H ម៉ោង m នាទី ss វិនាទី​</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">H' ម៉ោង 'm' នាទី'</pattern>
+							<pattern draft="unconfirmed">H ម៉ោង m នាទី</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -585,12 +585,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">EEEE' ថ្ងៃ 'd' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
+							<pattern draft="unconfirmed">EEEE ថ្ងៃ d ខែ MMMM ឆ្នាំ  yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="unconfirmed">d' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
+							<pattern draft="unconfirmed">d ខែ MMMM ឆ្នាំ  yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -612,7 +612,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H' ម៉ោង 'm' នាទី 'ss' វិនាទី​'z</pattern>
+							<pattern>H ម៉ោង m នាទី ss វិនាទី​z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -672,3 +672,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

@@ -1615,8 +1615,8 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">EEEE'en den' d':e' MMMM yyyy</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE'en den' d MMMM yyyy</pattern>
+							<pattern draft="provisional">EEEE'en' 'den' d:'e' MMMM yyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE'en' 'den' d MMMM yyyy</pattern>
 							<pattern alt="proposed-x1002" draft="unconfirmed">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -1625,7 +1625,7 @@
 							<pattern>d MMMM yyyy</pattern>
 							<pattern references="R217" alt="proposed-x1001" draft="unconfirmed">EEEE d MMM yyyy</pattern>
 							<pattern references="R217" alt="proposed-x1002" draft="unconfirmed">EEE d MMM yyyy</pattern>
-							<pattern alt="proposed-x1003" draft="unconfirmed">d':e' MMMM, yyyy</pattern>
+							<pattern alt="proposed-x1003" draft="unconfirmed">d:'e' MMMM, yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1678,10 +1678,10 @@
 						<dateFormatItem id="HHmm" alt="proposed-x1001" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd" alt="proposed-x1001" draft="unconfirmed">EEEE'en den' d':e' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEEEd" alt="proposed-x1001" draft="unconfirmed">EEEE'en' 'den' d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEEEd" alt="proposed-x1002" draft="unconfirmed">EEEE 'den' d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">d':e' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMd" draft="contributed">d/MM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
@@ -1703,7 +1703,7 @@
 						<dateFormatItem id="yyyyMM" draft="contributed">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" alt="proposed-x1001" draft="unconfirmed">QQQQ',' yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" alt="proposed-x1001" draft="unconfirmed">QQQQ, yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>

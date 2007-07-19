@@ -1639,12 +1639,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'EEEE</pattern>
+							<pattern>yyyy年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'</pattern>
+							<pattern>yyyy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1666,8 +1666,8 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>ahh'時'mm'分'ss'秒' z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">z ahh'時'mm'分'ss'秒'</pattern>
+							<pattern>ahh時mm分ss秒 z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">z ahh時mm分ss秒</pattern>
 							<pattern alt="proposed-x1002" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -1692,15 +1692,15 @@
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM'月'd'日'</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
-						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy'年'MMM'月'</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy年MMM月</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy'年第'Q'季度'</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="unconfirmed">yyyy'年'M'月'</dateFormatItem>
+						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy年第Q季度</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="unconfirmed">yyyy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">yyyy/M</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1943,7 +1943,7 @@
 				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyyyM" draft="provisional">yyyy'年'M'月'</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="provisional">yyyy年M月</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -1275,15 +1275,15 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R216">d MMMM yyyy 'г.'</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, d MMMM yyyy 'г.'</pattern>
-							<pattern alt="proposed-x1002" draft="unconfirmed">cccc, d MMMM yyyy 'г.'</pattern>
-							<pattern alt="proposed-x1003" draft="unconfirmed">EEEE, d MMMM yyyy 'г.'</pattern>
+							<pattern references="R216">d MMMM yyyy 'г'.</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">EEEE, d MMMM yyyy 'г'.</pattern>
+							<pattern alt="proposed-x1002" draft="unconfirmed">cccc, d MMMM yyyy 'г'.</pattern>
+							<pattern alt="proposed-x1003" draft="unconfirmed">EEEE, d MMMM yyyy 'г'.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy 'г.'</pattern>
+							<pattern>d MMMM yyyy 'г'.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1336,7 +1336,7 @@
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM\u002bd</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM+d</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMd" alt="proposed-x1001" draft="unconfirmed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
@@ -1352,7 +1352,7 @@
 						<dateFormatItem id="yyyyLLLL">LLLL yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL" alt="proposed-x1001" draft="unconfirmed">LLLL yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ yyyy 'г.'</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="provisional">QQQQ yyyy 'г'.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -1504,7 +1504,7 @@
 				<timeFormats>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>Эсфанд</pattern>
+							<pattern>'Эсфанд'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

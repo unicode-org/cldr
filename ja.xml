@@ -1219,20 +1219,20 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">yyyy, MMMM D '日', EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM D, EEEE '日'</pattern>
+							<pattern draft="provisional">yyyy, MMMM D 日, EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM D, EEEE 日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy '年', MMMM D '日', EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d '日'</pattern>
+							<pattern draft="provisional">yyyy 年, MMMM D 日, EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d 日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy '年', MMMM D '日', EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d '日'</pattern>
+							<pattern draft="provisional">yyyy 年, MMMM D 日, EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d 日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1243,13 +1243,13 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d '日'</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMM d 日</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">yy '年' MM '月'</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy '年'MM'月'</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">yy '年' MMM</dateFormatItem>
-						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy '年'MMM'月'</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="provisional">yy '年' Q</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">yy 年 MM 月</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy 年MM月</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="provisional">yy 年 MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy 年MMM月</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">yy 年 Q</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1366,12 +1366,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'EEEE</pattern>
+							<pattern>yyyy年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'</pattern>
+							<pattern>yyyy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1416,7 +1416,7 @@
 					<availableFormats>
 						<dateFormatItem id="Ed">d 日（E）</dateFormatItem>
 						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">E d</dateFormatItem>
-						<dateFormatItem id="GGGGyMd">GGGGy'年'M'月'd'日'</dateFormatItem>
+						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="H">H 時</dateFormatItem>
 						<dateFormatItem id="H" alt="proposed-x1001" draft="unconfirmed">H</dateFormatItem>
 						<dateFormatItem id="MMMEd" references="RP1">MMM/d（E）</dateFormatItem>
@@ -1733,13 +1733,13 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>Gy'年'M'月'd'日'EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">GGGGy'年'M'月'd'日'EEEE</pattern>
+							<pattern>Gy年M月d日EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">GGGGy年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>Gy'年'M'月'd'日'</pattern>
+							<pattern>Gy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

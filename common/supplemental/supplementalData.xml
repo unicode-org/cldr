@@ -3288,47 +3288,57 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Samoa" type="Pacific/Apia"/> <!-- S (GMT-11:00) Midway Island, Samoa-->
 			<mapZone other="Hawaiian" type="Pacific/Honolulu"/> <!-- S (GMT-10:00) Hawaii-->
 			<mapZone other="Alaskan" type="America/Anchorage"/> <!-- D (GMT-09:00) Alaska-->
-			<mapZone other="Pacific" type="America/Los_Angeles"/> <!-- D (GMT-08:00) Pacific Time (US & Canada); Tijuana-->
+			<mapZone other="Pacific" type="America/Los_Angeles"/> <!-- D (GMT-08:00) Pacific Time (US & Canada)-->
+			<mapZone other="Pacific Standard Time (Mexico)" type="America/Tijuana"/> <!-- D (GMT-08:00) Tijuana, Baja California-->
 			<mapZone other="US Mountain" type="America/Phoenix"/> <!-- S (GMT-07:00) Arizona-->
 			<mapZone other="Mountain" type="America/Denver"/> <!-- D (GMT-07:00) Mountain Time (US & Canada)-->
-			<mapZone other="Mexico Standard Time 2" type="America/Chihuahua"/> <!-- D (GMT-07:00) Chihuahua, La Paz, Mazatlan-->
-			<mapZone other="Central America" type="America/Managua"/> <!-- S (GMT-06:00) Central America-->
+			<mapZone other="Mountain Standard Time (Mexico)" type="America/Chihuahua"/> <!-- D (GMT-07:00) Chihuahua, La Paz, Mazatlan-->
+			<mapZone other="Mexico Standard Time 2" type="America/Chihuahua"/> <!-- D (GMT-07:00) Chihuahua, La Paz, Mazatlan--> <!-- Obsoleted in Vista -->
+			<mapZone other="Central America" type="America/Guatemala"/> <!-- S (GMT-06:00) Central America-->
 			<mapZone other="Canada Central" type="America/Regina"/> <!-- S (GMT-06:00) Saskatchewan-->
-			<mapZone other="Mexico" type="America/Mexico_City"/> <!-- D (GMT-06:00) Guadalajara, Mexico City, Monterrey-->
+			<mapZone other="Central Standard Time (Mexico)" type="America/Mexico_City"/> <!-- D (GMT-06:00) Guadalajara, Mexico City, Monterrey-->
+			<mapZone other="Mexico" type="America/Mexico_City"/> <!-- D (GMT-06:00) Guadalajara, Mexico City, Monterrey-->   <!-- Obsoleted in Vista -->
 			<mapZone other="Central" type="America/Chicago"/> <!-- D (GMT-06:00) Central Time (US & Canada)-->
 			<mapZone other="US Eastern" type="America/Indianapolis"/> <!-- S (GMT-05:00) Indiana (East)-->
-			<mapZone other="SA Pacific" type="America/Bogota"/> <!-- S (GMT-05:00) Bogota, Lima, Quito-->
+			<mapZone other="SA Pacific" type="America/Bogota"/> <!-- S (GMT-05:00) Bogota, Lima, Quito, Rio Branco-->
 			<mapZone other="Eastern" type="America/New_York"/> <!-- D (GMT-05:00) Eastern Time (US & Canada)-->
 			<mapZone other="SA Western" type="America/Caracas"/> <!-- S (GMT-04:00) Caracas, La Paz-->
 			<mapZone other="Pacific SA" type="America/Santiago"/> <!-- D (GMT-04:00) Santiago-->
 			<mapZone other="Atlantic" type="America/Halifax"/> <!-- D (GMT-04:00) Atlantic Time (Canada)-->
+			<mapZone other="Central Brazilian" type="America/Manaus"/> <!-- D (GMT-04:00) Manaus-->
 			<mapZone other="Newfoundland" type="America/St_Johns"/> <!-- D (GMT-03:30) Newfoundland-->
 			<mapZone other="SA Eastern" type="America/Buenos_Aires"/> <!-- S (GMT-03:00) Buenos Aires, Georgetown-->
 			<mapZone other="Greenland" type="America/Godthab"/> <!-- D (GMT-03:00) Greenland-->
 			<mapZone other="E. South America" type="America/Sao_Paulo"/> <!-- D (GMT-03:00) Brasilia-->
+			<mapZone other="Montevideo" type="America/Montevideo"/> <!-- D (GMT-03:00) Montevideo-->
 			<mapZone other="Mid-Atlantic" type="America/Noronha"/> <!-- D (GMT-02:00) Mid-Atlantic-->
 			<mapZone other="Cape Verde" type="Atlantic/Cape_Verde"/> <!-- S (GMT-01:00) Cape Verde Is.-->
 			<mapZone other="Azores" type="Atlantic/Azores"/> <!-- D (GMT-01:00) Azores-->
-			<mapZone other="Greenwich" type="Africa/Casablanca"/> <!-- S (GMT) Casablanca, Monrovia-->
+			<mapZone other="Greenwich" type="Africa/Casablanca"/> <!-- S (GMT) Casablanca, Monrovia, Reykjavik-->
 			<mapZone other="GMT" type="Europe/London"/> <!-- D (GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London-->
 			<mapZone other="W. Central Africa" type="Africa/Lagos"/> <!-- S (GMT+01:00) West Central Africa-->
 			<mapZone other="W. Europe" type="Europe/Berlin"/> <!-- D (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna-->
 			<mapZone other="Romance" type="Europe/Paris"/> <!-- D (GMT+01:00) Brussels, Copenhagen, Madrid, Paris-->
-			<mapZone other="Central European" type="Europe/Sarajevo"/> <!-- D (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb-->
-			<mapZone other="Central Europe" type="Europe/Belgrade"/> <!-- D (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague-->
+			<mapZone other="Central European" type="Europe/Warsaw"/> <!-- D (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb-->
+			<mapZone other="Central Europe" type="Europe/Prague"/> <!-- D (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague-->
 			<mapZone other="South Africa" type="Africa/Johannesburg"/> <!-- S (GMT+02:00) Harare, Pretoria-->
 			<mapZone other="Israel" type="Asia/Jerusalem"/> <!-- S (GMT+02:00) Jerusalem-->
-			<mapZone other="GTB" type="Europe/Istanbul"/> <!-- D (GMT+02:00) Athens, Istanbul, Minsk-->
+			<mapZone other="GTB" type="Europe/Istanbul"/> <!-- D (GMT+02:00) Athens, Bucharest, Istanbul-->
 			<mapZone other="FLE" type="Europe/Helsinki"/> <!-- D (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius-->
 			<mapZone other="Egypt" type="Africa/Cairo"/> <!-- D (GMT+02:00) Cairo-->
-			<mapZone other="E. Europe" type="Europe/Bucharest"/> <!-- D (GMT+02:00) Bucharest-->
+			<mapZone other="E. Europe" type="Europe/Minsk"/> <!-- D (GMT+02:00) Minsk-->
+			<mapZone other="Jordan" type="Asia/Amman"/> <!-- D (GMT+02:00) Amman-->
+			<mapZone other="Middle East" type="Asia/Beirut"/> <!--D (GMT+02:00) Beirut-->
+			<mapZone other="Namibia" type="Africa/Windhoek"/> <!--D (GMT+02:00) Windhoek-->
 			<mapZone other="E. Africa" type="Africa/Nairobi"/> <!-- S (GMT+03:00) Nairobi-->
+			<mapZone other="Azerbaijan" type="Asia/Baku"/> <!-- S (GMT+04:00) Baku-->
 			<mapZone other="Arab" type="Asia/Riyadh"/> <!-- S (GMT+03:00) Kuwait, Riyadh-->
+			<mapZone other="Georgian" type="Asia/Tbilisi"/> <!-- S (GMT+03:00) Tbilisi-->
 			<mapZone other="Russian" type="Europe/Moscow"/> <!-- D (GMT+03:00) Moscow, St. Petersburg, Volgograd-->
 			<mapZone other="Arabic" type="Asia/Baghdad"/> <!-- D (GMT+03:00) Baghdad-->
 			<mapZone other="Iran" type="Asia/Tehran"/> <!-- D (GMT+03:30) Tehran-->
 			<mapZone other="Arabian" type="Asia/Muscat"/> <!-- S (GMT+04:00) Abu Dhabi, Muscat-->
-			<mapZone other="Caucasus" type="Asia/Tbilisi"/> <!-- D (GMT+04:00) Baku, Tbilisi, Yerevan-->
+			<mapZone other="Caucasus" type="Asia/Yerevan"/> <!-- D (GMT+04:00) Yerevan-->
 			<mapZone other="Afghanistan" type="Asia/Kabul"/> <!-- S (GMT+04:30) Kabul-->
 			<mapZone other="West Asia" type="Asia/Karachi"/> <!-- S (GMT+05:00) Islamabad, Karachi, Tashkent-->
 			<mapZone other="Ekaterinburg" type="Asia/Yekaterinburg"/> <!-- D (GMT+05:00) Ekaterinburg-->
@@ -3337,14 +3347,14 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Sri Lanka" type="Asia/Colombo"/> <!-- S (GMT+06:00) Sri Jayawardenepura-->
 			<mapZone other="Central Asia" type="Asia/Dhaka"/> <!-- S (GMT+06:00) Astana, Dhaka-->
 			<mapZone other="N. Central Asia" type="Asia/Novosibirsk"/> <!-- D (GMT+06:00) Almaty, Novosibirsk-->
-			<mapZone other="Myanmar" type="Asia/Rangoon"/> <!-- S (GMT+06:30) Rangoon-->
+			<mapZone other="Myanmar" type="Asia/Rangoon"/> <!-- S (GMT+06:30) Yangon (Rangoon)-->
 			<mapZone other="SE Asia" type="Asia/Bangkok"/> <!-- S (GMT+07:00) Bangkok, Hanoi, Jakarta-->
 			<mapZone other="North Asia" type="Asia/Krasnoyarsk"/> <!-- D (GMT+07:00) Krasnoyarsk-->
 			<mapZone other="W. Australia" type="Australia/Perth"/> <!-- S (GMT+08:00) Perth-->
 			<mapZone other="Taipei" type="Asia/Taipei"/> <!-- S (GMT+08:00) Taipei-->
 			<mapZone other="Singapore" type="Asia/Singapore"/> <!-- S (GMT+08:00) Kuala Lumpur, Singapore-->
 			<mapZone other="China" type="Asia/Shanghai"/> <!-- S (GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi-->
-			<mapZone other="North Asia East" type="Asia/Irkutsk"/> <!-- D (GMT+08:00) Irkutsk, Ulaan Bataar-->
+			<mapZone other="North Asia East" type="Asia/Ulaanbaatar"/> <!-- D (GMT+08:00) Irkutsk, Ulaan Bataar-->
 			<mapZone other="Tokyo" type="Asia/Tokyo"/> <!-- S (GMT+09:00) Osaka, Sapporo, Tokyo-->
 			<mapZone other="Korea" type="Asia/Seoul"/> <!-- S (GMT+09:00) Seoul-->
 			<mapZone other="Yakutsk" type="Asia/Yakutsk"/> <!-- D (GMT+09:00) Yakutsk-->
@@ -3355,7 +3365,7 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="Vladivostok" type="Asia/Vladivostok"/> <!-- D (GMT+10:00) Vladivostok-->
 			<mapZone other="Tasmania" type="Australia/Hobart"/> <!-- D (GMT+10:00) Hobart-->
 			<mapZone other="AUS Eastern" type="Australia/Sydney"/> <!-- D (GMT+10:00) Canberra, Melbourne, Sydney-->
-			<mapZone other="Central Pacific" type="Asia/Magadan"/> <!-- S (GMT+11:00) Magadan, Solomon Is., New Caledonia-->
+			<mapZone other="Central Pacific" type="Pacific/Guadalcanal"/> <!-- S (GMT+11:00) Magadan, Solomon Is., New Caledonia-->
 			<mapZone other="Fiji" type="Pacific/Fiji"/> <!-- S (GMT+12:00) Fiji, Kamchatka, Marshall Is.-->
 			<mapZone other="New Zealand" type="Pacific/Auckland"/> <!-- D (GMT+12:00) Auckland, Wellington-->
 			<mapZone other="Tonga" type="Pacific/Tongatapu"/> <!-- S (GMT+13:00) Nuku'alofa-->

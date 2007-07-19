@@ -79,22 +79,22 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>yyyy'年'MM'月'dd'日' EEEE</pattern>
+							<pattern>yyyy年MM月dd日 EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>yyyy'年'MM'月'dd'日'</pattern>
+							<pattern>yyyy年MM月dd日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy'年'M'月'd'日'</pattern>
+							<pattern>yyyy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy'年'M'月'd'日'</pattern>
+							<pattern>yy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -106,8 +106,8 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">ahh'時'mm'分'ss'秒' z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">z ahh'時'mm'分'ss'秒'</pattern>
+							<pattern draft="unconfirmed">ahh時mm分ss秒 z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">z ahh時mm分ss秒</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -167,3 +167,4 @@
 		</calendars>
 	</dates>
 </ldml>
+

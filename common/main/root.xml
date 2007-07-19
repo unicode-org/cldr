@@ -2482,12 +2482,12 @@
 				<beforeCurrency>
 					<currencyMatch>[:letter:]</currencyMatch>
 					<surroundingMatch>[:digit:]</surroundingMatch>
-					<insertBetween> </insertBetween>
+					<insertBetween> </insertBetween>
 				</beforeCurrency>
 				<afterCurrency>
 					<currencyMatch>[:letter:]</currencyMatch>
 					<surroundingMatch>[:digit:]</surroundingMatch>
-					<insertBetween> </insertBetween>
+					<insertBetween> </insertBetween>
 				</afterCurrency>
 			</currencySpacing>
 			<currencyFormatLength>
@@ -2620,3 +2620,4 @@ codes not translations
 NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
 EURO    { "EURO" }      // EURO variant display name
 -->
+

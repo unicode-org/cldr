@@ -241,12 +241,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM yyyy 'ж.'</pattern>
+							<pattern>EEEE, d MMMM yyyy 'ж'.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy 'ж.'</pattern>
+							<pattern>d MMMM yyyy 'ж'.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -292,7 +292,7 @@
 						<dateFormatItem id="MMdd" draft="unconfirmed">dd.MM</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="unconfirmed">MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy 'ж.'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy 'ж'.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -338,3 +338,4 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/kk.txt?only_wit
 \u049B should be removed if it's not in the native language and country names.
                 2, // monday is the first day of the week
 -->
+

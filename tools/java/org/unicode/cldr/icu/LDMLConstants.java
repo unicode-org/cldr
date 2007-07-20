@@ -204,6 +204,7 @@ public class LDMLConstants {
     public static final String VALID_SUBLOCALE   = "validSubLocales";
     public static final String TERRITORY_CONTAINMENT = "territoryContainment";
     public static final String CONTAINS          = "contains";
+    public static final String CODE_MAPPINGS     = "codeMappings";
     public static final String LANGUAGE_DATA     = "languageData";
     public static final String TERRITORY_DATA    = "territoryData";
     public static final String TERRITORY_INFO    = "territoryInfo";

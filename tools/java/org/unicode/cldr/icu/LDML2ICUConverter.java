@@ -589,6 +589,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 //if(DEBUG)printXPathWarning(node, xpath);
             }else if(name.equals(LDMLConstants.TERRITORY_INFO)){
                 //Ignore this
+            }else if(name.equals(LDMLConstants.CODE_MAPPINGS)){
+                //Ignore this
             }else if(name.equals(LDMLConstants.REFERENCES)){
                 //Ignore this
             }else if(name.equals(LDMLConstants.VERSION)){
@@ -2714,14 +2716,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 Node standard = LDMLUtilities.getNode(node,LDMLConstants.STANDARD);
                 Node generic  = LDMLUtilities.getNode(node,LDMLConstants.GENERIC);
                 Node daylight  = LDMLUtilities.getNode(node,LDMLConstants.DAYLIGHT);
+                StringBuffer xpath2 = new StringBuffer();
                 if(standard != null ){
-                    res = getStringResource(name.charAt(0)+"s", standard, res);
+                            res = getStringResource(name.charAt(0)+"s", standard, res);
                 }
                 if(generic != null ){
-                    res = getStringResource(name.charAt(0)+"g", generic, res);
+                            res = getStringResource(name.charAt(0)+"g", generic, res);
                 }
                 if(daylight != null ){
-                    res = getStringResource(name.charAt(0)+"d", daylight, res);
+                            res = getStringResource(name.charAt(0)+"d", daylight, res);
                 }            
 
             }else if(name.equals(LDMLConstants.COMMONLY_USED)){
@@ -2994,7 +2997,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 return res;
             }else if(name.equals(LDMLConstants.RELATIVE)){
                 getXPath(node, xpath);
-                if(!isNodeNotConvertible(root, xpath)){
+                if(!isNodeNotConvertible(node, xpath)){
                     ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
                     str.name = "\""+LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE)+"\"";
                     str.val  = LDMLUtilities.getNodeValue(node);
@@ -4386,7 +4389,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
-                res.name =table.name;
                 return res;
             }else if(name.equals(LDMLConstants.RULES)){
                 Node alias = LDMLUtilities.getNode(node, LDMLConstants.ALIAS , fullyResolvedDoc, xpath.toString());
@@ -4851,6 +4853,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final String ICU_BRKITR_DATA  = "icu:breakIteratorData";
     private static final String ICU_DICTIONARIES = "icu:dictionaries";
     private static final String ICU_BOUNDARIES   = "icu:boundaries";
+    private static final String ICU_XGC          = "icu:xgc";
     private static final String ICU_GRAPHEME     = "icu:grapheme";
     private static final String ICU_WORD         = "icu:word";
     private static final String ICU_SENTENCE     = "icu:sentence";
@@ -4879,7 +4882,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             ICUResourceWriter.Resource res = null;
             if(name.equals(ICU_GRAPHEME )|| name.equals(ICU_WORD) ||
                     name.equals(ICU_LINE) || name.equals(ICU_SENTENCE) ||
-                    name.equals(ICU_TITLE)){
+                    name.equals(ICU_TITLE) || name.equals(ICU_XGC)){
                ICUResourceWriter.ResourceProcess str = new ICUResourceWriter.ResourceProcess();
                str.ext =  ICUResourceWriter.DEPENDENCY; 
                str.name = name.substring(name.indexOf(':')+1, name.length());
@@ -5593,6 +5596,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                            cnName.equals(ICU_WORD)||
                            cnName.equals(ICU_TITLE)||
                            cnName.equals(ICU_SENTENCE)||
+                           cnName.equals(ICU_XGC)||
                            cnName.equals(ICU_LINE)){
                             String val = LDMLUtilities.getAttributeValue(cn,ICU_DEPENDENCY);
                             if(val!=null){

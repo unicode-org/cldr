@@ -40,7 +40,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!-- RBBI data -->
 <!ELEMENT icu:breakIteratorData (alias | (icu:boundaries?, icu:dictionaries?)) >
 
-<!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?, icu:title?)) >
+<!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?, icu:title?, icu:xgc?)) >
 
 <!ELEMENT icu:dictionaries (alias | (icu:dictionary?)) >
 
@@ -77,6 +77,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST icu:title icu:append NMTOKEN #IMPLIED >
 <!ATTLIST icu:title icu:import NMTOKEN #IMPLIED >
 <!ATTLIST icu:title icu:dependency NMTOKEN #IMPLIED >
+
+<!ELEMENT icu:xgc ( #PCDATA ) >
+<!ATTLIST icu:xgc icu:class NMTOKEN #IMPLIED >
+<!ATTLIST icu:xgc icu:append NMTOKEN #IMPLIED >
+<!ATTLIST icu:xgc icu:import NMTOKEN #IMPLIED >
+<!ATTLIST icu:xgc icu:dependency NMTOKEN #IMPLIED >
 
 <!--deorecated -->
 <!ELEMENT icu:breakDictionaryData EMPTY >

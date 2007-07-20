@@ -37,7 +37,7 @@ import com.ibm.icu.impl.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
-//import com.ibm.icu.text.StringTransform;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -203,8 +203,8 @@ public class TestMisc {
 
       System.out.println(bf.showSetDifferences("IDNA Functional", functional,"Unicode XID & NFKC &!DefaultIgnorable &! Pc", restrictedXidContinue));
       
-      Transliterator t = Transliterator.getInstance("lower");
-      System.out.println("ABC " + t.transliterate("ABC"));
+      StringTransform t = Transliterator.getInstance("lower");
+      System.out.println("ABC " + t.transform("ABC"));
       /*
      generalCategory(cp) is {Ll, Lu, Lo, Lm, Mn, Mc, Nd}, AND
     * NFKC(cp) == cp, AND

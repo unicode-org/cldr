@@ -44,11 +44,98 @@ public class ICUResourceWriter {
         String[] note = new String[20];
         int noteLen = 0;
         String translate;
+        /**
+         * This is a comment which will appear on the item.
+         */
         String comment;
+        /**
+         * This is the resource's name, or, 'key'
+         */
         public String name;
+        /**
+         * This links to the next sibling of this item in the list
+         */
         public Resource next;
         boolean noSort = false;
-        public Resource first=null;
+        /**
+         * If this item contains other items, this points to the first item in its list 
+         */
+        public Resource first=null; 
+                
+        /**
+         * @return the end of this chain, by repeatedly calling next
+         * @see next
+         */
+        public Resource end() {
+            ICUResourceWriter.Resource current = this;
+            while (current != null) {
+                if (current.next == null) {
+                    return current;
+                }
+                current = current.next;
+            }
+            return current;
+        }
+        
+        /**
+         * Append to a basic list.
+         *  Usage:
+         *    Resource list = null; list = Resource.addAfter(list, res1); list = Resource.addAfter(list,res2); ...
+         * @param list the list to append to (could be null)
+         * @param res the item to add
+         * @return the beginning of the list
+         */
+        static final Resource addAfter(Resource list, Resource res) {
+            if(list == null) {
+                list = res;
+            } else {
+                // go to end of the list
+                Resource last = list.end();
+                last.next = res;
+            }
+            // return the beginning
+            return list;
+        }
+        
+        /**
+         * Appends 'res' to the end of 'this' (next sibling chain)
+         * @param res the item (or items) to be added
+         * @return the new beginning of the chain (this)
+         */
+        public Resource addAfter(Resource res) {
+            return addAfter(this, res);
+        }
+        
+        /**
+         * Replace the contents (first) of this object with the parameter
+         * @param res The object to be replaced
+         * @return the old contents
+         */
+        public Resource replaceContents(Resource res) {
+            Resource old = first;
+            first = res;
+            return old;
+        }
+        
+        /**
+         * Append the contents (first) of this object with the parameter
+         * @param res the object to be added to the contents
+         * @return the end of the contents chain
+         */
+        public Resource appendContents(Resource res) {
+            if(first == null) {
+                first = res;
+            } else {
+                first.end().next = res;
+            }
+            return res.end();
+        }
+        
+         /**
+         * @param val
+         * @return
+         */
+        
         public StringBuffer escapeSyntaxChars(String val){
             // escape the embedded quotes
             if(val==null) {
@@ -118,7 +205,7 @@ public class ICUResourceWriter {
             }          
         }
         public void sort(){
-            //System.out.println("In sort");
+//            System.out.println("In sort");
             return;
         }
         public void swap(){
@@ -290,7 +377,17 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceString extends Resource{
+        public ResourceString() {
+        }
+        public ResourceString(String name, String val) {
+            this.name = name;
+            this.val = val;
+        }
         public String val;
+        /**
+         * one-line comment following the value. ignored unless in bare mode.
+         */
+        public String smallComment = null;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -300,6 +397,9 @@ public class ICUResourceWriter {
                 }
                 
                 write(writer,QUOTE+escapeSyntaxChars(val)+QUOTE); 
+                if(smallComment != null) {
+                    write(writer, " "+ COMMENTSTART + " " + smallComment + " " + COMMENTEND);
+                }
             }else{
                 StringBuffer str = escapeSyntaxChars(val);
                 
@@ -401,13 +501,18 @@ public class ICUResourceWriter {
             if(noSort == true){
                 return;
             }
-           // System.out.println("Entering sort of table");
+            //System.out.println("Entering sort of table: "+name);
             Resource b =new Resource();
             Resource a = first;
             Resource t,u,x;
             for(t = a; t!=null; t=u ){
                 u=t.next;
                 for(x=b;x.next!=null; x=x.next){
+//                    if(x.next == null) {
+//                        throw new InternalError("Null NEXT node from " + x.name+","+x.toString());
+//                    } else if(x.next.name == null) {
+//                        throw new InternalError("Null NEXT name from " + x.name+","+x.toString()+" -> " + x.next.toString());
+//                    }
                     if(x.next.name.compareTo(t.name)>0){
                         break;
                     }
@@ -415,17 +520,33 @@ public class ICUResourceWriter {
                 t.next = x.next;
                 x.next = t;
             }
-           // System.out.println("Exiting sort of table");
+//            System.out.println("Exiting sort of table");
             if(b.next!=null){
                 first = b.next;   
             }
             
             Resource current = first;
+//            if(current == this) {
+//                throw new InternalError("I'm my own child.. name="+name);
+//            }
             while(current!=null){
                 current.sort();
+//                if(current.next == current) {
+//                    throw new InternalError("Sibling links to self: " + current.name);
+//                }
                 current = current.next;
             }
             
         } // end sort()
+    }
+    
+    /**
+     * Convenience function
+     * @param name
+     * @param val 
+     * @return new ResourceString
+     */
+    public static Resource createString(String name, String val) {
+        return new ResourceString(name,val);
     }
 }

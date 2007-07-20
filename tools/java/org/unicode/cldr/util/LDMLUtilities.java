@@ -328,6 +328,49 @@ public class LDMLUtilities {
         }
         return icu.toString();
     }
+ 
+    public static String convertXPath2ICU(String source, String xpath, String basePath, String fullPath)
+    throws TransformerException{
+       //Node context = alias.getParentNode();
+        StringBuffer icu = new StringBuffer();
+
+        // TODO: make sure that the xpaths are valid. How?
+        
+        if(source.equals(LDMLConstants.LOCALE)){
+            icu.append("/");
+            icu.append(source.toUpperCase());
+        }else{
+            icu.append(source);
+        }
+        
+        if(xpath!=null){
+            StringBuffer fullPathBuffer = new StringBuffer(fullPath);
+            StringBuffer resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPathBuffer);
+            // TODO: make sure that fullPath is not corrupted!  How?         
+            //XPathAPI.eval(context, fullPath.toString());
+
+            //TODO .. do the conversion
+            XPathTokenizer tokenizer = new XPathTokenizer(resolved);
+
+            String token = tokenizer.nextToken();
+            while(token!=null){
+                if(!token.equals("ldml")){
+                    String equiv = getICUEquivalent(token);
+                    if(equiv==null){
+                        throw new IllegalArgumentException("Could not find ICU equivalent for token: " +token);
+                    }
+                    if(equiv.length()>0){
+                        icu.append("/");
+                        icu.append(equiv);
+                    }
+                }
+                token = tokenizer.nextToken();
+            }
+        }
+        return icu.toString();
+    }
+
+
     public static String getDayIndexAsString(String type){
         if(type.equals("sun")){
             return "0";

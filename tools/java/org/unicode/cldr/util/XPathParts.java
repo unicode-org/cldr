@@ -680,8 +680,9 @@ public class XPathParts {
 	}
 
 	/**
-	 * @param elementName
-	 * @return
+	 * Search for an element within the path. 
+	 * @param elementName the element to look for 
+	 * @return element number if found, else -1 if not found
 	 */
 	public int findElement(String elementName) {
 		for (int i = 0; i < elements.size(); ++i) {

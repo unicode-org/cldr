@@ -273,13 +273,17 @@ public class XMLFileReader {
 	}
 
     public static XMLReader createXMLReader(boolean validating) {
+      // weiv 07/20/2007: The laundry list below is somewhat obsolete
+      // I have moved the system's default parser (instantiated when "" is
+      // passed) to the top, so that we will always use that. I have also
+      // removed "org.apache.crimson.parser.XMLReaderImpl" as this one gets
+      // confused regarding UTF-8 encoding name.
     	String[] testList = {
-    			"org.apache.xerces.parsers.SAXParser",
-				"org.apache.crimson.parser.XMLReaderImpl",
+    	   "",
+    		"org.apache.xerces.parsers.SAXParser",
 				"gnu.xml.aelfred2.XmlReader",
 				"com.bluecast.xml.Piccolo",
-				"oracle.xml.parser.v2.SAXParser",
-				""
+				"oracle.xml.parser.v2.SAXParser"
     	};
         XMLReader result = null;
         for (int i = 0; i < testList.length; ++i) {

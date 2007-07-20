@@ -3255,7 +3255,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 continue;
             }
             getXPath(node, xpath);
-            if(isNodeNotConvertible(node, xpath)){
+            if(isNodeNotConvertible(node, xpath) && !isNodeFromRoot){
                 xpath.setLength(saveLength);
                 continue;
             }

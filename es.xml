@@ -327,7 +327,7 @@
 			<language type="lun">lunda</language>
 			<language type="luo" draft="provisional">luo</language>
 			<language type="lus">lushai</language>
-			<language type="lv" alt="proposed-x1001" draft="unconfirmed">letón</language>
+			<language type="lv" draft="provisional">letón</language>
 			<language type="mad">madurés</language>
 			<language type="mag">magahi</language>
 			<language type="mai">maithili</language>
@@ -2428,13 +2428,13 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal draft="provisional">,</decimal>
-			<group draft="provisional">.</group>
+			<decimal>,</decimal>
+			<group>.</group>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -2996,8 +2996,7 @@
 				<displayName>peso mexicano</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">pesos mexicanos</displayName>
 				<displayName alt="proposed-x1002" draft="unconfirmed">MXN</displayName>
-				<symbol>$</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">MEX$</symbol>
+				<symbol>MEX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>peso de plata mexicano (1861-1992)</displayName>

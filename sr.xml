@@ -33,6 +33,7 @@
 			<language type="de">Немачки</language>
 			<language type="el">Грчки</language>
 			<language type="en">Енглески</language>
+			<language type="en_AU">Енглески (Аустралија)</language>
 			<language type="en_US">Енглески (САД)</language>
 			<language type="eo">Есперанто</language>
 			<language type="es">Шпански</language>
@@ -43,6 +44,7 @@
 			<language type="fil">Тагалог</language>
 			<language type="fo">Фарски</language>
 			<language type="fr">Француски</language>
+			<language type="fr_CH">Француски (Швајцарска)</language>
 			<language type="fy">Фризијски</language>
 			<language type="ga">Ирски</language>
 			<language type="gd">Шкотски Галски</language>
@@ -95,6 +97,7 @@
 			<language type="pl">Пољски</language>
 			<language type="ps">Паштунски</language>
 			<language type="pt">Португалски</language>
+			<language type="pt_BR">Португалски (Бразил)</language>
 			<language type="pt_PT">Португалски (Португалија)</language>
 			<language type="rm">Рето-Романски</language>
 			<language type="ro">Румунски</language>
@@ -175,7 +178,6 @@
 			<territory type="001">Свет</territory>
 			<territory type="002">Африка</territory>
 			<territory type="003">Северноамерички континент</territory>
-			<territory type="003" alt="proposed-x1001" draft="unconfirmed">Северна Америка</territory>
 			<territory type="005">Јужна Америка</territory>
 			<territory type="009">Океанија</territory>
 			<territory type="011">Западна Африка</territory>
@@ -210,6 +212,7 @@
 			<territory type="AE">Уједињени Арапски Емирати</territory>
 			<territory type="AF">Авганистан</territory>
 			<territory type="AG">Антигве и Барбуда</territory>
+			<territory type="AI">Ангвила</territory>
 			<territory type="AL">Албанија</territory>
 			<territory type="AM">Арменија</territory>
 			<territory type="AM" alt="proposed-x1001" draft="unconfirmed">Јерменија</territory>
@@ -237,17 +240,14 @@
 			<territory type="BN">Брунеј</territory>
 			<territory type="BO">Боливија</territory>
 			<territory type="BR">Бразил</territory>
-			<territory type="BR" alt="proposed-x1001" draft="unconfirmed">Браѕил</territory>
 			<territory type="BS">Бахами</territory>
 			<territory type="BT">Бутан</territory>
-			<territory type="BV">Буве</territory>
-			<territory type="BV" alt="proposed-x1001" draft="unconfirmed">Острво Бувет</territory>
+			<territory type="BV">Буве Острва</territory>
 			<territory type="BW">Боцвана</territory>
 			<territory type="BY">Белорусија</territory>
 			<territory type="BZ">Белисе</territory>
 			<territory type="CA">Канада</territory>
-			<territory type="CC">Кокосова Острва</territory>
-			<territory type="CC" alt="proposed-x1001" draft="unconfirmed">Кокос Острва</territory>
+			<territory type="CC">Кокос (Келинг) Острва</territory>
 			<territory type="CD">Демократска република Конго</territory>
 			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Конго, Демократска Република</territory>
 			<territory type="CF">Централно Афричка Република</territory>
@@ -264,8 +264,7 @@
 			<territory type="CS">Србија и Црна Гора</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Капе Верде</territory>
-			<territory type="CX">Божићно Острво</territory>
-			<territory type="CX" alt="proposed-x1001" draft="unconfirmed">Божићна острва</territory>
+			<territory type="CX">Божићна острва</territory>
 			<territory type="CY">Кипар</territory>
 			<territory type="CZ">Чешка</territory>
 			<territory type="CZ" alt="proposed-x1001" draft="unconfirmed">Чешка република</territory>
@@ -361,10 +360,8 @@
 			<territory type="LR" alt="proposed-x1001" draft="unconfirmed">Либериа</territory>
 			<territory type="LS">Лесото</territory>
 			<territory type="LT">Литванија</territory>
-			<territory type="LT" alt="proposed-x1001" draft="unconfirmed">Латвија</territory>
 			<territory type="LU">Луксембург</territory>
 			<territory type="LV">Летонија</territory>
-			<territory type="LV" alt="proposed-x1001" draft="unconfirmed">Литванија</territory>
 			<territory type="LY">Либија</territory>
 			<territory type="MA">Мароко</territory>
 			<territory type="MC">Монако</territory>
@@ -446,8 +443,7 @@
 			<territory type="SO">Сомалија</territory>
 			<territory type="SR">Суринам</territory>
 			<territory type="SR" alt="proposed-x1001" draft="unconfirmed">Суринами</territory>
-			<territory type="ST">Сао Томе и Принципи</territory>
-			<territory type="ST" alt="proposed-x1001" draft="unconfirmed">Сао Томе и Принципе</territory>
+			<territory type="ST">Сао Томе и Принципе</territory>
 			<territory type="SV">Салвадор</territory>
 			<territory type="SY">Сирија</territory>
 			<territory type="SZ">Свазиленд</territory>
@@ -495,7 +491,6 @@
 			<territory type="YE">Јемен</territory>
 			<territory type="YT">Мајоте</territory>
 			<territory type="ZA">Јужноафричка Република</territory>
-			<territory type="ZA" alt="proposed-x1001" draft="unconfirmed">Јужна Африка</territory>
 			<territory type="ZM">Замбија</territory>
 			<territory type="ZW">Зимбабве</territory>
 			<territory type="ZZ">Непозната или неважећа област</territory>
@@ -507,13 +502,10 @@
 		</keys>
 		<types>
 			<type type="big5han" key="collation">Традиционално кинеско сортирање</type>
-			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">традиционални кинески</type>
 			<type type="buddhist" key="calendar">Будистички календар</type>
 			<type type="chinese" key="calendar">Кинески календар</type>
 			<type type="direct" key="collation">Директно сортирање</type>
 			<type type="gb2312han" key="collation">Поједностављено кинеско сортирање</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">Поједностављењо кинеско сортирање</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1002" draft="unconfirmed">поједностављени кинески</type>
 			<type type="gregorian" key="calendar">Грегоријански календар</type>
 			<type type="hebrew" key="calendar">Хебрејски календар</type>
 			<type type="islamic" key="calendar">Исламски календар</type>
@@ -522,7 +514,6 @@
 			<type type="phonebook" key="collation">Сортирање као телефонски именик</type>
 			<type type="phonebook" key="collation" alt="proposed-x1001" draft="unconfirmed">Сортирање по азбуци</type>
 			<type type="pinyin" key="collation">Пињин сортирање</type>
-			<type type="pinyin" key="collation" alt="proposed-x1001" draft="unconfirmed">Пинјин сортирање</type>
 			<type type="stroke" key="collation">Сортирање по броју црта</type>
 			<type type="traditional" key="collation">Традиционално сортирање</type>
 		</types>
@@ -570,6 +561,7 @@
 							<month type="6">јун</month>
 							<month type="6" alt="proposed-x1001" draft="unconfirmed">јуни</month>
 							<month type="7">јул</month>
+							<month type="7" alt="proposed-x1001" draft="unconfirmed">јули</month>
 							<month type="8">август</month>
 							<month type="8" alt="proposed-x1001" draft="unconfirmed">аугуст</month>
 							<month type="9">септембар</month>
@@ -688,12 +680,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, dd.MMMM.yyyy.</pattern>
+							<pattern>EEEE, dd. MMMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>dd.MM.yyyy.</pattern>
+							<pattern>dd. MMMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -710,7 +702,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH.mm.ss v</pattern>
+							<pattern>HH 'часова', mm 'минута', ss 'секунди' vvvv</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -740,26 +732,22 @@
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">'уто' 14.</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">'уто' 14. 'сеп'</dateFormatItem>
 						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMdd" draft="unconfirmed">dd.MMM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM-dd</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="mmss" draft="unconfirmed">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d. MMM yy.</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed-x1001" draft="unconfirmed">14. 'сеп' 99.</dateFormatItem>
-						<dateFormatItem id="yyMMMd" alt="proposed-x1002" draft="unconfirmed">d. MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyy">yyyy.</dateFormatItem>
-						<dateFormatItem id="yyyy" alt="proposed-x1001" draft="unconfirmed">1999.</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -850,6 +838,11 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Јужни пол</exemplarCity>
 			</zone>
+			<zone type="Europe/Sarajevo">
+				<long>
+					<standard>Средње Европско Време</standard>
+				</long>
+			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Шова</exemplarCity>
 			</zone>
@@ -885,11 +878,6 @@
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Баку</exemplarCity>
-			</zone>
-			<zone type="Europe/Sarajevo">
-				<long>
-					<standard>Srednje Evropsko Vrijeme</standard>
-				</long>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Барбадос</exemplarCity>
@@ -1640,7 +1628,6 @@
 				<long>
 					<standard>Средње Европско Време</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">Централно Европско Време</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Средње Европско Вријеме</standard>
 					<daylight>Централно Европско Летње Време</daylight>
 				</long>
 			</metazone>
@@ -1651,6 +1638,13 @@
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName draft="provisional">Уједињени арапски емирати дирхам</displayName>
@@ -1698,14 +1692,13 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>Кинески Јуан Ренминби</displayName>
-				<symbol draft="unconfirmed">Y</symbol>
+				<symbol>Y</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Колумбијски пезо</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>Српски Динар (Србија и Црна Гора)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Српски Динар</displayName>
 			</currency>
 			<currency type="CZK">
 				<displayName>Чешка круна</displayName>

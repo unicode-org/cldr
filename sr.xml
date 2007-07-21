@@ -738,16 +738,15 @@
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM-dd</dateFormatItem>
 						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="mmss" draft="unconfirmed">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d. MMM yy.</dateFormatItem>
 						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyy">yyyy.</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 				<fields>
@@ -838,11 +837,6 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Јужни пол</exemplarCity>
 			</zone>
-			<zone type="Europe/Sarajevo">
-				<long>
-					<standard>Средње Европско Време</standard>
-				</long>
-			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Шова</exemplarCity>
 			</zone>
@@ -878,6 +872,11 @@
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Баку</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<long>
+					<standard>Средње Европско Време</standard>
+				</long>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Барбадос</exemplarCity>

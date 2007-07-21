@@ -36,7 +36,6 @@
 			<language type="en">Engleski</language>
 			<language type="en_AU">Engleski (Australija)</language>
 			<language type="en_US">Engleski (SAD)</language>
-			<language type="en_GB">en_GB</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Španski</language>
 			<language type="et">Estonski</language>
@@ -527,16 +526,8 @@
 	<characters>
 		<exemplarCharacters>[a-c ć č d đ {dž} e-l {lj} m n {nj} o p r s š t-v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w-y]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
-	<delimiters>
-		<quotationStart draft="unconfirmed">‘</quotationStart>
-		<quotationEnd draft="unconfirmed">’</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
-	</delimiters>
 	<dates>
-		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
@@ -658,15 +649,11 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
-				<am draft="unconfirmed">AM</am>
-				<pm draft="unconfirmed">PM</pm>
 				<eras>
 					<eraNames>
 						<era type="0">Pre nove ere</era>
 						<era type="0" alt="proposed-x1001" draft="unconfirmed">Prije nove ere</era>
-						<era type="0" alt="proposed-x1002" draft="unconfirmed">BCE</era>
 						<era type="1">Nove ere</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">CE</era>
 						<era type="1" alt="proposed-x1002" draft="unconfirmed">godine</era>
 					</eraNames>
 					<eraAbbr>
@@ -680,79 +667,13 @@
 						<era type="1">n. e.</era>
 					</eraNarrow>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, dd. MMMM yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>dd. MMMM yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd.MM.yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d.M.yy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH 'časova', mm 'minuta', ss 'sekundi' vvvv</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss v</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH.mm.ss z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<availableFormats>
-						<dateFormatItem id="Ed">E d.</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" draft="unconfirmed">dd.MMM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="unconfirmed">MM-dd</dateFormatItem>
-						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="mmss" draft="unconfirmed">mm.ss</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="unconfirmed">MM.yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d. MMM yy.</dateFormatItem>
-						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="unconfirmed">yyyy-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM yyyy.</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyy">yyyy.</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName>era</displayName>
@@ -798,9 +719,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HHmm;-HHmm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznat ili nevažeći grad</exemplarCity>
 			</zone>
@@ -841,11 +759,6 @@
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni pol</exemplarCity>
 			</zone>
-			<zone type="Europe/Sarajevo">
-				<long>
-					<standard>Srednje Evropsko Vreme</standard>
-				</long>
-			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Šova</exemplarCity>
 			</zone>
@@ -881,6 +794,11 @@
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Baku</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<long>
+					<standard>Srednje Evropsko Vreme</standard>
+				</long>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Barbados</exemplarCity>
@@ -1637,17 +1555,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<symbols>
-			<decimal>,</decimal>
-			<group>.</group>
-		</symbols>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName draft="provisional">Ujedinjeni arapski emirati dirham</displayName>
@@ -1660,15 +1567,12 @@
 			</currency>
 			<currency type="AUD">
 				<displayName>Australijski dolar</displayName>
-				<symbol>$A</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibilna marka</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgijski franak</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Bugarski lev</displayName>
@@ -1684,11 +1588,9 @@
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadski dolar</displayName>
-				<symbol>Can$</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Švajcarski franak</displayName>
-				<symbol>SwF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Čileanski pezo</displayName>
@@ -1713,7 +1615,6 @@
 			</currency>
 			<currency type="DKK">
 				<displayName>Danska kruna</displayName>
-				<symbol>DKr</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Estonska kroon</displayName>
@@ -1764,7 +1665,6 @@
 			</currency>
 			<currency type="IEP">
 				<displayName>Irska funta</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Izraelski šekel</displayName>
@@ -1772,7 +1672,6 @@
 			<currency type="INR">
 				<displayName>Indijski Rupi</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">Indijski Rupee</displayName>
-				<symbol>INR</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Italijanska lira</displayName>
@@ -1789,7 +1688,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvajtski dinar</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litvanski litas</displayName>
@@ -1815,7 +1713,6 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>Norveška kruna</displayName>
-				<symbol>NKr</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Novozelandski dolar</displayName>
@@ -1848,7 +1745,6 @@
 			</currency>
 			<currency type="SEK">
 				<displayName>Švedska kruna</displayName>
-				<symbol>SKr</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="provisional">Singapurski dolar</displayName>
@@ -1887,7 +1783,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>Nepoznata ili nevažeća valuta</displayName>
-				<symbol>XXX</symbol>
 			</currency>
 			<currency type="YUN">
 				<symbol>Din</symbol>

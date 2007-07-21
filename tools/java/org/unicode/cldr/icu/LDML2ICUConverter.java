@@ -417,20 +417,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         boolean isPathNotConvertible(String xpath) {
-            String alt = getBasicAttributeValue(xpath, "alt");
-            if (alt != null) {
-                return true;
-            } else {
-                return false;
-            }
+            return isPathNotConvertible(file, xpath);
         }
 
-        boolean isPathNotConvertible(CLDRFile file, String xpath) {
-            String alt = getBasicAttributeValue(file, xpath, "alt");
+        boolean isPathNotConvertible(CLDRFile f, String xpath) {
+            String alt = getBasicAttributeValue(f, xpath, "alt");
             if (alt != null) {
                 return true;
             } else {
-                return false;
+                return !(xpathList.contains(f.getFullXPath(xpath))||!f.isHere(xpath));
             }
         }
         
@@ -674,12 +669,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
     }
 
-    private void makeXPathList(CLDRFile file) {
-        Document doc = null;
-        if (doc == null) {
-            return;
+    private void makeXPathList(InputLocale loc) {
+        xpathList.clear();
+        for(Iterator<String> iter = loc.file.iterator();iter.hasNext();) {
+            xpathList.add(loc.file.getFullXPath(iter.next()));
         }
-        makeXPathList((Node) doc, null);
         makeXPathList((Node) supplementalDoc, null);
         Collections.sort(xpathList);
         if (DEBUG) {
@@ -699,7 +693,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         // Ok now figure out which XPaths should be converted
         xpathList = computeConvertibleXPaths(xpathList,
-                exemplarsContainAZ(fullyResolvedDoc), locName, supplementalDir);
+                exemplarsContainAZ(loc), locName, supplementalDir);
         if (DEBUG) {
             try {
                 PrintWriter log2 = new PrintWriter(new FileOutputStream(
@@ -715,6 +709,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // debugging throw away.
             }
         }
+//        System.err.println("XPL: " + xpathList.size());
     }
 
     /**
@@ -722,6 +717,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
      * @param doc
      */
     private void makeXPathList(Document doc){
+        xpathList.clear();
         makeXPathList((Node)doc,null);
         makeXPathList((Node)supplementalDoc,null);
         Collections.sort(xpathList);
@@ -771,6 +767,20 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return set.containsAll(new UnicodeSet("[A-Z a-z]"));
     }
 
+    private boolean exemplarsContainAZ(InputLocale loc) {
+        if (loc == null) {
+            return false;
+        }
+        UnicodeSet set = loc.file.getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+        if(set == null) {
+            set = loc.resolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+        }
+        if(set == null) {
+            return false;
+        }
+        return set.containsAll(new UnicodeSet("[A-Z a-z]"));
+    }
+
     private Document createSupplementalDoc() {
 
         FilenameFilter filter = new FilenameFilter() {
@@ -810,8 +820,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private void createResourceBundle(InputLocale loc) {
         try {
             // calculate the list of vettable xpaths.
-            // TODO: for now, 'all'
-            makeXPathList(loc.file);
+            makeXPathList(loc);
             // Create the Resource linked list which will hold the
             // data after parsing
             // The assumption here is that the top

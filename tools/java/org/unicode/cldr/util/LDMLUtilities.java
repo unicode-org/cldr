@@ -541,6 +541,14 @@ public class LDMLUtilities {
             s++;
             int e = value.lastIndexOf('\'');
             return value.substring(s,e);
+        } else {
+            // also handle ""
+           s = value.indexOf('"');
+           if(s>-1) {
+               s++;
+               int e = value.lastIndexOf('"');
+               return value.substring(s,e);
+           }
         }
         return value;
     }
@@ -703,7 +711,7 @@ public class LDMLUtilities {
         }
         xpath.append(node.getNodeName());
         if(type!=null){
-            xpath.append("[@type='"+type+"']");
+            xpath.append("[@type='"+type+"']");  // TODO: double quotes?
         }
         Node parent = node;
         while((parent = parent.getParentNode())!=null){

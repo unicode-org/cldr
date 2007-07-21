@@ -37,16 +37,6 @@
 					</dayContext>
 				</days>
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, dd. MMMM yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>dd. MMMM yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy-MM-dd</pattern>
@@ -85,14 +75,6 @@
 	</dates>
 	<!-- NUMERIC INFORMATION -->
 	<numbers>
-		<!-- MONETARY INFORMATION -->
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencies>
 			<!-- currency id as per ISO4217, three letter alphabetic code -->
 			<currency type="BAM">
@@ -105,4 +87,7 @@
 		</currencies>
 	</numbers>
 </ldml>
+<!-- Comments without bases
+
+ MONETARY INFORMATION 	 - was on: //ldml/numbers/currencyFormats -->
 

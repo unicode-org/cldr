@@ -17,16 +17,6 @@
 							<pattern>d. MMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd.MM.yyyy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d.M.yy.</pattern>
-						</dateFormat>
-					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
@@ -34,22 +24,7 @@
 							<pattern>HH.mm.ss v</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH.mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="mmss" draft="unconfirmed">mm.ss</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -61,12 +36,6 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<currencies>
-			<currency type="BAM">
-				<displayName>Konvertibilna marka</displayName>
-				<symbol>KM</symbol>
-			</currency>
-		</currencies>
 	</numbers>
 </ldml>
 

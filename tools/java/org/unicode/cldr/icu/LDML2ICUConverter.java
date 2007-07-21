@@ -3840,8 +3840,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     + xpath + "] Only found " + map.size()
                     + " items  in target locale ( " + allThings.size()
                     + " including " + ((defMap != null) ? defMap.size() : 0)
-                    + " inherited). Fatal error exiting");
-            throw new InternalError("data problem");
+                    + " inherited). Skipping.");
+            return null;
         }
         // }
         if (map.size() > 0) {
@@ -3859,8 +3859,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     printError("", "Could not get full " + resName
                             + " array. Missing " + key + ".  Only found "
                             + map.size() + " items ( " + allThings.size()
-                            + " including inherited). Fatal error exiting");
-                    throw new InternalError("data problem");
+                            + " including inherited). Skipping.");
+                    return null;
                 }
                 // array of unnamed strings
                 if (res.val != null) {

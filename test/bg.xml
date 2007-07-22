@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='bg'>
+ <cldrTest version='1.5' base='bg'>
  <!-- Bulgarian [български] -->
   <number 
 locales='bg bg_BG'>
 <!-- Bulgarian [български]; Bulgarian (Bulgaria) [български (България)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -28,24 +28,24 @@ locales='bg bg_BG'>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
-   <result numberType='percent' draft='true'>12346%</result>
-   <result draft='false'>12 346%</result>
-   <result numberType='scientific' draft='either'>1,23456E2</result>
+   <result numberType='percent' draft='unconfirmed'>12346%</result>
+   <result draft='approved'>12 346%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123,456</result>
-   <result numberType='percent' draft='true'>-12346%</result>
-   <result draft='false'>-12 346%</result>
-   <result numberType='scientific' draft='either'>-1,23456E2</result>
+   <result numberType='percent' draft='unconfirmed'>-12346%</result>
+   <result draft='approved'>-12 346%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1,23456E2</result>
    <result input='123456.78' numberType='integer'>123 457</result>
    <result numberType='decimal'>123 456,78</result>
-   <result numberType='percent' draft='true'>12345678%</result>
-   <result draft='false'>12 345 678%</result>
-   <result numberType='scientific' draft='either'>1,2345678E5</result>
+   <result numberType='percent' draft='unconfirmed'>12345678%</result>
+   <result draft='approved'>12 345 678%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1,2345678E5</result>
    <result input='-123456.78' numberType='integer'>-123 457</result>
    <result numberType='decimal'>-123 456,78</result>
-   <result numberType='percent' draft='true'>-12345678%</result>
-   <result draft='false'>-12 345 678%</result>
-   <result numberType='scientific' draft='either'>-1,2345678E5</result>
+   <result numberType='percent' draft='unconfirmed'>-12345678%</result>
+   <result draft='approved'>-12 345 678%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -54,19 +54,19 @@ locales='bg bg_BG'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer' draft='true'>Н/Ч</result>
-   <result draft='false'>NaN</result>
-   <result numberType='decimal' draft='true'>Н/Ч</result>
-   <result draft='false'>NaN</result>
-   <result numberType='percent' draft='true'>Н/Ч</result>
-   <result draft='false'>NaN</result>
-   <result numberType='scientific' draft='true'>Н/Ч</result>
-   <result draft='false'>NaN</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>Н/Ч</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>Н/Ч</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>Н/Ч</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>Н/Ч</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='bg bg_BG'>
 <!-- Bulgarian [български]; Bulgarian (Bulgaria) [български (България)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 Гриинуич+0000</result>
    <result timeType='full'>00:00:00 Гриинуич+0000</result>
@@ -358,7 +358,7 @@ locales='bg bg_BG'>
   <zoneFields 
 locales='bg bg_BG'>
 <!-- Bulgarian [български]; Bulgarian (Bulgaria) [български (България)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>Гриинуич-0800</result>
    <result field='z'>Гриинуич-0800</result>
    <result field='zzzz'>Гриинуич-0800</result>
@@ -470,7 +470,7 @@ locales='bg bg_BG'>
   <collation 
 locales='bg bg_BG'>
 <!-- Bulgarian [български]; Bulgarian (Bulgaria) [български (България)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

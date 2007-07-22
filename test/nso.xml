@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='nso'>
+ <cldrTest version='1.5' base='nso'>
  <!-- Northern Sotho [Northern Sotho] -->
   <number 
 locales='nso nso_ZA'>
 <!-- Northern Sotho [Northern Sotho]; Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -56,803 +56,576 @@ locales='nso nso_ZA'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='nso'>
-<!-- Northern Sotho [Northern Sotho] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+locales='nso nso_ZA'>
+<!-- Northern Sotho [Northern Sotho]; Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/01/31</result>
-   <result timeType='short'>00/01/31 00:00</result>
-   <result timeType='medium'>00/01/31 00:00:00</result>
-   <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1900 Jan 31</result>
-   <result draft='false'>1900 Janaware 31</result>
-   <result timeType='short' draft='true'>1900 Jan 31 00:00</result>
-   <result draft='false'>1900 Janaware 31 00:00</result>
-   <result timeType='medium' draft='true'>1900 Jan 31 00:00:00</result>
-   <result draft='false'>1900 Janaware 31 00:00:00</result>
-   <result timeType='long' draft='true'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1900 Janaware 31</result>
-   <result draft='false'>1900 1 31</result>
-   <result timeType='short' draft='true'>1900 Janaware 31 00:00</result>
-   <result draft='false'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='true'>1900 Janaware 31 00:00:00</result>
-   <result draft='false'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='true'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Laboraro, 1900 Janaware 31</result>
-   <result draft='false'>4, 1900 1 31</result>
-   <result timeType='short' draft='true'>Laboraro, 1900 Janaware 31 00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='true'>Laboraro, 1900 Janaware 31 00:00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00:00</result>
-   <result timeType='long' draft='true'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
+   <result draft='approved'>1900-01-31</result>
+   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
+   <result draft='approved'>1900-01-31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Jan 31</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>1900 Jan 31 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900 Jan 31 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1900 Jan 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1900 Jan 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1900 Janaware 31</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>1900 Janaware 31 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900 Janaware 31 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1900 Janaware 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1900 Janaware 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Laboraro, 1900 Janaware 31</result>
+   <result draft='approved'>4, 1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>Laboraro, 1900 Janaware 31 00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Laboraro, 1900 Janaware 31 00:00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
+   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>09/02/28</result>
-   <result timeType='short'>09/02/28 00:00</result>
-   <result timeType='medium'>09/02/28 00:00:01</result>
-   <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1909 Feb 28</result>
-   <result draft='false'>1909 Feberware 28</result>
-   <result timeType='short' draft='true'>1909 Feb 28 00:00</result>
-   <result draft='false'>1909 Feberware 28 00:00</result>
-   <result timeType='medium' draft='true'>1909 Feb 28 00:00:01</result>
-   <result draft='false'>1909 Feberware 28 00:00:01</result>
-   <result timeType='long' draft='true'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1909 Feberware 28</result>
-   <result draft='false'>1909 2 28</result>
-   <result timeType='short' draft='true'>1909 Feberware 28 00:00</result>
-   <result draft='false'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='true'>1909 Feberware 28 00:00:01</result>
-   <result draft='false'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='true'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Sontaga, 1909 Feberware 28</result>
-   <result draft='false'>1, 1909 2 28</result>
-   <result timeType='short' draft='true'>Sontaga, 1909 Feberware 28 00:00</result>
-   <result draft='false'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='true'>Sontaga, 1909 Feberware 28 00:00:01</result>
-   <result draft='false'>1, 1909 2 28 00:00:01</result>
-   <result timeType='long' draft='true'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='either'>00:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
+   <result draft='approved'>1909-02-28</result>
+   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
+   <result draft='approved'>1909-02-28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
+   <result draft='approved'>1909-02-28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Feb 28</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>1909 Feb 28 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909 Feb 28 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1909 Feb 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1909 Feb 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1909 Feberware 28</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>1909 Feberware 28 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909 Feberware 28 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1909 Feberware 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1909 Feberware 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sontaga, 1909 Feberware 28</result>
+   <result draft='approved'>1, 1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>Sontaga, 1909 Feberware 28 00:00</result>
+   <result draft='approved'>1, 1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sontaga, 1909 Feberware 28 00:00:01</result>
+   <result draft='approved'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
+   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>18/03/26</result>
-   <result timeType='short'>18/03/26 00:59</result>
-   <result timeType='medium'>18/03/26 00:59:59</result>
-   <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1918 Mat 26</result>
-   <result draft='false'>1918 Matšhe 26</result>
-   <result timeType='short' draft='true'>1918 Mat 26 00:59</result>
-   <result draft='false'>1918 Matšhe 26 00:59</result>
-   <result timeType='medium' draft='true'>1918 Mat 26 00:59:59</result>
-   <result draft='false'>1918 Matšhe 26 00:59:59</result>
-   <result timeType='long' draft='true'>1918 Mat 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>1918 Mat 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1918 Matšhe 26</result>
-   <result draft='false'>1918 3 26</result>
-   <result timeType='short' draft='true'>1918 Matšhe 26 00:59</result>
-   <result draft='false'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='true'>1918 Matšhe 26 00:59:59</result>
-   <result draft='false'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='true'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Labobedi, 1918 Matšhe 26</result>
-   <result draft='false'>3, 1918 3 26</result>
-   <result timeType='short' draft='true'>Labobedi, 1918 Matšhe 26 00:59</result>
-   <result draft='false'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='true'>Labobedi, 1918 Matšhe 26 00:59:59</result>
-   <result draft='false'>3, 1918 3 26 00:59:59</result>
-   <result timeType='long' draft='true'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='either'>01:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
+   <result draft='approved'>1918-03-26</result>
+   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
+   <result draft='approved'>1918-03-26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
+   <result draft='approved'>1918-03-26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Mat 26</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>1918 Mat 26 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918 Mat 26 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1918 Mat 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1918 Mat 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1918 Matšhe 26</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>1918 Matšhe 26 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918 Matšhe 26 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Labobedi, 1918 Matšhe 26</result>
+   <result draft='approved'>3, 1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>Labobedi, 1918 Matšhe 26 00:59</result>
+   <result draft='approved'>3, 1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>Labobedi, 1918 Matšhe 26 00:59:59</result>
+   <result draft='approved'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
+   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>32/04/24</result>
-   <result timeType='short'>32/04/24 01:00</result>
-   <result timeType='medium'>32/04/24 01:00:00</result>
-   <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1932 Apo 24</result>
-   <result draft='false'>1932 Aporele 24</result>
-   <result timeType='short' draft='true'>1932 Apo 24 01:00</result>
-   <result draft='false'>1932 Aporele 24 01:00</result>
-   <result timeType='medium' draft='true'>1932 Apo 24 01:00:00</result>
-   <result draft='false'>1932 Aporele 24 01:00:00</result>
-   <result timeType='long' draft='true'>1932 Apo 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1932 Apo 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1932 Aporele 24</result>
-   <result draft='false'>1932 4 24</result>
-   <result timeType='short' draft='true'>1932 Aporele 24 01:00</result>
-   <result draft='false'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='true'>1932 Aporele 24 01:00:00</result>
-   <result draft='false'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='true'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Sontaga, 1932 Aporele 24</result>
-   <result draft='false'>1, 1932 4 24</result>
-   <result timeType='short' draft='true'>Sontaga, 1932 Aporele 24 01:00</result>
-   <result draft='false'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='true'>Sontaga, 1932 Aporele 24 01:00:00</result>
-   <result draft='false'>1, 1932 4 24 01:00:00</result>
-   <result timeType='long' draft='true'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='either'>01:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
+   <result draft='approved'>1932-04-24</result>
+   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
+   <result draft='approved'>1932-04-24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Apo 24</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>1932 Apo 24 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932 Apo 24 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1932 Apo 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1932 Apo 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1932 Aporele 24</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>1932 Aporele 24 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932 Aporele 24 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1932 Aporele 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1932 Aporele 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sontaga, 1932 Aporele 24</result>
+   <result draft='approved'>1, 1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>Sontaga, 1932 Aporele 24 01:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sontaga, 1932 Aporele 24 01:00:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
+   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>45/05/20</result>
-   <result timeType='short'>45/05/20 01:00</result>
-   <result timeType='medium'>45/05/20 01:00:01</result>
-   <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1945 Mei 20</result>
-   <result draft='false'>1945 5 20</result>
-   <result timeType='short' draft='true'>1945 Mei 20 01:00</result>
-   <result draft='false'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='true'>1945 Mei 20 01:00:01</result>
-   <result draft='false'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='true'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Sontaga, 1945 Mei 20</result>
-   <result draft='false'>1, 1945 5 20</result>
-   <result timeType='short' draft='true'>Sontaga, 1945 Mei 20 01:00</result>
-   <result draft='false'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='true'>Sontaga, 1945 Mei 20 01:00:01</result>
-   <result draft='false'>1, 1945 5 20 01:00:01</result>
-   <result timeType='long' draft='true'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='either'>11:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
+   <result draft='approved'>1945-05-20</result>
+   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
+   <result draft='approved'>1945-05-20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
+   <result draft='approved'>1945-05-20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 Mei 20</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>1945 Mei 20 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945 Mei 20 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1945 Mei 20</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>1945 Mei 20 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945 Mei 20 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Sontaga, 1945 Mei 20</result>
+   <result draft='approved'>1, 1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>Sontaga, 1945 Mei 20 01:00</result>
+   <result draft='approved'>1, 1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Sontaga, 1945 Mei 20 01:00:01</result>
+   <result draft='approved'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>52/06/18</result>
-   <result timeType='short'>52/06/18 11:59</result>
-   <result timeType='medium'>52/06/18 11:59:59</result>
-   <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1952 Jun 18</result>
-   <result draft='false'>1952 June 18</result>
-   <result timeType='short' draft='true'>1952 Jun 18 11:59</result>
-   <result draft='false'>1952 June 18 11:59</result>
-   <result timeType='medium' draft='true'>1952 Jun 18 11:59:59</result>
-   <result draft='false'>1952 June 18 11:59:59</result>
-   <result timeType='long' draft='true'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1952 June 18</result>
-   <result draft='false'>1952 6 18</result>
-   <result timeType='short' draft='true'>1952 June 18 11:59</result>
-   <result draft='false'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='true'>1952 June 18 11:59:59</result>
-   <result draft='false'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='true'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Laboraro, 1952 June 18</result>
-   <result draft='false'>4, 1952 6 18</result>
-   <result timeType='short' draft='true'>Laboraro, 1952 June 18 11:59</result>
-   <result draft='false'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='true'>Laboraro, 1952 June 18 11:59:59</result>
-   <result draft='false'>4, 1952 6 18 11:59:59</result>
-   <result timeType='long' draft='true'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
+   <result draft='approved'>1952-06-18</result>
+   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
+   <result draft='approved'>1952-06-18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
+   <result draft='approved'>1952-06-18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Jun 18</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>1952 Jun 18 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952 Jun 18 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1952 Jun 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1952 Jun 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1952 June 18</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>1952 June 18 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952 June 18 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1952 June 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1952 June 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Laboraro, 1952 June 18</result>
+   <result draft='approved'>4, 1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>Laboraro, 1952 June 18 11:59</result>
+   <result draft='approved'>4, 1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>Laboraro, 1952 June 18 11:59:59</result>
+   <result draft='approved'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
+   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>73/07/16</result>
-   <result timeType='short'>73/07/16 12:00</result>
-   <result timeType='medium'>73/07/16 12:00:00</result>
-   <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1973 Jul 16</result>
-   <result draft='false'>1973 Julae 16</result>
-   <result timeType='short' draft='true'>1973 Jul 16 12:00</result>
-   <result draft='false'>1973 Julae 16 12:00</result>
-   <result timeType='medium' draft='true'>1973 Jul 16 12:00:00</result>
-   <result draft='false'>1973 Julae 16 12:00:00</result>
-   <result timeType='long' draft='true'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1973 Julae 16</result>
-   <result draft='false'>1973 7 16</result>
-   <result timeType='short' draft='true'>1973 Julae 16 12:00</result>
-   <result draft='false'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='true'>1973 Julae 16 12:00:00</result>
-   <result draft='false'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='true'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Mosupalogo, 1973 Julae 16</result>
-   <result draft='false'>2, 1973 7 16</result>
-   <result timeType='short' draft='true'>Mosupalogo, 1973 Julae 16 12:00</result>
-   <result draft='false'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='true'>Mosupalogo, 1973 Julae 16 12:00:00</result>
-   <result draft='false'>2, 1973 7 16 12:00:00</result>
-   <result timeType='long' draft='true'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='either'>12:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
+   <result draft='approved'>1973-07-16</result>
+   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
+   <result draft='approved'>1973-07-16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Jul 16</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>1973 Jul 16 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973 Jul 16 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1973 Jul 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1973 Jul 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1973 Julae 16</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>1973 Julae 16 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973 Julae 16 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1973 Julae 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1973 Julae 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Mosupalogo, 1973 Julae 16</result>
+   <result draft='approved'>2, 1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>Mosupalogo, 1973 Julae 16 12:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Mosupalogo, 1973 Julae 16 12:00:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
+   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>99/08/14</result>
-   <result timeType='short'>99/08/14 12:00</result>
-   <result timeType='medium'>99/08/14 12:00:01</result>
-   <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>1999 Ago 14</result>
-   <result draft='false'>1999 Agostose 14</result>
-   <result timeType='short' draft='true'>1999 Ago 14 12:00</result>
-   <result draft='false'>1999 Agostose 14 12:00</result>
-   <result timeType='medium' draft='true'>1999 Ago 14 12:00:01</result>
-   <result draft='false'>1999 Agostose 14 12:00:01</result>
-   <result timeType='long' draft='true'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>1999 Agostose 14</result>
-   <result draft='false'>1999 8 14</result>
-   <result timeType='short' draft='true'>1999 Agostose 14 12:00</result>
-   <result draft='false'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='true'>1999 Agostose 14 12:00:01</result>
-   <result draft='false'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='true'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Mokibelo, 1999 Agostose 14</result>
-   <result draft='false'>7, 1999 8 14</result>
-   <result timeType='short' draft='true'>Mokibelo, 1999 Agostose 14 12:00</result>
-   <result draft='false'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='true'>Mokibelo, 1999 Agostose 14 12:00:01</result>
-   <result draft='false'>7, 1999 8 14 12:00:01</result>
-   <result timeType='long' draft='true'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='either'>22:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
+   <result draft='approved'>1999-08-14</result>
+   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
+   <result draft='approved'>1999-08-14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
+   <result draft='approved'>1999-08-14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Ago 14</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>1999 Ago 14 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999 Ago 14 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1999 Ago 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1999 Ago 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1999 Agostose 14</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>1999 Agostose 14 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999 Agostose 14 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1999 Agostose 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1999 Agostose 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Mokibelo, 1999 Agostose 14</result>
+   <result draft='approved'>7, 1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>Mokibelo, 1999 Agostose 14 12:00</result>
+   <result draft='approved'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Mokibelo, 1999 Agostose 14 12:00:01</result>
+   <result draft='approved'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
+   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/09/12</result>
-   <result timeType='short'>00/09/12 22:59</result>
-   <result timeType='medium'>00/09/12 22:59:59</result>
-   <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>2000 Set 12</result>
-   <result draft='false'>2000 Setemere 12</result>
-   <result timeType='short' draft='true'>2000 Set 12 22:59</result>
-   <result draft='false'>2000 Setemere 12 22:59</result>
-   <result timeType='medium' draft='true'>2000 Set 12 22:59:59</result>
-   <result draft='false'>2000 Setemere 12 22:59:59</result>
-   <result timeType='long' draft='true'>2000 Set 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>2000 Set 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>2000 Setemere 12</result>
-   <result draft='false'>2000 9 12</result>
-   <result timeType='short' draft='true'>2000 Setemere 12 22:59</result>
-   <result draft='false'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='true'>2000 Setemere 12 22:59:59</result>
-   <result draft='false'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='true'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Labobedi, 2000 Setemere 12</result>
-   <result draft='false'>3, 2000 9 12</result>
-   <result timeType='short' draft='true'>Labobedi, 2000 Setemere 12 22:59</result>
-   <result draft='false'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='true'>Labobedi, 2000 Setemere 12 22:59:59</result>
-   <result draft='false'>3, 2000 9 12 22:59:59</result>
-   <result timeType='long' draft='true'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
+   <result draft='approved'>2000-09-12</result>
+   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
+   <result draft='approved'>2000-09-12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
+   <result draft='approved'>2000-09-12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Set 12</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>2000 Set 12 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000 Set 12 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>2000 Set 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2000 Set 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2000 Setemere 12</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>2000 Setemere 12 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000 Setemere 12 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>2000 Setemere 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2000 Setemere 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Labobedi, 2000 Setemere 12</result>
+   <result draft='approved'>3, 2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>Labobedi, 2000 Setemere 12 22:59</result>
+   <result draft='approved'>3, 2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>Labobedi, 2000 Setemere 12 22:59:59</result>
+   <result draft='approved'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
+   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>01/10/08</result>
-   <result timeType='short'>01/10/08 23:00</result>
-   <result timeType='medium'>01/10/08 23:00:00</result>
-   <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>2001 Okt 8</result>
-   <result draft='false'>2001 Oktobore 8</result>
-   <result timeType='short' draft='true'>2001 Okt 8 23:00</result>
-   <result draft='false'>2001 Oktobore 8 23:00</result>
-   <result timeType='medium' draft='true'>2001 Okt 8 23:00:00</result>
-   <result draft='false'>2001 Oktobore 8 23:00:00</result>
-   <result timeType='long' draft='true'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result draft='false'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result draft='false'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>2001 Oktobore 8</result>
-   <result draft='false'>2001 10 8</result>
-   <result timeType='short' draft='true'>2001 Oktobore 8 23:00</result>
-   <result draft='false'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='true'>2001 Oktobore 8 23:00:00</result>
-   <result draft='false'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='true'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Mosupalogo, 2001 Oktobore 08</result>
-   <result draft='false'>2, 2001 10 08</result>
-   <result timeType='short' draft='true'>Mosupalogo, 2001 Oktobore 08 23:00</result>
-   <result draft='false'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='true'>Mosupalogo, 2001 Oktobore 08 23:00:00</result>
-   <result draft='false'>2, 2001 10 08 23:00:00</result>
-   <result timeType='long' draft='true'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
-   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
-   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='either'>23:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
+   <result draft='approved'>2001-10-08</result>
+   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
+   <result draft='approved'>2001-10-08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Okt 8</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>2001 Okt 8 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001 Okt 8 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>2001 Okt 8 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2001 Okt 8 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2001 Oktobore 8</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>2001 Oktobore 8 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001 Oktobore 8 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Mosupalogo, 2001 Oktobore 08</result>
+   <result draft='approved'>2, 2001 10 08</result>
+   <result timeType='short' draft='unconfirmed'>Mosupalogo, 2001 Oktobore 08 23:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Mosupalogo, 2001 Oktobore 08 23:00:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
+   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>04/11/04</result>
-   <result timeType='short'>04/11/04 23:00</result>
-   <result timeType='medium'>04/11/04 23:00:01</result>
-   <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>2004 Nof 4</result>
-   <result draft='false'>2004 Nofemere 4</result>
-   <result timeType='short' draft='true'>2004 Nof 4 23:00</result>
-   <result draft='false'>2004 Nofemere 4 23:00</result>
-   <result timeType='medium' draft='true'>2004 Nof 4 23:00:01</result>
-   <result draft='false'>2004 Nofemere 4 23:00:01</result>
-   <result timeType='long' draft='true'>2004 Nof 4 23:00:01 GMT+00:00</result>
-   <result draft='false'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>2004 Nof 4 23:00:01 GMT+00:00</result>
-   <result draft='false'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>2004 Nofemere 4</result>
-   <result draft='false'>2004 11 4</result>
-   <result timeType='short' draft='true'>2004 Nofemere 4 23:00</result>
-   <result draft='false'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='true'>2004 Nofemere 4 23:00:01</result>
-   <result draft='false'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='true'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Labone, 2004 Nofemere 04</result>
-   <result draft='false'>5, 2004 11 04</result>
-   <result timeType='short' draft='true'>Labone, 2004 Nofemere 04 23:00</result>
-   <result draft='false'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='true'>Labone, 2004 Nofemere 04 23:00:01</result>
-   <result draft='false'>5, 2004 11 04 23:00:01</result>
-   <result timeType='long' draft='true'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
-   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
-   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='either'>23:59</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
+   <result draft='approved'>2004-11-04</result>
+   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
+   <result draft='approved'>2004-11-04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
+   <result draft='approved'>2004-11-04 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Nof 4</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>2004 Nof 4 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004 Nof 4 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>2004 Nof 4 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2004 Nof 4 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2004 Nofemere 4</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>2004 Nofemere 4 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004 Nofemere 4 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
+   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Labone, 2004 Nofemere 04</result>
+   <result draft='approved'>5, 2004 11 04</result>
+   <result timeType='short' draft='unconfirmed'>Labone, 2004 Nofemere 04 23:00</result>
+   <result draft='approved'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Labone, 2004 Nofemere 04 23:00:01</result>
+   <result draft='approved'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
+   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
+   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>10/12/01</result>
-   <result timeType='short'>10/12/01 23:59</result>
-   <result timeType='medium'>10/12/01 23:59:59</result>
-   <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>2010 Dis 1</result>
-   <result draft='false'>2010 Disemere 1</result>
-   <result timeType='short' draft='true'>2010 Dis 1 23:59</result>
-   <result draft='false'>2010 Disemere 1 23:59</result>
-   <result timeType='medium' draft='true'>2010 Dis 1 23:59:59</result>
-   <result draft='false'>2010 Disemere 1 23:59:59</result>
-   <result timeType='long' draft='true'>2010 Dis 1 23:59:59 GMT+00:00</result>
-   <result draft='false'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>2010 Dis 1 23:59:59 GMT+00:00</result>
-   <result draft='false'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>2010 Disemere 1</result>
-   <result draft='false'>2010 12 1</result>
-   <result timeType='short' draft='true'>2010 Disemere 1 23:59</result>
-   <result draft='false'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='true'>2010 Disemere 1 23:59:59</result>
-   <result draft='false'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='true'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>Laboraro, 2010 Disemere 01</result>
-   <result draft='false'>4, 2010 12 01</result>
-   <result timeType='short' draft='true'>Laboraro, 2010 Disemere 01 23:59</result>
-   <result draft='false'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='true'>Laboraro, 2010 Disemere 01 23:59:59</result>
-   <result draft='false'>4, 2010 12 01 23:59:59</result>
-   <result timeType='long' draft='true'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
-   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
-   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
-  </date>
-  <date 
-locales='nso_ZA'>
-<!-- Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result timeType='long'>00:00:00 GMT+00:00</result>
-   <result timeType='full'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/01/31</result>
-   <result timeType='short'>00/01/31 00:00</result>
-   <result timeType='medium'>00/01/31 00:00:00</result>
-   <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1900 Jan 31</result>
-   <result timeType='short'>1900 Jan 31 00:00</result>
-   <result timeType='medium'>1900 Jan 31 00:00:00</result>
-   <result timeType='long'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1900 Janaware 31</result>
-   <result timeType='short'>1900 Janaware 31 00:00</result>
-   <result timeType='medium'>1900 Janaware 31 00:00:00</result>
-   <result timeType='long'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Laboraro, 1900 Janaware 31</result>
-   <result timeType='short'>Laboraro, 1900 Janaware 31 00:00</result>
-   <result timeType='medium'>Laboraro, 1900 Janaware 31 00:00:00</result>
-   <result timeType='long'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>Laboraro, 1900 Janaware 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result timeType='long'>00:00:01 GMT+00:00</result>
-   <result timeType='full'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>09/02/28</result>
-   <result timeType='short'>09/02/28 00:00</result>
-   <result timeType='medium'>09/02/28 00:00:01</result>
-   <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1909 Feb 28</result>
-   <result timeType='short'>1909 Feb 28 00:00</result>
-   <result timeType='medium'>1909 Feb 28 00:00:01</result>
-   <result timeType='long'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1909 Feberware 28</result>
-   <result timeType='short'>1909 Feberware 28 00:00</result>
-   <result timeType='medium'>1909 Feberware 28 00:00:01</result>
-   <result timeType='long'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sontaga, 1909 Feberware 28</result>
-   <result timeType='short'>Sontaga, 1909 Feberware 28 00:00</result>
-   <result timeType='medium'>Sontaga, 1909 Feberware 28 00:00:01</result>
-   <result timeType='long'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>Sontaga, 1909 Feberware 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result timeType='long'>00:59:59 GMT+00:00</result>
-   <result timeType='full'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>18/03/26</result>
-   <result timeType='short'>18/03/26 00:59</result>
-   <result timeType='medium'>18/03/26 00:59:59</result>
-   <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1918 Mat 26</result>
-   <result timeType='short'>1918 Mat 26 00:59</result>
-   <result timeType='medium'>1918 Mat 26 00:59:59</result>
-   <result timeType='long'>1918 Mat 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Mat 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1918 Matšhe 26</result>
-   <result timeType='short'>1918 Matšhe 26 00:59</result>
-   <result timeType='medium'>1918 Matšhe 26 00:59:59</result>
-   <result timeType='long'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Labobedi, 1918 Matšhe 26</result>
-   <result timeType='short'>Labobedi, 1918 Matšhe 26 00:59</result>
-   <result timeType='medium'>Labobedi, 1918 Matšhe 26 00:59:59</result>
-   <result timeType='long'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>Labobedi, 1918 Matšhe 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result timeType='long'>01:00:00 GMT+00:00</result>
-   <result timeType='full'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>32/04/24</result>
-   <result timeType='short'>32/04/24 01:00</result>
-   <result timeType='medium'>32/04/24 01:00:00</result>
-   <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1932 Apo 24</result>
-   <result timeType='short'>1932 Apo 24 01:00</result>
-   <result timeType='medium'>1932 Apo 24 01:00:00</result>
-   <result timeType='long'>1932 Apo 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 Apo 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1932 Aporele 24</result>
-   <result timeType='short'>1932 Aporele 24 01:00</result>
-   <result timeType='medium'>1932 Aporele 24 01:00:00</result>
-   <result timeType='long'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sontaga, 1932 Aporele 24</result>
-   <result timeType='short'>Sontaga, 1932 Aporele 24 01:00</result>
-   <result timeType='medium'>Sontaga, 1932 Aporele 24 01:00:00</result>
-   <result timeType='long'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>Sontaga, 1932 Aporele 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result timeType='long'>01:00:01 GMT+00:00</result>
-   <result timeType='full'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>45/05/20</result>
-   <result timeType='short'>45/05/20 01:00</result>
-   <result timeType='medium'>45/05/20 01:00:01</result>
-   <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Sontaga, 1945 Mei 20</result>
-   <result timeType='short'>Sontaga, 1945 Mei 20 01:00</result>
-   <result timeType='medium'>Sontaga, 1945 Mei 20 01:00:01</result>
-   <result timeType='long'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>Sontaga, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result timeType='long'>11:59:59 GMT+00:00</result>
-   <result timeType='full'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>52/06/18</result>
-   <result timeType='short'>52/06/18 11:59</result>
-   <result timeType='medium'>52/06/18 11:59:59</result>
-   <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1952 Jun 18</result>
-   <result timeType='short'>1952 Jun 18 11:59</result>
-   <result timeType='medium'>1952 Jun 18 11:59:59</result>
-   <result timeType='long'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1952 June 18</result>
-   <result timeType='short'>1952 June 18 11:59</result>
-   <result timeType='medium'>1952 June 18 11:59:59</result>
-   <result timeType='long'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 June 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Laboraro, 1952 June 18</result>
-   <result timeType='short'>Laboraro, 1952 June 18 11:59</result>
-   <result timeType='medium'>Laboraro, 1952 June 18 11:59:59</result>
-   <result timeType='long'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>Laboraro, 1952 June 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result timeType='long'>12:00:00 GMT+00:00</result>
-   <result timeType='full'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>73/07/16</result>
-   <result timeType='short'>73/07/16 12:00</result>
-   <result timeType='medium'>73/07/16 12:00:00</result>
-   <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1973 Jul 16</result>
-   <result timeType='short'>1973 Jul 16 12:00</result>
-   <result timeType='medium'>1973 Jul 16 12:00:00</result>
-   <result timeType='long'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1973 Julae 16</result>
-   <result timeType='short'>1973 Julae 16 12:00</result>
-   <result timeType='medium'>1973 Julae 16 12:00:00</result>
-   <result timeType='long'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Mosupalogo, 1973 Julae 16</result>
-   <result timeType='short'>Mosupalogo, 1973 Julae 16 12:00</result>
-   <result timeType='medium'>Mosupalogo, 1973 Julae 16 12:00:00</result>
-   <result timeType='long'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>Mosupalogo, 1973 Julae 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result timeType='long'>12:00:01 GMT+00:00</result>
-   <result timeType='full'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>99/08/14</result>
-   <result timeType='short'>99/08/14 12:00</result>
-   <result timeType='medium'>99/08/14 12:00:01</result>
-   <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1999 Ago 14</result>
-   <result timeType='short'>1999 Ago 14 12:00</result>
-   <result timeType='medium'>1999 Ago 14 12:00:01</result>
-   <result timeType='long'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1999 Agostose 14</result>
-   <result timeType='short'>1999 Agostose 14 12:00</result>
-   <result timeType='medium'>1999 Agostose 14 12:00:01</result>
-   <result timeType='long'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Mokibelo, 1999 Agostose 14</result>
-   <result timeType='short'>Mokibelo, 1999 Agostose 14 12:00</result>
-   <result timeType='medium'>Mokibelo, 1999 Agostose 14 12:00:01</result>
-   <result timeType='long'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>Mokibelo, 1999 Agostose 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result timeType='long'>22:59:59 GMT+00:00</result>
-   <result timeType='full'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/09/12</result>
-   <result timeType='short'>00/09/12 22:59</result>
-   <result timeType='medium'>00/09/12 22:59:59</result>
-   <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2000 Set 12</result>
-   <result timeType='short'>2000 Set 12 22:59</result>
-   <result timeType='medium'>2000 Set 12 22:59:59</result>
-   <result timeType='long'>2000 Set 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Set 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2000 Setemere 12</result>
-   <result timeType='short'>2000 Setemere 12 22:59</result>
-   <result timeType='medium'>2000 Setemere 12 22:59:59</result>
-   <result timeType='long'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Labobedi, 2000 Setemere 12</result>
-   <result timeType='short'>Labobedi, 2000 Setemere 12 22:59</result>
-   <result timeType='medium'>Labobedi, 2000 Setemere 12 22:59:59</result>
-   <result timeType='long'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>Labobedi, 2000 Setemere 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result timeType='long'>23:00:00 GMT+00:00</result>
-   <result timeType='full'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>01/10/08</result>
-   <result timeType='short'>01/10/08 23:00</result>
-   <result timeType='medium'>01/10/08 23:00:00</result>
-   <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2001 Okt 8</result>
-   <result timeType='short'>2001 Okt 8 23:00</result>
-   <result timeType='medium'>2001 Okt 8 23:00:00</result>
-   <result timeType='long'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2001 Oktobore 8</result>
-   <result timeType='short'>2001 Oktobore 8 23:00</result>
-   <result timeType='medium'>2001 Oktobore 8 23:00:00</result>
-   <result timeType='long'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 Oktobore 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Mosupalogo, 2001 Oktobore 08</result>
-   <result timeType='short'>Mosupalogo, 2001 Oktobore 08 23:00</result>
-   <result timeType='medium'>Mosupalogo, 2001 Oktobore 08 23:00:00</result>
-   <result timeType='long'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>Mosupalogo, 2001 Oktobore 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result timeType='long'>23:00:01 GMT+00:00</result>
-   <result timeType='full'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>04/11/04</result>
-   <result timeType='short'>04/11/04 23:00</result>
-   <result timeType='medium'>04/11/04 23:00:01</result>
-   <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2004 Nof 4</result>
-   <result timeType='short'>2004 Nof 4 23:00</result>
-   <result timeType='medium'>2004 Nof 4 23:00:01</result>
-   <result timeType='long'>2004 Nof 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Nof 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2004 Nofemere 4</result>
-   <result timeType='short'>2004 Nofemere 4 23:00</result>
-   <result timeType='medium'>2004 Nofemere 4 23:00:01</result>
-   <result timeType='long'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Nofemere 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Labone, 2004 Nofemere 04</result>
-   <result timeType='short'>Labone, 2004 Nofemere 04 23:00</result>
-   <result timeType='medium'>Labone, 2004 Nofemere 04 23:00:01</result>
-   <result timeType='long'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>Labone, 2004 Nofemere 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result timeType='long'>23:59:59 GMT+00:00</result>
-   <result timeType='full'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>10/12/01</result>
-   <result timeType='short'>10/12/01 23:59</result>
-   <result timeType='medium'>10/12/01 23:59:59</result>
-   <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2010 Dis 1</result>
-   <result timeType='short'>2010 Dis 1 23:59</result>
-   <result timeType='medium'>2010 Dis 1 23:59:59</result>
-   <result timeType='long'>2010 Dis 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Dis 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2010 Disemere 1</result>
-   <result timeType='short'>2010 Disemere 1 23:59</result>
-   <result timeType='medium'>2010 Disemere 1 23:59:59</result>
-   <result timeType='long'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Disemere 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Laboraro, 2010 Disemere 01</result>
-   <result timeType='short'>Laboraro, 2010 Disemere 01 23:59</result>
-   <result timeType='medium'>Laboraro, 2010 Disemere 01 23:59:59</result>
-   <result timeType='long'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
+   <result draft='approved'>2010-12-01</result>
+   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
+   <result draft='approved'>2010-12-01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
+   <result draft='approved'>2010-12-01 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Dis 1</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>2010 Dis 1 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010 Dis 1 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>2010 Dis 1 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2010 Dis 1 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>2010 Disemere 1</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>2010 Disemere 1 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010 Disemere 1 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>2010 Disemere 1 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>2010 Disemere 1 23:59:59 GMT+00:00</result>
+   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Laboraro, 2010 Disemere 01</result>
+   <result draft='approved'>4, 2010 12 01</result>
+   <result timeType='short' draft='unconfirmed'>Laboraro, 2010 Disemere 01 23:59</result>
+   <result draft='approved'>4, 2010 12 01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>Laboraro, 2010 Disemere 01 23:59:59</result>
+   <result draft='approved'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
+   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Laboraro, 2010 Disemere 01 23:59:59 GMT+00:00</result>
+   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
 locales='nso nso_ZA'>
 <!-- Northern Sotho [Northern Sotho]; Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
+   <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
+   <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
@@ -869,26 +642,26 @@ locales='nso nso_ZA'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
@@ -905,14 +678,14 @@ locales='nso nso_ZA'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
+   <result field='v' parse='Europe/Moscow'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
+   <result field='v' parse='Europe/Moscow'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -927,9 +700,9 @@ locales='nso nso_ZA'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='nso'>
-<!-- Northern Sotho [Northern Sotho] -->
-   <result draft='true'>
+locales='nso nso_ZA'>
+<!-- Northern Sotho [Northern Sotho]; Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
+   <result draft='unconfirmed'>
 x 
 X 
 x x
@@ -1120,7 +893,7 @@ XZ
 xzx
 xZx
 </result>
-   <result draft='false'>
+   <result draft='approved'>
 x 
 X 
 x x
@@ -1136,201 +909,6 @@ x12x
 x2
 X2
 x2x
-</result>
-  </collation>
-  <collation 
-locales='nso_ZA'>
-<!-- Northern Sotho (South Africa) [Northern Sotho (South Africa)] -->
-   <result draft='either'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-xa
-xA
-Xa
-XA
-xax
-xAx
-xb
-xB
-Xb
-XB
-xbx
-xBx
-xc
-xC
-Xc
-XC
-xcx
-xCx
-xd
-xD
-Xd
-XD
-xdx
-xDx
-xe
-xE
-Xe
-XE
-xè
-xÈ
-Xè
-XÈ
-xex
-xEx
-xèx
-xÈx
-xf
-xF
-Xf
-XF
-xfx
-xFx
-xg
-xG
-Xg
-XG
-xgx
-xGx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xi
-xI
-Xi
-XI
-xix
-xIx
-xj
-xJ
-Xj
-XJ
-xjx
-xJx
-xk
-xK
-Xk
-XK
-xkx
-xKx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xn
-xN
-Xn
-XN
-xnx
-xNx
-xo
-xO
-Xo
-XO
-xò
-xÒ
-Xò
-XÒ
-xox
-xOx
-xòx
-xÒx
-xp
-xP
-Xp
-XP
-xpx
-xPx
-xq
-xQ
-Xq
-XQ
-xqx
-xQx
-xr
-xR
-Xr
-XR
-xrx
-xRx
-xs
-xS
-Xs
-XS
-xš
-xŠ
-Xš
-XŠ
-xsx
-xSx
-xšx
-xŠx
-xt
-xT
-Xt
-XT
-xtx
-xTx
-xu
-xU
-Xu
-XU
-xux
-xUx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-xw
-xW
-Xw
-XW
-xwx
-xWx
-xx
-xX
-Xx
-XX
-xxx
-xXx
-xy
-xY
-Xy
-XY
-xyx
-xYx
-xz
-xZ
-Xz
-XZ
-xzx
-xZx
 </result>
   </collation>
  </cldrTest>

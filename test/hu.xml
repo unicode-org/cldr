@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='hu'>
+ <cldrTest version='1.5' base='hu'>
  <!-- Hungarian [magyar] -->
   <number 
 locales='hu hu_HU'>
 <!-- Hungarian [magyar]; Hungarian (Hungary) [magyar (Magyarország)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='hu hu_HU'>
   <date 
 locales='hu hu_HU'>
 <!-- Hungarian [magyar]; Hungarian (Hungary) [magyar (Magyarország)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>0:00:00 GMT+00:00</result>
@@ -350,42 +350,42 @@ locales='hu hu_HU'>
   <zoneFields 
 locales='hu hu_HU'>
 <!-- Hungarian [magyar]; Hungarian (Hungary) [magyar (Magyarország)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Egyesült Államok)</result>
-   <result field='vvvv'>Los Angeles (Egyesült Államok)</result>
+   <result field='v' parse='America/Los_Angeles'>Egyesült Államok (Los Angeles)</result>
+   <result field='vvvv'>Egyesült Államok (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Egyesült Államok)</result>
-   <result field='vvvv'>Los Angeles (Egyesült Államok)</result>
+   <result field='v' parse='America/Los_Angeles'>Egyesült Államok (Los Angeles)</result>
+   <result field='vvvv'>Egyesült Államok (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentína)</result>
-   <result field='vvvv'>Buenos Aires (Argentína)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argentína (Buenos Aires)</result>
+   <result field='vvvv'>Argentína (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentína)</result>
-   <result field='vvvv'>Buenos Aires (Argentína)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argentína (Buenos Aires)</result>
+   <result field='vvvv'>Argentína (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentína)</result>
-   <result field='vvvv'>Buenos Aires (Argentína)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argentína (Buenos Aires)</result>
+   <result field='vvvv'>Argentína (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentína)</result>
-   <result field='vvvv'>Buenos Aires (Argentína)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argentína (Buenos Aires)</result>
+   <result field='vvvv'>Argentína (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
@@ -402,26 +402,26 @@ locales='hu hu_HU'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Ausztrália)</result>
-   <result field='vvvv'>Sydney (Ausztrália)</result>
+   <result field='v' parse='Australia/Sydney'>Ausztrália (Sydney)</result>
+   <result field='vvvv'>Ausztrália (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Ausztrália)</result>
-   <result field='vvvv'>Sydney (Ausztrália)</result>
+   <result field='v' parse='Australia/Sydney'>Ausztrália (Sydney)</result>
+   <result field='vvvv'>Ausztrália (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Ausztrália)</result>
-   <result field='vvvv'>Sydney (Ausztrália)</result>
+   <result field='v' parse='Australia/Sydney'>Ausztrália (Sydney)</result>
+   <result field='vvvv'>Ausztrália (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Ausztrália)</result>
-   <result field='vvvv'>Sydney (Ausztrália)</result>
+   <result field='v' parse='Australia/Sydney'>Ausztrália (Sydney)</result>
+   <result field='vvvv'>Ausztrália (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
@@ -438,14 +438,14 @@ locales='hu hu_HU'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moszkva (Orosz Köztársaság)</result>
-   <result field='vvvv'>Moszkva (Orosz Köztársaság)</result>
+   <result field='v' parse='Europe/Moscow'>Oroszország (Moszkva)</result>
+   <result field='vvvv'>Oroszország (Moszkva)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moszkva (Orosz Köztársaság)</result>
-   <result field='vvvv'>Moszkva (Orosz Köztársaság)</result>
+   <result field='v' parse='Europe/Moscow'>Oroszország (Moszkva)</result>
+   <result field='vvvv'>Oroszország (Moszkva)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -462,7 +462,7 @@ locales='hu hu_HU'>
   <collation 
 locales='hu hu_HU'>
 <!-- Hungarian [magyar]; Hungarian (Hungary) [magyar (Magyarország)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

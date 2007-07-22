@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='fr'>
+ <cldrTest version='1.5' base='fr'>
  <!-- French [français] -->
   <number 
 locales='fr fr_CA fr_FR fr_MC'>
 <!-- French [français]; French (Canada) [français (Canada)]; French (France) [français (France)]; French (Monaco) [français (Monaco)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='fr fr_CA fr_FR fr_MC'>
   <number 
 locales='fr_BE fr_LU'>
 <!-- French (Belgium) [français (Belgique)]; French (Luxembourg) [français (Luxembourg)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='fr_BE fr_LU'>
   <number 
 locales='fr_CH'>
 <!-- French (Switzerland) [français (Suisse)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0 %</result>
    <result numberType='scientific'>0E0</result>
@@ -162,7 +162,7 @@ locales='fr_CH'>
   <date 
 locales='fr fr_FR fr_LU fr_MC'>
 <!-- French [français]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -454,7 +454,7 @@ locales='fr fr_FR fr_LU fr_MC'>
   <date 
 locales='fr_BE'>
 <!-- French (Belgium) [français (Belgique)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>0 h 00 min 00 s GMT+00:00</result>
@@ -746,7 +746,7 @@ locales='fr_BE'>
   <date 
 locales='fr_CA'>
 <!-- French (Canada) [français (Canada)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00 h 00 min 00 s GMT+00:00</result>
@@ -1038,7 +1038,7 @@ locales='fr_CA'>
   <date 
 locales='fr_CH'>
 <!-- French (Switzerland) [français (Suisse)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00.00:00 h GMT+00:00</result>
@@ -1330,55 +1330,55 @@ locales='fr_CH'>
   <zoneFields 
 locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC'>
 <!-- French [français]; French (Belgium) [français (Belgique)]; French (Canada) [français (Canada)]; French (Switzerland) [français (Suisse)]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>HMG-08:00</result>
    <result field='z'>HMG-08:00</result>
    <result field='zzzz'>HMG-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (États-Unis)</result>
-   <result draft='false'>États-Unis (Los Angeles)</result>
-   <result field='vvvv' draft='true'>Los Angeles (États-Unis)</result>
-   <result draft='false'>États-Unis (Los Angeles)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Los Angeles (États-Unis)</result>
+   <result draft='approved'>États-Unis (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Los Angeles (États-Unis)</result>
+   <result draft='approved'>États-Unis (Los Angeles)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>HMG-07:00</result>
    <result field='z'>HMG-07:00</result>
    <result field='zzzz'>HMG-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (États-Unis)</result>
-   <result draft='false'>États-Unis (Los Angeles)</result>
-   <result field='vvvv' draft='true'>Los Angeles (États-Unis)</result>
-   <result draft='false'>États-Unis (Los Angeles)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Los Angeles (États-Unis)</result>
+   <result draft='approved'>États-Unis (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Los Angeles (États-Unis)</result>
+   <result draft='approved'>États-Unis (Los Angeles)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>HMG-03:00</result>
    <result field='z'>HMG-03:00</result>
    <result field='zzzz'>HMG-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>HMG-03:00</result>
    <result field='z'>HMG-03:00</result>
    <result field='zzzz'>HMG-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>HMG-03:00</result>
    <result field='z'>HMG-03:00</result>
    <result field='zzzz'>HMG-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>HMG-03:00</result>
    <result field='z'>HMG-03:00</result>
    <result field='zzzz'>HMG-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Buenos Aires (Argentine)</result>
-   <result draft='false'>Argentine (Buenos Aires)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Buenos Aires (Argentine)</result>
+   <result draft='approved'>Argentine (Buenos Aires)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
    <result field='ZZZZ'>HMG-05:00</result>
    <result field='z'>HMG-05:00</result>
    <result field='zzzz'>HMG-05:00</result>
@@ -1394,35 +1394,35 @@ locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC'>
    <result field='ZZZZ'>HMG+11:00</result>
    <result field='z'>HMG+11:00</result>
    <result field='zzzz'>HMG+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result field='vvvv' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>HMG+10:00</result>
    <result field='z'>HMG+10:00</result>
    <result field='zzzz'>HMG+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result field='vvvv' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>HMG+11:00</result>
    <result field='z'>HMG+11:00</result>
    <result field='zzzz'>HMG+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result field='vvvv' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>HMG+10:00</result>
    <result field='z'>HMG+10:00</result>
    <result field='zzzz'>HMG+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result field='vvvv' draft='true'>Sydney (Australie)</result>
-   <result draft='false'>Australie (Sydney)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Sydney (Australie)</result>
+   <result draft='approved'>Australie (Sydney)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
    <result field='ZZZZ'>HMG+00:00</result>
    <result field='z'>HMG+00:00</result>
    <result field='zzzz'>HMG+00:00</result>
@@ -1438,19 +1438,19 @@ locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC'>
    <result field='ZZZZ'>HMG+03:00</result>
    <result field='z'>HMG+03:00</result>
    <result field='zzzz'>HMG+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Moscou (Russie)</result>
-   <result draft='false'>Russie (Moscou)</result>
-   <result field='vvvv' draft='true'>Moscou (Russie)</result>
-   <result draft='false'>Russie (Moscou)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Moscou (Russie)</result>
+   <result draft='approved'>Russie (Moscou)</result>
+   <result field='vvvv' draft='unconfirmed'>Moscou (Russie)</result>
+   <result draft='approved'>Russie (Moscou)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>HMG+04:00</result>
    <result field='z'>HMG+04:00</result>
    <result field='zzzz'>HMG+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Moscou (Russie)</result>
-   <result draft='false'>Russie (Moscou)</result>
-   <result field='vvvv' draft='true'>Moscou (Russie)</result>
-   <result draft='false'>Russie (Moscou)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Moscou (Russie)</result>
+   <result draft='approved'>Russie (Moscou)</result>
+   <result field='vvvv' draft='unconfirmed'>Moscou (Russie)</result>
+   <result draft='approved'>Russie (Moscou)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>HMG-03:00</result>
    <result field='z'>HMG-03:00</result>
    <result field='zzzz'>HMG-03:00</result>
@@ -1466,7 +1466,7 @@ locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC'>
   <collation 
 locales='fr fr_BE fr_CA fr_CH fr_FR fr_LU fr_MC'>
 <!-- French [français]; French (Belgium) [français (Belgique)]; French (Canada) [français (Canada)]; French (Switzerland) [français (Suisse)]; French (France) [français (France)]; French (Luxembourg) [français (Luxembourg)]; French (Monaco) [français (Monaco)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

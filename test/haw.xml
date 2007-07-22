@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='haw'>
- <!-- Hawaiian [Hawaiian] -->
+ <cldrTest version='1.5' base='haw'>
+ <!-- Hawaiian [ʻōlelo Hawaiʻi] -->
   <number 
 locales='haw haw_US'>
-<!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+<!-- Hawaiian [ʻōlelo Hawaiʻi]; Hawaiian (United States) [ʻōlelo Hawaiʻi (ʻAmelika Hui Pū ʻIa)] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -56,628 +56,624 @@ locales='haw haw_US'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='haw'>
-<!-- Hawaiian [Hawaiian] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result timeType='long'>00:00:00 GMT+00:00</result>
-   <result timeType='full'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/01/31</result>
-   <result timeType='short'>00/01/31 00:00</result>
-   <result timeType='medium'>00/01/31 00:00:00</result>
-   <result timeType='long'>00/01/31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>00/01/31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1900 Ian. 31</result>
-   <result timeType='short'>1900 Ian. 31 00:00</result>
-   <result timeType='medium'>1900 Ian. 31 00:00:00</result>
-   <result timeType='long'>1900 Ian. 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Ian. 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1900 Ianuali 31</result>
-   <result timeType='short'>1900 Ianuali 31 00:00</result>
-   <result timeType='medium'>1900 Ianuali 31 00:00:00</result>
-   <result timeType='long'>1900 Ianuali 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Ianuali 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 1900 Ianuali 31</result>
-   <result timeType='short'>Poʻakolu, 1900 Ianuali 31 00:00</result>
-   <result timeType='medium'>Poʻakolu, 1900 Ianuali 31 00:00:00</result>
-   <result timeType='long'>Poʻakolu, 1900 Ianuali 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 1900 Ianuali 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result timeType='long'>00:00:01 GMT+00:00</result>
-   <result timeType='full'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>09/02/28</result>
-   <result timeType='short'>09/02/28 00:00</result>
-   <result timeType='medium'>09/02/28 00:00:01</result>
-   <result timeType='long'>09/02/28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>09/02/28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1909 Pep. 28</result>
-   <result timeType='short'>1909 Pep. 28 00:00</result>
-   <result timeType='medium'>1909 Pep. 28 00:00:01</result>
-   <result timeType='long'>1909 Pep. 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Pep. 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1909 Pepeluali 28</result>
-   <result timeType='short'>1909 Pepeluali 28 00:00</result>
-   <result timeType='medium'>1909 Pepeluali 28 00:00:01</result>
-   <result timeType='long'>1909 Pepeluali 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Pepeluali 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 1909 Pepeluali 28</result>
-   <result timeType='short'>Lāpule, 1909 Pepeluali 28 00:00</result>
-   <result timeType='medium'>Lāpule, 1909 Pepeluali 28 00:00:01</result>
-   <result timeType='long'>Lāpule, 1909 Pepeluali 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>Lāpule, 1909 Pepeluali 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result timeType='long'>00:59:59 GMT+00:00</result>
-   <result timeType='full'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>18/03/26</result>
-   <result timeType='short'>18/03/26 00:59</result>
-   <result timeType='medium'>18/03/26 00:59:59</result>
-   <result timeType='long'>18/03/26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>18/03/26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1918 Mal. 26</result>
-   <result timeType='short'>1918 Mal. 26 00:59</result>
-   <result timeType='medium'>1918 Mal. 26 00:59:59</result>
-   <result timeType='long'>1918 Mal. 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Mal. 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1918 Malaki 26</result>
-   <result timeType='short'>1918 Malaki 26 00:59</result>
-   <result timeType='medium'>1918 Malaki 26 00:59:59</result>
-   <result timeType='long'>1918 Malaki 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Malaki 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻalua, 1918 Malaki 26</result>
-   <result timeType='short'>Poʻalua, 1918 Malaki 26 00:59</result>
-   <result timeType='medium'>Poʻalua, 1918 Malaki 26 00:59:59</result>
-   <result timeType='long'>Poʻalua, 1918 Malaki 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>Poʻalua, 1918 Malaki 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result timeType='long'>01:00:00 GMT+00:00</result>
-   <result timeType='full'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>32/04/24</result>
-   <result timeType='short'>32/04/24 01:00</result>
-   <result timeType='medium'>32/04/24 01:00:00</result>
-   <result timeType='long'>32/04/24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>32/04/24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1932 ʻAp. 24</result>
-   <result timeType='short'>1932 ʻAp. 24 01:00</result>
-   <result timeType='medium'>1932 ʻAp. 24 01:00:00</result>
-   <result timeType='long'>1932 ʻAp. 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 ʻAp. 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1932 ʻApelila 24</result>
-   <result timeType='short'>1932 ʻApelila 24 01:00</result>
-   <result timeType='medium'>1932 ʻApelila 24 01:00:00</result>
-   <result timeType='long'>1932 ʻApelila 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 ʻApelila 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 1932 ʻApelila 24</result>
-   <result timeType='short'>Lāpule, 1932 ʻApelila 24 01:00</result>
-   <result timeType='medium'>Lāpule, 1932 ʻApelila 24 01:00:00</result>
-   <result timeType='long'>Lāpule, 1932 ʻApelila 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>Lāpule, 1932 ʻApelila 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result timeType='long'>01:00:01 GMT+00:00</result>
-   <result timeType='full'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>45/05/20</result>
-   <result timeType='short'>45/05/20 01:00</result>
-   <result timeType='medium'>45/05/20 01:00:01</result>
-   <result timeType='long'>45/05/20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>45/05/20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 1945 Mei 20</result>
-   <result timeType='short'>Lāpule, 1945 Mei 20 01:00</result>
-   <result timeType='medium'>Lāpule, 1945 Mei 20 01:00:01</result>
-   <result timeType='long'>Lāpule, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>Lāpule, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result timeType='long'>11:59:59 GMT+00:00</result>
-   <result timeType='full'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>52/06/18</result>
-   <result timeType='short'>52/06/18 11:59</result>
-   <result timeType='medium'>52/06/18 11:59:59</result>
-   <result timeType='long'>52/06/18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>52/06/18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1952 Iun. 18</result>
-   <result timeType='short'>1952 Iun. 18 11:59</result>
-   <result timeType='medium'>1952 Iun. 18 11:59:59</result>
-   <result timeType='long'>1952 Iun. 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Iun. 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1952 Iune 18</result>
-   <result timeType='short'>1952 Iune 18 11:59</result>
-   <result timeType='medium'>1952 Iune 18 11:59:59</result>
-   <result timeType='long'>1952 Iune 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Iune 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 1952 Iune 18</result>
-   <result timeType='short'>Poʻakolu, 1952 Iune 18 11:59</result>
-   <result timeType='medium'>Poʻakolu, 1952 Iune 18 11:59:59</result>
-   <result timeType='long'>Poʻakolu, 1952 Iune 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 1952 Iune 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result timeType='long'>12:00:00 GMT+00:00</result>
-   <result timeType='full'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>73/07/16</result>
-   <result timeType='short'>73/07/16 12:00</result>
-   <result timeType='medium'>73/07/16 12:00:00</result>
-   <result timeType='long'>73/07/16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>73/07/16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1973 Iul. 16</result>
-   <result timeType='short'>1973 Iul. 16 12:00</result>
-   <result timeType='medium'>1973 Iul. 16 12:00:00</result>
-   <result timeType='long'>1973 Iul. 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Iul. 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1973 Iulai 16</result>
-   <result timeType='short'>1973 Iulai 16 12:00</result>
-   <result timeType='medium'>1973 Iulai 16 12:00:00</result>
-   <result timeType='long'>1973 Iulai 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Iulai 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakahi, 1973 Iulai 16</result>
-   <result timeType='short'>Poʻakahi, 1973 Iulai 16 12:00</result>
-   <result timeType='medium'>Poʻakahi, 1973 Iulai 16 12:00:00</result>
-   <result timeType='long'>Poʻakahi, 1973 Iulai 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>Poʻakahi, 1973 Iulai 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result timeType='long'>12:00:01 GMT+00:00</result>
-   <result timeType='full'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>99/08/14</result>
-   <result timeType='short'>99/08/14 12:00</result>
-   <result timeType='medium'>99/08/14 12:00:01</result>
-   <result timeType='long'>99/08/14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>99/08/14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1999 ʻAu. 14</result>
-   <result timeType='short'>1999 ʻAu. 14 12:00</result>
-   <result timeType='medium'>1999 ʻAu. 14 12:00:01</result>
-   <result timeType='long'>1999 ʻAu. 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 ʻAu. 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1999 ʻAukake 14</result>
-   <result timeType='short'>1999 ʻAukake 14 12:00</result>
-   <result timeType='medium'>1999 ʻAukake 14 12:00:01</result>
-   <result timeType='long'>1999 ʻAukake 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 ʻAukake 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻaono, 1999 ʻAukake 14</result>
-   <result timeType='short'>Poʻaono, 1999 ʻAukake 14 12:00</result>
-   <result timeType='medium'>Poʻaono, 1999 ʻAukake 14 12:00:01</result>
-   <result timeType='long'>Poʻaono, 1999 ʻAukake 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>Poʻaono, 1999 ʻAukake 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result timeType='long'>22:59:59 GMT+00:00</result>
-   <result timeType='full'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>00/09/12</result>
-   <result timeType='short'>00/09/12 22:59</result>
-   <result timeType='medium'>00/09/12 22:59:59</result>
-   <result timeType='long'>00/09/12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>00/09/12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2000 Kep. 12</result>
-   <result timeType='short'>2000 Kep. 12 22:59</result>
-   <result timeType='medium'>2000 Kep. 12 22:59:59</result>
-   <result timeType='long'>2000 Kep. 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Kep. 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2000 Kepakemapa 12</result>
-   <result timeType='short'>2000 Kepakemapa 12 22:59</result>
-   <result timeType='medium'>2000 Kepakemapa 12 22:59:59</result>
-   <result timeType='long'>2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻalua, 2000 Kepakemapa 12</result>
-   <result timeType='short'>Poʻalua, 2000 Kepakemapa 12 22:59</result>
-   <result timeType='medium'>Poʻalua, 2000 Kepakemapa 12 22:59:59</result>
-   <result timeType='long'>Poʻalua, 2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>Poʻalua, 2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result timeType='long'>23:00:00 GMT+00:00</result>
-   <result timeType='full'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none'>01/10/08</result>
-   <result timeType='short'>01/10/08 23:00</result>
-   <result timeType='medium'>01/10/08 23:00:00</result>
-   <result timeType='long'>01/10/08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>01/10/08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2001 ʻOk. 8</result>
-   <result timeType='short'>2001 ʻOk. 8 23:00</result>
-   <result timeType='medium'>2001 ʻOk. 8 23:00:00</result>
-   <result timeType='long'>2001 ʻOk. 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 ʻOk. 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2001 ʻOkakopa 8</result>
-   <result timeType='short'>2001 ʻOkakopa 8 23:00</result>
-   <result timeType='medium'>2001 ʻOkakopa 8 23:00:00</result>
-   <result timeType='long'>2001 ʻOkakopa 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 ʻOkakopa 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakahi, 2001 ʻOkakopa 08</result>
-   <result timeType='short'>Poʻakahi, 2001 ʻOkakopa 08 23:00</result>
-   <result timeType='medium'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00</result>
-   <result timeType='long'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result timeType='long'>23:00:01 GMT+00:00</result>
-   <result timeType='full'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none'>04/11/04</result>
-   <result timeType='short'>04/11/04 23:00</result>
-   <result timeType='medium'>04/11/04 23:00:01</result>
-   <result timeType='long'>04/11/04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>04/11/04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2004 Now. 4</result>
-   <result timeType='short'>2004 Now. 4 23:00</result>
-   <result timeType='medium'>2004 Now. 4 23:00:01</result>
-   <result timeType='long'>2004 Now. 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Now. 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2004 Nowemapa 4</result>
-   <result timeType='short'>2004 Nowemapa 4 23:00</result>
-   <result timeType='medium'>2004 Nowemapa 4 23:00:01</result>
-   <result timeType='long'>2004 Nowemapa 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Nowemapa 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻahā, 2004 Nowemapa 04</result>
-   <result timeType='short'>Poʻahā, 2004 Nowemapa 04 23:00</result>
-   <result timeType='medium'>Poʻahā, 2004 Nowemapa 04 23:00:01</result>
-   <result timeType='long'>Poʻahā, 2004 Nowemapa 04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>Poʻahā, 2004 Nowemapa 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result timeType='long'>23:59:59 GMT+00:00</result>
-   <result timeType='full'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none'>10/12/01</result>
-   <result timeType='short'>10/12/01 23:59</result>
-   <result timeType='medium'>10/12/01 23:59:59</result>
-   <result timeType='long'>10/12/01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>10/12/01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none'>2010 Kek. 1</result>
-   <result timeType='short'>2010 Kek. 1 23:59</result>
-   <result timeType='medium'>2010 Kek. 1 23:59:59</result>
-   <result timeType='long'>2010 Kek. 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Kek. 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2010 Kekemapa 1</result>
-   <result timeType='short'>2010 Kekemapa 1 23:59</result>
-   <result timeType='medium'>2010 Kekemapa 1 23:59:59</result>
-   <result timeType='long'>2010 Kekemapa 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Kekemapa 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 2010 Kekemapa 01</result>
-   <result timeType='short'>Poʻakolu, 2010 Kekemapa 01 23:59</result>
-   <result timeType='medium'>Poʻakolu, 2010 Kekemapa 01 23:59:59</result>
-   <result timeType='long'>Poʻakolu, 2010 Kekemapa 01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 2010 Kekemapa 01 23:59:59 GMT+00:00</result>
-  </date>
-  <date 
-locales='haw_US'>
-<!-- Hawaiian (United States) [Hawaiian (United States)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
-   <result timeType='medium'>12:00:00 AM</result>
-   <result timeType='long'>12:00:00 AM GMT+00:00</result>
-   <result timeType='full'>12:00:00 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>31/1/00</result>
-   <result timeType='short'>31/1/00 12:00 AM</result>
-   <result timeType='medium'>31/1/00 12:00:00 AM</result>
-   <result timeType='long'>31/1/00 12:00:00 AM GMT+00:00</result>
-   <result timeType='full'>31/1/00 12:00:00 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>31 Ian. 1900</result>
-   <result timeType='short'>31 Ian. 1900 12:00 AM</result>
-   <result timeType='medium'>31 Ian. 1900 12:00:00 AM</result>
-   <result timeType='long'>31 Ian. 1900 12:00:00 AM GMT+00:00</result>
-   <result timeType='full'>31 Ian. 1900 12:00:00 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>31 Ianuali 1900</result>
-   <result timeType='short'>31 Ianuali 1900 12:00 AM</result>
-   <result timeType='medium'>31 Ianuali 1900 12:00:00 AM</result>
-   <result timeType='long'>31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
-   <result timeType='full'>31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 31 Ianuali 1900</result>
-   <result timeType='short'>Poʻakolu, 31 Ianuali 1900 12:00 AM</result>
-   <result timeType='medium'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM</result>
-   <result timeType='long'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 AM</result>
-   <result timeType='medium'>12:00:01 AM</result>
-   <result timeType='long'>12:00:01 AM GMT+00:00</result>
-   <result timeType='full'>12:00:01 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>28/2/09</result>
-   <result timeType='short'>28/2/09 12:00 AM</result>
-   <result timeType='medium'>28/2/09 12:00:01 AM</result>
-   <result timeType='long'>28/2/09 12:00:01 AM GMT+00:00</result>
-   <result timeType='full'>28/2/09 12:00:01 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>28 Pep. 1909</result>
-   <result timeType='short'>28 Pep. 1909 12:00 AM</result>
-   <result timeType='medium'>28 Pep. 1909 12:00:01 AM</result>
-   <result timeType='long'>28 Pep. 1909 12:00:01 AM GMT+00:00</result>
-   <result timeType='full'>28 Pep. 1909 12:00:01 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>28 Pepeluali 1909</result>
-   <result timeType='short'>28 Pepeluali 1909 12:00 AM</result>
-   <result timeType='medium'>28 Pepeluali 1909 12:00:01 AM</result>
-   <result timeType='long'>28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
-   <result timeType='full'>28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 28 Pepeluali 1909</result>
-   <result timeType='short'>Lāpule, 28 Pepeluali 1909 12:00 AM</result>
-   <result timeType='medium'>Lāpule, 28 Pepeluali 1909 12:00:01 AM</result>
-   <result timeType='long'>Lāpule, 28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
-   <result timeType='full'>Lāpule, 28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 AM</result>
-   <result timeType='medium'>12:59:59 AM</result>
-   <result timeType='long'>12:59:59 AM GMT+00:00</result>
-   <result timeType='full'>12:59:59 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>26/3/18</result>
-   <result timeType='short'>26/3/18 12:59 AM</result>
-   <result timeType='medium'>26/3/18 12:59:59 AM</result>
-   <result timeType='long'>26/3/18 12:59:59 AM GMT+00:00</result>
-   <result timeType='full'>26/3/18 12:59:59 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>26 Mal. 1918</result>
-   <result timeType='short'>26 Mal. 1918 12:59 AM</result>
-   <result timeType='medium'>26 Mal. 1918 12:59:59 AM</result>
-   <result timeType='long'>26 Mal. 1918 12:59:59 AM GMT+00:00</result>
-   <result timeType='full'>26 Mal. 1918 12:59:59 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>26 Malaki 1918</result>
-   <result timeType='short'>26 Malaki 1918 12:59 AM</result>
-   <result timeType='medium'>26 Malaki 1918 12:59:59 AM</result>
-   <result timeType='long'>26 Malaki 1918 12:59:59 AM GMT+00:00</result>
-   <result timeType='full'>26 Malaki 1918 12:59:59 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻalua, 26 Malaki 1918</result>
-   <result timeType='short'>Poʻalua, 26 Malaki 1918 12:59 AM</result>
-   <result timeType='medium'>Poʻalua, 26 Malaki 1918 12:59:59 AM</result>
-   <result timeType='long'>Poʻalua, 26 Malaki 1918 12:59:59 AM GMT+00:00</result>
-   <result timeType='full'>Poʻalua, 26 Malaki 1918 12:59:59 AM GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 AM</result>
-   <result timeType='medium'>1:00:00 AM</result>
-   <result timeType='long'>1:00:00 AM GMT+00:00</result>
-   <result timeType='full'>1:00:00 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>24/4/32</result>
-   <result timeType='short'>24/4/32 1:00 AM</result>
-   <result timeType='medium'>24/4/32 1:00:00 AM</result>
-   <result timeType='long'>24/4/32 1:00:00 AM GMT+00:00</result>
-   <result timeType='full'>24/4/32 1:00:00 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>24 ʻAp. 1932</result>
-   <result timeType='short'>24 ʻAp. 1932 1:00 AM</result>
-   <result timeType='medium'>24 ʻAp. 1932 1:00:00 AM</result>
-   <result timeType='long'>24 ʻAp. 1932 1:00:00 AM GMT+00:00</result>
-   <result timeType='full'>24 ʻAp. 1932 1:00:00 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>24 ʻApelila 1932</result>
-   <result timeType='short'>24 ʻApelila 1932 1:00 AM</result>
-   <result timeType='medium'>24 ʻApelila 1932 1:00:00 AM</result>
-   <result timeType='long'>24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
-   <result timeType='full'>24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 24 ʻApelila 1932</result>
-   <result timeType='short'>Lāpule, 24 ʻApelila 1932 1:00 AM</result>
-   <result timeType='medium'>Lāpule, 24 ʻApelila 1932 1:00:00 AM</result>
-   <result timeType='long'>Lāpule, 24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
-   <result timeType='full'>Lāpule, 24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 AM</result>
-   <result timeType='medium'>1:00:01 AM</result>
-   <result timeType='long'>1:00:01 AM GMT+00:00</result>
-   <result timeType='full'>1:00:01 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>20/5/45</result>
-   <result timeType='short'>20/5/45 1:00 AM</result>
-   <result timeType='medium'>20/5/45 1:00:01 AM</result>
-   <result timeType='long'>20/5/45 1:00:01 AM GMT+00:00</result>
-   <result timeType='full'>20/5/45 1:00:01 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>20 Mei 1945</result>
-   <result timeType='short'>20 Mei 1945 1:00 AM</result>
-   <result timeType='medium'>20 Mei 1945 1:00:01 AM</result>
-   <result timeType='long'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result timeType='full'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>20 Mei 1945</result>
-   <result timeType='short'>20 Mei 1945 1:00 AM</result>
-   <result timeType='medium'>20 Mei 1945 1:00:01 AM</result>
-   <result timeType='long'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result timeType='full'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Lāpule, 20 Mei 1945</result>
-   <result timeType='short'>Lāpule, 20 Mei 1945 1:00 AM</result>
-   <result timeType='medium'>Lāpule, 20 Mei 1945 1:00:01 AM</result>
-   <result timeType='long'>Lāpule, 20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result timeType='full'>Lāpule, 20 Mei 1945 1:00:01 AM GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 AM</result>
-   <result timeType='medium'>11:59:59 AM</result>
-   <result timeType='long'>11:59:59 AM GMT+00:00</result>
-   <result timeType='full'>11:59:59 AM GMT+00:00</result>
-   <result dateType='short' timeType='none'>18/6/52</result>
-   <result timeType='short'>18/6/52 11:59 AM</result>
-   <result timeType='medium'>18/6/52 11:59:59 AM</result>
-   <result timeType='long'>18/6/52 11:59:59 AM GMT+00:00</result>
-   <result timeType='full'>18/6/52 11:59:59 AM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>18 Iun. 1952</result>
-   <result timeType='short'>18 Iun. 1952 11:59 AM</result>
-   <result timeType='medium'>18 Iun. 1952 11:59:59 AM</result>
-   <result timeType='long'>18 Iun. 1952 11:59:59 AM GMT+00:00</result>
-   <result timeType='full'>18 Iun. 1952 11:59:59 AM GMT+00:00</result>
-   <result dateType='long' timeType='none'>18 Iune 1952</result>
-   <result timeType='short'>18 Iune 1952 11:59 AM</result>
-   <result timeType='medium'>18 Iune 1952 11:59:59 AM</result>
-   <result timeType='long'>18 Iune 1952 11:59:59 AM GMT+00:00</result>
-   <result timeType='full'>18 Iune 1952 11:59:59 AM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 18 Iune 1952</result>
-   <result timeType='short'>Poʻakolu, 18 Iune 1952 11:59 AM</result>
-   <result timeType='medium'>Poʻakolu, 18 Iune 1952 11:59:59 AM</result>
-   <result timeType='long'>Poʻakolu, 18 Iune 1952 11:59:59 AM GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 18 Iune 1952 11:59:59 AM GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 PM</result>
-   <result timeType='medium'>12:00:00 PM</result>
-   <result timeType='long'>12:00:00 PM GMT+00:00</result>
-   <result timeType='full'>12:00:00 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>16/7/73</result>
-   <result timeType='short'>16/7/73 12:00 PM</result>
-   <result timeType='medium'>16/7/73 12:00:00 PM</result>
-   <result timeType='long'>16/7/73 12:00:00 PM GMT+00:00</result>
-   <result timeType='full'>16/7/73 12:00:00 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>16 Iul. 1973</result>
-   <result timeType='short'>16 Iul. 1973 12:00 PM</result>
-   <result timeType='medium'>16 Iul. 1973 12:00:00 PM</result>
-   <result timeType='long'>16 Iul. 1973 12:00:00 PM GMT+00:00</result>
-   <result timeType='full'>16 Iul. 1973 12:00:00 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>16 Iulai 1973</result>
-   <result timeType='short'>16 Iulai 1973 12:00 PM</result>
-   <result timeType='medium'>16 Iulai 1973 12:00:00 PM</result>
-   <result timeType='long'>16 Iulai 1973 12:00:00 PM GMT+00:00</result>
-   <result timeType='full'>16 Iulai 1973 12:00:00 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakahi, 16 Iulai 1973</result>
-   <result timeType='short'>Poʻakahi, 16 Iulai 1973 12:00 PM</result>
-   <result timeType='medium'>Poʻakahi, 16 Iulai 1973 12:00:00 PM</result>
-   <result timeType='long'>Poʻakahi, 16 Iulai 1973 12:00:00 PM GMT+00:00</result>
-   <result timeType='full'>Poʻakahi, 16 Iulai 1973 12:00:00 PM GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 PM</result>
-   <result timeType='medium'>12:00:01 PM</result>
-   <result timeType='long'>12:00:01 PM GMT+00:00</result>
-   <result timeType='full'>12:00:01 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>14/8/99</result>
-   <result timeType='short'>14/8/99 12:00 PM</result>
-   <result timeType='medium'>14/8/99 12:00:01 PM</result>
-   <result timeType='long'>14/8/99 12:00:01 PM GMT+00:00</result>
-   <result timeType='full'>14/8/99 12:00:01 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>14 ʻAu. 1999</result>
-   <result timeType='short'>14 ʻAu. 1999 12:00 PM</result>
-   <result timeType='medium'>14 ʻAu. 1999 12:00:01 PM</result>
-   <result timeType='long'>14 ʻAu. 1999 12:00:01 PM GMT+00:00</result>
-   <result timeType='full'>14 ʻAu. 1999 12:00:01 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>14 ʻAukake 1999</result>
-   <result timeType='short'>14 ʻAukake 1999 12:00 PM</result>
-   <result timeType='medium'>14 ʻAukake 1999 12:00:01 PM</result>
-   <result timeType='long'>14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
-   <result timeType='full'>14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻaono, 14 ʻAukake 1999</result>
-   <result timeType='short'>Poʻaono, 14 ʻAukake 1999 12:00 PM</result>
-   <result timeType='medium'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM</result>
-   <result timeType='long'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
-   <result timeType='full'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 PM</result>
-   <result timeType='medium'>10:59:59 PM</result>
-   <result timeType='long'>10:59:59 PM GMT+00:00</result>
-   <result timeType='full'>10:59:59 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>12/9/00</result>
-   <result timeType='short'>12/9/00 10:59 PM</result>
-   <result timeType='medium'>12/9/00 10:59:59 PM</result>
-   <result timeType='long'>12/9/00 10:59:59 PM GMT+00:00</result>
-   <result timeType='full'>12/9/00 10:59:59 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>12 Kep. 2000</result>
-   <result timeType='short'>12 Kep. 2000 10:59 PM</result>
-   <result timeType='medium'>12 Kep. 2000 10:59:59 PM</result>
-   <result timeType='long'>12 Kep. 2000 10:59:59 PM GMT+00:00</result>
-   <result timeType='full'>12 Kep. 2000 10:59:59 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>12 Kepakemapa 2000</result>
-   <result timeType='short'>12 Kepakemapa 2000 10:59 PM</result>
-   <result timeType='medium'>12 Kepakemapa 2000 10:59:59 PM</result>
-   <result timeType='long'>12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
-   <result timeType='full'>12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻalua, 12 Kepakemapa 2000</result>
-   <result timeType='short'>Poʻalua, 12 Kepakemapa 2000 10:59 PM</result>
-   <result timeType='medium'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM</result>
-   <result timeType='long'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
-   <result timeType='full'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 PM</result>
-   <result timeType='medium'>11:00:00 PM</result>
-   <result timeType='long'>11:00:00 PM GMT+00:00</result>
-   <result timeType='full'>11:00:00 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>8/10/01</result>
-   <result timeType='short'>8/10/01 11:00 PM</result>
-   <result timeType='medium'>8/10/01 11:00:00 PM</result>
-   <result timeType='long'>8/10/01 11:00:00 PM GMT+00:00</result>
-   <result timeType='full'>8/10/01 11:00:00 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>8 ʻOk. 2001</result>
-   <result timeType='short'>8 ʻOk. 2001 11:00 PM</result>
-   <result timeType='medium'>8 ʻOk. 2001 11:00:00 PM</result>
-   <result timeType='long'>8 ʻOk. 2001 11:00:00 PM GMT+00:00</result>
-   <result timeType='full'>8 ʻOk. 2001 11:00:00 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>8 ʻOkakopa 2001</result>
-   <result timeType='short'>8 ʻOkakopa 2001 11:00 PM</result>
-   <result timeType='medium'>8 ʻOkakopa 2001 11:00:00 PM</result>
-   <result timeType='long'>8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
-   <result timeType='full'>8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakahi, 8 ʻOkakopa 2001</result>
-   <result timeType='short'>Poʻakahi, 8 ʻOkakopa 2001 11:00 PM</result>
-   <result timeType='medium'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM</result>
-   <result timeType='long'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
-   <result timeType='full'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 PM</result>
-   <result timeType='medium'>11:00:01 PM</result>
-   <result timeType='long'>11:00:01 PM GMT+00:00</result>
-   <result timeType='full'>11:00:01 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>4/11/04</result>
-   <result timeType='short'>4/11/04 11:00 PM</result>
-   <result timeType='medium'>4/11/04 11:00:01 PM</result>
-   <result timeType='long'>4/11/04 11:00:01 PM GMT+00:00</result>
-   <result timeType='full'>4/11/04 11:00:01 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>4 Now. 2004</result>
-   <result timeType='short'>4 Now. 2004 11:00 PM</result>
-   <result timeType='medium'>4 Now. 2004 11:00:01 PM</result>
-   <result timeType='long'>4 Now. 2004 11:00:01 PM GMT+00:00</result>
-   <result timeType='full'>4 Now. 2004 11:00:01 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>4 Nowemapa 2004</result>
-   <result timeType='short'>4 Nowemapa 2004 11:00 PM</result>
-   <result timeType='medium'>4 Nowemapa 2004 11:00:01 PM</result>
-   <result timeType='long'>4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
-   <result timeType='full'>4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻahā, 4 Nowemapa 2004</result>
-   <result timeType='short'>Poʻahā, 4 Nowemapa 2004 11:00 PM</result>
-   <result timeType='medium'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM</result>
-   <result timeType='long'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
-   <result timeType='full'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 PM</result>
-   <result timeType='medium'>11:59:59 PM</result>
-   <result timeType='long'>11:59:59 PM GMT+00:00</result>
-   <result timeType='full'>11:59:59 PM GMT+00:00</result>
-   <result dateType='short' timeType='none'>1/12/10</result>
-   <result timeType='short'>1/12/10 11:59 PM</result>
-   <result timeType='medium'>1/12/10 11:59:59 PM</result>
-   <result timeType='long'>1/12/10 11:59:59 PM GMT+00:00</result>
-   <result timeType='full'>1/12/10 11:59:59 PM GMT+00:00</result>
-   <result dateType='medium' timeType='none'>1 Kek. 2010</result>
-   <result timeType='short'>1 Kek. 2010 11:59 PM</result>
-   <result timeType='medium'>1 Kek. 2010 11:59:59 PM</result>
-   <result timeType='long'>1 Kek. 2010 11:59:59 PM GMT+00:00</result>
-   <result timeType='full'>1 Kek. 2010 11:59:59 PM GMT+00:00</result>
-   <result dateType='long' timeType='none'>1 Kekemapa 2010</result>
-   <result timeType='short'>1 Kekemapa 2010 11:59 PM</result>
-   <result timeType='medium'>1 Kekemapa 2010 11:59:59 PM</result>
-   <result timeType='long'>1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
-   <result timeType='full'>1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
-   <result dateType='full' timeType='none'>Poʻakolu, 1 Kekemapa 2010</result>
-   <result timeType='short'>Poʻakolu, 1 Kekemapa 2010 11:59 PM</result>
-   <result timeType='medium'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM</result>
-   <result timeType='long'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
-   <result timeType='full'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
+locales='haw haw_US'>
+<!-- Hawaiian [ʻōlelo Hawaiʻi]; Hawaiian (United States) [ʻōlelo Hawaiʻi (ʻAmelika Hui Pū ʻIa)] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 AM</result>
+   <result draft='approved'>00:00</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:00 AM</result>
+   <result draft='approved'>00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>31/1/00</result>
+   <result draft='approved'>1900-01-31</result>
+   <result timeType='short' draft='unconfirmed'>31/1/00 12:00 AM</result>
+   <result draft='approved'>1900-01-31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31/1/00 12:00:00 AM</result>
+   <result draft='approved'>1900-01-31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>31/1/00 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>31/1/00 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>31 Ian. 1900</result>
+   <result draft='approved'>1900 Ian. 31</result>
+   <result timeType='short' draft='unconfirmed'>31 Ian. 1900 12:00 AM</result>
+   <result draft='approved'>1900 Ian. 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31 Ian. 1900 12:00:00 AM</result>
+   <result draft='approved'>1900 Ian. 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>31 Ian. 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900 Ian. 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>31 Ian. 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900 Ian. 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>31 Ianuali 1900</result>
+   <result draft='approved'>1900 Ianuali 31</result>
+   <result timeType='short' draft='unconfirmed'>31 Ianuali 1900 12:00 AM</result>
+   <result draft='approved'>1900 Ianuali 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31 Ianuali 1900 12:00:00 AM</result>
+   <result draft='approved'>1900 Ianuali 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900 Ianuali 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1900 Ianuali 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻakolu, 31 Ianuali 1900</result>
+   <result draft='approved'>Poʻakolu, 1900 Ianuali 31</result>
+   <result timeType='short' draft='unconfirmed'>Poʻakolu, 31 Ianuali 1900 12:00 AM</result>
+   <result draft='approved'>Poʻakolu, 1900 Ianuali 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM</result>
+   <result draft='approved'>Poʻakolu, 1900 Ianuali 31 00:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 1900 Ianuali 31 00:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻakolu, 31 Ianuali 1900 12:00:00 AM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 1900 Ianuali 31 00:00:00 GMT+00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 AM</result>
+   <result draft='approved'>00:00</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:01 AM</result>
+   <result draft='approved'>00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>28/2/09</result>
+   <result draft='approved'>1909-02-28</result>
+   <result timeType='short' draft='unconfirmed'>28/2/09 12:00 AM</result>
+   <result draft='approved'>1909-02-28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28/2/09 12:00:01 AM</result>
+   <result draft='approved'>1909-02-28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>28/2/09 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>28/2/09 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>28 Pep. 1909</result>
+   <result draft='approved'>1909 Pep. 28</result>
+   <result timeType='short' draft='unconfirmed'>28 Pep. 1909 12:00 AM</result>
+   <result draft='approved'>1909 Pep. 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28 Pep. 1909 12:00:01 AM</result>
+   <result draft='approved'>1909 Pep. 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>28 Pep. 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909 Pep. 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>28 Pep. 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909 Pep. 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>28 Pepeluali 1909</result>
+   <result draft='approved'>1909 Pepeluali 28</result>
+   <result timeType='short' draft='unconfirmed'>28 Pepeluali 1909 12:00 AM</result>
+   <result draft='approved'>1909 Pepeluali 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28 Pepeluali 1909 12:00:01 AM</result>
+   <result draft='approved'>1909 Pepeluali 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909 Pepeluali 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1909 Pepeluali 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Lāpule, 28 Pepeluali 1909</result>
+   <result draft='approved'>Lāpule, 1909 Pepeluali 28</result>
+   <result timeType='short' draft='unconfirmed'>Lāpule, 28 Pepeluali 1909 12:00 AM</result>
+   <result draft='approved'>Lāpule, 1909 Pepeluali 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>Lāpule, 28 Pepeluali 1909 12:00:01 AM</result>
+   <result draft='approved'>Lāpule, 1909 Pepeluali 28 00:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Lāpule, 28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1909 Pepeluali 28 00:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Lāpule, 28 Pepeluali 1909 12:00:01 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1909 Pepeluali 28 00:00:01 GMT+00:00</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>12:59 AM</result>
+   <result draft='approved'>00:59</result>
+   <result timeType='medium' draft='unconfirmed'>12:59:59 AM</result>
+   <result draft='approved'>00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>26/3/18</result>
+   <result draft='approved'>1918-03-26</result>
+   <result timeType='short' draft='unconfirmed'>26/3/18 12:59 AM</result>
+   <result draft='approved'>1918-03-26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26/3/18 12:59:59 AM</result>
+   <result draft='approved'>1918-03-26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>26/3/18 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>26/3/18 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>26 Mal. 1918</result>
+   <result draft='approved'>1918 Mal. 26</result>
+   <result timeType='short' draft='unconfirmed'>26 Mal. 1918 12:59 AM</result>
+   <result draft='approved'>1918 Mal. 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26 Mal. 1918 12:59:59 AM</result>
+   <result draft='approved'>1918 Mal. 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>26 Mal. 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918 Mal. 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>26 Mal. 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918 Mal. 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>26 Malaki 1918</result>
+   <result draft='approved'>1918 Malaki 26</result>
+   <result timeType='short' draft='unconfirmed'>26 Malaki 1918 12:59 AM</result>
+   <result draft='approved'>1918 Malaki 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26 Malaki 1918 12:59:59 AM</result>
+   <result draft='approved'>1918 Malaki 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>26 Malaki 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918 Malaki 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>26 Malaki 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1918 Malaki 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻalua, 26 Malaki 1918</result>
+   <result draft='approved'>Poʻalua, 1918 Malaki 26</result>
+   <result timeType='short' draft='unconfirmed'>Poʻalua, 26 Malaki 1918 12:59 AM</result>
+   <result draft='approved'>Poʻalua, 1918 Malaki 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻalua, 26 Malaki 1918 12:59:59 AM</result>
+   <result draft='approved'>Poʻalua, 1918 Malaki 26 00:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Poʻalua, 26 Malaki 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>Poʻalua, 1918 Malaki 26 00:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻalua, 26 Malaki 1918 12:59:59 AM GMT+00:00</result>
+   <result draft='approved'>Poʻalua, 1918 Malaki 26 00:59:59 GMT+00:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 AM</result>
+   <result draft='approved'>01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1:00:00 AM</result>
+   <result draft='approved'>01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>24/4/32</result>
+   <result draft='approved'>1932-04-24</result>
+   <result timeType='short' draft='unconfirmed'>24/4/32 1:00 AM</result>
+   <result draft='approved'>1932-04-24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24/4/32 1:00:00 AM</result>
+   <result draft='approved'>1932-04-24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>24/4/32 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>24/4/32 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>24 ʻAp. 1932</result>
+   <result draft='approved'>1932 ʻAp. 24</result>
+   <result timeType='short' draft='unconfirmed'>24 ʻAp. 1932 1:00 AM</result>
+   <result draft='approved'>1932 ʻAp. 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24 ʻAp. 1932 1:00:00 AM</result>
+   <result draft='approved'>1932 ʻAp. 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>24 ʻAp. 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932 ʻAp. 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>24 ʻAp. 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932 ʻAp. 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>24 ʻApelila 1932</result>
+   <result draft='approved'>1932 ʻApelila 24</result>
+   <result timeType='short' draft='unconfirmed'>24 ʻApelila 1932 1:00 AM</result>
+   <result draft='approved'>1932 ʻApelila 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24 ʻApelila 1932 1:00:00 AM</result>
+   <result draft='approved'>1932 ʻApelila 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932 ʻApelila 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>1932 ʻApelila 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Lāpule, 24 ʻApelila 1932</result>
+   <result draft='approved'>Lāpule, 1932 ʻApelila 24</result>
+   <result timeType='short' draft='unconfirmed'>Lāpule, 24 ʻApelila 1932 1:00 AM</result>
+   <result draft='approved'>Lāpule, 1932 ʻApelila 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Lāpule, 24 ʻApelila 1932 1:00:00 AM</result>
+   <result draft='approved'>Lāpule, 1932 ʻApelila 24 01:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Lāpule, 24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1932 ʻApelila 24 01:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Lāpule, 24 ʻApelila 1932 1:00:00 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1932 ʻApelila 24 01:00:00 GMT+00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>1:00 AM</result>
+   <result draft='approved'>01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1:00:01 AM</result>
+   <result draft='approved'>01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>20/5/45</result>
+   <result draft='approved'>1945-05-20</result>
+   <result timeType='short' draft='unconfirmed'>20/5/45 1:00 AM</result>
+   <result draft='approved'>1945-05-20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20/5/45 1:00:01 AM</result>
+   <result draft='approved'>1945-05-20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>20/5/45 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>20/5/45 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
+   <result draft='approved'>1945 Mei 20</result>
+   <result timeType='short' draft='unconfirmed'>20 Mei 1945 1:00 AM</result>
+   <result draft='approved'>1945 Mei 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20 Mei 1945 1:00:01 AM</result>
+   <result draft='approved'>1945 Mei 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>20 Mei 1945</result>
+   <result draft='approved'>1945 Mei 20</result>
+   <result timeType='short' draft='unconfirmed'>20 Mei 1945 1:00 AM</result>
+   <result draft='approved'>1945 Mei 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20 Mei 1945 1:00:01 AM</result>
+   <result draft='approved'>1945 Mei 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Lāpule, 20 Mei 1945</result>
+   <result draft='approved'>Lāpule, 1945 Mei 20</result>
+   <result timeType='short' draft='unconfirmed'>Lāpule, 20 Mei 1945 1:00 AM</result>
+   <result draft='approved'>Lāpule, 1945 Mei 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>Lāpule, 20 Mei 1945 1:00:01 AM</result>
+   <result draft='approved'>Lāpule, 1945 Mei 20 01:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Lāpule, 20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Lāpule, 20 Mei 1945 1:00:01 AM GMT+00:00</result>
+   <result draft='approved'>Lāpule, 1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 AM</result>
+   <result draft='approved'>11:59</result>
+   <result timeType='medium' draft='unconfirmed'>11:59:59 AM</result>
+   <result draft='approved'>11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>18/6/52</result>
+   <result draft='approved'>1952-06-18</result>
+   <result timeType='short' draft='unconfirmed'>18/6/52 11:59 AM</result>
+   <result draft='approved'>1952-06-18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18/6/52 11:59:59 AM</result>
+   <result draft='approved'>1952-06-18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>18/6/52 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>18/6/52 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>18 Iun. 1952</result>
+   <result draft='approved'>1952 Iun. 18</result>
+   <result timeType='short' draft='unconfirmed'>18 Iun. 1952 11:59 AM</result>
+   <result draft='approved'>1952 Iun. 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18 Iun. 1952 11:59:59 AM</result>
+   <result draft='approved'>1952 Iun. 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>18 Iun. 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952 Iun. 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>18 Iun. 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952 Iun. 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>18 Iune 1952</result>
+   <result draft='approved'>1952 Iune 18</result>
+   <result timeType='short' draft='unconfirmed'>18 Iune 1952 11:59 AM</result>
+   <result draft='approved'>1952 Iune 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18 Iune 1952 11:59:59 AM</result>
+   <result draft='approved'>1952 Iune 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>18 Iune 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952 Iune 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>18 Iune 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>1952 Iune 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻakolu, 18 Iune 1952</result>
+   <result draft='approved'>Poʻakolu, 1952 Iune 18</result>
+   <result timeType='short' draft='unconfirmed'>Poʻakolu, 18 Iune 1952 11:59 AM</result>
+   <result draft='approved'>Poʻakolu, 1952 Iune 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻakolu, 18 Iune 1952 11:59:59 AM</result>
+   <result draft='approved'>Poʻakolu, 1952 Iune 18 11:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Poʻakolu, 18 Iune 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 1952 Iune 18 11:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻakolu, 18 Iune 1952 11:59:59 AM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 1952 Iune 18 11:59:59 GMT+00:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 PM</result>
+   <result draft='approved'>12:00</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:00 PM</result>
+   <result draft='approved'>12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>16/7/73</result>
+   <result draft='approved'>1973-07-16</result>
+   <result timeType='short' draft='unconfirmed'>16/7/73 12:00 PM</result>
+   <result draft='approved'>1973-07-16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16/7/73 12:00:00 PM</result>
+   <result draft='approved'>1973-07-16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>16/7/73 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>16/7/73 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>16 Iul. 1973</result>
+   <result draft='approved'>1973 Iul. 16</result>
+   <result timeType='short' draft='unconfirmed'>16 Iul. 1973 12:00 PM</result>
+   <result draft='approved'>1973 Iul. 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16 Iul. 1973 12:00:00 PM</result>
+   <result draft='approved'>1973 Iul. 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>16 Iul. 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973 Iul. 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>16 Iul. 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973 Iul. 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>16 Iulai 1973</result>
+   <result draft='approved'>1973 Iulai 16</result>
+   <result timeType='short' draft='unconfirmed'>16 Iulai 1973 12:00 PM</result>
+   <result draft='approved'>1973 Iulai 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16 Iulai 1973 12:00:00 PM</result>
+   <result draft='approved'>1973 Iulai 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>16 Iulai 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973 Iulai 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>16 Iulai 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>1973 Iulai 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻakahi, 16 Iulai 1973</result>
+   <result draft='approved'>Poʻakahi, 1973 Iulai 16</result>
+   <result timeType='short' draft='unconfirmed'>Poʻakahi, 16 Iulai 1973 12:00 PM</result>
+   <result draft='approved'>Poʻakahi, 1973 Iulai 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻakahi, 16 Iulai 1973 12:00:00 PM</result>
+   <result draft='approved'>Poʻakahi, 1973 Iulai 16 12:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Poʻakahi, 16 Iulai 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakahi, 1973 Iulai 16 12:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻakahi, 16 Iulai 1973 12:00:00 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakahi, 1973 Iulai 16 12:00:00 GMT+00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>12:00 PM</result>
+   <result draft='approved'>12:00</result>
+   <result timeType='medium' draft='unconfirmed'>12:00:01 PM</result>
+   <result draft='approved'>12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>14/8/99</result>
+   <result draft='approved'>1999-08-14</result>
+   <result timeType='short' draft='unconfirmed'>14/8/99 12:00 PM</result>
+   <result draft='approved'>1999-08-14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14/8/99 12:00:01 PM</result>
+   <result draft='approved'>1999-08-14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>14/8/99 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>14/8/99 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>14 ʻAu. 1999</result>
+   <result draft='approved'>1999 ʻAu. 14</result>
+   <result timeType='short' draft='unconfirmed'>14 ʻAu. 1999 12:00 PM</result>
+   <result draft='approved'>1999 ʻAu. 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14 ʻAu. 1999 12:00:01 PM</result>
+   <result draft='approved'>1999 ʻAu. 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>14 ʻAu. 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999 ʻAu. 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>14 ʻAu. 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999 ʻAu. 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>14 ʻAukake 1999</result>
+   <result draft='approved'>1999 ʻAukake 14</result>
+   <result timeType='short' draft='unconfirmed'>14 ʻAukake 1999 12:00 PM</result>
+   <result draft='approved'>1999 ʻAukake 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14 ʻAukake 1999 12:00:01 PM</result>
+   <result draft='approved'>1999 ʻAukake 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999 ʻAukake 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>1999 ʻAukake 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻaono, 14 ʻAukake 1999</result>
+   <result draft='approved'>Poʻaono, 1999 ʻAukake 14</result>
+   <result timeType='short' draft='unconfirmed'>Poʻaono, 14 ʻAukake 1999 12:00 PM</result>
+   <result draft='approved'>Poʻaono, 1999 ʻAukake 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM</result>
+   <result draft='approved'>Poʻaono, 1999 ʻAukake 14 12:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>Poʻaono, 1999 ʻAukake 14 12:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻaono, 14 ʻAukake 1999 12:00:01 PM GMT+00:00</result>
+   <result draft='approved'>Poʻaono, 1999 ʻAukake 14 12:00:01 GMT+00:00</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>10:59 PM</result>
+   <result draft='approved'>22:59</result>
+   <result timeType='medium' draft='unconfirmed'>10:59:59 PM</result>
+   <result draft='approved'>22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>12/9/00</result>
+   <result draft='approved'>2000-09-12</result>
+   <result timeType='short' draft='unconfirmed'>12/9/00 10:59 PM</result>
+   <result draft='approved'>2000-09-12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12/9/00 10:59:59 PM</result>
+   <result draft='approved'>2000-09-12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>12/9/00 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12/9/00 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>12 Kep. 2000</result>
+   <result draft='approved'>2000 Kep. 12</result>
+   <result timeType='short' draft='unconfirmed'>12 Kep. 2000 10:59 PM</result>
+   <result draft='approved'>2000 Kep. 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12 Kep. 2000 10:59:59 PM</result>
+   <result draft='approved'>2000 Kep. 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>12 Kep. 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000 Kep. 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12 Kep. 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000 Kep. 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>12 Kepakemapa 2000</result>
+   <result draft='approved'>2000 Kepakemapa 12</result>
+   <result timeType='short' draft='unconfirmed'>12 Kepakemapa 2000 10:59 PM</result>
+   <result draft='approved'>2000 Kepakemapa 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12 Kepakemapa 2000 10:59:59 PM</result>
+   <result draft='approved'>2000 Kepakemapa 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻalua, 12 Kepakemapa 2000</result>
+   <result draft='approved'>Poʻalua, 2000 Kepakemapa 12</result>
+   <result timeType='short' draft='unconfirmed'>Poʻalua, 12 Kepakemapa 2000 10:59 PM</result>
+   <result draft='approved'>Poʻalua, 2000 Kepakemapa 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM</result>
+   <result draft='approved'>Poʻalua, 2000 Kepakemapa 12 22:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>Poʻalua, 2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻalua, 12 Kepakemapa 2000 10:59:59 PM GMT+00:00</result>
+   <result draft='approved'>Poʻalua, 2000 Kepakemapa 12 22:59:59 GMT+00:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 PM</result>
+   <result draft='approved'>23:00</result>
+   <result timeType='medium' draft='unconfirmed'>11:00:00 PM</result>
+   <result draft='approved'>23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>8/10/01</result>
+   <result draft='approved'>2001-10-08</result>
+   <result timeType='short' draft='unconfirmed'>8/10/01 11:00 PM</result>
+   <result draft='approved'>2001-10-08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8/10/01 11:00:00 PM</result>
+   <result draft='approved'>2001-10-08 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>8/10/01 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>8/10/01 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>8 ʻOk. 2001</result>
+   <result draft='approved'>2001 ʻOk. 8</result>
+   <result timeType='short' draft='unconfirmed'>8 ʻOk. 2001 11:00 PM</result>
+   <result draft='approved'>2001 ʻOk. 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8 ʻOk. 2001 11:00:00 PM</result>
+   <result draft='approved'>2001 ʻOk. 8 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>8 ʻOk. 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001 ʻOk. 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>8 ʻOk. 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001 ʻOk. 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>8 ʻOkakopa 2001</result>
+   <result draft='approved'>2001 ʻOkakopa 8</result>
+   <result timeType='short' draft='unconfirmed'>8 ʻOkakopa 2001 11:00 PM</result>
+   <result draft='approved'>2001 ʻOkakopa 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8 ʻOkakopa 2001 11:00:00 PM</result>
+   <result draft='approved'>2001 ʻOkakopa 8 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001 ʻOkakopa 8 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>2001 ʻOkakopa 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻakahi, 8 ʻOkakopa 2001</result>
+   <result draft='approved'>Poʻakahi, 2001 ʻOkakopa 08</result>
+   <result timeType='short' draft='unconfirmed'>Poʻakahi, 8 ʻOkakopa 2001 11:00 PM</result>
+   <result draft='approved'>Poʻakahi, 2001 ʻOkakopa 08 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM</result>
+   <result draft='approved'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00</result>
+   <result timeType='long' draft='unconfirmed'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻakahi, 8 ʻOkakopa 2001 11:00:00 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakahi, 2001 ʻOkakopa 08 23:00:00 GMT+00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>11:00 PM</result>
+   <result draft='approved'>23:00</result>
+   <result timeType='medium' draft='unconfirmed'>11:00:01 PM</result>
+   <result draft='approved'>23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>4/11/04</result>
+   <result draft='approved'>2004-11-04</result>
+   <result timeType='short' draft='unconfirmed'>4/11/04 11:00 PM</result>
+   <result draft='approved'>2004-11-04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4/11/04 11:00:01 PM</result>
+   <result draft='approved'>2004-11-04 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>4/11/04 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>4/11/04 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>4 Now. 2004</result>
+   <result draft='approved'>2004 Now. 4</result>
+   <result timeType='short' draft='unconfirmed'>4 Now. 2004 11:00 PM</result>
+   <result draft='approved'>2004 Now. 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4 Now. 2004 11:00:01 PM</result>
+   <result draft='approved'>2004 Now. 4 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>4 Now. 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004 Now. 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>4 Now. 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004 Now. 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>4 Nowemapa 2004</result>
+   <result draft='approved'>2004 Nowemapa 4</result>
+   <result timeType='short' draft='unconfirmed'>4 Nowemapa 2004 11:00 PM</result>
+   <result draft='approved'>2004 Nowemapa 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4 Nowemapa 2004 11:00:01 PM</result>
+   <result draft='approved'>2004 Nowemapa 4 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004 Nowemapa 4 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>2004 Nowemapa 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻahā, 4 Nowemapa 2004</result>
+   <result draft='approved'>Poʻahā, 2004 Nowemapa 04</result>
+   <result timeType='short' draft='unconfirmed'>Poʻahā, 4 Nowemapa 2004 11:00 PM</result>
+   <result draft='approved'>Poʻahā, 2004 Nowemapa 04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM</result>
+   <result draft='approved'>Poʻahā, 2004 Nowemapa 04 23:00:01</result>
+   <result timeType='long' draft='unconfirmed'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>Poʻahā, 2004 Nowemapa 04 23:00:01 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻahā, 4 Nowemapa 2004 11:00:01 PM GMT+00:00</result>
+   <result draft='approved'>Poʻahā, 2004 Nowemapa 04 23:00:01 GMT+00:00</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>11:59 PM</result>
+   <result draft='approved'>23:59</result>
+   <result timeType='medium' draft='unconfirmed'>11:59:59 PM</result>
+   <result draft='approved'>23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none' draft='unconfirmed'>1/12/10</result>
+   <result draft='approved'>2010-12-01</result>
+   <result timeType='short' draft='unconfirmed'>1/12/10 11:59 PM</result>
+   <result draft='approved'>2010-12-01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1/12/10 11:59:59 PM</result>
+   <result draft='approved'>2010-12-01 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1/12/10 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1/12/10 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1 Kek. 2010</result>
+   <result draft='approved'>2010 Kek. 1</result>
+   <result timeType='short' draft='unconfirmed'>1 Kek. 2010 11:59 PM</result>
+   <result draft='approved'>2010 Kek. 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1 Kek. 2010 11:59:59 PM</result>
+   <result draft='approved'>2010 Kek. 1 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1 Kek. 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010 Kek. 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1 Kek. 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010 Kek. 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1 Kekemapa 2010</result>
+   <result draft='approved'>2010 Kekemapa 1</result>
+   <result timeType='short' draft='unconfirmed'>1 Kekemapa 2010 11:59 PM</result>
+   <result draft='approved'>2010 Kekemapa 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1 Kekemapa 2010 11:59:59 PM</result>
+   <result draft='approved'>2010 Kekemapa 1 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010 Kekemapa 1 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>2010 Kekemapa 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>Poʻakolu, 1 Kekemapa 2010</result>
+   <result draft='approved'>Poʻakolu, 2010 Kekemapa 01</result>
+   <result timeType='short' draft='unconfirmed'>Poʻakolu, 1 Kekemapa 2010 11:59 PM</result>
+   <result draft='approved'>Poʻakolu, 2010 Kekemapa 01 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM</result>
+   <result draft='approved'>Poʻakolu, 2010 Kekemapa 01 23:59:59</result>
+   <result timeType='long' draft='unconfirmed'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 2010 Kekemapa 01 23:59:59 GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>Poʻakolu, 1 Kekemapa 2010 11:59:59 PM GMT+00:00</result>
+   <result draft='approved'>Poʻakolu, 2010 Kekemapa 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
 locales='haw haw_US'>
-<!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+<!-- Hawaiian [ʻōlelo Hawaiʻi]; Hawaiian (United States) [ʻōlelo Hawaiʻi (ʻAmelika Hui Pū ʻIa)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result field='vvvv'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result field='v' parse='America/Los_Angeles'>ʻAmelika Hui Pū ʻIa (Los Angeles)</result>
+   <result field='vvvv'>ʻAmelika Hui Pū ʻIa (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result field='vvvv'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result field='v' parse='America/Los_Angeles'>ʻAmelika Hui Pū ʻIa (Los Angeles)</result>
+   <result field='vvvv'>ʻAmelika Hui Pū ʻIa (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
@@ -694,26 +690,26 @@ locales='haw haw_US'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
+   <result field='v' parse='Australia/Sydney'>Nūhōlani (Sydney)</result>
+   <result field='vvvv'>Nūhōlani (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
+   <result field='v' parse='Australia/Sydney'>Nūhōlani (Sydney)</result>
+   <result field='vvvv'>Nūhōlani (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
+   <result field='v' parse='Australia/Sydney'>Nūhōlani (Sydney)</result>
+   <result field='vvvv'>Nūhōlani (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
+   <result field='v' parse='Australia/Sydney'>Nūhōlani (Sydney)</result>
+   <result field='vvvv'>Nūhōlani (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
@@ -730,14 +726,14 @@ locales='haw haw_US'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Lūkia)</result>
-   <result field='vvvv'>Moscow (Lūkia)</result>
+   <result field='v' parse='Europe/Moscow'>Lūkia (Moscow)</result>
+   <result field='vvvv'>Lūkia (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Lūkia)</result>
-   <result field='vvvv'>Moscow (Lūkia)</result>
+   <result field='v' parse='Europe/Moscow'>Lūkia (Moscow)</result>
+   <result field='vvvv'>Lūkia (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -753,8 +749,8 @@ locales='haw haw_US'>
   </zoneFields>
   <collation 
 locales='haw haw_US'>
-<!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result draft='either'>
+<!-- Hawaiian [ʻōlelo Hawaiʻi]; Hawaiian (United States) [ʻōlelo Hawaiʻi (ʻAmelika Hui Pū ʻIa)] -->
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

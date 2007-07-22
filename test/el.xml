@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='el'>
+ <cldrTest version='1.5' base='el'>
  <!-- Greek [ελληνικά] -->
   <number 
 locales='el el_CY el_GR el_POLYTON'>
 <!-- Greek [ελληνικά]; Greek (Cyprus) [ελληνικά (Κύπρος)]; Greek (Greece) [ελληνικά (Ελλάδα)]; Greek (POLYTON) [ελληνικά (POLYTON)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='el el_CY el_GR el_POLYTON'>
   <date 
 locales='el el_CY el_GR'>
 <!-- Greek [ελληνικά]; Greek (Cyprus) [ελληνικά (Κύπρος)]; Greek (Greece) [ελληνικά (Ελλάδα)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 ΠΜ</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 ΠΜ</result>
    <result timeType='medium'>12:00:00 ΠΜ</result>
    <result timeType='long'>12:00:00 ΠΜ GMT+0000</result>
    <result timeType='full'>12:00:00 ΠΜ GMT+0000</result>
@@ -350,7 +350,7 @@ locales='el el_CY el_GR'>
   <date 
 locales='el_POLYTON'>
 <!-- Greek (POLYTON) [ελληνικά (POLYTON)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 ΠΜ</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 ΠΜ</result>
    <result timeType='medium'>12:00:00 ΠΜ</result>
    <result timeType='long'>12:00:00 ΠΜ GMT+0000</result>
    <result timeType='full'>12:00:00 ΠΜ GMT+0000</result>
@@ -642,7 +642,7 @@ locales='el_POLYTON'>
   <zoneFields 
 locales='el el_CY el_GR'>
 <!-- Greek [ελληνικά]; Greek (Cyprus) [ελληνικά (Κύπρος)]; Greek (Greece) [ελληνικά (Ελλάδα)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
@@ -754,7 +754,7 @@ locales='el el_CY el_GR'>
   <zoneFields 
 locales='el_POLYTON'>
 <!-- Greek (POLYTON) [ελληνικά (POLYTON)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
@@ -866,7 +866,7 @@ locales='el_POLYTON'>
   <collation 
 locales='el el_CY el_GR'>
 <!-- Greek [ελληνικά]; Greek (Cyprus) [ελληνικά (Κύπρος)]; Greek (Greece) [ελληνικά (Ελλάδα)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x
@@ -1100,7 +1100,7 @@ xΏx
   <collation 
 locales='el_POLYTON'>
 <!-- Greek (POLYTON) [ελληνικά (POLYTON)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

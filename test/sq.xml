@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='sq'>
+ <cldrTest version='1.5' base='sq'>
  <!-- Albanian [shqipe] -->
   <number 
 locales='sq sq_AL'>
 <!-- Albanian [shqipe]; Albanian (Albania) [shqipe (Shqipëria)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='sq sq_AL'>
   <date 
 locales='sq sq_AL'>
 <!-- Albanian [shqipe]; Albanian (Albania) [shqipe (Shqipëria)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12.00.PD</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12.00.PD</result>
    <result timeType='medium'>12:00:00.PD</result>
    <result timeType='long'>12.00.00.PD GMT+00:00</result>
    <result timeType='full'>12.00.00.PD GMT+00:00</result>
@@ -350,42 +350,42 @@ locales='sq sq_AL'>
   <zoneFields 
 locales='sq sq_AL'>
 <!-- Albanian [shqipe]; Albanian (Albania) [shqipe (Shqipëria)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Shtetet e Bashkuara të Amerikës)</result>
-   <result field='vvvv'>Los Angeles (Shtetet e Bashkuara të Amerikës)</result>
+   <result field='v' parse='America/Los_Angeles'>Shtetet e Bashkuara të Amerikës (Los Angeles)</result>
+   <result field='vvvv'>Shtetet e Bashkuara të Amerikës (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Shtetet e Bashkuara të Amerikës)</result>
-   <result field='vvvv'>Los Angeles (Shtetet e Bashkuara të Amerikës)</result>
+   <result field='v' parse='America/Los_Angeles'>Shtetet e Bashkuara të Amerikës (Los Angeles)</result>
+   <result field='vvvv'>Shtetet e Bashkuara të Amerikës (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argjentinë)</result>
-   <result field='vvvv'>Buenos Aires (Argjentinë)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argjentinë (Buenos Aires)</result>
+   <result field='vvvv'>Argjentinë (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argjentinë)</result>
-   <result field='vvvv'>Buenos Aires (Argjentinë)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argjentinë (Buenos Aires)</result>
+   <result field='vvvv'>Argjentinë (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argjentinë)</result>
-   <result field='vvvv'>Buenos Aires (Argjentinë)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argjentinë (Buenos Aires)</result>
+   <result field='vvvv'>Argjentinë (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argjentinë)</result>
-   <result field='vvvv'>Buenos Aires (Argjentinë)</result>
+   <result field='v' parse='America/Buenos_Aires'>Argjentinë (Buenos Aires)</result>
+   <result field='vvvv'>Argjentinë (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
@@ -402,26 +402,26 @@ locales='sq sq_AL'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australi)</result>
-   <result field='vvvv'>Sydney (Australi)</result>
+   <result field='v' parse='Australia/Sydney'>Australi (Sydney)</result>
+   <result field='vvvv'>Australi (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australi)</result>
-   <result field='vvvv'>Sydney (Australi)</result>
+   <result field='v' parse='Australia/Sydney'>Australi (Sydney)</result>
+   <result field='vvvv'>Australi (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australi)</result>
-   <result field='vvvv'>Sydney (Australi)</result>
+   <result field='v' parse='Australia/Sydney'>Australi (Sydney)</result>
+   <result field='vvvv'>Australi (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australi)</result>
-   <result field='vvvv'>Sydney (Australi)</result>
+   <result field='v' parse='Australia/Sydney'>Australi (Sydney)</result>
+   <result field='vvvv'>Australi (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
@@ -438,14 +438,14 @@ locales='sq sq_AL'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Rusi)</result>
-   <result field='vvvv'>Moscow (Rusi)</result>
+   <result field='v' parse='Europe/Moscow'>Rusi (Moscow)</result>
+   <result field='vvvv'>Rusi (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Rusi)</result>
-   <result field='vvvv'>Moscow (Rusi)</result>
+   <result field='v' parse='Europe/Moscow'>Rusi (Moscow)</result>
+   <result field='vvvv'>Rusi (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -462,7 +462,7 @@ locales='sq sq_AL'>
   <collation 
 locales='sq sq_AL'>
 <!-- Albanian [shqipe]; Albanian (Albania) [shqipe (Shqipëria)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

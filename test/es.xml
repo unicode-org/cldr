@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='es'>
+ <cldrTest version='1.5' base='es'>
  <!-- Spanish [español] -->
   <number 
 locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
 <!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es
   <date 
 locales='es es_BO es_CR es_DO es_MX es_NI es_PY es_SV es_UY es_VE'>
 <!-- Spanish [español]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 a.m. GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='es es_BO es_CR es_DO es_MX es_NI es_PY es_SV es_UY es_VE'>
   <date 
 locales='es_AR'>
 <!-- Spanish (Argentina) [español (Argentina)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>00h&apos;00:00 GMT+00:00</result>
@@ -642,7 +642,7 @@ locales='es_AR'>
   <date 
 locales='es_CL'>
 <!-- Spanish (Chile) [español (Chile)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -934,7 +934,7 @@ locales='es_CL'>
   <date 
 locales='es_CO'>
 <!-- Spanish (Colombia) [español (Colombia)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -1226,7 +1226,7 @@ locales='es_CO'>
   <date 
 locales='es_EC'>
 <!-- Spanish (Ecuador) [español (Ecuador)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -1518,7 +1518,7 @@ locales='es_EC'>
   <date 
 locales='es_ES'>
 <!-- Spanish (Spain) [español (España)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00H00&apos;00&quot; GMT+00:00</result>
@@ -1810,7 +1810,7 @@ locales='es_ES'>
   <date 
 locales='es_GT'>
 <!-- Spanish (Guatemala) [español (Guatemala)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 a.m. GMT+00:00</result>
@@ -2102,7 +2102,7 @@ locales='es_GT'>
   <date 
 locales='es_HN'>
 <!-- Spanish (Honduras) [español (Honduras)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 a.m. GMT+00:00</result>
@@ -2394,7 +2394,7 @@ locales='es_HN'>
   <date 
 locales='es_PA es_PR'>
 <!-- Spanish (Panama) [español (Panamá)]; Spanish (Puerto Rico) [español (Puerto Rico)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 a.m. GMT+00:00</result>
@@ -2686,7 +2686,7 @@ locales='es_PA es_PR'>
   <date 
 locales='es_PE'>
 <!-- Spanish (Peru) [español (Perú)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00H00&apos;00&quot; GMT+00:00</result>
@@ -2978,7 +2978,7 @@ locales='es_PE'>
   <date 
 locales='es_US'>
 <!-- Spanish (United States) [español (Estados Unidos)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 a.m.</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 a.m.</result>
    <result timeType='medium'>12:00:00 a.m.</result>
    <result timeType='long'>12:00:00 a.m. GMT+00:00</result>
    <result timeType='full'>12:00:00 a.m. GMT+00:00</result>
@@ -3270,135 +3270,135 @@ locales='es_US'>
   <zoneFields 
 locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
 <!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='true'>Hora de Estados Unidos (Los Ángeles)</result>
-   <result draft='false'>Estados Unidos (Los Ángeles)</result>
-   <result field='vvvv' draft='true'>Hora de Estados Unidos (Los Ángeles)</result>
-   <result draft='false'>Estados Unidos (Los Ángeles)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Hora de Estados Unidos (Los Ángeles)</result>
+   <result draft='approved'>Estados Unidos (Los Ángeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Estados Unidos (Los Ángeles)</result>
+   <result draft='approved'>Estados Unidos (Los Ángeles)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='true'>Hora de Estados Unidos (Los Ángeles)</result>
-   <result draft='false'>Estados Unidos (Los Ángeles)</result>
-   <result field='vvvv' draft='true'>Hora de Estados Unidos (Los Ángeles)</result>
-   <result draft='false'>Estados Unidos (Los Ángeles)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Hora de Estados Unidos (Los Ángeles)</result>
+   <result draft='approved'>Estados Unidos (Los Ángeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Estados Unidos (Los Ángeles)</result>
+   <result draft='approved'>Estados Unidos (Los Ángeles)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result field='vvvv' draft='true'>Hora de Argentina (Buenos Aires)</result>
-   <result draft='false'>Argentina (Buenos Aires)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Argentina (Buenos Aires)</result>
+   <result draft='approved'>Argentina (Buenos Aires)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
    <result field='zzzz'>GMT-05:00</result>
-   <result field='v' parse='America/Havana' draft='true'>Hora de Cuba</result>
-   <result draft='false'>Cuba</result>
-   <result field='vvvv' draft='true'>Hora de Cuba</result>
-   <result draft='false'>Cuba</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='either'>-0400</result>
+   <result field='v' parse='America/Havana' draft='unconfirmed'>Hora de Cuba</result>
+   <result draft='approved'>Cuba</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Cuba</result>
+   <result draft='approved'>Cuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='unconfirmed approved'>-0400</result>
    <result field='ZZZZ'>GMT-04:00</result>
    <result field='z'>GMT-04:00</result>
    <result field='zzzz'>GMT-04:00</result>
-   <result field='v' parse='America/Havana' draft='true'>Hora de Cuba</result>
-   <result draft='false'>Cuba</result>
-   <result field='vvvv' draft='true'>Hora de Cuba</result>
-   <result draft='false'>Cuba</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
+   <result field='v' parse='America/Havana' draft='unconfirmed'>Hora de Cuba</result>
+   <result draft='approved'>Cuba</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Cuba</result>
+   <result draft='approved'>Cuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result field='vvvv' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result field='vvvv' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result field='vvvv' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result field='vvvv' draft='true'>Hora de Australia (Sídney)</result>
-   <result draft='false'>Australia (Sydney)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Australia (Sídney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London' draft='true'>Hora de Reino Unido</result>
-   <result draft='false'>Reino Unido</result>
-   <result field='vvvv' draft='true'>Hora de Reino Unido</result>
-   <result draft='false'>Reino Unido</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
+   <result field='v' parse='Europe/London' draft='unconfirmed'>Hora de Reino Unido</result>
+   <result draft='approved'>Reino Unido</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Reino Unido</result>
+   <result draft='approved'>Reino Unido</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='unconfirmed approved'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London' draft='true'>Hora de Reino Unido</result>
-   <result draft='false'>Reino Unido</result>
-   <result field='vvvv' draft='true'>Hora de Reino Unido</result>
-   <result draft='false'>Reino Unido</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
+   <result field='v' parse='Europe/London' draft='unconfirmed'>Hora de Reino Unido</result>
+   <result draft='approved'>Reino Unido</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Reino Unido</result>
+   <result draft='approved'>Reino Unido</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Hora de Rusia (Moscú)</result>
-   <result draft='false'>Rusia (Moscú)</result>
-   <result field='vvvv' draft='true'>Hora de Rusia (Moscú)</result>
-   <result draft='false'>Rusia (Moscú)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Hora de Rusia (Moscú)</result>
+   <result draft='approved'>Rusia (Moscú)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Rusia (Moscú)</result>
+   <result draft='approved'>Rusia (Moscú)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='true'>Hora de Rusia (Moscú)</result>
-   <result draft='false'>Rusia (Moscú)</result>
-   <result field='vvvv' draft='true'>Hora de Rusia (Moscú)</result>
-   <result draft='false'>Rusia (Moscú)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Hora de Rusia (Moscú)</result>
+   <result draft='approved'>Rusia (Moscú)</result>
+   <result field='vvvv' draft='unconfirmed'>Hora de Rusia (Moscú)</result>
+   <result draft='approved'>Rusia (Moscú)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -3414,7 +3414,7 @@ locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es
   <collation 
 locales='es es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE'>
 <!-- Spanish [español]; Spanish (Argentina) [español (Argentina)]; Spanish (Bolivia) [español (Bolivia)]; Spanish (Chile) [español (Chile)]; Spanish (Colombia) [español (Colombia)]; Spanish (Costa Rica) [español (Costa Rica)]; Spanish (Dominican Republic) [español (República Dominicana)]; Spanish (Ecuador) [español (Ecuador)]; Spanish (Spain) [español (España)]; Spanish (Guatemala) [español (Guatemala)]; Spanish (Honduras) [español (Honduras)]; Spanish (Mexico) [español (México)]; Spanish (Nicaragua) [español (Nicaragua)]; Spanish (Panama) [español (Panamá)]; Spanish (Peru) [español (Perú)]; Spanish (Puerto Rico) [español (Puerto Rico)]; Spanish (Paraguay) [español (Paraguay)]; Spanish (El Salvador) [español (El Salvador)]; Spanish (United States) [español (Estados Unidos)]; Spanish (Uruguay) [español (Uruguay)]; Spanish (Venezuela) [español (Venezuela)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x
@@ -3639,7 +3639,7 @@ xZx
   <collation 
 locales='es@collation=traditional es_AR@collation=traditional es_BO@collation=traditional es_CL@collation=traditional es_CO@collation=traditional es_CR@collation=traditional es_DO@collation=traditional es_EC@collation=traditional es_ES@collation=traditional es_GT@collation=traditional es_HN@collation=traditional es_MX@collation=traditional es_NI@collation=traditional es_PA@collation=traditional es_PE@collation=traditional es_PR@collation=traditional es_PY@collation=traditional es_SV@collation=traditional es_US@collation=traditional es_UY@collation=traditional es_VE@collation=traditional'>
 <!-- Spanish (Collation=Traditional) [español (intercalación=orden tradicional)]; Spanish (Argentina, Collation=Traditional) [español (Argentina, intercalación=orden tradicional)]; Spanish (Bolivia, Collation=Traditional) [español (Bolivia, intercalación=orden tradicional)]; Spanish (Chile, Collation=Traditional) [español (Chile, intercalación=orden tradicional)]; Spanish (Colombia, Collation=Traditional) [español (Colombia, intercalación=orden tradicional)]; Spanish (Costa Rica, Collation=Traditional) [español (Costa Rica, intercalación=orden tradicional)]; Spanish (Dominican Republic, Collation=Traditional) [español (República Dominicana, intercalación=orden tradicional)]; Spanish (Ecuador, Collation=Traditional) [español (Ecuador, intercalación=orden tradicional)]; Spanish (Spain, Collation=Traditional) [español (España, intercalación=orden tradicional)]; Spanish (Guatemala, Collation=Traditional) [español (Guatemala, intercalación=orden tradicional)]; Spanish (Honduras, Collation=Traditional) [español (Honduras, intercalación=orden tradicional)]; Spanish (Mexico, Collation=Traditional) [español (México, intercalación=orden tradicional)]; Spanish (Nicaragua, Collation=Traditional) [español (Nicaragua, intercalación=orden tradicional)]; Spanish (Panama, Collation=Traditional) [español (Panamá, intercalación=orden tradicional)]; Spanish (Peru, Collation=Traditional) [español (Perú, intercalación=orden tradicional)]; Spanish (Puerto Rico, Collation=Traditional) [español (Puerto Rico, intercalación=orden tradicional)]; Spanish (Paraguay, Collation=Traditional) [español (Paraguay, intercalación=orden tradicional)]; Spanish (El Salvador, Collation=Traditional) [español (El Salvador, intercalación=orden tradicional)]; Spanish (United States, Collation=Traditional) [español (Estados Unidos, intercalación=orden tradicional)]; Spanish (Uruguay, Collation=Traditional) [español (Uruguay, intercalación=orden tradicional)]; Spanish (Venezuela, Collation=Traditional) [español (Venezuela, intercalación=orden tradicional)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

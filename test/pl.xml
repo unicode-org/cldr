@@ -1,55 +1,66 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='pl'>
+ <cldrTest version='1.5' base='pl'>
  <!-- Polish [polski] -->
   <number 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
+   <result numberType='percent' draft='unconfirmed'>0 %</result>
+   <result draft='approved'>0%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0,01</result>
-   <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
+   <result numberType='percent' draft='unconfirmed'>1 %</result>
+   <result draft='approved'>1%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
+   <result numberType='percent' draft='unconfirmed'>-1 %</result>
+   <result draft='approved'>-1%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
+   <result numberType='percent' draft='unconfirmed'>100 %</result>
+   <result draft='approved'>100%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1E0</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
+   <result numberType='percent' draft='unconfirmed'>-100 %</result>
+   <result draft='approved'>-100%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123,456</result>
-   <result numberType='percent'>12 346%</result>
-   <result numberType='scientific'>1,23456E2</result>
+   <result numberType='percent' draft='unconfirmed'>12 346 %</result>
+   <result draft='approved'>12 346%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12 346%</result>
-   <result numberType='scientific'>-1,23456E2</result>
+   <result numberType='percent' draft='unconfirmed'>-12 346 %</result>
+   <result draft='approved'>-12 346%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1,23456E2</result>
    <result input='123456.78' numberType='integer'>123 457</result>
    <result numberType='decimal'>123 456,78</result>
-   <result numberType='percent'>12 345 678%</result>
-   <result numberType='scientific'>1,2345678E5</result>
+   <result numberType='percent' draft='unconfirmed'>12 345 678 %</result>
+   <result draft='approved'>12 345 678%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>1,2345678E5</result>
    <result input='-123456.78' numberType='integer'>-123 457</result>
    <result numberType='decimal'>-123 456,78</result>
-   <result numberType='percent'>-12 345 678%</result>
-   <result numberType='scientific'>-1,2345678E5</result>
+   <result numberType='percent' draft='unconfirmed'>-12 345 678 %</result>
+   <result draft='approved'>-12 345 678%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
-   <result numberType='scientific'>∞</result>
+   <result numberType='percent' draft='unconfirmed'>∞ %</result>
+   <result draft='approved'>∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
+   <result numberType='percent' draft='unconfirmed'>-∞ %</result>
+   <result draft='approved'>-∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-∞</result>
    <result input='NaN' numberType='integer'>NaN</result>
    <result numberType='decimal'>NaN</result>
    <result numberType='percent'>NaN</result>
@@ -58,7 +69,7 @@ locales='pl pl_PL'>
   <date 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -350,103 +361,135 @@ locales='pl pl_PL'>
   <zoneFields 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Stany Zjednoczone)</result>
-   <result field='vvvv'>Los Angeles (Stany Zjednoczone)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Czas Stany Zjednoczone (Los Angeles)</result>
+   <result draft='approved'>Stany Zjednoczone (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Stany Zjednoczone (Los Angeles)</result>
+   <result draft='approved'>Stany Zjednoczone (Los Angeles)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Stany Zjednoczone)</result>
-   <result field='vvvv'>Los Angeles (Stany Zjednoczone)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Czas Stany Zjednoczone (Los Angeles)</result>
+   <result draft='approved'>Stany Zjednoczone (Los Angeles)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Stany Zjednoczone (Los Angeles)</result>
+   <result draft='approved'>Stany Zjednoczone (Los Angeles)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentyna)</result>
-   <result field='vvvv'>Buenos Aires (Argentyna)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentyna)</result>
-   <result field='vvvv'>Buenos Aires (Argentyna)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentyna)</result>
-   <result field='vvvv'>Buenos Aires (Argentyna)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentyna)</result>
-   <result field='vvvv'>Buenos Aires (Argentyna)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Argentyna (Buenos Aires)</result>
+   <result draft='approved'>Argentyna (Buenos Aires)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='unconfirmed approved'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
    <result field='zzzz'>GMT-05:00</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='v' parse='America/Havana' draft='unconfirmed'>Czas Kuba</result>
+   <result draft='approved'>Kuba</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Kuba</result>
+   <result draft='approved'>Kuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='unconfirmed approved'>-0400</result>
    <result field='ZZZZ'>GMT-04:00</result>
    <result field='z'>GMT-04:00</result>
    <result field='zzzz'>GMT-04:00</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
-   <result field='vvvv'>Kuba</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='America/Havana' draft='unconfirmed'>Czas Kuba</result>
+   <result draft='approved'>Kuba</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Kuba</result>
+   <result draft='approved'>Kuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
-   <result field='vvvv'>Sydney (Australia)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
-   <result field='vvvv'>Sydney (Australia)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='unconfirmed approved'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
-   <result field='vvvv'>Sydney (Australia)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='unconfirmed approved'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
-   <result field='vvvv'>Sydney (Australia)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Australia (Sydney)</result>
+   <result draft='approved'>Australia (Sydney)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='unconfirmed approved'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Wielka Brytania</result>
-   <result field='vvvv'>Wielka Brytania</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='unconfirmed'>Czas Wielka Brytania</result>
+   <result draft='approved'>Wielka Brytania</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Wielka Brytania</result>
+   <result draft='approved'>Wielka Brytania</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='unconfirmed approved'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Wielka Brytania</result>
-   <result field='vvvv'>Wielka Brytania</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='unconfirmed'>Czas Wielka Brytania</result>
+   <result draft='approved'>Wielka Brytania</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Wielka Brytania</result>
+   <result draft='approved'>Wielka Brytania</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moskwa (Federacja Rosyjska)</result>
-   <result field='vvvv'>Moskwa (Federacja Rosyjska)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Czas Rosja (Moskwa)</result>
+   <result draft='approved'>Rosja (Moskwa)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Rosja (Moskwa)</result>
+   <result draft='approved'>Rosja (Moskwa)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moskwa (Federacja Rosyjska)</result>
-   <result field='vvvv'>Moskwa (Federacja Rosyjska)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Czas Rosja (Moskwa)</result>
+   <result draft='approved'>Rosja (Moskwa)</result>
+   <result field='vvvv' draft='unconfirmed'>Czas Rosja (Moskwa)</result>
+   <result draft='approved'>Rosja (Moskwa)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -462,7 +505,7 @@ locales='pl pl_PL'>
   <collation 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

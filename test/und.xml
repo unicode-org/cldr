@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='root'>
- <!-- Root [root] -->
+ <cldrTest version='1.5' base='und'>
+ <!-- Unknown or Invalid Language [Unknown or Invalid Language] -->
   <number 
-locales='root'>
-<!-- Root [root] -->
+locales='und und_ZZ'>
+<!-- Unknown or Invalid Language [Unknown or Invalid Language]; Unknown or Invalid Language (Unknown or Invalid Region) [Unknown or Invalid Language (Unknown or Invalid Region)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='root'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='root'>
-<!-- Root [root] -->
+locales='und und_ZZ'>
+<!-- Unknown or Invalid Language [Unknown or Invalid Language]; Unknown or Invalid Language (Unknown or Invalid Region) [Unknown or Invalid Language (Unknown or Invalid Region)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -348,8 +348,8 @@ locales='root'>
    <result timeType='full'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='root'>
-<!-- Root [root] -->
+locales='und und_ZZ'>
+<!-- Unknown or Invalid Language [Unknown or Invalid Language]; Unknown or Invalid Language (Unknown or Invalid Region) [Unknown or Invalid Language (Unknown or Invalid Region)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
@@ -460,8 +460,8 @@ locales='root'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='root'>
-<!-- Root [root] -->
+locales='und und_ZZ'>
+<!-- Unknown or Invalid Language [Unknown or Invalid Language]; Unknown or Invalid Language (Unknown or Invalid Region) [Unknown or Invalid Language (Unknown or Invalid Region)] -->
    <result draft='unconfirmed approved'>
 x 
 X 

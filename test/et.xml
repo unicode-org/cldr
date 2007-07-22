@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='et'>
+ <cldrTest version='1.5' base='et'>
  <!-- Estonian [eesti] -->
   <number 
 locales='et et_EE'>
 <!-- Estonian [eesti]; Estonian (Estonia) [eesti (Eesti)] -->
-   <result input='0.0' numberType='integer' draft='either'>0</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='et et_EE'>
   <date 
 locales='et et_EE'>
 <!-- Estonian [eesti]; Estonian (Estonia) [eesti (Eesti)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>0:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='et et_EE'>
   <zoneFields 
 locales='et et_EE'>
 <!-- Estonian [eesti]; Estonian (Estonia) [eesti (Eesti)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -462,7 +462,7 @@ locales='et et_EE'>
   <collation 
 locales='et et_EE'>
 <!-- Estonian [eesti]; Estonian (Estonia) [eesti (Eesti)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x

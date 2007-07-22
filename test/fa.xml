@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.4' base='fa'>
+ <cldrTest version='1.5' base='fa'>
  <!-- Persian [فارسی] -->
   <number 
 locales='fa fa_IR'>
 <!-- Persian [فارسی]; Persian (Iran) [فارسی (ایران)] -->
-   <result input='0.0' numberType='integer' draft='either'>۰</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>‪٪۰‬</result>
    <result numberType='scientific'>۰×۱۰^۰</result>
@@ -58,7 +58,7 @@ locales='fa fa_IR'>
   <number 
 locales='fa_AF'>
 <!-- Persian (Afghanistan) [دری (افغانستان)] -->
-   <result input='0.0' numberType='integer' draft='either'>۰</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>‪۰٪‬</result>
    <result numberType='scientific'>۰×۱۰^۰</result>
@@ -110,7 +110,7 @@ locales='fa_AF'>
   <date 
 locales='fa fa_IR'>
 <!-- Persian [فارسی]; Persian (Iran) [فارسی (ایران)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>۰:۰۰</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>۰:۰۰</result>
    <result timeType='medium'>۰:۰۰:۰۰</result>
    <result timeType='long'>۰:۰۰:۰۰ (GMT+۰۰۰۰)</result>
    <result timeType='full'>۰:۰۰:۰۰ (GMT+۰۰۰۰)</result>
@@ -402,7 +402,7 @@ locales='fa fa_IR'>
   <date 
 locales='fa_AF'>
 <!-- Persian (Afghanistan) [دری (افغانستان)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>۰:۰۰</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>۰:۰۰</result>
    <result timeType='medium'>۰:۰۰:۰۰</result>
    <result timeType='long'>۰:۰۰:۰۰ (GMT+۰۰۰۰)</result>
    <result timeType='full'>۰:۰۰:۰۰ (GMT+۰۰۰۰)</result>
@@ -694,7 +694,7 @@ locales='fa_AF'>
   <zoneFields 
 locales='fa fa_IR'>
 <!-- Persian [فارسی]; Persian (Iran) [فارسی (ایران)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-۰۸۰۰</result>
    <result field='z'>GMT-۰۸۰۰</result>
    <result field='zzzz'>GMT-۰۸۰۰</result>
@@ -806,7 +806,7 @@ locales='fa fa_IR'>
   <zoneFields 
 locales='fa_AF'>
 <!-- Persian (Afghanistan) [دری (افغانستان)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-۰۸۰۰</result>
    <result field='z'>GMT-۰۸۰۰</result>
    <result field='zzzz'>GMT-۰۸۰۰</result>
@@ -918,7 +918,7 @@ locales='fa_AF'>
   <collation 
 locales='fa fa_IR'>
 <!-- Persian [فارسی]; Persian (Iran) [فارسی (ایران)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 x‍
 x‌
 x‍
@@ -1167,7 +1167,7 @@ xێx
   <collation 
 locales='fa_AF'>
 <!-- Persian (Afghanistan) [دری (افغانستان)] -->
-   <result draft='either'>
+   <result draft='unconfirmed approved'>
 xَ
 Xَ
 xِ

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.5' base='sw'>
- <!-- Swahili [Kiswahili] -->
+ <cldrTest version='1.5' base='my'>
+ <!-- Burmese [Burmese] -->
   <number 
-locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+locales='my my_MM'>
+<!-- Burmese [Burmese]; Burmese (Myanmar) [Burmese (Myanmar)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='sw sw_KE sw_TZ'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+locales='my my_MM'>
+<!-- Burmese [Burmese]; Burmese (Myanmar) [Burmese (Myanmar)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -72,21 +72,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1900 Jan 31</result>
-   <result timeType='short'>1900 Jan 31 00:00</result>
-   <result timeType='medium'>1900 Jan 31 00:00:00</result>
-   <result timeType='long'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Jan 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1900 Januari 31</result>
-   <result timeType='short'>1900 Januari 31 00:00</result>
-   <result timeType='medium'>1900 Januari 31 00:00:00</result>
-   <result timeType='long'>1900 Januari 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>1900 Januari 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumatano, 1900 Januari 31</result>
-   <result timeType='short'>Jumatano, 1900 Januari 31 00:00</result>
-   <result timeType='medium'>Jumatano, 1900 Januari 31 00:00:00</result>
-   <result timeType='long'>Jumatano, 1900 Januari 31 00:00:00 GMT+00:00</result>
-   <result timeType='full'>Jumatano, 1900 Januari 31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1900 1 31</result>
+   <result timeType='short'>1900 1 31 00:00</result>
+   <result timeType='medium'>1900 1 31 00:00:00</result>
+   <result timeType='long'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1900 1 31</result>
+   <result timeType='short'>1900 1 31 00:00</result>
+   <result timeType='medium'>1900 1 31 00:00:00</result>
+   <result timeType='long'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>1900 1 31 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>4, 1900 1 31</result>
+   <result timeType='short'>4, 1900 1 31 00:00</result>
+   <result timeType='medium'>4, 1900 1 31 00:00:00</result>
+   <result timeType='long'>4, 1900 1 31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
@@ -101,21 +101,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1909 Feb 28</result>
-   <result timeType='short'>1909 Feb 28 00:00</result>
-   <result timeType='medium'>1909 Feb 28 00:00:01</result>
-   <result timeType='long'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Feb 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1909 Februari 28</result>
-   <result timeType='short'>1909 Februari 28 00:00</result>
-   <result timeType='medium'>1909 Februari 28 00:00:01</result>
-   <result timeType='long'>1909 Februari 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>1909 Februari 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumapili, 1909 Februari 28</result>
-   <result timeType='short'>Jumapili, 1909 Februari 28 00:00</result>
-   <result timeType='medium'>Jumapili, 1909 Februari 28 00:00:01</result>
-   <result timeType='long'>Jumapili, 1909 Februari 28 00:00:01 GMT+00:00</result>
-   <result timeType='full'>Jumapili, 1909 Februari 28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1909 2 28</result>
+   <result timeType='short'>1909 2 28 00:00</result>
+   <result timeType='medium'>1909 2 28 00:00:01</result>
+   <result timeType='long'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1909 2 28</result>
+   <result timeType='short'>1909 2 28 00:00</result>
+   <result timeType='medium'>1909 2 28 00:00:01</result>
+   <result timeType='long'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1909 2 28 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>1, 1909 2 28</result>
+   <result timeType='short'>1, 1909 2 28 00:00</result>
+   <result timeType='medium'>1, 1909 2 28 00:00:01</result>
+   <result timeType='long'>1, 1909 2 28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
@@ -130,21 +130,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1918 Mac 26</result>
-   <result timeType='short'>1918 Mac 26 00:59</result>
-   <result timeType='medium'>1918 Mac 26 00:59:59</result>
-   <result timeType='long'>1918 Mac 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Mac 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1918 Machi 26</result>
-   <result timeType='short'>1918 Machi 26 00:59</result>
-   <result timeType='medium'>1918 Machi 26 00:59:59</result>
-   <result timeType='long'>1918 Machi 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>1918 Machi 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumanne, 1918 Machi 26</result>
-   <result timeType='short'>Jumanne, 1918 Machi 26 00:59</result>
-   <result timeType='medium'>Jumanne, 1918 Machi 26 00:59:59</result>
-   <result timeType='long'>Jumanne, 1918 Machi 26 00:59:59 GMT+00:00</result>
-   <result timeType='full'>Jumanne, 1918 Machi 26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1918 3 26</result>
+   <result timeType='short'>1918 3 26 00:59</result>
+   <result timeType='medium'>1918 3 26 00:59:59</result>
+   <result timeType='long'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1918 3 26</result>
+   <result timeType='short'>1918 3 26 00:59</result>
+   <result timeType='medium'>1918 3 26 00:59:59</result>
+   <result timeType='long'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>1918 3 26 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>3, 1918 3 26</result>
+   <result timeType='short'>3, 1918 3 26 00:59</result>
+   <result timeType='medium'>3, 1918 3 26 00:59:59</result>
+   <result timeType='long'>3, 1918 3 26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
@@ -159,21 +159,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1932 Apr 24</result>
-   <result timeType='short'>1932 Apr 24 01:00</result>
-   <result timeType='medium'>1932 Apr 24 01:00:00</result>
-   <result timeType='long'>1932 Apr 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 Apr 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1932 Aprili 24</result>
-   <result timeType='short'>1932 Aprili 24 01:00</result>
-   <result timeType='medium'>1932 Aprili 24 01:00:00</result>
-   <result timeType='long'>1932 Aprili 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>1932 Aprili 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumapili, 1932 Aprili 24</result>
-   <result timeType='short'>Jumapili, 1932 Aprili 24 01:00</result>
-   <result timeType='medium'>Jumapili, 1932 Aprili 24 01:00:00</result>
-   <result timeType='long'>Jumapili, 1932 Aprili 24 01:00:00 GMT+00:00</result>
-   <result timeType='full'>Jumapili, 1932 Aprili 24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1932 4 24</result>
+   <result timeType='short'>1932 4 24 01:00</result>
+   <result timeType='medium'>1932 4 24 01:00:00</result>
+   <result timeType='long'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1932 4 24</result>
+   <result timeType='short'>1932 4 24 01:00</result>
+   <result timeType='medium'>1932 4 24 01:00:00</result>
+   <result timeType='long'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1932 4 24 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>1, 1932 4 24</result>
+   <result timeType='short'>1, 1932 4 24 01:00</result>
+   <result timeType='medium'>1, 1932 4 24 01:00:00</result>
+   <result timeType='long'>1, 1932 4 24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
@@ -188,21 +188,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1945 Mei 20</result>
-   <result timeType='short'>1945 Mei 20 01:00</result>
-   <result timeType='medium'>1945 Mei 20 01:00:01</result>
-   <result timeType='long'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumapili, 1945 Mei 20</result>
-   <result timeType='short'>Jumapili, 1945 Mei 20 01:00</result>
-   <result timeType='medium'>Jumapili, 1945 Mei 20 01:00:01</result>
-   <result timeType='long'>Jumapili, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result timeType='full'>Jumapili, 1945 Mei 20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1945 5 20</result>
+   <result timeType='short'>1945 5 20 01:00</result>
+   <result timeType='medium'>1945 5 20 01:00:01</result>
+   <result timeType='long'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1945 5 20</result>
+   <result timeType='short'>1945 5 20 01:00</result>
+   <result timeType='medium'>1945 5 20 01:00:01</result>
+   <result timeType='long'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1945 5 20 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>1, 1945 5 20</result>
+   <result timeType='short'>1, 1945 5 20 01:00</result>
+   <result timeType='medium'>1, 1945 5 20 01:00:01</result>
+   <result timeType='long'>1, 1945 5 20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
@@ -217,21 +217,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1952 Jun 18</result>
-   <result timeType='short'>1952 Jun 18 11:59</result>
-   <result timeType='medium'>1952 Jun 18 11:59:59</result>
-   <result timeType='long'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Jun 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1952 Juni 18</result>
-   <result timeType='short'>1952 Juni 18 11:59</result>
-   <result timeType='medium'>1952 Juni 18 11:59:59</result>
-   <result timeType='long'>1952 Juni 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>1952 Juni 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumatano, 1952 Juni 18</result>
-   <result timeType='short'>Jumatano, 1952 Juni 18 11:59</result>
-   <result timeType='medium'>Jumatano, 1952 Juni 18 11:59:59</result>
-   <result timeType='long'>Jumatano, 1952 Juni 18 11:59:59 GMT+00:00</result>
-   <result timeType='full'>Jumatano, 1952 Juni 18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1952 6 18</result>
+   <result timeType='short'>1952 6 18 11:59</result>
+   <result timeType='medium'>1952 6 18 11:59:59</result>
+   <result timeType='long'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1952 6 18</result>
+   <result timeType='short'>1952 6 18 11:59</result>
+   <result timeType='medium'>1952 6 18 11:59:59</result>
+   <result timeType='long'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>1952 6 18 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>4, 1952 6 18</result>
+   <result timeType='short'>4, 1952 6 18 11:59</result>
+   <result timeType='medium'>4, 1952 6 18 11:59:59</result>
+   <result timeType='long'>4, 1952 6 18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
@@ -246,21 +246,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1973 Jul 16</result>
-   <result timeType='short'>1973 Jul 16 12:00</result>
-   <result timeType='medium'>1973 Jul 16 12:00:00</result>
-   <result timeType='long'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Jul 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1973 Julai 16</result>
-   <result timeType='short'>1973 Julai 16 12:00</result>
-   <result timeType='medium'>1973 Julai 16 12:00:00</result>
-   <result timeType='long'>1973 Julai 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>1973 Julai 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumatatu, 1973 Julai 16</result>
-   <result timeType='short'>Jumatatu, 1973 Julai 16 12:00</result>
-   <result timeType='medium'>Jumatatu, 1973 Julai 16 12:00:00</result>
-   <result timeType='long'>Jumatatu, 1973 Julai 16 12:00:00 GMT+00:00</result>
-   <result timeType='full'>Jumatatu, 1973 Julai 16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1973 7 16</result>
+   <result timeType='short'>1973 7 16 12:00</result>
+   <result timeType='medium'>1973 7 16 12:00:00</result>
+   <result timeType='long'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1973 7 16</result>
+   <result timeType='short'>1973 7 16 12:00</result>
+   <result timeType='medium'>1973 7 16 12:00:00</result>
+   <result timeType='long'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>1973 7 16 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>2, 1973 7 16</result>
+   <result timeType='short'>2, 1973 7 16 12:00</result>
+   <result timeType='medium'>2, 1973 7 16 12:00:00</result>
+   <result timeType='long'>2, 1973 7 16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
@@ -275,21 +275,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1999 Ago 14</result>
-   <result timeType='short'>1999 Ago 14 12:00</result>
-   <result timeType='medium'>1999 Ago 14 12:00:01</result>
-   <result timeType='long'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 Ago 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>1999 Agosti 14</result>
-   <result timeType='short'>1999 Agosti 14 12:00</result>
-   <result timeType='medium'>1999 Agosti 14 12:00:01</result>
-   <result timeType='long'>1999 Agosti 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>1999 Agosti 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumamosi, 1999 Agosti 14</result>
-   <result timeType='short'>Jumamosi, 1999 Agosti 14 12:00</result>
-   <result timeType='medium'>Jumamosi, 1999 Agosti 14 12:00:01</result>
-   <result timeType='long'>Jumamosi, 1999 Agosti 14 12:00:01 GMT+00:00</result>
-   <result timeType='full'>Jumamosi, 1999 Agosti 14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>1999 8 14</result>
+   <result timeType='short'>1999 8 14 12:00</result>
+   <result timeType='medium'>1999 8 14 12:00:01</result>
+   <result timeType='long'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>1999 8 14</result>
+   <result timeType='short'>1999 8 14 12:00</result>
+   <result timeType='medium'>1999 8 14 12:00:01</result>
+   <result timeType='long'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>1999 8 14 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>7, 1999 8 14</result>
+   <result timeType='short'>7, 1999 8 14 12:00</result>
+   <result timeType='medium'>7, 1999 8 14 12:00:01</result>
+   <result timeType='long'>7, 1999 8 14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
@@ -304,21 +304,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2000 Sep 12</result>
-   <result timeType='short'>2000 Sep 12 22:59</result>
-   <result timeType='medium'>2000 Sep 12 22:59:59</result>
-   <result timeType='long'>2000 Sep 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Sep 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2000 Septemba 12</result>
-   <result timeType='short'>2000 Septemba 12 22:59</result>
-   <result timeType='medium'>2000 Septemba 12 22:59:59</result>
-   <result timeType='long'>2000 Septemba 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>2000 Septemba 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumanne, 2000 Septemba 12</result>
-   <result timeType='short'>Jumanne, 2000 Septemba 12 22:59</result>
-   <result timeType='medium'>Jumanne, 2000 Septemba 12 22:59:59</result>
-   <result timeType='long'>Jumanne, 2000 Septemba 12 22:59:59 GMT+00:00</result>
-   <result timeType='full'>Jumanne, 2000 Septemba 12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2000 9 12</result>
+   <result timeType='short'>2000 9 12 22:59</result>
+   <result timeType='medium'>2000 9 12 22:59:59</result>
+   <result timeType='long'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2000 9 12</result>
+   <result timeType='short'>2000 9 12 22:59</result>
+   <result timeType='medium'>2000 9 12 22:59:59</result>
+   <result timeType='long'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>2000 9 12 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>3, 2000 9 12</result>
+   <result timeType='short'>3, 2000 9 12 22:59</result>
+   <result timeType='medium'>3, 2000 9 12 22:59:59</result>
+   <result timeType='long'>3, 2000 9 12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
@@ -333,21 +333,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2001 Okt 8</result>
-   <result timeType='short'>2001 Okt 8 23:00</result>
-   <result timeType='medium'>2001 Okt 8 23:00:00</result>
-   <result timeType='long'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2001 Oktoba 8</result>
-   <result timeType='short'>2001 Oktoba 8 23:00</result>
-   <result timeType='medium'>2001 Oktoba 8 23:00:00</result>
-   <result timeType='long'>2001 Oktoba 8 23:00:00 GMT+00:00</result>
-   <result timeType='full'>2001 Oktoba 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumatatu, 2001 Oktoba 08</result>
-   <result timeType='short'>Jumatatu, 2001 Oktoba 08 23:00</result>
-   <result timeType='medium'>Jumatatu, 2001 Oktoba 08 23:00:00</result>
-   <result timeType='long'>Jumatatu, 2001 Oktoba 08 23:00:00 GMT+00:00</result>
-   <result timeType='full'>Jumatatu, 2001 Oktoba 08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2001 10 8</result>
+   <result timeType='short'>2001 10 8 23:00</result>
+   <result timeType='medium'>2001 10 8 23:00:00</result>
+   <result timeType='long'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2001 10 8</result>
+   <result timeType='short'>2001 10 8 23:00</result>
+   <result timeType='medium'>2001 10 8 23:00:00</result>
+   <result timeType='long'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2001 10 8 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>2, 2001 10 08</result>
+   <result timeType='short'>2, 2001 10 08 23:00</result>
+   <result timeType='medium'>2, 2001 10 08 23:00:00</result>
+   <result timeType='long'>2, 2001 10 08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
@@ -362,21 +362,21 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2004 Nov 4</result>
-   <result timeType='short'>2004 Nov 4 23:00</result>
-   <result timeType='medium'>2004 Nov 4 23:00:01</result>
-   <result timeType='long'>2004 Nov 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Nov 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2004 Novemba 4</result>
-   <result timeType='short'>2004 Novemba 4 23:00</result>
-   <result timeType='medium'>2004 Novemba 4 23:00:01</result>
-   <result timeType='long'>2004 Novemba 4 23:00:01 GMT+00:00</result>
-   <result timeType='full'>2004 Novemba 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Alhamisi, 2004 Novemba 04</result>
-   <result timeType='short'>Alhamisi, 2004 Novemba 04 23:00</result>
-   <result timeType='medium'>Alhamisi, 2004 Novemba 04 23:00:01</result>
-   <result timeType='long'>Alhamisi, 2004 Novemba 04 23:00:01 GMT+00:00</result>
-   <result timeType='full'>Alhamisi, 2004 Novemba 04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2004 11 4</result>
+   <result timeType='short'>2004 11 4 23:00</result>
+   <result timeType='medium'>2004 11 4 23:00:01</result>
+   <result timeType='long'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2004 11 4</result>
+   <result timeType='short'>2004 11 4 23:00</result>
+   <result timeType='medium'>2004 11 4 23:00:01</result>
+   <result timeType='long'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result timeType='full'>2004 11 4 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>5, 2004 11 04</result>
+   <result timeType='short'>5, 2004 11 04 23:00</result>
+   <result timeType='medium'>5, 2004 11 04 23:00:01</result>
+   <result timeType='long'>5, 2004 11 04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
@@ -391,61 +391,61 @@ locales='sw sw_KE sw_TZ'>
    <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2010 Des 1</result>
-   <result timeType='short'>2010 Des 1 23:59</result>
-   <result timeType='medium'>2010 Des 1 23:59:59</result>
-   <result timeType='long'>2010 Des 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Des 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none'>2010 Desemba 1</result>
-   <result timeType='short'>2010 Desemba 1 23:59</result>
-   <result timeType='medium'>2010 Desemba 1 23:59:59</result>
-   <result timeType='long'>2010 Desemba 1 23:59:59 GMT+00:00</result>
-   <result timeType='full'>2010 Desemba 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none'>Jumatano, 2010 Desemba 01</result>
-   <result timeType='short'>Jumatano, 2010 Desemba 01 23:59</result>
-   <result timeType='medium'>Jumatano, 2010 Desemba 01 23:59:59</result>
-   <result timeType='long'>Jumatano, 2010 Desemba 01 23:59:59 GMT+00:00</result>
-   <result timeType='full'>Jumatano, 2010 Desemba 01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed approved'>2010 12 1</result>
+   <result timeType='short'>2010 12 1 23:59</result>
+   <result timeType='medium'>2010 12 1 23:59:59</result>
+   <result timeType='long'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>2010 12 1</result>
+   <result timeType='short'>2010 12 1 23:59</result>
+   <result timeType='medium'>2010 12 1 23:59:59</result>
+   <result timeType='long'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result timeType='full'>2010 12 1 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>4, 2010 12 01</result>
+   <result timeType='short'>4, 2010 12 01 23:59</result>
+   <result timeType='medium'>4, 2010 12 01 23:59:59</result>
+   <result timeType='long'>4, 2010 12 01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+locales='my my_MM'>
+<!-- Burmese [Burmese]; Burmese (Myanmar) [Burmese (Myanmar)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Muungano wa Nchi za Amerika (Los Angeles)</result>
-   <result field='vvvv'>Muungano wa Nchi za Amerika (Los Angeles)</result>
+   <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Muungano wa Nchi za Amerika (Los Angeles)</result>
-   <result field='vvvv'>Muungano wa Nchi za Amerika (Los Angeles)</result>
+   <result field='v' parse='America/Los_Angeles'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Ajentina (Buenos Aires)</result>
-   <result field='vvvv'>Ajentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Ajentina (Buenos Aires)</result>
-   <result field='vvvv'>Ajentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Ajentina (Buenos Aires)</result>
-   <result field='vvvv'>Ajentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Ajentina (Buenos Aires)</result>
-   <result field='vvvv'>Ajentina (Buenos Aires)</result>
+   <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
@@ -486,26 +486,26 @@ locales='sw sw_KE sw_TZ'>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Uingereza</result>
-   <result field='vvvv'>Uingereza</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Uingereza</result>
-   <result field='vvvv'>Uingereza</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Urusi (Moscow)</result>
-   <result field='vvvv'>Urusi (Moscow)</result>
+   <result field='v' parse='Europe/Moscow'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Urusi (Moscow)</result>
-   <result field='vvvv'>Urusi (Moscow)</result>
+   <result field='v' parse='Europe/Moscow'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
@@ -520,8 +520,8 @@ locales='sw sw_KE sw_TZ'>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
-locales='sw sw_KE sw_TZ'>
-<!-- Swahili [Kiswahili]; Swahili (Kenya) [Kiswahili (Kenya)]; Swahili (Tanzania) [Kiswahili (Tanzania)] -->
+locales='my my_MM'>
+<!-- Burmese [Burmese]; Burmese (Myanmar) [Burmese (Myanmar)] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -538,222 +538,129 @@ x12x
 x2
 X2
 x2x
-xa
-xA
-Xa
-XA
-xax
-xAx
-xb
-xB
-Xb
-XB
-xbx
-xBx
-xc
-xC
-Xc
-XC
-xcx
-xCx
-xd
-xD
-Xd
-XD
-xdh
-xdH
-xDh
-xDH
-Xdh
-XdH
-XDh
-XDH
-xdhx
-xdHx
-xDhx
-xDHx
-xdx
-xDx
-xe
-xE
-Xe
-XE
-xex
-xEx
-xf
-xF
-Xf
-XF
-xfx
-xFx
-xg
-xG
-Xg
-XG
-xgx
-xGx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xi
-xI
-Xi
-XI
-xix
-xIx
-xj
-xJ
-Xj
-XJ
-xjx
-xJx
-xk
-xK
-Xk
-XK
-xkx
-xKx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xn
-xN
-Xn
-XN
-xng
-xnG
-xNg
-xNG
-Xng
-XnG
-XNg
-XNG
-xng&amp;apos;
-xnG&amp;apos;
-xNg&amp;apos;
-xNG&amp;apos;
-Xng&amp;apos;
-XnG&amp;apos;
-XNg&amp;apos;
-XNG&amp;apos;
-xng&amp;apos;x
-xnG&amp;apos;x
-xNg&amp;apos;x
-xNG&amp;apos;x
-xngx
-xnGx
-xNgx
-xNGx
-xnx
-xNx
-xny
-xnY
-xNy
-xNY
-Xny
-XnY
-XNy
-XNY
-xnyx
-xnYx
-xNyx
-xNYx
-xo
-xO
-Xo
-XO
-xox
-xOx
-xp
-xP
-Xp
-XP
-xpx
-xPx
-xr
-xR
-Xr
-XR
-xrx
-xRx
-xs
-xS
-Xs
-XS
-xsh
-xsH
-xSh
-xSH
-Xsh
-XsH
-XSh
-XSH
-xshx
-xsHx
-xShx
-xSHx
-xsx
-xSx
-xt
-xT
-Xt
-XT
-xth
-xtH
-xTh
-xTH
-Xth
-XtH
-XTh
-XTH
-xthx
-xtHx
-xThx
-xTHx
-xtx
-xTx
-xu
-xU
-Xu
-XU
-xux
-xUx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-xw
-xW
-Xw
-XW
-xwx
-xWx
-xy
-xY
-Xy
-XY
-xyx
-xYx
-xz
-xZ
-Xz
-XZ
-xzx
-xZx
+xက
+Xက
+xကx
+xခ
+Xခ
+xခx
+xဂ
+Xဂ
+xဂx
+xဃ
+Xဃ
+xဃx
+xင
+Xင
+xငx
+xစ
+Xစ
+xစx
+xဆ
+Xဆ
+xဆx
+xဇ
+Xဇ
+xဇx
+xဈ
+Xဈ
+xဈx
+xဉ
+Xဉ
+xဉx
+xည
+Xည
+xညx
+xဋ
+Xဋ
+xဋx
+xဌ
+Xဌ
+xဌx
+xဍ
+Xဍ
+xဍx
+xဎ
+Xဎ
+xဎx
+xဏ
+Xဏ
+xဏx
+xတ
+Xတ
+xတx
+xထ
+Xထ
+xထx
+xဒ
+Xဒ
+xဒx
+xဓ
+Xဓ
+xဓx
+xန
+Xန
+xနx
+xပ
+Xပ
+xပx
+xဖ
+Xဖ
+xဖx
+xဗ
+Xဗ
+xဗx
+xဘ
+Xဘ
+xဘx
+xမ
+Xမ
+xမx
+xယ
+Xယ
+xယx
+xရ
+Xရ
+xရx
+xလ
+Xလ
+xလx
+xဝ
+Xဝ
+xဝx
+xသ
+Xသ
+xသx
+xဟ
+Xဟ
+xဟx
+xဠ
+Xဠ
+xဠx
+xအ
+Xအ
+xအx
+xဣ
+Xဣ
+xဣx
+xဤ
+Xဤ
+xဤx
+xဥ
+Xဥ
+xဥx
+xဦ
+Xဦ
+xဦx
+xဧ
+Xဧ
+xဧx
+xဩ
+Xဩ
+xဩx
+xဪ
+Xဪ
+xဪx
 </result>
   </collation>
  </cldrTest>

@@ -163,7 +163,7 @@
 			<comment># separator between the first and second &quot;x&quot; if XXf, Xf, and Xi all</comment>
 			<comment># exist, and we have A Xf XXi.  This prevents the reverse</comment>
 			<comment># transliteration to A XXf Xi.</comment>
-			<tRule>$sep ← $latinMedialEnd g {} $GGi;</tRule>
+			<!-- <tRule>$sep ← $latinMedialEnd g {} $GGi;</tRule> -->
 			<tRule>$sep ← $latinMedialEnd s {} $SSi;</tRule>
 			<comment># For vowels the rule is similar.  If there is a vowel &quot;ae&quot; such that</comment>
 			<comment># &quot;a&quot; by itself and &quot;e&quot; by itself are vowels, then we want to map A E</comment>
@@ -231,10 +231,10 @@
 			<comment># &quot;xy-y&quot;.</comment>
 			<tRule>$sep ← $latinMedialEnd b s {} [$Si $SSi];</tRule>
 			<tRule>$sep ← $latinMedialEnd g s {} [$Si $SSi];</tRule>
-			<tRule>$sep ← $latinMedialEnd l b {} [$Bi $BB];</tRule>
-			<tRule>$sep ← $latinMedialEnd l g {} [$Gi $GGi];</tRule>
+			<tRule>$sep ← $latinMedialEnd l b {} [$Bi];</tRule>
+			<tRule>$sep ← $latinMedialEnd l g {} [$Gi];</tRule>
 			<tRule>$sep ← $latinMedialEnd l s {} [$Si $SSi];</tRule>
-			<tRule>$sep ← $latinMedialEnd n g {} [$Gi $GGi];</tRule>
+			<tRule>$sep ← $latinMedialEnd n g {} [$Gi];</tRule>
 			<tRule>$sep ← $latinMedialEnd n j {} [$Ji $JJ];</tRule>
 			<comment># Deletion of IEUNG is handled below.</comment>
 			<comment>#----------------------------------------------------------------------</comment>
@@ -263,7 +263,7 @@
 			<comment># can be an initial or a final, and 'a' and 'e' are medials, we want</comment>
 			<comment># to transliterate as A Xi E rather than A Xf IEUNG E.</comment>
 			<tRule>$jamoMedial {b} $latinMedial → $Bi;</tRule>
-			<tRule>$jamoMedial {c} $latinMedial → $Ci;</tRule>
+			<tRule>$jamoMedial {ch} $latinMedial → $Ci;</tRule>
 			<tRule>$jamoMedial {d} $latinMedial → $Di;</tRule>
 			<tRule>$jamoMedial {g} $latinMedial → $Gi;</tRule>
 			<tRule>$jamoMedial {h} $latinMedial → $Hi;</tRule>
@@ -277,10 +277,10 @@
 			<comment># Doubled initials.  The sequence &quot;axxe&quot;, where XX exists as an initial</comment>
 			<comment># (XXi), and also Xi and Xf exist (true of all digraphs XX), we want</comment>
 			<comment># to transliterate as A XXi E, rather than split to A Xf Xi E.</comment>
-			<tRule>$jamoMedial {b b} $latinMedial → $BB;</tRule>
-			<tRule>$jamoMedial {d d} $latinMedial → $DD;</tRule>
+			<tRule>$jamoMedial {pp} $latinMedial → $BB;</tRule>
+			<tRule>$jamoMedial {t t} $latinMedial → $DD;</tRule>
 			<tRule>$jamoMedial {j j} $latinMedial → $JJ;</tRule>
-			<tRule>$jamoMedial {g g} $latinMedial → $GGi;</tRule>
+			<tRule>$jamoMedial {k k} $latinMedial → $GGi;</tRule>
 			<tRule>$jamoMedial {s s} $latinMedial → $SSi;</tRule>
 			<comment># XYY.  Because doubled consonants bind more strongly than XY</comment>
 			<comment># consonants, we must handle the sequence &quot;axyy&quot; specially.  Here XYf</comment>
@@ -330,20 +330,20 @@
 			<comment># they start with, e.g., the rule for 'gg' must precede 'g'.</comment>
 			<comment># [BASIC Jamo-Latin INITIALS handled here.  Order irrelevant within</comment>
 			<comment># this block for Jamo-Latin.]</comment>
-			<tRule>{gg} $latinMedial ↔ $GGi;</tRule>
+			<tRule>{kk} $latinMedial ↔ $GGi;</tRule>
 			<tRule>{g} $latinMedial ↔ $Gi;</tRule>
 			<tRule>{n} $latinMedial ↔ $Ni;</tRule>
-			<tRule>{dd} $latinMedial ↔ $DD;</tRule>
+			<tRule>{tt} $latinMedial ↔ $DD;</tRule>
 			<tRule>{d} $latinMedial ↔ $Di;</tRule>
-			<tRule>{r} $latinMedial ↔ $R;</tRule>
+			<tRule>{l} $latinMedial ↔ $R;</tRule>
 			<tRule>{m} $latinMedial ↔ $Mi;</tRule>
-			<tRule>{bb} $latinMedial ↔ $BB;</tRule>
+			<tRule>{pp} $latinMedial ↔ $BB;</tRule>
 			<tRule>{b} $latinMedial ↔ $Bi;</tRule>
 			<tRule>{ss} $latinMedial ↔ $SSi;</tRule>
 			<tRule>{s} $latinMedial ↔ $Si;</tRule>
 			<tRule>{jj} $latinMedial ↔ $JJ;</tRule>
 			<tRule>{j} $latinMedial ↔ $Ji;</tRule>
-			<tRule>{c} $latinMedial ↔ $Ci;</tRule>
+			<tRule>{ch} $latinMedial ↔ $Ci;</tRule>
 			<tRule>{k} $latinMedial ↔ $Ki;</tRule>
 			<tRule>{t} $latinMedial ↔ $Ti;</tRule>
 			<tRule>{p} $latinMedial ↔ $Pi;</tRule>
@@ -365,9 +365,9 @@
 			<comment># initials explicitly here; for single initial consonants we insert EU</comment>
 			<comment># (as Latin) after them and let standard rules do the rest.</comment>
 			<comment># BREAKS ROUND TRIP INTEGRITY</comment>
-			<tRule>gg → $GGi $EU;</tRule>
-			<tRule>dd → $DD $EU;</tRule>
-			<tRule>bb → $BB $EU;</tRule>
+			<tRule>kk → $GGi $EU;</tRule>
+			<tRule>tt → $DD $EU;</tRule>
+			<tRule>pp → $BB $EU;</tRule>
 			<tRule>ss → $SSi $EU;</tRule>
 			<tRule>jj → $JJ $EU;</tRule>
 			<tRule>([bcdghjkmnprst]) → | $1 eu;</tRule>
@@ -398,14 +398,14 @@
 			<tRule>$jamoInitial {u} ↔ $U;</tRule>
 			<tRule>$jamoInitial {wae} ↔ $WAE;</tRule>
 			<tRule>$jamoInitial {wa} ↔ $WA;</tRule>
-			<tRule>$jamoInitial {weo} ↔ $WEO;</tRule>
+			<tRule>$jamoInitial {wo} ↔ $WEO;</tRule>
 			<tRule>$jamoInitial {we} ↔ $WE;</tRule>
 			<tRule>$jamoInitial {wi} ↔ $WI;</tRule>
 			<tRule>$jamoInitial {yae} ↔ $YAE;</tRule>
 			<tRule>$jamoInitial {ya} ↔ $YA;</tRule>
 			<tRule>$jamoInitial {yeo} ↔ $YEO;</tRule>
 			<tRule>$jamoInitial {ye} ↔ $YE;</tRule>
-			<tRule>$jamoInitial {yi} ↔ $YI;</tRule>
+			<tRule>$jamoInitial {ui} ↔ $YI;</tRule>
 			<tRule>$jamoInitial {yo} ↔ $YO;</tRule>
 			<tRule>$jamoInitial {yu} ↔ $YU;</tRule>
 			<comment># We may see an anomalous isolated 'w' or 'y'.  In that case, we</comment>

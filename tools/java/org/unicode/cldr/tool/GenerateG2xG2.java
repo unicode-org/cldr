@@ -197,7 +197,7 @@ public class GenerateG2xG2 {
 				String territory = (String) it.next();
 				if (territory.charAt(0) < 'A') continue;
 				String locale = "haw-" + territory;
-				System.out.print(locale + ": " + english.getName(locale, false) + ", ");
+				System.out.print(locale + ": " + english.getName(locale) + ", ");
 			}
 			if (true) return true;
 		}
@@ -209,7 +209,7 @@ public class GenerateG2xG2 {
 			english = cldrFactory.make("en", false);
 			for (Iterator it = testSet.iterator(); it.hasNext();) {
 				String country = (String)it.next();
-				System.out.println(country + "\t" + english.getName(CLDRFile.CURRENCY_NAME, country, false));
+				System.out.println(country + "\t" + english.getName(CLDRFile.CURRENCY_NAME, country));
 			}
 			return true;
 		} else if (choice == 0) { // get available
@@ -302,8 +302,8 @@ private static void showExample(RuleBasedCollator col) {
 				t.missingCount++;
 				pw.println(priorityMap.get(sourceLocale)
 						+ "\t" + sourceLocale + 
-						"\t(" + english.getName(sourceLocale, false) + ": "
-						+ sourceData.getName(sourceLocale, false) + ")" 
+						"\t(" + english.getName(sourceLocale) + ": "
+						+ sourceData.getName(sourceLocale) + ")" 
 						+ "\t" + priorityMap.get(item)
 						+ "\t" + item 
 						+ "\t(" + getItemName(english, type, item) + ")");
@@ -337,9 +337,9 @@ private static void showExample(RuleBasedCollator col) {
 	private static String getItemName(CLDRFile data, int type, String item) {
 		String result;
 		if (type == data.LANGUAGE_NAME) {
-			result = data.getName(item, false);
+			result = data.getName(item);
 		} else if (type != data.TZ_EXEMPLAR) {
-			result = data.getName(type, item, false);
+			result = data.getName(type, item);
 		} else {
 			String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + item + "\"]/exemplarCity";
 			result = data.getStringValue(prefix);

@@ -103,7 +103,7 @@ public class TestMisc {
         rel.add(new Pair(vote, desiredLocale));
       }
       for (Pair<Integer,String> p : rel) {
-        System.out.println(p + "\t" + english.getName(p.getSecond(), false));
+        System.out.println(p + "\t" + english.getName(p.getSecond()));
       }
     }
 

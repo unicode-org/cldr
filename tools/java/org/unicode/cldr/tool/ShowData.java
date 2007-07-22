@@ -342,15 +342,15 @@ public class ShowData {
             System.out.println(locale);
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting()) continue;
-            String localeName = file.getName(locale, false);
+            String localeName = file.getName(locale);
             getScripts(localeName,scripts);
             if (!scripts.contains("Latn")) {
-                out.println(locale + "\t" + english.getName(locale, false) + "\t" + localeName);
+                out.println(locale + "\t" + english.getName(locale) + "\t" + localeName);
             }
             for (Iterator it2 = UnicodeScripts.iterator(); it2.hasNext();) {
                 String script = (String) it2.next();
                 if (script.equals("Latn")) continue;
-                String name = file.getName(CLDRFile.SCRIPT_NAME, script, false);
+                String name = file.getName(CLDRFile.SCRIPT_NAME, script);
                 if (getScripts(name, scripts).contains(script)) {
                     Map names_locales = (Map) script_name_locales.get(script);
                     if (names_locales == null) script_name_locales.put(script, names_locales = new TreeMap());
@@ -363,7 +363,7 @@ public class ShowData {
         for (Iterator it2 = UnicodeScripts.iterator(); it2.hasNext();) {
             String script = (String) it2.next();
             Object names = script_name_locales.get(script);
-            out.println(script + "\t(" + english.getName(CLDRFile.SCRIPT_NAME, script, false) +  ")\t" + names);
+            out.println(script + "\t(" + english.getName(CLDRFile.SCRIPT_NAME, script) +  ")\t" + names);
         }
         out.close();
     }
@@ -513,7 +513,7 @@ public class ShowData {
 	}
 
 	private static String getName(String locale) {
-		String name = english.getName(locale, false);
+		String name = english.getName(locale);
 		return locale + " [" + name + "]";
 	}
     

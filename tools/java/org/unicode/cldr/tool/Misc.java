@@ -266,7 +266,7 @@ public class Misc {
 				String replacementCode = (String) list.get(2);
 				if (replacementCode.length() == 0) continue;
 				System.out.println(code + " => " + replacementCode + "; " 
-						+ english.getName(type, replacementCode, true));
+						+ english.getName(type, replacementCode));
 			}
 		}
 	}
@@ -330,7 +330,7 @@ public class Misc {
         // do the header
         for (Iterator it2 = priorities.iterator(); it2.hasNext();) {
             String locale = (String) it2.next();
-            String englishLocaleName = english.getName(locale,false);
+            String englishLocaleName = english.getName(locale);
             out.println("<th>" + locale + " (" + englishLocaleName + ")" + "</th>");
         }
         
@@ -348,7 +348,7 @@ public class Misc {
                 out.println("<th>" + (++count) + "</th>");
                 out.println("<th>" + zone + "</th>");
                 String country = (String) zone_country.get(zone);
-                String countryName = english.getName(english.TERRITORY_NAME,country,false);
+                String countryName = english.getName(english.TERRITORY_NAME,country);
                 out.println("<td>" + country + " (" + countryName + ")" + "</td>");
                 TimeZone tzone = TimeZone.getTimeZone(zone);
                 out.println("<td>" + offsetString(tzone) + "</td>");
@@ -437,7 +437,7 @@ public class Misc {
 			String zone = (String)it.next();
 			new_old.put(zone, new TreeSet(col));
 			String country = (String) zone_countries.get(zone);
-			String name = english.getName("territory", country, false) + " (" + country + ")";
+			String name = english.getName("territory", country) + " (" + country + ")";
 			Set oldSet = (Set) country_zones.get(name);
 			if (oldSet == null) country_zones.put(name, oldSet = new TreeSet(col));
 			oldSet.add(zone);
@@ -634,7 +634,7 @@ public class Misc {
 		for (Iterator it = zone_countries.keySet().iterator(); it.hasNext();) {
 			String zoneID = (String) it.next();
 			String country = (String) zone_countries.get(zoneID);
-			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
+			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country);
 			if (countryName == null) countryName = UTF16.valueOf(0x10FFFD) + country;
 			reordered.put(countryName + "0" + zoneID, zoneID);
 		}
@@ -646,7 +646,7 @@ public class Misc {
 			String key = (String) it.next();
 			String zoneID = (String) reordered.get(key);
 			String country = (String) zone_countries.get(zoneID);
-			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
+			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country);
 			if (countryName == null) countryName = country;
 			log.println("<tr><th class='ID' colspan=\"4\"><table><tr><th class='I'>"
 					+ (++count) + "</th><th class='T'>" + TransliteratorUtilities.toHTML.transliterate(countryName)
@@ -1266,7 +1266,7 @@ public class Misc {
 		
 		PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale + "_timezonelist.xml");
 		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).cloneAsThawed();
-		desiredLocaleFile.removeDuplicates(resolvedRoot, false, false);
+		desiredLocaleFile.removeDuplicates(resolvedRoot, false, false, null);
 		
 		CLDRFile english = cldrFactory.make("en", true);
 		Collator col = Collator.getInstance(new ULocale(locale));
@@ -1303,7 +1303,7 @@ public class Misc {
 					else System.out.print(" ");
 					System.out.print(fixNumericKey((String)it2.next()));
 				}
-				System.out.println("\"> <!--" + desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, type, false) + " -->");
+				System.out.println("\"> <!--" + desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, type) + " -->");
 			}
 		}
 		Set seen = new TreeSet();
@@ -1348,7 +1348,7 @@ public class Misc {
 			for (Iterator it = missing[0].iterator(); it.hasNext();) {
 				String key = (String)it.next();
 				log2.println("\t<territory type=\"" + key + "\" draft=\"unconfirmed\">"+ 
-						TransliteratorUtilities.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key, false))
+						TransliteratorUtilities.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key))
 						+ "</territory>");
 			}
 			log2.println("</territories></localeDisplayNames>");
@@ -1365,7 +1365,7 @@ public class Misc {
 				String key = (String)it.next();
 				List data = (List) StandardCodes.make().getZoneData().get(key);
 				String countryCode = (String)data.get(2);
-				String country = english.getName(CLDRFile.TERRITORY_NAME, countryCode, false);
+				String country = english.getName(CLDRFile.TERRITORY_NAME, countryCode);
 				if (!country.equals(lastCountry)) {
 					lastCountry = country;
 					log2.println("\t<!-- " + country + "-->");
@@ -1444,7 +1444,7 @@ public class Misc {
 				name = name.replace('_', ' ');
 			}
 		} else {
-			name = localization.getName(CLDRFile.TERRITORY_NAME, key, false);
+			name = localization.getName(CLDRFile.TERRITORY_NAME, key);
 			if (name == null) {
 				if (missing != null) missing[0].add(key);
 				name = key;

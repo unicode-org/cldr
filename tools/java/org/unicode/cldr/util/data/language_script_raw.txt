@@ -6,9 +6,8 @@ ace	Achinese	primary	Latn	Latin
 ady	Adyghe	primary	Cyrl	Cyrillic	
 af	Afrikaans	primary	Latn	Latin	
 aii	Assyrian Neo-Aramaic	primary	Cyrl	Cyrillic	
-aii	Assyrian Neo-Aramaic	primary	Syrc	Syriac	
-ain	Ainu	primary	Kana	Katakana	
-ain	Ainu	primary	Latn	Latin	
+aii	Assyrian Neo-Aramaic	secondary	Syrc	Syriac	
+ain	Ainu	secondary	Kana Latn	"Katakana, Latin"	
 ak	Akan	primary	Latn	Latin	
 akk	Akkadian	secondary	Xsux	Sumero-Akkadian Cuneiform	
 am	Amharic	primary	Ethi	Ethiopic	
@@ -25,44 +24,44 @@ az	Azerbaijani	primary	Latn	Latin
 ba	Bashkir	primary	Cyrl	Cyrillic	
 bal	Baluchi	primary	Arab	Arabic	
 bal	Baluchi	primary	Latn	Latin	
-ban	Balinese	secondary	Bali	Balinese	
 ban	Balinese	primary	Latn	Latin	
-bbc	Batak Toba	secondary	Batk	Batak	
+ban	Balinese	secondary	Bali	Balinese	
 bbc	Batak Toba	primary	Latn	Latin	
+bbc	Batak Toba	secondary	Batk	Batak	
 be	Belarusian	primary	Cyrl	Cyrillic	
-bem	Bemba	primary	Latn	Latin
-bfq	Badaga	primary	Taml	Tamil
-bft	Balti	primary	Deva	Devanagari
-bfy	Bagheli	primary	Deva	Devanagari
-bg	Bulgarian	primary	Cyrl	Cyrillic
-bh	Bihari	secondary	Deva	Devanagari
-bhb	Bhili	primary	Deva	Devanagari
-bho	Bhojpuri	primary	Deva	Devanagari
-bi	Bislama	primary	Latn	Latin
-bin	Bini	primary	Latn	Latin
-bjj	Kanauji	primary	Deva	Devanagari
-bku	Buhid	primary	Buhd	Buhid
-bm	Bambara	primary	Latn	Latin
-bn	Bengali	primary	Beng	Bengali
-bo	Tibetan	primary	Tibt	Tibetan
-br	Breton	primary	Latn	Latin
+bem	Bemba	primary	Latn	Latin	
+bfq	Badaga	primary	Taml	Tamil	
+bft	Balti	primary	Deva	Devanagari	
+bfy	Bagheli	primary	Deva	Devanagari	
+bg	Bulgarian	primary	Cyrl	Cyrillic	
+bh	Bihari	secondary	Deva	Devanagari	
+bhb	Bhili	primary	Deva	Devanagari	
+bho	Bhojpuri	primary	Deva	Devanagari	
+bi	Bislama	primary	Latn	Latin	
+bin	Bini	primary	Latn	Latin	
+bjj	Kanauji	primary	Deva	Devanagari	
+bku	Buhid	primary	Buhd	Buhid	
+bm	Bambara	primary	Latn	Latin	
+bn	Bengali	primary	Beng	Bengali	
+bo	Tibetan	primary	Tibt	Tibetan	
+br	Breton	primary	Latn	Latin	
 bra	Braj	primary	Deva	Devanagari	http://www.ethnologue.com/14/show_lang_family.asp?code=BFS (Braj = Bhasha)
-bs	Bosnian	primary	Latn	Latin	
-btv	Bateri	primary	Deva	Devanagari	
-buc	Bushi	primary	Latn	Latin	
-bug	Buginese	secondary	Bugi	Buginese	
-bug	Buginese	primary	Latn	Latin	
-bxr	Russia Buriat	primary	Cyrl	Cyrillic	
-bya	Batak	secondary	Batk	Batak	
-bya	Batak	primary	Latn	Latin	
-byn	Blin	primary	Ethi	Ethiopic	
-ca	Catalan	primary	Latn	Latin	
-cch	Atsam	primary	Latn	Latin	
-ccp	Chakma	primary	Beng	Bengali	
-ce	Chechen	primary	Cyrl	Cyrillic	
-ceb	Cebuano	primary	Latn	Latin	
-ch	Chamorro	primary	Latn	Latin	
-chk	Chuukese	primary	Latn	Latin	
+bs	Bosnian	primary	Latn	Latin
+btv	Bateri	primary	Deva	Devanagari
+buc	Bushi	primary	Latn	Latin
+bug	Buginese	primary	Latn	Latin
+bug	Buginese	secondary	Bugi	Buginese
+bxr	Russia Buriat	primary	Cyrl	Cyrillic
+bya	Batak	primary	Latn	Latin
+bya	Batak	secondary	Batk	Batak
+byn	Blin	primary	Ethi	Ethiopic
+ca	Catalan	primary	Latn	Latin
+cch	Atsam	primary	Latn	Latin
+ccp	Chakma	primary	Beng	Bengali
+ce	Chechen	primary	Cyrl	Cyrillic
+ceb	Cebuano	primary	Latn	Latin
+ch	Chamorro	primary	Latn	Latin
+chk	Chuukese	primary	Latn	Latin
 chm	Mari	primary	Cyrl	Cyrillic	
 chm	Mari	primary	Latn	Latin	
 chr	Cherokee	primary	Cher	Cherokee	
@@ -76,10 +75,10 @@ ckt	Chukot	primary	Cyrl	Cyrillic	http://www.ethnologue.com/show_language.asp?cod
 co	Corsican	primary	Latn	Latin	
 cop	Coptic	secondary	Arab	Arabic	
 cop	Coptic	secondary	Copt	Coptic	
-cop	Coptic	primary	Grek	Greek	
+cop	Coptic	secondary	Grek	Greek	
 cpe	Other English-based Creoles and Pidgins	secondary	Latn	Latin	
-cr	Cree	primary	Latn	Latin	
 cr	Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	
+cr	Cree	primary	Latn	Latin	
 crk	Plains Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	
 cs	Czech	primary	Latn	Latin	
 cu	Old Church Slavonic	secondary	Glag	Glagolitic	
@@ -133,56 +132,52 @@ gon	Gondi	primary	Deva	Devanagari
 gon	Gondi	primary	Telu	Telugu	
 gor	Gorontalo	primary	Latn	Latin	
 got	Gothic	secondary	Goth	Gothic	
-grc	Greek (Ancient)	secondary	Cprt Linb	"Cypriot, Linear B"	
-grc	Greek (Ancient)	primary	Grek	Greek	
+grc	Greek (Ancient)	secondary	Grek Cprt Linb	"Greek, Cypriot, Linear B"	
 grt	Garo	primary	Beng	Bengali	
-gsc	Gascon	primary	Latn	Latin	
 gsw	Swiss German	primary	Latn	Latin	
 gu	Gujarati	primary	Gujr	Gujarati	
 gv	Manx	secondary	Latn	Latin	
 gwi	Gwich'in	primary	Latn	Latin	
 ha	Hausa	primary	Arab	Arabic	
-ha	Hausa	primary	Latn	Latin
-hai	Haida	primary	Latn	Latin
-haw	Hawaiian	primary	Latn	Latin
+ha	Hausa	primary	Latn	Latin	
+hai	Haida	primary	Latn	Latin	
+haw	Hawaiian	primary	Latn	Latin	
 he	Hebrew	primary	Hebr	Hebrew
 hi	Hindi	primary	Deva	Devanagari
 hil	Hiligaynon	primary	Latn	Latin
 hmn	Hmong	primary	Latn	Latin
 hmn	Hmong	secondary	Hmng	Pahawh Hmong
 hne	Chhattisgarhi	primary	Deva	Devanagari
-hnn	Hanunóo	secondary	Hano	Hanunoo
 hnn	Hanunóo	primary	Latn	Latin
+hnn	Hanunóo	secondary	Hano	Hanunoo
 ho	Hiri Motu	primary	Latn	Latin
 hoc	Ho	primary	Deva	Devanagari
 hoj	Harauti	primary	Deva	Devanagari
 hop	Hopi	primary	Latn	Latin
 hr	Croatian	primary	Latn	Latin
-ht	Haitian	primary	Latn	Latin	
-hu	Hungarian	primary	Latn	Latin	
-hy	Armenian	primary	Armn	Armenian	
+ht	Haitian	primary	Latn	Latin
+hu	Hungarian	primary	Latn	Latin
+hy	Armenian	primary	Armn	Armenian
 ia	Interlingua	secondary	Latn	Latin	
 ibb	Ibibio	primary	Latn	Latin	
-id	Indonesian	secondary	Arab	Arabic	
 id	Indonesian	primary	Latn	Latin	
+id	Indonesian	secondary	Arab	Arabic	
 ig	Igbo	primary	Latn	Latin	
 ii	Sichuan Yi	primary	Latn	Latin	
 ii	Sichuan Yi	primary	Yiii	Yi	
 ik	Inupiaq	primary	Latn	Latin	
 ilo	Iloko	primary	Latn	Latin	http://en.wikipedia.org/wiki/Ilokano_language
-in	Indonesian	primary	Latn	Latin	
-inh	Ingush	secondary	Arab	Arabic	
 inh	Ingush	primary	Cyrl	Cyrillic	
+inh	Ingush	secondary	Arab	Arabic	
 inh	Ingush	secondary	Latn	Latin	
 is	Icelandic	primary	Latn	Latin	
 it	Italian	primary	Latn	Latin	
+iu	Inuktitut	primary	Cans	Unified Canadian Aboriginal Syllabics	
 iu	Inuktitut	secondary	Cyrl	Cyrillic	
 iu	Inuktitut	secondary	Latn	Latin	
-iu	Inuktitut	primary	Cans	Unified Canadian Aboriginal Syllabics	
-iw	Hebrew	primary	Hebr	Hebrew	
 ja	Japanese	primary	Jpan	Jpan	
-jv	Javanese	secondary	Java	Javanese	
 jv	Javanese	primary	Latn	Latin	
+jv	Javanese	secondary	Java	Javanese	
 ka	Georgian	primary	Geor	Georgian	
 kaa	Kara-Kalpak	primary	Cyrl	Cyrillic	
 kab	Kabyle	primary	Latn	Latin	http://www.ethnologue.com/show_language.asp?code=kab
@@ -194,8 +189,8 @@ kcg	Tyap	primary	Latn	Latin
 kdt	Kuy	primary	Thai	Thai	
 kfo	Koro	primary	Latn	Latin	
 kfr	Kachchi	primary	Deva	Devanagari	
-kha	Khasi	secondary	Beng	Bengali	
 kha	Khasi	primary	Latn	Latin	http://en.wikipedia.org/wiki/Khasi_language
+kha	Khasi	secondary	Beng	Bengali	
 khb	Tai Lue	primary	Talu	New Tai Lue	
 kht	Khamti	primary	Mymr	Myanmar	
 ki	Kikuyu	primary	Latn	Latin	
@@ -211,17 +206,17 @@ koi	Komi-Permyak	primary	Cyrl	Cyrillic
 kok	Konkani	primary	Deva	Devanagari	
 kos	Kosraean	primary	Latn	Latin	http://www.kosraelegislature.org/KSL%20Content/Journal/1st%20Regular%20Session/OpeningDay.9thKSL.pdf
 kpe	Kpelle	primary	Latn	Latin	
-kpv	Komi-Zyrian	primary	Cyrl	Cyrillic	
-kpy	Koryak	primary	Cyrl	Cyrillic	
-kr	Kanuri	primary	Latn	Latin	
-krc	Karachay-Balkar	primary	Cyrl	Cyrillic	
-krl	Karelian	primary	Cyrl	Cyrillic	
-krl	Karelian	primary	Latn	Latin	
-kru	Kurukh	primary	Deva	Devanagari	
-ks	Kashmiri	primary	Arab	Arabic	
-ks	Kashmiri	primary	Deva	Devanagari	
-ku	Kurdish	primary	Arab	Arabic	
-ku	Kurdish	primary	Cyrl	Cyrillic	
+kpv	Komi-Zyrian	primary	Cyrl	Cyrillic
+kpy	Koryak	primary	Cyrl	Cyrillic
+kr	Kanuri	primary	Latn	Latin
+krc	Karachay-Balkar	primary	Cyrl	Cyrillic
+krl	Karelian	primary	Cyrl	Cyrillic
+krl	Karelian	primary	Latn	Latin
+kru	Kurukh	primary	Deva	Devanagari
+ks	Kashmiri	primary	Arab	Arabic
+ks	Kashmiri	primary	Deva	Devanagari
+ku	Kurdish	primary	Arab	Arabic
+ku	Kurdish	primary	Cyrl	Cyrillic
 ku	Kurdish	primary	Latn	Latin
 kum	Kumyk	primary	Cyrl	Cyrillic
 kv	Komi	primary	Cyrl	Cyrillic
@@ -249,6 +244,7 @@ lo	Lao	primary	Laoo	Lao
 lol	Mongo-Nkundu	primary	Latn	Latin
 lt	Lithuanian	primary	Latn	Latin
 lu	Luba-Batanga	primary	Latn	Latin
+lua	Luba-Lulua	primary	Latn	Latin
 luo	Luo	primary	Latn	Latin
 lut	Lushootseed	primary	Latn	Latin
 lv	Latvian	primary	Latn	Latin
@@ -258,18 +254,18 @@ mag	Magahi	primary	Deva	Devanagari
 mai	Maithili	primary	Deva	Devanagari
 mak	Makasar	primary	Latn	Latin
 mdf	Moksha	primary	Cyrl	Cyrillic
-mdh	Maguindanao	primary	Latn	Latin
-mdr	Mandar	primary	Bugi	Buginese
-men	Mende	primary	Latn	Latin
-mfe	Morisyen	primary	Latn	Latin
-mg	Malagasy	primary	Latn	Latin
-mh	Marshallese	primary	Latn	Latin
-mi	Maori	primary	Latn	Latin
-min	Minangkabau	primary	Latn	Latin
-mk	Macedonian	primary	Cyrl	Cyrillic
-ml	Malayalam	primary	Mlym	Malayalam
-mn	Mongolian	primary	Cyrl	Cyrillic
-mn	Mongolian	primary	Mong	Mongolian
+mdh	Maguindanao	primary	Latn	Latin	
+mdr	Mandar	secondary	Bugi	Buginese	
+men	Mende	primary	Latn	Latin	
+mfe	Morisyen	primary	Latn	Latin	
+mg	Malagasy	primary	Latn	Latin	
+mh	Marshallese	primary	Latn	Latin	
+mi	Maori	primary	Latn	Latin	
+min	Minangkabau	primary	Latn	Latin	
+mk	Macedonian	primary	Cyrl	Cyrillic	
+ml	Malayalam	primary	Mlym	Malayalam	
+mn	Mongolian	primary	Cyrl	Cyrillic	
+mn	Mongolian	primary	Mong	Mongolian	
 mn	Mongolian	secondary	Phag	Phags-pa	
 mnc	Manchu	primary	Mong	Mongolian	
 mni	Manipuri	primary	Beng	Bengali	
@@ -278,17 +274,18 @@ mnw	Mon	primary	Mymr	Myanmar
 mo	Moldavian	primary	Latn	Latin	
 mos	Mossi	primary	Latn	Latin	
 mr	Marathi	primary	Deva	Devanagari	
-ms	Malay	secondary	Arab	Arabic	
 ms	Malay	primary	Latn	Latin	
+ms	Malay	secondary	Arab	Arabic	
 mt	Maltese	primary	Latn	Latin	
 muw	Mundari	primary	Beng	Bengali	
 muw	Mundari	primary	Deva	Devanagari	
 mwr	Marwari	primary	Deva	Devanagari	
 my	Burmese	primary	Mymr	Myanmar	
 myv	Erzya	primary	Cyrl	Cyrillic	http://www.ethnologue.com/show_language.asp?code=myv = Mordvin
-na	Nauru	primary	Latn	Latin
-nb	Norwegian BokmÃ¥l	primary	Latn	Latin
-nbf	Naxi	primary	Latn	Latin
+na	Nauru	primary	Latn	Latin	
+nap	Neapolitan	primary	Latn	Latin	
+nb	Norwegian Bokmäl	primary	Latn	Latin	
+nbf	Naxi	primary	Latn	Latin	
 nd	North Ndebele	primary	Latn	Latin
 ne	Nepali	primary	Deva	Devanagari
 new	Newari	primary	Deva	Devanagari
@@ -302,18 +299,18 @@ nqo	N'Ko	primary	Nkoo	N'Ko
 nr	South Ndebele	primary	Latn	Latin
 nso	Northern Sotho	primary	Latn	Latin
 nv	Navajo	primary	Latn	Latin
-ny	Nyanja; Chichewa; Chewa	primary	Latn	Latin	
-nym	Nyamwezi	primary	Latn	Latin	
-nyn	Nyankole	primary	Latn	Latin	
-oc	Occitan (post 1500); Provençal	primary	Latn	Latin	
-om	Oromo	secondary	Ethi	Ethiopic	
+ny	Nyanja; Chichewa; Chewa	primary	Latn	Latin
+nym	Nyamwezi	primary	Latn	Latin
+nyn	Nyankole	primary	Latn	Latin
+oc	Occitan (post 1500); Provençal	primary	Latn	Latin	"(Includes former Gascon, gsc)"
 om	Oromo	primary	Latn	Latin	
+om	Oromo	secondary	Ethi	Ethiopic	
 or	Oriya	primary	Orya	Oriya	
 os	Ossetic	primary	Cyrl	Cyrillic	
 os	Ossetic	primary	Latn	Latin	
 osc	Oscan	secondary	Latn Ital	"Latin, Old Italic"	
-pa	Punjabi	secondary	Arab	Arabic	
 pa	Punjabi	primary	Guru	Gurmukhi	
+pa	Punjabi	secondary	Arab	Arabic	
 pag	Pangasinan	primary	Latn	Latin	http://en.wikipedia.org/wiki/Pangasinan_language
 pam	Pampangan	primary	Latn	Latin	
 pap	Papiamento	primary	Latn	Latin	http://www.geographia.com/bonaire/bonpap01.htm
@@ -327,38 +324,38 @@ pl	Polish	primary	Latn	Latin
 pon	Pohnpeian	primary	Latn	Latin	http://en.wikipedia.org/wiki/Pohnpei
 pra	Prakrit	secondary	Khar	Kharoshthi	
 prd	Parsi-Dari	primary	Arab	Arabic	
-prg	Prussian	primary	Latn	Latin	
+prg	Prussian	secondary	Latn	Latin	
 ps	Pashto	primary	Arab	Arabic	
 pt	Portuguese	primary	Latn	Latin	
 qu	Quechua	primary	Latn	Latin	
 rcf	Réunion Creole French	primary	Latn	Latin	
 ril	Riang (Myanmar)	primary	Beng	Bengali	
 rm	Rhaeto-Romance	primary	Latn	Latin	
-rn	Rundi	primary	Latn	Latin
-ro	Romanian	secondary	Cyrl	Cyrillic
-ro	Romanian	primary	Latn	Latin
+rn	Rundi	primary	Latn	Latin	
+ro	Romanian	primary	Latn	Latin	
+ro	Romanian	secondary	Cyrl	Cyrillic	
 rom	Romany	primary	Cyrl	Cyrillic
 rom	Romany	primary	Latn	Latin
 ru	Russian	primary	Cyrl	Cyrillic
 rw	Kinyarwanda	primary	Latn	Latin
-sa	Sanskrit	primary	Deva	Devanagari
+sa	Sanskrit	secondary	Deva	Devanagari
 sa	Sanskrit	secondary	Sinh	Sinhala
 sah	Yakut	primary	Cyrl	Cyrillic
-sam	Samaritan	primary	Hebr	Hebrew
+sam	Samaritan	secondary	Hebr	Hebrew
 sas	Sasak	primary	Latn	Latin
 sat	Santali	secondary	Beng	Bengali
 sat	Santali	secondary	Deva	Devanagari
-sat	Santali	primary	Olck	Olck
+sat	Santali	secondary	Olck	Olck
 sat	Santali	secondary	Orya	Oriya
-sco	Scots	primary	Latn	Latin	
-sd	Sindhi	primary	Arab	Arabic	
+scn	Sicilian	primary	Latn	Latin
+sco	Scots	primary	Latn	Latin
+sd	Sindhi	primary	Arab	Arabic
 sd	Sindhi	primary	Deva	Devanagari	
-se	Northern Sami	secondary	Cyrl	Cyrillic	
 se	Northern Sami	primary	Latn	Latin	
+se	Northern Sami	secondary	Cyrl	Cyrillic	
 sel	Selkup	primary	Cyrl	Cyrillic	
 sg	Sango	primary	Latn	Latin	
 sga	Irish (Ancient)	secondary	Latn Ogam	"Latin, Ogham"	
-sh	Serbo-Croatian	primary	Latn	Latin	
 shn	Shan	primary	Mymr	Myanmar	
 si	Sinhalese	primary	Sinh	Sinhala	
 sid	Sidamo	primary	Latn	Latin	
@@ -366,9 +363,9 @@ sk	Slovak	primary	Latn	Latin
 sl	Slovenian	primary	Latn	Latin	
 sm	Samoan	primary	Latn	Latin	
 sma	Southern Sami	primary	Latn	Latin	
-smi	Sami languages (Other)	secondary	Latn	Latin
-smj	Lule Sami	primary	Latn	Latin
-smn	Inari Sami	primary	Latn	Latin
+smi	Sami languages (Other)	secondary	Latn	Latin	
+smj	Lule Sami	primary	Latn	Latin	
+smn	Inari Sami	primary	Latn	Latin	
 sms	Skolt Sami	primary	Latn	Latin
 sn	Shona	primary	Latn	Latin
 snk	Soninke	primary	Latn	Latin
@@ -379,12 +376,13 @@ sq	Albanian	primary	Latn	Latin
 sr	Serbian	primary	Cyrl	Cyrillic
 sr	Serbian	primary	Latn	Latin
 srn	Sranan	primary	Latn	Latin
+srr	Serer-Sine	primary	Latn	Latin
 ss	Swati	primary	Latn	Latin
 st	Southern Sotho	primary	Latn	Latin
 su	Sundanese	primary	Latn	Latin
-suk	Sukuma	primary	Latn	Latin	
+suk	Sukuma	primary	Latn	Latin
+sus	Susu	primary	Latn	Latin
 sus	Susu	secondary	Arab	Arabic	
-sus	Susu	primary	Latn	Latin	
 sv	Swedish	primary	Latn	Latin	
 sw	Swahili	primary	Latn	Latin	
 swb	Comorian	primary	Arab	Arabic	http://en.wikipedia.org/wiki/Comorian_language
@@ -398,8 +396,8 @@ tbw	Tagbanwa	secondary	Tagb	Tagbanwa
 tcy	Tulu	primary	Knda	Kannada	
 tdd	Tai Nüa	primary	Tale	Tai Le	
 te	Telugu	primary	Telu	Telugu	
-tem	Timne	primary	Latn	Latin
-tet	Tetum	primary	Latn	Latin
+tem	Timne	primary	Latn	Latin	
+tet	Tetum	primary	Latn	Latin	
 tg	Tajik	primary	Arab	Arabic
 tg	Tajik	primary	Cyrl	Cyrillic
 tg	Tajik	primary	Latn	Latin
@@ -414,8 +412,8 @@ tkl	Tokelau	primary	Latn	Latin
 tl	Tagalog	primary	Latn	Latin
 tmh	Tamashek	primary	Latn	Latin
 tn	Tswana	primary	Latn	Latin
-to	Tonga (Tonga Islands)	primary	Latn	Latin	
-tpi	Tok Pisin	primary	Latn	Latin	
+to	Tonga (Tonga Islands)	primary	Latn	Latin
+tpi	Tok Pisin	primary	Latn	Latin
 tr	Turkish	primary	Latn	Latin	
 tru	Turoyo	primary	Latn	Latin	
 tru	Turoyo	secondary	Syrc	Syriac	
@@ -446,26 +444,26 @@ ur	Urdu	primary	Arab	Arabic
 uz	Uzbek	primary	Arab	Arabic	
 uz	Uzbek	primary	Cyrl	Cyrillic	
 uz	Uzbek	primary	Latn	Latin	
-vai	Vai	primary	Vaii	Vai																		
-ve	Venda	primary	Latn	Latin																		
+vai	Vai	secondary	Vaii	Vai	
+ve	Venda	primary	Latn	Latin	
 vi	Vietnamese	primary	Latn	Latin																		
 vo	Volapük	secondary	Latn	Latin																		
 wa	Walloon	primary	Latn	Latin																		
 wal	Walamo	primary	Ethi	Ethiopic																		
 war	Waray	primary	Latn	Latin																		
-wo	Wolof	secondary	Arab	Arabic																		
 wo	Wolof	primary	Latn	Latin																		
+wo	Wolof	secondary	Arab	Arabic																		
 xal	Kalmyk	primary	Cyrl	Cyrillic																		
 xh	Xhosa	primary	Latn	Latin																		
 xsr	Sherpa	primary	Deva	Devanagari																		
-xun	Umbrian	secondary	Latn Ital	Old Italic																		
+xum	Umbrian	secondary	Latn Ital	Old Italic																		
 yao	Yao	primary	Latn	Latin																		
 yap	Yapese	primary	Latn	Latin																		
 yi	Yiddish	primary	Hebr	Hebrew																		
-yo	Yoruba	primary	Latn	Latin	
-yrk	Nenets	primary	Cyrl	Cyrillic	
+yo	Yoruba	primary	Latn	Latin																		
+yrk	Nenets	primary	Cyrl	Cyrillic																		
 za	Zhuang	primary	Hani	Han	
-zh	Chinese	secondary	Bopo	Bopomofo	
-zh	Chinese	secondary	Phag	Phags-pa	
 zh	Chinese	primary	Hans	Simplified Han	
 zh	Chinese	primary	Hant	Traditional Han	
+zh	Chinese	secondary	Bopo	Bopomofo	
+zh	Chinese	secondary	Phag	Phags-pa	

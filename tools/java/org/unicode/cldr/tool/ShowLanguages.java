@@ -241,9 +241,9 @@ public class ShowLanguages {
   private static Set<Type> oldLanguage = Collections.unmodifiableSet(EnumSet.of(Type.Ancient,Type.Extinct,Type.Historical,Type.Constructed));
 
   private static void addLanguageScriptCells(TablePrinter tablePrinter, TablePrinter tablePrinter2, String language, String script, String secondary) {
-    String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language,false);
+    String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language);
     if (languageName == null) languageName = "???";
-    String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script,false);
+    String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script);
     String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
     Scope s = Iso639Data.getScope(language);
     Type t = Iso639Data.getType(language);
@@ -524,7 +524,7 @@ public class ShowLanguages {
         if (path.indexOf("/territoryInfo") >= 0) {
           Map<String,String> attributes = parts.getAttributes(2);
           String type = (String) attributes.get("type");
-          String name = english.getName(english.TERRITORY_NAME, type, false);
+          String name = english.getName(english.TERRITORY_NAME, type);
           Map languageData = (Map) territoryLanguageData.get(name);
           if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap());
           languageData.put("code", attributes.get("type"));
@@ -900,7 +900,7 @@ public class ShowLanguages {
     }
     
     private String getLanguageName(String languageCode) {
-      String result = english.getName(languageCode, false);
+      String result = english.getName(languageCode);
       if (!result.equals(languageCode)) return result;
       Set<String> names = Iso639Data.getNames(languageCode);
       if (names != null && names.size() != 0) {
@@ -1214,7 +1214,7 @@ public class ShowLanguages {
       for (Iterator it = territory_parent.keySet().iterator(); it.hasNext();) {
         String territory = (String) it.next();
         String parent = (String) territory_parent.get(territory);
-        System.out.println(territory + "\t" + english.getName(english.TERRITORY_NAME, territory, false) + "\t" + parent + "\t" + english.getName(english.TERRITORY_NAME, parent, false));
+        System.out.println(territory + "\t" + english.getName(english.TERRITORY_NAME, territory) + "\t" + parent + "\t" + english.getName(english.TERRITORY_NAME, parent));
       }
     }
     
@@ -1295,7 +1295,7 @@ public class ShowLanguages {
       Map name_script = new TreeMap();
       for (Iterator it = sc.getAvailableCodes("script").iterator(); it.hasNext();) {
         String script = (String) it.next();
-        String name = (String) english.getName(CLDRFile.SCRIPT_NAME, script, false);
+        String name = (String) english.getName(CLDRFile.SCRIPT_NAME, script);
         if (name == null)
           name = script;
         name_script.put(name, script);
@@ -1308,14 +1308,14 @@ public class ShowLanguages {
       Map name_language = new TreeMap();
       for (Iterator it = sc.getAvailableCodes("language").iterator(); it.hasNext();) {
         String language = (String) it.next();
-        String names = english.getName(CLDRFile.LANGUAGE_NAME, language, false);
+        String names = english.getName(CLDRFile.LANGUAGE_NAME, language);
         if (names == null)
           names = language;
         name_language.put(names, language);
       }
       for (Iterator it = sc.getAvailableCodes("language").iterator(); it.hasNext();) {
         String language = (String) it.next();
-        String names = english.getName(CLDRFile.LANGUAGE_NAME, language, false);
+        String names = english.getName(CLDRFile.LANGUAGE_NAME, language);
         if (names == null)
           names = language;
         String[] words = names.split(delimiter);
@@ -1772,7 +1772,7 @@ public class ShowLanguages {
       } else {
         int pos = oldcode.indexOf('*');
         String code = pos < 0 ? oldcode : oldcode.substring(0, pos);
-        String ename = english.getName(type, code, false);
+        String ename = english.getName(type, code);
         return codeFirst ? "[" + oldcode + "]\t" + (ename == null ? code : ename) : (ename == null ? code : ename) + "\t[" + oldcode + "]";
       }
     }

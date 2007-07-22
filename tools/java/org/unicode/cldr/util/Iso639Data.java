@@ -31,6 +31,8 @@ public class Iso639Data {
 
   static Map<String, Source> toSource;
 
+  private static String version;
+
   /**
    * <h3><a NAME="I">Individual</a> languages</h3>
    * <p>
@@ -131,6 +133,10 @@ public class Iso639Data {
     ISO_639_1, ISO_639_2, ISO_639_3, BCP47, CLDR
   };
 
+  public static String getVersion() {
+    return version;
+  }
+
   public static Source getSource(String languageSubtag) {
     if (toAlpha3 == null) {
       getData();
@@ -228,7 +234,11 @@ public class Iso639Data {
 
   private static void getData() {
     try {
-      BufferedReader in = Utility.getUTF8Data("iso-639-3_20070205.tab");
+      BufferedReader in = Utility.getUTF8Data("iso-639-3.tab");
+      version = in.readLine().trim();
+      in.close();
+      
+      in = Utility.getUTF8Data("iso-639-3.tab");
       Pattern tabs = Pattern.compile("\\t");
       toAlpha3 = new HashMap();
       fromAlpha3 = new HashMap();
@@ -270,7 +280,7 @@ public class Iso639Data {
       in.close();
 
       // Id Print_Name Inverted_Name
-      in = Utility.getUTF8Data("iso-639-3-macrolanguages_20070205.tab");
+      in = Utility.getUTF8Data("iso-639-3-macrolanguages.tab");
       while (true) {
         String line = in.readLine();
         if (line == null)
@@ -291,7 +301,7 @@ public class Iso639Data {
       in.close();
 
       // Id Print_Name Inverted_Name
-      in = Utility.getUTF8Data("iso-639-3_Name_Index_20070205.tab");
+      in = Utility.getUTF8Data("iso-639-3_Name_Index.tab");
       while (true) {
         String line = in.readLine();
         if (line == null)

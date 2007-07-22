@@ -139,7 +139,18 @@ public class CheckDates extends CheckCLDR {
       }
       if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0
           || path.indexOf("/dateFormatItem") >= 0) {
-        checkPattern(path, fullPath, value, result);
+        boolean patternBasicallyOk = false;
+        try {
+          SimpleDateFormat sdf = new SimpleDateFormat(value);
+          patternBasicallyOk = true;
+        } catch (RuntimeException e) {
+          CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+          .setMessage("Illegal date format pattern {0}", new Object[]{e});      
+          result.add(item);
+        }
+        if (patternBasicallyOk) {
+          checkPattern(path, fullPath, value, result);
+        }
       }
     } catch (ParseException e) {
       CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)

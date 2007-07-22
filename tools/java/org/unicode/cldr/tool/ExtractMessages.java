@@ -87,7 +87,7 @@ class ExtractMessages {
         try {
           otherHandler.setLocale(name);
         } catch (RuntimeException e1) {
-          System.out.println("Skipping, no CLDR locale file: " + name + "\t" + english.getName(name,false) + "\t" + e1.getClass().getName() + "\t" + e1.getMessage() );
+          System.out.println("Skipping, no CLDR locale file: " + name + "\t" + english.getName(name) + "\t" + e1.getClass().getName() + "\t" + e1.getMessage() );
           skipped.add(name);
           continue;
         }
@@ -141,7 +141,7 @@ class ExtractMessages {
       }
       
       for (String name : skipped) {
-        System.out.println("\tSkipping, no CLDR locale file: " + name + "\t" + english.getName(name,false));
+        System.out.println("\tSkipping, no CLDR locale file: " + name + "\t" + english.getName(name));
       }
       double deltaTime = System.currentTimeMillis() - startTime;
       System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
@@ -398,7 +398,7 @@ class ExtractMessages {
       switch (type) {
         case LANGUAGE:
           for (String code : sc.getAvailableCodes("language")) {
-            String name = english.getName("language",code,false);
+            String name = english.getName("language",code);
             if (name == null) {
               //System.out.println("Missing name for: " + code);
               continue;
@@ -439,7 +439,7 @@ class ExtractMessages {
           break;
         case REGION:
           for (String code : sc.getAvailableCodes("territory")) {
-            String name = english.getName("territory",code,false);
+            String name = english.getName("territory",code);
             if (name == null) {
               //System.out.println("Missing name for: " + code);
               continue;
@@ -478,7 +478,7 @@ class ExtractMessages {
           break;
         case CURRENCY:
           for (String code : sc.getAvailableCodes("currency")) {
-            String name = english.getName("currency",code,false);
+            String name = english.getName("currency",code);
             if (name == null) {
               //System.out.println("Missing name for: " + code);
               continue;

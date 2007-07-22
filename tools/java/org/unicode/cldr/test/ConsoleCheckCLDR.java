@@ -796,7 +796,7 @@ public class ConsoleCheckCLDR {
    * @return
    */
   public static String getLocaleAndName(String locale) {
-    String localizedName = CheckCLDR.getDisplayInformation().getName(locale, false);
+    String localizedName = CheckCLDR.getDisplayInformation().getName(locale);
     if (localizedName == null || localizedName.equals(locale)) return locale;
     return locale + " [" + localizedName + "]";
   }
@@ -807,7 +807,7 @@ public class ConsoleCheckCLDR {
    * @return
    */
   public static String getNameAndLocale(String locale) {
-    String localizedName = CheckCLDR.getDisplayInformation().getName(locale, false);
+    String localizedName = CheckCLDR.getDisplayInformation().getName(locale);
     if (localizedName == null || localizedName.equals(locale)) return locale;
     return localizedName  + " [" + locale + "]";
   }

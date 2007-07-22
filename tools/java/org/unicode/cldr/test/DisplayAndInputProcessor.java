@@ -5,6 +5,7 @@ import org.unicode.cldr.util.CLDRFile;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
 
 import java.util.List;
@@ -59,6 +60,7 @@ public class DisplayAndInputProcessor {
     return value;
   }
 
+  FormatParser formatDateParser = new FormatParser();
   /**
    * Process the value for input. The result is a cleaned-up value. For example,
    * an exemplar set is modified to be in the normal format, and any missing [ ]
@@ -81,6 +83,17 @@ public class DisplayAndInputProcessor {
     // all of our values should not have leading or trailing spaces, except insertBetween
     if (!path.contains("/insertBetween")) {
       value = value.trim();
+    }
+    
+    // fix date patterns
+    if (path.indexOf("/dates") >= 0 && 
+        ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)
+        || path.indexOf("/dateFormatItem") >= 0)) {
+      formatDateParser.set(value);
+      String newValue = formatDateParser.toString();
+      if (!value.equals(newValue)) {
+        value = newValue;
+      }
     }
 
     // check specific cases

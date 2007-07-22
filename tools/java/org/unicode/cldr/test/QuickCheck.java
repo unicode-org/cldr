@@ -81,6 +81,7 @@ public class QuickCheck {
     checkDtds(sourceDirectory);
     checkDtds(Utility.COMMON_DIRECTORY + "segments");
     checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
+    checkDtds(Utility.COMMON_DIRECTORY + "test");
     checkDtds(Utility.COMMON_DIRECTORY + "transforms");
   }
 

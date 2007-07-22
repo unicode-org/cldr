@@ -499,7 +499,7 @@ public class CountItems {
           }
           String newCountry = newName.split("/")[0];
           if (!newCountry.equals(lastCountry)) {
-            Log.println("# " + newCountry + "\t" + english.getName("territory", newCountry, false));
+            Log.println("# " + newCountry + "\t" + english.getName("territory", newCountry));
             lastCountry = newCountry;
           }
           Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -734,7 +734,7 @@ public class CountItems {
         CLDRFile english = cldrFactory.make("en", true);
         for (Iterator it = locales.iterator(); it.hasNext();) {
             String locale = (String) it.next();
-            System.out.println(locale + "\t" + english.getName(locale,false) + "\t" + onlyLocales.get(locale));         
+            System.out.println(locale + "\t" + english.getName(locale) + "\t" + onlyLocales.get(locale));         
         }
     }
 

@@ -170,8 +170,9 @@ public class CoverageLevel {
    * @param options optional parameters
    * @param cause TODO
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
+   * @return 
    */
-  public void setFile(CLDRFile file, Map options, CheckCLDR cause, List possibleErrors) {
+  public CoverageLevel setFile(CLDRFile file, Map options, CheckCLDR cause, List possibleErrors) {
     synchronized (sync) {
       if (!initialized) {
         CLDRFile supplementalMetadata = file.getSupplementalMetadata();
@@ -190,7 +191,7 @@ public class CoverageLevel {
       possibleErrors.add(new CheckStatus()
           .setCause(cause).setType(CheckStatus.errorType)
           .setMessage("Could not get exemplar set: " + iae.toString()));
-      return;
+      return this;
     }
     
     if(exemplars == null) {
@@ -206,6 +207,7 @@ public class CoverageLevel {
     if (auxexemplars != null) currencyExemplarsContainA_Z = auxexemplars.contains('A','Z');
 
     setFile(file.getLocaleID(), exemplarsContainA_Z, currencyExemplarsContainA_Z, options, cause, possibleErrors);
+    return this;
   }
   
   /**
@@ -417,6 +419,22 @@ public class CoverageLevel {
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
       ")").matcher("");
   
+  Matcher minimalPatterns = Pattern.compile(
+      "/(" +
+      "characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
+      "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
+        "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
+        "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
+        "|/pattern" +
+        "|/dateFormatItem" +
+      ")" +
+      "|numbers/(" +
+        "symbols/(decimal/group)" +
+        "|.*/pattern(?!Digit)" +
+      ")" +
+      "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+      ")").matcher("");
+  
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]
 
   public CoverageLevel.Level getCoverageLevel(String fullPath) {
@@ -441,6 +459,11 @@ public class CoverageLevel {
     CoverageLevel.Level result = posixCoverage.get(distinguishedPath); // default the level to POSIX
     if (result != null) {
       return result;
+    }
+    
+    // the next check we make is for certain basic patterns, based on a regex
+    if (minimalPatterns.reset(distinguishedPath).find()) {
+      return CoverageLevel.Level.MINIMAL;
     }
 
     // the next check we make is for certain basic patterns, based on a regex

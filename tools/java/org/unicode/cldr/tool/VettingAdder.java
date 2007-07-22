@@ -26,6 +26,7 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
@@ -131,7 +132,7 @@ public class VettingAdder {
 			String dir = (String)it2.next() + File.separator;
 			String fixedLocale = "fixed-" + locale + ".xml";
 			fixXML(dir, locale + ".xml", dir, fixedLocale);
-			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale, true);
+			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
 			for (Iterator it3 = cldr.iterator(); it3.hasNext();) {
 				String path = (String) it3.next();
 				String value = (String) cldr.getStringValue(path);
@@ -275,7 +276,7 @@ public class VettingAdder {
     			String path = (String) it2.next();
     			String fullPath = cldr.getFullXPath(path);
     			if (fullPath.indexOf("[@draft=") >= 0) {
-    				Log.logln(locale + " \t" + english.getName(locale, false) + "\texample: " + fullPath);
+    				Log.logln(locale + " \t" + english.getName(locale) + "\texample: " + fullPath);
     				break;
     			}
     		}

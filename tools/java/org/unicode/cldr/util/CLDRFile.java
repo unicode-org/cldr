@@ -83,12 +83,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
   private boolean locked;
   private XMLSource dataSource;
   private String dtdVersion;
+
+  
+  public enum DraftStatus {unconfirmed, provisional, contributed, approved};
   
   public static class SimpleXMLSource extends XMLSource {
     private HashMap xpath_value = new HashMap(); // TODO change to HashMap, once comparator is gone
     private HashMap xpath_fullXPath = new HashMap();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
     private Factory factory; // for now, fix later
+    public DraftStatus madeWithMinimalDraftStatus;
     
     public SimpleXMLSource(Factory factory, String localeID) {
       this.factory = factory;
@@ -145,7 +149,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     public XMLSource make(String localeID) {
       if (localeID == null) return null;
-      CLDRFile file = factory.make(localeID, false);
+      CLDRFile file = factory.make(localeID, false, madeWithMinimalDraftStatus);
       if (file == null) return null;
       return file.dataSource;
     }
@@ -217,7 +221,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @param dir directory 
    */
   public static CLDRFile make(String localeName, String dir, boolean includeDraft) {
-    return makeFromFile(dir + File.separator + localeName + ".xml", localeName, includeDraft);
+    return make(localeName, dir, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
+  }
+  
+  public static CLDRFile make(String localeName, String dir, DraftStatus minimalDraftStatus) {
+    return makeFromFile(dir + File.separator + localeName + ".xml", localeName, minimalDraftStatus);
   }
   
   /**
@@ -225,8 +233,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @param localeName
    * @param dir directory 
    */
-  // TODO make the directory a URL
-  public static CLDRFile makeFromFile(String fullFileName, String localeName, boolean includeDraft) {
+  // TODO make the directory a URL  
+  public static CLDRFile makeFromFile(String fullFileName, String localeName, DraftStatus minimalDraftStatus) {
     File f = new File(fullFileName);
     try {
       fullFileName = f.getCanonicalPath();
@@ -235,7 +243,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
         Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
       }
       FileInputStream fis = new FileInputStream(f);
-      CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
+      CLDRFile result = make(fullFileName, localeName, fis, minimalDraftStatus);
       fis.close();
       return result;
     } catch (Exception e) {
@@ -249,11 +257,12 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @param localeName
    * @param fis
    */
-  public static CLDRFile make(String fileName, String localeName, InputStream fis, boolean includeDraft) {
+  public static CLDRFile make(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
+
     try {
       fis = new StripUTF8BOMInputStream(fis);
       CLDRFile result = make(localeName);
-      MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, includeDraft);
+      MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, minimalDraftStatus);
       
       // now fill it.
       
@@ -669,36 +678,62 @@ public class CLDRFile implements Freezable, Iterable<String> {
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
       ")");
 
+  private static final boolean MINIMIZE_ALT_PROPOSED = false;
+
   /**
    * Removes all items with same value
+   * @param keepIfMatches TODO
    * @param keepList TODO
    */
-  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, boolean dontRemoveSpecials) {
+  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, boolean dontRemoveSpecials, Predicate keepIfMatches) {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
+    //Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
     boolean first = true;
-    for (Iterator it = other.iterator(); it.hasNext();) {
+    List<String> toRemove = new ArrayList();
+    for (Iterator it = iterator(); it.hasNext();) { // see what items we have that the other also has
       String xpath = (String)it.next();
       String currentValue = dataSource.getValueAtPath(xpath);
-      if (currentValue == null) continue;
-      String otherValue = other.dataSource.getValueAtPath(xpath);
-      if (!currentValue.equals(otherValue)) continue;
+      //if (currentValue == null) continue;
+      String otherXpath = xpath;
+      String otherValue = other.dataSource.getValueAtPath(otherXpath);
+      if (!currentValue.equals(otherValue)) {
+        if (MINIMIZE_ALT_PROPOSED) {
+          otherXpath = CLDRFile.getNondraftNonaltXPath(xpath);
+          if (otherXpath.equals(xpath)) {
+            continue;
+          }
+          otherValue = other.dataSource.getValueAtPath(otherXpath);
+          if (!currentValue.equals(otherValue)) {
+            continue;
+          }
+        } else {
+          continue;
+        }
+      }
       if (dontRemoveSpecials) {
         String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
         if (keepValue != null && keepValue.equals(currentValue)) {
           continue;
         }
-        if (specialPathMatcher.reset(xpath).find()) { // skip certain xpaths
+        if (keepIfMatches.is(xpath)) { // skip certain xpaths
           continue;
         }
       }
+      
+      // we've now established that the values are the same for the 
       String currentFullXPath = dataSource.getFullPath(xpath);
-      String otherFullXPath = other.dataSource.getFullPath(xpath);
+      String otherFullXPath = other.dataSource.getFullPath(otherXpath);
       if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) continue;
       if (first) {
         first = false;
         if (butComment) appendFinalComment("Duplicates removed:");
       }
+      // we can't remove right away, since that disturbs the iterator.
+      toRemove.add(xpath);
+      //remove(xpath, butComment);
+    }
+    // now remove them safely
+    for (String xpath : toRemove) {
       remove(xpath, butComment);
     }
     return this;
@@ -865,6 +900,12 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   private static boolean equalsIgnoringDraft(String path1, String path2) {
+    if (path1 == path2) {
+      return true;
+    }
+    if (path1 == null || path2 == null) {
+      return false;
+    }
     // TODO: optimize
     if (path1.indexOf("[@draft=") < 0 && path2.indexOf("[@draft=") < 0) return path1.equals(path2);
     return getNondraftNonaltXPath(path1).equals(getNondraftNonaltXPath(path2));
@@ -990,11 +1031,18 @@ public class CLDRFile implements Freezable, Iterable<String> {
     private String sourceDirectory;
     private String matchString;
     private Set<String> localeList = new TreeSet();
-    private Map mainCache = new TreeMap();
-    private Map resolvedCache = new TreeMap();  
-    private Map mainCacheNoDraft = new TreeMap();
-    private Map resolvedCacheNoDraft = new TreeMap();  
+    private Map<String,CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
+    private Map<String,CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
+    {
+      for (int i = 0; i < mainCache.length; ++i) {
+        mainCache[i] = new TreeMap();
+        resolvedCache[i] = new TreeMap();
+      }
+    }
+    //private Map mainCacheNoDraft = new TreeMap();
+    //private Map resolvedCacheNoDraft = new TreeMap();  
     private Map supplementalCache = new TreeMap();
+    private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
     private Factory() {}		
     
     /**
@@ -1002,9 +1050,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
      * For the matchString meaning, see {@link getMatchingXMLFiles}
      */
     public static Factory make(String sourceDirectory, String matchString) {
+      return make(sourceDirectory, matchString, DraftStatus.unconfirmed);
+    }
+    
+    public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
       Factory result = new Factory();
       result.sourceDirectory = sourceDirectory;
       result.matchString = matchString;
+      result.minimalDraftStatus = minimalDraftStatus;
       Matcher m = Pattern.compile(matchString).matcher("");
       result.localeList = getMatchingXMLFiles(sourceDirectory, m);
 //      try {
@@ -1052,14 +1105,19 @@ public class CLDRFile implements Freezable, Iterable<String> {
     private boolean needToReadRoot = true;
     
     public CLDRFile make(String localeName, boolean resolved) {
-      return make(localeName, resolved, true);
+      return make(localeName, resolved, minimalDraftStatus);
     }
     /**
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
      */
     // TODO resolve aliases
+    
     public CLDRFile make(String localeName, boolean resolved, boolean includeDraft) {
+      return make(localeName, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
+    }
+    
+    public CLDRFile make(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
       // TODO fix hack: 
       // read root first so that we get the ordering right.
       /*			if (needToReadRoot) {
@@ -1067,12 +1125,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
        needToReadRoot = false;
        }
        */			// end of hack
-      Map cache = includeDraft ? (resolved ? resolvedCache : mainCache) 
-          : (resolved ? resolvedCacheNoDraft : mainCacheNoDraft);
-      CLDRFile result = (CLDRFile) cache.get(localeName);
+      Map<String,CLDRFile> cache = resolved ? resolvedCache[minimalDraftStatus.ordinal()] : mainCache[minimalDraftStatus.ordinal()];
+
+      CLDRFile result = cache.get(localeName);
       if (result == null) {
-        result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + File.separator + "../supplemental/" : sourceDirectory, includeDraft);
-        ((SimpleXMLSource)result.dataSource).factory = this;
+        result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + File.separator + "../supplemental/" : sourceDirectory, minimalDraftStatus);
+        SimpleXMLSource mySource = (SimpleXMLSource)result.dataSource;
+        mySource.factory = this;
+        mySource.madeWithMinimalDraftStatus = minimalDraftStatus;
         if (resolved) {
           result.dataSource = result.dataSource.getResolving();
         } else {
@@ -1137,7 +1197,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
     private static UnicodeSet whitespace = new UnicodeSet("[:whitespace:]");
-    private boolean includeDraft;
+    private DraftStatus minimalDraftStatus;
     private static final boolean SHOW_START_END = false;
     private int commentStack;
     private boolean justPopped = false;
@@ -1152,9 +1212,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
     private int  isSupplemental = -1;
     private int orderedCounter;
     
-    MyDeclHandler(CLDRFile target, boolean includeDraft) {
+    MyDeclHandler(CLDRFile target, DraftStatus minimalDraftStatus) {
       this.target = target;
-      this.includeDraft = includeDraft;
+      this.minimalDraftStatus = minimalDraftStatus;
       //attributeOrder = new TreeMap(attributeOrdering);
     }
     
@@ -1234,10 +1294,25 @@ public class CLDRFile implements Freezable, Iterable<String> {
         "abbreviationFallback",
         "default", "mapping", "measurementSystem", "preferenceOrdering"}));
     
+    static final Pattern draftPattern = Pattern.compile("\\[@draft=\"([^\"]*)\"\\]");
+    Matcher draftMatcher = draftPattern.matcher("");
+    
     private void pop(String qName) {
       Log.logln(LOG_PROGRESS, "pop\t" + qName);
       if (lastChars.length() != 0 || justPopped == false) {
-        if (includeDraft || currentFullXPath.indexOf("[@draft=\"unconfirmed\"]") < 0) {
+        boolean acceptItem = minimalDraftStatus == DraftStatus.unconfirmed;
+        if (!acceptItem) {
+          if (draftMatcher.reset(currentFullXPath).find()) {
+            DraftStatus foundStatus = DraftStatus.valueOf(draftMatcher.group(1));
+            if (minimalDraftStatus.compareTo(foundStatus) <= 0) {
+              // what we found is greater than or equal to our status
+              acceptItem = true;
+            }
+          } else {
+            acceptItem = true; // if not found, then the draft status is approved, so it is always ok
+          }
+        }
+        if (acceptItem) {
           if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
             System.out.println(currentFullXPath);
           }
@@ -1718,12 +1793,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Utility for getting the name, given a code.
    * @param type
    * @param code
-   * @param skipDraft
    * @return
    */
-  public String getName(int type, String code, boolean skipDraft) {
+  public String getName(int type, String code) {
     String path = getKey(type, code);
-    if (skipDraft && dataSource.isDraft(path)) return null;
     String result = getStringValue(path);
     if (result == null && getLocaleID().equals("en")) {
       if (type == LANGUAGE_NAME) {
@@ -1739,8 +1812,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
   /**
    * Utility for getting a name, given a type and code.
    */
-  public String getName(String type, String code, boolean skipDraft) {
-    return getName(typeNameToCode(type), code, skipDraft);
+  public String getName(String type, String code) {
+    return getName(typeNameToCode(type), code);
   }
   
   /**
@@ -1756,8 +1829,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   transient LanguageTagParser lparser = new LanguageTagParser();
   
-  public synchronized String getName(String localeOrTZID, boolean skipDraft) {
-    String name = getName(LANGUAGE_NAME, localeOrTZID, skipDraft);
+  public synchronized String getName(String localeOrTZID) {
+    return getName(localeOrTZID);
+  }
+  
+  public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
+    boolean isCompound = localeOrTZID.contains("_");
+    String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID);
     // TODO - handle arbitrary combinations
     if (name != null && !name.contains("_")) {
       return name;
@@ -1769,22 +1847,27 @@ public class CLDRFile implements Freezable, Iterable<String> {
     boolean haveScript = false;
     boolean haveRegion = false;
     // try lang+script
-    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION), skipDraft);
-    if (name != null && !name.contains("_")) {
+    if ((isCompound && onlyConstructCompound)) {
+      name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
+      if (name == null) name = original;
+    } else {
+    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION));
+    if (name != null && !isCompound) {
       haveScript = haveRegion = true;
     } else {
-      name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT), skipDraft);
-      if (name != null && !name.contains("_")) {
+      name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT));
+      if (name != null && !isCompound) {
         haveScript = true;
       } else {
-        name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION), skipDraft);
-        if (name != null && !name.contains("_")) {
+        name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION));
+        if (name != null && !isCompound) {
           haveRegion = true;
         } else {
-          name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
+          name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
           if (name == null) name = original;
         }
       }
+    }
     }
     
     String sname;
@@ -1793,7 +1876,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       sname = original = lparser.getScript();
       if (sname.length() != 0) {
         if (extras.length() != 0) extras += ", ";
-        sname = getName(SCRIPT_NAME, sname, skipDraft);
+        sname = getName(SCRIPT_NAME, sname);
         extras += (sname == null ? original : sname);
       }
     }
@@ -1801,16 +1884,17 @@ public class CLDRFile implements Freezable, Iterable<String> {
       original = sname = lparser.getRegion();
       if (sname.length() != 0) {
         if (extras.length() != 0) extras += ", ";
-        sname = getName(TERRITORY_NAME, sname, skipDraft);
+        sname = getName(TERRITORY_NAME, sname);
         extras += (sname == null ? original : sname);
       }
     }
     List variants = lparser.getVariants();
     for (int i = 0; i < variants.size(); ++i) {
       if (extras.length() != 0) extras += ", ";
-      sname = getName(VARIANT_NAME, original = (String)variants.get(i), skipDraft);
+      sname = getName(VARIANT_NAME, original = (String)variants.get(i));
       extras += (sname == null ? original : sname);
     }
+    // fix this -- shouldn't be hardcoded!
     return name + (extras.length() == 0 ? "" : " (" + extras + ")");
   }
   

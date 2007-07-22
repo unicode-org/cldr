@@ -881,12 +881,17 @@ public class DateTimePatternGenerator {
             return items;
         }
         public String toString() {
-        	return toString(0, items.size());
+        	return toString(0, items.size(), true);
         }
-        public String toString(int start, int limit) {
+        public String toString(int start, int limit, boolean quoting) {
         	StringBuffer result = new StringBuffer();
             for (int i = start; i < limit; ++i) {
-        		result.append(items.get(i).toString());
+              Object x = items.get(i);
+              if (x instanceof VariableField) {
+                result.append(x.toString());
+              } else {
+                result.append(x.toString());
+              }
         	}
         	return result.toString();
         }

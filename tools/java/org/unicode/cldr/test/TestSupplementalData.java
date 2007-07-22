@@ -110,10 +110,10 @@ public class TestSupplementalData {
         languagesLeftover.removeAll(otherLanguages);
         Set<String> otherLanguagesLeftover = new TreeSet<String>(otherLanguages);
         otherLanguagesLeftover.removeAll(languages);
-        String territoryString = english.getName(CLDRFile.TERRITORY_NAME,territory,false);
+        String territoryString = english.getName(CLDRFile.TERRITORY_NAME,territory);
         if (otherLanguagesLeftover.size() != 0) {
           for (String other : otherLanguagesLeftover) {
-            String name = english.getName(other, false);
+            String name = english.getName(other);
             System.out.println(territoryString + "\t" + territory + "\t" + name + "\t" + other);
           }
         }

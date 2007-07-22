@@ -58,6 +58,10 @@ import java.util.regex.Pattern;
  *
  */
 public class ConvertLanguageData {
+  
+  // change this if you need to override what is generated for the default contents.
+  private static final List<String> defaultOverrides = Arrays.asList("es_ES und_ZZ".split("\\s+"));
+
   private static final boolean ALLOW_SMALL_NUMBERS = true;
  
   static final Comparator GENERAL_COLLATOR = new GeneralCollator();
@@ -95,6 +99,7 @@ public class ConvertLanguageData {
 
       cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
       Set available = cldrFactory.getAvailable();
+      english = cldrFactory.make("en",true);
       
       Set<String> cldrParents = getCldrParents(available);
       
@@ -123,6 +128,18 @@ public class ConvertLanguageData {
       
       //showContent(available);
       
+      // certain items are overridden
+      
+      List<String> toRemove = new ArrayList();
+      for (String override : defaultOverrides) {
+        String replacement = getReplacement(override, defaultLocaleContent);
+        toRemove.add(replacement);
+      }
+      defaultLocaleContent.removeAll(toRemove);
+      defaultLocaleContent.addAll(defaultOverrides);
+      
+      showDefaultContentDifferences(defaultLocaleContent);
+      
       showFailures(failures);
       //generateIso639_2Data();
       references.printReferences();
@@ -144,6 +161,36 @@ public class ConvertLanguageData {
     } finally {
       System.out.println("DONE");
     } 
+  }
+
+  private static void showDefaultContentDifferences(Set<String> defaultLocaleContent) {
+    Set<String> oldDefaultContent = supplementalData.getDefaultContentLocales();
+    for (String oldDefault : oldDefaultContent) {
+      if (!defaultLocaleContent.contains(oldDefault)) {
+        String replacement = getReplacement(oldDefault, defaultLocaleContent);
+        System.out.println("Changed default content: examine carefully: " 
+            + getLanguageCodeAndName(oldDefault)
+            + "\t=>\t" + getLanguageCodeAndName(replacement)
+            );
+      }
+    }
+  }
+  
+  public static String getLanguageCodeAndName(String code) {
+    if (code == null) return null;
+    return english.getName(code) + " [" + code + "]";
+  }
+
+  private static String getReplacement(String oldDefault, Set<String> defaultLocaleContent) {
+    String parent = LocaleIDParser.getParent(oldDefault);
+    for (String replacement : defaultLocaleContent) {
+      if (replacement.startsWith(parent)) {
+        if (parent.equals(LocaleIDParser.getParent(replacement))) {
+          return replacement;
+        }
+      }
+    }
+    return null;
   }
 
   private static void getLanguageScriptSpreadsheet(PrintWriter out) {
@@ -1222,7 +1269,7 @@ public class ConvertLanguageData {
     
     Set<String> missingData = new TreeSet();
     for (Set<String> siblingSet : siblingSets) {
-      System.out.println("***" + siblingSet);
+      System.out.println("** From siblings: " + siblingSet);
       
       if (false & siblingSet.size() == 1) {
         skippingSingletons.add(siblingSet.iterator().next());
@@ -1250,7 +1297,7 @@ public class ConvertLanguageData {
         }
       }
       // show it
-      System.out.format("\t%s %f\r\n", bestLocale, best);
+      System.out.format("\tPicking default content: %s %f (based on literate population)\r\n", bestLocale, best);
       defaultLocaleContent.add(bestLocale);
     }
     
@@ -1561,16 +1608,19 @@ public class ConvertLanguageData {
   private static boolean checkCode(String type, String code, Object sourceLine) {
     if (StandardCodes.make().getGoodAvailableCodes(type).contains(code)) {
       if (code.equals("no")) {
+        System.out.println("Illegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
         return false;
       }
       return true;
     }
     if (type.equals("language")) {
       // also allow the 639-3 codes that are living individual or macro
-      if (Iso639Data.getSource(code) != Iso639Data.Source.ISO_639_3) return false;
-      if (StandardCodes.isModernLanguage(code)) {
+      if (Iso639Data.getSource(code) == Iso639Data.Source.ISO_639_3) {
         return true;
       }
+//      if (StandardCodes.isModernLanguage(code)) {
+//        return true;
+//      }
     }
     System.out.println("Illegitimate Code for " + type + ": " + code + (sourceLine != null ? "\tfrom: " + sourceLine : ""));
     return false;

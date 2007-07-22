@@ -2,15 +2,48 @@ package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
+
+import com.ibm.icu.impl.CollectionUtilities;
+import com.ibm.icu.text.UTF16;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TestCLDRFile {
   public static void main(String[] args) {
-    double deltaTime = System.currentTimeMillis();
-    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    testDraftFilter();
+    simpleTest();
+  }
+
+  private static void testDraftFilter() {
+    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
+    checkLocale(cldrFactory.make("root", true));
+    checkLocale(cldrFactory.make("ee", true));
+  }
+
+  public static void checkLocale(CLDRFile cldr) {
+    Matcher m = Pattern.compile("gregorian.*eras").matcher("");
+    for (Iterator<String> it = cldr.iterator("", new UTF16.StringComparator()); it.hasNext();) {
+      String path = it.next();
+      if (m.reset(path).find() && !path.contains("alias")) {
+        System.out.println(cldr.getLocaleID() + "\t" + cldr.getStringValue(path) + "\t" + cldr.getFullXPath(path));
+      }
+      if (path == null) {
+        throw new IllegalArgumentException("Null path");
+      }
+      String fullPath = cldr.getFullXPath(path);
+      if (fullPath.contains("@draft")) {
+        throw new IllegalArgumentException("File can't contain draft elements");
+      }
+    }
+  }
+
+  private static void simpleTest() {
+    double deltaTime = System.currentTimeMillis();    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Creation: Elapsed: " + deltaTime/1000.0 + " seconds");

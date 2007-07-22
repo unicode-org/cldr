@@ -97,7 +97,7 @@ public class GenerateKaraList {
 		Set errors = new HashSet();
 		for (Iterator it = availableCodes.iterator(); it.hasNext();) {
 			String id = (String) it.next();
-			String ename = english.getName(choice, id, true);
+			String ename = english.getName(choice, id);
 			if (ename == null) ename = "[untranslated: " + id + "]";
 			System.out.println(id + "\t" + ename);
 			log.println("\t<entry>");
@@ -107,7 +107,7 @@ public class GenerateKaraList {
 			log.println("\t\t\t<epos>n</epos>"); //  this is the part of speech value. It is fixed.
 			log.println("\t\t\t<sense>");
 			if (hasAbbreviation) {  // only applicable for the currency entries
-				String aename = english.getName(CLDRFile.CURRENCY_SYMBOL, id, true);
+				String aename = english.getName(CLDRFile.CURRENCY_SYMBOL, id);
 				if (aename != null) {
 					log.println("\t\t\t\t<eabbr>" + TransliteratorUtilities.toXML.transliterate(aename) + "</eabbr>");
 				}
@@ -116,15 +116,15 @@ public class GenerateKaraList {
 				String locale = (String)it2.next();
 				try {
 					CLDRFile cldrfile = cldrFactory.make(locale, true);
-					String trans = cldrfile.getName(choice, id, true);
+					String trans = cldrfile.getName(choice, id);
 					if (trans == null) continue;
 					log.println("\t\t\t\t<target>");	// one target block for each language
 					//String etrans = getName(english, "languages/language", locale, true);
 					log.println("\t\t\t\t\t<tlanguage>" + locale + "</tlanguage>\t<!-- "
-							+ TransliteratorUtilities.toXML.transliterate(english.getName(locale,true)) + " -->");	// We do use non-ISO values but  you can populate this with the 2 character code from the top of each xml file and we will do necessary mapping afterwards.
+							+ TransliteratorUtilities.toXML.transliterate(english.getName(locale)) + " -->");	// We do use non-ISO values but  you can populate this with the 2 character code from the top of each xml file and we will do necessary mapping afterwards.
 					log.println("\t\t\t\t\t<trans>" + TransliteratorUtilities.toXML.transliterate(trans) + "</trans>");
 					if (hasAbbreviation) {
-						String aename = cldrfile.getName(CLDRFile.CURRENCY_SYMBOL, id, true);
+						String aename = cldrfile.getName(CLDRFile.CURRENCY_SYMBOL, id);
 						if (aename != null && !aename.equals(id)) {
 							log.println("\t\t\t\t\t<tabbr>" + TransliteratorUtilities.toXML.transliterate(aename) + "</tabbr>");
 						}

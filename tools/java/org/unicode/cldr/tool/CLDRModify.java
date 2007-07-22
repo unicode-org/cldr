@@ -28,12 +28,15 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.CoverageLevel.Level;
 
 import com.ibm.icu.text.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
@@ -193,6 +196,8 @@ public class CLDRModify {
 				System.out.println("Merging: " + locales3);
 			}
 			new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
+      
+      RetainCoveragePredicate minimalCoverage = null;
 			
 			for (Iterator it = locales.iterator(); it.hasNext();) {
 				
@@ -227,30 +232,34 @@ public class CLDRModify {
 					k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
 				}
 				if (DEBUG_PATHS != null) {
-					System.out.println("Debug2 (" + test + "):\t" + k.toString(DEBUG_PATHS));
+				  System.out.println("Debug2 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}
 				if (options[FIX].doesOccur) {
-					fix(k, options[FIX].value, cldrFactory);
+				  fix(k, options[FIX].value, cldrFactory);
 				}
 				if (DEBUG_PATHS != null) {
-					System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
+				  System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
 				}
 				if (options[MINIMIZE].doesOccur) {
-					// TODO, fix identity
-					String parent = CLDRFile.getParent(test);
-					if (parent != null) {
-						CLDRFile toRemove = cldrFactory.make(parent, true);
-						// remove the items that are language codes, script codes, or region codes
-						// since they may be real translations.
-            if (parent.equals("root")) {
-              if (k.getFullXPath("//ldml/alias",true) != null) {
-                System.out.println("Skipping completely aliased file: " + test);  
-              } else {
-                // k.putRoot(toRemove);
-              }
-            }
-						k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"));
-					}
+				  // TODO, fix identity
+				  String parent = CLDRFile.getParent(test);
+				  if (parent != null) {
+				    CLDRFile toRemove = cldrFactory.make(parent, true);
+				    // remove the items that are language codes, script codes, or region codes
+				    // since they may be real translations.
+				    if (parent.equals("root")) {
+				      if (k.getFullXPath("//ldml/alias",true) != null) {
+				        System.out.println("Skipping completely aliased file: " + test);  
+				      } else {
+				        // k.putRoot(toRemove);
+				      }
+				    }
+				    if (minimalCoverage == null) {
+				      minimalCoverage = new RetainCoveragePredicate();
+				    }
+				    minimalCoverage.setFile(k);
+				    k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"), minimalCoverage);
+				  }
 				}
 				//System.out.println(CLDRFile.getAttributeOrder());
 				
@@ -322,6 +331,21 @@ public class CLDRModify {
 		}
 	}
 	
+  /*
+   * Use the coverage to determine what we should keep in the case of a locale just below root.
+   */
+  static class RetainCoveragePredicate implements Predicate<String> {
+    private CoverageLevel coverage = new CoverageLevel();
+    public RetainCoveragePredicate setFile(CLDRFile file) {
+      coverage.setFile(file, null, null, new ArrayList());
+      return this;
+    }
+    public boolean is(String path) {
+      Level pathLevel = coverage.getCoverageLevel(path);
+      return CoverageLevel.Level.BASIC.compareTo(pathLevel) >= 0;
+    }
+  };
+
 	/**
 	 * 
 	 */
@@ -566,6 +590,27 @@ public class CLDRModify {
 				}
 			}		
 		});
+    
+    fixList.add('_', "remove superfluous compound language translations", new CLDRFilter() {
+      public void handlePath(String xpath) {
+        if (!xpath.contains("_")) return;
+        if (!xpath.contains("/language")) return;
+        String languageCode = parts.set(xpath).findAttributeValue("language", "type");
+        String v = cldrFileToFilter.getStringValue(xpath);
+        if (v.equals(languageCode)) {
+          remove(xpath,"same as language code");
+          return;
+        }
+        String generatedTranslation = cldrFileToFilter.getName(languageCode, true);     
+        if (v.equals(generatedTranslation)) {
+          remove(xpath,"superfluous compound language");
+        }
+        String spacelessGeneratedTranslation = generatedTranslation.replace(" ", "");
+        if (v.equals(spacelessGeneratedTranslation)) {
+          remove(xpath,"superfluous compound language (after removing space)");
+        }
+      }
+    });
 		
 		if (false) fixList.add('s', "fix stand-alone narrows", new CLDRFilter() {
 			public void handlePath(String xpath) {

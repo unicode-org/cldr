@@ -555,9 +555,9 @@ public abstract class XMLSource implements Freezable {
   public String toString(String regex) {
     Matcher matcher = Pattern.compile(regex).matcher("");
     StringBuffer result = new StringBuffer();
-    for (Iterator<String> it = iterator(); it.hasNext();) {
+    for (Iterator<String> it = iterator(matcher); it.hasNext();) {
       String path = it.next();
-      if (!matcher.reset(path).matches()) continue;
+      //if (!matcher.reset(path).matches()) continue;
       String value = getValueAtDPath(path);
       String fullpath = getFullPathAtDPath(path);
       result.append(fullpath).append(" =\t ").append(value).append("\r\n");
@@ -1031,6 +1031,7 @@ public abstract class XMLSource implements Freezable {
       { "pinyin", "collation" },
       { "stroke", "collation" },
       { "traditional", "collation" } };
+    private static final boolean SKIP_SINGLEZONES = false;
     private static XMLSource constructedItems = new SimpleXMLSource(null, null);
     
     static {
@@ -1054,9 +1055,11 @@ public abstract class XMLSource implements Freezable {
           String code = codeIt.next();
           String value = code;
           if (typeNo == CLDRFile.TZ_EXEMPLAR) { // skip single-zone countries
-            String country = (String) zone_countries.get(code);
-            Set s = (Set) countries_zoneSet.get(country);
-            if (s != null && s.size() == 1) continue;
+            if (SKIP_SINGLEZONES) {
+              String country = (String) zone_countries.get(code);
+              Set s = (Set) countries_zoneSet.get(country);
+              if (s != null && s.size() == 1) continue;
+            }
             value = TimezoneFormatter.getFallbackName(value);
           }
           addFallbackCode(typeNo, code, value);

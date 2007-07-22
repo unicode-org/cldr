@@ -40,7 +40,7 @@ public class CheckZones extends CheckCLDR {
 
     super.setCldrFileToCheck(cldrFile, options, possibleErrors);
 		try {
-			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck(), true);
+			timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
 		} catch (RuntimeException e) {
 			possibleErrors.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 					.setMessage("Checking zones: " + e.getMessage()));

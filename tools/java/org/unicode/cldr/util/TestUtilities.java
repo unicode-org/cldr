@@ -103,7 +103,7 @@ public class TestUtilities {
     CLDRFile french = mainCldrFactory.make("fr", true);
     String[] tests = {"en", "en_AU", "de_CH", "de_Arab_CH", "gsw", "gsw_Arab", "zh_Hans", "zh_Hans_US", "zh_Hans_US_SAAHO"};
     for (String test : tests) {
-      System.out.println(test + "\t" + english.getName(test,false)+ "\t" + french.getName(test,false));
+      System.out.println(test + "\t" + english.getName(test)+ "\t" + french.getName(test));
     }
   }
 
@@ -589,17 +589,17 @@ public class TestUtilities {
     StandardCodes sc = StandardCodes.make();
     for (Iterator it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
       String code = (String) it.next();
-      out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code, false));
+      out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code));
     }
     out.println("****");
     for (Iterator it = sc.getGoodAvailableCodes("territory").iterator(); it.hasNext();) {
       String code = (String) it.next();
-      out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code, false));
+      out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code));
     }
     out.println("****");
     for (Iterator it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext();) {
       String code = (String) it.next();
-      out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code, false));
+      out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code));
     }
     out.close();
   }

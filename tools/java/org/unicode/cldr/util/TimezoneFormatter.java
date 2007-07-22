@@ -33,6 +33,7 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.TimeZone;
 
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 /**
@@ -87,14 +88,18 @@ public class TimezoneFormatter extends UFormat  {
 	private String inputLocaleID;
 	private boolean skipDraft;
 	
-	public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
-		this(cldrFactory.make(localeID, true, includeDraft), includeDraft);
-	}
+  public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
+    this(cldrFactory.make(localeID, true, includeDraft));
+  }
+  
+  public TimezoneFormatter(Factory cldrFactory, String localeID, DraftStatus minimalDraftStatus) {
+    this(cldrFactory.make(localeID, true, minimalDraftStatus));
+  }
 	/**
 	 * Create from a cldrFactory and a locale id.
 	 * @see CLDRFile
 	 */
-	public TimezoneFormatter(CLDRFile resolvedLocaleFile, boolean includeDraft) {
+	public TimezoneFormatter(CLDRFile resolvedLocaleFile) {
 		desiredLocaleFile = resolvedLocaleFile;
 		inputLocaleID = desiredLocaleFile.getLocaleID();
 		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
@@ -141,7 +146,7 @@ public class TimezoneFormatter extends UFormat  {
 
 	private String getName(int territory_name, String country, boolean skipDraft2) {
 		checkForDraft(CLDRFile.getKey(territory_name,country));
-		return desiredLocaleFile.getName(territory_name, country, skipDraft2);
+		return desiredLocaleFile.getName(territory_name, country);
 	}
 
 	private void checkForDraft(String cleanPath) {
@@ -236,7 +241,7 @@ public class TimezoneFormatter extends UFormat  {
 //		* Africa/Monrovia => LR => "Tampo de Liberja"
 //		* America/Havana => CU => "Tampo de CU" // if CU is not localized
 		
-		String countryTranslation = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
+		String countryTranslation = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country);
 		if (countryTranslation == null) countryTranslation = country;
 		
 		Set s = (Set) countries_zoneSet.get(country);
@@ -254,7 +259,8 @@ public class TimezoneFormatter extends UFormat  {
 		String exemplarValue = getStringValue(prefix + "exemplarCity");
 		if (exemplarValue == null) exemplarValue = getFallbackName(zoneid);
 		
-		return fallbackFormat.format(new Object[]{exemplarValue, countryTranslation});
+    String cityformat = fallbackFormat.format(new Object[]{exemplarValue, countryTranslation});
+		return regionFormat.format(new Object[]{cityformat});
 	}
 	
 	/**
@@ -328,6 +334,10 @@ public class TimezoneFormatter extends UFormat  {
 
 		Object[] results = gmtFormat.parse(inputText, parsePosition);
 		if (results != null) {
+      if (results.length == 0) {
+        // for debugging
+        results = gmtFormat.parse(inputText, parsePosition);
+      }
 			String hours = (String) results[0];
 			parsePosition.setIndex(0);
 			Date date = hourFormatPlus.parse(hours, parsePosition);
@@ -343,11 +353,19 @@ public class TimezoneFormatter extends UFormat  {
 			}
 		}
 		
-		//	Generic fallback, example: city or city (country)	
+		//	Generic fallback, example: city or city (country)
+    
+    // first remove the region format if possible
+    
+    parsePosition.setIndex(startOffset);
+    Object[] x = regionFormat.parse(inputText, parsePosition);
+    if (x != null) {
+      inputText = (String) x[0];
+    }
 
 		String city = null, country = null;
 		parsePosition.setIndex(startOffset);
-		Object[] x = fallbackFormat.parse(inputText, parsePosition);
+		x = fallbackFormat.parse(inputText, parsePosition);
 		if (x != null) {
 			city = (String) x[0];
 			country = (String) x[1];
@@ -357,12 +375,8 @@ public class TimezoneFormatter extends UFormat  {
 			return (String) exemplar_zone.get(city);
 		}
 		
-		parsePosition.setIndex(startOffset);
-		x = regionFormat.parse(inputText, parsePosition);
-		if (x == null) return null; // can't find anything
-		country = (String) x[0];
 		// see if the string is a localized country
-		String countryCode = (String) localizedCountry_countryCode.get(country);
+		String countryCode = (String) localizedCountry_countryCode.get(inputText);
 		if (countryCode == null) countryCode = country; // if not, try raw code
 		return (String) country_zone.get(countryCode);
 	}

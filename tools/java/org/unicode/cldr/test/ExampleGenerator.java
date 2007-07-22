@@ -239,7 +239,7 @@ public class ExampleGenerator {
                 break main; // fail, skip
               }
             } else {
-              String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode, false));
+              String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
               boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
               // we show just country for singlezone countries
               if (singleZone) {
@@ -259,14 +259,14 @@ public class ExampleGenerator {
               result = format(timeFormat, result);
             }
           } else if (parts.contains("regionFormat")) { // {0} Time
-            String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP", false);
+            String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP");
             result = format(value, setBackground(sampleTerritory));
           } else if (parts.contains("fallbackFormat")) { // {1} ({0})
             if (value == null) {
               break main;
             }
             String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
-            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US", false));
+            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
 
             String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
@@ -347,7 +347,7 @@ public class ExampleGenerator {
               if (value != null && !value.equals(type)) {
                 result = value;
               } else {
-                result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"), false);
+                result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"));
               }
             }
           }

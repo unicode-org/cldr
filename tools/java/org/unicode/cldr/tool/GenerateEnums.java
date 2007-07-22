@@ -118,7 +118,7 @@ public class GenerateEnums {
     for (String code : validCurrencyCodes) {
       if (unused.contains(code) && !code.equals("CLF"))
         continue; // we include CLF for compatibility
-      sorted.put(english.getName(CLDRFile.CURRENCY_NAME, code, false), code);
+      sorted.put(english.getName(CLDRFile.CURRENCY_NAME, code), code);
     }
     int lineLength = "  /** Belgian Franc */                                            BEF,"
         .length();
@@ -134,7 +134,7 @@ public class GenerateEnums {
     // /** Afghani */ AFN,
     for (Iterator it = both.iterator(); it.hasNext();) {
       String code = (String) it.next();
-      String englishName = english.getName(CLDRFile.CURRENCY_NAME, code, false);
+      String englishName = english.getName(CLDRFile.CURRENCY_NAME, code);
       if (englishName == null) {
       }
       Set<String> regions = unlimitedCurrencyCodes.getAll(code);
@@ -161,7 +161,7 @@ public class GenerateEnums {
         .length();
     for (Iterator it = scripts.iterator(); it.hasNext();) {
       String code = (String) it.next();
-      String englishName = english.getName(CLDRFile.SCRIPT_NAME, code, false);
+      String englishName = english.getName(CLDRFile.SCRIPT_NAME, code);
       if (englishName == null)
         continue;
       printRow(Log.getLog(), code, null, "script", code_replacements, len);
@@ -210,7 +210,7 @@ public class GenerateEnums {
 
     for (Iterator it = languages.iterator(); it.hasNext();) {
       String code = (String) it.next();
-      String englishName = english.getName(CLDRFile.LANGUAGE_NAME, code, false);
+      String englishName = english.getName(CLDRFile.LANGUAGE_NAME, code);
       if (englishName == null)
         continue;
       System.out.println("     /**" + englishName + "*/    " + code + ",");
@@ -601,7 +601,7 @@ public class GenerateEnums {
           format(popData.getPopulation()), format(popData
               .getLiteratePopulation()
               / popData.getPopulation()), format(popData.getGdp()), english
-              .getName("territory", territory, false));
+              .getName("territory", territory));
       // remove all the ISO 639-3 until they are part of BCP 47
       // we need to remove in earlier pass so we have the count
       Set<String> languages = new TreeSet();
@@ -628,7 +628,7 @@ public class GenerateEnums {
             format(popData.getPopulation()), format(popData
                 .getLiteratePopulation()
                 / popData.getPopulation()), (count == 0 ? ";" : ""), english
-                .getName(language, false));
+                .getName(language));
       }
     }
     Log.close();
@@ -694,7 +694,7 @@ public class GenerateEnums {
       // octal
       // syntax
       System.out.println(un + "\t" + region + "\t"
-          + english.getName("territory", region, false));
+          + english.getName("territory", region));
     }
 
     showGeneratedCommentEnd(DATA_INDENT);
@@ -821,8 +821,7 @@ public class GenerateEnums {
 
     String resolvedEnglishName = englishName != null ? englishName : type
         .equals("territory") ? getEnglishName(codeName) : type
-        .equals("currency") ? english.getName(CLDRFile.CURRENCY_NAME, codeName,
-        false) : english.getName(CLDRFile.SCRIPT_NAME, codeName, false);
+        .equals("currency") ? english.getName(CLDRFile.CURRENCY_NAME, codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
     resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
     String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
@@ -859,7 +858,7 @@ public class GenerateEnums {
     String name = (String) extraNames.get(codeName);
     if (name != null)
       return name;
-    name = english.getName(CLDRFile.TERRITORY_NAME, codeName, false);
+    name = english.getName(CLDRFile.TERRITORY_NAME, codeName);
     return name;
   }
 

@@ -17,19 +17,40 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PivotData {
   public static final boolean DEBUG = true;
+
+  private static Matcher fileMatcher;
   
   public static void main(String[] args) throws IOException {
+    System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3\r\n" +
+        "These are Lang+Script+Region, then Lang+Region, then Lang+Script\r\n" +
+    "Inspect and check-in after each phase");
+    fileMatcher = Pattern.compile(Utility.getProperty("FILE", ".*")).matcher("");
+    int phase = Integer.parseInt(Utility.getProperty("phase", null));
+    Set<LocaleIDParser.Level> conditions = null;
+    switch(phase) {
+      case 1: conditions = EnumSet.of(LocaleIDParser.Level.Language, 
+          LocaleIDParser.Level.Script,
+          LocaleIDParser.Level.Region
+      );
+      break;
+      case 2: conditions = EnumSet.of(LocaleIDParser.Level.Language, 
+          LocaleIDParser.Level.Region
+      );
+      break;
+      case 3: conditions = EnumSet.of(LocaleIDParser.Level.Language, 
+          LocaleIDParser.Level.Script
+      );
+      break;
+    }
+
     try {
-      System.out.println("WARNING: Must be done in 3 phases. First Lang+Script+Region, then Lang+Region, then Lang+Script");
       Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
       PivotData pd = new PivotData(cldrFactory, Utility.MAIN_DIRECTORY, Utility.GEN_DIRECTORY + "pivot/");
-      Set<LocaleIDParser.Level> conditions = EnumSet.of(LocaleIDParser.Level.Language, 
-          LocaleIDParser.Level.Script
-          //, LocaleIDParser.Level.Region
-          );
       pd.pivotGroup(cldrFactory, conditions);
     } finally {
       System.out.println("DONE");
@@ -48,6 +69,9 @@ public class PivotData {
     String list = parts.getAttributeValue(-1, "locales");
     String[] items = list.split("\\s+");
     for (String item : items) {
+      if (!fileMatcher.reset(item).matches()) {
+        continue;
+      }
       if (lidp.set(item).getLevels().equals(conditions)) {
         writePivot(item);
       }

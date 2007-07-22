@@ -10,15 +10,21 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT cldrTest ((number | date | zoneFields | collation)*) >
 <!ATTLIST cldrTest version CDATA #REQUIRED>
+<!ATTLIST cldrTest base CDATA #REQUIRED>
 
 <!ELEMENT number (result*) >
-<!ATTLIST number locales NMTOKENS #IMPLIED>
+<!ATTLIST number locales CDATA #IMPLIED>
 
 <!ELEMENT date (result*) >
-<!ATTLIST date locales NMTOKENS #IMPLIED>
+<!ATTLIST date locales CDATA #IMPLIED>
+
+<!ELEMENT zoneFields (result*) >
+<!ATTLIST zoneFields locales CDATA #IMPLIED>
 
 <!ELEMENT collation (result*) >
-<!ATTLIST collation locales NMTOKENS #IMPLIED>
+<!ATTLIST collation locales CDATA #IMPLIED>
+
+<!ELEMENT result ( #PCDATA ) >
 
 <!-- common result attributes -->
 <!ATTLIST result input CDATA #IMPLIED>
@@ -32,9 +38,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST result timeType (none | short | medium | long | full) #IMPLIED>
 
 <!-- zoneFields result attributes -->
-<!ATTLIST result zone NMTOKEN #IMPLIED>
+<!ATTLIST result zone CDATA #IMPLIED>
 <!ATTLIST result date NMTOKEN #IMPLIED>
 <!ATTLIST result field NMTOKEN #IMPLIED>
-<!ATTLIST result parse NMTOKEN #IMPLIED>
+<!ATTLIST result parse CDATA  #IMPLIED>
 
 

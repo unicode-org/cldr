@@ -9,48 +9,73 @@ locales='fo fo_FO'>
    <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='scientific' draft='true'>0×10^0</result>
+   <result draft='false'>0E0</result>
+   <result input='0.01' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0,01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='scientific' draft='true'>1×10^−2</result>
+   <result draft='false'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='true'>−0</result>
+   <result draft='false'>-0</result>
+   <result numberType='decimal' draft='true'>−0,01</result>
+   <result draft='false'>-0,01</result>
+   <result numberType='percent' draft='true'>−1%</result>
+   <result draft='false'>-1%</result>
+   <result numberType='scientific' draft='true'>−1×10^−2</result>
+   <result draft='false'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='either'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='scientific' draft='true'>1×10^0</result>
+   <result draft='false'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='true'>−1</result>
+   <result draft='false'>-1</result>
+   <result numberType='decimal' draft='true'>−1</result>
+   <result draft='false'>-1</result>
+   <result numberType='percent' draft='true'>−100%</result>
+   <result draft='false'>-100%</result>
+   <result numberType='scientific' draft='true'>−1×10^0</result>
+   <result draft='false'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='either'>123</result>
    <result numberType='decimal'>123,456</result>
    <result numberType='percent'>12.346%</result>
-   <result numberType='scientific'>1,23456E2</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123,456</result>
-   <result numberType='percent'>-12.346%</result>
-   <result numberType='scientific'>-1,23456E2</result>
-   <result input='123456.78' numberType='integer'>123.457</result>
+   <result numberType='scientific' draft='true'>1,23456×10^2</result>
+   <result draft='false'>1,23456E2</result>
+   <result input='-123.456' numberType='integer' draft='true'>−123</result>
+   <result draft='false'>-123</result>
+   <result numberType='decimal' draft='true'>−123,456</result>
+   <result draft='false'>-123,456</result>
+   <result numberType='percent' draft='true'>−12.346%</result>
+   <result draft='false'>-12.346%</result>
+   <result numberType='scientific' draft='true'>−1,23456×10^2</result>
+   <result draft='false'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer' draft='either'>123.457</result>
    <result numberType='decimal'>123.456,78</result>
    <result numberType='percent'>12.345.678%</result>
-   <result numberType='scientific'>1,2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123.457</result>
-   <result numberType='decimal'>-123.456,78</result>
-   <result numberType='percent'>-12.345.678%</result>
-   <result numberType='scientific'>-1,2345678E5</result>
-   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='scientific' draft='true'>1,2345678×10^5</result>
+   <result draft='false'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='true'>−123.457</result>
+   <result draft='false'>-123.457</result>
+   <result numberType='decimal' draft='true'>−123.456,78</result>
+   <result draft='false'>-123.456,78</result>
+   <result numberType='percent' draft='true'>−12.345.678%</result>
+   <result draft='false'>-12.345.678%</result>
+   <result numberType='scientific' draft='true'>−1,2345678×10^5</result>
+   <result draft='false'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='either'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
+   <result input='-Infinity' numberType='integer' draft='true'>−∞</result>
+   <result draft='false'>-∞</result>
+   <result numberType='decimal' draft='true'>−∞</result>
+   <result draft='false'>-∞</result>
+   <result numberType='percent' draft='true'>−∞%</result>
+   <result draft='false'>-∞%</result>
+   <result numberType='scientific' draft='true'>−∞</result>
+   <result draft='false'>-∞</result>
+   <result input='NaN' numberType='integer' draft='either'>NaN</result>
    <result numberType='decimal'>NaN</result>
    <result numberType='percent'>NaN</result>
    <result numberType='scientific'>NaN</result>
@@ -351,77 +376,101 @@ locales='fo fo_FO'>
 locales='fo fo_FO'>
 <!-- Faroese [føroyskt]; Faroese (Faroe Islands) [føroyskt (Føroyar)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
-   <result field='ZZZZ'>GMT-08:00</result>
-   <result field='z'>GMT-08:00</result>
-   <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Sambandsríki Amerika)</result>
-   <result field='vvvv'>Los Angeles (Sambandsríki Amerika)</result>
+   <result field='ZZZZ' draft='true'>GMT−08:00</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='z' draft='true'>GMT−08:00</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='zzzz' draft='true'>GMT−08:00</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>Sambandsríki Amerika (Los Angeles)</result>
+   <result field='vvvv'>Sambandsríki Amerika (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-07:00</result>
-   <result field='z'>GMT-07:00</result>
-   <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Sambandsríki Amerika)</result>
-   <result field='vvvv'>Los Angeles (Sambandsríki Amerika)</result>
+   <result field='ZZZZ' draft='true'>GMT−07:00</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='z' draft='true'>GMT−07:00</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='zzzz' draft='true'>GMT−07:00</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>Sambandsríki Amerika (Los Angeles)</result>
+   <result field='vvvv'>Sambandsríki Amerika (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-05:00</result>
-   <result field='z'>GMT-05:00</result>
-   <result field='zzzz'>GMT-05:00</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='ZZZZ' draft='true'>GMT−05:00</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='z' draft='true'>GMT−05:00</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='zzzz' draft='true'>GMT−05:00</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='v' parse='America/Havana' draft='either'>Kuba</result>
    <result field='vvvv'>Kuba</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-04:00</result>
-   <result field='z'>GMT-04:00</result>
-   <result field='zzzz'>GMT-04:00</result>
-   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='ZZZZ' draft='true'>GMT−04:00</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='z' draft='true'>GMT−04:00</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='zzzz' draft='true'>GMT−04:00</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='v' parse='America/Havana' draft='either'>Kuba</result>
    <result field='vvvv'>Kuba</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Avstralia)</result>
-   <result field='vvvv'>Sydney (Avstralia)</result>
+   <result field='v' parse='Australia/Sydney'>Avstralia (Sydney)</result>
+   <result field='vvvv'>Avstralia (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Avstralia)</result>
-   <result field='vvvv'>Sydney (Avstralia)</result>
+   <result field='v' parse='Australia/Sydney'>Avstralia (Sydney)</result>
+   <result field='vvvv'>Avstralia (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Avstralia)</result>
-   <result field='vvvv'>Sydney (Avstralia)</result>
+   <result field='v' parse='Australia/Sydney'>Avstralia (Sydney)</result>
+   <result field='vvvv'>Avstralia (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Avstralia)</result>
-   <result field='vvvv'>Sydney (Avstralia)</result>
+   <result field='v' parse='Australia/Sydney'>Avstralia (Sydney)</result>
+   <result field='vvvv'>Avstralia (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
@@ -438,26 +487,36 @@ locales='fo fo_FO'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Russland)</result>
-   <result field='vvvv'>Moscow (Russland)</result>
+   <result field='v' parse='Europe/Moscow'>Russland (Moscow)</result>
+   <result field='vvvv'>Russland (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Russland)</result>
-   <result field='vvvv'>Moscow (Russland)</result>
+   <result field='v' parse='Europe/Moscow'>Russland (Moscow)</result>
+   <result field='vvvv'>Russland (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v'>GMT-03:00</result>
-   <result field='vvvv'>GMT-03:00</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
-   <result field='v'>GMT-03:00</result>
-   <result field='vvvv'>GMT-03:00</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' draft='either'>-0300</result>
+   <result field='ZZZZ' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT−03:00</result>
+   <result draft='false'>GMT-03:00</result>
   </zoneFields>
   <collation 
 locales='fo fo_FO'>

@@ -4,8 +4,8 @@
  <cldrTest version='1.4' base='dv'>
  <!-- Divehi [Divehi] -->
   <number 
-locales='dv'>
-<!-- Divehi [Divehi] -->
+locales='dv dv_MV'>
+<!-- Divehi [Divehi]; Divehi (Maldives) [Divehi (Maldives)] -->
    <result input='0.0' numberType='integer' draft='true'>٠</result>
    <result draft='false'>0</result>
    <result numberType='decimal' draft='true'>٠</result>
@@ -91,1221 +91,589 @@ locales='dv'>
    <result numberType='percent'>NaN</result>
    <result numberType='scientific'>NaN</result>
   </number>
-  <number 
-locales='dv_MV'>
-<!-- Divehi (Maldives) [Divehi (Maldives)] -->
-   <result input='0.0' numberType='integer' draft='either'>٠</result>
-   <result numberType='decimal'>٠</result>
-   <result numberType='percent'>٠%</result>
-   <result numberType='scientific'>٠E٠</result>
-   <result input='0.01' numberType='integer'>٠</result>
-   <result numberType='decimal'>٠.٠١</result>
-   <result numberType='percent'>١%</result>
-   <result numberType='scientific'>١E-٢</result>
-   <result input='-0.01' numberType='integer'>-٠</result>
-   <result numberType='decimal'>-٠.٠١</result>
-   <result numberType='percent'>-١%</result>
-   <result numberType='scientific'>-١E-٢</result>
-   <result input='1.0' numberType='integer'>١</result>
-   <result numberType='decimal'>١</result>
-   <result numberType='percent'>١٠٠%</result>
-   <result numberType='scientific'>١E٠</result>
-   <result input='-1.0' numberType='integer'>-١</result>
-   <result numberType='decimal'>-١</result>
-   <result numberType='percent'>-١٠٠%</result>
-   <result numberType='scientific'>-١E٠</result>
-   <result input='123.456' numberType='integer'>١٢٣</result>
-   <result numberType='decimal'>١٢٣.٤٥٦</result>
-   <result numberType='percent'>١٢,٣٤٦%</result>
-   <result numberType='scientific'>١.٢٣٤٥٦E٢</result>
-   <result input='-123.456' numberType='integer'>-١٢٣</result>
-   <result numberType='decimal'>-١٢٣.٤٥٦</result>
-   <result numberType='percent'>-١٢,٣٤٦%</result>
-   <result numberType='scientific'>-١.٢٣٤٥٦E٢</result>
-   <result input='123456.78' numberType='integer'>١,٢٣,٤٥٧</result>
-   <result numberType='decimal'>١,٢٣,٤٥٦.٧٨</result>
-   <result numberType='percent'>١,٢٣,٤٥,٦٧٨%</result>
-   <result numberType='scientific'>١.٢٣٤٥٦٧٨E٥</result>
-   <result input='-123456.78' numberType='integer'>-١,٢٣,٤٥٧</result>
-   <result numberType='decimal'>-١,٢٣,٤٥٦.٧٨</result>
-   <result numberType='percent'>-١,٢٣,٤٥,٦٧٨%</result>
-   <result numberType='scientific'>-١.٢٣٤٥٦٧٨E٥</result>
-   <result input='Infinity' numberType='integer'>∞</result>
-   <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
-   <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
-  </number>
   <date 
-locales='dv'>
-<!-- Divehi [Divehi] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='true'>٠٠:٠٠</result>
-   <result draft='false'>00:00</result>
-   <result timeType='medium' draft='true'>٠٠:٠٠:٠٠</result>
-   <result draft='false'>00:00:00</result>
-   <result timeType='long' draft='true'>٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>00:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٠٠/٠١/٣١</result>
-   <result draft='false'>00/01/31</result>
-   <result timeType='short' draft='true'>٠٠/٠١/٣١ ٠٠:٠٠</result>
-   <result draft='false'>00/01/31 00:00</result>
-   <result timeType='medium' draft='true'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠</result>
-   <result draft='false'>00/01/31 00:00:00</result>
-   <result timeType='long' draft='true'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>00/01/31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>00/01/31 00:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٠٠ 1 ٣١</result>
-   <result draft='false'>1900 1 31</result>
-   <result timeType='short' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
-   <result draft='false'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
-   <result draft='false'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٠٠ 1 ٣١</result>
-   <result draft='false'>1900 1 31</result>
-   <result timeType='short' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
-   <result draft='false'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
-   <result draft='false'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>4, ١٩٠٠ 1 ٣١</result>
-   <result draft='false'>4, 1900 1 31</result>
-   <result timeType='short' draft='true'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
-   <result draft='false'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='true'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
-   <result draft='false'>4, 1900 1 31 00:00:00</result>
-   <result timeType='long' draft='true'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='true'>٠٠:٠٠</result>
-   <result draft='false'>00:00</result>
-   <result timeType='medium' draft='true'>٠٠:٠٠:٠١</result>
-   <result draft='false'>00:00:01</result>
-   <result timeType='long' draft='true'>٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>00:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٠٩/٠٢/٢٨</result>
-   <result draft='false'>09/02/28</result>
-   <result timeType='short' draft='true'>٠٩/٠٢/٢٨ ٠٠:٠٠</result>
-   <result draft='false'>09/02/28 00:00</result>
-   <result timeType='medium' draft='true'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١</result>
-   <result draft='false'>09/02/28 00:00:01</result>
-   <result timeType='long' draft='true'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>09/02/28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>09/02/28 00:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٠٩ 2 ٢٨</result>
-   <result draft='false'>1909 2 28</result>
-   <result timeType='short' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
-   <result draft='false'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
-   <result draft='false'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٠٩ 2 ٢٨</result>
-   <result draft='false'>1909 2 28</result>
-   <result timeType='short' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
-   <result draft='false'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
-   <result draft='false'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>1, ١٩٠٩ 2 ٢٨</result>
-   <result draft='false'>1, 1909 2 28</result>
-   <result timeType='short' draft='true'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
-   <result draft='false'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='true'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
-   <result draft='false'>1, 1909 2 28 00:00:01</result>
-   <result timeType='long' draft='true'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='true'>٠٠:٥٩</result>
-   <result draft='false'>00:59</result>
-   <result timeType='medium' draft='true'>٠٠:٥٩:٥٩</result>
-   <result draft='false'>00:59:59</result>
-   <result timeType='long' draft='true'>٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>00:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>١٨/٠٣/٢٦</result>
-   <result draft='false'>18/03/26</result>
-   <result timeType='short' draft='true'>١٨/٠٣/٢٦ ٠٠:٥٩</result>
-   <result draft='false'>18/03/26 00:59</result>
-   <result timeType='medium' draft='true'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩</result>
-   <result draft='false'>18/03/26 00:59:59</result>
-   <result timeType='long' draft='true'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>18/03/26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>18/03/26 00:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩١٨ 3 ٢٦</result>
-   <result draft='false'>1918 3 26</result>
-   <result timeType='short' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
-   <result draft='false'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
-   <result draft='false'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩١٨ 3 ٢٦</result>
-   <result draft='false'>1918 3 26</result>
-   <result timeType='short' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
-   <result draft='false'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
-   <result draft='false'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>3, ١٩١٨ 3 ٢٦</result>
-   <result draft='false'>3, 1918 3 26</result>
-   <result timeType='short' draft='true'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
-   <result draft='false'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='true'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
-   <result draft='false'>3, 1918 3 26 00:59:59</result>
-   <result timeType='long' draft='true'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='true'>٠١:٠٠</result>
-   <result draft='false'>01:00</result>
-   <result timeType='medium' draft='true'>٠١:٠٠:٠٠</result>
-   <result draft='false'>01:00:00</result>
-   <result timeType='long' draft='true'>٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>01:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٣٢/٠٤/٢٤</result>
-   <result draft='false'>32/04/24</result>
-   <result timeType='short' draft='true'>٣٢/٠٤/٢٤ ٠١:٠٠</result>
-   <result draft='false'>32/04/24 01:00</result>
-   <result timeType='medium' draft='true'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠</result>
-   <result draft='false'>32/04/24 01:00:00</result>
-   <result timeType='long' draft='true'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>32/04/24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>32/04/24 01:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٣٢ 4 ٢٤</result>
-   <result draft='false'>1932 4 24</result>
-   <result timeType='short' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
-   <result draft='false'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
-   <result draft='false'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٣٢ 4 ٢٤</result>
-   <result draft='false'>1932 4 24</result>
-   <result timeType='short' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
-   <result draft='false'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
-   <result draft='false'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>1, ١٩٣٢ 4 ٢٤</result>
-   <result draft='false'>1, 1932 4 24</result>
-   <result timeType='short' draft='true'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
-   <result draft='false'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='true'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
-   <result draft='false'>1, 1932 4 24 01:00:00</result>
-   <result timeType='long' draft='true'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='true'>٠١:٠٠</result>
-   <result draft='false'>01:00</result>
-   <result timeType='medium' draft='true'>٠١:٠٠:٠١</result>
-   <result draft='false'>01:00:01</result>
-   <result timeType='long' draft='true'>٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>01:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٤٥/٠٥/٢٠</result>
-   <result draft='false'>45/05/20</result>
-   <result timeType='short' draft='true'>٤٥/٠٥/٢٠ ٠١:٠٠</result>
-   <result draft='false'>45/05/20 01:00</result>
-   <result timeType='medium' draft='true'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١</result>
-   <result draft='false'>45/05/20 01:00:01</result>
-   <result timeType='long' draft='true'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>45/05/20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>45/05/20 01:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٤٥ 5 ٢٠</result>
-   <result draft='false'>1945 5 20</result>
-   <result timeType='short' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
-   <result draft='false'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
-   <result draft='false'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٤٥ 5 ٢٠</result>
-   <result draft='false'>1945 5 20</result>
-   <result timeType='short' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
-   <result draft='false'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
-   <result draft='false'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>1, ١٩٤٥ 5 ٢٠</result>
-   <result draft='false'>1, 1945 5 20</result>
-   <result timeType='short' draft='true'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
-   <result draft='false'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='true'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
-   <result draft='false'>1, 1945 5 20 01:00:01</result>
-   <result timeType='long' draft='true'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='true'>١١:٥٩</result>
-   <result draft='false'>11:59</result>
-   <result timeType='medium' draft='true'>١١:٥٩:٥٩</result>
-   <result draft='false'>11:59:59</result>
-   <result timeType='long' draft='true'>١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>11:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٥٢/٠٦/١٨</result>
-   <result draft='false'>52/06/18</result>
-   <result timeType='short' draft='true'>٥٢/٠٦/١٨ ١١:٥٩</result>
-   <result draft='false'>52/06/18 11:59</result>
-   <result timeType='medium' draft='true'>٥٢/٠٦/١٨ ١١:٥٩:٥٩</result>
-   <result draft='false'>52/06/18 11:59:59</result>
-   <result timeType='long' draft='true'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>52/06/18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>52/06/18 11:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٥٢ 6 ١٨</result>
-   <result draft='false'>1952 6 18</result>
-   <result timeType='short' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩</result>
-   <result draft='false'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
-   <result draft='false'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٥٢ 6 ١٨</result>
-   <result draft='false'>1952 6 18</result>
-   <result timeType='short' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩</result>
-   <result draft='false'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
-   <result draft='false'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>4, ١٩٥٢ 6 ١٨</result>
-   <result draft='false'>4, 1952 6 18</result>
-   <result timeType='short' draft='true'>4, ١٩٥٢ 6 ١٨ ١١:٥٩</result>
-   <result draft='false'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='true'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
-   <result draft='false'>4, 1952 6 18 11:59:59</result>
-   <result timeType='long' draft='true'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='true'>١٢:٠٠</result>
-   <result draft='false'>12:00</result>
-   <result timeType='medium' draft='true'>١٢:٠٠:٠٠</result>
-   <result draft='false'>12:00:00</result>
-   <result timeType='long' draft='true'>١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>12:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٧٣/٠٧/١٦</result>
-   <result draft='false'>73/07/16</result>
-   <result timeType='short' draft='true'>٧٣/٠٧/١٦ ١٢:٠٠</result>
-   <result draft='false'>73/07/16 12:00</result>
-   <result timeType='medium' draft='true'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠</result>
-   <result draft='false'>73/07/16 12:00:00</result>
-   <result timeType='long' draft='true'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>73/07/16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>73/07/16 12:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٧٣ 7 ١٦</result>
-   <result draft='false'>1973 7 16</result>
-   <result timeType='short' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠</result>
-   <result draft='false'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
-   <result draft='false'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٧٣ 7 ١٦</result>
-   <result draft='false'>1973 7 16</result>
-   <result timeType='short' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠</result>
-   <result draft='false'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
-   <result draft='false'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>2, ١٩٧٣ 7 ١٦</result>
-   <result draft='false'>2, 1973 7 16</result>
-   <result timeType='short' draft='true'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠</result>
-   <result draft='false'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='true'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
-   <result draft='false'>2, 1973 7 16 12:00:00</result>
-   <result timeType='long' draft='true'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='true'>١٢:٠٠</result>
-   <result draft='false'>12:00</result>
-   <result timeType='medium' draft='true'>١٢:٠٠:٠١</result>
-   <result draft='false'>12:00:01</result>
-   <result timeType='long' draft='true'>١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>12:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٩٩/٠٨/١٤</result>
-   <result draft='false'>99/08/14</result>
-   <result timeType='short' draft='true'>٩٩/٠٨/١٤ ١٢:٠٠</result>
-   <result draft='false'>99/08/14 12:00</result>
-   <result timeType='medium' draft='true'>٩٩/٠٨/١٤ ١٢:٠٠:٠١</result>
-   <result draft='false'>99/08/14 12:00:01</result>
-   <result timeType='long' draft='true'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>99/08/14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>99/08/14 12:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>١٩٩٩ 8 ١٤</result>
-   <result draft='false'>1999 8 14</result>
-   <result timeType='short' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠</result>
-   <result draft='false'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
-   <result draft='false'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>١٩٩٩ 8 ١٤</result>
-   <result draft='false'>1999 8 14</result>
-   <result timeType='short' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠</result>
-   <result draft='false'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
-   <result draft='false'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>7, ١٩٩٩ 8 ١٤</result>
-   <result draft='false'>7, 1999 8 14</result>
-   <result timeType='short' draft='true'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠</result>
-   <result draft='false'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='true'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
-   <result draft='false'>7, 1999 8 14 12:00:01</result>
-   <result timeType='long' draft='true'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='true'>٢٢:٥٩</result>
-   <result draft='false'>22:59</result>
-   <result timeType='medium' draft='true'>٢٢:٥٩:٥٩</result>
-   <result draft='false'>22:59:59</result>
-   <result timeType='long' draft='true'>٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>22:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٠٠/٠٩/١٢</result>
-   <result draft='false'>00/09/12</result>
-   <result timeType='short' draft='true'>٠٠/٠٩/١٢ ٢٢:٥٩</result>
-   <result draft='false'>00/09/12 22:59</result>
-   <result timeType='medium' draft='true'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩</result>
-   <result draft='false'>00/09/12 22:59:59</result>
-   <result timeType='long' draft='true'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>00/09/12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>00/09/12 22:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>٢٠٠٠ 9 ١٢</result>
-   <result draft='false'>2000 9 12</result>
-   <result timeType='short' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
-   <result draft='false'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
-   <result draft='false'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>٢٠٠٠ 9 ١٢</result>
-   <result draft='false'>2000 9 12</result>
-   <result timeType='short' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
-   <result draft='false'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
-   <result draft='false'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>3, ٢٠٠٠ 9 ١٢</result>
-   <result draft='false'>3, 2000 9 12</result>
-   <result timeType='short' draft='true'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
-   <result draft='false'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='true'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
-   <result draft='false'>3, 2000 9 12 22:59:59</result>
-   <result timeType='long' draft='true'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='true'>٢٣:٠٠</result>
-   <result draft='false'>23:00</result>
-   <result timeType='medium' draft='true'>٢٣:٠٠:٠٠</result>
-   <result draft='false'>23:00:00</result>
-   <result timeType='long' draft='true'>٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>23:00:00 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٠١/١٠/٠٨</result>
-   <result draft='false'>01/10/08</result>
-   <result timeType='short' draft='true'>٠١/١٠/٠٨ ٢٣:٠٠</result>
-   <result draft='false'>01/10/08 23:00</result>
-   <result timeType='medium' draft='true'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠</result>
-   <result draft='false'>01/10/08 23:00:00</result>
-   <result timeType='long' draft='true'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>01/10/08 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>01/10/08 23:00:00 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>٢٠٠١ 10 ٨</result>
-   <result draft='false'>2001 10 8</result>
-   <result timeType='short' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠</result>
-   <result draft='false'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠</result>
-   <result draft='false'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>٢٠٠١ 10 ٨</result>
-   <result draft='false'>2001 10 8</result>
-   <result timeType='short' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠</result>
-   <result draft='false'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠</result>
-   <result draft='false'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>2, ٢٠٠١ 10 ٠٨</result>
-   <result draft='false'>2, 2001 10 08</result>
-   <result timeType='short' draft='true'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠</result>
-   <result draft='false'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='true'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠</result>
-   <result draft='false'>2, 2001 10 08 23:00:00</result>
-   <result timeType='long' draft='true'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
-   <result timeType='full' draft='true'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
-   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='true'>٢٣:٠٠</result>
-   <result draft='false'>23:00</result>
-   <result timeType='medium' draft='true'>٢٣:٠٠:٠١</result>
-   <result draft='false'>23:00:01</result>
-   <result timeType='long' draft='true'>٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>23:00:01 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>٠٤/١١/٠٤</result>
-   <result draft='false'>04/11/04</result>
-   <result timeType='short' draft='true'>٠٤/١١/٠٤ ٢٣:٠٠</result>
-   <result draft='false'>04/11/04 23:00</result>
-   <result timeType='medium' draft='true'>٠٤/١١/٠٤ ٢٣:٠٠:٠١</result>
-   <result draft='false'>04/11/04 23:00:01</result>
-   <result timeType='long' draft='true'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>04/11/04 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>04/11/04 23:00:01 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>٢٠٠٤ 11 ٤</result>
-   <result draft='false'>2004 11 4</result>
-   <result timeType='short' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠</result>
-   <result draft='false'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١</result>
-   <result draft='false'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>٢٠٠٤ 11 ٤</result>
-   <result draft='false'>2004 11 4</result>
-   <result timeType='short' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠</result>
-   <result draft='false'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١</result>
-   <result draft='false'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>5, ٢٠٠٤ 11 ٠٤</result>
-   <result draft='false'>5, 2004 11 04</result>
-   <result timeType='short' draft='true'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠</result>
-   <result draft='false'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='true'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١</result>
-   <result draft='false'>5, 2004 11 04 23:00:01</result>
-   <result timeType='long' draft='true'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
-   <result timeType='full' draft='true'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
-   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='true'>٢٣:٥٩</result>
-   <result draft='false'>23:59</result>
-   <result timeType='medium' draft='true'>٢٣:٥٩:٥٩</result>
-   <result draft='false'>23:59:59</result>
-   <result timeType='long' draft='true'>٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>23:59:59 GMT+00:00</result>
-   <result dateType='short' timeType='none' draft='true'>١٠/١٢/٠١</result>
-   <result draft='false'>10/12/01</result>
-   <result timeType='short' draft='true'>١٠/١٢/٠١ ٢٣:٥٩</result>
-   <result draft='false'>10/12/01 23:59</result>
-   <result timeType='medium' draft='true'>١٠/١٢/٠١ ٢٣:٥٩:٥٩</result>
-   <result draft='false'>10/12/01 23:59:59</result>
-   <result timeType='long' draft='true'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>10/12/01 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>10/12/01 23:59:59 GMT+00:00</result>
-   <result dateType='medium' timeType='none' draft='true'>٢٠١٠ 12 ١</result>
-   <result draft='false'>2010 12 1</result>
-   <result timeType='short' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩</result>
-   <result draft='false'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩</result>
-   <result draft='false'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result dateType='long' timeType='none' draft='true'>٢٠١٠ 12 ١</result>
-   <result draft='false'>2010 12 1</result>
-   <result timeType='short' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩</result>
-   <result draft='false'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩</result>
-   <result draft='false'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
-   <result dateType='full' timeType='none' draft='true'>4, ٢٠١٠ 12 ٠١</result>
-   <result draft='false'>4, 2010 12 01</result>
-   <result timeType='short' draft='true'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩</result>
-   <result draft='false'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='true'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩</result>
-   <result draft='false'>4, 2010 12 01 23:59:59</result>
-   <result timeType='long' draft='true'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
-   <result timeType='full' draft='true'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
-   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
-  </date>
-  <date 
-locales='dv_MV'>
-<!-- Divehi (Maldives) [Divehi (Maldives)] -->
+locales='dv dv_MV'>
+<!-- Divehi [Divehi]; Divehi (Maldives) [Divehi (Maldives)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='true'>١٢:٠٠ AM</result>
-   <result draft='false'>٠٠:٠٠</result>
+   <result draft='false'>00:00</result>
    <result timeType='medium' draft='true'>١٢:٠٠:٠٠ AM</result>
-   <result draft='false'>٠٠:٠٠:٠٠</result>
+   <result draft='false'>00:00:00</result>
    <result timeType='long' draft='true'>١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>00:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>00:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٣١-١-٠٠</result>
-   <result draft='false'>٠٠/٠١/٣١</result>
+   <result draft='false'>1900-01-31</result>
    <result timeType='short' draft='true'>٣١-١-٠٠ ١٢:٠٠ AM</result>
-   <result draft='false'>٠٠/٠١/٣١ ٠٠:٠٠</result>
+   <result draft='false'>1900-01-31 00:00</result>
    <result timeType='medium' draft='true'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM</result>
-   <result draft='false'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠</result>
+   <result draft='false'>1900-01-31 00:00:00</result>
    <result timeType='long' draft='true'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900-01-31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900-01-31 00:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٣١-٠١-١٩٠٠</result>
-   <result draft='false'>١٩٠٠ 1 ٣١</result>
+   <result draft='false'>1900 1 31</result>
    <result timeType='short' draft='true'>٣١-٠١-١٩٠٠ ١٢:٠٠ AM</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
+   <result draft='false'>1900 1 31 00:00</result>
    <result timeType='medium' draft='true'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
    <result timeType='long' draft='true'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٣١ 1 ١٩٠٠</result>
-   <result draft='false'>١٩٠٠ 1 ٣١</result>
+   <result draft='false'>1900 1 31</result>
    <result timeType='short' draft='true'>٣١ 1 ١٩٠٠ ١٢:٠٠ AM</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
+   <result draft='false'>1900 1 31 00:00</result>
    <result timeType='medium' draft='true'>٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
+   <result draft='false'>1900 1 31 00:00:00</result>
    <result timeType='long' draft='true'>٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>4 ٣١ 1 ١٩٠٠</result>
-   <result draft='false'>4, ١٩٠٠ 1 ٣١</result>
+   <result draft='false'>4, 1900 1 31</result>
    <result timeType='short' draft='true'>4 ٣١ 1 ١٩٠٠ ١٢:٠٠ AM</result>
-   <result draft='false'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠</result>
+   <result draft='false'>4, 1900 1 31 00:00</result>
    <result timeType='medium' draft='true'>4 ٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM</result>
-   <result draft='false'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠</result>
+   <result draft='false'>4, 1900 1 31 00:00:00</result>
    <result timeType='long' draft='true'>4 ٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>4 ٣١ 1 ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>4, ١٩٠٠ 1 ٣١ ٠٠:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='true'>١٢:٠٠ AM</result>
-   <result draft='false'>٠٠:٠٠</result>
+   <result draft='false'>00:00</result>
    <result timeType='medium' draft='true'>١٢:٠٠:٠١ AM</result>
-   <result draft='false'>٠٠:٠٠:٠١</result>
+   <result draft='false'>00:00:01</result>
    <result timeType='long' draft='true'>١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>00:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>00:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٢٨-٢-٠٩</result>
-   <result draft='false'>٠٩/٠٢/٢٨</result>
+   <result draft='false'>1909-02-28</result>
    <result timeType='short' draft='true'>٢٨-٢-٠٩ ١٢:٠٠ AM</result>
-   <result draft='false'>٠٩/٠٢/٢٨ ٠٠:٠٠</result>
+   <result draft='false'>1909-02-28 00:00</result>
    <result timeType='medium' draft='true'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM</result>
-   <result draft='false'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١</result>
+   <result draft='false'>1909-02-28 00:00:01</result>
    <result timeType='long' draft='true'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909-02-28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909-02-28 00:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٢٨-٠٢-١٩٠٩</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨</result>
+   <result draft='false'>1909 2 28</result>
    <result timeType='short' draft='true'>٢٨-٠٢-١٩٠٩ ١٢:٠٠ AM</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
+   <result draft='false'>1909 2 28 00:00</result>
    <result timeType='medium' draft='true'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
    <result timeType='long' draft='true'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٢٨ 2 ١٩٠٩</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨</result>
+   <result draft='false'>1909 2 28</result>
    <result timeType='short' draft='true'>٢٨ 2 ١٩٠٩ ١٢:٠٠ AM</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
+   <result draft='false'>1909 2 28 00:00</result>
    <result timeType='medium' draft='true'>٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
+   <result draft='false'>1909 2 28 00:00:01</result>
    <result timeType='long' draft='true'>٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>1 ٢٨ 2 ١٩٠٩</result>
-   <result draft='false'>1, ١٩٠٩ 2 ٢٨</result>
+   <result draft='false'>1, 1909 2 28</result>
    <result timeType='short' draft='true'>1 ٢٨ 2 ١٩٠٩ ١٢:٠٠ AM</result>
-   <result draft='false'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠</result>
+   <result draft='false'>1, 1909 2 28 00:00</result>
    <result timeType='medium' draft='true'>1 ٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM</result>
-   <result draft='false'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١</result>
+   <result draft='false'>1, 1909 2 28 00:00:01</result>
    <result timeType='long' draft='true'>1 ٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>1 ٢٨ 2 ١٩٠٩ ١٢:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٠٩ 2 ٢٨ ٠٠:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='true'>١٢:٥٩ AM</result>
-   <result draft='false'>٠٠:٥٩</result>
+   <result draft='false'>00:59</result>
    <result timeType='medium' draft='true'>١٢:٥٩:٥٩ AM</result>
-   <result draft='false'>٠٠:٥٩:٥٩</result>
+   <result draft='false'>00:59:59</result>
    <result timeType='long' draft='true'>١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>00:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>00:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٢٦-٣-١٨</result>
-   <result draft='false'>١٨/٠٣/٢٦</result>
+   <result draft='false'>1918-03-26</result>
    <result timeType='short' draft='true'>٢٦-٣-١٨ ١٢:٥٩ AM</result>
-   <result draft='false'>١٨/٠٣/٢٦ ٠٠:٥٩</result>
+   <result draft='false'>1918-03-26 00:59</result>
    <result timeType='medium' draft='true'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM</result>
-   <result draft='false'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩</result>
+   <result draft='false'>1918-03-26 00:59:59</result>
    <result timeType='long' draft='true'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918-03-26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918-03-26 00:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٢٦-٠٣-١٩١٨</result>
-   <result draft='false'>١٩١٨ 3 ٢٦</result>
+   <result draft='false'>1918 3 26</result>
    <result timeType='short' draft='true'>٢٦-٠٣-١٩١٨ ١٢:٥٩ AM</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
+   <result draft='false'>1918 3 26 00:59</result>
    <result timeType='medium' draft='true'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
    <result timeType='long' draft='true'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٢٦ 3 ١٩١٨</result>
-   <result draft='false'>١٩١٨ 3 ٢٦</result>
+   <result draft='false'>1918 3 26</result>
    <result timeType='short' draft='true'>٢٦ 3 ١٩١٨ ١٢:٥٩ AM</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
+   <result draft='false'>1918 3 26 00:59</result>
    <result timeType='medium' draft='true'>٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
+   <result draft='false'>1918 3 26 00:59:59</result>
    <result timeType='long' draft='true'>٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>3 ٢٦ 3 ١٩١٨</result>
-   <result draft='false'>3, ١٩١٨ 3 ٢٦</result>
+   <result draft='false'>3, 1918 3 26</result>
    <result timeType='short' draft='true'>3 ٢٦ 3 ١٩١٨ ١٢:٥٩ AM</result>
-   <result draft='false'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩</result>
+   <result draft='false'>3, 1918 3 26 00:59</result>
    <result timeType='medium' draft='true'>3 ٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM</result>
-   <result draft='false'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩</result>
+   <result draft='false'>3, 1918 3 26 00:59:59</result>
    <result timeType='long' draft='true'>3 ٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>3 ٢٦ 3 ١٩١٨ ١٢:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>3, ١٩١٨ 3 ٢٦ ٠٠:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='true'>٠١:٠٠ AM</result>
-   <result draft='false'>٠١:٠٠</result>
+   <result draft='false'>01:00</result>
    <result timeType='medium' draft='true'>٠١:٠٠:٠٠ AM</result>
-   <result draft='false'>٠١:٠٠:٠٠</result>
+   <result draft='false'>01:00:00</result>
    <result timeType='long' draft='true'>٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>01:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>01:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٢٤-٤-٣٢</result>
-   <result draft='false'>٣٢/٠٤/٢٤</result>
+   <result draft='false'>1932-04-24</result>
    <result timeType='short' draft='true'>٢٤-٤-٣٢ ٠١:٠٠ AM</result>
-   <result draft='false'>٣٢/٠٤/٢٤ ٠١:٠٠</result>
+   <result draft='false'>1932-04-24 01:00</result>
    <result timeType='medium' draft='true'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM</result>
-   <result draft='false'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠</result>
+   <result draft='false'>1932-04-24 01:00:00</result>
    <result timeType='long' draft='true'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932-04-24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932-04-24 01:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٢٤-٠٤-١٩٣٢</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤</result>
+   <result draft='false'>1932 4 24</result>
    <result timeType='short' draft='true'>٢٤-٠٤-١٩٣٢ ٠١:٠٠ AM</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
+   <result draft='false'>1932 4 24 01:00</result>
    <result timeType='medium' draft='true'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
    <result timeType='long' draft='true'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٢٤ 4 ١٩٣٢</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤</result>
+   <result draft='false'>1932 4 24</result>
    <result timeType='short' draft='true'>٢٤ 4 ١٩٣٢ ٠١:٠٠ AM</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
+   <result draft='false'>1932 4 24 01:00</result>
    <result timeType='medium' draft='true'>٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
+   <result draft='false'>1932 4 24 01:00:00</result>
    <result timeType='long' draft='true'>٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>1 ٢٤ 4 ١٩٣٢</result>
-   <result draft='false'>1, ١٩٣٢ 4 ٢٤</result>
+   <result draft='false'>1, 1932 4 24</result>
    <result timeType='short' draft='true'>1 ٢٤ 4 ١٩٣٢ ٠١:٠٠ AM</result>
-   <result draft='false'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠</result>
+   <result draft='false'>1, 1932 4 24 01:00</result>
    <result timeType='medium' draft='true'>1 ٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM</result>
-   <result draft='false'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠</result>
+   <result draft='false'>1, 1932 4 24 01:00:00</result>
    <result timeType='long' draft='true'>1 ٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>1 ٢٤ 4 ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٣٢ 4 ٢٤ ٠١:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='true'>٠١:٠٠ AM</result>
-   <result draft='false'>٠١:٠٠</result>
+   <result draft='false'>01:00</result>
    <result timeType='medium' draft='true'>٠١:٠٠:٠١ AM</result>
-   <result draft='false'>٠١:٠٠:٠١</result>
+   <result draft='false'>01:00:01</result>
    <result timeType='long' draft='true'>٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>01:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>01:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٢٠-٥-٤٥</result>
-   <result draft='false'>٤٥/٠٥/٢٠</result>
+   <result draft='false'>1945-05-20</result>
    <result timeType='short' draft='true'>٢٠-٥-٤٥ ٠١:٠٠ AM</result>
-   <result draft='false'>٤٥/٠٥/٢٠ ٠١:٠٠</result>
+   <result draft='false'>1945-05-20 01:00</result>
    <result timeType='medium' draft='true'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM</result>
-   <result draft='false'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١</result>
+   <result draft='false'>1945-05-20 01:00:01</result>
    <result timeType='long' draft='true'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945-05-20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945-05-20 01:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٢٠-٠٥-١٩٤٥</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠</result>
+   <result draft='false'>1945 5 20</result>
    <result timeType='short' draft='true'>٢٠-٠٥-١٩٤٥ ٠١:٠٠ AM</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
+   <result draft='false'>1945 5 20 01:00</result>
    <result timeType='medium' draft='true'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
    <result timeType='long' draft='true'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٢٠ 5 ١٩٤٥</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠</result>
+   <result draft='false'>1945 5 20</result>
    <result timeType='short' draft='true'>٢٠ 5 ١٩٤٥ ٠١:٠٠ AM</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
+   <result draft='false'>1945 5 20 01:00</result>
    <result timeType='medium' draft='true'>٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
+   <result draft='false'>1945 5 20 01:00:01</result>
    <result timeType='long' draft='true'>٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>1 ٢٠ 5 ١٩٤٥</result>
-   <result draft='false'>1, ١٩٤٥ 5 ٢٠</result>
+   <result draft='false'>1, 1945 5 20</result>
    <result timeType='short' draft='true'>1 ٢٠ 5 ١٩٤٥ ٠١:٠٠ AM</result>
-   <result draft='false'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠</result>
+   <result draft='false'>1, 1945 5 20 01:00</result>
    <result timeType='medium' draft='true'>1 ٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM</result>
-   <result draft='false'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١</result>
+   <result draft='false'>1, 1945 5 20 01:00:01</result>
    <result timeType='long' draft='true'>1 ٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>1 ٢٠ 5 ١٩٤٥ ٠١:٠٠:٠١ AM GMT+00:00</result>
-   <result draft='false'>1, ١٩٤٥ 5 ٢٠ ٠١:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='true'>١١:٥٩ AM</result>
-   <result draft='false'>١١:٥٩</result>
+   <result draft='false'>11:59</result>
    <result timeType='medium' draft='true'>١١:٥٩:٥٩ AM</result>
-   <result draft='false'>١١:٥٩:٥٩</result>
+   <result draft='false'>11:59:59</result>
    <result timeType='long' draft='true'>١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>11:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>11:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>١٨-٦-٥٢</result>
-   <result draft='false'>٥٢/٠٦/١٨</result>
+   <result draft='false'>1952-06-18</result>
    <result timeType='short' draft='true'>١٨-٦-٥٢ ١١:٥٩ AM</result>
-   <result draft='false'>٥٢/٠٦/١٨ ١١:٥٩</result>
+   <result draft='false'>1952-06-18 11:59</result>
    <result timeType='medium' draft='true'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM</result>
-   <result draft='false'>٥٢/٠٦/١٨ ١١:٥٩:٥٩</result>
+   <result draft='false'>1952-06-18 11:59:59</result>
    <result timeType='long' draft='true'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952-06-18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952-06-18 11:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>١٨-٠٦-١٩٥٢</result>
-   <result draft='false'>١٩٥٢ 6 ١٨</result>
+   <result draft='false'>1952 6 18</result>
    <result timeType='short' draft='true'>١٨-٠٦-١٩٥٢ ١١:٥٩ AM</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩</result>
+   <result draft='false'>1952 6 18 11:59</result>
    <result timeType='medium' draft='true'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
    <result timeType='long' draft='true'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>١٨ 6 ١٩٥٢</result>
-   <result draft='false'>١٩٥٢ 6 ١٨</result>
+   <result draft='false'>1952 6 18</result>
    <result timeType='short' draft='true'>١٨ 6 ١٩٥٢ ١١:٥٩ AM</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩</result>
+   <result draft='false'>1952 6 18 11:59</result>
    <result timeType='medium' draft='true'>١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
+   <result draft='false'>1952 6 18 11:59:59</result>
    <result timeType='long' draft='true'>١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>4 ١٨ 6 ١٩٥٢</result>
-   <result draft='false'>4, ١٩٥٢ 6 ١٨</result>
+   <result draft='false'>4, 1952 6 18</result>
    <result timeType='short' draft='true'>4 ١٨ 6 ١٩٥٢ ١١:٥٩ AM</result>
-   <result draft='false'>4, ١٩٥٢ 6 ١٨ ١١:٥٩</result>
+   <result draft='false'>4, 1952 6 18 11:59</result>
    <result timeType='medium' draft='true'>4 ١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM</result>
-   <result draft='false'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩</result>
+   <result draft='false'>4, 1952 6 18 11:59:59</result>
    <result timeType='long' draft='true'>4 ١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>4 ١٨ 6 ١٩٥٢ ١١:٥٩:٥٩ AM GMT+00:00</result>
-   <result draft='false'>4, ١٩٥٢ 6 ١٨ ١١:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='true'>١٢:٠٠ PM</result>
-   <result draft='false'>١٢:٠٠</result>
+   <result draft='false'>12:00</result>
    <result timeType='medium' draft='true'>١٢:٠٠:٠٠ PM</result>
-   <result draft='false'>١٢:٠٠:٠٠</result>
+   <result draft='false'>12:00:00</result>
    <result timeType='long' draft='true'>١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>12:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>12:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>١٦-٧-٧٣</result>
-   <result draft='false'>٧٣/٠٧/١٦</result>
+   <result draft='false'>1973-07-16</result>
    <result timeType='short' draft='true'>١٦-٧-٧٣ ١٢:٠٠ PM</result>
-   <result draft='false'>٧٣/٠٧/١٦ ١٢:٠٠</result>
+   <result draft='false'>1973-07-16 12:00</result>
    <result timeType='medium' draft='true'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM</result>
-   <result draft='false'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠</result>
+   <result draft='false'>1973-07-16 12:00:00</result>
    <result timeType='long' draft='true'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973-07-16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973-07-16 12:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>١٦-٠٧-١٩٧٣</result>
-   <result draft='false'>١٩٧٣ 7 ١٦</result>
+   <result draft='false'>1973 7 16</result>
    <result timeType='short' draft='true'>١٦-٠٧-١٩٧٣ ١٢:٠٠ PM</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠</result>
+   <result draft='false'>1973 7 16 12:00</result>
    <result timeType='medium' draft='true'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
    <result timeType='long' draft='true'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>١٦ 7 ١٩٧٣</result>
-   <result draft='false'>١٩٧٣ 7 ١٦</result>
+   <result draft='false'>1973 7 16</result>
    <result timeType='short' draft='true'>١٦ 7 ١٩٧٣ ١٢:٠٠ PM</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠</result>
+   <result draft='false'>1973 7 16 12:00</result>
    <result timeType='medium' draft='true'>١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
+   <result draft='false'>1973 7 16 12:00:00</result>
    <result timeType='long' draft='true'>١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>2 ١٦ 7 ١٩٧٣</result>
-   <result draft='false'>2, ١٩٧٣ 7 ١٦</result>
+   <result draft='false'>2, 1973 7 16</result>
    <result timeType='short' draft='true'>2 ١٦ 7 ١٩٧٣ ١٢:٠٠ PM</result>
-   <result draft='false'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠</result>
+   <result draft='false'>2, 1973 7 16 12:00</result>
    <result timeType='medium' draft='true'>2 ١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM</result>
-   <result draft='false'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠</result>
+   <result draft='false'>2, 1973 7 16 12:00:00</result>
    <result timeType='long' draft='true'>2 ١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>2 ١٦ 7 ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>2, ١٩٧٣ 7 ١٦ ١٢:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='true'>١٢:٠٠ PM</result>
-   <result draft='false'>١٢:٠٠</result>
+   <result draft='false'>12:00</result>
    <result timeType='medium' draft='true'>١٢:٠٠:٠١ PM</result>
-   <result draft='false'>١٢:٠٠:٠١</result>
+   <result draft='false'>12:00:01</result>
    <result timeType='long' draft='true'>١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>12:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>12:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>١٤-٨-٩٩</result>
-   <result draft='false'>٩٩/٠٨/١٤</result>
+   <result draft='false'>1999-08-14</result>
    <result timeType='short' draft='true'>١٤-٨-٩٩ ١٢:٠٠ PM</result>
-   <result draft='false'>٩٩/٠٨/١٤ ١٢:٠٠</result>
+   <result draft='false'>1999-08-14 12:00</result>
    <result timeType='medium' draft='true'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM</result>
-   <result draft='false'>٩٩/٠٨/١٤ ١٢:٠٠:٠١</result>
+   <result draft='false'>1999-08-14 12:00:01</result>
    <result timeType='long' draft='true'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999-08-14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999-08-14 12:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>١٤-٠٨-١٩٩٩</result>
-   <result draft='false'>١٩٩٩ 8 ١٤</result>
+   <result draft='false'>1999 8 14</result>
    <result timeType='short' draft='true'>١٤-٠٨-١٩٩٩ ١٢:٠٠ PM</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠</result>
+   <result draft='false'>1999 8 14 12:00</result>
    <result timeType='medium' draft='true'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
    <result timeType='long' draft='true'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>١٤ 8 ١٩٩٩</result>
-   <result draft='false'>١٩٩٩ 8 ١٤</result>
+   <result draft='false'>1999 8 14</result>
    <result timeType='short' draft='true'>١٤ 8 ١٩٩٩ ١٢:٠٠ PM</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠</result>
+   <result draft='false'>1999 8 14 12:00</result>
    <result timeType='medium' draft='true'>١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
+   <result draft='false'>1999 8 14 12:00:01</result>
    <result timeType='long' draft='true'>١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>7 ١٤ 8 ١٩٩٩</result>
-   <result draft='false'>7, ١٩٩٩ 8 ١٤</result>
+   <result draft='false'>7, 1999 8 14</result>
    <result timeType='short' draft='true'>7 ١٤ 8 ١٩٩٩ ١٢:٠٠ PM</result>
-   <result draft='false'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠</result>
+   <result draft='false'>7, 1999 8 14 12:00</result>
    <result timeType='medium' draft='true'>7 ١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM</result>
-   <result draft='false'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١</result>
+   <result draft='false'>7, 1999 8 14 12:00:01</result>
    <result timeType='long' draft='true'>7 ١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>7 ١٤ 8 ١٩٩٩ ١٢:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>7, ١٩٩٩ 8 ١٤ ١٢:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='true'>١٠:٥٩ PM</result>
-   <result draft='false'>٢٢:٥٩</result>
+   <result draft='false'>22:59</result>
    <result timeType='medium' draft='true'>١٠:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٢:٥٩:٥٩</result>
+   <result draft='false'>22:59:59</result>
    <result timeType='long' draft='true'>١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>22:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>22:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>١٢-٩-٠٠</result>
-   <result draft='false'>٠٠/٠٩/١٢</result>
+   <result draft='false'>2000-09-12</result>
    <result timeType='short' draft='true'>١٢-٩-٠٠ ١٠:٥٩ PM</result>
-   <result draft='false'>٠٠/٠٩/١٢ ٢٢:٥٩</result>
+   <result draft='false'>2000-09-12 22:59</result>
    <result timeType='medium' draft='true'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM</result>
-   <result draft='false'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩</result>
+   <result draft='false'>2000-09-12 22:59:59</result>
    <result timeType='long' draft='true'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000-09-12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000-09-12 22:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>١٢-٠٩-٢٠٠٠</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢</result>
+   <result draft='false'>2000 9 12</result>
    <result timeType='short' draft='true'>١٢-٠٩-٢٠٠٠ ١٠:٥٩ PM</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
+   <result draft='false'>2000 9 12 22:59</result>
    <result timeType='medium' draft='true'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
    <result timeType='long' draft='true'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>١٢ 9 ٢٠٠٠</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢</result>
+   <result draft='false'>2000 9 12</result>
    <result timeType='short' draft='true'>١٢ 9 ٢٠٠٠ ١٠:٥٩ PM</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
+   <result draft='false'>2000 9 12 22:59</result>
    <result timeType='medium' draft='true'>١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
+   <result draft='false'>2000 9 12 22:59:59</result>
    <result timeType='long' draft='true'>١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>3 ١٢ 9 ٢٠٠٠</result>
-   <result draft='false'>3, ٢٠٠٠ 9 ١٢</result>
+   <result draft='false'>3, 2000 9 12</result>
    <result timeType='short' draft='true'>3 ١٢ 9 ٢٠٠٠ ١٠:٥٩ PM</result>
-   <result draft='false'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩</result>
+   <result draft='false'>3, 2000 9 12 22:59</result>
    <result timeType='medium' draft='true'>3 ١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
-   <result draft='false'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩</result>
+   <result draft='false'>3, 2000 9 12 22:59:59</result>
    <result timeType='long' draft='true'>3 ١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>3 ١٢ 9 ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>3, ٢٠٠٠ 9 ١٢ ٢٢:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='true'>١١:٠٠ PM</result>
-   <result draft='false'>٢٣:٠٠</result>
+   <result draft='false'>23:00</result>
    <result timeType='medium' draft='true'>١١:٠٠:٠٠ PM</result>
-   <result draft='false'>٢٣:٠٠:٠٠</result>
+   <result draft='false'>23:00:00</result>
    <result timeType='long' draft='true'>١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>23:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>23:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٨-١٠-٠١</result>
-   <result draft='false'>٠١/١٠/٠٨</result>
+   <result draft='false'>2001-10-08</result>
    <result timeType='short' draft='true'>٨-١٠-٠١ ١١:٠٠ PM</result>
-   <result draft='false'>٠١/١٠/٠٨ ٢٣:٠٠</result>
+   <result draft='false'>2001-10-08 23:00</result>
    <result timeType='medium' draft='true'>٨-١٠-٠١ ١١:٠٠:٠٠ PM</result>
-   <result draft='false'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠</result>
+   <result draft='false'>2001-10-08 23:00:00</result>
    <result timeType='long' draft='true'>٨-١٠-٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001-10-08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٨-١٠-٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001-10-08 23:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٠٨-١٠-٢٠٠١</result>
-   <result draft='false'>٢٠٠١ 10 ٨</result>
+   <result draft='false'>2001 10 8</result>
    <result timeType='short' draft='true'>٠٨-١٠-٢٠٠١ ١١:٠٠ PM</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠</result>
+   <result draft='false'>2001 10 8 23:00</result>
    <result timeType='medium' draft='true'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
    <result timeType='long' draft='true'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٨ 10 ٢٠٠١</result>
-   <result draft='false'>٢٠٠١ 10 ٨</result>
+   <result draft='false'>2001 10 8</result>
    <result timeType='short' draft='true'>٨ 10 ٢٠٠١ ١١:٠٠ PM</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠</result>
+   <result draft='false'>2001 10 8 23:00</result>
    <result timeType='medium' draft='true'>٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠</result>
+   <result draft='false'>2001 10 8 23:00:00</result>
    <result timeType='long' draft='true'>٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠١ 10 ٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>2 ٨ 10 ٢٠٠١</result>
-   <result draft='false'>2, ٢٠٠١ 10 ٠٨</result>
+   <result draft='false'>2, 2001 10 08</result>
    <result timeType='short' draft='true'>2 ٨ 10 ٢٠٠١ ١١:٠٠ PM</result>
-   <result draft='false'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠</result>
+   <result draft='false'>2, 2001 10 08 23:00</result>
    <result timeType='medium' draft='true'>2 ٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM</result>
-   <result draft='false'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠</result>
+   <result draft='false'>2, 2001 10 08 23:00:00</result>
    <result timeType='long' draft='true'>2 ٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='true'>2 ٨ 10 ٢٠٠١ ١١:٠٠:٠٠ PM GMT+00:00</result>
-   <result draft='false'>2, ٢٠٠١ 10 ٠٨ ٢٣:٠٠:٠٠ GMT+00:00</result>
+   <result draft='false'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='true'>١١:٠٠ PM</result>
-   <result draft='false'>٢٣:٠٠</result>
+   <result draft='false'>23:00</result>
    <result timeType='medium' draft='true'>١١:٠٠:٠١ PM</result>
-   <result draft='false'>٢٣:٠٠:٠١</result>
+   <result draft='false'>23:00:01</result>
    <result timeType='long' draft='true'>١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>23:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>23:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>٤-١١-٠٤</result>
-   <result draft='false'>٠٤/١١/٠٤</result>
+   <result draft='false'>2004-11-04</result>
    <result timeType='short' draft='true'>٤-١١-٠٤ ١١:٠٠ PM</result>
-   <result draft='false'>٠٤/١١/٠٤ ٢٣:٠٠</result>
+   <result draft='false'>2004-11-04 23:00</result>
    <result timeType='medium' draft='true'>٤-١١-٠٤ ١١:٠٠:٠١ PM</result>
-   <result draft='false'>٠٤/١١/٠٤ ٢٣:٠٠:٠١</result>
+   <result draft='false'>2004-11-04 23:00:01</result>
    <result timeType='long' draft='true'>٤-١١-٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004-11-04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٤-١١-٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004-11-04 23:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٠٤-١١-٢٠٠٤</result>
-   <result draft='false'>٢٠٠٤ 11 ٤</result>
+   <result draft='false'>2004 11 4</result>
    <result timeType='short' draft='true'>٠٤-١١-٢٠٠٤ ١١:٠٠ PM</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠</result>
+   <result draft='false'>2004 11 4 23:00</result>
    <result timeType='medium' draft='true'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
    <result timeType='long' draft='true'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>٤ 11 ٢٠٠٤</result>
-   <result draft='false'>٢٠٠٤ 11 ٤</result>
+   <result draft='false'>2004 11 4</result>
    <result timeType='short' draft='true'>٤ 11 ٢٠٠٤ ١١:٠٠ PM</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠</result>
+   <result draft='false'>2004 11 4 23:00</result>
    <result timeType='medium' draft='true'>٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١</result>
+   <result draft='false'>2004 11 4 23:00:01</result>
    <result timeType='long' draft='true'>٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>٢٠٠٤ 11 ٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>5 ٤ 11 ٢٠٠٤</result>
-   <result draft='false'>5, ٢٠٠٤ 11 ٠٤</result>
+   <result draft='false'>5, 2004 11 04</result>
    <result timeType='short' draft='true'>5 ٤ 11 ٢٠٠٤ ١١:٠٠ PM</result>
-   <result draft='false'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠</result>
+   <result draft='false'>5, 2004 11 04 23:00</result>
    <result timeType='medium' draft='true'>5 ٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM</result>
-   <result draft='false'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١</result>
+   <result draft='false'>5, 2004 11 04 23:00:01</result>
    <result timeType='long' draft='true'>5 ٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='true'>5 ٤ 11 ٢٠٠٤ ١١:٠٠:٠١ PM GMT+00:00</result>
-   <result draft='false'>5, ٢٠٠٤ 11 ٠٤ ٢٣:٠٠:٠١ GMT+00:00</result>
+   <result draft='false'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='true'>١١:٥٩ PM</result>
-   <result draft='false'>٢٣:٥٩</result>
+   <result draft='false'>23:59</result>
    <result timeType='medium' draft='true'>١١:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٣:٥٩:٥٩</result>
+   <result draft='false'>23:59:59</result>
    <result timeType='long' draft='true'>١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>23:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>23:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='true'>١-١٢-١٠</result>
-   <result draft='false'>١٠/١٢/٠١</result>
+   <result draft='false'>2010-12-01</result>
    <result timeType='short' draft='true'>١-١٢-١٠ ١١:٥٩ PM</result>
-   <result draft='false'>١٠/١٢/٠١ ٢٣:٥٩</result>
+   <result draft='false'>2010-12-01 23:59</result>
    <result timeType='medium' draft='true'>١-١٢-١٠ ١١:٥٩:٥٩ PM</result>
-   <result draft='false'>١٠/١٢/٠١ ٢٣:٥٩:٥٩</result>
+   <result draft='false'>2010-12-01 23:59:59</result>
    <result timeType='long' draft='true'>١-١٢-١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010-12-01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١-١٢-١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010-12-01 23:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='true'>٠١-١٢-٢٠١٠</result>
-   <result draft='false'>٢٠١٠ 12 ١</result>
+   <result draft='false'>2010 12 1</result>
    <result timeType='short' draft='true'>٠١-١٢-٢٠١٠ ١١:٥٩ PM</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩</result>
+   <result draft='false'>2010 12 1 23:59</result>
    <result timeType='medium' draft='true'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
    <result timeType='long' draft='true'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='true'>١ 12 ٢٠١٠</result>
-   <result draft='false'>٢٠١٠ 12 ١</result>
+   <result draft='false'>2010 12 1</result>
    <result timeType='short' draft='true'>١ 12 ٢٠١٠ ١١:٥٩ PM</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩</result>
+   <result draft='false'>2010 12 1 23:59</result>
    <result timeType='medium' draft='true'>١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩</result>
+   <result draft='false'>2010 12 1 23:59:59</result>
    <result timeType='long' draft='true'>١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>٢٠١٠ 12 ١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='true'>4 ١ 12 ٢٠١٠</result>
-   <result draft='false'>4, ٢٠١٠ 12 ٠١</result>
+   <result draft='false'>4, 2010 12 01</result>
    <result timeType='short' draft='true'>4 ١ 12 ٢٠١٠ ١١:٥٩ PM</result>
-   <result draft='false'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩</result>
+   <result draft='false'>4, 2010 12 01 23:59</result>
    <result timeType='medium' draft='true'>4 ١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM</result>
-   <result draft='false'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩</result>
+   <result draft='false'>4, 2010 12 01 23:59:59</result>
    <result timeType='long' draft='true'>4 ١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='true'>4 ١ 12 ٢٠١٠ ١١:٥٩:٥٩ PM GMT+00:00</result>
-   <result draft='false'>4, ٢٠١٠ 12 ٠١ ٢٣:٥٩:٥٩ GMT+00:00</result>
+   <result draft='false'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
-locales='dv'>
-<!-- Divehi [Divehi] -->
+locales='dv dv_MV'>
+<!-- Divehi [Divehi]; Divehi (Maldives) [Divehi (Maldives)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ' draft='true'>GMT-٠٨:٠٠</result>
    <result draft='false'>GMT-08:00</result>
@@ -1313,8 +681,8 @@ locales='dv'>
    <result draft='false'>GMT-08:00</result>
    <result field='zzzz' draft='true'>GMT-٠٨:٠٠</result>
    <result draft='false'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='either'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ' draft='true'>GMT-٠٧:٠٠</result>
    <result draft='false'>GMT-07:00</result>
@@ -1322,8 +690,8 @@ locales='dv'>
    <result draft='false'>GMT-07:00</result>
    <result field='zzzz' draft='true'>GMT-٠٧:٠٠</result>
    <result draft='false'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles' draft='either'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>US (Los Angeles)</result>
+   <result field='vvvv'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
@@ -1331,8 +699,8 @@ locales='dv'>
    <result draft='false'>GMT-03:00</result>
    <result field='zzzz' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
@@ -1340,8 +708,8 @@ locales='dv'>
    <result draft='false'>GMT-03:00</result>
    <result field='zzzz' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
@@ -1349,8 +717,8 @@ locales='dv'>
    <result draft='false'>GMT-03:00</result>
    <result field='zzzz' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
@@ -1358,8 +726,8 @@ locales='dv'>
    <result draft='false'>GMT-03:00</result>
    <result field='zzzz' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>AR (Buenos Aires)</result>
+   <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ' draft='true'>GMT-٠٥:٠٠</result>
    <result draft='false'>GMT-05:00</result>
@@ -1385,8 +753,8 @@ locales='dv'>
    <result draft='false'>GMT+11:00</result>
    <result field='zzzz' draft='true'>GMT+١١:٠٠</result>
    <result draft='false'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ' draft='true'>GMT+١٠:٠٠</result>
    <result draft='false'>GMT+10:00</result>
@@ -1394,8 +762,8 @@ locales='dv'>
    <result draft='false'>GMT+10:00</result>
    <result field='zzzz' draft='true'>GMT+١٠:٠٠</result>
    <result draft='false'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ' draft='true'>GMT+١١:٠٠</result>
    <result draft='false'>GMT+11:00</result>
@@ -1403,8 +771,8 @@ locales='dv'>
    <result draft='false'>GMT+11:00</result>
    <result field='zzzz' draft='true'>GMT+١١:٠٠</result>
    <result draft='false'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ' draft='true'>GMT+١٠:٠٠</result>
    <result draft='false'>GMT+10:00</result>
@@ -1412,8 +780,8 @@ locales='dv'>
    <result draft='false'>GMT+10:00</result>
    <result field='zzzz' draft='true'>GMT+١٠:٠٠</result>
    <result draft='false'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>AU (Sydney)</result>
+   <result field='vvvv'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ' draft='true'>GMT+٠٠:٠٠</result>
    <result draft='false'>GMT+00:00</result>
@@ -1439,8 +807,8 @@ locales='dv'>
    <result draft='false'>GMT+03:00</result>
    <result field='zzzz' draft='true'>GMT+٠٣:٠٠</result>
    <result draft='false'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow' draft='either'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
+   <result field='v' parse='Europe/Moscow' draft='either'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ' draft='true'>GMT+٠٤:٠٠</result>
    <result draft='false'>GMT+04:00</result>
@@ -1448,8 +816,8 @@ locales='dv'>
    <result draft='false'>GMT+04:00</result>
    <result field='zzzz' draft='true'>GMT+٠٤:٠٠</result>
    <result draft='false'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow' draft='either'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
+   <result field='v' parse='Europe/Moscow' draft='either'>RU (Moscow)</result>
+   <result field='vvvv'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
@@ -1472,118 +840,6 @@ locales='dv'>
    <result draft='false'>GMT-03:00</result>
    <result field='vvvv' draft='true'>GMT-٠٣:٠٠</result>
    <result draft='false'>GMT-03:00</result>
-  </zoneFields>
-  <zoneFields 
-locales='dv_MV'>
-<!-- Divehi (Maldives) [Divehi (Maldives)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
-   <result field='ZZZZ'>GMT-٠٨:٠٠</result>
-   <result field='z'>GMT-٠٨:٠٠</result>
-   <result field='zzzz'>GMT-٠٨:٠٠</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-٠٧:٠٠</result>
-   <result field='z'>GMT-٠٧:٠٠</result>
-   <result field='zzzz'>GMT-٠٧:٠٠</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
-   <result field='vvvv'>Los Angeles (US)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
-   <result field='vvvv'>Buenos Aires (AR)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-٠٥:٠٠</result>
-   <result field='z'>GMT-٠٥:٠٠</result>
-   <result field='zzzz'>GMT-٠٥:٠٠</result>
-   <result field='v' parse='America/Havana'>CU</result>
-   <result field='vvvv'>CU</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-٠٤:٠٠</result>
-   <result field='z'>GMT-٠٤:٠٠</result>
-   <result field='zzzz'>GMT-٠٤:٠٠</result>
-   <result field='v' parse='America/Havana'>CU</result>
-   <result field='vvvv'>CU</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+١١:٠٠</result>
-   <result field='z'>GMT+١١:٠٠</result>
-   <result field='zzzz'>GMT+١١:٠٠</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+١٠:٠٠</result>
-   <result field='z'>GMT+١٠:٠٠</result>
-   <result field='zzzz'>GMT+١٠:٠٠</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+١١:٠٠</result>
-   <result field='z'>GMT+١١:٠٠</result>
-   <result field='zzzz'>GMT+١١:٠٠</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+١٠:٠٠</result>
-   <result field='z'>GMT+١٠:٠٠</result>
-   <result field='zzzz'>GMT+١٠:٠٠</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
-   <result field='vvvv'>Sydney (AU)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
-   <result field='ZZZZ'>GMT+٠٠:٠٠</result>
-   <result field='z'>GMT+٠٠:٠٠</result>
-   <result field='zzzz'>GMT+٠٠:٠٠</result>
-   <result field='v' parse='Europe/London'>GB</result>
-   <result field='vvvv'>GB</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+٠١:٠٠</result>
-   <result field='z'>GMT+٠١:٠٠</result>
-   <result field='zzzz'>GMT+٠١:٠٠</result>
-   <result field='v' parse='Europe/London'>GB</result>
-   <result field='vvvv'>GB</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+٠٣:٠٠</result>
-   <result field='z'>GMT+٠٣:٠٠</result>
-   <result field='zzzz'>GMT+٠٣:٠٠</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
-   <result field='ZZZZ'>GMT+٠٤:٠٠</result>
-   <result field='z'>GMT+٠٤:٠٠</result>
-   <result field='zzzz'>GMT+٠٤:٠٠</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
-   <result field='vvvv'>Moscow (RU)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v'>GMT-٠٣:٠٠</result>
-   <result field='vvvv'>GMT-٠٣:٠٠</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-٠٣:٠٠</result>
-   <result field='z'>GMT-٠٣:٠٠</result>
-   <result field='zzzz'>GMT-٠٣:٠٠</result>
-   <result field='v'>GMT-٠٣:٠٠</result>
-   <result field='vvvv'>GMT-٠٣:٠٠</result>
   </zoneFields>
   <collation 
 locales='dv dv_MV'>

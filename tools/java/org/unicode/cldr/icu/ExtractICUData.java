@@ -47,13 +47,32 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 
+/**
+ * Extract ICU transform data and convert to CLDR format.<br>
+ * With the option -Dfile=xxxx, will convert a single file. For example:<br>
+ * <pre>-DSHOW_FILES -Dfile=c:/downloads/zh_Hans-zh_Hant.txt</pre>
+ * The option -Dtarget=yyy will specify an output directory; otherwise it is Utility.GEN_DIRECTORY + "/translit/gen/"
+ * @author markdavis
+ *
+ */
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
-		generateTransliterators();
+    String file = Utility.getProperty("file", null);
+    if (file != null) {
+      String targetDirectory = Utility.getProperty("target", Utility.GEN_DIRECTORY + "/translit/gen/");
+      convertFile(file, targetDirectory);
+    } else {
+      generateTransliterators();
+    }
 		System.out.println("Done");
 	}
 	
-	static Set skipLines = new HashSet(Arrays.asList(new String[]{
+	private static void convertFile(String file) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  static Set skipLines = new HashSet(Arrays.asList(new String[]{
 			"#--------------------------------------------------------------------",
 			"# Copyright (c) 1999-2005, International Business Machines",
 			"# Copyright (c) 1999-2004, International Business Machines",
@@ -146,14 +165,65 @@ public class ExtractICUData {
 		pw.close();
 	}
 	
+  static void convertFile(String fileName, String targetDirectory) throws IOException {
+    // Get the ID
+    String coreName = new File(fileName).getName();
+    if (coreName.endsWith(".txt")) {
+      coreName =  coreName.substring(0,coreName.length()-4);
+    }
+    String[] attributesOut = new String[1];
+    attributesOut[0] = "";
+    String id = fixTransID(coreName, attributesOut);
+    String outName = id.replace('/', '-');
+    String attributes = attributesOut[0];
+    attributes += "[@direction=\"both\"]";
+    
+    System.out.println(coreName + "\t=>\t" + outName + " => " + attributes);
+    
+    BufferedReader input = BagFormatter.openUTF8Reader("", fileName);
+    CLDRFile outFile = CLDRFile.makeSupplemental(coreName);
+    int count = 0;
+    String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform" + attributes;
+    String rulePrefix = prefixBase + "/tRule[@_q=\"";
+    String commentPrefix = prefixBase + "/comment[@_q=\"";
+    
+    StringBuffer accumulatedLines = new StringBuffer();
+    while (true) {
+      String line = input.readLine();
+      if (line == null) break;
+      if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
+      line = line.trim();
+      if (skipLines.contains(line)) continue;
+      if (line.length() == 0) continue;
+      String fixedLine = fixTransRule(line);
+      //if (accumulatedLines.length() == 0) 
+      accumulatedLines.append("\n\t\t");
+      accumulatedLines.append(fixedLine);
+      String prefix = (line.startsWith("#")) ? commentPrefix : rulePrefix;
+      addInTwo(outFile, null, prefix + (++count) + "\"]", fixedLine);
+    }
+    
+    PrintWriter pw = BagFormatter.openUTF8Writer(targetDirectory, outName + ".xml");
+    outFile.write(pw);
+    pw.close();
+
+  }
+  
 	private static void addInTwo(CLDRFile outFile, CLDRFile accumulatedItems, String path, String value) {
 		//System.out.println("Adding: " + path + "\t\t" + value);
 		outFile.add(path, value);
-		accumulatedItems.add(path, value);
+		if (accumulatedItems != null) {
+      accumulatedItems.add(path, value);
+    }
 	}
 	
 	private static String fixTransRule(String line) {
 		String fixedLine = line;
+    int hashPos = line.indexOf('#');
+    // quick hack to separate comment, and check for quoted '#'
+    if (hashPos >= 0 && line.indexOf('\'',hashPos) < 0) {
+      line = line.substring(0,hashPos).trim() + " # " + line.substring(hashPos+1).trim();
+    }
 //		fixedLine = fixedLine.replaceAll("<>", "\u2194");
 //		fixedLine = fixedLine.replaceAll("<", "\u2190");
 //		fixedLine = fixedLine.replaceAll(">", "\u2192");

@@ -131,6 +131,14 @@ public class ICUResourceWriter {
             return res.end();
         }
         
+        /**
+         * Check whether this item has contents
+         * @return true if this item is empty (first==null)
+         */
+        public boolean isEmpty() {
+            return (first == null);
+        }
+        
          /**
          * @param val
          * @return

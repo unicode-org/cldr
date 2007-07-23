@@ -3374,7 +3374,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 LDMLConstants.AM, LDMLConstants.PM, LDMLConstants.ERAS,
                 LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS,
                 LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.SPECIAL,
-                LDMLConstants.FIELDS, LDMLConstants.QUARTERS, };
+                LDMLConstants.FIELDS,
+                LDMLConstants.QUARTERS, };
 
         for (int jj = 0; jj < stuff.length; jj++) {
             String name = stuff[jj];
@@ -3539,9 +3540,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     res = null;
                 }
             } else if (name.equals(LDMLConstants.DISPLAY_NAME)) {
+          /*
+           *    Not used by ICU. Don't generate them, now.
+           *    
                 dn = new ICUResourceWriter.ResourceString();
                 dn.name = (String) keyNameMap.get(LDMLConstants.DISPLAY_NAME);
                 dn.val = loc.file.getStringValue(xpath);
+          */
             } else {
                 System.err.println("Encountered unknown <" + xpath
                         + "> subelement: " + name);

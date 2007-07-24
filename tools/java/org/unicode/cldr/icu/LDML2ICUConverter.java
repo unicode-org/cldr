@@ -5038,7 +5038,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
             }
             if (choice != null && choice.equals("true")) {
-                symbol.val = "=" + symbol.val.replace('\u2264', '#');
+                symbol.val = "=" + symbol.val.replace('\u2264', '#')
+                    .replace("&lt;","<");
                 if (true || verboseFallbackComments) {
                     if (symbol.smallComment != null)
                         symbol.smallComment = symbol.smallComment

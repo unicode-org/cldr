@@ -12,7 +12,10 @@
 				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
 				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
 				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
-				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
+				<variable id="$Extend">[\p{Grapheme_Cluster_Break=Extend}
+										\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+										\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+                                       </variable>
 				<variable id="$L">\p{Grapheme_Cluster_Break=L}</variable>
 				<variable id="$V">\p{Grapheme_Cluster_Break=V}</variable>
 				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
@@ -35,7 +38,9 @@
 				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
 				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
 				<variable id="$Extend">[\p{Grapheme_Cluster_Break=Extend}
-										\p{Mc} 
+										\p{Mc}
+										\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+										\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
 										\p{name=THAI CHARACTER SARA A}
 										\p{name=THAI CHARACTER SARA AA}
 										\p{name=THAI CHARACTER SARA AM}
@@ -240,14 +245,19 @@
 				<variable id="$GCCR">\p{Grapheme_Cluster_Break=CR}</variable>
 				<variable id="$GCLF">\p{Grapheme_Cluster_Break=LF}</variable>
 				<variable id="$GCControl">\p{Grapheme_Cluster_Break=Control}</variable>
-				<variable id="$GCExtend">\p{Grapheme_Cluster_Break=Extend}</variable>
+				<variable id="$GCExtend">\p{Grapheme_Cluster_Break=Extend}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+					</variable>
 				<!-- Normal variables -->
 				<variable id="$Format">\p{Sentence_Break=Format}</variable>
 				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
 				<variable id="$Sp">\p{Sentence_Break=Sp}</variable>
 				<variable id="$Lower">\p{Sentence_Break=Lower}</variable>
 				<variable id="$Upper">\p{Sentence_Break=Upper}</variable>
-				<variable id="$OLetter">\p{Sentence_Break=OLetter}</variable>
+				<variable id="$OLetter">[\p{Sentence_Break=OLetter}-
+					[\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}]]</variable>
 				<variable id="$Numeric">\p{Sentence_Break=Numeric}</variable>
 				<variable id="$ATerm">\p{Sentence_Break=ATerm}</variable>
 				<variable id="$STerm">\p{Sentence_Break=STerm}</variable>
@@ -298,11 +308,17 @@
 				<variable id="$GCCR">\p{Grapheme_Cluster_Break=CR}</variable>
 				<variable id="$GCLF">\p{Grapheme_Cluster_Break=LF}</variable>
 				<variable id="$GCControl">\p{Grapheme_Cluster_Break=Control}</variable>
-				<variable id="$GCExtend">\p{Grapheme_Cluster_Break=Extend}</variable>
+				<variable id="$GCExtend">[\p{Grapheme_Cluster_Break=Extend}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}]
+				</variable>
 				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
 				<!-- Now normal variables -->
 				<variable id="$Format">\p{Word_Break=Format}</variable>
-				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
+				<variable id="$Katakana">[\p{Word_Break=Katakana}-
+					[\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}
+					\p{name=HALFWIDTH KATAKANA VOICED SOUND MARK}]]
+					</variable>
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
 				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>

@@ -365,10 +365,15 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceIntVector extends Resource{
+        public String smallComment = null;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
-            write(writer, name+COLON+INTVECTOR+OPENBRACE+LINESEP);
+            write(writer, name+COLON+INTVECTOR+OPENBRACE);
+            if(smallComment != null) {
+                write(writer, " "+COMMENTSTART+" "+smallComment+" "+COMMENTEND);
+            }
+            write(writer, LINESEP);
             numIndent++;
             ResourceInt current = (ResourceInt) first;
             while(current != null){

@@ -218,17 +218,23 @@ public class ExtractICUData {
 	}
 	
 	private static String fixTransRule(String line) {
-		String fixedLine = line;
-    int hashPos = line.indexOf('#');
+   int hashPos = line.indexOf('#');
     // quick hack to separate comment, and check for quoted '#'
     if (hashPos >= 0 && line.indexOf('\'',hashPos) < 0) {
-      line = line.substring(0,hashPos).trim() + " # " + line.substring(hashPos+1).trim();
+      String core = line.substring(0,hashPos).trim();
+      String comment = line.substring(hashPos+1).trim();
+      if (comment.length() != 0) {
+        comment = "# " + comment;
+      } else if (core.length() == 0) {
+        return "#";
+      }
+      line = (core.length() == 0 ? "" : core + " ") + comment;
     }
 //		fixedLine = fixedLine.replaceAll("<>", "\u2194");
 //		fixedLine = fixedLine.replaceAll("<", "\u2190");
 //		fixedLine = fixedLine.replaceAll(">", "\u2192");
 //		fixedLine = fixedLine.replaceAll("&", "\u00A7");
-		fixedLine = fixLine.transliterate(line);
+		String fixedLine = fixLine.transliterate(line);
 		return fixedLine;
 	}
 	

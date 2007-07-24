@@ -51,11 +51,12 @@ public class GenerateTransformCharts {
     static {
         scriptExtras.put("Arab", new UnicodeSet("[\u0660-\u0669]"));
     }
+    static CLDRTransforms transforms;
     
     public static void main(String[] args) throws IOException {
       useICU = System.getProperty("USEICU") != null;
-
         System.out.println("Start");
+        transforms = CLDRTransforms.getinstance(null);
         try {
             if (true) {
                 showAllLatin();
@@ -275,7 +276,7 @@ public class GenerateTransformCharts {
         if (variant != null) id += "/" + variant;
         if (id.indexOf("InterIndic") >= 0) id = "NFD; " + id + "; NFC";
         if (useICU) return Transliterator.getInstance(id);
-        return CLDRTransforms.getInstance(id);
+        return transforms.getInstance(id);
     }
     
     static PrintWriter index;

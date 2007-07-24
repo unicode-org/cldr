@@ -1053,7 +1053,7 @@ public class CoverageLevel {
         // System.out.flush();
         // we have element, type, subtype, and values
         Set values = new TreeSet(
-            Arrays.asList((parts.getAttributeValue(-1, "territories")).split("\\s+")));
+            Arrays.asList((parts.getAttributeValue(2, "territories")).split("\\s+")));
         Utility.addTreeMapChain(coverageData, 
             lastElement, type, values);
         addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);

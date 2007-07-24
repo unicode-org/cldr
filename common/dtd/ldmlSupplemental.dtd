@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.45 $
-    $Date: 2007-07-18 14:03:03 $
+    $Revision: 1.46 $
+    $Date: 2007-07-24 08:23:50 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, references? ) >
@@ -88,12 +88,24 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST languagePopulation alt NMTOKENS #IMPLIED >
 
 <!ELEMENT calendarData ( calendar* ) >
-<!ELEMENT calendar EMPTY >
+<!ELEMENT calendar ( calendarSystem?, eras? ) >
 <!ATTLIST calendar type NMTOKENS #REQUIRED >
 <!ATTLIST calendar territories NMTOKENS #IMPLIED >
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
+
+<!ELEMENT calendarSystem EMPTY >
+<!ATTLIST calendarSystem references CDATA #IMPLIED >
+<!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED >
+
+<!ELEMENT eras ( era* ) >
+<!ATTLIST eras references CDATA #IMPLIED >
+
+<!ELEMENT era EMPTY >
+<!ATTLIST era type NMTOKENS #REQUIRED >
+<!ATTLIST era start CDATA #IMPLIED >
+<!ATTLIST era end CDATA #IMPLIED >
 
 <!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* ) >
 

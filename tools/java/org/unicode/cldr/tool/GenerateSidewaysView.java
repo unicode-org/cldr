@@ -95,6 +95,8 @@ public class GenerateSidewaysView {
     UOption.create("transliterate", 'y', UOption.NO_ARG),
     UOption.create("path", 'p', UOption.REQUIRES_ARG),
   };
+  private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
+  
   private static String timeZoneAliasDir = null;
   private static Map path_value_locales = new TreeMap();
   private static XPathParts parts = new XPathParts(null, null);
@@ -212,6 +214,9 @@ public class GenerateSidewaysView {
       for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
         String path = (String) it2.next();
         if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
+          continue;
+        }
+        if (altProposedMatcher.reset(path).matches()) {
           continue;
         }
         if (path.indexOf("/alias") >= 0) continue;

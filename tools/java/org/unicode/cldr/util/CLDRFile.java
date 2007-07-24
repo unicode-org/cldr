@@ -69,6 +69,8 @@ import com.ibm.icu.util.Freezable;
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Freezable, Iterable<String> {
+  public   static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
+
   private static boolean LOG_PROGRESS = false;
   
   public static boolean HACK_ORDER = false;
@@ -1830,7 +1832,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   transient LanguageTagParser lparser = new LanguageTagParser();
   
   public synchronized String getName(String localeOrTZID) {
-    return getName(localeOrTZID);
+    return getName(localeOrTZID, false);
   }
   
   public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {

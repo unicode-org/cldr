@@ -117,6 +117,7 @@ public class ConvertLanguageData {
       getLanguage2Scripts(sortedInput);
       
       writeNewBasicData2(sortedInput);
+      //writeNewBasicData(sortedInput);
 
       writeTerritoryLanguageData(failures, sortedInput);
 

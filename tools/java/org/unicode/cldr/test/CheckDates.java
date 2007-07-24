@@ -131,7 +131,7 @@ public class CheckDates extends CheckCLDR {
         int end = isNarrowEnough(value);
         if (end != value.length()) {
           result.add(new CheckStatus()
-              .setCause(this).setType(CheckCLDR.finalErrorType)
+              .setCause(this).setType(CheckStatus.errorType)
               .setMessage(
                   "Illegal narrow value. Must be only one grapheme cluster: \u200E{0}\u200E would be ok, but has extra \u200E{1}\u200E",
                   new Object[]{value.substring(0,end), value.substring(end)}));
@@ -144,7 +144,7 @@ public class CheckDates extends CheckCLDR {
           SimpleDateFormat sdf = new SimpleDateFormat(value);
           patternBasicallyOk = true;
         } catch (RuntimeException e) {
-          CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+          CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
           .setMessage("Illegal date format pattern {0}", new Object[]{e});      
           result.add(item);
         }
@@ -153,7 +153,7 @@ public class CheckDates extends CheckCLDR {
         }
       }
     } catch (ParseException e) {
-      CheckStatus item = new CheckStatus().setCause(this).setType(CheckCLDR.finalErrorType)
+      CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
       .setMessage("Error in creating date format {0}", new Object[]{e});    	
       result.add(item);
     } catch (Exception e) {
@@ -276,7 +276,7 @@ public class CheckDates extends CheckCLDR {
     style += dateTimeLength.ordinal();
     if (!dateTimePatterns[style].matcher(skeleton).matches()) {
       result.add(new CheckStatus()
-          .setType(CheckCLDR.finalErrorType)
+          .setType(CheckStatus.errorType)
           .setMessage("Missing or extra field, expected {0} [Internal: {1} / {2}]", new Object[]{dateTimeMessage[style], skeleton, dateTimePatterns[style].pattern()}));     
     }
     

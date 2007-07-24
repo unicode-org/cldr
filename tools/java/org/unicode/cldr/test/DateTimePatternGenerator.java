@@ -954,7 +954,7 @@ public class DateTimePatternGenerator {
                 			 start++; // otherwise skip over string
                 		 }
                 	 }
-                	 result.add(toString(start, items.size()));
+                	 result.add(toString(start, items.size(), true));
                 	 break;
                 }
             }
@@ -976,7 +976,7 @@ public class DateTimePatternGenerator {
                 			 end--; // otherwise skip over string
                 		 }
                 	 }
-                	 result.add(toString(0, end+1));
+                	 result.add(toString(0, end+1, true));
                 	 break;
                 }
             }

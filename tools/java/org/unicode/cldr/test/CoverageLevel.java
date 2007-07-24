@@ -124,6 +124,7 @@ public class CoverageLevel {
   private static Map language_scripts = new TreeMap();
   
   private static Map language_territories = new TreeMap();
+  private static Map fallback_language_territories = new TreeMap();
   private static Map territory_languages = new TreeMap();
   
   private static Set modernLanguages = new TreeSet();
@@ -268,7 +269,13 @@ public class CoverageLevel {
     }
     
     territory_level.putAll(base_territory_level);
-    putAll(territory_level, (Set) language_territories.get(language), CoverageLevel.Level.MINIMAL, true);
+    Set mainTerritories = (Set) language_territories.get(language);
+    putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
+    if (mainTerritories == null || mainTerritories.size() == 0) {
+      mainTerritories = (Set) fallback_language_territories.get(language);
+      putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
+    }
+
     
     {
       language_level.put(language, CoverageLevel.Level.MINIMAL);
@@ -319,12 +326,12 @@ public class CoverageLevel {
     
     // set the calendars only by the direct territories for the language
     calendar_level.put("gregorian", CoverageLevel.Level.BASIC);
-    Set territories = ((Set)language_territories.get(language));
-    if (territories == null) {
+
+    if (mainTerritories == null) {
       possibleErrors.add(new CheckStatus()
-          .setCause(cause).setType(CheckCLDR.finalErrorType)
+          .setCause(cause).setType(CheckStatus.errorType)
           .setMessage("Missing language->territory information in supplemental data!"));
-    } else for (Iterator it = territories.iterator(); it.hasNext();) {
+    } else for (Iterator it = mainTerritories.iterator(); it.hasNext();) {
       String territory = (String) it.next();
       setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), CoverageLevel.Level.BASIC, true);
     }
@@ -1054,7 +1061,17 @@ public class CoverageLevel {
         // <language type="ab" scripts="Cyrl" territories="GE"
         // alt="secondary"/>
         String alt = parts.getAttributeValue(-1, "alt");
-        if (alt != null) continue;
+        if (alt != null) {
+          // get fallback territories
+          String territories = parts.getAttributeValue(-1, "territories");
+          if (territories != null) {
+            Set territorySet = new TreeSet(Arrays
+                .asList(territories
+                    .split("\\s+")));
+            Utility.addTreeMapChain(fallback_language_territories, type, territorySet);
+          }
+          continue;
+        }
         modernLanguages.add(type);
         String scripts = parts.getAttributeValue(-1, "scripts");
         if (scripts != null) {

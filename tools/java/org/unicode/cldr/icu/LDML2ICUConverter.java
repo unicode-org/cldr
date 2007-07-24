@@ -595,10 +595,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         if (cldrFactory == null) {
-            System.out.println("* Spinning up CLDRFactory on " + sourceDir);
+            printInfo("* Spinning up CLDRFactory on " + sourceDir);
             cldrFactory = CLDRFile.Factory.make(sourceDir, ".*");
             if (specialsDir != null) {
-                System.out.println("* Spinning up specials CLDRFactory on "
+                printInfo("* Spinning up specials CLDRFactory on "
                         + specialsDir);
                 specialsFactory = CLDRFile.Factory.make(specialsDir, ".*");
             }
@@ -845,7 +845,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     }
                 }
                 // write out the bundle
-                writeResource(res, loc.locale);
+                writeResource(res, sourceDir.replace('\\','/')+"/"+loc.locale+".xml");
             }
 
             // writeAliasedResource();
@@ -5280,7 +5280,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 throw new InternalError("Can't get top level collations node");
             }
             ICUResourceWriter.Resource table =  parseCollations(collations, new StringBuffer("//ldml"), true);
-            if(table == null || table.isEmpty()) {
+            if(table == null || (table.isEmpty() && table instanceof ICUResourceWriter.ResourceTable)) {
                    printWarning(loc.locale, " warning: No collations found. Bundle will be empty.");
                    return null;
             } else {
@@ -6912,6 +6912,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     + ", International Business Machines");
             resfiles_mk
                     .println("# *   Corporation and others.  All Rights Reserved.");
+            resfiles_mk.println(stub+"_CLDR_VERSION = " + CLDRFile.GEN_VERSION);
             resfiles_mk.println("# A list of txt's to build");
             resfiles_mk.println("# Note: ");
             resfiles_mk.println("#");

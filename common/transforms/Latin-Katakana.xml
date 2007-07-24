@@ -374,11 +374,11 @@
 			<tRule>[:Katakana:] { '' } [:Latin:] → ; # delete stray quotes between letters</tRule>
 			<comment># [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use</comment>
 			<tRule>:: NFC (NFD) ;</tRule>
-			<tRule>:: ([:Katakana:] halfwidth-fullwidth);</tRule>
+			<tRule>:: ([[:Katakana:][\u309B\u309C\u30A0\u30FC\uFF70\uFF9E\uFF9F]] halfwidth-fullwidth);</tRule>
 			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
 			<comment>#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);</comment>
 			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD</comment>
-			<tRule>:: ( [[\ -~¢-£¥-¦¬̄₩｡-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￨-￮][~、-。がぎぐげござじずぜぞだぢづでどば-ぱび-ぴぶ-ぷべ-ぺぼ-ぽゔ゙-゛ゞァ-ヺー-ヾ]] ) ;</tRule>
+			<tRule>:: ( [[\ -~¢-£¥-¦¬̄₩｡-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￨-￮][~、-。がぎぐげござじずぜぞだぢづでどば-ぱび-ぴぶ-ぷべ-ぺぼ-ぽゔ゙-゛ゞァ-ヺー-ヾ][\u309B\u309C\u30A0\u30FC\uFF70\uFF9E\uFF9F]] ) ;</tRule>
 			<comment># eof</comment>
 		</transform>
 	</transforms>

@@ -4122,7 +4122,7 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="America/Indiana/Vevay" territory="US"/>
 			<zoneItem type="America/Indiana/Vincennes" territory="US"/>
 			<zoneItem type="America/Indiana/Winamac" territory="US"/>
-			<zoneItem type="America/Indianapolis" territory="US" aliases="America/Fort_Wayne America/Indiana/Indianapolis EST SystemV/EST5 US/East-Indiana"/>
+			<zoneItem type="America/Indianapolis" territory="US" aliases="America/Fort_Wayne America/Indiana/Indianapolis US/East-Indiana"/>
 			<zoneItem type="America/Inuvik" territory="CA"/>
 			<zoneItem type="America/Iqaluit" territory="CA"/>
 			<zoneItem type="America/Jamaica" territory="JM" aliases="Jamaica"/>
@@ -4158,15 +4158,15 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="America/Panama" territory="PA"/>
 			<zoneItem type="America/Pangnirtung" territory="CA"/>
 			<zoneItem type="America/Paramaribo" territory="SR"/>
-			<zoneItem type="America/Phoenix" territory="US" aliases="MST SystemV/MST7 US/Arizona"/>
+			<zoneItem type="America/Phoenix" territory="US" aliases="US/Arizona"/>
 			<zoneItem type="America/Port_of_Spain" territory="TT"/>
 			<zoneItem type="America/Port-au-Prince" territory="HT"/>
 			<zoneItem type="America/Porto_Velho" territory="BR"/>
-			<zoneItem type="America/Puerto_Rico" territory="PR" aliases="SystemV/AST4"/>
+			<zoneItem type="America/Puerto_Rico" territory="PR"/>
 			<zoneItem type="America/Rainy_River" territory="CA"/>
 			<zoneItem type="America/Rankin_Inlet" territory="CA"/>
 			<zoneItem type="America/Recife" territory="BR"/>
-			<zoneItem type="America/Regina" territory="CA" aliases="Canada/East-Saskatchewan Canada/Saskatchewan SystemV/CST6"/>
+			<zoneItem type="America/Regina" territory="CA" aliases="Canada/East-Saskatchewan Canada/Saskatchewan"/>
 			<zoneItem type="America/Rio_Branco" territory="BR" aliases="America/Porto_Acre Brazil/Acre"/>
 			<zoneItem type="America/Santiago" territory="CL" aliases="Chile/Continental"/>
 			<zoneItem type="America/Santo_Domingo" territory="DO"/>
@@ -4317,13 +4317,13 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Etc/GMT+1" territory="001"/>
 			<zoneItem type="Etc/GMT+2" territory="001"/>
 			<zoneItem type="Etc/GMT+3" territory="001"/>
-			<zoneItem type="Etc/GMT+4" territory="001"/>
-			<zoneItem type="Etc/GMT+5" territory="001"/>
-			<zoneItem type="Etc/GMT+6" territory="001"/>
-			<zoneItem type="Etc/GMT+7" territory="001"/>
-			<zoneItem type="Etc/GMT+8" territory="001"/>
-			<zoneItem type="Etc/GMT+9" territory="001"/>
-			<zoneItem type="Etc/GMT+10" territory="001"/>
+			<zoneItem type="Etc/GMT+4" territory="001" aliases="SystemV/AST4"/>
+			<zoneItem type="Etc/GMT+5" territory="001" aliases="EST SystemV/EST5"/>
+			<zoneItem type="Etc/GMT+6" territory="001" aliases="SystemV/CST6"/>
+			<zoneItem type="Etc/GMT+7" territory="001" aliases="MST SystemV/MST7"/>
+			<zoneItem type="Etc/GMT+8" territory="001" aliases="SystemV/PST8"/>
+			<zoneItem type="Etc/GMT+9" territory="001" aliases="SystemV/YST9"/>
+			<zoneItem type="Etc/GMT+10" territory="001" aliases="HST SystemV/HST10"/>
 			<zoneItem type="Etc/GMT+11" territory="001"/>
 			<zoneItem type="Etc/GMT+12" territory="001"/>
 			<zoneItem type="Etc/Unknown" territory="001"/>
@@ -4403,10 +4403,10 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Pacific/Fiji" territory="FJ"/>
 			<zoneItem type="Pacific/Funafuti" territory="TV"/>
 			<zoneItem type="Pacific/Galapagos" territory="EC"/>
-			<zoneItem type="Pacific/Gambier" territory="PF" aliases="SystemV/YST9"/>
+			<zoneItem type="Pacific/Gambier" territory="PF"/>
 			<zoneItem type="Pacific/Guadalcanal" territory="SB"/>
 			<zoneItem type="Pacific/Guam" territory="GU"/>
-			<zoneItem type="Pacific/Honolulu" territory="US" aliases="HST SystemV/HST10 US/Hawaii"/>
+			<zoneItem type="Pacific/Honolulu" territory="US" aliases="US/Hawaii"/>
 			<zoneItem type="Pacific/Johnston" territory="UM"/>
 			<zoneItem type="Pacific/Kiritimati" territory="KI"/>
 			<zoneItem type="Pacific/Kosrae" territory="FM"/>
@@ -4420,7 +4420,7 @@ XXX	Code for transations where no currency is involved
 			<zoneItem type="Pacific/Noumea" territory="NC"/>
 			<zoneItem type="Pacific/Pago_Pago" territory="AS" aliases="Pacific/Samoa US/Samoa"/>
 			<zoneItem type="Pacific/Palau" territory="PW"/>
-			<zoneItem type="Pacific/Pitcairn" territory="PN" aliases="SystemV/PST8"/>
+			<zoneItem type="Pacific/Pitcairn" territory="PN"/>
 			<zoneItem type="Pacific/Ponape" territory="FM"/>
 			<zoneItem type="Pacific/Port_Moresby" territory="PG"/>
 			<zoneItem type="Pacific/Rarotonga" territory="CK"/>

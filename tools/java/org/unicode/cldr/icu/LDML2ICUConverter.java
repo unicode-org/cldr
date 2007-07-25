@@ -483,8 +483,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if(specialsDir!=null){
                     String icuSpecialFile = specialsDir+"/"+ fileName;
                     if(new File(icuSpecialFile).exists()) {
-                        printInfo("Parsing ICU specials from: " + icuSpecialFile);
-                        specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, true, false);
+                        specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, false, false);
                         /*
                         try{
                             OutputStreamWriter writer = new
@@ -500,7 +499,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                             printWarning(icuSpecialFile, "ICU special not found for language-locale \"" + locName + "\"");
                             //System.exit(-1);
                         } else {
-                            printInfo("ICU special " + icuSpecialFile + " not found, continuing.");
+                            System.err.println("ICU special " + icuSpecialFile + " not found, continuing.");
                         }
                         specialsDoc = null;
                     }
@@ -3172,48 +3171,38 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
         return null;
     }
+    
+    private static final String ICU_IS_LEAP_MONTH = "icu:isLeapMonth";
+    private static final String ICU_LEAP_SYMBOL = "icu:leapSymbol";
+    private static final String ICU_NON_LEAP_SYMBOL = "icu:nonLeapSymbol";
 
-    private ICUResourceWriter.Resource parseLeapMonth() {
-        if (specialsDoc != null) {
-            Node root = LDMLUtilities.getNode(specialsDoc,
-                    "//ldml/dates/calendars/calendar[@type='chinese']/special");
-            if (root != null) {
-                for (Node node = root.getFirstChild(); node != null; node = node
-                        .getNextSibling()) {
-                    if (node.getNodeType() != Node.ELEMENT_NODE) {
-                        continue;
-                    }
-                    String name = node.getNodeName();
-                    if (name.equals(ICU_IS_LEAP_MONTH)) {
-                        Node nonLeapSymbol = LDMLUtilities.getNode(node,
-                                "icu:nonLeapSymbol", root);
-                        Node leapSymbol = LDMLUtilities.getNode(node,
-                                "icu:leapSymbol", root);
-                        if (nonLeapSymbol != null && leapSymbol != null) {
-                            ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
-                            arr.name = "isLeapMonth";
-                            ICUResourceWriter.ResourceString str1 = new ICUResourceWriter.ResourceString();
-                            ICUResourceWriter.ResourceString str2 = new ICUResourceWriter.ResourceString();
-                            str1.val = LDMLUtilities.getNodeValue(nonLeapSymbol);
-                            if(str1.val==null){
-                                str1.val = "";
-                            }
-                            str2.val = LDMLUtilities.getNodeValue(leapSymbol);
-                            arr.first = str1;
-                            str1.next = str2;
-                            return arr;
-                        }else{
-                            System.err.println("Did not get required number of elements for isLeapMonth resource. Please check the data.");
-                            System.exit(-1);
-                        }
-                    }else{
-                        System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
-                        System.exit(-1);
-                    }
-                }
-            }
+    private static final String leapStrings[] = {
+        ICU_IS_LEAP_MONTH+"/"+ICU_NON_LEAP_SYMBOL,
+        ICU_IS_LEAP_MONTH+"/"+ICU_LEAP_SYMBOL,
+    };
+
+    private ICUResourceWriter.Resource parseLeapMonth(InputLocale loc, String xpath) {
+        // So.
+        
+        String theArray[] = leapStrings;
+        ICUResourceWriter.ResourceString strs[] = new ICUResourceWriter.ResourceString[theArray.length];
+        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
+        if (GroupStatus.EMPTY == status) {
+            System.err.println("failure: Could not load "+ xpath + " - " + theArray[0] +", etc.");
+            return null; // NO items were found - don't even bother.
         }
-        return null;
+        if (GroupStatus.SPARSE == status) {
+            System.err.println("failure: Could not load all of "+ xpath + " - " + theArray[0] +", etc.");
+            return null; // NO items were found - don't even bother.
+        }
+
+        ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
+        arr.name = "isLeapMonth";
+        for(ICUResourceWriter.ResourceString str : strs) {
+            arr.appendContents(str);
+        }
+        
+        return arr;
     }
 
     private ICUResourceWriter.Resource parseCalendar(InputLocale loc,
@@ -3350,15 +3339,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
                 res = null;
             }
-        }
-
-        // TODO remove this hack once isLeapMonth data
-        // is represented in LDML (should not be necessary)
-        // TODO: actually, should change this to use CLDRFile, because loc.file contains the data already.
-        if (table != null && table.name != null && table.name.equals("chinese")
-                && table.first != null) {
-            loc.getSpecialsDoc();
-            findLast(table.first).next = parseLeapMonth();
         }
         if (table.first != null) {
             return table;
@@ -5889,9 +5869,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
      */
-    private static final String ICU_IS_LEAP_MONTH = "icu:isLeapMonth";
-    private static final String ICU_LEAP_SYMBOL = "icu:leapSymbol";
-    private static final String ICU_NON_LEAP_SYMBOL = "icu:nonLeapSymbol";
 
     private ICUResourceWriter.Resource parseSpecialElements(InputLocale loc,
             String xpath) {
@@ -5912,12 +5889,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
             } else if (xpath.startsWith("//ldml/special/"+ICU_BRKITR_DATA)) {
                 res = parseBrkItrData(loc, "//ldml/special/"+ICU_BRKITR_DATA);
-            } else if (name.equals(ICU_IS_LEAP_MONTH)) {
-                // just continue .. already handled
-            } else if (name.equals(ICU_LEAP_SYMBOL)) {
-                // just continue .. already handled
-            } else if (name.equals(ICU_NON_LEAP_SYMBOL)) {
-                // just continue .. already handled
+            } else if (name.equals(ICU_IS_LEAP_MONTH) || name.equals(ICU_LEAP_SYMBOL) || name.equals(ICU_NON_LEAP_SYMBOL)) {
+                if(!loc.beenHere(origXpath+ICU_IS_LEAP_MONTH)) {
+                    res = parseLeapMonth(loc, origXpath);
+                }
             } else if (name.equals(LDMLConstants.SPECIAL)) {
                 // just continue .. already handled
             } else {

@@ -1720,6 +1720,7 @@ public class LDMLUtilities {
             return full;
         }catch(Exception ex){
             if(!ignoreError){
+                ex.printStackTrace();
                 throw new RuntimeException(ex);
             }
         }

@@ -583,6 +583,13 @@
             <deprecatedItems type="supplemental" elements="alternate"/>
             <deprecatedItems attributes="draft" values="true false"/>
         </deprecated>
+        <distinguishing>
+             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type"/>
+             <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
+         </distinguishing>
+        <blocking>
+             <blockingItems elements="supplementalData cldrTest collation transform"/>
+         </blocking>
         <coverageAdditions>
             <languageCoverage type="minimal" values="und"/>            
             <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant"/>

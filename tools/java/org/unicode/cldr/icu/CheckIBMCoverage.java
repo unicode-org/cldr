@@ -25,7 +25,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Node;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Transliterator;
 
 public class CheckIBMCoverage  extends CLDRConverterTool {

@@ -44,7 +44,7 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 

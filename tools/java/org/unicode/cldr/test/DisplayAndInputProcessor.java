@@ -2,7 +2,7 @@ package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
 
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;

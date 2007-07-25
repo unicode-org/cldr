@@ -22,8 +22,8 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 //import com.ibm.icu.dev.test.util.VariableReplacer;
 
-import com.ibm.icu.impl.CollectionUtilities;
-import com.ibm.icu.impl.CollectionUtilities.ObjectMatcher;
+import org.unicode.cldr.icu.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities.ObjectMatcher;
 
 public class CheckAttributeValues extends CheckCLDR {
     static LinkedHashSet elementOrder = new LinkedHashSet();

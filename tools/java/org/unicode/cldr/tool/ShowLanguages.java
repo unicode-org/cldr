@@ -52,7 +52,7 @@ import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;

@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;

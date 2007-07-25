@@ -5,7 +5,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.UTF16;
 
 import java.util.Iterator;

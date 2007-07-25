@@ -11,7 +11,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.CollectionUtilities;
+import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;

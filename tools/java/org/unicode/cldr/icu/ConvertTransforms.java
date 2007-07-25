@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.util.CLDRFile;
@@ -16,6 +17,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
@@ -28,8 +30,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 	SOURCEDIR = 2,
 	DESTDIR = 3,
 	MATCH = 4,
-	SKIP_COMMENTS = 5
-	;
+	SKIP_COMMENTS = 5,
+	WRITE_INDEX = 6,
+	VERBOSE = 7	;
 	
 	private static final UOption[] options = {
 		UOption.HELP_H(),
@@ -38,6 +41,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 		UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "icu-transforms/"),
 		UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 		UOption.create("commentSkip", 'c', UOption.NO_ARG),
+		UOption.create("writeIndex", 'x', UOption.NO_ARG),
+		UOption.VERBOSE(),
 	};
 	
 	static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
@@ -47,7 +52,9 @@ public class ConvertTransforms extends CLDRConverterTool{
 	+ "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
 	+ "-"+options[DESTDIR].shortName + "\t destination directory. Default = -d"
 	+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
-	+ "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE;
+	+ "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE
+//	"--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
+	;
 
 	// TODO add options to set input and output directories, matching pattern
 	public static void main(String[] args) throws Exception {
@@ -56,6 +63,41 @@ public class ConvertTransforms extends CLDRConverterTool{
 	}
 
 	private boolean skipComments;
+	private boolean writeIndex = false;
+	private boolean verbose = false;
+	
+	int fileCount = 0;
+	
+    public void writeIndex(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
+// not needed - only one important file to ICU (root.txt) is output.
+//        System.out.println(new File(inputDirectory).getCanonicalPath());
+//        Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
+//        Set ids = cldrFactory.getAvailable();
+//        Set<String> files = new TreeSet<String>();
+//        for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
+//            String id = (String) idIterator.next();
+//            if (id.equals("All")) continue;
+//            String filename = null;
+//            CLDRFile cldrFile = cldrFactory.make(id, false);
+//            if (cldrFile.getDtdVersion().equals("1.4")) {
+//                if (id.indexOf("Ethiopic") >= 0 || id.indexOf("CanadianAboriginal") >= 0) {
+//                   System.out.println("WARNING: Skipping file for 1.4" + id);
+//                    return;
+//                }
+//            }
+//            boolean first = true;
+//            for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+//                String path = (String) it.next();
+//                String value = cldrFile.getStringValue(path);
+//                if (first) {
+//                    filename = addIndexInfo(null, path, id);
+//                    if (filename == null) return; // not a transform file!
+//                    files.add(filename);
+//                    first = false;
+//                }
+//            }
+//        }
+    }
 	
 	public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		System.out.println(new File(inputDirectory).getCanonicalPath());
@@ -187,6 +229,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 		
 		String status = "internal".equals(visibility) ? "internal" : "file";
 
+		fileCount++;
+		
 		String id = source + "-" + target;
 		String rid = target + "-" + source;
 		String filename = source + "_" + target;
@@ -196,8 +240,11 @@ public class ConvertTransforms extends CLDRConverterTool{
 			filename += "_" + variant;
 		}
 		filename += ".txt";
+		//if(verbose) {
+		System.out.println("Writing translit/"+filename + "   " + id + "   ("+direction+")");
+		// } else { System.out.print('.'); } /* one dot per file */ 
 		if (direction.equals("both") || direction.equals("forward")) {
-			System.out.println("    " + id + "    " +  filename + "    " + "FORWARD");
+			if (verbose) { System.out.println("    " + id + "    " +  filename + "    " + "FORWARD"); }
 			index.println("        " + id + " {");
 			index.println("            " + status + " {");
 			index.println("                resource:process(transliterator) {\"" + filename + "\"}");
@@ -206,7 +253,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 			index.println("        }");
 		}
 		if (direction.equals("both") || direction.equals("backward")) {		
-			System.out.println("    " + rid + "    " +  filename + "    " + "REVERSE"); 
+			if(verbose) { System.out.println("    " + rid + "    " +  filename + "    " + "REVERSE"); } 
 			index.println("        " + rid + " {");
 			index.println("            " + status + " {");
 			index.println("                resource:process(transliterator) {\"" + filename + "\"}");
@@ -289,10 +336,20 @@ public class ConvertTransforms extends CLDRConverterTool{
         String targetDir = options[DESTDIR].value;  // Utility.GEN_DIRECTORY + "main/";
         String match = options[MATCH].value;
         skipComments = options[SKIP_COMMENTS].doesOccur;
+        writeIndex = options[WRITE_INDEX].doesOccur;
+        verbose = options[VERBOSE].doesOccur;
         
         try {
 //          fixData(sourceDir, match, targetDir);
-            writeTransforms(sourceDir, match, targetDir+File.separator);
+            if(writeIndex) {
+//                writeIndex(sourceDir, match, targetDir+File.separator);
+                throw new InternalError("writeIndex not implemented.");
+            } else {
+                ElapsedTimer et = new ElapsedTimer();
+                writeTransforms(sourceDir, match, targetDir+File.separator);
+//                if(!verbose) System.out.println();
+                System.out.println("ConvertTransforms: wrote " + fileCount + " files + root.txt in  " + et);
+            }
         }catch(IOException ex){
             RuntimeException e = new RuntimeException();
             e.initCause(ex.getCause());

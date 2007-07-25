@@ -241,6 +241,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     }else{
                         writeDraft = false;
                     }
+                    this.fileName = fileName; // Scoping.
                     processFile(fileName);
                 }
             }else if(remainingArgc>0){
@@ -277,12 +278,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         InputLocale(CLDRFile fromFile) {
+            specialsDoc = null; // reset
             notOnDisk = true;
             rawFile = file = fResolved = fromFile;
             locale = file.getLocaleID();
         }
 
         InputLocale(String locale) {
+            specialsDoc = null; // reset
             this.locale = locale;
             rawFile = cldrFactory.make(locale, false);
             if (specialsFactory != null) {
@@ -475,21 +478,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return null;
         }
         
-        /**
-         * Parse the current locale for DOM. 
-         * @return
-         */
-        Document getDocument() {
-            if(notOnDisk) {
-                throw new InternalError("Error: this locale ( "+locale+ " ) isn't on disk, can't parse with DOM.");
-            }
-            if(doc == null) {
-                String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,locale+".xml",sourceDir);
-                String fileName = locale + ".xml";
-                //printInfo("Parsing: "+xmlfileName);
-                String icuSpecialFile ="";
+        Document getSpecialsDoc() {
+            if(specialsDoc == null) {
                 if(specialsDir!=null){
-                    icuSpecialFile = specialsDir+"/"+ fileName;
+                    String icuSpecialFile = specialsDir+"/"+ fileName;
                     if(new File(icuSpecialFile).exists()) {
                         printInfo("Parsing ICU specials from: " + icuSpecialFile);
                         specialsDoc = LDMLUtilities.parseAndResolveAliases(fileName, specialsDir, true, false);
@@ -512,8 +504,24 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                         }
                         specialsDoc = null;
                     }
-
                 }
+            }
+            return specialsDoc;
+        }
+        /**
+         * Parse the current locale for DOM. 
+         * @return
+         */
+        Document getDocument() {
+            if(notOnDisk) {
+                throw new InternalError("Error: this locale ( "+locale+ " ) isn't on disk, can't parse with DOM.");
+            }
+            if(doc == null) {
+                String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,locale+".xml",sourceDir);
+                String fileName = locale + ".xml";
+                //printInfo("Parsing: "+xmlfileName);
+                String icuSpecialFile ="";
+                getSpecialsDoc();
 
                 doc = LDMLUtilities.parse(xmlfileName, false);
                 if(specialsDoc !=null){
@@ -3165,23 +3173,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
 
-    /*
-     * private ICUResourceWriter.Resource parseShortLong(Node root, StringBuffer
-     * xpath){
-     * 
-     * if(isNodeConvertible(root, xpath)){ return null ; } //the alt atrribute
-     * is set .. so ignore the resource if(isAlternate(root)){ return null; }
-     * int savedLength = xpath.length(); getXPath(root, xpath); Node sn =
-     * getVettedNode(root, LDMLConstants.STANDARD, xpath); Node dn =
-     * getVettedNode(root, LDMLConstants.DAYLIGHT, xpath);
-     * if(sn==null||dn==null){ System.err.println("Could not get timeZone string
-     * for " + xpath.toString()); System.exit(-1); }
-     * ICUResourceWriter.ResourceString ss = new
-     * ICUResourceWriter.ResourceString(); ICUResourceWriter.ResourceString ds =
-     * new ICUResourceWriter.ResourceString(); ss.val =
-     * LDMLUtilities.getNodeValue(sn); ds.val = LDMLUtilities.getNodeValue(dn);
-     * xpath.delete(savedLength, xpath.length()); ss.next = ds; return ss; }
-     */
     private ICUResourceWriter.Resource parseLeapMonth() {
         if (specialsDoc != null) {
             Node root = LDMLUtilities.getNode(specialsDoc,
@@ -3362,9 +3353,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         // TODO remove this hack once isLeapMonth data
-        // is represented in LDML (should not be necessary
+        // is represented in LDML (should not be necessary)
+        // TODO: actually, should change this to use CLDRFile, because loc.file contains the data already.
         if (table != null && table.name != null && table.name.equals("chinese")
                 && table.first != null) {
+            loc.getSpecialsDoc();
             findLast(table.first).next = parseLeapMonth();
         }
         if (table.first != null) {

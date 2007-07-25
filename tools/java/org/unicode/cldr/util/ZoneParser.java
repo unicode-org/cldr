@@ -612,16 +612,27 @@ public class ZoneParser {
       { "SystemV/PST8PDT", "America/Los_Angeles" },
       { "PST8PDT", "America/Los_Angeles" },
       { "SystemV/YST9YDT", "America/Anchorage" },
-      { "SystemV/AST4", "America/Puerto_Rico" },
-      { "SystemV/EST5", "America/Indianapolis" },
-      { "EST", "America/Indianapolis" }, 
-      { "SystemV/CST6", "America/Regina" },
-      { "SystemV/MST7", "America/Phoenix" }, 
-      { "MST", "America/Phoenix" },
-      { "SystemV/PST8", "Pacific/Pitcairn" },
-      { "SystemV/YST9", "Pacific/Gambier" },
-      { "SystemV/HST10", "Pacific/Honolulu" }, 
-      { "HST", "Pacific/Honolulu" }, };
+      
+      { "SystemV/AST4", "Etc/GMT+4" },
+      { "SystemV/EST5", "Etc/GMT+5" },
+      { "EST", "Etc/GMT+5" },
+      { "SystemV/CST6", "Etc/GMT+6" },
+      { "SystemV/MST7", "Etc/GMT+7" },
+      { "MST", "Etc/GMT+7" },
+      { "SystemV/PST8", "Etc/GMT+8" },
+      { "SystemV/YST9", "Etc/GMT+9" },
+      { "SystemV/HST10", "Etc/GMT+10" },
+      { "HST", "Etc/GMT+10" }, };
+  
+  /*
+## Zone SystemV/AST4    -4:00   -       AST
+## Zone SystemV/EST5    -5:00   -       EST
+## Zone SystemV/CST6    -6:00   -       CST
+## Zone SystemV/MST7    -7:00   -       MST
+## Zone SystemV/PST8    -8:00   -       PST
+## Zone SystemV/YST9    -9:00   -       YST
+## Zone SystemV/HST10   -10:00  -       HST
+   */
 
   static String[] FIX_DEPRECATED_ZONE_DATA = { "Africa/Timbuktu",
       "America/Argentina/ComodRivadavia", "Europe/Belfast", "Pacific/Yap" };

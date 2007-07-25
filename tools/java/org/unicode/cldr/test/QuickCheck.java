@@ -65,22 +65,28 @@ public class QuickCheck {
     resolved = System.getProperty("RESOLVED") != null;
     System.out.println("Resolved?: " + resolved + "\t\t(use -RESOLVED) to enable");
 
+    boolean nopaths = System.getProperty("NOPATHS") != null;
+    System.out.println("No paths?: " + nopaths + "\t\t(use -NOPATHS) to enable");
+
     double startTime = System.currentTimeMillis();
     checkDtds();
     double deltaTime = System.currentTimeMillis() - startTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
-    System.out.println("Checking paths");
-    checkPaths();
-    deltaTime = System.currentTimeMillis() - startTime;
-    System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
-    System.out.println("Basic Test Passes");
+
+    if (!nopaths) {
+      System.out.println("Checking paths");
+      checkPaths();
+      deltaTime = System.currentTimeMillis() - startTime;
+      System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+      System.out.println("Basic Test Passes");
+    }
   }
 
   private static void checkDtds() throws IOException {
-    checkDtds(Utility.COMMON_DIRECTORY + "collation");
-    checkDtds(sourceDirectory);
-    checkDtds(Utility.COMMON_DIRECTORY + "segments");
     checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
+    checkDtds(sourceDirectory);
+    checkDtds(Utility.COMMON_DIRECTORY + "collation");
+    checkDtds(Utility.COMMON_DIRECTORY + "segments");
     checkDtds(Utility.COMMON_DIRECTORY + "test");
     checkDtds(Utility.COMMON_DIRECTORY + "transforms");
   }

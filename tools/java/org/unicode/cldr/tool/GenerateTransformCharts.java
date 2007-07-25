@@ -669,7 +669,9 @@ public class GenerateTransformCharts {
             }
             return results;
         }
-        else return CLDRTransforms.getAvailableTransforms();
+        else {
+          return transforms.getAvailableTransforms();
+        }
     }
     
     private static UnicodeSet BIDI_R = (UnicodeSet) new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]").freeze();

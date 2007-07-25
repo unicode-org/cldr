@@ -40,7 +40,17 @@ public class ICUResourceWriter {
     //private static final String ARRAYS          = "array";
     private static final String LINESEP         = System.getProperty("line.separator");
     
+    
     public static class Resource{
+        public class MalformedResourceError extends Error {
+            private static final long serialVersionUID = -5943014701317383613L;
+            public Resource offendingResource ;
+            public MalformedResourceError(String str, Resource res) {
+                super(str);
+                offendingResource = res;
+            }
+        }
+
         String[] note = new String[20];
         int noteLen = 0;
         String translate;
@@ -147,8 +157,9 @@ public class ICUResourceWriter {
         public StringBuffer escapeSyntaxChars(String val){
             // escape the embedded quotes
             if(val==null) {
-                System.err.println("Resource.escapeSyntaxChars: warning, resource '" + name + "': string value is NULL - assuming 'empty'");
-                return new StringBuffer("");
+                System.err.println("Resource.escapeSyntaxChars: error, resource '" + name + "': string value is NULL - assuming 'empty'");
+                throw new MalformedResourceError("Resource.escapeSyntaxChars: error, resource '" + name + "': string value is NULL - assuming 'empty'", this);
+//                return new StringBuffer("");
             }
             char[] str = val.toCharArray();
             StringBuffer result = new StringBuffer();
@@ -218,6 +229,42 @@ public class ICUResourceWriter {
         }
         public void swap(){
             return;
+        }
+        
+        boolean findResourcePath(StringBuffer str, Resource res) {
+            if(name != null) {
+                str.append(name);
+            }
+            if(res == this) {
+                return true;
+            }
+            str.append('/');
+            // process the siblings of the children...
+            int n = 0;
+            int oldLen = str.length();
+            for(Resource child = first; child != null; child = child.next) {
+                if(child.name == null) {
+                    str.append("#"+n);
+                }
+                if(child.findResourcePath(str,res)) {
+                    return true;
+                }
+                n++;
+                str.setLength(oldLen); // reset path length
+            }
+            return false;
+        }
+        
+        String findResourcePath(Resource res) {
+            if(next != null) {
+                throw new IllegalArgumentException("Don't call findResourcePath(Resource res) on resources which have siblings");
+            }
+            StringBuffer str = new StringBuffer();
+            if(findResourcePath(str, res)) {
+                return str.toString();
+            } else {
+                return null;
+            }
         }
     }
     

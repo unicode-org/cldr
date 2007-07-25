@@ -4369,17 +4369,41 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
         if (GroupStatus.EMPTY == status) {
             // System.err.println("failur: "+ xpath + " - " + theArray[0]);
-            return null; // NO items were found
-        } else {
-            // System.err.println("DTF: " + xpath + " - " + status);
+            return null; // NO items were found - don't even bother.
         }
+        
+        if(GroupStatus.SPARSE == status) {
+            // Now, we have a problem. 
+            String type = loc.getAttributeValue(xpath, LDMLConstants.CALENDAR, LDMLConstants.TYPE);
+            if(!type.equals("gregorian")) {
+                System.err.println(loc.locale + " "+xpath + " - some items are missing, attempting fallback from gregorian");
+                ICUResourceWriter.ResourceString gregstrs[] = new ICUResourceWriter.ResourceString[theArray.length];
+                GroupStatus gregstatus = parseGroupWithFallback(loc, xpath.replaceAll("\""+type+"\"", "\"gregorian\""), theArray, gregstrs);
+                if((gregstatus != GroupStatus.EMPTY) && (gregstatus != GroupStatus.SPARSE)) {
+                    // They have something, let's see if it is enough;
+                    for(int j=0;j<theArray.length;j++) {
+                        if(strs[j].val == null && gregstrs[j].val!=null) {
+                            strs[j].val = gregstrs[j].val;
+                            strs[j].smallComment = " fallback from 'gregorian' ";
+                        }
+                    }
+                }
+            }
+        }
+        
+        int n=0;
         for (ICUResourceWriter.ResourceString str : strs) {
+            if(str.val == null) {
+                printError(loc.locale,xpath + " - null value at " + n);
+                System.exit(-1);
+            }
             if (current == null) {
                 current = arr.first = str;
             } else {
                 current.next = str;
                 current = current.next;
             }
+            n++;
         }
 
         if (arr.first != null) {
@@ -4646,9 +4670,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                         // System.err.println("Fallback from " + foundIn +" in "
                         // + loc.locale +" / " + aPath);
                     } else {
+                        printInfo(loc.locale+" Can't complete array for "+xpathBase+" at " + aPath);
                         status = GroupStatus.SPARSE;
-                        // throw new InternalError(loc.locale+" Can't complete
-                        // array for "+xpathBase+" at " + aPath);
                     }
                 }
                 res[i].val = temp;
@@ -6018,9 +6041,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
      * xpath.delete(savedLength,xpath.length()); } return first; }
      */
     private void writeResource(ICUResourceWriter.Resource set, String sourceFileName){
+        
+        String outputFileName = null;
+        outputFileName = destDir+"/"+set.name+".txt";
         try {
-            String outputFileName = null;
-            outputFileName = destDir+"/"+set.name+".txt";
 
             FileOutputStream file = new FileOutputStream(outputFileName);
             BufferedOutputStream writer = new BufferedOutputStream(file);
@@ -6042,9 +6066,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
             writer.flush();
             writer.close();
+        } catch (ICUResourceWriter.Resource.MalformedResourceError mre) {
+            String where = set.findResourcePath(mre.offendingResource);
+            System.err.println(sourceFileName + ": ERROR (writing resource " + where + ") :" + mre.toString());
+            mre.printStackTrace();
+            if(new File(outputFileName).delete()) {
+                System.err.println("## Deleted partial file: " + outputFileName);
+            }
+            System.exit(1);
+            return; // NOTREACHED
         } catch (Exception ie) {
             System.err.println(sourceFileName + ": ERROR (writing resource) :" + ie.toString());
             ie.printStackTrace();
+            if(new File(outputFileName).delete()) {
+                System.err.println("## Deleted partial file: " + outputFileName);
+            }
             System.exit(1);
             return; // NOTREACHED
         }

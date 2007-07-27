@@ -3206,9 +3206,9 @@
 	<numbers>
 		<symbols>
 			<decimal alt="proposed-x1001" draft="unconfirmed">。</decimal>
-			<group>，</group>
+			<group alt="proposed-x1002">，</group><!-- inconsistent fullwidth char- moved to 'alt' to fall back from zh. -->
 			<group alt="proposed-x1001" draft="unconfirmed">,</group>
-			<list>；</list>
+			<list alt="proposed-x1002">；</list><!-- inconsistent fullwidth char- moved to 'alt' to fall back from zh. -->
 			<list alt="proposed-x1001" draft="unconfirmed">;</list>
 			<minusSign alt="proposed-x1001" draft="unconfirmed">─</minusSign>
 		</symbols>

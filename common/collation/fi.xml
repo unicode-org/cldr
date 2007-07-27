@@ -91,7 +91,7 @@
 				</rules>
 			</collation>
 			<!-- For the phonebook collation, the only change is to collate v and w as separate characters, i.e.: -->
-			<collation type="phonebook" draft="true">
+			<collation type="phonebook">
 				<rules>
 					<!-- D and U+0335 -->
 					<reset>D ̵</reset>

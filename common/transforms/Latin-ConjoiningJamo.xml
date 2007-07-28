@@ -162,10 +162,7 @@
 			<comment># very specifically on the behavior of the Latin-Jamo rules.  A change</comment>
 			<comment># in the Latin-Jamo behavior can completely change the way the</comment>
 			<comment># separator insertion must be done.</comment>
-			
-			<comment># Lowercase Latin.</comment>
-			<tRule>::[:Latin:] lower;</tRule>
-			
+						
 			<comment># First try to preserve actual separators in the jamo text by doubling</comment>
 			<comment># them.  This fixes problems like:</comment>
 			<comment># (Di)(A)(Ji)(U)(NG)-(IEUNG)(YEO)(Nf)(Gi)(YEO)(L) =→ dajung-yeongyeol</comment>

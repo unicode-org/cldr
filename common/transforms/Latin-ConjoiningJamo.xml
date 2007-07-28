@@ -175,7 +175,7 @@
 			<comment># separator between the first and second &quot;x&quot; if XXf, Xf, and Xi all</comment>
 			<comment># exist, and we have A Xf XXi.  This prevents the reverse</comment>
 			<comment># transliteration to A XXf Xi.</comment>
-			<!-- <tRule>$sep ← $latinMedialEnd g {} $KKi;</tRule> -->
+
 			<tRule>$sep ← $latinMedialEnd s {} $SSi;</tRule>
 			
 			<comment># For vowels the rule is similar.  If there is a vowel &quot;ae&quot; such that</comment>
@@ -187,14 +187,17 @@
 			<comment># $latinInitial instead of [^$latinMedial].  The problem with this is</comment>
 			<comment># sequences where an initial IEUNG is transliterated away:</comment>
 			<comment>#   (IEUNG)(A)(IEUNG)(EO) =→ aeo =→ (IEUNG)(AE)(IEUNG)(O)</comment>
-			<tRule>$sep ← [^$latinMedial] [y w] e {} [$O $OE];</tRule>
-			<tRule>$sep ← [^$latinMedial] e {} [$O $OE $U];</tRule>
+			<tRule>$sep ← [^$latinMedial] [y] e {} [$O $OE];</tRule>
+			<tRule>$sep ← [^$latinMedial] e {} [$U $UI];</tRule>
 			<tRule>$sep ← [^$latinMedial] [o a] {} [$E $EO $EU];</tRule>
 			<tRule>$sep ← [^$latinMedial] [w y] a {} [$E $EO $EU];</tRule>
+			<tRule>$sep ← [^$latinMedial] [u] {} [$I];</tRule>
 			
 			<comment># Similar to the above, but with an intervening $IEUNG.</comment>
-			<tRule>$sep ← [^$latinMedial] [y w] e {} $IEUNG [$O $OE];</tRule>
+			
+			<tRule>$sep ← [^$latinMedial] [y] e {} $IEUNG [$O $OE];</tRule>
 			<tRule>$sep ← [^$latinMedial] e {} $IEUNG [$O $OE $U];</tRule>
+
 			<tRule>$sep ← [^$latinMedial] [o a] {} $IEUNG [$E $EO $EU];</tRule>
 			<tRule>$sep ← [^$latinMedial] [w y] a {} $IEUNG [$E $EO $EU];</tRule>
 			
@@ -202,7 +205,6 @@
 			<comment># where Xi also exists, must be transliterated as &quot;ax-e&quot; to prevent</comment>
 			<comment># the round trip conversion to A Xi E.</comment>
 			<tRule>$sep ← $latinMedialEnd b {} $IEUNG $jamoMedial;</tRule>
-			<!-- <tRule>$sep ← $latinMedialEnd c {} $IEUNG $jamoMedial;</tRule> -->
 			<tRule>$sep ← $latinMedialEnd d {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd g {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd h {} $IEUNG $jamoMedial;</tRule>
@@ -238,10 +240,7 @@
 			<comment># Split doubles.  Text of the form A Xi Xf E, where XXi also occurs,</comment>
 			<comment># we transliterate as &quot;ax-xe&quot; to prevent round trip transliteration as</comment>
 			<comment># A XXi E.</comment>
-			<!--
-				<tRule>$sep ← $latinMedialEnd b {} $Bi $jamoMedial;</tRule>
-				<tRule>$sep ← $latinMedialEnd d {} $Di $jamoMedial;</tRule>
-			 -->
+
 			<tRule>$sep ← $latinMedialEnd j {} $Ji $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd k {} $Ki $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd s {} $Si $jamoMedial;</tRule>
@@ -260,11 +259,6 @@
 
 			<tRule>$sep ← $latinMedialEnd l  {} [$PPi];</tRule>
 			<tRule>$sep ← $latinMedialEnd l  {} [$TTi];</tRule>
-			<!--
-				<tRule>$sep ← $latinMedialEnd l  {} [$KKi $Ki];</tRule>
-				<tRule>$sep ← $latinMedialEnd t {} $TTi;</tRule>
-				<tRule>$sep ← $latinMedialEnd {} $latinInitial;</tRule>
-			 -->
 			<tRule>$sep ← $latinMedialEnd k  {} [$KKi $Ki];</tRule>
 			<tRule>$sep ← $latinMedialEnd p  {} $Pi;</tRule>
 			<tRule>$sep ← $latinMedialEnd t  {} $Ti;</tRule>
@@ -396,13 +390,12 @@
 			<comment># below.  If we see an 'r' in an apparent final position, treat it</comment>
 			<comment># like 'l'.  For example, &quot;karka&quot; =→ Ki A R EU Ki A without this rule.</comment>
 			<comment># Instead, we want Ki A L Ki A.</comment>
-			<!-- <tRule>$jamoMedial {r} $latinInitial → | l;</tRule> -->
 			
 			<comment># Initial + Final: If we match the next rule, we have initial then</comment>
 			<comment># final consonant with no intervening medial.  We insert the null</comment>
 			<comment># vowel BEFORE it to create a well-formed syllable.  (In the next rule</comment>
 			<comment># we insert a null vowel AFTER an anomalous initial.)</comment>
-			<!--<tRule>$jamoInitial {} [^$latinMedial] → $EU;</tRule>-->
+
 			
 			<comment># Initial + X: This block matches an initial consonant not followed by</comment>
 			<comment># a medial.  We insert the null vowel after it.  We handle double</comment>

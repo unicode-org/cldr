@@ -106,9 +106,11 @@
 			<tRule>\uE064→'.'   ; # FALLBACK FOR DANDA</tRule>
 			<tRule>\uE065→'.'   ; # FALLBACK FOR DOUBLE DANDA</tRule>
 			<tRule>\uE066→\u0BE6; # FALLBACK DIGIT ZERO</tRule>
+			<!--  Can't have these, because they mess up decimal numbering.
 			<tRule>\uE067\uE066\uE066\uE066→௲;</tRule>
 			<tRule>\uE067\uE066\uE066→௱;</tRule>
 			<tRule>\uE067\uE066→௰;</tRule>
+			-->
 			<tRule>\uE067→௧; # DIGIT ONE</tRule>
 			<tRule>\uE068→௨; # DIGIT TWO</tRule>
 			<tRule>\uE069→௩; # DIGIT THREE</tRule>
@@ -138,9 +140,11 @@
 			<tRule>\uE081→வ; # FALLBACK FOR ORIYA LETTER WA</tRule>
 			<tRule>\uE082→;       # Devanagari Glottal Stop</tRule>
 			<tRule>\uE083→த்;  # Bengali Khanda-ta</tRule>
+			<!-- Can't have these, because they mess up decimal numbering.
 			<tRule>1000  →௲; # NUMBER ONE THOUSAND</tRule>
 			<tRule>100   →௱; # NUMBER ONE HUNDRED</tRule>
 			<tRule>10    →௰; # NUMBER TEN</tRule>
+			-->
 			<comment>#    :: NFC (NFD) ;</comment>
 			<comment># eof</comment>
 		</transform>

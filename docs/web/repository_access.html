@@ -219,13 +219,20 @@ td.item     { background-color:#FFFFFF; border:none; }
 							</tr>
 						</table>
 						</center></div>
-					<p>Each Release Note contains a general description of the contents of the release. The Data document is a zip file containing the contents 
+					<ul>
+						<li>The Release Note contains a general description of the contents of the release, 
+						and any relevant notes about the release.</li>
+						<li>The Data link points to a set of zip files containing the contents 
 					of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see
-					<span class="GramE"><a href="#Repository_Organization">Repository Organization</a></span>). The Spec is the version of
-					<a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a> that corresponds to the release. The Delta document points to a list of all 
+						<span class="GramE"><a href="#Repository_Organization">Repository Organization</a></span>).</li>
+						<li>The Spec is the version of
+						<a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a> that corresponds to the release.</li>
+						<li>The Delta document points to a list of all 
 					the bug fixes and features in the release, which be used to get the precise corresponding file changes using
-					<a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>.) </p>
-					<p>The release data contains only the common data. Access to the latest working snapshot of CLDR, and access to data collected for other platforms 
+						<a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>.)</li>
+						<li>The CVS Tag can be used to get the files in CVS.</li>
+					</ul>
+					<p>Access to the latest working snapshot of CLDR, and access to data collected for other platforms 
 					is available through the web. The CVS Tag can be used to get the contents of the release, as described below. </p>
 					<h2><a name="latest_draft_version">CVS Access</a></h2>
 					<p class="first"><b>Simple CVS Access. </b>For simple access to particular files, use <a href="http://unicode.org/cldr/data/">http://unicode.org/cldr/data/</a>. 
@@ -271,17 +278,20 @@ td.item     { background-color:#FFFFFF; border:none; }
 					</ul>
 					<h3><a name="Repository_Organization">Repository Organization</a></h3>
 					<p>At the top level of CVS there are a number of special folders, plus a number of platform folders. The special folders are listed below. The
-					<i>common</i>, <i>dtd</i>, and <i>tools</i> folders are in each release.</p>
+					<i>common</i>, <i>dtd</i>, <i>tools, </i>and<i> test</i> folders are in each release.</p>
 					<ul>
 						<li><i>common</i> — CLDR data corresponding to the release<ul>
 							<li><i>collation</i> — collation LDML files</li>
 							<li><i>main</i> — main LDML files</li>
 							<li><i>posix</i> — generated POSIX files</li>
+							<li><i>segments</i>&nbsp; — files for segmenting text</li>
 							<li><i>supplemental</i>&nbsp; — additional files with non-linguistic data</li>
 							<li><i>test</i> — conformance test files for CLDR data. The format of the tests is explained in a readMe.html.</li>
+							<li><i>transforms</i> — data for transliteration and other text 
+							transforms</li>
 						</ul>
 						</li>
-						<li><i>diff</i> — generated files comparing different aspects of CLDR data</li>
+						<li><i>diff</i> — chart for CLDR data</li>
 						<li><i>docs</i> — source files for the CLDR site, design docs, presentations, etc.</li>
 						<li><i>dropbox</i> — temporary files</li>
 						<li><i>dtd</i> — the latest dtd files for the release</li>

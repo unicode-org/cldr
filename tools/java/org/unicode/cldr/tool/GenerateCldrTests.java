@@ -84,6 +84,8 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 public class GenerateCldrTests {
 
+  protected static final boolean METAZONES_WORK = false;
+
   //static private PrintWriter log;
   PrintWriter out;
 
@@ -672,7 +674,7 @@ public class GenerateCldrTests {
         "America/Havana", "Australia/ACT", "Australia/Sydney", "Europe/London",
         "Europe/Moscow", "Etc/GMT+3" });
 
-    String[] perZoneSamples = { "Z", "ZZZZ", "z", "zzzz", "v", "vvvv" };
+    String[] perZoneSamples = { "Z", "ZZZZ", "z", "zzzz", "v", "vvvv", "V", "VVVV" };
 
     String[] dates = { "2004-01-15T12:00:00Z", "2004-07-15T12:00:00Z" };
 
@@ -692,9 +694,12 @@ public class GenerateCldrTests {
           rp.set("date", dates[j]);
           for (int i = 0; i < perZoneSamples.length; ++i) {
             try {
-              String field = perZoneSamples[i];
-              rp.set("field", field);
-              String formatted = tzf.getFormattedZone(tzid, field, datetime
+              String pattern = perZoneSamples[i];
+              if (!METAZONES_WORK && (pattern.contains("z") || pattern.contains("V"))) {
+                continue;
+              }
+              rp.set("field", pattern);
+              String formatted = tzf.getFormattedZone(tzid, pattern, datetime
                   .getTime(), false);
               parsePosition.setIndex(0);
               String parsed = tzf.parse(formatted, parsePosition);
@@ -745,8 +750,12 @@ public class GenerateCldrTests {
           for (int k = 0; k < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++k) {
             if (i == 0 && k == 0)
               continue;
-            rp.set("timeType", icuServiceBuilder.getDateNames(k));
             DateFormat df = icuServiceBuilder.getDateFormat("gregorian", i, k);
+            String pattern = ((SimpleDateFormat)df).toPattern();
+            if (!METAZONES_WORK && (pattern.contains("z") || pattern.contains("V"))) {
+              continue;
+            }
+            rp.set("timeType", icuServiceBuilder.getDateNames(k));
             if (false && i == 2 && k == 0) {
               System.out.println("debug: date "
                   + icuServiceBuilder.getDateNames(i) + ", time "

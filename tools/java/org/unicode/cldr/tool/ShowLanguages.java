@@ -67,6 +67,8 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
+  public static final String CHART_DISPLAY_VERSION = "1.5";
+
   static CLDRFile english;
   
   static Comparator col = new CollectionUtilities.MultiComparator(new Comparator[] { Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false, 0) });
@@ -281,6 +283,7 @@ public class ShowLanguages {
   }
   
   static class FormattedFileWriter extends java.io.Writer {
+
     private StringWriter out = new StringWriter();
     
     private String title;
@@ -312,8 +315,8 @@ public class ShowLanguages {
     
     public void close() throws IOException {
       out.write("</table></div>");
-      PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
-      String[] replacements = { "%header%", "", "%title%", title, "%version%", "1.5-draft", "%date%", df.format(new Date()), "%body%", out.toString() };
+      PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.CHART_DIRECTORY + "/supplemental/", filename);
+      String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
       FileUtilities.appendFile("org/unicode/cldr/tool/chart-template.html", "utf-8", pw2, replacements);
       pw2.close();
     }

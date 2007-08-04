@@ -305,7 +305,7 @@ public class FlexibleDateTime {
                     "GEEEEyyyyMMddHHmmss",
                     "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     };
-            DateTimePatternGenerator fdt = DateTimePatternGenerator.newInstance();
+            DateTimePatternGenerator fdt = DateTimePatternGenerator.getEmptyInstance();
             add(fdt, list);
             Date now = new Date(99, 11, 23, 1, 2, 3);
             System.out.println("Sample Input: " + now);
@@ -329,7 +329,7 @@ public class FlexibleDateTime {
     
     public static void add(DateTimePatternGenerator generator, Collection list) {
         for (Iterator it = list.iterator(); it.hasNext();) {
-            generator.add((String)it.next(), false, null);
+            generator.addPattern((String)it.next(), false, null);
         }
     }
     

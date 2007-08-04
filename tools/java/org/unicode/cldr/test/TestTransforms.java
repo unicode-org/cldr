@@ -46,6 +46,9 @@ public class TestTransforms {
 		// do first
 		Utility.registerTransliteratorFromFile("Latin-ConjoiningJamo", target, null);
 		Utility.registerTransliteratorFromFile("Pinyin-NumericPinyin", target, null);
+    
+    String fileMatcherString = Utility.getProperty("file", ".*");
+    Matcher fileMatcher = Pattern.compile(fileMatcherString).matcher("");
 		
 		while (true) {
 			String line = input.readLine();

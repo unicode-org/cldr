@@ -212,11 +212,18 @@ changes (see the end). </b></p>
 		<td>character_fallback_substitutions</td>
 		<td>The <b>Character Fallback Substitutions</b> table shows recommended fallbacks for use when a charset or supported repertoire does not contain a desired 
 		character, using the data from <a href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a>. There is more than one possible 
-		fallback: the recommended usage is that when a character <i>value</i> is not in the desired repertoire, the explicit <i>substitutes</i> from
-		<a href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a> are tested one by one against the repertoire, with the first
-		<i>substitute</i> wholly in the repertoire being substituted for the <i>value</i> in the output. If no explicit substitute is found, then <code>toNFC</code>(<i>value</i>) 
-		is tried; if that fails then <code>toNFKC</code>(<i>value</i>) is tried. (The <b>Explicit</b>, <b>NFC</b>, and <b>NFKC</b> <i>substitutes</i> are shown 
-		in the chart by different colors).<p>Note that the character fallbacks do lose information, and should not be used where there is a viable alternative, 
+		fallback: the recommended usage is that when a character <i>value</i> is not in the desired repertoire 
+		the following process is used, whereby the first value that is wholly in the desired 
+		repertoire is used.<ul>
+			<li><code>toNFC</code>(<i>value</i>)</li>
+			<li>other canonically equivalent sequences, if there are any</li>
+			<li>the explicit <i>substitutes</i> value from
+			<a href="http://unicode.org/cldr/data/common/supplemental/characters.xml">characters.xml</a> 
+			(in order)</li>
+			<li><code>toNFKC</code>(<i>value</i>)</li>
+		</ul>
+		<p>The <b>Explicit</b>, <b>NFC</b>, and <b>NFKC</b> <i>substitutes</i> are shown in the 
+		chart by different colors. Note that the character fallbacks do lose information, and should not be used where there is a viable alternative, 
 		such as HTML escapes.</p>
 		<ul>
 			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a

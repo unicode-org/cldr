@@ -43,7 +43,7 @@ public class CheckDates extends CheckCLDR {
   NumberFormat english = NumberFormat.getNumberInstance(ULocale.ENGLISH);
   PatternMatcher m;
   DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
-  DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.newInstance();
+  DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
   
   
   static String[] samples = {

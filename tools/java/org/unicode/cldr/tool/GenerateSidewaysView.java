@@ -8,10 +8,35 @@
  */
 package org.unicode.cldr.tool;
 
+import org.unicode.cldr.icu.CollectionUtilities;
+import org.unicode.cldr.tool.ShowData.DataShower;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.UnicodeMap;
+import org.unicode.cldr.util.UnicodeMapIterator;
+import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.xml.sax.SAXException;
+
+import com.ibm.icu.dev.test.util.ArrayComparator;
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.RuleBasedNumberFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.BitSet;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,26 +45,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.unicode.cldr.tool.ShowData.DataShower;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.xml.sax.SAXException;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.RuleBasedNumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * This is a simple class that walks through the CLDR hierarchy.
@@ -86,7 +91,7 @@ public class GenerateSidewaysView {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
     UOption.SOURCEDIR().setDefault(Utility.MAIN_DIRECTORY),
-    UOption.DESTDIR().setDefault(Utility.BASE_DIRECTORY + "diff/by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
+    UOption.DESTDIR().setDefault(Utility.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
     UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
     UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
@@ -95,10 +100,31 @@ public class GenerateSidewaysView {
     UOption.create("transliterate", 'y', UOption.NO_ARG),
     UOption.create("path", 'p', UOption.REQUIRES_ARG),
   };
+  
   private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
   
+  static int getFirstScript(UnicodeSet exemplars) {
+    int cp;
+    for (UnicodeSetIterator it = new UnicodeSetIterator(exemplars); it.next();) {
+      int script = UScript.getScript(it.codepoint);
+      if (script == UScript.COMMON || script == UScript.INHERITED) {
+        continue;
+      }
+      return script;
+    }
+    return UScript.COMMON;
+  }
+
+  static Comparator UCA;
+  static {
+    RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    UCA2.setNumericCollation(true);
+    UCA2.setStrength(UCA2.IDENTICAL);
+    UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+  }
+  
   private static String timeZoneAliasDir = null;
-  private static Map path_value_locales = new TreeMap();
+  private static Map<String,Map<String,Set<String>>> path_value_locales = new TreeMap();
   private static XPathParts parts = new XPathParts(null, null);
   private static long startTime = System.currentTimeMillis();
   
@@ -142,7 +168,7 @@ public class GenerateSidewaysView {
     
     System.out.println("Printing files");
     Transliterator toLatin = Transliterator.getInstance("any-latin");
-    Transliterator toHTML = TransliteratorUtilities.toHTML;
+    toHTML = TransliteratorUtilities.toHTML;
     UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
     
     for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	
@@ -194,11 +220,114 @@ public class GenerateSidewaysView {
         out.println("</td><tr>");
       }
     }
+    out = showExemplars(out, types);
     finish(out);
     System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
         .format((System.currentTimeMillis()-startTime)/1000.0));
   }
   
+//  static Comparator UCA;
+//  static {
+//    RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+//    UCA2.setNumericCollation(true);
+//    UCA2.setStrength(UCA2.IDENTICAL);
+//    UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+//  }
+
+  private static PrintWriter showExemplars(PrintWriter out, Set types) throws IOException {
+    finish(out);
+    out = start(out,"exemplars-by-character", types);
+    out.println("<table>");
+    String cleanPath = prettyPath.getPrettyPath("//ldml/characters/exemplarCharacters");
+    Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
+    Map<String,UnicodeMap> script_UnicodeMap = new TreeMap();
+    //UnicodeMap mapping = new UnicodeMap();
+    UnicodeSet stuffToSkip = new UnicodeSet("[:Han:]");
+    
+    // get the locale information
+    for (String value : value_locales.keySet()) {
+      UnicodeSet exemplars = new UnicodeSet(value);
+      exemplars.removeAll(stuffToSkip);
+      Set<String> locales = value_locales.get(value);
+      String script = UScript.getName(getFirstScript(exemplars));
+      UnicodeMap mapping = script_UnicodeMap.get(script);
+      if (mapping == null) script_UnicodeMap.put(script, mapping = new UnicodeMap());
+      mapping.composeWith(exemplars, locales, setComposer);
+    }
+    for (String script : script_UnicodeMap.keySet()) {
+      UnicodeMap mapping = script_UnicodeMap.get(script);
+      writeCharToLocaleMapping(out, script, mapping);
+    }
+    return out;
+  }
+
+  private static void writeCharToLocaleMapping(PrintWriter out, String script, UnicodeMap mapping) {
+    out.println("<tr><td colSpan='2'><b>" + script + "</b></td></tr>");
+//    TreeMap<String,Set> chars = new TreeMap(UCA);
+//    for (UnicodeMapIterator it = new UnicodeMapIterator(mapping); it.nextRange();) {
+//      String key;
+//      Set value;
+//      if (it.codepoint != it.IS_STRING) {
+//        value = (Set)mapping.getValue(it.codepoint);
+//        if (value == null) {
+//          continue;
+//        }
+//        for (int i = it.codepoint; i <= it.codepointEnd; ++i) {
+//          chars.put(UTF16.valueOf(i), value);
+//        }
+//      } else {
+//        key = it.getString();
+//        value = (Set)mapping.getValue(key);
+//        chars.put(key, value);
+//      }
+//    }
+    ArrayComparator ac = new ArrayComparator(new Comparator[] {new CountItems.ReverseComparator(new Utility.CollectionComparator()), new Utility.UnicodeSetComparator()});
+    Set<Object[]> chars = new TreeSet(ac);
+    for (Object locales : mapping.getAvailableValues()) {
+      UnicodeSet unicodeSet = mapping.getSet(locales);
+      chars.add(new Object[]{locales, unicodeSet});
+    }
+//    UnicodeSet current = new UnicodeSet();
+//    String lastValue = "";
+    for (Object[] pair : chars) {
+      Set<String> locales = (Set<String>) pair[0];
+      UnicodeSet unicodeSet = (UnicodeSet) pair[1];
+      String value = toHTML.transliterate(Utility.join(locales, " "));
+      out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(unicodeSet, true, null, null, UCA, UCA)) + "</td><td class='td'>" + value + "</td></tr>");
+//      if (!value.equals(lastValue)) {
+//        if (current.size() != 0) {
+//          out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(current, true, null, null, UCA, UCA)) + "</td><td class='td'>" + lastValue + "</td></tr>");
+//        }
+//        current.clear();
+//        lastValue = value;
+//      }
+//      current.add(s);
+    }
+    // out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(current, true, null, null, UCA, UCA)) + "</td><td class='td'>" + lastValue + "</td></tr>");
+  }
+  
+//  private static boolean isNextCharacter(String last, String value) {
+//    if (UTF16.hasMoreCodePointsThan(last, 1)) return false;
+//    if (UTF16.hasMoreCodePointsThan(value, 1)) return false;
+//    int lastChar = UTF16.charAt(last,0);
+//    int valueChar = UTF16.charAt(value,0);
+//    return lastChar + 1 == valueChar;
+//  }
+
+  static UnicodeMap.Composer setComposer = new UnicodeMap.Composer() {
+    public Object compose(Object a, Object b) {
+      if (a == null) {
+        return b;
+      } else if (b == null) {
+        return a;
+      } else {
+        TreeSet<String> result = new TreeSet<String>((Set<String>)a);
+        result.addAll((Set<String>)b);
+        return result;
+      }
+    }
+  };
+
   private static void loadInformation(Factory cldrFactory) {
     Set alllocales = cldrFactory.getAvailable();
     String[] postFix = new String[]{""};
@@ -323,25 +452,14 @@ public class GenerateSidewaysView {
   }
   
   static String[] headerAndFooter = new String[2];
+  private static Transliterator toHTML;
 
   /**
    * 
    */
   private static PrintWriter start(PrintWriter out, String main, Set types) throws IOException {
     finish(out);
-    out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
-
-
-    ShowData.getChartTemplate("By-Type Chart: " + main,
-    english.getDtdVersion(), 
-    "",
-    //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
-//    "<style type='text/css'>\r\n" +
-//    "h1 {margin-bottom:1em}\r\n" +
-//    "</style>\r\n",
-    headerAndFooter);
-    out.println(headerAndFooter[0]);
-    out.println("<blockquote><p>");
+    out = writeHeader(main);
     boolean first = true;
     String lastMain = "";
     for (Iterator it = types.iterator(); it.hasNext();) {
@@ -373,6 +491,24 @@ public class GenerateSidewaysView {
     out.println("</p></blockquote><table class='table'>");
     return out;
   }
+
+  private static PrintWriter writeHeader(String main) throws IOException {
+    PrintWriter out;
+    out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
+
+
+    ShowData.getChartTemplate("By-Type Chart: " + main,
+    ShowLanguages.CHART_DISPLAY_VERSION, 
+    "",
+    //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
+//    "<style type='text/css'>\r\n" +
+//    "h1 {margin-bottom:1em}\r\n" +
+//    "</style>\r\n",
+    headerAndFooter);
+    out.println(headerAndFooter[0]);
+    out.println("<blockquote><p>");
+    return out;
+  }
   
   /**
    * 
@@ -383,4 +519,5 @@ public class GenerateSidewaysView {
     out.println(headerAndFooter[1]);
     out.close();
   }
+  
 }

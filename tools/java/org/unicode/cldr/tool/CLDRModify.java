@@ -816,7 +816,7 @@ public class CLDRModify {
 			Set standardFormats = new TreeSet();
 			
 			public void handleStart() {
-				dtpg = DateTimePatternGenerator.newInstance(); // should add clear()
+				dtpg = DateTimePatternGenerator.getEmptyInstance(); // should add clear()
 				dateFormatItems.clear();
 				standardFormats.clear();
 			}
@@ -844,7 +844,7 @@ public class CLDRModify {
 				for (Iterator it = standardFormats.iterator(); it.hasNext();) {
 					String xpath = (String) it.next();
 					String value = cldrFileToFilter.getStringValue(xpath);
-					dtpg.add(value, false, patternInfo);
+					dtpg.addPattern(value, false, patternInfo);
 					standardSkeletons.add(dtpg.getSkeleton(value));
 					if (false) { // code for adding guesses
 						fp.set(value);
@@ -852,7 +852,7 @@ public class CLDRModify {
 						fp.getAutoPatterns(value, items);
 						for (int i = 0; i < items.size(); ++i) {
 							String autoItem = (String)items.get(i);
-							dtpg.add(autoItem, false, patternInfo);
+							dtpg.addPattern(autoItem, false, patternInfo);
 							if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
 						}
 					}
@@ -887,7 +887,7 @@ public class CLDRModify {
 					// see if we have a k or K & fix
 					value = fixKk(xpath, value);
 					
-					dtpg.add(value, false, patternInfo);
+					dtpg.addPattern(value, false, patternInfo);
 					
 //					// in case we changed value
 //					skeleton = dtpg.getSkeleton(value);
@@ -1028,7 +1028,7 @@ public class CLDRModify {
 
 		
 		fixList.add('d', "fix dates",  new CLDRFilter() {
-			DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.newInstance();
+			DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
       DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 			HashMap seenSoFar = new HashMap();
 			

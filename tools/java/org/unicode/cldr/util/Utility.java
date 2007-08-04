@@ -90,7 +90,8 @@ public class Utility {
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
     public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
     public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
-	public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
+    public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
+    public static final String CHART_DIRECTORY = BASE_DIRECTORY + "diff/";
     public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
 
 	
@@ -763,6 +764,40 @@ public class Utility {
     }
     return 0;
   }
+  }
+  
+  public static class CollectionComparator implements Comparator {
+    boolean sizeFirst = true;
+    Comparator comparator = null;
+    public int compare(Object o1, Object o2) {
+      if (o1 == o2) return 0;
+      if (o1 == null) return -1;
+      if (o2 == null) return 1;
+      Collection c1 = ((Collection)o1);
+      Collection c2 = ((Collection)o2);
+      Iterator it1 = c1.iterator();
+      Iterator it2 = c2.iterator();
+      if (sizeFirst) {
+        if (c1.size() != c2.size()) {
+          return c1.size() < c2.size() ? -1 : 1;
+        }
+      }
+      while (true) {
+        if (!it1.hasNext()) {
+          return it2.hasNext() ? 0 : -1;
+        }
+        if (!it2.hasNext()) {
+          return 1;
+        }
+        Object obj1 = it1.next();
+        Object obj2 = it2.next();
+        int result = comparator != null ? comparator.compare(obj1, obj2) : ((Comparable)obj1).compareTo(obj2);
+        if (result != 0) {
+          return result;
+        }
+      }
+    }
+    
   }
 
 

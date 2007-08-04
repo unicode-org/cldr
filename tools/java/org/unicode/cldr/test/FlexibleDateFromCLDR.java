@@ -48,7 +48,7 @@ import com.ibm.icu.text.DateFormat;
  *
  */
 class FlexibleDateFromCLDR {
-    DateTimePatternGenerator gen = DateTimePatternGenerator.newInstance();
+    DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
     transient XPathParts parts = new XPathParts(null, null);
     private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
             
@@ -91,7 +91,7 @@ class FlexibleDateFromCLDR {
 
     public void set(CLDRFile cldrFile) {
         icuServiceBuilder.setCldrFile(cldrFile);
-        gen = DateTimePatternGenerator.newInstance(); // for now
+        gen = DateTimePatternGenerator.getEmptyInstance(); // for now
         failureMap.clear();
     }
     /**
@@ -106,12 +106,12 @@ class FlexibleDateFromCLDR {
             System.out.println("\t" + value);
         }
         for (int i = 0; i < DateTimePatternGenerator.TYPE_LIMIT; ++i) {
-            String format = gen.getAppendItemFormats(i);
+            String format = gen.getAppendItemFormat(i);
             if (format.indexOf('\u251C') >= 0) {
                 System.out.println("\tMissing AppendItem format:\t" + DISPLAY_NAME_MAP[i]);
             }
             if (i == DateTimePatternGenerator.FRACTIONAL_SECOND) continue; // don't need this field
-            String name = gen.getAppendItemNames(i);
+            String name = gen.getAppendItemName(i);
             if (name.matches("F[0-9]+")) {
                 System.out.println("\tMissing Field Name:\t" + DISPLAY_NAME_MAP[i]);
             }
@@ -161,7 +161,7 @@ class FlexibleDateFromCLDR {
         if (path.indexOf("/appendItem") >= 0) {
             String key = (String) parts.set(path).getAttributeValue(-1, "request");
             try {
-                gen.setAppendItemFormats(getIndex(key, APPEND_ITEM_NAME_MAP), value);
+                gen.setAppendItemFormat(getIndex(key, APPEND_ITEM_NAME_MAP), value);
             } catch (RuntimeException e) {
                 failureMap.put(path, "\tWarning: can't set AppendItemFormat:\t" + key + ":\t" + value);
             }
@@ -170,7 +170,7 @@ class FlexibleDateFromCLDR {
         if (path.indexOf("/fields") >= 0) {
             String key = (String) parts.set(path).getAttributeValue(-2, "type");
             try {
-                gen.setAppendItemNames(getIndex(key, DISPLAY_NAME_MAP), value);
+                gen.setAppendItemName(getIndex(key, DISPLAY_NAME_MAP), value);
             } catch (RuntimeException e) {
                 failureMap.put(path, "\tWarning: can't set AppendItemName:\t" + key + ":\t" + value);
             }
@@ -193,7 +193,7 @@ class FlexibleDateFromCLDR {
         if (path.indexOf("dateTimeFormatLength") > 0) return; // exclude {1} {0}
         // add to generator
         try {
-            gen.add(value, false, patternInfo);
+            gen.addPattern(value, false, patternInfo);
             switch (patternInfo.status) {
             case PatternInfo.CONFLICT:
                     failureMap.put(path, "Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern + "\"");

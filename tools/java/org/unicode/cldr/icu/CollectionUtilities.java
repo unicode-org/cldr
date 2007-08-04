@@ -391,7 +391,7 @@ public final class CollectionUtilities {
     public static class MultiComparator implements Comparator {
         private Comparator[] comparators;
     
-        public MultiComparator (Comparator[] comparators) {
+        public MultiComparator (Comparator... comparators) {
             this.comparators = comparators;
         }
     

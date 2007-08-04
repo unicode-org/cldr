@@ -5,7 +5,7 @@
  <!-- Uzbek [Ўзбек] -->
   <number 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_Latn uz_Latn_UZ uz_UZ'>
-<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
+<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Cyrl)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Cyrl, Ўзбекистон)]; Uzbek (Latin) [o&apos;zbekcha (Lotin)]; Uzbek (Latin, Uzbekistan) [o&apos;zbekcha (Lotin, Oʿzbekiston)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -73,7 +73,7 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_Latn uz_Latn_UZ uz_UZ'>
   </number>
   <number 
 locales='uz_AF uz_Arab uz_Arab_AF'>
-<!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
+<!-- Uzbek (Afghanistan) [اۉزبېک (افغانستان)]; Uzbek (Arabic) [اۉزبېک (Arab)]; Uzbek (Arabic, Afghanistan) [اۉزبېک (Arab, افغانستان)] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>۰٪</result>
@@ -125,10 +125,9 @@ locales='uz_AF uz_Arab uz_Arab_AF'>
   </number>
   <date 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
-<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
+<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Cyrl)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Cyrl, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
    <result draft='approved'>1900-01-31</result>
@@ -136,8 +135,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1900-01-31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
    <result draft='approved'>1900-01-31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Янв 31</result>
@@ -146,8 +143,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Янв 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1900 Янв 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1900 Янв 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1900 Муҳаррам 31</result>
@@ -156,8 +151,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Муҳаррам 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1900 Муҳаррам 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1900 Муҳаррам 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>чоршанба, 1900 Муҳаррам 31</result>
@@ -166,13 +159,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>4, 1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>чоршанба, 1900 Муҳаррам 31 00:00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>чоршанба, 1900 Муҳаррам 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>чоршанба, 1900 Муҳаррам 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
    <result draft='approved'>1909-02-28</result>
@@ -180,8 +170,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1909-02-28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
    <result draft='approved'>1909-02-28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Фев 28</result>
@@ -190,8 +178,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Фев 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1909 Фев 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1909 Фев 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1909 Сафар 28</result>
@@ -200,8 +186,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Сафар 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1909 Сафар 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1909 Сафар 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>якшанба, 1909 Сафар 28</result>
@@ -210,13 +194,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1, 1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>якшанба, 1909 Сафар 28 00:00:01</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>якшанба, 1909 Сафар 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>якшанба, 1909 Сафар 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
    <result draft='approved'>1918-03-26</result>
@@ -224,8 +205,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1918-03-26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
    <result draft='approved'>1918-03-26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Мар 26</result>
@@ -234,8 +213,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Мар 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1918 Мар 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1918 Мар 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1918 Рабиул-аввал 26</result>
@@ -244,8 +221,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Рабиул-аввал 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1918 Рабиул-аввал 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1918 Рабиул-аввал 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>сешанба, 1918 Рабиул-аввал 26</result>
@@ -254,13 +229,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>3, 1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>сешанба, 1918 Рабиул-аввал 26 00:59:59</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>сешанба, 1918 Рабиул-аввал 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>сешанба, 1918 Рабиул-аввал 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
    <result draft='approved'>1932-04-24</result>
@@ -268,8 +240,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1932-04-24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
    <result draft='approved'>1932-04-24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Апр 24</result>
@@ -278,8 +248,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Апр 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1932 Апр 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1932 Апр 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1932 Рабиул-охир 24</result>
@@ -288,8 +256,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Рабиул-охир 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1932 Рабиул-охир 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1932 Рабиул-охир 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>якшанба, 1932 Рабиул-охир 24</result>
@@ -298,13 +264,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1, 1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>якшанба, 1932 Рабиул-охир 24 01:00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>якшанба, 1932 Рабиул-охир 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>якшанба, 1932 Рабиул-охир 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
    <result draft='approved'>1945-05-20</result>
@@ -312,8 +275,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1945-05-20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1945 Май 20</result>
@@ -322,8 +283,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 Май 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1945 Май 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1945 Май 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1945 Жумодиул-уло 20</result>
@@ -332,8 +291,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 Жумодиул-уло 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1945 Жумодиул-уло 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1945 Жумодиул-уло 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>якшанба, 1945 Жумодиул-уло 20</result>
@@ -342,13 +299,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1, 1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>якшанба, 1945 Жумодиул-уло 20 01:00:01</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>якшанба, 1945 Жумодиул-уло 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>якшанба, 1945 Жумодиул-уло 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
    <result draft='approved'>1952-06-18</result>
@@ -356,8 +310,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1952-06-18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
    <result draft='approved'>1952-06-18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Июн 18</result>
@@ -366,8 +318,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Июн 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1952 Июн 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1952 Июн 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1952 Жумодиул-ухро 18</result>
@@ -376,8 +326,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Жумодиул-ухро 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1952 Жумодиул-ухро 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1952 Жумодиул-ухро 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>чоршанба, 1952 Жумодиул-ухро 18</result>
@@ -386,13 +334,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>4, 1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>чоршанба, 1952 Жумодиул-ухро 18 11:59:59</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>чоршанба, 1952 Жумодиул-ухро 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>чоршанба, 1952 Жумодиул-ухро 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
    <result draft='approved'>1973-07-16</result>
@@ -400,8 +345,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1973-07-16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
    <result draft='approved'>1973-07-16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Июл 16</result>
@@ -410,8 +353,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Июл 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1973 Июл 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1973 Июл 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1973 Ражаб 16</result>
@@ -420,8 +361,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Ражаб 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1973 Ражаб 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1973 Ражаб 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>душанба, 1973 Ражаб 16</result>
@@ -430,13 +369,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2, 1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>душанба, 1973 Ражаб 16 12:00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>душанба, 1973 Ражаб 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>душанба, 1973 Ражаб 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
    <result draft='approved'>1999-08-14</result>
@@ -444,8 +380,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1999-08-14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
    <result draft='approved'>1999-08-14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Авг 14</result>
@@ -454,8 +388,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Авг 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1999 Авг 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1999 Авг 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1999 Шаъбон 14</result>
@@ -464,8 +396,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Шаъбон 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1999 Шаъбон 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1999 Шаъбон 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>шанба, 1999 Шаъбон 14</result>
@@ -474,13 +404,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>7, 1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>шанба, 1999 Шаъбон 14 12:00:01</result>
    <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>шанба, 1999 Шаъбон 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>шанба, 1999 Шаъбон 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
    <result draft='approved'>2000-09-12</result>
@@ -488,8 +415,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2000-09-12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
    <result draft='approved'>2000-09-12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Сен 12</result>
@@ -498,8 +423,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Сен 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2000 Сен 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2000 Сен 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2000 Рамазон 12</result>
@@ -508,8 +431,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Рамазон 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2000 Рамазон 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2000 Рамазон 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>сешанба, 2000 Рамазон 12</result>
@@ -518,13 +439,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>3, 2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>сешанба, 2000 Рамазон 12 22:59:59</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>сешанба, 2000 Рамазон 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>сешанба, 2000 Рамазон 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
    <result draft='approved'>2001-10-08</result>
@@ -532,8 +450,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2001-10-08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
    <result draft='approved'>2001-10-08 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Окт 8</result>
@@ -542,8 +458,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Окт 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>2001 Окт 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2001 Окт 8 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2001 Шаввол 8</result>
@@ -552,8 +466,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Шаввол 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>2001 Шаввол 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2001 Шаввол 8 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>душанба, 2001 Шаввол 08</result>
@@ -562,13 +474,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2, 2001 10 08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>душанба, 2001 Шаввол 08 23:00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>душанба, 2001 Шаввол 08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>душанба, 2001 Шаввол 08 23:00:00 GMT+00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
    <result draft='approved'>2004-11-04</result>
@@ -576,8 +485,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2004-11-04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
    <result draft='approved'>2004-11-04 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Ноя 4</result>
@@ -586,8 +493,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Ноя 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>2004 Ноя 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2004 Ноя 4 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2004 Зил-қаъда 4</result>
@@ -596,8 +501,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Зил-қаъда 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>2004 Зил-қаъда 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2004 Зил-қаъда 4 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>пайшанба, 2004 Зил-қаъда 04</result>
@@ -606,13 +509,10 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>5, 2004 11 04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>пайшанба, 2004 Зил-қаъда 04 23:00:01</result>
    <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>пайшанба, 2004 Зил-қаъда 04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>пайшанба, 2004 Зил-қаъда 04 23:00:01 GMT+00:00</result>
    <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
    <result draft='approved'>2010-12-01</result>
@@ -620,8 +520,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2010-12-01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
    <result draft='approved'>2010-12-01 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Дек 1</result>
@@ -630,8 +528,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Дек 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2010 Дек 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2010 Дек 1 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2010 Зил-ҳижжа 1</result>
@@ -640,8 +536,6 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Зил-ҳижжа 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2010 Зил-ҳижжа 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2010 Зил-ҳижжа 1 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>чоршанба, 2010 Зил-ҳижжа 01</result>
@@ -650,583 +544,460 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result draft='approved'>4, 2010 12 01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>чоршанба, 2010 Зил-ҳижжа 01 23:59:59</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>чоршанба, 2010 Зил-ҳижжа 01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>чоршанба, 2010 Зил-ҳижжа 01 23:59:59 GMT+00:00</result>
    <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <date 
 locales='uz_AF uz_Arab uz_Arab_AF'>
-<!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
+<!-- Uzbek (Afghanistan) [اۉزبېک (افغانستان)]; Uzbek (Arabic) [اۉزبېک (Arab)]; Uzbek (Arabic, Afghanistan) [اۉزبېک (Arab, افغانستان)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>۰:۰۰</result>
    <result draft='approved'>۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۰:۰۰:۰۰</result>
    <result draft='approved'>۰۰:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۰۰:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۰۰/۱/۳۱</result>
    <result draft='approved'>۱۹۰۰-۰۱-۳۱</result>
    <result timeType='short' draft='unconfirmed'>۱۹۰۰/۱/۳۱ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۰-۰۱-۳۱ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۰۰/۱/۳۱ ۰:۰۰:۰۰</result>
    <result draft='approved'>۱۹۰۰-۰۱-۳۱ ۰۰:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۰۰/۱/۳۱ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰-۰۱-۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۰۰/۱/۳۱ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰-۰۱-۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۰۰/۱/۳۱ ۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۰-۰۱-۳۱ ۰۰:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۳۱ جنو ۱۹۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱</result>
    <result timeType='short' draft='unconfirmed'>۳۱ جنو ۱۹۰۰ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۳۱ جنو ۱۹۰۰ ۰:۰۰:۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۳۱ جنو ۱۹۰۰ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۳۱ جنو ۱۹۰۰ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۳۱ جنو ۱۹۰۰ ۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱</result>
    <result timeType='short' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰ ۰:۰۰:۰۰</result>
    <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰ ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۳۱ نچی جنوری ۱۹۰۰ ۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی</result>
    <result draft='approved'>4, ۱۹۰۰ 1 ۳۱</result>
    <result timeType='short' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی ۰:۰۰</result>
    <result draft='approved'>4, ۱۹۰۰ 1 ۳۱ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی ۰:۰۰:۰۰</result>
    <result draft='approved'>4, ۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>4, ۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی ۰:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>4, ۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۰۰ نچی ییل ۳۱ نچی جنوری چهارشنبه کونی ۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>4, ۱۹۰۰ 1 ۳۱ ۰۰:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>۰:۰۰</result>
    <result draft='approved'>۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۰:۰۰:۰۱</result>
    <result draft='approved'>۰۰:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۰:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۰۰:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۰۹/۲/۲۸</result>
    <result draft='approved'>۱۹۰۹-۰۲-۲۸</result>
    <result timeType='short' draft='unconfirmed'>۱۹۰۹/۲/۲۸ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۹-۰۲-۲۸ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۰۹/۲/۲۸ ۰:۰۰:۰۱</result>
    <result draft='approved'>۱۹۰۹-۰۲-۲۸ ۰۰:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۰۹/۲/۲۸ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹-۰۲-۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۰۹/۲/۲۸ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹-۰۲-۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۰۹/۲/۲۸ ۰:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۹-۰۲-۲۸ ۰۰:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۲۸ فبر ۱۹۰۹</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸</result>
    <result timeType='short' draft='unconfirmed'>۲۸ فبر ۱۹۰۹ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۸ فبر ۱۹۰۹ ۰:۰۰:۰۱</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۸ فبر ۱۹۰۹ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۸ فبر ۱۹۰۹ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۸ فبر ۱۹۰۹ ۰:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸</result>
    <result timeType='short' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹ ۰:۰۰</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹ ۰:۰۰:۰۱</result>
    <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹ ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۸ نچی فبروری ۱۹۰۹ ۰:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی</result>
    <result draft='approved'>1, ۱۹۰۹ 2 ۲۸</result>
    <result timeType='short' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی ۰:۰۰</result>
    <result draft='approved'>1, ۱۹۰۹ 2 ۲۸ ۰۰:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی ۰:۰۰:۰۱</result>
    <result draft='approved'>1, ۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی ۰:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۰۹ نچی ییل ۲۸ نچی فبروری یکشنبه کونی ۰:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>1, ۱۹۰۹ 2 ۲۸ ۰۰:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed'>۰:۵۹</result>
    <result draft='approved'>۰۰:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۰:۵۹:۵۹</result>
    <result draft='approved'>۰۰:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۰۰:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۰:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۰۰:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۱۸/۳/۲۶</result>
    <result draft='approved'>۱۹۱۸-۰۳-۲۶</result>
    <result timeType='short' draft='unconfirmed'>۱۹۱۸/۳/۲۶ ۰:۵۹</result>
    <result draft='approved'>۱۹۱۸-۰۳-۲۶ ۰۰:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۱۸/۳/۲۶ ۰:۵۹:۵۹</result>
    <result draft='approved'>۱۹۱۸-۰۳-۲۶ ۰۰:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۱۸/۳/۲۶ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸-۰۳-۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۱۸/۳/۲۶ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸-۰۳-۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۱۸/۳/۲۶ ۰:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۱۸-۰۳-۲۶ ۰۰:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۲۶ مار ۱۹۱۸</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶</result>
    <result timeType='short' draft='unconfirmed'>۲۶ مار ۱۹۱۸ ۰:۵۹</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۶ مار ۱۹۱۸ ۰:۵۹:۵۹</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۶ مار ۱۹۱۸ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۶ مار ۱۹۱۸ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۶ مار ۱۹۱۸ ۰:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶</result>
    <result timeType='short' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸ ۰:۵۹</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸ ۰:۵۹:۵۹</result>
    <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸ ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۶ نچی مارچ ۱۹۱۸ ۰:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی</result>
    <result draft='approved'>3, ۱۹۱۸ 3 ۲۶</result>
    <result timeType='short' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی ۰:۵۹</result>
    <result draft='approved'>3, ۱۹۱۸ 3 ۲۶ ۰۰:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی ۰:۵۹:۵۹</result>
    <result draft='approved'>3, ۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>3, ۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی ۰:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>3, ۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۱۸ نچی ییل ۲۶ نچی مارچ سه‌شنبه کونی ۰:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>3, ۱۹۱۸ 3 ۲۶ ۰۰:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed'>۱:۰۰</result>
    <result draft='approved'>۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱:۰۰:۰۰</result>
    <result draft='approved'>۰۱:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۰۱:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۰۱:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۰۱:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۳۲/۴/۲۴</result>
    <result draft='approved'>۱۹۳۲-۰۴-۲۴</result>
    <result timeType='short' draft='unconfirmed'>۱۹۳۲/۴/۲۴ ۱:۰۰</result>
    <result draft='approved'>۱۹۳۲-۰۴-۲۴ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۳۲/۴/۲۴ ۱:۰۰:۰۰</result>
    <result draft='approved'>۱۹۳۲-۰۴-۲۴ ۰۱:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۳۲/۴/۲۴ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲-۰۴-۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۳۲/۴/۲۴ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲-۰۴-۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۳۲/۴/۲۴ ۱:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۳۲-۰۴-۲۴ ۰۱:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۲۴ اپر ۱۹۳۲</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴</result>
    <result timeType='short' draft='unconfirmed'>۲۴ اپر ۱۹۳۲ ۱:۰۰</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۴ اپر ۱۹۳۲ ۱:۰۰:۰۰</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۲۴ اپر ۱۹۳۲ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۴ اپر ۱۹۳۲ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۴ اپر ۱۹۳۲ ۱:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴</result>
    <result timeType='short' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲ ۱:۰۰</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲ ۱:۰۰:۰۰</result>
    <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲ ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۴ نچی اپریل ۱۹۳۲ ۱:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی</result>
    <result draft='approved'>1, ۱۹۳۲ 4 ۲۴</result>
    <result timeType='short' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی ۱:۰۰</result>
    <result draft='approved'>1, ۱۹۳۲ 4 ۲۴ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی ۱:۰۰:۰۰</result>
    <result draft='approved'>1, ۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی ۱:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۳۲ نچی ییل ۲۴ نچی اپریل یکشنبه کونی ۱:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>1, ۱۹۳۲ 4 ۲۴ ۰۱:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed'>۱:۰۰</result>
    <result draft='approved'>۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱:۰۰:۰۱</result>
    <result draft='approved'>۰۱:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۰۱:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۰۱:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۰۱:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۴۵/۵/۲۰</result>
    <result draft='approved'>۱۹۴۵-۰۵-۲۰</result>
    <result timeType='short' draft='unconfirmed'>۱۹۴۵/۵/۲۰ ۱:۰۰</result>
    <result draft='approved'>۱۹۴۵-۰۵-۲۰ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۴۵/۵/۲۰ ۱:۰۰:۰۱</result>
    <result draft='approved'>۱۹۴۵-۰۵-۲۰ ۰۱:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۴۵/۵/۲۰ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵-۰۵-۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۴۵/۵/۲۰ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵-۰۵-۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۴۵/۵/۲۰ ۱:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۴۵-۰۵-۲۰ ۰۱:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۲۰ مـی ۱۹۴۵</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰</result>
    <result timeType='short' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰:۰۱</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰ مـی ۱۹۴۵ ۱:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰</result>
    <result timeType='short' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵ ۱:۰۰</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵ ۱:۰۰:۰۱</result>
    <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵ ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰ نچی می ۱۹۴۵ ۱:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی</result>
    <result draft='approved'>1, ۱۹۴۵ 5 ۲۰</result>
    <result timeType='short' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی ۱:۰۰</result>
    <result draft='approved'>1, ۱۹۴۵ 5 ۲۰ ۰۱:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی ۱:۰۰:۰۱</result>
    <result draft='approved'>1, ۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی ۱:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>1, ۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۴۵ نچی ییل ۲۰ نچی می یکشنبه کونی ۱:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>1, ۱۹۴۵ 5 ۲۰ ۰۱:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>۱۱:۵۹</result>
    <result timeType='medium'>۱۱:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۱:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۱:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۱:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۱:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۵۲/۶/۱۸</result>
    <result draft='approved'>۱۹۵۲-۰۶-۱۸</result>
    <result timeType='short' draft='unconfirmed'>۱۹۵۲/۶/۱۸ ۱۱:۵۹</result>
    <result draft='approved'>۱۹۵۲-۰۶-۱۸ ۱۱:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۵۲/۶/۱۸ ۱۱:۵۹:۵۹</result>
    <result draft='approved'>۱۹۵۲-۰۶-۱۸ ۱۱:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۵۲/۶/۱۸ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲-۰۶-۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۵۲/۶/۱۸ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲-۰۶-۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۵۲/۶/۱۸ ۱۱:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۵۲-۰۶-۱۸ ۱۱:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۱۸ جون ۱۹۵۲</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸</result>
    <result timeType='short' draft='unconfirmed'>۱۸ جون ۱۹۵۲ ۱۱:۵۹</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۸ جون ۱۹۵۲ ۱۱:۵۹:۵۹</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۸ جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۸ جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۸ جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸</result>
    <result timeType='short' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲ ۱۱:۵۹</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲ ۱۱:۵۹:۵۹</result>
    <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۸ نچی جون ۱۹۵۲ ۱۱:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی</result>
    <result draft='approved'>4, ۱۹۵۲ 6 ۱۸</result>
    <result timeType='short' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی ۱۱:۵۹</result>
    <result draft='approved'>4, ۱۹۵۲ 6 ۱۸ ۱۱:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی ۱۱:۵۹:۵۹</result>
    <result draft='approved'>4, ۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>4, ۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی ۱۱:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>4, ۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۵۲ نچی ییل ۱۸ نچی جون چهارشنبه کونی ۱۱:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>4, ۱۹۵۲ 6 ۱۸ ۱۱:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>۱۲:۰۰</result>
    <result timeType='medium'>۱۲:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۲:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۲:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۲:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۲:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۷۳/۷/۱۶</result>
    <result draft='approved'>۱۹۷۳-۰۷-۱۶</result>
    <result timeType='short' draft='unconfirmed'>۱۹۷۳/۷/۱۶ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۷۳-۰۷-۱۶ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۷۳/۷/۱۶ ۱۲:۰۰:۰۰</result>
    <result draft='approved'>۱۹۷۳-۰۷-۱۶ ۱۲:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۷۳/۷/۱۶ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳-۰۷-۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۷۳/۷/۱۶ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳-۰۷-۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۷۳/۷/۱۶ ۱۲:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۷۳-۰۷-۱۶ ۱۲:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۱۶ جول ۱۹۷۳</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶</result>
    <result timeType='short' draft='unconfirmed'>۱۶ جول ۱۹۷۳ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۶ جول ۱۹۷۳ ۱۲:۰۰:۰۰</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۶ جول ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۶ جول ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۶ جول ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶</result>
    <result timeType='short' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳ ۱۲:۰۰:۰۰</result>
    <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۶ نچی جولای ۱۹۷۳ ۱۲:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی</result>
    <result draft='approved'>2, ۱۹۷۳ 7 ۱۶</result>
    <result timeType='short' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی ۱۲:۰۰</result>
    <result draft='approved'>2, ۱۹۷۳ 7 ۱۶ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی ۱۲:۰۰:۰۰</result>
    <result draft='approved'>2, ۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>2, ۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی ۱۲:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>2, ۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۷۳ نچی ییل ۱۶ نچی جولای دوشنبه کونی ۱۲:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>2, ۱۹۷۳ 7 ۱۶ ۱۲:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>۱۲:۰۰</result>
    <result timeType='medium'>۱۲:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۲:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۲:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۲:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۲:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۱۹۹۹/۸/۱۴</result>
    <result draft='approved'>۱۹۹۹-۰۸-۱۴</result>
    <result timeType='short' draft='unconfirmed'>۱۹۹۹/۸/۱۴ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۹۹-۰۸-۱۴ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۹۹/۸/۱۴ ۱۲:۰۰:۰۱</result>
    <result draft='approved'>۱۹۹۹-۰۸-۱۴ ۱۲:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۹۹/۸/۱۴ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹-۰۸-۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۹۹/۸/۱۴ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹-۰۸-۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۹۹/۸/۱۴ ۱۲:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۹۹-۰۸-۱۴ ۱۲:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۱۴ اگس ۱۹۹۹</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴</result>
    <result timeType='short' draft='unconfirmed'>۱۴ اگس ۱۹۹۹ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۴ اگس ۱۹۹۹ ۱۲:۰۰:۰۱</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۴ اگس ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۴ اگس ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۴ اگس ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴</result>
    <result timeType='short' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹ ۱۲:۰۰</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹ ۱۲:۰۰:۰۱</result>
    <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۴ نچی اگست ۱۹۹۹ ۱۲:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی</result>
    <result draft='approved'>7, ۱۹۹۹ 8 ۱۴</result>
    <result timeType='short' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی ۱۲:۰۰</result>
    <result draft='approved'>7, ۱۹۹۹ 8 ۱۴ ۱۲:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی ۱۲:۰۰:۰۱</result>
    <result draft='approved'>7, ۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>7, ۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی ۱۲:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>7, ۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۹۹۹ نچی ییل ۱۴ نچی اگست شنبه کونی ۱۲:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>7, ۱۹۹۹ 8 ۱۴ ۱۲:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>۲۲:۵۹</result>
    <result timeType='medium'>۲۲:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۲:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۲:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۲:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۲:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۲۰۰۰/۹/۱۲</result>
    <result draft='approved'>۲۰۰۰-۰۹-۱۲</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۰/۹/۱۲ ۲۲:۵۹</result>
    <result draft='approved'>۲۰۰۰-۰۹-۱۲ ۲۲:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۰/۹/۱۲ ۲۲:۵۹:۵۹</result>
    <result draft='approved'>۲۰۰۰-۰۹-۱۲ ۲۲:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۰/۹/۱۲ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰-۰۹-۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۰/۹/۱۲ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰-۰۹-۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۰/۹/۱۲ ۲۲:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۰-۰۹-۱۲ ۲۲:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۱۲ سپت ۲۰۰۰</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲</result>
    <result timeType='short' draft='unconfirmed'>۱۲ سپت ۲۰۰۰ ۲۲:۵۹</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۲ سپت ۲۰۰۰ ۲۲:۵۹:۵۹</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۲ سپت ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۲ سپت ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۲ سپت ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲</result>
    <result timeType='short' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰ ۲۲:۵۹</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰ ۲۲:۵۹:۵۹</result>
    <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱۲ نچی سپتمبر ۲۰۰۰ ۲۲:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی</result>
    <result draft='approved'>3, ۲۰۰۰ 9 ۱۲</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی ۲۲:۵۹</result>
    <result draft='approved'>3, ۲۰۰۰ 9 ۱۲ ۲۲:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی ۲۲:۵۹:۵۹</result>
    <result draft='approved'>3, ۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>3, ۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی ۲۲:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>3, ۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۰ نچی ییل ۱۲ نچی سپتمبر سه‌شنبه کونی ۲۲:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>3, ۲۰۰۰ 9 ۱۲ ۲۲:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>۲۳:۰۰</result>
    <result timeType='medium'>۲۳:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۳:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۳:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۲۰۰۱/۱۰/۸</result>
    <result draft='approved'>۲۰۰۱-۱۰-۰۸</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۱/۱۰/۸ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۱-۱۰-۰۸ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۱/۱۰/۸ ۲۳:۰۰:۰۰</result>
    <result draft='approved'>۲۰۰۱-۱۰-۰۸ ۲۳:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۱/۱۰/۸ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱-۱۰-۰۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۱/۱۰/۸ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱-۱۰-۰۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۱/۱۰/۸ ۲۳:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۱-۱۰-۰۸ ۲۳:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۸ اکت ۲۰۰۱</result>
    <result draft='approved'>۲۰۰۱ 10 ۸</result>
    <result timeType='short' draft='unconfirmed'>۸ اکت ۲۰۰۱ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۸ اکت ۲۰۰۱ ۲۳:۰۰:۰۰</result>
    <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۸ اکت ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۸ اکت ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۸ اکت ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱</result>
    <result draft='approved'>۲۰۰۱ 10 ۸</result>
    <result timeType='short' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱ ۲۳:۰۰:۰۰</result>
    <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۸ نچی اکتوبر ۲۰۰۱ ۲۳:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۱ 10 ۸ ۲۳:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی</result>
    <result draft='approved'>2, ۲۰۰۱ 10 ۰۸</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی ۲۳:۰۰</result>
    <result draft='approved'>2, ۲۰۰۱ 10 ۰۸ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی ۲۳:۰۰:۰۰</result>
    <result draft='approved'>2, ۲۰۰۱ 10 ۰۸ ۲۳:۰۰:۰۰</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>2, ۲۰۰۱ 10 ۰۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی ۲۳:۰۰:۰۰ (GMT+00:00)</result>
-   <result draft='approved'>2, ۲۰۰۱ 10 ۰۸ ۲۳:۰۰:۰۰ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۱ نچی ییل ۸ نچی اکتوبر دوشنبه کونی ۲۳:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>2, ۲۰۰۱ 10 ۰۸ ۲۳:۰۰:۰۰ GMT+۰۰:۰۰</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>۲۳:۰۰</result>
    <result timeType='medium'>۲۳:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۳:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۳:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۲۰۰۴/۱۱/۴</result>
    <result draft='approved'>۲۰۰۴-۱۱-۰۴</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۴/۱۱/۴ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۴-۱۱-۰۴ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۴/۱۱/۴ ۲۳:۰۰:۰۱</result>
    <result draft='approved'>۲۰۰۴-۱۱-۰۴ ۲۳:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۴/۱۱/۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴-۱۱-۰۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۴/۱۱/۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴-۱۱-۰۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۴/۱۱/۴ ۲۳:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۴-۱۱-۰۴ ۲۳:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۴ نوم ۲۰۰۴</result>
    <result draft='approved'>۲۰۰۴ 11 ۴</result>
    <result timeType='short' draft='unconfirmed'>۴ نوم ۲۰۰۴ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۴ نوم ۲۰۰۴ ۲۳:۰۰:۰۱</result>
    <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۴ نوم ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۴ نوم ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۴ نوم ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴</result>
    <result draft='approved'>۲۰۰۴ 11 ۴</result>
    <result timeType='short' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴ ۲۳:۰۰</result>
    <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴ ۲۳:۰۰:۰۱</result>
    <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۴ نچی نومبر ۲۰۰۴ ۲۳:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۰۴ 11 ۴ ۲۳:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی</result>
    <result draft='approved'>5, ۲۰۰۴ 11 ۰۴</result>
    <result timeType='short' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی ۲۳:۰۰</result>
    <result draft='approved'>5, ۲۰۰۴ 11 ۰۴ ۲۳:۰۰</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی ۲۳:۰۰:۰۱</result>
    <result draft='approved'>5, ۲۰۰۴ 11 ۰۴ ۲۳:۰۰:۰۱</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>5, ۲۰۰۴ 11 ۰۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی ۲۳:۰۰:۰۱ (GMT+00:00)</result>
-   <result draft='approved'>5, ۲۰۰۴ 11 ۰۴ ۲۳:۰۰:۰۱ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۰۴ نچی ییل ۴ نچی نومبر پنجشنبه کونی ۲۳:۰۰:۰۱ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>5, ۲۰۰۴ 11 ۰۴ ۲۳:۰۰:۰۱ GMT+۰۰:۰۰</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>۲۳:۵۹</result>
    <result timeType='medium'>۲۳:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۳:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۳:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۳:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>۲۰۱۰/۱۲/۱</result>
    <result draft='approved'>۲۰۱۰-۱۲-۰۱</result>
    <result timeType='short' draft='unconfirmed'>۲۰۱۰/۱۲/۱ ۲۳:۵۹</result>
    <result draft='approved'>۲۰۱۰-۱۲-۰۱ ۲۳:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۱۰/۱۲/۱ ۲۳:۵۹:۵۹</result>
    <result draft='approved'>۲۰۱۰-۱۲-۰۱ ۲۳:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۱۰/۱۲/۱ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰-۱۲-۰۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۱۰/۱۲/۱ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰-۱۲-۰۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۱۰/۱۲/۱ ۲۳:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۱۰-۱۲-۰۱ ۲۳:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>۱ دسم ۲۰۱۰</result>
    <result draft='approved'>۲۰۱۰ 12 ۱</result>
    <result timeType='short' draft='unconfirmed'>۱ دسم ۲۰۱۰ ۲۳:۵۹</result>
    <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱ دسم ۲۰۱۰ ۲۳:۵۹:۵۹</result>
    <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱ دسم ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱ دسم ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱ دسم ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰</result>
    <result draft='approved'>۲۰۱۰ 12 ۱</result>
    <result timeType='short' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰ ۲۳:۵۹</result>
    <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰ ۲۳:۵۹:۵۹</result>
    <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۱ نچی دسمبر ۲۰۱۰ ۲۳:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>۲۰۱۰ 12 ۱ ۲۳:۵۹:۵۹ GMT+۰۰:۰۰</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی</result>
    <result draft='approved'>4, ۲۰۱۰ 12 ۰۱</result>
    <result timeType='short' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی ۲۳:۵۹</result>
    <result draft='approved'>4, ۲۰۱۰ 12 ۰۱ ۲۳:۵۹</result>
    <result timeType='medium' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی ۲۳:۵۹:۵۹</result>
    <result draft='approved'>4, ۲۰۱۰ 12 ۰۱ ۲۳:۵۹:۵۹</result>
-   <result timeType='long' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>4, ۲۰۱۰ 12 ۰۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
-   <result timeType='full' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی ۲۳:۵۹:۵۹ (GMT+00:00)</result>
-   <result draft='approved'>4, ۲۰۱۰ 12 ۰۱ ۲۳:۵۹:۵۹ GMT+00:00</result>
+   <result timeType='full' draft='unconfirmed'>۲۰۱۰ نچی ییل ۱ نچی دسمبر چهارشنبه کونی ۲۳:۵۹:۵۹ (GMT+۰۰:۰۰)</result>
+   <result draft='approved'>4, ۲۰۱۰ 12 ۰۱ ۲۳:۵۹:۵۹ GMT+۰۰:۰۰</result>
   </date>
   <date 
 locales='uz_Latn uz_Latn_UZ'>
-<!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
+<!-- Uzbek (Latin) [o&apos;zbekcha (Lotin)]; Uzbek (Latin, Uzbekistan) [o&apos;zbekcha (Lotin, Oʿzbekiston)] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
    <result draft='approved'>1900-01-31</result>
@@ -1234,8 +1005,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1900-01-31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
    <result draft='approved'>1900-01-31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/01/31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900-01-31 00:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1900 Yanv 31</result>
@@ -1244,8 +1013,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Yanv 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1900 Yanv 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1900 Yanv 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1900 Muharram 31</result>
@@ -1254,8 +1021,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1900 Muharram 31 00:00:00</result>
    <result draft='approved'>1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1900 Muharram 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1900 Muharram 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>1900 1 31 00:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>chorshanba, 1900 Muharram 31</result>
@@ -1264,13 +1029,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>4, 1900 1 31 00:00</result>
    <result timeType='medium' draft='unconfirmed'>chorshanba, 1900 Muharram 31 00:00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result timeType='long' draft='unconfirmed'>chorshanba, 1900 Muharram 31 00:00:00 GMT+00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>chorshanba, 1900 Muharram 31 00:00:00 GMT+00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00 GMT+00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
    <result draft='approved'>1909-02-28</result>
@@ -1278,8 +1040,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1909-02-28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
    <result draft='approved'>1909-02-28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>09/02/28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909-02-28 00:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1909 Fev 28</result>
@@ -1288,8 +1048,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Fev 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1909 Fev 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1909 Fev 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1909 Safar 28</result>
@@ -1298,8 +1056,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>1909 Safar 28 00:00:01</result>
    <result draft='approved'>1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1909 Safar 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1909 Safar 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1909 2 28 00:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>yakshanba, 1909 Safar 28</result>
@@ -1308,13 +1064,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1, 1909 2 28 00:00</result>
    <result timeType='medium' draft='unconfirmed'>yakshanba, 1909 Safar 28 00:00:01</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result timeType='long' draft='unconfirmed'>yakshanba, 1909 Safar 28 00:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>yakshanba, 1909 Safar 28 00:00:01 GMT+00:00</result>
    <result draft='approved'>1, 1909 2 28 00:00:01 GMT+00:00</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
    <result draft='approved'>1918-03-26</result>
@@ -1322,8 +1075,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1918-03-26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
    <result draft='approved'>1918-03-26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>18/03/26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918-03-26 00:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1918 Mar 26</result>
@@ -1332,8 +1083,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Mar 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1918 Mar 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1918 Mar 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1918 Rabiul-avval 26</result>
@@ -1342,8 +1091,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>1918 Rabiul-avval 26 00:59:59</result>
    <result draft='approved'>1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1918 Rabiul-avval 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1918 Rabiul-avval 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>1918 3 26 00:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>seshanba, 1918 Rabiul-avval 26</result>
@@ -1352,13 +1099,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>3, 1918 3 26 00:59</result>
    <result timeType='medium' draft='unconfirmed'>seshanba, 1918 Rabiul-avval 26 00:59:59</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result timeType='long' draft='unconfirmed'>seshanba, 1918 Rabiul-avval 26 00:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>seshanba, 1918 Rabiul-avval 26 00:59:59 GMT+00:00</result>
    <result draft='approved'>3, 1918 3 26 00:59:59 GMT+00:00</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
    <result draft='approved'>1932-04-24</result>
@@ -1366,8 +1110,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1932-04-24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
    <result draft='approved'>1932-04-24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>32/04/24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932-04-24 01:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1932 Apr 24</result>
@@ -1376,8 +1118,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Apr 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1932 Apr 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1932 Apr 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1932 Rabiul-oxir 24</result>
@@ -1386,8 +1126,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1932 Rabiul-oxir 24 01:00:00</result>
    <result draft='approved'>1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1932 Rabiul-oxir 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1932 Rabiul-oxir 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1932 4 24 01:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>yakshanba, 1932 Rabiul-oxir 24</result>
@@ -1396,13 +1134,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1, 1932 4 24 01:00</result>
    <result timeType='medium' draft='unconfirmed'>yakshanba, 1932 Rabiul-oxir 24 01:00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result timeType='long' draft='unconfirmed'>yakshanba, 1932 Rabiul-oxir 24 01:00:00 GMT+00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>yakshanba, 1932 Rabiul-oxir 24 01:00:00 GMT+00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00 GMT+00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
    <result draft='approved'>1945-05-20</result>
@@ -1410,8 +1145,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1945-05-20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
    <result draft='approved'>1945-05-20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>45/05/20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945-05-20 01:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1945 May 20</result>
@@ -1420,8 +1153,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 May 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1945 May 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1945 May 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1945 Jumodiul-ulo 20</result>
@@ -1430,8 +1161,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>1945 Jumodiul-ulo 20 01:00:01</result>
    <result draft='approved'>1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1945 Jumodiul-ulo 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1945 Jumodiul-ulo 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1945 5 20 01:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>yakshanba, 1945 Jumodiul-ulo 20</result>
@@ -1440,13 +1169,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1, 1945 5 20 01:00</result>
    <result timeType='medium' draft='unconfirmed'>yakshanba, 1945 Jumodiul-ulo 20 01:00:01</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result timeType='long' draft='unconfirmed'>yakshanba, 1945 Jumodiul-ulo 20 01:00:01 GMT+00:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>yakshanba, 1945 Jumodiul-ulo 20 01:00:01 GMT+00:00</result>
    <result draft='approved'>1, 1945 5 20 01:00:01 GMT+00:00</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
    <result draft='approved'>1952-06-18</result>
@@ -1454,8 +1180,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1952-06-18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
    <result draft='approved'>1952-06-18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>52/06/18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952-06-18 11:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1952 Iyun 18</result>
@@ -1464,8 +1188,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Iyun 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1952 Iyun 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1952 Iyun 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1952 Jumodiul-uxro 18</result>
@@ -1474,8 +1196,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>1952 Jumodiul-uxro 18 11:59:59</result>
    <result draft='approved'>1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>1952 Jumodiul-uxro 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1952 Jumodiul-uxro 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>1952 6 18 11:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>chorshanba, 1952 Jumodiul-uxro 18</result>
@@ -1484,13 +1204,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>4, 1952 6 18 11:59</result>
    <result timeType='medium' draft='unconfirmed'>chorshanba, 1952 Jumodiul-uxro 18 11:59:59</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result timeType='long' draft='unconfirmed'>chorshanba, 1952 Jumodiul-uxro 18 11:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>chorshanba, 1952 Jumodiul-uxro 18 11:59:59 GMT+00:00</result>
    <result draft='approved'>4, 1952 6 18 11:59:59 GMT+00:00</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
    <result draft='approved'>1973-07-16</result>
@@ -1498,8 +1215,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1973-07-16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
    <result draft='approved'>1973-07-16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>73/07/16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973-07-16 12:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1973 Iyul 16</result>
@@ -1508,8 +1223,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Iyul 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1973 Iyul 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1973 Iyul 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1973 Rajab 16</result>
@@ -1518,8 +1231,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1973 Rajab 16 12:00:00</result>
    <result draft='approved'>1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>1973 Rajab 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1973 Rajab 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>1973 7 16 12:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>dushanba, 1973 Rajab 16</result>
@@ -1528,13 +1239,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2, 1973 7 16 12:00</result>
    <result timeType='medium' draft='unconfirmed'>dushanba, 1973 Rajab 16 12:00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result timeType='long' draft='unconfirmed'>dushanba, 1973 Rajab 16 12:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>dushanba, 1973 Rajab 16 12:00:00 GMT+00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00 GMT+00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
    <result draft='approved'>1999-08-14</result>
@@ -1542,8 +1250,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1999-08-14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
    <result draft='approved'>1999-08-14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>99/08/14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999-08-14 12:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>1999 Avg 14</result>
@@ -1552,8 +1258,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Avg 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1999 Avg 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1999 Avg 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>1999 Shaʿbon 14</result>
@@ -1562,8 +1266,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>1999 Shaʿbon 14 12:00:01</result>
    <result draft='approved'>1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>1999 Shaʿbon 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>1999 Shaʿbon 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>1999 8 14 12:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>shanba, 1999 Shaʿbon 14</result>
@@ -1572,13 +1274,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>7, 1999 8 14 12:00</result>
    <result timeType='medium' draft='unconfirmed'>shanba, 1999 Shaʿbon 14 12:00:01</result>
    <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result timeType='long' draft='unconfirmed'>shanba, 1999 Shaʿbon 14 12:00:01 GMT+00:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>shanba, 1999 Shaʿbon 14 12:00:01 GMT+00:00</result>
    <result draft='approved'>7, 1999 8 14 12:00:01 GMT+00:00</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
    <result draft='approved'>2000-09-12</result>
@@ -1586,8 +1285,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2000-09-12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
    <result draft='approved'>2000-09-12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>00/09/12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000-09-12 22:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2000 Sen 12</result>
@@ -1596,8 +1293,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Sen 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2000 Sen 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2000 Sen 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2000 Ramazon 12</result>
@@ -1606,8 +1301,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>2000 Ramazon 12 22:59:59</result>
    <result draft='approved'>2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2000 Ramazon 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2000 Ramazon 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>2000 9 12 22:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>seshanba, 2000 Ramazon 12</result>
@@ -1616,13 +1309,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>3, 2000 9 12 22:59</result>
    <result timeType='medium' draft='unconfirmed'>seshanba, 2000 Ramazon 12 22:59:59</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result timeType='long' draft='unconfirmed'>seshanba, 2000 Ramazon 12 22:59:59 GMT+00:00</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>seshanba, 2000 Ramazon 12 22:59:59 GMT+00:00</result>
    <result draft='approved'>3, 2000 9 12 22:59:59 GMT+00:00</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
    <result draft='approved'>2001-10-08</result>
@@ -1630,8 +1320,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2001-10-08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
    <result draft='approved'>2001-10-08 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>01/10/08 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001-10-08 23:00:00 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2001 Okt 8</result>
@@ -1640,8 +1328,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Okt 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>2001 Okt 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2001 Okt 8 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2001 Shavvol 8</result>
@@ -1650,8 +1336,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2001 10 8 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2001 Shavvol 8 23:00:00</result>
    <result draft='approved'>2001 10 8 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>2001 Shavvol 8 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2001 Shavvol 8 23:00:00 GMT+00:00</result>
    <result draft='approved'>2001 10 8 23:00:00 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>dushanba, 2001 Shavvol 08</result>
@@ -1660,13 +1344,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2, 2001 10 08 23:00</result>
    <result timeType='medium' draft='unconfirmed'>dushanba, 2001 Shavvol 08 23:00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result timeType='long' draft='unconfirmed'>dushanba, 2001 Shavvol 08 23:00:00 GMT+00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>dushanba, 2001 Shavvol 08 23:00:00 GMT+00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00 GMT+00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
    <result draft='approved'>2004-11-04</result>
@@ -1674,8 +1355,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2004-11-04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
    <result draft='approved'>2004-11-04 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>04/11/04 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004-11-04 23:00:01 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2004 Noya 4</result>
@@ -1684,8 +1363,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Noya 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>2004 Noya 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2004 Noya 4 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2004 Zil-qaʿda 4</result>
@@ -1694,8 +1371,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2004 11 4 23:00</result>
    <result timeType='medium' draft='unconfirmed'>2004 Zil-qaʿda 4 23:00:01</result>
    <result draft='approved'>2004 11 4 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>2004 Zil-qaʿda 4 23:00:01 GMT+00:00</result>
-   <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2004 Zil-qaʿda 4 23:00:01 GMT+00:00</result>
    <result draft='approved'>2004 11 4 23:00:01 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>payshanba, 2004 Zil-qaʿda 04</result>
@@ -1704,13 +1379,10 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>5, 2004 11 04 23:00</result>
    <result timeType='medium' draft='unconfirmed'>payshanba, 2004 Zil-qaʿda 04 23:00:01</result>
    <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result timeType='long' draft='unconfirmed'>payshanba, 2004 Zil-qaʿda 04 23:00:01 GMT+00:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>payshanba, 2004 Zil-qaʿda 04 23:00:01 GMT+00:00</result>
    <result draft='approved'>5, 2004 11 04 23:00:01 GMT+00:00</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
    <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
    <result draft='approved'>2010-12-01</result>
@@ -1718,8 +1390,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2010-12-01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
    <result draft='approved'>2010-12-01 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>10/12/01 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010-12-01 23:59:59 GMT+00:00</result>
    <result dateType='medium' timeType='none' draft='unconfirmed'>2010 Dek 1</result>
@@ -1728,8 +1398,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Dek 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2010 Dek 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2010 Dek 1 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='long' timeType='none' draft='unconfirmed'>2010 Zil-hijja 1</result>
@@ -1738,8 +1406,6 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>2010 12 1 23:59</result>
    <result timeType='medium' draft='unconfirmed'>2010 Zil-hijja 1 23:59:59</result>
    <result draft='approved'>2010 12 1 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>2010 Zil-hijja 1 23:59:59 GMT+00:00</result>
-   <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>2010 Zil-hijja 1 23:59:59 GMT+00:00</result>
    <result draft='approved'>2010 12 1 23:59:59 GMT+00:00</result>
    <result dateType='full' timeType='none' draft='unconfirmed'>chorshanba, 2010 Zil-hijja 01</result>
@@ -1748,374 +1414,264 @@ locales='uz_Latn uz_Latn_UZ'>
    <result draft='approved'>4, 2010 12 01 23:59</result>
    <result timeType='medium' draft='unconfirmed'>chorshanba, 2010 Zil-hijja 01 23:59:59</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
-   <result timeType='long' draft='unconfirmed'>chorshanba, 2010 Zil-hijja 01 23:59:59 GMT+00:00</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
    <result timeType='full' draft='unconfirmed'>chorshanba, 2010 Zil-hijja 01 23:59:59 GMT+00:00</result>
    <result draft='approved'>4, 2010 12 01 23:59:59 GMT+00:00</result>
   </date>
   <zoneFields 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
-<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
+<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Cyrl)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Cyrl, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
-   <result field='z'>GMT-08:00</result>
-   <result field='zzzz'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result field='vvvv' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
-   <result field='z'>GMT-07:00</result>
-   <result field='zzzz'>GMT-07:00</result>
    <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result field='vvvv' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
-   <result field='z'>GMT-05:00</result>
-   <result field='zzzz'>GMT-05:00</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
    <result field='ZZZZ'>GMT-04:00</result>
-   <result field='z'>GMT-04:00</result>
-   <result field='zzzz'>GMT-04:00</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='z'>GMT+11:00</result>
-   <result field='zzzz'>GMT+11:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='z'>GMT+10:00</result>
-   <result field='zzzz'>GMT+10:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='z'>GMT+11:00</result>
-   <result field='zzzz'>GMT+11:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='z'>GMT+10:00</result>
-   <result field='zzzz'>GMT+10:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
-   <result field='z'>GMT+00:00</result>
-   <result field='zzzz'>GMT+00:00</result>
    <result field='v' parse='Europe/London' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result field='vvvv' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='unconfirmed approved'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
-   <result field='z'>GMT+01:00</result>
-   <result field='zzzz'>GMT+01:00</result>
    <result field='v' parse='Europe/London' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result field='vvvv' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
-   <result field='z'>GMT+03:00</result>
-   <result field='zzzz'>GMT+03:00</result>
    <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result field='vvvv' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
-   <result field='z'>GMT+04:00</result>
-   <result field='zzzz'>GMT+04:00</result>
    <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result field='vvvv' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v'>GMT-03:00</result>
    <result field='vvvv'>GMT-03:00</result>
    <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v'>GMT-03:00</result>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <zoneFields 
 locales='uz_AF uz_Arab uz_Arab_AF'>
-<!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
+<!-- Uzbek (Afghanistan) [اۉزبېک (افغانستان)]; Uzbek (Arabic) [اۉزبېک (Arab)]; Uzbek (Arabic, Afghanistan) [اۉزبېک (Arab, افغانستان)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-۰۸:۰۰</result>
-   <result field='z'>GMT-۰۸:۰۰</result>
-   <result field='zzzz'>GMT-۰۸:۰۰</result>
    <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result field='vvvv' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='unconfirmed approved'>-0700</result>
    <result field='ZZZZ'>GMT-۰۷:۰۰</result>
-   <result field='z'>GMT-۰۷:۰۰</result>
-   <result field='zzzz'>GMT-۰۷:۰۰</result>
    <result field='v' parse='America/Los_Angeles' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result field='vvvv' draft='unconfirmed'>Қўшма Штатлар (Los Angeles)</result>
    <result draft='approved'>US (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-۰۵:۰۰</result>
-   <result field='z'>GMT-۰۵:۰۰</result>
-   <result field='zzzz'>GMT-۰۵:۰۰</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
    <result field='ZZZZ'>GMT-۰۴:۰۰</result>
-   <result field='z'>GMT-۰۴:۰۰</result>
-   <result field='zzzz'>GMT-۰۴:۰۰</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+۱۱:۰۰</result>
-   <result field='z'>GMT+۱۱:۰۰</result>
-   <result field='zzzz'>GMT+۱۱:۰۰</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+۱۰:۰۰</result>
-   <result field='z'>GMT+۱۰:۰۰</result>
-   <result field='zzzz'>GMT+۱۰:۰۰</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+۱۱:۰۰</result>
-   <result field='z'>GMT+۱۱:۰۰</result>
-   <result field='zzzz'>GMT+۱۱:۰۰</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+۱۰:۰۰</result>
-   <result field='z'>GMT+۱۰:۰۰</result>
-   <result field='zzzz'>GMT+۱۰:۰۰</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+۰۰:۰۰</result>
-   <result field='z'>GMT+۰۰:۰۰</result>
-   <result field='zzzz'>GMT+۰۰:۰۰</result>
    <result field='v' parse='Europe/London' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result field='vvvv' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='unconfirmed approved'>+0100</result>
    <result field='ZZZZ'>GMT+۰۱:۰۰</result>
-   <result field='z'>GMT+۰۱:۰۰</result>
-   <result field='zzzz'>GMT+۰۱:۰۰</result>
    <result field='v' parse='Europe/London' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result field='vvvv' draft='unconfirmed'>Бирлашган Қироллик</result>
    <result draft='approved'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='unconfirmed approved'>+0300</result>
    <result field='ZZZZ'>GMT+۰۳:۰۰</result>
-   <result field='z'>GMT+۰۳:۰۰</result>
-   <result field='zzzz'>GMT+۰۳:۰۰</result>
    <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result field='vvvv' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='unconfirmed approved'>+0400</result>
    <result field='ZZZZ'>GMT+۰۴:۰۰</result>
-   <result field='z'>GMT+۰۴:۰۰</result>
-   <result field='zzzz'>GMT+۰۴:۰۰</result>
    <result field='v' parse='Europe/Moscow' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result field='vvvv' draft='unconfirmed'>Россия (Moscow)</result>
    <result draft='approved'>RU (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='unconfirmed approved'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v'>GMT-۰۳:۰۰</result>
    <result field='vvvv'>GMT-۰۳:۰۰</result>
    <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
    <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
    <result field='v'>GMT-۰۳:۰۰</result>
    <result field='vvvv'>GMT-۰۳:۰۰</result>
   </zoneFields>
   <zoneFields 
 locales='uz_Latn uz_Latn_UZ'>
-<!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
+<!-- Uzbek (Latin) [o&apos;zbekcha (Lotin)]; Uzbek (Latin, Uzbekistan) [o&apos;zbekcha (Lotin, Oʿzbekiston)] -->
    <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='unconfirmed approved'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
-   <result field='z'>GMT-08:00</result>
-   <result field='zzzz'>GMT-08:00</result>
    <result field='v' parse='America/Los_Angeles'>Qo&apos;shma Shtatlar (Los Angeles)</result>
    <result field='vvvv'>Qo&apos;shma Shtatlar (Los Angeles)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
-   <result field='z'>GMT-07:00</result>
-   <result field='zzzz'>GMT-07:00</result>
    <result field='v' parse='America/Los_Angeles'>Qo&apos;shma Shtatlar (Los Angeles)</result>
    <result field='vvvv'>Qo&apos;shma Shtatlar (Los Angeles)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v' parse='America/Buenos_Aires'>AR (Buenos Aires)</result>
    <result field='vvvv'>AR (Buenos Aires)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
-   <result field='z'>GMT-05:00</result>
-   <result field='zzzz'>GMT-05:00</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
    <result field='ZZZZ'>GMT-04:00</result>
-   <result field='z'>GMT-04:00</result>
-   <result field='zzzz'>GMT-04:00</result>
    <result field='v' parse='America/Havana'>CU</result>
    <result field='vvvv'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='z'>GMT+11:00</result>
-   <result field='zzzz'>GMT+11:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='z'>GMT+10:00</result>
-   <result field='zzzz'>GMT+10:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
-   <result field='z'>GMT+11:00</result>
-   <result field='zzzz'>GMT+11:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
-   <result field='z'>GMT+10:00</result>
-   <result field='zzzz'>GMT+10:00</result>
    <result field='v' parse='Australia/Sydney'>AU (Sydney)</result>
    <result field='vvvv'>AU (Sydney)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
-   <result field='z'>GMT+00:00</result>
-   <result field='zzzz'>GMT+00:00</result>
    <result field='v' parse='Europe/London'>Birlashgan Qirollik</result>
    <result field='vvvv'>Birlashgan Qirollik</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
-   <result field='z'>GMT+01:00</result>
-   <result field='zzzz'>GMT+01:00</result>
    <result field='v' parse='Europe/London'>Birlashgan Qirollik</result>
    <result field='vvvv'>Birlashgan Qirollik</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
-   <result field='z'>GMT+03:00</result>
-   <result field='zzzz'>GMT+03:00</result>
    <result field='v' parse='Europe/Moscow'>Rossiya (Moscow)</result>
    <result field='vvvv'>Rossiya (Moscow)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
-   <result field='z'>GMT+04:00</result>
-   <result field='zzzz'>GMT+04:00</result>
    <result field='v' parse='Europe/Moscow'>Rossiya (Moscow)</result>
    <result field='vvvv'>Rossiya (Moscow)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v'>GMT-03:00</result>
    <result field='vvvv'>GMT-03:00</result>
    <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
-   <result field='z'>GMT-03:00</result>
-   <result field='zzzz'>GMT-03:00</result>
    <result field='v'>GMT-03:00</result>
    <result field='vvvv'>GMT-03:00</result>
   </zoneFields>
   <collation 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
-<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
+<!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Cyrl)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Cyrl, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -2358,7 +1914,7 @@ xЯx
   </collation>
   <collation 
 locales='uz_AF uz_Arab uz_Arab_AF'>
-<!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
+<!-- Uzbek (Afghanistan) [اۉزبېک (افغانستان)]; Uzbek (Arabic) [اۉزبېک (Arab)]; Uzbek (Arabic, Afghanistan) [اۉزبېک (Arab, افغانستان)] -->
    <result draft='unconfirmed approved'>
 x‍
 x‌
@@ -2574,7 +2130,7 @@ xېx
   </collation>
   <collation 
 locales='uz_Latn uz_Latn_UZ'>
-<!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
+<!-- Uzbek (Latin) [o&apos;zbekcha (Lotin)]; Uzbek (Latin, Uzbekistan) [o&apos;zbekcha (Lotin, Oʿzbekiston)] -->
    <result draft='unconfirmed'>
 x 
 X 

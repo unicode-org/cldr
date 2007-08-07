@@ -22,6 +22,7 @@ import com.ibm.icu.util.TimeZone;
 
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathTokenizer;
@@ -272,7 +273,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         public CLDRFile resolved() {
             if (fResolved == null) {
                 // System.err.println("** spinning up resolved for " + locale);
-                fResolved = cldrFactory.make(locale, true);
+                fResolved = cldrFactory.make(locale, true, DraftStatus.contributed);
             }
             return fResolved;
         }

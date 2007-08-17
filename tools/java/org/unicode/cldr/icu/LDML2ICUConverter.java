@@ -2070,17 +2070,22 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     }
 
     /**
-     * @deprecated
      * @param node
      * @param xpath
      * @return
      */
     private ICUResourceWriter.Resource parseAliasResource(Node node,
             StringBuffer xpath) {
+
+       return parseAliasResource(node,xpath,false);
+    }
+
+    private ICUResourceWriter.Resource parseAliasResource(Node node,
+            StringBuffer xpath, boolean IsCollation) {
         int saveLength = xpath.length();
         getXPath(node, xpath);
         try {
-            if (node != null && (!isNodeNotConvertible(node, xpath))) {
+              if (node != null && (IsCollation || !isNodeNotConvertible(node, xpath))) {
                 ICUResourceWriter.ResourceAlias alias = new ICUResourceWriter.ResourceAlias();
                 xpath.setLength(saveLength);
                 String val = LDMLUtilities.convertXPath2ICU(node, null, xpath);
@@ -3023,7 +3028,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     res = str;
                 }
             } else if (name.equals(LDMLConstants.COMMONLY_USED)) {
-                // TODO: Fix COMMONLY_USED
+                ICUResourceWriter.ResourceInt resint = new ICUResourceWriter.ResourceInt();
+                String used = loc.file.getStringValue(aPath);
+                if(used.equals("true")){
+                    resint.val = "1";
+                }else{
+                    resint.val = "0";
+                }
+                resint.name = "cu";
+                res = resint;
             } else if (name.equals(LDMLConstants.USES_METAZONE)) {
 
                 ICUResourceWriter.ResourceArray this_mz = new ICUResourceWriter.ResourceArray();
@@ -3147,8 +3160,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     res = str;
                 }
             } else if (name.equals(LDMLConstants.COMMONLY_USED)) {
-                // TODO: Fix COMMONLY_USED
-
+                ICUResourceWriter.ResourceInt resint = new ICUResourceWriter.ResourceInt();
+                String used = loc.file.getStringValue(aPath);
+                if(used.equals("true")){
+                    resint.val = "1";
+                }else{
+                    resint.val = "0";
+                }
+                resint.name = "cu";
+                res = resint;
             } else {
                 System.err.println("Encountered unknown <" + xpath
                         + "> subelement: " + name);
@@ -5197,7 +5217,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String name = node.getNodeName();
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.ALIAS)){
-                res = parseAliasResource(node, xpath);
+                res = parseAliasResource(node, xpath, true);
+                res.name = table.name;
                 return res;
             }else if(name.equals(LDMLConstants.RULES)){
                 Node alias = LDMLUtilities.getNode(node, LDMLConstants.ALIAS , fullyResolvedDoc, xpath.toString());

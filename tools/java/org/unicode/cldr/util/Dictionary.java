@@ -272,6 +272,14 @@ public abstract class Dictionary<T> {
   }
   
   /**
+   * Return more comprehensive debug info if available.
+   * @return
+   */
+  public String debugShow() {
+    return toString();
+  }
+  
+  /**
    * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
    * If the text has isolated surrogates, they will not sort correctly.
    * @param text1

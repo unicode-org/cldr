@@ -1,11 +1,15 @@
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -24,7 +28,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
   // results of build
   private ArrayList<Row> builtRows = new ArrayList<Row>();
   private Row builtBaseRow = makeRow();
-  private List<T> builtResults;
+  private IntMap<T> builtResults;
   private int builtMaxByteLength;
   private int builtTotalBytes;
   private int builtTotalStrings;
@@ -36,18 +40,21 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
   public StateDictionaryBuilder(Map<CharSequence, T> source) {
     // if T is not an integer, then get the results, and assign each a number
-    Map<T, Integer> valueToInt = new HashMap<T,Integer>();
-    builtResults = new ArrayList<T>();
-    int count = 0;
-    for (T value : source.values()) {
-      Integer oldValue = valueToInt.get(value);
-      if (oldValue == null) {
-        builtResults.add(value);
-        valueToInt.put(value, count++);
-      }
-    }
-        
+    //Map<T, Integer> valueToInt = new HashMap<T,Integer>();
+    builtResults = new BasicIntMapFactory<T>().make(source.values());
+    System.out.println("***VALUE STORAGE: " + builtResults.approximateStorage());
+//    new ArrayList<T>();
+//    int count = 0;
+//    for (T value : source.values()) {
+//      Integer oldValue = valueToInt.get(value);
+//      if (oldValue == null) {
+//        builtResults.add(value);
+//        valueToInt.put(value, count++);
+//      }
+//    }
+    Map<T, Integer> valueToInt = builtResults.getValueMap();
     for (CharSequence text : source.keySet()) {
+      //addMapping(text, valueToInt.get(source.get(text)));
       addMapping(text, valueToInt.get(source.get(text)));
     }
     
@@ -69,8 +76,8 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
     
     // now replace all references to rows by their equivalents
     for (Row row : builtRows) {
-      for (Byte key : row.cells.keySet()) {
-        Cell cell = row.cells.get(key);
+      for (Byte key : row.byteToCell.keySet()) {
+        Cell cell = row.byteToCell.get(key);
         Row newRow = replacements.get(cell.nextRow);
         if (newRow != null) {
           cell.nextRow = newRow;
@@ -125,7 +132,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
   static class Row implements Comparable {
     // maps byte to cells
-    private TreeMap<Byte, Cell> cells = new TreeMap<Byte, Cell>();
+    private TreeMap<Byte, Cell> byteToCell = new TreeMap<Byte, Cell>();
 
     // keeps track of the number of cells with returns
     private transient int returnCount;
@@ -139,18 +146,18 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
     private int newAge = Integer.MAX_VALUE;
 
     public int nonTerminating() {
-      return cells.size() - terminatingReturnCount;
+      return byteToCell.size() - terminatingReturnCount;
     }
 
     public int nonReturn() {
-      return cells.size() - returnCount;
+      return byteToCell.size() - returnCount;
     }
 
-    public int depth() {
+    public int maximumDepth() {
       int result = 0;
-      for (Cell cell : cells.values()) {
+      for (Cell cell : byteToCell.values()) {
         if (cell.nextRow != null) {
-          int temp = cell.nextRow.depth() + 1;
+          int temp = cell.nextRow.maximumDepth() + 1;
           if (result < temp) {
             result = temp;
           }
@@ -166,22 +173,22 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       // returns
       // cells, then most
       // number of terminating returns, then most number of returns
-      if (0 != (result = depth() - other.depth()))
+      if (0 != (result = maximumDepth() - other.maximumDepth()))
         return result;
-      if (0 != (result = cells.size() - other.cells.size()))
+      if (0 != (result = byteToCell.size() - other.byteToCell.size()))
         return result;
       // otherwise, try alphabetic among the keys. We are guaranteed that the
       // sizes are the same
-      java.util.Iterator<Byte> otherIt = other.cells.keySet().iterator();
-      for (byte key : cells.keySet()) {
+      java.util.Iterator<Byte> otherIt = other.byteToCell.keySet().iterator();
+      for (byte key : byteToCell.keySet()) {
         int otherKey = otherIt.next();
         if (0 != (result = key - otherKey)) {
           return result;
         }
         // at this point, we are guaranteed that the keys are the same. Compare
         // deltaResults, and row
-        Cell cell = cells.get(key);
-        Cell otherCell = other.cells.get(key);
+        Cell cell = byteToCell.get(key);
+        Cell otherCell = other.byteToCell.get(key);
         if (0 != (result = cell.deltaResult - otherCell.deltaResult)) {
           return result;
         }
@@ -192,20 +199,29 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
     public String toString() {
       StringBuilder buffer = new StringBuilder();
-      buffer.append(getAge() + ":");
-      for (Byte key : cells.keySet()) {
-        buffer.append(key);
-        buffer.append(cells.get(key).toString(getAge()));
-        buffer.append(' ');
+      buffer.append("R" + getAge() + "{");
+      boolean first = true;
+      Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
+      sorted.addAll(byteToCell.keySet());
+      for (Byte key : sorted) {
+        if (first) {
+          first = false;
+        } else {
+          buffer.append(' ');
+        }
+        buffer.append(com.ibm.icu.impl.Utility.hex(key&0xFF,2));
+        buffer.append('=');
+        buffer.append(byteToCell.get(key));
       }
+      buffer.append('}');
       return buffer.toString();
     }
 
     public String toStringCells() {
       StringBuilder buffer = new StringBuilder();
-      for (Byte key : cells.keySet()) {
-        buffer.append(key);
-        buffer.append(cells.get(key).toString(getAge()));
+      for (Byte key : byteToCell.keySet()) {
+        buffer.append(com.ibm.icu.impl.Utility.hex(key&0xFF,2));
+        buffer.append(byteToCell.get(key).toString());
         buffer.append(' ');
       }
       return buffer.toString();
@@ -219,16 +235,26 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
     int compact(byte[] target) {
       int pos = 0;
-      for (Byte key : cells.keySet()) {
+      for (Byte key : byteToCell.keySet()) {
         target[pos++] = key;
-        pos = cells.get(key).addBytes(target, pos, 0);
+        pos = byteToCell.get(key).addBytes(target, pos, 0);
       }
       target[pos++] = 0;
       return pos;
     }
   }
   
-   Comparator rowComparator = new Comparator<Row>() {
+  static final Comparator<Byte> unsignedByteComparator = new Comparator<Byte>() {
+    
+    public int compare(Byte o1, Byte o2) {
+      int b1 = o1&0xFF;
+      int b2 = o2&0xFF;
+      return b1 < b2 ? -1 : b1 > b2 ? 1 : 0;
+    }
+    
+  };
+  
+  static final Comparator rowComparator = new Comparator<Row>() {
 
     public int compare(Row row1, Row row2) {
       if (row1 == row2) {
@@ -239,19 +265,19 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
         return 1;
       }
       int result;
-      if (0 != (result = row1.cells.size() - row2.cells.size())) {
+      if (0 != (result = row1.byteToCell.size() - row2.byteToCell.size())) {
         return result;
       }
-      java.util.Iterator<Byte> otherIt = row2.cells.keySet().iterator();
-      for (byte key : row1.cells.keySet()) {
-        int otherKey = otherIt.next();
+      java.util.Iterator<Byte> otherIt = row2.byteToCell.keySet().iterator();
+      for (byte key : row1.byteToCell.keySet()) {
+        byte otherKey = otherIt.next();
         if (0 != (result = key - otherKey)) {
           return result;
         }
         // at this point, we are guaranteed that the keys are the same. Compare
         // deltaResults, returns, and then recurse on the the row
-        Cell cell1 = row1.cells.get(key);
-        Cell cell2 = row2.cells.get(key);
+        Cell cell1 = row1.byteToCell.get(key);
+        Cell cell2 = row2.byteToCell.get(key);
         if (0 != (result = cell1.deltaResult - cell2.deltaResult)) {
           return result;
         }
@@ -299,15 +325,6 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
     public boolean returns;
 
-    public String toString() {
-      if (nextRow == null) {
-        return String.format("[%d%s]", deltaResult,
-            (returns ? ", returns" : ""));
-      }
-      return String.format("[%d%s, Row%d]", deltaResult, (returns ? ", returns"
-          : ""), nextRow.getAge());
-    }
-
     public int addBytes(byte[] target, int pos, int rowDelta) {
       pos = StateDictionaryBuilder.addBytes(deltaResult, target, pos);
       int rowOffset = nextRow == null ? 0 : rowDelta - nextRow.getAge();
@@ -317,13 +334,18 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       return StateDictionaryBuilder.addBytes(rowOffset, target, pos);
     }
 
-    public String toString(int deltaRow) {
-      if (nextRow == null) {
-        return String.format("[%d%s]", deltaResult,
-            (returns ? ", returns" : ""));
+    public String toString() {
+      String result = deltaResult == 0 ? "" : String.valueOf(deltaResult);
+      if (returns) {
+        result += "*";
       }
-      return String.format("[%d%s, Row%d]", deltaResult, (returns ? ", returns"
-          : ""), nextRow.getAge() - deltaRow);
+      if (nextRow != null) {
+        if (result.length() != 0) {
+          result += "/";
+        }
+        result += "R" + nextRow.getAge();
+      }
+      return result;
     }
   }
 
@@ -369,7 +391,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
   }
 
   private int add(byte key, int result, boolean last) {
-    Cell matchingCell = buildingCurrentAddRow.cells.get(key);
+    Cell matchingCell = buildingCurrentAddRow.byteToCell.get(key);
     if (matchingCell != null) {
       if (matchingCell.nextRow == null && !last) {
         matchingCell.nextRow = makeRow();
@@ -380,7 +402,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       return result - matchingCell.deltaResult;
     }
     Cell cell = new Cell();
-    buildingCurrentAddRow.cells.put(key, cell);
+    buildingCurrentAddRow.byteToCell.put(key, cell);
     cell.deltaResult = result;
     if (last) {
       cell.returns = true;
@@ -459,7 +481,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       } else {
         // if we didn't get a MATCH, we have NONE. But in reality, there could be a possible match
         // so we check to see whether the current row allows for any continuation.
-        if (matchEnd > offset && matchCurrentRow.cells.size() > 0) {
+        if (matchEnd > offset && matchCurrentRow.byteToCell.size() > 0) {
           result = Status.PARTIAL;
         }
         if (result == Status.NONE) {
@@ -484,7 +506,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
    * @return
    */
   private Status nextByte(int chunk) {
-    Cell cell = matchCurrentRow.cells.get((byte) chunk);
+    Cell cell = matchCurrentRow.byteToCell.get((byte) chunk);
     if (cell == null) {
       return Status.NONE;
     }
@@ -504,11 +526,11 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
     boolean result = false;
     int size;
     while (myRow != null) {
-      size = myRow.cells.size();
+      size = myRow.byteToCell.size();
       if (size != 1) {
         result = true;
       }
-      Cell firstCell = myRow.cells.get(myRow.cells.firstKey());
+      Cell firstCell = myRow.byteToCell.get(myRow.byteToCell.firstKey());
       // if we have a returns flag AND a next row, then we are splitting
       // plus, whenever we get a returns flag, we stop adding values
       matchIntValue += firstCell.deltaResult;
@@ -525,8 +547,8 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
 
   public String toString() {
     StringBuilder result = new StringBuilder();
-    TreeSet<Row> rowSet = new TreeSet<Row>(builtRows);
-    for (Row row : rowSet) {
+    //TreeSet<Row> rowSet = new TreeSet<Row>(builtRows);
+    for (Row row : builtRows) {
       result.append(row.toString()).append("\r\n");
     }
     return result.toString();
@@ -535,8 +557,13 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
   public Map<CharSequence, T> getMapping() {
     return new TextFetcher().getWords();
   }
+  
+  @Override
+  public String debugShow() {
+    return new TextFetcher().debugShow();
+  }
 
-  private StringByteConverter byteString = new ByteString(false); // new StringUtf8Converter(); // new ByteString(false);
+  private StringByteConverter byteString = new StringUtf8Converter(); // new ByteString(false);
 
   private int matchByteBufferLength;
   
@@ -545,8 +572,12 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
     Map<CharSequence, T> result = new TreeMap<CharSequence, T>();
 
     byte[] soFar = new byte[builtMaxByteLength];
+    BitSet shown = new BitSet();
 
     StringBuilder buffer = new StringBuilder();
+    StringBuilder debugTreeView = new StringBuilder();
+
+    private HashSet<Row> rowsSeen = new HashSet();
 
     public Map<CharSequence, T> getWords() {
       result.clear();
@@ -554,10 +585,56 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       return result;
     }
 
+    public String debugShow() {
+      rowsSeen.clear();
+      getDebugWords(0,0,builtBaseRow, Integer.MAX_VALUE);
+      return debugTreeView.toString();
+    }
+
+    private void getDebugWords(int byteLength, int resultSoFar, Row row, int suppressAbove) {
+      // we do this to show when rows have already been seen, and so the structure has been compacted
+      if (rowsSeen.contains(row)) {
+        // reset if bigger
+        if (suppressAbove > byteLength) {
+          suppressAbove = byteLength;
+        }
+      } else {
+        rowsSeen.add(row);
+      }
+      // walk through the cells, display and recurse
+      Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
+      sorted.addAll(row.byteToCell.keySet());
+      for (Byte key : sorted) {
+        Cell cell = row.byteToCell.get(key);
+        soFar[byteLength] = key;
+        shown.set(byteLength, false);
+        int currentValue = resultSoFar + cell.deltaResult;
+        if (cell.returns) {
+          CharSequence key2 = stringFromBytes(soFar, byteLength + 1);
+          T value2 = builtResults.get(currentValue);
+          for (int i = 0; i <= byteLength; ++i) {
+            debugTreeView.append(' ');
+            if (i >= suppressAbove) {
+              debugTreeView.append("++");
+            } else if (shown.get(i)) {
+              debugTreeView.append("--");
+            } else {
+             debugTreeView.append(com.ibm.icu.impl.Utility.hex(soFar[i]&0xFF,2));
+             shown.set(i);
+            }
+          }
+          debugTreeView.append("\t<").append(key2).append(">\t<").append(value2).append(">\r\n");
+        }
+        if (cell.nextRow != null) {
+          getDebugWords(byteLength + 1, currentValue, cell.nextRow, suppressAbove);
+        }
+      }
+    }
+
     // recurse through the strings
     private void getWords(int byteLength, int resultSoFar, Row row) {
-      for (Byte key : row.cells.keySet()) {
-        Cell cell = row.cells.get(key);
+      for (Byte key : row.byteToCell.keySet()) {
+        Cell cell = row.byteToCell.get(key);
         soFar[byteLength] = key;
         int currentValue = resultSoFar + cell.deltaResult;
         if (cell.returns) {
@@ -612,7 +689,7 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
     int totalBytesCompacted = 0;
     for (Row row : s) {
       row.newAge = count++;
-      int depth = row.depth();
+      int depth = row.maximumDepth();
       if (depth != oldDepth) {
         if (DEBUG_FLATTEN) {
           System.out.println("*** " + depth + "***");
@@ -627,11 +704,11 @@ public class StateDictionaryBuilder<T> extends Dictionary<T> {
       if (!newCell.equals(oldCell)) {
         uniqueCount++;
         totalBytesCompacted += bytesCompacted;
-        cellCount += row.cells.size();
+        cellCount += row.byteToCell.size();
       }
       oldCell = newCell;
 
-      for (Cell cell : row.cells.values()) {
+      for (Cell cell : row.byteToCell.values()) {
         if (cell.nextRow != null && cell.nextRow.newAge > row.newAge) {
           if (DEBUG_FLATTEN) {
             System.out.println("*** Fail");

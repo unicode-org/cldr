@@ -5,7 +5,7 @@
  *******************************************************************************
  */
 
-package org.unicode.cldr.icu;
+package org.unicode.cldr.util;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -159,11 +159,7 @@ public class PrettyPrinter {
         if (UTF16.hasMoreCodePointsThan(s, 1)) {
             flushLast();
             addSpace(s);
-            target.append("{");
-            for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
-                appendQuoted(cp = UTF16.charAt(s, i));
-            }
-            target.append("}");
+            appendQuoted(s);
             lastString = s;
         } else {
             appendUnicodeSetItem(UTF16.charAt(s, 0));
@@ -211,6 +207,20 @@ public class PrettyPrinter {
             lastString = UTF16.valueOf(lastCodePoint);
             firstCodePoint = lastCodePoint = -2;
         }
+    }
+    
+
+    private void appendQuoted(String s) {
+      if (toQuote.containsSome(s) && quoter != null) {
+        target.append(quoter.transform(s));
+      } else {
+        int cp;
+        target.append("{");
+        for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
+            appendQuoted(cp = UTF16.charAt(s, i));
+        }
+        target.append("}");
+      }
     }
     
     PrettyPrinter appendQuoted(int codePoint) {

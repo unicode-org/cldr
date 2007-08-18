@@ -670,7 +670,7 @@ public class SupplementalDataInfo {
     return result.keySet();
   }
   
-  public PopulationData getLangaugeAndTerritoryPopulationData(String language,
+  public PopulationData getLanguageAndTerritoryPopulationData(String language,
       String territory) {
     Map<String, PopulationData> result = territoryToLanguageToPopulationData
     .get(territory);
@@ -772,7 +772,7 @@ public class SupplementalDataInfo {
       double totalLiteratePopulation = 0;
       double targetLiteratePopulation = 0;
       for (String language : languagesInTerritory) {
-        PopulationData populationData = getLangaugeAndTerritoryPopulationData(
+        PopulationData populationData = getLanguageAndTerritoryPopulationData(
             language, territory);
         totalLiteratePopulation += populationData.getLiteratePopulation();
         if (language.equals(targetLanguage)) {

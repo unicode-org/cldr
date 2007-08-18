@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -42,6 +43,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -68,7 +70,9 @@ import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
   public static final String CHART_DISPLAY_VERSION = "1.5";
-
+  
+  private static final boolean SHOW_NATIVE = true;
+  
   static CLDRFile english;
   
   static Comparator col = new CollectionUtilities.MultiComparator(new Comparator[] { Collator.getInstance(new ULocale("en")), new UTF16.StringComparator(true, false, 0) });
@@ -108,26 +112,27 @@ public class ShowLanguages {
     //linfo.printDeprecatedItems(pw);
     linfo.printCurrency(pw);
     PrintWriter pw1;
-//    PrintWriter pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Territories", null));
-//    pw1.println("<tr><th>Language \u2192 Territories");
-//    pw1.println("</th><th>Territory \u2192 Language");
-//    pw1.println("</th><th>Territories Not Represented");
-//    pw1.println("</th><th>Languages Not Represented");
-//    pw1.println("</th></tr>");
-//    
-//    pw1.println("<tr><td>");
-//    linfo.print(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
-//    pw1.println("</td><td>");
-//    linfo.print(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
-//    pw1.println("</td><td>");
-//    linfo.printMissing(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.TERRITORY_NAME);
-//    pw1.println("</td><td>");
-//    linfo.printMissing(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
-//    pw1.println("</td></tr>");
-//    
-//    pw1.close();
+//  PrintWriter pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Territories", null));
+//  pw1.println("<tr><th>Language \u2192 Territories");
+//  pw1.println("</th><th>Territory \u2192 Language");
+//  pw1.println("</th><th>Territories Not Represented");
+//  pw1.println("</th><th>Languages Not Represented");
+//  pw1.println("</th></tr>");
+//  
+//  pw1.println("<tr><td>");
+//  linfo.print(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
+//  pw1.println("</td><td>");
+//  linfo.print(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
+//  pw1.println("</td><td>");
+//  linfo.printMissing(pw1, CLDRFile.TERRITORY_NAME, CLDRFile.TERRITORY_NAME);
+//  pw1.println("</td><td>");
+//  linfo.printMissing(pw1, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
+//  pw1.println("</td></tr>");
+//  
+//  pw1.close();
     
     printLanguageScript(linfo, pw);
+    printScriptLanguageTerritory(linfo, pw);
     
     if (System.getProperty("Coverage") != null) {
       linfo.showCoverageGoals(pw);
@@ -158,7 +163,7 @@ public class ShowLanguages {
     FileUtilities.appendFile("org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
   }
-
+  
   private static void printLanguageScript(LanguageInfo linfo, PrintWriter pw) throws IOException {
     PrintWriter pw1;
     TablePrinter tablePrinter = new TablePrinter()
@@ -177,7 +182,7 @@ public class ShowLanguages {
     .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(3)
     .addColumn("Code", "class='target'", null, "class='target'", true)
     .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSortPriority(2)
-     .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
+    .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
     
     // get the codes so we can show the remainder
     Set<String> remainingScripts = new TreeSet(sc.getGoodAvailableCodes("script")); // StandardCodes.MODERN_SCRIPTS);
@@ -240,8 +245,237 @@ public class ShowLanguages {
     
   }
   
-  private static Set<Type> oldLanguage = Collections.unmodifiableSet(EnumSet.of(Type.Ancient,Type.Extinct,Type.Historical,Type.Constructed));
+  private static void printScriptLanguageTerritory(LanguageInfo linfo, PrintWriter pw) throws IOException {
+    PrintWriter pw1;
+    TablePrinter tablePrinter2 = new TablePrinter()
+    .addColumn("Icon", "class='source'", null, "class='source'", true).setSpanRows(true)
+    .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0).setBreakSpans(true)
+    .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true).setSpanRows(true)
+    .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(1)
+    .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(2)
+    .addColumn("Native", "class='target'", null, "class='target'", true)
+    .addColumn("Code", "class='target'", null, "class='target'", true)
+    .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(3)
+    .addColumn("Territory", "class='target'", null, "class='target'", true).setSortPriority(4)
+    .addColumn("Native", "class='target'", null, "class='target'", true)
+    .addColumn("Code", "class='target'", null, "class='target'", true)
+    ;
+    
+    // get the codes so we can show the remainder
+    Set<String> remainingScripts = new TreeSet(sc.getGoodAvailableCodes("script")); 
+    Set<String> remainingTerritories = new TreeSet(sc.getGoodAvailableCodes("territory"));
+    UnicodeSet temp = new UnicodeSet();
+    for (String script : sc.getGoodAvailableCodes("script")) {
+      temp.clear();
+      try {
+        temp.applyPropertyAlias("script", script);
+      } catch (RuntimeException e) {} // fall through
+      if (temp.size() == 0) {
+        remainingScripts.remove(script);
+        System.out.println("Removing: " + script);
+      } else {
+        System.out.println("Keeping: " + script);
+      }
+    }
+    remainingScripts.remove("Brai");
+    remainingScripts.remove("Hira");
+    remainingScripts.remove("Qaai");
+    remainingScripts.remove("Hrkt");
+    remainingScripts.remove("Zzzz");
+    remainingScripts.remove("Zyyy");
+    
+    
+    Set<String> remainingLanguages = new TreeSet(sc.getGoodAvailableCodes("language"));
+    for (String language : sc.getGoodAvailableCodes("language")) {
+      Scope s = Iso639Data.getScope(language);
+      Type t = Iso639Data.getType(language);
+      if (s != Scope.Individual && s != Scope.Macrolanguage || t != Type.Living) {
+        remainingLanguages.remove(language);
+      }
+    }
+    
+    Set<String> fullLanguages = supplementalDataInfo.getLanguages();
+    
+    Set<String> languages = supplementalDataInfo.getBasicLanguageDataLanguages();
+    for (String language : languages) {
+      Set<BasicLanguageData> basicLanguageData = supplementalDataInfo.getBasicLanguageData(language);
+      for (BasicLanguageData basicData : basicLanguageData) {
+        if (basicData.getType() != BasicLanguageData.Type.primary) {
+          continue;
+        }
+         Set<String> mainTerritories = getTerritories(language);
+         if (mainTerritories.size() == 0) {
+           continue;
+           //mainTerritories.add("ZZ");
+         }
+        
+        TreeSet<String> mainScripts = new TreeSet(basicData.getScripts());
+        if (mainScripts.size() == 0) {
+          continue;
+        }
+        for (String script : mainScripts) {
+          for (String territory: mainTerritories) {
+            addLanguageScriptCells2( tablePrinter2, language, script, territory);
+            remainingTerritories.remove(territory);
+          }
+          remainingScripts.remove(script);
+        }
+      }
+      remainingLanguages.remove(language);
+    }
+//  for (String language : remainingLanguages) {
+//  addLanguageScriptCells2( tablePrinter2, language, "Zzzz", "ZZ");
+//  }
+//  for (String script : remainingScripts) {
+//  addLanguageScriptCells2( tablePrinter2, "und", script, "ZZ");
+//  }
+//  for (String territory : remainingTerritories) {
+//  addLanguageScriptCells2( tablePrinter2, "und", "Zzzz", territory);
+//  }
+    
+    pw1 = new PrintWriter(new FormattedFileWriter(pw, "Scripts, Languages, and Territories", null));
+    pw1.println(tablePrinter2.toTable());
+    pw1.close();
+  }
+  
+  private static Relation territoryFix;
+  
+  private static Set<String> getTerritories(String language) {
+    if (territoryFix == null) { // set up the data
+      initTerritoryFix();
+    }
+    Set<String> territories = territoryFix.getAll(language);
+    if (territories == null) {
+      territories = new TreeSet();
+    }
+    return territories;
+  }
 
+  private static void initTerritoryFix() {
+    territoryFix = new Relation(new TreeMap(), TreeSet.class);
+    Set<String> languages = supplementalDataInfo.getLanguages();
+    LanguageTagParser ltp = new LanguageTagParser();
+    for (String language2 : languages) {
+      if (language2.contains("_")) {
+        ltp.set(language2).getLanguage();
+        addOfficialTerritory(ltp, language2, ltp.getLanguage());
+      } else {
+        addOfficialTerritory(ltp, language2, language2 );
+      }
+    }
+  }
+
+  private static void addOfficialTerritory(LanguageTagParser ltp, String language, String baseLanguage) {
+    //territoryFix.putAll(baseLanguage, supplementalDataInfo.getTerritoriesForPopulationData(language));
+    Set<String> territories = supplementalDataInfo.getTerritoriesForPopulationData(language);
+    if (territories == null) {
+      return;
+    }
+    for (String territory : territories) {
+      PopulationData data = supplementalDataInfo.getLanguageAndTerritoryPopulationData(language, territory);
+      OfficialStatus status = data.getOfficialStatus();
+      if (status == OfficialStatus.official || status == OfficialStatus.de_facto_official) {
+        territoryFix.put(baseLanguage, territory);
+        System.out.println("\tAdding\t" + baseLanguage + "\t" + territory + "\t" + language);
+      }
+    }
+  }
+  
+  private static void addLanguageScriptCells2(TablePrinter tablePrinter2, String language, String script, String territory) {
+    CLDRFile nativeLanguage = null;
+    if (SHOW_NATIVE) {
+      try {      
+        nativeLanguage = cldrFactory.make(language + "_" + script + "_" + territory,true);
+      } catch (RuntimeException e) {
+        try {      
+          nativeLanguage = cldrFactory.make(language + "_" + script,true);
+        } catch (RuntimeException e2) {
+          try {      
+            nativeLanguage = cldrFactory.make(language,true);
+          } catch (RuntimeException e3) { }
+        }
+      }
+      // check for overlap
+      if (nativeLanguage != null && !script.equals("Jpan") && !script.equals("Hans") && !script.equals("Hant")) {
+        UnicodeSet scriptSet = new UnicodeSet("[:script=" + script + ":]");
+        UnicodeSet exemplars = nativeLanguage.getExemplarSet("",WinningChoice.WINNING);
+        if (scriptSet.containsNone(exemplars)) {
+          System.out.println("Skipping CLDR file -- exemplars differ: " + scriptSet + "\t" + exemplars);
+          nativeLanguage = null;
+        }
+      }
+    }
+    String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language);
+    if (languageName == null) languageName = "???";
+    Comparable isLanguageTranslated = "";
+    String nativeLanguageName = nativeLanguage == null ? null : nativeLanguage.getName(CLDRFile.LANGUAGE_NAME,language);
+    if (nativeLanguageName == null || nativeLanguageName.equals(language)) {
+      nativeLanguageName = "<i>n/a</i>";
+      isLanguageTranslated = "n";
+    }
+    
+    String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script);
+//  String nativeScriptName = nativeLanguage == null ? null :  nativeLanguage.getName(CLDRFile.SCRIPT_NAME,script);
+//  if (nativeScriptName != null && !nativeScriptName.equals(script)) {
+//  scriptName = nativeScriptName + "[" + scriptName + "]";
+//  }
+    
+    Comparable isTerritoryTranslated = "";
+        String territoryName = english.getName(CLDRFile.TERRITORY_NAME,territory);
+    String nativeTerritoryName = nativeLanguage == null ? null : nativeLanguage.getName(CLDRFile.TERRITORY_NAME,territory);
+    if (nativeTerritoryName == null || nativeTerritoryName.equals(territory)) {
+      nativeTerritoryName = "<i>n/a</i>";
+       isTerritoryTranslated = "n";
+    }
+    
+    
+    Type t = Iso639Data.getType(language);
+//  if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
+//  // ok
+//  } else if (!language.equals("und")){
+//  scriptModern = "N";
+//  }
+    String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
+    
+
+    tablePrinter2.addRow()
+    .addCell("<img src='http://www.unicode.org/reports/tr36/images/" + getGifName(script) + ".gif' alt='X' width='24' height='24'>")
+    .addCell(scriptName)
+    .addCell(script)
+    .addCell(isLanguageTranslated)
+    .addCell(languageName)
+    .addCell(nativeLanguageName)
+    .addCell(language)
+    .addCell(isTerritoryTranslated)
+    .addCell(territoryName)
+    .addCell(nativeTerritoryName)
+    .addCell(territory)
+    .finishRow();
+  }
+  
+  static Map<String,String> fixScriptGif = CollectionUtilities.asMap(new Object[][] {
+      {"hangul", "hangulsyllables"},
+      {"japanese", "hiragana"},
+      {"unknown or invalid script", "unknown"},
+      {"Hant", "Hant"},  
+      {"Hans", "Hans"},
+  });
+  private static String getGifName(String script) {
+    String temp = fixScriptGif.get(script);
+    if (temp != null) {
+      return temp;
+    }
+    String scriptName = english.getName(CLDRFile.SCRIPT_NAME,script);
+    scriptName = scriptName.toLowerCase(Locale.ENGLISH);
+    temp = fixScriptGif.get(scriptName);
+    if (temp != null) {
+      return temp;
+    }
+    return scriptName;
+  }
+  
+  private static Set<Type> oldLanguage = Collections.unmodifiableSet(EnumSet.of(Type.Ancient,Type.Extinct,Type.Historical,Type.Constructed));
+  
   private static void addLanguageScriptCells(TablePrinter tablePrinter, TablePrinter tablePrinter2, String language, String script, String secondary) {
     String languageName = english.getName(CLDRFile.LANGUAGE_NAME,language);
     if (languageName == null) languageName = "???";
@@ -249,13 +483,13 @@ public class ShowLanguages {
     String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
     Scope s = Iso639Data.getScope(language);
     Type t = Iso639Data.getType(language);
-//    if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
-//      // ok
-//    } else if (!language.equals("und")){
-//      scriptModern = "N";
-//    }
+//  if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
+//  // ok
+//  } else if (!language.equals("und")){
+//  scriptModern = "N";
+//  }
     String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
-
+    
     tablePrinter.addRow()
     .addCell(languageName)
     .addCell(language)
@@ -283,7 +517,7 @@ public class ShowLanguages {
   }
   
   static class FormattedFileWriter extends java.io.Writer {
-
+    
     private StringWriter out = new StringWriter();
     
     private String title;
@@ -454,7 +688,7 @@ public class ShowLanguages {
             if (to.equals("\u221E") || to.compareTo("2006") > 0) {
               territoriesToModernCurrencies.put(iso3166, iso4217);
               info.add("<b>" + countryName + "</b>");
-
+              
             } else {
               info.add("<i>" + countryName + "</i>");
               
@@ -809,11 +1043,11 @@ public class ShowLanguages {
     private void showLanguageCountryInfo(PrintWriter pw) throws IOException {
       PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Language-Territory Information", 
           null
-//          "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
-//          "To add a new territory for a language, see the <i>add new</i> links below. " +
-//          "For more information, see <a href=\"territory_language_information.html\">Territory-Language Information.</a>" +
-//      "<p></div>"
-          ));
+//        "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
+//        "To add a new territory for a language, see the <i>add new</i> links below. " +
+//        "For more information, see <a href=\"territory_language_information.html\">Territory-Language Information.</a>" +
+//        "<p></div>"
+      ));
       PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
@@ -907,7 +1141,7 @@ public class ShowLanguages {
       if (!result.equals(languageCode)) return result;
       Set<String> names = Iso639Data.getNames(languageCode);
       if (names != null && names.size() != 0) {
-          return names.iterator().next();
+        return names.iterator().next();
       }
       return languageCode;
     }
@@ -915,16 +1149,16 @@ public class ShowLanguages {
     private void showCoverageGoals(PrintWriter pw) throws IOException {
       PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(pw, "Coverage Goals", 
           null
-//          "<p>" +
-//          "The following show default coverage goals for larger organizations. " +
-//          "<i>[n/a]</i> shows where there is no specific value for a given organization, " +
-//          "while <i>(...)</i> indicates that the goal is inherited from the parent. " +
-//          "A * is added if the goal differs from the parent locale's goal. " +
-//          "For information on what these goals mean (comprehensive, modern, moderate,...), see the LDML specification " +
-//          "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
-//          "See also the coverageAdditions in <a href='http://www.unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml'>supplemental metadata</a>." +
-//      "</p>"
-          ));
+//        "<p>" +
+//        "The following show default coverage goals for larger organizations. " +
+//        "<i>[n/a]</i> shows where there is no specific value for a given organization, " +
+//        "while <i>(...)</i> indicates that the goal is inherited from the parent. " +
+//        "A * is added if the goal differs from the parent locale's goal. " +
+//        "For information on what these goals mean (comprehensive, modern, moderate,...), see the LDML specification " +
+//        "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
+//        "See also the coverageAdditions in <a href='http://www.unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml'>supplemental metadata</a>." +
+//        "</p>"
+      ));
       
       
       TablePrinter tablePrinter = new TablePrinter()
@@ -1025,19 +1259,19 @@ public class ShowLanguages {
     private void showCountryLanguageInfo(PrintWriter pw) throws IOException {
       PrintWriter pw21 = new PrintWriter(new FormattedFileWriter(pw, "Territory-Language Information", 
           null
-//          "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
-//          "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
-//          "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
-//          "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
-//          "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
-//          "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
-//          "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
-//          "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
-//          "Languages with a small population may be omitted. " +
-//          "<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>" + 
-//          "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
-//          "</p></div>"
-          ));
+//        "<div  style='margin:1em'><p>The language data is provided for localization testing, and is under development for CLDR 1.5. " +
+//        "The main goal is to provide approximate figures for the literate, functional population for each language in each territory: " +
+//        "that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. " +
+//        "</p><p>The GDP and Literacy figures are taken from the World Bank where available, otherwise supplemented by FactBook data and other sources. " +
+//        "Much of the per-language data is taken from the Ethnologue, but is supplemented and processed using many other sources, including per-country census data. " +
+//        "(The focus of the Ethnologue is native speakers, which includes people who are not literate, and excludes people who are functional second-langauge users.) " +
+//        "</p><p>The percentages may add up to more than 100% due to multilingual populations, " +
+//        "or may be less than 100% due to illiteracy or because the data has not yet been gathered or processed. " +
+//        "Languages with a small population may be omitted. " +
+//        "<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>" + 
+//        "<p><b>Defects:</b> If you find errors or omissions in this data, please report the information with the <i>bug</i> or <i>add new</i> link below." +
+//        "</p></div>"
+      ));
       PrintWriter pw2 = pw21;
       NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
       nf.setGroupingUsed(true);
@@ -1105,7 +1339,7 @@ public class ShowLanguages {
           .addCell(territoryLiteracy)
           .addCell(gdp)
           .addCell(getCurrencyNames(territoryCode));
-           
+          
           addOtherCountryData(tablePrinter, worldData, countryData);
           
           tablePrinter
@@ -1142,7 +1376,7 @@ public class ShowLanguages {
         .addCell(getCurrencyNames(territoryCode));
         
         addOtherCountryData(tablePrinter, worldData, countryData);
-
+        
         tablePrinter
         .addCell(addBug(1217, "<i>add new</i>", "<email>", "add language to " + territoryName + "(" + territoryCode + ")", "<language, speaker pop. and literacy in territory, plus references>"))
         .addCell("")
@@ -1158,10 +1392,10 @@ public class ShowLanguages {
       pw2.close();
     }
     
-
+    
     
     private String getOfficialStatus(String territoryCode, String languageCode) {
-      PopulationData x = supplementalDataInfo.getLangaugeAndTerritoryPopulationData(languageCode, territoryCode);
+      PopulationData x = supplementalDataInfo.getLanguageAndTerritoryPopulationData(languageCode, territoryCode);
       if (x == null || x.getOfficialStatus() == OfficialStatus.unknown) return "";
       return " <span title='" + x.getOfficialStatus().toString().replace('_', ' ') + "'>{" + x.getOfficialStatus().toShortString() + "}</span>";
     }
@@ -1357,12 +1591,12 @@ public class ShowLanguages {
     public void printCurrency(PrintWriter index) throws IOException {
       PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Detailed Territory-Currency Information", 
           null
-//          "<p>The following table shows when currencies were in use in different countries. " +
-//          "See also <a href='#format_info'>Decimal Digits and Rounding</a>. " +
-//          "To correct any information here, please file a " +
-//          addBug(1274, "bug", "<email>", "Currency Bug", "<currency, country, and references supporting change>") +
-//      ".</p>"
-              ));
+//        "<p>The following table shows when currencies were in use in different countries. " +
+//        "See also <a href='#format_info'>Decimal Digits and Rounding</a>. " +
+//        "To correct any information here, please file a " +
+//        addBug(1274, "bug", "<email>", "Currency Bug", "<currency, country, and references supporting change>") +
+//        ".</p>"
+      ));
       //doTitle(pw, "Territory \u2192 Currency");
       pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
       for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
@@ -1387,7 +1621,7 @@ public class ShowLanguages {
       pw.write("<p>This table shows the digit rounding for the currency, plus the countries where it is or was in use. " +
           "Countries where the currency is not in current use are marked by italics. " +
           "If the currency uses 'nickel rounding' in retail formatting, the digits are followed by '(5)'." +
-          "</p>");
+      "</p>");
       pw.write("<div align='center'><table>");
       
       //doTitle(pw, "Currency Format Info");
@@ -1840,7 +2074,7 @@ public class ShowLanguages {
     //  }
     //  return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
   }
-
+  
   static HelpMessages helpMessages;
-
+  
 }

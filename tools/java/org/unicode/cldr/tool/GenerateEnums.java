@@ -610,7 +610,7 @@ public class GenerateEnums {
         if (Iso639Data.getSource(language) == Iso639Data.Source.ISO_639_3) {
           continue;
         }
-        popData = supplementalDataInfo.getLangaugeAndTerritoryPopulationData(
+        popData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
             language, territory);
         if (popData.getPopulation() == 0
             || Double.isNaN(popData.getLiteratePopulation()
@@ -622,7 +622,7 @@ public class GenerateEnums {
       int count = languages.size();
       for (String language : languages) {
         --count; // we need to know the last one
-        popData = supplementalDataInfo.getLangaugeAndTerritoryPopulationData(
+        popData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
             language, territory);
         Log.formatln("    .addLanguage(\"%s\", %s, %s)%s // %s", language,
             format(popData.getPopulation()), format(popData

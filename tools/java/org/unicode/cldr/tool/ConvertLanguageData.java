@@ -406,7 +406,7 @@ public class ConvertLanguageData {
       if (rowData.languagePopulation / rowData.countryPopulation >= 0.2) {
         populationOver20.add(locale);
       } else {
-        PopulationData popData = supplementalData.getLangaugeAndTerritoryPopulationData(ltp.getLanguageScript(), ltp.getRegion());
+        PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(ltp.getLanguageScript(), ltp.getRegion());
         if (popData != null && popData.getOfficialStatus() != OfficialStatus.unknown) {
           populationOver20.add(locale);
         }

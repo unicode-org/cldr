@@ -96,8 +96,9 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
       }
       compare();
       showDictionaryContents();
+      ((StateDictionaryBuilder<T>) stateDictionary).flatten();
 
-      if (false) {
+      if (true) {
         testWithUnicodeNames();
         
         ((StateDictionaryBuilder<T>) stateDictionary).flatten();
@@ -144,7 +145,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
     }
     count = 0;
     for (String item : data.keySet()) {
-      if (SHORT_TEST && count++ > 1000) continue; // 
+      if (SHORT_TEST && count++ > 500) continue; // 
       addToBoth(item, data.get(item));
     }
     simpleDictionary = new SimpleDictionary<T>(baseMapping);
@@ -228,7 +229,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
 
   private String showValues(Status status, Dictionary<T> dictionary) {
     boolean uniquePartial = status == Status.PARTIAL && dictionary.nextUniquePartial(); // sets matchValue for PARTIAL
-    return String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %d%s",
+    return String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %s %s",
         dictionary.getOffset(),
         dictionary.getMatchEnd(),
         status,

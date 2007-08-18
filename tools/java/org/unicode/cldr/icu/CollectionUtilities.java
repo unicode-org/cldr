@@ -7,21 +7,20 @@
  */
 package org.unicode.cldr.icu;
 
+import org.unicode.cldr.util.PrettyPrinter;
+
+import com.ibm.icu.text.StringTransform;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedSet;
-
-//#ifndef FOUNDATION
 import java.util.regex.Matcher;
-//#endif
-
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Utilities that ought to be on collections, but aren't
@@ -379,10 +378,11 @@ public final class CollectionUtilities {
         }
 //#endif
 
-    public static String prettyPrint(UnicodeSet uset, boolean compressRanges, UnicodeSet toQuote, Transliterator quoter, 
+    public static String prettyPrint(UnicodeSet uset, boolean compressRanges, UnicodeSet toQuote, StringTransform quoter, 
             Comparator ordering, Comparator spaceComparator) {
         PrettyPrinter pp = new PrettyPrinter().setCompressRanges(compressRanges);
         if (toQuote != null) pp.setToQuote(toQuote);
+        if (quoter != null) pp.setQuoter(quoter);
         if (ordering != null) pp.setOrdering(ordering);
         if (spaceComparator != null) pp.setSpaceComparator(spaceComparator);
         return pp.toPattern(uset);

@@ -11,21 +11,25 @@ package org.unicode.cldr.tool;
 import org.unicode.cldr.icu.CollectionUtilities;
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.UnicodeMap;
 import org.unicode.cldr.util.UnicodeMapIterator;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.RuleBasedNumberFormat;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -36,7 +40,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -102,6 +110,8 @@ public class GenerateSidewaysView {
   };
   
   private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
+  private static final UnicodeSet ALL_CHARS = new UnicodeSet(0, 0x10FFFF);
+  protected static final UnicodeSet COMBINING = (UnicodeSet) new UnicodeSet("[[:m:]]").freeze();
   
   static int getFirstScript(UnicodeSet exemplars) {
     int cp;
@@ -236,7 +246,7 @@ public class GenerateSidewaysView {
 
   private static PrintWriter showExemplars(PrintWriter out, Set types) throws IOException {
     finish(out);
-    out = start(out,"exemplars-by-character", types);
+    out = start(out,"misc.exemplarCharacters", types);
     out.println("<table>");
     String cleanPath = prettyPath.getPrettyPath("//ldml/characters/exemplarCharacters");
     Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
@@ -262,48 +272,112 @@ public class GenerateSidewaysView {
   }
 
   private static void writeCharToLocaleMapping(PrintWriter out, String script, UnicodeMap mapping) {
-    out.println("<tr><td colSpan='2'><b>" + script + "</b></td></tr>");
-//    TreeMap<String,Set> chars = new TreeMap(UCA);
-//    for (UnicodeMapIterator it = new UnicodeMapIterator(mapping); it.nextRange();) {
-//      String key;
-//      Set value;
-//      if (it.codepoint != it.IS_STRING) {
-//        value = (Set)mapping.getValue(it.codepoint);
-//        if (value == null) {
-//          continue;
-//        }
-//        for (int i = it.codepoint; i <= it.codepointEnd; ++i) {
-//          chars.put(UTF16.valueOf(i), value);
-//        }
-//      } else {
-//        key = it.getString();
-//        value = (Set)mapping.getValue(key);
-//        chars.put(key, value);
-//      }
-//    }
-    ArrayComparator ac = new ArrayComparator(new Comparator[] {new CountItems.ReverseComparator(new Utility.CollectionComparator()), new Utility.UnicodeSetComparator()});
-    Set<Object[]> chars = new TreeSet(ac);
+    if (script.equals("Hangul") || script.equals("Common")) {
+      return; // skip these
+    }
+    // find out all the locales and all the characters
+    Set<String> allLocales = new TreeSet(UCA);
+    Set<String> allChars = new TreeSet(UCA);
     for (Object locales : mapping.getAvailableValues()) {
+      allLocales.addAll((Collection) locales);
       UnicodeSet unicodeSet = mapping.getSet(locales);
-      chars.add(new Object[]{locales, unicodeSet});
+      for (UnicodeSetIterator it = new UnicodeSetIterator(unicodeSet); it.next();) {
+        allChars.add(it.getString());
+      }
     }
-//    UnicodeSet current = new UnicodeSet();
-//    String lastValue = "";
-    for (Object[] pair : chars) {
-      Set<String> locales = (Set<String>) pair[0];
-      UnicodeSet unicodeSet = (UnicodeSet) pair[1];
-      String value = toHTML.transliterate(Utility.join(locales, " "));
-      out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(unicodeSet, true, null, null, UCA, UCA)) + "</td><td class='td'>" + value + "</td></tr>");
-//      if (!value.equals(lastValue)) {
-//        if (current.size() != 0) {
-//          out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(current, true, null, null, UCA, UCA)) + "</td><td class='td'>" + lastValue + "</td></tr>");
-//        }
-//        current.clear();
-//        lastValue = value;
-//      }
-//      current.add(s);
+    // get the columns, and show them
+    out.println("</table>");
+    out.println("<table class='table'  style='width:1%'>");
+    out.println("<caption>" + script + "</caption>");
+    out.println("<tr><td class='path'>Characters</td>");
+    Map itemToColumn = new HashMap();
+    int i = 1;
+    for (String item : allLocales) {
+      out.println("<th class='path'>" + cleanLocale(item, true) + "</th>");
     }
-    // out.println("<tr><td class='value'>" + toHTML.transliterate(CollectionUtilities.prettyPrint(current, true, null, null, UCA, UCA)) + "</td><td class='td'>" + lastValue + "</td></tr>");
+    out.println("</tr>");
+
+    // now do the rows. Map from char to the set of locales
+    Set<String> lastSet = Collections.EMPTY_SET;
+    UnicodeSet lastChars= new UnicodeSet();
+    for (String string : allChars) {
+      Set locales = (Set) mapping.getValue(string);
+      if (!locales.equals(lastSet)) {
+        if (lastSet.size() != 0) {
+          showExemplarRow(out, allLocales, lastChars, lastSet);
+        }
+        lastSet = locales;
+        lastChars.clear();
+      }
+      lastChars.add(string);
+    }
+    showExemplarRow(out, allLocales, lastChars, lastSet);
+  }
+
+  static LanguageTagParser cleanLocaleParser = new LanguageTagParser();
+  static Set<Fields> allButScripts = EnumSet.allOf(Fields.class);
+  static {
+    allButScripts.remove(Fields.SCRIPT);
+  }
+  
+  private static String cleanLocale(String item, boolean header) {
+    boolean draft = item.endsWith("*");
+    if (draft) {
+      item = item.substring(0,item.length()-1);
+    }
+    cleanLocaleParser.set(item);
+    item = cleanLocaleParser.toString(allButScripts);
+    String core = item;
+    if (draft) {
+      item = "<i>" + item + "</i>";
+    }
+    if (true) {
+      item = "<span title='" + english.getName(english.LANGUAGE_NAME, core) + "'>" + item + "</span>";
+    }
+    return item;
+  }
+
+  private static void showExemplarRow(PrintWriter out, Set<String> allLocales, UnicodeSet lastChars, Set locales) {
+    String exemplarsWithoutBrackets = displayExemplars(lastChars);
+    out.println("<tr><th class='path'>" + exemplarsWithoutBrackets + "</th>");
+    for (String item : allLocales) {
+      if (locales.contains(item)) {
+        out.println("<th class='value'>" + cleanLocale(item, false) + "</th>");
+      } else {
+        out.println("<td class='value'>\u00a0</td>");
+      }
+    }
+    out.println("</tr>");
+  }
+
+  private static final StringTransform MyTransform = new StringTransform() {
+
+    public String transform(String source) {
+      StringBuilder builder = new StringBuilder();
+      int cp = 0;
+      builder.append("<span title='");
+      String prefix = "";
+      for (int i = 0; i < source.length(); i += UTF16.getCharCount(cp)) {
+        cp = UTF16.charAt(source, i);
+        if (i == 0) {
+          if (COMBINING.contains(cp)) {
+            prefix = "\u25CC";
+          }
+        } else {
+          builder.append(" + ");
+        }
+        builder.append("U+").append(com.ibm.icu.impl.Utility.hex(cp,4)).append(' ').append(UCharacter.getExtendedName(cp));
+      }
+      builder.append("'>").append(prefix).append(source).append("</span>");
+      return builder.toString();
+    }
+    
+  };
+
+  private static String displayExemplars(UnicodeSet lastChars) {
+    String exemplarsWithoutBrackets = CollectionUtilities.prettyPrint(lastChars,true,ALL_CHARS, MyTransform,UCA,UCA);
+    exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1, exemplarsWithoutBrackets.length() - 1);
+    return exemplarsWithoutBrackets;
   }
   
 //  private static boolean isNextCharacter(String last, String value) {

@@ -4,7 +4,6 @@ import org.unicode.cldr.util.Dictionary.Status;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -18,12 +17,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
-public class TestStateDictionaryBuilder<T extends CharSequence> {
+public class TestStateDictionaryBuilder<T> {
   private static final boolean SHORT_TEST = true;
   
   private static final boolean SHOW_CONTENTS = true;
   
-  private static final boolean CHECK_BOOLEAN = true;
+  private static final boolean CHECK_BOOLEAN = false;
   
   private final boolean SHOW_STATES = true;
   
@@ -37,17 +36,30 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
   
   Map<CharSequence,T> baseMapping = new TreeMap<CharSequence,T>();
   
+  final StateDictionaryBuilder<T> stateDictionaryBuilder = new StateDictionaryBuilder<T>();
+  
+  // TODO: convert to TestFramework
   public static void main(String[] args) {
     
     try {
-      new TestStateDictionaryBuilder<String>().test();
+      new TestStateDictionaryBuilder<String>().test(args);
     } finally {
       System.out.println("DONE");
     }
   }
   
-  public void test() {
+  @SuppressWarnings({"unchecked"})
+  public void test(String[] args) {
     
+    for (String arg : args) {
+      if (arg.equalsIgnoreCase("utf8")) {
+        stateDictionaryBuilder.setByteConverter(new StringUtf8Converter());
+      } else if (arg.equalsIgnoreCase("normal")) {
+        stateDictionaryBuilder.setByteConverter(new ByteString(false));
+      } else if (arg.equalsIgnoreCase("compact")) {
+        stateDictionaryBuilder.setByteConverter(new ByteString(true));
+      }
+    }
     baseMapping.put("GMT+0000", (T)("t"));   
     baseMapping.put("GMT+0100", (T)("t"));
     baseMapping.put("GMT+0200", (T)("t"));
@@ -98,7 +110,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
     
     // check some non-latin
     String[] zoneIDs = TimeZone.getAvailableIDs();
-    SimpleDateFormat dt = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.LONG, new ULocale("el"));
+    SimpleDateFormat dt = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.LONG, new ULocale("hi"));
     dt.applyPattern("vvvv");
     for (String zoneID : zoneIDs) {
       TimeZone zone = TimeZone.getTimeZone(zoneID);
@@ -108,12 +120,12 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
     }
     compare();
     showDictionaryContents();
-    ((StateDictionaryBuilder<T>) stateDictionary).flatten();
+    ((StateDictionary<T>) stateDictionary).flatten();
     
     if (false) {
       testWithUnicodeNames();
       
-      ((StateDictionaryBuilder<T>) stateDictionary).flatten();
+      ((StateDictionary<T>) stateDictionary).flatten();
       compare();
       System.out.println();
       showDictionaryContents();
@@ -122,8 +134,8 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
   }
   
   private void showDictionaryContents() {
-    simpleDictionary = new SimpleDictionary<T>(baseMapping);
-    stateDictionary = new StateDictionaryBuilder<T>(baseMapping);
+    simpleDictionary = new SimpleDictionary<T>(baseMapping); 
+    stateDictionary = stateDictionaryBuilder.make(baseMapping);
     baseMapping.clear();
 //  ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
 //  ((Dictionary.Builder) stateDictionary).addMapping(string, i);
@@ -166,7 +178,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
       addToBoth(item, data.get(item));
     }
     simpleDictionary = new SimpleDictionary<T>(baseMapping);
-    stateDictionary = new StateDictionaryBuilder<T>(baseMapping);
+    stateDictionary = stateDictionaryBuilder.make(baseMapping);
     baseMapping.clear();
     compare();
   }
@@ -179,7 +191,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
     if (SHOW_STATES) {
       System.out.println("Size: " + dictionaryData.size());
       System.out.println("Rows: "
-          + ((StateDictionaryBuilder<T>) stateDictionary).getRowCount());
+          + ((StateDictionary<T>) stateDictionary).getRowCount());
     }
     
     System.out.println("Checking values: state dictionary");
@@ -272,7 +284,7 @@ public class TestStateDictionaryBuilder<T extends CharSequence> {
       
       dictionary.setOffset(0);
       int matchEnd = -1;
-      CharSequence matchValue = null;
+      T matchValue = null;
       while (true) {
         Dictionary.Status next1 = dictionary.next();
         if (next1 == Dictionary.Status.MATCH) {

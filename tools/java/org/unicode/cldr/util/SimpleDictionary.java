@@ -1,4 +1,13 @@
+/*
+ **********************************************************************
+ * Copyright (c) 2006-2007, Google and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.util;
+
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -8,7 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
- * This is a simple dictionary class used for testing.
+ * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename files in CVS.
  * @author markdavis
  */
 public class SimpleDictionary<T> extends Dictionary<T> {
@@ -63,8 +72,16 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     return Collections.unmodifiableMap(data);
   }
 
+
   @Override
-  public Dictionary setOffset(int offset) {
+  public Matcher<T> getMatcher() {
+    return new SimpleMatcher();
+  }
+  
+  private class SimpleMatcher extends Matcher<T> {
+
+  @Override
+  public Matcher<T> setOffset(int offset) {
     possibleMatchesBefore = data.keySet();
     done = false;
     matchValue = null;
@@ -175,18 +192,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     }
     return result;
   }
-  
-  public static boolean startsWith(CharSequence first, CharSequence possiblePrefix) {
-    if (first.length() < possiblePrefix.length()) {
-      return false;
-    }
-    for (int i = 0; i < possiblePrefix.length(); ++i) {
-      if (first.charAt(i) != possiblePrefix.charAt(i)) {
-        return false;
-      }
-    }
-    return true;
-  }
 
   public boolean contains(CharSequence text) {
     return data.containsKey(text);
@@ -252,4 +257,18 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 //    }
 //    
 //  }
+  }
+  
+  public static boolean startsWith(CharSequence first, CharSequence possiblePrefix) {
+    if (first.length() < possiblePrefix.length()) {
+      return false;
+    }
+    for (int i = 0; i < possiblePrefix.length(); ++i) {
+      if (first.charAt(i) != possiblePrefix.charAt(i)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }

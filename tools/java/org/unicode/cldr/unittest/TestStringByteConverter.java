@@ -1,3 +1,10 @@
+/*
+ **********************************************************************
+ * Copyright (c) 2006-2007, Google and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.ByteString;

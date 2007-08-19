@@ -1,6 +1,17 @@
+/*
+ **********************************************************************
+ * Copyright (c) 2006-2007, Google and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
+
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Implements a search for words starting at a given offset. Logically, it is
@@ -10,229 +21,68 @@ import java.util.Map;
  * sample code and results.
  * 
  * <pre>
- * System.out.println(&quot;Dictionary: &quot; + stateDictionary.getMapping());
- * for (int i = 0; i &lt; dictionary.length(); ++i) {
- *   dictionary.setOffset(i);
- *   while (true) {
- *     Status status = dictionary.next();
- *     if (status != Status.NONE) {
- *       String info = String.format(
- *           &quot;\tOffsets: %s,%s\tStatus: %s\tString: \&quot;%s\&quot;\tValue: %d&quot;, dictionary
- *               .getOffset(), dictionary.getMatchEnd(), status, dictionary
- *               .getMatchText(), dictionary.getMatchValue());
- *       result.add(info); // remove
- *       info = title + info; // remove
- *       System.out.println(info);
- *     }
- *     if (status == Status.MATCH) {
- *       break;
+ * System.out.println(&quot;Using dictionary: &quot; + dictionary.getMapping());
+ * System.out.println(&quot;Searching in: {&quot; + sampleText + &quot;}&quot;);
+ * // Dictionaries are immutable, so we create a Matcher to search/test text.
+ * Matcher matcher = dictionary.getMatcher();
+ * matcher.setText(sampleText);
+ * while (true) {
+ *   Status status = matcher.find();
+ *   String unique = &quot;&quot;; // only set if needed
+ *   if (status == Status.NONE) {
+ *     break;
+ *   } else if (status == Status.PARTIAL) {
+ *     // sets the match value to the &quot;first&quot; partial match
+ *     if (matcher.nextUniquePartial()) {
+ *       unique = &quot;\tUnique&quot;;
+ *     } else {
+ *       unique = &quot;\tNot Unique&quot;;
  *     }
  *   }
+ *   // Show results
+ *   System.out.println(&quot;{&quot; + sampleText.substring(0, matcher.getOffset()) + &quot;[[[&quot;
+ *       + sampleText.substring(matcher.getOffset(), matcher.getMatchEnd())
+ *       + &quot;]]]&quot; + sampleText.substring(matcher.getMatchEnd()) + &quot;}\t&quot; + status
+ *       + &quot;  \t{&quot; + matcher.getMatchValue() + &quot;}\t&quot; + unique);
  * }
  * </pre>
  * 
  * Output:
  * 
  * <pre>
-Finding words in: "ma"
-*  Offsets: 0,2  Status: PLURAL  String: "ma"  Value: 5
-Finding words in: "man"
-*  Offsets: 0,3  Status: MATCH String: "man" Value: 5
-*  Offsets: 0,3  Status: PLURAL  String: "man" Value: 15
-Finding words in: "manx"
-*  Offsets: 0,3  Status: MATCH String: "man" Value: 5
-*  Offsets: 0,3  Status: PLURAL  String: "man" Value: 15
-Finding words in: "mann"
-*  Offsets: 0,3  Status: MATCH String: "man" Value: 5
-*  Offsets: 0,4  Status: SINGLE  String: "mann"  Value: 15
-Finding words in: "many"
-*  Offsets: 0,3  Status: MATCH String: "man" Value: 5
-*  Offsets: 0,4  Status: MATCH String: "many"  Value: 10
-Finding words in: "many!"
-*  Offsets: 0,3  Status: MATCH String: "man" Value: 5
-*  Offsets: 0,4  Status: MATCH String: "many"  Value: 10
-* </pre>
+ *  Using dictionary: {any=All, man=Woman, many=Few}
+ *  Searching in: {many manners ma}
+ *  {[[[man]]]y manners ma} MATCH   {Woman} 
+ *  {[[[many]]] manners ma} MATCH   {Few} 
+ *  {m[[[any]]] manners ma} MATCH   {All} 
+ *  {many [[[man]]]ners ma} MATCH   {Woman} 
+ *  {many [[[man]]]ners ma} PARTIAL   {Few}   Unique
+ *  {many m[[[an]]]ners ma} PARTIAL   {All}   Unique
+ *  {many manners [[[ma]]]} PARTIAL   {Woman}   Not Unique
+ * </pre>
  * 
- * The difference between NONE, SINGLE, and PLURAL are according to whether
- * there would be any longer possible matches at the point where there are no
- * more matches. For example, suppose that the dictionary contains a mapping
- * from English month names to their values.
+ * When you get a PARTIAL status, the match value is undefined. Often people
+ * will just treat PARTIAL matches as if they were NONE. However, sometimes
+ * people may be interested in finding out whether the text in question is the
+ * truncation or abbreviation of a possible table value. In that case, you can
+ * test further at that point, as is done above. For example, suppose that the
+ * dictionary contains a mapping from English month names to their numeric
+ * values.
  * <ol>
- * <li>When we are parsing "Jul 1 1990", we will find a partial match at "Jul",
- * with the value 7, for July.</li>
+ * <li>When we are parsing "Jul 1 1990", we will find a unique partial match at
+ * "Jul", with the value 7, for July, and use it.</li>
  * <li>When we are parsing "Ju 1 1990", on the other hand, we will find a
- * multiple match at "Ju". While a value is returned, it is only for one of the
- * possible words ("June" and "July") so we can decide that the parse fails
- * since the month isn't sufficiently distinguished.</li>
+ * non-unique partial match at "Ju". While a value is returned, it is only for
+ * one of the possible words ("June" and "July") so (for this application) we
+ * can decide that the parse fails since the month isn't sufficiently
+ * distinguished.</li>
  * </ol>
  * 
  * @author markdavis
  * 
  */
 public abstract class Dictionary<T> {
-  protected CharSequence text;
-
-  protected int offset;
-
-  protected int matchEnd;
-
-//  /*
-//   * A Dictionary may also have a builder, that allows the dictionary to be
-//   * built at runtime.
-//   */
-//  public interface Builder<T> {
-//    /**
-//     * Add strings to the dictionary. It is an error to add the null string, or
-//     * to add a string that is less than a previously added strings. That is,
-//     * the strings must be added in ascending codepoint order.
-//     * 
-//     * @param text
-//     * @param result
-//     * @return
-//     */
-//    public Dictionary<T> getInstance(Map<CharSequence,T> source);
-//  }
-
-  /**
-   * Set the target text to match within; also resets the offset to zero.
-   * 
-   * @param text
-   * @return
-   */
-  public Dictionary setText(CharSequence text) {
-    this.text = text;
-    return setOffset(0);
-  }
-
-  /**
-   * Retrieve the target text to match within.
-   * 
-   * @return
-   */
-  public CharSequence getText() {
-    return text;
-  }
-
-  /**
-   * Set the position in the target text to match from. Matches only go forwards
-   * in the string.
-   * 
-   * @param offset
-   * @return
-   */
-  public Dictionary setOffset(int offset) {
-    this.offset = offset;
-    matchEnd = offset;
-    return this;
-  }
-
-  /**
-   * Get the offset from which we are matching.
-   * 
-   * @return
-   */
-  public int getOffset() {
-    return offset;
-  }
-
-  /**
-   * Get the length of the target text.
-   * 
-   * @return
-   */
-  public int length() {
-    return text.length();
-  }
-
-  /**
-   * Get the latest match value after calling next(); see next() for more information.
-   * 
-   * @return
-   */
-  public abstract T getMatchValue();
-
-  /**
-   * Get the latest match value after calling next(); see next() for more information. 
-   * 
-   * @return
-   */
-  public int getIntMatchValue() {
-    try {
-      return (Integer)getMatchValue();
-    } catch (Exception e) {
-      return Integer.MIN_VALUE;
-    }
-  }
-
-  /**
-   * Get the latest match end (that is, how far we matched); see next() for more information.
-   * 
-   * @return
-   */
-  public int getMatchEnd() {
-    return matchEnd;
-  }
-
-  /**
-   * Get the text that we matched.
-   * 
-   * @return
-   */
-  public CharSequence getMatchText() {
-    return text.subSequence(offset, matchEnd);
-  }
-
-  /**
-   * The status of a match; see next() for more information.
-   */
-  public enum Status {
-    /**
-     * There are no further matches at all.
-     */
-    NONE,
-    /**
-     * There is a partial match for a single item. Example: dictionary contains
-     * "man", text has "max". There will be a partial match after "ma".
-     */
-    PARTIAL,
-    /**
-     * There is a full match
-     */
-    MATCH,
-  }
-
-  /**
-   * Finds the next match, and sets the matchValue and matchEnd. Normally you
-   * call in a loop until you get a value that is not MATCH.<br>
-   * <b>Warning: the results of calling next() after getting non-MATCH value are
-   * undefined!</b><br>
-   * Here is what happens with the different return values:
-   * <ul>
-   * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
-   * <li>PARTIAL: there was a partial match. The matchEnd is set to the
-   * furthest point that could be reached successfully. To get the matchValue,
-   * and whether or not there were multiple partial matches, call nextPartial().</li>
-   * <li>NONE: the matchValue and matchEnd are undefined.</li>
-   * </ul>
-   * 
-   * @return MATCH if there is a match.
-   */
-  public abstract Status next();
   
-  /**
-   * Determine whether a partial match is singular (there is only one possible
-   * continuation) or multiple (there are different continuations). Sets the
-   * value of matchValue to that of the string that could have been returned if
-   * appropriate additional characters were inserted at matchEnd. If there are
-   * multiple possible strings, the matchValue is the one for the lowest (in
-   * code point order) string.
-   * <p>
-   * This must only be called if there is a PARTIAL result from next()
-   * 
-   * @return true if the partial match is singular, false if it is plural.
-   */
-  public abstract boolean nextUniquePartial();
-
   /**
    * Get the strings from the dictionary. The Map is either read-only or a copy;
    * that is, modifications do not affect the builder.
@@ -242,42 +92,199 @@ public abstract class Dictionary<T> {
   public abstract Map<CharSequence, T> getMapping();
   
   /**
-   * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
-   */
-  public T get(CharSequence text) {
-    setText(text); // set the text to operate on
-    while (true) {
-      Status next1 = next();
-      if (next1 != Status.MATCH) {
-        return null;
-      } else if (getMatchEnd() == text.length()) {
-        return getMatchValue();
-      }
-    }
-  }
-  
-  /**
-   * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
-   */
-  public boolean contains(CharSequence text) {
-    setText(text); // set the text to operate on
-    while (true) {
-      Status next1 = next();
-      if (next1 != Status.MATCH) {
-        return false;
-      } else if (getMatchEnd() == text.length()) {
-        return true;
-      }
-    }
-  }
-  
-  /**
    * Return more comprehensive debug info if available.
    * @return
    */
   public String debugShow() {
     return toString();
   }
+  
+  public abstract Matcher<T> getMatcher();
+  
+  public abstract static class Matcher<T> {
+    protected CharSequence text;
+    
+    protected int offset;
+    
+    protected int matchEnd;
+    
+//  /*
+//  * A Dictionary may also have a builder, that allows the dictionary to be
+//  * built at runtime.
+//  */
+//  public interface Builder<T> {
+//  /**
+//  * Add strings to the dictionary. It is an error to add the null string, or
+//  * to add a string that is less than a previously added strings. That is,
+//  * the strings must be added in ascending codepoint order.
+//  * 
+//  * @param text
+//  * @param result
+//  * @return
+//  */
+//  public Dictionary<T> getInstance(Map<CharSequence,T> source);
+//  }
+    
+    /**
+     * Set the target text to match within; also resets the offset to zero.
+     * 
+     * @param text
+     * @return
+     */
+    public Matcher<T> setText(CharSequence text) {
+      this.text = text;
+      return setOffset(0);
+    }
+    
+    /**
+     * Retrieve the target text to match within.
+     * 
+     * @return
+     */
+    public CharSequence getText() {
+      return text;
+    }
+    
+    /**
+     * Get the length of the target text.
+     * 
+     * @return
+     */
+    public int length() {
+      return text.length();
+    }
+    
+    /**
+     * Set the position in the target text to match from. Matches only go forwards
+     * in the string.
+     * 
+     * @param offset
+     * @return
+     */
+    public Matcher<T> setOffset(int offset) {
+      this.offset = offset;
+      matchEnd = offset;
+      return this;
+    }
+    
+    /**
+     * Get the offset from which we are matching.
+     * 
+     * @return
+     */
+    public int getOffset() {
+      return offset;
+    }
+    
+    /**
+     * Get the latest match value after calling next(); see next() for more information.
+     * 
+     * @return
+     */
+    public abstract T getMatchValue();
+    
+    /**
+     * Get the latest match end (that is, how far we matched); see next() for more information.
+     * 
+     * @return
+     */
+    public int getMatchEnd() {
+      return matchEnd;
+    }
+    
+    /**
+     * Get the text that we matched.
+     * 
+     * @return
+     */
+    public CharSequence getMatchText() {
+      return text.subSequence(offset, matchEnd);
+    }
+    
+    /**
+     * The status of a match; see next() for more information.
+     */
+    public enum Status {
+      /**
+       * There are no further matches at all.
+       */
+      NONE,
+      /**
+       * There is a partial match for a single item. Example: dictionary contains
+       * "man", text has "max". There will be a partial match after "ma".
+       */
+      PARTIAL,
+      /**
+       * There is a full match
+       */
+      MATCH,
+    }
+    
+    /**
+     * Finds the next match, and sets the matchValue and matchEnd. Normally you
+     * call in a loop until you get a value that is not MATCH.<br>
+     * <b>Warning: the results of calling next() after getting non-MATCH value are
+     * undefined!</b><br>
+     * Here is what happens with the different return values:
+     * <ul>
+     * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
+     * <li>PARTIAL: there was a partial match. The matchEnd is set to the
+     * furthest point that could be reached successfully. To get the matchValue,
+     * and whether or not there were multiple partial matches, call nextPartial().</li>
+     * <li>NONE: the matchValue and matchEnd are undefined.</li>
+     * </ul>
+     * 
+     * @return MATCH if there is a match.
+     */
+    public abstract Status next();
+    
+    /**
+     * Determine whether a partial match is singular (there is only one possible
+     * continuation) or multiple (there are different continuations). Sets the
+     * value of matchValue to that of the string that could have been returned if
+     * appropriate additional characters were inserted at matchEnd. If there are
+     * multiple possible strings, the matchValue is the one for the lowest (in
+     * code point order) string.
+     * <p>
+     * This must only be called if there is a PARTIAL result from next().
+     * <p>QUESTION: would it be useful to be able to get all the partial matches??
+     * 
+     * @return true if the partial match is singular, false if it is plural.
+     */
+    public abstract boolean nextUniquePartial();
+    
+    /**
+     * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
+     */
+    public T get(CharSequence text) {
+      setText(text); // set the text to operate on
+      while (true) {
+        Status next1 = next();
+        if (next1 != Status.MATCH) {
+          return null;
+        } else if (getMatchEnd() == text.length()) {
+          return getMatchValue();
+        }
+      }
+    }
+    
+    /**
+     * Advances the offset until next() doesn't return NONE. 
+     */
+    public Status find() {
+      while (true) {
+        Status status = next();
+        if (status != Status.NONE) {
+          return status;
+        } else if (getMatchEnd() == text.length()) {
+          return status;
+        } else {
+          setOffset(++offset);
+        }
+      }
+    }
+  }
+  
   
   /**
    * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.

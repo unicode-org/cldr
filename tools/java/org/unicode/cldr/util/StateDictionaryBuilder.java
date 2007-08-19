@@ -1,6 +1,14 @@
+/*
+ **********************************************************************
+ * Copyright (c) 2006-2007, Google and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.util;
 
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
+import org.unicode.cldr.util.IntMap.IntMapFactory;
 import org.unicode.cldr.util.StateDictionary.Cell;
 import org.unicode.cldr.util.StateDictionary.Row;
 
@@ -9,6 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * A simple state-table based dictionary builder.
+ * @author markdavis
+ * @param <T> the return type for the dictionary
+ */
 public class StateDictionaryBuilder<T> {
   
   private static final boolean SHOW_SIZE = true;
@@ -26,7 +39,25 @@ public class StateDictionaryBuilder<T> {
   private int builtMaxByteLength;
   
   private StringByteConverter byteConverter = new ByteString(true); //new StringUtf8Converter(); // new ByteString(false); // new ByteString(true); //
+
+  private IntMapFactory<T> intMapFactory = new BasicIntMapFactory<T>();
   
+  /**
+   * Get/set the IntMapFactory used to store the values for T. The default is BasicIntMapFactory.
+   * @return
+   */
+  public IntMapFactory<T> getIntMapFactory() {
+    return intMapFactory;
+  }
+
+  public void setIntMapFactory(IntMapFactory<T> intMapFactory) {
+    this.intMapFactory = intMapFactory;
+  }
+
+  /**
+   * Get/Set the StringByteConverter used to convert strings to bytes and back. The default is a compacted form: ByteString(true).
+   * @return
+   */
   public StringByteConverter getByteConverter() {
     return byteConverter;
   }
@@ -35,6 +66,11 @@ public class StateDictionaryBuilder<T> {
     this.byteConverter = byteConverter;
   }
   
+  /**
+   * Create a new simple StateDictionary. This format is relatively fast to produce, and has a fair amount of compaction.
+   * @param source
+   * @return
+   */
   public StateDictionary make(Map<CharSequence, T> source) {
     // clear out state
     buildingCurrentAddRow = null;
@@ -42,7 +78,7 @@ public class StateDictionaryBuilder<T> {
     builtTotalBytes = builtTotalStrings = builtMaxByteLength = 0;
     builtRows = new ArrayList<Row>();
     builtBaseRow = makeRow();
-    builtResults = new BasicIntMapFactory<T>().make(source.values());
+    builtResults = intMapFactory.make(source.values());
     if (SHOW_SIZE) System.out.println("***VALUE STORAGE: " + builtResults.approximateStorage());
     
     Map<T, Integer> valueToInt = builtResults.getValueMap();
@@ -93,27 +129,6 @@ public class StateDictionaryBuilder<T> {
     builtRows.add(row);
     return row;
   }
-  
-  static int addBytes(int source, byte[] target, int pos) {
-    // swap the top bit
-    if (source < 0) {
-      source = ((-source) << 1) | 1;
-    } else {
-      source <<= 1;
-    }
-    // emit the rest as 7 bit quantities with 1 as termination bit
-    while (true) {
-      byte b = (byte) (source & 0x7F);
-      source >>>= 7;
-      if (source == 0) {
-        b |= 0x80;
-        target[pos++] = b;
-        return pos;
-      }
-      target[pos++] = b;
-    }
-  }
-  
   
   private void addMapping(CharSequence text, int result) {
     if (Dictionary.compare(text,buildingLastEntry) <= 0) {

@@ -1,6 +1,14 @@
+/*
+ **********************************************************************
+ * Copyright (c) 2006-2007, Google and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.Dictionary.Status;
+import org.unicode.cldr.util.Dictionary.Matcher;
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
@@ -17,6 +25,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+/**
+ *  Should be in the package usertest, but it's a pain to rename files in CVS.
+ * @author markdavis
+ *
+ * @param <T>
+ */
 public class TestStateDictionaryBuilder<T> {
   private static final boolean SHORT_TEST = true;
   
@@ -31,8 +45,10 @@ public class TestStateDictionaryBuilder<T> {
   boolean TEST_AGAINST_SIMPLE = true;
   
   Dictionary<T> stateDictionary;
+  Dictionary.Matcher<T> stateMatcher;
   
   Dictionary<T> simpleDictionary;
+  Dictionary.Matcher<T> simpleMatcher;
   
   Map<CharSequence,T> baseMapping = new TreeMap<CharSequence,T>();
   
@@ -70,7 +86,15 @@ public class TestStateDictionaryBuilder<T> {
     addToBoth("man", 1);
     addToBoth("manner", 100);
     addToBoth("many", 10);
+    addToBoth("any", 83);
     showDictionaryContents();
+    
+    baseMapping.put("man", (T)"Woman");   
+    baseMapping.put("many",(T)"Few");
+    baseMapping.put("any", (T)"All");
+    showDictionaryContents();
+    
+    tryFind("many manners ma", stateDictionary);
     
     showWords("ma");
     showWords("ma!");
@@ -132,11 +156,44 @@ public class TestStateDictionaryBuilder<T> {
     }
     
   }
+
+  private void tryFind(String sampleText, Dictionary<T> dictionary) {
+    System.out.println("Using dictionary: " + dictionary.getMapping());
+    System.out.println("Searching in: {" + sampleText + "}");
+    // Dictionaries are immutable, so we create a Matcher to search/test text.
+    Matcher matcher = dictionary.getMatcher();
+    matcher.setText(sampleText);
+    while (true) {
+      Status status = matcher.find();
+      String unique = ""; // only set if needed
+      if (status == Status.NONE) {
+        break;
+      } else if (status == Status.PARTIAL) {
+        // sets the match value to the "first" partial match
+        if (matcher.nextUniquePartial()) {
+          unique = "\tUnique";
+        } else {
+          unique = "\tNot Unique";
+        }
+      }
+      // Show results
+      System.out.println("{"
+          + sampleText.substring(0, matcher.getOffset()) + "[[["
+          + sampleText.substring(matcher.getOffset(), matcher.getMatchEnd())
+          + "]]]" + sampleText.substring(matcher.getMatchEnd())
+          + "}\t" + status + "  \t{" + matcher.getMatchValue() + "}\t" + unique);
+    }
+    System.out.println();
+  }
   
   private void showDictionaryContents() {
+    // build stuff to use from now on
     simpleDictionary = new SimpleDictionary<T>(baseMapping); 
+    simpleMatcher = simpleDictionary.getMatcher();
     stateDictionary = stateDictionaryBuilder.make(baseMapping);
+    stateMatcher = stateDictionary.getMatcher();
     baseMapping.clear();
+    
 //  ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
 //  ((Dictionary.Builder) stateDictionary).addMapping(string, i);
     
@@ -195,9 +252,9 @@ public class TestStateDictionaryBuilder<T> {
     }
     
     System.out.println("Checking values: state dictionary");
-    checkSimpleMatches(stateDictionary, dictionaryData);
+    checkSimpleMatches(stateMatcher, dictionaryData);
     System.out.println("Checking values: simple dictionary");
-    checkSimpleMatches(simpleDictionary, simpleDictionaryData);
+    checkSimpleMatches(simpleMatcher, simpleDictionaryData);
     int count = 0;
     System.out.println("Cross-checking all values");
     for (CharSequence myText : simpleDictionaryData.keySet()) {
@@ -226,25 +283,25 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private void crossCheck(CharSequence myText) {
-    stateDictionary.setText(myText); // set the text to operate on
-    simpleDictionary.setText(myText); // set the text to operate on
-    for (int i = 0; i < stateDictionary.getText().length(); ++i) {
-      stateDictionary.setOffset(i);
-      simpleDictionary.setOffset(i);
+    stateMatcher.setText(myText); // set the text to operate on
+    simpleMatcher.setText(myText); // set the text to operate on
+    for (int i = 0; i < stateMatcher.getText().length(); ++i) {
+      stateMatcher.setOffset(i);
+      simpleMatcher.setOffset(i);
       while (true) {
-        Dictionary.Status stateStatus = stateDictionary.next();
-        Dictionary.Status simpleStatus = simpleDictionary.next();
+        Status stateStatus = stateMatcher.next();
+        Status simpleStatus = simpleMatcher.next();
         assert stateStatus == simpleStatus : showValues(stateStatus, simpleStatus);
-        assert stateDictionary.getMatchEnd() == simpleDictionary.getMatchEnd() 
+        assert stateMatcher.getMatchEnd() == simpleMatcher.getMatchEnd() 
         : showValues(stateStatus, simpleStatus);
         if (stateStatus == Status.PARTIAL) {
-          boolean stateUnique = stateDictionary.nextUniquePartial();
-          boolean simpleUnique = simpleDictionary.nextUniquePartial();
+          boolean stateUnique = stateMatcher.nextUniquePartial();
+          boolean simpleUnique = simpleMatcher.nextUniquePartial();
           assert stateUnique == simpleUnique 
           : showValues(stateStatus, simpleStatus);
         }
         // test this after checking PARTIAL
-        assert stateDictionary.getMatchValue() == simpleDictionary.getMatchValue() 
+        assert stateMatcher.getMatchValue() == simpleMatcher.getMatchValue() 
         : showValues(stateStatus, simpleStatus);
         if (stateStatus != Status.MATCH) {
           break;
@@ -254,42 +311,42 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private String showValues(Status stateStatus, Status simpleStatus) {
-    return "\r\nSTATE:\t" + showValues(stateStatus, stateDictionary) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleDictionary);
+    return "\r\nSTATE:\t" + showValues(stateStatus, stateMatcher) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleMatcher);
   }
   
-  private String showValues(Status status, Dictionary<T> dictionary) {
-    boolean uniquePartial = status == Status.PARTIAL && dictionary.nextUniquePartial(); // sets matchValue for PARTIAL
+  private String showValues(Status status, Matcher<T> matcher) {
+    boolean uniquePartial = status == Status.PARTIAL && matcher.nextUniquePartial(); // sets matchValue for PARTIAL
     return String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %s %s",
-        dictionary.getOffset(),
-        dictionary.getMatchEnd(),
+        matcher.getOffset(),
+        matcher.getMatchEnd(),
         status,
-        dictionary.getMatchText(),
-        dictionary.getMatchValue(),
+        matcher.getMatchText(),
+        matcher.getMatchValue(),
         status == Status.PARTIAL && uniquePartial ? "\tUNIQUE" : "");
   }
   
   /**
    * Check that the words all match against themselves.
    * 
-   * @param dictionary
+   * @param matcher
    * @param data
    */
-  private void checkSimpleMatches(Dictionary<T> dictionary, Map<CharSequence, T> data) {
+  private void checkSimpleMatches(Matcher<T> matcher, Map<CharSequence, T> data) {
     int count = 0;
     for (CharSequence myText : data.keySet()) {
       if ((count++ & 0xFF) == 0xFF) {
         System.out.println(count + ":\t" + myText);
       }
-      dictionary.setText(myText); // set the text to operate on
+      matcher.setText(myText); // set the text to operate on
       
-      dictionary.setOffset(0);
+      matcher.setOffset(0);
       int matchEnd = -1;
       T matchValue = null;
       while (true) {
-        Dictionary.Status next1 = dictionary.next();
-        if (next1 == Dictionary.Status.MATCH) {
-          matchEnd = dictionary.getMatchEnd();
-          matchValue = dictionary.getMatchValue();
+        Dictionary.Matcher.Status next1 = matcher.next();
+        if (next1 == Dictionary.Matcher.Status.MATCH) {
+          matchEnd = matcher.getMatchEnd();
+          matchValue = matcher.getMatchValue();
         } else {
           break;
         }
@@ -315,15 +372,15 @@ public class TestStateDictionaryBuilder<T> {
   private void showWords(String myText) {
     System.out.format("Finding words in: \"%s\"\r\n", myText);
     if (SIMPLE_ONLY) {
-      showWords("", simpleDictionary, myText);
+      showWords("", simpleMatcher, myText);
     } else {
-      Set<String> simpleResult = showWords("Simple", simpleDictionary, myText);
-      Set<String> stateResult = showWords("STATE", stateDictionary, myText);
+      Set<String> simpleResult = showWords("Simple", simpleMatcher, myText);
+      Set<String> stateResult = showWords("STATE", stateMatcher, myText);
       if (!simpleResult.equals(stateResult)) {
         // repeat, for debugging
         System.out.println("  DIFFERENCE");
-        showWords("Simple", simpleDictionary, myText);
-        showWords("STATE", stateDictionary, myText);
+        showWords("Simple", simpleMatcher, myText);
+        showWords("STATE", stateMatcher, myText);
         Set<String> simpleMinusState = new LinkedHashSet<String>(simpleResult);
         simpleMinusState.removeAll(stateResult);
         System.out.println("Simple-State" + simpleMinusState);
@@ -334,34 +391,39 @@ public class TestStateDictionaryBuilder<T> {
     }
   }
   
-  private Set<String> showWords(String title, Dictionary<T> dictionary, String myText) {
-    Set<String> result = new LinkedHashSet<String>();
-    dictionary.setText(myText); // set the text to operate on
+  private Set<String> showWords(String title, Matcher<T> matcher, String myText) {
     title = title.equals("") ? "" : "\tType: " + title;
+    // Walk through a strings and gather information about what we find
+    // according to the matcher
+    Set<String> result = new LinkedHashSet<String>();
+    // Set the text to operate on
+    matcher.setText(myText);
     boolean uniquePartial = false;
-    for (int i = 0; i < dictionary.length(); ++i) {
-      dictionary.setOffset(i);
-      while (true) {
-        Status status = dictionary.next(); // sets matchValue for MATCH
+    for (int i = 0; i < matcher.length(); ++i) {
+      matcher.setOffset(i);
+      Status status;
+      // We might get multiple matches at each point, so walk through all of
+      // them. The last one might be a partial, so collect some extra
+      // information in that case.
+      do {
+        // Sets matchValue if there is a MATCH
+        status = matcher.next();
         if (status == Status.PARTIAL) {
-          uniquePartial = dictionary.nextUniquePartial(); // sets matchValue for PARTIAL
+          // Sets matchValue if the next() status was PARTIAL
+          uniquePartial = matcher.nextUniquePartial();
         }
-        String info = String.format("\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %s%s",
-            dictionary.getOffset(),
-            dictionary.getMatchEnd(),
-            status,
-            dictionary.getMatchText(),
-            dictionary.getMatchValue(),
+        // Format all of the information
+        String info = String.format(
+            "\tOffsets: %s,%s\tStatus: %s\tString: \"%s\"\tValue: %s%s", //
+            matcher.getOffset(), matcher.getMatchEnd(), status, //
+            matcher.getMatchText(), matcher.getMatchValue(), //
             status == Status.PARTIAL && uniquePartial ? "\tUNIQUE" : "");
-        result.add(info);  // remove
-        info = title + info; // remove
+        result.add(info);
         if (status != Status.NONE) {
-          System.out.println(info);
+          // If there was a match or partial match, show what we got
+          System.out.println(title + info);
         }
-        if (status != Status.MATCH) {
-          break;
-        }
-      }
+      } while (status == Status.MATCH);
     }
     return result;
   }

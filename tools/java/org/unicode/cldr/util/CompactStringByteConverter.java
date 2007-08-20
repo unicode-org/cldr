@@ -14,7 +14,6 @@ import java.io.IOException;
 public class ByteString extends StringByteConverter {
   static public final boolean DEBUG = false;
   private boolean deltaEncoded;
-  private CharSequence source;
   private int last;
 
   public ByteString(boolean deltaEncoded) {
@@ -31,29 +30,6 @@ public class ByteString extends StringByteConverter {
   public void clear() {
     last = 0x40;
   }
-
-  @Override
-  public int fromBytes(byte[] input, int bytePosition, char[] result) {
-    int[] ioBytePosition = new int[1];
-    ioBytePosition[0] = bytePosition;
-    if (deltaEncoded) {
-        int delta = readInt(input, ioBytePosition);
-        last += delta;
-        if (DEBUG) {
-          System.out.println("\t\t" + Utility.hex(last));
-        }
-        result[0] = (char)last;
-        last = (last & ~0x7F) | 0x40; // position in middle of 128 block
-    } else {
-        int last = readUnsignedInt(input, ioBytePosition);
-        if (DEBUG) {
-          System.out.println("\t\t" + Utility.hex(last));
-        }
-        result[0] = (char)last;
-    }
-    return ioBytePosition[0];
-  }
-
 
   /* (non-Javadoc)
    * @see org.unicode.cldr.util.StringByteConverter#toBytes(char, byte[])
@@ -97,30 +73,34 @@ public class ByteString extends StringByteConverter {
   /* (non-Javadoc)
    * @see org.unicode.cldr.util.StringByteConverter#fromBytes(byte[], int, int, java.lang.Appendable)
    */
-  public  Appendable fromBytes(byte[] input, int byteStart, int byteLength, Appendable result) throws IOException {
-    int[] ioBytePosition = new int[1];
-    ioBytePosition[0] = 0;
-    if (deltaEncoded) {
-      int last = 0x40;
-      while (ioBytePosition[0] < byteLength) {
-        int delta = readInt(input, ioBytePosition);
-        last += delta;
-        if (DEBUG) {
-          System.out.println("\t\t" + Utility.hex(last));
+  public  Appendable fromBytes(byte[] input, int byteStart, int byteLength, Appendable result) {
+    try {
+      int[] ioBytePosition = new int[1];
+      ioBytePosition[0] = 0;
+      if (deltaEncoded) {
+        int last = 0x40;
+        while (ioBytePosition[0] < byteLength) {
+          int delta = readInt(input, ioBytePosition);
+          last += delta;
+          if (DEBUG) {
+            System.out.println("\t\t" + Utility.hex(last));
+          }
+          result.append((char)last);
+          last = (last & ~0x7F) | 0x40; // position in middle of 128 block
         }
-        result.append((char)last);
-        last = (last & ~0x7F) | 0x40; // position in middle of 128 block
-      }
-    } else {
-      while (ioBytePosition[0] < byteLength) {
-        int last = readUnsignedInt(input, ioBytePosition);
-        if (DEBUG) {
-          System.out.println("\t\t" + Utility.hex(last));
+      } else {
+        while (ioBytePosition[0] < byteLength) {
+          int last = readUnsignedInt(input, ioBytePosition);
+          if (DEBUG) {
+            System.out.println("\t\t" + Utility.hex(last));
+          }
+          result.append((char)last);
         }
-        result.append((char)last);
       }
+      return result;
+    } catch (IOException e) {
+      throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
     }
-    return result;
   }
 
   public static int writeInt(int source, byte[] output, int bytePosition) {
@@ -233,4 +213,8 @@ public class ByteString extends StringByteConverter {
     }
   }
 
+  @Override
+  public int getMaxBytesPerChar() {
+    return 4;
+  }
 }

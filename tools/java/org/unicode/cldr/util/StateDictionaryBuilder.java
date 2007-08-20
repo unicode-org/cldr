@@ -7,6 +7,7 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
 import org.unicode.cldr.util.StateDictionary.Cell;
@@ -14,15 +15,18 @@ import org.unicode.cldr.util.StateDictionary.Row;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 /**
  * A simple state-table based dictionary builder.
  * @author markdavis
  * @param <T> the return type for the dictionary
  */
-public class StateDictionaryBuilder<T> {
+public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
   
   private static final boolean SHOW_SIZE = true;
   
@@ -50,8 +54,9 @@ public class StateDictionaryBuilder<T> {
     return intMapFactory;
   }
 
-  public void setIntMapFactory(IntMapFactory<T> intMapFactory) {
+  public StateDictionaryBuilder setIntMapFactory(IntMapFactory<T> intMapFactory) {
     this.intMapFactory = intMapFactory;
+    return this;
   }
 
   /**
@@ -62,16 +67,20 @@ public class StateDictionaryBuilder<T> {
     return byteConverter;
   }
   
-  public void setByteConverter(StringByteConverter byteConverter) {
+  public StateDictionaryBuilder setByteConverter(StringByteConverter byteConverter) {
     this.byteConverter = byteConverter;
+    return this;
   }
   
   /**
-   * Create a new simple StateDictionary. This format is relatively fast to produce, and has a fair amount of compaction.
+   * Create a new simple StateDictionary. This format is relatively fast to
+   * produce, and has a fair amount of compaction. The Map must be sorted
+   * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+   * 
    * @param source
    * @return
    */
-  public StateDictionary make(Map<CharSequence, T> source) {
+  public StateDictionary<T> make(Map<CharSequence, T> source) {
     // clear out state
     buildingCurrentAddRow = null;
     buildingLastEntry = "";
@@ -85,7 +94,7 @@ public class StateDictionaryBuilder<T> {
     for (CharSequence text : source.keySet()) {
       addMapping(text, valueToInt.get(source.get(text)));
     }
-    
+
     // now compact the rows
     // first find out which rows are equivalent (recursively)
     Map<Row,Row> replacements = new HashMap<Row,Row>();
@@ -130,6 +139,8 @@ public class StateDictionaryBuilder<T> {
     return row;
   }
   
+  byte[] addMappingBuffer = new byte[500];
+  
   private void addMapping(CharSequence text, int result) {
     if (Dictionary.compare(text,buildingLastEntry) <= 0) {
       throw new IllegalArgumentException("Each string must be greater than the previous one.");
@@ -138,10 +149,13 @@ public class StateDictionaryBuilder<T> {
     buildingCurrentAddRow = builtBaseRow;
     int bytesUsed = 0;
 
-    byte[] output = new byte[text.length()*3];
-    int lastIndex = byteConverter.toBytes(text,output,0) - 1;
+    int maxBytes= text.length()*byteConverter.getMaxBytesPerChar();
+    if (addMappingBuffer.length < maxBytes) {
+      addMappingBuffer = new byte[maxBytes + 100];
+    }
+    int lastIndex = byteConverter.toBytes(text,addMappingBuffer,0) - 1;
     for (int i = 0; i <= lastIndex; ++i) {
-      result = add(output[i], result, i == lastIndex);
+      result = add(addMappingBuffer[i], result, i == lastIndex);
       ++bytesUsed;
     }
     builtTotalBytes += bytesUsed;

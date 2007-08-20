@@ -7,11 +7,11 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
-import java.util.LinkedHashSet;
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 
 /**
  * Implements a search for words starting at a given offset. Logically, it is
@@ -89,7 +89,18 @@ public abstract class Dictionary<T> {
    * 
    * @return
    */
-  public abstract Map<CharSequence, T> getMapping();
+  public abstract Iterator<Entry<CharSequence, T>> getMapping();
+  
+  /**
+   * Interface for building a new simple StateDictionary. The Map must be sorted
+   * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+   * 
+   * @param source
+   * @return
+   */
+  public interface DictionaryBuilder<T> {
+    public Dictionary<T> make(Map<CharSequence, T> source);
+  }
   
   /**
    * Return more comprehensive debug info if available.
@@ -279,12 +290,51 @@ public abstract class Dictionary<T> {
         } else if (getMatchEnd() == text.length()) {
           return status;
         } else {
-          setOffset(++offset);
+          nextOffset();
         }
+      }
+    }
+
+    /**
+     * Increment the offset in the text.
+     */
+    public Matcher nextOffset() {
+      return setOffset(++offset);
+    }
+    
+    /**
+     * Convert the remaining text (after offset) to the target. Any substring with a MATCH is replaced by the value.toString(); other characters are copied. Converts to first (shortest) match..
+     * TODO add parameter to pick between shortest and longest.
+     * @param target
+     */
+    public Appendable convert(Appendable target) {
+      try {
+        while (offset < text.length()) {
+            Status status = next();
+            if (status != Status.MATCH) {
+              target.append(text.charAt(getOffset()));
+              nextOffset();
+            } else {
+              target.append(getMatchValue().toString());
+              setOffset(getMatchEnd());
+          }
+        }
+        return target;
+      } catch (IOException e) {
+        throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
       }
     }
   }
   
+  /**
+   * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
+   * If the text has isolated surrogates, they will not sort correctly.
+   */
+  public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
+    public int compare(CharSequence o1, CharSequence o2) {
+      return Dictionary.compare(o1, o2);
+    }
+  };
   
   /**
    * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
@@ -324,4 +374,12 @@ public abstract class Dictionary<T> {
     0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0x2000, 0xf800, 0xf800, 0xf800, 0xf800
   };
+  
+  public static <A,B> Map<A,B> load(Iterator<Entry<A, B>> input, Map<A, B> output) {
+    while (input.hasNext()) {
+      Entry<A, B> entry = input.next();
+      output.put(entry.getKey(), entry.getValue());
+    }
+    return output;
+  }
 }

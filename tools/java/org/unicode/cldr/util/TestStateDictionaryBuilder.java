@@ -9,6 +9,7 @@ package org.unicode.cldr.util;
 
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
+import org.unicode.cldr.util.SimpleDictionary.SimpleDictionaryBuilder;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
@@ -18,6 +19,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -53,6 +55,7 @@ public class TestStateDictionaryBuilder<T> {
   Map<CharSequence,T> baseMapping = new TreeMap<CharSequence,T>();
   
   final StateDictionaryBuilder<T> stateDictionaryBuilder = new StateDictionaryBuilder<T>();
+  final SimpleDictionaryBuilder<T> simpleDictionaryBuilder = new SimpleDictionaryBuilder<T>();
   
   // TODO: convert to TestFramework
   public static void main(String[] args) {
@@ -157,8 +160,8 @@ public class TestStateDictionaryBuilder<T> {
     
   }
 
-  private void tryFind(String sampleText, Dictionary<T> dictionary) {
-    System.out.println("Using dictionary: " + dictionary.getMapping());
+  static public <U> void tryFind(String sampleText, Dictionary<U> dictionary) {
+    System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap()));
     System.out.println("Searching in: {" + sampleText + "}");
     // Dictionaries are immutable, so we create a Matcher to search/test text.
     Matcher matcher = dictionary.getMatcher();
@@ -188,7 +191,7 @@ public class TestStateDictionaryBuilder<T> {
   
   private void showDictionaryContents() {
     // build stuff to use from now on
-    simpleDictionary = new SimpleDictionary<T>(baseMapping); 
+    simpleDictionary = simpleDictionaryBuilder.make(baseMapping); 
     simpleMatcher = simpleDictionary.getMatcher();
     stateDictionary = stateDictionaryBuilder.make(baseMapping);
     stateMatcher = stateDictionary.getMatcher();
@@ -234,16 +237,18 @@ public class TestStateDictionaryBuilder<T> {
       if (SHORT_TEST && count++ > 500) continue; // 
       addToBoth(item, data.get(item));
     }
-    simpleDictionary = new SimpleDictionary<T>(baseMapping);
+    simpleDictionary = simpleDictionaryBuilder.make(baseMapping);
     stateDictionary = stateDictionaryBuilder.make(baseMapping);
     baseMapping.clear();
     compare();
   }
   
   private void compare() {
-    System.out.println("Comparing results: " + simpleDictionary.getMapping().size());
-    Map<CharSequence, T> dictionaryData = stateDictionary.getMapping();
-    Map<CharSequence, T> simpleDictionaryData = simpleDictionary.getMapping();
+    System.out.println("Comparing results: ");
+    
+    Map<CharSequence, T> dictionaryData = Dictionary.load(stateDictionary.getMapping(), new HashMap());
+    Map<CharSequence, T> simpleDictionaryData = Dictionary.load(simpleDictionary.getMapping(), new HashMap());
+    
     assert dictionaryData.equals(simpleDictionaryData) : showDifference(dictionaryData, simpleDictionaryData);
     if (SHOW_STATES) {
       System.out.println("Size: " + dictionaryData.size());
@@ -266,7 +271,7 @@ public class TestStateDictionaryBuilder<T> {
       crossCheck(myText + "!");
     }
   }
-  
+
   private String showDifference(Map<CharSequence, T> dictionaryData, Map<CharSequence, T> simpleDictionaryData) {
     System.out.println(dictionaryData.size() + ", " + simpleDictionaryData.size());
     Iterator<Entry<CharSequence, T>> it1 = dictionaryData.entrySet().iterator();

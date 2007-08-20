@@ -22,6 +22,7 @@ import java.util.Random;
 
 public class TestByteString {
   static Random random = new Random(0);
+  enum Type {utf8, normal, compact};
   
   public static void main(String[] args) throws IOException {
     byte[] bytes = new byte[1000];
@@ -54,11 +55,15 @@ public class TestByteString {
     }
     
     // test read/write string
-    UnicodeSet repertoire = new UnicodeSet("[[\\u0000-\\u03FF]&[:script=Greek:]]").complement().complement();
+    {
+      String test = new String("\uD800\uDC00");
+      checkUtf8(test);
+    }
+    
+    UnicodeSet repertoire = new UnicodeSet("[[\\u0000-\\u03FF]&[:script=Greek:]]");
     for (int i = 0; i < 100; ++i) {
       String test = getRandomString(1, 6, repertoire);
-      testString(test, false);
-      testString(test, true);
+      testString(test);
     }
     System.out.println("Bigger is better");
     System.out.println("el rand utf8/comp: " + totalUtf8Bytes + "/" + totalBytes + " = " + (totalUtf8Bytes/(double)totalBytes));
@@ -72,13 +77,20 @@ public class TestByteString {
     testWithLocale("ar");
   }
 
+  private static void testString(String test) throws IOException {
+    for (Type type : Type.values()) {
+      testString(test, type);
+    }
+  }
+
   private static void testWithLocale(String locale) throws IOException {
-    testWithLocale(locale, true);
-    testWithLocale(locale, false);
+    for (Type type : Type.values()) {
+      testWithLocale(locale, type);
+    }
     System.out.println();
   }
 
-  private static void testWithLocale(String locale, boolean deltaEncoded) throws IOException {
+  private static void testWithLocale(String locale, Type type) throws IOException {
     totalUtf8Bytes = totalBytes = 0;
     Factory cldrFactory = Factory.make(org.unicode.cldr.util.Utility.MAIN_DIRECTORY, ".*");
     CLDRFile file = cldrFactory.make(locale, false);
@@ -87,21 +99,23 @@ public class TestByteString {
         continue;
       }
       String value = file.getStringValue(path);
-      testString(value, deltaEncoded);
+      testString(value, type);
     }
-    System.out.println(locale + "\t" + (deltaEncoded ? 'd' : 'u') + "\tutf8/comp: " + totalUtf8Bytes + "/" + totalBytes + " = " + (totalUtf8Bytes/(double)totalBytes));
+    System.out.println(locale + "\t" + type + "\tutf8/comp: " + totalUtf8Bytes + "/" + totalBytes + " = " + (totalUtf8Bytes/(double)totalBytes));
   }
   
   static int counter = 1;
 
-  private static void testString(String test, boolean deltaEncoded) throws IOException {
+  private static void testString(String test, Type type) throws IOException {
     checkUtf8(test);
     byte[] bytes = new byte[2000];
     byte[] bytes2 = new byte[4];
     if (ByteString.DEBUG) {
       System.out.println(counter++ + ": " + Utility.hex(test) + ", \t" + test);
     }
-    StringByteConverter byteString = true ? new StringUtf8Converter() : new ByteString(deltaEncoded);
+    StringByteConverter byteString = type == Type.utf8 ? new StringUtf8Converter() : 
+      type == Type.normal ? new ByteString(false)
+          : new ByteString(true);
     int byteLen = byteString.toBytes(test,bytes, 0);
     
     // verify that incremental gets the same results

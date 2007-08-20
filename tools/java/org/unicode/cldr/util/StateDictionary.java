@@ -13,10 +13,12 @@ import java.util.BitSet;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 
 public class StateDictionary<T> extends Dictionary<T> {
   
@@ -59,8 +61,9 @@ public class StateDictionary<T> extends Dictionary<T> {
     return result.toString();
   }
   
-  public Map<CharSequence, T> getMapping() {
-    return new TextFetcher().getWords();
+  public Iterator<Entry<CharSequence, T>> getMapping() {
+    // TODO Optimize this to only return the items on demand
+    return new TextFetcher().getWords().entrySet().iterator();
   }
   
   @Override
@@ -233,7 +236,7 @@ public class StateDictionary<T> extends Dictionary<T> {
   }
   
   private class StateMatcher extends Matcher<T> {
-    private byte[] matchByteBuffer = new byte[4];
+    final private byte[] matchByteBuffer = new byte[byteString.getMaxBytesPerChar()];
     
     private int matchByteStringIndex;
     private int matchByteBufferLength;
@@ -241,8 +244,6 @@ public class StateDictionary<T> extends Dictionary<T> {
     private Row matchCurrentRow;
     private int matchIntValue = -1;
     private Row matchLastRow;
-    
-    
     
     public T getMatchValue() {
       try {
@@ -279,13 +280,18 @@ public class StateDictionary<T> extends Dictionary<T> {
           return Status.NONE;
         }
         Status result = Status.PARTIAL;
+        boolean oneMorePass = true;
         
-        while (matchEnd < text.length()) {
-          
+        while (matchEnd < text.length() || oneMorePass) {
+          oneMorePass = false;
           // get more bytes IF matchEnd is set right
           if (matchEnd == matchByteStringIndex) {
-            char ch = text.charAt(matchByteStringIndex++);
-            matchByteBufferLength = byteString.toBytes(ch, matchByteBuffer, 0);
+            if (oneMorePass) {
+              char ch = text.charAt(matchByteStringIndex++);
+              matchByteBufferLength = byteString.toBytes(ch, matchByteBuffer, 0);
+            } else {
+              matchByteBufferLength = byteString.toBytes(matchByteBuffer, 0);
+            }
           }
           for (int i = 0; i < matchByteBufferLength; ++i) {
             result = nextByte(matchByteBuffer[i]);
@@ -536,11 +542,7 @@ public class StateDictionary<T> extends Dictionary<T> {
     
     private CharSequence stringFromBytes(byte[] soFar, int len) {
       buffer.setLength(0);
-      
-      try {
-        byteString.fromBytes(soFar, 0, len, buffer);
-      } catch (IOException e) { } // will never happen
-      
+      byteString.fromBytes(soFar, 0, len, buffer);     
       return buffer.toString();
     }
   }

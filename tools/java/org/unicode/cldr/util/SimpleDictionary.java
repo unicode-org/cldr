@@ -7,6 +7,7 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 import java.util.Collections;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 
 /**
  * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename files in CVS.
@@ -29,8 +31,16 @@ public class SimpleDictionary<T> extends Dictionary<T> {
   private int matchCount;
   private CharSequence lastEntry = "";
   private T matchValue;
+  
+  public static class SimpleDictionaryBuilder<T> implements DictionaryBuilder<T>{
+
+    public SimpleDictionary<T> make(Map<CharSequence, T> source) {
+      return new SimpleDictionary(source);
+    }
+    
+  }
  
-  public SimpleDictionary(Map<CharSequence,T> source) {
+  private SimpleDictionary(Map<CharSequence,T> source) {
     for (CharSequence text : source.keySet()) {
      addMapping(text, source.get(text));
     }
@@ -68,8 +78,8 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     data.put(text, result);
   }
 
-  public Map<CharSequence, T> getMapping() {
-    return Collections.unmodifiableMap(data);
+  public Iterator<Entry<CharSequence, T>> getMapping() {
+    return Collections.unmodifiableMap(data).entrySet().iterator();
   }
 
 

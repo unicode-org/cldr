@@ -200,7 +200,7 @@ public class TestStateDictionaryBuilder<T> {
 //  ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
 //  ((Dictionary.Builder) stateDictionary).addMapping(string, i);
     
-    System.out.println("Dictionary: " + stateDictionary.getMapping());
+    System.out.println("Dictionary: " + Dictionary.load(stateDictionary.getMapping(), new TreeMap()));
     System.out.println();
     if (SHOW_STATES) {
       System.out.println("States:\r\n" + stateDictionary);
@@ -347,6 +347,7 @@ public class TestStateDictionaryBuilder<T> {
       matcher.setOffset(0);
       int matchEnd = -1;
       T matchValue = null;
+      // find the longest match
       while (true) {
         Dictionary.Matcher.Status next1 = matcher.next();
         if (next1 == Dictionary.Matcher.Status.MATCH) {

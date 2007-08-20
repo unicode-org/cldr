@@ -14,6 +14,7 @@ import org.unicode.cldr.util.StateDictionary.Cell;
 import org.unicode.cldr.util.StateDictionary.Row;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -91,8 +92,13 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
     if (SHOW_SIZE) System.out.println("***VALUE STORAGE: " + builtResults.approximateStorage());
     
     Map<T, Integer> valueToInt = builtResults.getValueMap();
+    Map<byte[],Integer> sorted = new TreeMap(SHORTER_BYTE_ARRAY_COMPARATOR);
     for (CharSequence text : source.keySet()) {
-      addMapping(text, valueToInt.get(source.get(text)));
+      sorted.put(byteConverter.toBytes(text), valueToInt.get(source.get(text)));
+    }
+
+    for (byte[] key : sorted.keySet()) {
+      addMapping(key, sorted.get(key));
     }
 
     // now compact the rows
@@ -139,29 +145,17 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
     return row;
   }
   
-  byte[] addMappingBuffer = new byte[500];
-  
-  private void addMapping(CharSequence text, int result) {
-    if (Dictionary.compare(text,buildingLastEntry) <= 0) {
-      throw new IllegalArgumentException("Each string must be greater than the previous one.");
-    }
-    buildingLastEntry = text;
+  private void addMapping(byte[] key, int result) {
     buildingCurrentAddRow = builtBaseRow;
-    int bytesUsed = 0;
 
-    int maxBytes= text.length()*byteConverter.getMaxBytesPerChar();
-    if (addMappingBuffer.length < maxBytes) {
-      addMappingBuffer = new byte[maxBytes + 100];
+    int lastIndex = key.length - 1;
+    for (int i = 0; i <=lastIndex; ++i) {
+      result = add(key[i], result, i == lastIndex);
     }
-    int lastIndex = byteConverter.toBytes(text,addMappingBuffer,0) - 1;
-    for (int i = 0; i <= lastIndex; ++i) {
-      result = add(addMappingBuffer[i], result, i == lastIndex);
-      ++bytesUsed;
-    }
-    builtTotalBytes += bytesUsed;
+    builtTotalBytes += key.length;
     builtTotalStrings += 1;
-    if (builtMaxByteLength < bytesUsed) {
-      builtMaxByteLength = bytesUsed;
+    if (builtMaxByteLength < key.length) {
+      builtMaxByteLength = key.length;
     }
   }
   
@@ -191,4 +185,20 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
     return 0;
   }
   
+  static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
+
+    public int compare(byte[] o1, byte[] o2) {
+      int minLen = o1.length;
+      if (minLen > o2.length) {
+        minLen = o2.length;
+      }
+      for (int i = 0; i < minLen; ++i) {
+        if (o1[i] != o2[i]) {
+          return o1[i] < o2[i] ? -1 : 1; // return lesser first
+        }
+      }
+      return o1.length < o2.length ? -1 : o1.length > o2.length ? 1 : 0;
+    }
+
+  };
 }

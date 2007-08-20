@@ -83,4 +83,12 @@ public abstract class StringByteConverter {
     toBytes(output, bytePosition); // cleanup
     return bytePosition;
   }
+  
+  public byte[]  toBytes(CharSequence source) {
+    byte[] buffer = new byte[source.length()*getMaxBytesPerChar()];
+    int len = toBytes(source, buffer, 0);
+    byte[] result = new byte[len];
+    System.arraycopy(buffer, 0, result, 0, len);
+    return result;
+  }
 }

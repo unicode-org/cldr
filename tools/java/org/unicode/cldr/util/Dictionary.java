@@ -119,6 +119,8 @@ public abstract class Dictionary<T> {
     
     protected int matchEnd;
     
+    protected T matchValue;
+    
 //  /*
 //  * A Dictionary may also have a builder, that allows the dictionary to be
 //  * built at runtime.
@@ -137,7 +139,7 @@ public abstract class Dictionary<T> {
 //  }
     
     /**
-     * Set the target text to match within; also resets the offset to zero.
+     * Set the target text to match within; also resets the offset to zero, calling setOffset().
      * 
      * @param text
      * @return
@@ -192,7 +194,9 @@ public abstract class Dictionary<T> {
      * 
      * @return
      */
-    public abstract T getMatchValue();
+    public T getMatchValue() {
+      return matchValue;
+    }
     
     /**
      * Get the latest match end (that is, how far we matched); see next() for more information.
@@ -233,8 +237,8 @@ public abstract class Dictionary<T> {
     
     /**
      * Finds the next match, and sets the matchValue and matchEnd. Normally you
-     * call in a loop until you get a value that is not MATCH.<br>
-     * <b>Warning: the results of calling next() after getting non-MATCH value are
+     * call in a loop until you get NONE.<br>
+     * <b>Warning: the results of calling next() after getting NONE are
      * undefined!</b><br>
      * Here is what happens with the different return values:
      * <ul>
@@ -249,16 +253,72 @@ public abstract class Dictionary<T> {
      */
     public abstract Status next();
     
+    public enum Filter {ALL, MATCHES, LONGEST_MATCH, LONGEST, LONGEST_WITH_FINAL_PARTIAL};
+    
+    /**
+     * Finds the next match, and sets the matchValue and matchEnd. Normally you
+     * call in a loop until you get NONE.<br>
+     * <b>Warning: the results of calling next() after getting NONE are
+     * undefined!</b><br>
+     * Here is what happens with the different return values:
+     * <ul>
+     * <li>MATCH: there was an exact match. Its matchValue and matchEnd are
+     * set.</li>
+     * <li>PARTIAL: there was a partial match. The matchEnd is set to the
+     * furthest point that could be reached successfully. To get the matchValue,
+     * and whether or not there were multiple partial matches, call
+     * nextPartial().</li>
+     * <li>NONE: the matchValue and matchEnd are undefined.</li>
+     * </ul>
+     * Question: should we make the name more explicit, like nextAtOffset? Because
+     * this iterates through the matches <i>at</i> an offset, not through offsets.
+     * 
+     * @return MATCH if there is a match.
+     */
+    public Status next(Filter filter) {
+      if (filter == Filter.ALL) {
+        return next();
+      }
+      Status lastStatus = Status.NONE;
+      T lastValue = null;
+      int lastEnd = -1;
+      while (true) {
+        Status status = next();
+        if (status == Status.NONE) {
+          if (lastValue == null) {
+            return status;
+          }
+          matchEnd = lastEnd;
+          matchValue = lastValue;
+          return lastStatus;
+        } else if (status == Status.MATCH
+            || (status == Status.PARTIAL 
+                && (filter == Filter.LONGEST
+                    || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && matchEnd == text.length()))) {
+          if (filter == Filter.MATCHES) {
+            return status;
+          }
+          lastStatus = status;
+          lastValue = getMatchValue();
+          lastEnd = matchEnd;
+        }
+      }
+    }
+
     /**
      * Determine whether a partial match is singular (there is only one possible
-     * continuation) or multiple (there are different continuations). Sets the
-     * value of matchValue to that of the string that could have been returned if
-     * appropriate additional characters were inserted at matchEnd. If there are
-     * multiple possible strings, the matchValue is the one for the lowest (in
-     * code point order) string.
+     * continuation) or multiple (there are different continuations).
+     * <ul>
+     * <li>If so, sets the value of matchValue to that of the string that could
+     * have been returned if appropriate additional characters were inserted at
+     * matchEnd. </li>
+     * <li>If not, then the matchValue is indeterminate. </li>
+     * </ul>
      * <p>
-     * This must only be called if there is a PARTIAL result from next().
-     * <p>QUESTION: would it be useful to be able to get all the partial matches??
+     * This must only be called immediatedly following a PARTIAL result from
+     * next().
+     * <p>
+     * QUESTION: would it be useful to be able to get all the partial matches??
      * 
      * @return true if the partial match is singular, false if it is plural.
      */
@@ -282,9 +342,9 @@ public abstract class Dictionary<T> {
     /**
      * Advances the offset until next() doesn't return NONE. 
      */
-    public Status find() {
+    public Status find(Filter filter) {
       while (true) {
-        Status status = next();
+        Status status = next(filter);
         if (status != Status.NONE) {
           return status;
         } else if (getMatchEnd() == text.length()) {
@@ -323,6 +383,13 @@ public abstract class Dictionary<T> {
       } catch (IOException e) {
         throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
       }
+    }
+    
+    /**
+     * For debugging
+     */
+    public String toString() {
+      return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \"" + text + "\"}";
     }
   }
   

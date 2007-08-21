@@ -28,12 +28,18 @@ public class StateDictionary<T> extends Dictionary<T> {
   private final ArrayList<Row> builtRows;
 
   private final Row builtBaseRow;
+  
+  private final T builtBaseValue;
 
   private final IntMap<T> builtResults;
 
   private final int builtMaxByteLength;
 
   private final StringByteConverter byteString;
+  
+  // TODO remove before deployment; not thread safe
+  private static int debugReferenceCount = 0;
+  private int debugReferenceNumber = debugReferenceCount++;
 
   /** Only should be called by StateDictionaryBuilder
    * @param builtBaseRow2
@@ -50,6 +56,7 @@ public class StateDictionary<T> extends Dictionary<T> {
     builtResults = builtResults2;
     this.builtMaxByteLength = builtMaxByteLength;
     this.byteString = byteConverter;
+    builtBaseValue = builtResults.get(0);
   }
 
   @Override
@@ -97,18 +104,18 @@ public class StateDictionary<T> extends Dictionary<T> {
 
   static class Row implements Comparable {
     // maps byte to cells
-    TreeMap<Byte, Cell> byteToCell = new TreeMap<Byte, Cell>();
+    final TreeMap<Byte, Cell> byteToCell = new TreeMap<Byte, Cell>();
 
     // keeps track of the number of cells with returns
     transient int returnCount;
 
     transient int terminatingReturnCount;
 
-    private static int oldest = 0;
-
-    private int age = oldest++;
-
-    private int newAge = Integer.MAX_VALUE;
+    private int referenceNumber;
+    
+    Row(int rowNumber) {
+      referenceNumber = rowNumber;
+    }
 
     public int nonTerminating() {
       return byteToCell.size() - terminatingReturnCount;
@@ -159,12 +166,12 @@ public class StateDictionary<T> extends Dictionary<T> {
         }
       }
       // if we fail completely, use the age.
-      return age - other.age;
+      return referenceNumber - other.referenceNumber;
     }
 
     public String toString() {
       StringBuilder buffer = new StringBuilder();
-      buffer.append("R" + getAge() + "{");
+      buffer.append("R" + getReferenceNumber() + "{");
       boolean first = true;
       Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
       sorted.addAll(byteToCell.keySet());
@@ -192,10 +199,8 @@ public class StateDictionary<T> extends Dictionary<T> {
       return buffer.toString();
     }
 
-    public int getAge() {
-      if (newAge != Integer.MAX_VALUE)
-        return newAge;
-      return age;
+    public int getReferenceNumber() {
+      return referenceNumber;
     }
 
     int compact(byte[] target) {
@@ -218,7 +223,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     public int addBytes(byte[] target, int pos, int rowDelta) {
       pos = StateDictionary.addBytes(deltaResult, target, pos);
-      int rowOffset = nextRow == null ? 0 : rowDelta - nextRow.getAge();
+      int rowOffset = nextRow == null ? 0 : rowDelta - nextRow.getReferenceNumber();
       rowOffset <<= 1; // make room for returns
       if (returns)
         rowOffset |= 1;
@@ -234,13 +239,15 @@ public class StateDictionary<T> extends Dictionary<T> {
         if (result.length() != 0) {
           result += "/";
         }
-        result += "R" + nextRow.getAge();
+        result += "R" + nextRow.getReferenceNumber();
       }
       return result;
     }
   }
 
   private class StateMatcher extends Matcher<T> {
+    private static final boolean SHOW_DEBUG = false;
+
     final private byte[] matchByteBuffer = new byte[byteString
         .getMaxBytesPerChar()];
 
@@ -255,83 +262,95 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     private Row matchLastRow;
 
-    public T getMatchValue() {
-      try {
-        return builtResults.get(matchIntValue);
-      } catch (Exception e) {
-        return null;
-      }
-    }
-
-    @Override
-    public Matcher<T> setText(CharSequence text) {
-      super.setText(text);
-      if (byteString != null) {
-        byteString.clear();
-      }
-      return this;
-    }
-
     @Override
     public Matcher<T> setOffset(int offset) {
       matchCurrentRow = builtBaseRow;
+      partialLastRow = null; // can remove this later, only for debugging
+      partialMatchValue = 0; // ditto
       matchIntValue = 0;
-      if (byteString != null) {
-        byteString.clear();
-      }
+      myMatchEnd = offset;
+      matchValue = null;
+      byteString.clear();
       matchByteStringIndex = offset;
       return super.setOffset(offset);
     }
 
+    int myMatchEnd;
+
+    private Row partialLastRow;
+
+    private int partialMatchValue;
+    
     public Status next() {
+      if (SHOW_DEBUG) {
+        System.out.println("NEXT: " + this);
+      }
       if (matchCurrentRow == null) {
         matchIntValue = -1;
+        matchValue = null;
         return Status.NONE;
       }
       Status result = Status.PARTIAL;
 
-      while (matchEnd < text.length()) {
+      while (myMatchEnd < text.length()) {
         // get more bytes IF matchEnd is set right
-        if (matchEnd == matchByteStringIndex) {
+        if (myMatchEnd == matchByteStringIndex) {
           if (true) { // matchEnd < text.length()
             char ch = text.charAt(matchByteStringIndex++);
             matchByteBufferLength = byteString.toBytes(ch, matchByteBuffer, 0);
+            if (SHOW_DEBUG) {
+              System.out.println("\tChar: " + ch + "\t" + com.ibm.icu.impl.Utility.hex(ch) + "\t->\t" + Utility.hex(matchByteBuffer, 0, matchByteBufferLength, " "));
+            }
           } else {
             matchByteBufferLength = byteString.toBytes(matchByteBuffer, 0);
           }
         }
         for (int i = 0; i < matchByteBufferLength; ++i) {
           result = nextByte(matchByteBuffer[i]);
+          if (result != Status.PARTIAL) {
+            break;
+          }
         }
-
-        // we will never have a return value except at the end of a character, so we don't need
-        // to check after each nextByte
+        // Normally, we will never have a return value except at the end of a character, so we don't need
+        // to check after each nextByte. However, if the byteString converts C to a sequence of bytes that
+        // is a prefix of what it converts D into, then we will get a partial match *WITHIN* a character
 
         if (result == Status.PARTIAL) {
-          ++matchEnd;
+          ++myMatchEnd;
           // and continue with the loop
         } else if (result == Status.MATCH) {
-          ++matchEnd;
+          ++myMatchEnd;
+          matchValue = builtResults.get(matchIntValue);
+          matchEnd = myMatchEnd;
+          if (SHOW_DEBUG) {
+            System.out.println("NEXT RESULT: " + result + "\t" + this);
+          }
           return result;
         } else {
           // if we didn't get a MATCH, we have NONE. But in reality, there could be a possible match
           // so we check to see whether the current row allows for any continuation.
-          if (matchEnd > offset && matchCurrentRow.byteToCell.size() > 0) {
+          if (myMatchEnd > offset && matchCurrentRow.byteToCell.size() > 0) {
             result = Status.PARTIAL;
           }
           if (result == Status.NONE) {
             matchIntValue = -1;
+            matchValue = null;
           }
           break;
         }
       }
       matchLastRow = matchCurrentRow;
       matchCurrentRow = null;
+      if (result == Status.PARTIAL) {
+        matchValue = builtResults.get(matchIntValue);
+        matchEnd = myMatchEnd;
+        partialLastRow = matchLastRow;
+        partialMatchValue = matchIntValue;
+        if (SHOW_DEBUG) {
+          System.out.println("NEXT RESULT: " + result + "\t" + this);
+        }
+      }
       return result;
-    }
-
-    public boolean nextUniquePartial() {
-      return !doesSplit(matchLastRow);
     }
 
     /**
@@ -341,6 +360,9 @@ public class StateDictionary<T> extends Dictionary<T> {
      * @return
      */
     private Status nextByte(int chunk) {
+      if (SHOW_DEBUG) {
+        System.out.println("\t"  + debugReferenceNumber + "\tRow: " + matchCurrentRow);
+      }
       Cell cell = matchCurrentRow.byteToCell.get((byte) chunk);
       if (cell == null) {
         return Status.NONE;
@@ -357,30 +379,37 @@ public class StateDictionary<T> extends Dictionary<T> {
       return matchIntValue;
     }
 
+    public boolean nextUniquePartial() {
+      return isUnique(partialLastRow, partialMatchValue);
+    }
+
     /**
      * Determine if there is some path that splits, eg a row has 2 cells.
+     * @param savedMatchValue TODO
      * @return
      */
-    public boolean doesSplit(Row myRow) {
-      boolean result = false;
+    private boolean isUnique(Row savedRow, int savedMatchValue) {
+      boolean result = true;
       int size;
-      while (myRow != null) {
-        size = myRow.byteToCell.size();
+      while (savedRow != null) {
+        size = savedRow.byteToCell.size();
         if (size != 1) {
-          result = true;
+          result = false;
         }
-        Cell firstCell = myRow.byteToCell.get(myRow.byteToCell.firstKey());
-        // if we have a returns flag AND a next row, then we are splitting
+        Cell firstCell = savedRow.byteToCell.get(savedRow.byteToCell.firstKey());
+        // If we have a returns flag AND a next row, then we are splitting.
         // plus, whenever we get a returns flag, we stop adding values
-        matchIntValue += firstCell.deltaResult;
-        myRow = firstCell.nextRow;
+        savedMatchValue += firstCell.deltaResult;
+        savedRow = firstCell.nextRow;
         if (firstCell.returns) {
-          if (myRow != null) {
-            return true;
+          if (savedRow != null) {
+            result = false;
           }
-          return result;
+          break;
         }
       }
+      matchValue = builtResults.get(savedMatchValue);
+      matchEnd = myMatchEnd;
       return result;
     }
 
@@ -574,7 +603,7 @@ public class StateDictionary<T> extends Dictionary<T> {
     byte[] target = new byte[500];
     int totalBytesCompacted = 0;
     for (Row row : s) {
-      row.newAge = count++;
+      row.referenceNumber = count++;
       int depth = row.maximumDepth();
       if (depth != oldDepth) {
         if (DEBUG_FLATTEN) {
@@ -595,7 +624,7 @@ public class StateDictionary<T> extends Dictionary<T> {
       oldCell = newCell;
 
       for (Cell cell : row.byteToCell.values()) {
-        if (cell.nextRow != null && cell.nextRow.newAge > row.newAge) {
+        if (cell.nextRow != null && cell.nextRow.referenceNumber > row.referenceNumber) {
           if (DEBUG_FLATTEN) {
             System.out.println("*** Fail");
           }

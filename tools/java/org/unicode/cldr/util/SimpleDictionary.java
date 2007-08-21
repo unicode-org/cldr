@@ -30,7 +30,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
   boolean done;
   private int matchCount;
   private CharSequence lastEntry = "";
-  private T matchValue;
   
   public static class SimpleDictionaryBuilder<T> implements DictionaryBuilder<T>{
 
@@ -96,13 +95,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     done = false;
     matchValue = null;
     return super.setOffset(offset);
-  }
-  
-  /**
-   * return the matchValue, or null if there is none.
-   */
-  public T getMatchValue() {
-    return matchValue;
   }
 
   /**

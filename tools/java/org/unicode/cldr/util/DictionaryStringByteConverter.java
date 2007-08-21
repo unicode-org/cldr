@@ -76,7 +76,7 @@ public class DictionaryStringByteConverter extends StringByteConverter {
             case NONE:
               break main;
             case PARTIAL:
-              // if the partial is at the end, then wait for more inpu
+              // if the partial is at the end, then wait for more input
               if (stopOnFinalPartial && matcher.getMatchEnd() == buffer.length()) {
                 if (true) matcher.nextUniquePartial(); // for debugging
                 return bytePosition;

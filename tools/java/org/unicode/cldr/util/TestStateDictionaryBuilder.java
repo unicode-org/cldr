@@ -7,7 +7,10 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.unittest.TestCollationStringByteConverter.CharList;
+import org.unicode.cldr.unittest.TestCollationStringByteConverter.CharListWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher;
+import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.SimpleDictionary.SimpleDictionaryBuilder;
 
@@ -22,6 +25,7 @@ import com.ibm.icu.util.ULocale;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -97,7 +101,10 @@ public class TestStateDictionaryBuilder<T> {
     baseMapping.put("any", (T)"All");
     showDictionaryContents();
     
-    tryFind("many manners ma", stateDictionary);
+    for (Filter filter : Filter.values()) {
+      tryFind("many manners ma", stateDictionary, filter);
+    }
+    
     
     showWords("ma");
     showWords("ma!");
@@ -160,14 +167,14 @@ public class TestStateDictionaryBuilder<T> {
     
   }
 
-  static public <U> void tryFind(String sampleText, Dictionary<U> dictionary) {
+  static public <U> void tryFind(CharSequence sampleText, Dictionary<U> dictionary, Filter filter) {
     System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap()));
-    System.out.println("Searching in: {" + sampleText + "}");
+    System.out.println("Searching in: {" + sampleText + "} with filter=" + filter);
     // Dictionaries are immutable, so we create a Matcher to search/test text.
     Matcher matcher = dictionary.getMatcher();
     matcher.setText(sampleText);
     while (true) {
-      Status status = matcher.find();
+      Status status = matcher.find(filter);
       String unique = ""; // only set if needed
       if (status == Status.NONE) {
         break;
@@ -181,12 +188,19 @@ public class TestStateDictionaryBuilder<T> {
       }
       // Show results
       System.out.println("{"
-          + sampleText.substring(0, matcher.getOffset()) + "[[["
-          + sampleText.substring(matcher.getOffset(), matcher.getMatchEnd())
-          + "]]]" + sampleText.substring(matcher.getMatchEnd())
+          + showBoth(sampleText, 0, matcher.getOffset()) + "[[["
+          + showBoth(sampleText, matcher.getOffset(), matcher.getMatchEnd())
+          + "]]]" + showBoth(sampleText, matcher.getMatchEnd(), sampleText.length())
           + "}\t" + status + "  \t{" + matcher.getMatchValue() + "}\t" + unique);
     }
     System.out.println();
+  }
+  
+  static public CharSequence showBoth(CharSequence source, int start, int end) {
+    if (source instanceof CharListWrapper) {
+      return ((CharListWrapper)source).sourceSubSequence(start, end);
+    }
+    return source.subSequence(start, end);
   }
   
   private void showDictionaryContents() {
@@ -297,7 +311,9 @@ public class TestStateDictionaryBuilder<T> {
         Status stateStatus = stateMatcher.next();
         Status simpleStatus = simpleMatcher.next();
         assert stateStatus == simpleStatus : showValues(stateStatus, simpleStatus);
-        assert stateMatcher.getMatchEnd() == simpleMatcher.getMatchEnd() 
+        final int stateEnd = stateMatcher.getMatchEnd();
+        final int simpleEnd = simpleMatcher.getMatchEnd();
+        assert stateEnd == simpleEnd 
         : showValues(stateStatus, simpleStatus);
         if (stateStatus == Status.PARTIAL) {
           boolean stateUnique = stateMatcher.nextUniquePartial();
@@ -316,7 +332,7 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private String showValues(Status stateStatus, Status simpleStatus) {
-    return "\r\nSTATE:\t" + showValues(stateStatus, stateMatcher) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleMatcher);
+    return "\r\nTEXT:\t" + stateMatcher.text + "\r\nSTATE:\t" + showValues(stateStatus, stateMatcher) + "\r\nSIMPLE:\t" + showValues(simpleStatus, simpleMatcher);
   }
   
   private String showValues(Status status, Matcher<T> matcher) {

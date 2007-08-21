@@ -1159,4 +1159,14 @@ public class Utility {
     return fileRegex;
   }
 
+  public static String hex(byte[] bytes, int start, int end, String separator) {
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < end; ++i) {
+      if (result.length() != 0) {
+        result.append(separator);
+      }
+      result.append(com.ibm.icu.impl.Utility.hex(bytes[i]&0xFF,2));
+    }
+    return result.toString();
+  }
 }

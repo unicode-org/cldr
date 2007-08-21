@@ -134,11 +134,11 @@ public class TestByteString {
     
     totalBytes += byteLen;
     if (ByteString.DEBUG) {
-      System.out.println("\t" + hex(bytes,byteLen," "));
+      System.out.println("\t" + hex(bytes,0,byteLen, " "));
     }
     byte[] utf8bytes = test.getBytes("utf-8");
     if (ByteString.DEBUG) {
-      System.out.println("\t" + hex(utf8bytes,utf8bytes.length," "));
+      System.out.println("\t" + hex(utf8bytes,0,utf8bytes.length, " "));
     }
     totalUtf8Bytes += utf8bytes.length;
     StringBuilder chars = new StringBuilder();
@@ -182,7 +182,7 @@ public class TestByteString {
       String test2 = new String(Character.toChars(test));
       byte[] utf8bytes = test2.getBytes("utf-8");
       if (ByteString.DEBUG) {
-        System.out.println("\tutf: " + hex(utf8bytes,utf8bytes.length," "));
+        System.out.println("\tutf: " + hex(utf8bytes,0,utf8bytes.length, " "));
       }
     }
   }
@@ -192,7 +192,7 @@ public class TestByteString {
     int[] ioBytePosition = new int[1];
     int len = unsigned ? ByteString.writeUnsignedInt(test, bytes, 0) : ByteString.writeInt(test, bytes, 0);
     if (ByteString.DEBUG) {
-      System.out.println("\tcm" + (unsigned ? "u" : "s") + ": " + hex(bytes, len, " "));
+      System.out.println("\tcm" + (unsigned ? "u" : "s") + ": " + hex(bytes, 0, len, " "));
     }
     ioBytePosition[0] = 0;
     int retest = unsigned ? ByteString.readUnsignedInt(bytes, ioBytePosition) : ByteString.readInt(bytes, ioBytePosition);
@@ -201,9 +201,9 @@ public class TestByteString {
     if (len != lengthRead) throw new IllegalArgumentException();
   }
   
-  private static String hex(byte[] bytes, int len, String separator) {
+  private static String hex(byte[] bytes, int start, int end, String separator) {
     StringBuilder result = new StringBuilder();
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i < end; ++i) {
       if (result.length() != 0) {
         result.append(separator);
       }

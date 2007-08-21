@@ -140,7 +140,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
   }
   
   private Row makeRow() {
-    Row row = new Row();
+    Row row = new Row(builtRows.size());
     builtRows.add(row);
     return row;
   }

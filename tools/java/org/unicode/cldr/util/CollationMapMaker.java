@@ -218,7 +218,10 @@ public class CollationMapMaker {
     
     UnicodeSet expansions = new UnicodeSet();
     UnicodeSet contractions = new UnicodeSet();
-    equivalenceClassCollator.getContractionsAndExpansions(contractions, expansions, true);
+    try {
+      equivalenceClassCollator.getContractionsAndExpansions(contractions, expansions, true);
+    } catch (Exception e) {}
+    
     UnicodeSet trialCharacters = new UnicodeSet(filteredChars).addAll(equivalenceClassCollator.getTailoredSet()).addAll(contractions).addAll(expansions);
     
     for (UnicodeSetIterator i = new UnicodeSetIterator(trialCharacters); i.next();) {
@@ -341,7 +344,11 @@ public class CollationMapMaker {
     }
     UnicodeSet expansions = new UnicodeSet();
     UnicodeSet contractions = new UnicodeSet();
-    uca.getContractionsAndExpansions(contractions, expansions, true);
+    try {
+      uca.getContractionsAndExpansions(contractions, expansions, true);
+    } catch (Exception e1) {
+      throw new IllegalArgumentException(e1);
+    }
     
     fullExpansions = new UnicodeSet();
     global:

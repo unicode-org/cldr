@@ -70,7 +70,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
   
   private void addMapping(CharSequence text, T result) {
-    if (compare(text,lastEntry) <= 0) {
+    if (CharUtilities.compare(text,lastEntry) <= 0) {
       throw new IllegalArgumentException("Each string must be greater than the previous one.");
     }
     lastEntry = text;
@@ -121,7 +121,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
     CharSequence firstMatch = null;
     
-    while (matchEnd < text.length()) {
+    while (text.hasCharAt(matchEnd)) {
       // get the next probe value
       ++matchEnd; 
       CharSequence probe = text.subSequence(offset, matchEnd);
@@ -183,8 +183,7 @@ public class SimpleDictionary<T> extends Dictionary<T> {
   private CharSequence filterToStartsWith(CharSequence probe) {
     CharSequence result = null;
     possibleMatchesAfter = new TreeSet<CharSequence>();
-    for (Iterator<CharSequence> it = possibleMatchesBefore.iterator(); it.hasNext();) {
-      CharSequence item = it.next();
+    for (CharSequence item : possibleMatchesBefore) {
       if (startsWith(item, probe)) {
         if (result == null) {
           result = item;
@@ -272,5 +271,5 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     }
     return true;
   }
-
+  
 }

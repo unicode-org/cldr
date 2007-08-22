@@ -7,8 +7,8 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.unittest.TestCollationStringByteConverter.CharList;
-import org.unicode.cldr.unittest.TestCollationStringByteConverter.CharListWrapper;
+import org.unicode.cldr.util.CharList;
+import org.unicode.cldr.util.CharUtilities.CharListWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
@@ -102,7 +102,8 @@ public class TestStateDictionaryBuilder<T> {
     showDictionaryContents();
     
     for (Filter filter : Filter.values()) {
-      tryFind("many manners ma", stateDictionary, filter);
+      final String string = "many manners ma";
+      tryFind(string, new CharListWrapper(string), stateDictionary, filter);
     }
     
     
@@ -167,12 +168,12 @@ public class TestStateDictionaryBuilder<T> {
     
   }
 
-  static public <U> void tryFind(CharSequence sampleText, Dictionary<U> dictionary, Filter filter) {
+  static public <U> void tryFind(CharSequence originalText, CharList charListText, Dictionary<U> dictionary, Filter filter) {
     System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap()));
-    System.out.println("Searching in: {" + sampleText + "} with filter=" + filter);
+    System.out.println("Searching in: {" + originalText + "} with filter=" + filter);
     // Dictionaries are immutable, so we create a Matcher to search/test text.
     Matcher matcher = dictionary.getMatcher();
-    matcher.setText(sampleText);
+    matcher.setText(charListText);
     while (true) {
       Status status = matcher.find(filter);
       String unique = ""; // only set if needed
@@ -188,17 +189,18 @@ public class TestStateDictionaryBuilder<T> {
       }
       // Show results
       System.out.println("{"
-          + showBoth(sampleText, 0, matcher.getOffset()) + "[[["
-          + showBoth(sampleText, matcher.getOffset(), matcher.getMatchEnd())
-          + "]]]" + showBoth(sampleText, matcher.getMatchEnd(), sampleText.length())
+          + showBoth(charListText, 0, matcher.getOffset()) + "[["
+          + showBoth(charListText, matcher.getOffset(), matcher.getMatchEnd())
+          + "]]" + showBoth(charListText, matcher.getMatchEnd(), charListText.getKnownLength())
           + "}\t" + status + "  \t{" + matcher.getMatchValue() + "}\t" + unique);
     }
     System.out.println();
   }
   
-  static public CharSequence showBoth(CharSequence source, int start, int end) {
+  static public CharSequence showBoth(CharList source, int start, int end) {
     if (source instanceof CharListWrapper) {
-      return ((CharListWrapper)source).sourceSubSequence(start, end);
+      CharListWrapper new_name = (CharListWrapper) source;
+      return new_name.sourceSubSequence(start, end);
     }
     return source.subSequence(start, end);
   }
@@ -280,7 +282,7 @@ public class TestStateDictionaryBuilder<T> {
       if ((++count & 0xFF) == 0xFF) {
         System.out.println(count + ":\t" + myText);
       }
-      crossCheck(myText);
+      crossCheck(new CharListWrapper(myText));
       crossCheck("!" + myText);
       crossCheck(myText + "!");
     }
@@ -302,9 +304,12 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private void crossCheck(CharSequence myText) {
+    crossCheck(new CharListWrapper(myText));
+  }
+  private void crossCheck(CharList myText) {
     stateMatcher.setText(myText); // set the text to operate on
     simpleMatcher.setText(myText); // set the text to operate on
-    for (int i = 0; i < stateMatcher.getText().length(); ++i) {
+    for (int i = 0; stateMatcher.getText().hasCharAt(i); ++i) {
       stateMatcher.setOffset(i);
       simpleMatcher.setOffset(i);
       while (true) {
@@ -373,7 +378,7 @@ public class TestStateDictionaryBuilder<T> {
           break;
         }
       }
-      assert matchEnd == myText.length();
+      assert matchEnd == myText.length() : "failed to find end of <" + myText + "> got instead " + matchEnd;
       assert matchValue == data.get(myText);
     }
   }
@@ -421,7 +426,7 @@ public class TestStateDictionaryBuilder<T> {
     // Set the text to operate on
     matcher.setText(myText);
     boolean uniquePartial = false;
-    for (int i = 0; i < matcher.length(); ++i) {
+    for (int i = 0; matcher.hasCharAt(i); ++i) {
       matcher.setOffset(i);
       Status status;
       // We might get multiple matches at each point, so walk through all of

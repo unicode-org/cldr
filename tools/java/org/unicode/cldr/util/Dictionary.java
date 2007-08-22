@@ -113,7 +113,7 @@ public abstract class Dictionary<T> {
   public abstract Matcher<T> getMatcher();
   
   public abstract static class Matcher<T> {
-    protected CharSequence text;
+    protected CharList text;
     
     protected int offset;
     
@@ -138,6 +138,21 @@ public abstract class Dictionary<T> {
 //  public Dictionary<T> getInstance(Map<CharSequence,T> source);
 //  }
     
+    public boolean hasCharAt(int index) {
+      return text.hasCharAt(index);
+    }
+
+    /**
+     * Set the target text to match within; also resets the offset to zero, calling setOffset().
+     * 
+     * @param text
+     * @return
+     */
+    public Matcher<T> setText(CharList text) {
+      this.text = text;
+      return setOffset(0);
+    }
+    
     /**
      * Set the target text to match within; also resets the offset to zero, calling setOffset().
      * 
@@ -145,7 +160,7 @@ public abstract class Dictionary<T> {
      * @return
      */
     public Matcher<T> setText(CharSequence text) {
-      this.text = text;
+      this.text = new CharUtilities.CharListWrapper(text);
       return setOffset(0);
     }
     
@@ -154,17 +169,8 @@ public abstract class Dictionary<T> {
      * 
      * @return
      */
-    public CharSequence getText() {
+    public CharList getText() {
       return text;
-    }
-    
-    /**
-     * Get the length of the target text.
-     * 
-     * @return
-     */
-    public int length() {
-      return text.length();
     }
     
     /**
@@ -208,12 +214,12 @@ public abstract class Dictionary<T> {
     }
     
     /**
-     * Get the text that we matched.
+     * Get the text that we are matching in..
      * 
      * @return
      */
-    public CharSequence getMatchText() {
-      return text.subSequence(offset, matchEnd);
+    public CharList getMatchText() {
+      return text.sublist(offset, matchEnd);
     }
     
     /**
@@ -294,7 +300,7 @@ public abstract class Dictionary<T> {
         } else if (status == Status.MATCH
             || (status == Status.PARTIAL 
                 && (filter == Filter.LONGEST
-                    || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && matchEnd == text.length()))) {
+                    || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
           if (filter == Filter.MATCHES) {
             return status;
           }
@@ -327,13 +333,13 @@ public abstract class Dictionary<T> {
     /**
      * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
      */
-    public T get(CharSequence text) {
+    public T get(CharList text) {
       setText(text); // set the text to operate on
       while (true) {
         Status next1 = next();
         if (next1 != Status.MATCH) {
           return null;
-        } else if (getMatchEnd() == text.length()) {
+        } else if (!text.hasCharAt(getMatchEnd())) {
           return getMatchValue();
         }
       }
@@ -347,7 +353,7 @@ public abstract class Dictionary<T> {
         Status status = next(filter);
         if (status != Status.NONE) {
           return status;
-        } else if (getMatchEnd() == text.length()) {
+        } else if (!text.hasCharAt(getMatchEnd())) {
           return status;
         } else {
           nextOffset();
@@ -369,7 +375,7 @@ public abstract class Dictionary<T> {
      */
     public Appendable convert(Appendable target) {
       try {
-        while (offset < text.length()) {
+        while (text.hasCharAt(offset)) {
             Status status = next();
             if (status != Status.MATCH) {
               target.append(text.charAt(getOffset()));
@@ -389,7 +395,8 @@ public abstract class Dictionary<T> {
      * For debugging
      */
     public String toString() {
-      return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \"" + text + "\"}";
+      return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \"" + text.subSequence(0,text.getKnownLength()) 
+      + (text.hasCharAt(text.getKnownLength()) ? "..." : "") + "\"}";
     }
   }
   
@@ -399,47 +406,8 @@ public abstract class Dictionary<T> {
    */
   public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
     public int compare(CharSequence o1, CharSequence o2) {
-      return Dictionary.compare(o1, o2);
+      return CharUtilities.compare(o1, o2);
     }
-  };
-  
-  /**
-   * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
-   * If the text has isolated surrogates, they will not sort correctly.
-   * @param text1
-   * @param text2
-   * @return
-   */
-  public static int compare(CharSequence text1, CharSequence text2) {
-    int i1 = 0;
-    int i2 = 0;
-    int len1 = text1.length();
-    int len2 = text2.length();
-    while (true) {
-      // handle running out of room
-      if (i1 >= len1) {
-        if (i2 >= len2) {
-          return 0;
-        }
-        return -1;
-      } else if (i2 >= len2) {
-        return 1;
-      }
-      int cp1 = text1.charAt(i1++);
-      int cp2 = text2.charAt(i2++);
-      // if they are different, do a fixup
-      
-      if (cp1 != cp2) {
-        return (cp1 + utf16Fixup[cp1>>11]) -
-        (cp2 + utf16Fixup[cp2>>11]);
-      }
-    }
-  }
-  private static final char utf16Fixup[]= {
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0x2000, 0xf800, 0xf800, 0xf800, 0xf800
   };
   
   public static <A,B> Map<A,B> load(Iterator<Entry<A, B>> input, Map<A, B> output) {

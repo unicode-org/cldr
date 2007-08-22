@@ -292,7 +292,7 @@ public class StateDictionary<T> extends Dictionary<T> {
       }
       Status result = Status.PARTIAL;
 
-      while (myMatchEnd < text.length()) {
+      while (text.hasCharAt(myMatchEnd)) {
         // get more bytes IF matchEnd is set right
         if (myMatchEnd == matchByteStringIndex) {
           if (true) { // matchEnd < text.length()

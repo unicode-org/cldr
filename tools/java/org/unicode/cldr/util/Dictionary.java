@@ -7,6 +7,10 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.CharUtilities.CharListWrapper;
+import org.unicode.cldr.util.Dictionary.Matcher.Filter;
+import org.unicode.cldr.util.Dictionary.Matcher.Status;
+
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -410,6 +414,106 @@ public abstract class Dictionary<T> {
     }
   };
   
+  
+  public static class DictionaryCharList<T extends CharSequence> extends CharListWrapper<T> {
+    protected boolean failOnLength = false;
+    protected StringBuilder buffer = new StringBuilder();
+    protected int[] sourceOffsets;
+    protected Matcher<T> matcher;
+    protected boolean atEnd;
+    
+    public DictionaryCharList(Dictionary<T> dictionary, T source) {
+      super(source);
+      matcher = dictionary.getMatcher().setText(source);
+      atEnd = source.length() == 0;
+      sourceOffsets = new int[source.length()];
+    }
+    
+    public boolean hasCharAt(int index) {
+      if (index >= buffer.length()) {
+        if (atEnd) {
+          return false;
+        }
+        growToOffset(index + 1);
+        return index < buffer.length();
+      }
+      return true;
+    }
+    
+    public char charAt(int index) {
+      if (!atEnd && index >= buffer.length()) {
+          growToOffset(index + 1);
+      }
+      return buffer.charAt(index);
+    }
+    
+    // sourceOffsets contains valid entries up to buffer.length() + 1.
+    private void growToOffset(int offset) {
+      int length = buffer.length();
+      while (length < offset && !atEnd) {
+        Status status = matcher.next(Filter.LONGEST_MATCH);
+        int currentOffset = matcher.getOffset();
+        final int matchEnd = matcher.getMatchEnd();
+        if (status == Status.MATCH) {
+          final T replacement = matcher.getMatchValue();
+          setOffsets(length + 1, replacement.length(), matchEnd);
+          buffer.append(replacement);
+          length = buffer.length();
+          matcher.setOffset(matchEnd);
+        } else {
+          setOffsets(length + 1, 1, currentOffset + 1);
+          buffer.append(source.charAt(currentOffset));
+          length = buffer.length();
+          matcher.nextOffset();
+        }
+        atEnd = matcher.getOffset() >= source.length();
+      }
+    }
+
+    private void setOffsets(final int start, final int count, final int value) {
+      final int length = start + count;
+      if (sourceOffsets.length < length) {
+        int newCapacity = sourceOffsets.length * 2 + 1;
+        if (newCapacity < length + 50) {
+          newCapacity = length + 50;
+        }
+        int[] temp = new int[newCapacity];
+        System.arraycopy(sourceOffsets, 0, temp, 0, sourceOffsets.length);
+        sourceOffsets = temp;
+      }
+      for (int i = start; i < length; ++i) {
+        sourceOffsets[i] = value;
+      }
+    }
+    
+    public int sourceOffset(int offset) {
+      if (offset > buffer.length()) {
+        growToOffset(offset);
+        if (offset > buffer.length()) {
+          throw new ArrayIndexOutOfBoundsException(offset);
+        }
+      }
+      return sourceOffsets[offset];
+    }
+    
+    public CharSequence subSequence(int start, int end) {
+      if (!atEnd && end > buffer.length()) {
+        growToOffset(end);
+      }
+      return buffer.subSequence(start, end);
+    }
+
+    public CharSequence sourceSubSequence(int start, int end) {
+      // TODO Auto-generated method stub
+      return source.subSequence(sourceOffset(start), sourceOffset(end));
+    }
+    
+    @Override
+    public int getKnownLength() {
+      return buffer.length();
+    }
+  }
+ 
   public static <A,B> Map<A,B> load(Iterator<Entry<A, B>> input, Map<A, B> output) {
     while (input.hasNext()) {
       Entry<A, B> entry = input.next();

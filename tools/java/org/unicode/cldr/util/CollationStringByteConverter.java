@@ -17,13 +17,13 @@ import java.util.TreeMap;
 public class CollationStringByteConverter extends DictionaryStringByteConverter {
 
   public CollationStringByteConverter(RuleBasedCollator collation, StringByteConverter byteMaker) {
-    super(getDictionary(collation), byteMaker);
+    super(getDictionaryInfo(collation, byteMaker), byteMaker);
     // TODO Auto-generated constructor stub
   }
 
-  private static StateDictionary<String> getDictionary(RuleBasedCollator collation) {
+  private static StateDictionary<String> getDictionaryInfo(RuleBasedCollator collation, StringByteConverter byteMaker) {
     Map<CharSequence,String> map = new TreeMap<CharSequence,String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
-    new CollationMapMaker().generateCollatorFolding(collation, Collator.PRIMARY, true, false, map);
-    return new StateDictionaryBuilder<String>().make(map);
+    new CollationMapMaker().generateCollatorFolding(collation, map);
+    return new StateDictionaryBuilder<String>().setByteConverter(byteMaker).setIntMapFactory(new IntMap.CompactStringIntMapFactory()).make(map);
   }
 }

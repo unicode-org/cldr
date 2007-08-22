@@ -116,7 +116,9 @@ public class DictionaryStringByteConverter extends StringByteConverter {
       for (Iterator<Entry<CharSequence, String>> m = dictionary.getMapping(); m.hasNext();) {
         Entry<CharSequence, String> entry = m.next();
         if (entry.getValue().length() != 0) {
-          back.put(entry.getValue(), entry.getKey()); // may lose info
+          if (!back.containsKey(entry.getValue())) {// may lose info
+            back.put(entry.getValue(), entry.getKey()); 
+          }
         }
       }
       backMatcher = new StateDictionaryBuilder<CharSequence>().make(back).getMatcher();

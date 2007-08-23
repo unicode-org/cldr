@@ -12,6 +12,7 @@ import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
 import org.unicode.cldr.util.StateDictionary.Cell;
 import org.unicode.cldr.util.StateDictionary.Row;
+import org.unicode.cldr.util.StateDictionary.Row.Uniqueness;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -134,6 +135,8 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
         newRows.add(row);
       }
     }
+    // and set the Uniqueness values
+    setUniqueValues(builtBaseRow);
     builtRows = newRows;
     if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size());
     return new StateDictionary<T>(builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
@@ -185,6 +188,51 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
     return 0;
   }
   
+  /**
+   * Follow all the path values, and determine whether all possible results from
+   * a row (when following bytes) are the same. If so, set the flag on the row.
+   * The return value
+   * 
+   * @param savedMatchValue
+   *          TODO
+   * @return true if unique
+   */
+  // NOTE: The way the table is built, we are guaranteed that the current value
+  // is "correct" (with no deltas needed) for at least one of the paths
+  // resulting from the row, EXCEPT in the very first row. Thus except for the first row,
+  // every row will have at least one cell with a zero deltaResult. That in turn means that
+  // if there is a deltaResult on a cell, at least one chain resulting from taking that cell
+  // will have that result.
+  // So, if there are any deltaResults in a row, it is not unique.
+  // Otherwise, if any of the cells have non-unique rows, it is not unique
+  // Otherwise it is unique.
+  // So this traverses the rows, setting the values for anything it hasn't seen.
+  // TODO: could be optimized (maybe) by saving the rows seen so far. On the other hand,
+  // this might not be worth the time in adding them to a save list.
+private boolean setUniqueValues(Row currentRow) {
+    if (currentRow.hasUniqueValue == Uniqueness.UNIQUE) {
+      return true;
+    }
+    // see if there is any reason to make us not Unique
+    // According to the structure above:
+    // It will be that we have a child that is not unique,
+    // or that we have a nonzero delta value
+    // We don't have to look at anything else.
+    // We DO have to call setUniqueValues on each of our children, to make sure they are set.
+    for (Cell cell : currentRow.byteToCell.values()) {
+      if (cell.nextRow != null && !setUniqueValues(cell.nextRow)) {
+          currentRow.hasUniqueValue = Uniqueness.AMBIGUOUS;
+      } else  if (cell.deltaResult != 0) {
+        currentRow.hasUniqueValue = Uniqueness.AMBIGUOUS;
+      }
+    }
+    if (currentRow.hasUniqueValue == Uniqueness.AMBIGUOUS) {
+      return false;
+    }
+    currentRow.hasUniqueValue = Uniqueness.UNIQUE;
+    return true;
+  }
+
   static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
 
     public int compare(byte[] o1, byte[] o2) {

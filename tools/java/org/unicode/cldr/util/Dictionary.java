@@ -263,7 +263,31 @@ public abstract class Dictionary<T> {
      */
     public abstract Status next();
     
-    public enum Filter {ALL, MATCHES, LONGEST_MATCH, LONGEST, LONGEST_WITH_FINAL_PARTIAL};
+    public enum Filter {
+      /**
+       * Returns all values:  0 or more MATCH or PARTIAL values (with NONE at end)
+       */
+      ALL, 
+      /**
+       * Only 0 or more MATCH values (with NONE at end)
+       */
+      MATCHES, 
+      /**
+       * Only one value: the longest MATCH value
+       */
+      LONGEST_MATCH,
+      /**
+       * Only one value: the longest MATCH or PARTIAL
+       */
+      LONGEST, 
+      /**
+       * Only one value: the longest MATCH or unique PARTIAL
+       */
+      LONGEST_UNIQUE, 
+      /**
+       * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
+       */
+      LONGEST_WITH_FINAL_PARTIAL};
     
     /**
      * Finds the next match, and sets the matchValue and matchEnd. Normally you
@@ -304,6 +328,7 @@ public abstract class Dictionary<T> {
         } else if (status == Status.MATCH
             || (status == Status.PARTIAL 
                 && (filter == Filter.LONGEST
+                    || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
                     || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
           if (filter == Filter.MATCHES) {
             return status;
@@ -402,6 +427,11 @@ public abstract class Dictionary<T> {
       return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \"" + text.subSequence(0,text.getKnownLength()) 
       + (text.hasCharAt(text.getKnownLength()) ? "..." : "") + "\"}";
     }
+
+    /**
+     * Get the dictionary associated with this matcher.
+     */
+    public abstract Dictionary<T> getDictionary();
   }
   
   /**

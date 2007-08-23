@@ -46,8 +46,17 @@ public class CollationMapMaker {
     public int compare(Object o1, Object o2) {
       String s1 = (String) o1;
       String s2 = (String) o2;
-      // choose the greater in length
-      int result = UTF16.countCodePoint(s2) - UTF16.countCodePoint(s1);
+      int result;
+      
+      // sort normalized first
+      int n1 = Normalizer.isNormalized(s1,Normalizer.DECOMP_COMPAT, 0) ? 0 : 1;
+      int n2 = Normalizer.isNormalized(s2,Normalizer.DECOMP_COMPAT, 0) ? 0 : 1;
+      if ((result = n1 - n2) != 0) {
+        return result;
+      }
+      
+      // choose the shortest
+      result = UTF16.countCodePoint(s2) - UTF16.countCodePoint(s1);
       if (result != 0) { // special fix to make zero be first
         if (s1.length() == 0)
           return -1;
@@ -198,23 +207,24 @@ public class CollationMapMaker {
   "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]").freeze(); // skip a bunch of stuff, but include the items that are not nfkc
   
   RuleBasedCollator equivalenceClassCollator;
-  ExemplarComparator exemplarComparator;
+  Comparator exemplarComparator;
   Map reasonMap = new TreeMap();
   Map equivMap = new TreeMap();
   
-  public Map<CharSequence, String> generateCollatorFolding(RuleBasedCollator exemplarCollator, int strength, boolean setExpansions, boolean ignorePunctuation, Map<CharSequence, String> mapping) {
-    exemplarCollator.setStrength(exemplarCollator.IDENTICAL);
-    exemplarCollator.setDecomposition(Collator.CANONICAL_DECOMPOSITION);
-    exemplarCollator.setUpperCaseFirst(false);
-    if (ignorePunctuation) {
-      exemplarCollator.setAlternateHandlingShifted(true);
-    }
-    exemplarComparator = new ExemplarComparator(exemplarCollator);
-    
+  public Map<CharSequence, String> generateCollatorFolding(RuleBasedCollator equivalenceClassCollator, Map<CharSequence, String> mapping) {
+    this.equivalenceClassCollator = equivalenceClassCollator;
     try {
-      equivalenceClassCollator = (RuleBasedCollator) exemplarCollator.clone();
-    } catch (CloneNotSupportedException e) {}
-    equivalenceClassCollator.setStrength(strength);
+      RuleBasedCollator exemplarCollator = (RuleBasedCollator) equivalenceClassCollator.clone();
+      exemplarCollator.setStrength(exemplarCollator.IDENTICAL);
+      exemplarCollator.setDecomposition(Collator.CANONICAL_DECOMPOSITION);
+      exemplarCollator.setUpperCaseFirst(false);
+      exemplarCollator.setAlternateHandlingShifted(false);
+      exemplarCollator.setNumericCollation(false);
+      exemplarCollator.setCaseLevel(false);
+      exemplarCollator.setFrenchCollation(false);
+      exemplarCollator.setHiraganaQuaternary(false);
+      exemplarComparator = new ExemplarComparator(exemplarCollator);
+    } catch (CloneNotSupportedException e) {} // will never happen
     
     UnicodeSet expansions = new UnicodeSet();
     UnicodeSet contractions = new UnicodeSet();
@@ -244,7 +254,7 @@ public class CollationMapMaker {
       Set values = (Set) equivMap.get(it.next());
       // if there is only one result, drop it
       if (values.size() == 1) {
-        if (SHOW_DEBUG) {
+        if (false && SHOW_DEBUG) {
           String item = (String) values.iterator().next();
           System.out.println("Skipping: " + item + "\t" + equivalenceClassCollator.getRawCollationKey(item, null));
         }
@@ -255,13 +265,13 @@ public class CollationMapMaker {
       // the lowest value is the exemplar value, so use it as the base
       String target = (String) chars.next();
       if (SHOW_DEBUG) {
-        System.out.println("Target: " + target + "\t " + Utility.hex(target) + "\t" + equivalenceClassCollator.getRawCollationKey(target, null));
+        System.out.println("Target: <" + target + ">\t " + Utility.hex(target) + "\t" + equivalenceClassCollator.getRawCollationKey(target, null));
       }
       while (chars.hasNext()) {
         String source = (String) chars.next();
         mapping.put(source, target);
         if (SHOW_DEBUG) {
-          System.out.println("\tSource: " + source + "\t " + Utility.hex(source) + "\t" + equivalenceClassCollator.getRawCollationKey(source, null));
+          System.out.println("\tSource: <" + source + ">\t " + Utility.hex(source) + "\t" + equivalenceClassCollator.getRawCollationKey(source, null));
         }
       }
       // for (Iterator it2 = values.iterator(); it.hasNext();) {

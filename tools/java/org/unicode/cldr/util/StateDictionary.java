@@ -7,6 +7,8 @@
  */
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.util.StateDictionary.Row.Uniqueness;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -103,7 +105,24 @@ public class StateDictionary<T> extends Dictionary<T> {
    */
 
   static class Row implements Comparable {
-    // maps byte to cells
+    enum Uniqueness {
+      // the unknown value is only used in building
+      UNIQUE, AMBIGUOUS, UNKNOWN;
+
+      public String debugName() {
+        switch (this) {
+          case UNIQUE:
+            return ("¹");
+          case AMBIGUOUS:
+            return "²";
+          default:
+            return "?";
+        }
+      }
+    }
+
+    Uniqueness hasUniqueValue = Uniqueness.UNKNOWN;
+    
     final TreeMap<Byte, Cell> byteToCell = new TreeMap<Byte, Cell>();
 
     // keeps track of the number of cells with returns
@@ -171,7 +190,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
     public String toString() {
       StringBuilder buffer = new StringBuilder();
-      buffer.append("R" + getReferenceNumber() + "{");
+      buffer.append("R" + getReferenceNumber() + hasUniqueValue.debugName() + "{");
       boolean first = true;
       Set<Byte> sorted = new TreeSet<Byte>(unsignedByteComparator);
       sorted.addAll(byteToCell.keySet());
@@ -245,7 +264,8 @@ public class StateDictionary<T> extends Dictionary<T> {
     }
   }
 
-  private class StateMatcher extends Matcher<T> {
+  // should be private, but easier to debug if package private
+  class StateMatcher extends Matcher<T> {
     private static final boolean SHOW_DEBUG = false;
 
     final private byte[] matchByteBuffer = new byte[byteString
@@ -380,39 +400,18 @@ public class StateDictionary<T> extends Dictionary<T> {
     }
 
     public boolean nextUniquePartial() {
-      return isUnique(partialLastRow, partialMatchValue);
-    }
-
-    /**
-     * Determine if there is some path that splits, eg a row has 2 cells.
-     * @param savedMatchValue TODO
-     * @return
-     */
-    private boolean isUnique(Row savedRow, int savedMatchValue) {
-      boolean result = true;
-      int size;
-      while (savedRow != null) {
-        size = savedRow.byteToCell.size();
-        if (size != 1) {
-          result = false;
-        }
-        Cell firstCell = savedRow.byteToCell.get(savedRow.byteToCell.firstKey());
-        // If we have a returns flag AND a next row, then we are splitting.
-        // plus, whenever we get a returns flag, we stop adding values
-        savedMatchValue += firstCell.deltaResult;
-        savedRow = firstCell.nextRow;
-        if (firstCell.returns) {
-          if (savedRow != null) {
-            result = false;
-          }
-          break;
-        }
+      if (partialLastRow.hasUniqueValue == Uniqueness.UNIQUE) {
+        matchValue = builtResults.get(partialMatchValue);
+        matchEnd = myMatchEnd;
+        return true;
       }
-      matchValue = builtResults.get(savedMatchValue);
-      matchEnd = myMatchEnd;
-      return result;
+      return false;
     }
 
+    @Override
+    public StateDictionary<T> getDictionary() {
+      return StateDictionary.this;
+    }
   }
 
   static final Comparator<Byte> unsignedByteComparator = new Comparator<Byte>() {

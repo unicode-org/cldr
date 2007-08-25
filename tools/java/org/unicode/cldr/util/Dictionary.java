@@ -12,6 +12,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
@@ -516,7 +517,12 @@ public abstract class Dictionary<T> {
       }
     }
     
-    public int sourceOffset(int offset) {
+    public int fromSourceOffset(int offset) {
+      // TODO fix to do real binary search; returning a determinate value.
+      return Arrays.binarySearch(sourceOffsets, offset);
+    }
+    
+    public int toSourceOffset(int offset) {
       if (offset > buffer.length()) {
         growToOffset(offset);
         if (offset > buffer.length()) {
@@ -535,7 +541,7 @@ public abstract class Dictionary<T> {
 
     public CharSequence sourceSubSequence(int start, int end) {
       // TODO Auto-generated method stub
-      return source.subSequence(sourceOffset(start), sourceOffset(end));
+      return source.subSequence(toSourceOffset(start), toSourceOffset(end));
     }
     
     @Override

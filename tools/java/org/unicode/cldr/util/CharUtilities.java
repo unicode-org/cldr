@@ -20,7 +20,7 @@ public class CharUtilities {
     public char charAt(int index) {
       return source.charAt(index);
     }
-    public int sourceOffset(int index) {
+    public int toSourceOffset(int index) {
       return index;
     }
     public CharList sublist(int start, int end) {
@@ -40,7 +40,16 @@ public class CharUtilities {
       return source.toString();
     }
     public CharSequence sourceSubSequence(int start, int end) {
-      return source.subSequence(sourceOffset(start), sourceOffset(end));
+      return source.subSequence(toSourceOffset(start), toSourceOffset(end));
+    }
+    public int fromSourceOffset(int index) {
+      return index;
+    }
+    public CharList setStart(int index) {
+      return this;
+    }
+    public int getStart() {
+      return 0;
     }
   }
   

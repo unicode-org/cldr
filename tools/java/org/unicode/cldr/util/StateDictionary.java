@@ -31,8 +31,6 @@ public class StateDictionary<T> extends Dictionary<T> {
 
   private final Row builtBaseRow;
   
-  private final T builtBaseValue;
-
   private final IntMap<T> builtResults;
 
   private final int builtMaxByteLength;
@@ -58,7 +56,7 @@ public class StateDictionary<T> extends Dictionary<T> {
     builtResults = builtResults2;
     this.builtMaxByteLength = builtMaxByteLength;
     this.byteString = byteConverter;
-    builtBaseValue = builtResults.get(0);
+    //builtBaseValue = builtResults.get(0);
   }
 
   @Override
@@ -71,6 +69,14 @@ public class StateDictionary<T> extends Dictionary<T> {
     //TreeSet<Row> rowSet = new TreeSet<Row>(builtRows);
     for (Row row : builtRows) {
       result.append(row.toString()).append("\r\n");
+    }
+    Map<T, Integer> map = builtResults.getValueMap();
+    Set<Pair<Integer, String>> sorted = new TreeSet<Pair<Integer, String>>();
+    for (T item : map.keySet()) {
+      sorted.add(new Pair(map.get(item), item.toString()));
+    }
+    for (Pair<Integer, String> pair : sorted) {
+      result.append(pair.getFirst()).append("*=").append(pair.getSecond()).append("\r\n");
     }
     return result.toString();
   }

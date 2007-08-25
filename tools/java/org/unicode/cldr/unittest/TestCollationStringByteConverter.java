@@ -25,15 +25,21 @@ import org.unicode.cldr.util.LenientDateParser.Parser;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.ULocale;
 
 import java.text.ParsePosition;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -42,6 +48,8 @@ import java.util.Map.Entry;
 public class TestCollationStringByteConverter {
   
   
+private static final boolean DEBUG = false;
+
 //  static interface PartCharSequence {
 //    /**
 //     * Replace index < x.length() with hasCharAt(index)
@@ -128,7 +136,7 @@ public class TestCollationStringByteConverter {
       DictionaryCharList gcs = new DictionaryCharList(dict, test);
       for (int i = 0; gcs.hasCharAt(i); ++i) {
         char c = gcs.charAt(i);
-        final int sourceOffset = gcs.sourceOffset(i);
+        final int sourceOffset = gcs.toSourceOffset(i);
         final CharSequence sourceSubSequence = gcs.sourceSubSequence(i, i+1);
         System.out.println(i + "\t" + c  + "\t" + sourceOffset + "\t" + sourceSubSequence);
       }
@@ -138,32 +146,83 @@ public class TestCollationStringByteConverter {
   }
   
   private static void check2() {
-    Map<CharSequence,CharSequence> map = new TreeMap<CharSequence,CharSequence>();
-    map.put("j", "J");
-    map.put("july", "JULY");
-    map.put("june", "JUNE"); // ß
-    map.put("august", "AUGUST"); // ß
-    DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
-    Dictionary<CharSequence> dict = builder.make(map);
-    System.out.println(map);
-    System.out.println(dict);
-    Matcher m = dict.getMatcher();
-    System.out.println(m.setText("a").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
-    System.out.println(m.setText("j").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
-    System.out.println(m.setText("ju").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
-    System.out.println(m.setText("jul").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
+//    Map<CharSequence,CharSequence> map = new TreeMap<CharSequence,CharSequence>();
+//    map.put("j", "J");
+//    map.put("july", "JULY");
+//    map.put("june", "JUNE"); // ß
+//    map.put("august", "AUGUST"); // ß
+//    DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
+//    Dictionary<CharSequence> dict = builder.make(map);
+//    System.out.println(map);
+//    System.out.println(dict);
+//    Matcher m = dict.getMatcher();
+//    System.out.println(m.setText("a").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
+//    System.out.println(m.setText("j").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
+//    System.out.println(m.setText("ju").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
+//    System.out.println(m.setText("jul").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
 
-
-    LenientDateParser ldp = LenientDateParser.getInstance(ULocale.FRENCH);
+    ULocale testLocale = ULocale.FRENCH;
+    LenientDateParser ldp = LenientDateParser.getInstance(testLocale);
     Parser parser = ldp.getParser();
-    System.out.println(parser.debugShow());
-    String[] tests = {"jan 12, 1963 1942 au"};
-    ParsePosition parsePosition = new ParsePosition(0);
-    for (String test : tests) {
-      parsePosition.setIndex(0);
-      Date d = parser.parse(test, parsePosition);
-      System.out.println(test + "\t=>\t" + d + "\t" + show(test,parsePosition) + "\t" + parser);
+    
+    if (DEBUG) {
+      System.out.println(parser.debugShow());
     }
+    
+    LinkedHashSet<DateFormat> tests = new LinkedHashSet<DateFormat>();
+    // Arrays.asList(new String[] {"jan 12 1963 1942 au", "1:2:3", "1:3 jan"})
+    Calendar testDate = Calendar.getInstance();
+//    testDate.set(2007, 8, 25, 1, 2, 3);
+//    
+//    Calendar dateOnly = Calendar.getInstance();
+//    dateOnly.set(Calendar.YEAR, testDate.get(Calendar.YEAR));
+//    dateOnly.set(Calendar.MONTH, testDate.get(Calendar.MONTH));
+//    dateOnly.set(Calendar.DAY_OF_MONTH, testDate.get(Calendar.DAY_OF_MONTH));
+//    
+//    Calendar timeOnly =  Calendar.getInstance();
+//    timeOnly.set(Calendar.HOUR, testDate.get(Calendar.HOUR));
+//    timeOnly.set(Calendar.MINUTE, testDate.get(Calendar.MINUTE));
+//    timeOnly.set(Calendar.SECOND, testDate.get(Calendar.SECOND));
+//
+//    Calendar hourMinuteOnly =  Calendar.getInstance();
+//    hourMinuteOnly.set(Calendar.HOUR, testDate.get(Calendar.HOUR));
+//    hourMinuteOnly.set(Calendar.MINUTE, testDate.get(Calendar.MINUTE));
+
+    SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss v");
+
+    for (int style = 0; style < 4; ++style) {
+      tests.add(DateFormat.getDateInstance(style, testLocale));
+      tests.add(DateFormat.getTimeInstance(style, testLocale));
+      for (int style2 = 0; style2 < 4; ++style2) {
+        tests.add(DateFormat.getDateTimeInstance(style, style, testLocale));
+        //tests.put(DateFormat.getTimeInstance(style, testLocale).format(testDate) + " " + dateExample, null); // reversed
+      }
+    }
+
+    ParsePosition parsePosition = new ParsePosition(0);
+    ParsePosition parsePosition2 = new ParsePosition(0);
+    Calendar calendar = Calendar.getInstance();
+    Calendar calendar2 = Calendar.getInstance();
+    
+    for (DateFormat test : tests) {
+      parsePosition.setIndex(0);
+      parsePosition2.setIndex(0);
+      
+      String expected = test.format(testDate);
+      calendar.clear();
+      calendar2.clear();
+      parser.parse(expected, calendar, parsePosition);
+      test.parse(expected, calendar2, parsePosition2);
+      if (areEqual(calendar, calendar2)) {
+        System.out.println("OK\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\t" + show(expected,parsePosition) + "\t" + parser);
+      } else {
+        System.out.println("FAIL\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\texpected: <" + iso.format(calendar2) + ">\t" + show(expected,parsePosition) + "\t" + parser);
+      }
+    }
+  }
+
+  private static boolean areEqual(Calendar calendar, Calendar calendar2) {
+    return calendar.getTimeInMillis() == calendar2.getTimeInMillis() && calendar.getTimeZone().equals(calendar2.getTimeZone());
   }
 
   private static String show(String test, ParsePosition parsePosition) {

@@ -1462,6 +1462,12 @@
 				<usesMetazone to="2001-04-01 03:00" from="2000-11-05" mzone="America_Central"/>
 				<usesMetazone from="2001-04-01 03:00" mzone="America_Mountain"/>
 			</zone>
+			<zone type="America/Resolute">
+				<usesMetazone to="2000-10-29 02:00" mzone="America_Central"/>
+				<usesMetazone to="2001-04-01 03:00" from="2000-10-29 02:00" mzone="America_Eastern"/>
+				<usesMetazone to="2006-10-29 02:00" from="2001-04-01 03:00" mzone="America_Central"/>
+				<usesMetazone from="2006-10-29 02:00" mzone="America_Eastern"/>
+			</zone>
 			<zone type="America/Regina">
 				<usesMetazone mzone="America_Central"/>
 			</zone>
@@ -2410,6 +2416,10 @@
 				<usesMetazone to="1974-01-06 02:00" mzone="America_Eastern"/>
 				<usesMetazone to="1974-10-27 02:00" from="1974-01-06 02:00" mzone="America_Central"/>
 				<usesMetazone from="1974-10-27 02:00" mzone="America_Eastern"/>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<usesMetazone to="2006-04-02 02:00" mzone="America_Eastern"/>
+				<usesMetazone from="2006-04-02 02:00" mzone="America_Central"/>
 			</zone>
 			<zone type="America/Indianapolis">
 				<usesMetazone mzone="America_Eastern"/>

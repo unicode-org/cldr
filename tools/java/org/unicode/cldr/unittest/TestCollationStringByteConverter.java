@@ -26,6 +26,7 @@ import org.unicode.cldr.util.LenientDateParser.Parser;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;
@@ -42,6 +43,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
@@ -191,38 +193,65 @@ private static final boolean DEBUG = false;
     SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss v");
 
     for (int style = 0; style < 4; ++style) {
-      tests.add(DateFormat.getDateInstance(style, testLocale));
+      final DateFormat dateInstance = DateFormat.getDateInstance(style, testLocale);
+      tests.add(dateInstance);
       tests.add(DateFormat.getTimeInstance(style, testLocale));
       for (int style2 = 0; style2 < 4; ++style2) {
         tests.add(DateFormat.getDateTimeInstance(style, style, testLocale));
+        tests.add(new SimpleDateFormat(((SimpleDateFormat)DateFormat.getTimeInstance(style2, testLocale)).toPattern()
+            + " " + ((SimpleDateFormat)dateInstance).toPattern(), testLocale));
         //tests.put(DateFormat.getTimeInstance(style, testLocale).format(testDate) + " " + dateExample, null); // reversed
       }
     }
+//    DateTimePatternGenerator dtpg = DateTimePatternGenerator.getInstance(testLocale);
+//    Map<String,String> skeletons = dtpg.getSkeletons(new LinkedHashMap());
+//    for (String skeleton : skeletons.keySet()) {
+//      String pattern = skeletons.get(skeleton);
+//      tests.add(new SimpleDateFormat(pattern, testLocale));
+//    }
 
     ParsePosition parsePosition = new ParsePosition(0);
     ParsePosition parsePosition2 = new ParsePosition(0);
     Calendar calendar = Calendar.getInstance();
     Calendar calendar2 = Calendar.getInstance();
     
+    int success = 0;
+    int failure = 0;
     for (DateFormat test : tests) {
-      parsePosition.setIndex(0);
-      parsePosition2.setIndex(0);
-      
       String expected = test.format(testDate);
+      parsePosition.setIndex(0);
       calendar.clear();
-      calendar2.clear();
       parser.parse(expected, calendar, parsePosition);
+      
+      parsePosition2.setIndex(0);
+      calendar2.clear();
       test.parse(expected, calendar2, parsePosition2);
+      
+      
       if (areEqual(calendar, calendar2)) {
-        System.out.println("OK\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\t" + show(expected,parsePosition) + "\t" + parser);
+        System.out.println("OK\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\t" + show(expected,parsePosition));
+        success ++;
       } else {
-        System.out.println("FAIL\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\texpected: <" + iso.format(calendar2) + ">\t" + show(expected,parsePosition) + "\t" + parser);
+        failure ++;
+        LenientDateParser.DEBUG = true;
+        calendar.clear();
+        parsePosition.setIndex(0);
+        parser.parse(expected, calendar, parsePosition);
+        LenientDateParser.DEBUG = false;
+        
+        System.out.println("FAIL\t" + expected + "\t=>\t<" + iso.format(calendar) + "//" + calendar.getTimeZone().getID() 
+            + ">\texpected: <" + iso.format(calendar2) +  "//" + calendar2.getTimeZone().getID() + ">\t" + show(expected,parsePosition) + "\t" + parser);
       }
+      System.out.println();
     }
+    System.out.println ("SUCCESS: " + success + "\t\tFAILURE: " + failure);
   }
 
   private static boolean areEqual(Calendar calendar, Calendar calendar2) {
-    return calendar.getTimeInMillis() == calendar2.getTimeInMillis() && calendar.getTimeZone().equals(calendar2.getTimeZone());
+    if (calendar.getTimeInMillis() == calendar2.getTimeInMillis()) { //  && calendar.getTimeZone().equals(calendar2.getTimeZone()) until ICU gets fixed
+      return true;
+    }
+    return false; // separate for debugging
   }
 
   private static String show(String test, ParsePosition parsePosition) {

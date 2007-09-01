@@ -5,38 +5,51 @@ import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.LenientDateParser.Token.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.SimpleTimeZone;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
+import java.sql.Time;
 import java.text.ParsePosition;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Immutable class that will parse dates and times for a particular ULocale.
  * @author markdavis
  */
 public  class LenientDateParser {
-  public static final boolean DEBUG = true;
+  public static  boolean DEBUG = false;
 
   private static final UnicodeSet disallowedInSeparator = (UnicodeSet) new UnicodeSet("[:alphabetic:]").freeze();
   private static final EnumSet<Type> dateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR, Type.WEEKDAY, Type.ERA);
@@ -50,6 +63,10 @@ public  class LenientDateParser {
     Token previous;
     final BreakIterator breakIterator;
     Calendar calendar;
+    private int twoDigitYearOffset;
+    {
+      set2DigitYearStart(new Date(new Date().getYear()-80,1,1));
+    }
     
    Parser(BreakIterator breakIterator) {
       this.breakIterator = breakIterator;
@@ -77,18 +94,13 @@ public  class LenientDateParser {
         return false;
       }
       switch (token.getType()) {
-        case ERA:  case MONTH: case WEEKDAY: 
-          if (!token.setCalendarFieldIfPossible(previous, calendar, haveSoFar, tokens)) {
-            return false;
-          }
-          break;
-        case AMPM:
-          if (!token.setCalendarFieldIfPossible(previous, calendar, haveSoFar, tokens)) {
+        case ERA:  case MONTH: case WEEKDAY: case TIMEZONE: case AMPM:
+          if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
             return false;
           }
           break;
         case INTEGER:
-          if (!token.setCalendarFieldIfPossible(previous, calendar, haveSoFar, tokens)) {
+          if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
             return false;
           }
           break;
@@ -105,7 +117,7 @@ public  class LenientDateParser {
           }
           if (previous != null && previous.getType() == Type.INTEGER) {
             IntegerToken integerToken = (IntegerToken) previous;
-            if (!integerToken.restrictAndSetCalendarFieldIfPossible(beforeTypes, calendar, haveSoFar, tokens)) {
+            if (!integerToken.restrictAndSetCalendarFieldIfPossible(beforeTypes, haveSoFar, tokens)) {
               return false; // couldn't add
             }
           }
@@ -167,14 +179,14 @@ public  class LenientDateParser {
           // Gregorian doesn't need WeekDay, so discard.
          
           final Token matchValue = matcher.getMatchValue();
-          if (matchValue.getType() != Type.WEEKDAY) {
+          //if (matchValue.getType() != Type.WEEKDAY) {
             if (matchValue.getType() == Type.MONTH) {
               haveStringMonth = true;
             }
             if (!addToken(matchValue)) {
               break;
             }         
-          }
+         // }
           i = matcher.getMatchEnd();
           continue;
         }
@@ -209,6 +221,9 @@ public  class LenientDateParser {
 //          ++i;
         }
       }
+      if (DEBUG) {
+        System.out.println(charlist.subSequence(0,i) + "|" + "\t\t" + tokens);
+      }
       parsePosition.setIndex(charlist.toSourceOffset(i));
       
       // we now have a list of tokens. Figure out what the date is
@@ -229,14 +244,13 @@ public  class LenientDateParser {
       // TODO look at the separators
       // now get the integers
       Set<Type> ordering = new LinkedHashSet();
-      if (haveSoFar.firstType == Type.HOUR) {
+      if (false && haveSoFar.firstType == Type.HOUR) {
         ordering.addAll(integerTimeTypes);
         ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);
       } else {
         ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);       
         ordering.addAll(integerTimeTypes);
       }
-      // for testing, just assume it is yyyy mmm dd hh mm ss
 
       main:
       for (Token token : tokens) {
@@ -250,15 +264,51 @@ public  class LenientDateParser {
               continue;
             }
             if (possible.contains(item)) {
-              integerToken.restrictAndSetCalendarFieldIfPossible(EnumSet.of(item), calendar, haveSoFar, tokens);
+              integerToken.restrictAndSetCalendarFieldIfPossible(EnumSet.of(item), haveSoFar, tokens);
               continue main;
             }
-            // if we get this far, then none of the orderings work; we failed
-            if (DEBUG) {
-              System.out.println("failed to find option for " + token + " in " + possible);
-            }
-            return null;
           }
+          // if we get this far, then none of the orderings work; we failed
+          if (DEBUG) {
+            System.out.println("failed to find option for " + token + " in " + possible);
+          }
+          return null;
+        }
+      }
+      
+      for (Token token : tokens) {
+        int value = token.getIntValue();
+        switch (token.getType()) {
+          case ERA:
+            calendar.set(calendar.ERA, value);
+            break;
+        case YEAR: 
+            if (value < 100) {
+              value = (twoDigitYearOffset / 100)*100 + value;
+              if (value < twoDigitYearOffset) {
+                value += 100;
+              }
+            }
+            calendar.set(calendar.YEAR, value);
+            break;
+        case DAY:
+          calendar.set(calendar.DAY_OF_MONTH, value);
+          break;
+        case MONTH: 
+          calendar.set(calendar.MONTH, value - 1);
+          break;
+        case HOUR: 
+          calendar.set(calendar.HOUR, value);
+          break;
+        case MINUTE: 
+          calendar.set(calendar.MINUTE, value);
+          break;
+        case SECOND: 
+          calendar.set(calendar.SECOND, value);
+          break;
+        case TIMEZONE: 
+          calendar.setTimeZone(TimeZone.getTimeZone(ZONE_INT_MAP.get(value)));
+          break;
         }
       }
 //      if (!haveSoFar.contains(Type.YEAR)) {
@@ -274,6 +324,17 @@ public  class LenientDateParser {
 
     public String debugShow() {
       return matcher.getDictionary().toString();
+    }
+    
+    /**
+     * Sets the 100-year period 2-digit years will be interpreted as being in
+     * to begin on the date the user specifies.
+     * @param startDate During parsing, two digit years will be placed in the range
+     * <code>startDate</code> to <code>startDate + 100 years</code>.
+     * @stable ICU 2.0
+     */
+    public void set2DigitYearStart(Date startDate) {
+        twoDigitYearOffset = startDate.getYear() + 1900;
     }
   }
   
@@ -371,8 +432,8 @@ public  class LenientDateParser {
       return type;
     }
     
-    public boolean setCalendarFieldIfPossible(Token previous, Calendar calendar, SoFar haveSoFar, Collection<Token> tokensToFix) {
-      if (haveSoFar != null && haveSoFar.contains(getType())) {
+    public boolean checkAllowableTypes(Token previous, SoFar haveSoFar, Collection<Token> tokensToFix) {
+      if (haveSoFar.contains(getType())) {
         if (DEBUG) {
           System.out.println("Have " + this + ", but already had " + haveSoFar);
         }
@@ -390,30 +451,10 @@ public  class LenientDateParser {
       }
 
       switch (getType()) {
-        case ERA:
-          calendar.set(calendar.ERA, value);
-          break;
-      case YEAR: 
-          calendar.set(calendar.YEAR, value);
-          break;
-      case DAY:
-        calendar.set(calendar.DAY_OF_MONTH, value);
-        break;
-      case MONTH: 
-        calendar.set(calendar.MONTH, value);
-        break;
-      case HOUR: 
-        calendar.set(calendar.HOUR, value);
-        break;
-      case MINUTE: 
-        calendar.set(calendar.MINUTE, value);
-        break;
-      case SECOND: 
-        calendar.set(calendar.SECOND, value);
-        break;
+
       case INTEGER:        
         IntegerToken integerToken = (IntegerToken) this; // slightly kludgy to call subclass, but simpler
-        return integerToken.restrictAndSetCalendarFieldIfPossible(allowable, calendar, haveSoFar, tokensToFix);
+        return integerToken.restrictAndSetCalendarFieldIfPossible(allowable, haveSoFar, tokensToFix);
       case SEPARATOR:
         return true;
       }
@@ -435,7 +476,7 @@ public  class LenientDateParser {
     }
     @Override
     public String toString() {
-      return "{" + getType() + ":" + value + "}";
+      return "{" + getType() + ":" + value + (getType() == Type.TIMEZONE ? "/" + ZONE_INT_MAP.get(value) : "") + "}";
     }
     
     @Override
@@ -505,37 +546,35 @@ public  class LenientDateParser {
                       : EnumSet.of(Type.YEAR);
     }
 
-    public boolean restrictAndSetCalendarFieldIfPossible(EnumSet<Type> allowable, Calendar calendar, SoFar haveSoFar, Collection<Token> tokensToFix) {
+    public boolean restrictAndSetCalendarFieldIfPossible(EnumSet<Type> allowable, SoFar haveSoFar, Collection<Token> tokensToFix) {
       if (getType() != Type.INTEGER) {
         throw new IllegalArgumentException();
       }
       EnumSet<Type> ok = allowsAt.clone();
       // TODO optimize the following
-      if (haveSoFar != null) {
-        ok.removeAll(haveSoFar.haveSoFarSet);
-      }
+      ok.removeAll(haveSoFar.haveSoFarSet);
       if (allowable != null) {
         ok.retainAll(allowable);
       }
       if (ok.size() == 0) {
+        if (DEBUG) {
+          System.out.println("No possibilities for " + this + ": " + allowable + "\t" + haveSoFar);
+        }
         return false; // nothing works
       }
       allowsAt = ok;
       if (ok.size() == 1) {
         revisedType = ok.iterator().next();
+        haveSoFar.add(this);
         if (revisedType == Type.INTEGER) {
           throw new IllegalArgumentException();
-        }
-        // set the field with the explicit value, eg MINUTE
-        if (!setCalendarFieldIfPossible((Token)null, calendar, haveSoFar, tokensToFix)) {
-          return false;
         }
         // now look through all the other values to see if they need fixing
         for (Token token : tokensToFix) {
           // look at the other tokens to see if they need fixing
           if (token != this && token.getType() == Type.INTEGER) {
             IntegerToken other = (IntegerToken) token;
-            if (!other.restrictAndSetCalendarFieldIfPossible(EnumSet.complementOf(ok), calendar, null, tokensToFix)) {
+            if (!other.restrictAndSetCalendarFieldIfPossible(EnumSet.complementOf(ok), haveSoFar, tokensToFix)) {
               return false;
             }
           }
@@ -568,9 +607,9 @@ public  class LenientDateParser {
   }
 
   
-  private Matcher<Token> matcher;
-  private BreakIterator breakIterator;
-  private DateOrdering dateOrdering;
+  private final Matcher<Token> matcher;
+  private final BreakIterator breakIterator;
+  private final DateOrdering dateOrdering;
   
   public LenientDateParser(Matcher<Token> matcher, BreakIterator iterator, DateOrdering dateOrdering) {
     this.matcher = matcher;
@@ -601,6 +640,50 @@ public  class LenientDateParser {
         loadArray(map, symbols.getWeekdays(context, width), Type.WEEKDAY);
       }
     }
+    
+    Date now = new Date();
+    Calendar temp = Calendar.getInstance();
+
+    String[] zoneFormats = {"z", "zzzz", "Z", "ZZZZ", "v", "vvvv", "V", "VVVV"};
+    List<SimpleDateFormat> zoneFormatList = new ArrayList<SimpleDateFormat>();
+    for (String zoneFormat : zoneFormats) {
+      zoneFormatList.add(new SimpleDateFormat(zoneFormat, locale));
+    }
+    ParsePosition pos = new ParsePosition(0);
+    TimeZone unknownZone = new SimpleTimeZone(-31415, "Etc/Unknown");
+    
+    Relation<String, String> stringToZones = new  Relation(new TreeMap(), TreeSet.class, new BestTimeZone(locale));
+    
+//    final UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false, 0);
+//    Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator, stringComparator, stringComparator, stringComparator}));
+    
+    for (String timezone : ZONE_VALUE_MAP.keySet()) {
+      for (SimpleDateFormat format : zoneFormatList) {
+        format.setTimeZone(TimeZone.getTimeZone(timezone));
+        String formatted = format.format(now);
+        stringToZones.put(formatted, timezone);
+//
+//        pos.setIndex(0);
+//        temp.setTimeZone(unknownZone);
+//        format.parse(formatted, temp, pos);
+//        if (pos.getIndex() != formatted.length()) {
+//          continue; // unable to parse
+//        }
+//        TimeZone otherZone = temp.getTimeZone();
+////        if (!otherZone.getID().equals(timezone.getID())) {
+////          zoneRemaps.add(new String[] {timezone.getID(), format.toPattern(), formatted, otherZone.getID()} );
+////        }
+//        if (!otherZone.getID().equals(unknownZone.getID())) {
+//          stringToZones.put(formatted, timezone);  
+//        }
+      }
+    }
+    for (String formatted : stringToZones.keySet()) {
+      final Set<String> possibilities = stringToZones.getAll(formatted);
+      //System.out.println("Parsing \t\"" + formatted + "\"\tgets\t" + uniquenessStatus(possibilities) + "\t" + possibilities);
+      String bestValue = possibilities.iterator().next(); // pick first value
+      loadItem(map, formatted, ZONE_VALUE_MAP.get(bestValue), Type.TIMEZONE);
+    }
     // get separators from formats
     // we walk through to see what can come before or after a separator, accumulating them all together
     FormatParser formatParser = new FormatParser();
@@ -626,6 +709,10 @@ public  class LenientDateParser {
       loadItem(map, item, beforeTypes.get(item), afterTypes.get(item));
     }
     
+    if (dateOrdering.yd.size() == 0) {
+      dateOrdering.yd.addAll(dateOrdering.ymd);
+    }
+    
     // TODO remove the setByteConverter; it's just for debugging
     DictionaryBuilder<Token> builder = new StateDictionaryBuilder<Token>().setByteConverter(new StringUtf8Converter());
     if (DEBUG) {
@@ -640,6 +727,131 @@ public  class LenientDateParser {
     return result;
   }
   
+
+  private static String uniquenessStatus(Set<String> possibilities) {
+    int count = 0;
+    for (String zone : possibilities) {
+      if (supplementalData.isCanonicalZone(zone)) {
+        count++;
+      }
+    }
+    return count == 0 ? "ZERO!!" : count == 1 ? "OK" : "AMBIGUOUS:" + count;
+  }
+
+
+  static final IntMap<String> ZONE_INT_MAP;
+  static final Map<String, Integer> ZONE_VALUE_MAP;
+  final static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
+  static {
+    Set<String> canonicalZones = supplementalData.getCanonicalZones();
+    // get all the CLDR IDs
+    Set <String> allCLDRZones = new TreeSet<String>(canonicalZones);
+    for (String canonicalZone : canonicalZones) {
+      allCLDRZones.addAll(supplementalData.getZone_aliases(canonicalZone));
+    }
+    // get all the ICU IDs
+    Set<String> allIcuZones = new TreeSet<String>();
+    for (String canonicalZone:TimeZone.getAvailableIDs()) {
+      allIcuZones.add(canonicalZone);
+      for (int i = 0; i < TimeZone.countEquivalentIDs(canonicalZone); ++i) {
+        allIcuZones.add(TimeZone.getEquivalentID(canonicalZone, i));
+      }
+    }
+    
+    System.out.println("Zones in CLDR but not ICU:" + getFirstMinusSecond(allCLDRZones, allIcuZones));
+    final Set<String> icuMinusCldr_all = getFirstMinusSecond(allIcuZones, allCLDRZones);
+    System.out.println("Zones in ICU but not CLDR:" + icuMinusCldr_all);
+    
+    for (String canonicalZone : canonicalZones) {
+      Set<String> aliases = supplementalData.getZone_aliases(canonicalZone);
+      LinkedHashSet<String> icuAliases = getIcuEquivalentZones(canonicalZone);
+      icuAliases.remove(canonicalZone); // difference in APIs
+      icuAliases.removeAll(icuMinusCldr_all);
+      if (!aliases.equals(icuAliases)) {
+        System.out.println("Difference in Aliases for: " + canonicalZone);
+        Set<String> cldrMinusIcu = getFirstMinusSecond(aliases, icuAliases);
+        if (cldrMinusIcu.size() != 0) {
+          System.out.println("\tCLDR - ICU: " + cldrMinusIcu);
+        }
+        Set<String> icuMinusCldr = getFirstMinusSecond(icuAliases, aliases);
+        if (icuMinusCldr.size() != 0) {
+          System.out.println("\tICU - CLDR: " + icuMinusCldr);
+        }
+      }
+    }
+    
+    List<String> values = new ArrayList<String>();
+    for (String id : TimeZone.getAvailableIDs()) {
+      values.add(id);
+    }
+    ZONE_INT_MAP =  new IntMap.BasicIntMapFactory<String>().make(values);
+    ZONE_VALUE_MAP = Collections.unmodifiableMap(ZONE_INT_MAP.getValueMap());
+  }
+
+  private static Set<String> getFirstMinusSecond(Set<String> first, Set<String> second) {
+    Set<String> difference = new TreeSet(first);
+    difference.removeAll(second);
+    return difference;
+  }
+  
+  /**
+   * The best timezone is the lower one.
+   */
+  static class BestTimeZone implements  Comparator<String> {
+    HashMap<String, Integer> bestRegions = new HashMap<String,Integer>();
+    public BestTimeZone(ULocale locale) {
+      int count = 0;
+      String region = locale.getCountry();
+      if (region.length() != 0) { // add the explicit region if there is one
+        bestRegions.put(region, count++);
+      }
+      // now find the other regions
+      String language = locale.getLanguage();
+      String script = locale.getScript();
+      if (script.length() != 0) {
+        count = add(language + "_" + script, count);
+      }
+      count = add(language, count);
+    }
+    private int add(String language, int count) {
+      Set<String> data = supplementalData.getTerritoriesForPopulationData(language);
+      System.out.println("???" + language + "\t" + data);
+      for (String region : data) {
+        bestRegions.put(region, count++);
+      }
+      return count;
+    }
+    
+    public int compare(String o1, String o2) {
+      boolean c1 = supplementalData.isCanonicalZone(o1);
+      boolean c2 = supplementalData.isCanonicalZone(o2);
+      // canonical is lower (-1)
+      if (c1 != c2) {
+        return c1 ? -1 : 1;
+      }
+      Integer w1 = bestRegions.get(supplementalData.getZone_territory(o1));
+      Integer w2 = bestRegions.get(supplementalData.getZone_territory(o2));
+      if (w1 == null) w1 = 9999;
+      if (w2 == null) w2 = 9999;
+      int comparison = w1.compareTo(w2);
+      if (comparison != 0) {
+        return comparison;
+      }
+      // if both or neither canonical, return string comparison
+      return o1.compareTo(o2);
+    }
+  };
+  
+  private static LinkedHashSet getIcuEquivalentZones(String zoneID) {
+    LinkedHashSet result = new LinkedHashSet();
+    final int count = TimeZone.countEquivalentIDs(zoneID);
+    for (int i = 0; i < count; ++i) {
+      result.add(TimeZone.getEquivalentID(zoneID, i));
+    }
+    return result;
+  }
+  
+  
   static class DateOrdering {
     LinkedHashSet ymd = new LinkedHashSet();
     LinkedHashSet yd = new LinkedHashSet();
@@ -652,7 +864,7 @@ public  class LenientDateParser {
     }
     formatParser.set(pattern);
     List list = formatParser.getItems();
-    List temp = new ArrayList();
+    List<Type> temp = new ArrayList();
     for (int i = 0; i <  list.size(); ++i) {
       Object item = list.get(i);
       if (item instanceof String) {
@@ -670,9 +882,17 @@ public  class LenientDateParser {
           add(afterTypes, sItem, Type.INTEGER);         
         }
       } else {
-        Type type = Type.getType(item.toString());
-        if (type == Type.DAY || type == Type.YEAR || type == Type.MONTH) {
+        String var = item.toString();
+        Type type = Type.getType(var);
+        switch (type) {
+          case MONTH:
+            if (var.length() < 3) {
+              temp.add(type);
+            }
+            break;
+          case DAY: case YEAR:
           temp.add(type);
+          break;
         }
       }
     }
@@ -682,6 +902,10 @@ public  class LenientDateParser {
       dateOrdering.yd.addAll(temp);
     }
   }
+  
+
+
+
   
   private static void add(Map<String, EnumSet<Type>> stringToTypes, String item, Type type) {
     Set<Type> set = stringToTypes.get(item);
@@ -713,7 +937,7 @@ public  class LenientDateParser {
   }
 
   private static void loadArray(Map<CharSequence, Token> map, final String[] array, Type type) {
-    int i = 0;
+    int i = type == Type.MONTH ? 1 : 0; // special case months
     for (String item : array) {
       if (item != null && item.length() != 0) {
         loadItem(map, item, i++, type);

@@ -1,16 +1,21 @@
 package org.unicode.cldr.util;
 
+import org.omg.CORBA.TRANSIENT;
+
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Freezable;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -31,6 +36,14 @@ public class SupplementalDataInfo {
         case official_minority: return "OM";
       }
       throw new IllegalArgumentException("Missing value");
+    }
+
+    public boolean isMajor() {
+      switch (this) {
+        case de_facto_official:
+        case official: return true;
+        default: return false;
+      }
     }
   };
   
@@ -303,7 +316,9 @@ public class SupplementalDataInfo {
   
   private Relation<String, String> languageToScriptVariants = new Relation(new TreeMap(), TreeSet.class);
   
-  private Relation<String, String> languageToTerritories = new Relation(new TreeMap(), TreeSet.class);
+  private Relation<String, String> languageToTerritories = new Relation(new TreeMap(), LinkedHashSet.class);
+  
+  transient private Relation<String, Pair<Boolean, Pair<Integer, String>>> languageToTerritories2 = new Relation(new TreeMap(), TreeSet.class);
   
   private Relation<String, BasicLanguageData> languageToBasicLanguageData = new Relation(new TreeMap(), TreeSet.class);
   
@@ -322,7 +337,7 @@ public class SupplementalDataInfo {
   private Map<String, String> zone_territory = new TreeMap();
   
   private Relation<String, String> zone_aliases = new Relation(new TreeMap(),
-      TreeSet.class);
+      LinkedHashSet.class);
   
   private Map<String, String> alias_zone = new TreeMap();
 
@@ -396,6 +411,12 @@ public class SupplementalDataInfo {
     
     containment.freeze();
     languageToBasicLanguageData.freeze();
+    for (String language : languageToTerritories2.keySet()) {
+      for (Pair<Boolean, Pair<Integer, String>> pair : languageToTerritories2.getAll(language)) {
+        languageToTerritories.put(language, pair.getSecond().getSecond());
+      }
+    }
+    languageToTerritories2 = null; // free up the memory.
     languageToTerritories.freeze();
     zone_aliases.freeze();
     languageToScriptVariants.freeze();
@@ -492,7 +513,8 @@ public class SupplementalDataInfo {
             }
             
             territoryLanguageToPopulation.put(language, newData);
-            languageToTerritories.put(language, territory);
+            // add the language, using the Pair fields to get the ordering right
+            languageToTerritories2.put(language, new Pair(newData.getOfficialStatus().isMajor() ? 0 : 1, new Pair(-newData.getLiteratePopulation(), territory)));
             
             // now collect data for languages globally
             PopulationData data = languageToPopulation.get(language);
@@ -561,14 +583,20 @@ public class SupplementalDataInfo {
             String aliases = parts.getAttributeValue(3, "aliases");
             if (territory != null) {
               zone_territory.put(zone, territory);
+            } else {
+              throw new IllegalArgumentException("Problem in data");
             }
+            // include the item itself
+            Collection<String> aliasArray = new LinkedHashSet<String>();
+            //aliasArray.add(zone);
             if (aliases != null) {
-              String[] aliasArray = aliases.split("\\s+");
-              zone_aliases.putAll(zone, Arrays.asList(aliasArray));
-              for (String alias : aliasArray) {
-                alias_zone.put(alias, zone);
-              }
+              aliasArray.addAll(Arrays.asList(aliases.split("\\s+")));
             }
+            for (String alias : aliasArray) {
+              alias_zone.put(alias, zone);
+              zone_aliases.put(zone, alias);
+            }
+
             
             return;
           }
@@ -709,11 +737,19 @@ public class SupplementalDataInfo {
   }
   
   public Set<String> getZone_aliases(String zone) {
-    return zone_aliases.getAll(zone);
+    Set<String> result = zone_aliases.getAll(zone);
+    if (result == null) {
+      return Collections.EMPTY_SET;
+    }
+    return result;
   }
   
   public String getZone_territory(String zone) {
     return zone_territory.get(zone);
+  }
+  
+  public Set<String> getCanonicalZones() {
+    return zone_territory.keySet();
   }
   
   public Set<String> getMultizones() {
@@ -748,6 +784,10 @@ public class SupplementalDataInfo {
     if (zone_territory.get(alias) != null)
       return alias;
     return null;
+  }
+  
+  public boolean isCanonicalZone(String alias) {
+      return alias_zone.get(alias) == null;
   }
   
   /**

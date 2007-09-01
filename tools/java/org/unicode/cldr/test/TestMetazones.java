@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
@@ -9,6 +10,8 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.TimeZoneTransition;
@@ -31,6 +34,10 @@ import java.util.TreeSet;
  */
 public class TestMetazones {
   
+  private static final long HOUR = 3600000;
+  private static final long DAY = 24*60*60*1000L;
+  private static final long MINUTE = 60000;
+
   /**
    * Set if we are suppressing daylight differences in the test.
    */
@@ -149,7 +156,7 @@ public class TestMetazones {
 
           OlsonTimeZone timezone1 = new OlsonTimeZone(value.zone);
           OlsonTimeZone timezone2 = new OlsonTimeZone(value2.zone);
-          List<Long> list = getDifferencesOverRange(timezone1, timezone2, overlap);
+          List<Pair<Long, Long>> list = getDifferencesOverRange(timezone1, timezone2, overlap);
           
           if (list.size() != 0) {
             errln("Zones " + value.zone + " and " + value2.zone
@@ -163,32 +170,45 @@ public class TestMetazones {
   }
 
   String showDifferences(OlsonTimeZone zone1, OlsonTimeZone zone2,
-      List<Long> list) {
-    // Add all the transition points for both of them
-    
+      List<Pair<Long, Long>> list) {    
 
     StringBuffer buffer = new StringBuffer();
 
     int count = 0;
     boolean abbreviating = list.size() > 7;
-    for (long point : list) {
+    long totalErrorPeriod = 0;
+    for (Pair<Long, Long> pair : list) {
       count++;
+      long point = pair.getFirst();
+      long end = pair.getSecond();
+      int delta1 = zone1.getOffset(point) - zone2.getOffset(point);
+      int delta2 = zone1.getOffset(end) - zone2.getOffset(end);
+      if (delta1 != delta2) {
+        System.out.print("problem");
+      }
+      final long errorPeriod = end - point + MINUTE;
+      totalErrorPeriod += errorPeriod;
       if (abbreviating) {
         if (count == 4)
           buffer.append("...\r\n\t");
         if (count >= 4 && count < list.size() - 2)
           continue;
       }
-      int offset1 = zone1.getOffset(point);
-      int offset2 = zone2.getOffset(point);
-      String ending = count == list.size() ? " hours" : " hours, up to \r\n\t";
-      buffer.append(DateRange.format(point) + ": delta="
-          + ((offset1 - offset2) / 3600000.0) + ending);
+
+      buffer.append("delta=\t"
+          + hours.format(delta1 / (double)HOUR) + " hours:\t" + DateRange.format(point) + "\tto\t" +
+          DateRange.format(end) + ";\ttotal:\t" + days.format((errorPeriod)/(double)DAY) + " days"
+          + "\r\n\t"
+          );
     }
+    buffer.append("\tTotal Period in Error:\t" + days.format((totalErrorPeriod)/(double)DAY) + " days");
     return buffer.toString();
   }
+  
+  NumberFormat days = new DecimalFormat("0.000");
+  NumberFormat hours = new DecimalFormat("+0.00;-0.00");
 
-  private List<Long> getDifferencesOverRange(OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
+  private List<Pair<Long, Long>> getDifferencesOverRange(OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
     Set<Long> list1 = new TreeSet<Long>();
     addTransitions(zone1, zone2, overlap, list1);
     addTransitions(zone2, zone1, overlap, list1);
@@ -205,9 +225,21 @@ public class TestMetazones {
         lastDelta = delta;
       }
     }
-    return list;
+    List<Pair<Long,Long>> result = new ArrayList<Pair<Long,Long>>();
+    long lastPoint = Long.MIN_VALUE;
+    for (long point : list) {
+      if (lastPoint != Long.MIN_VALUE) {
+        int offset1 = getOffset(zone1, lastPoint);
+        int offset2 = getOffset(zone2, lastPoint);
+        if (offset1 != offset2) {
+          result.add(new Pair<Long,Long>(lastPoint, point - MINUTE)); // back up 1 minute
+        }
+      }
+      lastPoint = point;
+    }
+    return result;
   }
-
+  
   /**
    * My own private version so I can suppress daylight.
    * @param zone1

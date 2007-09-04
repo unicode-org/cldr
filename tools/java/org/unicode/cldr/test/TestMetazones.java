@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -92,7 +93,10 @@ public class TestMetazones {
     checkCoverage(zoneToDateRanges);
 
     checkGapsAndOverlaps(zoneToDateRanges);
-
+    
+    checkExemplars(mzoneToData, zoneToDateRanges);
+   // if (true) return;
+    
     checkMetazoneConsistency(mzoneToData);
   }
 
@@ -128,8 +132,9 @@ public class TestMetazones {
   private void checkMetazoneConsistency(
       Relation<String, DateRangeAndZone> mzoneToData) {
     System.out.println();
-    System.out.println("Verify everything matches in metazones");
-
+    System.out.println("*** Verify everything matches in metazones");
+    System.out.println();
+    
     for (String mzone : mzoneToData.keySet()) {
       if (false) System.out.println(mzone);
       Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
@@ -274,7 +279,7 @@ public class TestMetazones {
   private void checkGapsAndOverlaps(
       Relation<String, DateRangeAndZone> zoneToDateRanges) {
     System.out.println();
-    System.out.println("Verify no gaps or overlaps in zones");
+    System.out.println("*** Verify no gaps or overlaps in zones");
     for (String zone : zoneToDateRanges.keySet()) {
       if (false)
         System.out.println(zone);
@@ -289,9 +294,64 @@ public class TestMetazones {
       checkGapOrOverlap(last, DateRange.MAX_DATE);
     }
   }
+  
+  private void checkExemplars(
+      Relation<String, DateRangeAndZone> mzoneToData,
+      Relation<String, DateRangeAndZone> zoneToData) {
+    
+    System.out.println();
+    System.out.println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
+    System.out.println();
+    for (String mzone : mzoneToData.keySet()) {
+      if (false)
+        System.out.println(mzone);
+      Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
+      
+      Map<String, DateRanges> zoneToRanges = new TreeMap();
+      DateRanges mzoneRanges = new DateRanges();
+      // first determine what the max and min dates are
+      
+      for (DateRangeAndZone value : values) {
+        DateRanges ranges = zoneToRanges.get(value.zone);
+        if (ranges == null) {
+          zoneToRanges.put(value.zone, ranges = new DateRanges());
+        }
+        ranges.add(value.range);
+        mzoneRanges.add(value.range);
+      }
+      
+      // now see how many there are
+      int count = 0;
+      //System.out.println(mzone + ":\t" + mzoneRanges);
+      for (String zone : zoneToRanges.keySet()) {
+        //System.out.println("\t" + zone + ":\t" + zoneToRanges.get(zone));
+        if (mzoneRanges.equals(zoneToRanges.get(zone))) {
+          //System.out.println(value);
+          count++;
+        }
+      }
+      
+      // show the errors
+      if (count == 0) {
+        errln("Metazone <" + mzone + "> does not have exemplar for whole span: " + mzoneRanges);
+        for (DateRangeAndZone value : values) {
+          System.out.println("\t" + mzone + ":\t" + value);
+          for (DateRangeAndZone mvalues : zoneToData.getAll(value.zone)) {
+            System.out.println("\t\t\t" + value.zone + ":\t" +mvalues);
+          }
+        }
+        System.out.println("=====");
+        for (String zone : zoneToRanges.keySet()) {
+          System.out.println("\t\t\t" + zone + ":\t" +zoneToRanges.get(zone));
+        }
+      }
+    }
+  }
 
   private void checkCoverage(Relation<String, DateRangeAndZone> zoneToDateRanges) {
-    System.out.println("Check for coverage of canonical zones");
+    System.out.println();
+    System.out.println("*** Verify coverage of canonical zones");
+    System.out.println();
     Set<String> canonicalZones = supplementalData.getCanonicalZones();
     Set<String> missing = new TreeSet<String>(canonicalZones);
     missing.removeAll(zoneToDateRanges.keySet());
@@ -302,12 +362,12 @@ public class TestMetazones {
       }
     }
     if (missing.size() != 0) {
-      warnln("Missing canonical zones: " + missing);
+      errln("Missing canonical zones: " + missing);
     }
     Set<String> extras = new TreeSet<String>(zoneToDateRanges.keySet());
     extras.removeAll(canonicalZones);
     if (extras.size() != 0) {
-      warnln("Superfluous  zones (not canonical): " + extras);
+      errln("Superfluous  zones (not canonical): " + extras);
     }
   }
 
@@ -363,6 +423,56 @@ public class TestMetazones {
       return "{" + range + " => " + zone + "}";
     }
   }
+  
+  static class DateRanges {
+    Set<DateRange> contents = new TreeSet<DateRange>();
+
+    public void add(DateRange o) {
+      contents.add(o);
+      // now fix overlaps. Dumb implementation for now
+      // they are ordered by start date, so just check that adjacent ones don't touch
+      while (true) {
+        boolean madeFix = false;
+        DateRange last = null;
+        for (DateRange range : contents) {
+          if (last != null && last.containsSome(range)) {
+            madeFix = true;
+            DateRange newRange = last.getUnion(range);
+            contents.remove(last);
+            contents.remove(range);
+            contents.add(newRange);
+          }
+          last = range;
+        }
+        if (!madeFix) break;
+      }
+    }
+    boolean contains (DateRanges other) {
+      for (DateRange otherRange : other.contents) {
+        if (!contains(otherRange)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    private boolean contains(DateRange otherRange) {
+      for (DateRange range : contents) {
+        if (!range.containsAll(otherRange)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    public boolean equals(Object other) {
+      return contents.equals(((DateRanges)other).contents);
+    }
+    public int hashCode() {
+      return contents.hashCode();
+    }
+    public String toString() {
+      return contents.toString();
+    }
+  }
 
   static class DateRange implements Comparable<DateRange> {
     long startDate;
@@ -373,13 +483,31 @@ public class TestMetazones {
       this(parse(startDate, false), parse(endDate, true));
     }
 
+    public boolean containsAll(DateRange otherRange) {
+      return startDate <= otherRange.startDate && otherRange.endDate <= endDate;
+    }
+    
+    /**
+     * includes cases where they touch.
+     * @param otherRange
+     * @return
+     */
+    public boolean containsNone(DateRange otherRange) {
+      return startDate > otherRange.endDate || otherRange.startDate > endDate;
+    }
+    
+    /**
+     * includes cases where they touch.
+     * @param otherRange
+     * @return
+     */
+    public boolean containsSome(DateRange otherRange) {
+      return startDate <= otherRange.endDate && otherRange.startDate <= endDate;
+    }
+
     public DateRange(long startDate, long endDate) {
       this.startDate = startDate;
       this.endDate = endDate;
-      if (startDate > endDate) {
-        throw new IllegalArgumentException("Out of order dates: " + startDate
-            + ", " + endDate);
-      }
     }
 
     public long getExtent() {
@@ -402,6 +530,22 @@ public class TestMetazones {
       return new DateRange(start, end);
     }
 
+    public DateRange getUnion(DateRange other) {
+      long start = startDate;
+      if (start > other.startDate) {
+        start = other.startDate;
+      }
+      long end = endDate;
+      if (end < other.endDate) {
+        end = other.endDate;
+      }
+      // make sure we are ordered
+      if (end < start) {
+        end = start;
+      }
+      return new DateRange(start, end);
+    }
+    
     static long parse(String date, boolean end) {
       if (date == null)
         return end ? MAX_DATE : MIN_DATE;

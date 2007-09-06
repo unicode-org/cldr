@@ -339,6 +339,8 @@ public class SupplementalDataInfo {
   private Relation<String, String> zone_aliases = new Relation(new TreeMap(),
       LinkedHashSet.class);
   
+  private  Map<String, Map<String,String>> metazoneToRegionToZone = new HashMap<String, Map<String,String>>();
+  
   private Map<String, String> alias_zone = new TreeMap();
 
   public Relation<String, Integer> numericTerritoryMapping = new Relation(new HashMap(), HashSet.class);
@@ -408,6 +410,12 @@ public class SupplementalDataInfo {
     zone_territory = Collections.unmodifiableMap(zone_territory);
     alias_zone = Collections.unmodifiableMap(alias_zone);
     references = Collections.unmodifiableMap(references);
+    
+    Map<String, Map<String, String>> temp = metazoneToRegionToZone;
+    for (String mzone : metazoneToRegionToZone.keySet()) {
+      temp.put(mzone, Collections.unmodifiableMap(metazoneToRegionToZone.get(mzone)));
+    }
+    metazoneToRegionToZone = Collections.unmodifiableMap(temp);
     
     containment.freeze();
     languageToBasicLanguageData.freeze();
@@ -601,6 +609,20 @@ public class SupplementalDataInfo {
             return;
           }
           
+          /*
+           * <mapTimezones type="metazones">
+           *  <mapZone other="Acre"  territory="001" type="America/Rio_Branco"/>
+           */
+          if (level2.equals("mapTimezones") && "metazones".equals(parts.getAttributeValue(2,"type"))) {
+            String mzone = parts.getAttributeValue(3,"other");
+            String region = parts.getAttributeValue(3,"territory");
+            String zone = parts.getAttributeValue(3,"type");
+            Map<String, String> regionToZone = metazoneToRegionToZone.get(mzone);
+            if (regionToZone == null) metazoneToRegionToZone.put(mzone, regionToZone = new HashMap<String,String>());
+            regionToZone.put(region, zone);
+            return;
+          }
+          
           if (!skippedElements.contains(level1 + "/" + level2)) {
             skippedElements.add(level1 + "/" + level2);
             if (false)
@@ -787,7 +809,7 @@ public class SupplementalDataInfo {
   }
   
   public boolean isCanonicalZone(String alias) {
-      return alias_zone.get(alias) == null;
+      return zone_territory.get(alias) != null;
   }
   
   /**
@@ -836,5 +858,9 @@ public class SupplementalDataInfo {
   
   public Map<String, Pair<String, String>> getReferences() {
     return references;
+  }
+  
+  public Map<String,Map<String,String>> getMetazoneToRegionToZone() {
+    return metazoneToRegionToZone;
   }
 }

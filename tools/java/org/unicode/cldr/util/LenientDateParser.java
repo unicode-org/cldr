@@ -57,6 +57,10 @@ public  class LenientDateParser {
   private static final EnumSet<Type> integerDateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR);
   private static final EnumSet<Type> integerTimeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND);
 
+  static final int thisYear = new Date().getYear();
+  static final Date june15 = new Date(thisYear, 5,15,0,0,0);
+  static final Date january15 = new Date(thisYear, 0,15,0,0,0);
+
   public class Parser {
     final List<Token> tokens = new ArrayList<Token>();
     final SoFar haveSoFar = new SoFar();
@@ -176,7 +180,6 @@ public  class LenientDateParser {
             return null;
           }
           // TODO check for other calendars
-          // Gregorian doesn't need WeekDay, so discard.
          
           final Token matchValue = matcher.getMatchValue();
           //if (matchValue.getType() != Type.WEEKDAY) {
@@ -641,7 +644,7 @@ public  class LenientDateParser {
       }
     }
     
-    Date now = new Date();
+    
     Calendar temp = Calendar.getInstance();
 
     String[] zoneFormats = {"z", "zzzz", "Z", "ZZZZ", "v", "vvvv", "V", "VVVV"};
@@ -658,10 +661,25 @@ public  class LenientDateParser {
 //    Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator, stringComparator, stringComparator, stringComparator}));
     
     for (String timezone : ZONE_VALUE_MAP.keySet()) {
+      final TimeZone currentTimeZone = TimeZone.getTimeZone(timezone);
       for (SimpleDateFormat format : zoneFormatList) {
-        format.setTimeZone(TimeZone.getTimeZone(timezone));
-        String formatted = format.format(now);
-        stringToZones.put(formatted, timezone);
+        format.setTimeZone(currentTimeZone);
+        
+        // hack around the fact that non-daylight timezones fail in ICU right now
+        // the symptom is that v/vvvv format a non-daylight timezone as "Mountain Time"
+        // when there is a separate zone *with* daylight that formats that way 
+        
+//        if (format.toPattern().charAt(0) == 'v') {
+//          String formatted2 = format.format(january15);
+//          int offset = currentTimeZone.getOffset(june15.getTime());
+//          int offset2 = currentTimeZone.getOffset(january15.getTime());
+//          boolean noDaylight = offset == offset2;
+//          if (noDaylight && formatted2.equals(formatted)) {
+//            backupStringToZones.put(formatted, timezone);
+//          }
+//        }
+        stringToZones.put(format.format(january15), timezone);
+        stringToZones.put(format.format(june15), timezone);
 //
 //        pos.setIndex(0);
 //        temp.setTimeZone(unknownZone);
@@ -680,7 +698,19 @@ public  class LenientDateParser {
     }
     for (String formatted : stringToZones.keySet()) {
       final Set<String> possibilities = stringToZones.getAll(formatted);
-      //System.out.println("Parsing \t\"" + formatted + "\"\tgets\t" + uniquenessStatus(possibilities) + "\t" + possibilities);
+      String status = uniquenessStatus(possibilities);
+      if (!status.startsWith("OK")) {
+        if (formatted.equals("Australie (Darwin)")) {
+          String last = null;
+          for (String zone : possibilities) {
+            if (last != null) {
+              new BestTimeZone(locale).compare(last, zone);
+            }
+            last = zone;
+          }
+        }
+        System.out.println("Parsing \t\"" + formatted + "\"\t gets \t" + status + "\t" + show(possibilities));
+      }
       String bestValue = possibilities.iterator().next(); // pick first value
       loadItem(map, formatted, ZONE_VALUE_MAP.get(bestValue), Type.TIMEZONE);
     }
@@ -727,6 +757,19 @@ public  class LenientDateParser {
     return result;
   }
   
+
+  private static String show(Set<String> zones) {
+    StringBuilder result = new StringBuilder();
+    result.append("{");
+    for (String zone : zones) {
+      if (result.length() > 1) {
+        result.append(", ");
+      }
+      result.append(getCountry(zone)).append(":").append(zone);
+    }
+    result.append("}");
+    return result.toString();
+  }
 
   private static String uniquenessStatus(Set<String> possibilities) {
     int count = 0;
@@ -781,7 +824,7 @@ public  class LenientDateParser {
     }
     
     List<String> values = new ArrayList<String>();
-    for (String id : TimeZone.getAvailableIDs()) {
+    for (String id : canonicalZones) { // TimeZone.getAvailableIDs() has extraneous values
       values.add(id);
     }
     ZONE_INT_MAP =  new IntMap.BasicIntMapFactory<String>().make(values);
@@ -798,7 +841,9 @@ public  class LenientDateParser {
    * The best timezone is the lower one.
    */
   static class BestTimeZone implements  Comparator<String> {
+    
     HashMap<String, Integer> bestRegions = new HashMap<String,Integer>();
+    
     public BestTimeZone(ULocale locale) {
       int count = 0;
       String region = locale.getCountry();
@@ -813,6 +858,7 @@ public  class LenientDateParser {
       }
       count = add(language, count);
     }
+    
     private int add(String language, int count) {
       Set<String> data = supplementalData.getTerritoriesForPopulationData(language);
       System.out.println("???" + language + "\t" + data);
@@ -829,8 +875,10 @@ public  class LenientDateParser {
       if (c1 != c2) {
         return c1 ? -1 : 1;
       }
-      Integer w1 = bestRegions.get(supplementalData.getZone_territory(o1));
-      Integer w2 = bestRegions.get(supplementalData.getZone_territory(o2));
+      final String region1 = supplementalData.getZone_territory(o1);
+      final String region2 = supplementalData.getZone_territory(o2);
+      Integer w1 = region1 == null ? null : bestRegions.get(region1);
+      Integer w2 = region2 == null ? null : bestRegions.get(region2);
       if (w1 == null) w1 = 9999;
       if (w2 == null) w2 = 9999;
       int comparison = w1.compareTo(w2);
@@ -951,5 +999,9 @@ public  class LenientDateParser {
   
   public Parser getParser() {
     return new Parser((BreakIterator) breakIterator.clone());
+  }
+
+  public static String getCountry(String zone) {
+    return supplementalData.getZone_territory(zone);
   }
 }

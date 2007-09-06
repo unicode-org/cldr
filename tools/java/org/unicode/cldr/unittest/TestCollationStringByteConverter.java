@@ -7,6 +7,7 @@
  */
 package org.unicode.cldr.unittest;
 
+import org.unicode.cldr.ooo.supplementalData;
 import org.unicode.cldr.util.ByteString;
 import org.unicode.cldr.util.CharList;
 import org.unicode.cldr.util.CollationStringByteConverter;
@@ -31,6 +32,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 import java.text.ParsePosition;
@@ -239,14 +241,19 @@ private static final boolean DEBUG = false;
         parser.parse(expected, calendar, parsePosition);
         LenientDateParser.DEBUG = false;
         
-        System.out.println("FAIL\t" + expected + "\t=>\t<" + iso.format(calendar) + "//" + calendar.getTimeZone().getID() 
-            + ">\texpected: <" + iso.format(calendar2) +  "//" + calendar2.getTimeZone().getID() + ">\t" + show(expected,parsePosition) + "\t" + parser);
+        System.out.println("FAIL\t" + expected + "\t=>\t<" + iso.format(calendar) + "//" + showZone(ldp, calendar.getTimeZone())
+            + ">\texpected: <" + iso.format(calendar2) +  "//" + showZone(ldp, calendar2.getTimeZone()) + ">\t" + show(expected,parsePosition) + "\t" + parser);
       }
       System.out.println();
     }
     System.out.println ("SUCCESS: " + success + "\t\tFAILURE: " + failure);
   }
 
+  private static String showZone(LenientDateParser ldp, TimeZone zone) {
+    String id = zone.getID();
+    return ldp.getCountry(id) + ":" + id ;
+  }
+  
   private static boolean areEqual(Calendar calendar, Calendar calendar2) {
     if (calendar.getTimeInMillis() == calendar2.getTimeInMillis()) { //  && calendar.getTimeZone().equals(calendar2.getTimeZone()) until ICU gets fixed
       return true;

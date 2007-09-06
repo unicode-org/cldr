@@ -19,6 +19,10 @@ public class Iso639Data {
 
   static Map<String, String> fromAlpha3;
 
+  static Map<String, String> toBiblio3;
+
+  static Map<String, String> fromBiblio3;
+
   static Relation<String, String> toNames;
 
   static Map<String, Scope> toScope;
@@ -159,8 +163,8 @@ public class Iso639Data {
     }
     return toAlpha3.get(languageSubtag);
   }
-
-  public static String fromAlpha3(String alpha3) {
+  
+   public static String fromAlpha3(String alpha3) {
     if (fromAlpha3 == null) {
       getData();
     }
@@ -174,6 +178,29 @@ public class Iso639Data {
     }
     return null;
   }
+
+   public static String fromBiblio3(String biblio3) {
+     if (toNames == null) {
+       getData();
+     }
+     String result = fromBiblio3.get(biblio3);
+     if (result != null) {
+       return result;
+     }
+     return fromAlpha3(biblio3);
+   }
+
+   public static String toBiblio3(String languageTag) {
+     if (toNames == null) {
+       getData();
+     }
+     String result = toBiblio3.get(languageTag);
+     if (result != null) {
+       return result;
+     }
+     return toAlpha3(languageTag);
+   }
+
 
   public static Set<String> getNames(String languageSubtag) {
     if (toNames == null) {
@@ -242,6 +269,8 @@ public class Iso639Data {
       Pattern tabs = Pattern.compile("\\t");
       toAlpha3 = new HashMap();
       fromAlpha3 = new HashMap();
+      toBiblio3 = new HashMap();
+      fromBiblio3 = new HashMap();
       toScope = new HashMap();
       toType = new HashMap();
       toNames = new Relation(new TreeMap(), LinkedHashSet.class);
@@ -268,6 +297,17 @@ public class Iso639Data {
           toAlpha3.put(languageSubtag, alpha3);
           fromAlpha3.put(alpha3, languageSubtag);
         }
+        
+        if (parts[IsoColumn.Part2B.ordinal()].length() != 0) { // parts.length >
+          // IsoColumn.Part1.ordinal()
+          // &&
+          String biblio = parts[IsoColumn.Part2B.ordinal()];
+          if (!biblio.equals(alpha3)) {
+            toBiblio3.put(languageSubtag, biblio);
+            fromBiblio3.put(biblio, languageSubtag);
+          }
+        }
+        
         toNames.put(languageSubtag, parts[IsoColumn.Ref_Name.ordinal()]);
         Scope scope = findMatchToPrefix(parts[IsoColumn.Scope.ordinal()], Scope.values());
         if (scope != Scope.Individual)
@@ -375,7 +415,9 @@ public class Iso639Data {
 
       toAlpha3 = Collections.unmodifiableMap(toAlpha3);
       fromAlpha3 = Collections.unmodifiableMap(fromAlpha3);
-      toScope = Collections.unmodifiableMap(toScope);
+      toBiblio3 = Collections.unmodifiableMap(toBiblio3);
+      fromBiblio3 = Collections.unmodifiableMap(fromBiblio3);
+     toScope = Collections.unmodifiableMap(toScope);
       toType = Collections.unmodifiableMap(toType);
       toNames.freeze();
       prefix_suffix.freeze();

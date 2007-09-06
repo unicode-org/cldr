@@ -243,6 +243,12 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 //    }
 //  }
 
+  @Override
+  public Dictionary<T> getDictionary() {
+    // TODO Auto-generated method stub
+    return SimpleDictionary.this;
+  }
+
 //  public static class CharSequenceComparator implements Comparator<CharSequence> {
 //    
 //    public int compare(CharSequence first, CharSequence second) {

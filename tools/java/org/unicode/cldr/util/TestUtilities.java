@@ -62,6 +62,14 @@ public class TestUtilities {
   
   public static void main(String[] args) throws Exception {
     try {
+      for (String lang : Iso639Data.getAvailable()) {
+        String biblio = Iso639Data.toBiblio3(lang);
+        if (biblio == null) continue;
+        String alpha = Iso639Data.toAlpha3(lang);
+        if (!biblio.equals(alpha)) {
+          System.out.println(lang + "\t\t" + biblio + "\t\t" + alpha);
+        }
+      }
       System.out.println(State.a + ", " + State.b  + ", " + State.c + ", " + State.cc);
       
       ULocale myLocale = null;

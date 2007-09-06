@@ -1158,6 +1158,27 @@ public class Utility {
     System.out.println("-D" + key + "=" + fileRegex);
     return fileRegex;
   }
+  
+  /**
+   * Get a property value, returning the value if there is on (eg -Dkey=value),
+   * the valueIfEmpty if there is one with no value (eg -Dkey) and the valueIfNull
+   * if there is no property.
+   * 
+   * @param key
+   * @param valueIfNull
+   * @param valueIfEmpty
+   * @return
+   */
+  public static String getProperty(String key, String valueIfNull, String valueIfEmpty) {
+    String result = System.getProperty(key);
+    if (result == null) {
+      result = valueIfNull;
+    } else if (result.length() == 0) {
+      result = valueIfEmpty;
+    }
+    System.out.println("-D" + key + "=" + result);
+    return result;
+  }
 
   public static String hex(byte[] bytes, int start, int end, String separator) {
     StringBuilder result = new StringBuilder();

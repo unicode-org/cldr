@@ -27,11 +27,13 @@ import org.unicode.cldr.util.LenientDateParser.Parser;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.SimpleTimeZone;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -52,7 +54,7 @@ import java.util.Map.Entry;
 public class TestCollationStringByteConverter {
   
   
-private static final boolean DEBUG = false;
+private static final boolean DEBUG = true;
 
 //  static interface PartCharSequence {
 //    /**
@@ -117,9 +119,21 @@ private static final boolean DEBUG = false;
 //    }
 //}
 
-  
+  boolean hasBadSurrogates(String string) {
+    boolean needsLow = false;
+    for (int i = 0; i < string.length(); ++i) {
+      char c = string.charAt(i);
+      if (needsLow != Character.isLowSurrogate(c)) {
+        return true;
+      }
+      needsLow = Character.isHighSurrogate(c);
+    }
+    return needsLow;
+  }
  
   public static void main(String[] args) throws Exception {
+    String string = "abc";
+
     check2();
     if (true) return;
     checkBasic();
@@ -166,11 +180,24 @@ private static final boolean DEBUG = false;
 //    System.out.println(m.setText("jul").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
 
     ULocale testLocale = ULocale.FRENCH;
+    TimeZone testTimeZone = TimeZone.getTimeZone("America/Chicago");
+    TimeZone unknown = new SimpleTimeZone(60000, "Etc/Unknown");
+
+    DateFormatSymbols dfs = new DateFormatSymbols(testLocale);
+    String[][] zoneInfo = dfs.getZoneStrings();
+    for (int i = 0; i < zoneInfo.length; ++i) {
+      System.out.print(i );
+      for (int j = 0; j < zoneInfo[i].length; ++j) {
+        System.out.print("\t" + zoneInfo[i][j]);
+      }
+      System.out.println();
+    }
+
     LenientDateParser ldp = LenientDateParser.getInstance(testLocale);
     Parser parser = ldp.getParser();
     
     if (DEBUG) {
-      System.out.println(parser.debugShow());
+      System.out.println(parser.debugShow2());
     }
     
     LinkedHashSet<DateFormat> tests = new LinkedHashSet<DateFormat>();
@@ -192,16 +219,23 @@ private static final boolean DEBUG = false;
 //    hourMinuteOnly.set(Calendar.HOUR, testDate.get(Calendar.HOUR));
 //    hourMinuteOnly.set(Calendar.MINUTE, testDate.get(Calendar.MINUTE));
 
-    SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss v");
+    SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss VVVV");
 
     for (int style = 0; style < 4; ++style) {
       final DateFormat dateInstance = DateFormat.getDateInstance(style, testLocale);
+      dateInstance.setTimeZone(testTimeZone);
       tests.add(dateInstance);
-      tests.add(DateFormat.getTimeInstance(style, testLocale));
+      final DateFormat timeInstance = DateFormat.getTimeInstance(style, testLocale);
+      timeInstance.setTimeZone(testTimeZone);
+      tests.add(timeInstance);
       for (int style2 = 0; style2 < 4; ++style2) {
-        tests.add(DateFormat.getDateTimeInstance(style, style, testLocale));
-        tests.add(new SimpleDateFormat(((SimpleDateFormat)DateFormat.getTimeInstance(style2, testLocale)).toPattern()
-            + " " + ((SimpleDateFormat)dateInstance).toPattern(), testLocale));
+        final DateFormat dateTimeInstance = DateFormat.getDateTimeInstance(style, style, testLocale);
+        dateTimeInstance.setTimeZone(testTimeZone);
+        tests.add(dateTimeInstance);
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(((SimpleDateFormat)DateFormat.getTimeInstance(style2, testLocale)).toPattern()
+            + " " + ((SimpleDateFormat)dateInstance).toPattern(), testLocale);
+        simpleDateFormat.setTimeZone(testTimeZone);
+        tests.add(simpleDateFormat);
         //tests.put(DateFormat.getTimeInstance(style, testLocale).format(testDate) + " " + dateExample, null); // reversed
       }
     }
@@ -214,8 +248,11 @@ private static final boolean DEBUG = false;
 
     ParsePosition parsePosition = new ParsePosition(0);
     ParsePosition parsePosition2 = new ParsePosition(0);
+    
     Calendar calendar = Calendar.getInstance();
+    
     Calendar calendar2 = Calendar.getInstance();
+
     
     int success = 0;
     int failure = 0;
@@ -223,12 +260,17 @@ private static final boolean DEBUG = false;
       String expected = test.format(testDate);
       parsePosition.setIndex(0);
       calendar.clear();
+      calendar.setTimeZone(unknown);
       parser.parse(expected, calendar, parsePosition);
       
       parsePosition2.setIndex(0);
       calendar2.clear();
+      calendar2.setTimeZone(unknown);
       test.parse(expected, calendar2, parsePosition2);
       
+      if (true) {
+       
+      }
       
       if (areEqual(calendar, calendar2)) {
         System.out.println("OK\t" + expected + "\t=>\t<" + iso.format(calendar) + ">\t" + show(expected,parsePosition));

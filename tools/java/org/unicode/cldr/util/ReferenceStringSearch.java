@@ -84,10 +84,11 @@ public class ReferenceStringSearch {
   }
   
   /**
-   * A narrow range that just shows the start/end, based on the settings given.
+   * A struct  that just shows the start/end, based on the settings given.
    */
   public static class Range {
-    int start, limit;
+    public int start;
+    public int limit;
     
     public String toString() {
       return start + ", " + limit;
@@ -374,126 +375,6 @@ public class ReferenceStringSearch {
     }
   }
 
-  /****************** SIMPLE TESTING ***************/
-
-  /**
-   * for simple testing of this class.
-   * @param args
-   */
-  public static final void main(String[] args) {
-    checkTestCases();
-    checkAgainstStringSearch();
-  }
-
-  static final RuleBasedCollator TEST_COLLATOR = (RuleBasedCollator) Collator
-  .getInstance(ULocale.ENGLISH);
-  static {
-    TEST_COLLATOR.setStrength(TEST_COLLATOR.PRIMARY);
-    TEST_COLLATOR.setAlternateHandlingShifted(true); // ignore puncuation
-  }
-  
-  static final BreakIterator TEST_BREAKER = BreakIterator.getCharacterInstance();
-
-  private static void checkAgainstStringSearch() {
-    int maxCount = 2000;
-    String bigText = Utility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", maxCount);
-    int count = 0;
-    long time, delta;
-    int[] icuPos = new int[maxCount*2];
-    int[] newPos = new int[maxCount*2];
-    CharacterIterator ci = new StringCharacterIterator(bigText);
-    StringSearch foo = new StringSearch("lazy", ci, TEST_COLLATOR, TEST_BREAKER);
-    
-    foo.next();
-    icuPos[count++] = foo.getMatchStart();
-    icuPos[count++] = foo.getMatchStart() + foo.getMatchLength();
-    
-    time = System.currentTimeMillis();
-    
-    while (foo.next() != foo.DONE) {
-      icuPos[count++] = foo.getMatchStart();
-      icuPos[count++] = foo.getMatchStart() + foo.getMatchLength();
-    }
-    
-    delta = System.currentTimeMillis() - time;
-    System.out.println("ICU: " + count + ", Time: " + delta);
-    
-    count = 0;
-    Range range = new Range();
-    ReferenceStringSearch rss = new ReferenceStringSearch().setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER).setKey("lazy").setTarget(bigText);
-    
-    rss.searchForwards(range);
-    newPos[count++] = range.start;
-    newPos[count++] = range.limit;
-    
-    time = System.currentTimeMillis();
-    
-    while (rss.searchForwards(range)) {
-      newPos[count++] = range.start;
-      newPos[count++] = range.limit;
-    }
-    
-    delta = System.currentTimeMillis() - time;
-    System.out.println("New: " + count + ", Time: " + delta);
-    int diff = findDifference(icuPos, newPos, count);
-    if (diff >= 0) {
-      System.out.println("Difference at " + diff + ", " + icuPos[diff] + ", " + newPos[diff]);
-    } else {
-      System.out.println("No Difference");
-    }
-  }
-  
-  private static int findDifference(int[] icuPos, int[] newPos, int count) {
-    for (int i = 0; i < count; ++i) {
-      if (icuPos[i] != newPos[i]) {
-        return i;
-      }
-    } 
-    return -1;
-  }
-
-  private static void checkTestCases() {
-    String[][] testCases = { 
-        { "abc", "ABCABC" },
-        { "abc", "abc" },
-        { "e\u00DF", " ess e\u00DF ESS\u0300 " },
-        { "a!a", "b.a.a.a.b" },
-        { "\u03BA\u03B1\u03B9", "\u03BA\u03B1\u1FBE"},
-    };
-    
-    ReferenceStringSearch refSearch = new ReferenceStringSearch()
-    .setCollator(TEST_COLLATOR)
-    .setBreaker(TEST_BREAKER);
-    ExtendedRange extendedRange = new ExtendedRange();
-    Range range = new Range();
-    
-    for (int i = 0; i < testCases.length; ++i) {
-      String key = testCases[i][0];
-      String target = testCases[i][1];
-      refSearch.setKey(key).setTarget(target);
-      
-      System.out.println("Raw Positions of '" + key + "' in '" + target + "'");
-      int count = 0;
-      while (refSearch.searchForwards(extendedRange)) {
-        //System.out.println(extendedRange); // for the numeric offsets
-        System.out.println("\t" + extendedRange.toString(key, target));
-        ++count;
-      }
-      System.out.println("  Count: " + count);
-      
-      refSearch.setNativeOffset(0);
-      System.out.println("Positions of '" + key + "' in '" + target + "'");
-      count = 0;
-      while (refSearch.searchForwards(range)) {
-        //System.out.println(range); // for the numeric offsets
-        System.out.println("\t" + range.toString(key, target));
-        ++count;
-      }
-      System.out.println("  Count: " + count);
-      System.out.println();
-    }
-  }
-  
   /****************** PRIVATES ***************/
   
   /**
@@ -631,7 +512,7 @@ public class ReferenceStringSearch {
    * @param greatest
    * @return
    */
-  private static int getBoundary(BreakIterator breaker, int minBoundary, int maxBoundary, boolean greatest) {
+  public static int getBoundary(BreakIterator breaker, int minBoundary, int maxBoundary, boolean greatest) {
     if (breaker == null) return greatest ? maxBoundary : minBoundary;
     int result;
     // this may or may not be the most efficient way to test; ask Andy

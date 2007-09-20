@@ -59,6 +59,10 @@ public class TestUtilities {
   enum State {a, b, c;
     public static State cc = c;
   };
+  String s;
+  {
+    UTF16.StringComparator x = null;
+  }
   
   public static void main(String[] args) throws Exception {
     try {

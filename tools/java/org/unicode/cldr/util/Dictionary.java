@@ -433,6 +433,14 @@ public abstract class Dictionary<T> {
      * Get the dictionary associated with this matcher.
      */
     public abstract Dictionary<T> getDictionary();
+
+    /**
+     * The offset is not yet at the end.
+     * @return
+     */
+    public boolean hasMore() {
+      return text.hasCharAt(offset);
+    }
   }
   
   /**

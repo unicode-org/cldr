@@ -52,6 +52,7 @@ public  class LenientDateParser {
   public static  boolean DEBUG = false;
 
   private static final UnicodeSet disallowedInSeparator = (UnicodeSet) new UnicodeSet("[:alphabetic:]").freeze();
+  private static final UnicodeSet IGNORABLE = (UnicodeSet) new UnicodeSet("[,[:whitespace:]]").freeze();
   private static final EnumSet<Type> dateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR, Type.WEEKDAY, Type.ERA);
   private static final EnumSet<Type> timeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND, Type.AMPM, Type.TIMEZONE);
   private static final EnumSet<Type> integerDateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR);
@@ -216,6 +217,8 @@ public  class LenientDateParser {
           }
           i = j; // we are at least (i+1). 
           // make another pass at same point. Slightly less efficient, but makes the loop easier.
+        } else if (IGNORABLE.contains(ch)) {
+          ++i;
         } else if (disallowedInSeparator.contains(ch)) {
           break;
         } else {
@@ -309,6 +312,9 @@ public  class LenientDateParser {
         case SECOND: 
           calendar.set(calendar.SECOND, value);
           break;
+        case AMPM: 
+          calendar.set(calendar.AM_PM, value);
+          break;
         case TIMEZONE: 
           calendar.setTimeZone(TimeZone.getTimeZone(ZONE_INT_MAP.get(value)));
           break;
@@ -327,6 +333,10 @@ public  class LenientDateParser {
 
     public String debugShow() {
       return matcher.getDictionary().toString();
+    }
+    
+    public String debugShow2() {
+      return Dictionary.load(matcher.getDictionary().getMapping(), new TreeMap()).toString();
     }
     
     /**
@@ -655,7 +665,8 @@ public  class LenientDateParser {
     ParsePosition pos = new ParsePosition(0);
     TimeZone unknownZone = new SimpleTimeZone(-31415, "Etc/Unknown");
     
-    Relation<String, String> stringToZones = new  Relation(new TreeMap(), TreeSet.class, new BestTimeZone(locale));
+    final BestTimeZone bestTimeZone = new BestTimeZone(locale);
+    Relation<String, String> stringToZones = new  Relation(new TreeMap(), TreeSet.class, bestTimeZone);
     
 //    final UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false, 0);
 //    Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator, stringComparator, stringComparator, stringComparator}));
@@ -704,7 +715,7 @@ public  class LenientDateParser {
           String last = null;
           for (String zone : possibilities) {
             if (last != null) {
-              new BestTimeZone(locale).compare(last, zone);
+              bestTimeZone.compare(last, zone);
             }
             last = zone;
           }
@@ -841,14 +852,16 @@ public  class LenientDateParser {
    * The best timezone is the lower one.
    */
   static class BestTimeZone implements  Comparator<String> {
-    
-    HashMap<String, Integer> bestRegions = new HashMap<String,Integer>();
+    // TODO replace by HashMap once done debugging
+    Map<String, Integer> regionToRank = new TreeMap<String,Integer>();
+    Map<String,Map<String,Integer>> regionToZoneToRank = new TreeMap<String,Map<String,Integer>>();
     
     public BestTimeZone(ULocale locale) {
+      // build the two maps that we'll use later.
       int count = 0;
       String region = locale.getCountry();
       if (region.length() != 0) { // add the explicit region if there is one
-        bestRegions.put(region, count++);
+        regionToRank.put(region, count++);
       }
       // now find the other regions
       String language = locale.getLanguage();
@@ -857,36 +870,122 @@ public  class LenientDateParser {
         count = add(language + "_" + script, count);
       }
       count = add(language, count);
+      
+      // first do 001
+      Map<String, Map<String, String>> map = supplementalData.getMetazoneToRegionToZone();
+      for (String mzone : map.keySet()) {
+        Map<String, String> regionToZone = map.get(mzone);
+        String zone = regionToZone.get("001");
+        if (zone == null) {
+          continue;
+        }
+        String region3 = supplementalData.getZone_territory(zone);
+        if (region3 == null) {
+          continue;
+        }
+        addRank(region3, zone);
+      }
+      for (String mzone : map.keySet()) {
+        Map<String, String> regionToZone = map.get(mzone);
+        for (String region2 : regionToZone.keySet()) {
+            String zone = regionToZone.get(region2);
+            addRank(region2, zone);
+            String region3 = supplementalData.getZone_territory(zone);
+            if (region3 != null && !region3.equals(region2)) {
+              addRank(region3, zone);
+            }
+        }
+      }
+      System.out.println(regionToZoneToRank);
+    }
+
+    private void addRank(String region2, String zone) {
+      Map<String, Integer> zoneToRank = regionToZoneToRank.get(region2);
+      if (zoneToRank == null) regionToZoneToRank.put(region2, zoneToRank = new TreeMap<String,Integer>());
+      if (!zoneToRank.containsKey(zone)) {
+        zoneToRank.put(zone, zoneToRank.size()); // earlier is better.
+      }
     }
     
     private int add(String language, int count) {
-      Set<String> data = supplementalData.getTerritoriesForPopulationData(language);
-      System.out.println("???" + language + "\t" + data);
-      for (String region : data) {
-        bestRegions.put(region, count++);
+      Set<String> data = supplementalData
+          .getTerritoriesForPopulationData(language);
+      // get direct language
+      if (data != null) {
+        System.out.println("???" + language + "\t" + data);
+        for (String region : data) {
+          regionToRank.put(region, count++);
+        }
+      } else { // add scripts
+        String languageSeparator = language + "_";
+        for (String language2 : supplementalData
+            .getLanguagesForTerritoriesPopulationData()) {
+          if (language2.startsWith(languageSeparator)) {
+            data = supplementalData.getTerritoriesForPopulationData(language2);
+            System.out.println("???" + language2 + "\t" + data);
+            for (String region : data) {
+              regionToRank.put(region, count++);
+            }
+          }
+        }
       }
       return count;
     }
     
-    public int compare(String o1, String o2) {
-      boolean c1 = supplementalData.isCanonicalZone(o1);
-      boolean c2 = supplementalData.isCanonicalZone(o2);
+    public int compare(String z1, String z2) {
+      boolean c1 = supplementalData.isCanonicalZone(z1);
+      boolean c2 = supplementalData.isCanonicalZone(z2);
       // canonical is lower (-1)
       if (c1 != c2) {
         return c1 ? -1 : 1;
       }
-      final String region1 = supplementalData.getZone_territory(o1);
-      final String region2 = supplementalData.getZone_territory(o2);
-      Integer w1 = region1 == null ? null : bestRegions.get(region1);
-      Integer w2 = region2 == null ? null : bestRegions.get(region2);
+      // either both are canonical or neither
+      String zone1 = supplementalData.getZoneFromAlias(z1);
+      String zone2 = supplementalData.getZoneFromAlias(z2);
+      // handle in case not even alias
+      if (zone1 == null) zone1 = z1;
+      if (zone2 == null) zone2 = z2;
+
+      final String region1 = supplementalData.getZone_territory(zone1);
+      final String region2 = supplementalData.getZone_territory(zone2);
+      
+      if (region1 == region2 || region1 != null && region1.equals(region2)) {
+        // regions are both null, or otherwise equal
+        if (region1 != null) {
+          Map<String,Integer> rankInRegion = regionToZoneToRank.get(region1);
+          if (rankInRegion != null) {
+            int comparison = getRank(rankInRegion, zone1, zone2);
+            if (comparison != 0) {
+              return comparison;
+            }
+          }
+        }
+      } else {
+        // regions are not equal
+        // get the best region, based on population
+        if (region1 == null) {
+          return 1; // null is higher than everything
+        } else if (region2 == null) {
+          return -1;
+        }
+        int comparison = getRank(regionToRank, region1, region2);
+        if (comparison != 0) {
+          return comparison;
+        }
+        // otherwise compare
+        return region1.compareTo(region2);
+      }
+      // if all else fails, return string ordering
+      return zone1.compareTo(zone2);
+    }
+
+    private int getRank(Map<String,Integer> map, final String region1, final String region2) {
+      Integer w1 = map.get(region1);
+      Integer w2 = map.get(region2);
       if (w1 == null) w1 = 9999;
       if (w2 == null) w2 = 9999;
       int comparison = w1.compareTo(w2);
-      if (comparison != 0) {
-        return comparison;
-      }
-      // if both or neither canonical, return string comparison
-      return o1.compareTo(o2);
+      return comparison;
     }
   };
   
@@ -975,7 +1074,19 @@ public  class LenientDateParser {
   
   static String trim(String source) {
     if (source.length() == 0) return source;
-    source = source.trim();
+    int start;
+    for (start = 0; start < source.length(); ++start) {
+      if (!IGNORABLE.contains(source.charAt(start))) {
+        break;
+      }
+    }
+    int end;
+    for (end = source.length(); end > start; --end) {
+      if (!IGNORABLE.contains(source.charAt(end-1))) {
+        break;
+      }
+    }
+    source = source.substring(start, end);
     if (source.length() == 0) source = " ";
     return source;
   }
@@ -987,11 +1098,14 @@ public  class LenientDateParser {
   private static void loadArray(Map<CharSequence, Token> map, final String[] array, Type type) {
     int i = type == Type.MONTH ? 1 : 0; // special case months
     for (String item : array) {
-      if (item != null && item.length() != 0) {
+      // exclude digit-only fields, like in Chinese
+      if (item != null && item.length() != 0 && !DIGITS.containsSome(item)) {
         loadItem(map, item, i++, type);
       }
     }
   }
+  
+  private static final UnicodeSet DIGITS = (UnicodeSet) new UnicodeSet("[:nd:]").freeze();
 
   private static void loadItem(Map<CharSequence, Token> map, String item, int i, Type type) {
     map.put(item, new Token(i, type));

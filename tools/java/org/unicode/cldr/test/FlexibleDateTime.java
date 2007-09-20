@@ -66,84 +66,84 @@ public class FlexibleDateTime {
 //            DistanceInfo missingFields = new DistanceInfo();
 //            int distance = a.getDistance(b, -1, missingFields);
 //        }
-        generate(args);
+        //generate(args);
         //test(args);
     }
 
     public static PrintWriter log;
     
-	private static void generate(String[] args) throws IOException {
-		log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
-        String filter = ".*";
-        if (args.length > 0)
-            filter = args[0];
-        
-        Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
-                + "open_office/main/", filter);
-        Factory mainCLDRFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-        FormatParser fp = new FormatParser();
-        // fix locale list
-        Collection ooLocales = new LinkedHashSet(cldrFactory.getAvailable());
-        ooLocales.remove("nb_NO"); // hack, since no_NO is the main one, and subsumes nb
-        Map localeMap = new LocaleIDFixer().fixLocales(ooLocales, new TreeMap());
-        //pw.println(localeMap);
-
-        for (Iterator it = localeMap.keySet().iterator(); it.hasNext();) {
-            String sourceLocale = (String) it.next();
-            String targetLocale = (String) localeMap.get(sourceLocale);
-            ULocale uSourceLocale = new ULocale(sourceLocale);
-            ULocale uTargetLocale = new ULocale(targetLocale);
-            log.println();
-            log.println(uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
-            System.out.println(sourceLocale + "\t\u2192" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
-            if (!sourceLocale.equals(targetLocale)) {
-            	log.println("[oo: " + uSourceLocale.getDisplayName(ULocale.ENGLISH) + " (" + sourceLocale + ")]");
-            }
-            Collection list = getOOData(cldrFactory, sourceLocale);
-            // get the current values
-            try {
-                Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
-                list.removeAll(currentList);
-            } catch (RuntimeException e) {
-                // ignore
-            }
-            
-            if (list.size() == 0) {
-            	log.println(sourceLocale + "\tEMPTY!"); // skip empty
-            	continue;
-            }
-            CLDRFile temp = CLDRFile.make(targetLocale);
-            String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@_q=\"";
-
-            int count = 0;
-            Map previousID = new HashMap();
-            for (Iterator it2 = list.iterator(); it2.hasNext();) {
-            	String pattern = (String) it2.next();
-            	new SimpleDateFormat(pattern); // check that compiles
-            	fp.set(pattern);
-            	String id = fp.getVariableFieldString();
-            	if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " + pattern);
-            	if (id.length() == 0) {
-                    throw new IllegalArgumentException("Empty id for: " + pattern);
-                }
-                String previous = (String) previousID.get(id);
-                if (previous != null) {
-                    log.println("Skipping Duplicate pattern: " + pattern + " (already have " + previous + ")");
-                    continue;
-                } else {
-                    previousID.put(id, pattern);
-                }
-            	String path = prefix + (count++) + "\"]";
-            	temp.add(path, pattern);
-            }
-    		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
-            temp.write(pw);
-            pw.close();
-            log.flush();
-        }
-        System.out.println("done");
-        log.close();
-	}
+//	private static void generate(String[] args) throws IOException {
+//		log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
+//        String filter = ".*";
+//        if (args.length > 0)
+//            filter = args[0];
+//        
+//        Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
+//                + "open_office/main/", filter);
+//        Factory mainCLDRFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+//        FormatParser fp = new FormatParser();
+//        // fix locale list
+//        Collection ooLocales = new LinkedHashSet(cldrFactory.getAvailable());
+//        ooLocales.remove("nb_NO"); // hack, since no_NO is the main one, and subsumes nb
+//        Map localeMap = new LocaleIDFixer().fixLocales(ooLocales, new TreeMap());
+//        //pw.println(localeMap);
+//
+//        for (Iterator it = localeMap.keySet().iterator(); it.hasNext();) {
+//            String sourceLocale = (String) it.next();
+//            String targetLocale = (String) localeMap.get(sourceLocale);
+//            ULocale uSourceLocale = new ULocale(sourceLocale);
+//            ULocale uTargetLocale = new ULocale(targetLocale);
+//            log.println();
+//            log.println(uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
+//            System.out.println(sourceLocale + "\t\u2192" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
+//            if (!sourceLocale.equals(targetLocale)) {
+//            	log.println("[oo: " + uSourceLocale.getDisplayName(ULocale.ENGLISH) + " (" + sourceLocale + ")]");
+//            }
+//            Collection list = getOOData(cldrFactory, sourceLocale);
+//            // get the current values
+//            try {
+//                Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
+//                list.removeAll(currentList);
+//            } catch (RuntimeException e) {
+//                // ignore
+//            }
+//            
+//            if (list.size() == 0) {
+//            	log.println(sourceLocale + "\tEMPTY!"); // skip empty
+//            	continue;
+//            }
+//            CLDRFile temp = CLDRFile.make(targetLocale);
+//            String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@_q=\"";
+//
+//            int count = 0;
+//            Map previousID = new HashMap();
+//            for (Iterator it2 = list.iterator(); it2.hasNext();) {
+//            	String pattern = (String) it2.next();
+//            	new SimpleDateFormat(pattern); // check that compiles
+//            	fp.set(pattern);
+//            	String id = fp.getVariableFieldString();
+//            	if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " + pattern);
+//            	if (id.length() == 0) {
+//                    throw new IllegalArgumentException("Empty id for: " + pattern);
+//                }
+//                String previous = (String) previousID.get(id);
+//                if (previous != null) {
+//                    log.println("Skipping Duplicate pattern: " + pattern + " (already have " + previous + ")");
+//                    continue;
+//                } else {
+//                    previousID.put(id, pattern);
+//                }
+//            	String path = prefix + (count++) + "\"]";
+//            	temp.add(path, pattern);
+//            }
+//    		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
+//            temp.write(pw);
+//            pw.close();
+//            log.flush();
+//        }
+//        System.out.println("done");
+//        log.close();
+//	}
 
 	private static Collection getDateFormats(Factory mainCLDRFactory, String targetLocale) {
 		List result = new ArrayList();

@@ -783,6 +783,10 @@ public class SupplementalDataInfo {
     return languageToTerritories.getAll(language);
   }
   
+  public Set<String> getLanguagesForTerritoriesPopulationData() {
+    return languageToTerritories.keySet();
+  }
+  
   /**
    * Return the canonicalized zone, or null if there is none.
    * 

@@ -808,211 +808,211 @@ public class CLDRModify {
 			}
 		});
 		
-		fixList.add('k', "fix kk/KK", new CLDRFilter() {
-			DateTimePatternGenerator dtpg;
-			DateTimePatternGenerator.PatternInfo patternInfo = new DateTimePatternGenerator.PatternInfo();
-			DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
-			Set dateFormatItems = new TreeSet();
-			Set standardFormats = new TreeSet();
-			
-			public void handleStart() {
-				dtpg = DateTimePatternGenerator.getEmptyInstance(); // should add clear()
-				dateFormatItems.clear();
-				standardFormats.clear();
-			}
-
-			// <dateFormatItem id="KKmm" alt="proposed-u133-2" draft="provisional">hh:mm a</dateFormatItem>
-			public void handlePath(String xpath) {
-				if (xpath.indexOf("/dateFormatItem") >= 0) {
-					System.out.println(cldrFileToFilter.getStringValue(xpath) + "\t" + xpath);
-					dateFormatItems.add(xpath);
-				}
-				if (xpath.indexOf("gregorian") >= 0 && xpath.indexOf("pattern") >= 0) {
-					if (xpath.indexOf("dateFormat") >= 0 || xpath.indexOf("timeFormat") >= 0) {
-						standardFormats.add(xpath);
-					}
-				}
-			}
-			public void handleEnd() {
-				//if (dateFormatItems.size() == 0) return; // nothing to do
-				
-				// now add all the standard patterns
-				// algorithmically construct items from the standard formats
-				
-				Set standardSkeletons = new HashSet();
-				List items = new ArrayList();
-				for (Iterator it = standardFormats.iterator(); it.hasNext();) {
-					String xpath = (String) it.next();
-					String value = cldrFileToFilter.getStringValue(xpath);
-					dtpg.addPattern(value, false, patternInfo);
-					standardSkeletons.add(dtpg.getSkeleton(value));
-					if (false) { // code for adding guesses
-						fp.set(value);
-						items.clear();
-						fp.getAutoPatterns(value, items);
-						for (int i = 0; i < items.size(); ++i) {
-							String autoItem = (String)items.get(i);
-							dtpg.addPattern(autoItem, false, patternInfo);
-							if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
-						}
-					}
-					retain(xpath, "-(std)");
-				}
-
-				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
-					String xpath = (String) it.next();
-					String value = cldrFileToFilter.getStringValue(xpath);
-					String oldValue = value;
-
-					String skeleton = dtpg.getSkeleton(value);
-					// remove if single field
-					if (dtpg.isSingleField(skeleton)) {
-						remove(xpath, "Single Field");
-						continue;
-					}
-					// remove if date + time
-					fp.set(value);
-					// the following use fp, so make sure it is set
-					
-					if (fp.hasDateAndTimeFields()) {
-						remove(xpath, "Date + Time");
-						continue;
-					}
-					
-					if (containsSS()) {
-						remove(xpath, "SS");
-						continue;
-					}
-					
-					// see if we have a k or K & fix
-					value = fixKk(xpath, value);
-					
-					dtpg.addPattern(value, false, patternInfo);
-					
-//					// in case we changed value
-//					skeleton = dtpg.getSkeleton(value);
-//					String fullPath = cldrFileToFilter.getFullXPath(xpath);
-//					String oldFullPath = fullPath;
-//					parts.set(fullPath);
+//		fixList.add('k', "fix kk/KK", new CLDRFilter() {
+//			DateTimePatternGenerator dtpg;
+//			DateTimePatternGenerator.PatternInfo patternInfo = new DateTimePatternGenerator.PatternInfo();
+//			DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
+//			Set dateFormatItems = new TreeSet();
+//			Set standardFormats = new TreeSet();
+//			
+//			public void handleStart() {
+//				dtpg = DateTimePatternGenerator.getEmptyInstance(); // should add clear()
+//				dateFormatItems.clear();
+//				standardFormats.clear();
+//			}
+//
+//			// <dateFormatItem id="KKmm" alt="proposed-u133-2" draft="provisional">hh:mm a</dateFormatItem>
+//			public void handlePath(String xpath) {
+//				if (xpath.indexOf("/dateFormatItem") >= 0) {
+//					System.out.println(cldrFileToFilter.getStringValue(xpath) + "\t" + xpath);
+//					dateFormatItems.add(xpath);
+//				}
+//				if (xpath.indexOf("gregorian") >= 0 && xpath.indexOf("pattern") >= 0) {
+//					if (xpath.indexOf("dateFormat") >= 0 || xpath.indexOf("timeFormat") >= 0) {
+//						standardFormats.add(xpath);
+//					}
+//				}
+//			}
+//			public void handleEnd() {
+//				//if (dateFormatItems.size() == 0) return; // nothing to do
+//				
+//				// now add all the standard patterns
+//				// algorithmically construct items from the standard formats
+//				
+//				Set standardSkeletons = new HashSet();
+//				List items = new ArrayList();
+//				for (Iterator it = standardFormats.iterator(); it.hasNext();) {
+//					String xpath = (String) it.next();
+//					String value = cldrFileToFilter.getStringValue(xpath);
+//					dtpg.addPattern(value, false, patternInfo);
+//					standardSkeletons.add(dtpg.getSkeleton(value));
+//					if (false) { // code for adding guesses
+//						fp.set(value);
+//						items.clear();
+//						fp.getAutoPatterns(value, items);
+//						for (int i = 0; i < items.size(); ++i) {
+//							String autoItem = (String)items.get(i);
+//							dtpg.addPattern(autoItem, false, patternInfo);
+//							if (patternInfo.status == patternInfo.OK) show("generate", value + " ==> " + autoItem);
+//						}
+//					}
+//					retain(xpath, "-(std)");
+//				}
+//
+//				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
+//					String xpath = (String) it.next();
+//					String value = cldrFileToFilter.getStringValue(xpath);
+//					String oldValue = value;
+//
+//					String skeleton = dtpg.getSkeleton(value);
+//					// remove if single field
+//					if (dtpg.isSingleField(skeleton)) {
+//						remove(xpath, "Single Field");
+//						continue;
+//					}
+//					// remove if date + time
+//					fp.set(value);
+//					// the following use fp, so make sure it is set
+//					
+//					if (fp.hasDateAndTimeFields()) {
+//						remove(xpath, "Date + Time");
+//						continue;
+//					}
+//					
+//					if (containsSS()) {
+//						remove(xpath, "SS");
+//						continue;
+//					}
+//					
+//					// see if we have a k or K & fix
+//					value = fixKk(xpath, value);
+//					
+//					dtpg.addPattern(value, false, patternInfo);
+//					
+////					// in case we changed value
+////					skeleton = dtpg.getSkeleton(value);
+////					String fullPath = cldrFileToFilter.getFullXPath(xpath);
+////					String oldFullPath = fullPath;
+////					parts.set(fullPath);
+////					Map attributes = parts.getAttributes(-1);
+////					String id = (String)attributes.get("id");
+////					
+////					// fix the ID
+////					if (!id.equals(skeleton)) {
+////						attributes.put("id", skeleton);
+////						fullPath = parts.toString();
+////					}
+////					
+////					// make the change
+////					boolean differentPath = !fullPath.equals(oldFullPath);
+////					if (differentPath || !value.equals(oldValue)) {
+////						String reason = "Fixed value";
+////						if (differentPath) {
+////							reason = "Fixed id";
+////							String collisionValue = cldrFileToFilter.getStringValue(fullPath);
+////							if (collisionValue != null) {
+////								if (!value.equals(collisionValue)) {
+////									System.out.println("Collision: not changing " + fullPath
+////											+ " =\t " + value + ", old: " + collisionValue);
+////								}
+////								//skip if there was an old item with a different id
+////								remove(oldFullPath, "ID collision");
+////								return;
+////							}
+////						}
+////						replace(oldFullPath, fullPath, value, reason);
+////					}
+//				}
+//				
+//				// make a minimal set
+//				Map skeleton_patterns = dtpg.getSkeletons(null);
+//
+//				Collection redundants = dtpg.getRedundants(null);
+//				for (Iterator it = redundants.iterator(); it.hasNext();) {
+//					String skeleton = dtpg.getSkeleton((String) it.next());
+//					skeleton_patterns.remove(skeleton);
+//				}
+//				// remove all the standard IDs
+//				for (Iterator it = standardSkeletons.iterator(); it.hasNext();) {
+//					String standardSkeleton = (String) it.next();
+//					skeleton_patterns.remove(standardSkeleton);
+//				}
+//				// Now add them all back in. Preserve old paths if possible
+//				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
+//					String xpath = (String) it.next();
+//					String oldValue = cldrFileToFilter.getStringValue(xpath);
+//					String oldFullPath = cldrFileToFilter.getFullXPath(xpath);
+//					String newFullPath = oldFullPath;
+//					parts.set(newFullPath);
 //					Map attributes = parts.getAttributes(-1);
 //					String id = (String)attributes.get("id");
-//					
-//					// fix the ID
-//					if (!id.equals(skeleton)) {
-//						attributes.put("id", skeleton);
-//						fullPath = parts.toString();
+//					String newValue = (String) skeleton_patterns.get(id);
+//					if (newValue == null) {
+//						remove(xpath, "redundant");
+//						continue;
 //					}
-//					
-//					// make the change
-//					boolean differentPath = !fullPath.equals(oldFullPath);
-//					if (differentPath || !value.equals(oldValue)) {
-//						String reason = "Fixed value";
-//						if (differentPath) {
-//							reason = "Fixed id";
-//							String collisionValue = cldrFileToFilter.getStringValue(fullPath);
-//							if (collisionValue != null) {
-//								if (!value.equals(collisionValue)) {
-//									System.out.println("Collision: not changing " + fullPath
-//											+ " =\t " + value + ", old: " + collisionValue);
-//								}
-//								//skip if there was an old item with a different id
-//								remove(oldFullPath, "ID collision");
-//								return;
-//							}
-//						}
-//						replace(oldFullPath, fullPath, value, reason);
+//					String draft = (String)attributes.get("draft");
+//					if (draft == null || draft.equals("approved")) {
+//						attributes.put("draft", "provisional");
+//						newFullPath = parts.toString();
 //					}
-				}
-				
-				// make a minimal set
-				Map skeleton_patterns = dtpg.getSkeletons(null);
-
-				Collection redundants = dtpg.getRedundants(null);
-				for (Iterator it = redundants.iterator(); it.hasNext();) {
-					String skeleton = dtpg.getSkeleton((String) it.next());
-					skeleton_patterns.remove(skeleton);
-				}
-				// remove all the standard IDs
-				for (Iterator it = standardSkeletons.iterator(); it.hasNext();) {
-					String standardSkeleton = (String) it.next();
-					skeleton_patterns.remove(standardSkeleton);
-				}
-				// Now add them all back in. Preserve old paths if possible
-				for (Iterator it = dateFormatItems.iterator(); it.hasNext();) {
-					String xpath = (String) it.next();
-					String oldValue = cldrFileToFilter.getStringValue(xpath);
-					String oldFullPath = cldrFileToFilter.getFullXPath(xpath);
-					String newFullPath = oldFullPath;
-					parts.set(newFullPath);
-					Map attributes = parts.getAttributes(-1);
-					String id = (String)attributes.get("id");
-					String newValue = (String) skeleton_patterns.get(id);
-					if (newValue == null) {
-						remove(xpath, "redundant");
-						continue;
-					}
-					String draft = (String)attributes.get("draft");
-					if (draft == null || draft.equals("approved")) {
-						attributes.put("draft", "provisional");
-						newFullPath = parts.toString();
-					}
-					if (oldValue.equals(newValue) && newFullPath.equals(oldFullPath)) {
-						retain(xpath, "-");
-						skeleton_patterns.remove(id);
-						continue; // skip, they are the same
-					}
-					// not redundant, but altered
-					replace(oldFullPath, newFullPath, newValue, "fixed");
-					skeleton_patterns.remove(id);
-				}
-				parts.set("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/" +
-						"dateFormatItem");
-				Map attributes = parts.getAttributes(-1);
-				//attributes.put("alt", "proposed-666");
-				attributes.put("draft", "provisional");
-				for (Iterator it = skeleton_patterns.keySet().iterator(); it.hasNext();) {
-					String skeleton = (String)it.next();
-					String pattern = (String)skeleton_patterns.get(skeleton);
-					attributes.put("id", skeleton);
-					String fullPath = parts.toString();
-					replace(fullPath, fullPath, pattern);
-				}
-			}
-
-			private String fixKk(String xpath, String value) {
-				List fields = fp.getItems();
-				for (int i = 0; i < fields.size(); ++i) {
-					Object field = fields.get(i);
-					if (field instanceof DateTimePatternGenerator.VariableField) {
-						char first = field.toString().charAt(0);
-						String replacement = null;
-						if (first == 'k') replacement = "H";
-						else if (first == 'K') replacement = "h";
-						if (replacement != null) {
-							field = new DateTimePatternGenerator.VariableField(Utility.repeat(replacement, field.toString().length()));	
-							fields.set(i, field);
-						}	
-					}
-				}
-				String newValue = fp.toString();
-				if (!value.equals(newValue)) {
-					remove(xpath, value + " => " + newValue);
-				}
-				return newValue;
-			}
-
-			private boolean containsSS() {
-				List fields = fp.getItems();
-				for (int i = 0; i < fields.size(); ++i) {
-					Object field = fields.get(i);
-					if (field instanceof DateTimePatternGenerator.VariableField) {
-						char first = field.toString().charAt(0);
-						if (first == 'S') return true;
-					}
-				}
-				return false;
-			}
-		});
+//					if (oldValue.equals(newValue) && newFullPath.equals(oldFullPath)) {
+//						retain(xpath, "-");
+//						skeleton_patterns.remove(id);
+//						continue; // skip, they are the same
+//					}
+//					// not redundant, but altered
+//					replace(oldFullPath, newFullPath, newValue, "fixed");
+//					skeleton_patterns.remove(id);
+//				}
+//				parts.set("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/" +
+//						"dateFormatItem");
+//				Map attributes = parts.getAttributes(-1);
+//				//attributes.put("alt", "proposed-666");
+//				attributes.put("draft", "provisional");
+//				for (Iterator it = skeleton_patterns.keySet().iterator(); it.hasNext();) {
+//					String skeleton = (String)it.next();
+//					String pattern = (String)skeleton_patterns.get(skeleton);
+//					attributes.put("id", skeleton);
+//					String fullPath = parts.toString();
+//					replace(fullPath, fullPath, pattern);
+//				}
+//			}
+//
+//			private String fixKk(String xpath, String value) {
+//				List fields = fp.getItems();
+//				for (int i = 0; i < fields.size(); ++i) {
+//					Object field = fields.get(i);
+//					if (field instanceof DateTimePatternGenerator.VariableField) {
+//						char first = field.toString().charAt(0);
+//						String replacement = null;
+//						if (first == 'k') replacement = "H";
+//						else if (first == 'K') replacement = "h";
+//						if (replacement != null) {
+//							field = new DateTimePatternGenerator.VariableField(Utility.repeat(replacement, field.toString().length()));	
+//							fields.set(i, field);
+//						}	
+//					}
+//				}
+//				String newValue = fp.toString();
+//				if (!value.equals(newValue)) {
+//					remove(xpath, value + " => " + newValue);
+//				}
+//				return newValue;
+//			}
+//
+//			private boolean containsSS() {
+//				List fields = fp.getItems();
+//				for (int i = 0; i < fields.size(); ++i) {
+//					Object field = fields.get(i);
+//					if (field instanceof DateTimePatternGenerator.VariableField) {
+//						char first = field.toString().charAt(0);
+//						if (first == 'S') return true;
+//					}
+//				}
+//				return false;
+//			}
+//		});
 		/*
 		 * Fix id to be identical to skeleton
 		 * Eliminate any single-field ids

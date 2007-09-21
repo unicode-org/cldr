@@ -19,11 +19,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Implements a search for words starting at a given offset. Logically, it is
- * backed by a Map&lt;String,int&gt; (int's restricted to non-negative values).
- * You set the offset you are concerned about, then call next() until it doesn't
- * return MATCH. Along the way, you will get results. For example, here is some
- * sample code and results.
+ * Provides for detecting all words starting at a given offset, and returning a
+ * value associated with each of the words. Logically, it is backed by a
+ * Map&lt;String,Object&gt; You set the offset you are concerned about, then
+ * call next() until it doesn't return MATCH. Along the way, you will get
+ * results. For example, here is some sample code and results.
  * 
  * <pre>
  * System.out.println(&quot;Using dictionary: &quot; + dictionary.getMapping());
@@ -55,15 +55,15 @@ import java.util.Map.Entry;
  * Output:
  * 
  * <pre>
- *  Using dictionary: {any=All, man=Woman, many=Few}
- *  Searching in: {many manners ma}
- *  {[[[man]]]y manners ma} MATCH   {Woman} 
- *  {[[[many]]] manners ma} MATCH   {Few} 
- *  {m[[[any]]] manners ma} MATCH   {All} 
- *  {many [[[man]]]ners ma} MATCH   {Woman} 
- *  {many [[[man]]]ners ma} PARTIAL   {Few}   Unique
- *  {many m[[[an]]]ners ma} PARTIAL   {All}   Unique
- *  {many manners [[[ma]]]} PARTIAL   {Woman}   Not Unique
+ *   Using dictionary: {any=All, man=Woman, many=Few}
+ *   Searching in: {many manners ma}
+ *   {[[[man]]]y manners ma} MATCH   {Woman} 
+ *   {[[[many]]] manners ma} MATCH   {Few} 
+ *   {m[[[any]]] manners ma} MATCH   {All} 
+ *   {many [[[man]]]ners ma} MATCH   {Woman} 
+ *   {many [[[man]]]ners ma} PARTIAL   {Few}   Unique
+ *   {many m[[[an]]]ners ma} PARTIAL   {All}   Unique
+ *   {many manners [[[ma]]]} PARTIAL   {Woman}   Not Unique
  * </pre>
  * 
  * When you get a PARTIAL status, the match value is undefined. Often people

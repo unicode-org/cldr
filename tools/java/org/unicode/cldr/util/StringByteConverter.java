@@ -9,6 +9,15 @@ package org.unicode.cldr.util;
 
 import java.io.IOException;
 
+/**
+ * Class that converts strings to bytes and back. The bytes do not have to be
+ * UTF-8, since they are meant to only be used serially. In particular, the only
+ * restriction is that the transition between serialized characters must be discoverable by
+ * looking at either the last byte of the first character or the first byte of the second character.
+ * 
+ * @author markdavis
+ * 
+ */
 public abstract class StringByteConverter {
 
   public void clear() {

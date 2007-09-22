@@ -8,10 +8,10 @@ public class CharUtilities {
    * @author markdavis
    *
    */
-  public static class CharListWrapper <T extends CharSequence> implements CharList {
+  public static class CharSourceWrapper <T extends CharSequence> implements CharSource {
     protected T source;
     
-    public CharListWrapper(T source) {
+    public CharSourceWrapper(T source) {
       this.source = source;
     }
     public boolean hasCharAt(int index) {
@@ -23,11 +23,11 @@ public class CharUtilities {
     public int toSourceOffset(int index) {
       return index;
     }
-    public CharList sublist(int start, int end) {
-      return new CharListWrapper(source.subSequence(start, end));
+    public CharSource sublist(int start, int end) {
+      return new CharSourceWrapper(source.subSequence(start, end));
     }
-    public CharList sublist(int start) {
-      return new CharListWrapper(source.subSequence(start, source.length()));
+    public CharSource sublist(int start) {
+      return new CharSourceWrapper(source.subSequence(start, source.length()));
     }
     public int getKnownLength() {
       return source.length();
@@ -45,7 +45,7 @@ public class CharUtilities {
     public int fromSourceOffset(int index) {
       return index;
     }
-    public CharList setStart(int index) {
+    public CharSource setStart(int index) {
       return this;
     }
     public int getStart() {
@@ -60,7 +60,7 @@ public class CharUtilities {
    * @param text2
    * @return
    */
-  public static int compare(CharList text1, CharList text2) {
+  public static int compare(CharSource text1, CharSource text2) {
     int i1 = 0;
     int i2 = 0;
 

@@ -7,10 +7,10 @@
  */
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.util.ByteString;
+import org.unicode.cldr.util.CompactStringByteConverter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StringByteConverter;
-import org.unicode.cldr.util.StringUtf8Converter;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.impl.Utility;
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
-public class TestByteString {
+public class TestStringByteConverter {
   static Random random = new Random(0);
   enum Type {utf8, normal, compact};
   
@@ -110,12 +110,12 @@ public class TestByteString {
     checkUtf8(test);
     byte[] bytes = new byte[2000];
     byte[] bytes2 = new byte[4];
-    if (ByteString.DEBUG) {
+    if (CompactStringByteConverter.DEBUG) {
       System.out.println(counter++ + ": " + Utility.hex(test) + ", \t" + test);
     }
-    StringByteConverter byteString = type == Type.utf8 ? new StringUtf8Converter() : 
-      type == Type.normal ? new ByteString(false)
-          : new ByteString(true);
+    StringByteConverter byteString = type == Type.utf8 ? new Utf8StringByteConverter() : 
+      type == Type.normal ? new CompactStringByteConverter(false)
+          : new CompactStringByteConverter(true);
     int byteLen = byteString.toBytes(test,bytes, 0);
     
     // verify that incremental gets the same results
@@ -133,11 +133,11 @@ public class TestByteString {
     }
     
     totalBytes += byteLen;
-    if (ByteString.DEBUG) {
+    if (CompactStringByteConverter.DEBUG) {
       System.out.println("\t" + hex(bytes,0,byteLen, " "));
     }
     byte[] utf8bytes = test.getBytes("utf-8");
-    if (ByteString.DEBUG) {
+    if (CompactStringByteConverter.DEBUG) {
       System.out.println("\t" + hex(utf8bytes,0,utf8bytes.length, " "));
     }
     totalUtf8Bytes += utf8bytes.length;
@@ -149,7 +149,7 @@ public class TestByteString {
   }
   
   private static void checkUtf8(String test) throws IOException {
-   StringUtf8Converter conv = new StringUtf8Converter();
+   Utf8StringByteConverter conv = new Utf8StringByteConverter();
    byte[] output1 = new byte[1000];
    int len = conv.toBytes(test, output1, 0);
    byte[] output2 = test.getBytes("utf-8");
@@ -173,7 +173,7 @@ public class TestByteString {
   static int totalUtf8Bytes = 0;
 
   private static void testInt(int test) throws UnsupportedEncodingException {
-    if (ByteString.DEBUG) {
+    if (CompactStringByteConverter.DEBUG) {
       System.out.println(counter++ + ": " + Utility.hex(test));
     }
     testInt(test, false);
@@ -181,7 +181,7 @@ public class TestByteString {
     if (test >= 0 && test < 0x110000) {
       String test2 = new String(Character.toChars(test));
       byte[] utf8bytes = test2.getBytes("utf-8");
-      if (ByteString.DEBUG) {
+      if (CompactStringByteConverter.DEBUG) {
         System.out.println("\tutf: " + hex(utf8bytes,0,utf8bytes.length, " "));
       }
     }
@@ -190,12 +190,12 @@ public class TestByteString {
   private static void testInt(int test, boolean unsigned) throws UnsupportedEncodingException {
     byte[] bytes = new byte[1000];
     int[] ioBytePosition = new int[1];
-    int len = unsigned ? ByteString.writeUnsignedInt(test, bytes, 0) : ByteString.writeInt(test, bytes, 0);
-    if (ByteString.DEBUG) {
+    int len = unsigned ? CompactStringByteConverter.writeUnsignedInt(test, bytes, 0) : CompactStringByteConverter.writeInt(test, bytes, 0);
+    if (CompactStringByteConverter.DEBUG) {
       System.out.println("\tcm" + (unsigned ? "u" : "s") + ": " + hex(bytes, 0, len, " "));
     }
     ioBytePosition[0] = 0;
-    int retest = unsigned ? ByteString.readUnsignedInt(bytes, ioBytePosition) : ByteString.readInt(bytes, ioBytePosition);
+    int retest = unsigned ? CompactStringByteConverter.readUnsignedInt(bytes, ioBytePosition) : CompactStringByteConverter.readInt(bytes, ioBytePosition);
     int lengthRead = ioBytePosition[0];
     if (test != retest) throw new IllegalArgumentException();
     if (len != lengthRead) throw new IllegalArgumentException();

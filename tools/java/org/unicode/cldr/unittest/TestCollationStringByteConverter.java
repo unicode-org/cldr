@@ -8,15 +8,15 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.ooo.supplementalData;
-import org.unicode.cldr.util.ByteString;
-import org.unicode.cldr.util.CharList;
+import org.unicode.cldr.util.CompactStringByteConverter;
+import org.unicode.cldr.util.CharSource;
 import org.unicode.cldr.util.CollationStringByteConverter;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.LenientDateParser;
 import org.unicode.cldr.util.StateDictionaryBuilder;
-import org.unicode.cldr.util.StringUtf8Converter;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.TestStateDictionaryBuilder;
-import org.unicode.cldr.util.CharUtilities.CharListWrapper;
+import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
 import org.unicode.cldr.util.Dictionary.Matcher;
@@ -134,7 +134,8 @@ private static final boolean DEBUG = true;
   public static void main(String[] args) throws Exception {
     String string = "abc";
 
-    check2();
+    check2(ULocale.JAPANESE);
+    //check2(ULocale.FRANCE);
     if (true) return;
     checkBasic();
     check();
@@ -163,7 +164,7 @@ private static final boolean DEBUG = true;
     }
   }
   
-  private static void check2() {
+  private static void check2(ULocale testLocale) {
 //    Map<CharSequence,CharSequence> map = new TreeMap<CharSequence,CharSequence>();
 //    map.put("j", "J");
 //    map.put("july", "JULY");
@@ -179,19 +180,18 @@ private static final boolean DEBUG = true;
 //    System.out.println(m.setText("ju").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
 //    System.out.println(m.setText("jul").next(Filter.LONGEST_UNIQUE) + "\t" + m + "\t" + m.nextUniquePartial());
 
-    ULocale testLocale = ULocale.FRENCH;
     TimeZone testTimeZone = TimeZone.getTimeZone("America/Chicago");
     TimeZone unknown = new SimpleTimeZone(60000, "Etc/Unknown");
 
-    DateFormatSymbols dfs = new DateFormatSymbols(testLocale);
-    String[][] zoneInfo = dfs.getZoneStrings();
-    for (int i = 0; i < zoneInfo.length; ++i) {
-      System.out.print(i );
-      for (int j = 0; j < zoneInfo[i].length; ++j) {
-        System.out.print("\t" + zoneInfo[i][j]);
-      }
-      System.out.println();
-    }
+//    DateFormatSymbols dfs = new DateFormatSymbols(testLocale);
+//    String[][] zoneInfo = dfs.getZoneStrings();
+//    for (int i = 0; i < zoneInfo.length; ++i) {
+//      System.out.print(i );
+//      for (int j = 0; j < zoneInfo[i].length; ++j) {
+//        System.out.print("\t" + zoneInfo[i][j]);
+//      }
+//      System.out.println();
+//    }
 
     LenientDateParser ldp = LenientDateParser.getInstance(testLocale);
     Parser parser = ldp.getParser();
@@ -312,7 +312,7 @@ private static final boolean DEBUG = true;
     final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
     col.setStrength(col.PRIMARY);
     col.setAlternateHandlingShifted(true);
-    CollationStringByteConverter converter = new CollationStringByteConverter(col, new StringUtf8Converter()); // new ByteString(true)
+    CollationStringByteConverter converter = new CollationStringByteConverter(col, new Utf8StringByteConverter()); // new ByteString(true)
     Matcher<String> matcher = converter.getDictionary().getMatcher();
 //    if (true) {
 //      Iterator<Entry<CharSequence, String>> x = converter.getDictionary().getMapping();

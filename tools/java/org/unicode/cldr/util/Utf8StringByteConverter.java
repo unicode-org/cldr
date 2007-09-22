@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author markdavis
  */
 // TODO optimize this
-public class StringUtf8Converter extends StringByteConverter {
+public class Utf8StringByteConverter extends StringByteConverter {
   char lead = 0;
   
   @Override

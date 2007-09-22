@@ -7,7 +7,7 @@ import org.unicode.cldr.util.IntMap;
 import org.unicode.cldr.util.ReferenceStringSearch;
 import org.unicode.cldr.util.StateDictionary;
 import org.unicode.cldr.util.StateDictionaryBuilder;
-import org.unicode.cldr.util.StringUtf8Converter;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
@@ -194,7 +194,7 @@ public class TestReferenceStringSearch {
       Map<CharSequence,String> map = new TreeMap<CharSequence,String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
       new CollationMapMaker().generateCollatorFolding(collation, map);
       // for compactness, we'd use .setIntMapFactory(new IntMap.CompactStringIntMapFactory())
-      dictionary = new StateDictionaryBuilder<String>().setByteConverter(new StringUtf8Converter()).make(map);
+      dictionary = new StateDictionaryBuilder<String>().setByteConverter(new Utf8StringByteConverter()).make(map);
       return this;
     }
     

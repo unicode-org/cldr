@@ -7,8 +7,8 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.CharList;
-import org.unicode.cldr.util.CharUtilities.CharListWrapper;
+import org.unicode.cldr.util.CharSource;
+import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
@@ -76,11 +76,11 @@ public class TestStateDictionaryBuilder<T> {
     
     for (String arg : args) {
       if (arg.equalsIgnoreCase("utf8")) {
-        stateDictionaryBuilder.setByteConverter(new StringUtf8Converter());
+        stateDictionaryBuilder.setByteConverter(new Utf8StringByteConverter());
       } else if (arg.equalsIgnoreCase("normal")) {
-        stateDictionaryBuilder.setByteConverter(new ByteString(false));
+        stateDictionaryBuilder.setByteConverter(new CompactStringByteConverter(false));
       } else if (arg.equalsIgnoreCase("compact")) {
-        stateDictionaryBuilder.setByteConverter(new ByteString(true));
+        stateDictionaryBuilder.setByteConverter(new CompactStringByteConverter(true));
       }
     }
     baseMapping.put("GMT+0000", (T)("t"));   
@@ -103,7 +103,7 @@ public class TestStateDictionaryBuilder<T> {
     
     for (Filter filter : Filter.values()) {
       final String string = "many manners ma";
-      tryFind(string, new CharListWrapper(string), stateDictionary, filter);
+      tryFind(string, new CharSourceWrapper(string), stateDictionary, filter);
     }
     
     
@@ -168,7 +168,7 @@ public class TestStateDictionaryBuilder<T> {
     
   }
 
-  static public <U> void tryFind(CharSequence originalText, CharList charListText, Dictionary<U> dictionary, Filter filter) {
+  static public <U> void tryFind(CharSequence originalText, CharSource charListText, Dictionary<U> dictionary, Filter filter) {
     System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap()));
     System.out.println("Searching in: {" + originalText + "} with filter=" + filter);
     // Dictionaries are immutable, so we create a Matcher to search/test text.
@@ -197,9 +197,9 @@ public class TestStateDictionaryBuilder<T> {
     System.out.println();
   }
   
-  static public CharSequence showBoth(CharList source, int start, int end) {
-    if (source instanceof CharListWrapper) {
-      CharListWrapper new_name = (CharListWrapper) source;
+  static public CharSequence showBoth(CharSource source, int start, int end) {
+    if (source instanceof CharSourceWrapper) {
+      CharSourceWrapper new_name = (CharSourceWrapper) source;
       return new_name.sourceSubSequence(start, end);
     }
     return source.subSequence(start, end);
@@ -282,7 +282,7 @@ public class TestStateDictionaryBuilder<T> {
       if ((++count & 0xFF) == 0xFF) {
         System.out.println(count + ":\t" + myText);
       }
-      crossCheck(new CharListWrapper(myText));
+      crossCheck(new CharSourceWrapper(myText));
       crossCheck("!" + myText);
       crossCheck(myText + "!");
     }
@@ -304,9 +304,9 @@ public class TestStateDictionaryBuilder<T> {
   }
   
   private void crossCheck(CharSequence myText) {
-    crossCheck(new CharListWrapper(myText));
+    crossCheck(new CharSourceWrapper(myText));
   }
-  private void crossCheck(CharList myText) {
+  private void crossCheck(CharSource myText) {
     stateMatcher.setText(myText); // set the text to operate on
     simpleMatcher.setText(myText); // set the text to operate on
     for (int i = 0; stateMatcher.getText().hasCharAt(i); ++i) {

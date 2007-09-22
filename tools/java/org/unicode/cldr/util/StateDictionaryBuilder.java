@@ -44,7 +44,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T>{
   private IntMap<T> builtResults;
   private int builtMaxByteLength;
   
-  private StringByteConverter byteConverter = new ByteString(true); //new StringUtf8Converter(); // new ByteString(false); // new ByteString(true); //
+  private StringByteConverter byteConverter = new CompactStringByteConverter(true); //new StringUtf8Converter(); // new ByteString(false); // new ByteString(true); //
 
   private IntMapFactory<T> intMapFactory = new BasicIntMapFactory<T>();
   

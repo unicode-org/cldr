@@ -71,7 +71,7 @@ public  class LenientDateParser {
 
     public void parse(String text, Calendar cal, ParsePosition parsePosition) {
       calendar = cal;
-      parse(new CharUtilities.CharListWrapper(text), parsePosition);
+      parse(new CharUtilities.CharSourceWrapper(text), parsePosition);
     }
     
     private boolean addSeparator(StringBuilder separatorBuffer) {
@@ -148,7 +148,7 @@ public  class LenientDateParser {
 
     //Type firstType;
     
-    public Date parse(CharList charlist,  ParsePosition parsePosition) {
+    public Date parse(CharSource charlist,  ParsePosition parsePosition) {
       calendar.clear();
       tokens.clear();
       previous = null;
@@ -747,7 +747,7 @@ public  class LenientDateParser {
     }
     
     // TODO remove the setByteConverter; it's just for debugging
-    DictionaryBuilder<Token> builder = new StateDictionaryBuilder<Token>().setByteConverter(new StringUtf8Converter());
+    DictionaryBuilder<Token> builder = new StateDictionaryBuilder<Token>().setByteConverter(new Utf8StringByteConverter());
     if (DEBUG) {
       System.out.println(map);
     }
@@ -925,12 +925,22 @@ public  class LenientDateParser {
     }
     
     public int compare(String z1, String z2) {
+      // Etc/GMT.* is lower
+      if (z1.startsWith("Etc/GMT")) {
+        if (!z2.startsWith("Etc/GMT")) {
+          return -1;
+        }
+      } else if (z2.startsWith("Etc/GMT")) {
+        return 1;
+      }
+      
+      // canonical is lower (-1)
       boolean c1 = supplementalData.isCanonicalZone(z1);
       boolean c2 = supplementalData.isCanonicalZone(z2);
-      // canonical is lower (-1)
       if (c1 != c2) {
         return c1 ? -1 : 1;
       }
+      
       // either both are canonical or neither
       String zone1 = supplementalData.getZoneFromAlias(z1);
       String zone2 = supplementalData.getZoneFromAlias(z2);
@@ -1110,4 +1120,19 @@ public  class LenientDateParser {
   public static String getCountry(String zone) {
     return supplementalData.getZone_territory(zone);
   }
+  
+  /*
+
+Parsing   "-1100"  gets   AMBIGUOUS:5 {001:Etc/GMT+11, AS:Pacific/Pago_Pago, NU:Pacific/Niue, UM:Pacific/Midway, WS:Pacific/Apia}
+
+Parsing   "+0530"  gets   AMBIGUOUS:2 {IN:Asia/Calcutta, LK:Asia/Colombo}
+Parsing   "+0630"  gets   AMBIGUOUS:2 {CC:Indian/Cocos, MM:Asia/Rangoon}
+Parsing   "+0930"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Broken_Hill, AU:Australia/Darwin}
+Parsing   "+1030"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Lord_Howe, AU:Australia/Broken_Hill}
+Parsing   "GMT+05:30"  gets   AMBIGUOUS:2 {IN:Asia/Calcutta, LK:Asia/Colombo}
+Parsing   "GMT+06:30"  gets   AMBIGUOUS:2 {CC:Indian/Cocos, MM:Asia/Rangoon}
+Parsing   "GMT+09:30"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Broken_Hill, AU:Australia/Darwin}
+Parsing   "GMT+10:30"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Lord_Howe, AU:Australia/Broken_Hill}
+
+   */
 }

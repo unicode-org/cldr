@@ -25,7 +25,7 @@ package org.unicode.cldr.util;
  * @author markdavis
  * 
  */
-public interface CharList {
+public interface CharSource {
   /**
    * Determine whether there is a char at the position. When converting from
    * code that uses String or other CharSequence:
@@ -77,7 +77,7 @@ public interface CharList {
    * @param end
    * @return
    */
-  public CharList sublist(int start, int end);
+  public CharSource sublist(int start, int end);
 
   /**
    * Corresponds to subSequence or subString. May grow the charlist if needed to
@@ -97,7 +97,7 @@ public interface CharList {
    * @param end
    * @return
    */
-  public CharList sublist(int start);
+  public CharSource sublist(int start);
 
   /**
    * Return the length known so far. If hasCharAt(getKnownLength()) == false,
@@ -113,7 +113,7 @@ public interface CharList {
    * offset may throw an exception. This is a request; the implementation may
    * ignore it, and just leave the start at 0.
    */
-  public CharList setStart(int index);
+  public CharSource setStart(int index);
   
   /**
    * Get the  start index.

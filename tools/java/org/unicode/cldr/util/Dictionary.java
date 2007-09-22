@@ -7,7 +7,7 @@
  */
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.util.CharUtilities.CharListWrapper;
+import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
@@ -118,7 +118,7 @@ public abstract class Dictionary<T> {
   public abstract Matcher<T> getMatcher();
   
   public abstract static class Matcher<T> {
-    protected CharList text;
+    protected CharSource text;
     
     protected int offset;
     
@@ -153,7 +153,7 @@ public abstract class Dictionary<T> {
      * @param text
      * @return
      */
-    public Matcher<T> setText(CharList text) {
+    public Matcher<T> setText(CharSource text) {
       this.text = text;
       return setOffset(0);
     }
@@ -165,7 +165,7 @@ public abstract class Dictionary<T> {
      * @return
      */
     public Matcher<T> setText(CharSequence text) {
-      this.text = new CharUtilities.CharListWrapper(text);
+      this.text = new CharUtilities.CharSourceWrapper(text);
       return setOffset(0);
     }
     
@@ -174,7 +174,7 @@ public abstract class Dictionary<T> {
      * 
      * @return
      */
-    public CharList getText() {
+    public CharSource getText() {
       return text;
     }
     
@@ -223,7 +223,7 @@ public abstract class Dictionary<T> {
      * 
      * @return
      */
-    public CharList getMatchText() {
+    public CharSource getMatchText() {
       return text.sublist(offset, matchEnd);
     }
     
@@ -363,7 +363,7 @@ public abstract class Dictionary<T> {
     /**
      * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for efficiency.
      */
-    public T get(CharList text) {
+    public T get(CharSource text) {
       setText(text); // set the text to operate on
       while (true) {
         Status next1 = next();
@@ -454,7 +454,7 @@ public abstract class Dictionary<T> {
   };
   
   
-  public static class DictionaryCharList<T extends CharSequence> extends CharListWrapper<T> {
+  public static class DictionaryCharList<T extends CharSequence> extends CharSourceWrapper<T> {
     protected boolean failOnLength = false;
     protected StringBuilder buffer = new StringBuilder();
     protected int[] sourceOffsets;

@@ -11,12 +11,12 @@ import com.ibm.icu.impl.Utility;
 
 import java.io.IOException;
 
-public class ByteString extends StringByteConverter {
+public class CompactStringByteConverter extends StringByteConverter {
   static public final boolean DEBUG = false;
   private boolean deltaEncoded;
   private int last;
 
-  public ByteString(boolean deltaEncoded) {
+  public CompactStringByteConverter(boolean deltaEncoded) {
     this.deltaEncoded = deltaEncoded;
   }
   

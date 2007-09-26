@@ -6,6 +6,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.impl.OlsonTimeZone;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -32,6 +34,10 @@ public class TestMetazoneTransitions {
 
   static final SimpleDateFormat neutralFormat = new SimpleDateFormat(
       "yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
+  static final DecimalFormat threeDigits = new DecimalFormat("000");
+
+  public static final Set<Integer> allOffsets = new TreeSet<Integer>();
+  
   static {
     TimeZone GMT = TimeZone.getTimeZone("Etc/GMT");
     neutralFormat.setTimeZone(GMT);
@@ -116,6 +122,7 @@ public class TestMetazoneTransitions {
     private void addIfDifferent(TimeZone zone, long date,
         DaylightChoice allowDaylight) {
       int offset = zone.getOffset(date);
+      allOffsets.add(offset);
       int delta = getDSTSavings(zone, date);
       switch (allowDaylight) {
         case ONLY_DAYLIGHT:
@@ -185,6 +192,10 @@ public class TestMetazoneTransitions {
         return new Pair(null, null);
       }
     }
+
+    public ZoneTransition get(int i) {
+      return chronologicalList.get(i);
+    }
   }
 
   final static SupplementalDataInfo supplementalData = SupplementalDataInfo
@@ -196,7 +207,7 @@ public class TestMetazoneTransitions {
         TreeSet.class);
     Relation<ZoneTransitions, String> daylightPartition = new Relation(
         new TreeMap(), TreeSet.class);
-    Map<String, ZoneTransitions> toDaylight = new TreeMap();
+    Map<String, String> toDaylight = new TreeMap();
     Map<ZoneTransitions, String> daylightNames = new TreeMap();
     int daylightCount = 0;
 
@@ -207,35 +218,86 @@ public class TestMetazoneTransitions {
       transitions = new ZoneTransitions(zone, DaylightChoice.ONLY_DAYLIGHT);
       if (transitions.size() > 1) {
         daylightPartition.put(transitions, zone);
-        toDaylight.put(zone, transitions);
       }
     }
     // now assign names
     int count = 0;
     for (ZoneTransitions transitions : daylightPartition.keySet()) {
-      daylightNames.put(transitions, "D"  + (++count));
+      final String dname = "D"  + threeDigits.format(++count);
+      daylightNames.put(transitions, dname);
+      for (String zone : daylightPartition.getAll(transitions)) {
+        toDaylight.put(zone, dname);
+      }
+    }
+    // get the "primary" zone for each metazone
+    Map<String,String> zoneToMeta = new TreeMap<String,String>();
+    Map<String, Map<String, String>> metazoneToRegionToZone = supplementalData.getMetazoneToRegionToZone();
+    for (String meta : metazoneToRegionToZone.keySet()) {
+      Map<String, String> regionToZone = metazoneToRegionToZone.get(meta);
+      String keyZone = regionToZone.get("001");
+      zoneToMeta.put(keyZone, meta);
     }
     
     System.out.println();
     System.out.println("=====================================================");
-    System.out.println("Non-Daylight Partition");
+    System.out.println("*** Non-Daylight Partition");
     System.out.println("=====================================================");
     System.out.println();
 
     count = 0;
+    Set<String> noMeta = new TreeSet();
+    Set<String> multiMeta = new TreeSet();
+    Set<String> stableZones = new TreeSet();
     for (ZoneTransitions transitions : partition.keySet()) {
+
       System.out.println();
-      System.out.println("Non-Daylight Partition M" + (++count));
-      String daylightName = daylightNames.get(transitions);
+      final String nonDaylightPartitionName = "M" + threeDigits.format(++count);
+      System.out.println("Non-Daylight Partition " + nonDaylightPartitionName);
+      int metaCount = 0;
+      Set<String> metas = new TreeSet<String>();
       for (String zone : partition.getAll(transitions)) {
+        String daylightName = toDaylight.get(zone);
+        String meta = zoneToMeta.get(zone);
+        if (meta != null) {
+          ++metaCount;
+          metas.add(meta);
+        }
         System.out.println("\t" + zone
-            + (daylightName == null ? "" : "\t" + daylightName));
+            + (daylightName == null ? "" : "\t" + daylightName)
+            + (meta == null ? "" : "\t\tMETA:" + meta)
+            );
+      }
+      if (metaCount == 0) {
+        noMeta.add(nonDaylightPartitionName + "{" + Utility.join(partition.getAll(transitions),", ") + "}");
+      } else if (metaCount > 1) {
+        multiMeta.add(nonDaylightPartitionName + "{" + Utility.join(metas,", ") + "}");
+      }
+      if (transitions.size() == 1) {
+        final int offset = transitions.get(0).offset;
+        allOffsets.remove(offset);
+        stableZones.add(nonDaylightPartitionName + ", " + offset/(double)HOUR + "hrs " + "{" + Utility.join(partition.getAll(transitions),", ") + "}");
       }
       System.out.println("\t\t" + transitions.toString("\r\n\t\t", -1));
     }
     System.out.println();
+    System.out.println("*** Non-Daylight Partitions with no canonical meta");
+    System.out.println("\t" + Utility.join(noMeta, "\r\n\t"));
+    System.out.println();
+    System.out.println("*** Non-Daylight Partitions with more than one canonical meta");
+    System.out.println("\t" + Utility.join(multiMeta, "\r\n\t"));
+    System.out.println();
+    System.out.println("*** Stable Non-Daylight Partitions");
+    System.out.println("\t" + Utility.join(stableZones, "\r\n\t"));
+    System.out.println();
+    System.out.println("*** Offsets with no stable partition");
+    for (int offset : allOffsets) {
+      System.out.println("\t" + offset/(double)HOUR + "hrs");
+    }
+    System.out.println();
+
+    System.out.println();
     System.out.println("=====================================================");
-    System.out.println("Daylight Partition");
+    System.out.println("*** Daylight Partition");
     System.out.println("=====================================================");
     System.out.println();
     

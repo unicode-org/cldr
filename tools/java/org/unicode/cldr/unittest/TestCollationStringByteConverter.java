@@ -8,6 +8,7 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.ooo.supplementalData;
+import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.CompactStringByteConverter;
 import org.unicode.cldr.util.CharSource;
 import org.unicode.cldr.util.CollationStringByteConverter;
@@ -132,8 +133,6 @@ private static final boolean DEBUG = true;
   }
  
   public static void main(String[] args) throws Exception {
-    String string = "abc";
-
     check2(ULocale.JAPANESE);
     //check2(ULocale.FRANCE);
     if (true) return;

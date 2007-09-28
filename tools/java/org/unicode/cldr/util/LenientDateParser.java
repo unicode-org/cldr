@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import org.unicode.cldr.unittest.TestMetazoneTransitions;
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
@@ -7,16 +8,19 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.LenientDateParser.Token.Type;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.SimpleTimeZone;
 import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.TimeZoneTransition;
 import com.ibm.icu.util.ULocale;
 
 import java.text.ParsePosition;
@@ -35,6 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 /**
  * Immutable class that will parse dates and times for a particular ULocale.
@@ -42,6 +47,36 @@ import java.util.TreeSet;
  */
 public  class LenientDateParser {
   public static  boolean DEBUG = false;
+  
+  private static final int SECOND = 1000;
+  private static final int MINUTE = 60 * SECOND;
+  private static final int HOUR = 60 * MINUTE;
+
+  static final long startDate;
+
+  static final long endDate;
+
+  static final SimpleDateFormat neutralFormat = new SimpleDateFormat(
+      "yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
+  static final DecimalFormat threeDigits = new DecimalFormat("000");
+  static final DecimalFormat twoDigits = new DecimalFormat("00");
+
+  public static final Set<Integer> allOffsets = new TreeSet<Integer>();
+  
+  static {
+    TimeZone GMT = TimeZone.getTimeZone("Etc/GMT");
+    neutralFormat.setTimeZone(GMT);
+    Calendar cal = Calendar.getInstance(GMT, ULocale.US);
+    int year = cal.get(Calendar.YEAR);
+    cal.clear(); // need to clear fractional seconds
+    cal.set(1970, 0, 1, 0, 0, 0);
+    startDate = cal.getTimeInMillis();
+    cal.set(year + 5, 0, 1, 0, 0, 0);
+    endDate = cal.getTimeInMillis();
+    if (startDate != 0) {
+      throw new IllegalArgumentException();
+    }
+  }
 
   private static final UnicodeSet disallowedInSeparator = (UnicodeSet) new UnicodeSet("[:alphabetic:]").freeze();
   private static final UnicodeSet IGNORABLE = (UnicodeSet) new UnicodeSet("[,[:whitespace:]]").freeze();
@@ -308,7 +343,7 @@ public  class LenientDateParser {
           calendar.set(calendar.AM_PM, value);
           break;
         case TIMEZONE: 
-          calendar.setTimeZone(TimeZone.getTimeZone(ZONE_INT_MAP.get(value)));
+          calendar.setTimeZone(getTimeZone(ZONE_INT_MAP.get(value)));
           break;
         }
       }
@@ -664,7 +699,7 @@ public  class LenientDateParser {
 //    Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator, stringComparator, stringComparator, stringComparator}));
     
     for (String timezone : ZONE_VALUE_MAP.keySet()) {
-      final TimeZone currentTimeZone = TimeZone.getTimeZone(timezone);
+      final TimeZone currentTimeZone = getTimeZone(timezone);
       for (SimpleDateFormat format : zoneFormatList) {
         format.setTimeZone(currentTimeZone);
         
@@ -759,6 +794,30 @@ public  class LenientDateParser {
     LenientDateParser result = new LenientDateParser(dict.getMatcher(), BreakIterator.getWordInstance(locale), dateOrdering);
     return result;
   }
+
+  static final Pattern GMT_ZONE_MATCHER = Pattern.compile("Etc/GMT([-+])([0-9]{1,2})(?::([0-9]{2}))(?::([0-9]{2}))?");
+  
+  private static TimeZone getTimeZone(String timezone) {
+    // this really ought to be done in the inverse order: try the normal timezone, then if it fails try this.
+    // Unfortunately, getTimeZone doesn't give a failure value.
+    if (timezone.startsWith("Etc/GMT")) {
+      java.util.regex.Matcher matcher = GMT_ZONE_MATCHER.matcher(timezone);
+      if (matcher.matches()) {
+        int offset = Integer.parseInt(matcher.group(2)) * HOUR;
+        if (matcher.group(3) != null) {
+          offset += Integer.parseInt(matcher.group(3)) * MINUTE;
+          if (matcher.group(4) != null) {
+            offset += Integer.parseInt(matcher.group(3)) * SECOND;
+          }          
+        }
+        if (matcher.group(1).equals("+")) { // IMPORTANT: the TZDB offsets are the inverse of everyone elses!
+          offset = - offset;
+        }
+        return new SimpleTimeZone(offset, timezone);
+      }
+    }
+    return TimeZone.getTimeZone(timezone);
+  }
   
 
   private static String show(Set<String> zones) {
@@ -788,6 +847,8 @@ public  class LenientDateParser {
   static final IntMap<String> ZONE_INT_MAP;
   static final Map<String, Integer> ZONE_VALUE_MAP;
   final static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
+
+  private static final boolean SHOW_ZONE_INFO = false;
   static {
     Set<String> canonicalZones = supplementalData.getCanonicalZones();
     // get all the CLDR IDs
@@ -803,17 +864,17 @@ public  class LenientDateParser {
         allIcuZones.add(TimeZone.getEquivalentID(canonicalZone, i));
       }
     }
-    
-    System.out.println("Zones in CLDR but not ICU:" + getFirstMinusSecond(allCLDRZones, allIcuZones));
+
+    if (SHOW_ZONE_INFO) System.out.println("Zones in CLDR but not ICU:" + getFirstMinusSecond(allCLDRZones, allIcuZones));
     final Set<String> icuMinusCldr_all = getFirstMinusSecond(allIcuZones, allCLDRZones);
-    System.out.println("Zones in ICU but not CLDR:" + icuMinusCldr_all);
+    if (SHOW_ZONE_INFO) System.out.println("Zones in ICU but not CLDR:" + icuMinusCldr_all);
     
     for (String canonicalZone : canonicalZones) {
       Set<String> aliases = supplementalData.getZone_aliases(canonicalZone);
       LinkedHashSet<String> icuAliases = getIcuEquivalentZones(canonicalZone);
       icuAliases.remove(canonicalZone); // difference in APIs
       icuAliases.removeAll(icuMinusCldr_all);
-      if (!aliases.equals(icuAliases)) {
+      if (SHOW_ZONE_INFO && !aliases.equals(icuAliases)) {
         System.out.println("Difference in Aliases for: " + canonicalZone);
         Set<String> cldrMinusIcu = getFirstMinusSecond(aliases, icuAliases);
         if (cldrMinusIcu.size() != 0) {
@@ -825,6 +886,14 @@ public  class LenientDateParser {
         }
       }
     }
+    
+    // add missing Etc zones
+    canonicalZones = new TreeSet<String>(supplementalData.getCanonicalZones());
+    Set zones = getAllGmtZones();
+    zones.removeAll(canonicalZones);
+    System.out.println("Missing GMT Zones: " + zones);
+    canonicalZones.addAll(zones);
+    canonicalZones = Collections.unmodifiableSet(canonicalZones);
     
     List<String> values = new ArrayList<String>();
     for (String id : canonicalZones) { // TimeZone.getAvailableIDs() has extraneous values
@@ -1135,4 +1204,54 @@ Parsing   "GMT+09:30"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/B
 Parsing   "GMT+10:30"  gets   AMBIGUOUS:3 {AU:Australia/Adelaide, AU:Australia/Lord_Howe, AU:Australia/Broken_Hill}
 
    */
+  
+  public static Set<String> getAllGmtZones() {
+    Set<Integer> offsets = new TreeSet<Integer>();
+    for (String tzid : supplementalData.getCanonicalZones()) {
+      TimeZone zone = TimeZone.getTimeZone(tzid);
+      for (long date = startDate; date < endDate; date = getTransitionAfter(
+          zone, date)) {
+        offsets.add(zone.getOffset(date));
+      }
+    }
+    Set<String> result = new LinkedHashSet<String>();
+    for (int offset : offsets) {
+      String zone = "Etc/GMT";
+      if (offset != 0) {
+        // IMPORTANT: the TZDB offsets are the inverses of everyone else's
+        if (offset < 0) {
+          zone += "+";
+          offset = -offset;
+        } else {
+          zone += "-";
+        }
+        int hours = offset / HOUR;
+        zone += hours; // no leading zero
+        offset = offset % HOUR;
+        if (offset > 0) {
+          int minutes = offset / MINUTE;
+          zone += ":" + twoDigits.format(minutes);
+          // comment this out for now, since getTimeZone doesn't handle seconds
+//          offset = offset % MINUTE;
+//          if (offset > 0) {
+//            int seconds = (offset + SECOND / 2) / SECOND;
+//            zone += ":" + twoDigits.format(seconds);
+//          }
+        }
+        result.add(zone);
+      }
+    }
+    return result;
+  }
+
+  public static long getTransitionAfter(TimeZone zone, long date) {
+    TimeZoneTransition transition = ((OlsonTimeZone) zone).getNextTransition(
+        date, false);
+    if (transition == null) {
+      return Long.MAX_VALUE;
+    }
+    date = transition.getTime();
+    return date;
+  }
+
 }

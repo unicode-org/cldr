@@ -8,9 +8,14 @@
 package org.unicode.cldr.util;
 
 
+import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
+
+import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.XEquivalenceMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.CanonicalIterator;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
@@ -22,9 +27,13 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -208,8 +217,8 @@ public class CollationMapMaker {
   
   RuleBasedCollator equivalenceClassCollator;
   Comparator exemplarComparator;
-  Map reasonMap = new TreeMap();
-  Map equivMap = new TreeMap();
+  Map<String,String> reasonMap = new TreeMap();
+  XEquivalenceMap equivMap = new XEquivalenceMap();
   
   public Map<CharSequence, String> generateCollatorFolding(RuleBasedCollator equivalenceClassCollator, Map<CharSequence, String> mapping) {
     this.equivalenceClassCollator = equivalenceClassCollator;
@@ -244,22 +253,27 @@ public class CollationMapMaker {
       addItems(item);
     }
     
+    closeUnderFolding();
+    
     if (showDetails) Log.getLog().println("Printing Values: " + equivMap.size());
     int count = 0;
     int countMapped = 0;
     
     // Now process the results to figure out what we need to keep
+    Set<String> values = new TreeSet(exemplarComparator);
     
-    for (Iterator it = equivMap.keySet().iterator(); it.hasNext();) {
-      Set values = (Set) equivMap.get(it.next());
+    for (Iterator it = equivMap.iterator(); it.hasNext();) {
+      Set<String> values1 = (Set) it.next();
       // if there is only one result, drop it
-      if (values.size() == 1) {
+      if (values1.size() == 1) {
         if (false && SHOW_DEBUG) {
-          String item = (String) values.iterator().next();
+          String item = (String) values1.iterator().next();
           System.out.println("Skipping: " + item + "\t" + equivalenceClassCollator.getRawCollationKey(item, null));
         }
         continue;
       }
+      values.clear();
+      values.addAll(values1);
       // if (showDetails) Log.getLog().println(bf.showSetNames(values));
       Iterator chars = values.iterator();
       // the lowest value is the exemplar value, so use it as the base
@@ -317,6 +331,52 @@ public class CollationMapMaker {
 //    return folder;
   }
   
+  VariantFolder caseFolder = new VariantFolder(new CaseVariantFolder());
+  
+  VariantFolder.AlternateFetcher COLLATION_FETCHER = new VariantFolder.AlternateFetcher() {
+    public Set<String> getAlternates(String item, Set<String> output) {
+      output.add(item);
+      Set set = equivMap.getEquivalences(item);
+      if (set != null) {
+        output.addAll(set);
+      }
+      return output;
+    }
+   };
+  
+  private void closeUnderFolding() {
+    if (false) return;
+    // TODO Generalize
+    Set<String> others = new HashSet<String>();
+    List<Collection<String>> input = new ArrayList<Collection<String>>();
+    VariantFolder recursiveFolder = new VariantFolder(COLLATION_FETCHER);
+    TreeSet<CharSequence> hack = new TreeSet();
+    hack.add("aa");
+    
+    while (true) {
+      others.clear();
+      for (CharSequence item : hack) { // seenSoFar
+        if (item.length() == 1) {
+          continue;
+        }
+        String str = item.toString();
+        if (UTF16.countCodePoint(str) <= 1) {
+          continue;
+        }
+        Set<String> results = recursiveFolder.getClosure(item.toString());
+        results.removeAll(seenSoFar);
+        Log.logln(item + "\t" + results);
+        others.addAll(results);
+      }
+      if (others.size() == 0) {
+        break;
+      }
+      for (String item : others) {
+        addToEquiv(item, item);
+      }
+    }
+  }
+
   private static UnicodeSet fullExpansions = null;
   
   static UnicodeSet getFullExpansions() {
@@ -394,35 +454,61 @@ public class CollationMapMaker {
     return fullExpansions;
   }
   
+  CanonicalIterator canonicalIterator = new CanonicalIterator("");
+
+  /**
+   * Adds items, looking for all canonically equivalent strings as well.
+   * @param item
+   */
   private void addItems(String item) {
     addItems2(item, item);
     String minNFKD = getMinimalNKFD(item, equivalenceClassCollator);
     if (!minNFKD.equals(item)) {
       addItems2(minNFKD, item);
     }
-    
-  }
-  
-  private void addItems2(String item, String original) {
-    addToEquiv( item, original);
-    String folded = UCharacter.foldCase(item, UCharacter.FOLD_CASE_EXCLUDE_SPECIAL_I);
-    if (!folded.equals(item)) {
-      addToEquiv( folded, original);
+    canonicalIterator.setSource(item);
+    for (String nextItem = canonicalIterator.next(); nextItem != null; nextItem = canonicalIterator.next()) {
+      addItems2(nextItem, item);
     }
   }
   
+  /**
+   * Adds items, looking for all case-equivalent strings as well.
+   * @param item
+   * @param original
+   */
+  private void addItems2(String item, String original) {
+    addItems3( item, original);
+    for (String nextItem :  caseFolder.getClosure(item)) {
+      addItems3(nextItem, original);
+    }
+  }
+  
+  private void addItems3(String item, String original) {
+    addToEquiv( item, original);
+    canonicalIterator.setSource(item);
+    for (String newItem = canonicalIterator.next(); newItem != null; newItem = canonicalIterator.next()) {
+      addToEquiv( newItem, original);
+    }
+  }
+  
+  Set<CharSequence> seenSoFar = new TreeSet<CharSequence>();
+  
   private void addToEquiv(String item, String original) {
+    if (item.equals("aA")) {
+      System.out.println("ouch");
+    }
+    if (seenSoFar.contains(item)) {
+      return;
+    }
+    seenSoFar.add(item);
 //    String norm = Normalizer.compose(item, true);
 //    if (UTF16.countCodePoint(norm) < UTF16.countCodePoint(item)) {
 //      item = norm;
 //    }
     RawCollationKey k = equivalenceClassCollator.getRawCollationKey(item, null);
-    Set results = (Set) equivMap.get(k);
-    if (results == null) {
-      equivMap.put(k, results = new TreeSet(exemplarComparator));
-    }
+    equivMap.add(item, k);
     reasonMap.put(item, original);
-    results.add(item);
   }
   
   
@@ -456,4 +542,5 @@ public class CollationMapMaker {
     }
     return start;
   }
+  
 }

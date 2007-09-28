@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 
 public class TestCLDRFile {
   public static void main(String[] args) {
+    TestTimeZonePath();
     testDraftFilter();
     simpleTest();
   }
@@ -40,6 +41,16 @@ public class TestCLDRFile {
         throw new IllegalArgumentException("File can't contain draft elements");
       }
     }
+  }
+  
+  public static void TestTimeZonePath() {
+    Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    String tz = "Pacific/Midway";
+    CLDRFile cldrFile = cldrFactory.make("lv",true);
+    String retVal = cldrFile.getStringValue(
+        "//ldml/dates/timeZoneNames/zone[@type=\"" + tz + "\"]/exemplarCity"
+        , true).trim();
+    System.out.println(retVal);
   }
 
   private static void simpleTest() {

@@ -14,9 +14,13 @@ import com.ibm.icu.util.TimeZoneRule;
 import com.ibm.icu.util.TimeZoneTransition;
 import com.ibm.icu.util.ULocale;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -26,7 +30,9 @@ public class TestMetazoneTransitions {
 
   private static final int printDaylightTransitions = 6;
 
-  private static final int HOUR = 60 * 60 * 1000;
+  private static final int SECOND = 1000;
+  private static final int MINUTE = 60 * SECOND;
+  private static final int HOUR = 60 * MINUTE;
 
   static final long startDate;
 
@@ -35,6 +41,7 @@ public class TestMetazoneTransitions {
   static final SimpleDateFormat neutralFormat = new SimpleDateFormat(
       "yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
   static final DecimalFormat threeDigits = new DecimalFormat("000");
+  static final DecimalFormat twoDigits = new DecimalFormat("00");
 
   public static final Set<Integer> allOffsets = new TreeSet<Integer>();
   
@@ -53,7 +60,27 @@ public class TestMetazoneTransitions {
     }
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
+   java.util.TimeZone zone2 = java.util.TimeZone.getTimeZone("GMT+830");
+   System.out.println(zone2.getID());
+   zone2 = java.util.TimeZone.getTimeZone("GMT+08");
+   System.out.println(zone2.getID());
+   zone2 = java.util.TimeZone.getTimeZone("Etc/GMT-8");
+   System.out.println(zone2.getID());
+   
+   
+   java.util.TimeZone.setDefault( java.util.TimeZone.getTimeZone("America/Los_Angeles"));
+    DateFormat javaFormat = DateFormat.getDateTimeInstance(DateFormat.FULL,DateFormat.MEDIUM, Locale.US);
+    long start = new Date(107,0,1,0,30,0).getTime();
+    start -= start % 1000; // clean up millis
+    long end = new Date(108,0,1,0,30,0).getTime();
+    for (long date = start; date < end; date += 15*MINUTE) {
+      String formatted = javaFormat.format(date);
+      Date roundTrip = javaFormat.parse(formatted);
+      if (roundTrip.getTime() != date) {
+        System.out.println("Java roundtrip failed for: " + formatted + "\tSource: " + new Date(date) + "\tTarget: " + roundTrip);
+      }
+    }
     new TestMetazoneTransitions().run();
   }
 

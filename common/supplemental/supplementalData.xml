@@ -209,7 +209,10 @@ The printed version of ISO-4217:2001
             <currency iso4217="INR" from="1907"/>
             <currency iso4217="BTN" from="1974-04-16"/>
         </region>
-        <!-- Burma (BU) was renamed to Myanmar (MM). Look at "MM" for history. -->
+        <!-- Burma (BU) was renamed to Myanmar (MM). Look at "MM" for latest history. -->
+        <region iso3166="BU">
+            <currency iso4217="BUK" from="1952-07-01" to="1989-06-18"/>
+        </region>
         <region iso3166="BV"><!-- uninhabited territory of Norway -->
             <currency iso4217="NOK" from="1905-06-07"/>
         </region>
@@ -271,8 +274,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="CRC" from="1896-10-26"/>
         </region>
         <region iso3166="CS">
-            <currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/><!-- Montenegro -->
             <currency iso4217="CSD" from="2002-05-15" to="2006-06-03"/><!-- Serbia -->
+            <currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/><!-- Montenegro -->
             <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
             <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
         </region>
@@ -299,9 +302,9 @@ The printed version of ISO-4217:2001
             <currency iso4217="CSK" from="1953-06-01" to="1993-03"/>
         </region>
         <!-- East Germany merged with West Germany, and no longer exists as "DD". DDM was an ISO-4217 code. -->
-        <!-- region iso3166="DD">
+        <region iso3166="DD">
             <currency iso4217="DDM" from="1948-07-20" to="1990-10-02"/>
-        </region -->
+        </region>
         <region iso3166="DE">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="DEM" from="1948-06-20" to="2002-02-28"/>
@@ -786,6 +789,9 @@ The printed version of ISO-4217:2001
         <region iso3166="QA">
             <currency iso4217="QAR" from="1973-05-19"/>
         </region>
+        <region iso3166="QU"><!-- European Union -->
+            <currency iso4217="EUR" from="1999-01-01"/>
+        </region>
         <region iso3166="RE">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1975-01-01" to="2002-02-17"/>
@@ -871,9 +877,9 @@ The printed version of ISO-4217:2001
             <currency iso4217="STD" from="1977-09-08"/>
         </region>
         <!-- This is no longer a valid region. It split into RU and several other regions. -->
-        <!-- region iso3166="SU">
+        <region iso3166="SU">
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
-        </region -->
+        </region>
         <region iso3166="SV">
             <currency iso4217="SVC" from="1919-11-11"/>
             <currency iso4217="USD" from="2001-01-01"/>
@@ -930,6 +936,10 @@ The printed version of ISO-4217:2001
             <currency iso4217="TOP" from="1966-02-14"/>
         </region>
         <!-- TP was renamed to TL -->
+        <region iso3166="TP">
+            <currency iso4217="TPE" from="1959-01-02" to="2002-05-20"/>
+            <currency iso4217="IDR" from="1975-12-07" to="2002-05-20"/>
+        </region>
         <region iso3166="TR">
             <currency iso4217="TRY" from="2005-01-01"/>
             <currency iso4217="TRL" from="1922-11-01" to="2005-12-31"/>
@@ -1004,30 +1014,38 @@ The printed version of ISO-4217:2001
             <currency iso4217="WST" from="1967-07-10"/>
         </region>
         <region iso3166="YE">
-            <currency iso4217="YER" from="1990-05-22"/>
+            <currency iso4217="YER" from="1990-05-22"/><!-- You might be able to say 1964-05-08 is the starting date -->
         </region>
+        <!-- YD is not listed as a valid ISO-3166 code. If it was valid, it merged with North Yemen (YE) -->
+        <!-- region iso3166="YD" -->
+            <!-- currency iso4217="YDD" from="1965-04-01" to="1991-09"/ --><!-- ISO-4217 says 1991-09, but it was recognized as legal tender until 1996-06-11. -->
+        <!-- /region -->
         <region iso3166="YT">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1976-02-23" to="2002-02-17"/>
             <currency iso4217="KMF" from="1975-01-01" to="1976-02-23"/>
         </region>
         <!-- YU was renamed to CS -->
-        <!-- region iso3166="YU" -->
-            <!-- currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/ -->
+        <region iso3166="YU">
+            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/>
             <!-- Period of hyperinflation -->
             <!-- currency iso4217="YUG" from="1994-01-01" to="1994-07-22"/ --><!-- Not listed in the 2001 or 2004 list -->
             <!-- currency iso4217="YUO" from="1993-10-01" to="1993-12-31"/ --><!-- Not listed in the 2001 or 2004 list -->
             <!-- currency iso4217="YUR" from="1992-07-01" to="1993-10-01"/ --><!-- Not listed in the 2001 or 2004 list -->
-            <!-- currency iso4217="YUN" from="1990-01-01" to="1992-07-24"/ -->
-            <!-- currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/ -->
-        <!-- /region -->
+            <currency iso4217="YUN" from="1990-01-01" to="1992-07-24"/>
+            <currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/>
+        </region>
         <region iso3166="ZA">
             <currency iso4217="ZAR" from="1961-02-14"/>
         </region>
         <region iso3166="ZM">
             <currency iso4217="ZMK" from="1968-01-16"/>
         </region>
-        <!-- Zaire (ZR) was renamed to Democratic Republic of Congo (CD). Look at "CD" for history. -->
+        <!-- Zaire (ZR) was renamed to Democratic Republic of Congo (CD). Look at "CD" for latest history. -->
+        <region iso3166="ZR">
+            <currency iso4217="ZRN" from="1993-11-01" to="1998-07"/>
+            <currency iso4217="ZRZ" from="1971-10-27" to="1993-11-01"/>
+        </region>
         <region iso3166="ZW">
             <currency iso4217="ZWD" from="1980-04-18"/>
         </region>

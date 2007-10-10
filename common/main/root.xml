@@ -2432,12 +2432,14 @@
 			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<usesMetazone to="2006-04-02 07:00" mzone="America_Eastern"/>
-				<usesMetazone from="2006-04-02 07:00" mzone="America_Central"/>
+				<usesMetazone to="2007-11-04 07:00" from="2006-04-02 07:00" mzone="America_Central"/>
+				<usesMetazone from="2007-11-04 07:00" mzone="America_Eastern"/>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<usesMetazone to="1977-10-30 07:00" mzone="America_Central"/>
 				<usesMetazone to="2006-04-02 07:00" from="1977-10-30 07:00" mzone="America_Eastern"/>
-				<usesMetazone from="2006-04-02 07:00" mzone="America_Central"/>
+				<usesMetazone to="2007-11-04 07:00" from="2006-04-02 07:00" mzone="America_Central"/>
+				<usesMetazone from="2007-11-04 07:00" mzone="America_Eastern"/>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<usesMetazone to="1991-10-27 07:00" mzone="America_Central"/>

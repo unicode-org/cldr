@@ -349,12 +349,23 @@ public class SupplementalDataInfo {
   
   static Map<String, SupplementalDataInfo> directory_instance = new HashMap();
   
+  public Map<String, Map<String,List<String>>> typeToTagToReplacement = new TreeMap<String, Map<String,List<String>>>();
+
+  
   public Relation<String, String> getAlpha3TerritoryMapping() {
     return alpha3TerritoryMapping;
   }
 
   public Relation<String, Integer> getNumericTerritoryMapping() {
     return numericTerritoryMapping;
+  }
+  
+  /**
+   * Returns type -> tag -> replacement, like "language" -> "sh" -> "sr_Latn"
+   * @return
+   */
+  public Map<String, Map<String,List<String>>> getLocaleAliasInfo() {
+    return typeToTagToReplacement;
   }
 
   public static SupplementalDataInfo getInstance(String supplementalDirectory) {
@@ -411,11 +422,8 @@ public class SupplementalDataInfo {
     alias_zone = Collections.unmodifiableMap(alias_zone);
     references = Collections.unmodifiableMap(references);
     
-    Map<String, Map<String, String>> temp = metazoneToRegionToZone;
-    for (String mzone : metazoneToRegionToZone.keySet()) {
-      temp.put(mzone, Collections.unmodifiableMap(metazoneToRegionToZone.get(mzone)));
-    }
-    metazoneToRegionToZone = Collections.unmodifiableMap(temp);
+    metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
+    typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
     
     containment.freeze();
     languageToBasicLanguageData.freeze();
@@ -450,6 +458,14 @@ public class SupplementalDataInfo {
       }
     }
   }
+
+//  private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
+//    Map<String, Map<String, String>> temp = metazoneToRegionToZone;
+//    for (String mzone : metazoneToRegionToZone.keySet()) {
+//      temp.put(mzone, Collections.unmodifiableMap(metazoneToRegionToZone.get(mzone)));
+//    }
+//    return Collections.unmodifiableMap(temp);
+//  }
   
   class MyHandler extends XMLFileReader.SimpleHandler {
     private static final double MAX_POPULATION = 3000000000.0;
@@ -623,6 +639,9 @@ public class SupplementalDataInfo {
             return;
           }
           
+          if (level1.equals("alias")) {
+            
+          }
           if (!skippedElements.contains(level1 + "/" + level2)) {
             skippedElements.add(level1 + "/" + level2);
             if (false)
@@ -641,11 +660,28 @@ public class SupplementalDataInfo {
         }
         
         if (level1.equals("metadata")) {
+          String level2 = parts.getElement(2);
           if (parts.contains("defaultContent")) {
             String defContent = parts.getAttributeValue(-1, "locales").trim();
             String [] defLocales = defContent.split("\\s+");
             defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
             return;
+          }
+          if (level2.equals("alias")) {
+//            <alias>
+//            <!-- grandfathered 3066 codes -->
+//            <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
+            String level3 = parts.getElement(3);
+            if (!level3.endsWith("Alias")) {
+              throw new IllegalArgumentException();
+            }
+            level3 = level3.substring(0,level3.length() - "Alias".length());
+            Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(level3);
+            if (tagToReplacement == null) {
+              typeToTagToReplacement.put(level3, tagToReplacement = new TreeMap<String, List<String>>());
+            }
+            final String replacement = parts.getAttributeValue(3,"replacement");
+            tagToReplacement.put(parts.getAttributeValue(3,"type").replace("-","_"), replacement == null ? null : Arrays.asList(replacement.replace("-","_").split("\\s+")));
           }
         }
         

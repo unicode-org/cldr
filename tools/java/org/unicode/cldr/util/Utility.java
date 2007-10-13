@@ -40,6 +40,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Freezable;
 
 public class Utility {
 	/**
@@ -403,43 +404,58 @@ public class Utility {
 	
 	/**
 	 * Protect a collection (as much as Java lets us!) from modification.
+   * Really, really ugly code, since Java doesn't let us do better.
 	 */
-	public static Object protectCollection(Object source) {
-		// TODO - exclude UnmodifiableMap, Set, ...
-		if (source instanceof Map) {
-			Map map = (Map)source;
-			Set keySet = map.keySet();
-			int size = keySet.size();
-			ArrayList keys = new ArrayList(size); // do this so it doesn't change
-			ArrayList values = new ArrayList(size); // do this so it doesn't change
-			for (Iterator it = keySet.iterator(); it.hasNext();) {
-				Object key = it.next();
-				keys.add(protectCollection(key));
-				values.add(protectCollection(map.get(key)));
-			}
-			map.clear();
-			for (int i = 0; i < size; ++i) {
-				map.put(keys.get(i), values.get(i));
-			}
-			return map instanceof SortedMap ? Collections.unmodifiableSortedMap((SortedMap)map)
-					: Collections.unmodifiableMap(map);
-		} else if (source instanceof Collection) {
-			Collection collection = (Collection) source;
-			ArrayList contents = new ArrayList();
-			//contents.addAll(collection);
-			for (Iterator it = collection.iterator(); it.hasNext();) {
-				contents.add(protectCollection(it.next()));
-			}
-			collection.clear();
-			collection.addAll(contents);
-			return collection instanceof List ? Collections.unmodifiableList((List)collection)
-				: collection instanceof SortedSet ? Collections.unmodifiableSortedSet((SortedSet)collection)
-				: collection instanceof Set ? Collections.unmodifiableSet((Set)collection)
-				: Collections.unmodifiableCollection(collection);
-		} else {
-			return source; // can't protect
-		}
+	public static <T> T protectCollection(T source) {
+	  // TODO - exclude UnmodifiableMap, Set, ...
+	  if (source instanceof Map) {
+      Map sourceMap = (Map) source;
+	    Map resultMap = clone(sourceMap);
+      if (resultMap == null) return (T) sourceMap; // failed
+      resultMap.clear();
+	    for (Object key : sourceMap.keySet()) {
+        resultMap.put(protectCollection(key), protectCollection(sourceMap.get(key)));
+	    }
+	    return resultMap instanceof SortedMap ? (T) Collections.unmodifiableSortedMap((SortedMap)resultMap)
+	        : (T) Collections.unmodifiableMap(resultMap);
+    } else if (source instanceof Collection) {
+      Collection sourceCollection = (Collection) source;
+      Collection resultCollection = clone(sourceCollection);
+      if (resultCollection == null) return (T) sourceCollection; // failed
+      resultCollection.clear();
+
+      for (Object item : sourceCollection) {
+        resultCollection.add(protectCollection(item));
+      }
+
+      return sourceCollection instanceof List ? (T)Collections.unmodifiableList((List)sourceCollection)
+          : sourceCollection instanceof SortedSet ? (T)Collections.unmodifiableSortedSet((SortedSet)sourceCollection)
+              : sourceCollection instanceof Set ? (T)Collections.unmodifiableSet((Set)sourceCollection)
+                  : (T)Collections.unmodifiableCollection(sourceCollection);
+	  } else if (source instanceof Freezable) {
+	    Freezable freezableSource = (Freezable) source;
+	    if (freezableSource.isFrozen()) return source;
+	    return (T)((Freezable)(freezableSource.cloneAsThawed())).freeze();
+	  } else {
+	    return source; // can't protect
+	  }
 	}
+  
+  /**
+   * Clones T if we can; otherwise returns null.
+   * @param <T>
+   * @param source
+   * @return
+   */
+  public static <T> T clone(T source) {
+    try {
+      final Class<? extends Object> class1 = source.getClass();
+      final Method declaredMethod = class1.getDeclaredMethod("clone", null);
+      return (T) declaredMethod.invoke(source, null);
+    } catch (Exception e) {
+      return null; // uncloneable
+    }
+  }
 	
     /** Appends two strings, inserting separator if either is empty
 	 */

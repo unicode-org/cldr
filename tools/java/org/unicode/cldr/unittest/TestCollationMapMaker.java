@@ -13,6 +13,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -23,7 +24,10 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class TestCollationMapMaker {
+  static Transliterator javaEscape = Transliterator.getInstance("[^ \\u0009 \\u000A \\u000D \\u0020-\\u007F] hex/java");
+  
   public static void main(String[] args) throws IOException {
+    testTranslit();
     Log.setLog(Utility.GEN_DIRECTORY + "CollationMapLog.txt");
     CaseIterator caseIterator = new CaseIterator();
     caseIterator.reset("aa");
@@ -52,5 +56,9 @@ public class TestCollationMapMaker {
       String name = GenerateTransformCharts.getName(target, ", ");
       Log.logln(com.ibm.icu.impl.Utility.hex(target) + " ( " + target + " ) " + name +  "\t" + unicodeSetName);
     }
+  }
+
+  private static void testTranslit() {
+     System.out.println(javaEscape.transform("\u0001\u001F\r\n\u0061\u00A5\uFFFF\uD800\uDC00"));
   }
 }

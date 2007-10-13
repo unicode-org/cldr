@@ -115,7 +115,7 @@ public class TestCldr extends TestFmwk {
     }
   }
 
-  private Set getScriptsFromUnicodeSet(UnicodeSet exemplars) {
+  public Set getScriptsFromUnicodeSet(UnicodeSet exemplars) {
     // use bits first, since that's faster
     BitSet scriptBits = new BitSet();
     boolean show = false;

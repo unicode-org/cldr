@@ -77,17 +77,25 @@ href="http://www.unicode.org/webscripts/standard_styles.css">
     <blockquote>
 
       <h1>Unicode Locales and CLDR</h1>
+		<ul>
+			<li><a href="#What_are_Unicode_Locales">What are Unicode Locales?</a></li>
+			<li><a href="#What_products_use_Unicode_Locales">What products use Unicode Locales?</a></li>
+			<li><a href="#Does_Unicode_CLDR_define_special_values">Does Unicode CLDR define special 
+			values used to indicate an Unknown value for language, script, region 
+			(country/territory), timezone, and currency?</a></li>
+			<li><a href="#Are_these_in_the_source_standards_used_by_CLDR">Are these in the source 
+			standards used by CLDR?</a></li>
+			<li><a href="#Why_is_the_Unknown_value_for_script_Zzzz">Why is the Unknown value for 
+			script &quot;Zzzz&quot; and not &quot;Zyyy&quot;?</a></li>
+			<li><a href="#But_what_would_I_use_for_an_audio_tape">But what would I use for an audio 
+			tape in English?</a></li>
+		</ul>
 
-      <ul>
-
-		<li>[TBD: add links to the questions below]</li>
-      </ul>
-
-      <p class="q">Q. What are Unicode Locales?</p>
+      <p class="q">Q. <a name="What_are_Unicode_Locales">What are Unicode Locales?</a></p>
 		<p class="a">A. The Unicode Locale project provides an XML data format (LDML) for 
 		representing locale data, plus a repository of data in that format (CLDR). For more 
 		information, see <a href="http://unicode.org/cldr/">http://unicode.org/cldr/</a>. </p>
-		<p class="q">Q. What products use Unicode Locales?</p>
+		<p class="q">Q. <a name="What_products_use_Unicode_Locales">What products use Unicode Locales?</a></p>
 		<p class="a">A. We don&#39;t track the users, but we know that the data and format are used 
 		directly by IBM&#39;s AIX, Google, ICU, Java, and OpenOffice, while Microsoft uses the format. 
 		There are many indirect users as well. For example, through using ICU many other companies 
@@ -99,19 +107,19 @@ href="http://www.unicode.org/webscripts/standard_styles.css">
 		<p class="a">If you know of other direct or indirect users that would be useful to add to 
 		this list, let us know by <a href="http://www.unicode.org/cldr/bugs/locale-bugs">filing a 
 		report</a>.</p>
-		<p class="q">Q. Does Unicode <span id="st" name="st" class="st">CLDR</span> define special 
-		values used to indicate an Unknown value for language, script, region (country/territory), 
+		<p class="q">Q. <a name="Does_Unicode_CLDR_define_special_values">Does Unicode <span id="st" name="st" class="st">CLDR</span> define special 
+		values</a> used to indicate an Unknown value for language, script, region (country/territory), 
 		timezone, and currency? </p>
 		<p class="a">A. Yes, see the table at
 		<a target="_blank" onclick="return top.js.OpenExtLink(window,event,this)" href="http://www.unicode.org/reports/tr35/#Unknown_or_Invalid_Identifiers">
 		Unknown_or_Invalid<wbr>_Identifiers</a> in UTR#35.</p>
-		<p class="q">Q. Are these in the source standards used by <span id="st" name="st" class="st">
-		CLDR</span>? </p>
+		<p class="q">Q. <a name="Are_these_in_the_source_standards_used_by_CLDR">Are these in the source standards used by <span id="st" name="st" class="st">
+		CLDR</span></a>? </p>
 		<p class="a">A. Some of them are, and some use private use codes defined by
 		<span id="st" name="st" class="st">CLDR</span>. For more information, see
 		<a target="_blank" onclick="return top.js.OpenExtLink(window,event,this)" href="http://www.unicode.org/reports/tr35/#Identifiers">
 		Identifiers</a> in UTR#35.</p>
-		<p class="q">Q. Why is the Unknown value for script &quot;Zzzz&quot; and not &quot;Zyyy&quot;?</p>
+		<p class="q">Q. <a name="Why_is_the_Unknown_value_for_script_Zzzz">Why is the Unknown value for script &quot;Zzzz&quot;</a> and not &quot;Zyyy&quot;?</p>
 		<p class="a">A. The <a href="http://www.iana.org/assignments/language-subtag-registry">IANA 
 		registry for BCP 47</a> includes these special values for scripts:</p>
 		<p class="a"><font face="monospace">Type: script<br>
@@ -132,7 +140,7 @@ href="http://www.unicode.org/webscripts/standard_styles.css">
 		value used for Unknown script in CLDR. In practice, it is rare to know the language without 
 		the script (en-Zzzz would be an odd case, for example), so this is used mostly for API 
 		return values.</p>
-		<p class="q">Q. But what would I use for an audio tape in English?</p>
+		<p class="q">Q. <a name="But_what_would_I_use_for_an_audio_tape">But what would I use for an audio tape</a> in English?</p>
 		<p class="a">A. The code Zxxx is for unwritten (eg, spoken) material. Thus en-Zxxx could be 
 		used for an audio tape, if you wanted to make clear that there was no written English 
 		content.</p>

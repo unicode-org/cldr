@@ -18,7 +18,7 @@
 
 <meta name="ProgId" content="FrontPage.Editor.Document">
 
-<title>FAQ - Blocks and Ranges</title>
+<title>FAQ - Unicode Locales and CLDR</title>
 
 <link rel="stylesheet" type="text/css" 
 
@@ -80,6 +80,8 @@ href="http://www.unicode.org/webscripts/standard_styles.css">
 		<ul>
 			<li><a href="#What_are_Unicode_Locales">What are Unicode Locales?</a></li>
 			<li><a href="#What_products_use_Unicode_Locales">What products use Unicode Locales?</a></li>
+			<li><a href="#What_is_the_difference">What is the difference between a locale and a 
+			language?</a></li>
 			<li><a href="#Does_Unicode_CLDR_define_special_values">Does Unicode CLDR define special 
 			values used to indicate an Unknown value for language, script, region 
 			(country/territory), timezone, and currency?</a></li>
@@ -104,9 +106,17 @@ href="http://www.unicode.org/webscripts/standard_styles.css">
 		Google, HP, Hyperion, Inktomi, Intel, Mozilla, Mandrake Linux, Progress Software, Python, 
 		SAP, Software AG, Sun Microsystems (Solaris, Java), SuSE, Sybase, Symantec, Teradata (NCR), 
 		Virage, Wine, Yahoo! (see <a href="http://icu-project.org/">http://icu-project.org/</a>)</p>
-		<p class="a">If you know of other direct or indirect users that would be useful to add to 
+		<p class="a"><i>If you know of other direct or indirect users that would be useful to add to 
 		this list, let us know by <a href="http://www.unicode.org/cldr/bugs/locale-bugs">filing a 
-		report</a>.</p>
+		report</a>.</i></p>
+
+      <p class="q">Q. <a name="What_is_the_difference">What is the difference</a> between a locale 
+		and a language?</p>
+		<p class="a">A. The distinction in practice is very fuzzy. A locale is best thought of as 
+		being a language plus some additional information. For more information, see
+		<a href="http://www.unicode.org/reports/tr35/#Locale">What is a Locale?</a> and
+		<a href="http://www.unicode.org/reports/tr35/#Language_and_Locale_IDs">Language and Locale 
+		IDs</a>.</p>
 		<p class="q">Q. <a name="Does_Unicode_CLDR_define_special_values">Does Unicode <span id="st" name="st" class="st">CLDR</span> define special 
 		values</a> used to indicate an Unknown value for language, script, region (country/territory), 
 		timezone, and currency? </p>

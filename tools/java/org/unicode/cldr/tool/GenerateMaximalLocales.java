@@ -41,7 +41,7 @@ import java.util.TreeSet;
  *
  */
 public class GenerateMaximalLocales {
-  private static final boolean SHOW_ADD = false;
+  private static final boolean SHOW_ADD = true;
   enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
   
   private static OutputStyle OUTPUT_STYLE = OutputStyle.XML;
@@ -273,7 +273,8 @@ public class GenerateMaximalLocales {
   }
   
   private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Set<String> skipKey, Set<String> skipValue, String kind) {
-    if (!toAdd.containsKey(key) 
+    if (!key.equals(value)
+        && !toAdd.containsKey(key) 
         && (skipKey == null || !skipKey.contains(key)) 
         && (skipValue == null || !skipValue.contains(value))) {
       toAdd.put(key, value);
@@ -364,46 +365,44 @@ public class GenerateMaximalLocales {
    */
   private static void addDeprecated(Map<String, String> toMaximized) {
     Map<String, Map<String, List<String>>> typeToTagToReplacement = supplementalData.getLocaleAliasInfo();
-    LanguageTagParser p1 = new LanguageTagParser();
-    LanguageTagParser p2 = new LanguageTagParser();
+    LanguageTagParser temp = new LanguageTagParser();
+    LanguageTagParser tagParsed = new LanguageTagParser();
+    LanguageTagParser replacementParsed = new LanguageTagParser();
     Map<String,String> toAdd = new TreeMap<String,String>();
     while (true) {
       toAdd.clear();
-      for (String locale : toMaximized.keySet()) {
-        String maximized = toMaximized.get(locale);
-        for (String type : typeToTagToReplacement.keySet()) {
-          Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(type);
-          for (String tag: tagToReplacement.keySet()) {
-            final List<String> list = tagToReplacement.get(tag);
-            if (list == null) continue; // we don't have any informatoin
-            String replacement = list.get(0);
-            
-            int pos = getSubtagPosition(locale, replacement);
-            if (pos < 0) continue; // no match
-            
-            // we have a match, try a replacement
-            p1.set(locale);
-            if (pos == 0) {
-              p2.set(tag);
-            } else {
-              p2.set("und-" + tag);
-            }
-            // reset fields that should be replaced
-            /* Examples
-             <languageAlias type="zh-guoyu" replacement="zh-cmn"/> <!-- Mandarin or Standard Chinese -->
-             <languageAlias type="in" replacement="id"/> <!-- Indonesian -->
-             <languageAlias type="sh" replacement="sr_Latn"/> <!-- Serbo-Croatian -->
-             <languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
-             <territoryAlias type="BQ" replacement="AQ"/> <!-- CLDR: British Antarctic Territory -->
-             */
-            String f2 = p2.getLanguage();
-            if (!f2.equals("und")) p1.setLanguage(f2);
-            f2 = p2.getScript();
-            if (f2.length() != 0) p2.setScript(f2);
-            f2 = p2.getRegion();
-            if (f2.length() != 0) p2.setRegion(f2);
-            String replacementTag = p1.toString();
-            addIfNotIn(replacementTag, maximized, toAdd, toMaximized,"Deprecated");            
+      for (String type : typeToTagToReplacement.keySet()) {
+        if (type.equals("variant") || type.equals("zone")) continue;
+        boolean addUnd = !type.equals("language");
+
+        Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(type);
+        System.out.println("*" + type + " = " + tagToReplacement);
+        
+        for (String tag: tagToReplacement.keySet()) {
+          
+          final List<String> list = tagToReplacement.get(tag);
+          if (list == null) continue; // we don't have any information
+          String replacement = list.get(0);
+          
+          // only do multiples
+          if (tag.contains("_") || !replacement.contains("_")) {
+            continue;
+          }
+          
+          // we now have a tag and a replacement value
+          // make parsers that we can use
+          try {
+            tagParsed.set(addUnd ? "und-" + tag : tag);
+            replacementParsed.set(addUnd ? "und-" + replacement : replacement);
+          } catch (RuntimeException e) {
+            continue;
+          }
+          addIfNotIn(tag, replacement, toAdd, toMaximized,"Deprecated");
+          
+          for (String locale : toMaximized.keySet()) {
+            String maximized = toMaximized.get(locale);
+            addIfMatches(temp.set(locale), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
+            addIfMatches(temp.set(maximized), maximized, replacementParsed,  tagParsed, toAdd, toMaximized);
           }
         }
       }
@@ -412,6 +411,28 @@ public class GenerateMaximalLocales {
       }
       toMaximized.putAll(toAdd);
     }
+  }
+
+  private static void addIfMatches(LanguageTagParser locale, String maximized, LanguageTagParser tagParsed, LanguageTagParser replacementParsed, Map<String, String> toAdd, Map<String, String> toMaximized) {
+    if (!tagParsed.getLanguage().equals(locale.getLanguage()) && !tagParsed.getLanguage().equals("und")) {
+      return;
+    }
+    if (!tagParsed.getScript().equals(locale.getScript()) && !tagParsed.getScript().equals("")) {
+      return;
+    }
+    if (!tagParsed.getRegion().equals(locale.getRegion()) && !tagParsed.getRegion().equals("")) {
+      return;
+    }
+    if (!replacementParsed.getLanguage().equals("und")) {
+      locale.setLanguage(replacementParsed.getLanguage());
+    }
+    if (!replacementParsed.getScript().equals("")) {
+      locale.setScript(replacementParsed.getScript());
+    }
+    if (!replacementParsed.getRegion().equals("")) {
+      locale.setRegion(replacementParsed.getRegion());
+    }
+    addIfNotIn(locale.toString(), maximized, toAdd, toMaximized,"Deprecated");
   }
 
   private static int getSubtagPosition(String locale, String subtags) {

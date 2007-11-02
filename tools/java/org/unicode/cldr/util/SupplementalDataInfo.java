@@ -393,11 +393,16 @@ public class SupplementalDataInfo {
       instance = new SupplementalDataInfo();
       MyHandler myHandler = instance.new MyHandler();
       XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-      xfr.read(canonicalpath + "/supplementalData.xml", -1, true);
+      for (File file : new File(canonicalpath).listFiles()) {
+        String name = file.toString();
+        if (!name.endsWith(".xml")) continue;
+        xfr.read(name, -1, true);
+      }
       
       //xfr = new XMLFileReader().setHandler(instance.new MyHandler());
-      xfr.read(canonicalpath + "/supplementalMetadata.xml", -1, true);
-      
+      //.xfr.read(canonicalpath + "/supplementalMetadata.xml", -1, true);
+
+
       instance.makeStuffSafe();
       // cache
       directory_instance.put(supplementalDirectory, instance);
@@ -421,6 +426,7 @@ public class SupplementalDataInfo {
     zone_territory = Collections.unmodifiableMap(zone_territory);
     alias_zone = Collections.unmodifiableMap(alias_zone);
     references = Collections.unmodifiableMap(references);
+    likelySubtags = Collections.unmodifiableMap(likelySubtags);
     
     metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
     typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
@@ -659,6 +665,13 @@ public class SupplementalDataInfo {
           references.put(type, (Pair)new Pair(uri, value).freeze());
         }
         
+        if (level1.equals("likelySubtags")) {
+          String from = parts.getAttributeValue(-1, "from");
+          String to = parts.getAttributeValue(-1, "to");
+          likelySubtags.put(from, to);
+          return;
+        }
+        
         if (level1.equals("metadata")) {
           String level2 = parts.getElement(2);
           if (parts.contains("defaultContent")) {
@@ -729,6 +742,7 @@ public class SupplementalDataInfo {
   Set<String> skippedElements = new TreeSet();
   
   private Map<String, Pair<String, String>> references = new TreeMap();
+  private Map<String, String> likelySubtags = new TreeMap();
   
   private Set<String> defaultContentLocales;
   
@@ -902,5 +916,9 @@ public class SupplementalDataInfo {
   
   public Map<String,Map<String,String>> getMetazoneToRegionToZone() {
     return metazoneToRegionToZone;
+  }
+
+  public Map<String, String> getLikelySubtags() {
+    return likelySubtags;
   }
 }

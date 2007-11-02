@@ -11,13 +11,20 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
@@ -26,17 +33,33 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+/**
+ * Problems:
+ *    "und_Hani",      "zh_Hani"
+ *    "und_Sinh",     "si_Sinh"
+ * @author markdavis
+ *
+ */
 public class GenerateMaximalLocales {
-  private static final boolean SHOW_ADD = true;
-  private static final boolean ALT_STYLE = true;
-  private static final String SEPARATOR = true ? "\r\n" : "\t"; // pick the style
+  private static final boolean SHOW_ADD = false;
+  enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
+  
+  private static OutputStyle OUTPUT_STYLE = OutputStyle.XML;
+  
+  // set based on above
+  private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? "\r\n" : "\t";
+  private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
+  private static final boolean FAVOR_REGION = true; // OUTPUT_STYLE == OutputStyle.C_ALT;
 
   static Factory factory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
   static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
   static StandardCodes standardCodes = StandardCodes.make();
   static CLDRFile english = factory.make("en", false);
 
-  public static void main(String[] args) {
+  private static int errorCount;
+  
+  public static void main(String[] args) throws IOException {
+    
     Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
     Map<String,String> toMaximized = new TreeMap<String,String>();
     LanguageTagParser parser = new LanguageTagParser();
@@ -80,26 +103,138 @@ public class GenerateMaximalLocales {
 
     minimize(toMaximized);
     
-    Map<String,String> toMinimized = getBackMapping(toMaximized);
+    if (OUTPUT_STYLE == OutputStyle.C_ALT) {
+      doAlt(toMaximized);
+    }
     
-    System.out.println("// The first mapping is used in the following way" +
-        "\r\n// If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
-        "\r\n// Remove the script Zzzz and the region ZZ if they occur." +
-        "\r\n// Take the input locale, and look it up in the table. If you find a match, return it." +
-        "\r\n// Otherwise if there is a region, remove it, see if there is a match. Replace the region in the result." +
-        "\r\n// Otherwise, if there is a script, remove it, see if there is a match. Replace the script (and region, if you removed it) in the result." +
-        "\r\n// Example: you start with zh-SG. No match. Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Return zh-Hans-SG." +
-        "\r\n// To use the second table, first maximize with the first according to the above, then look up the result in the second table." +
-        "\r\n// toMaximal size: " + toMaximized.size() + 
-        "\r\n// toMinimal size: " + toMinimized.size() +
-        "\r\n"
+    System.out.println("/*\r\n To Maximize:" +
+        "\r\n If using raw strings, make sure the input language/locale uses the right separator, and has the right casing." +
+        "\r\n Remove the script Zzzz and the region ZZ if they occur; change an empty language subtag to 'und'." +
+        "\r\n Get the language, region, and script from the cleaned-up tag, plus any variants/extensions" +
+        "\r\n Try each of the following in order (where the field exists)" +
+        "\r\n   Lookup language-script-region. If in the table, return the result + variants" +
+        "\r\n   Lookup language-script. If in the table, return the result (substituting the original region if it exists) + variants" +
+        "\r\n   Lookup language-region. If in the table, return the result (substituting the original script if it exists) + variants" +
+        "\r\n   Lookup language. If in the table, return the result (substituting the original region and script if either or both exist) + variants" +
+        "\r\n" +
+        "\r\n Example: Input is zh-ZZZZ-SG." +
+        "\r\n Normalize to zh-SG. Lookup in table. No match." +
+        "\r\n Remove SG, but remember it. Lookup zh, and get the match (zh-Hans-CN). Substitute SG, and return zh-Hans-SG." +
+        "\r\n" +
+        "\r\n To Minimize:" +
+        "\r\n First get max = maximize(input)." +
+        "\r\n Then for trial in {language, language-region, language-script}" +
+        "\r\n     If maximize(trial) == max, then return trial." +
+        "\r\n If you don't get a match, return max." +
+        "\r\n" +
+        "\r\n Example: Input is zh-Hant. Maximize to get zh-Hant-TW." +
+        "\r\n zh => zh-Hans-CN. No match, so continue." +
+        "\r\n zh-TW => zh-Hans-TW. Match, so return zh-TW." +
+        "\r\n" +
+        "\r\n (A variant of this uses {language, language-script, language-region}): that is, tries script before language." +
+        "\r\n toMaximal size: " + toMaximized.size() + 
+        "\r\n*/"
         );
     
-
-    printMap("const MapToMaximalSubtags default_subtags[]", toMaximized, toMinimized);
+    printMap(toMaximized);
     
-    printMap("const MapToMinimalSubtags default_subtags[]", toMinimized, toMaximized);
+//    if (OUTPUT_STYLE != OutputStyle.XML) {
+//      printMap("const MapToMinimalSubtags default_subtags[]", toMinimized, null);
+//    }
 
+    System.out.println("\r\nERRORS:\t" + errorCount + "\r\n");
+    
+  }
+  
+  private static void doAlt(Map<String, String> toMaximized) {
+    // TODO Auto-generated method stub
+    Map<String, String> temp = new TreeMap();
+    for (String locale : toMaximized.keySet()) {
+      String target = toMaximized.get(locale);
+      temp.put(toAlt(locale), toAlt(target));
+    }
+    toMaximized.clear();
+    toMaximized.putAll(temp);
+  }
+
+  static String maximize(String languageTag, Map<String, String> toMaximized) {
+    LanguageTagParser ltp = new LanguageTagParser();
+    
+    // clean up the input by removing Zzzz, ZZ, and changing "" into und.
+    ltp.set(languageTag);
+    String language = ltp.getLanguage();
+    String region = ltp.getRegion();
+    String script = ltp.getScript();
+    boolean changed = false;
+    if (language.equals("")) {
+      ltp.setLanguage(language = "und");
+      changed = true;
+    }
+    if (region.equals("Zzzz")) {
+      ltp.setScript(script = "");
+      changed = true;
+    }
+    if (ltp.getRegion().equals("ZZ")) {
+      ltp.setRegion(region = "");
+      changed = true;
+    }
+    if (changed) {
+      languageTag = ltp.toString();
+    }
+    // check whole
+    String result = toMaximized.get(languageTag);
+    if (result != null) {
+      return result;
+    }
+    // try empty region
+    if (region.length() != 0) {
+      result = toMaximized.get(ltp.setRegion("").toString());
+      if (result != null) {
+        return ltp.set(result).setRegion(region).toString();
+      }
+      ltp.setRegion(region); // restore
+    }
+    // try empty script
+    if (script.length() != 0) {
+      result = toMaximized.get(ltp.setScript("").toString());
+      if (result != null) {
+        return ltp.set(result).setScript(script).toString();
+      }
+      // try empty script and region
+      if (region.length() != 0) {
+        result = toMaximized.get(ltp.setRegion("").toString());
+        if (result != null) {
+          return ltp.set(result).setRegion(region).toString();
+        }
+      }
+    }
+    if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
+      return languageTag; // it was ok, and we couldn't do anything with it
+    }
+    return null; // couldn't maximize
+  }
+  
+  public static String minimize(String input, Map<String, String> toMaximized, boolean favorRegion) {
+    if (input.equals("nb_Latn_SJ")) {
+      System.out.print(""); // debug
+    }
+    String maximized = maximize(input, toMaximized);
+    LanguageTagParser ltp = new LanguageTagParser().set(maximized);
+    String language = ltp.getLanguage();
+    String region = ltp.getRegion();
+    String script = ltp.getScript();
+    // try building up from shorter to longer, and find the first  that matches
+    // could be more optimized, but for this code we want simplest
+    String[] trials = {language, 
+        language + TAG_SEPARATOR + (favorRegion ? region : script), 
+        language + TAG_SEPARATOR + (!favorRegion ? region : script)};
+    for (String trial : trials) {
+      String newMaximized = maximize(trial, toMaximized);
+      if (maximized.equals(newMaximized)) {
+        return trial;
+      }
+    }
+    return maximized;
   }
 
   /**
@@ -115,7 +250,7 @@ public class GenerateMaximalLocales {
       final String script = parser.getScript();
       final String region = parser.getRegion();
       if (language.length() == 0 || script.length() == 0 || region.length() == 0) {
-        System.out.println("   { \"" + maximized + "\", \"" + maximized + "\" },   //     " + english.getName(maximized) + "\t\tFailed-Consistency");
+        failure("   { \"" + maximized + "\", \"" + maximized + "\" },   //     " + english.getName(maximized) + "\t\tFailed-Consistency");
         continue;
       }
       addIfNotIn(language, maximized, needMappings, toMaximized, "Consistency");
@@ -126,6 +261,11 @@ public class GenerateMaximalLocales {
       addIfNotIn("und_" + region, maximized, needMappings, toMaximized, "Consistency");
     }
     toMaximized.putAll(needMappings);
+  }
+
+  private static void failure(String string) {
+   System.out.println(string);
+   errorCount++;
   }
 
   private static void addIfNotIn(String key, String value, Map<String, String> toAdd, Map<String, String> otherToCheck, String kind) {
@@ -182,6 +322,7 @@ public class GenerateMaximalLocales {
         if (SHOW_ADD) System.out.println("Adding: " + replacementTag + " => " + maximized + "\t\tLanguage-Territory");
       }
     }
+    
     for  (String script : scriptToLanguageToSize.keySet()) {
       String biggestOfficial = null;
       double biggest = -1;
@@ -305,29 +446,61 @@ public class GenerateMaximalLocales {
     },{
        */
 
-  private static void printMap(String variable, Map<String, String> fluffup, Map<String, String> reverse) {
-    System.out.println(variable + " = {");
+  private static void printMap(Map<String, String> fluffup) throws IOException {
+    PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
+        "likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+    String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
+    String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
+      : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n"
+    + "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.5.1/ldmlSupplemental.dtd\">\r\n"
+    + "<supplementalData>\r\n"
+    + "    <version number=\"$Revision$\"/>\r\n"
+    + "    <generation date=\"$Date$\"/>\r\n"
+    + "    <likelySubtags>";
+    String footer = OUTPUT_STYLE  != OutputStyle.XML ? SEPARATOR + "};" 
+        : "    </likelySubtags>\r\n"
+          + "</supplementalData>";
+    out.println(header);
     boolean first = true;
-    for (String locale : fluffup.keySet()) {
-      String target = fluffup.get(locale);
-      if (first) {
-        first = false;
+    for (String printingLocale : fluffup.keySet()) {
+      String printingTarget = fluffup.get(printingLocale);
+      String comment = printingName(printingLocale, spacing) + spacing + "=>" + spacing + printingName(printingTarget, spacing);
+      
+      if (OUTPUT_STYLE == OutputStyle.XML) {
+        out.println("      <likelySubtag from=\"" +  printingLocale +
+            "\" to=\"" + printingTarget + "\"" + 
+            "/>" + spacing + "<!--" +comment + "-->");
       } else {
-        System.out.print(",");
+        if (first) {
+          first = false;
+        } else {
+          out.print(",");
+        }
+        if (comment.length() > 70 && SEPARATOR.equals("\r\n")) {
+          comment = printingName(printingLocale, spacing) +SEPARATOR + "    // " + spacing + "=>" + spacing + printingName(printingTarget, spacing);
+        }
+        out.print(
+            "  {"
+            + SEPARATOR + "    // " + comment
+            + SEPARATOR + "    \"" + printingLocale + "\","
+            + SEPARATOR + "    \"" + printingTarget + "\""
+            + "\r\n" + "  }"
+        );
       }
-      String printingLocale = ALT_STYLE ? toAlt(locale) : locale;
-      String printingTarget = ALT_STYLE ? toAlt(target) : target;
-
-      System.out.print(
-          "  {"
-          +SEPARATOR + "    // " + english.getName(locale) + "\t=>\t" + english.getName(target)
-          + (locale.equals(reverse.get(target)) ? "":  "  NOT REVERSIBLE")
-          + SEPARATOR + "    \"" + printingLocale + "\","
-          + SEPARATOR + "    \"" + printingTarget + "\""
-          + "\r\n" + "  }"
-          );
     }
-    System.out.println(SEPARATOR + "};");
+    out.println(footer);
+    out.close();
+  }
+  
+  private static String printingName(String locale, String spacing) {
+    LanguageTagParser parser = new LanguageTagParser().set(locale);
+    String lang = parser.getLanguage();
+    String script = parser.getScript();
+    String region = parser.getRegion();
+    return "{" + spacing +
+      (lang.equals("und") ? "?" : english.getName(CLDRFile.LANGUAGE_NAME, lang)) + ";" + spacing +
+      (script == null || script.equals("") ? "?" : english.getName(CLDRFile.SCRIPT_NAME, script)) + ";" + spacing +
+      (region == null || region.equals("") ? "?" : english.getName(CLDRFile.TERRITORY_NAME, region)) + spacing + "}";
   }
 
   static final String[][] ALT_REVERSAL = {
@@ -438,7 +611,7 @@ public class GenerateMaximalLocales {
         }
         String script = parser.set(locale).getScript();
         if (locale.equals("und_Latn_ZA")) {
-          System.out.println("*stop*");
+          System.out.println("*debug*");
         }
         if (script.length() != 0) {
           parser.setScript("");
@@ -612,6 +785,9 @@ public class GenerateMaximalLocales {
       temp.clear();
       for (String locale : fluffup.keySet()) {
         String target = fluffup.get(locale);
+        if (target.equals("si_Sinh") || target.equals("zh-Hani")) {
+          System.out.println("????");
+        }
         String furtherTarget = fluffup.get(target);
         if (furtherTarget == null) {
           continue;
@@ -665,9 +841,10 @@ public class GenerateMaximalLocales {
   }
   
   static String[][] SpecialCases = {
+    { "zh_Hani", "zh_Hans_CN"},
+    { "si_Sinh", "si_Sinh_LK"},
     { "ii", "ii_CN"}, // Sichuan Yi (Yi)
     { "iu", "iu_CA"}, //    Inuktitut (Unified Canadian Aboriginal Syllabics)
-   //{ "zh_Hani", "zh_Hani_CN"}, //    Chinese (Han)
     { "und", "en"}, //    English default
   };
   

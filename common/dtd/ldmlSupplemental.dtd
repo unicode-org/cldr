@@ -7,11 +7,11 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.47 $
-    $Date: 2007-07-25 21:23:18 $
+    $Revision: 1.48 $
+    $Date: 2007-11-02 00:29:17 $
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, references? ) >
+<!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, references? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.5" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -336,6 +336,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST territoryCodes alpha3 NMTOKEN #REQUIRED>
 <!ATTLIST territoryCodes fips10 NMTOKEN #IMPLIED>
 <!ATTLIST territoryCodes internet NMTOKENS #IMPLIED>
+
+<!ELEMENT likelySubtags (likelySubtag*) >
+<!ELEMENT likelySubtag EMPTY >
+<!ATTLIST likelySubtag from NMTOKEN #REQUIRED>
+<!ATTLIST likelySubtag to NMTOKEN #REQUIRED>
 
 <!ELEMENT references ( reference* ) >
 <!ELEMENT reference ( #PCDATA ) >

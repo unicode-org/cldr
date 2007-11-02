@@ -1,9 +1,14 @@
 package org.unicode.cldr.tool;
 
+import org.unicode.cldr.tool.GenerateMaximalLocales.OutputStyle;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -14,8 +19,12 @@ import java.util.TreeSet;
 public class GenerateLikelySubtagTests {
   private static final String TAG_SEPARATOR = "_";
   private static final String SEPARATOR = "\r\n";
+  private static final boolean DEBUG = false;
+  private static PrintWriter out;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
+    out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
+            "likelySubtagTests.txt");
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Map<String, String> likelySubtags = supplementalData.getLikelySubtags();
     
@@ -56,12 +65,12 @@ public class GenerateLikelySubtagTests {
   }
 
   private static void writeTestLine2(final String from, final String maxFrom, final String minFrom) {
-    System.out.print(
+    out.print(
         "  {"
         //+ SEPARATOR + "    // " + comment
-        + SEPARATOR + "    \"" + from + "\","
-        + SEPARATOR + "    \"" + maxFrom + "\","
-        + SEPARATOR + "    \"" + minFrom + "\""
+        + SEPARATOR + "    \"" +GenerateMaximalLocales.toAlt(from,true) + "\","
+        + SEPARATOR + "    \"" + GenerateMaximalLocales.toAlt(maxFrom,true) + "\","
+        + SEPARATOR + "    \"" + GenerateMaximalLocales.toAlt(minFrom,true) + "\""
         + "\r\n" + "  },");
   }
   
@@ -123,7 +132,7 @@ public class GenerateLikelySubtagTests {
   }
   
   public static String minimize(String input, Map<String, String> toMaximized, boolean favorRegion) {
-    if (input.equals("nb_Latn_SJ")) {
+    if (DEBUG && input.equals("nb_Latn_SJ")) {
       System.out.print(""); // debug
     }
     String maximized = maximize(input, toMaximized);

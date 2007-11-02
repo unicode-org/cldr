@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -13,18 +12,12 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.ULocale;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
-import java.math.BigDecimal;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
@@ -41,10 +34,10 @@ import java.util.TreeSet;
  *
  */
 public class GenerateMaximalLocales {
-  private static final boolean SHOW_ADD = true;
+  private static final boolean SHOW_ADD = false;
   enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
   
-  private static OutputStyle OUTPUT_STYLE = OutputStyle.XML;
+  private static OutputStyle OUTPUT_STYLE = OutputStyle.C_ALT;
   
   // set based on above
   private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? "\r\n" : "\t";
@@ -151,7 +144,7 @@ public class GenerateMaximalLocales {
     Map<String, String> temp = new TreeMap();
     for (String locale : toMaximized.keySet()) {
       String target = toMaximized.get(locale);
-      temp.put(toAlt(locale), toAlt(target));
+      temp.put(toAlt(locale, true), toAlt(target, true));
     }
     toMaximized.clear();
     toMaximized.putAll(temp);
@@ -531,7 +524,10 @@ public class GenerateMaximalLocales {
     {"iw", "he"},
   };
   
-  private static String toAlt(String locale) {
+  public static String toAlt(String locale, boolean change) {
+    if (!change) {
+      return locale;
+    }
     String firstTag = getFirstTag(locale);
     for (String[] pair : ALT_REVERSAL) {
       if (firstTag.equals(pair[0])) {

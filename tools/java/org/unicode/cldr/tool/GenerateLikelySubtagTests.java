@@ -25,6 +25,7 @@ public class GenerateLikelySubtagTests {
   public static void main(String[] args) throws IOException {
     out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
             "likelySubtagTests.txt");
+    out.println("// START");
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Map<String, String> likelySubtags = supplementalData.getLikelySubtags();
     
@@ -55,6 +56,8 @@ public class GenerateLikelySubtagTests {
         }
       }
     }
+    out.println("\r\n// END");
+    out.close();
   }
 
   private static String writeTestLine(final String from, Map<String, String> likelySubtags) {

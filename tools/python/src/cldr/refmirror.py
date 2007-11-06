@@ -2,7 +2,19 @@
 # Python module for scanning and mirroring CLDR references.
 #
 # Steven R. Loomis. Oct 30th, 2007
-
+#
+#
+# usage:  refmirror.pl  /path/to/cldr/common   /path/to/nonexistent/refmirror-output-dir
+#
+# note:
+#  - does condense duplicate URLs within a locale, to only download once
+#      (should condense globally?)
+# 
+# todo:
+#  - only handles <references> formats - so CLDR 1.5 main/ but NOT collation/
+#  - doesn't escape UTF-8 URLs such as wikipedia ( writes out url in utf-8, does not %-encode )
+#  - should probably pass "-n 2" or such to wget to shorten hang time
+#
 
 from xml.dom import minidom
 import sys

@@ -19,17 +19,28 @@ import java.util.TreeSet;
 public class GenerateLikelySubtagTests {
   private static final String TAG_SEPARATOR = "_";
   private static final String SEPARATOR = "\r\n";
-  private static final boolean DEBUG = false;
+  private static final boolean DEBUG = true;
+  private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
   private static PrintWriter out;
 
   public static void main(String[] args) throws IOException {
     out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, 
-            "likelySubtagTests.txt");
-    out.println("// START");
+            "likelySubtagTests" +  (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+     if (OUTPUT_STYLE == OutputStyle.C) {
+       out.println("// START");
+     } else {
+      out.println("<?xml version='1.0' encoding='UTF-8' ?>\r\n" +
+        "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5.1/cldrTest.dtd'>\r\n" +
+        "<!-- For information, see readme.html -->\r\n" +
+         "<cldrTest version='1.5.1' base='aa'>\r\n" +
+         "  <likelySubtags>");
+     }
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Map<String, String> likelySubtags = supplementalData.getLikelySubtags();
     
-    writeTestLine2("FROM", "ADD-LIKELY", "REMOVE-LIKELY");
+    if (OUTPUT_STYLE == OutputStyle.C) {
+      writeTestLine2("FROM", "ADD-LIKELY", "REMOVE-LIKELY");
+    }
     Set<String> testedAlready = new HashSet();
     
     for (final String from : likelySubtags.keySet()) {
@@ -41,11 +52,11 @@ public class GenerateLikelySubtagTests {
       testedAlready.add(to);
     }
     LanguageTagParser ltp = new LanguageTagParser();
-    for (String lang : new String[] {"und", "es", "zh"}) {
+    for (String lang : new String[] {"und", "es", "zh", "art"}) { // 
       ltp.setLanguage(lang);
-      for (String script : new String[] {"", "Zzzz", "Latn", "Hans", "Hant"}) {
+      for (String script : new String[] {"", "Zzzz", "Latn", "Hans", "Hant", "Moon"}) {
         ltp.setScript(script);
-       for (String region : new String[] {"", "ZZ", "CN", "TW", "HK"}) {
+       for (String region : new String[] {"", "ZZ", "CN", "TW", "HK", "AQ"}) {
          ltp.setRegion(region);
          String tag = ltp.toString();
          if (testedAlready.contains(tag)) {
@@ -56,7 +67,11 @@ public class GenerateLikelySubtagTests {
         }
       }
     }
-    out.println("\r\n// END");
+    if (OUTPUT_STYLE == OutputStyle.C) {
+      out.println("\r\n// END");
+    } else {
+     out.println("  </likelySubtags>\r\n</cldrTest>");
+    }
     out.close();
   }
 
@@ -68,18 +83,54 @@ public class GenerateLikelySubtagTests {
   }
 
   private static void writeTestLine2(final String from, final String maxFrom, final String minFrom) {
+    if (OUTPUT_STYLE == OutputStyle.C) {
     out.print(
         "  {"
         //+ SEPARATOR + "    // " + comment
-        + SEPARATOR + "    \"" +GenerateMaximalLocales.toAlt(from,true) + "\","
-        + SEPARATOR + "    \"" + GenerateMaximalLocales.toAlt(maxFrom,true) + "\","
-        + SEPARATOR + "    \"" + GenerateMaximalLocales.toAlt(minFrom,true) + "\""
+        + SEPARATOR + "    " + getItem(from) +","
+        + SEPARATOR + "    " + getItem(maxFrom) +","
+        + SEPARATOR + "    " + getItem(minFrom) //+","
         + "\r\n" + "  },");
+    } else {
+      out.println("    <!-- " + printNameOrError(from) + " \u2192 " + 
+          printNameOrError(maxFrom) + " \u2192 " +
+          printNameOrError(minFrom) +" -->");
+      out.println("    <result input='" + getNameOrError(from) +
+          "' add='" + getNameOrError(maxFrom) +
+          "' remove='" + getNameOrError(minFrom) + "'/>");
+    }
+    
+  }
+
+  private static String printNameOrError(final String maxFrom) {
+    String result = GenerateMaximalLocales.printingName(maxFrom,"");
+    if (result == null) {
+      return "ERROR";
+    }
+    return result;
+  }
+
+  private static String getNameOrError(final String from) {
+    String result = GenerateMaximalLocales.toAlt(from, true);
+    if (result == null) {
+      return "ERROR";
+    }
+    return result;
+  }
+  
+  private static String getItem(String from) {
+    final String toAlt = getNameOrError(from);
+    if (toAlt == null) {
+      return null;
+    }
+    return "\"" +toAlt + "\"";
   }
   
   static String maximize(String languageTag, Map<String, String> toMaximized) {
     LanguageTagParser ltp = new LanguageTagParser();
-    
+    if (DEBUG && languageTag.equals("es" + TAG_SEPARATOR + "Hans" + TAG_SEPARATOR + "CN")) {
+      System.out.print(""); // debug
+    }
     // clean up the input by removing Zzzz, ZZ, and changing "" into und.
     ltp.set(languageTag);
     String language = ltp.getLanguage();
@@ -124,23 +175,23 @@ public class GenerateLikelySubtagTests {
       if (region.length() != 0) {
         result = toMaximized.get(ltp.setRegion("").toString());
         if (result != null) {
-          return ltp.set(result).setRegion(region).toString();
+          return ltp.set(result).setScript(script).setRegion(region).toString();
         }
       }
     }
-    if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
-      return languageTag; // it was ok, and we couldn't do anything with it
-    }
+//    if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
+//      return languageTag; // it was ok, and we couldn't do anything with it
+//    }
     return null; // couldn't maximize
   }
   
   public static String minimize(String input, Map<String, String> toMaximized, boolean favorRegion) {
-    if (DEBUG && input.equals("nb_Latn_SJ")) {
-      System.out.print(""); // debug
-    }
     String maximized = maximize(input, toMaximized);
     if (maximized == null) {
       return null;
+    }
+    if (DEBUG && maximized.equals("sr" + TAG_SEPARATOR + "Latn" + TAG_SEPARATOR + "RS")) {
+      System.out.print(""); // debug
     }
     LanguageTagParser ltp = new LanguageTagParser().set(maximized);
     String language = ltp.getLanguage();

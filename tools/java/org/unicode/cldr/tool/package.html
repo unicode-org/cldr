@@ -84,7 +84,8 @@ is appropriate on your system.</b></i></p>
 	</li>
 	<li>Take the latest version of any of the files (like iso-639-3_<font color="#FF0000"><b>20070615</b></font>.tab), 
 	and paste into<ul>
-	<li>C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3-version.tab</li>
+	<li>
+	<a href="file:///C:/cvsdata/unicode/cldr/tools/java/org/unicode/cldr/util/data/iso-639-3-version.tab">C:\cvsdata\unicode\cldr\tools\java\org\unicode\cldr\util\data\iso-639-3-version.tab</a> </li>
 </ul>
 	</li>
 </ul>
@@ -101,16 +102,19 @@ is appropriate on your system.</b></i></p>
 	<li>Any new codes need a corresponding update in supplementalMetadata.xml<ul>
 		<li>Run CountItems -DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8 -DSHOW_FILES -Xmx512M -Dmethod=getSubtagVariables</li>
 		<li>Replace sections of supplementalMetadata.xml</li>
+		<li>Diff for sanity check</li>
 	</ul>
 	</li>
 	<li>Edit common/main/en.xml to add the new names, based on the Descriptions in the registry file.<ul>
 		<li>The format of the registry is screwy: you can use 
 		<a href="http://demo.icu-project.org/icu-bin/translit">http://demo.icu-project.org/icu-bin/translit</a> to convert forms like N&amp;#x2019;Ko into N’Ko</li>
+		<li>Diff for sanity check</li>
 	</ul>
 	</li>
 	<li>If the associations to script or territory are known, edit supplementalData.xml<ul>
 		<li>for example, add to &lt;languageData&gt;</li>
 		<li>&lt;language type=&quot;gsw&quot; scripts=&quot;Latn&quot; territories=&quot;CH&quot;/&gt;</li>
+		<li>Diff for sanity check</li>
 	</ul>
 	</li>
 	<li>If the code becomes deprecated, then add to supplementalMetadata under &lt;alias&gt;<ul>
@@ -140,11 +144,7 @@ is appropriate on your system.</b></i></p>
 		<li>If you missed any codes, you will get error message: &quot;Unexpected Attribute Value&quot;</li>
 	</ul>
 	</li>
-	<li>Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html charts<ul>
-		<li>Generate them in ...\unicode\cldr\diff\supplemental\...</li>
-		<li>Post to http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</li>
-	</ul>
-	</li>
+	<li>Do <a href="#Likely_Subtags">Likely_Subtags</a></li>
 </ul>
 <p></p>
 <h3>Update New Currency Codes</h3>
@@ -371,7 +371,31 @@ data, so ignore the parts it doesn't have:<ul>
 	</ul>
 	</li>
 	<li>Then run QuickCheck to verify that the DTD is in order, and check in.</li>
+	<li>Do <a href="#Likely_Subtags">Likely_Subtags</a></li>
+</ol>
+<h3><a name="Likely_Subtags">Likely Subtags </a></h3>
+<ol>
+	<li>Then run GenerateMaximalLocales to generate the likely subtag data.
+<ol>
+	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/likelySubtags.xml">
+	C:\cvsdata\unicode\cldr\dropbox\gen\likelySubtags.xml</a> to
+	<a href="file:///C:/cvsdata/unicode/cldr/common/supplemental">
+	C:\cvsdata\unicode\cldr\common\supplemental</a>&nbsp; </li>
+	<li>Diff, Sanity Check, check in.</li>
+</ol></li>
+	<li>Run GenerateLikelySubtagTests<ol>
+	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/likelySubtagTests.xml">
+	C:\cvsdata\unicode\cldr\dropbox\gen\likelySubtagTests.xml</a> to
+	<a href="file:///C:/cvsdata/unicode/cldr/common/test/supplemental/">
+	C:\cvsdata\unicode\cldr\common\test\supplemental\</a> </li>
+	<li>Diff, Sanity Check, check in.</li>
+</ol></li>
 	<li>Then run ShowLanguages to generate the charts. Sanity check them, and check in.</li>
+	<li>Run ShowLanguages -DSHOW_FILES to regenerate the supplemental.html charts<ul>
+		<li>Generate them in ...\unicode\cldr\diff\supplemental\...</li>
+		<li>Post to <a href="http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html">http://www.unicode.org/cldr/data/diff/supplemental/supplemental.html</a></li>
+	</ul>
+	</li>
 </ol>
 <h3>Update IANA/FIPS/ISO Mappings</h3>
 <ol>

@@ -37,7 +37,7 @@ public class GenerateMaximalLocales {
   private static final boolean SHOW_ADD = false;
   enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
   
-  private static OutputStyle OUTPUT_STYLE = OutputStyle.C_ALT;
+  private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(Utility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
   
   // set based on above
   private static final String SEPARATOR = OUTPUT_STYLE == OutputStyle.C  || OUTPUT_STYLE == OutputStyle.C_ALT ? "\r\n" : "\t";
@@ -506,7 +506,10 @@ public class GenerateMaximalLocales {
     out.close();
   }
   
-  private static String printingName(String locale, String spacing) {
+  public static String printingName(String locale, String spacing) {
+    if (locale == null) {
+      return null;
+    }
     LanguageTagParser parser = new LanguageTagParser().set(locale);
     String lang = parser.getLanguage();
     String script = parser.getScript();
@@ -525,7 +528,7 @@ public class GenerateMaximalLocales {
   };
   
   public static String toAlt(String locale, boolean change) {
-    if (!change) {
+    if (!change || locale == null) {
       return locale;
     }
     String firstTag = getFirstTag(locale);

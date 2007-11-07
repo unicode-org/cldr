@@ -253,8 +253,6 @@
     <result input='ss' add='ss-Latn-ZA' remove='ss'/>
     <!-- {Southern Sotho;?;?} → {Southern Sotho;Latin;South Africa} → {Southern Sotho;?;?} -->
     <result input='st' add='st-Latn-ZA' remove='st'/>
-    <!-- {Sundanese;?;?} → {Sundanese;Latin;Indonesia} → {Sundanese;?;?} -->
-    <result input='su' add='su-Latn-ID' remove='su'/>
     <!-- {Swedish;?;?} → {Swedish;Latin;Sweden} → {Swedish;?;?} -->
     <result input='sv' add='sv-Latn-SE' remove='sv'/>
     <!-- {Swahili;?;?} → {Swahili;Latin;Tanzania} → {Swahili;?;?} -->
@@ -487,8 +485,8 @@
     <result input='und-Hant' add='zh-Hant-HK' remove='zh-HK'/>
     <!-- {?;Hebrew;?} → {Hebrew;Hebrew;Israel} → {Hebrew;?;?} -->
     <result input='und-Hebr' add='iw-Hebr-IL' remove='iw'/>
-    <!-- {?;?;Indonesia} → {Sundanese;Latin;Indonesia} → {Sundanese;?;?} -->
-    <result input='und-ID' add='su-Latn-ID' remove='su'/>
+    <!-- {?;?;Indonesia} → {Indonesian;Latin;Indonesia} → {Indonesian;?;?} -->
+    <result input='und-ID' add='id-Latn-ID' remove='id'/>
     <!-- {?;?;Israel} → {Hebrew;Hebrew;Israel} → {Hebrew;?;?} -->
     <result input='und-IL' add='iw-Hebr-IL' remove='iw'/>
     <!-- {?;?;India} → {Hindi;Devanagari;India} → {Hindi;?;?} -->
@@ -555,8 +553,6 @@
     <result input='und-Latn-GB' add='cy-Latn-GB' remove='cy'/>
     <!-- {?;Latin;Ghana} → {Akan;Latin;Ghana} → {Akan;?;?} -->
     <result input='und-Latn-GH' add='ak-Latn-GH' remove='ak'/>
-    <!-- {?;Latin;Indonesia} → {Indonesian;Latin;Indonesia} → {Indonesian;?;?} -->
-    <result input='und-Latn-ID' add='id-Latn-ID' remove='id'/>
     <!-- {?;Latin;Italy} → {Friulian;Latin;Italy} → {Friulian;?;?} -->
     <result input='und-Latn-IT' add='fur-Latn-IT' remove='fur'/>
     <!-- {?;Latin;Nigeria} → {Atsam;Latin;Nigeria} → {Atsam;?;?} -->

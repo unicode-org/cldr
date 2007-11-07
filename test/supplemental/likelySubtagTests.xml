@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>
+<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5.1/cldrTest.dtd'>
 <!-- For information, see readme.html -->
 <cldrTest version='1.5.1' base='aa'>
   <likelySubtags>
@@ -1001,77 +1001,77 @@
     <result input='zh-Moon-HK' add='zh-Moon-HK' remove='zh-Moon-HK'/>
     <!-- {Chinese;Moon;Antarctica} → {Chinese;Moon;Antarctica} → {Chinese;Moon;Antarctica} -->
     <result input='zh-Moon-AQ' add='zh-Moon-AQ' remove='zh-Moon-AQ'/>
-    <!-- {Artificial Language;?;?} → null → null -->
-    <result input='art' add='null' remove='null'/>
-    <!-- {Artificial Language;?;Unknown or Invalid Region} → null → null -->
-    <result input='art-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;?;China} → null → null -->
-    <result input='art-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;?;Taiwan} → null → null -->
-    <result input='art-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;?;Hong Kong SAR China} → null → null -->
-    <result input='art-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;?;Antarctica} → null → null -->
-    <result input='art-AQ' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;?} → null → null -->
-    <result input='art-Zzzz' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;Unknown or Invalid Region} → null → null -->
-    <result input='art-Zzzz-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;China} → null → null -->
-    <result input='art-Zzzz-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;Taiwan} → null → null -->
-    <result input='art-Zzzz-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;Hong Kong SAR China} → null → null -->
-    <result input='art-Zzzz-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;Unknown or Invalid Script;Antarctica} → null → null -->
-    <result input='art-Zzzz-AQ' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;?} → null → null -->
-    <result input='art-Latn' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;Unknown or Invalid Region} → null → null -->
-    <result input='art-Latn-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;China} → null → null -->
-    <result input='art-Latn-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;Taiwan} → null → null -->
-    <result input='art-Latn-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;Hong Kong SAR China} → null → null -->
-    <result input='art-Latn-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;Latin;Antarctica} → null → null -->
-    <result input='art-Latn-AQ' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;?} → null → null -->
-    <result input='art-Hans' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;Unknown or Invalid Region} → null → null -->
-    <result input='art-Hans-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;China} → null → null -->
-    <result input='art-Hans-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;Taiwan} → null → null -->
-    <result input='art-Hans-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;Hong Kong SAR China} → null → null -->
-    <result input='art-Hans-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;Simplified Han;Antarctica} → null → null -->
-    <result input='art-Hans-AQ' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;?} → null → null -->
-    <result input='art-Hant' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;Unknown or Invalid Region} → null → null -->
-    <result input='art-Hant-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;China} → null → null -->
-    <result input='art-Hant-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;Taiwan} → null → null -->
-    <result input='art-Hant-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;Hong Kong SAR China} → null → null -->
-    <result input='art-Hant-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;Traditional Han;Antarctica} → null → null -->
-    <result input='art-Hant-AQ' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;?} → null → null -->
-    <result input='art-Moon' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;Unknown or Invalid Region} → null → null -->
-    <result input='art-Moon-ZZ' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;China} → null → null -->
-    <result input='art-Moon-CN' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;Taiwan} → null → null -->
-    <result input='art-Moon-TW' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;Hong Kong SAR China} → null → null -->
-    <result input='art-Moon-HK' add='null' remove='null'/>
-    <!-- {Artificial Language;Moon;Antarctica} → null → null -->
-    <result input='art-Moon-AQ' add='null' remove='null'/>
+    <!-- {Artificial Language;?;?} → ERROR → ERROR -->
+    <result input='art' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;?;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;?;China} → ERROR → ERROR -->
+    <result input='art-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;?;Taiwan} → ERROR → ERROR -->
+    <result input='art-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;?;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;?;Antarctica} → ERROR → ERROR -->
+    <result input='art-AQ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;?} → ERROR → ERROR -->
+    <result input='art-Zzzz' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-Zzzz-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;China} → ERROR → ERROR -->
+    <result input='art-Zzzz-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;Taiwan} → ERROR → ERROR -->
+    <result input='art-Zzzz-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-Zzzz-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Unknown or Invalid Script;Antarctica} → ERROR → ERROR -->
+    <result input='art-Zzzz-AQ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;?} → ERROR → ERROR -->
+    <result input='art-Latn' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-Latn-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;China} → ERROR → ERROR -->
+    <result input='art-Latn-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;Taiwan} → ERROR → ERROR -->
+    <result input='art-Latn-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-Latn-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Latin;Antarctica} → ERROR → ERROR -->
+    <result input='art-Latn-AQ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;?} → ERROR → ERROR -->
+    <result input='art-Hans' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-Hans-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;China} → ERROR → ERROR -->
+    <result input='art-Hans-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;Taiwan} → ERROR → ERROR -->
+    <result input='art-Hans-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-Hans-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Simplified Han;Antarctica} → ERROR → ERROR -->
+    <result input='art-Hans-AQ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;?} → ERROR → ERROR -->
+    <result input='art-Hant' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-Hant-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;China} → ERROR → ERROR -->
+    <result input='art-Hant-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;Taiwan} → ERROR → ERROR -->
+    <result input='art-Hant-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-Hant-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Traditional Han;Antarctica} → ERROR → ERROR -->
+    <result input='art-Hant-AQ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;?} → ERROR → ERROR -->
+    <result input='art-Moon' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;Unknown or Invalid Region} → ERROR → ERROR -->
+    <result input='art-Moon-ZZ' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;China} → ERROR → ERROR -->
+    <result input='art-Moon-CN' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;Taiwan} → ERROR → ERROR -->
+    <result input='art-Moon-TW' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;Hong Kong SAR China} → ERROR → ERROR -->
+    <result input='art-Moon-HK' add='ERROR' remove='ERROR'/>
+    <!-- {Artificial Language;Moon;Antarctica} → ERROR → ERROR -->
+    <result input='art-Moon-AQ' add='ERROR' remove='ERROR'/>
   </likelySubtags>
 </cldrTest>

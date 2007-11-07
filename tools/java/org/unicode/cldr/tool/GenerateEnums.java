@@ -62,9 +62,9 @@ public class GenerateEnums {
 
   private Map enum_UN = new TreeMap();
 
-  private Map enum_FIPS10 = new TreeMap();
+  //private Map enum_FIPS10 = new TreeMap();
 
-  private Map enum_TLD = new TreeMap();
+  //private Map enum_TLD = new TreeMap();
 
   private CLDRFile english = factory.make("en", false);
 
@@ -267,41 +267,52 @@ public class GenerateEnums {
   static NumberFormat threeDigit = new DecimalFormat("000");
 
   public void loadCLDRData() throws IOException {
-    BufferedReader codes = Utility.getUTF8Data("territory_codes.txt");
-    while (true) {
-      String line = codes.readLine();
-      if (line == null)
-        break;
-      line = line.split("#")[0].trim();
-      if (line.length() == 0)
-        continue;
-      String[] sourceValues = line.split("\\s+");
-      String[] values = new String[5];
-      for (int i = 0; i < values.length; ++i) {
-        if (i >= sourceValues.length || sourceValues[i].equals("-"))
-          values[i] = null;
-        else
-          values[i] = sourceValues[i];
-      }
-      String alpha2 = values[0];
-      cldrCodes.add(alpha2);
-      if (isPrivateUseRegion(alpha2))
-        continue;
-      String numeric = values[1];
-      String alpha3 = values[2];
-      String internet = values[3];
-      if (internet != null)
-        internet = internet.toUpperCase();
-      String fips10 = values[4];
-      String enumValue = enumName(alpha2);
-      enum_alpha3.put(enumValue, alpha3);
-      enum_UN.put(enumValue, numeric);
-      enum_FIPS10.put(enumValue, fips10);
-      enum_TLD.put(enumValue, internet);
+//    BufferedReader codes = Utility.getUTF8Data("territory_codes.txt");
+//    while (true) {
+//      String line = codes.readLine();
+//      if (line == null)
+//        break;
+//      line = line.split("#")[0].trim();
+//      if (line.length() == 0)
+//        continue;
+//      String[] sourceValues = line.split("\\s+");
+//      String[] values = new String[5];
+//      for (int i = 0; i < values.length; ++i) {
+//        if (i >= sourceValues.length || sourceValues[i].equals("-"))
+//          values[i] = null;
+//        else
+//          values[i] = sourceValues[i];
+//      }
+//      String alpha2 = values[0];
+//      cldrCodes.add(alpha2);
+//      if (isPrivateUseRegion(alpha2))
+//        continue;
+//      String numeric = values[1];
+//      String alpha3 = values[2];
+//      String internet = values[3];
+//      if (internet != null)
+//        internet = internet.toUpperCase();
+//      String fips10 = values[4];
+//      String enumValue = enumName(alpha2);
+//      enum_alpha3.put(enumValue, alpha3);
+//      enum_UN.put(enumValue, numeric);
+//      enum_FIPS10.put(enumValue, fips10);
+//      enum_TLD.put(enumValue, internet);
+//    }
+//    codes.close();
+    DecimalFormat threeDigits = new DecimalFormat("000");
+    for (String value : supplementalDataInfo.getNumericTerritoryMapping().keySet()) {
+      cldrCodes.add(value);
+      if (isPrivateUseRegion(value)) continue;
+      enum_UN.put(value, threeDigits.format(supplementalDataInfo.getNumericTerritoryMapping().getAll(value).iterator().next()));
     }
-    codes.close();
+    for (String value : supplementalDataInfo.getAlpha3TerritoryMapping().keySet()) {
+      cldrCodes.add(value);
+      if (isPrivateUseRegion(value)) continue;
+      enum_alpha3.put(value, supplementalDataInfo.getAlpha3TerritoryMapping().getAll(value).iterator().next());
+    }
 
-    codes = Utility.getUTF8Data("UnMacroRegions.txt");
+    BufferedReader codes = Utility.getUTF8Data("UnMacroRegions.txt");
     Map macro_name = new TreeMap();
     while (true) {
       String line = codes.readLine();
@@ -370,6 +381,9 @@ public class GenerateEnums {
     for (Iterator it = enum_UN.keySet().iterator(); it.hasNext();) {
       String region = (String) it.next();
       String englishName = getEnglishName(region);
+      if (englishName == null) {
+        englishName = getEnglishName(region); // for debugging\
+      }
       String rfcName = getRFC3066Name(region);
       if (!englishName.equals(rfcName)) {
         System.out.println("Different names: {\"" + region + "\",\t\""

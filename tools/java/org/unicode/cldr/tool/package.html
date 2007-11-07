@@ -122,7 +122,7 @@ is appropriate on your system.</b></i></p>
 	</ul>
 	</li>
 	<li>For territories (regions)<ul>
-		<li>add to the territoryContainment in supplementalData.xml<ul>
+		<li>Add to the territoryContainment in supplementalData.xml<ul>
 			<li>The data for that is at the UN site: 
 			<a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">http://unstats.un.org/unsd/methods/m49/m49regin.htm</a> 
 			</li>
@@ -133,8 +133,14 @@ is appropriate on your system.</b></i></p>
 		</ul>
 		</li>
 		<li>Grep through supplementalMetadata.xml to fix currencies, etc.</li>
+		<li>Add to codeMappings<ul>
+		<li>Use the UN mapping above for the 3letter and 3number codes.</li>
+		<li>Look at http://earth-info.nga.mil/gns/html/fips_files.html</li>
+	</ul>
+		</li>
 		<li>Update util/data/territory_codes.txt<ul>
 			<li>This step will be different once the data is moved into SupplementalData.xml</li>
+			<li>Todo: fix GenerateEnums around Utility.getUTF8Data(&quot;territory_codes.txt&quot;);</li>
 		</ul>
 		</li>
 	</ul>
@@ -142,6 +148,7 @@ is appropriate on your system.</b></i></p>
 	<li>Then run GenerateEnums.java, and make sure it completes with no exceptions.</li>
 	<li>Run ConsoleCheckCLDR -f(en) -c comprehensive<ul>
 		<li>If you missed any codes, you will get error message: &quot;Unexpected Attribute Value&quot;</li>
+		<li>Ignore unconnected coverage errors.</li>
 	</ul>
 	</li>
 	<li>Do <a href="#Likely_Subtags">Likely_Subtags</a></li>

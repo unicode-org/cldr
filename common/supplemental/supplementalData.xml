@@ -181,6 +181,10 @@ The printed version of ISO-4217:2001
         <region iso3166="BJ">
             <currency iso4217="XOF" from="1975-11-30"/>
         </region>
+        <region iso3166="BL">
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
+        </region>
         <region iso3166="BM">
             <currency iso4217="BMD" from="1970-02-06"/>
         </region>
@@ -414,7 +418,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="GNS" from="1972-10-02" to="1986-01-06"/>
         </region>
         <region iso3166="GP">
-            <currency iso4217="EUR" from="1999"/>
+            <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
         </region>
         <region iso3166="GQ">
@@ -617,6 +621,10 @@ The printed version of ISO-4217:2001
             <currency iso4217="DEM" from="1999-10-02" to="2002-05-15"/>
             <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
             <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
+        </region>
+        <region iso3166="MF">
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="FRF" from="1960-01-01" to="2002-02-17"/>
         </region>
         <region iso3166="MG">
             <currency iso4217="MGA" from="1983-11-01"/>

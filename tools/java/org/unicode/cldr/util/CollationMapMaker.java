@@ -10,7 +10,6 @@ package org.unicode.cldr.util;
 
 import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
 
-import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
 import com.ibm.icu.impl.Utility;
@@ -30,7 +29,6 @@ import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;

@@ -250,6 +250,34 @@ changes (see the end). </b></p>
 		</ul>
 		</td>
 	</tr>
+	<tr>
+		<td>likely_subtags</td>
+		<td>
+		<span class="changedspan">There are a number of situations where it is useful to be able to 
+		find the most likely language, script, or region, if that information is otherwise missing. 
+		For example:</span><ul>
+			<li><span class="changedspan">Given the language &quot;zh&quot; and the region &quot;TW&quot;, what is the 
+			most likely script?</span></li>
+			<li><span class="changedspan">Given the script &quot;Thai&quot; what is the most likely language 
+			or region?</span></li>
+			<li><span class="changedspan">Given the region TW, what is the most likely language and 
+			script?</span></li>
+		</ul>
+		<p><span class="changedspan">Conversely, given a locale, it is useful to find out which 
+		fields (language, script, or region) may be superfluous, in the sense that they contain the 
+		likely tags. For example, &quot;en_Latn&quot; can be simplified down to &quot;en&quot; since &quot;Latn&quot; is the 
+		likely script for &quot;en&quot;; &quot;ja_Japn_JP&quot; can be simplified down to &quot;ja&quot;.</span></p>
+		<p><span class="changedspan">The <i>likelySubtag</i> supplemental data provides default 
+		information for computing these values. This data is based on the default content data, the 
+		population data, and the the suppress-script data in [<a href="http://unicode.org/draft/reports/tr35/tr35.html#BCP47">BCP47</a>]. 
+		It is heuristically derived, and may change over time. The chart shows how the data &quot;fills 
+		in&quot; the missing fields, represented as question-marks.</span></p>
+		<ul>
+			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs/data?from=&lt;email&gt;&subject=Likely-Subtags Bug&body=&lt;new-source, new-target, and references supporting change&gt;">bug report</a>.</li>
+		</ul>
+		</td>
+	</tr>
 </table>
 <p>The text to insert can be fairly arbitrary HTML. The software that reads this table will search the first column (eg between &lt;td&gt; and &lt;/td&gt;) and return the contents 
 of the second column.</p>

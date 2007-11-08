@@ -69,7 +69,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-  public static final String CHART_DISPLAY_VERSION = "1.5";
+  public static final String CHART_DISPLAY_VERSION = "1.5.1 (draft)";
   
   private static final boolean SHOW_NATIVE = true;
   
@@ -103,6 +103,8 @@ public class ShowLanguages {
     
     StringWriter sw = new StringWriter();
     PrintWriter pw = new PrintWriter(sw);
+    
+    linfo.printLikelySubtags(pw);
     
     // linfo.printCountryData(pw);
     linfo.showCountryLanguageInfo(pw);
@@ -149,6 +151,7 @@ public class ShowLanguages {
     linfo.printCharacters(pw);
     
     linfo.printAliases(pw);
+    
     
     pw.close();
     
@@ -865,6 +868,53 @@ public class ShowLanguages {
       Log.close();
     }
     
+    public void printLikelySubtags(PrintWriter index) throws IOException {
+
+        PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Likely Subtags", null));
+        
+        TablePrinter tablePrinter = new TablePrinter()
+        .addColumn("Source Lang","class='source'",null,"class='source'",true).setSortPriority(1).setSpanRows(false)
+        .addColumn("Source Script","class='source'",null,"class='source'",true).setSortPriority(0).setSpanRows(false).setBreakSpans(true)
+        .addColumn("Source Region","class='source'",null,"class='source'",true).setSortPriority(2).setSpanRows(false)
+        .addColumn("Target Lang","class='target'",null,"class='target'",true).setSortPriority(3).setBreakSpans(true)
+        .addColumn("Target Script","class='target'",null,"class='target'",true).setSortPriority(4)
+        .addColumn("Target Region","class='target'",null,"class='target'",true).setSortPriority(5)
+        .addColumn("Source ID","class='source'",null,"class='source'",true)
+        .addColumn("Target ID","class='target'",null,"class='target'",true)
+        ;
+        Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();
+        LanguageTagParser sourceParsed = new LanguageTagParser();
+        LanguageTagParser targetParsed = new LanguageTagParser();
+        for (String source : subtags.keySet()) {
+          String target = subtags.get(source);
+          sourceParsed.set(source);
+          targetParsed.set(target);
+          tablePrinter.addRow()
+            .addCell(getName(CLDRFile.LANGUAGE_NAME, sourceParsed.getLanguage()))
+            .addCell(getName(CLDRFile.SCRIPT_NAME, sourceParsed.getScript()))
+            .addCell(getName(CLDRFile.TERRITORY_NAME, sourceParsed.getRegion()))
+            .addCell(getName(CLDRFile.LANGUAGE_NAME, targetParsed.getLanguage()))
+            .addCell(getName(CLDRFile.SCRIPT_NAME, targetParsed.getScript()))
+            .addCell(getName(CLDRFile.TERRITORY_NAME, targetParsed.getRegion()))
+            .addCell(source)
+            .addCell(target)
+            .finishRow();
+        }
+        pw.println(tablePrinter.toTable());
+        pw.close();
+    }
+
+    private String getName(final int type, final String value) {
+      if (value == null || value.equals("") || value.equals("und")) {
+        return "?";
+      }
+      String result = english.getName(type, value);
+      if (result == null) {
+        result = value;
+      }
+      return result;
+    }
+
     static final Comparator INVERSE_COMPARABLE = new Comparator() {
       public int compare(Object o1, Object o2) {
         return ((Comparable)o2).compareTo(o1);

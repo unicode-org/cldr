@@ -7,6 +7,7 @@ Copyright (C) 2004-2005, Unicode, Inc., International Business Machines Corporat
 For terms of use, see http://www.unicode.org/terms_of_use.html
 -->
 <link rel="stylesheet" type="text/css" href="../common.css" />
+<title>CLDR Tools &amp; Data Updates</title>
 </head>
 
 <body bgcolor="white">
@@ -132,15 +133,17 @@ is appropriate on your system.</b></i></p>
 			</li>
 		</ul>
 		</li>
-		<li>Grep through supplementalMetadata.xml to fix currencies, etc.</li>
 		<li>Add to codeMappings<ul>
 		<li>Use the UN mapping above for the 3letter and 3number codes.</li>
 		<li>Look at http://earth-info.nga.mil/gns/html/fips_files.html</li>
 	</ul>
 		</li>
-		<li>Update util/data/territory_codes.txt<ul>
-			<li>This step will be different once the data is moved into SupplementalData.xml</li>
-			<li>Todo: fix GenerateEnums around Utility.getUTF8Data(&quot;territory_codes.txt&quot;);</li>
+		<li>John will need to add metazone mappings as needed.</li>
+		<li>Rick will need to get the country data.</li>
+		<li>George will need to add the currency data.</li>
+		<li><strike>Update util/data/territory_codes.txt</strike><ul>
+			<li><strike>This step will be different once the data is moved into SupplementalData.xml</strike></li>
+			<li><strike>Todo: fix GenerateEnums around Utility.getUTF8Data(&quot;territory_codes.txt&quot;);</strike></li>
 		</ul>
 		</li>
 	</ul>
@@ -384,15 +387,15 @@ data, so ignore the parts it doesn't have:<ul>
 <ol>
 	<li>Then run GenerateMaximalLocales to generate the likely subtag data.
 <ol>
-	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/likelySubtags.xml">
-	C:\cvsdata\unicode\cldr\dropbox\gen\likelySubtags.xml</a> to
+	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/">
+	C:\cvsdata\unicode\cldr\dropbox\gen\</a> likelySubtags.xml to
 	<a href="file:///C:/cvsdata/unicode/cldr/common/supplemental">
 	C:\cvsdata\unicode\cldr\common\supplemental</a>&nbsp; </li>
 	<li>Diff, Sanity Check, check in.</li>
 </ol></li>
 	<li>Run GenerateLikelySubtagTests<ol>
-	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/likelySubtagTests.xml">
-	C:\cvsdata\unicode\cldr\dropbox\gen\likelySubtagTests.xml</a> to
+	<li>Copy <a href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/">
+	C:\cvsdata\unicode\cldr\dropbox\gen\</a> likelySubtagTests.xml to
 	<a href="file:///C:/cvsdata/unicode/cldr/common/test/supplemental/">
 	C:\cvsdata\unicode\cldr\common\test\supplemental\</a> </li>
 	<li>Diff, Sanity Check, check in.</li>
@@ -405,15 +408,14 @@ data, so ignore the parts it doesn't have:<ul>
 	</li>
 </ol>
 <h3>Update IANA/FIPS/ISO Mappings</h3>
-<ol>
-	<li><a href="http://www.iana.org/domain-names.htm">http://www.iana.org/domain-names.htm</a><ol>
-		<li><a href="http://www.iana.org/root-whois/index.html">
-		http://www.iana.org/root-whois/index.html</a> </li>
-		<li><a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt">
-		http://data.iana.org/TLD/tlds-alpha-by-domain.txt</a> </li>
-	</ol>
+<ul>
+	<li>TBD - Describe what to do. The URLs are<ul>
+		<li><a href="http://www.iana.org/domain-names.htm">http://www.iana.org/domain-names.htm</a></li>
+		<li><a href="http://www.iana.org/root-whois/index.html">http://www.iana.org/root-whois/index.html</a></li>
+		<li><a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt">http://data.iana.org/TLD/tlds-alpha-by-domain.txt</a></li>
+	</ul>
 	</li>
-</ol>
+</ul>
 
 </body>
 

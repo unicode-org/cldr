@@ -1,29 +1,8 @@
 package org.unicode.cldr.test;
 
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.BitSet;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -31,22 +10,81 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.test.util.UnicodeMap;
-import org.unicode.cldr.icu.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
-//import com.ibm.icu.text.StringTransform;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
+
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class TestMisc {
+  
+  static Currency SWISS_FRANC = Currency.getInstance("CHF");
+  
+  static class Lists {
+    public static <E extends Comparable> List<E> sortedCopy(Collection<E> iterable)
+    {
+      List<E> list = new ArrayList();
+      list.addAll(iterable);
+      Collections.sort(list);
+      return list;
+    }
+  }
+
+  enum Foo {A, M, Z};
+
     public static void main(String[] args) {
       
+      Set<Foo> inFileOrder = EnumSet.allOf(Foo.class);
+      List<Foo> inAlphaOrder = Lists.sortedCopy(inFileOrder);
+      System.out.println(inFileOrder);
+      System.out.println(inAlphaOrder);
+
+      
+    DecimalFormat currencyFormat = (DecimalFormat)NumberFormat.getCurrencyInstance(new ULocale("de-CH"));
+    currencyFormat.setCurrency(SWISS_FRANC);
+    // sometime later...
+    // we want the financial format of the currency, not the retail format
+    System.out.println("Retail:\t" + currencyFormat.format(123.53));
+    BigDecimal increment = currencyFormat.getRoundingIncrement();
+    System.out.println("Rounding Increment:\t" + increment);
+    double double_increment = increment.doubleValue();
+    System.out.println("Double rounding Increment:\t" + double_increment);
+    double log = Math.log10(double_increment);
+    System.out.println("Double log:\t" + log);
+    double new_increment = Math.pow(10,Math.floor(log));
+    System.out.println("Floored Increment:\t" + new_increment);
+    currencyFormat.setRoundingIncrement(new_increment);
+    System.out.println("Financial:\t" + currencyFormat.format(123.53));
+
+    if (true) return;
+  
       testWeights();
       if (true) return;
             

@@ -3057,13 +3057,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if (str != null)
                     from.val = str;
                 else
-                    from.val = "0000-00-00";
+                    from.val = "1970-01-01 00:00";
 
                 str = loc.getBasicAttributeValue(aPath, LDMLConstants.TO);
                 if (str != null)
                     to.val = str;
                 else
-                    to.val = "9999-12-31";
+                    to.val = "9999-12-31 23:59";
 
                 if (current_mz == null) {
                     uses_mz_table.first = this_mz;

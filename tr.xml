@@ -2020,8 +2020,8 @@
 					<daylight>Acre Yaz Saati</daylight>
 				</long>
 				<short>
-					<standard>ACT</standard>
-					<daylight>ACST</daylight>
+					<standard>ACT (Acre)</standard>
+					<daylight>ACST (Acre)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Afghanistan">
@@ -2256,7 +2256,6 @@
 					<daylight>Orta Avustralya Yaz Saati</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">13:25 Avustralya (Adelaide)</generic>
 					<standard>ACST</standard>
 					<daylight>ACDT</daylight>
 				</short>
@@ -2265,12 +2264,10 @@
 				<long>
 					<generic>Orta Batı Saati</generic>
 					<standard>Batı Merkezi Standart Saati</standard>
-					<daylight draft="provisional">13:25 GMT+09:45</daylight>
 				</long>
 				<short>
 					<generic>CWT</generic>
 					<standard>CWST</standard>
-					<daylight draft="provisional">13:25 GMT+09:45</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -2280,7 +2277,6 @@
 					<daylight>Doğu Avustralya Yaz Saati</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">13:25 Avustralya (Sidney)</generic>
 					<standard>AEST</standard>
 					<daylight>AEDT</daylight>
 				</short>
@@ -2292,7 +2288,6 @@
 					<daylight>Batı Avustralya Yaz Saati</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">13:25 Avustralya (Perth)</generic>
 					<standard>AWST</standard>
 					<daylight>AWDT</daylight>
 				</short>
@@ -2735,28 +2730,12 @@
 					<standard>GYT</standard>
 				</short>
 			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<generic>Hawaii Saati</generic>
-					<standard>Hawaii Standart Saati</standard>
-					<daylight>Hawaii Yaz Saati</daylight>
-				</long>
-				<short>
-					<generic>HT</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>Hawaii-Aleutian Saati</generic>
 					<standard>Hawaii-Aleutian Standart Saati</standard>
-					<daylight>Hawaii-Aleutian Yaz Saati</daylight>
 				</long>
 				<short>
-					<generic>HAT</generic>
-					<standard>HAST</standard>
-					<daylight>HADT</daylight>
+					<standard>HST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -3094,16 +3073,6 @@
 					<daylight>ULAST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Moscow">
-				<long>
-					<standard draft="provisional">13:25 GMT+03:00</standard>
-					<daylight draft="provisional">3:25 GMT+04:00</daylight>
-				</long>
-				<short>
-					<standard draft="provisional">13:25 GMT+03:00</standard>
-					<daylight draft="provisional">13:25 GMT+04:00</daylight>
-				</short>
-			</metazone>
 			<metazone type="Myanmar">
 				<long>
 					<standard>Myanmar Saati</standard>
@@ -3145,7 +3114,6 @@
 					<daylight>Yeni Zelanda Yaz Saati</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">13:25 Yeni Zelanda Saati</generic>
 					<standard>NZST</standard>
 					<daylight>NZDT</daylight>
 				</short>
@@ -3410,7 +3378,7 @@
 					<standard>Güney Georgia Saati</standard>
 				</long>
 				<short>
-					<standard>GST (S. Georgia)</standard>
+					<standard>GST (Güney Georgia)</standard>
 				</short>
 			</metazone>
 			<metazone type="Suriname">

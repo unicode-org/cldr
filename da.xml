@@ -2215,7 +2215,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Mellemeuropæisk sommertid</daylight>
 				</long>
 				<short>
-					<generic>CET</generic>
 					<standard>CET</standard>
 					<daylight>CEST</daylight>
 				</short>
@@ -2230,7 +2229,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Østeuropæisk sommertid</daylight>
 				</long>
 				<short>
-					<generic>EET</generic>
 					<standard>EET</standard>
 					<daylight>EEST</daylight>
 				</short>
@@ -2243,35 +2241,21 @@
 					<daylight>vesteuropæisk sommertid</daylight>
 				</long>
 				<short>
-					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<generic draft="contributed">verdenstid</generic>
 					<standard>Verdenstid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">GMT-tid</standard>
 					<standard alt="proposed-x1002" draft="unconfirmed">verdenstid</standard>
-					<daylight>GMT-sommertid</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">verdenstid</daylight>
 				</long>
 				<short>
-					<generic>GMT</generic>
 					<standard>GMT</standard>
-					<daylight>GMT</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Hawaii-normaltid</standard>
-					<daylight>Hawaii-sommertid</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Israel">
 				<long>

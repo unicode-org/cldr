@@ -1857,7 +1857,7 @@
 					<daylight draft="provisional">Hora de verano de Aktau</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">AQTST (Aktau)</standard>
+					<standard draft="provisional">AQTT (Aktau)</standard>
 					<daylight draft="provisional">AQTST (Aktau)</daylight>
 				</short>
 			</metazone>
@@ -1868,7 +1868,7 @@
 				</long>
 				<short>
 					<standard draft="provisional">AQTT (Aktobe)</standard>
-					<daylight draft="provisional">AQTST (Aktau)</daylight>
+					<daylight draft="provisional">AQTST (Aktobe)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -2008,7 +2008,7 @@
 					<daylight>Hora de verano de China</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
+					<standard>CST (China)</standard>
 				</short>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2122,26 +2122,16 @@
 					<standard draft="provisional">Hora estándar del Golfo</standard>
 				</long>
 			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<generic draft="provisional">Hora de Hawái</generic>
-					<standard>Hora estándar de Hawai</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estándar de Hawái</standard>
-					<daylight>Hora de verano de Hawai</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Hora de verano de Hawái</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="provisional">Hora de Hawái-Aleutianas</generic>
 					<standard draft="provisional">Hora estándar de Hawái-Aleutianas</standard>
 					<daylight draft="provisional">Hora de verano de Hawái-Aleutianas</daylight>
 				</long>
+				<short>
+					<standard>HST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="India">
 				<long>
@@ -2294,7 +2284,7 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Hora de verano de Terranova</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
+					<standard>NST</standard>
 				</short>
 			</metazone>
 			<metazone type="North_Mariana">

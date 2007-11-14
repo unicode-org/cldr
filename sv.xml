@@ -2082,12 +2082,10 @@
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<generic>centralafrikansk tid</generic>
-					<standard draft="contributed">centralafrikansk tid</standard>
+					<standard>centralafrikansk tid</standard>
 				</long>
 				<short>
-					<generic>CAT</generic>
-					<standard draft="contributed">CAT</standard>
+					<standard>CAT</standard>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2098,8 +2096,7 @@
 					<standard alt="proposed-x1001" draft="unconfirmed">östafrikansk tid</standard>
 				</long>
 				<short>
-					<generic>EAT</generic>
-					<standard draft="contributed">EAT</standard>
+					<standard>EAT</standard>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2109,8 +2106,8 @@
 					<standard draft="contributed">sydafrikansk normaltid</standard>
 				</long>
 				<short>
-					<standard draft="contributed">SAT</standard>
-					<daylight draft="contributed">sydafrikansk sommartid</daylight>
+					<generic draft="contributed">SAT</generic>
+					<standard draft="contributed">SAST</standard>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
@@ -2121,8 +2118,6 @@
 					<daylight draft="contributed">västafrikansk sommartid</daylight>
 				</long>
 				<short>
-					<generic>WAT</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">VAT</generic>
 					<standard draft="contributed">WAT</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">VAT</standard>
 					<daylight draft="contributed">VAST</daylight>
@@ -2215,9 +2210,9 @@
 					<daylight draft="contributed">saudiarabisk sommartid</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">AT</generic>
-					<standard draft="contributed">AST</standard>
-					<daylight alt="proposed-x1001" draft="unconfirmed">ADT</daylight>
+					<generic draft="contributed">AT (saudiarabisk)</generic>
+					<standard draft="contributed">AST (saudiarabisk)</standard>
+					<daylight alt="proposed-x1001" draft="unconfirmed">ADT (saudiarabisk)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina">
@@ -2380,7 +2375,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">centraleuropeisk sommartid</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">CET</generic>
 					<standard>CET</standard>
 					<daylight>CEST</daylight>
 				</short>
@@ -2395,7 +2389,6 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">östeuropeisk sommatid</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">EET</generic>
 					<standard>EET</standard>
 					<daylight>EEST</daylight>
 				</short>
@@ -2408,7 +2401,6 @@
 					<daylight draft="contributed">västeuropeisk sommartid</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">WET</generic>
 					<standard draft="contributed">WET</standard>
 					<daylight draft="contributed">WEST</daylight>
 				</short>
@@ -2416,15 +2408,11 @@
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<generic draft="contributed">greenwichtid</generic>
 					<standard>Greenwichtid</standard>
 					<standard alt="proposed-x1001" draft="unconfirmed">greenwichtid</standard>
-					<daylight draft="contributed">greenwichtid</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">GMT</generic>
 					<standard>GMT</standard>
-					<daylight draft="contributed">GMT</daylight>
 				</short>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
@@ -2484,19 +2472,6 @@
 					<standard alt="proposed-x1002" draft="unconfirmed">Persiska Golfennormaltid</standard>
 				</long>
 			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<generic draft="contributed">hawaiiansk tid</generic>
-					<standard>Hawaii, normaltid</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">hawaiiansk normaltid</standard>
-					<daylight>Hawaii, sommartid</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">hawaiiansk sommartid</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</metazone>
 			<metazone type="India">
 				<long>
 					<generic draft="contributed">indisk tid</generic>
@@ -2537,7 +2512,7 @@
 				</long>
 				<short>
 					<generic draft="unconfirmed">IT</generic>
-					<standard>IST</standard>
+					<standard>IST (Israel)</standard>
 					<daylight>IDT</daylight>
 				</short>
 			</metazone>
@@ -2607,8 +2582,8 @@
 					<daylight>Newfoundland, sommartid</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Pakistan">

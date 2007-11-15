@@ -1087,7 +1087,7 @@ public class ShowLanguages {
       if (subject.length() != 0) {
         subject = "&subject=" + urlEncode(subject);
       }
-      return "<a target='_blank' href='http://unicode.org/cldr/bugs/locale-bugs/data?compose=" + bugNumber + from + subject + body + "'>" + text + "</a>";
+      return "<a target='_blank' href='http://unicode.org/cldr/bugs/locale-bugs" + "'>" + text + "</a>";
     }
     
     private void showLanguageCountryInfo(PrintWriter pw) throws IOException {

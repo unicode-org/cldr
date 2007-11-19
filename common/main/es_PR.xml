@@ -31,7 +31,11 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<currencies>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+		</symbols>
+        <currencies>
 			<currency type="USD">
 				<symbol>$</symbol>
 			</currency>

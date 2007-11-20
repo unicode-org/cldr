@@ -69,55 +69,62 @@ public class DisplayAndInputProcessor {
    * 
    * @param path
    * @param value
+   * @param internalException TODO
    * @param fullPath
    * @return
    */
-  public String processInput(String path, String value) {
+  public String processInput(String path, String value, Exception[] internalException) {
     String original = value;
-    // fix grouping separator if space
-    if (!path.startsWith("//ldml/numbers/symbols/group")) {
-      if (value.equals(" ")) {
-        value = "\u00A0";
+    if (internalException != null) {
+      internalException[0] = null;
+    }
+    try {
+      // fix grouping separator if space
+      if (!path.startsWith("//ldml/numbers/symbols/group")) {
+        if (value.equals(" ")) {
+          value = "\u00A0";
+        }
       }
-    }
-    // all of our values should not have leading or trailing spaces, except insertBetween
-    if (!path.contains("/insertBetween")) {
-      value = value.trim();
-    }
-    
-    // fix date patterns
-    if (path.indexOf("/dates") >= 0 && 
-        ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)
-        || path.indexOf("/dateFormatItem") >= 0)) {
-      formatDateParser.set(value);
-      String newValue = formatDateParser.toString();
-      if (!value.equals(newValue)) {
-        value = newValue;
-      }
-    }
-
-    // check specific cases
-    if (path.contains("/exemplarCharacters")) {
-      // clean up the user's input.
-      // first, fix up the '['
-
-      if (!value.startsWith("[") && !value.endsWith("]")) {
-        value = "[" + value + "]";
+      // all of our values should not have leading or trailing spaces, except insertBetween
+      if (!path.contains("/insertBetween")) {
+        value = value.trim();
       }
 
-      try {
+      // fix date patterns
+      if (path.indexOf("/dates") >= 0
+          && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0) || path
+              .indexOf("/dateFormatItem") >= 0)) {
+        formatDateParser.set(value);
+        String newValue = formatDateParser.toString();
+        if (!value.equals(newValue)) {
+          value = newValue;
+        }
+      }
+
+      // check specific cases
+      if (path.contains("/exemplarCharacters")) {
+        // clean up the user's input.
+        // first, fix up the '['
+
+        if (!value.startsWith("[") && !value.endsWith("]")) {
+          value = "[" + value + "]";
+        }
+
         UnicodeSet exemplar = new UnicodeSet(value);
-        String fixedExemplar = CollectionUtilities.prettyPrint(exemplar,
-            true, null, null, col, col);
+        String fixedExemplar = CollectionUtilities.prettyPrint(exemplar, true,
+            null, null, col, col);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
         if (!exemplar.equals(doubleCheck)) {
           return original;
         }
-        return fixedExemplar;
-      } catch (RuntimeException e) {
-        return original;
+        value = fixedExemplar;
       }
+      return value;
+    } catch (RuntimeException e) {
+      if (internalException != null) {
+        internalException[0] = e;
+      }
+      return original;
     }
-    return value;
   }
 }

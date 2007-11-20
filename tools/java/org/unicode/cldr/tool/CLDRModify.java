@@ -663,7 +663,7 @@ public class CLDRModify {
         if (!value.equals(value.trim())) {
           value = value; // for debugging
         }
-        String newValue = inputProcessor.processInput(xpath, value);
+        String newValue = inputProcessor.processInput(xpath, value, null);
         if (value.equals(newValue)) {
           return;
         }

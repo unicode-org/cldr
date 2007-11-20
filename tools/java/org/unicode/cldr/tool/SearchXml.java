@@ -15,6 +15,9 @@ public class SearchXml {
 
   private static Matcher valueMatcher;
   
+  private static boolean showFiles;
+  private static boolean showValues;
+  
   private static int count = 0;
 
   public static void main(String[] args) throws IOException {
@@ -27,6 +30,9 @@ public class SearchXml {
     pathMatcher = Pattern.compile(Utility.getProperty("XMLPATH", ".*")).matcher("");
     valueMatcher = Pattern.compile(Utility.getProperty("VALUE", ".*"), Pattern.DOTALL)
         .matcher("");
+
+    showFiles = Utility.getProperty("SHOWFILES", "FALSE","FALSE").equalsIgnoreCase("true");
+    showValues = Utility.getProperty("SHOWVALUES", "FALSE","FALSE").equalsIgnoreCase("true");
 
     double startTime = System.currentTimeMillis();
     File src = new File(sourceDirectory);
@@ -48,6 +54,9 @@ public class SearchXml {
       String canonicalFile = file.getCanonicalPath();
       if (!fileMatcher.reset(canonicalFile).matches())
         continue;
+      if (showFiles) {
+        System.out.println("* " + canonicalFile);
+      }
       myHandler.firstMessage = "* " + canonicalFile;
       XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
       xfr.read(canonicalFile, XMLFileReader.CONTENT_HANDLER
@@ -62,7 +71,13 @@ public class SearchXml {
     String firstMessage;
     
     public void handlePathValue(String path, String value) {
+      
       if (pathMatcher.reset(path).matches()) {
+        
+        if (showValues) {
+          System.out.println(value + "\t<=\t" + path);
+        }
+
         if (valueMatcher.reset(value).matches()) {
           if (firstMessage != null) {
             System.out.println(firstMessage);

@@ -38,16 +38,18 @@ import java.util.regex.Pattern;
 public class QuickCheck {
   private static final Set skipAttributes = new HashSet(Arrays.asList(new String[]{
       "alt", "draft", "references"}));
-
+  
   private static String localeRegex;
   
   private static boolean showInfo = false;
-
+  
   private static String sourceDirectory;
-
+  
   private static boolean showForceZoom;
   
   private static boolean resolved;
+  
+  private static Exception[] internalException = new Exception[1];
   
   public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
@@ -61,19 +63,20 @@ public class QuickCheck {
     
     showForceZoom = System.getProperty("FORCED") != null;
     System.out.println("Force Zoomed Edit?: " + showForceZoom + "\t\t(use -DFORCED) to enable");
- 
+    
     resolved = System.getProperty("RESOLVED") != null;
     System.out.println("Resolved?: " + resolved + "\t\t(use -RESOLVED) to enable");
-
-    boolean nopaths = System.getProperty("NOPATHS") != null;
-    System.out.println("No paths?: " + nopaths + "\t\t(use -NOPATHS) to enable");
-
+    
+    boolean paths = Utility.getProperty("PATHS", "TRUE", "TRUE").matches("(?i)T|TRUE");
+    
+    pretty = Utility.getProperty("PRETTY", "TRUE", "TRUE").matches("(?i)T|TRUE");
+    
     double startTime = System.currentTimeMillis();
     checkDtds();
     double deltaTime = System.currentTimeMillis() - startTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
-
-    if (!nopaths) {
+    
+    if (paths) {
       System.out.println("Checking paths");
       checkPaths();
       deltaTime = System.currentTimeMillis() - startTime;
@@ -81,7 +84,7 @@ public class QuickCheck {
       System.out.println("Basic Test Passes");
     }
   }
-
+  
   private static void checkDtds() throws IOException {
     checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
     checkDtds(sourceDirectory);
@@ -90,7 +93,7 @@ public class QuickCheck {
     checkDtds(Utility.COMMON_DIRECTORY + "test");
     checkDtds(Utility.COMMON_DIRECTORY + "transforms");
   }
-
+  
   private static void checkDtds(String directory) throws IOException {
     File directoryFile = new File(directory);
     File[] listFiles = directoryFile.listFiles();
@@ -106,7 +109,7 @@ public class QuickCheck {
       check(fileName);
     }
   }
-
+  
   static class MyErrorHandler implements ErrorHandler {
     public void error(SAXParseException exception) throws SAXException {
       System.out.println("error: " + XMLFileReader.showSAX(exception));
@@ -142,9 +145,11 @@ public class QuickCheck {
       System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
     }      
   }
-
+  
   static Matcher skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed").matcher("");
-
+  
+  private static boolean pretty;
+  
   private static void checkPaths() {
     Relation<String,String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     Relation<String,String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
@@ -175,9 +180,13 @@ public class QuickCheck {
         if (!displayValue.equals(value)) {
           System.out.println(locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
         }
-        String inputValue = displayAndInputProcessor.processInput(path, value);
+        String inputValue = displayAndInputProcessor.processInput(path, value, internalException);
+        if (internalException[0] != null) {
+          System.out.println(locale + "\tdisplayAndInputProcessor internal error <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
+          internalException[0].printStackTrace(System.out);
+        }
         if (!inputValue.equals(value)) {
-          displayAndInputProcessor.processInput(path, value);
+          displayAndInputProcessor.processInput(path, value, internalException); // for debugging
           System.out.println(locale + "\tdisplayAndInputProcessor changes input value <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
         }
         
@@ -201,7 +210,7 @@ public class QuickCheck {
         }
       }
     }
-
+    
     System.out.format("Distinguishing Elements: %s\r\n", distinguishing);
     System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);
     System.out.format("Skipped %s\r\n", skipAttributes);
@@ -219,40 +228,41 @@ public class QuickCheck {
         System.out.println("Forced Zoom Edit: " + path);
       }
     }
-
     
-    if (showInfo) {
-      System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");
-    }
-    PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
-    Set<String> badPaths = new TreeSet();
-    for (String path : pathToLocale.keySet()) {
-      String prettied = prettyPath.getPrettyPath(path, false);
-      if (showInfo) System.out.println(prettied + "\t\t" + path);
-      if (prettied.contains("%%") && !path.contains("/alias")) {
-        badPaths.add(path);
+    if (pretty) {
+      if (showInfo) {
+        System.out.println("\r\nShowing Path to PrettyPath mapping\r\n");
       }
-    }
-    // now remove root
-    
-    if (showInfo) {
-      System.out.println("\r\nShowing Paths not in root\r\n");
-    }
-
-    CLDRFile root = cldrFactory.make("root", true);
-    for (Iterator<String> it = root.iterator(); it.hasNext();) {
-      pathToLocale.removeAll(it.next());
-    }
-    if (showInfo) for (String path : pathToLocale.keySet()) {
-      if (skipPaths.reset(path).find()) {
-        continue;
+      PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
+      Set<String> badPaths = new TreeSet();
+      for (String path : pathToLocale.keySet()) {
+        String prettied = prettyPath.getPrettyPath(path, false);
+        if (showInfo) System.out.println(prettied + "\t\t" + path);
+        if (prettied.contains("%%") && !path.contains("/alias")) {
+          badPaths.add(path);
+        }
       }
-      System.out.println(path + "\t" + pathToLocale.getAll(path));
-    }
-
-    if (badPaths.size() != 0) {
-      System.out.println("Error: " + badPaths.size() + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
+      // now remove root
+      
+      if (showInfo) {
+        System.out.println("\r\nShowing Paths not in root\r\n");
+      }
+      
+      CLDRFile root = cldrFactory.make("root", true);
+      for (Iterator<String> it = root.iterator(); it.hasNext();) {
+        pathToLocale.removeAll(it.next());
+      }
+      if (showInfo) for (String path : pathToLocale.keySet()) {
+        if (skipPaths.reset(path).find()) {
+          continue;
+        }
+        System.out.println(path + "\t" + pathToLocale.getAll(path));
+      }
+      
+      if (badPaths.size() != 0) {
+        System.out.println("Error: " + badPaths.size() + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
+      }
     }
   }
-
+  
 }

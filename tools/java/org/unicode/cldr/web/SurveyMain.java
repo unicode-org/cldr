@@ -5407,7 +5407,7 @@ public class SurveyMain extends HttpServlet {
         if(!choice.equals(CHANGETO)) {
             choice_v=""; // so that the value is ignored, as it is not changing
         } else if (choice_v.length()>0) {
-            choice_v = ctx.processor.processInput(xpt.getById(p.base_xpath),choice_v);
+            choice_v = ctx.processor.processInput(xpt.getById(p.base_xpath),choice_v, null);
         }
         
         /* handle inherited value */

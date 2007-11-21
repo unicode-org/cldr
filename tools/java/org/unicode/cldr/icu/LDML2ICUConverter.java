@@ -51,7 +51,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int WRITE_DRAFT = 6;
     private static final int SUPPLEMENTALDIR = 7;
     private static final int SUPPLEMENTALONLY = 8;
-    private static final int VERBOSE = 9;
+    private static final int METAZONE_ONLY = 9;
+    private static final int VERBOSE = 10;
 
 
     private static final UOption[] options = new UOption[] {
@@ -64,6 +65,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             UOption.create("write-draft", 'f', UOption.NO_ARG),
             UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
             UOption.create("supplemental-only", 'l', UOption.NO_ARG),
+            UOption.create("metazone-only", 'z', UOption.NO_ARG),
         UOption.VERBOSE(),
     };
 
@@ -75,6 +77,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private boolean writeDeprecated = false;
     private boolean writeDraft = false;
     private boolean writeSupplemental = false;
+    private boolean writeMetazone = false;
     private boolean verbose = false;
     /**
      * Add comments on the item to indicate where fallbacks came from. Good for
@@ -91,6 +94,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private Document specialsDoc = null;
     private String locName = null;
     private Document supplementalDoc = null;
+    private Document metazoneDoc = null;
     private static final boolean DEBUG = false;
 
     //TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
@@ -111,6 +115,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "-f or --write-draft        write data for LDML nodes marked draft.\n"+
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
             "-l or --supplemental-only  read supplementalData.xml file from the given directory and write appropriate files to destination directory\n"+
+            "-z or --metazone-only      read metazoneInfo.xml file from the given directory and write appropriate files to destination directory\n"+
             "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a directory of source xml files.\n"+
             "-h or -? or --help         this usage text.\n"+
             "-v or --verbose            print out verbose output.\n"+
@@ -186,6 +191,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if(options[SUPPLEMENTALONLY].doesOccur) {
             writeSupplemental = true;
         }
+        if(options[METAZONE_ONLY].doesOccur) {
+            writeMetazone = true;
+        }
         if(options[VERBOSE].doesOccur) {
             verbose = true;
         }
@@ -216,6 +224,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             supplementalDoc = createSupplementalDoc();
             supplementalDataInfo = SupplementalDataInfo
                     .getInstance(supplementalDir);
+            metazoneDoc = createMetazoneDoc();
         }
         if(writeSupplemental==true){
              makeXPathList(supplementalDoc);
@@ -227,6 +236,22 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String fileName = "supplementalData.xml";
             System.out.println("Processing: " + fileName );
             ICUResourceWriter.Resource res = parseSupplemental(supplementalDoc, fileName);
+
+            if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
+                // write out the bundle
+                writeResource(res, fileName);
+            }
+        }
+        else if(writeMetazone==true){
+             makeXPathList(metazoneDoc);
+            // Create the Resource linked list which will hold the
+            // data after parsing
+            // The assumption here is that the top
+            // level resource is always a table in ICU
+            //TODO: hard code the file name for now
+            String fileName = "metazoneInfo.xml";
+            System.out.println("Processing: " + fileName );
+            ICUResourceWriter.Resource res = parseMetazoneFile(metazoneDoc, fileName);
 
             if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
                 // write out the bundle
@@ -768,7 +793,40 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                if (name.matches(".*\\.xml") && !name.equals("characters.xml")) {
+                if (name.matches(".*\\.xml") && !name.equals("characters.xml") && !name.equals("metazoneInfo.xml")) {
+                    return true;
+                }
+                return false;
+            }
+        };
+        File myDir = new File(supplementalDir);
+        String[] files = myDir.list(filter);  
+        Document doc = null;
+        for(int i=0; i<files.length; i++){
+            try {
+                printInfo("Parsing document "+files[i]);
+                String fileName = myDir.getAbsolutePath()+File.separator+files[i];
+                Document child = LDMLUtilities.parse(fileName, false);
+                if(doc==null){
+                    doc = child;
+                    continue;
+                }
+                StringBuffer xpath = new StringBuffer();
+                LDMLUtilities.mergeLDMLDocuments(doc, child, xpath, files[i], myDir.getAbsolutePath(), true, false);
+            }catch (Throwable se) {
+                printError(fileName , "Parsing: " + files[i] + " "+ se.toString());
+                se.printStackTrace();
+                System.exit(1);
+            }
+        }
+        return doc;
+    }
+
+    private Document createMetazoneDoc() {
+
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                if (name.matches("metazoneInfo.xml")) {
                     return true;
                 }
                 return false;
@@ -925,6 +983,49 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final String commentForCurrencyMap = "Map from ISO 3166 country codes to ISO 4217 currency codes \n"+
                                                         "NOTE: This is not true locale data; it exists only in ROOT";
     
+    private ICUResourceWriter.Resource parseMetazoneFile(Node root, String file){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.Resource current = null;
+        StringBuffer xpath = new StringBuffer();
+        xpath.append("//");
+        xpath.append(LDMLConstants.SUPPLEMENTAL_DATA);
+        table.name = LDMLConstants.METAZONE_INFO;
+        table.annotation = ICUResourceWriter.ResourceTable.NO_FALLBACK;
+        int savedLength = xpath.length();
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+
+            if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
+                node=node.getFirstChild();
+                continue;
+            }
+            else if(name.equals(LDMLConstants.METAZONE_INFO)){
+                res = parseMetazoneInfo(node, xpath);
+            }else{
+                printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
+                System.exit(-1);
+            }
+
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(savedLength,xpath.length());
+        }
+
+        return table;
+    }
+
     private ICUResourceWriter.Resource parseSupplemental(Node root, String file){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -992,6 +1093,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.MEASUREMENT_DATA)){
                 //res = parseMeasurementData(node, xpath);
                 if(DEBUG)printXPathWarning(node, getXPath(node, xpath));
+            }else if(name.equals(LDMLConstants.LIKELY_SUBTAGS)){
+                //Ignore this
             }else{
                 printError(file,"Encountered unknown element "+ getXPath(node, xpath).toString());
                 System.exit(-1);
@@ -1011,6 +1114,83 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         return table;
     }
+    private ICUResourceWriter.Resource parseMetazoneInfo(Node root, StringBuffer xpath){
+
+        ICUResourceWriter.Resource current = null;
+        ICUResourceWriter.ResourceTable mzInfo = new ICUResourceWriter.ResourceTable();
+        mzInfo.name = LDMLConstants.METAZONE_MAPPINGS;
+
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+
+            String name = node.getNodeName();
+            if (name.equals(LDMLConstants.TIMEZONE)) {
+                ICUResourceWriter.Resource current_mz = null;
+                ICUResourceWriter.ResourceTable mzTable = new ICUResourceWriter.ResourceTable();
+                mzTable.name = "\""+LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).replaceAll("/",":")+"\"";
+                int mz_count = 0;
+
+                for(Node node2=node.getFirstChild(); node2!=null; node2=node2.getNextSibling()){
+
+                    if(node2.getNodeType()!=Node.ELEMENT_NODE){
+                       continue;
+                    }
+                    String name2 = node2.getNodeName();
+                    if (name2.equals(LDMLConstants.USES_METAZONE)) {
+                       ICUResourceWriter.ResourceArray this_mz = new ICUResourceWriter.ResourceArray();
+                       ICUResourceWriter.ResourceString mzone = new ICUResourceWriter.ResourceString();
+                       ICUResourceWriter.ResourceString from = new ICUResourceWriter.ResourceString();
+                       ICUResourceWriter.ResourceString to = new ICUResourceWriter.ResourceString();
+       
+                       this_mz.name = "mz" + String.valueOf(mz_count);
+                       this_mz.first = mzone;
+                       mzone.next = from;
+                       from.next = to;
+                       mz_count++;
+       
+                       mzone.val = LDMLUtilities.getAttributeValue(node2, LDMLConstants.MZONE);
+                       String str = LDMLUtilities.getAttributeValue(node2, LDMLConstants.FROM);
+                       if (str != null)
+                           from.val = str;
+                       else
+                           from.val = "1970-01-01 00:00";
+       
+                       str = LDMLUtilities.getAttributeValue(node2, LDMLConstants.TO);
+                       if (str != null)
+                           to.val = str;
+                       else
+                           to.val = "9999-12-31 23:59";
+       
+                       if (current_mz == null) {
+                           mzTable.first = this_mz;
+                           current_mz = findLast(this_mz);
+                       } else {
+                           current_mz.next = this_mz;
+                           current_mz = findLast(this_mz);
+                       }
+                   }
+               }
+
+                if(current == null){
+                    mzInfo.first = mzTable;
+                    current = findLast(mzTable);
+                }else{
+                    current.next = mzTable;
+                    current = findLast(mzTable);
+                }
+            }
+        }
+        
+
+        if(mzInfo.first!=null){
+            return mzInfo;
+        }
+        return null;
+    }
+
     private ICUResourceWriter.Resource parseTerritoryContainment(Node root, StringBuffer xpath){
         int savedLength = xpath.length();
         getXPath(root, xpath);
@@ -6042,7 +6222,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String outputFileName = null;
         outputFileName = destDir+"/"+set.name+".txt";
         try {
-
+            System.out.println("Writing "+outputFileName);
             FileOutputStream file = new FileOutputStream(outputFileName);
             BufferedOutputStream writer = new BufferedOutputStream(file);
             printInfo("Writing ICU: "+outputFileName);

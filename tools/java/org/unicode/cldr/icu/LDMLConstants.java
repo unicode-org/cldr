@@ -210,6 +210,9 @@ public class LDMLConstants {
     public static final String TERRITORY_INFO    = "territoryInfo";
     public static final String MPT               = "mostPopulousTerritory";
     public static final String MPTZ              = "mostPopulousTimezone";
+    public static final String METAZONE_INFO     = "metazoneInfo";
+    public static final String METAZONE_MAPPINGS = "metazoneMappings";
+    public static final String TIMEZONE          = "timezone";
     public static final String TO                = "to";
     public static final String FROM              = "from";
     public static final String LOCALE            = "locale";
@@ -229,6 +232,7 @@ public class LDMLConstants {
     public static final String OTHER             = "other";
     public static final String ZONE_FORMATTING   = "zoneFormatting";
     public static final String MULTIZONE         = "multizone";
+    public static final String LIKELY_SUBTAGS    = "likelySubtags";
     
     //PN added
     public static final String MEDIUM          = "medium";

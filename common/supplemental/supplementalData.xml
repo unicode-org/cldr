@@ -1257,6 +1257,7 @@ XXX	Code for transations where no currency is involved
 		<language type="dng" scripts="Cyrl"/>
 		<language type="doi" scripts="Arab"/>
 		<language type="doi" territories="IN" alt="secondary"/>
+		<language type="dsb" scripts="Latn"/>
 		<language type="dv" scripts="Thaa" territories="MV"/>
 		<language type="dyu" scripts="Latn"/>
 		<language type="dyu" territories="BF" alt="secondary"/>
@@ -1291,6 +1292,8 @@ XXX	Code for transations where no currency is involved
 		<language type="fon" territories="BJ" alt="secondary"/>
 		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
 		<language type="fr" territories="GB US" alt="secondary"/>
+		<language type="frr" scripts="Latn"/>
+		<language type="frs" scripts="Latn"/>
 		<language type="fud" territories="WF" alt="secondary"/>
 		<language type="fur" scripts="Latn"/>
 		<language type="fuv" territories="NG" alt="secondary"/>
@@ -1352,6 +1355,7 @@ XXX	Code for transations where no currency is involved
 		<language type="hop" scripts="Latn"/>
 		<language type="hr" scripts="Latn" territories="BA HR"/>
 		<language type="hr" territories="AT" alt="secondary"/>
+		<language type="hsb" scripts="Latn"/>
 		<language type="ht" scripts="Latn" territories="HT"/>
 		<language type="hu" scripts="Latn" territories="HU"/>
 		<language type="hu" territories="AT RO RS" alt="secondary"/>
@@ -1412,7 +1416,7 @@ XXX	Code for transations where no currency is involved
 		<language type="kmb" scripts="Latn"/>
 		<language type="kmb" territories="AO" alt="secondary"/>
 		<language type="kn" scripts="Knda" territories="IN"/>
-		<language type="ko" scripts="Hang" territories="KP KR"/>
+		<language type="ko" scripts="Kore" territories="KP KR"/>
 		<language type="ko" territories="CN" alt="secondary"/>
 		<language type="koi" scripts="Cyrl"/>
 		<language type="koi" territories="RU" alt="secondary"/>
@@ -1530,6 +1534,7 @@ XXX	Code for transations where no currency is involved
 		<language type="nd" scripts="Latn"/>
 		<language type="nd" territories="ZW" alt="secondary"/>
 		<language type="ndc" territories="MZ" alt="secondary"/>
+		<language type="nds" scripts="Latn"/>
 		<language type="ne" scripts="Deva" territories="NP"/>
 		<language type="ne" territories="IN" alt="secondary"/>
 		<language type="new" scripts="Deva"/>
@@ -1759,6 +1764,7 @@ XXX	Code for transations where no currency is involved
 		<language type="yrk" scripts="Cyrl"/>
 		<language type="za" scripts="Hani"/>
 		<language type="za" territories="CN" alt="secondary"/>
+		<language type="zbl" scripts="Blis"/>
 		<language type="zh" scripts="Hans Hant" territories="CN HK MO SG TW"/>
 		<language type="zh" scripts="Bopo Phag" territories="ID MY TH US" alt="secondary"/>
 		<language type="zu" scripts="Latn" territories="ZA"/>
@@ -1846,8 +1852,8 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="sv" populationPercent="96.3" officialStatus="official"/>	<!--Swedish-->
 		</territory>
 		<territory type="AZ" gdp="37920000000" literacyPercent="98.8" population="8300000">	<!--Azerbaijan-->
-			<languagePopulation type="az_Latn" populationPercent="73.5" officialStatus="official"/>	<!--Azerbaijani (Latin)-->
 			<languagePopulation type="az_Cyrl" populationPercent="72.3" officialStatus="official"/>	<!--Azerbaijani (Cyrillic)-->
+			<languagePopulation type="az_Latn" populationPercent="30.1" officialStatus="official" references="R1043"/>	<!--Azerbaijani (Latin)-->
 			<languagePopulation type="ku_Latn" populationPercent="0.241"/>	<!--Kurdish (Latin)-->
 		</territory>
 		<territory type="BA" gdp="22890000000" literacyPercent="96.7" population="3800000">	<!--Bosnia and Herzegovina-->
@@ -1896,6 +1902,9 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="fon" populationPercent="24.6"/>	<!--Fon-->
 			<languagePopulation type="yo" populationPercent="6.81"/>	<!--Yoruba-->
 		</territory>
+		<territory type="BL" gdp="207387200" literacyPercent="99" population="6900">	<!--Saint Barthélemy-->
+			<languagePopulation type="fr" populationPercent="100" officialStatus="official"/>	<!--French-->
+		</territory>
 		<territory type="BM" gdp="4500000000" literacyPercent="98" population="64000">	<!--Bermuda-->
 			<languagePopulation type="en" populationPercent="92.2" officialStatus="de_facto_official"/>	<!--English-->
 		</territory>
@@ -1916,8 +1925,8 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="it" populationPercent="0.278"/>	<!--Italian-->
 			<languagePopulation type="ja" populationPercent="0.211"/>	<!--Japanese-->
 			<languagePopulation type="ko" populationPercent="0.021"/>	<!--Korean-->
-			<languagePopulation type="amd" populationPercent="0.014"/>	<!--Amapá Creole-->
-			<languagePopulation type="kgp" populationPercent="0.01"/>	<!--Kaingáng-->
+			<languagePopulation type="amd" populationPercent="0.014"/>	<!--amd-->
+			<languagePopulation type="kgp" populationPercent="0.01"/>	<!--Kaingang-->
 			<languagePopulation type="gub" populationPercent="0.008"/>	<!--Guajajára-->
 			<languagePopulation type="xav" populationPercent="0.006"/>	<!--Xavánte-->
 		</territory>
@@ -2021,7 +2030,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="0.005"/>	<!--English-->
 			<languagePopulation type="ru" populationPercent="0.001"/>	<!--Russian-->
 			<languagePopulation type="vi" populationPercent="0.001"/>	<!--Vietnamese-->
-			<languagePopulation type="uz_Latn" populationPercent="0"/>	<!--Uzbek (Latin)-->
+			<languagePopulation type="uz_Cyrl" populationPercent="0"/>	<!--Uzbek (Cyrillic)-->
 		</territory>
 		<territory type="CO" gdp="337500000000" literacyPercent="92.8" population="45000000">	<!--Colombia-->
 			<languagePopulation type="es" populationPercent="93.3" officialStatus="official" references="R1014"/>	<!--Spanish-->
@@ -2366,10 +2375,9 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="gbm" populationPercent="0.264"/>	<!--Garhwali-->
 			<languagePopulation type="lmn" populationPercent="0.264"/>	<!--Lambadi-->
 			<languagePopulation type="rjb" populationPercent="0.255"/>	<!--Rajbanshi-->
-			<languagePopulation type="sd" populationPercent="0.255" officialStatus="official"/>	<!--Sindhi-->
-			<languagePopulation type="sd_Deva" populationPercent="0.255" officialStatus="official"/>	<!--Sindhi (Devanagari)-->
+			<languagePopulation type="sd_Arab" populationPercent="0.255" officialStatus="official"/>	<!--Sindhi (Arabic)-->
 			<languagePopulation type="gon" populationPercent="0.236"/>	<!--Gondi-->
-			<languagePopulation type="kfy" populationPercent="0.218"/>	<!--Kumauni-->
+			<languagePopulation type="kfy" populationPercent="0.218"/>	<!--Kumaoni-->
 			<languagePopulation type="doi" populationPercent="0.191"/>	<!--Dogri-->
 			<languagePopulation type="muw" populationPercent="0.191"/>	<!--Mundari-->
 			<languagePopulation type="kru" populationPercent="0.191"/>	<!--Kurukh-->
@@ -2394,6 +2402,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="bfy" populationPercent="0.036"/>	<!--Bagheli-->
 			<languagePopulation type="saz" populationPercent="0.028"/>	<!--Saurashtra-->
 			<languagePopulation type="ccp" populationPercent="0.027"/>	<!--Chakma-->
+			<languagePopulation type="sd_Deva" populationPercent="0.026" officialStatus="official" references="R1102"/>	<!--Sindhi (Devanagari)-->
 			<languagePopulation type="bfq" populationPercent="0.023"/>	<!--Badaga-->
 			<languagePopulation type="ria" populationPercent="0.013"/>	<!--Riang (India)-->
 			<languagePopulation type="bo" populationPercent="0.011"/>	<!--Tibetan-->
@@ -2591,6 +2600,9 @@ XXX	Code for transations where no currency is involved
 		<territory type="ME" gdp="2412000000" literacyPercent="96.4" population="630000">	<!--Montenegro-->
 			<languagePopulation type="sr_Cyrl" populationPercent="100" officialStatus="official"/>	<!--Serbian (Cyrillic)-->
 			<languagePopulation type="sq" populationPercent="7.94"/>	<!--Albanian-->
+		</territory>
+		<territory type="MF" gdp="1001887200" literacyPercent="99" population="33000">	<!--Saint Martin-->
+			<languagePopulation type="fr" populationPercent="100" officialStatus="official"/>	<!--French-->
 		</territory>
 		<territory type="MG" gdp="16360000000" literacyPercent="70.7" population="17000000">	<!--Madagascar-->
 			<languagePopulation type="mg" populationPercent="58.8" officialStatus="official"/>	<!--Malagasy-->
@@ -3131,7 +3143,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="ab" populationPercent="0.006" references="R1079"/>	<!--Abkhazian-->
 			<languagePopulation type="el" populationPercent="0.006"/>	<!--Greek-->
 			<languagePopulation type="uz_Latn" populationPercent="0.003"/>	<!--Uzbek (Latin)-->
-			<languagePopulation type="ky_Cyrl" populationPercent="0.002"/>	<!--Kirghiz (Cyrillic)-->
+			<languagePopulation type="ky_Latn" populationPercent="0.002"/>	<!--Kirghiz (Latin)-->
 			<languagePopulation type="kk" populationPercent="0.001"/>	<!--Kazakh-->
 		</territory>
 		<territory type="TT" gdp="18010000000" literacyPercent="98" population="1300000">	<!--Trinidad and Tobago-->
@@ -3200,7 +3212,8 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="es" populationPercent="88.2" officialStatus="official"/>	<!--Spanish-->
 		</territory>
 		<territory type="UZ" gdp="48240000000" literacyPercent="99" population="26000000">	<!--Uzbekistan-->
-			<languagePopulation type="uz_Cyrl" populationPercent="65.4" officialStatus="official"/>	<!--Uzbek (Cyrillic)-->
+			<languagePopulation type="uz_Cyrl" populationPercent="53.8" officialStatus="official"/>	<!--Uzbek (Cyrillic)-->
+			<languagePopulation type="uz_Latn" populationPercent="19.2" officialStatus="official" references="R1105"/>	<!--Uzbek (Latin)-->
 			<languagePopulation type="ru" populationPercent="13.8"/>	<!--Russian-->
 			<languagePopulation type="kaa" populationPercent="1.58"/>	<!--Kara-Kalpak-->
 			<languagePopulation type="tr" populationPercent="0.769"/>	<!--Turkish-->
@@ -4806,6 +4819,7 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1040">No figures found for use of French. Used literacy 29.5% times population to get the writing pop; French is the only official language.</reference>
 		<reference type="R1041" uri="https://www.cia.gov/cia/publications/factbook/geos/ng.html">French official; the figure is derived from literacy * lang pop</reference>
 		<reference type="R1042" uri="https://www.cia.gov/cia/publications/factbook/geos/nl.html">Used CIA literacy figure times population, added 'Vlaams' population</reference>
+		<reference type="R1043" uri="http://azeri.org/Azeri/az_english/81_folder/81_articles/81_parliament.html">[missing]</reference>
 		<reference type="R1044" uri="http://www.ethnologue.com/show_language.asp?code=mri">70,000 in 1991, 100,000 who understand it, but do not speak it ; ethnic pop 530,000 in 2002</reference>
 		<reference type="R1045" uri="https://www.cia.gov/cia/publications/factbook/geos/bp.html">Melanesian pidgin in much of the country is lingua franca; English (official; but spoken by only 1%-2% of the population); 120 indigenous languages</reference>
 		<reference type="R1046" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">English 20%</reference>
@@ -4864,8 +4878,10 @@ XXX	Code for transations where no currency is involved
 		<reference type="R1099" uri="http://www.ethnologue.com/show_language.asp?code=efi">[missing]</reference>
 		<reference type="R1100" uri="http://www.ethnologue.com/show_language.asp?code=tbw">[missing]</reference>
 		<reference type="R1101" uri="http://www.ethnologue.com/show_language.asp?code=mhr">[missing]</reference>
+		<reference type="R1102" uri="http://www.lmp.ucla.edu/Profile.aspx?menu=004&amp;LangID=201">- Not widely used; set to 10%.</reference>
 		<reference type="R1103" uri="http://www.ethnologue.com/show_language.asp?code=srn">The lingua franca of 80% of the population</reference>
 		<reference type="R1104" uri="http://www.ethnologue.com/show_language.asp?code=bem">[missing]</reference>
+		<reference type="R1105" uri="http://en.wikipedia.org/wiki/Uzbek_language#Writing_systems">[missing]</reference>
 		<reference type="R1106" uri="https://www.cia.gov/cia/publications/factbook/geos/sv.html">CIA Factbook lists spoken language, the entry for Bokm�l only on Svalbard and Jan Mayan is an assumption.</reference>
 		<reference type="R1107" uri="http://en.wikipedia.org/wiki/Volap%C3%BCk">Artificial: 'There are an estimated 20-30 Volap�k speakers in the world today.'; see also http://www.villagevoice.com/arts/0031,lafarge,16942,12.html</reference>
 	</references>

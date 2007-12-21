@@ -1,17 +1,23 @@
 package org.unicode.cldr.test;
 
+import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
+import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
+import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.VariantFolder;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Iso639Data.Scope;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.UnicodeProperty;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.CanonicalIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -24,6 +30,7 @@ import com.ibm.icu.util.ULocale;
 
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -43,6 +50,52 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+class MyXSymbolTable extends UnicodeSet.XSymbolTable {
+  static VariantFolder caseFolder = new VariantFolder(new CaseVariantFolder());
+  static VariantFolder canonicalFolder = new VariantFolder(new CanonicalFolder());
+  static VariantFolder compatibilityFolder = new VariantFolder(new CompatibilityFolder());
+  public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+    if (propertyName.equalsIgnoreCase("close")) {
+      if (propertyValue.equalsIgnoreCase("case")) {
+        result.addAll(caseFolder.getClosure(result));
+      } else if (propertyValue.equalsIgnoreCase("canonical")) {
+        result.addAll(canonicalFolder.getClosure(result));   
+      } else if (propertyValue.equalsIgnoreCase("compatibility")) {
+        result.addAll(compatibilityFolder.getClosure(result));   
+      }
+      return true;
+    } else if (propertyName.equalsIgnoreCase("reduce")) {
+      if (propertyValue.equalsIgnoreCase("case")) {
+        UnicodeSet temp = caseFolder.reduce(result);
+        result.clear().addAll(temp);
+      } else if (propertyValue.equalsIgnoreCase("canonical")) {
+        UnicodeSet temp = canonicalFolder.reduce(result);
+        result.clear().addAll(temp);
+      } else if (propertyValue.equalsIgnoreCase("compatibility")) {
+        UnicodeSet temp = compatibilityFolder.reduce(result);
+        result.clear().addAll(temp);
+      }
+      return true;
+    } else if (propertyName.equalsIgnoreCase("reduceCase")) {
+      UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
+          "·]", ":]")));
+      result.clear().addAll(temp);
+      return true;
+    } else if (propertyName.equalsIgnoreCase("reduceCanonical")) {
+      UnicodeSet temp = canonicalFolder.reduce(new UnicodeSet(propertyValue.replace(
+          "·]", ":]")));
+      result.clear().addAll(temp);
+      return true;
+    } else if (propertyName.equalsIgnoreCase("reduceCase")) {
+      UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
+          "·]", ":]")));
+      result.clear().addAll(temp);
+      return true;
+    }
+    return false;
+  }
+}
+
 public class TestMisc {
   
   static Currency SWISS_FRANC = Currency.getInstance("CHF");
@@ -59,7 +112,49 @@ public class TestMisc {
 
   enum Foo {A, M, Z};
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    MyXSymbolTable sym = new MyXSymbolTable();
+    BagFormatter bf = new BagFormatter();
+    for (String test : new String[]{
+        "[:reduceCase=[[Åå{fi}]]:]",
+        "[:reduceCanonical=[[Åå{fi}]]:]",
+        "[[,٫.]]",
+        "[[,٫.][:close=compatibility:]]",
+        "[[\\ ,٬.']]",
+        "[[\\ ,٬.'][:close=compatibility:]]",
+        "[[\u002E\u2024\uFE52\uFF0E\u3002][:close=compatibility:]]",
+        "[[[\u002C \u002E \u066B \u2024 \u3002 \uFE52 \uFF0E、، \u002E \u2024 \uFE52 \uFF0E \u3002]-[\u002E\u2024\uFE52\uFF0E\u3002]][:close=compatibility:]]",
+ 
+        
+        
+       "[[" +
+       "\\u0020" +
+       "[, ٬ .．․﹒ '＇ \u2018 \u2019 ]" +
+       "-[.\u2024\u3002\uFE12\uFE52\uFF0E\uFF61]" +
+       "-[,\u060C\u066B\u3001\uFE10\uFE11\uFE50\uFE51\uFF0C\uFF64]]" +
+       "[:close=compatibility:]]",
+         
+         /*        "[[Åå{fi}][:close=canonical:]]",
+        "[[Åå{fi}][:close=compatibility:]]",
+        "[[Åå{fi}][:reduce=case:]]",
+        "[[Åå{fi}][:reduce=canonical:]]",
+        "[[Åå{fi}][:reduce=compatibility:]]",
+        */
+            }) {
+      ParsePosition p = new ParsePosition(0);
+      UnicodeSet set = new UnicodeSet(test,  p, sym);
+      UnicodeSet codes = set.complement().complement();
+      System.out.println(test + "\r\n" + 
+          codes.toPattern(true) + "\r\n" + 
+          bf.showSetNames(set.complement().complement()) + "\r\n");
+    }
+    if (true) return;
+      
+      StandardCodes sc = StandardCodes.make();
+      for (String s : new String[]{"language", "script", "territory"}) {
+        System.out.println(s + ":\t" + sc.getGoodAvailableCodes(s).size());
+      }
+      if (true) return;
       
       Set<Foo> inFileOrder = EnumSet.allOf(Foo.class);
       List<Foo> inAlphaOrder = Lists.sortedCopy(inFileOrder);

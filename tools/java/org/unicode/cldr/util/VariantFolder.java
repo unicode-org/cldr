@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -82,5 +85,30 @@ public class VariantFolder {
         output.add(x + y);
       }
     }
+  }
+
+  public UnicodeSet getClosure(UnicodeSet input) {
+    UnicodeSet result = new UnicodeSet();
+    for( UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
+      Set<String> temp = getClosure(it.getString());
+      for (String s : temp) {
+        result.add(s);
+      }
+    }
+    return result;
+  }
+  
+  public String reduce(String s) {
+    Set<String> temp = getClosure(s);
+    return temp.iterator().next();    
+  }
+  
+  public UnicodeSet reduce(UnicodeSet input) {
+    UnicodeSet result = new UnicodeSet();
+    for( UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
+      final String reduce = reduce(it.getString());
+      result.add(reduce);
+    }
+    return result;
   }
 }

@@ -317,7 +317,9 @@ public class ConsoleCheckCLDR {
         String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
         String statusType = status.getType();
         
-        if (errorsOnly && !statusType.equals(status.errorType)) continue;
+        if (errorsOnly) {
+          if (!statusType.equals(status.errorType)) continue;
+        }
         if (checkOnSubmit) {
           if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
         }
@@ -396,11 +398,16 @@ public class ConsoleCheckCLDR {
         if (path == null) {
           prettyPathMaker.getOriginal(prettyPath);
         }
+        
+        if (path.contains("@alt")) {
+            if (path.contains("proposed")) continue;
+        }
         String value = file.getStringValue(path);
 //        if (value == null) {
 //          value = file.getStringValue(path);
 //        }
         String fullPath = file.getFullXPath(path);
+
 
         String example = "";
 

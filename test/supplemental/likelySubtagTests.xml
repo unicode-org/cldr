@@ -321,8 +321,8 @@
     <result input='und-AW' add='nl-Latn-AW' remove='nl-AW'/>
     <!-- {?;?;Aland Islands} → {Swedish;Latin;Aland Islands} → {Swedish;?;Aland Islands} -->
     <result input='und-AX' add='sv-Latn-AX' remove='sv-AX'/>
-    <!-- {?;?;Azerbaijan} → {Azerbaijani;Latin;Azerbaijan} → {Azerbaijani;?;?} -->
-    <result input='und-AZ' add='az-Latn-AZ' remove='az'/>
+    <!-- {?;?;Azerbaijan} → {Azerbaijani;Cyrillic;Azerbaijan} → {Azerbaijani;Cyrillic;?} -->
+    <result input='und-AZ' add='az-Cyrl-AZ' remove='az-Cyrl'/>
     <!-- {?;Arabic;?} → {Arabic;Arabic;Egypt} → {Arabic;?;?} -->
     <result input='und-Arab' add='ar-Arab-EG' remove='ar'/>
     <!-- {?;Arabic;India} → {Urdu;Arabic;India} → {Urdu;?;?} -->
@@ -349,6 +349,8 @@
     <result input='und-BI' add='rn-Latn-BI' remove='rn'/>
     <!-- {?;?;Benin} → {French;Latin;Benin} → {French;?;Benin} -->
     <result input='und-BJ' add='fr-Latn-BJ' remove='fr-BJ'/>
+    <!-- {?;?;Saint Barthélemy} → {French;Latin;Saint Barthélemy} → {French;?;Saint Barthélemy} -->
+    <result input='und-BL' add='fr-Latn-BL' remove='fr-BL'/>
     <!-- {?;?;Brunei} → {Malay;Latin;Brunei} → {Malay;?;Brunei} -->
     <result input='und-BN' add='ms-Latn-BN' remove='ms-BN'/>
     <!-- {?;?;Bolivia} → {Spanish;Latin;Bolivia} → {Spanish;?;Bolivia} -->
@@ -569,6 +571,8 @@
     <result input='und-MD' add='ro-Latn-MD' remove='ro-MD'/>
     <!-- {?;?;Montenegro} → {Serbian;Cyrillic;Montenegro} → {Serbian;?;Montenegro} -->
     <result input='und-ME' add='sr-Cyrl-ME' remove='sr-ME'/>
+    <!-- {?;?;Saint Martin} → {French;Latin;Saint Martin} → {French;?;Saint Martin} -->
+    <result input='und-MF' add='fr-Latn-MF' remove='fr-MF'/>
     <!-- {?;?;Madagascar} → {Malagasy;Latin;Madagascar} → {Malagasy;?;?} -->
     <result input='und-MG' add='mg-Latn-MG' remove='mg'/>
     <!-- {?;?;Marshall Islands} → {Marshallese;Latin;Marshall Islands} → {Marshallese;?;?} -->

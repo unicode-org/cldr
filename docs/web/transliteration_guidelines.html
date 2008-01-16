@@ -15,6 +15,7 @@
 .major     {font-size:95%; font-family: Arial, Geneva, sans-serif; color: #808080; font-weight:bold; }
 .minor     {font-size:85%; font-family: Arial, Geneva, sans-serif; color: #808080; font-weight:400; }
 .table2           { margin-top: 1.5em; margin-bottom: 0.5em }
+td,th {vertical-align:top}
 -->
 </style>
 </head>
@@ -223,8 +224,7 @@
 						demo using them: see <a href="http://demo.icu-project.org/icu-bin/translit">
 						ICU Transform Demo</a>.</p>
 					</blockquote>
-				</div>
-				<div class="main-content">
+			
 					<h2>Guidelines for Script/Language Transliterations</h2>
 					<p>There are a number of generally desirable guidelines for script transliterations. 
 					These guidelines are rarely satisfied simultaneously, so constructing a reasonable 
@@ -393,8 +393,6 @@
 					For example, even though the letter &quot;q&quot; might not be necessary in a transliteration 
 					of Greek, it can be mapped to a KAPPA (κ). Such reverse mappings will not, in general, 
 					be unambiguous. </p>
-				</div>
-				<div class="main-content">
 					<h2>Script Transliterator Sources</h2>
 					<p>Currently Unicode CLDR offers script transliterations between Latin and certain 
 					other scripts (such script transliterations are called romanizations), plus transliterations 
@@ -402,25 +400,159 @@
 					transliterations will be added in the future.</p>
 					<p>Except where otherwise noted, all of these systems are designed to be reversible. 
 					For bicameral scripts (those with upper and lower case), case may not be completely 
-					preserved. The transliterations are also designed to be complete for the letters 
-					a-z. A fallback is used for a letter that is not used in the transliteration.
-					</p>
+					preserved.</p>
+					<p>The transliterations are also designed to be complete for any sequence of the 
+					Latin letters <i>a-z</i>. A fallback is used for a letter that is not covered by the transliteration, 
+					and default letters may be inserted as required. For example, in the Hangul 
+					transliteration, <i>rink</i> → 린크 → <i>linkeu</i>. That is, &quot;r&quot; is mapped to the 
+					closest other letter, and a default vowel is inserted at the end (since &quot;nk&quot; 
+					cannot end a syllable).</p>
 					<h3>Korean</h3>
 					<p>There are many romanizations of Korean. The default transliteration follows the
 					<a href="http://www.korea.net/korea/kor_loca.asp?code=A020303">Korean Ministry of 
 					Culture &amp; Tourism Transliteration</a> regulations with the clause 8 variant for 
 					reversibility:</p>
 					<blockquote>
-						<p>8. When it is necessary to convert Romanized Korean back to Hangul in special 
+						<p>&quot;8. When it is necessary to convert Romanized Korean back to Hangul in special 
 						cases such as in academic articles, Romanization is done according to Hangul 
 						spelling and not pronunciation. Each Hangul letter is Romanized as explained 
 						in section 2 except that ㄱ, ㄷ, ㅂ, ㄹ are always written as g, d, b, l. When ㅇ 
 						has no sound value, it is replaced by a hyphen may also be used when it is necessary 
-						to distinguish between syllables. </p>
+						to distinguish between syllables.&quot;</p>
 					</blockquote>
+					<p>There are a number of cases where this Romanization may be 
+					ambiguous, because sometimes multiple Latin letters map to a single entity 
+					(jamo) in 
+					Hangul. This happens with vowels and consonants, the latter being slightly more 
+					complicated because there are both initial and final consonants:</p>
+					<table border="1" id="table18" style="border-collapse: collapse" bordercolor="#0000FF">
+						<tr>
+							<td>&nbsp;</td>
+							<td>Type</td>
+							<td>Multi-Character Consonants</td>
+						</tr>
+						<tr>
+							<td>IO</td>
+							<td>Initial-Only</td>
+							<td>tt pp jj</td>
+						</tr>
+						<tr>
+							<td>IF</td>
+							<td>Initial or Final</td>
+							<td>kk ch ss</td>
+						</tr>
+						<tr>
+							<td>FO</td>
+							<td>Final-Only</td>
+							<td>gs nj nh lg lm lb ls lt lp lh bs ng</td>
+						</tr>
+						</table>
+					<p>CLDR uses the following additional rules for disambiguation of the possible 
+					boundaries between letters, in order.</p>
+					<ol>
+						<li>Don&#39;t break between a consonant and vowel (if possible)</li>
+						<li>Don&#39;t break within IO or IF sequences (if possible)</li>
+						<li>Favor longest match first.</li>
+					</ol>
+					<p>If there is a single consonant between vowels, then rule #1 will group it 
+					with the following vowel if there is one. If there is a sequence of four 
+					consonants between vowels, then there is only one possible break (with 
+					well-formed text). So the only ambiguities lie with two or three consonants 
+					between vowels, where there are possible multi-character consonants involved. 
+					Here are all of the possible cases, using &quot;a&quot; as a sample vowel.</p>
+					<table border="1" id="table17" style="border-collapse: collapse" bordercolor="#0000FF">
+						<tr>
+							<th>No. of<br>
+							Cons. </th>
+							<th>Latin</th>
+							<th>Hangul</th>
+							<th colspan="2">Comments</th>
+						</tr>
+						<tr>
+							<td rowspan="3">2</td>
+							<td><code>atta = a-tta<br>
+							appa = a-ppa<br>
+							ajja = a-jja</code></td>
+							<td>아따<br>
+							아빠<br>
+							아짜</td>
+							<td colspan="2">Rules 1, then 2</td>
+						</tr>
+						<tr>
+							<td><code>akka = a-kka<br>
+							assa = a-ssa<br>
+							acha = a-cha</code></td>
+							<td>아까<br>
+							아싸<br>
+							아차</td>
+							<td colspan="2">Rules 1, then 2</td>
+						</tr>
+						<tr>
+							<td><code>agsa = ag-sa<br>
+							anja = an-ja<br>
+							anha = an-ha<br>
+							alga = al-ga<br>
+							alma = al-ma<br>
+							alba = al-ba<br>
+							alsa = al-sa<br>
+							alta = al-ta<br>
+							alpa = al-pa<br>
+							alha = al-ha<br>
+							absa = ab-sa<br>
+							anga = an-ga</code></td>
+							<td>악사<br>
+							안자<br>
+							안하<br>
+							알가<br>
+							알마<br>
+							알바<br>
+							알사<br>
+							알타<br>
+							알파<br>
+							알하<br>
+							압사<br>
+							안가</td>
+							<td colspan="2">Rules 1, then 2, then 3</td>
+						</tr>
+						<tr>
+							<td rowspan="5">3</td>
+							<td><code>agssa = ag-ssa<br>
+							anjja = an-jja<br>
+							alssa = al-ssa<br>
+							abssa = ab-ssa</code></td>
+							<td>악싸<br>
+							안짜<br>
+							알싸<br>
+							압싸</td>
+							<td colspan="2">Rules 1, then 2</td>
+						</tr>
+						<tr>
+							<td rowspan="3"><code>altta = alt-ta<br>
+							alppa = alp-pa</code></td>
+							<td rowspan="3">앑타<br>
+							앒파</td>
+							<td colspan="2">Known bugs; should be:</td>
+						</tr>
+						<tr>
+							<td><code>altta = al-tta</code></td>
+							<td>알따</td>
+						</tr>
+						<tr>
+							<td><code>alppa = al-ppa</code></td>
+							<td>알빠</td>
+						</tr>
+						<tr>
+							<td><code>akkka = akk-ka<br>
+							asssa = ass-sa</code></td>
+							<td>앆카<br>
+							았사</td>
+							<td colspan="2">Rules 1, then 2, then 3</td>
+						</tr>
+						</table>
+					<p>For vowels, only rule # applies, so aeo = ae-o → 애오.</p>
 					<h3>Japanese</h3>
 					<p>The default transliteration for Japanese uses the a slight variant of the Hepburn 
-					system. With Hepburn system, both ZI (ジ) and DI (ヂ) are represented by &quot;ji&quot; and 
+					system. With Hepburn system, both  ZI (ジ) and DI (ヂ) are represented by &quot;ji&quot; and 
 					both ZU (ズ) and DU (ヅ) are represented by &quot;zu&quot;. This is amended slightly for reversibility 
 					by using &quot;dji&quot; for DI and &quot;dzu&quot; for DU.</p>
 					<h3>Greek</h3>

@@ -484,8 +484,8 @@ table {border-collapse: collapse}
 					of Greek, it can be mapped to a KAPPA (κ). Such reverse mappings will not, in general, 
 					be unambiguous. </p>
 					<h2>Available Transliterations</h2>
-					<p>Currently Unicode CLDR offers Romanizations, plus transliterations 
-					between the Indic scripts (excluding Urdu). Additional&nbsp; Romanizations and other script 
+					<p>Currently Unicode CLDR offers Romanizations for certain scripts, plus transliterations 
+					between the Indic scripts (excluding Urdu). Additional&nbsp;script 
 					transliterations will be added in the future.</p>
 					<p>Except where otherwise noted, all of these systems are designed to be reversible. 
 					For bicameral scripts (those with uppercase and lowercase), however, case may not be completely 
@@ -496,6 +496,10 @@ table {border-collapse: collapse}
 					transliteration, <i>rink</i> → 린크 → <i>linkeu</i>. That is, &quot;r&quot; is mapped to the 
 					closest other letter, and a default vowel is inserted at the end (since &quot;nk&quot; 
 					cannot end a syllable).</p>
+					<p><i>Preliminary
+					<a href="http://www.unicode.org/cldr/data/charts/transforms/index.html">charts</a> 
+					are available for the available transliterations. Be sure to read the known 
+					issues.</i></p>
 					<h3>Korean</h3>
 					<p>There are many Romanizations of Korean. The default transliteration in 
 					Unicode CLDR follows the
@@ -815,7 +819,7 @@ table {border-collapse: collapse}
 							<td bgcolor="#eeeeee">ṛa</td>
 						</tr>
 					</table>
-					<p>Transliteration rules in Indic are reversible with the exception of the ZWJ and 
+					<p>Transliteration rules from Indic to Latin are reversible with the exception of the ZWJ and 
 					ZWNJ used to request explicit rendering effects. For example:</p>
 					<table id="table13" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
@@ -839,6 +843,8 @@ table {border-collapse: collapse}
 							<td bgcolor="#eeeeee">half-consonant requested</td>
 						</tr>
 					</table>
+					<p>Transliteration between Indic scripts are roundtrip where there are 
+					corresponding letters. Otherwise, there may be fallbacks.</p>
 					<p>There are two particular instances where transliterations may produce unexpected 
 					results: (1) where the final vowel is suppressed in speech, and (2) with the transliteration 
 					of &#39;c&#39;. </p>
@@ -846,25 +852,32 @@ table {border-collapse: collapse}
 					<table id="table14" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Devanagari</th>
-							<th bgcolor="#cccccc">Romanization</th>
+							<th bgcolor="#cccccc" style="vertical-align: top">Romanization</th>
+							<th bgcolor="#cccccc">Notes</th>
 						</tr>
 						<tr bgcolor="#99ccff">
 							<td bgcolor="#eeeeee">सेन्गुप्त</td>
-							<td bgcolor="#eeeeee">Sēngupta</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Sēngupta</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">&nbsp;</td>
 						</tr>
 						<tr bgcolor="#99ccff">
 							<td bgcolor="#eeeeee">सेनगुप्त</td>
-							<td bgcolor="#eeeeee">Sēnagupta</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Sēnagupta</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">The final &#39;a&#39; is not 
+							pronounced</td>
+						</tr>
+						<tr>
+							<td bgcolor="#eeeeee" style="vertical-align: top">मोनिक</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Monika</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">&nbsp;</td>
 						</tr>
 						<tr bgcolor="#99ccff">
 							<td bgcolor="#eeeeee">मोनिच</td>
-							<td bgcolor="#eeeeee">Monica</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Monica</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">The &#39;c&#39; is pronounced 
+							&quot;ch&quot;</td>
 						</tr>
-						<tr bgcolor="#99ccff">
-							<td bgcolor="#eeeeee">मोनिक</td>
-							<td bgcolor="#eeeeee">Monika</td>
-						</tr>
-					</table>
+						</table>
 					<h3>BGN / UNGEGN</h3>
 					<p>Unicode CLDR provides other transliterations based on the
 					<a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a> (BGN) 

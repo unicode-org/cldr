@@ -16,6 +16,8 @@
 .minor     {font-size:85%; font-family: Arial, Geneva, sans-serif; color: #808080; font-weight:400; }
 .table2           { margin-top: 1.5em; margin-bottom: 0.5em }
 td,th {vertical-align:top}
+th           { background-color: #999999 }
+table {border-collapse: collapse}
 -->
 </style>
 </head>
@@ -119,46 +121,88 @@ td,th {vertical-align:top}
 			<tr>
 				<td class="contents" valign="top">
 				<div class="body">
-					<h1 align="center"><font color="#FF0000">DRAFT</font> Guidelines for Script Transliteration</h1>
-					<p>Script Transliteration is the general process of converting characters from one 
-					script to another. For example, this includes converting characters from Greek to 
-					Latin, or Japanese katakana to Latin. Script transliteration is <i>not</i> translation. 
-					Rather, script transliteration it is the conversion of letters from one script to 
-					another without translating the underlying words. The following shows a sample of 
-					script transliteration: </p>
-					<table id="table1">
-						<tr bgcolor="#99ccff">
-							<th bgcolor="#cccccc">Source</th>
-							<th bgcolor="#cccccc">Transliteration</th>
-						</tr>
-						<tr bgcolor="#99ccff">
-							<td bgcolor="#eeeeee">キャンパス</td>
-							<td bgcolor="#eeeeee">kyanpasu</td>
-						</tr>
-						<tr bgcolor="#99ccff">
-							<td bgcolor="#eeeeee">Αλφαβητικός Κατάλογος</td>
-							<td bgcolor="#eeeeee">Alphabētikós Katálogos</td>
-						</tr>
-						<tr bgcolor="#99ccff">
-							<td bgcolor="#eeeeee">биологическом</td>
-							<td bgcolor="#eeeeee">biologichyeskom </td>
+					<h1 align="center">Unicode CLDR Transliteration 
+					Guidelines</h1>
+					<br>
+										
+					<p>This document describes guidelines for the creation and use of CLDR 
+					transliterations.</p>
+					<table border="1" width="33%" id="table21" cellspacing="0" cellpadding="2" style="border-collapse: collapse; float: right" bordercolor="#BB0000">
+						<tr>
+							<td style="border:1px solid #CCCCCC; vertical-align: top"><font size="2"><i><b>Display. </b></i>Some of the 
+							characters in this document may not be visible in your browser, and with 
+							some fonts the diacritics will not be correctly placed on the base 
+							letters. See 
+						<a href="http://www.unicode.org/help/display_problems.html">Display Problems</a>.</font></td>
 						</tr>
 					</table>
-					<blockquote>
-						<p>Note: Some of the characters may not be visible in your browser, and with 
-						some fonts the diacritics will not be correctly placed on the base letters. 
-						For example, a macron or dot-below on a lowercase L may appear in the wrong 
-						position. For more information, see
-						<a href="http://www.unicode.org/help/display_problems.html">Display Problems</a>.</p>
-					</blockquote>
+					
+					<p>Transliteration is the general process of converting characters from one 
+					script to another, where the result is roughly phonetic for languages in the 
+					target script. For example, &quot;Phobos&quot; and &quot;Deimos&quot; are transliterations of Greek 
+					mythological &quot;Φόβος&quot; and &quot;Δεῖμος&quot; into Latin letters, used to name the moons of 
+					Mars.</p>
+					<p>Transliteration is <i>not</i> 
+					translation. Rather, transliteration is the conversion of letters from one 
+					script to another without translating the underlying words. The following shows 
+					a sample of transliterations:</p>
+					<table id="table20" style="border-collapse: collapse" border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="2">
+						<tr>
+							<th bgcolor="#cccccc" width="25%" style="vertical-align: top">Source</th>
+							<th bgcolor="#cccccc" width="25%" style="vertical-align: top">
+							Translation</th>
+							<th bgcolor="#cccccc" style="vertical-align: top" width="25%">
+							Transliteration</th>
+							<th bgcolor="#cccccc" width="25%" style="vertical-align: top">System</th>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc" style="vertical-align: top" rowspan="2">Αλφαβητικός</td>
+							<td bgcolor="#cccccc" style="vertical-align: top"><i>Alphabetic</i></td>
+							<td bgcolor="#cccccc" style="vertical-align: top">Alphabētikós</td>
+							<td bgcolor="#cccccc" style="vertical-align: top">Classic</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#cccccc" style="vertical-align: top">&nbsp;</td>
+							<td bgcolor="#cccccc" style="vertical-align: top">Alfavi̱tikós</td>
+							<td bgcolor="#cccccc" style="vertical-align: top">UNGEGN</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee" style="vertical-align: top" rowspan="2">しんばし</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top" rowspan="2"><i>new 
+							bridge<br>
+							(district in Tokyo)</i></td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">shimbashi</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Hepburn</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee" style="vertical-align: top">sinbasi</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Kunrei</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee" style="vertical-align: top" rowspan="3">яйца 
+							Фаберже</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top" rowspan="3"><i>Fabergé 
+							eggs</i></td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">yaytsa Faberzhe</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">BGN/PCGN</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee" style="vertical-align: top">jajca Faberže</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">Scholarly</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee" style="vertical-align: top">âjca Faberže</td>
+							<td bgcolor="#eeeeee" style="vertical-align: top">ISO</td>
+						</tr>
+						</table>
 					<p>While the user may not recognize that the Japanese word &quot;kyanpasu&quot; is equivalent 
-					to the English word &quot;campus,&quot; it is easier to recognize and interpret the word in 
-					text than if the letters were left in the original script. There are several situations 
+					to the English word &quot;campus,&quot; the word kyanpasu is far easier to recognize and interpret 
+					than if the letters were left in the original script. There are several situations 
 					where this transliteration is especially useful, such as:</p>
 					<ul>
 						<li>When a user views 
 					names that are entered in a world-wide database, it is extremely helpful to view 
-					and refer to the names in the user&#39;s native script.</li>
+					and refer to the names in the user&#39;s native script...</li>
 						<li>When the user performs searching and indexing tasks, transliteration can retrieve 
 					information in a different script.</li>
 						<li>When a service engineer is sent a program dump that is filled 
@@ -166,8 +210,8 @@ td,th {vertical-align:top}
 					when the text is transliterated and the service engineer can recognize the characters. 
 						</li>
 					</ul>
-					<p>The following provides an example of this: </p>
-					<table id="table3">
+					<p>The following provides an example: </p>
+					<table id="table3" cellpadding="2" style="border-collapse: collapse" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Source</th>
 							<th bgcolor="#cccccc">Transliteration</th>
@@ -220,18 +264,59 @@ td,th {vertical-align:top}
 					<p>Transliteration can also be used to convert unfamiliar letters within the same 
 					script, such as converting Icelandic THORN (þ) to th. </p>
 					<blockquote>
-						<p>Note: ICU uses the Unicode CLDR transliteration data, and offers an online 
-						demo using them: see <a href="http://demo.icu-project.org/icu-bin/translit">
+						<p>ICU uses the Unicode CLDR transliteration data, and offers an online demo 
+						at <a href="http://demo.icu-project.org/icu-bin/translit">
 						ICU Transform Demo</a>.</p>
 					</blockquote>
 			
-					<h2>Guidelines for Script/Language Transliterations</h2>
+					<h2>Variants</h2>
+					<p>There are many systems for transliteration between languages: the same text 
+					can be transliterated in many different ways. For example, for the Greek example 
+					above, the transliteration is classical, while the
+					<a href="http://www.eki.ee/wgrs/">UNGEGN</a> alternate has different 
+					correspondences, such as φ → <i>f</i> instead of φ → <i>ph</i>. Here are other 
+					examples:</p>
+					<p>CLDR provides for generic mappings from script to script (such as 
+					Cyrillic-Latin), and also language-specific variants (Russian-French, or 
+					Serbian-German). There can also be semi-generic mappings, such as Russian-Latin 
+					or Cyrillic-French. These can be referred to as script transliterations, 
+					language-specific transliterations, or script-language transliterations. Transliterations between Latin and 
+					other scripts are also called <i>Romanizations</i>.</p>
+					<p>Even within particular languages, there can be variants according to 
+					different authorities, or even varying across time (if the authority changes its 
+					recommendation). The canonical identifier that CLDR uses for these has the form:</p>
+					<blockquote>
+						<p>source-target/variant</p>
+					</blockquote>
+					<p>The source (and target) can be a language or script, either using the English 
+					name or a locale code. The variant should specify the authority, and if 
+					necessary, the year. For example, the identifier for the Russian to Latin 
+					transliteration according to the UNGEGN would&nbsp; be</p>
+					<ul>
+						<li>ru-und_Latn/UNGEGN, or</li>
+						<li>Russian-Latin/UNGEGN</li>
+					</ul>
+					<p>The assumption is that implementations will allow the use of fallbacks, if 
+					the exact transliteration specified is unavailable. For example, the following 
+					would be the fallback chain for the identifier Russian-English/UNGEGN:</p>
+					<ul>
+						<li>Russian-English/UNGEGN</li>
+						<li>Russian-English</li>
+						<li>Cyrillic-English/UNGEGN</li>
+						<li>Cyrillic-English</li>
+						<li>Russian-Latin/UNGEGN</li>
+						<li>Russian-Latin</li>
+						<li>Cyrillic-Latin/UNGEGN</li>
+						<li>Cyrillic-Latin</li>
+					</ul>
+			
+					<h2>Guidelines for Transliteration</h2>
 					<p>There are a number of generally desirable guidelines for script transliterations. 
 					These guidelines are rarely satisfied simultaneously, so constructing a reasonable 
 					transliteration is always a process of balancing different requirements. These requirements 
 					are most important for people who are building transliterations, but are also useful 
 					as background information for users. The following lists the general guidelines 
-					for Unicode transliterations: </p>
+					for Unicode CLDR transliterations: </p>
 					<ul>
 						<li><i>complete</i>: every well-formed sequence of characters in the source 
 						script should transliterate to a sequence of characters from the target script, 
@@ -242,8 +327,8 @@ td,th {vertical-align:top}
 						to be performed mechanically. </li>
 						<li><i>pronounceable</i>: transliteration is not as useful if the process simply 
 						maps the characters without any regard to their pronunciation. Simply mapping 
-						&quot;αβγδεζηθ...&quot; to &quot;abcdefgh...&quot; would yield strings that might be complete and 
-						unambiguous, but cannot be pronounced.</li>
+						by alphabetic order (&quot;αβγδεζηθ...&quot; to &quot;abcdefgh...&quot;) could yield strings that might be complete and 
+						unambiguous, but the pronunciation would be completely unexpected.</li>
 						<li><i>unambiguous</i>: it is possible to recover the text in the source script 
 						from the transliteration in the target script. Someone that knows the transliteration 
 						rules will be able to recover the precise spelling of the original source text 
@@ -251,8 +336,9 @@ td,th {vertical-align:top}
 						It is then possible to define an reverse (or inverse) mapping. Thus, this property 
 						is sometimes called reversibility (or invertibility). </li>
 					</ul>
-					<p>Where Unicode is explicitly following a particular standard, some of these principles 
-					may not be achievable.</p>
+					<p>In Unicode CLDR, where a particular transliteration authority is explicitly following a particular standard, some of these principles 
+					may not be achievable. However, often small changes are made to accommodate 
+					them.</p>
 					<h3>Ambiguity</h3>
 					<p>In transliteration, multiple characters may produce ambiguities unless the rules 
 					are carefully designed. For example, the Greek character PSI (ψ) maps to <i>ps</i>, 
@@ -273,38 +359,41 @@ td,th {vertical-align:top}
 					<p>A second problem is that some characters in a target script are not normally 
 					found outside of certain contexts. For example, the small Japanese &quot;ya&quot; character, 
 					as in &quot;kya&quot; (キャ), is not normally found in isolation. To handle such characters, 
-					the Unicode transliterators currently use different conventions.</p>
+					the Unicode transliterations currently use different conventions.</p>
 					<ul>
-						<li>Tilde: &quot;ャ&quot; in isolation is represented as &quot;~ya&quot;.</li>
-						<li>Diacritics: Greek &quot;ς&quot; in isolation is represented as s̱, which </li>
+						<li>Tilde: &quot;ャ&quot; in isolation is represented as &quot;~ya&quot;</li>
+						<li>Diacritics: Greek &quot;ς&quot; in isolation is represented as s̱</li>
 					</ul>
 					<blockquote>
-						<p>Note: We&#39;re considering converging on a common representation for this as 
-						well. The advantage of a common representation is that it allows for easy filtering.</p>
+						<p>The CLDR committee is considering converging on a common representation for this. The advantage of a common representation is that it allows for easy filtering.</p>
 					</blockquote>
 					<p>For the default script transforms, the goal is to have unambiguous mappings, 
 					with variants for any common use mappings that are ambiguous (non-reversible). In 
 					some cases, however, case may not be preserved. For example, </p>
-					<table id="table16">
+					<table id="table16" cellspacing="1" cellpadding="2" border="1" bordercolor="#C0C0C0" style="border-collapse: collapse">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Latin</th>
 							<th bgcolor="#cccccc">Greek</th>
 							<th bgcolor="#cccccc">Latin</th>
 						</tr>
 						<tr bgcolor="#99ccff">
-							<td bgcolor="#eeeeee">ps PS<br>
-							psa Psa <b>PsA</b><br>
-							psA PSA <b>PSa</b></td>
-							<td bgcolor="#eeeeee">ψ Ψ<br>
-							ψα Ψα <b>ΨΑ</b><br>
-							ψΑ ΨΑ <b>Ψα</b></td>
-							<td bgcolor="#eeeeee">ps PS<br>
-							psa Psa <b>PSA</b><br>
-							psA PSA <b>Psa</b></td>
+							<td bgcolor="#eeeeee">ps PS</td>
+							<td bgcolor="#eeeeee">ψ Ψ</td>
+							<td bgcolor="#eeeeee">ps PS</td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee">psa Psa <b>PsA</b></td>
+							<td bgcolor="#eeeeee">ψα Ψα <b>ΨΑ</b></td>
+							<td bgcolor="#eeeeee">psa Psa <b>PSA</b></td>
+						</tr>
+						<tr bgcolor="#99ccff">
+							<td bgcolor="#eeeeee">psA PSA <b>PSa</b></td>
+							<td bgcolor="#eeeeee">ψΑ ΨΑ <b>Ψα</b></td>
+							<td bgcolor="#eeeeee">psA PSA <b>Psa</b></td>
 						</tr>
 					</table>
 					<p>The following shows Greek text that is mapped to fully reversible Latin: </p>
-					<table id="table5">
+					<table id="table5" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Greek-Latin</th>
 							<th bgcolor="#cccccc">&nbsp;</th>
@@ -319,7 +408,7 @@ td,th {vertical-align:top}
 					<p>If the user wants a version without certain accents, then a transform can be 
 					used to remove the accents. For example, the following transliterates to Latin but 
 					removes the macron accents on the long vowels. </p>
-					<table id="table6">
+					<table id="table6" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Greek-Latin; nfd; [\u0304] remove; nfc</th>
 							<th bgcolor="#cccccc">&nbsp;</th>
@@ -332,7 +421,7 @@ td,th {vertical-align:top}
 						</tr>
 					</table>
 					<p>The following transliterates to Latin but removes all accents: </p>
-					<table id="table7">
+					<table id="table7" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Greek-Latin; nfd; [:nonspacing marks:] remove; nfc</th>
 							<th bgcolor="#cccccc">&nbsp;</th>
@@ -350,7 +439,8 @@ td,th {vertical-align:top}
 					system uses a &quot;j&quot; that has the English phonetic value (as opposed to French, German, 
 					or Spanish), but uses vowels that do not have the standard English sounds. A transliteration 
 					method might also require some special knowledge to have the correct pronunciation. 
-					For example, in the Japanese kunrei-siki system, &quot;tu&quot; is pronounced as &quot;tsu&quot;. This 
+					For example, in the Japanese kunrei-siki system, &quot;ti&quot; is pronounced as 
+					English &quot;chee&quot;. This 
 					is similar to situations where there are different languages within the same script. 
 					For example, knowing that the word <i>Gewalt</i> comes from German allows a knowledgeable 
 					reader to pronounce the &quot;w&quot; as a &quot;v&quot;. </p>
@@ -393,13 +483,12 @@ td,th {vertical-align:top}
 					For example, even though the letter &quot;q&quot; might not be necessary in a transliteration 
 					of Greek, it can be mapped to a KAPPA (κ). Such reverse mappings will not, in general, 
 					be unambiguous. </p>
-					<h2>Script Transliterator Sources</h2>
-					<p>Currently Unicode CLDR offers script transliterations between Latin and certain 
-					other scripts (such script transliterations are called romanizations), plus transliterations 
-					between the Indic scripts (excluding Urdu). Additional romanizations and other script 
+					<h2>Available Transliterations</h2>
+					<p>Currently Unicode CLDR offers Romanizations, plus transliterations 
+					between the Indic scripts (excluding Urdu). Additional&nbsp; Romanizations and other script 
 					transliterations will be added in the future.</p>
 					<p>Except where otherwise noted, all of these systems are designed to be reversible. 
-					For bicameral scripts (those with upper and lower case), case may not be completely 
+					For bicameral scripts (those with uppercase and lowercase), however, case may not be completely 
 					preserved.</p>
 					<p>The transliterations are also designed to be complete for any sequence of the 
 					Latin letters <i>a-z</i>. A fallback is used for a letter that is not covered by the transliteration, 
@@ -408,41 +497,45 @@ td,th {vertical-align:top}
 					closest other letter, and a default vowel is inserted at the end (since &quot;nk&quot; 
 					cannot end a syllable).</p>
 					<h3>Korean</h3>
-					<p>There are many romanizations of Korean. The default transliteration follows the
-					<a href="http://www.korea.net/korea/kor_loca.asp?code=A020303">Korean Ministry of 
-					Culture &amp; Tourism Transliteration</a> regulations with the clause 8 variant for 
+					<p>There are many Romanizations of Korean. The default transliteration in 
+					Unicode CLDR follows the
+					<a href="http://www.korean.go.kr/06_new/rule/rule06.jsp">Korean Ministry of 
+					Culture &amp; Tourism Transliteration</a> regulations (see also
+					<a href="http://www.korea.net/korea/kor_loca.asp?code=A020303">English summary</a>). 
+					There is an optional clause 8 variant for 
 					reversibility:</p>
 					<blockquote>
-						<p>&quot;8. When it is necessary to convert Romanized Korean back to Hangul in special 
-						cases such as in academic articles, Romanization is done according to Hangul 
-						spelling and not pronunciation. Each Hangul letter is Romanized as explained 
-						in section 2 except that ㄱ, ㄷ, ㅂ, ㄹ are always written as g, d, b, l. When ㅇ 
-						has no sound value, it is replaced by a hyphen may also be used when it is necessary 
-						to distinguish between syllables.&quot;</p>
+						<p>&quot;제 8 항 학술 연구 논문 등 특수 분야에서 한글 복원을 전제로 표기할 경우에는 한글 표기를 대상으로 적는다. 이때 글자 대응은 
+						제2장을 따르되 &#39;ㄱ, ㄷ, ㅂ, ㄹ&#39;은 &#39;g, d, b, l&#39;로만 적는다. 음가 없는 &#39;ㅇ&#39;은 붙임표(-)로 표기하되 어두에서는 
+						생략하는 것을 원칙으로 한다. 기타 분절의 필요가 있을 때에도 붙임표(-)를 쓴다.&quot;</p>
+						<p><i>translation: </i>&quot;Clause 8: When it is required to recover the 
+						original Hangul representation faithfully as in scholarly articles, &#39; ㄱ, ㄷ, 
+						ㅂ, ㄹ&#39; must be always romanized as &#39;g, d, b, l&#39; while the mapping for the 
+						rest of the letters remains the same as specified in clause 2. The 
+						placeholder &#39;ㅇ&#39; at the beginning of a syllable should be represented with 
+						&#39;-&#39;, but should be omitted at the beginning of a word. In addition, &#39;-&#39; 
+						should be used in other cases where a syllable boundary needs to be 
+						explicitly marked (be disambiguated.&quot;</p>
 					</blockquote>
 					<p>There are a number of cases where this Romanization may be 
 					ambiguous, because sometimes multiple Latin letters map to a single entity 
 					(jamo) in 
 					Hangul. This happens with vowels and consonants, the latter being slightly more 
 					complicated because there are both initial and final consonants:</p>
-					<table border="1" id="table18" style="border-collapse: collapse" bordercolor="#0000FF">
+					<table border="1" id="table18" style="border-collapse: collapse">
 						<tr>
-							<td>&nbsp;</td>
-							<td>Type</td>
-							<td>Multi-Character Consonants</td>
+							<th>Type</th>
+							<th>Multi-Character Consonants</th>
 						</tr>
 						<tr>
-							<td>IO</td>
 							<td>Initial-Only</td>
 							<td>tt pp jj</td>
 						</tr>
 						<tr>
-							<td>IF</td>
-							<td>Initial or Final</td>
+							<td>Initial-or-Final</td>
 							<td>kk ch ss</td>
 						</tr>
 						<tr>
-							<td>FO</td>
 							<td>Final-Only</td>
 							<td>gs nj nh lg lm lb ls lt lp lh bs ng</td>
 						</tr>
@@ -451,105 +544,180 @@ td,th {vertical-align:top}
 					boundaries between letters, in order.</p>
 					<ol>
 						<li>Don&#39;t break between a consonant and vowel (if possible)</li>
-						<li>Don&#39;t break within IO or IF sequences (if possible)</li>
+						<li>Don&#39;t break within Initial-Only or Initial-Or-Final sequences (if possible)</li>
 						<li>Favor longest match first.</li>
 					</ol>
-					<p>If there is a single consonant between vowels, then rule #1 will group it 
-					with the following vowel if there is one. If there is a sequence of four 
-					consonants between vowels, then there is only one possible break (with 
-					well-formed text). So the only ambiguities lie with two or three consonants 
-					between vowels, where there are possible multi-character consonants involved. 
-					Here are all of the possible cases, using &quot;a&quot; as a sample vowel.</p>
-					<table border="1" id="table17" style="border-collapse: collapse" bordercolor="#0000FF">
+					<p>If there is a single consonant between vowels, then Rule #1 will group it 
+					with the following vowel if there is one (this is the same as the first part of 
+					Clause 8). If there is a sequence of four consonants between vowels, then there 
+					is only one possible break (with well-formed text). So the only ambiguities lie 
+					with two or three consonants between vowels, where there are possible 
+					multi-character consonants involved. Even there, in most cases the resolution is 
+					simple, because there isn&#39;t a possible multi-character consonant in the case of 
+					two, or two possible multi-character consonants in the case of 3. For example, 
+					in the following cases, the left side is unambiguous:</p>
+					<blockquote>
+						<p>angda = ang-da → 앙다<br>
+						apda = ap-da → 앞다</p>
+					</blockquote>
+					<p>There are a relatively small number of possible problem cases, listed below 
+					using &quot;a&quot; as a sample vowel.</p>
+					<table border="1" id="table17" style="border-collapse: collapse" cellspacing="0" cellpadding="2">
 						<tr>
-							<th>No. of<br>
+							<th align="left">No. of<br>
 							Cons. </th>
-							<th>Latin</th>
-							<th>Hangul</th>
-							<th colspan="2">Comments</th>
+							<th align="left">Latin</th>
+							<th align="left">CLDR<br>
+							Disambiguation</th>
+							<th align="left">Hangul</th>
+							<th colspan="2" align="left">Comments</th>
 						</tr>
 						<tr>
-							<td rowspan="3">2</td>
-							<td><code>atta = a-tta<br>
-							appa = a-ppa<br>
-							ajja = a-jja</code></td>
-							<td>아따<br>
-							아빠<br>
-							아짜</td>
-							<td colspan="2">Rules 1, then 2</td>
+							<td rowspan="18">2</td>
+							<td><code>atta</code></td>
+							<td><code>= a-tta</code></td>
+							<td>아따</td>
+							<td colspan="2" rowspan="3">Rules 1, then 2</td>
 						</tr>
 						<tr>
-							<td><code>akka = a-kka<br>
-							assa = a-ssa<br>
-							acha = a-cha</code></td>
-							<td>아까<br>
-							아싸<br>
-							아차</td>
-							<td colspan="2">Rules 1, then 2</td>
+							<td><code>appa</code></td>
+							<td><code>= a-ppa</code></td>
+							<td>아빠</td>
 						</tr>
 						<tr>
-							<td><code>agsa = ag-sa<br>
-							anja = an-ja<br>
-							anha = an-ha<br>
-							alga = al-ga<br>
-							alma = al-ma<br>
-							alba = al-ba<br>
-							alsa = al-sa<br>
-							alta = al-ta<br>
-							alpa = al-pa<br>
-							alha = al-ha<br>
-							absa = ab-sa<br>
-							anga = an-ga</code></td>
-							<td>악사<br>
-							안자<br>
-							안하<br>
-							알가<br>
-							알마<br>
-							알바<br>
-							알사<br>
-							알타<br>
-							알파<br>
-							알하<br>
-							압사<br>
-							안가</td>
-							<td colspan="2">Rules 1, then 2, then 3</td>
+							<td><code>ajja</code></td>
+							<td><code>= a-jja</code></td>
+							<td>아짜</td>
 						</tr>
 						<tr>
-							<td rowspan="5">3</td>
-							<td><code>agssa = ag-ssa<br>
-							anjja = an-jja<br>
-							alssa = al-ssa<br>
-							abssa = ab-ssa</code></td>
-							<td>악싸<br>
-							안짜<br>
-							알싸<br>
-							압싸</td>
-							<td colspan="2">Rules 1, then 2</td>
+							<td><code>akka</code></td>
+							<td><code>= a-kka</code></td>
+							<td>아까</td>
+							<td colspan="2" rowspan="3">Rules 1, then 2</td>
 						</tr>
 						<tr>
-							<td rowspan="3"><code>altta = alt-ta<br>
-							alppa = alp-pa</code></td>
-							<td rowspan="3">앑타<br>
-							앒파</td>
-							<td colspan="2">Known bugs; should be:</td>
+							<td><code>assa</code></td>
+							<td><code>= a-ssa</code></td>
+							<td>아싸</td>
 						</tr>
 						<tr>
-							<td><code>altta = al-tta</code></td>
+							<td><code>acha</code></td>
+							<td><code>= a-cha</code></td>
+							<td>아차</td>
+						</tr>
+						<tr>
+							<td><code>agsa </code></td>
+							<td><code>= ag-sa</code></td>
+							<td>악사</td>
+							<td colspan="2" rowspan="12">Rules 1, then 2, then 3</td>
+						</tr>
+						<tr>
+							<td><code>anja </code></td>
+							<td><code>= an-ja</code></td>
+							<td>안자</td>
+						</tr>
+						<tr>
+							<td><code>anha </code></td>
+							<td><code>= an-ha</code></td>
+							<td>안하</td>
+						</tr>
+						<tr>
+							<td><code>alga </code></td>
+							<td><code>= al-ga</code></td>
+							<td>알가</td>
+						</tr>
+						<tr>
+							<td><code>alma </code></td>
+							<td><code>= al-ma</code></td>
+							<td>알마</td>
+						</tr>
+						<tr>
+							<td><code>alba </code></td>
+							<td><code>= al-ba</code></td>
+							<td>알바</td>
+						</tr>
+						<tr>
+							<td><code>alsa </code></td>
+							<td><code>= al-sa</code></td>
+							<td>알사</td>
+						</tr>
+						<tr>
+							<td><code>alta </code></td>
+							<td><code>= al-ta</code></td>
+							<td>알타</td>
+						</tr>
+						<tr>
+							<td><code>alpa </code></td>
+							<td><code>= al-pa</code></td>
+							<td>알파</td>
+						</tr>
+						<tr>
+							<td><code>alha </code></td>
+							<td><code>= al-ha</code></td>
+							<td>알하</td>
+						</tr>
+						<tr>
+							<td><code>absa </code></td>
+							<td><code>= ab-sa</code></td>
+							<td>압사</td>
+						</tr>
+						<tr>
+							<td><code>anga </code></td>
+							<td><code>= an-ga</code></td>
+							<td>안가</td>
+						</tr>
+						<tr>
+							<td rowspan="9">3</td>
+							<td><code>agssa </code></td>
+							<td><code>= ag-ssa</code></td>
+							<td>악싸</td>
+							<td colspan="2" rowspan="4">Rules 1, then 2</td>
+						</tr>
+						<tr>
+							<td><code>anjja </code></td>
+							<td><code>= an-jja</code></td>
+							<td>안짜</td>
+						</tr>
+						<tr>
+							<td><code>alssa </code></td>
+							<td><code>= al-ssa</code></td>
+							<td>알싸</td>
+						</tr>
+						<tr>
+							<td><code>abssa </code></td>
+							<td><code>= ab-ssa</code></td>
+							<td>압싸</td>
+						</tr>
+						<tr>
+							<td rowspan="2"><code>altta </code></td>
+							<td rowspan="2"><code>= alt-ta</code></td>
+							<td rowspan="2">앑타</td>
+							<td colspan="2">Known bugs, should be:</td>
+						</tr>
+						<tr>
+							<td><code>= al-tta</code></td>
 							<td>알따</td>
 						</tr>
 						<tr>
-							<td><code>alppa = al-ppa</code></td>
+							<td><code>alppa </code></td>
+							<td><code>= alp-pa</code></td>
+							<td>앒파</td>
+							<td><code>= al-ppa</code></td>
 							<td>알빠</td>
 						</tr>
 						<tr>
-							<td><code>akkka = akk-ka<br>
-							asssa = ass-sa</code></td>
-							<td>앆카<br>
-							았사</td>
-							<td colspan="2">Rules 1, then 2, then 3</td>
+							<td><code>akkka </code></td>
+							<td><code>= akk-ka</code></td>
+							<td>앆카</td>
+							<td colspan="2" rowspan="2">Rules 1, then 2, then 3</td>
+						</tr>
+						<tr>
+							<td><code>asssa </code></td>
+							<td><code>= ass-sa</code></td>
+							<td>았사</td>
 						</tr>
 						</table>
-					<p>For vowels, only rule # applies, so aeo = ae-o → 애오.</p>
+					<p>For vowel sequences, the situation is simpler. Only Rule #3 applies, so aeo = ae-o → 애오.</p>
 					<h3>Japanese</h3>
 					<p>The default transliteration for Japanese uses the a slight variant of the Hepburn 
 					system. With Hepburn system, both  ZI (ジ) and DI (ヂ) are represented by &quot;ji&quot; and 
@@ -557,9 +725,9 @@ td,th {vertical-align:top}
 					by using &quot;dji&quot; for DI and &quot;dzu&quot; for DU.</p>
 					<h3>Greek</h3>
 					<p>The default transliteration uses a standard transcription for Greek which is 
-					aimed at preserving etymology. The ISO 843 variant has the following differences:
+					aimed at preserving etymology. The ISO 843 variant includes following differences:
 					</p>
-					<table id="table10">
+					<table id="table10" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Greek</th>
 							<th bgcolor="#cccccc">Default</th>
@@ -602,14 +770,15 @@ td,th {vertical-align:top}
 					plans to add extended Cyrillic characters in the future, plus variants for GOST 
 					and other national standards.</p>
 					<h3>Indic</h3>
-					<p>Transliteration of Indic scripts follows the ISO 15919 standard for Romanization 
-					of Indic scripts using diacritics. Internally, all Indic scripts are transliterated 
+					<p>Transliteration of Indic scripts follows the ISO 15919<i>
+					<strong style="font-weight: 400">Transliteration of Devanagari and related Indic 
+					scripts into Latin characters</strong></i>. Internally, all Indic scripts are transliterated 
 					by converting first to an internal form, called Inter-Indic, then from Inter-Indic 
 					to the target script. ISO 15919 differs from ISCII 91 in application of diacritics 
 					for certain characters. These differences are shown in the following example (illustrated 
 					with Devanagari, although the same principles apply to the other Indic scripts):
 					</p>
-					<table id="table11">
+					<table id="table11" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Devanagari</th>
 							<th bgcolor="#cccccc">ISCII 91</th>
@@ -648,7 +817,7 @@ td,th {vertical-align:top}
 					</table>
 					<p>Transliteration rules in Indic are reversible with the exception of the ZWJ and 
 					ZWNJ used to request explicit rendering effects. For example:</p>
-					<table id="table13">
+					<table id="table13" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Devanagari</th>
 							<th bgcolor="#cccccc">Romanization</th>
@@ -671,11 +840,10 @@ td,th {vertical-align:top}
 						</tr>
 					</table>
 					<p>There are two particular instances where transliterations may produce unexpected 
-					results: (1) where a halant after a consonant is implied by the romanization (in 
-					such cases the vowel needs to be explicitly written out), and (2) with the transliteration 
+					results: (1) where the final vowel is suppressed in speech, and (2) with the transliteration 
 					of &#39;c&#39;. </p>
 					<p>For example:</p>
-					<table id="table14">
+					<table id="table14" border="1" bordercolor="#C0C0C0">
 						<tr bgcolor="#99ccff">
 							<th bgcolor="#cccccc">Devanagari</th>
 							<th bgcolor="#cccccc">Romanization</th>
@@ -697,13 +865,17 @@ td,th {vertical-align:top}
 							<td bgcolor="#eeeeee">Monika</td>
 						</tr>
 					</table>
-					<h3>Others</h3>
-					<p>Unicode CLDR provides other transliterations based on
+					<h3>BGN / UNGEGN</h3>
+					<p>Unicode CLDR provides other transliterations based on the
+					<a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a> (BGN) 
+					transliterations. These are currently unidirectional -- to Latin only. The goal is to make 
+					them bidirectional in future versions of CLDR.</p>
+					<p>Other transliterations are generally based on the
 					<a href="http://www.eki.ee/wgrs/">UNGEGN: Working Group on Romanization Systems</a> 
-					and on BGN transliterations. In some cases, these are unidirectional -- to Latin 
-					only. The goal is to make these bidirectional in the future.</p>
-					<h3>Modifications</h3>
-					<p>It is easy using transforms to create variants of the defaults. For example, 
+					transliterations.</p>
+					<h2>Modifications</h2>
+					<p>It is easy to use the CLDR rule structure to create variants of the default 
+					transliterations. For example, 
 					to create a variant of Korean that uses a right curly quote instead of apostrophes, 
 					use the following rules:</p>
 					<table cellspacing="0" cellpadding="8" border="1" id="table15">
@@ -712,11 +884,16 @@ td,th {vertical-align:top}
 							&#39;-&#39; &lt;&gt; &#39;’&#39; ;</td>
 						</tr>
 					</table>
-					<h3>More Information</h3>
+					<h2>More Information</h2>
 					<p>For more information, see:</p>
-					<ol>
+					<ul>
+						<li><a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a></li>
 						<li><a href="http://www.eki.ee/wgrs/">UNGEGN: Working Group on Romanization 
-						Systems</a> </li>
+						Systems</a><ul>
+							<li>(UNGEGN is for UNITED NATIONS GROUP OF EXPERTS ON GEOGRAPHICAL 
+							NAMES)</li>
+						</ul>
+						</li>
 						<li><a href="http://transliteration.eki.ee/">Transliteration of Non-Roman Alphabets 
 						and Scripts (Søren Binks)</a> </li>
 						<li><a href="http://www.archivists.org/catalog/stds99/chapter8.html">Standards 
@@ -729,7 +906,9 @@ td,th {vertical-align:top}
 						</li>
 						<li><a href="http://www.cdacindia.com/html/gist/down/iscii_d.asp">ISCII-91</a>
 						</li>
-					</ol>
+						<li><a href="http://www.unicode.org/reports/tr35/">UTS 
+				#35: Locale Data Markup Language (LDML)</a></li>
+					</ul>
 				</div>
 				</td>
 			</tr>

@@ -1,5 +1,5 @@
-<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<!doctype HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,12 +22,14 @@ table {border-collapse: collapse}
 </style>
 </head>
 
-<body text="#330000">
+<body>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tbody>
 	<tr>
 		<td colspan="2">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tbody>
 			<tr>
 				<td class="icon"><a href="http://www.unicode.org/">
 				<img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33" /></a>&nbsp;&nbsp;
@@ -36,6 +38,7 @@ table {border-collapse: collapse}
 				<a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
 				<a href="http://www.unicode.org/search/" class="bar">Search</a></td>
 			</tr>
+		</tbody>
 		</table>
 		</td>
 	</tr>
@@ -45,6 +48,7 @@ table {border-collapse: collapse}
 	<tr>
 		<td valign="top" width="25%" class="navCol">
 		<table class="navColTable" border="0" width="100%" cellspacing="4" cellpadding="0">
+			<tbody>
 			<tr>
 				<td class="navColTitle">Contents</td>
 			</tr>
@@ -114,46 +118,44 @@ table {border-collapse: collapse}
 				<td valign="top" class="navColCell"><a href="http://www.unicode.org/notes/">Unicode 
 				Technical Notes</a></td>
 			</tr>
+		</tbody>
 		</table>
 		<!-- BEGIN CONTENTS --></td>
 		<td>
 		<table>
+			<tbody>
 			<tr>
 				<td class="contents" valign="top">
 				<div class="body">
-					<h1 align="center">Unicode Transliteration 
-					Guidelines</h1>
-					<br>
-										
-					<p><i>This document describes guidelines for the creation and use of CLDR 
-					transliterations. Please file any feedback at
+					<h1 align="center">Unicode Transliteration Guidelines</h1>
+					<br />
+					<p><i>This document describes guidelines for the creation and use of CLDR transliterations. 
+					Please file any feedback at
 					<a href="http://www.unicode.org/cldr/bugs/locale-bugs">Locale Bugs</a>.</i></p>
-					<table border="1" width="33%" id="table21" cellspacing="0" cellpadding="2" style="border-collapse: collapse; float: right; margin:1em" bordercolor="#BB0000">
+					<table border="1" width="33%" id="table21" cellspacing="0" cellpadding="2" style="border-collapse: collapse; float: right; margin:1em; border-color:#BB0000">
+						<tbody>
 						<tr>
-							<td style="border:1px solid #CCCCCC; vertical-align: top"><font size="2"><i><b>Display. </b></i>Some of the 
-							characters in this document may not be visible in your browser, and with 
-							some fonts the diacritics will not be correctly placed on the base 
-							letters. See 
-						<a href="http://www.unicode.org/help/display_problems.html">Display Problems</a>.</font></td>
+							<td style="border:1px solid #CCCCCC; vertical-align: top">
+							<font size="2"><i><b>Display. </b></i>Some of the characters in this document 
+							may not be visible in your browser, and with some fonts the diacritics will 
+							not be correctly placed on the base letters. See
+							<a href="http://www.unicode.org/help/display_problems.html">Display Problems</a>.</font></td>
 						</tr>
+					</tbody>
 					</table>
-					
-					<p>Transliteration is the general process of converting characters from one 
-					script to another, where the result is roughly phonetic for languages in the 
-					target script. For example, &quot;Phobos&quot; and &quot;Deimos&quot; are transliterations of Greek 
-					mythological &quot;Φόβος&quot; and &quot;Δεῖμος&quot; into Latin letters, used to name the moons of 
-					Mars.</p>
-					<p>Transliteration is <i>not</i> 
-					translation. Rather, transliteration is the conversion of letters from one 
-					script to another without translating the underlying words. The following shows 
-					a sample of transliterations:</p>
-					<table id="table20" style="border-collapse: collapse" border="1" th cellspacing="0" cellpadding="2">
+					<p>Transliteration is the general process of converting characters from one script 
+					to another, where the result is roughly phonetic for languages in the target script. 
+					For example, &quot;Phobos&quot; and &quot;Deimos&quot; are transliterations of Greek mythological &quot;Φόβος&quot; 
+					and &quot;Δεῖμος&quot; into Latin letters, used to name the moons of Mars.</p>
+					<p>Transliteration is <i>not</i> translation. Rather, transliteration is the conversion 
+					of letters from one script to another without translating the underlying words. 
+					The following shows a sample of transliterations:</p>
+					<table id="table20" style="border-collapse: collapse" border="1" cellspacing="0" cellpadding="2">
+						<tbody>
 						<tr>
 							<th width="25%" style="vertical-align: top">Source</th>
-							<th width="25%" style="vertical-align: top">
-							Translation</th>
-							<th style="vertical-align: top" width="25%">
-							Transliteration</th>
+							<th width="25%" style="vertical-align: top">Translation</th>
+							<th style="vertical-align: top" width="25%">Transliteration</th>
 							<th width="25%" style="vertical-align: top">System</th>
 						</tr>
 						<tr>
@@ -169,8 +171,7 @@ table {border-collapse: collapse}
 						</tr>
 						<tr>
 							<td style="vertical-align: top" rowspan="2">しんばし</td>
-							<td style="vertical-align: top" rowspan="2"><i>new 
-							bridge<br>
+							<td style="vertical-align: top" rowspan="2"><i>new bridge<br />
 							(district in Tokyo)</i></td>
 							<td style="vertical-align: top">shimbashi</td>
 							<td style="vertical-align: top">Hepburn</td>
@@ -180,10 +181,8 @@ table {border-collapse: collapse}
 							<td style="vertical-align: top">Kunrei</td>
 						</tr>
 						<tr>
-							<td style="vertical-align: top" rowspan="3">яйца 
-							Фаберже</td>
-							<td style="vertical-align: top" rowspan="3"><i>Fabergé 
-							eggs</i></td>
+							<td style="vertical-align: top" rowspan="3">яйца Фаберже</td>
+							<td style="vertical-align: top" rowspan="3"><i>Fabergé eggs</i></td>
 							<td style="vertical-align: top">yaytsa Faberzhe</td>
 							<td style="vertical-align: top">BGN/PCGN</td>
 						</tr>
@@ -195,24 +194,25 @@ table {border-collapse: collapse}
 							<td style="vertical-align: top">âjca Faberže</td>
 							<td style="vertical-align: top">ISO</td>
 						</tr>
-						</table>
+					</tbody>
+					</table>
 					<p>While the user may not recognize that the Japanese word &quot;kyanpasu&quot; is equivalent 
 					to the English word &quot;campus,&quot; the word kyanpasu is far easier to recognize and interpret 
 					than if the letters were left in the original script. There are several situations 
 					where this transliteration is especially useful, such as:</p>
 					<ul>
 						<li>When a user views names that are entered in a world-wide database, it is 
-						extremely helpful to view and refer to the names in the user&#39;s native 
-						script.</li>
-						<li>When the user performs searching and indexing tasks, transliteration can retrieve 
-					information in a different script.</li>
-						<li>When a service engineer is sent a program dump that is filled 
-					with characters from foreign scripts, it is much easier to diagnose the problem 
-					when the text is transliterated and the service engineer can recognize the characters. 
+						extremely helpful to view and refer to the names in the user's native script.</li>
+						<li>When the user performs searching and indexing tasks, transliteration can 
+						retrieve information in a different script.</li>
+						<li>When a service engineer is sent a program dump that is filled with characters 
+						from foreign scripts, it is much easier to diagnose the problem when the text 
+						is transliterated and the service engineer can recognize the characters.
 						</li>
 					</ul>
 					<p>The following provides an example: </p>
-					<table id="table3" cellpadding="2" style="border-collapse: collapse" border="1" th>
+					<table id="table3" cellpadding="2" style="border-collapse: collapse" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Source</th>
 							<th>Transliteration</th>
@@ -261,45 +261,43 @@ table {border-collapse: collapse}
 							<td>Θεοδωράτου, Ελένη</td>
 							<td>Theodōrátou, Elénē</td>
 						</tr>
+					</tbody>
 					</table>
 					<p>Transliteration can also be used to convert unfamiliar letters within the same 
 					script, such as converting Icelandic THORN (þ) to th. </p>
 					<blockquote>
 						<p><i>ICU uses the Unicode CLDR transliteration data, and offers an online demo 
-						at <a href="http://demo.icu-project.org/icu-bin/translit">
-						ICU Transform Demo</a>.</i></p>
+						at <a href="http://demo.icu-project.org/icu-bin/translit">ICU Transform Demo</a>.</i></p>
 					</blockquote>
-			
 					<h2>Variants</h2>
-					<p>There are many systems for transliteration between languages: the same text 
-					can be transliterated in many different ways. For example, for the Greek example 
-					above, the transliteration is classical, while the
-					<a href="http://www.eki.ee/wgrs/">UNGEGN</a> alternate has different 
-					correspondences, such as φ → <i>f</i> instead of φ → <i>ph</i>. Here are other 
-					examples:</p>
-					<p>CLDR provides for generic mappings from script to script (such as 
-					Cyrillic-Latin), and also language-specific variants (Russian-French, or 
-					Serbian-German). There can also be semi-generic mappings, such as Russian-Latin 
-					or Cyrillic-French. These can be referred to as script transliterations, 
-					language-specific transliterations, or script-language transliterations. Transliterations between Latin and 
-					other scripts are also called <i>Romanizations</i>.</p>
-					<p>Even within particular languages, there can be variants according to 
-					different authorities, or even varying across time (if the authority changes its 
-					recommendation). The canonical identifier that CLDR uses for these has the form:</p>
+					<p>There are many systems for transliteration between languages: the same text can 
+					be transliterated in many different ways. For example, for the Greek example above, 
+					the transliteration is classical, while the <a href="http://www.eki.ee/wgrs/">UNGEGN</a> 
+					alternate has different correspondences, such as φ → <i>f</i> instead of φ → <i>
+					ph</i>. Here are other examples:</p>
+					<p>CLDR provides for generic mappings from script to script (such as Cyrillic-Latin), 
+					and also language-specific variants (Russian-French, or Serbian-German). There can 
+					also be semi-generic mappings, such as Russian-Latin or Cyrillic-French. These can 
+					be referred to as script transliterations, language-specific transliterations, or 
+					script-language transliterations. Transliterations between Latin and other scripts 
+					are also called <i>Romanizations</i>.</p>
+					<p>Even within particular languages, there can be variants according to different 
+					authorities, or even varying across time (if the authority changes its recommendation). 
+					The canonical identifier that CLDR uses for these has the form:</p>
 					<blockquote>
 						<p>source-target/variant</p>
 					</blockquote>
 					<p>The source (and target) can be a language or script, either using the English 
-					name or a locale code. The variant should specify the authority, and if 
-					necessary, the year. For example, the identifier for the Russian to Latin 
-					transliteration according to the UNGEGN would&nbsp; be</p>
+					name or a locale code. The variant should specify the authority, and if necessary, 
+					the year. For example, the identifier for the Russian to Latin transliteration according 
+					to the UNGEGN would&nbsp; be</p>
 					<ul>
 						<li>ru-und_Latn/UNGEGN, or</li>
 						<li>Russian-Latin/UNGEGN</li>
 					</ul>
-					<p>The assumption is that implementations will allow the use of fallbacks, if 
-					the exact transliteration specified is unavailable. For example, the following 
-					would be the fallback chain for the identifier Russian-English/UNGEGN:</p>
+					<p>The assumption is that implementations will allow the use of fallbacks, if the 
+					exact transliteration specified is unavailable. For example, the following would 
+					be the fallback chain for the identifier Russian-English/UNGEGN:</p>
 					<ul>
 						<li>Russian-English/UNGEGN</li>
 						<li>Russian-English</li>
@@ -310,7 +308,6 @@ table {border-collapse: collapse}
 						<li>Cyrillic-Latin/UNGEGN</li>
 						<li>Cyrillic-Latin</li>
 					</ul>
-			
 					<h2>Guidelines for Transliteration</h2>
 					<p>There are a number of generally desirable guidelines for script transliterations. 
 					These guidelines are rarely satisfied simultaneously, so constructing a reasonable 
@@ -328,8 +325,9 @@ table {border-collapse: collapse}
 						to be performed mechanically. </li>
 						<li><i>pronounceable</i>: transliteration is not as useful if the process simply 
 						maps the characters without any regard to their pronunciation. Simply mapping 
-						by alphabetic order (&quot;αβγδεζηθ...&quot; to &quot;abcdefgh...&quot;) could yield strings that might be complete and 
-						unambiguous, but the pronunciation would be completely unexpected.</li>
+						by alphabetic order (&quot;αβγδεζηθ...&quot; to &quot;abcdefgh...&quot;) could yield strings that 
+						might be complete and unambiguous, but the pronunciation would be completely 
+						unexpected.</li>
 						<li><i>unambiguous</i>: it is possible to recover the text in the source script 
 						from the transliteration in the target script. Someone that knows the transliteration 
 						rules will be able to recover the precise spelling of the original source text 
@@ -337,25 +335,25 @@ table {border-collapse: collapse}
 						It is then possible to define an reverse (or inverse) mapping. Thus, this property 
 						is sometimes called reversibility (or invertibility). </li>
 					</ul>
-					<p>In Unicode CLDR, where a particular transliteration authority is explicitly following a particular standard, some of these principles 
-					may not be achievable. However, often small changes are made to accommodate 
-					them.</p>
+					<p>In Unicode CLDR, where a particular transliteration authority is explicitly following 
+					a particular standard, some of these principles may not be achievable. However, 
+					often small changes are made to accommodate them.</p>
 					<h3>Ambiguity</h3>
 					<p>In transliteration, multiple characters may produce ambiguities unless the rules 
 					are carefully designed. For example, the Greek character PSI (ψ) maps to <i>ps</i>, 
-					but <i>ps</i> could also result from the sequence PI, SIGMA (πσ) 
-					since PI (π) maps to p and SIGMA (σ) maps to s. </p>
+					but <i>ps</i> could also result from the sequence PI, SIGMA (πσ) since PI (π) maps 
+					to p and SIGMA (σ) maps to s. </p>
 					<p>The Japanese transliteration standards provide a good mechanism for handling 
 					these kinds of ambiguities. Using the Japanese transliteration standards, whenever 
 					an ambiguous sequence in the target script does not result from a single letter, 
 					the transform uses an apostrophe to disambiguate it. For example, it uses that procedure 
-					to distinguish between <i>man&#39;ichi</i> and <i>manichi</i>. Using this procedure, 
-					the Greek character PI SIGMA (πσ) maps to <i>p&#39;s</i>. This method is recommended 
+					to distinguish between <i>man'ichi</i> and <i>manichi</i>. Using this procedure, 
+					the Greek character PI SIGMA (πσ) maps to <i>p's</i>. This method is recommended 
 					for all script transliteration methods, although sometimes the character may vary: 
 					for example, &quot;-&quot; is used in Korean. </p>
 					<blockquote>
-						<p>Note: We&#39;ve had a recent proposal to consistently use the hyphenation dot 
-						for this code, thus we&#39;d have πσ → p‧s.</p>
+						<p>Note: We've had a recent proposal to consistently use the hyphenation dot 
+						for this code, thus we'd have πσ → p‧s.</p>
 					</blockquote>
 					<p>A second problem is that some characters in a target script are not normally 
 					found outside of certain contexts. For example, the small Japanese &quot;ya&quot; character, 
@@ -366,12 +364,14 @@ table {border-collapse: collapse}
 						<li>Diacritics: Greek &quot;ς&quot; in isolation is represented as s̱</li>
 					</ul>
 					<blockquote>
-						<p>The CLDR committee is considering converging on a common representation for this. The advantage of a common representation is that it allows for easy filtering.</p>
+						<p>The CLDR committee is considering converging on a common representation for 
+						this. The advantage of a common representation is that it allows for easy filtering.</p>
 					</blockquote>
 					<p>For the default script transforms, the goal is to have unambiguous mappings, 
 					with variants for any common use mappings that are ambiguous (non-reversible). In 
 					some cases, however, case may not be preserved. For example, </p>
-					<table id="table16" cellspacing="1" cellpadding="2" border="1" th style="border-collapse: collapse">
+					<table id="table16" cellspacing="1" cellpadding="2" border="1" th="" style="border-collapse: collapse">
+						<tbody>
 						<tr>
 							<th>Latin</th>
 							<th>Greek</th>
@@ -392,47 +392,54 @@ table {border-collapse: collapse}
 							<td>ψΑ ΨΑ <b>Ψα</b></td>
 							<td>psA PSA <b>Psa</b></td>
 						</tr>
+					</tbody>
 					</table>
 					<p>The following shows Greek text that is mapped to fully reversible Latin: </p>
-					<table id="table5" border="1" th>
+					<table id="table5" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Greek-Latin</th>
 							<th>&nbsp;</th>
 						</tr>
 						<tr>
-							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ 
-							ἐκεῖνό γε καταγνώσομαι, ὡς σὺ ἕτερον.</td>
-							<td>tí phḗis; graphḕn sé tis, hōs éoike, gégraptai: ou 
-							gàr ekeînó ge katagnṓsomai, hōs sỳ héteron.</td>
+							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ ἐκεῖνό γε καταγνώσομαι, 
+							ὡς σὺ ἕτερον.</td>
+							<td>tí phḗis; graphḕn sé tis, hōs éoike, gégraptai: ou gàr ekeînó ge katagnṓsomai, 
+							hōs sỳ héteron.</td>
 						</tr>
+					</tbody>
 					</table>
 					<p>If the user wants a version without certain accents, then a transform can be 
 					used to remove the accents. For example, the following transliterates to Latin but 
 					removes the macron accents on the long vowels. </p>
 					<table id="table6" border="1">
+						<tbody>
 						<tr>
 							<th>Greek-Latin; nfd; [\u0304] remove; nfc</th>
 							<th>&nbsp;</th>
 						</tr>
 						<tr>
-							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ 
-							ἐκεῖνό γε καταγνώσομαι, ὡς σὺ ἕτερον.</td>
-							<td>tí phéis; graphèn sé tis, hos éoike, gégraptai: ou 
-							gàr ekeînó ge katagnósomai, hos sỳ héteron.</td>
+							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ ἐκεῖνό γε καταγνώσομαι, 
+							ὡς σὺ ἕτερον.</td>
+							<td>tí phéis; graphèn sé tis, hos éoike, gégraptai: ou gàr ekeînó ge katagnósomai, 
+							hos sỳ héteron.</td>
 						</tr>
+					</tbody>
 					</table>
 					<p>The following transliterates to Latin but removes all accents: </p>
-					<table id="table7" border="1" th>
+					<table id="table7" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Greek-Latin; nfd; [:nonspacing marks:] remove; nfc</th>
 							<th>&nbsp;</th>
 						</tr>
 						<tr>
-							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ 
-							ἐκεῖνό γε καταγνώσομαι, ὡς σὺ ἕτερον.</td>
-							<td>ti pheis; graphen se tis, hos eoike, gegraptai: ou 
-							gar ekeino ge katagnosomai, hos sy heteron.</td>
+							<td>τί φῄς; γραφὴν σέ τις, ὡς ἔοικε, γέγραπται: οὐ γὰρ ἐκεῖνό γε καταγνώσομαι, 
+							ὡς σὺ ἕτερον.</td>
+							<td>ti pheis; graphen se tis, hos eoike, gegraptai: ou gar ekeino ge katagnosomai, 
+							hos sy heteron.</td>
 						</tr>
+					</tbody>
 					</table>
 					<h3>Pronunciation</h3>
 					<p>Standard transliteration methods often do not follow the pronunciation rules 
@@ -440,19 +447,18 @@ table {border-collapse: collapse}
 					system uses a &quot;j&quot; that has the English phonetic value (as opposed to French, German, 
 					or Spanish), but uses vowels that do not have the standard English sounds. A transliteration 
 					method might also require some special knowledge to have the correct pronunciation. 
-					For example, in the Japanese kunrei-siki system, &quot;ti&quot; is pronounced as 
-					English &quot;chee&quot;. This 
-					is similar to situations where there are different languages within the same script. 
-					For example, knowing that the word <i>Gewalt</i> comes from German allows a knowledgeable 
-					reader to pronounce the &quot;w&quot; as a &quot;v&quot;. </p>
+					For example, in the Japanese kunrei-siki system, &quot;ti&quot; is pronounced as English &quot;chee&quot;. 
+					This is similar to situations where there are different languages within the same 
+					script. For example, knowing that the word <i>Gewalt</i> comes from German allows 
+					a knowledgeable reader to pronounce the &quot;w&quot; as a &quot;v&quot;. </p>
 					<p>In some cases, transliteration may be heavily influenced by tradition. For example, 
 					the modern Greek letter beta (β) sounds like a &quot;v&quot;, but a transform may continue 
-					to use a <i>b</i> (as in <i>biology</i>). In that case, the user would need to know that a &quot;b&quot; 
-					in the transliterated word corresponded to beta (β) and is to be pronounced as a 
-					<i>v</i> in modern Greek. Letters may also be transliterated differently according to 
-					their context to make the pronunciation more predictable. For example, since the 
-					Greek sequence GAMMA GAMMA (γγ) is pronounced as <i>ng</i>, the first GAMMA can 
-					be transcribed as an &quot;n&quot; in that context.</p>
+					to use a <i>b</i> (as in <i>biology</i>). In that case, the user would need to know 
+					that a &quot;b&quot; in the transliterated word corresponded to beta (β) and is to be pronounced 
+					as a <i>v</i> in modern Greek. Letters may also be transliterated differently according 
+					to their context to make the pronunciation more predictable. For example, since 
+					the Greek sequence GAMMA GAMMA (γγ) is pronounced as <i>ng</i>, the first GAMMA 
+					can be transcribed as an &quot;n&quot; in that context.</p>
 					<p>In general, predictability means that when transliterating Latin script to other 
 					scripts using reversible transliterations, English text will not produce phonetic 
 					results. This is because the pronunciation of English cannot be predicted easily 
@@ -486,48 +492,44 @@ table {border-collapse: collapse}
 					be unambiguous. </p>
 					<h2>Available Transliterations</h2>
 					<p>Currently Unicode CLDR offers Romanizations for certain scripts, plus transliterations 
-					between the Indic scripts (excluding Urdu). Additional&nbsp;script 
-					transliterations will be added in the future.</p>
+					between the Indic scripts (excluding Urdu). Additional script transliterations will 
+					be added in the future.</p>
 					<p>Except where otherwise noted, all of these systems are designed to be reversible. 
-					For bicameral scripts (those with uppercase and lowercase), however, case may not be completely 
-					preserved.</p>
+					For bicameral scripts (those with uppercase and lowercase), however, case may not 
+					be completely preserved.</p>
 					<p>The transliterations are also designed to be complete for any sequence of the 
-					Latin letters <i>a-z</i>. A fallback is used for a letter that is not covered by the transliteration, 
-					and default letters may be inserted as required. For example, in the Hangul 
-					transliteration, <i>rink</i> → 린크 → <i>linkeu</i>. That is, &quot;r&quot; is mapped to the 
-					closest other letter, and a default vowel is inserted at the end (since &quot;nk&quot; 
-					cannot end a syllable).</p>
+					Latin letters <i>a-z</i>. A fallback is used for a letter that is not covered by 
+					the transliteration, and default letters may be inserted as required. For example, 
+					in the Hangul transliteration, <i>rink</i> → 린크 → <i>linkeu</i>. That is, &quot;r&quot; is 
+					mapped to the closest other letter, and a default vowel is inserted at the end (since 
+					&quot;nk&quot; cannot end a syllable).</p>
 					<p><i>Preliminary
 					<a href="http://www.unicode.org/cldr/data/charts/transforms/index.html">charts</a> 
-					are available for the available transliterations. Be sure to read the known 
-					issues.</i></p>
+					are available for the available transliterations. Be sure to read the known issues.</i></p>
 					<h3>Korean</h3>
-					<p>There are many Romanizations of Korean. The default transliteration in 
-					Unicode CLDR follows the
-					<a href="http://www.korean.go.kr/06_new/rule/rule06.jsp">Korean Ministry of 
-					Culture &amp; Tourism Transliteration</a> regulations (see also
+					<p>There are many Romanizations of Korean. The default transliteration in Unicode 
+					CLDR follows the <a href="http://www.korean.go.kr/06_new/rule/rule06.jsp">Korean 
+					Ministry of Culture &amp; Tourism Transliteration</a> regulations (see also
 					<a href="http://www.korea.net/korea/kor_loca.asp?code=A020303">English summary</a>). 
-					There is an optional clause 8 variant for 
-					reversibility:</p>
+					There is an optional clause 8 variant for reversibility:</p>
 					<blockquote>
 						<p>&quot;제 8 항 학술 연구 논문 등 특수 분야에서 한글 복원을 전제로 표기할 경우에는 한글 표기를 대상으로 적는다. 이때 글자 대응은 
-						제2장을 따르되 &#39;ㄱ, ㄷ, ㅂ, ㄹ&#39;은 &#39;g, d, b, l&#39;로만 적는다. 음가 없는 &#39;ㅇ&#39;은 붙임표(-)로 표기하되 어두에서는 
-						생략하는 것을 원칙으로 한다. 기타 분절의 필요가 있을 때에도 붙임표(-)를 쓴다.&quot;</p>
-						<p><i>translation: </i>&quot;Clause 8: When it is required to recover the 
-						original Hangul representation faithfully as in scholarly articles, &#39; ㄱ, ㄷ, 
-						ㅂ, ㄹ&#39; must be always romanized as &#39;g, d, b, l&#39; while the mapping for the 
-						rest of the letters remains the same as specified in clause 2. The 
-						placeholder &#39;ㅇ&#39; at the beginning of a syllable should be represented with 
-						&#39;-&#39;, but should be omitted at the beginning of a word. In addition, &#39;-&#39; 
-						should be used in other cases where a syllable boundary needs to be 
-						explicitly marked (be disambiguated.&quot;</p>
+						제2장을 따르되 'ㄱ, ㄷ, ㅂ, ㄹ'은 'g, d, b, l'로만 적는다. 음가 없는 'ㅇ'은 붙임표(-)로 표기하되 어두에서는 생략하는 
+						것을 원칙으로 한다. 기타 분절의 필요가 있을 때에도 붙임표(-)를 쓴다.&quot;</p>
+						<p><i>translation: </i>&quot;Clause 8: When it is required to recover the original 
+						Hangul representation faithfully as in scholarly articles, ' ㄱ, ㄷ, ㅂ, ㄹ' must 
+						be always romanized as 'g, d, b, l' while the mapping for the rest of the letters 
+						remains the same as specified in clause 2. The placeholder 'ㅇ' at the beginning 
+						of a syllable should be represented with '-', but should be omitted at the beginning 
+						of a word. In addition, '-' should be used in other cases where a syllable boundary 
+						needs to be explicitly marked (be disambiguated.&quot;</p>
 					</blockquote>
-					<p>There are a number of cases where this Romanization may be 
-					ambiguous, because sometimes multiple Latin letters map to a single entity 
-					(jamo) in 
-					Hangul. This happens with vowels and consonants, the latter being slightly more 
-					complicated because there are both initial and final consonants:</p>
+					<p>There are a number of cases where this Romanization may be ambiguous, because 
+					sometimes multiple Latin letters map to a single entity (jamo) in Hangul. This happens 
+					with vowels and consonants, the latter being slightly more complicated because there 
+					are both initial and final consonants:</p>
 					<table border="1" id="table18" style="border-collapse: collapse">
+						<tbody>
 						<tr>
 							<th>Type</th>
 							<th>Multi-Character Consonants</th>
@@ -544,35 +546,37 @@ table {border-collapse: collapse}
 							<td>Final-Only</td>
 							<td>gs nj nh lg lm lb ls lt lp lh bs ng</td>
 						</tr>
-						</table>
-					<p>CLDR uses the following additional rules for disambiguation of the possible 
-					boundaries between letters, in order.</p>
+					</tbody>
+					</table>
+					<p>CLDR uses the following additional rules for disambiguation of the possible boundaries 
+					between letters, in order.</p>
 					<ol>
-						<li>Don&#39;t break between a consonant and vowel (if possible)</li>
-						<li>Don&#39;t break within Initial-Only or Initial-Or-Final sequences (if possible)</li>
+						<li>Don't break between a consonant and vowel (if possible)</li>
+						<li>Don't break within Initial-Only or Initial-Or-Final sequences (if possible)</li>
 						<li>Favor longest match first.</li>
 					</ol>
-					<p>If there is a single consonant between vowels, then Rule #1 will group it 
-					with the following vowel if there is one (this is the same as the first part of 
-					Clause 8). If there is a sequence of four consonants between vowels, then there 
-					is only one possible break (with well-formed text). So the only ambiguities lie 
-					with two or three consonants between vowels, where there are possible 
-					multi-character consonants involved. Even there, in most cases the resolution is 
-					simple, because there isn&#39;t a possible multi-character consonant in the case of 
-					two, or two possible multi-character consonants in the case of 3. For example, 
-					in the following cases, the left side is unambiguous:</p>
+					<p>If there is a single consonant between vowels, then Rule #1 will group it with 
+					the following vowel if there is one (this is the same as the first part of Clause 
+					8). If there is a sequence of four consonants between vowels, then there is only 
+					one possible break (with well-formed text). So the only ambiguities lie with two 
+					or three consonants between vowels, where there are possible multi-character consonants 
+					involved. Even there, in most cases the resolution is simple, because there isn't 
+					a possible multi-character consonant in the case of two, or two possible multi-character 
+					consonants in the case of 3. For example, in the following cases, the left side 
+					is unambiguous:</p>
 					<blockquote>
-						<p>angda = ang-da → 앙다<br>
+						<p>angda = ang-da → 앙다<br />
 						apda = ap-da → 앞다</p>
 					</blockquote>
-					<p>There are a relatively small number of possible problem cases, listed below 
-					using &quot;a&quot; as a sample vowel.</p>
+					<p>There are a relatively small number of possible problem cases, listed below using 
+					&quot;a&quot; as a sample vowel.</p>
 					<table border="1" id="table17" style="border-collapse: collapse" cellspacing="0" cellpadding="2">
+						<tbody>
 						<tr>
-							<th align="left">No. of<br>
+							<th align="left">No. of<br />
 							Cons. </th>
 							<th align="left">Latin</th>
-							<th align="left">CLDR<br>
+							<th align="left">CLDR<br />
 							Disambiguation</th>
 							<th align="left">Hangul</th>
 							<th colspan="2" align="left">Comments</th>
@@ -721,18 +725,21 @@ table {border-collapse: collapse}
 							<td><code>= ass-sa</code></td>
 							<td>았사</td>
 						</tr>
-						</table>
-					<p>For vowel sequences, the situation is simpler. Only Rule #3 applies, so aeo = ae-o → 애오.</p>
+					</tbody>
+					</table>
+					<p>For vowel sequences, the situation is simpler. Only Rule #3 applies, so aeo = 
+					ae-o → 애오.</p>
 					<h3>Japanese</h3>
 					<p>The default transliteration for Japanese uses the a slight variant of the Hepburn 
-					system. With Hepburn system, both  ZI (ジ) and DI (ヂ) are represented by &quot;ji&quot; and 
+					system. With Hepburn system, both ZI (ジ) and DI (ヂ) are represented by &quot;ji&quot; and 
 					both ZU (ズ) and DU (ヅ) are represented by &quot;zu&quot;. This is amended slightly for reversibility 
 					by using &quot;dji&quot; for DI and &quot;dzu&quot; for DU.</p>
 					<h3>Greek</h3>
 					<p>The default transliteration uses a standard transcription for Greek which is 
 					aimed at preserving etymology. The ISO 843 variant includes following differences:
 					</p>
-					<table id="table10" border="1" th>
+					<table id="table10" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Greek</th>
 							<th>Default</th>
@@ -768,6 +775,7 @@ table {border-collapse: collapse}
 							<td>~</td>
 							<td>(omitted)</td>
 						</tr>
+					</tbody>
 					</table>
 					<p>* before γ, κ, ξ, χ </p>
 					<h3>Cyrillic</h3>
@@ -783,7 +791,8 @@ table {border-collapse: collapse}
 					for certain characters. These differences are shown in the following example (illustrated 
 					with Devanagari, although the same principles apply to the other Indic scripts):
 					</p>
-					<table id="table11" border="1" th>
+					<table id="table11" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Devanagari</th>
 							<th>ISCII 91</th>
@@ -819,10 +828,12 @@ table {border-collapse: collapse}
 							<td>d̂a</td>
 							<td>ṛa</td>
 						</tr>
+					</tbody>
 					</table>
-					<p>Transliteration rules from Indic to Latin are reversible with the exception of the ZWJ and 
-					ZWNJ used to request explicit rendering effects. For example:</p>
-					<table id="table13" border="1" th>
+					<p>Transliteration rules from Indic to Latin are reversible with the exception of 
+					the ZWJ and ZWNJ used to request explicit rendering effects. For example:</p>
+					<table id="table13" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Devanagari</th>
 							<th>Romanization</th>
@@ -843,14 +854,16 @@ table {border-collapse: collapse}
 							<td>kṣa</td>
 							<td>half-consonant requested</td>
 						</tr>
+					</tbody>
 					</table>
-					<p>Transliteration between Indic scripts are roundtrip where there are 
-					corresponding letters. Otherwise, there may be fallbacks.</p>
+					<p>Transliteration between Indic scripts are roundtrip where there are corresponding 
+					letters. Otherwise, there may be fallbacks.</p>
 					<p>There are two particular instances where transliterations may produce unexpected 
 					results: (1) where the final vowel is suppressed in speech, and (2) with the transliteration 
-					of &#39;c&#39;. </p>
+					of 'c'. </p>
 					<p>For example:</p>
-					<table id="table14" border="1" th>
+					<table id="table14" border="1" th="">
+						<tbody>
 						<tr>
 							<th>Devanagari</th>
 							<th style="vertical-align: top">Romanization</th>
@@ -864,8 +877,7 @@ table {border-collapse: collapse}
 						<tr>
 							<td>सेनगुप्त</td>
 							<td style="vertical-align: top">Sēnagupta</td>
-							<td style="vertical-align: top">The final &#39;a&#39; is not 
-							pronounced</td>
+							<td style="vertical-align: top">The final 'a' is not pronounced</td>
 						</tr>
 						<tr>
 							<td style="vertical-align: top">मोनिक</td>
@@ -875,28 +887,29 @@ table {border-collapse: collapse}
 						<tr>
 							<td>मोनिच</td>
 							<td style="vertical-align: top">Monica</td>
-							<td style="vertical-align: top">The &#39;c&#39; is pronounced 
-							&quot;ch&quot;</td>
+							<td style="vertical-align: top">The 'c' is pronounced &quot;ch&quot;</td>
 						</tr>
-						</table>
+					</tbody>
+					</table>
 					<h3>BGN / UNGEGN</h3>
 					<p>Unicode CLDR provides other transliterations based on the
-					<a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a> (BGN) 
-					transliterations. These are currently unidirectional -- to Latin only. The goal is to make 
-					them bidirectional in future versions of CLDR.</p>
+					<a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a> (BGN) transliterations. 
+					These are currently unidirectional -- to Latin only. The goal is to make them bidirectional 
+					in future versions of CLDR.</p>
 					<p>Other transliterations are generally based on the
 					<a href="http://www.eki.ee/wgrs/">UNGEGN: Working Group on Romanization Systems</a> 
 					transliterations.</p>
 					<h2>Modifications</h2>
-					<p>It is easy to use the CLDR rule structure to create variants of the default 
-					transliterations. For example, 
-					to create a variant of Korean that uses a right curly quote instead of apostrophes, 
-					use the following rules:</p>
+					<p>It is easy to use the CLDR rule structure to create variants of the default transliterations. 
+					For example, to create a variant of Korean that uses a right curly quote instead 
+					of apostrophes, use the following rules:</p>
 					<table cellspacing="0" cellpadding="8" border="1" id="table15">
+						<tbody>
 						<tr>
-							<td valign="top" bgcolor="#eeeeee">:: Latin-Hangul ;<br>
-							&#39;-&#39; &lt;&gt; &#39;’&#39; ;</td>
+							<td valign="top" bgcolor="#eeeeee">:: Latin-Hangul ;<br />
+							'-' &lt;&gt; '’' ;</td>
 						</tr>
+					</tbody>
 					</table>
 					<h2>More Information</h2>
 					<p>For more information, see:</p>
@@ -904,8 +917,7 @@ table {border-collapse: collapse}
 						<li><a href="http://geonames.usgs.gov/">U.S. Board on Geographic Names</a></li>
 						<li><a href="http://www.eki.ee/wgrs/">UNGEGN: Working Group on Romanization 
 						Systems</a><ul>
-							<li>(UNGEGN is for UNITED NATIONS GROUP OF EXPERTS ON GEOGRAPHICAL 
-							NAMES)</li>
+							<li>(UNGEGN is for UNITED NATIONS GROUP OF EXPERTS ON GEOGRAPHICAL NAMES)</li>
 						</ul>
 						</li>
 						<li><a href="http://transliteration.eki.ee/">Transliteration of Non-Roman Alphabets 
@@ -920,28 +932,33 @@ table {border-collapse: collapse}
 						</li>
 						<li><a href="http://www.cdacindia.com/html/gist/down/iscii_d.asp">ISCII-91</a>
 						</li>
-						<li><a href="http://www.unicode.org/reports/tr35/">UTS 
-				#35: Locale Data Markup Language (LDML)</a></li>
+						<li><a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data Markup 
+						Language (LDML)</a></li>
 					</ul>
 				</div>
 				</td>
 			</tr>
+		</tbody>
 		</table>
 		<hr width="50%" />
 		<div align="center">
 			<center>
 			<table cellspacing="0" cellpadding="0" border="0">
+				<tbody>
 				<tr>
 					<td><a href="http://www.unicode.org/copyright.html">
 					<img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use" width="216" height="50" /></a></td>
 				</tr>
+			</tbody>
 			</table>
 			<script language="Javascript" type="text/javascript" src="http://www.unicode.org/webscripts/lastModified.js">
+			
 			
       </script>
 			</center></div>
 		</td>
 	</tr>
+</tbody>
 </table>
 
 </body>

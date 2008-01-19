@@ -536,10 +536,10 @@ table {border-collapse: collapse}
 							<td>gs nj nh lg lm lb ls lt lp lh bs ng</td>
 						</tr>
 					</table>
-					<p>CLDR uses the following additional rules for disambiguation of the possible boundaries 
-					between letters, in order.</p>
+					<p>CLDR uses the following rules for disambiguation of the possible boundaries 
+					between letters, in order. The first rule comes from Clause 8.</p>
 					<ol>
-						<li>Don&#39;t break between a consonant and vowel (if possible)</li>
+						<li>Don&#39;t break so as to require an implicit vowel or null consonant (if possible)</li>
 						<li>Don&#39;t break within Initial-Only or Initial-Or-Final sequences (if possible)</li>
 						<li>Favor longest match first.</li>
 					</ol>
@@ -556,7 +556,7 @@ table {border-collapse: collapse}
 						<p>angda = ang-da → 앙다<br />
 						apda = ap-da → 앞다</p>
 					</blockquote>
-					<p>There are a relatively small number of possible problem cases, listed below using 
+					<p>There are a relatively small number of possible ambiguities, listed below using 
 					&quot;a&quot; as a sample vowel.</p>
 					<table border="1" id="table17" style="border-collapse: collapse" cellspacing="0" cellpadding="2">
 						<tr>
@@ -573,7 +573,7 @@ table {border-collapse: collapse}
 							<td><code>atta</code></td>
 							<td><code>= a-tta</code></td>
 							<td>아따</td>
-							<td colspan="2" rowspan="3">Rules 1, then 2</td>
+							<td colspan="2" rowspan="3">Rule 1, then 2</td>
 						</tr>
 						<tr>
 							<td><code>appa</code></td>
@@ -589,7 +589,7 @@ table {border-collapse: collapse}
 							<td><code>akka</code></td>
 							<td><code>= a-kka</code></td>
 							<td>아까</td>
-							<td colspan="2" rowspan="3">Rules 1, then 2</td>
+							<td colspan="2" rowspan="3">Rule 1, then 2</td>
 						</tr>
 						<tr>
 							<td><code>assa</code></td>
@@ -605,7 +605,7 @@ table {border-collapse: collapse}
 							<td><code>agsa </code></td>
 							<td><code>= ag-sa</code></td>
 							<td>악사</td>
-							<td colspan="2" rowspan="12">Rules 1, then 2, then 3</td>
+							<td colspan="2" rowspan="12">Rule 1</td>
 						</tr>
 						<tr>
 							<td><code>anja </code></td>
@@ -667,7 +667,7 @@ table {border-collapse: collapse}
 							<td><code>agssa </code></td>
 							<td><code>= ag-ssa</code></td>
 							<td>악싸</td>
-							<td colspan="2" rowspan="4">Rules 1, then 2</td>
+							<td colspan="2" rowspan="4">Rule 1, then 2</td>
 						</tr>
 						<tr>
 							<td><code>anjja </code></td>
@@ -688,7 +688,7 @@ table {border-collapse: collapse}
 							<td><code>akkka </code></td>
 							<td><code>= akk-ka</code></td>
 							<td>앆카</td>
-							<td colspan="2" rowspan="2">Rules 1, then 2, then 3</td>
+							<td colspan="2" rowspan="2">Rule 1, then 2, then 3</td>
 						</tr>
 						<tr>
 							<td><code>asssa </code></td>
@@ -696,8 +696,8 @@ table {border-collapse: collapse}
 							<td>았사</td>
 						</tr>
 						<tr>
-							<td colspan="3"><i>Known bugs*:</i></td>
-							<td colspan="2"><i>Should be: </i>Rules 1, then 2</td>
+							<td colspan="3"><i>Known bugs*</i></td>
+							<td colspan="2"><i>Should be Rule 1, then 2</i></td>
 						</tr>
 						<tr>
 							<td style="vertical-align: top; border-color: #EEEEEE; padding: 2px"><code>altta </code></td>
@@ -714,8 +714,9 @@ table {border-collapse: collapse}
 							<td>알빠</td>
 						</tr>
 					</table>
-					<p><font size="2">* There is one other known bug, where &quot;ch&quot; transliterates 
-					incorrectly in the degenerate case, when not followed by a vowel.</font></p>
+					<p><font size="2">* There is one other known bug in CLDR 1.5.1, where &quot;ch&quot; 
+					transliterates incorrectly in the degenerate case<font face="Arial"> — </font>
+					when not followed by a vowel.</font></p>
 					<p>For vowel sequences, the situation is simpler. Only Rule #3 applies, so aeo = 
 					ae-o → 애오.</p>
 					<h3>Japanese</h3>

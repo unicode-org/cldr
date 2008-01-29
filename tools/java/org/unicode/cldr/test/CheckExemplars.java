@@ -6,11 +6,15 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterDirection;
 import com.ibm.icu.util.ULocale;
 
 public class CheckExemplars extends CheckCLDR {
@@ -22,6 +26,7 @@ public class CheckExemplars extends CheckCLDR {
 	static final UnicodeSet AllowedInExemplars = new UnicodeSet(AlwaysOK).complement()
 		.removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]"));
+
 	//Allowed[:script=common:][:script=inherited:][:alphabetic=false:]
 	
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
@@ -43,6 +48,7 @@ public class CheckExemplars extends CheckCLDR {
 
         // check relation to auxiliary set
         try {       	
+        	UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
         	if (path.indexOf("auxiliary") < 0) {
         		// check for auxiliary anyway
         		
@@ -56,7 +62,6 @@ public class CheckExemplars extends CheckCLDR {
         		
         	} else { // auxiliary
         		UnicodeSet auxiliarySet = new UnicodeSet(value);
-        		UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
         		if (auxiliarySet.containsSome(mainSet)) {
         			UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
         			if (overlap.size() != 0) {
@@ -66,6 +71,28 @@ public class CheckExemplars extends CheckCLDR {
         			}
         		}
         	}
+
+                Boolean localeIsRTL = false;
+                String opath = getResolvedCldrFileToCheck().getFullXPath("//ldml/layout/orientation");
+                XPathParts oparts = new XPathParts(null,null);
+                oparts.initialize(opath);
+                String lelement = oparts.getElement(-1);
+                String charOrientation = oparts.findAttributeValue(lelement,"characters");
+                if ( charOrientation.equals("right-to-left")) {
+                   localeIsRTL = true;
+                }
+
+                UnicodeSetIterator mi = new UnicodeSetIterator(mainSet);
+                while (mi.next()) {
+		   if ( mi.codepoint != UnicodeSetIterator.IS_STRING && 
+                       ( UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT ||
+                         UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC ) &&
+                         ! localeIsRTL ) {
+        	       result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+        	             .setMessage("Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
+                       break;
+                   }
+                }
         } catch (Exception e) {} // if these didn't parse, checkExemplar will be called anyway at some point
  		return this;
 	}

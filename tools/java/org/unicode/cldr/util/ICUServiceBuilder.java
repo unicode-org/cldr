@@ -519,9 +519,18 @@ public class ICUServiceBuilder {
     symbols.setPlusSign(getSymbolCharacter("plusSign"));
     symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
     
-    symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
-    symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
-    
+    try {
+        symbols.setMonetaryDecimalSeparator(getSymbolCharacter("currencyDecimal"));
+    } catch (IllegalArgumentException e) {
+        symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
+    }
+
+    try {
+        symbols.setMonetaryGroupingSeparator(getSymbolCharacter("currencyGroup"));
+    } catch (IllegalArgumentException e) {
+        symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
+    }
+
     String prefix = "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/";
     beforeCurrencyMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "currencyMatch"));
     beforeSurroundingMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "surroundingMatch"));

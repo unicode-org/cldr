@@ -134,8 +134,12 @@ table {border-collapse: collapse}
 				<div class="body">
 					<h1 align="center">Unicode Transliteration Guidelines</h1>
 					<br />
-					<p><i>This document describes guidelines for the creation and use of CLDR transliterations. 
-					Please file any feedback at
+					<p><i>This document describes guidelines for the creation and use of CLDR 
+					transliterations. <span style="background-color: #FFFF00">Preliminary
+					<a href="http://www.unicode.org/cldr/data/charts/transforms/index.html">charts</a> 
+					are available for the available transliterations -- be sure to read the known issues 
+					there.</span> Please file any feedback <span style="background-color: #FFFF00">
+					on this document or those charts</span> at
 					<a href="http://www.unicode.org/cldr/bugs/locale-bugs">Locale Bugs</a>.</i></p>
 					<table border="1" width="33%" id="table21" cellspacing="0" cellpadding="2" style="border-collapse: collapse; float: right; margin:1em; border-color:#BB0000">
 						<tr>
@@ -996,22 +1000,24 @@ table {border-collapse: collapse}
 						</tr>
 					</table>
 					<h2><span style="background-color: #FFFF00">Submitting Transliterations</span></h2>
-					<p><span style="background-color: #FFFF00">For submission to CLDR, the data 
-					needs to supplied in the correct XML format. It is best if the results are 
-					tested using the online demo first, since if the data doesn&#39;t validate it would 
-					not be incorporated. As mentioned above, even if a transliteration is only used 
-					in certain countries or contexts CLDR can provide for them with different 
-					variant tags. If you are interested in providing transliterations for one or 
+					<p><span style="background-color: #FFFF00">If you are interested in providing transliterations for one or 
 					more scripts, file an initial bug report at </span><i>
 					<a href="http://www.unicode.org/cldr/bugs/locale-bugs">
-					<span style="background-color: #FFFF00">Locale Bugs</span></a></i><span style="background-color: #FFFF00">, 
-					and someone will help you through the process. You can also file a bug there if 
+					<span style="background-color: #FFFF00">Locale Bugs</span></a></i><span style="background-color: #FFFF00">. You can also file a bug there if 
 					you find a problem in an existing transliteration.</span></p>
+					<p><span style="background-color: #FFFF00">For submission to CLDR, the data 
+					needs to supplied in the correct XML format, and should follow an accepted 
+					standard. It is best if the results are 
+					tested using the <i> <a href="http://demo.icu-project.org/icu-bin/translit">ICU 
+					Transform Demo</a></i> first, since if the data doesn&#39;t validate it would 
+					not be accepted into CLDR. As mentioned above, even if a transliteration is only used 
+					in certain countries or contexts CLDR can provide for them with different 
+					variant tags.</span></p>
 					<p><span style="background-color: #FFFF00">The format for rules is specified in 
 					</span>
 					<a target="_blank" href="http://www.unicode.org/reports/tr35/#Transform_Rules">
 					<span style="background-color: #FFFF00">Transform_Rules</span></a><span style="background-color: #FFFF00">. 
-					The XML format is just a series of rules and comments. You can see what is 
+					The XML format is just a series of rules and comments. For comparison, you can see what is 
 					currently in CLDR in the </span>
 					<a target="_blank" href="http://www.unicode.org/cldr/data/common/transforms/">
 					<span style="background-color: #FFFF00">transforms</span></a><span style="background-color: #FFFF00"> 

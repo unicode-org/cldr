@@ -10,7 +10,7 @@
 			<tRule>$space = ' ' ;</tRule>
 			<tRule>$double = \&quot; ;</tRule>
 			<tRule>$back = \` ;</tRule>
-			<tRule>$tab = '\u0008' ;</tRule>
+			<tRule>$tab = \u0008 ;</tRule>
 			<tRule>$makeRight = [[:Z:][:Ps:][:Pi:]$] ;</tRule>
 			<comment># fix UNIX quotes</comment>
 			<tRule>$back $back → “ ;</tRule>

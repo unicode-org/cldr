@@ -1,20 +1,33 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
-Steven R. Loomis srl@icu-project.org.    Updated 2007 Jan 25
-Copyright 2007 IBM and others. All Rights Reserved
+Steven R. Loomis srl@icu-project.org.    Updated 2008 Jan 25
+Copyright 2007-2008 IBM and others. All Rights Reserved
 ------------------------------------------------------------
+
+
+-1. ABOUT THIS DOCUMENT:
+  This document is directed towards the building, compilation
+and basic installation of the Survey Tool.  Please see 'stops.txt'
+in this directory for the operation of survey tool.
+
+  As of January 2008, (before CLDR 1.6 opens), I think this 
+documentation is more or less accurate. It hasn't been tried from start
+to finish on the current code base.
+
 
 0. Prerequisite: General CLDR Tools issues
   See the readme at cldr/tools/java/readme.txt
 
 1. Survey Tool Requirements:
 
+* Java 1.5 - 
 * Ant 1.7
 * Tomcat 6.0.8+  http://tomcat.apache.org 
   - Download and install
   -  place catalina-ant.jar into Ant's lib/ directory
      Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
 * Apache Derby 10.2.2.0+  http://db.apache.org/derby/
-* International Classes for Unicode, for Java  (icu4j) plus Utilities, 3.6+
+* International Classes for Unicode, for Java  (icu4j) plus Utilities,
+  3.6+   (Note: Should update to 3.8)
   RECOMMENDED: use pre-built binaries
   - for CLDR 1.4 see http://unicode.org/Public/cldr/1.4/tools/readme.txt
      ( cldr-utilities-1_4.jar is in that directory, and ICU4J 3.6 is available from

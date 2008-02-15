@@ -33,8 +33,41 @@ your votes have 'override' capability.
 
 II. Administrative override
 
-  As the administrative account has override capability, it is possible to break ties.
+  As the administrative account has override capability, it is possible to break
+ties.  As well, another user named "Admin Override" was added, with level zero 
+(admin). In theory it has full administrator access as well. However, we have 
+given its access out to a select few TC members, with the express instruction
+that they were not to play with any of the other buttons, but just to cast the
+overriding votes where the TC had decided to do so. 
 
+III. SQL: "more than enough rope"
 
-** Officiality
-  
+  The SQL interface provides access to more or less anything that the admin
+interface does not cover.  It is both powerful and dangerous and will be covered
+separately.  SQL access does not actually require a login, but uses a special URL which includes the admin password. So, SQL activity can be done without logging in if the URL is kept.
+
+IV. User panel
+
+  The "Manage users for.." link works for the Admin user as it does for others,
+however all users are visible, not just those of one organization.  There are a few extra options, as well.
+
+V. Administrative panel
+
+   The "Admin" link in the top right corner brings up the "SurveyTool Administration" panel. It has two levels, the "main" level (fairly safe), and the "EXPERT" level (dangerous, possibly experimental). The EXPERT-ADMIN-use-only link brings up the additional items.
+
+   As with SQL, Admin does not actually require a login, but uses a special URL which includes the admin password. So, Admin activity can be done without logging in if the URL is kept.
+
+** 2. Configuration
+
+I. Officiality
+
+   By default, the ST runs in "unofficial mode" and declares itself to be so with a banner.  A configuration switch (????) turns this off, to declare itself as official.
+
+II. Phases
+
+   The "Phases" (vetting, submission, etc) are currently controlled by code changes in SurveyMain.java ... 
+
+III. Closing for maintenance 
+
+   Various messages can be shown to users either by configuration parameters, or  at run-time.
+

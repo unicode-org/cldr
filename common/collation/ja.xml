@@ -10,9 +10,9 @@
 		<collation type="standard">
 			<settings strength="tertiary" hiraganaQuarternary="on"  />
 			<rules>
-				<reset>ヽ</reset>
-				<ic>ヽゝ</ic>
-				<reset before="tertiary">ァ</reset>
+				<reset>ヽ</reset> <!-- \u30FD -->
+				<i>ゝ</i> <!-- \u309D -->
+				<reset before="tertiary">ァ</reset> <!-- \u30A1 SMALL A -->
 				<x><context>ァ</context><t>ー</t></x>
 				<x><context>ｧ</context><i>ー</i></x>
 				<x><context>ぁ</context><i>ー</i></x>
@@ -22,6 +22,7 @@
 				<x><context>カ</context><i>ー</i></x>
 				<x><context>ｶ</context><i>ー</i></x>
 				<x><context>か</context><i>ー</i></x>
+				<x><context>ゕ</context><i>ー</i></x> <!-- \u3095 -->
 				<x><context>ガ</context><i>ー</i></x>
 				<x><context>が</context><i>ー</i></x>
 				<x><context>サ</context><i>ー</i></x>
@@ -39,6 +40,7 @@
 				<x><context>な</context><i>ー</i></x>
 				<x><context>ハ</context><i>ー</i></x>
 				<x><context>ﾊ</context><i>ー</i></x>
+				<x><context>ㇵ</context><i>ー</i></x> <!-- \u31F5 -->
 				<x><context>は</context><i>ー</i></x>
 				<x><context>バ</context><i>ー</i></x>
 				<x><context>ば</context><i>ー</i></x>
@@ -55,6 +57,7 @@
 				<x><context>や</context><i>ー</i></x>
 				<x><context>ラ</context><i>ー</i></x>
 				<x><context>ﾗ</context><i>ー</i></x>
+				<x><context>ㇻ</context><i>ー</i></x> <!-- \u31FB -->
 				<x><context>ら</context><i>ー</i></x>
 				<x><context>ヮ</context><i>ー</i></x>
 				<x><context>ゎ</context><i>ー</i></x>
@@ -63,7 +66,7 @@
 				<x><context>わ</context><i>ー</i></x>
 				<x><context>ヵ</context><i>ー</i></x>
 				<x><context>ヷ</context><i>ー</i></x>
-				<reset before="tertiary">ィ</reset>
+				<reset before="tertiary">ィ</reset> <!-- \u30A3 SMALL I -->
 				<x><context>ィ</context><t>ー</t></x>
 				<x><context>ｨ</context><i>ー</i></x>
 				<x><context>ぃ</context><i>ー</i></x>
@@ -77,6 +80,7 @@
 				<x><context>ぎ</context><i>ー</i></x>
 				<x><context>シ</context><i>ー</i></x>
 				<x><context>ｼ</context><i>ー</i></x>
+				<x><context>ㇱ</context><i>ー</i></x> <!-- \u31F1 -->
 				<x><context>し</context><i>ー</i></x>
 				<x><context>ジ</context><i>ー</i></x>
 				<x><context>じ</context><i>ー</i></x>
@@ -90,6 +94,7 @@
 				<x><context>に</context><i>ー</i></x>
 				<x><context>ヒ</context><i>ー</i></x>
 				<x><context>ﾋ</context><i>ー</i></x>
+				<x><context>ㇶ</context><i>ー</i></x> <!-- \u31F6 -->
 				<x><context>ひ</context><i>ー</i></x>
 				<x><context>ビ</context><i>ー</i></x>
 				<x><context>び</context><i>ー</i></x>
@@ -100,11 +105,12 @@
 				<x><context>み</context><i>ー</i></x>
 				<x><context>リ</context><i>ー</i></x>
 				<x><context>ﾘ</context><i>ー</i></x>
+				<x><context>ㇼ</context><i>ー</i></x> <!-- \u31FC -->
 				<x><context>り</context><i>ー</i></x>
 				<x><context>ヰ</context><i>ー</i></x>
 				<x><context>ゐ</context><i>ー</i></x>
 				<x><context>ヸ</context><i>ー</i></x>
-				<reset before="tertiary">ゥ</reset>
+				<reset before="tertiary">ゥ</reset> <!-- \u30A5 SMALL U -->
 				<x><context>ゥ</context><t>ー</t></x>
 				<x><context>ｩ</context><i>ー</i></x>
 				<x><context>ぅ</context><i>ー</i></x>
@@ -113,11 +119,13 @@
 				<x><context>う</context><i>ー</i></x>
 				<x><context>ク</context><i>ー</i></x>
 				<x><context>ｸ</context><i>ー</i></x>
+				<x><context>ㇰ</context><i>ー</i></x> <!-- \u31F0 -->
 				<x><context>く</context><i>ー</i></x>
 				<x><context>グ</context><i>ー</i></x>
 				<x><context>ぐ</context><i>ー</i></x>
 				<x><context>ス</context><i>ー</i></x>
 				<x><context>ｽ</context><i>ー</i></x>
+				<x><context>ㇲ</context><i>ー</i></x> <!-- \u31F2 -->
 				<x><context>す</context><i>ー</i></x>
 				<x><context>ズ</context><i>ー</i></x>
 				<x><context>ず</context><i>ー</i></x>
@@ -131,9 +139,11 @@
 				<x><context>づ</context><i>ー</i></x>
 				<x><context>ヌ</context><i>ー</i></x>
 				<x><context>ﾇ</context><i>ー</i></x>
+				<x><context>ㇴ</context><i>ー</i></x> <!-- \u31F4 -->
 				<x><context>ぬ</context><i>ー</i></x>
 				<x><context>フ</context><i>ー</i></x>
 				<x><context>ﾌ</context><i>ー</i></x>
+				<x><context>ㇷ</context><i>ー</i></x> <!-- \u31F7 -->
 				<x><context>ふ</context><i>ー</i></x>
 				<x><context>ブ</context><i>ー</i></x>
 				<x><context>ぶ</context><i>ー</i></x>
@@ -141,6 +151,7 @@
 				<x><context>ぷ</context><i>ー</i></x>
 				<x><context>ム</context><i>ー</i></x>
 				<x><context>ﾑ</context><i>ー</i></x>
+				<x><context>ㇺ</context><i>ー</i></x> <!-- \u31FA -->
 				<x><context>む</context><i>ー</i></x>
 				<x><context>ュ</context><i>ー</i></x>
 				<x><context>ｭ</context><i>ー</i></x>
@@ -150,10 +161,11 @@
 				<x><context>ゆ</context><i>ー</i></x>
 				<x><context>ル</context><i>ー</i></x>
 				<x><context>ﾙ</context><i>ー</i></x>
+				<x><context>ㇽ</context><i>ー</i></x> <!-- \u31FD -->
 				<x><context>る</context><i>ー</i></x>
 				<x><context>ヴ</context><i>ー</i></x>
 				<x><context>ゔ</context><i>ー</i></x>
-				<reset before="tertiary">ェ</reset>
+				<reset before="tertiary">ェ</reset> <!-- \u30A7 SMALL E -->
 				<x><context>ェ</context><t>ー</t></x>
 				<x><context>ｪ</context><i>ー</i></x>
 				<x><context>ぇ</context><i>ー</i></x>
@@ -163,6 +175,7 @@
 				<x><context>ケ</context><i>ー</i></x>
 				<x><context>ｹ</context><i>ー</i></x>
 				<x><context>け</context><i>ー</i></x>
+				<x><context>ゖ</context><i>ー</i></x> <!-- \u3096 -->
 				<x><context>ゲ</context><i>ー</i></x>
 				<x><context>げ</context><i>ー</i></x>
 				<x><context>セ</context><i>ー</i></x>
@@ -180,6 +193,7 @@
 				<x><context>ね</context><i>ー</i></x>
 				<x><context>ヘ</context><i>ー</i></x>
 				<x><context>ﾍ</context><i>ー</i></x>
+				<x><context>ㇸ</context><i>ー</i></x> <!-- \u31F8 -->
 				<x><context>へ</context><i>ー</i></x>
 				<x><context>ベ</context><i>ー</i></x>
 				<x><context>べ</context><i>ー</i></x>
@@ -190,12 +204,13 @@
 				<x><context>め</context><i>ー</i></x>
 				<x><context>レ</context><i>ー</i></x>
 				<x><context>ﾚ</context><i>ー</i></x>
+				<x><context>ㇾ</context><i>ー</i></x> <!-- \u31FE -->
 				<x><context>れ</context><i>ー</i></x>
 				<x><context>ヱ</context><i>ー</i></x>
 				<x><context>ゑ</context><i>ー</i></x>
 				<x><context>ヶ</context><i>ー</i></x>
 				<x><context>ヹ</context><i>ー</i></x>
-				<reset before="tertiary">ォ</reset>
+				<reset before="tertiary">ォ</reset> <!-- \u30A9 SMALL O -->
 				<x><context>ォ</context><t>ー</t></x>
 				<x><context>ｫ</context><i>ー</i></x>
 				<x><context>ぉ</context><i>ー</i></x>
@@ -214,6 +229,7 @@
 				<x><context>ぞ</context><i>ー</i></x>
 				<x><context>ト</context><i>ー</i></x>
 				<x><context>ﾄ</context><i>ー</i></x>
+				<x><context>ㇳ</context><i>ー</i></x> <!-- \u31F3 -->
 				<x><context>と</context><i>ー</i></x>
 				<x><context>ド</context><i>ー</i></x>
 				<x><context>ど</context><i>ー</i></x>
@@ -222,6 +238,7 @@
 				<x><context>の</context><i>ー</i></x>
 				<x><context>ホ</context><i>ー</i></x>
 				<x><context>ﾎ</context><i>ー</i></x>
+				<x><context>ㇹ</context><i>ー</i></x> <!-- \u31F9 -->
 				<x><context>ほ</context><i>ー</i></x>
 				<x><context>ボ</context><i>ー</i></x>
 				<x><context>ぼ</context><i>ー</i></x>
@@ -238,26 +255,27 @@
 				<x><context>よ</context><i>ー</i></x>
 				<x><context>ロ</context><i>ー</i></x>
 				<x><context>ﾛ</context><i>ー</i></x>
+				<x><context>ㇿ</context><i>ー</i></x> <!-- \u31FF -->
 				<x><context>ろ</context><i>ー</i></x>
 				<x><context>ヲ</context><i>ー</i></x>
 				<x><context>ｦ</context><i>ー</i></x>
 				<x><context>を</context><i>ー</i></x>
 				<x><context>ヺ</context><i>ー</i></x>
-				<reset before="tertiary">ア</reset>
+				<reset before="tertiary">ア</reset> <!-- \u30A2 A -->
 				<x><context>ア</context><t>ヽ</t></x>
 				<x><context>ｱ</context><i>ヽ</i></x>
 				<x><context>あ</context><i>ゝ</i></x>
 				<x><context>ァ</context><i>ヽ</i></x>
 				<x><context>ｧ</context><i>ヽ</i></x>
 				<x><context>ぁ</context><i>ゝ</i></x>
-				<reset before="tertiary">イ</reset>
+				<reset before="tertiary">イ</reset> <!-- \u30A4 I -->
 				<x><context>イ</context><t>ヽ</t></x>
 				<x><context>ｲ</context><i>ヽ</i></x>
 				<x><context>い</context><i>ゝ</i></x>
 				<x><context>ィ</context><i>ヽ</i></x>
 				<x><context>ｨ</context><i>ヽ</i></x>
 				<x><context>ぃ</context><i>ゝ</i></x>
-				<reset before="tertiary">ウ</reset>
+				<reset before="tertiary">ウ</reset> <!-- \u30A6 U -->
 				<x><context>ウ</context><t>ヽ</t></x>
 				<x><context>ｳ</context><i>ヽ</i></x>
 				<x><context>う</context><i>ゝ</i></x>
@@ -274,29 +292,30 @@
 				<x><context>ぅ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヴ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゔ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">エ</reset>
+				<reset before="tertiary">エ</reset> <!-- \u30A8 E -->
 				<x><context>エ</context><t>ヽ</t></x>
 				<x><context>ｴ</context><i>ヽ</i></x>
 				<x><context>え</context><i>ゝ</i></x>
 				<x><context>ェ</context><i>ヽ</i></x>
 				<x><context>ｪ</context><i>ヽ</i></x>
 				<x><context>ぇ</context><i>ゝ</i></x>
-				<reset before="tertiary">オ</reset>
+				<reset before="tertiary">オ</reset> <!-- \u30AA O -->
 				<x><context>オ</context><t>ヽ</t></x>
 				<x><context>ｵ</context><i>ヽ</i></x>
 				<x><context>お</context><i>ゝ</i></x>
 				<x><context>ォ</context><i>ヽ</i></x>
 				<x><context>ｫ</context><i>ヽ</i></x>
 				<x><context>ぉ</context><i>ゝ</i></x>
-				<reset before="tertiary">カ</reset>
+				<reset before="tertiary">カ</reset> <!-- \u30AB KA -->
 				<x><context>カ</context><t>ヽ</t></x>
 				<x><context>ｶ</context><i>ヽ</i></x>
 				<x><context>か</context><i>ゝ</i></x>
 				<x><context>ヵ</context><i>ヽ</i></x>
-				<reset before="tertiary">ガ</reset>
+				<x><context>ゕ</context><i>ゝ</i></x> <!-- u3095 -->
+				<reset before="tertiary">ガ</reset> <!-- \u30AC GA -->
 				<x><context>ガ</context><t>ヽ</t></x>
 				<x><context>が</context><i>ゝ</i></x>
-				<reset before="tertiary">キ</reset>
+				<reset before="tertiary">キ</reset> <!-- \u30AD KI -->
 				<x><context>キ</context><t>ヽ</t></x>
 				<x><context>ｷ</context><i>ヽ</i></x>
 				<x><context>き</context><i>ゝ</i></x>
@@ -307,26 +326,29 @@
 				<x><context>き</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ギ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぎ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ク</reset>
+				<reset before="tertiary">ク</reset> <!-- \u30AF KU -->
 				<x><context>ク</context><t>ヽ</t></x>
 				<x><context>ｸ</context><i>ヽ</i></x>
 				<x><context>く</context><i>ゝ</i></x>
+				<x><context>ㇰ</context><i>ヽ</i></x> <!-- \u31F0 -->
 				<x><context>グ</context><i>ヽ</i></x>
 				<x><context>ぐ</context><i>ゝ</i></x>
 				<x><context>ク</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｸ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>く</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇰ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F0 -->
 				<x><context>グ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぐ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ケ</reset>
+				<reset before="tertiary">ケ</reset> <!-- \u30B1 KE -->
 				<x><context>ケ</context><t>ヽ</t></x>
 				<x><context>ｹ</context><i>ヽ</i></x>
 				<x><context>け</context><i>ゝ</i></x>
 				<x><context>ヶ</context><i>ヽ</i></x>
-				<reset before="tertiary">ゲ</reset>
+				<x><context>ゖ</context><i>ゝ</i></x> <!-- \u3096 -->
+				<reset before="tertiary">ゲ</reset> <!-- \u30B2 GE -->
 				<x><context>ゲ</context><t>ヽ</t></x>
 				<x><context>げ</context><i>ゝ</i></x>
-				<reset before="tertiary">コ</reset>
+				<reset before="tertiary">コ</reset> <!-- \u30B3 KO -->
 				<x><context>コ</context><t>ヽ</t></x>
 				<x><context>ｺ</context><i>ヽ</i></x>
 				<x><context>こ</context><i>ゝ</i></x>
@@ -337,7 +359,7 @@
 				<x><context>こ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゴ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ご</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">サ</reset>
+				<reset before="tertiary">サ</reset> <!-- \u30B5 SA -->
 				<x><context>サ</context><t>ヽ</t></x>
 				<x><context>ｻ</context><i>ヽ</i></x>
 				<x><context>さ</context><i>ゝ</i></x>
@@ -348,29 +370,33 @@
 				<x><context>さ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ザ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ざ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">シ</reset>
+				<reset before="tertiary">シ</reset> <!-- \u30B7 SI -->
 				<x><context>シ</context><t>ヽ</t></x>
 				<x><context>ｼ</context><i>ヽ</i></x>
 				<x><context>し</context><i>ゝ</i></x>
+				<x><context>ㇱ</context><i>ヽ</i></x> <!-- \u31F1 -->
 				<x><context>ジ</context><i>ヽ</i></x>
 				<x><context>じ</context><i>ゝ</i></x>
 				<x><context>シ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｼ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>し</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇱ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F1 -->
 				<x><context>ジ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>じ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ス</reset>
+				<reset before="tertiary">ス</reset> <!-- \u30B9 SU -->
 				<x><context>ス</context><t>ヽ</t></x>
 				<x><context>ｽ</context><i>ヽ</i></x>
 				<x><context>す</context><i>ゝ</i></x>
+				<x><context>ㇲ</context><i>ヽ</i></x> <!-- \u31F2 -->
 				<x><context>ズ</context><i>ヽ</i></x>
 				<x><context>ず</context><i>ゝ</i></x>
 				<x><context>ス</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｽ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>す</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇲ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F2 -->
 				<x><context>ズ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ず</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">セ</reset>
+				<reset before="tertiary">セ</reset> <!-- \u30BB SE -->
 				<x><context>セ</context><t>ヽ</t></x>
 				<x><context>ｾ</context><i>ヽ</i></x>
 				<x><context>せ</context><i>ゝ</i></x>
@@ -381,7 +407,7 @@
 				<x><context>せ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゼ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぜ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ソ</reset>
+				<reset before="tertiary">ソ</reset> <!-- \u30BD SO -->
 				<x><context>ソ</context><t>ヽ</t></x>
 				<x><context>ｿ</context><i>ヽ</i></x>
 				<x><context>そ</context><i>ゝ</i></x>
@@ -392,7 +418,7 @@
 				<x><context>そ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゾ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぞ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">タ</reset>
+				<reset before="tertiary">タ</reset> <!-- \u30BF TA -->
 				<x><context>タ</context><t>ヽ</t></x>
 				<x><context>ﾀ</context><i>ヽ</i></x>
 				<x><context>た</context><i>ゝ</i></x>
@@ -403,7 +429,7 @@
 				<x><context>た</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ダ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>だ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">チ</reset>
+				<reset before="tertiary">チ</reset> <!-- \u30C1 TI -->
 				<x><context>チ</context><t>ヽ</t></x>
 				<x><context>ﾁ</context><i>ヽ</i></x>
 				<x><context>ち</context><i>ゝ</i></x>
@@ -414,7 +440,7 @@
 				<x><context>ち</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヂ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぢ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ツ</reset>
+				<reset before="tertiary">ツ</reset> <!-- \u30C4 TU -->
 				<x><context>ツ</context><t>ヽ</t></x>
 				<x><context>ﾂ</context><i>ヽ</i></x>
 				<x><context>つ</context><i>ゝ</i></x>
@@ -437,7 +463,7 @@
 				<x><context>ツ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾂ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>つ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">テ</reset>
+				<reset before="tertiary">テ</reset> <!-- \u30C6 TE -->
 				<x><context>テ</context><t>ヽ</t></x>
 				<x><context>ﾃ</context><i>ヽ</i></x>
 				<x><context>て</context><i>ゝ</i></x>
@@ -448,174 +474,193 @@
 				<x><context>て</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>デ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>で</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ト</reset>
+				<reset before="tertiary">ト</reset> <!-- \u30C8 TO -->
 				<x><context>ト</context><t>ヽ</t></x>
 				<x><context>ﾄ</context><i>ヽ</i></x>
 				<x><context>と</context><i>ゝ</i></x>
+				<x><context>ㇳ</context><i>ヽ</i></x> <!-- \u31F3 -->
 				<x><context>ド</context><i>ヽ</i></x>
 				<x><context>ど</context><i>ゝ</i></x>
 				<x><context>ト</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾄ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>と</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇳ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F3 -->
 				<x><context>ド</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ど</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ナ</reset>
+				<reset before="tertiary">ナ</reset> <!-- \u30CA NA -->
 				<x><context>ナ</context><t>ヽ</t></x>
 				<x><context>ﾅ</context><i>ヽ</i></x>
 				<x><context>な</context><i>ゝ</i></x>
-				<reset before="tertiary">ニ</reset>
+				<reset before="tertiary">ニ</reset> <!-- \u30CB NI -->
 				<x><context>ニ</context><t>ヽ</t></x>
 				<x><context>ﾆ</context><i>ヽ</i></x>
 				<x><context>に</context><i>ゝ</i></x>
-				<reset before="tertiary">ヌ</reset>
+				<reset before="tertiary">ヌ</reset> <!-- \u30CC NU -->
 				<x><context>ヌ</context><t>ヽ</t></x>
 				<x><context>ﾇ</context><i>ヽ</i></x>
 				<x><context>ぬ</context><i>ゝ</i></x>
-				<reset before="tertiary">ネ</reset>
+				<x><context>ㇴ</context><i>ヽ</i></x> <!-- \u31F4 -->
+				<reset before="tertiary">ネ</reset> <!-- \u30CD NE -->
 				<x><context>ネ</context><t>ヽ</t></x>
 				<x><context>ﾈ</context><i>ヽ</i></x>
 				<x><context>ね</context><i>ゝ</i></x>
 				<reset before="tertiary">ノ</reset>
-				<x><context>ノ</context><t>ヽ</t></x>
+				<x><context>ノ</context><t>ヽ</t></x> <!-- \u30CE NO -->
 				<x><context>ﾉ</context><i>ヽ</i></x>
 				<x><context>の</context><i>ゝ</i></x>
-				<reset before="tertiary">ハ</reset>
+				<reset before="tertiary">ハ</reset> <!-- \u30CF HA -->
 				<x><context>ハ</context><t>ヽ</t></x>
 				<x><context>ﾊ</context><i>ヽ</i></x>
 				<x><context>は</context><i>ゝ</i></x>
+				<x><context>ㇵ</context><i>ヽ</i></x> <!-- \u31F5 -->
 				<x><context>バ</context><i>ヽ</i></x>
 				<x><context>ば</context><i>ゝ</i></x>
 				<x><context>ハ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾊ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>は</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇵ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F5 -->
 				<x><context>バ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ば</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>パ</context><i>ヽ</i></x>
 				<x><context>ぱ</context><i>ゝ</i></x>
 				<x><context>パ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぱ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヒ</reset>
+				<reset before="tertiary">ヒ</reset> <!-- \u30D2 HI -->
 				<x><context>ヒ</context><t>ヽ</t></x>
 				<x><context>ﾋ</context><i>ヽ</i></x>
 				<x><context>ひ</context><i>ゝ</i></x>
+				<x><context>ㇶ</context><i>ヽ</i></x> <!-- \u31F6 -->
 				<x><context>ビ</context><i>ヽ</i></x>
 				<x><context>び</context><i>ゝ</i></x>
 				<x><context>ヒ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾋ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ひ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇶ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F6 -->
 				<x><context>ビ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>び</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ピ</context><i>ヽ</i></x>
 				<x><context>ぴ</context><i>ゝ</i></x>
 				<x><context>ピ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぴ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">フ</reset>
+				<reset before="tertiary">フ</reset> <!-- \u30D5 HU -->
 				<x><context>フ</context><t>ヽ</t></x>
 				<x><context>ﾌ</context><i>ヽ</i></x>
 				<x><context>ふ</context><i>ゝ</i></x>
+				<x><context>ㇷ</context><i>ヽ</i></x> <!-- \u31F7 -->
 				<x><context>ブ</context><i>ヽ</i></x>
 				<x><context>ぶ</context><i>ゝ</i></x>
 				<x><context>フ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾌ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ふ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇷ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F7 -->
 				<x><context>ブ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぶ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>プ</context><i>ヽ</i></x>
 				<x><context>ぷ</context><i>ゝ</i></x>
 				<x><context>プ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぷ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヘ</reset>
+				<reset before="tertiary">ヘ</reset> <!-- \u30D8 HE -->
 				<x><context>ヘ</context><t>ヽ</t></x>
 				<x><context>ﾍ</context><i>ヽ</i></x>
 				<x><context>へ</context><i>ゝ</i></x>
+				<x><context>ㇸ</context><i>ヽ</i></x> <!-- \u31F8 -->
 				<x><context>ベ</context><i>ヽ</i></x>
 				<x><context>べ</context><i>ゝ</i></x>
 				<x><context>ヘ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾍ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>へ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇸ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F8 -->
 				<x><context>ベ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>べ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ペ</context><i>ヽ</i></x>
 				<x><context>ぺ</context><i>ゝ</i></x>
 				<x><context>ペ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぺ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ホ</reset>
+				<reset before="tertiary">ホ</reset> <!-- \u30DB HO -->
 				<x><context>ホ</context><t>ヽ</t></x>
 				<x><context>ﾎ</context><i>ヽ</i></x>
 				<x><context>ほ</context><i>ゝ</i></x>
+				<x><context>ㇹ</context><i>ヽ</i></x> <!-- \u31F9 -->
 				<x><context>ボ</context><i>ヽ</i></x>
 				<x><context>ぼ</context><i>ゝ</i></x>
 				<x><context>ホ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾎ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ほ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇹ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F9 -->
 				<x><context>ボ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぼ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ポ</context><i>ヽ</i></x>
 				<x><context>ぽ</context><i>ゝ</i></x>
 				<x><context>ポ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぽ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">マ</reset>
+				<reset before="tertiary">マ</reset> <!-- \u30DE MA -->
 				<x><context>マ</context><t>ヽ</t></x>
 				<x><context>ﾏ</context><i>ヽ</i></x>
 				<x><context>ま</context><i>ゝ</i></x>
-				<reset before="tertiary">ミ</reset>
+				<reset before="tertiary">ミ</reset> <!-- \u30DF MI -->
 				<x><context>ミ</context><t>ヽ</t></x>
 				<x><context>ﾐ</context><i>ヽ</i></x>
 				<x><context>み</context><i>ゝ</i></x>
-				<reset before="tertiary">ム</reset>
+				<reset before="tertiary">ム</reset> <!-- \u30E0 MU -->
 				<x><context>ム</context><t>ヽ</t></x>
 				<x><context>ﾑ</context><i>ヽ</i></x>
 				<x><context>む</context><i>ゝ</i></x>
-				<reset before="tertiary">メ</reset>
+				<x><context>ㇺ</context><i>ヽ</i></x> <!-- \u31FA-->
+				<reset before="tertiary">メ</reset> <!-- \u30E1 ME -->
 				<x><context>メ</context><t>ヽ</t></x>
 				<x><context>ﾒ</context><i>ヽ</i></x>
 				<x><context>め</context><i>ゝ</i></x>
-				<reset before="tertiary">モ</reset>
+				<reset before="tertiary">モ</reset> <!-- \u30E2 MO -->
 				<x><context>モ</context><t>ヽ</t></x>
 				<x><context>ﾓ</context><i>ヽ</i></x>
 				<x><context>も</context><i>ゝ</i></x>
-				<reset before="tertiary">ヤ</reset>
+				<reset before="tertiary">ヤ</reset> <!-- \u30E4 YA -->
 				<x><context>ヤ</context><t>ヽ</t></x>
 				<x><context>ﾔ</context><i>ヽ</i></x>
 				<x><context>や</context><i>ゝ</i></x>
 				<x><context>ャ</context><i>ヽ</i></x>
 				<x><context>ｬ</context><i>ヽ</i></x>
 				<x><context>ゃ</context><i>ゝ</i></x>
-				<reset before="tertiary">ユ</reset>
+				<reset before="tertiary">ユ</reset> <!-- \u30E6 YU -->
 				<x><context>ユ</context><t>ヽ</t></x>
 				<x><context>ﾕ</context><i>ヽ</i></x>
 				<x><context>ゆ</context><i>ゝ</i></x>
 				<x><context>ュ</context><i>ヽ</i></x>
 				<x><context>ｭ</context><i>ヽ</i></x>
 				<x><context>ゅ</context><i>ゝ</i></x>
-				<reset before="tertiary">ヨ</reset>
+				<reset before="tertiary">ヨ</reset> <!-- \u30E8 YO -->
 				<x><context>ヨ</context><t>ヽ</t></x>
 				<x><context>ﾖ</context><i>ヽ</i></x>
 				<x><context>よ</context><i>ゝ</i></x>
 				<x><context>ョ</context><i>ヽ</i></x>
 				<x><context>ｮ</context><i>ヽ</i></x>
 				<x><context>ょ</context><i>ゝ</i></x>
-				<reset before="tertiary">ラ</reset>
+				<reset before="tertiary">ラ</reset> <!-- \u30E9 RA -->
 				<x><context>ラ</context><t>ヽ</t></x>
 				<x><context>ﾗ</context><i>ヽ</i></x>
 				<x><context>ら</context><i>ゝ</i></x>
-				<reset before="tertiary">リ</reset>
+				<x><context>ㇻ</context><i>ヽ</i></x> <!-- \u31FB -->
+				<reset before="tertiary">リ</reset> <!-- \u30EA RI -->
 				<x><context>リ</context><t>ヽ</t></x>
 				<x><context>ﾘ</context><i>ヽ</i></x>
 				<x><context>り</context><i>ゝ</i></x>
-				<reset before="tertiary">ル</reset>
+				<x><context>ㇼ</context><i>ヽ</i></x> <!-- \u31FC -->
+				<reset before="tertiary">ル</reset> <!-- \u30EB RU -->
 				<x><context>ル</context><t>ヽ</t></x>
 				<x><context>ﾙ</context><i>ヽ</i></x>
 				<x><context>る</context><i>ゝ</i></x>
-				<reset before="tertiary">レ</reset>
+				<x><context>ㇽ</context><i>ヽ</i></x> <!-- \u31FD -->
+				<reset before="tertiary">レ</reset> <!-- \u30EC RE -->
 				<x><context>レ</context><t>ヽ</t></x>
 				<x><context>ﾚ</context><i>ヽ</i></x>
 				<x><context>れ</context><i>ゝ</i></x>
-				<reset before="tertiary">ロ</reset>
+				<x><context>ㇾ</context><i>ヽ</i></x> <!-- \u31FE -->
+				<reset before="tertiary">ロ</reset> <!-- \u30ED RO -->
 				<x><context>ロ</context><t>ヽ</t></x>
 				<x><context>ﾛ</context><i>ヽ</i></x>
 				<x><context>ろ</context><i>ゝ</i></x>
-				<reset before="tertiary">ワ</reset>
+				<x><context>ㇿ</context><i>ヽ</i></x> <!-- \u31FF -->
+				<reset before="tertiary">ワ</reset> <!-- \u30EF WA -->
 				<x><context>ワ</context><t>ヽ</t></x>
 				<x><context>ﾜ</context><i>ヽ</i></x>
 				<x><context>わ</context><i>ゝ</i></x>
@@ -628,21 +673,21 @@
 				<x><context>ヷ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ヮ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゎ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヰ</reset>
+				<reset before="tertiary">ヰ</reset> <!-- \u30F0 WI -->
 				<x><context>ヰ</context><t>ヽ</t></x>
 				<x><context>ゐ</context><i>ゝ</i></x>
 				<x><context>ヸ</context><i>ヽ</i></x>
 				<x><context>ヰ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゐ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヸ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヱ</reset>
+				<reset before="tertiary">ヱ</reset> <!-- \u30F1 WE -->
 				<x><context>ヱ</context><t>ヽ</t></x>
 				<x><context>ゑ</context><i>ゝ</i></x>
 				<x><context>ヹ</context><i>ヽ</i></x>
 				<x><context>ヱ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゑ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヹ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヲ</reset>
+				<reset before="tertiary">ヲ</reset> <!-- \u30F2 WO -->
 				<x><context>ヲ</context><t>ヽ</t></x>
 				<x><context>ｦ</context><i>ヽ</i></x>
 				<x><context>を</context><i>ゝ</i></x>
@@ -651,138 +696,139 @@
 				<x><context>ｦ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>を</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヺ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ン</reset>
+				<reset before="tertiary">ン</reset> <!-- \u30F3 N -->
 				<x><context>ン</context><t>ヽ</t></x>
 				<x><context>ﾝ</context><i>ヽ</i></x>
 				<x><context>ん</context><i>ゝ</i></x>
-				<reset>ァ</reset>
-				<ic>ァぁｧ</ic>
-				<reset>ア</reset>
-				<ic>アあｱ</ic>
-				<reset>ィ</reset>
-				<ic>ィぃｨ</ic>
-				<reset>イ</reset>
-				<ic>イいｲ</ic>
-				<reset>ゥ</reset>
-				<ic>ゥぅｩ</ic>
-				<reset>ウ</reset>
-				<ic>ウうｳ</ic>
-				<reset>ェ</reset>
-				<ic>ェぇｪ</ic>
-				<reset>エ</reset>
-				<ic>エえｴ</ic>
-				<reset>ォ</reset>
-				<ic>ォぉｫ</ic>
-				<reset>オ</reset>
-				<ic>オおｵ</ic>
-				<reset>カ</reset>
-				<ic>カかｶ</ic>
-				<reset>キ</reset>
-				<ic>キきｷ</ic>
-				<reset>ク</reset>
-				<ic>クくｸ</ic>
-				<reset>ケ</reset>
-				<ic>ケけｹ</ic>
-				<reset>コ</reset>
-				<ic>コこｺ</ic>
-				<reset>サ</reset>
-				<ic>サさｻ</ic>
-				<reset>シ</reset>
-				<ic>シしｼ</ic>
-				<reset>ス</reset>
-				<ic>スすｽ</ic>
-				<reset>セ</reset>
-				<ic>セせｾ</ic>
-				<reset>ソ</reset>
-				<ic>ソそｿ</ic>
-				<reset>タ</reset>
-				<ic>タたﾀ</ic>
-				<reset>チ</reset>
-				<ic>チちﾁ</ic>
-				<reset>ッ</reset>
-				<ic>ッっｯ</ic>
-				<reset>ツ</reset>
-				<ic>ツつﾂ</ic>
-				<reset>テ</reset>
-				<ic>テてﾃ</ic>
-				<reset>ト</reset>
-				<ic>トとﾄ</ic>
-				<reset>ナ</reset>
-				<ic>ナなﾅ</ic>
-				<reset>ニ</reset>
-				<ic>ニにﾆ</ic>
-				<reset>ヌ</reset>
-				<ic>ヌぬﾇ</ic>
-				<reset>ネ</reset>
-				<ic>ネねﾈ</ic>
-				<reset>ノ</reset>
-				<ic>ノのﾉ</ic>
-				<reset>ハ</reset>
-				<ic>ハはﾊ</ic>
-				<reset>ヒ</reset>
-				<ic>ヒひﾋ</ic>
-				<reset>フ</reset>
-				<ic>フふﾌ</ic>
-				<reset>ヘ</reset>
-				<ic>ヘへﾍ</ic>
-				<reset>ホ</reset>
-				<ic>ホほﾎ</ic>
-				<reset>マ</reset>
-				<ic>マまﾏ</ic>
-				<reset>ミ</reset>
-				<ic>ミみﾐ</ic>
-				<reset>ム</reset>
-				<ic>ムむﾑ</ic>
-				<reset>メ</reset>
-				<ic>メめﾒ</ic>
-				<reset>モ</reset>
-				<ic>モもﾓ</ic>
-				<reset>ャ</reset>
-				<ic>ャゃｬ</ic>
-				<reset>ヤ</reset>
-				<ic>ヤやﾔ</ic>
-				<reset>ュ</reset>
-				<ic>ュゅｭ</ic>
-				<reset>ユ</reset>
-				<ic>ユゆﾕ</ic>
-				<reset>ョ</reset>
-				<ic>ョょｮ</ic>
-				<reset>ヨ</reset>
-				<ic>ヨよﾖ</ic>
-				<reset>ラ</reset>
-				<ic>ラらﾗ</ic>
-				<reset>リ</reset>
-				<ic>リりﾘ</ic>
-				<reset>ル</reset>
-				<ic>ルるﾙ</ic>
-				<reset>レ</reset>
-				<ic>レれﾚ</ic>
-				<reset>ロ</reset>
-				<ic>ロろﾛ</ic>
-				<reset>ヮ</reset>
-				<ic>ヮゎ</ic>
-				<reset>ワ</reset>
-				<ic>ワわﾜ</ic>
-				<reset>ヰ</reset>
-				<ic>ヰゐ</ic>
-				<reset>ヱ</reset>
-				<ic>ヱゑ</ic>
-				<reset>ヲ</reset>
-				<ic>ヲをｦ</ic>
-				<reset>ン</reset>
-				<ic>ンんﾝ</ic>
-				<reset>ヵ</reset>
-				<i>ヵ</i>
-				<reset>ヶ</reset>
-				<i>ヶ</i>
-				<reset>ー</reset>
-				<i>ー</i>
-				<reset>゙</reset>
-				<i>゙</i>
-				<reset>゚</reset>
-				<i>゚</i>
-				<reset> </reset>
-				<ic>　￣</ic>
+				<reset>ァ</reset> <!-- \u30A1 SMALL A -->
+				<ic>ぁｧ</ic>
+				<reset>ア</reset> <!-- \u30A2 A -->
+				<ic>あｱ</ic>
+				<reset>ィ</reset> <!-- \u30A3 SMALL I -->
+				<ic>ぃｨ</ic>
+				<reset>イ</reset> <!-- \u30A4 I -->
+				<ic>いｲ</ic>
+				<reset>ゥ</reset> <!-- \u30A5 SMALL U -->
+				<ic>ぅｩ</ic>
+				<reset>ウ</reset> <!-- \u30A6 U -->
+				<ic>うｳ</ic>
+				<reset>ェ</reset> <!-- \u30A7 SMALL E -->
+				<ic>ぇｪ</ic>
+				<reset>エ</reset> <!-- \u30A8 E -->
+				<ic>えｴ</ic>
+				<reset>ォ</reset> <!-- \u30A9 SMALL O -->
+				<ic>ぉｫ</ic>
+				<reset>オ</reset> <!-- \u30AA O -->
+				<ic>おｵ</ic>
+				<reset>カ</reset> <!-- \u30AB KA -->
+				<ic>かｶ</ic>
+				<reset>キ</reset> <!-- \u30AD KI -->
+				<ic>きｷ</ic>
+				<reset>ク</reset> <!-- \u30AF KU -->
+				<ic>くｸ</ic>
+				<reset>ケ</reset> <!-- \u30B1 KE -->
+				<ic>けｹ</ic>
+				<reset>コ</reset> <!-- \u30B3 KO -->
+				<ic>こｺ</ic>
+				<reset>サ</reset> <!-- \u30B5 SA -->
+				<ic>さｻ</ic>
+				<reset>シ</reset> <!-- \u30B7 SI -->
+				<ic>しｼ</ic>
+				<reset>ス</reset> <!-- \u30B9 SU -->
+				<ic>すｽ</ic>
+				<reset>セ</reset> <!-- \u30BB SE -->
+				<ic>せｾ</ic>
+				<reset>ソ</reset> <!-- \u30BD SO -->
+				<ic>そｿ</ic>
+				<reset>タ</reset> <!-- \u30BF TA -->
+				<ic>たﾀ</ic>
+				<reset>チ</reset> <!-- \u30C1 TI -->
+				<ic>ちﾁ</ic>
+				<reset>ッ</reset> <!-- \u30C3 SMALL TU -->
+				<ic>っｯ</ic>
+				<reset>ツ</reset> <!-- \u30C4 TU -->
+				<ic>つﾂ</ic>
+				<reset>テ</reset> <!-- \u30C6 TE -->
+				<ic>てﾃ</ic>
+				<reset>ト</reset> <!-- \u30C8 TO -->
+				<ic>とﾄ</ic>
+				<reset>ナ</reset> <!-- \u30CA NA -->
+				<ic>なﾅ</ic>
+				<reset>ニ</reset> <!-- \u30CB NI -->
+				<ic>にﾆ</ic>
+				<reset>ヌ</reset> <!-- \u30CC NU -->
+				<ic>ぬﾇ</ic>
+				<reset>ネ</reset> <!-- \u30CD NE -->
+				<ic>ねﾈ</ic>
+				<reset>ノ</reset> <!-- \u30CE NO -->
+				<ic>のﾉ</ic>
+				<reset>ハ</reset> <!-- \u30CF HA -->
+				<ic>はﾊ</ic>
+				<reset>ヒ</reset> <!-- \u30D2 HI -->
+				<ic>ひﾋ</ic>
+				<reset>フ</reset> <!-- \u30D5 HU -->
+				<ic>ふﾌ</ic>
+				<reset>ヘ</reset> <!-- \u30D8 HE -->
+				<ic>へﾍ</ic>
+				<reset>ホ</reset> <!-- \u30DB HO -->
+				<ic>ほﾎ</ic>
+				<reset>マ</reset> <!-- \u30DE MA -->
+				<ic>まﾏ</ic>
+				<reset>ミ</reset> <!-- \u30DF MI -->
+				<ic>みﾐ</ic>
+				<reset>ム</reset> <!-- \u30E0 MU -->
+				<ic>むﾑ</ic>
+				<reset>メ</reset> <!-- \u30E1 ME -->
+				<ic>めﾒ</ic>
+				<reset>モ</reset> <!-- \u30E2 MO -->
+				<ic>もﾓ</ic>
+				<reset>ャ</reset> <!-- \u30E3 SMALL YA -->
+				<ic>ゃｬ</ic>
+				<reset>ヤ</reset> <!-- \u30E4 YA -->
+				<ic>やﾔ</ic>
+				<reset>ュ</reset> <!-- \u30E5 SMALL YU -->
+				<ic>ゅｭ</ic>
+				<reset>ユ</reset> <!-- \u30E6 YU -->
+				<ic>ゆﾕ</ic>
+				<reset>ョ</reset> <!-- \u30E7 SMALL YO -->
+				<ic>ょｮ</ic>
+				<reset>ヨ</reset> <!-- \u30E8 YO -->
+				<ic>よﾖ</ic>
+				<reset>ラ</reset> <!-- \u30E9 RA -->
+				<ic>らﾗ</ic>
+				<reset>リ</reset> <!-- \u30EA RI -->
+				<ic>りﾘ</ic>
+				<reset>ル</reset> <!-- \u30EB RU -->
+				<ic>るﾙ</ic>
+				<reset>レ</reset> <!-- \u30EC RE -->
+				<ic>れﾚ</ic>
+				<reset>ロ</reset> <!-- \u30ED RO -->
+				<ic>ろﾛ</ic>
+				<reset>ヮ</reset> <!-- \u30EE SMALL WA -->
+				<i>ゎ</i>
+				<reset>ワ</reset> <!-- \u30EF WA -->
+				<ic>わﾜ</ic>
+				<reset>ヰ</reset> <!-- \u30F0 WI -->
+				<i>ゐ</i>
+				<reset>ヱ</reset> <!-- \u30F1 WE -->
+				<i>ゑ</i>
+				<reset>ヲ</reset> <!-- \u30F2 WO -->
+				<ic>をｦ</ic>
+				<reset>ン</reset> <!-- \u30F3 N -->
+				<ic>んﾝ</ic>
+				<reset>ヵ</reset> <!-- \u30F5 SMALL KA -->
+				<i>ゕ</i>
+				<reset>ヶ</reset> <!-- \u30F6 SMALL KE -->
+				<i>ゖ</i>
+				<reset>より</reset> <!-- \u3088\u308A -->
+				<s>ゟ</s> <!-- \u309F HIRAGANA DIGRAPH YORI -->
+				<reset>コト</reset> <!-- \u30B3\u30C8 -->
+				<s>ヿ</s> <!-- \u30FF KATAKANA DIGRAPH KOTO -->
+				<!-- <reset>ー</reset> --> <!-- \u30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK -->
+				<!-- <reset>゙</reset> --> <!-- \u3099 COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK -->
+				<!-- <reset>゚</reset> --> <!-- \u309A COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK -->
+				<reset> </reset> <!-- \u0020 -->
+				<ic>　￣</ic> <!-- \u3000\uFFE3 -->
 				<reset>!</reset>
 				<i>！</i>
 				<reset>&quot;</reset>
@@ -1168,9 +1214,9 @@
 		<collation type="unihan">
 			<settings strength="tertiary" hiraganaQuarternary="on"  />
 			<rules>
-				<reset>ヽ</reset>
-				<ic>ヽゝ</ic>
-				<reset before="tertiary">ァ</reset>
+				<reset>ヽ</reset> <!-- \u30FD -->
+				<i>ゝ</i> <!-- \u309D -->
+				<reset before="tertiary">ァ</reset> <!-- \u30A1 SMALL A -->
 				<x><context>ァ</context><t>ー</t></x>
 				<x><context>ｧ</context><i>ー</i></x>
 				<x><context>ぁ</context><i>ー</i></x>
@@ -1180,6 +1226,7 @@
 				<x><context>カ</context><i>ー</i></x>
 				<x><context>ｶ</context><i>ー</i></x>
 				<x><context>か</context><i>ー</i></x>
+				<x><context>ゕ</context><i>ー</i></x> <!-- \u3095 -->
 				<x><context>ガ</context><i>ー</i></x>
 				<x><context>が</context><i>ー</i></x>
 				<x><context>サ</context><i>ー</i></x>
@@ -1197,6 +1244,7 @@
 				<x><context>な</context><i>ー</i></x>
 				<x><context>ハ</context><i>ー</i></x>
 				<x><context>ﾊ</context><i>ー</i></x>
+				<x><context>ㇵ</context><i>ー</i></x> <!-- \u31F5 -->
 				<x><context>は</context><i>ー</i></x>
 				<x><context>バ</context><i>ー</i></x>
 				<x><context>ば</context><i>ー</i></x>
@@ -1213,6 +1261,7 @@
 				<x><context>や</context><i>ー</i></x>
 				<x><context>ラ</context><i>ー</i></x>
 				<x><context>ﾗ</context><i>ー</i></x>
+				<x><context>ㇻ</context><i>ー</i></x> <!-- \u31FB -->
 				<x><context>ら</context><i>ー</i></x>
 				<x><context>ヮ</context><i>ー</i></x>
 				<x><context>ゎ</context><i>ー</i></x>
@@ -1221,7 +1270,7 @@
 				<x><context>わ</context><i>ー</i></x>
 				<x><context>ヵ</context><i>ー</i></x>
 				<x><context>ヷ</context><i>ー</i></x>
-				<reset before="tertiary">ィ</reset>
+				<reset before="tertiary">ィ</reset> <!-- \u30A3 SMALL I -->
 				<x><context>ィ</context><t>ー</t></x>
 				<x><context>ｨ</context><i>ー</i></x>
 				<x><context>ぃ</context><i>ー</i></x>
@@ -1235,6 +1284,7 @@
 				<x><context>ぎ</context><i>ー</i></x>
 				<x><context>シ</context><i>ー</i></x>
 				<x><context>ｼ</context><i>ー</i></x>
+				<x><context>ㇱ</context><i>ー</i></x> <!-- \u31F1 -->
 				<x><context>し</context><i>ー</i></x>
 				<x><context>ジ</context><i>ー</i></x>
 				<x><context>じ</context><i>ー</i></x>
@@ -1248,6 +1298,7 @@
 				<x><context>に</context><i>ー</i></x>
 				<x><context>ヒ</context><i>ー</i></x>
 				<x><context>ﾋ</context><i>ー</i></x>
+				<x><context>ㇶ</context><i>ー</i></x> <!-- \u31F6 -->
 				<x><context>ひ</context><i>ー</i></x>
 				<x><context>ビ</context><i>ー</i></x>
 				<x><context>び</context><i>ー</i></x>
@@ -1258,11 +1309,12 @@
 				<x><context>み</context><i>ー</i></x>
 				<x><context>リ</context><i>ー</i></x>
 				<x><context>ﾘ</context><i>ー</i></x>
+				<x><context>ㇼ</context><i>ー</i></x> <!-- \u31FC -->
 				<x><context>り</context><i>ー</i></x>
 				<x><context>ヰ</context><i>ー</i></x>
 				<x><context>ゐ</context><i>ー</i></x>
 				<x><context>ヸ</context><i>ー</i></x>
-				<reset before="tertiary">ゥ</reset>
+				<reset before="tertiary">ゥ</reset> <!-- \u30A5 SMALL U -->
 				<x><context>ゥ</context><t>ー</t></x>
 				<x><context>ｩ</context><i>ー</i></x>
 				<x><context>ぅ</context><i>ー</i></x>
@@ -1271,11 +1323,13 @@
 				<x><context>う</context><i>ー</i></x>
 				<x><context>ク</context><i>ー</i></x>
 				<x><context>ｸ</context><i>ー</i></x>
+				<x><context>ㇰ</context><i>ー</i></x> <!-- \u31F0 -->
 				<x><context>く</context><i>ー</i></x>
 				<x><context>グ</context><i>ー</i></x>
 				<x><context>ぐ</context><i>ー</i></x>
 				<x><context>ス</context><i>ー</i></x>
 				<x><context>ｽ</context><i>ー</i></x>
+				<x><context>ㇲ</context><i>ー</i></x> <!-- \u31F2 -->
 				<x><context>す</context><i>ー</i></x>
 				<x><context>ズ</context><i>ー</i></x>
 				<x><context>ず</context><i>ー</i></x>
@@ -1289,9 +1343,11 @@
 				<x><context>づ</context><i>ー</i></x>
 				<x><context>ヌ</context><i>ー</i></x>
 				<x><context>ﾇ</context><i>ー</i></x>
+				<x><context>ㇴ</context><i>ー</i></x> <!-- \u31F4 -->
 				<x><context>ぬ</context><i>ー</i></x>
 				<x><context>フ</context><i>ー</i></x>
 				<x><context>ﾌ</context><i>ー</i></x>
+				<x><context>ㇷ</context><i>ー</i></x> <!-- \u31F7 -->
 				<x><context>ふ</context><i>ー</i></x>
 				<x><context>ブ</context><i>ー</i></x>
 				<x><context>ぶ</context><i>ー</i></x>
@@ -1299,6 +1355,7 @@
 				<x><context>ぷ</context><i>ー</i></x>
 				<x><context>ム</context><i>ー</i></x>
 				<x><context>ﾑ</context><i>ー</i></x>
+				<x><context>ㇺ</context><i>ー</i></x> <!-- \u31FA -->
 				<x><context>む</context><i>ー</i></x>
 				<x><context>ュ</context><i>ー</i></x>
 				<x><context>ｭ</context><i>ー</i></x>
@@ -1308,10 +1365,11 @@
 				<x><context>ゆ</context><i>ー</i></x>
 				<x><context>ル</context><i>ー</i></x>
 				<x><context>ﾙ</context><i>ー</i></x>
+				<x><context>ㇽ</context><i>ー</i></x> <!-- \u31FD -->
 				<x><context>る</context><i>ー</i></x>
 				<x><context>ヴ</context><i>ー</i></x>
 				<x><context>ゔ</context><i>ー</i></x>
-				<reset before="tertiary">ェ</reset>
+				<reset before="tertiary">ェ</reset> <!-- \u30A7 SMALL E -->
 				<x><context>ェ</context><t>ー</t></x>
 				<x><context>ｪ</context><i>ー</i></x>
 				<x><context>ぇ</context><i>ー</i></x>
@@ -1321,6 +1379,7 @@
 				<x><context>ケ</context><i>ー</i></x>
 				<x><context>ｹ</context><i>ー</i></x>
 				<x><context>け</context><i>ー</i></x>
+				<x><context>ゖ</context><i>ー</i></x> <!-- \u3096 -->
 				<x><context>ゲ</context><i>ー</i></x>
 				<x><context>げ</context><i>ー</i></x>
 				<x><context>セ</context><i>ー</i></x>
@@ -1338,6 +1397,7 @@
 				<x><context>ね</context><i>ー</i></x>
 				<x><context>ヘ</context><i>ー</i></x>
 				<x><context>ﾍ</context><i>ー</i></x>
+				<x><context>ㇸ</context><i>ー</i></x> <!-- \u31F8 -->
 				<x><context>へ</context><i>ー</i></x>
 				<x><context>ベ</context><i>ー</i></x>
 				<x><context>べ</context><i>ー</i></x>
@@ -1348,12 +1408,13 @@
 				<x><context>め</context><i>ー</i></x>
 				<x><context>レ</context><i>ー</i></x>
 				<x><context>ﾚ</context><i>ー</i></x>
+				<x><context>ㇾ</context><i>ー</i></x> <!-- \u31FE -->
 				<x><context>れ</context><i>ー</i></x>
 				<x><context>ヱ</context><i>ー</i></x>
 				<x><context>ゑ</context><i>ー</i></x>
 				<x><context>ヶ</context><i>ー</i></x>
 				<x><context>ヹ</context><i>ー</i></x>
-				<reset before="tertiary">ォ</reset>
+				<reset before="tertiary">ォ</reset> <!-- \u30A9 SMALL O -->
 				<x><context>ォ</context><t>ー</t></x>
 				<x><context>ｫ</context><i>ー</i></x>
 				<x><context>ぉ</context><i>ー</i></x>
@@ -1372,6 +1433,7 @@
 				<x><context>ぞ</context><i>ー</i></x>
 				<x><context>ト</context><i>ー</i></x>
 				<x><context>ﾄ</context><i>ー</i></x>
+				<x><context>ㇳ</context><i>ー</i></x> <!-- \u31F3 -->
 				<x><context>と</context><i>ー</i></x>
 				<x><context>ド</context><i>ー</i></x>
 				<x><context>ど</context><i>ー</i></x>
@@ -1380,6 +1442,7 @@
 				<x><context>の</context><i>ー</i></x>
 				<x><context>ホ</context><i>ー</i></x>
 				<x><context>ﾎ</context><i>ー</i></x>
+				<x><context>ㇹ</context><i>ー</i></x> <!-- \u31F9 -->
 				<x><context>ほ</context><i>ー</i></x>
 				<x><context>ボ</context><i>ー</i></x>
 				<x><context>ぼ</context><i>ー</i></x>
@@ -1396,26 +1459,27 @@
 				<x><context>よ</context><i>ー</i></x>
 				<x><context>ロ</context><i>ー</i></x>
 				<x><context>ﾛ</context><i>ー</i></x>
+				<x><context>ㇿ</context><i>ー</i></x> <!-- \u31FF -->
 				<x><context>ろ</context><i>ー</i></x>
 				<x><context>ヲ</context><i>ー</i></x>
 				<x><context>ｦ</context><i>ー</i></x>
 				<x><context>を</context><i>ー</i></x>
 				<x><context>ヺ</context><i>ー</i></x>
-				<reset before="tertiary">ア</reset>
+				<reset before="tertiary">ア</reset> <!-- \u30A2 A -->
 				<x><context>ア</context><t>ヽ</t></x>
 				<x><context>ｱ</context><i>ヽ</i></x>
 				<x><context>あ</context><i>ゝ</i></x>
 				<x><context>ァ</context><i>ヽ</i></x>
 				<x><context>ｧ</context><i>ヽ</i></x>
 				<x><context>ぁ</context><i>ゝ</i></x>
-				<reset before="tertiary">イ</reset>
+				<reset before="tertiary">イ</reset> <!-- \u30A4 I -->
 				<x><context>イ</context><t>ヽ</t></x>
 				<x><context>ｲ</context><i>ヽ</i></x>
 				<x><context>い</context><i>ゝ</i></x>
 				<x><context>ィ</context><i>ヽ</i></x>
 				<x><context>ｨ</context><i>ヽ</i></x>
 				<x><context>ぃ</context><i>ゝ</i></x>
-				<reset before="tertiary">ウ</reset>
+				<reset before="tertiary">ウ</reset> <!-- \u30A6 U -->
 				<x><context>ウ</context><t>ヽ</t></x>
 				<x><context>ｳ</context><i>ヽ</i></x>
 				<x><context>う</context><i>ゝ</i></x>
@@ -1432,29 +1496,30 @@
 				<x><context>ぅ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヴ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゔ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">エ</reset>
+				<reset before="tertiary">エ</reset> <!-- \u30A8 E -->
 				<x><context>エ</context><t>ヽ</t></x>
 				<x><context>ｴ</context><i>ヽ</i></x>
 				<x><context>え</context><i>ゝ</i></x>
 				<x><context>ェ</context><i>ヽ</i></x>
 				<x><context>ｪ</context><i>ヽ</i></x>
 				<x><context>ぇ</context><i>ゝ</i></x>
-				<reset before="tertiary">オ</reset>
+				<reset before="tertiary">オ</reset> <!-- \u30AA O -->
 				<x><context>オ</context><t>ヽ</t></x>
 				<x><context>ｵ</context><i>ヽ</i></x>
 				<x><context>お</context><i>ゝ</i></x>
 				<x><context>ォ</context><i>ヽ</i></x>
 				<x><context>ｫ</context><i>ヽ</i></x>
 				<x><context>ぉ</context><i>ゝ</i></x>
-				<reset before="tertiary">カ</reset>
+				<reset before="tertiary">カ</reset> <!-- \u30AB KA -->
 				<x><context>カ</context><t>ヽ</t></x>
 				<x><context>ｶ</context><i>ヽ</i></x>
 				<x><context>か</context><i>ゝ</i></x>
 				<x><context>ヵ</context><i>ヽ</i></x>
-				<reset before="tertiary">ガ</reset>
+				<x><context>ゕ</context><i>ゝ</i></x> <!-- u3095 -->
+				<reset before="tertiary">ガ</reset> <!-- \u30AC GA -->
 				<x><context>ガ</context><t>ヽ</t></x>
 				<x><context>が</context><i>ゝ</i></x>
-				<reset before="tertiary">キ</reset>
+				<reset before="tertiary">キ</reset> <!-- \u30AD KI -->
 				<x><context>キ</context><t>ヽ</t></x>
 				<x><context>ｷ</context><i>ヽ</i></x>
 				<x><context>き</context><i>ゝ</i></x>
@@ -1465,26 +1530,29 @@
 				<x><context>き</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ギ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぎ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ク</reset>
+				<reset before="tertiary">ク</reset> <!-- \u30AF KU -->
 				<x><context>ク</context><t>ヽ</t></x>
 				<x><context>ｸ</context><i>ヽ</i></x>
 				<x><context>く</context><i>ゝ</i></x>
+				<x><context>ㇰ</context><i>ヽ</i></x> <!-- \u31F0 -->
 				<x><context>グ</context><i>ヽ</i></x>
 				<x><context>ぐ</context><i>ゝ</i></x>
 				<x><context>ク</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｸ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>く</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇰ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F0 -->
 				<x><context>グ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぐ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ケ</reset>
+				<reset before="tertiary">ケ</reset> <!-- \u30B1 KE -->
 				<x><context>ケ</context><t>ヽ</t></x>
 				<x><context>ｹ</context><i>ヽ</i></x>
 				<x><context>け</context><i>ゝ</i></x>
 				<x><context>ヶ</context><i>ヽ</i></x>
-				<reset before="tertiary">ゲ</reset>
+				<x><context>ゖ</context><i>ゝ</i></x> <!-- \u3096 -->
+				<reset before="tertiary">ゲ</reset> <!-- \u30B2 GE -->
 				<x><context>ゲ</context><t>ヽ</t></x>
 				<x><context>げ</context><i>ゝ</i></x>
-				<reset before="tertiary">コ</reset>
+				<reset before="tertiary">コ</reset> <!-- \u30B3 KO -->
 				<x><context>コ</context><t>ヽ</t></x>
 				<x><context>ｺ</context><i>ヽ</i></x>
 				<x><context>こ</context><i>ゝ</i></x>
@@ -1495,7 +1563,7 @@
 				<x><context>こ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゴ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ご</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">サ</reset>
+				<reset before="tertiary">サ</reset> <!-- \u30B5 SA -->
 				<x><context>サ</context><t>ヽ</t></x>
 				<x><context>ｻ</context><i>ヽ</i></x>
 				<x><context>さ</context><i>ゝ</i></x>
@@ -1506,29 +1574,33 @@
 				<x><context>さ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ザ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ざ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">シ</reset>
+				<reset before="tertiary">シ</reset> <!-- \u30B7 SI -->
 				<x><context>シ</context><t>ヽ</t></x>
 				<x><context>ｼ</context><i>ヽ</i></x>
 				<x><context>し</context><i>ゝ</i></x>
+				<x><context>ㇱ</context><i>ヽ</i></x> <!-- \u31F1 -->
 				<x><context>ジ</context><i>ヽ</i></x>
 				<x><context>じ</context><i>ゝ</i></x>
 				<x><context>シ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｼ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>し</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇱ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F1 -->
 				<x><context>ジ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>じ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ス</reset>
+				<reset before="tertiary">ス</reset> <!-- \u30B9 SU -->
 				<x><context>ス</context><t>ヽ</t></x>
 				<x><context>ｽ</context><i>ヽ</i></x>
 				<x><context>す</context><i>ゝ</i></x>
+				<x><context>ㇲ</context><i>ヽ</i></x> <!-- \u31F2 -->
 				<x><context>ズ</context><i>ヽ</i></x>
 				<x><context>ず</context><i>ゝ</i></x>
 				<x><context>ス</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ｽ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>す</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇲ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F2 -->
 				<x><context>ズ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ず</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">セ</reset>
+				<reset before="tertiary">セ</reset> <!-- \u30BB SE -->
 				<x><context>セ</context><t>ヽ</t></x>
 				<x><context>ｾ</context><i>ヽ</i></x>
 				<x><context>せ</context><i>ゝ</i></x>
@@ -1539,7 +1611,7 @@
 				<x><context>せ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゼ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぜ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ソ</reset>
+				<reset before="tertiary">ソ</reset> <!-- \u30BD SO -->
 				<x><context>ソ</context><t>ヽ</t></x>
 				<x><context>ｿ</context><i>ヽ</i></x>
 				<x><context>そ</context><i>ゝ</i></x>
@@ -1550,7 +1622,7 @@
 				<x><context>そ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ゾ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぞ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">タ</reset>
+				<reset before="tertiary">タ</reset> <!-- \u30BF TA -->
 				<x><context>タ</context><t>ヽ</t></x>
 				<x><context>ﾀ</context><i>ヽ</i></x>
 				<x><context>た</context><i>ゝ</i></x>
@@ -1561,7 +1633,7 @@
 				<x><context>た</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ダ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>だ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">チ</reset>
+				<reset before="tertiary">チ</reset> <!-- \u30C1 TI -->
 				<x><context>チ</context><t>ヽ</t></x>
 				<x><context>ﾁ</context><i>ヽ</i></x>
 				<x><context>ち</context><i>ゝ</i></x>
@@ -1572,7 +1644,7 @@
 				<x><context>ち</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヂ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぢ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ツ</reset>
+				<reset before="tertiary">ツ</reset> <!-- \u30C4 TU -->
 				<x><context>ツ</context><t>ヽ</t></x>
 				<x><context>ﾂ</context><i>ヽ</i></x>
 				<x><context>つ</context><i>ゝ</i></x>
@@ -1595,7 +1667,7 @@
 				<x><context>ツ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾂ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>つ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">テ</reset>
+				<reset before="tertiary">テ</reset> <!-- \u30C6 TE -->
 				<x><context>テ</context><t>ヽ</t></x>
 				<x><context>ﾃ</context><i>ヽ</i></x>
 				<x><context>て</context><i>ゝ</i></x>
@@ -1606,174 +1678,193 @@
 				<x><context>て</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>デ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>で</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ト</reset>
+				<reset before="tertiary">ト</reset> <!-- \u30C8 TO -->
 				<x><context>ト</context><t>ヽ</t></x>
 				<x><context>ﾄ</context><i>ヽ</i></x>
 				<x><context>と</context><i>ゝ</i></x>
+				<x><context>ㇳ</context><i>ヽ</i></x> <!-- \u31F3 -->
 				<x><context>ド</context><i>ヽ</i></x>
 				<x><context>ど</context><i>ゝ</i></x>
 				<x><context>ト</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾄ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>と</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇳ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F3 -->
 				<x><context>ド</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ど</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ナ</reset>
+				<reset before="tertiary">ナ</reset> <!-- \u30CA NA -->
 				<x><context>ナ</context><t>ヽ</t></x>
 				<x><context>ﾅ</context><i>ヽ</i></x>
 				<x><context>な</context><i>ゝ</i></x>
-				<reset before="tertiary">ニ</reset>
+				<reset before="tertiary">ニ</reset> <!-- \u30CB NI -->
 				<x><context>ニ</context><t>ヽ</t></x>
 				<x><context>ﾆ</context><i>ヽ</i></x>
 				<x><context>に</context><i>ゝ</i></x>
-				<reset before="tertiary">ヌ</reset>
+				<reset before="tertiary">ヌ</reset> <!-- \u30CC NU -->
 				<x><context>ヌ</context><t>ヽ</t></x>
 				<x><context>ﾇ</context><i>ヽ</i></x>
 				<x><context>ぬ</context><i>ゝ</i></x>
-				<reset before="tertiary">ネ</reset>
+				<x><context>ㇴ</context><i>ヽ</i></x> <!-- \u31F4 -->
+				<reset before="tertiary">ネ</reset> <!-- \u30CD NE -->
 				<x><context>ネ</context><t>ヽ</t></x>
 				<x><context>ﾈ</context><i>ヽ</i></x>
 				<x><context>ね</context><i>ゝ</i></x>
 				<reset before="tertiary">ノ</reset>
-				<x><context>ノ</context><t>ヽ</t></x>
+				<x><context>ノ</context><t>ヽ</t></x> <!-- \u30CE NO -->
 				<x><context>ﾉ</context><i>ヽ</i></x>
 				<x><context>の</context><i>ゝ</i></x>
-				<reset before="tertiary">ハ</reset>
+				<reset before="tertiary">ハ</reset> <!-- \u30CF HA -->
 				<x><context>ハ</context><t>ヽ</t></x>
 				<x><context>ﾊ</context><i>ヽ</i></x>
 				<x><context>は</context><i>ゝ</i></x>
+				<x><context>ㇵ</context><i>ヽ</i></x> <!-- \u31F5 -->
 				<x><context>バ</context><i>ヽ</i></x>
 				<x><context>ば</context><i>ゝ</i></x>
 				<x><context>ハ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾊ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>は</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇵ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F5 -->
 				<x><context>バ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ば</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>パ</context><i>ヽ</i></x>
 				<x><context>ぱ</context><i>ゝ</i></x>
 				<x><context>パ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぱ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヒ</reset>
+				<reset before="tertiary">ヒ</reset> <!-- \u30D2 HI -->
 				<x><context>ヒ</context><t>ヽ</t></x>
 				<x><context>ﾋ</context><i>ヽ</i></x>
 				<x><context>ひ</context><i>ゝ</i></x>
+				<x><context>ㇶ</context><i>ヽ</i></x> <!-- \u31F6 -->
 				<x><context>ビ</context><i>ヽ</i></x>
 				<x><context>び</context><i>ゝ</i></x>
 				<x><context>ヒ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾋ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ひ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇶ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F6 -->
 				<x><context>ビ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>び</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ピ</context><i>ヽ</i></x>
 				<x><context>ぴ</context><i>ゝ</i></x>
 				<x><context>ピ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぴ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">フ</reset>
+				<reset before="tertiary">フ</reset> <!-- \u30D5 HU -->
 				<x><context>フ</context><t>ヽ</t></x>
 				<x><context>ﾌ</context><i>ヽ</i></x>
 				<x><context>ふ</context><i>ゝ</i></x>
+				<x><context>ㇷ</context><i>ヽ</i></x> <!-- \u31F7 -->
 				<x><context>ブ</context><i>ヽ</i></x>
 				<x><context>ぶ</context><i>ゝ</i></x>
 				<x><context>フ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾌ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ふ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇷ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F7 -->
 				<x><context>ブ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぶ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>プ</context><i>ヽ</i></x>
 				<x><context>ぷ</context><i>ゝ</i></x>
 				<x><context>プ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぷ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヘ</reset>
+				<reset before="tertiary">ヘ</reset> <!-- \u30D8 HE -->
 				<x><context>ヘ</context><t>ヽ</t></x>
 				<x><context>ﾍ</context><i>ヽ</i></x>
 				<x><context>へ</context><i>ゝ</i></x>
+				<x><context>ㇸ</context><i>ヽ</i></x> <!-- \u31F8 -->
 				<x><context>ベ</context><i>ヽ</i></x>
 				<x><context>べ</context><i>ゝ</i></x>
 				<x><context>ヘ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾍ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>へ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇸ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F8 -->
 				<x><context>ベ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>べ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ペ</context><i>ヽ</i></x>
 				<x><context>ぺ</context><i>ゝ</i></x>
 				<x><context>ペ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぺ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ホ</reset>
+				<reset before="tertiary">ホ</reset> <!-- \u30DB HO -->
 				<x><context>ホ</context><t>ヽ</t></x>
 				<x><context>ﾎ</context><i>ヽ</i></x>
 				<x><context>ほ</context><i>ゝ</i></x>
+				<x><context>ㇹ</context><i>ヽ</i></x> <!-- \u31F9 -->
 				<x><context>ボ</context><i>ヽ</i></x>
 				<x><context>ぼ</context><i>ゝ</i></x>
 				<x><context>ホ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ﾎ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ほ</context><i>ゞ</i><extend>゙</extend></x>
+				<x><context>ㇹ</context><i>ヾ</i><extend>゙</extend></x> <!-- \u31F9 -->
 				<x><context>ボ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぼ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ポ</context><i>ヽ</i></x>
 				<x><context>ぽ</context><i>ゝ</i></x>
 				<x><context>ポ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ぽ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">マ</reset>
+				<reset before="tertiary">マ</reset> <!-- \u30DE MA -->
 				<x><context>マ</context><t>ヽ</t></x>
 				<x><context>ﾏ</context><i>ヽ</i></x>
 				<x><context>ま</context><i>ゝ</i></x>
-				<reset before="tertiary">ミ</reset>
+				<reset before="tertiary">ミ</reset> <!-- \u30DF MI -->
 				<x><context>ミ</context><t>ヽ</t></x>
 				<x><context>ﾐ</context><i>ヽ</i></x>
 				<x><context>み</context><i>ゝ</i></x>
-				<reset before="tertiary">ム</reset>
+				<reset before="tertiary">ム</reset> <!-- \u30E0 MU -->
 				<x><context>ム</context><t>ヽ</t></x>
 				<x><context>ﾑ</context><i>ヽ</i></x>
 				<x><context>む</context><i>ゝ</i></x>
-				<reset before="tertiary">メ</reset>
+				<x><context>ㇺ</context><i>ヽ</i></x> <!-- \u31FA-->
+				<reset before="tertiary">メ</reset> <!-- \u30E1 ME -->
 				<x><context>メ</context><t>ヽ</t></x>
 				<x><context>ﾒ</context><i>ヽ</i></x>
 				<x><context>め</context><i>ゝ</i></x>
-				<reset before="tertiary">モ</reset>
+				<reset before="tertiary">モ</reset> <!-- \u30E2 MO -->
 				<x><context>モ</context><t>ヽ</t></x>
 				<x><context>ﾓ</context><i>ヽ</i></x>
 				<x><context>も</context><i>ゝ</i></x>
-				<reset before="tertiary">ヤ</reset>
+				<reset before="tertiary">ヤ</reset> <!-- \u30E4 YA -->
 				<x><context>ヤ</context><t>ヽ</t></x>
 				<x><context>ﾔ</context><i>ヽ</i></x>
 				<x><context>や</context><i>ゝ</i></x>
 				<x><context>ャ</context><i>ヽ</i></x>
 				<x><context>ｬ</context><i>ヽ</i></x>
 				<x><context>ゃ</context><i>ゝ</i></x>
-				<reset before="tertiary">ユ</reset>
+				<reset before="tertiary">ユ</reset> <!-- \u30E6 YU -->
 				<x><context>ユ</context><t>ヽ</t></x>
 				<x><context>ﾕ</context><i>ヽ</i></x>
 				<x><context>ゆ</context><i>ゝ</i></x>
 				<x><context>ュ</context><i>ヽ</i></x>
 				<x><context>ｭ</context><i>ヽ</i></x>
 				<x><context>ゅ</context><i>ゝ</i></x>
-				<reset before="tertiary">ヨ</reset>
+				<reset before="tertiary">ヨ</reset> <!-- \u30E8 YO -->
 				<x><context>ヨ</context><t>ヽ</t></x>
 				<x><context>ﾖ</context><i>ヽ</i></x>
 				<x><context>よ</context><i>ゝ</i></x>
 				<x><context>ョ</context><i>ヽ</i></x>
 				<x><context>ｮ</context><i>ヽ</i></x>
 				<x><context>ょ</context><i>ゝ</i></x>
-				<reset before="tertiary">ラ</reset>
+				<reset before="tertiary">ラ</reset> <!-- \u30E9 RA -->
 				<x><context>ラ</context><t>ヽ</t></x>
 				<x><context>ﾗ</context><i>ヽ</i></x>
 				<x><context>ら</context><i>ゝ</i></x>
-				<reset before="tertiary">リ</reset>
+				<x><context>ㇻ</context><i>ヽ</i></x> <!-- \u31FB -->
+				<reset before="tertiary">リ</reset> <!-- \u30EA RI -->
 				<x><context>リ</context><t>ヽ</t></x>
 				<x><context>ﾘ</context><i>ヽ</i></x>
 				<x><context>り</context><i>ゝ</i></x>
-				<reset before="tertiary">ル</reset>
+				<x><context>ㇼ</context><i>ヽ</i></x> <!-- \u31FC -->
+				<reset before="tertiary">ル</reset> <!-- \u30EB RU -->
 				<x><context>ル</context><t>ヽ</t></x>
 				<x><context>ﾙ</context><i>ヽ</i></x>
 				<x><context>る</context><i>ゝ</i></x>
-				<reset before="tertiary">レ</reset>
+				<x><context>ㇽ</context><i>ヽ</i></x> <!-- \u31FD -->
+				<reset before="tertiary">レ</reset> <!-- \u30EC RE -->
 				<x><context>レ</context><t>ヽ</t></x>
 				<x><context>ﾚ</context><i>ヽ</i></x>
 				<x><context>れ</context><i>ゝ</i></x>
-				<reset before="tertiary">ロ</reset>
+				<x><context>ㇾ</context><i>ヽ</i></x> <!-- \u31FE -->
+				<reset before="tertiary">ロ</reset> <!-- \u30ED RO -->
 				<x><context>ロ</context><t>ヽ</t></x>
 				<x><context>ﾛ</context><i>ヽ</i></x>
 				<x><context>ろ</context><i>ゝ</i></x>
-				<reset before="tertiary">ワ</reset>
+				<x><context>ㇿ</context><i>ヽ</i></x> <!-- \u31FF -->
+				<reset before="tertiary">ワ</reset> <!-- \u30EF WA -->
 				<x><context>ワ</context><t>ヽ</t></x>
 				<x><context>ﾜ</context><i>ヽ</i></x>
 				<x><context>わ</context><i>ゝ</i></x>
@@ -1786,21 +1877,21 @@
 				<x><context>ヷ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ヮ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゎ</context><i>ゞ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヰ</reset>
+				<reset before="tertiary">ヰ</reset> <!-- \u30F0 WI -->
 				<x><context>ヰ</context><t>ヽ</t></x>
 				<x><context>ゐ</context><i>ゝ</i></x>
 				<x><context>ヸ</context><i>ヽ</i></x>
 				<x><context>ヰ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゐ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヸ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヱ</reset>
+				<reset before="tertiary">ヱ</reset> <!-- \u30F1 WE -->
 				<x><context>ヱ</context><t>ヽ</t></x>
 				<x><context>ゑ</context><i>ゝ</i></x>
 				<x><context>ヹ</context><i>ヽ</i></x>
 				<x><context>ヱ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>ゑ</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヹ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ヲ</reset>
+				<reset before="tertiary">ヲ</reset> <!-- \u30F2 WO -->
 				<x><context>ヲ</context><t>ヽ</t></x>
 				<x><context>ｦ</context><i>ヽ</i></x>
 				<x><context>を</context><i>ゝ</i></x>
@@ -1809,138 +1900,139 @@
 				<x><context>ｦ</context><i>ヾ</i><extend>゙</extend></x>
 				<x><context>を</context><i>ゞ</i><extend>゙</extend></x>
 				<x><context>ヺ</context><i>ヾ</i><extend>゙</extend></x>
-				<reset before="tertiary">ン</reset>
+				<reset before="tertiary">ン</reset> <!-- \u30F3 N -->
 				<x><context>ン</context><t>ヽ</t></x>
 				<x><context>ﾝ</context><i>ヽ</i></x>
 				<x><context>ん</context><i>ゝ</i></x>
-				<reset>ァ</reset>
-				<ic>ァぁｧ</ic>
-				<reset>ア</reset>
-				<ic>アあｱ</ic>
-				<reset>ィ</reset>
-				<ic>ィぃｨ</ic>
-				<reset>イ</reset>
-				<ic>イいｲ</ic>
-				<reset>ゥ</reset>
-				<ic>ゥぅｩ</ic>
-				<reset>ウ</reset>
-				<ic>ウうｳ</ic>
-				<reset>ェ</reset>
-				<ic>ェぇｪ</ic>
-				<reset>エ</reset>
-				<ic>エえｴ</ic>
-				<reset>ォ</reset>
-				<ic>ォぉｫ</ic>
-				<reset>オ</reset>
-				<ic>オおｵ</ic>
-				<reset>カ</reset>
-				<ic>カかｶ</ic>
-				<reset>キ</reset>
-				<ic>キきｷ</ic>
-				<reset>ク</reset>
-				<ic>クくｸ</ic>
-				<reset>ケ</reset>
-				<ic>ケけｹ</ic>
-				<reset>コ</reset>
-				<ic>コこｺ</ic>
-				<reset>サ</reset>
-				<ic>サさｻ</ic>
-				<reset>シ</reset>
-				<ic>シしｼ</ic>
-				<reset>ス</reset>
-				<ic>スすｽ</ic>
-				<reset>セ</reset>
-				<ic>セせｾ</ic>
-				<reset>ソ</reset>
-				<ic>ソそｿ</ic>
-				<reset>タ</reset>
-				<ic>タたﾀ</ic>
-				<reset>チ</reset>
-				<ic>チちﾁ</ic>
-				<reset>ッ</reset>
-				<ic>ッっｯ</ic>
-				<reset>ツ</reset>
-				<ic>ツつﾂ</ic>
-				<reset>テ</reset>
-				<ic>テてﾃ</ic>
-				<reset>ト</reset>
-				<ic>トとﾄ</ic>
-				<reset>ナ</reset>
-				<ic>ナなﾅ</ic>
-				<reset>ニ</reset>
-				<ic>ニにﾆ</ic>
-				<reset>ヌ</reset>
-				<ic>ヌぬﾇ</ic>
-				<reset>ネ</reset>
-				<ic>ネねﾈ</ic>
-				<reset>ノ</reset>
-				<ic>ノのﾉ</ic>
-				<reset>ハ</reset>
-				<ic>ハはﾊ</ic>
-				<reset>ヒ</reset>
-				<ic>ヒひﾋ</ic>
-				<reset>フ</reset>
-				<ic>フふﾌ</ic>
-				<reset>ヘ</reset>
-				<ic>ヘへﾍ</ic>
-				<reset>ホ</reset>
-				<ic>ホほﾎ</ic>
-				<reset>マ</reset>
-				<ic>マまﾏ</ic>
-				<reset>ミ</reset>
-				<ic>ミみﾐ</ic>
-				<reset>ム</reset>
-				<ic>ムむﾑ</ic>
-				<reset>メ</reset>
-				<ic>メめﾒ</ic>
-				<reset>モ</reset>
-				<ic>モもﾓ</ic>
-				<reset>ャ</reset>
-				<ic>ャゃｬ</ic>
-				<reset>ヤ</reset>
-				<ic>ヤやﾔ</ic>
-				<reset>ュ</reset>
-				<ic>ュゅｭ</ic>
-				<reset>ユ</reset>
-				<ic>ユゆﾕ</ic>
-				<reset>ョ</reset>
-				<ic>ョょｮ</ic>
-				<reset>ヨ</reset>
-				<ic>ヨよﾖ</ic>
-				<reset>ラ</reset>
-				<ic>ラらﾗ</ic>
-				<reset>リ</reset>
-				<ic>リりﾘ</ic>
-				<reset>ル</reset>
-				<ic>ルるﾙ</ic>
-				<reset>レ</reset>
-				<ic>レれﾚ</ic>
-				<reset>ロ</reset>
-				<ic>ロろﾛ</ic>
-				<reset>ヮ</reset>
-				<ic>ヮゎ</ic>
-				<reset>ワ</reset>
-				<ic>ワわﾜ</ic>
-				<reset>ヰ</reset>
-				<ic>ヰゐ</ic>
-				<reset>ヱ</reset>
-				<ic>ヱゑ</ic>
-				<reset>ヲ</reset>
-				<ic>ヲをｦ</ic>
-				<reset>ン</reset>
-				<ic>ンんﾝ</ic>
-				<reset>ヵ</reset>
-				<i>ヵ</i>
-				<reset>ヶ</reset>
-				<i>ヶ</i>
-				<reset>ー</reset>
-				<i>ー</i>
-				<reset>゙</reset>
-				<i>゙</i>
-				<reset>゚</reset>
-				<i>゚</i>
-				<reset> </reset>
-				<ic>　￣</ic>
+				<reset>ァ</reset> <!-- \u30A1 SMALL A -->
+				<ic>ぁｧ</ic>
+				<reset>ア</reset> <!-- \u30A2 A -->
+				<ic>あｱ</ic>
+				<reset>ィ</reset> <!-- \u30A3 SMALL I -->
+				<ic>ぃｨ</ic>
+				<reset>イ</reset> <!-- \u30A4 I -->
+				<ic>いｲ</ic>
+				<reset>ゥ</reset> <!-- \u30A5 SMALL U -->
+				<ic>ぅｩ</ic>
+				<reset>ウ</reset> <!-- \u30A6 U -->
+				<ic>うｳ</ic>
+				<reset>ェ</reset> <!-- \u30A7 SMALL E -->
+				<ic>ぇｪ</ic>
+				<reset>エ</reset> <!-- \u30A8 E -->
+				<ic>えｴ</ic>
+				<reset>ォ</reset> <!-- \u30A9 SMALL O -->
+				<ic>ぉｫ</ic>
+				<reset>オ</reset> <!-- \u30AA O -->
+				<ic>おｵ</ic>
+				<reset>カ</reset> <!-- \u30AB KA -->
+				<ic>かｶ</ic>
+				<reset>キ</reset> <!-- \u30AD KI -->
+				<ic>きｷ</ic>
+				<reset>ク</reset> <!-- \u30AF KU -->
+				<ic>くｸ</ic>
+				<reset>ケ</reset> <!-- \u30B1 KE -->
+				<ic>けｹ</ic>
+				<reset>コ</reset> <!-- \u30B3 KO -->
+				<ic>こｺ</ic>
+				<reset>サ</reset> <!-- \u30B5 SA -->
+				<ic>さｻ</ic>
+				<reset>シ</reset> <!-- \u30B7 SI -->
+				<ic>しｼ</ic>
+				<reset>ス</reset> <!-- \u30B9 SU -->
+				<ic>すｽ</ic>
+				<reset>セ</reset> <!-- \u30BB SE -->
+				<ic>せｾ</ic>
+				<reset>ソ</reset> <!-- \u30BD SO -->
+				<ic>そｿ</ic>
+				<reset>タ</reset> <!-- \u30BF TA -->
+				<ic>たﾀ</ic>
+				<reset>チ</reset> <!-- \u30C1 TI -->
+				<ic>ちﾁ</ic>
+				<reset>ッ</reset> <!-- \u30C3 SMALL TU -->
+				<ic>っｯ</ic>
+				<reset>ツ</reset> <!-- \u30C4 TU -->
+				<ic>つﾂ</ic>
+				<reset>テ</reset> <!-- \u30C6 TE -->
+				<ic>てﾃ</ic>
+				<reset>ト</reset> <!-- \u30C8 TO -->
+				<ic>とﾄ</ic>
+				<reset>ナ</reset> <!-- \u30CA NA -->
+				<ic>なﾅ</ic>
+				<reset>ニ</reset> <!-- \u30CB NI -->
+				<ic>にﾆ</ic>
+				<reset>ヌ</reset> <!-- \u30CC NU -->
+				<ic>ぬﾇ</ic>
+				<reset>ネ</reset> <!-- \u30CD NE -->
+				<ic>ねﾈ</ic>
+				<reset>ノ</reset> <!-- \u30CE NO -->
+				<ic>のﾉ</ic>
+				<reset>ハ</reset> <!-- \u30CF HA -->
+				<ic>はﾊ</ic>
+				<reset>ヒ</reset> <!-- \u30D2 HI -->
+				<ic>ひﾋ</ic>
+				<reset>フ</reset> <!-- \u30D5 HU -->
+				<ic>ふﾌ</ic>
+				<reset>ヘ</reset> <!-- \u30D8 HE -->
+				<ic>へﾍ</ic>
+				<reset>ホ</reset> <!-- \u30DB HO -->
+				<ic>ほﾎ</ic>
+				<reset>マ</reset> <!-- \u30DE MA -->
+				<ic>まﾏ</ic>
+				<reset>ミ</reset> <!-- \u30DF MI -->
+				<ic>みﾐ</ic>
+				<reset>ム</reset> <!-- \u30E0 MU -->
+				<ic>むﾑ</ic>
+				<reset>メ</reset> <!-- \u30E1 ME -->
+				<ic>めﾒ</ic>
+				<reset>モ</reset> <!-- \u30E2 MO -->
+				<ic>もﾓ</ic>
+				<reset>ャ</reset> <!-- \u30E3 SMALL YA -->
+				<ic>ゃｬ</ic>
+				<reset>ヤ</reset> <!-- \u30E4 YA -->
+				<ic>やﾔ</ic>
+				<reset>ュ</reset> <!-- \u30E5 SMALL YU -->
+				<ic>ゅｭ</ic>
+				<reset>ユ</reset> <!-- \u30E6 YU -->
+				<ic>ゆﾕ</ic>
+				<reset>ョ</reset> <!-- \u30E7 SMALL YO -->
+				<ic>ょｮ</ic>
+				<reset>ヨ</reset> <!-- \u30E8 YO -->
+				<ic>よﾖ</ic>
+				<reset>ラ</reset> <!-- \u30E9 RA -->
+				<ic>らﾗ</ic>
+				<reset>リ</reset> <!-- \u30EA RI -->
+				<ic>りﾘ</ic>
+				<reset>ル</reset> <!-- \u30EB RU -->
+				<ic>るﾙ</ic>
+				<reset>レ</reset> <!-- \u30EC RE -->
+				<ic>れﾚ</ic>
+				<reset>ロ</reset> <!-- \u30ED RO -->
+				<ic>ろﾛ</ic>
+				<reset>ヮ</reset> <!-- \u30EE SMALL WA -->
+				<i>ゎ</i>
+				<reset>ワ</reset> <!-- \u30EF WA -->
+				<ic>わﾜ</ic>
+				<reset>ヰ</reset> <!-- \u30F0 WI -->
+				<i>ゐ</i>
+				<reset>ヱ</reset> <!-- \u30F1 WE -->
+				<i>ゑ</i>
+				<reset>ヲ</reset> <!-- \u30F2 WO -->
+				<ic>をｦ</ic>
+				<reset>ン</reset> <!-- \u30F3 N -->
+				<ic>んﾝ</ic>
+				<reset>ヵ</reset> <!-- \u30F5 SMALL KA -->
+				<i>ゕ</i>
+				<reset>ヶ</reset> <!-- \u30F6 SMALL KE -->
+				<i>ゖ</i>
+				<reset>より</reset> <!-- \u3088\u308A -->
+				<s>ゟ</s> <!-- \u309F HIRAGANA DIGRAPH YORI -->
+				<reset>コト</reset> <!-- \u30B3\u30C8 -->
+				<s>ヿ</s> <!-- \u30FF KATAKANA DIGRAPH KOTO -->
+				<!-- <reset>ー</reset> --> <!-- \u30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK -->
+				<!-- <reset>゙</reset> --> <!-- \u3099 COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK -->
+				<!-- <reset>゚</reset> --> <!-- \u309A COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK -->
+				<reset> </reset> <!-- \u0020 -->
+				<ic>　￣</ic> <!-- \u3000\uFFE3 -->
 				<reset>!</reset>
 				<i>！</i>
 				<reset>&quot;</reset>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
+<html>
+	<head>
+		<title>Survey Tool Operations</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="readme.css" type="text/css" />
+	</head>
+	<body>
+		<a name="top">
+			<h1>Survey Tool Operation</h1>
+		</a>
+		<p>Steven R. Loomis srl@icu-project.org.    Updated 2008 Feb 22<br>
+			Copyright 2008 IBM and others. All Rights Reserved
+		</p>
+		<hr>
+		<ol class="toc">
+			<li><a href="#about">About this Document</a></li>
+			<li><a href="#prereq">Prerequisites</a></li>
+			<li><a href="#overview">Overview of Admin</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="#procedures">Procedures</a></li>
+		</ol>
+		<a name="about"><h2><a class="top" href="#top">About This Document</a></h2></a>
+		<p>  This document is directed towards the Operation of the Survey Tool.
+			Please see 'readme.txt' in this directory for the building and
+			installation of the survey tool.
+		</p>
+		<a name="prereq"><h2><a class="top" href="#top"> Prerequisite </a></h2></a>
+		<p>Read the <a href="readme.txt">readme.txt</a> in this dir.  You should have:</p>
+		<ol>
+			<li>Survey Tool installed in a web container</li>
+			<li>Latest CLDR data available to ST</li>
+			<li>CLDR_VAP password set up (user 'admin@')</li>
+			<li>CLDR_SMTP / CLDR_FROM set for email access</li>
+		</ol>
+		<a name="overview"><h2><a class="top" href="#top"> Overview of administrative interface </a></h2></a>
+		<ol>
+			<li><h4>Login access</h4>
+				<p>You can log in as the Administrator account with the email address 'admin@' and the password specified in the CLDR_VAP parameter in the cldr.properties file.
+				</p>
+				<p>When logged in, you will see a red bar at the top of the page that says:</p>
+				<blockquote> 'Be careful, you are an administrator!'</blockquote>
+				<p>This is here to warn you that some normal user safeguards are not in place,　and also that you have access to advanced functions.   Also, it reminds you that　your votes have 'override' capability.
+				</p>
+			</li>
+			<li><h4>Administrative override</h4>
+				<p>As the administrative account has override capability, it is possible to break　ties.  As well, another user named "Admin Override" was added, with level zero 　(admin). In theory it has full administrator access as well. However, we have
+					given its access out to a select few TC members, with the express instruction　that they were not to play with any of the other buttons, but just to cast the　overriding votes where the TC had decided to do so.
+				</p>
+			</li>
+			<li><h4>SQL: "more than enough rope"</h4>
+				<p>  The SQL interface provides access to more or less anything that the admin　interface does not cover.  It is both powerful and dangerous and will be covered　separately.  SQL access does not actually require a login, but uses a special URL which includes the admin password. So, SQL activity can be done without logging in if the URL is kept.
+				</p>
+			</li>
+			<li><h4>User panel</h4>
+				<p>  The "Manage users for.." link works for the Admin user as it does for others,　however all users are visible, not just those of one organization.  There are a few extra options, as well.
+				</p>
+			</li>
+			<li><h4>Administrative panel</h4>
+				<p>   The "Admin" link in the top right corner brings up the "SurveyTool Administration" panel. It has two levels, the "main" level (fairly safe), and the "EXPERT" level (dangerous, possibly experimental). The EXPERT-ADMIN-use-only link brings up the additional items.
+				</p>
+				<p>   As with SQL, Admin does not actually require a login, but uses a special URL which includes the admin password. So, Admin activity can be done without logging in if the URL is kept.
+				</p>
+			</li>
+		</ol>
+<a name="configuration"><h2><a class="top" href="#top"> Configuration </a></h2></a>
+
+<p>This section describes settings found in the <code>cldr.properties</code> file inside the cldr directory. SurveyTool must be 
+restarted for these to take effect.</p>
+
+<ol><li><h4>Officiality</h4>
+
+ <p>  By default, the ST runs in "unofficial mode" and declares itself to be so with a banner.  <font color=red>A configuration switch (????) 
+ turns this off, to declare itself as official</font>.</p>
+</li>
+<li><h4>Phases</h4>
+
+<p>   The "Phases" (vetting, submission, etc) are currently controlled by code changes in SurveyMain.java ... </p>
+</li>
+<li><h4> Messages </h4>
+
+<p>   Various messages can be shown to users either by configuration parameters, or  at run-time for things such as closing for
+ maintanance, announcement of news, etc.</p>
+ 
+<ul>
+  <li><code><a name="#CLDR_HEADER">CLDR_HEADER</a></code> - this property displays 
+</ul>
+ 
+</li>
+</ol>
+
+<a name="procedures"><h2><a class="top" href="#top">Procedures</a></h2></a>
+
+ <p>  Here are some Survey Tool tasks, with instructions.</p>
+<ul>
+<li><h4>Beta test </h4>
+<p>During the Beta process, users may input any data to test the SurveyTool. At the end of the Beta period, all data is deleted, and reloaded from CVS.</p>
+
+<ol>
+    <li>Set a <a href="#CLDR_HEADER">CLDR_HEADER</a> message in the properties file to notify users of the beta period</li>
+    <li>Back up the <code>cldr/</code> directory from the server</li>
+    <li>
+
+</ol>
+
+
+</ul>
+</ol>
+
+
+<a name="_end_"><h2><a class="top" href="#top"> End. </a></h2></a>
+
+	</body>
+</html>

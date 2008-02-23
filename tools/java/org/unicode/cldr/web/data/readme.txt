@@ -6,7 +6,7 @@ Copyright 2007-2008 IBM and others. All Rights Reserved
 
 -1. ABOUT THIS DOCUMENT:
   This document is directed towards the building, compilation
-and basic installation of the Survey Tool.  Please see 'stops.txt'
+and basic installation of the Survey Tool.  Please see 'stops.html'
 in this directory for the operation of survey tool.
 
   As of January 2008, (before CLDR 1.6 opens), I think this 

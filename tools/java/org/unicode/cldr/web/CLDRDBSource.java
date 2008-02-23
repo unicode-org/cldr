@@ -113,10 +113,11 @@ import com.ibm.icu.util.ULocale;
      * @param isNew set to true of this is the first time teh DB is being setup. TODO: replace with 'does table exist' code.
      * @param sm the link back to the SurveyMain
      */
-    public static void setupDB(Logger xlogger, Connection sconn, boolean isNew, SurveyMain sm) throws SQLException
+    public static void setupDB(Logger xlogger, Connection sconn, SurveyMain sm) throws SQLException
     {
         CLDRDBSource.sm = sm;
         logger = xlogger; // set static
+        boolean isNew = !sm.hasTable(sconn, XPathTable.CLDR_XPATHS);
         if(!isNew) {
             return; // nothing to setup
         }

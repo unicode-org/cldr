@@ -25,7 +25,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
-import com.ibm.icu.dev.test.translit.CompoundTransliteratorTest;
+//import com.ibm.icu.dev.test.translit.CompoundTransliteratorTest;
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;

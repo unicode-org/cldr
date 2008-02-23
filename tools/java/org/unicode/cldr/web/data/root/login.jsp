@@ -13,6 +13,14 @@
           <tr><td align='right'>
 			<label>Password: <input type="password" name="pw" /></label></td><td>
 			<input type="submit" value="Login" />
+			
+			<!--  detect javascript. Not a problem, just figure out if we can rely on it or no. -->
+			<script type="text/javascript">
+			<!--
+			 document.write("<input type='hidden' name='p_nojavascript' value='f'>");
+			// -->
+			</script>
+            <noscript><input name='p_nojavascript' type='hidden' value='t'></noscript>
             </td></tr>
           </table>
 		</form>

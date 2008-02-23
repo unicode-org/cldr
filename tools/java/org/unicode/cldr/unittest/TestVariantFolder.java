@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.VariantFolder;
-import org.unicode.cldr.web.CLDRDBSource.MyStatements;
 
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceClass.SetMaker;

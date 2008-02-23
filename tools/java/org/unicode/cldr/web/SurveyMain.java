@@ -7587,14 +7587,14 @@ public class SurveyMain extends HttpServlet {
             return;
         }
         try {
-            xpt = XPathTable.createTable(logger, getDBConnection(), !doesExist, this);
+            xpt = XPathTable.createTable(logger, getDBConnection(), this);
         } catch (SQLException e) {
             busted("On XPathTable startup: " + unchainSqlException(e));
             return;
         }
         // note: make xpt before CLDRDBSource..
         try {
-            CLDRDBSource.setupDB(logger, getDBConnection(), !doesExist, this);
+            CLDRDBSource.setupDB(logger, getDBConnection(), this);
         } catch (SQLException e) {
             busted("On CLDRDBSource startup: " + unchainSqlException(e));
             return;

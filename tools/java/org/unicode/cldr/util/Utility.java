@@ -447,11 +447,11 @@ public class Utility {
    * @param source
    * @return
    */
-  public static <T> T clone(T source) {
+public static <T> T clone(T source) {
     try {
       final Class<? extends Object> class1 = source.getClass();
-      final Method declaredMethod = class1.getDeclaredMethod("clone", null);
-      return (T) declaredMethod.invoke(source, null);
+      final Method declaredMethod = class1.getDeclaredMethod("clone", (Class)null);
+      return (T) declaredMethod.invoke(source, (Object)null);
     } catch (Exception e) {
       return null; // uncloneable
     }

@@ -3,7 +3,7 @@
 //  fivejay
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006-2007 IBM. All rights reserved.
+//  Copyright 2006-2008 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -452,7 +452,7 @@ public class SurveyForum {
         ctx.println("<input type='hidden' name='_' value='"+ctx.locale+"'>");
         ctx.println("<input type='hidden' name='replyto' value='"+replyTo+"'>");
 
-        if(sm.phaseBeta) {
+        if(sm.isPhaseBeta()) {
             ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
 
@@ -463,7 +463,7 @@ public class SurveyForum {
             //(ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
-        if(sm.phaseBeta) {
+        if(sm.isPhaseBeta()) {
             ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
         ctx.println("</form>");
@@ -501,7 +501,7 @@ public class SurveyForum {
         // Show the Pod in question:
 //        ctx.println("<hr> \n This post Concerns:<p>");
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-        String podBase = DataPod.xpathToPodBase(xpath);
+        String podBase = DataSection.xpathToSectionBase(xpath);
         
         sm.printPathListOpen(ctx);
 
@@ -511,20 +511,20 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
             ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
 
-            ctx.println("<input type='submit' value='" + sm.xSAVE + "'><br>"); //style='float:right' 
+            ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
             sm.vet.processPodChanges(ctx, podBase);
         } else {
 //            ctx.println("<br>cant modify " + ctx.locale + "<br>");
         }
         
-        DataPod pod = ctx.getPod(podBase);
+        DataSection section = ctx.getSection(podBase);
         
-        sm.printPodTableOpen(ctx, pod, true);
-        sm.showPeas(ctx, pod, canModify, base_xpath, true);
-        sm.printPodTableClose(ctx, pod);
+        sm.printSectionTableOpen(ctx, section, true);
+        sm.showPeas(ctx, section, canModify, base_xpath, true);
+        sm.printSectionTableClose(ctx, section);
         sm.printPathListClose(ctx);
         
-        ctx.printHelpHtml(pod, xpath);
+        ctx.printHelpHtml(section, xpath);
     }
     
     void printForumMenu(WebContext ctx, String forum) {
@@ -959,7 +959,7 @@ public class SurveyForum {
     } 
     
        
-    void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath, String contents) {
+    void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath, String contents) {
         //if(ctx.session.user == null) {     
         //    return; // no user?
         //}
@@ -968,15 +968,15 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 //        title = null /*+ title*/;
-        ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,pod,p,xpath)+"' >" // title='"+title+"'
+        ctx.println("<a target='"+ctx.atarget("n:"+ctx.locale.toString())+"' class='forumlink' href='"+forumUrl(ctx,section,p,xpath)+"' >" // title='"+title+"'
             +contents+ "</a>");
     }
-    void showForumLink(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-            showForumLink(ctx,pod,p,xpath,ctx.iconHtml("zoom","zoom"));
+    void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
+            showForumLink(ctx,section,p,xpath,ctx.iconHtml("zoom","zoom"));
     }
     // "link" UI
-    static public String forumUrl(WebContext ctx, DataPod pod, DataPod.Pea p, int xpath) {
-        return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+pod.intgroup+"&"+F_XPATH+"="+xpath;
+    static public String forumUrl(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
+        return ctx.base()+"?_="+ctx.locale.toString()+"&"+F_FORUM+"="+section.intgroup+"&"+F_XPATH+"="+xpath;
     }
     static public String forumUrl(WebContext ctx, String locale, int xpath) {
         ULocale u = new ULocale(locale);

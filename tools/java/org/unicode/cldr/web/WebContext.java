@@ -3,7 +3,7 @@
 //  cldrtools
 //
 //  Created by Steven R. Loomis on 3/11/2005.
-//  Copyright 2005-2007 IBM. All rights reserved.
+//  Copyright 2005-2008 IBM. All rights reserved.
 //
 package org.unicode.cldr.web;
 
@@ -562,7 +562,7 @@ public class WebContext implements Cloneable {
     
     public int staticInfo_DataPod(Object o) {
         int s = 0;
-        DataPod pod = (DataPod)o;
+        DataSection section = (DataSection)o;
         
         print(o.toString());
         
@@ -581,7 +581,7 @@ public class WebContext implements Cloneable {
             return staticInfo_Reference(o);
         } else if(o instanceof Hashtable) {
             return staticInfo_Hashtable(o);
-        } else if(o instanceof DataPod) {
+        } else if(o instanceof DataSection) {
             return staticInfo_DataPod(o);
         } else { 
             println(o.getClass().toString());
@@ -656,7 +656,7 @@ public class WebContext implements Cloneable {
     }
     
     public String defaultPtype() {
-        if(sm.phaseSubmit) {
+        if(sm.isPhaseSubmit()) {
             String def = pref(SurveyMain.PREF_COVLEV,"default");
             if(!def.equals("default")) {
                 return def;
@@ -683,7 +683,7 @@ public class WebContext implements Cloneable {
    }
     
     public String getChosenLocaleType() {
-        if(sm.phaseSubmit) { 
+        if(sm.isPhaseSubmit()) { 
             String org = pref(SurveyMain.PREF_COVTYP, "default");
             if(org.equals("default")) {
                 org = null;
@@ -703,7 +703,7 @@ public class WebContext implements Cloneable {
     }
     
     public Map getOptionsMap(Map options) {
-        if(sm.phaseSubmit) { 
+        if(sm.isPhaseSubmit()) { 
             String def = pref(SurveyMain.PREF_COVLEV,"default");
             if(!def.equals("default")) {
                 options.put("CheckCoverage.requiredLevel",def);
@@ -725,17 +725,17 @@ public class WebContext implements Cloneable {
      * Get a pod.. even if it may be no longer invalid.
      * May be null.
      */
-    DataPod getExistingPod(String prefix) {
-        return getExistingPod(prefix, defaultPtype());
+    DataSection getExistingSection(String prefix) {
+        return getExistingSection(prefix, defaultPtype());
     }
     
-    DataPod getExistingPod(String prefix, String ptype) {
+    DataSection getExistingSection(String prefix, String ptype) {
         synchronized(this) {
             Reference sr = (Reference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
             if(sr == null) {
                 return null; // wasn't never there
             }
-            DataPod dp = (DataPod)sr.get();
+            DataSection dp = (DataSection)sr.get();
             if(dp == null) {
 //                System.err.println("SR expired: " + locale + ":"+ prefix+":"+ptype);
             }
@@ -747,40 +747,40 @@ public class WebContext implements Cloneable {
      * Get a currently valid pod.. creating it if need be.
      * UI: does write informative notes to the ctx in case of a long delay.
      */
-    DataPod getPod(String prefix) {
-        return getPod(prefix, defaultPtype());
+    DataSection getSection(String prefix) {
+        return getSection(prefix, defaultPtype());
     }
     
-    DataPod getPod(String prefix, String ptype) {
+    DataSection getSection(String prefix, String ptype) {
         if(hasField("srl_veryslow")&&sm.isUnofficial) {
             for(int q=0;q<50;q++) {
-                DataPod.make(this, locale.toString(), prefix, false);
+                DataSection.make(this, locale.toString(), prefix, false);
             }
         }
     
         String loadString = "data was loaded.";
         synchronized(this) {
-            DataPod pod = getExistingPod(prefix, ptype);
-            if((pod != null) && (!pod.isValid())) {
-                pod = null;
+            DataSection section = getExistingSection(prefix, ptype);
+            if((section != null) && (!section.isValid())) {
+                section = null;
                 loadString = "data was re-loaded due to a new user submission.";
             }
-            if(pod == null) {
+            if(section == null) {
                 long t0 = System.currentTimeMillis();
                 ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                pod = DataPod.make(this, locale.toString(), prefix, false);
+                section = DataSection.make(this, locale.toString(), prefix, false);
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
                 synchronized (staticStuff) {
-                    pod.register();
+                    section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
-                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference(pod)); // PUT******
-                      putByLocale("__keeper:"+prefix+":"+ptype, pod); // put into user's hash so it wont go out of scope
+                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference(section)); // PUT******
+                      putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
                 }
             }
-            pod.touch();
-            return pod;
+            section.touch();
+            return section;
         }
     }
 
@@ -800,8 +800,8 @@ public class WebContext implements Cloneable {
                 4*1024));       
     }
     
-    public void printHelpHtml(DataPod pod, String xpath) {
-        String helpHtml = pod.exampleGenerator.getHelpHtml(xpath,null);
+    public void printHelpHtml(DataSection section, String xpath) {
+        String helpHtml = section.exampleGenerator.getHelpHtml(xpath,null);
         if(helpHtml != null)  {
             println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
         }        

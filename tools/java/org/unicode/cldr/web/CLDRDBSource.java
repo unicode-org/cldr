@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005-2007, International Business Machines Corporation and   *
+ * Copyright (C) 2005-2008, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -241,7 +241,7 @@ import com.ibm.icu.util.ULocale;
             
             queryValue = prepareStatement("queryValue",
                                           "SELECT value FROM " + CLDR_DATA +
-                                          " WHERE locale=? AND xpath=?"); // TODO: 1 need to be more specific! ! ! !
+                                          " WHERE locale=? AND xpath=?"); 
             
 
             queryVetValue = prepareStatement("queryVetValue",
@@ -276,7 +276,7 @@ import com.ibm.icu.util.ULocale;
             
             keySet = prepareStatement("keySet",
                                       "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
-                                      " WHERE locale=?"); // TODO: 1 need to be more specific!
+                                      " WHERE locale=?"); 
             keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
                                                  "select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
             keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
@@ -823,7 +823,7 @@ import com.ibm.icu.util.ULocale;
         //synchronized (conn) {
             try {
                 stmts.queryValue.setString(1,locale);
-                stmts.queryValue.setInt(2,xpt.getByXpath(path)); // TODO: 2 more specificity
+                stmts.queryValue.setInt(2,xpt.getByXpath(path)); 
                 ResultSet rs = stmts.queryValue.executeQuery();
                 if(rs.next()) {
                     return true;
@@ -882,7 +882,7 @@ import com.ibm.icu.util.ULocale;
             //throw new InternalError("Unsupported: getWinningPath("+xpath+","+locale+") on finalData");
         } else {
             stmts.queryVetXpath.setString(1,locale);
-            stmts.queryVetXpath.setInt(2,xpath); // TODO: 2 more specificity
+            stmts.queryVetXpath.setInt(2,xpath); 
             rs = stmts.queryVetXpath.executeQuery();
         }
         if(!rs.next()) {
@@ -1261,7 +1261,6 @@ import com.ibm.icu.util.ULocale;
 //                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
-                // TODO: ???
             } catch(SQLException se) {
                 logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + getLocaleID() +"): " + SurveyMain.unchainSqlException(se));
                 return null;

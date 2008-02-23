@@ -3,7 +3,7 @@
 //  fivejay
 //
 //  Created by Steven R. Loomis on 04/04/2006.
-//  Copyright 2006-2007 IBM. All rights reserved.
+//  Copyright 2006-2008 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -2979,7 +2979,7 @@ if(true == true)    throw new InternalError("removed from use.");
                     String theMenu = (String)ii.next();
                     Set subSet = (Set)ht.get(theMenu);
                     ctx.print("<a href='"+ctx.base()+"?"+
-                        "_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataPod.CHANGES_DISPUTED+"'>"+
+                        "_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataSection.CHANGES_DISPUTED+"'>"+
                            theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
                         
                     if(showAllXpaths) {
@@ -3007,7 +3007,7 @@ if(true == true)    throw new InternalError("removed from use.");
     public boolean processPodChanges(WebContext ctx, String podBase) {
         synchronized (ctx.session) {
             // first, do submissions.
-            DataPod oldPod = ctx.getExistingPod(podBase);
+            DataSection oldSection = ctx.getExistingSection(podBase);
             
             SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
             CLDRFile cf = uf.cldrfile;
@@ -3023,8 +3023,8 @@ if(true == true)    throw new InternalError("removed from use.");
                 // Set up checks
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make tests happen
             
-                if(sm.processPeaChanges(ctx, oldPod, cf, ourSrc)) {
-                    int j = sm.vet.updateResults(oldPod.locale); // bach 'em
+                if(sm.processPeaChanges(ctx, oldSection, cf, ourSrc)) {
+                    int j = sm.vet.updateResults(oldSection.locale); // bach 'em
                     ctx.println("<br> You submitted data or vote changes, and " + j + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
                     return true;
                 }

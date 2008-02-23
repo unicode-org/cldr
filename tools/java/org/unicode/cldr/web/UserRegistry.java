@@ -3,7 +3,7 @@
 //  fourjay
 //
 //  Created by Steven R. Loomis on 14/10/2005.
-//  Copyright 2005 IBM. All rights reserved.
+//  Copyright 2005-2008 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -1068,7 +1068,7 @@ public class UserRegistry {
         return (userIsTC(u));
     }
     static final boolean userCanSubmit(User u) {
-		if(SurveyMain.phaseReadonly) return false;
+		if(SurveyMain.isPhaseReadonly()) return false;
         return((u!=null) && userIsStreet(u));
     }
     
@@ -1090,7 +1090,7 @@ public class UserRegistry {
     }
     
     static final boolean userCanModifyLocale(String uLocale, String locale) {
-        if(SurveyMain.phaseReadonly) return false;
+        if(SurveyMain.isPhaseReadonly()) return false;
         return localeMatchesLocale(uLocale, locale);
     }
 
@@ -1112,7 +1112,7 @@ public class UserRegistry {
         
     
     static final boolean userCanModifyLocale(String localeArray[], String locale) {
-		if(SurveyMain.phaseReadonly) return false;
+		if(SurveyMain.isPhaseReadonly()) return false;
         if(localeArray.length == 0) {
             return true; // all 
         }
@@ -1124,13 +1124,13 @@ public class UserRegistry {
         if(u==null) return false; // no user, no dice
 
         if(!userIsStreet(u)) return false; // at least street level
-        if(SurveyMain.phaseReadonly) return false; // readonly = locked for ALL
+        if(SurveyMain.isPhaseReadonly()) return false; // readonly = locked for ALL
         if((sm.isLocaleAliased(locale)!=null) ||
             sm.supplemental.defaultContentToParent(locale)!=null) return false; // it's a defaultcontent locale or a pure alias.
 
         if(userIsAdmin(u)) return true; // Admin can modify all
         if(userIsTC(u)) return true; // TC can modify all
-        if((SurveyMain.phase == SurveyMain.Phase.VETTING_CLOSED)) {
+        if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
             if(u.userIsSpecialForCLDR15(locale)) {
                 return true;
             } else {
@@ -1138,9 +1138,9 @@ public class UserRegistry {
             }
         }
         if(userIsTC(u)) return true; // TC can modify all
-        if(SurveyMain.phaseClosed) return false;
-        if(SurveyMain.phaseSubmit && !userIsStreet(u)) return false;
-        if(SurveyMain.phaseVetting && !userIsStreet (u)) return false;
+        if(SurveyMain.isPhaseClosed()) return false;
+        if(SurveyMain.isPhaseSubmit() && !userIsStreet(u)) return false;
+        if(SurveyMain.isPhaseVetting() && !userIsStreet (u)) return false;
         if(locale.equals("und")||locale.startsWith("und_")) {  // all user accounts can write to und.
             return true;
         }
@@ -1156,42 +1156,42 @@ public class UserRegistry {
 	
 
     static final boolean userCanSubmitLocaleWhenDisputed(User u, String locale, boolean disputed) {
-		if(SurveyMain.phaseReadonly) return false;
+		if(SurveyMain.isPhaseReadonly()) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
-        if((SurveyMain.phase == SurveyMain.Phase.VETTING_CLOSED)) {
+        if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
             if(u.userIsSpecialForCLDR15(locale)) {
                 return true;
             } else {
                 return false;
             }
         }
-        if(SurveyMain.phaseClosed) return false;
-		if(!u.userIsSpecialForCLDR15(locale) && SurveyMain.phaseVetting && !disputed && !userIsExpert(u)) return false; // only expert can submit new data.
+        if(SurveyMain.isPhaseClosed()) return false;
+		if(!u.userIsSpecialForCLDR15(locale) && SurveyMain.isPhaseVetting() && !disputed && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanModifyLocale(u,locale);
     }
 
     static final boolean userCanSubmitAnyLocale(User u) {
-		if(SurveyMain.phaseReadonly) return false;
+		if(SurveyMain.isPhaseReadonly()) return false;
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
-        if((SurveyMain.phase == SurveyMain.Phase.VETTING_CLOSED)) {
+        if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
             if(u.userIsSpecialForCLDR15("be")) {
                 return true;
             }
         }
-        if(SurveyMain.phaseClosed) return false;
-        if(SurveyMain.phaseVetting && !userIsExpert(u)) return false; // only expert can submit new data.
+        if(SurveyMain.isPhaseClosed()) return false;
+        if(SurveyMain.isPhaseVetting() && !userIsExpert(u)) return false; // only expert can submit new data.
         return userCanSubmit(u);
     }
 
     static final boolean userCanVetLocale(User u, String locale) {
-		if(SurveyMain.phaseReadonly) return false;
-        if((SurveyMain.phase == SurveyMain.Phase.VETTING_CLOSED) && u.userIsSpecialForCLDR15(locale)) {
+		if(SurveyMain.isPhaseReadonly()) return false;
+        if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED) && u.userIsSpecialForCLDR15(locale)) {
             return true;
         }
         if(userIsTC(u) ) return true; // TC can modify all
-        if(SurveyMain.phaseClosed) return false;
+        if(SurveyMain.isPhaseClosed()) return false;
         return userCanModifyLocale(u,locale);
     }
     

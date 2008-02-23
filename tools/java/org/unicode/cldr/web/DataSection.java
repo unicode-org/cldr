@@ -2,7 +2,7 @@
 //  DataPod.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005-2007 IBM. All rights reserved.
+//  Copyright 2005-2008 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
@@ -20,12 +20,13 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.text.RuleBasedCollator;
 
-/** A data pod represents a group of related data that will be displayed to users in a list
+/** A data section represents a group of related data that will be displayed to users in a list
  * such as, "all of the language display names contained in the en_US locale".
  * It is sortable, as well, and has some level of persistence.
+ * This class was formerly, and unfortunately, named DataPod
  **/
 
-public class DataPod extends Registerable {
+public class DataSection extends Registerable {
 
     long touchTime = -1; // when has this pod been hit?
     
@@ -39,11 +40,11 @@ public class DataPod extends Registerable {
     boolean canName = true;
     boolean simple = false; // is it a 'simple code list'?
     
-    public static final String DATAPOD_MISSING = "Inherited";
-    public static final String DATAPOD_NORMAL = "Normal";
-    public static final String DATAPOD_PRIORITY = "Priority";
-    public static final String DATAPOD_PROPOSED = "Proposed";
-    public static final String DATAPOD_VETPROB = "Vetting Issue";
+    public static final String DATASECTION_MISSING = "Inherited";
+    public static final String DATASECTION_NORMAL = "Normal";
+    public static final String DATASECTION_PRIORITY = "Priority";
+    public static final String DATASECTION_PROPOSED = "Proposed";
+    public static final String DATASECTION_VETPROB = "Vetting Issue";
 
     public static final String EXEMPLAR_ONLY = "//ldml/dates/timeZoneNames/zone/*/exemplarCity";
     public static final String EXEMPLAR_EXCLUDE = "!exemplarCity";
@@ -65,7 +66,7 @@ public class DataPod extends Registerable {
     public ExampleGenerator exampleGenerator = null;
 
     public String intgroup; 
-    DataPod(SurveyMain sm, String loc, String prefix) {
+    DataSection(SurveyMain sm, String loc, String prefix) {
         super(sm.lcr,loc); // initialize call to LCR
 
         this.sm = sm;
@@ -83,19 +84,19 @@ public class DataPod extends Registerable {
 
         public String hash = null;
 
-        public DataPod pod;
-        public DataPod.Pea pea;
-        public Pea.Item item;
+        public DataSection section;
+        public DataSection.DataRow dataRow;
+        public DataRow.CandidateItem item;
         public CheckCLDR.CheckStatus status;
         
-        public ExampleEntry(DataPod pod, Pea p, Pea.Item item, CheckCLDR.CheckStatus status) {
-            this.pod = pod;
-            this.pea = p;
+        public ExampleEntry(DataSection section, DataRow p, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
+            this.section = section;
+            this.dataRow = p;
             this.item = item;
             this.status = status;
 
-            hash = CookieSession.cheapEncode(DataPod.getN()) +  // unique serial #- covers item, status..
-                this.pod.fieldHash(p);   /* fieldHash ensures that we don't get the wrong field.. */
+            hash = CookieSession.cheapEncode(DataSection.getN()) +  // unique serial #- covers item, status..
+                this.section.fieldHash(p);   /* fieldHash ensures that we don't get the wrong field.. */
         }
     }
     Hashtable exampleHash = new Hashtable(); // hash of examples
@@ -115,16 +116,16 @@ public class DataPod extends Registerable {
      */
     ExampleEntry getExampleEntry(String hash) {
         synchronized(exampleHash) {
-            return (DataPod.ExampleEntry)exampleHash.get(hash);
+            return (DataSection.ExampleEntry)exampleHash.get(hash);
         }
     }
     
     /* get a short key for use in fields */
-    public String fieldHash(Pea p) {
+    public String fieldHash(DataRow p) {
         return fieldHash + p.fieldHash();
     }
 
-    public String xpath(Pea p) {
+    public String xpath(DataRow p) {
         String path = xpathPrefix;
         if(path == null) {
             throw new InternalError("Can't handle mixed peas with no prefix");
@@ -156,13 +157,19 @@ public class DataPod extends Registerable {
     
     final Collator myCollator = getOurCollator();
     
-    public class Pea {
-        Pea superPea = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
+    /**
+     * This class represents a "row" of data - a single distinguishing xpath
+     * This class was formerly (and unfortunately) named "Pea"
+     * @author srl
+     *
+     */
+    public class DataRow {
+        DataRow parentRow = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
         
         // what kind of pea is this?
         public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
         public boolean zoomOnly = false; // if true - don't show any editing in the zoomout view, they must zoom in.
-        public Pea toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
+        public DataRow toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
         public boolean toggleValue = false;
         String[] valuesList = null; // if non null - list of acceptable values.
         public AttributeChoice attributeChoice = null; // pea is an attributed list of items
@@ -203,7 +210,11 @@ public class DataPod extends Registerable {
         public int reservedForSort = -1; // reserved to use in collator.
 //        String inheritFrom = null;
 //        String pathWhereFound = null;
-        public class Item implements java.lang.Comparable {
+        /**
+         * The Item is a particular alternate which could be chosen 
+         * It was unfortunately previously named "Item"
+         */
+        public class CandidateItem implements java.lang.Comparable {
             String pathWhereFound = null;
             String inheritFrom = null;
             boolean isParentFallback = false; // true if it is not actually part of this locale,but is just the parent fallback ( Pea.inheritedValue );
@@ -243,7 +254,7 @@ public class DataPod extends Registerable {
                 if(other == this) {
                     return 0;
                 }
-				Item i = (Item) other;
+				CandidateItem i = (CandidateItem) other;
 				int rv = value.compareTo(i.value);
 				if(rv == 0) {
 					rv = xpath.compareTo(i.xpath);
@@ -281,27 +292,27 @@ public class DataPod extends Registerable {
                 }
                 if(weHaveTests) {
                     /* pea */ hasTests = true;
-                    superPea.hasTests = true;
+                    parentRow.hasTests = true;
                                         
                     if(((winningXpathId==-1)&&(xpathId==base_xpath)) || (xpathId == winningXpathId)) {
                         if(errorCount>0) /* pea */ hasErrors = true;
                         if(warningCount>0) /* pea */ hasWarnings = true;
                         // propagate to parent
-                        if(errorCount>0) /* pea */ superPea.hasErrors = true;
-                        if(warningCount>0) /* pea */ superPea.hasWarnings = true;
+                        if(errorCount>0) /* pea */ parentRow.hasErrors = true;
+                        if(warningCount>0) /* pea */ parentRow.hasWarnings = true;
                     }
                    
-                    if(errorCount>0) /* pea */ { itemErrors=true;  anyItemHasErrors = true;  superPea.anyItemHasErrors = true; }
+                    if(errorCount>0) /* pea */ { itemErrors=true;  anyItemHasErrors = true;  parentRow.anyItemHasErrors = true; }
                     if(warningCount>0) /* pea */ anyItemHasWarnings = true;
                     // propagate to parent
-                    if(warningCount>0) /* pea */ superPea.anyItemHasWarnings = true;
+                    if(warningCount>0) /* pea */ parentRow.anyItemHasWarnings = true;
                 }
                 return weHaveTests;
             }
         }
         
-        Item previousItem = null;
-        Item inheritedValue = null; // vetted value inherited from parent
+        CandidateItem previousItem = null;
+        CandidateItem inheritedValue = null; // vetted value inherited from parent
         
         public String toString() {
             return "{Pea t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
@@ -309,8 +320,8 @@ public class DataPod extends Registerable {
         
         public Set items = new TreeSet(new Comparator() {
                     public int compare(Object o1, Object o2){
-                        Item p1 = (Item) o1;
-                        Item p2 = (Item) o2;
+                        CandidateItem p1 = (CandidateItem) o1;
+                        CandidateItem p2 = (CandidateItem) o2;
                         if(p1==p2) { 
                             return 0;
                         }
@@ -320,8 +331,8 @@ public class DataPod extends Registerable {
                         return myCollator.compare(p1.altProposed, p2.altProposed);
                     }
                 });
-        public Item addItem(String value, String altProposed, List tests) {
-            Item pi = new Item();
+        public CandidateItem addItem(String value, String altProposed, List tests) {
+            CandidateItem pi = new CandidateItem();
             pi.value = value;
             pi.altProposed = altProposed;
             pi.tests = tests;
@@ -351,23 +362,23 @@ public class DataPod extends Registerable {
             return myFieldHash;
         }
         
-        Hashtable subPeas = null;
+        Hashtable subRows = null;
         
-        public Pea getSubPea(String altType) {
+        public DataRow getSubDataRow(String altType) {
             if(altType == null) {
                 return this;
             }
-            if(subPeas == null) {
-                subPeas = new Hashtable();
+            if(subRows == null) {
+                subRows = new Hashtable();
             }
 
-            Pea p = (Pea)subPeas.get(altType);
+            DataRow p = (DataRow)subRows.get(altType);
             if(p==null) {
-                p = new Pea();
+                p = new DataRow();
                 p.type = type;
                 p.altType = altType;
-                p.superPea = this;
-                subPeas.put(altType, p);
+                p.parentRow = this;
+                subRows.put(altType, p);
             }
             return p;
         }
@@ -395,7 +406,7 @@ public class DataPod extends Registerable {
                 String value = vettedParent.getStringValue(xpath);
                 
                 if(value != null) {
-                    inheritedValue = new Item();
+                    inheritedValue = new CandidateItem();
                     inheritedValue.isParentFallback=true;
 
                     CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
@@ -432,15 +443,15 @@ public class DataPod extends Registerable {
         }
  
         void setShimTests(int base_xpath,String base_xpath_string,CheckCLDR checkCldr,Map options) {
-            Item shimItem = inheritedValue;
+            CandidateItem shimItem = inheritedValue;
             
             if(shimItem == null) {
-                shimItem = new Item();
+                shimItem = new CandidateItem();
 
                 shimItem.value = null;
                 shimItem.xpath = base_xpath_string;
                 shimItem.xpathId = base_xpath;
-                shimItem.isFallback = false;                    
+                shimItem.isFallback = false;
         
                 List iTests = new ArrayList();
                 checkCldr.check(base_xpath_string, base_xpath_string, null, options, iTests);
@@ -491,36 +502,36 @@ public class DataPod extends Registerable {
             String notMyType = typeNoValue+notMyValueSuffix;
             
             
-            Pea notMyPea = getPea(notMyType);
-            if(notMyPea.toggleWith == null) {
-                notMyPea.toggleValue = !toggleValue;
-                notMyPea.toggleWith = this;
+            DataRow notMyDataRow = getDataRow(notMyType);
+            if(notMyDataRow.toggleWith == null) {
+                notMyDataRow.toggleValue = !toggleValue;
+                notMyDataRow.toggleWith = this;
 
                 String my_base_xpath_string = sm.xpt.getById(base_xpath);
                 String not_my_base_xpath_string = replaceEndWith(my_base_xpath_string, myValueSuffix, notMyValueSuffix);
-                notMyPea.base_xpath = sm.xpt.getByXpath(not_my_base_xpath_string);
+                notMyDataRow.base_xpath = sm.xpt.getByXpath(not_my_base_xpath_string);
 
-                notMyPea.xpathSuffix = replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
+                notMyDataRow.xpathSuffix = replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
 
                 //System.err.println("notMyPea.xpath = " + xpath(notMyPea));
             }
             
-            toggleWith = notMyPea;
+            toggleWith = notMyDataRow;
             
         }
     }
 
-    Hashtable peasHash = new Hashtable(); // hashtable of type->Pea
+    Hashtable rowsHash = new Hashtable(); // hashtable of type->Pea
  
     /**
      * get all peas.. unsorted.
      */
     public Collection getAll() {
-        return peasHash.values();
+        return rowsHash.values();
     }
     
     public abstract class PartitionMembership {
-        public abstract boolean isMember(Pea p);
+        public abstract boolean isMember(DataRow p);
     };
     public class Partition {
 
@@ -600,14 +611,14 @@ public class DataPod extends Registerable {
             // fetch partitions..
             Vector v = new Vector();
             if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) { // priority
-                Partition testPartitions[] = SurveyMain.phaseSubmit?createSubmitPartitions():
+                Partition testPartitions[] = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
                                                                            createVettingPartitions();
                 // find the starts
                 int lastGood = 0;
-                Pea peasArray[] = null;
-                peasArray = (Pea[])peas.toArray(new Pea[0]);
+                DataRow peasArray[] = null;
+                peasArray = (DataRow[])peas.toArray(new DataRow[0]);
                 for(int i=0;i<peasArray.length;i++) {
-                    Pea p = peasArray[i];
+                    DataRow p = peasArray[i];
                                         
                     for(int j=lastGood;j<testPartitions.length;j++) {
                         if(testPartitions[j].pm.isMember(p)) {
@@ -665,7 +676,7 @@ public class DataPod extends Registerable {
         {                 
                 new Partition(PARTITION_ERRORS, 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return (p.hasErrors&&!p.hasProps) && ((p.allVoteType==0) || ((p.allVoteType & Vetting.RES_NO_VOTES)>0)
                                     || ((p.allVoteType & Vetting.RES_NO_CHANGE)>0) ) ||
                                        ((p.allVoteType & Vetting.RES_ERROR)>0) || p.hasErrors;
@@ -673,13 +684,13 @@ public class DataPod extends Registerable {
                     }),
                 new Partition(CHANGES_DISPUTED, 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ;
                         }
                     }),                  
                 new Partition(PARTITION_UNCONFIRMED, 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return (p.allVoteType>0) &&   // make sure it actually has real items.
                                 (((p.confirmStatus!=Vetting.Status.APPROVED &&
                                     p.confirmStatus!=Vetting.Status.INDETERMINATE)) ||
@@ -690,7 +701,7 @@ public class DataPod extends Registerable {
                     }),                  
                 new Partition(TENTATIVELY_APPROVED, 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return ((p.hasProps)&&
                                 ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
                                     (p.allVoteType>0) &&
@@ -699,7 +710,7 @@ public class DataPod extends Registerable {
                     }),
                 new Partition(STATUS_QUO, 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return ((!p.hasInherited&&!p.hasProps) || // nothing to change.
                                         ((p.allVoteType & Vetting.RES_NO_CHANGE)>0)) ||
                                     (p.hasInherited&&!p.hasProps) ||
@@ -716,19 +727,19 @@ public class DataPod extends Registerable {
         {                 
                 new Partition("Errors", 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return (p.hasErrors);
                         }
                     }),
                 new Partition("Warnings", 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return (p.hasWarnings);
                         }
                     }),
                 new Partition("Unconfirmed", 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             // == insufficient votes
                             return  (p.allVoteType == Vetting.RES_INSUFFICIENT) ||
                                 (p.allVoteType == Vetting.RES_NO_VOTES);
@@ -736,7 +747,7 @@ public class DataPod extends Registerable {
                     }),
                 new Partition("Changes Proposed: Tentatively Approved", 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return ((p.hasProps)&&
                                 ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
                                     (p.allVoteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
@@ -744,7 +755,7 @@ public class DataPod extends Registerable {
                     }),
                 new Partition("Others", 
                     new PartitionMembership() { 
-                        public boolean isMember(Pea p) {
+                        public boolean isMember(DataRow p) {
                             return true;
                         }
                     }),
@@ -801,8 +812,8 @@ public class DataPod extends Registerable {
             newSet = new TreeSet(new Comparator() {
     //                        com.ibm.icu.text.Collator myCollator = rbc;
                 public int compare(Object o1, Object o2){
-                    Pea p1 = (Pea) o1;
-                    Pea p2 = (Pea) o2;
+                    DataRow p1 = (DataRow) o1;
+                    DataRow p2 = (DataRow) o2;
                     if(p1==p2) { 
                         return 0;
                     }
@@ -812,7 +823,7 @@ public class DataPod extends Registerable {
         } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
             newSet = new TreeSet(new Comparator() {
             
-                int categorizePea(Pea p, Partition partitions[]) {
+                int categorizeDataRow(DataRow p, Partition partitions[]) {
                     int rv = -1;
                     for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
                         if(partitions[i].pm.isMember(p)) {
@@ -824,12 +835,12 @@ public class DataPod extends Registerable {
                     return rv;
                 }
                 
-                final Partition[] warningSort = SurveyMain.phaseSubmit?createSubmitPartitions():
+                final Partition[] warningSort = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
                                                                        createVettingPartitions();
     //                        com.ibm.icu.text.Collator myCollator = rbc;
                 public int compare(Object o1, Object o2){
-                    Pea p1 = (Pea) o1;
-                    Pea p2 = (Pea) o2;
+                    DataRow p1 = (DataRow) o1;
+                    DataRow p2 = (DataRow) o2;
 
                     
                     if(p1==p2) {
@@ -839,10 +850,10 @@ public class DataPod extends Registerable {
                     int rv = 0; // neg:  a < b.  pos: a> b
                     
                     if(p1.reservedForSort==-1) {
-                        p1.reservedForSort = categorizePea(p1, warningSort);
+                        p1.reservedForSort = categorizeDataRow(p1, warningSort);
                     }
                     if(p2.reservedForSort==-1) {
-                        p2.reservedForSort = categorizePea(p2, warningSort);
+                        p2.reservedForSort = categorizeDataRow(p2, warningSort);
                     }
                     
                     if(rv == 0) {
@@ -900,8 +911,8 @@ public class DataPod extends Registerable {
             newSet = new TreeSet(new Comparator() {
     //                        com.ibm.icu.text.Collator myCollator = rbc;
                 public int compare(Object o1, Object o2){
-                    Pea p1 = (Pea) o1;
-                    Pea p2 = (Pea) o2;
+                    DataRow p1 = (DataRow) o1;
+                    DataRow p2 = (DataRow) o2;
                     if(p1==p2) { 
                         return 0;
                     }
@@ -935,10 +946,10 @@ public class DataPod extends Registerable {
         }
         
         if(matcher == null) {
-            newSet.addAll(peasHash.values()); // sort it    
+            newSet.addAll(rowsHash.values()); // sort it    
         } else {
-            for(Object o : peasHash.values()) {
-                Pea p = (Pea)o;
+            for(Object o : rowsHash.values()) {
+                DataRow p = (DataRow)o;
                                 
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
@@ -973,7 +984,7 @@ public class DataPod extends Registerable {
             return new AbstractList() {
                 private List ps = myPeas;
                 public Object get(int n) {
-                  return ((Pea)ps.get(n)).type; // always code
+                  return ((DataRow)ps.get(n)).type; // always code
                 }
                 public int size() { return ps.size(); }
             };
@@ -981,7 +992,7 @@ public class DataPod extends Registerable {
             return new AbstractList() {
                 private List ps = myPeas;
                 public Object get(int n) {
-                  Pea p = (Pea)ps.get(n);
+                  DataRow p = (DataRow)ps.get(n);
                   if(p.displayName != null) {
                     return p.displayName;
                   } else {
@@ -1000,9 +1011,9 @@ public class DataPod extends Registerable {
 	 * @param prefix XPATH prefix
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
-	public static DataPod make(WebContext ctx, String locale, String prefix, boolean simple) {
-		DataPod pod = new DataPod(ctx.sm, locale, prefix);
-        pod.simple = simple;
+	public static DataSection make(WebContext ctx, String locale, String prefix, boolean simple) {
+		DataSection section = new DataSection(ctx.sm, locale, prefix);
+        section.simple = simple;
         SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
   
         CLDRDBSource ourSrc = uf.dbSource;
@@ -1019,20 +1030,20 @@ public class DataPod extends Registerable {
                 System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype());
             }
             CLDRFile baselineFile = ctx.sm.getBaselineFile();
-            pod.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
-			int popCount = pod.getAll().size();
+            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
+			int popCount = section.getAll().size();
 /*            if(SHOW_TIME) {
                 System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
             }*/
-            pod.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
+            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
             if(SHOW_TIME) {
-				int allCount = pod.getAll().size();
+				int allCount = section.getAll().size();
                 System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
             }
-            pod.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
-            pod.exampleGenerator.setVerboseErrors(ctx.sm.twidBool("ExampleGenerator.setVerboseErrors"));
+            section.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
+            section.exampleGenerator.setVerboseErrors(ctx.sm.twidBool("ExampleGenerator.setVerboseErrors"));
         }
-		return pod;
+		return section;
 	}
     
     private static boolean isInitted = false;
@@ -1217,7 +1228,7 @@ public class DataPod extends Registerable {
                     removePrefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]";
                     
                     // Add the fake 'dateTimes/availableDateFormats/new'
-                    Pea myp = getPea(FAKE_FLEX_THING);
+                    DataRow myp = getDataRow(FAKE_FLEX_THING);
                     String spiel = "<i>add</i>"; //Use this item to add a new availableDateFormat
                     myp.xpathSuffix = FAKE_FLEX_SUFFIX;
                     canName=false;
@@ -1436,7 +1447,7 @@ public class DataPod extends Registerable {
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             
-            Pea p = getPea(type, altType);
+            DataRow p = getDataRow(type, altType);
             
             p.winningXpathId = src.getWinningPathId(base_xpath, locale);
             
@@ -1445,7 +1456,7 @@ public class DataPod extends Registerable {
             
 ///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
-            Pea superP = getPea(type);
+            DataRow superP = getDataRow(type);
 //if("gsw".equals(type)) /*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
@@ -1620,7 +1631,7 @@ public class DataPod extends Registerable {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
                 checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
             }
-            DataPod.Pea.Item myItem;
+            DataSection.DataRow.CandidateItem myItem;
             
 /*            if(p.attributeChoice != null) {
                 String newValue = p.attributeChoice.valueOfXpath(fullPath);
@@ -1757,7 +1768,7 @@ public class DataPod extends Registerable {
                     String suff = suffs[i];
                     
                     // synthesize a new pea..
-                    DataPod.Pea myp = getPea(zone+suff);
+                    DataSection.DataRow myp = getDataRow(zone+suff);
                     
                     // set it up..
                     String base_xpath_string = podBase+ourSuffix+suff;
@@ -1791,33 +1802,33 @@ public class DataPod extends Registerable {
     }
 // ==
 
-    public Pea getPea(String type) {
+    public DataRow getDataRow(String type) {
         if(type == null) {
             throw new InternalError("type is null");
         }
-        if(peasHash == null) {
+        if(rowsHash == null) {
             throw new InternalError("peasHash is null");
         }
-        Pea p = (Pea)peasHash.get(type);
+        DataRow p = (DataRow)rowsHash.get(type);
         if(p == null) {
-            p = new Pea();
+            p = new DataRow();
             p.type = type;
-            addPea(p);
+            addDataRow(p);
         }
         return p;
     }
     
-    private Pea getPea(String type, String altType) {
+    private DataRow getDataRow(String type, String altType) {
         if(altType == null) {
-            return getPea(type);
+            return getDataRow(type);
         } else {
-            Pea superPea = getPea(type);
-            return superPea.getSubPea(altType);
+            DataRow superDataRow = getDataRow(type);
+            return superDataRow.getSubDataRow(altType);
         }
     }
     
-    void addPea(Pea p) {
-        peasHash.put(p.type, p);
+    void addDataRow(DataRow p) {
+        rowsHash.put(p.type, p);
     }
     
     public String toString() {
@@ -1829,7 +1840,7 @@ public class DataPod extends Registerable {
      * that xpath.  
      * Keep this in sync with SurveyMain.showLocale() where there is the list of menu items.
      */
-    public static String xpathToPodBase(String xpath) {
+    public static String xpathToSectionBase(String xpath) {
         int n;
         String base;
         

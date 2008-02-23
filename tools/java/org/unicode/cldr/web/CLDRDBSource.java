@@ -117,7 +117,7 @@ import com.ibm.icu.util.ULocale;
     {
         CLDRDBSource.sm = sm;
         logger = xlogger; // set static
-        boolean isNew = !sm.hasTable(sconn, XPathTable.CLDR_XPATHS);
+        boolean isNew = !sm.hasTable(sconn, CLDR_DATA);
         if(!isNew) {
             return; // nothing to setup
         }

@@ -129,7 +129,8 @@ public class CheckDates extends CheckCLDR {
     try {
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {
         int end = isNarrowEnough(value);
-        if (end != value.length()) {
+        String locale = getCldrFileToCheck().getLocaleID();
+        if (end != value.length() && !locale.equals("th") && !locale.startsWith("th_")) {
           result.add(new CheckStatus()
               .setCause(this).setType(CheckStatus.errorType)
               .setMessage(

@@ -130,6 +130,7 @@ public class CheckDates extends CheckCLDR {
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {
         int end = isNarrowEnough(value);
         String locale = getCldrFileToCheck().getLocaleID();
+        // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to warningType in this case?)
         if (end != value.length() && !locale.equals("th") && !locale.startsWith("th_")) {
           result.add(new CheckStatus()
               .setCause(this).setType(CheckStatus.errorType)

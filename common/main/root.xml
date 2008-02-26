@@ -1087,10 +1087,10 @@
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<!-- The following are altered since era should be included with year -->
-						<dateFormatItem id="GGGGGyyMM">GGGGG yy-MM</dateFormatItem>
-						<dateFormatItem id="GGGGGyyMMM">GGGGG yy MMM</dateFormatItem>
-						<dateFormatItem id="GGGGGyyQ">GGGGG yy Q</dateFormatItem>
-						<dateFormatItem id="GGGyyyy">yyyy GGG</dateFormatItem>
+						<dateFormatItem id="yyMM">GGGGG yy-MM</dateFormatItem>
+						<dateFormatItem id="yyMMM">GGGGG yy MMM</dateFormatItem>
+						<dateFormatItem id="yyQ">GGGGG yy Q</dateFormatItem>
+						<dateFormatItem id="yyyy">yyyy GGG</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>

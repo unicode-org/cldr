@@ -94,7 +94,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     private HashMap xpath_fullXPath = new HashMap();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
     private Factory factory; // for now, fix later
-    public DraftStatus madeWithMinimalDraftStatus;
+    public DraftStatus madeWithMinimalDraftStatus = DraftStatus.unconfirmed;
     
     public SimpleXMLSource(Factory factory, String localeID) {
       this.factory = factory;

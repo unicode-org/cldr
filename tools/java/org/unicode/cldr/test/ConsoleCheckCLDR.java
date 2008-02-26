@@ -204,10 +204,11 @@ public class ConsoleCheckCLDR {
 //  System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
     
     
-    String sourceDirectory = options[SOURCE_DIRECTORY].value;
+    String sourceDirectory = checkValidDirectory(options[SOURCE_DIRECTORY].value, "Fix with -s. Use -h for help.");
+
     String user = options[USER].value;
     
-    System.out.println("source directory: " + sourceDirectory + "\t" + new File(sourceDirectory).getCanonicalPath());
+    System.out.println("source directory: " + sourceDirectory + "\t(" + new File(sourceDirectory).getCanonicalPath() + ")");
     System.out.println("factoryFilter: " + factoryFilter);
     System.out.println("test filter: " + checkFilter);
     System.out.println("organization: " + organization);
@@ -541,7 +542,21 @@ public class ConsoleCheckCLDR {
     }
   }
 
-  private static void showIndexHead(PrintWriter generated_html_index) {
+  private static String checkValidDirectory(String sourceDirectory, String correction) {
+	  File temp = new File(sourceDirectory);
+	  String canonicalPath = null;
+	  try {
+		  canonicalPath = temp.getCanonicalPath();
+	  } catch (IOException e) {
+	  }
+	  if (!temp.isDirectory() || canonicalPath == null) {
+		  throw new RuntimeException("Directory not found: " + sourceDirectory + (canonicalPath == null ? "" : " => " + canonicalPath) 
+				  + "\r\n" + correction);
+	  }
+	  return canonicalPath;
+  }
+
+private static void showIndexHead(PrintWriter generated_html_index) {
     generated_html_index.println("<html>" +
         "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
         "<title>Error Report Index</title></head>" +

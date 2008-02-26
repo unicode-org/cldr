@@ -553,7 +553,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       }
       return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
     } catch (IOException e) {
-      return null;
+      throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file).initCause(e);
     }
   }
 

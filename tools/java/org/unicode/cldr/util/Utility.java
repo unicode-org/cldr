@@ -85,8 +85,9 @@ public class Utility {
 
 	static final boolean DEBUG_SHOW_BAT = false;
 	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
-	public static final String BASE_DIRECTORY = "../../";	// get up to <CLDR>
-	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+	// set the base directory with -Dcldrdata=<value>
+	public static final String BASE_DIRECTORY = Utility.getProperty("cldrdata", "../../");	// get up to <CLDR>
+	public static final String UTIL_DATA_DIR = 	BASE_DIRECTORY + "util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
     public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
     public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
@@ -1167,16 +1168,28 @@ public static <T> T clone(T source) {
     return factored;
   }
 
+  /**
+   * Get a property value, returning the value if there is one (eg -Dkey=value),
+   * otherwise the default value (for either empty or null).
+   * 
+   * @param key
+   * @param valueIfNull
+   * @param valueIfEmpty
+   * @return
+   */
   public static String getProperty(String key, String defaultValue) {
-    String fileRegex = System.getProperty(key);
-    if (fileRegex == null)
-      fileRegex = defaultValue;
-    System.out.println("-D" + key + "=" + fileRegex);
-    return fileRegex;
+	  return getProperty(key, defaultValue, defaultValue);
   }
   
   /**
-   * Get a property value, returning the value if there is on (eg -Dkey=value),
+   * Get a property value, returning the value if there is one, otherwise null.
+   */
+  public static String getProperty(String key) {
+	  return getProperty(key, null, null);
+  }
+  
+  /**
+   * Get a property value, returning the value if there is one (eg -Dkey=value),
    * the valueIfEmpty if there is one with no value (eg -Dkey) and the valueIfNull
    * if there is no property.
    * 

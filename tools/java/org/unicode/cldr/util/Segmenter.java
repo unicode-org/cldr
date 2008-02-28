@@ -345,7 +345,7 @@ public class Segmenter {
 			try {
 				order = new Double(Double.parseDouble(line.substring(0,relationPosition).trim()));
 			} catch (Exception e) {
-				throw new IllegalArgumentException("Rule must be of form '1)...': " + line);
+				throw new IllegalArgumentException("Rule must be of form '1)...': <" + line + ">");
 			}
 			line = line.substring(relationPosition + 1).trim();
 			relationPosition = line.indexOf('\u00F7');
@@ -631,6 +631,8 @@ public class Segmenter {
 			"$LF=\\p{Grapheme_Cluster_Break=LF}",
 			"$Control=\\p{Grapheme_Cluster_Break=Control}",
 			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
+			"$Prepend=\\p{Grapheme_Cluster_Break=Prepend}",
+			"$SpacingMark=\\p{Grapheme_Cluster_Break=SpacingMark}",
 			"$L=\\p{Grapheme_Cluster_Break=L}",
 			"$V=\\p{Grapheme_Cluster_Break=V}",
 			"$T=\\p{Grapheme_Cluster_Break=T}",
@@ -642,7 +644,9 @@ public class Segmenter {
 			"6) $L 	\u00D7 	( $L | $V | $LV | $LVT )",
 			"7) ( $LV | $V ) 	\u00D7 	( $V | $T )",
 			"8) ( $LVT | $T) 	\u00D7 	$T",
-			"9) \u00D7 	$Extend"
+			"9) \u00D7 	$Extend",
+			"9.1) \u00D7 	$SpacingMark",
+			"9.2) $Extend  \u00D7"
 		},{
 			"LineBreak",
 			"# Variables",
@@ -883,22 +887,23 @@ public class Segmenter {
 			"12) \u00D7 	$Any",
 		},{
 			"WordBreak",
-			"$CR=\\p{Grapheme_Cluster_Break=CR}",
-			"$LF=\\p{Grapheme_Cluster_Break=LF}",
-			"$Control=\\p{Grapheme_Cluster_Break=Control}",
-			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
+			"$CR=\\p{Word_Break=CR}",
+			"$LF=\\p{Word_Break=LF}",
+			"$Newline=\\p{Word_Break=Newline}",
+			//"$Control=\\p{Word_Break=Control}",
+			"$Extend=\\p{Word_Break=Extend}",
 			//"$NEWLINE=[$CR $LF \\u0085 \\u000B \\u000C \\u2028 \\u2029]",
-			"$Sep=\\p{Sentence_Break=Sep}",
+			//"$Sep=\\p{Sentence_Break=Sep}",
 			"# Now normal variables",
 			"$Format=\\p{Word_Break=Format}",
 			"$Katakana=\\p{Word_Break=Katakana}",
 			"$ALetter=\\p{Word_Break=ALetter}",
 			"$MidLetter=\\p{Word_Break=MidLetter}",
-      "$MidNum=\\p{Word_Break=MidNum}",
-      "$MidNumLet=\\p{Word_Break=MidNumLet}",
+			"$MidNum=\\p{Word_Break=MidNum}",
+			"$MidNumLet=\\p{Word_Break=MidNumLet}",
 			"$Numeric=\\p{Word_Break=Numeric}",
 			"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
-			
+
 			"# WARNING: For Rule 4: Fixes for GC, Format",
 			//"# Subtract Format from Control, since we don't want to break before/after",
 			//"$Control=[$Control-$Format]", 
@@ -908,12 +913,14 @@ public class Segmenter {
 			"$Katakana=($Katakana $X)",
 			"$ALetter=($ALetter $X)",
 			"$MidLetter=($MidLetter $X)",
-      "$MidNum=($MidNum $X)",
-      "$MidNumLet=($MidNumLet $X)",
+			"$MidNum=($MidNum $X)",
+			"$MidNumLet=($MidNumLet $X)",
 			"$Numeric=($Numeric $X)",
 			"$ExtendNumLet=($ExtendNumLet $X)",
 			//"# Do not break within CRLF",
 			"3) $CR  	\u00D7  	$LF",
+			"3.1) ($Newline | $CR | $LF)	\u00F7",
+			"3.11) \u00F7	($Newline | $CR | $LF)",
 			//"3.4) ( $Control | $CR | $LF ) 	\u00F7",
 			//"3.5) \u00F7 	( $Control | $CR | $LF )",
 			//"3.9) \u00D7 	$Extend",
@@ -923,7 +930,7 @@ public class Segmenter {
 			"# WARNING: Implemented as don't break before format (except after linebreaks),",
 			"# AND add format and extend in all variables definitions that appear after this point!",
 			//"4) \u00D7 [$Format $Extend]", 
-			"4) [^ $Sep $CR $LF ] \u00D7 [$Format $Extend]", 
+			"4) [^ $Newline $CR $LF ] \u00D7 [$Format $Extend]", 
 			"# Vanilla rules",
 			"5)$ALetter  	\u00D7  	$ALetter",
 			"6)$ALetter 	\u00D7 	($MidLetter | $MidNumLet) $ALetter",

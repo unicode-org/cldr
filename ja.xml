@@ -1191,20 +1191,20 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="provisional">yyyy, MMMM D 日, EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM D, EEEE 日</pattern>
+							<pattern draft="provisional">yyyy,MMMMD日,EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">Gyyyy,MMMMD,EEEE日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="provisional">yyyy 年, MMMM D 日, EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d 日</pattern>
+							<pattern draft="provisional">yyyy年,MMMMD日,EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">Gyyyy,MMMMd日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="provisional">yyyy 年, MMMM D 日, EEEE</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">G yyyy, MMMM d 日</pattern>
+							<pattern draft="provisional">yyyy年,MMMMD日,EEEE</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">Gyyyy,MMMMd日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1215,13 +1215,13 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMM d 日</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMMd日</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M/d</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="provisional">yy 年 MM 月</dateFormatItem>
-						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy 年MM月</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="provisional">yy 年 MMM</dateFormatItem>
-						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy 年MMM月</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="provisional">yy 年 Q</dateFormatItem>
+						<dateFormatItem id="yyMM" draft="provisional">yy年MM月</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">yy年MM月</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="provisional">yy年MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy年MMM月</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="provisional">yy年Q</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1229,32 +1229,32 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">1 月</month>
-							<month type="2">2 月</month>
-							<month type="3">3 月</month>
-							<month type="4">4 月</month>
-							<month type="5">5 月</month>
-							<month type="6">6 月</month>
-							<month type="7">7 月</month>
-							<month type="8">8 月</month>
-							<month type="9">9 月</month>
-							<month type="10">10 月</month>
-							<month type="11">11 月</month>
-							<month type="12">12 月</month>
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">1 月</month>
-							<month type="2">2 月</month>
-							<month type="3">3 月</month>
-							<month type="4">4 月</month>
-							<month type="5">5 月</month>
-							<month type="6">6 月</month>
-							<month type="7">7 月</month>
-							<month type="8">8 月</month>
-							<month type="9">9 月</month>
-							<month type="10">10 月</month>
-							<month type="11">11 月</month>
-							<month type="12">12 月</month>
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1316,10 +1316,10 @@
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">第 1 四半期</quarter>
-							<quarter type="2">第 2 四半期</quarter>
-							<quarter type="3">第 3 四半期</quarter>
-							<quarter type="4">第 4 四半期</quarter>
+							<quarter type="1">第1四半期</quarter>
+							<quarter type="2">第2四半期</quarter>
+							<quarter type="3">第3四半期</quarter>
+							<quarter type="4">第4四半期</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1382,24 +1382,24 @@
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Ed">d 日（E）</dateFormatItem>
-						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">E d</dateFormatItem>
+						<dateFormatItem id="Ed">d日（E)</dateFormatItem>
+						<dateFormatItem id="Ed" alt="proposed-x1001" draft="unconfirmed">Ed</dateFormatItem>
 						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
-						<dateFormatItem id="H">H 時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="H" alt="proposed-x1001" draft="unconfirmed">H</dateFormatItem>
 						<dateFormatItem id="MMMEd" references="RP1">MMM/d（E）</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d 日</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMMd日</dateFormatItem>
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy 年 MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM">yy年MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">yy/Q</dateFormatItem>
-						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy Q</dateFormatItem>
-						<dateFormatItem id="yyQ" alt="proposed-x1002" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yyQ</dateFormatItem>
+						<dateFormatItem id="yyQ" alt="proposed-x1002" draft="unconfirmed">Qyy</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1003" draft="unconfirmed">yy/Q</dateFormatItem>
 						<dateFormatItem id="yyyyMM" draft="provisional">yyyy/MM</dateFormatItem>
 					</availableFormats>
@@ -1716,13 +1716,13 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>G yy/MM/dd</pattern>
+							<pattern>Gyy/MM/dd</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">GGGyy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G yy/MM/dd</pattern>
+							<pattern>Gyy/MM/dd</pattern>
 							<pattern alt="proposed-x1001" draft="unconfirmed">Gyy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -1751,9 +1751,9 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyMM">G yy/MM</dateFormatItem>
+						<dateFormatItem id="yyMM">Gyy/MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yyQ">G yy/Q</dateFormatItem>
+						<dateFormatItem id="yyQ">Gyy/Q</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

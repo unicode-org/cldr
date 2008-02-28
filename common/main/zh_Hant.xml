@@ -1013,34 +1013,34 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>ahh時mm分ss秒 v</pattern>
+							<pattern>ahh時mm分ss秒v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>ahh時mm分ss秒 z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">z ahh時mm分ss秒</pattern>
+							<pattern>ahh時mm分ss秒z</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">zahh時mm分ss秒</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>a h:mm:ss</pattern>
+							<pattern>ah:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>a h:mm</pattern>
+							<pattern>ah:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMMd</dateFormatItem>
 						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM" draft="unconfirmed">yyMMM</dateFormatItem>
 						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy年MMM月</dateFormatItem>
-						<dateFormatItem id="yyQ" draft="unconfirmed">Q yy</dateFormatItem>
+						<dateFormatItem id="yyQ" draft="unconfirmed">Qyy</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy年第Q季度</dateFormatItem>
 						<dateFormatItem id="yyyyM" alt="proposed-x1001" draft="unconfirmed">yyyy/M</dateFormatItem>
 					</availableFormats>

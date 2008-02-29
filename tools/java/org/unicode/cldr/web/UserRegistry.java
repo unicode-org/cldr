@@ -41,6 +41,7 @@ public class UserRegistry {
 	public static final int NO_LEVEL  = -1;  /** min level **/
     
     public static final String FOR_ADDING= "(for adding)"; /** special "IP" value referring to a user being added **/ 
+    
 
     /**
      * List of all user levels - for UI presentation
@@ -150,8 +151,9 @@ public class UserRegistry {
             }
         }
 
-        public final boolean userIsSpecialForCLDR15(String locale) {    
-            if(!getSpecialUsers().contains(this)) {
+        public final boolean userIsSpecialForCLDR15(String locale) {
+            Set<User> specials = getSpecialUsers();
+            if(specials != null && !specials.contains(this)) {
                 return false;
             }
             if(locale==null) {
@@ -211,10 +213,7 @@ public class UserRegistry {
      * Called by SM to shutdown
      */
     public void shutdownDB() throws SQLException {
-        synchronized(conn) {
-            conn.close();
-            conn = null;
-        }
+        SurveyMain.closeDBConnection(conn);
     }
 
     /**
@@ -222,59 +221,72 @@ public class UserRegistry {
      */
     private void setupDB() throws SQLException
     {
-        synchronized(conn) {
-//            logger.info("UserRegistry DB: initializing...");
-            boolean hadUserTable = sm.hasTable(conn,CLDR_USERS);
-            if(!hadUserTable) {
-                Statement s = conn.createStatement();
-            
-                s.execute("create table " + CLDR_USERS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                        "userlevel int not null, " +
-                                                        "name varchar(256) not null, " +
-                                                        "email varchar(256) not null UNIQUE, " +
-                                                        "org varchar(256) not null, " +
-                                                        "password varchar(100) not null, " +
-                                                        "audit varchar(1024) , " +
-                                                        "locales varchar(1024) , " +
-                                                        "prefs varchar(1024) , " +
-                                                        "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                        "lastlogin TIMESTAMP, " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
-                                                        "primary key(id))"); 
-                s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
-                                                        "VALUES(" + ADMIN +"," + 
-                                                        "'admin'," + 
-                                                        "'SurveyTool'," +
-                                                        "'admin@'," +
-                                                        "'" + sm.vap +"')");
-                logger.info("DB: added user Admin");
+        String sql = null;
+        try{
+            synchronized(conn) {
+    //            logger.info("UserRegistry DB: initializing...");
+                boolean hadUserTable = sm.hasTable(conn,CLDR_USERS);
+                if(!hadUserTable) {
+                    Statement s = conn.createStatement();
                 
-                s.close();
-                conn.commit();
-            }
-
-            boolean hadInterestTable = sm.hasTable(conn,CLDR_INTEREST);
-            if(!hadInterestTable) {
-                Statement s = conn.createStatement();
-            
-                s.execute("create table " + CLDR_INTEREST + " (uid INT NOT NULL , " +
-                                                        "forum  varchar(256) not null " +
-                                                        ")"); 
-                String sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_loc ON " + CLDR_INTEREST + " (uid) ";
-                s.execute(sql); 
-                sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_for ON " + CLDR_INTEREST + " (forum) ";
-                s.execute(sql); 
-                logger.info("DB: created "+CLDR_INTEREST);
+                    sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                                                            "userlevel int not null, " +
+                                                            "name "+sm.DB_SQL_UNICODE+" not null, " +
+                                                            "email varchar(256) not null UNIQUE, " +
+                                                            "org varchar(256) not null, " +
+                                                            "password varchar(100) not null, " +
+                                                            "audit varchar(1024) , " +
+                                                            "locales varchar(1024) , " +
+                                                            "prefs varchar(1024) , " +
+                                                            "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
+                                                            "lastlogin TIMESTAMP " + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                            (sm.db_Mysql?"":",primary key(id)")+
+                                                                ")"); 
+                    s.execute(sql);
+                    sql=("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
+                                                            "VALUES(" + ADMIN +"," + 
+                                                            "'admin'," + 
+                                                            "'SurveyTool'," +
+                                                            "'admin@'," +
+                                                            "'" + sm.vap +"')");
+                    s.execute(sql);
+                    sql = null;
+                    logger.info("DB: added user Admin");
+                    
+                    s.close();
+                    conn.commit();
+                }
+    
+                boolean hadInterestTable = sm.hasTable(conn,CLDR_INTEREST);
+                if(!hadInterestTable) {
+                    Statement s = conn.createStatement();
                 
-                s.close();
-                conn.commit();
+                    sql=("create table " + CLDR_INTEREST + " (uid INT NOT NULL , " +
+                                                            "forum  varchar(256) not null " +
+                                                            ")"); 
+                    s.execute(sql);
+                    sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_loc ON " + CLDR_INTEREST + " (uid) ";
+                    s.execute(sql); 
+                    sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_for ON " + CLDR_INTEREST + " (forum) ";
+                    s.execute(sql); 
+                    logger.info("DB: created "+CLDR_INTEREST);
+                    sql=null;
+                    s.close();
+                    conn.commit();
+                }
+                
+                myinit(); // initialize the prepared statements
+                
+                if(!hadInterestTable) {
+                    setupIntLocs();  // set up user -> interest table mapping
+                }
+    
             }
-            
-            myinit(); // initialize the prepared statements
-            
-            if(!hadInterestTable) {
-                setupIntLocs();  // set up user -> interest table mapping
-            }
-
+        } catch(SQLException se) {
+            se.printStackTrace();
+            System.err.println("SQL err: " + SurveyMain.unchainSqlException(se));
+            System.err.println("Last SQL run: " + sql);
+            throw se;
         }
             
     }
@@ -328,7 +340,7 @@ public class UserRegistry {
 		while(rs.next()) {
 			n++;
 			patchStmt.setInt(1,		rs.getInt(1));
-			patchStmt.setString(2,	rs.getString(2));
+			SurveyMain.setStringUTF8(patchStmt, 2, SurveyMain.getStringUTF8(rs, 2));
 			patchStmt.setString(3,	rs.getString(3));
 			patchStmt.setString(4,	rs.getString(4));
 			patchStmt.setString(5,  rs.getString(5));
@@ -367,7 +379,7 @@ public class UserRegistry {
                     importStmt.setString(1,u.id);
                     importStmt.setString(2,u.email);
                     importStmt.setString(3,u.sponsor);
-                    importStmt.setString(4,u.real);
+                    SurveyMain.setStringUTF8(importStmt, 4, u.real); //    importStmt.setString(4,u.real);
                     importStmt.execute();
                     nUsers++;   
                 }
@@ -472,7 +484,7 @@ public class UserRegistry {
                     User u = new UserRegistry.User();                    
                     // from params:
                     u.id = id;
-                    u.name = rs.getString(1);
+                    u.name = SurveyMain.getStringUTF8(rs, 1);// rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
@@ -552,7 +564,7 @@ public class UserRegistry {
                 u.email = email;
                 // from db:   (id,name,userlevel,org,locales)
                 u.id = rs.getInt(1);
-                u.name = rs.getString(2);
+                u.name = SurveyMain.getStringUTF8(rs, 2);//rs.getString(2);
                 u.userlevel = rs.getInt(3);
                 u.org = rs.getString(4);
                 u.locales = rs.getString(5);
@@ -639,6 +651,21 @@ public class UserRegistry {
         
         return rs;
     }
+    public java.sql.ResultSet listPass() throws SQLException {
+        ResultSet rs = null;
+        Statement s = null;
+        final String ORDER = " ORDER BY id ";
+        synchronized(conn) {
+//            try {
+                s = conn.createStatement();
+                rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales,intlocs, password FROM " + CLDR_USERS + ORDER);
+//            } finally  {
+//                s.close();
+//            }
+        }
+        
+        return rs;
+    }
     
     void setupIntLocs() throws SQLException {
         ResultSet rs = list(null);
@@ -646,7 +673,7 @@ public class UserRegistry {
         int count=0;
         while(rs.next()) {
             int user = rs.getInt(1);
-            String who = rs.getString(4);
+//            String who = rs.getString(4);
             
             updateIntLocs(user);
             count++;
@@ -889,7 +916,11 @@ public class UserRegistry {
                     default:
                         return("[unknown type: " + type.toString() +"]");
                 }
-                updateInfoStmt.setString(1, value);
+                if(type==UserRegistry.InfoType.INFO_NAME) { // unicode treatment
+                    SurveyMain.setStringUTF8(updateInfoStmt, 1, value);
+                } else {
+                    updateInfoStmt.setString(1, value);
+                }
                 updateInfoStmt.setInt(2,theirId);
                 updateInfoStmt.setString(3,theirEmail);
                 
@@ -972,7 +1003,7 @@ public class UserRegistry {
             try {
                 logger.info("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email + " @ " + ctx.userIP());
                 insertStmt.setInt(1, u.userlevel);
-                insertStmt.setString(2, u.name);
+                SurveyMain.setStringUTF8(insertStmt, 2, u.name); //insertStmt.setString(2, u.name);
                 insertStmt.setString(3, u.org);
                 insertStmt.setString(4, u.email);
                 insertStmt.setString(5, u.password);

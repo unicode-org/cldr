@@ -39,6 +39,10 @@ import com.ibm.icu.util.ULocale;
  * it is not directly modifiable, but it does have routines for modifying the database again.
  **/
  public class CLDRDBSource extends XMLSource {
+     
+    private static final boolean SHOW_TIMES=false;
+    private static final boolean SHOW_DEBUG=false;
+    
     /**
      * show final, vetted data only?
      */
@@ -126,7 +130,7 @@ import com.ibm.icu.util.ULocale;
             String sql; // this points to 
             Statement s = sconn.createStatement();
             
-            sql = "create table " + CLDR_DATA + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+            sql = "create table " + CLDR_DATA + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                 "xpath INT not null, " + // normal
                 "txpath INT not null, " + // tiny
                 "locale varchar(20), " +
@@ -135,15 +139,15 @@ import com.ibm.icu.util.ULocale;
                 "alt_proposed varchar(50), " +
                 "alt_type varchar(50), " +
                 "type varchar(50), " +
-                "value varchar(29000) not null, " +
+                "value "+sm.DB_SQL_UNICODE+" not null, " +
                 "submitter INT, " +
                 "modtime TIMESTAMP, " +
                 // new additions, April 2006
-                "base_xpath INT NOT NULL WITH DEFAULT -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
+                "base_xpath INT NOT NULL "+sm.DB_SQL_WITHDEFAULT+" -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
                 " )";
             //            System.out.println(sql);
             s.execute(sql);
-            sql = "create table " + CLDR_SRC + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+            sql = "create table " + CLDR_SRC + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                 "locale varchar(20), " +
                 "tree varchar(20) NOT NULL, " +
                 "rev varchar(20), " +
@@ -430,7 +434,7 @@ import com.ibm.icu.util.ULocale;
                         stmts.insert.setString(2,locale);
                         stmts.insert.setInt(3,srcId);
                         stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-                        stmts.insert.setString(5,value);
+                        SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
                         stmts.insert.setString(6,eType);
                         stmts.insert.setString(7,eAlt);
                         stmts.insert.setInt(8,txpid); // tiny
@@ -570,12 +574,12 @@ import com.ibm.icu.util.ULocale;
                         return getSourceId(tree, locale); // adds to hash
                     } else {
                         conn.commit();
-                        logger.severe("CLDRDBSource: SQL failed to set source ("+tree + "/" + locale +")");
-                        return -1;
+                        throw new InternalError("CLDRDBSource: SQL failed to set source ("+tree + "/" + locale +")");
+//                        return -1;
                     }
                 } catch(SQLException se) {
-                    logger.severe("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-                    return -1;
+                    throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+//                    return -1;
                 }
             }
         }
@@ -811,24 +815,35 @@ import com.ibm.icu.util.ULocale;
      */
     public boolean hasValueAtDPath(String path) // d path
     {
+        long t0;
+        String locale = getLocaleID();
+        if(SHOW_TIMES) {
+               t0 = System.currentTimeMillis();
+        }
         if(finalData) {
-            return (getValueAtDPath(path) != null); // TODO: optimize this
+            boolean rv =  (getValueAtDPath(path) != null); // TODO: optimize this
+            if(SHOW_TIMES) System.err.println("hasValueAtDPath:final "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+            return rv;
         }
     
         if(conn == null) {
             throw new InternalError("No DB connection!");
         }
+        
+        int pathInt = xpt.getByXpath(path);
+        if(SHOW_TIMES) System.err.println("hasValueAtDPath:>> "+locale + ":" + pathInt + " " + (System.currentTimeMillis()-t0));
     
-        String locale = getLocaleID();
         //logger.info(locale + ":" + path);
         //synchronized (conn) {
             try {
                 stmts.queryValue.setString(1,locale);
-                stmts.queryValue.setInt(2,xpt.getByXpath(path)); 
+                stmts.queryValue.setInt(2,pathInt); 
                 ResultSet rs = stmts.queryValue.executeQuery();
                 if(rs.next()) {
+                    if(SHOW_TIMES) System.err.println("hasValueAtDPath:T "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
                     return true;
                 } else {
+                    if(SHOW_TIMES) System.err.println("hasValueAtDPath:F "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
                     return false;
                 }
                 //                rs.close();
@@ -936,14 +951,23 @@ import com.ibm.icu.util.ULocale;
      
     public String getValueAtDPath(String path) // D path
     {
+        long t0;
+        if(SHOW_TIMES) t0 = System.currentTimeMillis();
         if(conn == null) {
             throw new InternalError("No DB connection!");
         }
     
         String locale = getLocaleID();
         int xpath = xpt.getByXpath(path);
-///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
-//if(showDebug) /*srl*/logger.info(locale + ":" + path);
+        if(SHOW_TIMES) System.err.println("hasValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
+
+        ///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
+//        try {
+//            throw new InternalError("bar");
+//        } catch(InternalError ie) {
+//            ie.printStackTrace();
+//        }
+        if(SHOW_DEBUG) /*srl*/logger.info(locale + ":" + path);
         try {
             ResultSet rs;
             if(finalData) {
@@ -957,12 +981,13 @@ import com.ibm.icu.util.ULocale;
             }
             String rv;
             if(!rs.next()) {
+                if(SHOW_TIMES) System.err.println("hasValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
                 if(!finalData) {
                     rs.close();                    
-//if(showDebug)                        System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
+                    if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
                     return null;
                 } else {
-            //System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
+                    if(SHOW_DEBUG) System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
                     //if(locale.equals("de")) {
                     //    return "fork";
                     //} else {
@@ -971,23 +996,22 @@ import com.ibm.icu.util.ULocale;
                         if(oldKeySet().contains(path)) {
                             System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
                         } else {
-//                            System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
+                            if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
                         }
                     }
                     rs.close();
-                        return null;
-                    //}
-                    //return null;                    
+                    return null;
                 }                      
             }
-            rv = rs.getString(1);
+            rv = SurveyMain.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
+            if(SHOW_TIMES) System.err.println("hasValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
             if(rs.next()) {
                 String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
                 logger.severe(complaint);
                // throw new InternalError(complaint);                    
             }
             rs.close();
-//if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+            if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
             return rv;
         } catch(SQLException se) {
             logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
@@ -1131,9 +1155,10 @@ import com.ibm.icu.util.ULocale;
         if(finalData) {
             return super.iterator(prefix); // no optimization for this, yet
         } else {
- //   com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+            com.ibm.icu.dev.test.util.ElapsedTimer et;
+            if(SHOW_TIMES) et= new com.ibm.icu.dev.test.util.ElapsedTimer();
             Iterator i =  prefixKeySet(prefix).iterator();
-//    logger.info(et + " for iterator on " + getLocaleID() + " prefix " + prefix);
+            if(SHOW_TIMES)   logger.info(et + " for iterator on " + getLocaleID() + " prefix " + prefix);
             return i;
         }
      }
@@ -1589,7 +1614,7 @@ import com.ibm.icu.util.ULocale;
                     stmts.insert.setString(2,locale);
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
                     stmts.insert.setInt(4,oxpid);
-                    stmts.insert.setString(5,value);
+                    SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
                     stmts.insert.setString(6,eType);
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny
@@ -1697,7 +1722,7 @@ import com.ibm.icu.util.ULocale;
                     stmts.insert.setString(2,locale);
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
                     stmts.insert.setInt(4,oxpid);
-                    stmts.insert.setString(5,value);
+                    SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
                     stmts.insert.setString(6,eType);
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny

@@ -39,6 +39,7 @@ public class XPathTable {
     public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
         boolean isNew =  !sm.hasTable(ourConn, CLDR_XPATHS);
         XPathTable reg = new XPathTable(xlogger,ourConn);
+        reg.sm = sm;
         if(isNew) {
             reg.setupDB();
         }
@@ -51,10 +52,7 @@ public class XPathTable {
      * Called by SM to shutdown
      */
     public void shutdownDB() throws SQLException {
-        synchronized(conn) {
-            conn.close();
-            conn = null;
-        }
+        SurveyMain.closeDBConnection(conn);
     }
 
     /**
@@ -62,11 +60,14 @@ public class XPathTable {
      */
     private void setupDB() throws SQLException
     {
-        logger.info("XPathTable DB: initializing...");
+        logger.info("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+sm.DB_SQL_IDENTITY);
         synchronized(conn) {
             Statement s = conn.createStatement();
-            s.execute("create table " + CLDR_XPATHS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                    "xpath varchar(1024) not null, " +
+            if(s==null) {
+                throw new InternalError("S is null");
+            }
+             s.execute("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                                                    "xpath varchar("+sm.DB_SQL_VARCHARXPATH+") not null, " +
                                                     "unique(xpath))");
             s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath)");
             s.execute("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +"(xpath)");

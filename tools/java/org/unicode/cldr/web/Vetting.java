@@ -132,10 +132,7 @@ public class Vetting {
      * Called by SurveyMain to shutdown
      */
     public void shutdownDB() throws SQLException {
-        synchronized(conn) {
-            conn.close();
-            conn = null;
-        }
+        SurveyMain.closeDBConnection(conn);
     }
 
     /**
@@ -172,7 +169,7 @@ public class Vetting {
             if(!sm.hasTable(conn, CLDR_RESULT)) {
                 logger.info("Vetting DB: setting up " + CLDR_RESULT);
                 Statement s = conn.createStatement();
-                sql = "create table " + CLDR_RESULT + " (id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+                sql = "create table " + CLDR_RESULT + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                         "locale VARCHAR(20) NOT NULL, " +
                                                         "base_xpath INT NOT NULL, " +
                                                         "result_xpath INT, " +
@@ -195,7 +192,7 @@ public class Vetting {
             if(!sm.hasTable(conn, CLDR_VET)) {
                 logger.info("Vetting DB: setting up " + CLDR_VET);
                 Statement s = conn.createStatement();
-                s.execute("create table " + CLDR_VET + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+                s.execute("create table " + CLDR_VET + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                         "locale VARCHAR(20) NOT NULL, " +
                                                         "submitter INT NOT NULL, " +
                                                         "base_xpath INT NOT NULL, " +
@@ -1021,7 +1018,7 @@ public class Vetting {
                     ULocale ulocale = new ULocale(locale);
                     //                        WebContext xctx = new WebContext(false);
                     //                        xctx.setLocale(locale);
-                    sm.makeCLDRFile(sm.makeDBSource(null, ulocale));
+                    sm.makeCLDRFile(sm.makeDBSource(sm.getDBConnection(),  null, ulocale));
                 } catch(Throwable t) {
                     t.printStackTrace();
                     String complaint = ("Error loading: " + locale + " - " + t.toString() + " ...");
@@ -3078,7 +3075,7 @@ if(true == true)    throw new InternalError("removed from use.");
         
         void reset() {
 //            System.err.println("vetting::checker reset " + locale);
-            CLDRDBSource dbSource = sm.makeDBSource(null, new ULocale(locale), false);
+            CLDRDBSource dbSource = sm.makeDBSource(conn, null, new ULocale(locale), false);
             dbSource.vettingMode(sm.vet);
             //if(resolved == false) {
                 file = sm.makeCLDRFile(dbSource);

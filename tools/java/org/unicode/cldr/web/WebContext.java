@@ -24,6 +24,7 @@ import javax.servlet.http.*;
 
 // sql imports
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -35,7 +36,6 @@ public class WebContext implements Cloneable {
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
     public SurveyMain sm = null;
-    public CLDRDBSource dbsrc = null;
     public Document doc[]= new Document[0];
     public ULocale locale = null;
     public String  localeString = null;
@@ -43,7 +43,6 @@ public class WebContext implements Cloneable {
     public String docLocale[] = new String[0];
     public String localeName = null; 
     public CookieSession session = null;
-    public Connection conn = null;
     public ElapsedTimer reqTimer = null;
     public Hashtable temporaryStuff = new Hashtable();
     
@@ -107,8 +106,6 @@ public class WebContext implements Cloneable {
         dontCloseMe = true;
         request = other.request;
         response = other.response;
-        conn = other.conn;
-        dbsrc = other.dbsrc;
         sm = other.sm;
         processor = other.processor;
         temporaryStuff = other.temporaryStuff;
@@ -214,7 +211,7 @@ public class WebContext implements Cloneable {
 	/*
 	 * Decode a single string
 	 */
-	private String decodeFieldString(String res) {
+	public static String decodeFieldString(String res) {
         byte asBytes[] = new byte[res.length()];
         boolean wasHigh = false;
         int n;

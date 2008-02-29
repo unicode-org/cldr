@@ -13,6 +13,7 @@ package org.unicode.cldr.web;
 import java.security.SecureRandom;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
 import java.util.*;
 
 /**
@@ -26,6 +27,15 @@ public class CookieSession {
     public Hashtable stuff = new Hashtable();  // user data
     public Hashtable prefs = new Hashtable(); // user prefs
     public UserRegistry.User user = null;
+    
+    private Connection conn = null;
+    
+    public Connection db(SurveyMain sm) {
+        if(conn == null) {
+            conn = sm.getDBConnection();
+        }
+        return conn;
+    }
     
     /** 
      * Construct a CookieSession from a particular session ID.
@@ -161,6 +171,8 @@ public class CookieSession {
             }
             gHash.remove(id);
         }
+        // clear out any database sessions in use
+        SurveyMain.closeDBConnection(conn);
     }
     
     /**
@@ -448,6 +460,19 @@ public class CookieSession {
             }
             nGuests=guests;
             nUsers=users;
+        }
+    }
+
+    public static void shutdownDB() {
+        synchronized(gHash) {
+            CookieSession sessions[] = (CookieSession[])gHash.values().toArray(new CookieSession[0]);
+            for(CookieSession cs : sessions) {
+                try {
+                    cs.remove();
+                } catch(Throwable t) {
+                    //
+                }
+            }
         }
     }
 }

@@ -1,4 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" import="org.unicode.cldr.web.*" %>
+
+<% 
+    String myorg = WebContext.decodeFieldString(request.getParameter("defaultorg"));
+    if(myorg != null) {
+        myorg = SurveyForum.HTMLSafe(myorg);
+    } else {
+        myorg = "";
+    }
+ %>
 <html>
 	<head>
 		<title>CLDR Web Applications : Add a user</title>
@@ -12,8 +21,15 @@
             <input type="hidden" name="do" value="new" />
 			<label>Name: <input size=40 name="new_name" /></label><br/>
 			<label>Email: <input size=40 name="new_email" /></label><br/>
-			<label>Organization: <input name="new_org" /></label>   (note: leave blank if same as yours)<br/>
-			<label>Userlevel: <input name="new_userlevel" value="5" /></label>    (1=TC, 5=Vetter, 10=Street, ...) <br/>
+			<label>Organization: <input name="new_org"  value="<%= myorg %>"/></label>   (note: can leave blank if same as yours)<br/>
+            <label>Userlevel: 
+                <select name="new_userlevel">
+                    <% for(int lev : UserRegistry.ALL_LEVELS) { %>
+                        <option value="<%= lev %>"  <%= (lev==UserRegistry.VETTER)?"selected":"" %>  ><%= lev %> (<%= UserRegistry.levelAsStr(lev) %>)</option>
+                    <% } %>
+                </select>
+             </label><br>
+<!--             <label>Userlevel: <input name="new_userlevel" value="5" /></label>    (1=TC, 5=Vetter, 10=Street, ...) <br/> -->
 			<label>Locales responsible: <input name="new_locales" value="" /></label>   (Space separated. Examples: "en de fr" or  "de_CH".  )<br/>
 			<input type="submit" value="Add" />
 		</form>

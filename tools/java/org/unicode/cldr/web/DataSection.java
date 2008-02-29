@@ -16,6 +16,7 @@ import org.unicode.cldr.test.*;
 import java.util.*;
 import java.util.regex.*;
 
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -27,6 +28,25 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataSection extends Registerable {
+
+    /**
+     * Trace in detail time taken to populate?
+     */
+    private static final boolean TRACE_TIME=false;
+    
+    /**
+     * Show time taken to populate?
+     */
+    private static final boolean SHOW_TIME= true || TRACE_TIME;
+
+    /**
+     * Warn user why these messages are showing up.
+     */
+    static {
+        if(TRACE_TIME==true) {
+            System.err.println("DataSection: Note, TRACE_TIME is TRUE");
+        }
+    }
 
     long touchTime = -1; // when has this pod been hit?
     
@@ -388,6 +408,7 @@ public class DataSection extends Registerable {
         }
         
         void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr, Map options) {
+            long lastTime = System.currentTimeMillis();
             if(vettedParent == null) {
                 return;
             }
@@ -396,30 +417,37 @@ public class DataSection extends Registerable {
                 return;
             }
             
+
             String xpath = sm.xpt.getById(base_xpath);
-            
+            if(TRACE_TIME) System.err.println("@@0:"+(System.currentTimeMillis()-lastTime));
             if(xpath == null) {
                 return;
             }
             
             if((vettedParent != null) && (inheritedValue == null)) {
                 String value = vettedParent.getStringValue(xpath);
+                if(TRACE_TIME) System.err.println("@@1:"+(System.currentTimeMillis()-lastTime));
                 
                 if(value != null) {
                     inheritedValue = new CandidateItem();
+                    if(TRACE_TIME) System.err.println("@@2:"+(System.currentTimeMillis()-lastTime));
                     inheritedValue.isParentFallback=true;
 
                     CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+                    if(TRACE_TIME) System.err.println("@@3:"+(System.currentTimeMillis()-lastTime));
                     String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
+                    if(TRACE_TIME) System.err.println("@@4:"+(System.currentTimeMillis()-lastTime));
 
                     inheritedValue.inheritFrom = sourceLocale;
                     
                     if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
                         inheritedValue.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                        if(TRACE_TIME) System.err.println("@@5:"+(System.currentTimeMillis()-lastTime));
                         
                         // set up Pod alias-ness
                         aliasFromLocale = sourceLocale;
                         aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
+                        if(TRACE_TIME) System.err.println("@@6:"+(System.currentTimeMillis()-lastTime));
                     }
                     
                     inheritedValue.value = value;
@@ -432,14 +460,17 @@ public class DataSection extends Registerable {
             }
             
             if((checkCldr != null) && (inheritedValue != null) && (inheritedValue.tests == null)) {
+                if(TRACE_TIME) System.err.println("@@7:"+(System.currentTimeMillis()-lastTime));
                 List iTests = new ArrayList();
                 checkCldr.check(xpath, xpath, inheritedValue.value, options, iTests);
+                if(TRACE_TIME) System.err.println("@@8:"+(System.currentTimeMillis()-lastTime));
              //   checkCldr.getExamples(xpath, fullPath, value, ctx.getOptionsMap(), examplesResult);
                 if(!iTests.isEmpty()) {
                     inheritedValue.setTests(iTests);
+                    if(TRACE_TIME) System.err.println("@@9:"+(System.currentTimeMillis()-lastTime));
                 }
             }
-            
+            if(TRACE_TIME) System.err.println("@@10:"+(System.currentTimeMillis()-lastTime));
         }
  
         void setShimTests(int base_xpath,String base_xpath_string,CheckCLDR checkCldr,Map options) {
@@ -1143,7 +1174,6 @@ public class DataSection extends Registerable {
         isInitted = true;
     }
     
-    private static final boolean SHOW_TIME=true;
     public static final String FAKE_FLEX_THING = "available date formats: add NEW item";
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
@@ -1156,7 +1186,6 @@ public class DataSection extends Registerable {
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List examplesResult = new ArrayList();
-        final boolean ndebug = false;
         long lastTime = -1;
         long longestTime = -1;
         String longestPath = "NONE";
@@ -1172,7 +1201,7 @@ public class DataSection extends Registerable {
         CLDRFile vettedParent = null;
         String parentLoc = WebContext.getParent(locale);
         if(parentLoc != null) {
-            CLDRDBSource vettedParentSource = sm.makeDBSource(null, new ULocale (parentLoc), true /*finalData*/);
+            CLDRDBSource vettedParentSource = sm.makeDBSource(src.conn, null, new ULocale (parentLoc), true /*finalData*/);
             vettedParent = new CLDRFile(vettedParentSource,true);
         }
             
@@ -1292,7 +1321,7 @@ public class DataSection extends Registerable {
             }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
-//                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+//if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
 
@@ -1329,7 +1358,7 @@ public class DataSection extends Registerable {
                 useShorten = true;
             }           
 
-//if(ndebug)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
             boolean mixedType = false;
             String type;
             String lastType = src.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
@@ -1378,7 +1407,7 @@ public class DataSection extends Registerable {
 
             }
             
- //if(ndebug)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
             
             String value = aFile.getStringValue(xpath);
 
@@ -1440,7 +1469,7 @@ public class DataSection extends Registerable {
             String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
             String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
             String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-//if(ndebug) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
             
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
@@ -1448,15 +1477,18 @@ public class DataSection extends Registerable {
             String altType = typeAndProposed[0];
             
             DataRow p = getDataRow(type, altType);
+            if(TRACE_TIME) System.err.println("n04b  "+(System.currentTimeMillis()-nextTime));
             
             p.winningXpathId = src.getWinningPathId(base_xpath, locale);
             
+            if(TRACE_TIME) System.err.println("n04c  "+(System.currentTimeMillis()-nextTime));
 ///*srl*/ if(xpath.indexOf("Acre")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
 
             
 ///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
             DataRow superP = getDataRow(type);
+            if(TRACE_TIME) System.err.println("n04d  "+(System.currentTimeMillis()-nextTime));
 //if("gsw".equals(type)) /*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
             peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
@@ -1465,27 +1497,34 @@ public class DataSection extends Registerable {
 ///*srl*/         if(type.equals("HK")) { System.err.println("SuperP's xps = " + superP.xpathSuffix); }
             }
     
+            if(TRACE_TIME) System.err.println("n04e  "+(System.currentTimeMillis()-nextTime));
             if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
                 p.zoomOnly = superP.zoomOnly = true;
             }
             p.confirmOnly = superP.confirmOnly = confirmOnly;
+            if(TRACE_TIME) System.err.println("n04f  "+(System.currentTimeMillis()-nextTime));
 
             if(!isReferences) {
                 if(p.inheritedValue == null) {
                     p.updateInheritedValue(vettedParent);
+                    if(TRACE_TIME) System.err.println("n04f0  "+(System.currentTimeMillis()-nextTime));
                 }
                 if(superP.inheritedValue == null) {
                     superP.updateInheritedValue(vettedParent);
+                    if(TRACE_TIME) System.err.println("n04f1  "+(System.currentTimeMillis()-nextTime));
                 }
             }
             if(isToggleFor != null) {
                 if(superP.toggleWith == null) {
                     superP.updateToggle(fullPath, isToggleFor);
+                    if(TRACE_TIME) System.err.println("n04f2  "+(System.currentTimeMillis()-nextTime));
                 }
                 if(p.toggleWith == null) {
                     p.updateToggle(fullPath, isToggleFor);
+                    if(TRACE_TIME) System.err.println("n04f3  "+(System.currentTimeMillis()-nextTime));
                 }
             }
+            if(TRACE_TIME) System.err.println("n04g  "+(System.currentTimeMillis()-nextTime));
             
             
 /*            if(attributeChoice != null) {
@@ -1510,7 +1549,7 @@ public class DataSection extends Registerable {
             }
             
 
-//if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME) System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
 
             // make sure the superP has its display name
             if(isReferences) {
@@ -1552,7 +1591,7 @@ public class DataSection extends Registerable {
                 (p.displayName == null)) {
                 canName = false; // disable 'view by name' if not all have names.
             }
-//    System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME) System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
             
             // If it is draft and not proposed.. make it proposed-draft 
             if( ((eDraft!=null)&&(!eDraft.equals("false"))) &&
@@ -1596,7 +1635,7 @@ public class DataSection extends Registerable {
                 continue;
             }
             
-//    System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME) System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
     
             // ?? simplify this.
             if(altProposed == null) {
@@ -1639,7 +1678,7 @@ public class DataSection extends Registerable {
                 value = newValue;
             }*/
             
- //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
+            if(TRACE_TIME) System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
             myItem = p.addItem( value, altProposed, null);
 //if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
             

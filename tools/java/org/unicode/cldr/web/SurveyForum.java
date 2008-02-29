@@ -67,7 +67,7 @@ public class SurveyForum {
                   .replaceAll("\n","<p>");
     }
 
-    static String HTMLSafe(String s) {
+    public static String HTMLSafe(String s) {
         if(s==null) return null;
         
         return 
@@ -572,8 +572,8 @@ public class SurveyForum {
                     }
                     
                     int poster = rs.getInt(1);
-                    String subj = rs.getString(2);
-                    String text = rs.getString(3);
+                    String subj = SurveyMain.getStringUTF8(rs, 2);
+                    String text = SurveyMain.getStringUTF8(rs, 3);
                     int id = rs.getInt(4);
                     java.sql.Timestamp lastDate = rs.getTimestamp(5);
                     String loc = rs.getString(6);
@@ -617,8 +617,8 @@ public class SurveyForum {
                 }
               
                 int poster = rs.getInt(1);
-                String subj = rs.getString(2);
-                String text = rs.getString(3);
+                String subj = SurveyMain.getStringUTF8(rs, 2);
+                String text = SurveyMain.getStringUTF8(rs, 3);
                 //int id = rs.getInt(4);
                 java.sql.Timestamp lastDate = rs.getTimestamp(5);
                 String loc = rs.getString(6);
@@ -793,10 +793,10 @@ public class SurveyForum {
                 
                 sql = "CREATE TABLE " + DB_FORA +
                       " ( " + 
-                          " id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " + 
+                          " id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " + 
                           " loc VARCHAR(1024) NOT NULL, " + // interest locale
-                          " first_time TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP, " +
-                          " last_time TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP" + 
+                          " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
+                          " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
                 sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,loc) ";
@@ -815,16 +815,16 @@ public class SurveyForum {
                 
                 sql = "CREATE TABLE " + DB_POSTS +
                       " ( " + 
-                          " id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
+                          " id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                           " forum INT NOT NULL, " + // which forum (DB_FORA), i.e. de
                           " poster INT NOT NULL, " + 
-                          " subj VARCHAR(1024), " + 
-                          " text VARCHAR(16384) NOT NULL, " +
-                          " parent INT WITH DEFAULT -1, " +
-                          " loc VARCHAR(1024), " + // specific locale, i.e. de_CH
+                          " subj "+sm.DB_SQL_UNICODE+", " + 
+                          " text "+sm.DB_SQL_UNICODE+" NOT NULL, " +
+                          " parent INT "+sm.DB_SQL_WITHDEFAULT+" -1, " +
+                          " loc VARCHAR(1000), " + // specific locale, i.e. de_CH
                           " xpath INT, " + // base xpath 
-                          " first_time TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP, " +
-                          " last_time TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP" + 
+                          " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
+                          " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
                 sql = "CREATE UNIQUE INDEX " + DB_POSTS + "_id ON " + DB_POSTS + " (id) ";
@@ -1130,7 +1130,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
                         int poster = rs.getInt(1);
                         String subj = rs.getString(2);
                         String text = rs.getString(3);
-                        java.sql.Timestamp lastDate = rs.getTimestamp(4);
+                        java.sql.Timestamp lastDate = rs.getTimestamp(4); //TODO: timestamp
                         int id = rs.getInt(5);
                         String forum = rs.getString(6);
                         String ploc = rs.getString(7);

@@ -358,101 +358,101 @@ public class Vetting {
     private void initStmts() throws SQLException {
         synchronized(conn) {
             missingImpliedVotes = prepareStatement("missingImpliedVotes", 
-            "select distinct CLDR_DATA.submitter,CLDR_DATA.base_xpath from CLDR_DATA WHERE "+
-                "(CLDR_DATA.submitter is not null)AND(locale=?) AND NOT EXISTS ( SELECT * from CLDR_VET where "+
-                    "(CLDR_DATA.locale=CLDR_VET.locale) AND (CLDR_DATA.base_xpath=CLDR_VET.base_xpath) AND "+
-                    "(CLDR_DATA.submitter=CLDR_VET.submitter) )");
+            "select distinct "+CLDRDBSource.CLDR_DATA+".submitter,"+CLDRDBSource.CLDR_DATA+".base_xpath from "+CLDRDBSource.CLDR_DATA+" WHERE "+
+                "("+CLDRDBSource.CLDR_DATA+".submitter is not null)AND(locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_VET+" where "+
+                    "("+CLDRDBSource.CLDR_DATA+".locale="+CLDR_VET+".locale) AND ("+CLDRDBSource.CLDR_DATA+".base_xpath="+CLDR_VET+".base_xpath) AND "+
+                    "("+CLDRDBSource.CLDR_DATA+".submitter="+CLDR_VET+".submitter) )");
             dataByUserAndBase = prepareStatement("dataByUserAndBase",
-                "select CLDR_DATA.XPATH,CLDR_DATA.ALT_TYPE from CLDR_DATA where submitter=? AND base_xpath=? AND locale=?");
+                "select "+CLDRDBSource.CLDR_DATA+".XPATH,"+CLDRDBSource.CLDR_DATA+".ALT_TYPE from "+CLDRDBSource.CLDR_DATA+" where submitter=? AND base_xpath=? AND locale=?");
             dataByBase = prepareStatement("dataByBase", /*  1:locale, 2:base_xpath  ->  stuff */
-                "select xpath,origxpath,alt_type,value FROM CLDR_DATA WHERE " + 
+                "select xpath,origxpath,alt_type,value FROM "+CLDRDBSource.CLDR_DATA+" WHERE " + 
                     "(locale=?) AND (base_xpath=?)");
             insertVote = prepareStatement("insertVote",
-                "insert into CLDR_VET (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
+                "insert into "+CLDR_VET+" (locale,submitter,base_xpath,vote_xpath,type,modtime) values (?,?,?,?,?,CURRENT_TIMESTAMP)");
             queryVote = prepareStatement("queryVote",
-                "select CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
+                "select "+CLDR_VET+".vote_xpath from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
             rmVote = prepareStatement("rmVote",
-                "delete from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
+                "delete from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
             queryVoteId = prepareStatement("queryVoteId",
-                "select CLDR_VET.id from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.submitter=? AND CLDR_VET.base_xpath=?");
+                "select "+CLDR_VET+".id from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".submitter=? AND "+CLDR_VET+".base_xpath=?");
             updateVote = prepareStatement("updateVote",
-                "update CLDR_VET set vote_xpath=?, type=?, modtime=CURRENT_TIMESTAMP where id=?");
+                "update "+CLDR_VET+" set vote_xpath=?, type=?, modtime=CURRENT_TIMESTAMP where id=?");
             queryVoteForXpath = prepareStatement("queryVoteForXpath",
-                "select CLDR_VET.submitter from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.vote_xpath=?");
+                "select "+CLDR_VET+".submitter from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".vote_xpath=?");
             queryVoteForBaseXpath = prepareStatement("queryVoteForBaseXpath",
-                "select CLDR_VET.submitter,CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.locale=? AND CLDR_VET.base_xpath=?");
+                "select "+CLDR_VET+".submitter,"+CLDR_VET+".vote_xpath from "+CLDR_VET+" where "+CLDR_VET+".locale=? AND "+CLDR_VET+".base_xpath=?");
             missingResults = prepareStatement("missingResults", /*  1:locale  ->  1: base_xpath */
-                "select distinct CLDR_DATA.base_xpath from CLDR_DATA WHERE (locale=?) AND NOT EXISTS ( SELECT * from CLDR_RESULT where (CLDR_DATA.locale=CLDR_RESULT.locale) AND (CLDR_DATA.base_xpath=CLDR_RESULT.base_xpath)  )");
+                "select distinct "+CLDRDBSource.CLDR_DATA+".base_xpath from "+CLDRDBSource.CLDR_DATA+" WHERE (locale=?) AND NOT EXISTS ( SELECT * from "+CLDR_RESULT+" where ("+CLDRDBSource.CLDR_DATA+".locale="+CLDR_RESULT+".locale) AND ("+CLDRDBSource.CLDR_DATA+".base_xpath="+CLDR_RESULT+".base_xpath)  )");
             missingResults2 = prepareStatement("missingResults2", /*  1:locale  ->  1: base_xpath */
-                "select distinct CLDR_ALLPATHS.base_xpath from CLDR_ALLPATHS WHERE NOT EXISTS ( SELECT * from CLDR_RESULT where (CLDR_RESULT.locale=?) AND (CLDR_ALLPATHS.base_xpath=CLDR_RESULT.base_xpath)  )");
+                "select distinct "+CLDR_ALLPATHS+".base_xpath from "+CLDR_ALLPATHS+" WHERE NOT EXISTS ( SELECT * from "+CLDR_RESULT+" where ("+CLDR_RESULT+".locale=?) AND ("+CLDR_ALLPATHS+".base_xpath="+CLDR_RESULT+".base_xpath)  )");
             insertResult = prepareStatement("insertResult", 
-                "insert into CLDR_RESULT (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
+                "insert into "+CLDR_RESULT+" (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)");
             rmResult = prepareStatement("rmResult", 
-                "delete from CLDR_RESULT where (locale=?)AND(base_xpath=?)");
+                "delete from "+CLDR_RESULT+" where (locale=?)AND(base_xpath=?)");
             rmResultAll = prepareStatement("rmResultAll", 
-                "delete from CLDR_RESULT");
+                "delete from "+CLDR_RESULT+"");
             rmResultLoc = prepareStatement("rmResultLoc", 
-                "delete from CLDR_RESULT where locale=?");
+                "delete from "+CLDR_RESULT+" where locale=?");
             queryResult = prepareStatement("queryResult",
-                "select CLDR_RESULT.result_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
+                "select "+CLDR_RESULT+".result_xpath,"+CLDR_RESULT+".type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
             countResultByType = prepareStatement("countResultByType",
-                "select COUNT(base_xpath) from CLDR_RESULT where locale=? AND type=?");
+                "select COUNT(base_xpath) from "+CLDR_RESULT+" where locale=? AND type=?");
             listBadResults = prepareStatement("listBadResults",
-                "select base_xpath,type from CLDR_RESULT where locale=? AND type<="+RES_BAD_MAX);
+                "select base_xpath,type from "+CLDR_RESULT+" where locale=? AND type<="+RES_BAD_MAX);
             queryTypes = prepareStatement("queryTypes",
-                "select distinct CLDR_RESULT.type from CLDR_RESULT where locale=?");
+                "select distinct "+CLDR_RESULT+".type from "+CLDR_RESULT+" where locale=?");
             insertStatus = prepareStatement("insertStatus",
-                "insert into CLDR_STATUS (type,locale,modtime) values (?,?,CURRENT_TIMESTAMP)");
+                "insert into "+CLDR_STATUS+" (type,locale,modtime) values (?,?,CURRENT_TIMESTAMP)");
             updateStatus = prepareStatement("updateStatus",
-                "update CLDR_STATUS set type=?,modtime=CURRENT_TIMESTAMP where locale=?");
+                "update "+CLDR_STATUS+" set type=?,modtime=CURRENT_TIMESTAMP where locale=?");
             queryStatus = prepareStatement("queryStatus",
-                "select type from CLDR_STATUS where locale=?");
+                "select type from "+CLDR_STATUS+" where locale=?");
             staleResult = prepareStatement("staleResult",
-                "select CLDR_RESULT.id,CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.locale=? AND exists (select * from CLDR_VET where (CLDR_VET.base_xpath=CLDR_RESULT.base_xpath) AND (CLDR_VET.locale=CLDR_RESULT.locale) AND (CLDR_VET.modtime>CLDR_RESULT.modtime))");
+                "select "+CLDR_RESULT+".id,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where "+CLDR_RESULT+".locale=? AND exists (select * from "+CLDR_VET+" where ("+CLDR_VET+".base_xpath="+CLDR_RESULT+".base_xpath) AND ("+CLDR_VET+".locale="+CLDR_RESULT+".locale) AND ("+CLDR_VET+".modtime>"+CLDR_RESULT+".modtime))");
             updateResult = prepareStatement("updateResult",
-                "update CLDR_RESULT set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where base_xpath=? and locale=?");
+                "update "+CLDR_RESULT+" set result_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where base_xpath=? and locale=?");
             intQuery = prepareStatement("intQuery",
                 "select last_sent_nag,last_sent_update from CLDR_INTGROUP where intgroup=?");
             intAdd = prepareStatement("intAdd",
-                "insert into CLDR_INTGROUP (intgroup) values (?)");
+                "insert into "+CLDR_INTGROUP+" (intgroup) values (?)");
             intUpdateNag = prepareStatement("intUpdateNag",
-                "update CLDR_INTGROUP  set last_sent_nag=CURRENT_TIMESTAMP where intgroup=?");
+                "update "+CLDR_INTGROUP+"  set last_sent_nag=CURRENT_TIMESTAMP where intgroup=?");
             intUpdateUpdate = prepareStatement("intUpdateUpdate",
-                "update CLDR_INTGROUP  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
+                "update "+CLDR_INTGROUP+"  set last_sent_update=CURRENT_TIMESTAMP where intgroup=?");
             queryValue = prepareStatement("queryValue",
                 "SELECT value,origxpath FROM " + CLDRDBSource.CLDR_DATA +
                         " WHERE locale=? AND xpath=?");
 			highestVetter = prepareStatement("highestVetter",
-				"select CLDR_USERS.userlevel from CLDR_VET,CLDR_USERS where CLDR_USERS.id=CLDR_VET.submitter AND CLDR_VET.locale=? AND CLDR_VET.vote_xpath=? ORDER BY CLDR_USERS.userlevel");
+				"select "+UserRegistry.CLDR_USERS+".userlevel from "+CLDR_VET+","+UserRegistry.CLDR_USERS+" where "+UserRegistry.CLDR_USERS+".id="+CLDR_VET+".submitter AND "+CLDR_VET+".locale=? AND "+CLDR_VET+".vote_xpath=? ORDER BY "+UserRegistry.CLDR_USERS+".userlevel");
 				
 			// CLDR_OUTPUT
 			outputDelete = prepareStatement("outputDelete", // loc, basex
-				"delete from CLDR_OUTPUT where locale=? AND base_xpath=?");
+				"delete from "+CLDR_OUTPUT+" where locale=? AND base_xpath=?");
 			outputInsert = prepareStatement("outputInsert", // loc, basex, outx, outFx, datax
-				"insert into CLDR_OUTPUT (locale, base_xpath, output_xpath, output_full_xpath, data_xpath, status) values (?,?,?,?,?,?)");
+				"insert into "+CLDR_OUTPUT+" (locale, base_xpath, output_xpath, output_full_xpath, data_xpath, status) values (?,?,?,?,?,?)");
 			outputQueryStatus = prepareStatement("outputQueryStatus", // loc, basex, outx, outFx, datax
-				"select status from CLDR_OUTPUT where locale=? AND output_xpath=?");
+				"select status from "+CLDR_OUTPUT+" where locale=? AND output_xpath=?");
 
 			// CLDR_ORGDISPUTE
 			orgDisputeDelete = prepareStatement("orgDisputeDelete", // loc, basex
-				"delete from CLDR_ORGDISPUTE where locale=? AND base_xpath=?");
+				"delete from "+CLDR_ORGDISPUTE+" where locale=? AND base_xpath=?");
 			orgDisputeInsert = prepareStatement("orgDisputeInsert", // org, locale, base_xpath
-				"insert into CLDR_ORGDISPUTE (org, locale, base_xpath) values (?,?,?)");
+				"insert into "+CLDR_ORGDISPUTE+" (org, locale, base_xpath) values (?,?,?)");
                 
             orgDisputeLocs = prepareStatement("orgDisputeLocs", 
-                "select locale,count(*) from CLDR_ORGDISPUTE where org=? group by locale  order by locale");
+                "select locale,count(*) from "+CLDR_ORGDISPUTE+" where org=? group by locale  order by locale");
             orgDisputePaths = prepareStatement("orgDisputePaths", 
-                "select base_xpath from CLDR_ORGDISPUTE where org=? AND locale=?");
+                "select base_xpath from "+CLDR_ORGDISPUTE+" where org=? AND locale=?");
             orgDisputePathCount = prepareStatement("orgDisputePathCount", 
-                "select COUNT(base_xpath) from CLDR_ORGDISPUTE where org=? AND locale=?");
+                "select COUNT(base_xpath) from "+CLDR_ORGDISPUTE+" where org=? AND locale=?");
             orgDisputeQuery = prepareStatement("orgDisputeQuery", 
-                "select * from CLDR_ORGDISPUTE where org=? AND locale=? and base_xpath=?");
+                "select * from "+CLDR_ORGDISPUTE+" where org=? AND locale=? and base_xpath=?");
                 
             googData = prepareStatement("googData",
-                "select xpath,origxpath,value from CLDR_DATA where alt_type='proposed-x650' and locale=? and base_xpath=?");
+                "select xpath,origxpath,value from "+CLDRDBSource.CLDR_DATA+" where alt_type='proposed-x650' and locale=? and base_xpath=?");
                 
             allpathsAdd = prepareStatement("allpathsAdd",
-                "insert into CLDR_ALLPATHS (base_xpath) values (?)");
+                "insert into "+CLDR_ALLPATHS+" (base_xpath) values (?)");
         }
     }
     
@@ -749,7 +749,7 @@ public class Vetting {
                     gAllImportantXpaths = Collections.unmodifiableSet(aSet);
                     conn.commit();
                 } catch ( SQLException se ) {
-                    String complaint = "Vetter:  couldn't update CLDR_ALLPATHS" + " - " + SurveyMain.unchainSqlException(se);
+                    String complaint = "Vetter:  couldn't update "+CLDR_ALLPATHS+"" + " - " + SurveyMain.unchainSqlException(se);
                     logger.severe(complaint);
                     se.printStackTrace();
                     throw new RuntimeException(complaint);
@@ -1006,7 +1006,7 @@ public class Vetting {
                 
                 if(lookupByXpath == null) {
                     lookupByXpath = prepareStatement("lookupByXpath", 
-                        "select xpath,value,source,origxpath from CLDR_DATA where base_xpath=? AND SUBMITTER is NULL AND locale=?");
+                        "select xpath,value,source,origxpath from "+CLDRDBSource.CLDR_DATA+" where base_xpath=? AND SUBMITTER is NULL AND locale=?");
                 }
                 
                 lookupByXpath.setString(2,locale);
@@ -1029,14 +1029,14 @@ public class Vetting {
                 }
 
 
-                int vetCleared = s3.executeUpdate("delete from CLDR_VET where locale='"+locale+"'");
-                int resCleared = s3.executeUpdate("delete from CLDR_RESULT where locale='"+locale+"'");
+                int vetCleared = s3.executeUpdate("delete from "+CLDR_VET+" where locale='"+locale+"'");
+                int resCleared = s3.executeUpdate("delete from "+CLDR_RESULT+" where locale='"+locale+"'");
                 
                 // clear RESULTS
                 System.err.println(locale + " - cleared "+vetCleared + " from CLDR_VET");
                 System.err.println(locale + " - cleared "+resCleared + " from CLDR_RESULT");
                 
-                ResultSet rs = s.executeQuery("select id,source,value,base_xpath,submitter from CLDR_DATA where SUBMITTER IS NOT NULL AND LOCALE='"+locale+"' order by base_xpath, source desc");
+                ResultSet rs = s.executeQuery("select id,source,value,base_xpath,submitter from "+CLDRDBSource.CLDR_DATA+" where SUBMITTER IS NOT NULL AND LOCALE='"+locale+"' order by base_xpath, source desc");
                 System.err.println(" querying..");
                 while(rs.next()) {
                    // ncount++;
@@ -1091,7 +1091,7 @@ public class Vetting {
                     }
                     if((vettedValue != -1) || (cachedProps.size()>0)) {
                         // just, erase it
-                        ncount += s3.executeUpdate("delete from CLDR_DATA where id="+oldId);
+                        ncount += s3.executeUpdate("delete from "+CLDRDBSource.CLDR_DATA+" where id="+oldId);
                     }
                     
                     // what to do?
@@ -2114,7 +2114,7 @@ public class Vetting {
      * @see updateResults
      */
     int queryResult(String locale, int base_xpath, int type[]) {
-        // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
+        // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
             try {
                 queryResult.setString(1, locale);
@@ -2147,7 +2147,7 @@ public class Vetting {
     }
     
     Status queryResultStatus(String locale, int base_xpath) {
-        // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from CLDR_RESULT where (locale=?) AND (base_xpath=?)");
+        // queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
         synchronized(conn) {
             try {
                 outputQueryStatus.setString(1, locale);
@@ -2320,7 +2320,7 @@ public class Vetting {
             int count=0;
             try {
                 Statement s = conn.createStatement();
-                ResultSet rs = s.executeQuery("select distinct CLDR_DATA.locale from CLDR_DATA where not exists ( select * from CLDR_STATUS where CLDR_STATUS.locale=CLDR_DATA.locale)");
+                ResultSet rs = s.executeQuery("select distinct "+CLDRDBSource.CLDR_DATA+".locale from "+CLDRDBSource.CLDR_DATA+" where not exists ( select * from "+CLDR_STATUS+" where "+CLDR_STATUS+".locale="+CLDRDBSource.CLDR_DATA+".locale)");
                 while(rs.next()) {
                     count += updateStatus(rs.getString(1), false);
                     locs++;
@@ -2874,9 +2874,9 @@ if(true == true)    throw new InternalError("removed from use.");
             
              if(ctx.hasField("only_err")) {
                 ctx.println("<h1>Only showing ERROR (disqualified winner) items</h1>");
-                rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type="+RES_ERROR+")");
+                rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type="+RES_ERROR+")");
              } else {
-                rs = s.executeQuery("select CLDR_RESULT.locale,CLDR_RESULT.base_xpath from CLDR_RESULT where (CLDR_RESULT.type>"+RES_NO_VOTES+") AND (CLDR_RESULT.type<="+RES_BAD_MAX+")");
+                rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type>"+RES_NO_VOTES+") AND ("+CLDR_RESULT+".type<="+RES_BAD_MAX+")");
             }
 			while(rs.next()) {
 				n++;

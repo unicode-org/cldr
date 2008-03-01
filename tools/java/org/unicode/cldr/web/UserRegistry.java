@@ -308,13 +308,13 @@ public class UserRegistry {
 	public void migrateFrom(Connection uConn) throws SQLException {
 		System.err.println("USER MIGRATE");
 		Statement s = conn.createStatement(); // 'new' side
-		int n = s.executeUpdate("DROP TABLE CLDR_USERS");
+		int n = s.executeUpdate("DROP TABLE "+CLDR_USERS+"");
 		System.err.println("drop table: " + n + " rows from 'new' side table");
 		setupDB();
 		System.err.println("Reset table");
 		Statement oldS = uConn.createStatement(); // old side
 
-		ResultSet rs = oldS.executeQuery("select id from CLDR_USERS order by id desc");
+		ResultSet rs = oldS.executeQuery("select id from "+CLDR_USERS+" order by id desc");
 		if(rs.next()) {
 			n=rs.getInt(1);
 		} else { 
@@ -325,7 +325,7 @@ public class UserRegistry {
 		System.err.println("max userid: " + n);
 		
 		for(;n>0;n--) {
-			s.execute("INSERT INTO CLDR_USERS (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
+			s.execute("INSERT INTO "+CLDR_USERS+" (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
 		}
 		conn.commit();
 		System.err.println("dummy users created.");
@@ -406,10 +406,10 @@ public class UserRegistry {
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
           queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=?",
                                                         ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-            touchStmt = conn.prepareStatement("UPDATE CLDR_USERS set lastlogin=CURRENT_TIMESTAMP where id=?");
+            touchStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set lastlogin=CURRENT_TIMESTAMP where id=?");
             
-            updateInfoEmailStmt = conn.prepareStatement("UPDATE CLDR_USERS set email=? WHERE id=? AND email=?");
-            updateInfoNameStmt = conn.prepareStatement("UPDATE CLDR_USERS set name=? WHERE id=? AND email=?");
+            updateInfoEmailStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set email=? WHERE id=? AND email=?");
+            updateInfoNameStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set name=? WHERE id=? AND email=?");
             
             removeIntLoc = conn.prepareStatement("DELETE FROM "+CLDR_INTEREST+" WHERE uid=?");
             updateIntLoc = conn.prepareStatement("INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)");

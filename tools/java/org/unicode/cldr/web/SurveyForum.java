@@ -41,11 +41,11 @@ public class SurveyForum {
     private static java.util.logging.Logger logger;
 
 
-    public static String DB_FORA = "SF_FORA";    //  forum name -> id
-    public static String DB_POSTS = "SF_POSTS";  // 
-    public static String DB_READERS = "SF_READERS";  // 
-
-    public static String DB_LOC2FORUM = "SF_LOC2FORUM";  // locale -> forum.. for selects.
+    public static String DB_FORA = "sf_fora";    //  forum name -> id
+    public static String DB_POSTS = "sf_posts";  // 
+    public static String DB_READERS = "sf_readers";  // 
+    
+    public static String DB_LOC2FORUM = "sf_loc2forum";  // locale -> forum.. for selects.
 
     /* --------- FORUM ------------- */
     static final String F_FORUM = "forum";
@@ -794,14 +794,14 @@ public class SurveyForum {
                 sql = "CREATE TABLE " + DB_FORA +
                       " ( " + 
                           " id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " + 
-                          " loc VARCHAR(1024) NOT NULL, " + // interest locale
+                          " loc VARCHAR(999) NOT NULL, " + // interest locale
                           " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
                           " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,loc) ";
+                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,loc(999)) ";
                 s.execute(sql); 
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_loc ON " + DB_FORA + " (loc) ";
+                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_loc ON " + DB_FORA + " (loc(999)) ";
                 s.execute(sql); 
                 sql="";
                 s.close();
@@ -821,7 +821,7 @@ public class SurveyForum {
                           " subj "+sm.DB_SQL_UNICODE+", " + 
                           " text "+sm.DB_SQL_UNICODE+" NOT NULL, " +
                           " parent INT "+sm.DB_SQL_WITHDEFAULT+" -1, " +
-                          " loc VARCHAR(1000), " + // specific locale, i.e. de_CH
+                          " loc VARCHAR(999), " + // specific locale, i.e. de_CH
                           " xpath INT, " + // base xpath 
                           " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
                           " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
@@ -835,7 +835,7 @@ public class SurveyForum {
                 s.execute(sql); 
                 sql = "CREATE INDEX " + DB_POSTS + "_chil ON " + DB_POSTS + " (parent) ";
                 s.execute(sql); 
-                sql = "CREATE INDEX " + DB_POSTS + "_loc ON " + DB_POSTS + " (loc) ";
+                sql = "CREATE INDEX " + DB_POSTS + "_loc ON " + DB_POSTS + " (loc(999)) ";
                 s.execute(sql); 
                 sql = "CREATE INDEX " + DB_POSTS + "_x ON " + DB_POSTS + " (xpath) ";
                 s.execute(sql); 

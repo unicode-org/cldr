@@ -1104,6 +1104,7 @@ public class SurveyMain extends HttpServlet {
             } else {
                 com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
                 logger.info("Loading all..");            
+                Connection connx = null;
                 int ti = 0;
                 for(int i=0;i<nrInFiles;i++) {
                     String localeName = inFiles[i].getName();
@@ -1115,10 +1116,13 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br>");
                         }
                         try {
+                            if(connx == null) {
+                                connx = this.getDBConnection();
+                            }
                             ULocale locale = new ULocale(localeName);
                             //                        WebContext xctx = new WebContext(false);
                             //                        xctx.setLocale(locale);
-                            makeCLDRFile(makeDBSource(ctx, null, locale));  // orphan result
+                            makeCLDRFile(makeDBSource(connx, null, locale));  // orphan result
                         } catch(Throwable t) {
                             t.printStackTrace();
                             String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
@@ -1129,6 +1133,7 @@ public class SurveyMain extends HttpServlet {
                         }
                     }
                 }
+                closeDBConnection(connx);
                 logger.info("Loaded all. " + allTime);
                 ctx.println("Loaded all." + allTime + "<br>");
             }
@@ -7495,6 +7500,11 @@ public class SurveyMain extends HttpServlet {
 
     protected void busted(String what) {
         System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
+        try {
+            throw new InternalError("bustification here");
+        } catch(InternalError e) {
+            e.printStackTrace();
+        }
         isBusted = what;
         logger.severe(what);
     }
@@ -7665,7 +7675,7 @@ public class SurveyMain extends HttpServlet {
     
     // === DB workarounds :(
     public String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
-    public String DB_SQL_VARCHARXPATH = "1024";
+    public String DB_SQL_VARCHARXPATH = "varchar(1024)";
     public String DB_SQL_WITHDEFAULT = "WITH DEFAULT";
     public String DB_SQL_TIMESTAMP0 = "TIMESTAMP";
     public String DB_SQL_CURRENT_TIMESTAMP0 = "CURRENT_TIMESTAMP";
@@ -7680,14 +7690,15 @@ public class SurveyMain extends HttpServlet {
         if(db_protocol.indexOf("derby")>=0) {
             db_Derby=true;
         } else if(db_protocol.indexOf("mysql")>=0) {
+            System.err.println("Note: mysql mode");
             db_Mysql=true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-            DB_SQL_VARCHARXPATH="1000";
+            DB_SQL_VARCHARXPATH="TEXT(1000)";
             DB_SQL_WITHDEFAULT="DEFAULT";
             DB_SQL_TIMESTAMP0 = "DATETIME";
             DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
-            DB_SQL_MIDTEXT   = "TEXT";
-            DB_SQL_BIGTEXT   = "TEXT";
+            DB_SQL_MIDTEXT   = "TEXT(1024)";
+            DB_SQL_BIGTEXT   = "TEXT(16384)";
             DB_SQL_UNICODE   = "BLOB";
             DB_SQL_ALLTABLES = "show tables";
         } else {
@@ -8009,13 +8020,21 @@ public class SurveyMain extends HttpServlet {
     }
 
     public boolean hasTable(Connection conn, String table) {
+        String canonName = db_Derby?table.toUpperCase():table;
         try {
-            DatabaseMetaData dbmd = conn.getMetaData();
-            ResultSet rs = dbmd.getTables(null, null, table.toUpperCase(), null);
-
+            ResultSet rs;
+            
+            if(SurveyMain.db_Derby) {
+                DatabaseMetaData dbmd = conn.getMetaData();
+                rs = dbmd.getTables(null, null, table, null);
+            } else {
+                Statement s = conn.createStatement();
+                rs = s.executeQuery("show tables like '"+table+"'");
+            }
+            
             if(rs.next()==true) {
                 rs.close();
-//                System.err.println("table " + table + " did exist.");
+                //System.err.println("table " + table + " did exist.");
                 return true;
             } else {
                 System.err.println("table " + table + " did not exist.");
@@ -8041,19 +8060,19 @@ public class SurveyMain extends HttpServlet {
                 System.err.println("While shutting down cookiesession ");
             }
             try {
-                reg.shutdownDB();
+                if(reg!=null) reg.shutdownDB();
             } catch(Throwable t) {
                 t.printStackTrace();
                 System.err.println("While shutting down reg ");
             }
             try {
-                xpt.shutdownDB();
+                if(xpt!=null) xpt.shutdownDB();
             } catch(Throwable t) {
                 t.printStackTrace();
                 System.err.println("While shutting down xpt ");
             }
             try {
-                vet.shutdownDB();
+                if(vet!=null) vet.shutdownDB();
             } catch(Throwable t) {
                 t.printStackTrace();
                 System.err.println("While shutting down vet ");

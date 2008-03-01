@@ -62,18 +62,33 @@ public class XPathTable {
     {
         logger.info("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+sm.DB_SQL_IDENTITY);
         synchronized(conn) {
-            Statement s = conn.createStatement();
-            if(s==null) {
-                throw new InternalError("S is null");
+            String sql = null;
+            try {
+                Statement s = conn.createStatement();
+                if(s==null) {
+                    throw new InternalError("S is null");
+                }
+                String uniqueness = ", " +   "unique(xpath(1000))";
+                if(sm.db_Mysql) {
+                    uniqueness = "";
+                }
+                sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                                                        "xpath "+sm.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");
+                s.execute(sql);
+                sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath(1000))");
+                s.execute(sql);
+                sql=("CREATE INDEX "+CLDR_XPATHS+"_id on " + CLDR_XPATHS +"(id)");
+                s.execute(sql);
+                sql=("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +"(xpath(1000))");
+                s.execute(sql);
+                sql = null;
+                s.close();
+                conn.commit();
+            } finally {
+                if(sql != null) { 
+                    System.err.println("Last SQL: " + sql);
+                }
             }
-             s.execute("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
-                                                    "xpath varchar("+sm.DB_SQL_VARCHARXPATH+") not null, " +
-                                                    "unique(xpath))");
-            s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath)");
-            s.execute("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +"(xpath)");
-            s.execute("CREATE INDEX "+CLDR_XPATHS+"_id on " + CLDR_XPATHS +"(id)");
-            s.close();
-            conn.commit();
         }
     }
     

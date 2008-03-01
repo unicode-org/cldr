@@ -158,7 +158,7 @@ import com.ibm.icu.util.ULocale;
             // s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_DATA +"(xpath)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_qxpath on " + CLDR_DATA + "(locale,xpath)");
             // New for April 2006.
-            s.execute("create INDEX CLDR_DATA_qbxpath on CLDR_DATA(locale,base_xpath)");
+            s.execute("create INDEX "+CLDR_DATA+"_qbxpath on "+CLDR_DATA+"(locale,base_xpath)");
             s.execute("CREATE INDEX "+CLDR_SRC+"_src on " + CLDR_SRC + "(locale,tree)");
             s.execute("CREATE INDEX "+CLDR_SRC+"_src_id on " + CLDR_SRC + "(id)");
             s.close();
@@ -250,23 +250,23 @@ import com.ibm.icu.util.ULocale;
             
 
             queryVetValue = prepareStatement("queryVetValue",
-                                             "SELECT CLDR_DATA.value FROM CLDR_OUTPUT," + CLDR_DATA +
-                                             " WHERE CLDR_OUTPUT.locale=? AND CLDR_OUTPUT.output_xpath=? AND "
-                                             +" (CLDR_OUTPUT.locale=CLDR_DATA.locale) AND (CLDR_OUTPUT.data_xpath=CLDR_DATA.xpath)"); 
+                                             "SELECT "+CLDR_DATA+".value FROM "+Vetting.CLDR_OUTPUT+"," + CLDR_DATA +
+                                             " WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? AND "
+                                             +" ("+Vetting.CLDR_OUTPUT+".locale="+CLDR_DATA+".locale) AND ("+Vetting.CLDR_OUTPUT+".data_xpath="+CLDR_DATA+".xpath)"); 
 
             oxpathFromVetXpath = prepareStatement("oxpathFromVetXpath",
-                                             "SELECT CLDR_OUTPUT.output_full_xpath FROM CLDR_OUTPUT " +
-                                             " WHERE CLDR_OUTPUT.locale=? AND CLDR_OUTPUT.output_xpath=? "); 
+                                             "SELECT "+Vetting.CLDR_OUTPUT+".output_full_xpath FROM "+Vetting.CLDR_OUTPUT+" " +
+                                             " WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? "); 
 
             queryVetXpath = prepareStatement("queryVetXpath",
-                                             "SELECT CLDR_RESULT.result_xpath FROM CLDR_RESULT " +
-                                             " WHERE CLDR_RESULT.locale=? AND CLDR_RESULT.base_xpath=? "); 
+                                             "SELECT "+Vetting.CLDR_RESULT+".result_xpath FROM "+Vetting.CLDR_RESULT+" " +
+                                             " WHERE "+Vetting.CLDR_RESULT+".locale=? AND "+Vetting.CLDR_RESULT+".base_xpath=? "); 
 
             //keyVettingSet = prepareStatement("keyVettingSet",
-              //                               "SELECT output_xpath from CLDR_OUTPUT where locale=?" ); // wow, that is pretty straightforward...
+              //                               "SELECT output_xpath from "+Vetting.CLDR_OUTPUT+" where locale=?" ); // wow, that is pretty straightforward...
             keyVettingSet = prepareStatement("keyVettingSet",
-                                             "SELECT CLDR_OUTPUT.output_xpath from CLDR_OUTPUT where CLDR_OUTPUT.locale=? AND EXISTS "+
-                                                    " ( SELECT * from CLDR_DATA where CLDR_DATA.LOCALE=CLDR_OUTPUT.LOCALE AND CLDR_DATA.xpath=CLDR_OUTPUT.data_xpath )");
+                                             "SELECT "+Vetting.CLDR_OUTPUT+".output_xpath from "+Vetting.CLDR_OUTPUT+" where "+Vetting.CLDR_OUTPUT+".locale=? AND EXISTS "+
+                                                    " ( SELECT * from "+CLDR_DATA+" where "+CLDR_DATA+".locale="+Vetting.CLDR_OUTPUT+".locale AND "+CLDR_DATA+".xpath="+Vetting.CLDR_OUTPUT+".data_xpath )");
                                             
             keyASet = prepareStatement("keyASet",
                                        /*
@@ -274,8 +274,8 @@ import com.ibm.icu.util.ULocale;
                                         XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
                                         XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
                                         */
-                                       //    "SELECT CLDR_DATA.xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
-                                       "SELECT CLDR_DATA.origxpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.origxpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
+                                       //    "SELECT "+CLDR_DATA+".xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
+                                       "SELECT "+CLDR_DATA+".origxpath from "+XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".origxpath="+XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like '%/alias%' AND "+CLDR_DATA+".locale=?"
                                        );
             
             
@@ -283,9 +283,22 @@ import com.ibm.icu.util.ULocale;
                                       "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                                       " WHERE locale=?"); 
             keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-                                                 "select distinct CLDR_VET.vote_xpath from CLDR_VET where CLDR_VET.vote_xpath!=-1 AND CLDR_VET.locale=? AND NOT EXISTS ( SELECT CLDR_RESULT.result_xpath from CLDR_RESULT where CLDR_RESULT.result_xpath=CLDR_VET.vote_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT CLDR_RESULT.base_xpath from CLDR_RESULT where CLDR_RESULT.base_xpath=CLDR_VET.base_xpath and CLDR_RESULT.locale=CLDR_VET.locale AND CLDR_RESULT.type="+Vetting.RES_ADMIN+") AND EXISTS (select * from CLDR_DATA where CLDR_DATA.locale=CLDR_VET.locale AND CLDR_DATA.xpath=CLDR_VET.vote_xpath and CLDR_DATA.value != '')");
+                                                 "select distinct "+Vetting.CLDR_VET+"vote_xpath from "+Vetting.CLDR_VET+" where "+
+                                                 Vetting.CLDR_VET+"vote_xpath!=-1 AND "+Vetting.CLDR_VET+
+                                                 "locale=? AND NOT EXISTS ( SELECT "+Vetting.CLDR_RESULT+
+                                                 ".result_xpath from "+Vetting.CLDR_RESULT+" where "+
+                                                 Vetting.CLDR_RESULT+".result_xpath=CLDR_VET.vote_xpath and "+
+                                                 Vetting.CLDR_RESULT+".locale=CLDR_VET.locale AND "+
+                                                 Vetting.CLDR_RESULT+".type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT "+
+                                                 Vetting.CLDR_RESULT+".base_xpath from "+Vetting.CLDR_RESULT+" where "+
+                                                 Vetting.CLDR_RESULT+".base_xpath=CLDR_VET.base_xpath and "+
+                                                 Vetting.CLDR_RESULT+".locale=CLDR_VET.locale AND "+Vetting.CLDR_RESULT+".type="+
+                                                 Vetting.RES_ADMIN+") AND EXISTS (select * from "+CLDR_DATA+" where "+
+                                                 CLDR_DATA+".locale="+
+                                                 Vetting.CLDR_VET+".locale AND "+CLDR_DATA+".xpath="+
+                                                 Vetting.CLDR_VET+".vote_xpath and "+CLDR_DATA+".value != '')");
             keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
-                                             "select distinct CLDR_DATA.xpath from CLDR_DATA,CLDR_RESULT where CLDR_DATA.locale=? AND CLDR_DATA.locale=CLDR_RESULT.locale AND CLDR_DATA.xpath=CLDR_RESULT.base_xpath AND CLDR_RESULT.type="+Vetting.RES_NO_VOTES);
+                                             "select distinct "+CLDR_DATA+".xpath from "+CLDR_DATA+","+Vetting.CLDR_RESULT+" where "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".locale="+Vetting.CLDR_RESULT+".locale AND "+CLDR_DATA+".xpath="+Vetting.CLDR_RESULT+".base_xpath AND "+Vetting.CLDR_RESULT+".type="+Vetting.RES_NO_VOTES);
             querySource = prepareStatement("querySource",
                                            "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
             
@@ -592,7 +605,7 @@ import com.ibm.icu.util.ULocale;
     private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc)
         throws SQLException
     {
-        String mySql = ("DELETE from CLDR_DATA where source="+id+" AND submitter IS NULL");
+        String mySql = ("DELETE from "+CLDR_DATA+" where source="+id+" AND submitter IS NULL");
         logger.severe("srcupdate: "+loc+" - "+ mySql);
         Statement s = conn.createStatement();
         int r = s.executeUpdate(mySql);

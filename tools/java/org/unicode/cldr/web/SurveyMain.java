@@ -5162,16 +5162,10 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<table summary='Data Items for "+ctx.localeString()+" " + section.xpathPrefix + "' class='data' border='0'>");
 
         if(/* !zoomedIn */ true) {
-            ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'><i>For details and help on any item, zoom in by clicking on the status icon: " +
-                ctx.iconHtml("okay",null) + ", " +
-                ctx.iconHtml("ques",null) + ", " +
-                ctx.iconHtml("warn",null) + ", " +
-                ctx.iconHtml("stop",null) + " " +
-                ctx.iconHtml("squo",null) + " " +
-                    "</i><br>"+
-					"To see other voters, hover over the <b>"+ctx.iconHtml("vote","Voting Mark")+"</b> symbol. "+
-					"The item with the star, <b>"+ctx.iconHtml("star","Star Mark")+"</b>  was the one released with CLDR "+getOldVersion()+". A green value indicates that it is tentatively confirmed. "+
-					"</td></tr>");
+            ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'>");
+            // dataitems_header.jspf
+            ctx.includeFragment("dataitems_header.jsp");
+            ctx.println("</td></tr>");
         }
         if(!section.xpathPrefix.equals("//ldml/references")) {
             ctx.println("<tr class='headingb'>\n"+
@@ -7501,7 +7495,7 @@ public class SurveyMain extends HttpServlet {
     protected void busted(String what) {
         System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
         try {
-            throw new InternalError("bustification here");
+            throw new InternalError("broke here");
         } catch(InternalError e) {
             e.printStackTrace();
         }
@@ -7683,6 +7677,8 @@ public class SurveyMain extends HttpServlet {
     public String DB_SQL_BIGTEXT   = "VARCHAR(16384)";
     public String DB_SQL_UNICODE   = "VARCHAR(16384)"; // unicode type string
     public String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
+    public String DB_SQL_BINCOLLATE = "";
+    public String DB_SQL_BINTRODUCER = "";
 
     private void setupDBProperties(Properties cldrprops) {
         db_driver   =cldrprops.getProperty("CLDR_DB_DRIVER", "org.apache.derby.jdbc.EmbeddedDriver");
@@ -7693,7 +7689,9 @@ public class SurveyMain extends HttpServlet {
             System.err.println("Note: mysql mode");
             db_Mysql=true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-            DB_SQL_VARCHARXPATH="TEXT(1000)";
+            DB_SQL_BINCOLLATE=" COLLATE latin1_bin ";
+            DB_SQL_VARCHARXPATH="TEXT(1000) CHARACTER SET latin1 " + DB_SQL_BINCOLLATE;
+            DB_SQL_BINTRODUCER = "_latin1";
             DB_SQL_WITHDEFAULT="DEFAULT";
             DB_SQL_TIMESTAMP0 = "DATETIME";
             DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?

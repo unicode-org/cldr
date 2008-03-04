@@ -75,11 +75,11 @@ public class XPathTable {
                 sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                         "xpath "+sm.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");
                 s.execute(sql);
-                sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath(1000))");
+                sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +" (xpath(1000))");
                 s.execute(sql);
                 sql=("CREATE INDEX "+CLDR_XPATHS+"_id on " + CLDR_XPATHS +"(id)");
                 s.execute(sql);
-                sql=("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +"(xpath(1000))");
+                sql=("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +" (xpath(1000))");
                 s.execute(sql);
                 sql = null;
                 s.close();
@@ -118,9 +118,9 @@ public class XPathTable {
     public void myinit() throws SQLException {
         synchronized(conn) {
             insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS +" (xpath ) " + 
-                                            " values (?)");
+                                            " values ("+sm.DB_SQL_BINTRODUCER+" ?)");
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + 
-                                        " where XPATH=?");
+                                        " where XPATH="+sm.DB_SQL_BINTRODUCER+" ? "+sm.DB_SQL_BINCOLLATE);
             queryIdStmt = conn.prepareStatement("SELECT XPATH FROM " + CLDR_XPATHS + "   " + 
                                         " where ID=?");
         }

@@ -45,6 +45,7 @@ public class WebContext implements Cloneable {
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;
     public Hashtable temporaryStuff = new Hashtable();
+    public static final String CLDR_WEBCONTEXT="cldr_webcontext";
     
     
 // private fields
@@ -71,7 +72,16 @@ public class WebContext implements Cloneable {
          response = irs;
         out = response.getWriter();
         dontCloseMe = true;
-        
+        // register
+        request.setAttribute(CLDR_WEBCONTEXT, this);
+    }
+    
+    public static WebContext fromRequest(ServletRequest request, ServletResponse response) {
+        WebContext ctx = (WebContext) request.getAttribute(CLDR_WEBCONTEXT);
+        if(ctx == null) {
+            throw new InternalError("WebContext: could not load fromRequest.");
+        }
+        return ctx;
     }
     
     /**
@@ -835,10 +845,26 @@ public class WebContext implements Cloneable {
         return iconHtml("hand",message);
     }
     public String iconHtml(String icon, String message) {
+        if(message==null) {
+            message = "[" + icon +"]";
+        }
         return "<img border='0' alt='["+icon+"]' style='width: 16px; height: 16px;' src='"+context(icon+".png")+"' title='"+message+"' />";
     }
     
     public Object clone() {
         return new WebContext(this);
+    }
+    
+    public void includeFragment(String filename)  {
+        RequestDispatcher dp = request.getRequestDispatcher("/tmpl/"+filename);
+        try {
+            dp.include(request,response);
+        } catch(Throwable t) {
+            this.println("<div class='ferrorbox'><B>Error</b> while including template <tt class='code'>"+filename+"</tt>:<br>");
+            this.print(t);
+            this.println("</div>");
+            System.err.println("While expanding /tmpl/"+filename + ": " +t.toString());
+            t.printStackTrace();
+        }
     }
 }

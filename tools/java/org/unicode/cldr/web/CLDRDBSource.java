@@ -610,7 +610,7 @@ import com.ibm.icu.util.ULocale;
         Statement s = conn.createStatement();
         int r = s.executeUpdate(mySql);
         ctx.println("<br>Deleting data from src " + id + " ... " + r + " rows.<br />");
-        mySql = "UPDATE CLDR_SRC set inactive=1 WHERE id="+id;
+        mySql = "UPDATE "+CLDR_SRC+" set inactive=1 WHERE id="+id;
         logger.severe("srcupdate:  "+loc+" - " + mySql);
         int j = s.executeUpdate(mySql);
         ctx.println(" Deactivating src: " + j + " rows<br />");

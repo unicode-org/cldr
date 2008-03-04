@@ -414,7 +414,7 @@ public class SurveyForum {
                 sm.printHeader(ctx, forum + " | Forum");
             }
             printForumMenu(ctx, forum);
-            ctx.println("<a href='"+forumUrl(ctx,forum)+"'>Return to " + forum + " forum</a>");
+            ctx.println("<a href='"+forumUrl(ctx,forum)+"'>" + forum + " forum</a>");
             if(prettyPath != null) {
                 ctx.println("<h2>"+prettyPath+"</h2>");
             }
@@ -951,10 +951,10 @@ public class SurveyForum {
             //pAllN = prepareStatement("pAllN", "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
             pForMe = prepareStatement("pForMe", 
                 "SELECT "+ pAllResult + " FROM " + DB_POSTS +","+DB_FORA+" " // same as pAll  
-                    +" where (SF_POSTS.FORUM=SF_FORA.id) AND exists ( select CLDR_INTEREST.forum from CLDR_INTEREST,SF_FORA where CLDR_INTEREST.uid=? AND CLDR_INTEREST.forum=SF_FORA.loc AND SF_FORA.id=SF_POSTS.forum) ORDER BY "+DB_POSTS+".LAST_TIME DESC");
+                    +" where (SF_POSTS.FORUM=SF_FORA.id) AND exists ( select "+UserRegistry.CLDR_INTEREST+".forum from "+UserRegistry.CLDR_INTEREST+","+DB_FORA+" where "+UserRegistry.CLDR_INTEREST+".uid=? AND "+UserRegistry.CLDR_INTEREST+".forum="+DB_FORA+".loc AND "+DB_FORA+".id="+DB_POSTS+".forum) ORDER BY "+DB_POSTS+".LAST_TIME DESC");
                     
             pIntUsers = prepareStatement("pIntUsers",
-                "SELECT uid from CLDR_INTEREST where forum=?");
+                "SELECT uid from "+UserRegistry.CLDR_INTEREST+" where forum=?");
         }
     } 
     

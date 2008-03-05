@@ -53,8 +53,10 @@ To Build the Tools:
 1. Download and install a Java SDK with version number greater than or equal to 1.4 from
 http://java.sun.com
 2. If using JDK 1.5 or later please download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
-3. Download and install the Ant build system with version number greate than or equal to 1.6 from
+3. Download and install the Ant build system with version number greater than or equal to 1.6 from
 http://ant.apache.org
+(Note: if you are using Eclipse, you can use Build Path>Add External Jars
+ with eclipse/plugins/org.apache.ant_.../lib/ant.jar)
 4. Download the following Jar files:
    ftp://www.unicode.org/Public/cldr/1.4/tools/cldr-utilities-1_4.jar
 5. Download ICU4J 3.6 jar from:
@@ -100,4 +102,8 @@ o If you are trying to run org.unicode.cldr.test.TestTransforms then you need to
    
    From the command line
    $ /java/bin/java -cp "classes;$ICU4J_JAR;$UTILITIES_JAR;\work\icu4j\classes" org.unicode.cldr.test.TestTransforms
+   
+   
+Survey Tool
+  If you are building the survey tool, see org/unicode/cldr/web/data/readme.txt
    

@@ -646,7 +646,7 @@ public class Segmenter {
 			"8) ( $LVT | $T) 	\u00D7 	$T",
 			"9) \u00D7 	$Extend",
 			"9.1) \u00D7 	$SpacingMark",
-			"9.2) $Extend  \u00D7"
+			"9.2) $Prepend  \u00D7"
 		},{
 			"LineBreak",
 			"# Variables",
@@ -730,7 +730,7 @@ public class Segmenter {
 			"# OUT OF ORDER ON PURPOSE",
 			"# LB 10  Treat any remaining combining mark as AL.",
 			"$AL=($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)",
-			
+
 			"# LB 4  Always break after hard line breaks (but never between CR and LF).",
 			"4) $BK \u00F7",
 			"# LB 5  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks.",
@@ -752,11 +752,11 @@ public class Segmenter {
 			"# LB 11  Do not break before or after WORD JOINER and related characters.",
 			"11.01) \u00D7 $WJ",
 			"11.02) $WJ \u00D7",
-			"# LB 12  Do not break before or after NBSP and related characters.",
+			"# LB 12  Do not break after NBSP and related characters.",
 			//"12.01) [^$SP] \u00D7 $GL",
-      "12) $GL \u00D7",
-      "12.1) [^$SP, $BA, $HY] \u00D7 $GL",
-			
+			"12) $GL \u00D7",
+			"12.1) [^$SP $BA $HY] \u00D7 $GL",
+
 			"# LB 13  Do not break before \u2018]\u2019 or \u2018!\u2019 or \u2018;\u2019 or \u2018/\u2019, even after spaces.",
 			"# Using customization 7.",
 			"13.01) [^$NU] \u00D7 $CL",
@@ -807,7 +807,7 @@ public class Segmenter {
 			"25.03) $NU \u00D7 ($NU | $SY | $IS)",
 			"25.04) $NU ($NU | $SY | $IS)* \u00D7 ($NU | $SY | $IS | $CL)",
 			"25.05) $NU ($NU | $SY | $IS)* $CL? \u00D7 ($PO | $PR)",
-			
+
 			"#LB 26 Do not break a Korean syllable.",
 			"26.01) $JL  \u00D7 $JL | $JV | $H2 | $H3",
 			"26.02) $JV | $H2 \u00D7 $JV | $JT",
@@ -820,9 +820,9 @@ public class Segmenter {
 			"28) $AL \u00D7 $AL",
 			"# LB 29  Do not break between numeric punctuation and alphabetics (\"e.g.\").",
 			"29) $IS \u00D7 $AL",
-			"# LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation.",
-			"30.01) ($AL | $NU) \u00D7 $OP",
-			"30.02) $CL \u00D7 ($AL | $NU)",
+			//"# LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation.",
+			//"30.01) ($AL | $NU) \u00D7 $OP",
+			//"30.02) $CL \u00D7 ($AL | $NU)",
 		},{
 			"SentenceBreak",
 			"$CR=\\p{Sentence_Break=CR}",
@@ -837,15 +837,15 @@ public class Segmenter {
 			"$Numeric=\\p{Sentence_Break=Numeric}",
 			"$ATerm=\\p{Sentence_Break=ATerm}",
 			"$STerm=\\p{Sentence_Break=STerm}",
-      "$Close=\\p{Sentence_Break=Close}",
-      "$SContinue=\\p{Sentence_Break=SContinue}",
+			"$Close=\\p{Sentence_Break=Close}",
+			"$SContinue=\\p{Sentence_Break=SContinue}",
 			"$Any=.",
 			//"# subtract Format from Control, since we don't want to break before/after",
 			//"$Control=[$Control-$Format]", 
 			"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
 			//"$NotStuff=[^$OLetter $Upper $Lower $Sep]",
 			"# $ATerm and $Sterm are temporary, to match ICU until UTC decides.",
-			
+
 			"# WARNING: For Rule 5, now add format and extend to everything but Sep",
 			"$X=[$Format $Extend]*",
 			//"$X=$Extend* $Format*",
@@ -856,9 +856,9 @@ public class Segmenter {
 			"$Numeric=($Numeric $X)",
 			"$ATerm=($ATerm $X)",
 			"$STerm=($STerm $X)",
-      "$Close=($Close $X)",
-      "$SContinue=($SContinue $X)",
-			
+			"$Close=($Close $X)",
+			"$SContinue=($SContinue $X)",
+
 			"# Do not break within CRLF",
 			"3) $CR  	\u00D7  	$LF",
 			"# Break after paragraph separators.",
@@ -947,6 +947,6 @@ public class Segmenter {
 			//"#15.1,100)$Numeric \u00F7",
 			//"#15.1,100)$Katakana \u00F7",
 			//"#15.1,100)$Ideographic \u00F7",
-			
+
 		}};
 }

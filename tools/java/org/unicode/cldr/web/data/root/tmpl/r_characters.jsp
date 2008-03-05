@@ -8,8 +8,10 @@
 <p> First, we need to get the characters used to write your language </p>
 
 <%
-response.flushBuffer();
+//  Copy "x=___"  from input to output URL
+subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 
-SurveyForum.showXpath(subCtx, "//ldml/characters/exemplarCharacters");
+// Display a limited range of data
+SurveyForum.showXpath(subCtx, "//ldml/characters/exemplarCharacters", "//ldml/characters/exemplarCharacters");
 
 %>

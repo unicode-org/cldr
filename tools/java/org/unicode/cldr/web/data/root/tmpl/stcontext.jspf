@@ -3,5 +3,5 @@
 <%@ page import="org.unicode.cldr.web.*" %>
 
 <% 
-     WebContext ctx = WebContext.fromRequest(request,response);
+     WebContext ctx = WebContext.fromRequest(request,response,out);
 %>

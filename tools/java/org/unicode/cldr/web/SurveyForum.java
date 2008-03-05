@@ -495,22 +495,22 @@ public class SurveyForum {
         }
      }
     
-    public static void showXpath(WebContext baseCtx, String xpath) {
-        String base_xpath = xpath;
+    public static void showXpath(WebContext baseCtx, String section_xpath, int item_xpath) {
+        String base_xpath = section_xpath;
         ULocale loc = baseCtx.locale;
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
         boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
-        String podBase = DataSection.xpathToSectionBase(xpath);
+        String podBase = DataSection.xpathToSectionBase(section_xpath);
         baseCtx.sm.printPathListOpen(ctx);
         if(canModify) {
             /* hidden fields for that */
-            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
-            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
-            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
-
-            ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-            ctx.sm.vet.processPodChanges(ctx, podBase);
+//            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
+//            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
+//            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
+//
+//            ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'><br>"); //style='float:right' 
+//            ctx.sm.vet.processPodChanges(ctx, podBase);
         } else {
 //            ctx.println("<br>cant modify " + ctx.locale + "<br>");
         }
@@ -518,13 +518,34 @@ public class SurveyForum {
         DataSection section = ctx.getSection(podBase);
         
         baseCtx.sm.printSectionTableOpen(ctx, section, true);
-        baseCtx.sm.showPeas(ctx, section, canModify, base_xpath, true);
+        baseCtx.sm.showPeas(ctx, section, canModify, item_xpath, true);
         baseCtx.sm.printSectionTableClose(ctx, section);
         baseCtx.sm.printPathListClose(ctx);
         
-        ctx.printHelpHtml(section, xpath);
+//        ctx.printHelpHtml(section, item_xpath);
+    }
+
+    public static void showXpath(WebContext baseCtx, String section_xpath, String item_xpath) {
+        showXpath(baseCtx, section_xpath, baseCtx.sm.xpt.getByXpath(item_xpath));
     }
     
+    public static void showSubmitButton(WebContext baseCtx) {
+        ULocale loc = baseCtx.locale;
+        WebContext ctx = new WebContext(baseCtx);
+        ctx.setLocale(loc);
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        if(canModify) {
+            /* hidden fields for that */
+//            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
+//            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
+//            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
+
+            ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'>"); //style='float:right' 
+            
+        }
+    }
+    
+
     public void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);

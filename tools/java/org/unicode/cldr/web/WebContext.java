@@ -10,6 +10,7 @@ package org.unicode.cldr.web;
 import org.w3c.dom.Document;
 import java.io.*;
 import java.util.*;
+
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.test.*;
 import com.ibm.icu.util.ULocale;
@@ -49,14 +50,16 @@ public class WebContext implements Cloneable {
     
     
 // private fields
-    protected PrintWriter out = null;
+    protected Writer out = null;
+    private PrintWriter pw = null;
     String outQuery = null;
-    TreeMap outQueryMap = new TreeMap();
+    TreeMap<String, String> outQueryMap = new TreeMap<String, String>();
     boolean dontCloseMe = false;
 
     public PrintWriter getOut() { 
-        return out;
+        return pw;
     }
+    
     HttpServletRequest request;
     HttpServletResponse response;
     
@@ -65,23 +68,59 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * Construct a new WebContext from the servlet request and response 
+     * Construct a new WebContext from the servlet request and response. This is the normal constructor to use 
+     * when a top level servlet or JSP spins up.  Embedded JSPs should use fromRequest.
      */
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
-         request = irq;
-         response = irs;
-        out = response.getWriter();
-        dontCloseMe = true;
-        // register
-        request.setAttribute(CLDR_WEBCONTEXT, this);
+        setRequestResponse(irq, irs);
+        setStream(irs.getWriter());
     }
     
-    public static WebContext fromRequest(ServletRequest request, ServletResponse response) {
+    /**
+     * Internal function to setup the WebContext to point at a servlet req/resp.  Also registers the WebContext with the Request.
+     * @param irq
+     * @param irs
+     * @throws IOException
+     */
+    private void setRequestResponse(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
+       request = irq;
+       response = irs;
+       // register us - only if another webcontext is not already registered.
+       if(request.getAttribute(CLDR_WEBCONTEXT)==null) {
+           request.setAttribute(CLDR_WEBCONTEXT, this);
+       }
+    }
+    
+    private void setStream(Writer w) {
+        out = w;
+        if(out instanceof PrintWriter) {
+            pw = (PrintWriter)out;
+        } else {
+            pw = new PrintWriter(out,true);
+        }
+        dontCloseMe = true; // do not close the stream if the Response owns it.
+    }
+    
+    /**
+     * Call this from a .jsp which is embedded in survey tool to extract the WebContext object.
+     * The WebContext will have its output stream set to point to the request and response, so you
+     * can mix write calls from the JSP with ST calls.
+     * @param request
+     * @param response
+     * @param out
+     * @return the new WebContext, which was cloned from the one posted to the Request
+     * @throws IOException
+     */
+    public static WebContext fromRequest(ServletRequest request, ServletResponse response, Writer out) throws IOException {
         WebContext ctx = (WebContext) request.getAttribute(CLDR_WEBCONTEXT);
         if(ctx == null) {
-            throw new InternalError("WebContext: could not load fromRequest.");
+            throw new InternalError("WebContext: could not load fromRequest. Are you trying to load a JSP directly?");
         }
-        return ctx;
+        WebContext subCtx = new WebContext(ctx); // clone the important fields..
+        subCtx.setRequestResponse((HttpServletRequest)request,  // but use the req/resp of the current situation
+                         (HttpServletResponse)response );
+        subCtx.setStream(out);
+        return subCtx;
     }
     
     /**
@@ -105,6 +144,7 @@ public class WebContext implements Cloneable {
         docLocale = other.docLocale;
         displayLocale = other.displayLocale;
         out = other.out;
+        pw = other.pw;
         outQuery = other.outQuery;
         localeName = other.localeName;
         locale = other.locale;
@@ -112,7 +152,7 @@ public class WebContext implements Cloneable {
             localeString = locale.getBaseName();
         }
         session = other.session;
-        outQueryMap = (TreeMap)other.outQueryMap.clone();
+        outQueryMap = (TreeMap<String, String>)other.outQueryMap.clone();
         dontCloseMe = true;
         request = other.request;
         response = other.response;
@@ -353,12 +393,12 @@ public class WebContext implements Cloneable {
         } else {
             // rebuild query string:
             outQuery=null;
-            TreeMap oldMap = outQueryMap;
+            TreeMap<String, String> oldMap = outQueryMap;
             oldMap.put(k,v); // replace
-            outQueryMap=new TreeMap();
-            for(Iterator i=oldMap.keySet().iterator();i.hasNext();) {
-                String somek = (String)i.next();
-                addQuery(somek,(String)oldMap.get(somek));
+            outQueryMap=new TreeMap<String, String>();
+            for(Iterator<String> i=oldMap.keySet().iterator();i.hasNext();) {
+                String somek = i.next();
+                addQuery(somek,oldMap.get(somek));
             }
         }
     }
@@ -367,12 +407,12 @@ public class WebContext implements Cloneable {
         if(outQueryMap.get(k)!=null) { // if it was there..
             // rebuild query string:
             outQuery=null;
-            TreeMap oldMap = outQueryMap;
+            TreeMap<String, String> oldMap = outQueryMap;
             oldMap.remove(k); // replace
-            outQueryMap=new TreeMap();
-            for(Iterator i=oldMap.keySet().iterator();i.hasNext();) {
-                String somek = (String)i.next();
-                addQuery(somek,(String)oldMap.get(somek));
+            outQueryMap=new TreeMap<String, String>();
+            for(Iterator<String> i=oldMap.keySet().iterator();i.hasNext();) {
+                String somek = i.next();
+                addQuery(somek,oldMap.get(somek));
             }
         }
     }
@@ -409,7 +449,7 @@ public class WebContext implements Cloneable {
      }
     
     void printUrlAsHiddenFields() {
-        for(Iterator e = outQueryMap.keySet().iterator();e.hasNext();) {
+        for(Iterator<String> e = outQueryMap.keySet().iterator();e.hasNext();) {
             String k = e.next().toString();
             String v = outQueryMap.get(k).toString();
             println("<input type='hidden' name='" + k + "' value='" + v + "'/>");
@@ -444,11 +484,11 @@ public class WebContext implements Cloneable {
     
 // print api
     final void println(String s) {
-        out.println(s);
+        pw.println(s);
     }
     
     final void print(String s) {
-        out.print(s);
+        pw.print(s);
     }
     
     void print(Throwable t) {
@@ -470,7 +510,7 @@ public class WebContext implements Cloneable {
         }
     }
     
-    void close() {
+    void close() throws IOException {
         if(!dontCloseMe) {
             out.close();
             out = null;
@@ -499,7 +539,7 @@ public class WebContext implements Cloneable {
         localeString = locale.getBaseName();
         processor = new DisplayAndInputProcessor(l);
         String parents = null;
-        Vector localesVector = new Vector();
+        Vector<String> localesVector = new Vector<String>();
         parents = l.toString();
         if(false) { // TODO: change
             do {
@@ -511,7 +551,7 @@ public class WebContext implements Cloneable {
                 }
                 parents = getParent(parents);
             } while(parents != null);
-            docLocale = (String[])localesVector.toArray(docLocale);
+            docLocale = localesVector.toArray(docLocale);
             logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
         } else {
             // at least set up the docLocale tree
@@ -519,7 +559,7 @@ public class WebContext implements Cloneable {
                 localesVector.add(parents);
                 parents = getParent(parents);
             } while(parents != null);
-            docLocale = (String[])localesVector.toArray(docLocale);        
+            docLocale = localesVector.toArray(docLocale);        
         
            // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
         }
@@ -557,7 +597,7 @@ public class WebContext implements Cloneable {
 	}
     
     // Static data
-    static Hashtable staticStuff = new Hashtable();
+    static Hashtable<ULocale, Hashtable<String, Object>> staticStuff = new Hashtable<ULocale, Hashtable<String, Object>>();
     
     public int staticInfo_Reference(Object o) {
         int s = 0;
@@ -641,16 +681,16 @@ public class WebContext implements Cloneable {
 	}
     // bottlenecks for static access
     public static synchronized final Object getByLocaleStatic(String key, ULocale aLocale) {
-        Hashtable subHash = (Hashtable)staticStuff.get(aLocale);
+        Hashtable subHash = staticStuff.get(aLocale);
         if(subHash == null) {
             return null;
         }
         return subHash.get(key);
     }
     public static final synchronized void putByLocaleStatic(String key, ULocale locale, Object value) {
-        Hashtable subHash = (Hashtable)staticStuff.get(locale);
+        Hashtable<String, Object> subHash = staticStuff.get(locale);
         if(subHash == null) {
-            subHash = new Hashtable();
+            subHash = new Hashtable<String, Object>();
             staticStuff.put(locale, subHash);
         }
         subHash.put(key,value);
@@ -706,11 +746,11 @@ public class WebContext implements Cloneable {
         }
     }
     
-    public Map getOptionsMap() {
+    public Map<String, String> getOptionsMap() {
         return getOptionsMap(sm.basicOptionsMap());
     }
     
-    public Map getOptionsMap(Map options) {
+    public Map<String, String> getOptionsMap(Map<String, String> options) {
         if(sm.isPhaseSubmit()) { 
             String def = pref(SurveyMain.PREF_COVLEV,"default");
             if(!def.equals("default")) {
@@ -783,7 +823,7 @@ public class WebContext implements Cloneable {
                 synchronized (staticStuff) {
                     section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
-                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference(section)); // PUT******
+                      putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
                       putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
                 }
             }

@@ -13,15 +13,16 @@ public class CheckNew extends CheckCLDR {
   // this list should be updated with each release.
   static final Matcher stuffToCheckFor = Pattern.compile(".*/(" +
       // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
-      "inList" +
+      //"inList" +
       // + "|availableFormats"
-      "|hourFormat" +
-      "|gmtFormat" +
-      "|regionFormat" +
-      "|fallbackFormat" + 
-      "|relative" + 
-      "|calendars.*/fields" +
-      "|languages.*_"
+      //"|hourFormat" +
+      //"|gmtFormat" +
+      //"|regionFormat" +
+      //"|fallbackFormat" + 
+      //"|relative" + 
+      //"|calendars.*/fields" +
+      //"|languages.*_"
+      "currency\\[@type=\"TR[LY]\"\\]/displayName"
       //+ "|exemplarCharacters\\[.*auxiliary"
       + ").*").matcher("");
 

@@ -1,7 +1,4 @@
-<%@ page import="org.unicode.cldr.web.WebContext" %>
-
-<% WebContext ctx = WebContext.fromRequest(request,response);
- %>
+<%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
 
 <i>For details and help on any item, zoom in by clicking on the status icon: 
              <%=   ctx.iconHtml("okay",null) +", "+

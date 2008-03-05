@@ -189,8 +189,8 @@ public class SurveyMain extends HttpServlet {
     static final String QUERY_PASSWORD_ALT = "uid";
     static final String QUERY_EMAIL = "email";
     static final String QUERY_SESSION = "s";
-    static final String QUERY_LOCALE = "_";
-    static final String QUERY_SECTION = "x";
+    public static final String QUERY_LOCALE = "_";
+    public static final String QUERY_SECTION = "x";
     static final String QUERY_EXAMPLE = "e";
     static final String QUERY_DO = "do";
 	
@@ -3509,7 +3509,7 @@ public class SurveyMain extends HttpServlet {
      * @param menu the ID of the current item
      * @param title the Title of this menu
      */
-    protected void printMenu(WebContext ctx, String which, String menu, String title) {
+    public void printMenu(WebContext ctx, String which, String menu, String title) {
         printMenu(ctx,which,menu,title,QUERY_SECTION);
     }
     /**
@@ -3532,24 +3532,40 @@ public class SurveyMain extends HttpServlet {
      * @param key the URL field to use (such as 'x')
      * @param anchor the #anchor to link to
      */
-    protected void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
+    public void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
+        ctx.print(getMenu(ctx,which, menu, title, key, anchor));
+    }
+    
+    public String getMenu(WebContext ctx, String which, String menu, String title) {
+        return getMenu(ctx,which,menu,title,QUERY_SECTION);
+    }
+
+    
+    public String getMenu(WebContext ctx, String which, String menu, String title, String key) {
+        return getMenu(ctx,which,menu,title,key,null);
+    }
+
+    
+    public String getMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
+        StringBuffer buf = new StringBuffer();
         if(menu.equals(which)) {
-            ctx.print("<b class='selected'>");
+            buf.append("<b class='selected'>");
         } else {
-            ctx.print("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + key+"=" + menu +
+            buf.append("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + key+"=" + menu +
 					((anchor!=null)?("#"+anchor):"") +
                       "\">");
         }
         if(menu.endsWith("/")) {
-            ctx.print(title + "<font size=-1>(other)</font>");
+            buf.append(title + "<font size=-1>(other)</font>");
         } else {
-            ctx.print(title);
+            buf.append(title);
         }
         if(menu.equals(which)) {
-            ctx.print("</b>");
+            buf.append("</b>");
         } else {
-            ctx.print("</a>");
+            buf.append("</a>");
         }
+        return buf.toString();
     }
 
     void mailUser(WebContext ctx, String theirEmail, String subject, String message) {
@@ -3698,6 +3714,11 @@ public class SurveyMain extends HttpServlet {
             ctx.locale.getLanguage()+"'>supplemental</a>");
         
         ctx.print("</p>");
+        
+        if(this.isUnofficial) {
+            ctx.includeFragment("report_menu.jsp");
+        }
+        
         boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.localeString());
         if(canModify) {
             subCtx.println("<p class='hang'>Forum: ");
@@ -3831,11 +3852,37 @@ public class SurveyMain extends HttpServlet {
             // fall through if wasn't one of the other roots
             if(RAW_MENU_ITEM.equals(which)) {
                 doRaw(subCtx);
-            } else  {
+            } else if(which.startsWith("r_")) {
+                doReport(subCtx, which);
+            } else {
                 doMain(subCtx);
             }
         }
     }
+    
+    private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z]*)$");
+    /**
+     * Is this a legal report suffix? Must contain one or more of [0-9a-z].
+     * @param suffix The suffix (not including r_)
+     * @return true if legal.
+     */
+    public static final boolean isLegalReportSuffix(String suffix) {
+        return reportSuffixPattern.matcher(suffix).matches();
+    }
+    
+    /**
+     * Show a 'report' template (r_)
+     * @param ctx context- preset with Locale
+     * @param which current section
+     */
+    public void doReport(WebContext ctx, String which) {
+        if(isLegalReportSuffix(which.substring(2))) {
+            ctx.includeFragment(which+".jsp");
+        } else {
+            doMain(ctx);
+        }
+    }
+    
 
     public void doRaw(WebContext ctx) {
         ctx.println("raw not supported currently. ");
@@ -8024,18 +8071,18 @@ public class SurveyMain extends HttpServlet {
             
             if(SurveyMain.db_Derby) {
                 DatabaseMetaData dbmd = conn.getMetaData();
-                rs = dbmd.getTables(null, null, table, null);
+                rs = dbmd.getTables(null, null, canonName, null);
             } else {
                 Statement s = conn.createStatement();
-                rs = s.executeQuery("show tables like '"+table+"'");
+                rs = s.executeQuery("show tables like '"+canonName+"'");
             }
             
             if(rs.next()==true) {
                 rs.close();
-                //System.err.println("table " + table + " did exist.");
+                System.err.println("table " + canonName + " did exist.");
                 return true;
             } else {
-                System.err.println("table " + table + " did not exist.");
+                System.err.println("table " + canonName + " did not exist.");
                 return false;
             }
         } catch (SQLException se)

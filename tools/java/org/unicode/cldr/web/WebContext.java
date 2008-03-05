@@ -347,7 +347,7 @@ public class WebContext implements Cloneable {
         addQuery(k,v?"t":"f");
     }
     
-    void setQuery(String k, String v) {
+    public void setQuery(String k, String v) {
         if(outQueryMap.get(k)==null) { // if it wasn't there..
             addQuery(k,v); // then do a simple append
         } else {
@@ -478,6 +478,7 @@ public class WebContext implements Cloneable {
             // ? 
         }
     }
+    
 // doc api
 
     // TODO: replace with overloads

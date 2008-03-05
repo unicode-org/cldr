@@ -283,16 +283,16 @@ import com.ibm.icu.util.ULocale;
                                       "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                                       " WHERE locale=?"); 
             keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-                                                 "select distinct "+Vetting.CLDR_VET+"vote_xpath from "+Vetting.CLDR_VET+" where "+
-                                                 Vetting.CLDR_VET+"vote_xpath!=-1 AND "+Vetting.CLDR_VET+
-                                                 "locale=? AND NOT EXISTS ( SELECT "+Vetting.CLDR_RESULT+
+                                                 "select distinct "+Vetting.CLDR_VET+".vote_xpath from "+Vetting.CLDR_VET+" where "+
+                                                 Vetting.CLDR_VET+".vote_xpath!=-1 AND "+Vetting.CLDR_VET+
+                                                 ".locale=? AND NOT EXISTS ( SELECT "+Vetting.CLDR_RESULT+
                                                  ".result_xpath from "+Vetting.CLDR_RESULT+" where "+
-                                                 Vetting.CLDR_RESULT+".result_xpath=CLDR_VET.vote_xpath and "+
-                                                 Vetting.CLDR_RESULT+".locale=CLDR_VET.locale AND "+
+                                                 Vetting.CLDR_RESULT+".result_xpath="+Vetting.CLDR_VET+".vote_xpath and "+
+                                                 Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+
                                                  Vetting.CLDR_RESULT+".type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT "+
                                                  Vetting.CLDR_RESULT+".base_xpath from "+Vetting.CLDR_RESULT+" where "+
                                                  Vetting.CLDR_RESULT+".base_xpath=CLDR_VET.base_xpath and "+
-                                                 Vetting.CLDR_RESULT+".locale=CLDR_VET.locale AND "+Vetting.CLDR_RESULT+".type="+
+                                                 Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+Vetting.CLDR_RESULT+".type="+
                                                  Vetting.RES_ADMIN+") AND EXISTS (select * from "+CLDR_DATA+" where "+
                                                  CLDR_DATA+".locale="+
                                                  Vetting.CLDR_VET+".locale AND "+CLDR_DATA+".xpath="+

@@ -68,18 +68,20 @@ public class XPathTable {
                 if(s==null) {
                     throw new InternalError("S is null");
                 }
-                String uniqueness = ", " +   "unique(xpath(1000))";
+                String xpathindex = "xpath";
+                String uniqueness = ", " +   "unique(xpath)";
                 if(sm.db_Mysql) {
                     uniqueness = "";
+                    xpathindex="xpath(1000)";
                 }
                 sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
                                                         "xpath "+sm.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");
                 s.execute(sql);
-                sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +" (xpath(1000))");
+                sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +" ("+xpathindex+")");
                 s.execute(sql);
                 sql=("CREATE INDEX "+CLDR_XPATHS+"_id on " + CLDR_XPATHS +"(id)");
                 s.execute(sql);
-                sql=("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +" (xpath(1000))");
+                sql=("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +" ("+xpathindex+")");
                 s.execute(sql);
                 sql = null;
                 s.close();

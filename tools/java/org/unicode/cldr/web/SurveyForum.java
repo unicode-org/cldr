@@ -495,7 +495,37 @@ public class SurveyForum {
         }
      }
     
-    private void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
+    public static void showXpath(WebContext baseCtx, String xpath) {
+        String base_xpath = xpath;
+        ULocale loc = baseCtx.locale;
+        WebContext ctx = new WebContext(baseCtx);
+        ctx.setLocale(loc);
+        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
+        String podBase = DataSection.xpathToSectionBase(xpath);
+        baseCtx.sm.printPathListOpen(ctx);
+        if(canModify) {
+            /* hidden fields for that */
+            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
+            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
+            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
+
+            ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'><br>"); //style='float:right' 
+            ctx.sm.vet.processPodChanges(ctx, podBase);
+        } else {
+//            ctx.println("<br>cant modify " + ctx.locale + "<br>");
+        }
+        
+        DataSection section = ctx.getSection(podBase);
+        
+        baseCtx.sm.printSectionTableOpen(ctx, section, true);
+        baseCtx.sm.showPeas(ctx, section, canModify, base_xpath, true);
+        baseCtx.sm.printSectionTableClose(ctx, section);
+        baseCtx.sm.printPathListClose(ctx);
+        
+        ctx.printHelpHtml(section, xpath);
+    }
+    
+    public void showXpath(WebContext baseCtx, String xpath, int base_xpath, ULocale loc) {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
         // Show the Pod in question:
@@ -785,6 +815,10 @@ public class SurveyForum {
             String what="";
             String sql = null;
 //            logger.info("SurveyForum DB: initializing...");
+            String locindex = "loc";
+            if(sm.db_Mysql) {
+                locindex = "loc(999)";
+            }
 
             if(!sm.hasTable(conn, DB_FORA)) { // user attribute
                 Statement s = conn.createStatement();
@@ -799,9 +833,9 @@ public class SurveyForum {
                           " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,loc(999)) ";
+                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_id_loc ON " + DB_FORA + " (id,"+locindex+") ";
                 s.execute(sql); 
-                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_loc ON " + DB_FORA + " (loc(999)) ";
+                sql = "CREATE UNIQUE INDEX " + DB_FORA + "_loc ON " + DB_FORA + " ("+locindex+") ";
                 s.execute(sql); 
                 sql="";
                 s.close();
@@ -835,7 +869,7 @@ public class SurveyForum {
                 s.execute(sql); 
                 sql = "CREATE INDEX " + DB_POSTS + "_chil ON " + DB_POSTS + " (parent) ";
                 s.execute(sql); 
-                sql = "CREATE INDEX " + DB_POSTS + "_loc ON " + DB_POSTS + " (loc(999)) ";
+                sql = "CREATE INDEX " + DB_POSTS + "_loc ON " + DB_POSTS + " ("+locindex+") ";
                 s.execute(sql); 
                 sql = "CREATE INDEX " + DB_POSTS + "_x ON " + DB_POSTS + " (xpath) ";
                 s.execute(sql); 
@@ -951,7 +985,7 @@ public class SurveyForum {
             //pAllN = prepareStatement("pAllN", "SELECT "+DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc"+" FROM " + DB_POSTS + ","+DB_FORA+" WHERE ("+DB_POSTS+".forum = "+DB_FORA+".id) ORDER BY "+DB_POSTS+".last_time DESC");
             pForMe = prepareStatement("pForMe", 
                 "SELECT "+ pAllResult + " FROM " + DB_POSTS +","+DB_FORA+" " // same as pAll  
-                    +" where (SF_POSTS.FORUM=SF_FORA.id) AND exists ( select "+UserRegistry.CLDR_INTEREST+".forum from "+UserRegistry.CLDR_INTEREST+","+DB_FORA+" where "+UserRegistry.CLDR_INTEREST+".uid=? AND "+UserRegistry.CLDR_INTEREST+".forum="+DB_FORA+".loc AND "+DB_FORA+".id="+DB_POSTS+".forum) ORDER BY "+DB_POSTS+".LAST_TIME DESC");
+                    +" where ("+DB_POSTS+".forum="+DB_FORA+".id) AND exists ( select "+UserRegistry.CLDR_INTEREST+".forum from "+UserRegistry.CLDR_INTEREST+","+DB_FORA+" where "+UserRegistry.CLDR_INTEREST+".uid=? AND "+UserRegistry.CLDR_INTEREST+".forum="+DB_FORA+".loc AND "+DB_FORA+".id="+DB_POSTS+".forum) ORDER BY "+DB_POSTS+".last_time DESC");
                     
             pIntUsers = prepareStatement("pIntUsers",
                 "SELECT uid from "+UserRegistry.CLDR_INTEREST+" where forum=?");

@@ -1198,8 +1198,12 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-	    <plurals>
-            <pluralRule id="one">n is 1</pluralRule>
+	    <plurals> <!-- default is all "other" -->
+	        <pluralRule id="zero"></pluralRule>
+            <pluralRule id="one"></pluralRule>
+            <pluralRule id="two"></pluralRule>
+            <pluralRule id="few"></pluralRule>
+            <pluralRule id="many"></pluralRule>
         </plurals>
 		<symbols>
 			<decimal>.</decimal>

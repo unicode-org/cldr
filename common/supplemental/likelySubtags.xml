@@ -31,6 +31,7 @@
       <likelySubtag from="ee" to="ee_Latn_GH"/> <!--{ Ewe; ?; ? } => { Ewe; Latin; Ghana }-->
       <likelySubtag from="el" to="el_Grek_GR"/> <!--{ Greek; ?; ? } => { Greek; Greek; Greece }-->
       <likelySubtag from="en" to="en_Latn_US"/> <!--{ English; ?; ? } => { English; Latin; United States }-->
+      <likelySubtag from="eo" to="eo_Latn_ZZ"/> <!--{ Esperanto; ?; ? } => { Esperanto; Latin ; Unknown or Invalid Region }-->
       <likelySubtag from="es" to="es_Latn_ES"/> <!--{ Spanish; ?; ? } => { Spanish; Latin; Spain }-->
       <likelySubtag from="et" to="et_Latn_EE"/> <!--{ Estonian; ?; ? } => { Estonian; Latin; Estonia }-->
       <likelySubtag from="eu" to="eu_Latn_ES"/> <!--{ Basque; ?; ? } => { Basque; Latin; Spain }-->
@@ -56,6 +57,7 @@
       <likelySubtag from="ht" to="ht_Latn_HT"/> <!--{ Haitian; ?; ? } => { Haitian; Latin; Haiti }-->
       <likelySubtag from="hu" to="hu_Latn_HU"/> <!--{ Hungarian; ?; ? } => { Hungarian; Latin; Hungary }-->
       <likelySubtag from="hy" to="hy_Armn_AM"/> <!--{ Armenian; ?; ? } => { Armenian; Armenian; Armenia }-->
+      <likelySubtag from="ia" to="ia_Latn_ZZ"/> <!--{ Interlingua; ?; ? } => { Interlingua; Latin ; Unknown or Invalid Region }-->
       <likelySubtag from="id" to="id_Latn_ID"/> <!--{ Indonesian; ?; ? } => { Indonesian; Latin; Indonesia }-->
       <likelySubtag from="ig" to="ig_Latn_NG"/> <!--{ Igbo; ?; ? } => { Igbo; Latin; Nigeria }-->
       <likelySubtag from="ii" to="ii_Yiii_CN"/> <!--{ Sichuan Yi; ?; ? } => { Sichuan Yi; Yi; China }-->
@@ -67,7 +69,7 @@
       <likelySubtag from="kaj" to="kaj_Latn_NG"/> <!--{ Jju; ?; ? } => { Jju; Latin; Nigeria }-->
       <likelySubtag from="kam" to="kam_Latn_KE"/> <!--{ Kamba; ?; ? } => { Kamba; Latin; Kenya }-->
       <likelySubtag from="kcg" to="kcg_Latn_NG"/> <!--{ Tyap; ?; ? } => { Tyap; Latin; Nigeria }-->
-      <likelySubtag from="kfo" to="kfo_Latn_NG"/> <!--{ Koro; ?; ? } => { Koro; Latin; Nigeria }-->
+      <likelySubtag from="kfo" to="kfo_Latn_CI"/> <!--{ Koro; ?; ? } => { Koro; Latin; Ivory Coast }-->
       <likelySubtag from="kk" to="kk_Cyrl_KZ"/> <!--{ Kazakh; ?; ? } => { Kazakh; Cyrillic; Kazakhstan }-->
       <likelySubtag from="kl" to="kl_Latn_GL"/> <!--{ Kalaallisut; ?; ? } => { Kalaallisut; Latin; Greenland }-->
       <likelySubtag from="km" to="km_Khmr_KH"/> <!--{ Khmer; ?; ? } => { Khmer; Khmer; Cambodia }-->
@@ -150,6 +152,7 @@
       <likelySubtag from="tt" to="tt_Cyrl_RU"/> <!--{ Tatar; ?; ? } => { Tatar; Cyrillic; Russia }-->
       <likelySubtag from="tvl" to="tvl_Latn_TV"/> <!--{ Tuvalu; ?; ? } => { Tuvalu; Latin; Tuvalu }-->
       <likelySubtag from="ty" to="ty_Latn_PF"/> <!--{ Tahitian; ?; ? } => { Tahitian; Latin; French Polynesia }-->
+      <likelySubtag from="ug" to="ug_Arab_CN"/> <!--{ Uighur ; ?; ? } => { Uighur; Arabic ; China }-->
       <likelySubtag from="uk" to="uk_Cyrl_UA"/> <!--{ Ukrainian; ?; ? } => { Ukrainian; Cyrillic; Ukraine }-->
       <likelySubtag from="und" to="en_Latn_US"/> <!--{ ?; ?; ? } => { English; Latin; United States }-->
       <likelySubtag from="und_AD" to="ca_Latn_AD"/> <!--{ ?; ?; Andorra } => { Catalan; Latin; Andorra }-->
@@ -166,6 +169,7 @@
       <likelySubtag from="und_AX" to="sv_Latn_AX"/> <!--{ ?; ?; Aland Islands } => { Swedish; Latin; Aland Islands }-->
       <likelySubtag from="und_AZ" to="az_Cyrl_AZ"/> <!--{ ?; ?; Azerbaijan } => { Azerbaijani; Cyrillic; Azerbaijan }-->
       <likelySubtag from="und_Arab" to="ar_Arab_EG"/> <!--{ ?; Arabic; ? } => { Arabic; Arabic; Egypt }-->
+      <likelySubtag from="und_Arab_CN" to="ug_Arab_IN"/> <!--{ ?; Arabic; China } => { Uighur; Arabic; China }-->
       <likelySubtag from="und_Arab_IN" to="ur_Arab_IN"/> <!--{ ?; Arabic; India } => { Urdu; Arabic; India }-->
       <likelySubtag from="und_Arab_PK" to="pa_Arab_PK"/> <!--{ ?; Arabic; Pakistan } => { Punjabi; Arabic; Pakistan }-->
       <likelySubtag from="und_Arab_SN" to="wo_Arab_SN"/> <!--{ ?; Arabic; Senegal } => { Wolof; Arabic; Senegal }-->

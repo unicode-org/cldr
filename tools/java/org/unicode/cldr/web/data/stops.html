@@ -95,11 +95,11 @@
 		<a name="procedures"><h2><a class="top" href="#top">Procedures</a></h2></a>
 		<p>  Here are some Survey Tool tasks, with instructions.</p>
 		<ul>
-			<li><h4>Beta test </h4>
+			<li><h4>Starting the Beta Process </h4>
 				<p>During the Beta process, users may input any data to test the SurveyTool. At the end of the Beta period, all data is deleted, and reloaded from CVS.
 				</p>
 				<ol>
-					<li>Set a <a href="#CLDR_HEADER">CLDR_HEADER</a> message in the properties file to notify users of the beta period
+					<li>Set a <a href="#CLDR_HEADER">CLDR_HEADER</a> message in the properties file to notify users of the beta period.  Also, set the property <b>CLDR_PHASE=BETA</b>
 					</li>
 					<li>Back up the <code>cldr/</code> directory from the server</li>
 					<li>Log into the SQL console and keep the console open </li>
@@ -109,6 +109,16 @@
 					</li>
 					<li>Without browsing to any other areas of the survey tool, Restart the server</li>
 					<li>Follow the procedure for '<a href="#updating">updating from CVS</a>' below.</li>
+				</ol>
+			</li>
+			<li><h4><a name="beta">Ending the Beta Process</a></h4>
+				<ol>
+					<li><b>NOTE this will remove ALL submitted data and all forum entries.</b></li>
+					<li>Log into SQL and execute <tt>drop table cldr_allpaths,cldr_data,cldr_interest,cldr_intgroup,cldr_orgdispute,cldr_output,cldr_result,cldr_src,cldr_status,cldr_vet,cldr_xpaths</tt></li>
+					<li>Immediately shut down the Survey Tool and web container</li>
+					<li>modify cldr.properties so that the CLDR_PHASE option states <b>CLDR_PHASE=SUBMIT</b> - may also wich to modify or comment out CLDR_HEADER</li>
+					<li>Update the CVS work area if desired (Survey Tool will start with a clean slate when it starts)</li>
+					<li>Start up Survey Tool.  Follow the procedure from <a "#updating">"Updating from CVS" above</a> except that you start with 'Load All Locales'.  There's no reason to update Sources, as they will be empty.</li>
 				</ol>
 			</li>
 			<li><h4><a name="updating">Updating from CVS</a></h4>

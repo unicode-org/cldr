@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.104 $
-$Date: 2008-03-10 22:48:40 $
+$Revision: 1.105 $
+$Date: 2008-03-12 00:03:10 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(fallback?, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -559,7 +559,7 @@ $Date: 2008-03-10 22:48:40 $
 <!ATTLIST timeFormat alt CDATA #IMPLIED >
 <!ATTLIST timeFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, special*)) >
+<!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) >
 <!ATTLIST dateTimeFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
 
@@ -602,6 +602,33 @@ $Date: 2008-03-10 22:48:40 $
 <!ATTLIST appendItem draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST appendItem references CDATA #IMPLIED >
 <!ATTLIST appendItem alt CDATA #IMPLIED >
+
+<!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) >
+<!ATTLIST intervalFormats draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST intervalFormats references CDATA #IMPLIED >
+<!ATTLIST intervalFormats alt CDATA #IMPLIED >
+<!ATTLIST intervalFormats validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT intervalFormatFallback ( #PCDATA ) >
+<!ATTLIST intervalFormatFallback draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST intervalFormatFallback references CDATA #IMPLIED >
+<!ATTLIST intervalFormatFallback alt CDATA #IMPLIED >
+<!ATTLIST intervalFormatFallback validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT intervalFormatItem (alias | (greatestDifference*, special*)) >
+<!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED >
+<!ATTLIST intervalFormatItem draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST intervalFormatItem references CDATA #IMPLIED >
+<!ATTLIST intervalFormatItem alt CDATA #IMPLIED >
+<!ATTLIST intervalFormatItem validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT greatestDifference ( #PCDATA ) >
+<!ATTLIST greatestDifference id NMTOKEN #REQUIRED >
+<!ATTLIST greatestDifference draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST greatestDifference references CDATA #IMPLIED >
+<!ATTLIST greatestDifference alt CDATA #IMPLIED >
+<!ATTLIST greatestDifference validSubLocales CDATA #IMPLIED >
+
 
 <!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) >
 <!ATTLIST timeZoneNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -955,7 +982,7 @@ $Date: 2008-03-10 22:48:40 $
 
 <!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?, decimal*, group*, special*)) >
 <!-- warning: pattern appears twice in the above. The first is for consistency with all other cases of
-	pattern + displayName; the second is for backwards compatibility -->
+    pattern + displayName; the second is for backwards compatibility -->
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currency references CDATA #IMPLIED >

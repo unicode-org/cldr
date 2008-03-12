@@ -2983,7 +2983,7 @@
 	</dates>
 	<numbers>
 	    <plurals>
-            <pluralRule id="one">n is 1</pluralRule>
+            <pluralRule count="one">n is 1</pluralRule>
         </plurals>
 		<symbols>
 			<decimal>.</decimal>
@@ -3785,7 +3785,8 @@
 				<symbol>U Sh</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>US Dollar</displayName>
+                <displayName>US Dollars</displayName>
+                <displayName count="one">US Dollar</displayName>
 				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
@@ -3922,6 +3923,40 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+        <unit type="default">  <!-- {0} is the formatted number, {1} is the unit -->
+            <unitPattern count="other">{0} {1}</unitPattern>
+            <unitPattern count="two">{1}</unitPattern>
+	    </unit>
+        <unit type="year">
+            <unitName count="one">year</unitName> <!-- tied to the plural format enums for the locale -->
+            <unitName count="other">years</unitName>
+        </unit>
+        <unit type="month">
+            <unitName count="one">month</unitName>
+            <unitName count="other">months</unitName>
+        </unit>
+        <unit type="week">
+            <unitName count="one">week</unitName>
+            <unitName count="other">weeks</unitName>
+        </unit>
+        <unit type="day">
+            <unitName count="one">day</unitName>
+            <unitName count="other">days</unitName>
+        </unit>
+        <unit type="hour">
+            <unitName count="one">hour</unitName>
+            <unitName count="other">hours</unitName>
+        </unit>
+        <unit type="minute">
+            <unitName count="one">minute</unitName>
+            <unitName count="other">minutes</unitName>
+        </unit>
+        <unit type="second">
+            <unitName count="one">second</unitName>
+            <unitName count="other">seconds</unitName>
+        </unit>
+   	</units>
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>

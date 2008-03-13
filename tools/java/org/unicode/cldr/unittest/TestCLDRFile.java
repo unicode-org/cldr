@@ -24,16 +24,18 @@ public class TestCLDRFile {
 
   private static void testExtraPaths() {
     Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
-    CLDRFile cldrFile = cldrFactory.make("en", true);
-    Set<String> s = (Set<String>) cldrFile.getExtraPaths(new TreeSet<String>());
-    System.out.println("Extras");
-    for (String path : s) {
-      System.out.println(path + " => " + cldrFile.getStringValue(path));
-    }
-    System.out.println("English");
-    for (Iterator<String> it = cldrFile.iterator(Pattern.compile(".*\\[@count=.*").matcher("")); it.hasNext();) {
-      String path = it.next();
-      System.out.println(path + " => " + cldrFile.getStringValue(path));
+    for (String locale : new String[]{"en", "ar", "ja"}) {
+      CLDRFile cldrFile = cldrFactory.make(locale, true);
+      Set<String> s = (Set<String>) cldrFile.getExtraPaths(new TreeSet<String>());
+      System.out.println("Extras for " + locale);
+      for (String path : s) {
+        System.out.println(path + " => " + cldrFile.getStringValue(path));
+      }
+      System.out.println("Already in " + locale);
+      for (Iterator<String> it = cldrFile.iterator(Pattern.compile(".*\\[@count=.*").matcher("")); it.hasNext();) {
+        String path = it.next();
+        System.out.println(path + " => " + cldrFile.getStringValue(path));
+      }
     }
   }
 

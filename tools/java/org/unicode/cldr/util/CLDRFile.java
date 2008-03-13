@@ -2646,7 +2646,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
       for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
         toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
       }
-      if (count.equals("one")) continue;
+      if (count.equals("one") || pluralCounts.size() == 1) continue;
       for (String unit : codes) {
         toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
       }

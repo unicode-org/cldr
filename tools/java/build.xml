@@ -7,6 +7,9 @@
         <property name="jarSrc.file" value="cldrsrc.jar"/>
         <property name="doc.dir" value="doc"/>
         <property name="doc.params" value=""/>
+        <!--  Load local definitions from an optional build.properties file, if available. 
+              build.properties is NOT checked into CVS. -->
+        <property file="build.properties" />
         <!-- Load environment variables -->
         <property environment="env"/>
         
@@ -188,15 +191,20 @@
 
         <property name="mail.jar"            value="${tomcat.home}/lib/mail.jar"/>
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
+
+  <path id="catalina-ant.classpath">
+    <pathelement path="${tomcat.home}/lib/catalina-ant.jar" />
+  </path>
+
         <!-- Configure the custom Ant tasks for the Manager application -->
-        <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
-        <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"/>
-        <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"/>
-        <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"/>
-        <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"/>
-        <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"/>
-        <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"/>
-        <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"/>
+        <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
 
         <!-- Configure the context path for this application -->
         <property name="path"     value="/cldr-apps"/>

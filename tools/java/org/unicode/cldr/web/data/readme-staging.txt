@@ -8,6 +8,8 @@ The normal update (new code) is described under "NORMAL UPDATE", below.
 The generic SurveyTool readme file and ops pages are at:  
    http://unicode.org/cldr/data/tools/java/org/unicode/cldr/web/data/readme.txt
    http://unicode.org/cldr/data/tools/java/org/unicode/cldr/web/data/stops.html
+This file is located at:
+   http://unicode.org/cldr/data/tools/java/org/unicode/cldr/web/data/readme.txt
 
   TOC:   Directories and Pieces.  Building.   
          Updating. Testing. Deploying to unicode.org.
@@ -56,6 +58,8 @@ Updating Libraries and Infrastructure
 1. If tomcat is updated make sure to preserve any configuration, such as passwords. Other jars such as derby, etc can be updated as needed.
 2. ICU should not need to be updated, normally. But, it can be updated with svn, and re-run "ant jar cldrUtil" to build icu4j.jar and utilities.jar
 3. "sh update-libs.sh" will post new jars - may need to restart server then.
+  The current list of jars updated is: JARS="icu4j.jar utilities.jar jdom.jar derby.jar mysql-connector-java-5.0.jar mail.jar activation.jar "
+
 
 * ================ NORMAL UPDATE ================
 *. The utility "restart-st-on-unicode.sh" will restart survey tool on unicode.org. Also, any updates to survey tool code will restart it.  Use the admin panel to make sure nobody is using it when you do an update.

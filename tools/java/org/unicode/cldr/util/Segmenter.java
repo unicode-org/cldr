@@ -20,6 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.unicode.cldr.util.Segmenter.Rule.Breaks;
+
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
@@ -39,11 +41,13 @@ public class Segmenter {
   /**
    * If not null, masks off the character properties so the UnicodeSets are easier to use when debugging.
    */
-  public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); // or null
+  public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]"); // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); // or null
   private static final boolean SHOW_VAR_CONTENTS = false;
+  private static final String DEBUG_AT_STRING = "\u0009\u0308\u00A0"; // null to turn off
+  private static final String DEBUG_AT_RULE_CONTAINING = "$Spec3_"; // null to turn off
 
   private static final boolean JDK4HACK = false;
-
+  
 	public static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
 	private UnicodeMap samples = new UnicodeMap();
 	
@@ -90,6 +94,9 @@ public class Segmenter {
 	 * @return
 	 */
 	public boolean breaksAt(CharSequence text, int position) {
+	  if (DEBUG_AT_STRING != null && DEBUG_AT_STRING.equals(text)) {
+	    System.out.println("!#$@541 Debug");
+	  }
 		if (position == 0) {
 			breakRule = BREAK_SOT;
 			return true;
@@ -105,13 +112,13 @@ public class Segmenter {
 		}
 		for (int i = 0; i < rules.size(); ++i) {
 			Rule rule = (Rule)rules.get(i);
-			if (rule.toString().indexOf("[^$OLetter") >= 0) {
-				System.out.println(" !#$@ Debug");
+			if (DEBUG_AT_RULE_CONTAINING != null && rule.toString().contains(DEBUG_AT_RULE_CONTAINING)) {
+				System.out.println(" !#$@543 Debug");
 			}
-			byte result = rule.matches(text, position);
-			if (result != Rule.UNKNOWN_BREAK) {
+			Breaks result = rule.matches(text, position);
+			if (result != Rule.Breaks.UNKNOWN_BREAK) {
 				breakRule = ((Double)orders.get(i)).doubleValue();
-				return result == Rule.BREAK;
+				return result == Rule.Breaks.BREAK;
 			}
 		}
 		breakRule = BREAK_ANY;
@@ -164,7 +171,7 @@ public class Segmenter {
 		/**
 		 * Status of a breaking rule
 		 */
-		public static final byte NO_BREAK = -1, UNKNOWN_BREAK = 0, BREAK = 1;
+		public enum Breaks { UNKNOWN_BREAK, BREAK, NO_BREAK};
 		
 		/**
 		 * @param before pattern for the text after the offset. All variables must be resolved.
@@ -172,7 +179,7 @@ public class Segmenter {
 		 * @param after pattern for the text before the offset. All variables must be resolved.
 		 * @param line 
 		 */
-		public Rule(String before, byte result, String after, String line) {
+		public Rule(String before, Breaks result, String after, String line) {
 			breaks = result;
 			before = ".*(" + before + ")";
 			String parsing = null;
@@ -191,7 +198,7 @@ public class Segmenter {
 				.initCause(e);
 			}
 			name = line; 
-			resolved = Utility.escape(before) + (result == NO_BREAK ? " \u00D7 " : " \u00F7 ") + Utility.escape(after);
+			resolved = Utility.escape(before) + (result == Breaks.NO_BREAK ? " \u00D7 " : " \u00F7 ") + Utility.escape(after);
 			// COMMENTS allows whitespace
 		}
 		
@@ -203,9 +210,9 @@ public class Segmenter {
 		 * @param position
 		 * @return break status
 		 */
-		public byte matches(CharSequence text, int position) {
-			if (!matchAfter(matchSucceeding, text, position)) return UNKNOWN_BREAK;
-			if (!matchBefore(matchPrevious, text, position)) return UNKNOWN_BREAK;
+		public Breaks matches(CharSequence text, int position) {
+			if (!matchAfter(matchSucceeding, text, position)) return Breaks.UNKNOWN_BREAK;
+			if (!matchBefore(matchPrevious, text, position)) return Breaks.UNKNOWN_BREAK;
 			return breaks;
 		}
 		/**
@@ -228,7 +235,7 @@ public class Segmenter {
 		private String name;
 		
 		private String resolved;
-		private byte breaks;		
+		private Breaks breaks;		
 	}
 	
 	/**
@@ -357,11 +364,11 @@ public class Segmenter {
 			}
 			line = line.substring(relationPosition + 1).trim();
 			relationPosition = line.indexOf('\u00F7');
-			byte breaks = Segmenter.Rule.BREAK;
+			Breaks breaks = Segmenter.Rule.Breaks.BREAK;
 			if (relationPosition < 0) {
 				relationPosition = line.indexOf('\u00D7');
 				if (relationPosition < 0) throw new IllegalArgumentException("Couldn't find =, \u00F7, or \u00D7");
-				breaks = Segmenter.Rule.NO_BREAK;
+				breaks = Segmenter.Rule.Breaks.NO_BREAK;
 			}
 			addRule(order, line.substring(0,relationPosition).trim(), breaks, line.substring(relationPosition + 1).trim(), line);		
 			return true;
@@ -471,16 +478,21 @@ public class Segmenter {
 		 * Add a numbered rule, already broken into the parts before and after.
 		 * @param order
 		 * @param before
-		 * @param result
+		 * @param breaks
 		 * @param after
 		 * @param line 
 		 * @return
 		 */
-		Builder addRule(Double order, String before, byte result, String after, String line) {
-			if (brokenIdentifierMatcher.reset(line).find()) {
-				int pos = brokenIdentifierMatcher.start();
-				throw new IllegalArgumentException("Illegal identifier at:" + line.substring(0,pos) + "<<>>" + line.substring(pos));
-			}
+		Builder addRule(Double order, String before, Breaks breaks, String after, String line) {
+//			if (brokenIdentifierMatcher.reset(line).find()) {
+//        int start = brokenIdentifierMatcher.start();
+//        int end = brokenIdentifierMatcher.end();
+//				throw new IllegalArgumentException("Illegal identifier at:" 
+//				        + line.substring(0,start) + "<<" 
+//				        + line.substring(start, end) + ">>"
+//				        + line.substring(end)
+//				        );
+//			}
 			line = whiteSpace.reset(line).replaceAll(" ");
 			// insert comments before current line, in order.
 			if (lastComments.size() != 0) {
@@ -503,7 +515,7 @@ public class Segmenter {
 			if (true && after.contains("[^$OLetter")) {
 			  System.out.println("!@#$31 Debug");
 			}
-			rules.put(order, new Segmenter.Rule(replaceVariables(before), result, replaceVariables(after), line));
+			rules.put(order, new Segmenter.Rule(replaceVariables(before), breaks, replaceVariables(after), line));
 			return this;	
 		}
 		
@@ -729,9 +741,10 @@ public class Segmenter {
 			"$X=$CM*",
 			// Special rules
 	      "$Spec1_=[$SP $BK $CR $LF $NL $ZW]",
-	      "$Spec2_=[^$SP $BK $CR $LF $NL $ZW]",
-	      "$Spec3_=([^$SP $BA $HY] $CM*)",
-	      "$Spec4_=([^$NU] $CM*)",
+	      "$Spec2_=[^ $SP $BK $CR $LF $NL $ZW]",
+        "$Spec3a_=[^ $SP $BA $HY $CM]",
+        "$Spec3b_=[^ $BA $HY $CM]",
+        "$Spec4_=[^ $NU $CM]",
 
 			"$AI=($AI $X)",
 			"$AL=($AL $X)",
@@ -791,14 +804,18 @@ public class Segmenter {
 			"# LB 12  Do not break after NBSP and related characters.",
 			//"12.01) [^$SP] \u00D7 $GL",
 			"12) $GL \u00D7",
-			"12.1) $Spec3_ \u00D7 $GL",
+      "12.1) $Spec3a_ \u00D7 $GL",
+      "12.2) $Spec3b_ $CM+ \u00D7 $GL",
+      "12.3) ^ $CM+ \u00D7 $GL",
 
 			"# LB 13  Do not break before \u2018]\u2019 or \u2018!\u2019 or \u2018;\u2019 or \u2018/\u2019, even after spaces.",
 			"# Using customization 7.",
-			"13.01) $Spec4_ \u00D7 $CL",
-			"13.02) \u00D7 $EX",
-			"13.03) $Spec4_ \u00D7 $IS",
-			"13.04) $Spec4_ \u00D7 $SY",
+			"13.01) \u00D7 $EX",
+      "13.02) $Spec4_ \u00D7 ($CL | $IS | $SY)",
+      "13.03) $Spec4_ $CM+ \u00D7  ($CL | $IS | $SY)",
+      "13.04) ^ $CM+ \u00D7  ($CL | $IS | $SY)",
+			//"13.03) $Spec4_ \u00D7 $IS",
+			//"13.04) $Spec4_ \u00D7 $SY",
 			"#LB 14  Do not break after \u2018[\u2019, even after spaces.",
 			"14) $OP $SP* \u00D7",
 			"# LB 15  Do not break within \u2018\"[\u2019, even with intervening spaces.",
@@ -885,8 +902,8 @@ public class Segmenter {
 			"# WARNING: For Rule 5, now add format and extend to everything but Sep",
 			"$FE=[$Format $Extend]",
 			// Special Rules
-			"$NotPreLower_=([^ $OLetter $Upper $Lower $Sep $CR $LF $STerm $ATerm] $FE*)",
-			"$NotSep_=([^ $Sep $CR $LF] $FE*)",
+			"$NotPreLower_=[^ $OLetter $Upper $Lower $Sep $CR $LF $STerm $ATerm]",
+			//"$NotSep_=[^ $Sep $CR $LF]",
 
 			//"$FE=$Extend* $Format*",
 			"$Sp=($Sp $FE*)",
@@ -910,7 +927,7 @@ public class Segmenter {
 			"# WARNING: Implemented as don't break before format (except after linebreaks),",
 			"# AND add format and extend in all variables definitions that appear after this point!",
 			//"3.91) [^$Control | $CR | $LF] \u00D7 	$Extend",
-			"5) $NotSep_ \u00D7 [$Format $Extend]", 
+			"5) \u00D7 [$Format $Extend]", 
 			"# Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter,",
 			"# is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase.",
 			"# For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",

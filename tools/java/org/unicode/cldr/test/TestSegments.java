@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.RandomStringGenerator;
 import org.unicode.cldr.util.Segmenter;
+import org.unicode.cldr.util.Segmenter.Rule.Breaks;
 
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
@@ -123,7 +124,7 @@ public class TestSegments {
 			boolean inside = oldALSet.contains(testStr.charAt(k));
 			System.out.println(k + ": " + inside + Utility.escape(""+testStr.charAt(k)));
 		}
-		byte m = rule.matches(testStr, 3);
+		Breaks m = rule.matches(testStr, 3);
 	}
 	
 	private static void doCompare(UnicodeProperty.Factory factory, Segmenter rl, String line) {

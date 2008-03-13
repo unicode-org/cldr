@@ -51,6 +51,8 @@ public class CheckCoverage extends CheckCLDR {
       
         if (isSkipTest()) return this;
         
+        if (getCldrFileToCheck().isPathExcludedForSurvey(path)) return this;
+        
         // skip if we are not the winning path
         if (!getResolvedCldrFileToCheck().isWinningPath(path)) {
           return this;
@@ -118,7 +120,7 @@ public class CheckCoverage extends CheckCLDR {
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         
         // Set to minimal if not in data submission
-        if (Phase.SUBMISSION == getPhase()) {
+        if (Phase.SUBMISSION != getPhase()) {
           requiredLevel = Level.MINIMAL;
         } else {
           requiredLevel = null;

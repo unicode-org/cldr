@@ -12,20 +12,22 @@ import java.util.regex.Pattern;
 public class CheckNew extends CheckCLDR {
   // this list should be updated with each release.
   static final Matcher stuffToCheckFor = Pattern.compile(".*/(" +
-      // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
-      //"inList" +
-      // + "|availableFormats"
-      //"|hourFormat" +
-      //"|gmtFormat" +
-      //"|regionFormat" +
-      //"|fallbackFormat" + 
-      //"|relative" + 
-      //"|calendars.*/fields" +
-      //"|languages.*_"
-      "currency\\[@type=\"TR[LY]\"\\]/displayName"
-      + "|script\\[@type=\"Cans\"\\]"
-      //+ "|exemplarCharacters\\[.*auxiliary"
-      + ").*").matcher("");
+          // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
+          //"inList" +
+          // + "|availableFormats"
+          //"|hourFormat" +
+          //"|gmtFormat" +
+          //"|regionFormat" +
+          //"|fallbackFormat" + 
+          //"|relative" + 
+          //"|calendars.*/fields" +
+          //"|languages.*_"
+              "units" +
+              "|currency\\[@type=\"TR[LY]\"\\]/displayName"
+              + "|script\\[@type=\"Cans\"\\]"
+              //"|displayName.*\\[@count=\""
+          //+ "|exemplarCharacters\\[.*auxiliary"
+          + ").*").matcher("");
 
   //  dateTimes/availableDateFormats/NEW
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="second"]/displayName
@@ -57,11 +59,11 @@ public class CheckNew extends CheckCLDR {
   }
 
   public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-    if (fullPath == null) return this; // skip paths that we don't have
+    // if (fullPath == null) return this; // skip paths that we don't have
     // skip if the user voted for the current item
-    if (getCldrFileToCheck().isWinningPath(path)) {
-      return this;
-    }
+//    if (fullPath != null && getCldrFileToCheck().isWinningPath(fullPath)) {
+//      return this;
+//    }
     
     boolean skip = false;
     // now see if our value is the same as Root's for certain items
@@ -89,7 +91,7 @@ public class CheckNew extends CheckCLDR {
         }
       }
       if (!skip) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage("Relatively new field: may need translation or fixing."));
+        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage("New field or modified English: may need translation or fixing."));
       }
     }
 

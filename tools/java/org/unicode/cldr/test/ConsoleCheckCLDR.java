@@ -330,13 +330,16 @@ public class ConsoleCheckCLDR {
       paths.clear();
       //CollectionUtilities.addAll(file.iterator(pathFilter), paths);
       addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, false, paths);
+      addPrettyPaths(file, file.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, false, paths);
       
       // also add the English paths
       //CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
       // initialize the first time in.
       if (englishPaths == null) {
         englishPaths = new HashSet<String>();
-        addPrettyPaths(checkCldr.getDisplayInformation(), pathFilter, prettyPathMaker, noaliases, true, englishPaths);
+        final CLDRFile displayFile = checkCldr.getDisplayInformation();
+        addPrettyPaths(displayFile, pathFilter, prettyPathMaker, noaliases, true, englishPaths);
+        addPrettyPaths(displayFile, displayFile.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, true, englishPaths);
         englishPaths = Collections.unmodifiableSet(englishPaths); // for robustness
       }
       paths.addAll(englishPaths);
@@ -626,28 +629,41 @@ private static void showIndexHead(PrintWriter generated_html_index) {
 
   private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, boolean filterDraft, Collection<String> target) {
 //  Status pathStatus = new Status();
-  for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
-    String path = pit.next();
+    for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
+      String path = pit.next();
+      addPrettyPath(file, prettyPathMaker, noaliases, filterDraft, target, path);
+    }
+  }
+
+  private static void addPrettyPaths(CLDRFile file, Collection<String> paths, Matcher pathFilter, PrettyPath prettyPathMaker, boolean noaliases, boolean filterDraft, Collection<String> target) {
+//  Status pathStatus = new Status();
+    for (String path : paths) {
+      if (pathFilter != null && !pathFilter.reset(path).matches()) continue;
+      addPrettyPath(file, prettyPathMaker, noaliases, filterDraft, target, path);
+    }
+  }
+
+  private static void addPrettyPath(CLDRFile file, PrettyPath prettyPathMaker, boolean noaliases,
+          boolean filterDraft, Collection<String> target, String path) {
     if (noaliases && XMLSource.Alias.isAliasPath(path)) { // this is just for console testing, the survey tool shouldn't do it.
-        continue;
-//      file.getSourceLocaleID(path, pathStatus);
-//      if (!path.equals(pathStatus.pathWhereFound)) {
-//        continue;
-//      }
+      return;
+//    file.getSourceLocaleID(path, pathStatus);
+//    if (!path.equals(pathStatus.pathWhereFound)) {
+//    continue;
+//    }
     }
     if (filterDraft) {
       String newPath = CLDRFile.getNondraftNonaltXPath(path);
       if (!newPath.equals(path)) {
         String value = file.getStringValue(newPath);
         if (value != null) {
-          continue;
+          return;
         }
       }
     }
     String prettyPath = prettyPathMaker.getPrettyPath(path, true); // get sortable version
     target.add(prettyPath);
   }
-}
   public static synchronized void setDisplayInformation(CLDRFile inputDisplayInformation, ExampleGenerator inputExampleGenerator) {
     CheckCLDR.setDisplayInformation(inputDisplayInformation);
     englishExampleGenerator = inputExampleGenerator;

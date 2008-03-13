@@ -2636,6 +2636,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
   }
   
+  public Collection<String> getExtraPaths() {
+    return getExtraPaths(new HashSet<String>());
+  }
+  
   public Collection<String> getExtraPaths(Collection<String> toAddTo) {
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Set<String> codes = StandardCodes.make().getAvailableCodes("currency");

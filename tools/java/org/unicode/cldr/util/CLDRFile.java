@@ -2635,4 +2635,22 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return path;
     }
   }
+  
+  public Collection<String> getExtraPaths(Collection<String> toAddTo) {
+    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
+    // units
+    final Set<String> pluralCounts = supplementalData.getPlurals(getLocaleID()).getTypeToExample().keySet();
+    for (String count : pluralCounts) {
+      toAddTo.add("//ldml/units/unit[@type=\"default\"]/unitPattern[@count=\"" + count + "\"]");
+      for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
+        toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
+      }
+      if (count.equals("one")) continue;
+      for (String unit : codes) {
+        toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+      }
+    }
+    return toAddTo;
+  }
 }

@@ -178,7 +178,7 @@ public class ConsoleCheckCLDR {
       }
     }
     
-    Phase phase = Phase.VETTING;
+    Phase phase = Phase.SUBMISSION;
     if (options[PHASE].doesOccur) {
       try {
         phase = Phase.valueOf(options[PHASE].value.toUpperCase());

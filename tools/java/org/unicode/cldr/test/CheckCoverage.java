@@ -16,7 +16,10 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 
 /**
@@ -37,13 +40,15 @@ public class CheckCoverage extends CheckCLDR {
     static final boolean DEBUG_SET = false;
     private static CoverageLevel coverageLevel = new CoverageLevel();
     private Level requiredLevel;
+    
+    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
 
     //private boolean requireConfirmed = true;
     //private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
-
+      
         if (isSkipTest()) return this;
         
         // skip if we are not the winning path
@@ -95,6 +100,15 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
+        
+        PluralInfo pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
+        if (pluralInfo == supplementalData.getPlurals("root")) {
+          possibleErrors.add(new CheckStatus()
+          .setCause(this).setType(CheckStatus.errorType)
+          .setMessage("Missing Plural Information - Contact CLDR representative about fixing.", 
+                  new Object[]{}));          
+        }
+
         if (Phase.FINAL_TESTING == getPhase()) {
           return this; // skip testing in final phase
         }

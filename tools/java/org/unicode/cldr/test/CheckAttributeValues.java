@@ -19,7 +19,10 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 //import com.ibm.icu.dev.test.util.VariableReplacer;
 
 import org.unicode.cldr.icu.CollectionUtilities;
@@ -38,11 +41,15 @@ public class CheckAttributeValues extends CheckCLDR {
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
     static Map code_type_replacement = new TreeMap();
+    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    
     boolean isEnglish;
+    PluralInfo pluralInfo;
 
     XPathParts parts = new XPathParts(null, null);
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
       if (fullPath == null) return this; // skip paths that we don't have
+      if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
         	if (parts.getAttributeCount(i) == 0) continue;
@@ -57,6 +64,14 @@ public class CheckAttributeValues extends CheckCLDR {
                 check(common_attribute_validity, attribute, attributeValue, result);
                 // then for the specific element
                 check(attribute_validity, attribute, attributeValue, result);
+                if (attribute.equals("count")) {
+                  if (!pluralInfo.getTypeToExample().keySet().contains(attributeValue)) {
+                    result.add(new CheckStatus()
+                    .setCause(this).setType(CheckStatus.errorType)
+                    .setMessage("Illegal plural value {0}; must be one of: {1}", 
+                            new Object[]{attributeValue, pluralInfo.getTypeToExample().keySet()}));          
+                  }
+                }
             }
             
         }
@@ -115,7 +130,9 @@ public class CheckAttributeValues extends CheckCLDR {
           setSkipTest(true);
           return this;
         }
-
+        
+        pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
+        
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {

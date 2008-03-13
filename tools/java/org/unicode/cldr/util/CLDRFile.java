@@ -2653,4 +2653,38 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     return toAddTo;
   }
+  
+  private Matcher typeValueMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"\\]").matcher("");
+  
+  public boolean isPathExcludedForSurvey(String distinguishedPath) {
+    // for now, just zones
+    if (distinguishedPath.contains("/exemplarCity")) {
+      excludedZones = getExcludedZones();
+      typeValueMatcher.reset(distinguishedPath).find();
+      if (excludedZones.contains(typeValueMatcher.group(1))) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  private Set<String> excludedZones;
+  
+  public Set<String> getExcludedZones() {
+    synchronized (this) {
+      if (excludedZones == null) {
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+        excludedZones = new HashSet<String>(supplementalData.getSingleRegionZones());
+        List<String> singleCountries = Arrays.asList(
+                new XPathParts()
+                .set(getFullXPath("//ldml/dates/timeZoneNames/singleCountries"))
+                .getAttributeValue(-1, "list")
+                .split("\\s+"));
+        excludedZones.addAll(singleCountries);
+        excludedZones = Collections.unmodifiableSet(excludedZones); // protect
+      }
+      return excludedZones;
+    }
+  }
+  
 }

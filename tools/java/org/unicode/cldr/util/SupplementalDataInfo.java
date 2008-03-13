@@ -837,9 +837,34 @@ public class SupplementalDataInfo {
     return zone_territory.keySet();
   }
   
+  /**
+   * Return the multizone countries (should change name).
+   * @return
+   */
   public Set<String> getMultizones() {
     // TODO Auto-generated method stub
     return multizone;
+  }
+  
+  private Set<String> singleRegionZones;
+  
+  public Set<String> getSingleRegionZones() {
+    synchronized (this) {
+      if (singleRegionZones == null) {
+        singleRegionZones = new HashSet<String>();
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+        Set<String> multizoneCountries = supplementalData.getMultizones();
+        for (String zone : supplementalData.getCanonicalZones()) {
+          String region = supplementalData.getZone_territory(zone);
+          if (!multizoneCountries.contains(region) || zone.startsWith("Etc/")) {
+            singleRegionZones.add(zone);
+          }
+        }
+        singleRegionZones.remove("Etc/Unknown"); // remove special case
+        singleRegionZones = Collections.unmodifiableSet(singleRegionZones);
+      }
+    }
+    return singleRegionZones;
   }
   
   public Set<String> getTerritoriesForPopulationData(String language) {

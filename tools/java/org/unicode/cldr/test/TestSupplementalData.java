@@ -13,8 +13,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -42,13 +44,24 @@ public class TestSupplementalData {
   }
   
   private static void checkPlurals() {
+    Relation<PluralInfo,String> pluralsToLocale = new Relation(new HashMap(), TreeSet.class);
     for (String locale : new TreeSet<String>(supplementalData.getPluralLocales())) {
       PluralInfo pluralInfo = supplementalData.getPlurals(locale);
       System.out.println(locale + ":\t" + pluralInfo);
+      pluralsToLocale.put(pluralInfo, locale);
     }
     String locale = "en_US";
     PluralInfo pluralInfo = supplementalData.getPlurals(locale);
     System.out.println(locale + ":\t" + pluralInfo);
+    
+    for (PluralInfo pluralInfo2 : pluralsToLocale.keySet()) {
+      System.out.println("Locales: \t" + pluralsToLocale.getAll(pluralInfo2));
+      final Map<String, String> typeToExamples = pluralInfo2.getTypeToExamples();
+      for (String type : typeToExamples.keySet()) {
+        System.out.println("\tPlural Code: \t" + type + " \t=>\t" + typeToExamples.get(type));
+      }
+    }
+
   }
 
   static Matcher numericTerritory = Pattern.compile("[0-9]{3}").matcher("");

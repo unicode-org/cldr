@@ -4,6 +4,8 @@ import org.omg.CORBA.TRANSIENT;
 
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
 
 import java.io.BufferedReader;
@@ -973,6 +975,7 @@ public class SupplementalDataInfo {
       .setErrorOnMissing(true);
     
     private final Map<String,Integer> typeToExample;
+    private final Map<String,String> typeToExamples;
     private final Map<Integer,String> exampleToType;
     private final PluralRules pluralRules;
 
@@ -990,9 +993,13 @@ public class SupplementalDataInfo {
       Set targetKeywords = pluralRules.getKeywords();
       Map<String,Integer> typeToExample2 = new TreeMap<String,Integer>(magnitudeOrder);
       Map<Integer,String> exampleToType2 = new TreeMap<Integer,String>();
+      Map<String,UnicodeSet> typeToExamples2 = new TreeMap<String,UnicodeSet>(magnitudeOrder);
       
-      for (int i = 0; i < 150 && typeToExample2.size() != targetKeywords.size(); ++i) {
+      for (int i = 0; i < 1000; ++i) {
         String type = pluralRules.select(i);
+        UnicodeSet uset = typeToExamples2.get(type);
+        if (uset == null) typeToExamples2.put(type, uset = new UnicodeSet());
+        uset.add(i);       
         if (typeToExample2.containsKey(type)) continue;
         typeToExample2.put(type, i);
         exampleToType2.put(typeToExample2.get(type), type); // do this way to avoid reboxing
@@ -1001,7 +1008,39 @@ public class SupplementalDataInfo {
       if (!targetKeywords.equals(typeToExample2.keySet())) {
         throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
       }
+      // now fix the longer examples
+      Map<String,String> typeToExamples3 = new TreeMap<String,String>(magnitudeOrder);
+      for (String type : typeToExamples2.keySet()) {
+        UnicodeSet uset = typeToExamples2.get(type);
+        StringBuilder b = new StringBuilder();
+        int limit = uset.getRangeCount();
+        int count = 0;
+        for (int i = 0; i < limit; ++i) {
+          if (count > 5) {
+            b.append("...");
+            break;
+          }
+          int start = uset.getRangeStart(i);
+          int end = uset.getRangeEnd(i);
+          if (b.length() != 0) {
+            b.append(", ");
+          }
+          if (start == end) {
+            b.append(start);
+            ++count;
+          } else if (start == end+1) {
+            b.append(start).append(", ").append(end);
+            count+=2;
+          } else {
+            b.append(start).append('-').append(end);
+            count+=2;
+          }
+        }
+        typeToExamples3.put(type, b.toString());
+      }
+      
       typeToExample = Collections.unmodifiableMap(typeToExample2);
+      typeToExamples = Collections.unmodifiableMap(typeToExamples3);
       exampleToType = Collections.unmodifiableMap(exampleToType2);
     }
 
@@ -1011,6 +1050,9 @@ public class SupplementalDataInfo {
 
     public Map<String, Integer> getTypeToExample() {
       return typeToExample;
+    }
+    public Map<String, String> getTypeToExamples() {
+      return typeToExamples;
     }
     public Map<Integer, String> getExampleToType() {
       return exampleToType;

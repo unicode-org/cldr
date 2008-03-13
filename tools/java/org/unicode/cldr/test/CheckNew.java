@@ -23,6 +23,7 @@ public class CheckNew extends CheckCLDR {
       //"|calendars.*/fields" +
       //"|languages.*_"
       "currency\\[@type=\"TR[LY]\"\\]/displayName"
+      + "|script\\[@type=\"Cans\"\\]"
       //+ "|exemplarCharacters\\[.*auxiliary"
       + ").*").matcher("");
 

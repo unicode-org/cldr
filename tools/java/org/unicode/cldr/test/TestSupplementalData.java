@@ -8,6 +8,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,12 +33,24 @@ public class TestSupplementalData {
     english = cldrFactory.make("en", true);
     supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     sc = StandardCodes.make();
+    
+    checkPlurals();
 
     System.out.println("Skipped Elements: " + supplementalData.getSkippedElements());
     checkAgainstLanguageScript();
     checkTerritoryMapping();
   }
   
+  private static void checkPlurals() {
+    for (String locale : new TreeSet<String>(supplementalData.getPluralLocales())) {
+      PluralInfo pluralInfo = supplementalData.getPlurals(locale);
+      System.out.println(locale + ":\t" + pluralInfo);
+    }
+    String locale = "en_US";
+    PluralInfo pluralInfo = supplementalData.getPlurals(locale);
+    System.out.println(locale + ":\t" + pluralInfo);
+  }
+
   static Matcher numericTerritory = Pattern.compile("[0-9]{3}").matcher("");
   
   private static void checkTerritoryMapping() {

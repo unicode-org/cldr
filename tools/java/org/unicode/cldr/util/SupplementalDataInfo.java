@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import org.omg.CORBA.TRANSIENT;
 
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Freezable;
 
 import java.io.BufferedReader;
@@ -14,6 +15,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -463,6 +466,8 @@ public class SupplementalDataInfo {
         languageToPopulationDataTemp.get(language).freeze();
       }
     }
+    addPluralInfo();
+    localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
   }
 
 //  private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
@@ -659,10 +664,16 @@ public class SupplementalDataInfo {
           // West-->
         }
         
+        if (level1.equals("plurals")) {
+          addPluralPath(parts, value);
+          return;
+        }
+        
         if (level1.equals("references")) {
           String type = parts.getAttributeValue(-1, "type");
           String uri = parts.getAttributeValue(-1, "uri");
           references.put(type, (Pair)new Pair(uri, value).freeze());
+          return;
         }
         
         if (level1.equals("likelySubtags")) {
@@ -920,5 +931,102 @@ public class SupplementalDataInfo {
 
   public Map<String, String> getLikelySubtags() {
     return likelySubtags;
+  }
+  
+  private Map<String,PluralInfo> localeToPluralInfo = new LinkedHashMap<String,PluralInfo>();
+  private transient String lastPluralLocales = "root";
+  private transient Map<String,String> lastPluralMap = new LinkedHashMap<String,String>();
+  
+  private void addPluralPath(XPathParts path, String value) {
+    String locales = path.getAttributeValue(2, "locales");
+    String count = path.getAttributeValue(-1, "count");
+    if (!lastPluralLocales.equals(locales)) {
+      addPluralInfo();
+      lastPluralLocales = locales;
+    }
+    if (count == null) return;
+    if (lastPluralMap.containsKey(count)) {
+      throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
+    }
+    lastPluralMap.put(count, value);
+  }
+
+  private void addPluralInfo() {
+    PluralInfo info = new PluralInfo(lastPluralMap);
+    for (String locale : lastPluralLocales.split("\\s+")) {
+      if (localeToPluralInfo.containsKey(locale)) {
+        throw new IllegalArgumentException("Duplicate plural locale: " + locale);
+      }
+      localeToPluralInfo.put(locale, info);
+    }
+    lastPluralMap.clear();
+  }
+  
+  /**
+   * Immutable class with plural info for different locales
+   * @author markdavis
+   */
+  public static class PluralInfo {
+    static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
+    static final MapComparator magnitudeOrder = new MapComparator(
+            new String[]{"zero", "one", "two", "few", "many", "other"})
+      .setErrorOnMissing(true);
+    
+    private final Map<String,Integer> typeToExample;
+    private final Map<Integer,String> exampleToType;
+    private final PluralRules pluralRules;
+
+    private PluralInfo(Map<String,String> countToRule) {
+      // now build rules
+      StringBuilder pluralRuleString = new StringBuilder();
+      XPathParts parts = new XPathParts();
+      for (String count : countToRule.keySet()) {
+        if (pluralRuleString.length() != 0) {
+          pluralRuleString.append(';');
+        }
+        pluralRuleString.append(count).append(':').append(countToRule.get(count));
+      }
+      pluralRules = PluralRules.createRules(pluralRuleString.toString());
+      Set targetKeywords = pluralRules.getKeywords();
+      Map<String,Integer> typeToExample2 = new TreeMap<String,Integer>(magnitudeOrder);
+      Map<Integer,String> exampleToType2 = new TreeMap<Integer,String>();
+      
+      for (int i = 0; i < 150 && typeToExample2.size() != targetKeywords.size(); ++i) {
+        String type = pluralRules.select(i);
+        if (typeToExample2.containsKey(type)) continue;
+        typeToExample2.put(type, i);
+        exampleToType2.put(typeToExample2.get(type), type); // do this way to avoid reboxing
+      }
+      // double check
+      if (!targetKeywords.equals(typeToExample2.keySet())) {
+        throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
+      }
+      typeToExample = Collections.unmodifiableMap(typeToExample2);
+      exampleToType = Collections.unmodifiableMap(exampleToType2);
+    }
+
+    public String toString() {
+      return typeToExample + "; " + exampleToType + "; " + pluralRules;
+    }
+
+    public Map<String, Integer> getTypeToExample() {
+      return typeToExample;
+    }
+    public Map<Integer, String> getExampleToType() {
+      return exampleToType;
+    }
+  }
+
+  public Set<String> getPluralLocales() {
+    return localeToPluralInfo.keySet();
+  }
+  
+  public PluralInfo getPlurals(String locale) {
+    while (locale != null) {
+      PluralInfo result = localeToPluralInfo.get(locale);
+      if (result != null) return result;
+      locale = LanguageTagParser.getParent(locale);
+    }
+    return null;
   }
 }

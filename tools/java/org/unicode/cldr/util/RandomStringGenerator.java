@@ -59,9 +59,9 @@ public class RandomStringGenerator {
 		for (int i = 0; i < sets.length; ++i) {
 			sets[i] = map.getSet(values.get(i));
 			sets[i].removeAll(SUPPLEMENTARIES);
-			if (Segmenter.DEBUG_RETAIN != null) {
+			if (Segmenter.DEBUG_REDUCE_SET_SIZE != null) {
 				int first = sets[i].charAt(0);
-				sets[i].retainAll(Segmenter.DEBUG_RETAIN);
+				sets[i].retainAll(Segmenter.DEBUG_REDUCE_SET_SIZE);
 				if (sets[i].size() == 0) sets[i].add(first);
 			}
 		}

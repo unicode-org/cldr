@@ -45,6 +45,8 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import org.unicode.cldr.icu.CollectionUtilities;
+
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 
@@ -969,6 +971,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     boolean result =
       attribute.equals("key") 
       || attribute.equals("request") 
+      || attribute.equals("count") 
       || attribute.equals("id") 
       || attribute.equals("_q") 
       || attribute.equals("registry") 

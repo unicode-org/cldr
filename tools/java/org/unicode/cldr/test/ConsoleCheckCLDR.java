@@ -256,6 +256,7 @@ public class ConsoleCheckCLDR {
         System.out.println("Skipping default content locale: " + localeID);
         continue;
       }
+      
       boolean isLanguageLocale = localeID.equals(localeIDParser.set(localeID).getLanguageScript());
       options.clear();
       
@@ -294,7 +295,6 @@ public class ConsoleCheckCLDR {
         e.printStackTrace(System.out);
         continue;
       }
-      
       
       // generate HTML if asked for
       if (generated_html_directory != null) {

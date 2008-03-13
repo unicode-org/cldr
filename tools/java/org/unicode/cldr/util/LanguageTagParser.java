@@ -334,6 +334,11 @@ public class LanguageTagParser {
     return result;
   }
 
+  /**
+   * From en-US, returns en, then root, then null.
+   * @param localeCode
+   * @return
+   */
   public static String getParent(String localeCode) {
     if (localeCode == null || localeCode.equals("root")) return null;
     int pos = localeCode.lastIndexOf('_');

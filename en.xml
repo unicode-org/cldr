@@ -3782,8 +3782,8 @@
 				<symbol>U Sh</symbol>
 			</currency>
 			<currency type="USD">
-                <displayName>US Dollars</displayName>
-                <displayName count="one">US Dollar</displayName>
+                <displayName count="other">US Dollars</displayName>
+                <displayName>US Dollar</displayName>
 				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
@@ -3922,8 +3922,8 @@
 	</numbers>
 	<units>
         <unit type="default">  <!-- {0} is the formatted number, {1} is the unit -->
+            <unitPattern count="one">{0} {1}</unitPattern>
             <unitPattern count="other">{0} {1}</unitPattern>
-            <unitPattern count="two">{1}</unitPattern>
 	    </unit>
         <unit type="year">
             <unitName count="one">year</unitName> <!-- tied to the plural format enums for the locale -->

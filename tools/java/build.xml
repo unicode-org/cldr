@@ -64,7 +64,7 @@
             encoding="UTF-8"/>
     </target>
     <target name="util" depends="init" description="build utility classes">
-        <javac includes="org/unicode/cldr/util/**/*.java"
+        <javac includes="org/unicode/cldr/util/**/*.java com/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"

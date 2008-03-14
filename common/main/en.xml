@@ -1057,11 +1057,27 @@
 			<type type="stroke" key="collation">Stroke Sort Order</type>
 			<type type="traditional" key="collation">Traditional Sort Order</type>
 		</types>
+        <measurementSystemNames>
+            <measurementSystemName type="US">US</measurementSystemName>
+            <measurementSystemName type="metric">Metric</measurementSystemName>
+        </measurementSystemNames>
+        <codePatterns>
+            <codePattern type="language">Language: {0}</codePattern>
+            <codePattern type="script">Script: {0}</codePattern>
+            <codePattern type="territory">Region: {0}</codePattern>
+        </codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
+        <exemplarCharacters type="currencySymbol">[a-z]</exemplarCharacters>
 	</characters>
+    <delimiters>
+        <quotationStart>“</quotationStart>
+        <quotationEnd>”</quotationEnd>
+        <alternateQuotationStart>‘</alternateQuotationStart>
+        <alternateQuotationEnd>’</alternateQuotationEnd>
+    </delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -1161,6 +1177,14 @@
 							<quarter type="4">4th quarter</quarter>
 						</quarterWidth>
 					</quarterContext>
+                    <quarterContext type="stand-alone">
+                         <quarterWidth type="narrow">
+                            <quarter type="1">1</quarter>
+                            <quarter type="2">2</quarter>
+                            <quarter type="3">3</quarter>
+                            <quarter type="4">4</quarter>
+                        </quarterWidth>
+                    </quarterContext>
 				</quarters>
 				<am>AM</am>
 				<pm>PM</pm>
@@ -1247,16 +1271,44 @@
 						<dateFormatItem id="yyyyMMM">MMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="day">
-						<relative type="0">Today</relative>
-						<relative type="1">Tomorrow</relative>
-						<relative type="-1">Yesterday</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-				</fields>
+                <fields>
+                    <field type="era">
+                        <displayName>Era</displayName>
+                    </field>
+                    <field type="year">
+                        <displayName>Year</displayName>
+                    </field>
+                    <field type="month">
+                        <displayName>Month</displayName>
+                    </field>
+                    <field type="week">
+                        <displayName>Week</displayName>
+                    </field>
+                    <field type="day">
+                        <displayName>Day</displayName>
+                        <relative type="0">Today</relative>
+                        <relative type="1">Tomorrow</relative>
+                        <relative type="-1">Yesterday</relative>
+                    </field>
+                    <field type="weekday">
+                        <displayName>Day of the Week</displayName>
+                    </field>
+                    <field type="dayperiod">
+                        <displayName>AM/PM</displayName>
+                    </field>
+                    <field type="hour">
+                        <displayName>Hour</displayName>
+                    </field>
+                    <field type="minute">
+                        <displayName>Minute</displayName>
+                    </field>
+                    <field type="second">
+                        <displayName>Second</displayName>
+                    </field>
+                    <field type="zone">
+                        <displayName>Zone</displayName>
+                    </field>
+                </fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -2987,6 +3039,27 @@
 			<decimal>.</decimal>
 			<group>,</group>
 		</symbols>
+        <decimalFormats>
+            <decimalFormatLength>
+                <decimalFormat>
+                    <pattern>#,##0.###</pattern>
+                </decimalFormat>
+            </decimalFormatLength>
+        </decimalFormats>
+        <scientificFormats>
+            <scientificFormatLength>
+                <scientificFormat>
+                    <pattern>#E0</pattern>
+                </scientificFormat>
+            </scientificFormatLength>
+        </scientificFormats>
+        <percentFormats>
+            <percentFormatLength>
+                <percentFormat>
+                    <pattern>#,##0%</pattern>
+                </percentFormat>
+            </percentFormatLength>
+        </percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -3827,7 +3900,6 @@
 				<displayName>Old Romanian Leu</displayName>
 				<displayName count="other">Old Romanian Leus</displayName>
 				<!-- FYI Lei is the plural form of Leu. The currency symbol should be considered for change too.
-					 FYI Lei is the plural form of Leu. The currency symbol should be considered for change too.
 				-->
 				<symbol choice="true">=0#Old lei|1#Old leu|1&lt;Old lei</symbol>
 			</currency>
@@ -4225,7 +4297,6 @@
 		</unit>
 		<unit type="year">
 			<unitName count="one">year</unitName>
-			<!-- tied to the plural format enums for the locale -->
 			<unitName count="other">years</unitName>
 		</unit>
 	</units>

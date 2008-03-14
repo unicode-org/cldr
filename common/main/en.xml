@@ -1253,22 +1253,27 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
-						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMdd" draft="unconfirmed">dd MMMM</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="unconfirmed">d-MMM</dateFormatItem>
-						<dateFormatItem id="MMMdd" draft="unconfirmed">dd MMM</dateFormatItem>
-						<dateFormatItem id="MMd" draft="unconfirmed">d/MM</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="hhmm" draft="unconfirmed">hh:mm a</dateFormatItem>
-						<dateFormatItem id="hhmmss" draft="unconfirmed">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="unconfirmed">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM yyyy</dateFormatItem>
+                        <dateFormatItem id="Hm">HH:mm</dateFormatItem>
+                        <dateFormatItem id="hm">h:mm a</dateFormatItem>
+                        <dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+                        <dateFormatItem id="M">L</dateFormatItem>
+                        <dateFormatItem id="MEd">E, M-d</dateFormatItem>
+                        <dateFormatItem id="MMM">LLL</dateFormatItem>
+                        <dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
+                        <dateFormatItem id="MMMMEd">E MMMM d</dateFormatItem>
+                        <dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+                        <dateFormatItem id="MMMd">MMM d</dateFormatItem>
+                        <dateFormatItem id="Md">M/d</dateFormatItem>
+                        <dateFormatItem id="d">d</dateFormatItem>
+                        <dateFormatItem id="ms">mm:ss</dateFormatItem>
+                        <dateFormatItem id="y">yyyy</dateFormatItem>
+                        <dateFormatItem id="yM">M/yyyy</dateFormatItem>
+                        <dateFormatItem id="yMEd">EEE, M/d/yyyy</dateFormatItem>
+                        <dateFormatItem id="yMMM">MMM yyyy</dateFormatItem>
+                        <dateFormatItem id="yMMMEd">EEE, MMM d yyyy</dateFormatItem>
+                        <dateFormatItem id="yMMMM">MMMM yyyy</dateFormatItem>
+                        <dateFormatItem id="yQ">Q yyyy</dateFormatItem>
+                        <dateFormatItem id="yQQQ">QQQ yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
                 <fields>

@@ -5043,8 +5043,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                             LDMLConstants.CHOICE);
                 }
             }
-            if (choice != null && choice.equals("true")) {
-                symbol.val = "=" + symbol.val.replace('\u2264', '#')
+            if (choice != null && choice.equals("true") && !loc.isPathNotConvertible(xpath+"/symbol")) { 
+                    symbol.val = "=" + symbol.val.replace('\u2264', '#')
                     .replace("&lt;","<");
                 if (true || verboseFallbackComments) {
                     if (symbol.smallComment != null)

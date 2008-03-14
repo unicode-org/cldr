@@ -46,6 +46,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import org.unicode.cldr.icu.CollectionUtilities;
 
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -82,7 +83,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public static final String SUPPLEMENTAL_NAME = "supplementalData";
   public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
   public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-  public static final String GEN_VERSION = "1.5";
+  public static final String GEN_VERSION = "1.6";
   
   private boolean locked;
   private XMLSource dataSource;
@@ -1286,14 +1287,29 @@ public class CLDRFile implements Freezable, Iterable<String> {
       if (attribute.equals("draft")) {
         if (value.equals("true")) value = "approved";
         else if (value.equals("false")) value = "unconfirmed";
-      }
-      if (attribute.equals("type")) {
+      } else if (attribute.equals("type")) {
         if (changedTypes.contains(element)) {
           attribute = "choice";
         }
-      }
+      } 
+//      else if (element.equals("dateFormatItem")) {
+//        if (attribute.equals("id")) {
+//          String newValue = dateGenerator.getBaseSkeleton(value);
+//          if (!fixedSkeletons.contains(newValue)) {
+//            fixedSkeletons.add(newValue);
+//            if (!value.equals(newValue)) {
+//              System.out.println(value + " => " + newValue);
+//            }
+//            value = newValue;
+//          }
+//        }
+//      }
       attributeOrder.put(attribute, value);
     }
+    
+    private Set<String> fixedSkeletons = new HashSet();
+    
+    private DateTimePatternGenerator dateGenerator = DateTimePatternGenerator.getEmptyInstance();
     
     private static Set changedTypes = new HashSet(Arrays.asList(new String[]{
         "abbreviationFallback",
@@ -1325,8 +1341,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
           if (former != null) {
             String formerPath = target.getFullXPath(currentFullXPath);
             if (!former.equals(lastChars) || !currentFullXPath.equals(formerPath)) {
-              System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
-                  "\r\n\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
+              warnOnOverride(former, formerPath);
             }
           }
           target.add(currentFullXPath, lastChars);
@@ -1344,6 +1359,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
       //currentXPath = stripAfter(currentXPath, qName);
       currentFullXPath = stripAfter(currentFullXPath, qName);    
       justPopped = true;
+    }
+
+    private void warnOnOverride(String former, String formerPath) {
+      System.out.println("\tWARNING: overriding " + target.getLocaleID() + "\t<" + former + ">\t\t" + formerPath + 
+          "\r\n\twith " + target.getLocaleID() + "\t<" + lastChars + ">\t" + (currentFullXPath.equals(formerPath) ? "" : currentFullXPath));
     }
     
     private static String stripAfter(String input, String qName) {
@@ -1959,7 +1979,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   static MapComparator elementOrdering = (MapComparator) new MapComparator()
   .add(
-      "ldml alternate attributeOrder attributes character character-fallback codePattern comment context cp deprecatedItems elementOrder first_variable fractions identity info languageAlias languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing mapTimezones mapZone reference region scriptAlias scriptCoverage serialElements substitute suppress tRule territoryAlias territoryCoverage timezoneCoverage transform validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic height hourFormat hoursFormat gmtFormat key languages localeDisplayNames layout localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type usesMetazone variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation currencyData language script territory territoryContainment languageData territoryTestData calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers collations posix segmentations references transforms metadata weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
+      "ldml alternate attributeOrder attributes character character-fallback codePattern comment context cp deprecatedItems elementOrder first_variable fractions identity info languageAlias languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing mapTimezones mapZone reference region scriptAlias scriptCoverage serialElements substitute suppress tRule territoryAlias territoryCoverage timezoneCoverage transform validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic height hourFormat hoursFormat gmtFormat key languages localeDisplayNames layout localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type usesMetazone variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation currencyData language script territory territoryContainment languageData territoryTestData calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers units collations posix segmentations references transforms metadata weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
       // "ldml alternate attributeOrder attributes character character-fallback comment context cp deprecatedItems elementOrder first_variable fractions identity info languageAlias languageCoverage last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing mapTimezones mapZone reference region scriptAlias scriptCoverage serialElements substitute suppress tRule territoryAlias territoryCoverage timezoneCoverage transform validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters field generic height hourFormat hoursFormat gmtFormat key languages localeDisplayNames layout localizedPatternChars calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short usesMetazone exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames version generation currencyData language script territory territoryContainment languageData calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers collations posix segmentations references transforms metadata weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone special zoneAlias zoneFormatting zoneItem supplementalData"
       .split("\\s+"))
       .setErrorOnMissing(false)

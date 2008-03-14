@@ -1060,7 +1060,7 @@ public class CLDRModify {
 			      }
 			    }
 			  }
-			  if (true) return; // don't do the rest for now
+			  //if (true) return; // don't do the rest for now
 				if (xpath.indexOf("/availableFormats") < 0) return;
 				String value = cldrFileToFilter.getStringValue(xpath);
 				if (value == null) return; // not in current file
@@ -1072,20 +1072,23 @@ public class CLDRModify {
 				String id = (String) attributes.get("id");
 				String oldID = id;
 				try {
-					id = dateTimePatternGenerator.getSkeleton(value);
+					id = dateTimePatternGenerator.getBaseSkeleton(id);
+					if (id.equals(oldID)) return;
+					System.out.println(oldID + " => " + id);
 				} catch (RuntimeException e) {
 					id = "[error]";
+					return;
 				}
 				
-				String draft = (String) attributes.get("draft");
-				if (draft == null) draft = "approved";
-				String alt = (String) attributes.get("alt");
-				if (alt == null) alt = "proposed";
-				alt = fixAlt(alt, id);
-				attributes.put("draft", draft);
-				attributes.put("alt", alt);
+//				String draft = (String) attributes.get("draft");
+//				if (draft == null) draft = "approved";
+//				String alt = (String) attributes.get("alt");
+//				if (alt == null) alt = "proposed";
+//				alt = fixAlt(alt, id);
+//				attributes.put("draft", draft);
+//				attributes.put("alt", alt);
 				attributes.put("id", id);
-				attributes.remove("_q");
+//				attributes.remove("_q");
 				totalSkeletons.add(id);
 				
 				replace(xpath, fullparts.toString(), value);

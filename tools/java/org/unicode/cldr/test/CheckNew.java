@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
 
 public class CheckNew extends CheckCLDR {
   // this list should be updated with each release.
-  static final Matcher stuffToCheckFor = Pattern.compile(".*/(" +
+
+  static final Matcher stuffToAlwaysFlag = Pattern.compile(".*/(" +
           // segmentations|preferenceOrdering|singleCountries|currencySpacing|abbreviationFallback|
           //"inList" +
           // + "|availableFormats"
@@ -22,10 +23,9 @@ public class CheckNew extends CheckCLDR {
           //"|relative" + 
           //"|calendars.*/fields" +
           //"|languages.*_"
-              "units" +
-              "|currency\\[@type=\"TR[LY]\"\\]/displayName"
-              + "|script\\[@type=\"Cans\"\\]"
-              //"|displayName.*\\[@count=\""
+          "currency\\[@type=\"TR[LY]\"\\]/displayName"
+          + "|script\\[@type=\"Cans\"\\]"
+          //"|displayName.*\\[@count=\""
           //+ "|exemplarCharacters\\[.*auxiliary"
           + ").*").matcher("");
 
@@ -81,21 +81,26 @@ public class CheckNew extends CheckCLDR {
           "There may have been a conflict introduced as a result of fixing default contents: please confirm the right value.", new Object[] {}));
     }
     
+    if (skip) return this;
+    
     // flag as new, but only if there aren't other issues
-    if (!skip && stuffToCheckFor.reset(path).matches()) {
+    
+    if (stuffToAlwaysFlag.reset(path).matches()) {
       // bail if it is already part of coverage
-      for (CheckStatus resultItem : result) {
-        if (resultItem.getCause().getClass() == CheckCoverage.class) {
-          skip = true;
-          break;
-        }
-      }
-      if (!skip) {
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage("New field or modified English: may need translation or fixing."));
-      }
+      if (hasCoverageError(result)) return this;
+      
+      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage("Modified English value: may need translation or fixing."));
     }
 
-    // We also check 
     return this;
+  }
+
+  private boolean hasCoverageError(List<CheckStatus> result) {
+    for (CheckStatus resultItem : result) {
+      if (resultItem.getCause().getClass() == CheckCoverage.class) {
+        return true;
+      }
+    }
+    return false;
   }
 }

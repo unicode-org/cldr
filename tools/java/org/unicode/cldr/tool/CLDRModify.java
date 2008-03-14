@@ -29,10 +29,10 @@ import org.unicode.cldr.icu.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.DateTimePatternGenerator;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.CoverageLevel.Level;
 
-import com.ibm.icu.text.DateTimePatternGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
@@ -48,8 +48,8 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.test.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;

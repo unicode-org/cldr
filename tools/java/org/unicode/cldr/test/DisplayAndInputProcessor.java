@@ -5,7 +5,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
 
 import java.util.List;

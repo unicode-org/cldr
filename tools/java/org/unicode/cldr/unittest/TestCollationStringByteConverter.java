@@ -29,7 +29,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DateTimePatternGenerator;
+import org.unicode.cldr.test.DateTimePatternGenerator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;

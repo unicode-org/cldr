@@ -24,9 +24,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import org.unicode.cldr.test.DateTimePatternGenerator;
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.test.DateTimePatternGenerator.VariableField;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;

@@ -16,7 +16,7 @@ import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import org.unicode.cldr.test.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.SimpleTimeZone;
 import com.ibm.icu.util.TimeZone;

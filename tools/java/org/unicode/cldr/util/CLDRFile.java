@@ -46,7 +46,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import org.unicode.cldr.icu.CollectionUtilities;
 
-import com.ibm.icu.text.DateTimePatternGenerator;
+import org.unicode.cldr.test.DateTimePatternGenerator;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;

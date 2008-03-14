@@ -28,7 +28,7 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateTimePatternGenerator;
+import org.unicode.cldr.test.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;

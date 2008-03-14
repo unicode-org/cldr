@@ -1185,6 +1185,53 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
 				</dateTimeFormats>
 			</calendar>
+        		<calendar type="roc">
+            		<months>
+                		<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+            		</months>
+            		<days>
+                		<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
+            		</days>
+            		<quarters>
+                		<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
+            		</quarters>
+            		<eras>
+                		<eraNames>
+                    			<alias source="locale" path="../eraAbbr"/>
+                		</eraNames>
+                    		<!-- = 1912 AD     gregorian. See: http://en.wikipedia.org/wiki/Minguo_calendar -->
+                		<eraAbbr>
+                    			<era type="0">Before R.O.C.</era>
+                    			<era type="1">R.O.C.</era>
+                		</eraAbbr>
+                		<eraNarrow>
+                    		<alias source="locale" path="../eraAbbr"/>
+                		</eraNarrow>
+            		</eras>
+            		<dateFormats>
+                		<default choice="medium"/>
+                		<dateFormatLength type="full">
+                    		<dateFormat>
+                        		<pattern>EEEE, MMMM d, G y</pattern>
+                    		</dateFormat>
+                		</dateFormatLength>
+                		<dateFormatLength type="long">
+                    		<dateFormat>
+                        		<pattern>MMMM d, G y</pattern>
+                    		</dateFormat>
+                		</dateFormatLength>
+                		<dateFormatLength type="medium">
+                    		<dateFormat>
+                        		<pattern>MMM d, G y</pattern>
+                    		</dateFormat>
+                		</dateFormatLength>
+                		<dateFormatLength type="short">
+                    		<dateFormat>
+                        		<pattern>G y/M/d</pattern>
+                    		</dateFormat>
+                		</dateFormatLength>
+            		</dateFormats>
+        		</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>

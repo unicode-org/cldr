@@ -1283,6 +1283,32 @@
 			</currency>
 		</currencies>
 	</numbers>
+    <units> <!-- http://physics.nist.gov/cuu/Units/outside.html -->
+        <unit type="default">  <!-- {0} is the formatted number, {1} is the unit -->
+            <unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+        </unit>
+        <unit type="year">
+            <unitName count="other" draft="unconfirmed">y</unitName>
+        </unit>
+        <unit type="month">
+            <unitName count="other" draft="unconfirmed">m</unitName>
+        </unit>
+        <unit type="week">
+            <unitName count="other" draft="unconfirmed">w</unitName>
+        </unit>
+        <unit type="day">
+            <unitName count="other" draft="unconfirmed">d</unitName>
+        </unit>
+        <unit type="hour">
+             <unitName count="other" draft="unconfirmed">h</unitName>
+        </unit>
+        <unit type="minute">
+            <unitName count="other" draft="unconfirmed">min</unitName>
+        </unit>
+        <unit type="second">
+            <unitName count="other" draft="unconfirmed">s</unitName>
+        </unit>
+    </units>
 	<posix>
 		<messages>
 			<yesstr>yes:y</yesstr>

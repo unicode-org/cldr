@@ -3905,14 +3905,11 @@
 			<currency type="ROL">
 				<displayName>Old Romanian Leu</displayName>
 				<displayName count="other">Old Romanian Leus</displayName>
-				<!-- FYI Lei is the plural form of Leu. The currency symbol should be considered for change too.
-				-->
-				<symbol choice="true">=0#Old lei|1#Old leu|1&lt;Old lei</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Romanian Leu</displayName>
-				<displayName count="other">Romanian Leus</displayName>
-				<symbol choice="true">=0#lei|1#leu|1&lt;lei</symbol>
+				<displayName count="other">Romanian Lei</displayName>
+                		<symbol choice="true">0≤lei|1≤leu|1&lt;lei</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbian Dinar</displayName>

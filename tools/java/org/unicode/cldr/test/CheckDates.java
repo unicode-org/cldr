@@ -127,6 +127,15 @@ public class CheckDates extends CheckCLDR {
     if (fullPath == null) return this; // skip paths that we don't have
     if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
     try {
+      if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
+      	String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
+      	String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
+      	if (value.length() > wideValue.length()) {
+          CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+          .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value, wideValue);      
+          result.add(item);
+      	}
+      }
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {
         int end = isNarrowEnough(value);
         String locale = getCldrFileToCheck().getLocaleID();

@@ -48,7 +48,9 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -69,7 +71,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-  public static final String CHART_DISPLAY_VERSION = "1.5.1 (draft)";
+  public static final String CHART_DISPLAY_VERSION = "1.6 (draft)";
   
   private static final boolean SHOW_NATIVE = true;
   
@@ -104,6 +106,8 @@ public class ShowLanguages {
     StringWriter sw = new StringWriter();
     PrintWriter pw = new PrintWriter(sw);
     
+    linfo.printPlurals(pw);
+
     linfo.printLikelySubtags(pw);
     
     // linfo.printCountryData(pw);
@@ -150,8 +154,7 @@ public class ShowLanguages {
     
     linfo.printCharacters(pw);
     
-    linfo.printAliases(pw);
-    
+    linfo.printAliases(pw);    
     
     pw.close();
     
@@ -163,7 +166,7 @@ public class ShowLanguages {
     contents += "</ul>";
     String[] replacements = { "%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString() };
     PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
-    FileUtilities.appendFile("org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
+    FileUtilities.appendFile(Utility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
     pw2.close();
   }
   
@@ -400,7 +403,13 @@ public class ShowLanguages {
       }
       // check for overlap
       if (nativeLanguage != null && !script.equals("Jpan") && !script.equals("Hans") && !script.equals("Hant")) {
-        UnicodeSet scriptSet = new UnicodeSet("[:script=" + script + ":]");
+        UnicodeSet scriptSet;
+        try {
+          String tempScript = script.equals("Kore") ? "Hang" : script;
+          scriptSet = new UnicodeSet("[:script=" + tempScript + ":]");
+        } catch (RuntimeException e) {
+          scriptSet = new UnicodeSet();
+        }
         UnicodeSet exemplars = nativeLanguage.getExemplarSet("",WinningChoice.WINNING);
         if (scriptSet.containsNone(exemplars)) {
           System.out.println("Skipping CLDR file -- exemplars differ: " + scriptSet + "\t" + exemplars);
@@ -554,7 +563,8 @@ public class ShowLanguages {
       out.write("</table></div>");
       PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.CHART_DIRECTORY + "/supplemental/", filename);
       String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", df.format(new Date()), "%body%", out.toString() };
-      FileUtilities.appendFile("org/unicode/cldr/tool/chart-template.html", "utf-8", pw2, replacements);
+      final String templateFileName = Utility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/tool/chart-template.html";
+      FileUtilities.appendFile(templateFileName, "utf-8", pw2, replacements);
       pw2.close();
     }
     
@@ -1830,7 +1840,40 @@ public class ShowLanguages {
       }
       currentRow.remove(len);
     }
-    
+
+    public void printPlurals(PrintWriter index) throws IOException {
+      final String title = "Language Plural Rules";
+
+      final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
+
+      final TablePrinter tablePrinter = new TablePrinter()
+      .addColumn("Language Name","class='source'",null,"class='source'",true).setSortPriority(0)
+      .addColumn("Code","class='source'","<a name=\"{0}\">{0}</a>","class='source'",true)
+      .addColumn("Category","class='target'",null,"class='target'",true).setBreakSpans(true)
+      .addColumn("Examples","class='target'",null,"class='target'",true)
+      .addColumn("Rules","class='target'",null,"class='target'",true);
+
+      for (String locale : supplementalDataInfo.getPluralLocales()) {
+        final PluralInfo plurals = supplementalDataInfo.getPlurals(locale);
+        String rules = plurals.getRules();
+        rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
+        rules = rules.replace(":", " → ").replace(";", ";<br>");
+        final String name = english.getName(locale);
+        final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
+        for (Count type : typeToExamples.keySet()) {
+          tablePrinter.addRow()
+          .addCell(name)
+          .addCell(locale)
+          .addCell(type)
+          .addCell(typeToExamples.get(type).toString().replace(";", ";<br>"))
+          .addCell(rules)
+          .finishRow();
+        }
+      }
+      pw.println(tablePrinter.toTable());
+      pw.close();
+    }
+
     public void printCharacters(PrintWriter index) throws IOException {
       String title = "Character Fallback Substitutions";
       

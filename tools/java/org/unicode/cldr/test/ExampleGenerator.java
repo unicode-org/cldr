@@ -9,6 +9,8 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import org.unicode.cldr.icu.CollectionUtilities;
@@ -185,6 +187,25 @@ public class ExampleGenerator {
     }
   }
 
+  public enum ExampleType {NATIVE, ENGLISH};
+  
+  public static class ExampleContext {
+    private List<Double> exampleCount;
+
+    public void setExampleCount(List<Double> exampleCount2) {
+      this.exampleCount = exampleCount2;
+    }
+
+    public List<Double> getExampleCount() {
+      return exampleCount;
+    }
+  }
+  
+  public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
+    return getExampleHtml(xpath, value, zoomed, null, null);
+  }
+  
+  
   /**
    * Returns an example string, in html, if there is one for this path,
    * otherwise null. For use in the survey tool, an example might be returned
@@ -197,10 +218,10 @@ public class ExampleGenerator {
    * @param zoomed status (IN, or OUT) Out is a longer version only called in Zoom mode. IN is called in both.
    * @return
    */
-  public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
+  public String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleContext context, ExampleType type) {
+    String cacheKey;
+    String result = null;
     try {
-      String result = null;
-      String cacheKey;
       if (CACHING) {
         cacheKey = xpath + "," + value + "," + zoomed;
         result = cache.get(cacheKey);
@@ -212,194 +233,42 @@ public class ExampleGenerator {
         }
       }
       // result is null at this point. Get the real value if we can.
-
-      main: {
-        parts.set(xpath);
-        if (parts.contains("dateRangePattern")) { // {0} - {1}
-          SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-          result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)));
-          result = finalizeBackground(result);
-          break main;
-        }
-        if (parts.contains("timeZoneNames")) {
-          if (parts.contains("exemplarCity")) {
-            //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-            String timezone = parts.getAttributeValue(3, "type");
-            String countryCode = supplementalDataInfo.getZone_territory(timezone);
-            if (countryCode == null) {
-              break main; // fail, skip
-            }
-            if (countryCode.equals("001")) {
-              // GMT code, so format.
-              try {
-                String hourOffset = timezone.substring(timezone.contains("+") ? 8 : 7);
-                int hours = Integer.parseInt(hourOffset);
-                result = getGMTFormat(null, null, hours);
-              } catch (RuntimeException e) {
-                break main; // fail, skip
-              }
-            } else {
-              String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
-              boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
-              // we show just country for singlezone countries
-              if (singleZone) {
-                result = countryName;
-              } else {
-                if (value == null) {
-                  value = TimezoneFormatter.getFallbackName(timezone);
-                }
-                // otherwise we show the fallback with exemplar
-                String fallback = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
-                // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-
-                result = format(fallback, value, countryName);
-              }
-              // format with "{0} Time" or equivalent.
-              String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
-              result = format(timeFormat, result);
-            }
-          } else if (parts.contains("regionFormat")) { // {0} Time
-            String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP");
-            result = format(value, setBackground(sampleTerritory));
-          } else if (parts.contains("fallbackFormat")) { // {1} ({0})
-            if (value == null) {
-              break main;
-            }
-            String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
-            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
-            // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-
-            String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
-            result = format(value, LosAngeles, us);
-            result = format(timeFormat, result);
-          } else if (parts.contains("gmtFormat")) { // GMT{0}
-            result = getGMTFormat(null, value, -8);
-          } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
-            result = getGMTFormat(value, null, -8);
-          } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
-            if ( value != null && value.length() > 0 ) {
-              result = getMZTimeFormat() + " " + value;
-            }
-            else {
-              // TODO check for value
-              if (parts.contains("generic")) {
-                String metazone_name = parts.getAttributeValue(3, "type");
-                String timezone = supplementalData.resolveParsedMetazone(metazone_name,"001");
-                String countryCode = supplementalDataInfo.getZone_territory(timezone);
-                String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
-                String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
-                String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""+timezone+"\"]/exemplarCity");
-                if ( exemplarCity == null )
-                   exemplarCity = timezone.substring(timezone.lastIndexOf('/')+1).replace('_',' ');
-
-                String countryName = cldrFile.getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\""+countryCode+"\"]");
-                boolean singleZone = singleCountryZones.contains(timezone) || !(supplementalDataInfo.getMultizones().contains(countryCode));
-
-                if ( singleZone ) {
-                  result = setBackground(getMZTimeFormat() + " " + 
-                            format(regionFormat, countryName));
-                }
-                else {
-                  result = setBackground(getMZTimeFormat() + " " + 
-                            format(fallbackFormat, exemplarCity, countryName));
-                }
-              }
-              else {
-                String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
-                String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
-                String metazone_name = parts.getAttributeValue(3, "type");
-                String tz_string = supplementalData.resolveParsedMetazone(metazone_name,"001");
-                TimeZone currentZone = TimeZone.getTimeZone(tz_string);
-                int tzOffset = currentZone.getRawOffset();
-                if (parts.contains("daylight")) {
-                   tzOffset += currentZone.getDSTSavings();
-                }
-                int MILLIS_PER_MINUTE = 1000 * 60;
-                int MILLIS_PER_HOUR = MILLIS_PER_MINUTE * 60;
-                int tm_hrs = tzOffset / MILLIS_PER_HOUR;
-                int tm_mins = ( tzOffset % MILLIS_PER_HOUR ) / 60000; // millis per minute
-                result = setBackground(getMZTimeFormat() + " " + getGMTFormat( hourFormat,gmtFormat,tm_hrs,tm_mins));
-              }
-            }
-          }
-          result = finalizeBackground(result);
-          break main;
-        }
-        if (xpath.contains("/exemplarCharacters")) {
-          if (value != null) {
-            if (zoomed == Zoomed.IN) {
-              UnicodeSet unicodeSet = new UnicodeSet(value);
-              if (unicodeSet.size() < 500) {
-                result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
-              }
-            }
-          }
-          break main;
-        }
-        if (xpath.contains("/localeDisplayNames")) {
-          if (xpath.contains("/codePatterns")) {
-            //parts.set(xpath);
-            result = format(value, setBackground("CODE"));
-            result = finalizeBackground(result);
-          } else if (parts.contains("languages") ) {
-            String type = parts.getAttributeValue(-1, "type");
-            if (type.contains("_")) {
-              if (value != null && !value.equals(type)) {
-                result = value;
-              } else {
-                result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"));
-              }
-            }
-          }
-          break main;
-        }
-        if (parts.contains("currency") && parts.contains("symbol")) {
-          String currency = parts.getAttributeValue(-2, "type");
-          String fullPath = cldrFile.getFullXPath(xpath, false);
-          if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
-            ChoiceFormat cf = new ChoiceFormat(value);
-            value = cf.format(NUMBER_SAMPLE);
-          }
-          // TODO fix to use value!!
-          DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
-          result = x.format(NUMBER_SAMPLE);
-          result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-          result = finalizeBackground(result);
-          break main;
-        }
-        if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
-          if (parts.contains("calendar")) {
-            String calendar = parts.findAttributeValue("calendar", "type");
-            SimpleDateFormat dateFormat;
-            if (parts.contains("dateTimeFormat")) {
-              SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
-              SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
-              date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
-              dateFormat = date2;
-            } else {
-              String id = parts.findAttributeValue("dateFormatItem", "id");
-              if ("NEW".equals(id) || value == null) {
-                result = "<i>n/a</i>";
-                break main;
-              } else {
-                dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
-              }
-            }
-            dateFormat.setTimeZone(ZONE_SAMPLE);
-            result = dateFormat.format(DATE_SAMPLE);
-            result = finalizeBackground(result);
-          } else if (parts.contains("numbers")) {
-            DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
-            result = numberFormat.format(NUMBER_SAMPLE);
-          }
-          break main;
-        }
-        if (parts.contains("symbol")) {
-          DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
-          result = x.format(NUMBER_SAMPLE);
-          break main;
-        }
+      parts.set(xpath);
+      if (parts.contains("dateRangePattern")) { // {0} - {1}
+        return result = handleDateRangePattern(value, xpath, zoomed);
       }
+      if (parts.contains("timeZoneNames")) {
+        return result = handleTimeZoneName(xpath, value);
+      }
+      if (parts.contains("exemplarCharacters")) {
+        return result = handleExemplarCharacters(value, zoomed);
+      }
+      if (parts.contains("localeDisplayNames")) {
+        return result = handleDisplayNames(xpath, value);
+      }
+      if (parts.contains("currency")) {
+        return result = handleCurrency(xpath, value, context, type);
+      }
+      if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
+        return result = handleDateFormatItem(value);
+      }
+      if (parts.contains("symbol")) {
+        return result = handleNumberSymbol();
+      }
+      if (parts.contains("units")) {
+        return result = handleUnits(parts, xpath, value, context, type);
+      }
+      // didn't detect anything, return empty-handed
+      return null;
+      
+    } catch (NullPointerException e) {
+      return null;
+    } catch (RuntimeException e) {
+      String unchained = verboseErrors?("<br>"+unchainException(e)):"";
+      return zoomed == Zoomed.OUT 
+          ? "<i>internal error</i>"
+          : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>"+unchained);
+    } finally {
       if (CACHING) {
         if (result == null) {
           cache.put(cacheKey, NONE);
@@ -408,16 +277,256 @@ public class ExampleGenerator {
           result = TransliteratorUtilities.toHTML.transliterate(result);
           cache.put(cacheKey, result);
         }
-      }
-      return result;
-    } catch (NullPointerException e) {
-      return null;
-    } catch (RuntimeException e) {
-      String unchained = verboseErrors?("<br>"+unchainException(e)):"";
-      return zoomed == Zoomed.OUT 
-          ? "<i>internal error</i>"
-          : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>"+unchained);
+      }      
     }
+  }
+
+  private String handleUnits(XPathParts parts, String xpath, String value, ExampleContext context, ExampleType type) {
+    if (parts.contains("unitName")) {
+      return formatCountValue(parts, value, null, context, type);
+    }
+    return null;
+  }
+
+  private String formatCountValue(XPathParts parts, String value, Count countDefault, ExampleContext context, ExampleType type) {
+    final PluralInfo plurals = supplementalDataInfo.getPlurals(cldrFile.getLocaleID());
+    Count count = null;
+    final List<Double> exampleCount;
+    if (type != ExampleType.ENGLISH) {
+      String countString = parts.getAttributeValue(-1, "count");
+      if (countString == null) {
+        count = countDefault;
+      } else {
+        count = Count.valueOf(countString);
+      }
+      exampleCount = plurals.getCountToExamplesMap().get(count);
+      if (context != null) {
+        context.setExampleCount(exampleCount);
+      }
+    } else {
+      exampleCount = context.getExampleCount();
+    }
+    // first see if there is a unit pattern in this type.
+    String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
+    String unitPattern = cldrFile.getStringValue(unitPatternPath);
+    DecimalFormat x = icuServiceBuilder.getNumberFormat(1);
+    String result = "";
+    for (Double example : exampleCount) {
+      String formattedNumber = x.format(example);
+      if (value == null) {
+        String clippedPath = parts.toString(-1);
+        clippedPath += "/" + parts.getElement(-1);
+        String fallbackPath = cldrFile.getCountPath(clippedPath, count);
+        value = cldrFile.getStringValue(fallbackPath);
+      }
+      if (result.length() != 0) {
+        result += ", ";
+      }
+      result += format(unitPattern, formattedNumber, value);
+    }
+    return result;
+  }
+
+  private String handleNumberSymbol() {
+    DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
+    return x.format(NUMBER_SAMPLE);
+  }
+
+  private String handleTimeZoneName(String xpath, String value) {
+
+    String result = null;
+    if (parts.contains("exemplarCity")) {
+      //        ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+      String timezone = parts.getAttributeValue(3, "type");
+      String countryCode = supplementalDataInfo.getZone_territory(timezone);
+      if (countryCode == null) {
+        return result; // fail, skip
+      }
+      if (countryCode.equals("001")) {
+        // GMT code, so format.
+        try {
+          String hourOffset = timezone.substring(timezone.contains("+") ? 8 : 7);
+          int hours = Integer.parseInt(hourOffset);
+          result = getGMTFormat(null, null, hours);
+        } catch (RuntimeException e) {
+          return result; // fail, skip
+        }
+      } else {
+        String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
+        boolean singleZone = singleCountryZones.contains(timezone) || !supplementalDataInfo.getMultizones().contains(countryCode);
+        // we show just country for singlezone countries
+        if (singleZone) {
+          result = countryName;
+        } else {
+          if (value == null) {
+            value = TimezoneFormatter.getFallbackName(timezone);
+          }
+          // otherwise we show the fallback with exemplar
+          String fallback = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+          // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+
+          result = format(fallback, value, countryName);
+        }
+        // format with "{0} Time" or equivalent.
+        String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
+        result = format(timeFormat, result);
+      }
+    } else if (parts.contains("regionFormat")) { // {0} Time
+      String sampleTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP");
+      result = format(value, setBackground(sampleTerritory));
+    } else if (parts.contains("fallbackFormat")) { // {1} ({0})
+      if (value == null) {
+        return result;
+      }
+      String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
+      String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
+      // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
+
+      String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
+      result = format(value, LosAngeles, us);
+      result = format(timeFormat, result);
+    } else if (parts.contains("gmtFormat")) { // GMT{0}
+      result = getGMTFormat(null, value, -8);
+    } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
+      result = getGMTFormat(value, null, -8);
+    } else if (parts.contains("metazone") && !parts.contains("commonlyUsed")) { // Metazone string
+      if ( value != null && value.length() > 0 ) {
+        result = getMZTimeFormat() + " " + value;
+      }
+      else {
+        // TODO check for value
+        if (parts.contains("generic")) {
+          String metazone_name = parts.getAttributeValue(3, "type");
+          String timezone = supplementalData.resolveParsedMetazone(metazone_name,"001");
+          String countryCode = supplementalDataInfo.getZone_territory(timezone);
+          String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
+          String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
+          String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""+timezone+"\"]/exemplarCity");
+          if ( exemplarCity == null )
+             exemplarCity = timezone.substring(timezone.lastIndexOf('/')+1).replace('_',' ');
+
+          String countryName = cldrFile.getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\""+countryCode+"\"]");
+          boolean singleZone = singleCountryZones.contains(timezone) || !(supplementalDataInfo.getMultizones().contains(countryCode));
+
+          if ( singleZone ) {
+            result = setBackground(getMZTimeFormat() + " " + 
+                      format(regionFormat, countryName));
+          }
+          else {
+            result = setBackground(getMZTimeFormat() + " " + 
+                      format(fallbackFormat, exemplarCity, countryName));
+          }
+        }
+        else {
+          String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
+          String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
+          String metazone_name = parts.getAttributeValue(3, "type");
+          String tz_string = supplementalData.resolveParsedMetazone(metazone_name,"001");
+          TimeZone currentZone = TimeZone.getTimeZone(tz_string);
+          int tzOffset = currentZone.getRawOffset();
+          if (parts.contains("daylight")) {
+             tzOffset += currentZone.getDSTSavings();
+          }
+          int MILLIS_PER_MINUTE = 1000 * 60;
+          int MILLIS_PER_HOUR = MILLIS_PER_MINUTE * 60;
+          int tm_hrs = tzOffset / MILLIS_PER_HOUR;
+          int tm_mins = ( tzOffset % MILLIS_PER_HOUR ) / 60000; // millis per minute
+          result = setBackground(getMZTimeFormat() + " " + getGMTFormat( hourFormat,gmtFormat,tm_hrs,tm_mins));
+        }
+      }
+    }
+    result = finalizeBackground(result);
+    return result;
+  }
+
+  private String handleDateFormatItem(String value) {
+    String result = null;
+    if (parts.contains("calendar")) {
+      String calendar = parts.findAttributeValue("calendar", "type");
+      SimpleDateFormat dateFormat;
+      if (parts.contains("dateTimeFormat")) {
+        SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
+        SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
+        date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
+        dateFormat = date2;
+      } else {
+        String id = parts.findAttributeValue("dateFormatItem", "id");
+        if ("NEW".equals(id) || value == null) {
+          result = "<i>n/a</i>";
+          return result;
+        } else {
+          dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+        }
+      }
+      dateFormat.setTimeZone(ZONE_SAMPLE);
+      result = dateFormat.format(DATE_SAMPLE);
+      result = finalizeBackground(result);
+    } else if (parts.contains("numbers")) {
+      DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
+      result = numberFormat.format(NUMBER_SAMPLE);
+    }
+    return result;
+  }
+
+  private String handleCurrency(String xpath, String value, ExampleContext context, ExampleType type) {
+    String currency = parts.getAttributeValue(-2, "type");
+    String fullPath = cldrFile.getFullXPath(xpath, false);
+    if (parts.contains("symbol")) {
+      if (fullPath != null && fullPath.contains("[@choice=\"true\"]")) {
+        ChoiceFormat cf = new ChoiceFormat(value);
+        value = cf.format(NUMBER_SAMPLE);
+      }
+      // TODO fix to use value!!
+      String result;
+      DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
+      result = x.format(NUMBER_SAMPLE);
+      result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
+      result = finalizeBackground(result);
+      return result;
+    } else if (parts.contains("displayName")) {
+      return formatCountValue(parts, value, Count.one, context, type);
+    }
+    return null;
+  }
+
+  private String handleDateRangePattern(String value, String xpath, Zoomed zoomed) {
+    String result;
+    SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
+    result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)));
+    result = finalizeBackground(result);
+    return result;
+  }
+
+  private String handleDisplayNames(String xpath, String value) {
+    String result = null;
+    if (xpath.contains("/codePatterns")) {
+      //parts.set(xpath);
+      result = format(value, setBackground("CODE"));
+      result = finalizeBackground(result);
+    } else if (parts.contains("languages") ) {
+      String type = parts.getAttributeValue(-1, "type");
+      if (type.contains("_")) {
+        if (value != null && !value.equals(type)) {
+          result = value;
+        } else {
+          result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"));
+        }
+      }
+    }
+    return result;
+  }
+
+  private String handleExemplarCharacters(String value, Zoomed zoomed) {
+    String result = null;
+    if (value != null) {
+      if (zoomed == Zoomed.IN) {
+        UnicodeSet unicodeSet = new UnicodeSet(value);
+        if (unicodeSet.size() < 500) {
+          result = CollectionUtilities.prettyPrint(unicodeSet, false, null, null, col, col);
+        }
+      }
+    }
+    return result;
   }
   
   public String format(String format, Object...objects ) {

@@ -481,8 +481,11 @@ public class XPathParts {
 	}
 	
 	public String toString(int limit) {
-		String result = "/";
-		try {
+	  if (limit < 0) {
+	    limit += size();
+	  }
+	  String result = "/";
+	  try {
 			for (int i = 0; i < limit; ++i) {
 				result += elements.get(i).toString(XPATH_STYLE);
 			}
@@ -492,7 +495,13 @@ public class XPathParts {
 		return result;
 	}
 	public String toString(int start, int limit) {
-		String result = "";
+	  if (start < 0) {
+	    start += size();
+	  }
+	  if (limit < 0) {
+	    limit += size();
+	  }
+	  String result = "";
 		for (int i = start; i < limit; ++i) {
 			result += elements.get(i).toString(XPATH_STYLE);
 		}

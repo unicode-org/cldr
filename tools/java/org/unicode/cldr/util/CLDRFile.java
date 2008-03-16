@@ -31,6 +31,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -2304,7 +2305,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   
   // WARNING: this must go AFTER attributeOrdering is set; otherwise it uses a null comparator!!
   private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
-  
+
   //private static Set atomicElements = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{"collation", "segmentation"})));
   
   public static final String distinguishedXPathStats() {
@@ -2664,8 +2665,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
     // units
-    final Set<String> pluralCounts = supplementalData.getPlurals(getLocaleID()).getTypeToExample().keySet();
-    for (String count : pluralCounts) {
+    final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
+    for (Count count : pluralCounts) {
       toAddTo.add("//ldml/units/unit[@type=\"default\"]/unitPattern[@count=\"" + count + "\"]");
       for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
         toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
@@ -2709,6 +2710,22 @@ public class CLDRFile implements Freezable, Iterable<String> {
       }
       return excludedZones;
     }
+  }
+
+  public String getCountPath(String xpath, Count count) {
+    String result;
+    if (getStringValue(result = getWinningPath(xpath + "[@count=\"" + count + "\"]")) != null) {
+      return result;
+    }
+    if (getStringValue(result = getWinningPath(xpath)) != null) {
+      return result;
+    }
+    for (Count count2 : Count.values()) {
+      if (getStringValue(result = getWinningPath(xpath + "[@count=\"" + count2 + "\"]")) != null) {
+        return result;
+      }
+    }
+    return result;
   }
   
 }

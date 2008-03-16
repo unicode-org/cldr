@@ -5,6 +5,9 @@ import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
+import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
@@ -60,13 +63,12 @@ public class ConsoleCheckCLDR {
   public static boolean showStackTrace = false;
   public static boolean errorsOnly = false;
   static boolean SHOW_LOCALE = true;
-  static boolean SHOW_EXAMPLES = false;
+  static Zoomed SHOW_EXAMPLES = null;
   static PrintWriter generated_html = null;
   static PrintWriter generated_html_count = null;
   static PrintWriter generated_html_summary = null;
   static  PrettyPath prettyPathMaker = new PrettyPath();
   static  String generated_html_directory = null;
-
 
   private static final int
   HELP1 = 0,
@@ -92,7 +94,7 @@ public class ConsoleCheckCLDR {
     UOption.HELP_H(),
     UOption.HELP_QUESTION_MARK(),
     UOption.create("coverage", 'c', UOption.REQUIRES_ARG),
-    UOption.create("examples", 'x', UOption.NO_ARG),
+    UOption.create("examples", 'x', UOption.OPTIONAL_ARG),
     UOption.create("file_filter", 'f', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("test_filter", 't', UOption.REQUIRES_ARG).setDefault(".*"),
     UOption.create("date_formats", 'd', UOption.NO_ARG),
@@ -118,7 +120,7 @@ public class ConsoleCheckCLDR {
     "-oxxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
     "-x \t Turn on examples (actually a summary of the demo)",
     "-d \t Turn on special date format checks",
-    "-A \t Show all paths",
+    "-a \t Show all paths",
     "-e \t Show errors only (with -ef, only final processing errors)",
     "-n \t No aliases",
     "-u \t User, eg -uu148",
@@ -150,7 +152,9 @@ public class ConsoleCheckCLDR {
 //      CheckCLDR.finalErrorType = CheckStatus.warningType;
 //    }
     
-    SHOW_EXAMPLES = options[EXAMPLES].doesOccur; // eg .*Collision.* 
+    SHOW_EXAMPLES = !options[EXAMPLES].doesOccur ? null
+            : options[EXAMPLES].value == null ? Zoomed.OUT
+                    : Zoomed.valueOf(options[EXAMPLES].value.toUpperCase());
     boolean showAll = options[SHOWALL].doesOccur; 
     boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur; 
     String pathFilterString = options[PATH_FILTER].value;
@@ -390,7 +394,8 @@ public class ConsoleCheckCLDR {
 //      }
       
       // only create if we are going to use
-      ExampleGenerator exampleGenerator = SHOW_EXAMPLES ? new ExampleGenerator(file, Utility.SUPPLEMENTAL_DIRECTORY) : null;
+      ExampleGenerator exampleGenerator = SHOW_EXAMPLES != null ? new ExampleGenerator(file, Utility.SUPPLEMENTAL_DIRECTORY) : null;
+      ExampleContext exampleContext = new ExampleContext();
       
       //Status pathStatus = new Status();
       int pathCount = 0;
@@ -415,9 +420,9 @@ public class ConsoleCheckCLDR {
 
         String example = "";
 
-        if (SHOW_EXAMPLES) {
-          example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT);
-          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example);
+        if (SHOW_EXAMPLES != null) {
+          example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example, exampleContext);
           //continue; // don't show problems
         }
 
@@ -426,7 +431,7 @@ public class ConsoleCheckCLDR {
         }
         
         int limit = 1;
-        if (SHOW_EXAMPLES) limit = 2;
+        if (SHOW_EXAMPLES == Zoomed.IN) limit = 2;
         for (int jj = 0; jj < limit; ++jj) {
           if (jj == 0) {
             checkCldr.check(path, fullPath, value, options, result);
@@ -434,8 +439,7 @@ public class ConsoleCheckCLDR {
             checkCldr.getExamples(path, fullPath, value, options, result);
           }
           
-          if (showAll) pathShower.showHeader(path, value);
-                    
+          boolean showedOne = false;
           for (Iterator it3 = result.iterator(); it3.hasNext();) {
             CheckStatus status = (CheckStatus) it3.next();
             String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
@@ -459,7 +463,8 @@ public class ConsoleCheckCLDR {
               }
               continue;
             }
-            showValue(prettyPath, localeID, example, path, value, fullPath, statusString);
+            showValue(prettyPath, localeID, example, path, value, fullPath, statusString, exampleContext);
+            showedOne = true;
 
             subtotalCount.add(status.getType(), 1);
             totalCount.add(status.getType(), 1);
@@ -474,6 +479,11 @@ public class ConsoleCheckCLDR {
             }
             // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
           }
+          if (showAll && !showedOne) {
+            showValue(prettyPath, localeID, example, path, value, fullPath, "noerr", exampleContext);
+            //pathShower.showHeader(path, value);
+          }
+
         }
       }
       showSummary(checkCldr, localeID, level, "Paths:\t" + pathCount);
@@ -487,7 +497,7 @@ public class ConsoleCheckCLDR {
       if (checkFlexibleDates) {
         fset.showFlexibles();
       }
-      if (SHOW_EXAMPLES) {
+      if (SHOW_EXAMPLES != null) {
 //      ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity
         for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
           String path = "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
@@ -495,8 +505,8 @@ public class ConsoleCheckCLDR {
           if (!pathFilter.reset(path).matches()) continue;
           String fullPath = file.getStringValue(path);
           if (fullPath != null) continue;
-          String example = exampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT);
-          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example);
+          String example = exampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+          showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example, exampleContext);
         }
       }
       System.out.println("Elapsed time: " + timer);
@@ -613,17 +623,19 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     System.out.println(getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value);
   }
 
-  private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example) {
+  private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example, ExampleContext exampleContext) {
     if (example != null) {
-      showValue(prettyPath, localeID, example, path, value, fullPath, "ok");
+      showValue(prettyPath, localeID, example, path, value, fullPath, "ok", exampleContext);
     }
-    String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN);
-    if (longExample != null && !longExample.equals(example)) {
-      showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in");
-    }
-    String help = exampleGenerator.getHelpHtml(path, value);
-    if (help != null) {
-      showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help");
+    if (SHOW_EXAMPLES == Zoomed.IN) {
+      String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN, exampleContext, ExampleType.NATIVE);
+      if (longExample != null && !longExample.equals(example)) {
+        showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in", exampleContext);
+      }
+      String help = exampleGenerator.getHelpHtml(path, value);
+      if (help != null) {
+        showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help", exampleContext);
+      }
     }
   }
 
@@ -678,14 +690,14 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   private static ExampleGenerator englishExampleGenerator;
   private static Object lastLocaleID = null;
   
-  private static void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString) {
+  private static void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = null;
-    if (SHOW_EXAMPLES) {
+    if (SHOW_EXAMPLES != null) {
       if (getExampleGenerator() == null) {
         setExampleGenerator(new ExampleGenerator(CheckCLDR.getDisplayInformation(), Utility.SUPPLEMENTAL_DIRECTORY));
       }
-      englishExample = getExampleGenerator().getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT);
+      englishExample = getExampleGenerator().getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
     }
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";

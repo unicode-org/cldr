@@ -10,6 +10,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -101,8 +102,8 @@ public class TestSupplementalData {
     
     for (PluralInfo pluralInfo2 : pluralsToLocale.keySet()) {
       System.out.println("Locales: \t" + pluralsToLocale.getAll(pluralInfo2));
-      final Map<String, String> typeToExamples = pluralInfo2.getTypeToExamples();
-      for (String type : typeToExamples.keySet()) {
+      final Map<Count, String> typeToExamples = pluralInfo2.getCountToStringExamplesMap();
+      for (Count type : typeToExamples.keySet()) {
         System.out.println("\tPlural Code: \t" + type + " \t=>\t" + typeToExamples.get(type));
       }
       System.out.println();

@@ -65,11 +65,11 @@ public class CheckAttributeValues extends CheckCLDR {
                 // then for the specific element
                 check(attribute_validity, attribute, attributeValue, result);
                 if (attribute.equals("count")) {
-                  if (!pluralInfo.getTypeToExample().keySet().contains(attributeValue)) {
+                  if (!pluralInfo.getCountToExamplesMap().keySet().contains(attributeValue)) {
                     result.add(new CheckStatus()
                     .setCause(this).setType(CheckStatus.errorType)
                     .setMessage("Illegal plural value {0}; must be one of: {1}", 
-                            new Object[]{attributeValue, pluralInfo.getTypeToExample().keySet()}));          
+                            new Object[]{attributeValue, pluralInfo.getCountToExamplesMap().keySet()}));          
                   }
                 }
             }

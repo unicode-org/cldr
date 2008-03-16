@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import org.omg.CORBA.TRANSIENT;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
@@ -962,16 +963,17 @@ public class SupplementalDataInfo {
   
   private Map<String,PluralInfo> localeToPluralInfo = new LinkedHashMap<String,PluralInfo>();
   private transient String lastPluralLocales = "root";
-  private transient Map<String,String> lastPluralMap = new LinkedHashMap<String,String>();
+  private transient Map<Count,String> lastPluralMap = new LinkedHashMap<Count,String>();
   
   private void addPluralPath(XPathParts path, String value) {
     String locales = path.getAttributeValue(2, "locales");
-    String count = path.getAttributeValue(-1, "count");
     if (!lastPluralLocales.equals(locales)) {
       addPluralInfo();
       lastPluralLocales = locales;
     }
-    if (count == null) return;
+    final String countString = path.getAttributeValue(-1, "count");
+    if (countString == null) return;
+    Count count = Count.valueOf(countString);
     if (lastPluralMap.containsKey(count)) {
       throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
     }
@@ -979,8 +981,9 @@ public class SupplementalDataInfo {
   }
 
   private void addPluralInfo() {
+    final String[] locales = lastPluralLocales.split("\\s+");
     PluralInfo info = new PluralInfo(lastPluralMap);
-    for (String locale : lastPluralLocales.split("\\s+")) {
+    for (String locale : locales) {
       if (localeToPluralInfo.containsKey(locale)) {
         throw new IllegalArgumentException("Duplicate plural locale: " + locale);
       }
@@ -994,49 +997,74 @@ public class SupplementalDataInfo {
    * @author markdavis
    */
   public static class PluralInfo {
+    public enum Count {
+      zero, one, two, few, many, other;
+      public static final List<Count> SEARCH_LIST = Arrays.asList(new Count[]{Count.one, Count.other, Count.zero, Count.two, Count.few, Count.many});
+    }
     static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
-    static final MapComparator magnitudeOrder = new MapComparator(
-            new String[]{"zero", "one", "two", "few", "many", "other"})
-      .setErrorOnMissing(true);
     
-    private final Map<String,Integer> typeToExample;
-    private final Map<String,String> typeToExamples;
-    private final Map<Integer,String> exampleToType;
+    private final Map<Count,List<Double>> countToExampleList;
+    private final Map<Count,String> countToStringExample;
+    private final Map<Integer,Count> exampleToCount;
     private final PluralRules pluralRules;
+    private final String pluralRulesString;
 
-    private PluralInfo(Map<String,String> countToRule) {
+    private PluralInfo(Map<Count,String> countToRule) {
       // now build rules
-      StringBuilder pluralRuleString = new StringBuilder();
+      StringBuilder pluralRuleBuilder = new StringBuilder();
       XPathParts parts = new XPathParts();
-      for (String count : countToRule.keySet()) {
-        if (pluralRuleString.length() != 0) {
-          pluralRuleString.append(';');
+      for (Count count : countToRule.keySet()) {
+        if (pluralRuleBuilder.length() != 0) {
+          pluralRuleBuilder.append(';');
         }
-        pluralRuleString.append(count).append(':').append(countToRule.get(count));
+        pluralRuleBuilder.append(count).append(':').append(countToRule.get(count));
       }
-      pluralRules = PluralRules.createRules(pluralRuleString.toString());
+      pluralRulesString = pluralRuleBuilder.toString();
+      pluralRules = PluralRules.createRules(pluralRulesString);
       Set targetKeywords = pluralRules.getKeywords();
-      Map<String,Integer> typeToExample2 = new TreeMap<String,Integer>(magnitudeOrder);
-      Map<Integer,String> exampleToType2 = new TreeMap<Integer,String>();
-      Map<String,UnicodeSet> typeToExamples2 = new TreeMap<String,UnicodeSet>(magnitudeOrder);
+      
+      Map<Count,List<Double>> typeToExample2 = new TreeMap<Count,List<Double>>();
+      Map<Integer,Count> exampleToType2 = new TreeMap<Integer,Count>();
+      Map<Count,UnicodeSet> typeToExamples2 = new TreeMap<Count,UnicodeSet>();
       
       for (int i = 0; i < 1000; ++i) {
-        String type = pluralRules.select(i);
+        Count type = Count.valueOf(pluralRules.select(i));
         UnicodeSet uset = typeToExamples2.get(type);
         if (uset == null) typeToExamples2.put(type, uset = new UnicodeSet());
         uset.add(i);       
-        if (typeToExample2.containsKey(type)) continue;
-        typeToExample2.put(type, i);
-        exampleToType2.put(typeToExample2.get(type), type); // do this way to avoid reboxing
       }
       // double check
-      if (!targetKeywords.equals(typeToExample2.keySet())) {
-        throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
-      }
+//      if (!targetKeywords.equals(typeToExamples2.keySet())) {
+//        throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
+//      }
       // now fix the longer examples
-      Map<String,String> typeToExamples3 = new TreeMap<String,String>(magnitudeOrder);
-      for (String type : typeToExamples2.keySet()) {
+      String fractionalExamples = "";
+      List<Double> fractions = new ArrayList(0);
+      
+      // add fractional samples
+      Map<Count,String> typeToExamples3 = new TreeMap<Count,String>();
+      for (Count type : typeToExamples2.keySet()) {
         UnicodeSet uset = typeToExamples2.get(type);
+        int sample = uset.getRangeStart(0);
+        if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
+          UnicodeSet temp = new UnicodeSet(uset);
+          temp.remove(0);
+          sample = temp.getRangeStart(0);
+        }
+        Integer sampleInteger = sample;
+        final ArrayList<Double> arrayList = new ArrayList<Double>();
+        arrayList.add((double)sample);
+        typeToExample2.put(type, arrayList);
+        exampleToType2.put(sampleInteger, type);
+        
+        // add fractional examples
+        if (fractionalExamples.length() != 0) {
+          fractionalExamples += ", ";
+        }
+        final double fraction = (sample + 0.31d);
+        fractionalExamples += fraction;
+        fractions.add(fraction);
+
         StringBuilder b = new StringBuilder();
         int limit = uset.getRangeCount();
         int count = 0;
@@ -1063,24 +1091,50 @@ public class SupplementalDataInfo {
         }
         typeToExamples3.put(type, b.toString());
       }
+      String otherExamples = typeToExamples3.get(Count.other) + "; " + fractionalExamples + "...";
+      typeToExamples3.put(Count.other, otherExamples);
       
-      typeToExample = Collections.unmodifiableMap(typeToExample2);
-      typeToExamples = Collections.unmodifiableMap(typeToExamples3);
-      exampleToType = Collections.unmodifiableMap(exampleToType2);
+      for (Count type : typeToExample2.keySet()) {
+        List<Double> list = typeToExample2.get(type);
+        if (type.equals(Count.other)) {
+          list.addAll(fractions);
+        }
+        list = Collections.unmodifiableList(list);
+      }
+      
+      countToExampleList = Collections.unmodifiableMap(typeToExample2);
+      countToStringExample = Collections.unmodifiableMap(typeToExamples3);
+      exampleToCount = Collections.unmodifiableMap(exampleToType2);
     }
 
     public String toString() {
-      return typeToExample + "; " + exampleToType + "; " + pluralRules;
+      return countToExampleList + "; " + exampleToCount + "; " + pluralRules;
     }
 
-    public Map<String, Integer> getTypeToExample() {
-      return typeToExample;
+    public Map<Count, List<Double>> getCountToExamplesMap() {
+      return countToExampleList;
     }
-    public Map<String, String> getTypeToExamples() {
-      return typeToExamples;
+    public Map<Count, String> getCountToStringExamplesMap() {
+      return countToStringExample;
     }
-    public Map<Integer, String> getExampleToType() {
-      return exampleToType;
+
+    public Count getCount(double exampleCount) {
+      // HACK for now
+      try {
+        final long rounded = Math.round(exampleCount);
+        double diff = Math.abs(exampleCount - rounded);
+        if (diff > 0.0000001) {
+          return Count.other;
+        }
+        return Count.valueOf(pluralRules.select(rounded));
+      } catch (RuntimeException e) {
+        return null;
+      }
+    }
+
+    public String getRules() {
+      // TODO Auto-generated method stub
+      return pluralRulesString;
     }
   }
 

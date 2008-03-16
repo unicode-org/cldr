@@ -130,7 +130,7 @@ public class CheckDates extends CheckCLDR {
       if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
       	String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
       	String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
-      	if (value.length() > wideValue.length()) {
+      	if (wideValue != null && value.length() > wideValue.length()) {
           CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
           .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value, wideValue);      
           result.add(item);

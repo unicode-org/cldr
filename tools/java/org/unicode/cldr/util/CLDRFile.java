@@ -48,6 +48,8 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import org.unicode.cldr.icu.CollectionUtilities;
 
 import org.unicode.cldr.test.DateTimePatternGenerator;
+
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -1896,12 +1898,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
     }
     
+    String nameSeparator = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
     String sname;
     String extras = "";
     if (!haveScript) {
       sname = original = lparser.getScript();
       if (sname.length() != 0) {
-        if (extras.length() != 0) extras += ", ";
+        if (extras.length() != 0) extras += nameSeparator;
         sname = getName(SCRIPT_NAME, sname);
         extras += (sname == null ? original : sname);
       }
@@ -1909,19 +1912,23 @@ public class CLDRFile implements Freezable, Iterable<String> {
     if (!haveRegion) {
       original = sname = lparser.getRegion();
       if (sname.length() != 0) {
-        if (extras.length() != 0) extras += ", ";
+        if (extras.length() != 0) extras += nameSeparator;
         sname = getName(TERRITORY_NAME, sname);
         extras += (sname == null ? original : sname);
       }
     }
     List variants = lparser.getVariants();
     for (int i = 0; i < variants.size(); ++i) {
-      if (extras.length() != 0) extras += ", ";
+      if (extras.length() != 0) extras += nameSeparator;
       sname = getName(VARIANT_NAME, original = (String)variants.get(i));
       extras += (sname == null ? original : sname);
     }
     // fix this -- shouldn't be hardcoded!
-    return name + (extras.length() == 0 ? "" : " (" + extras + ")");
+    if (extras.length() == 0) {
+      return name;
+    }
+    String namePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+    return MessageFormat.format(namePattern, new Object[]{name, extras});
   }
   
   /**

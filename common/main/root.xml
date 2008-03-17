@@ -8,6 +8,10 @@
     </identity>
     <fallback/>
     <localeDisplayNames>
+        <localeDisplayPattern>
+            <localePattern>{0} ({1})</localePattern>
+            <localeSeparator>, </localeSeparator>
+        </localeDisplayPattern>
         <measurementSystemNames>
             <measurementSystemName type="US">US</measurementSystemName>
             <measurementSystemName type="metric">Metric</measurementSystemName>

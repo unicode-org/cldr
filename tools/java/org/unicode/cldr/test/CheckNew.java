@@ -25,6 +25,7 @@ public class CheckNew extends CheckCLDR {
           //"|languages.*_"
           "currency\\[@type=\"TR[LY]\"\\]/displayName"
           + "|script\\[@type=\"Cans\"\\]"
+          + "|localeDisplayPattern"
           //"|displayName.*\\[@count=\""
           //+ "|exemplarCharacters\\[.*auxiliary"
           + ").*").matcher("");

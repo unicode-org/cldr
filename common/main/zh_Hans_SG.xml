@@ -14,7 +14,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern alt="proposed-x1001" draft="unconfirmed">ddMMMMyyyy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">dd日MMMM月yyyy年</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -62,7 +62,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="provisional">MMMMd</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="provisional">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M月d日</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
 					</availableFormats>

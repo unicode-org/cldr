@@ -135,7 +135,7 @@ public class POSIX_LCMonetary {
       negative_sign = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
    }
    else
-      negative_sign = "";
+      negative_sign = POSIXUtilities.POSIXCharName("-");
 
    
    // Parse Positive Monetary Formats

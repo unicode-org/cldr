@@ -8,6 +8,7 @@ $element=[a-zA-Z0-9]+;
 '/localeDisplayNames/keys/' ($element) '[@type="' ($avalue) '"]' > '0-names|type|' $2;
 '/localeDisplayNames/types/' ($element) '[@type="' ($avalue) '"]'  '[@key="' ($avalue) '"]' > '0-names|' $1 '|' $3 '-' $2;
 '/localeDisplayNames/codePatterns/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
+'/localeDisplayNames/localeDisplayPattern/' ($element) > '0-names|localeDisplayPattern|' $1;
 
 '/localeDisplayNames/languages/alias' > '0-names|language|alias';
 '/localeDisplayNames/territories/alias' > '0-names|territory|alias';

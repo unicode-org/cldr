@@ -374,6 +374,14 @@ public class SupplementalDataInfo {
     return typeToTagToReplacement;
   }
 
+  public static SupplementalDataInfo getInstance(File supplementalDirectory)  {
+      try {
+          return getInstance(supplementalDirectory.getCanonicalPath());
+      } catch (IOException e) {
+          throw (IllegalArgumentException) new IllegalArgumentException()
+          .initCause(e);
+      }
+  }
   public static SupplementalDataInfo getInstance(String supplementalDirectory) {
     synchronized (SupplementalDataInfo.class) {
       SupplementalDataInfo instance = directory_instance
@@ -857,7 +865,7 @@ public class SupplementalDataInfo {
     synchronized (this) {
       if (singleRegionZones == null) {
         singleRegionZones = new HashSet<String>();
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo supplementalData = this; // TODO: this?
         Set<String> multizoneCountries = supplementalData.getMultizones();
         for (String zone : supplementalData.getCanonicalZones()) {
           String region = supplementalData.getZone_territory(zone);

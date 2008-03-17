@@ -41,7 +41,7 @@ public class CheckCoverage extends CheckCLDR {
     private static CoverageLevel coverageLevel = new CoverageLevel();
     private Level requiredLevel;
     
-    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    SupplementalDataInfo supplementalData;
 
     //private boolean requireConfirmed = true;
     //private Matcher specialsToTestMatcher = CLDRFile.specialsToPushFromRoot.matcher("");
@@ -102,7 +102,7 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
-        
+        supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
         PluralInfo pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
         if (pluralInfo == supplementalData.getPlurals("root")) {
           possibleErrors.add(new CheckStatus()

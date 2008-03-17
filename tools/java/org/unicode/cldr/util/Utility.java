@@ -91,7 +91,15 @@ public class Utility {
     public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
     public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
+    /**
+     * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
+     * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
+     */
     public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
+    /**
+     * Only the default, if no other directory is specified.
+     */
+    public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
     public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
     public static final String CHART_DIRECTORY = BASE_DIRECTORY + "diff/";
     public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";

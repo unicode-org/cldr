@@ -13,6 +13,8 @@ import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.util.Freezable;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -579,7 +581,17 @@ public abstract class XMLSource implements Freezable {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     this.nonInheriting = nonInheriting;
   }
-  
+
+  /**
+   * Return a directory to supplemental data used by this source.
+   * If the source is not normally disk-based, the returned directory may be temporary 
+   * and not guaranteed to exist past the lifetime of the XMLSource. The directory
+   * should be considered read-only.
+   */
+  public File getSupplementalDirectory() {
+      return new File(Utility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+  }
+
   /**
    * Internal class for doing resolution
    * @author davis

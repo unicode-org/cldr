@@ -10,6 +10,7 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -1156,6 +1157,32 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return sourceDirectory;
     }
     
+  }
+  
+  public File getSupplementalDirectory() {
+      return dataSource.getSupplementalDirectory();
+  }
+
+  /**
+   * Convenience function to return a list of XML files in the Supplemental directory.
+   * @return all files ending in ".xml"
+   * @see #getSupplementalDirectory()
+   */
+  public File[] getSupplementalXMLFiles() {
+      return getSupplementalDirectory().listFiles(new FilenameFilter() {
+          public boolean accept(File dir, String name) {
+              return name.endsWith(".xml");
+          }} );
+  }
+  
+  /**
+   * Convenience function to return a specific supplemental file
+   * @param filename the file to return
+   * @return the file (may not exist)
+   * @see #getSupplementalDirectory()
+   */
+  public File getSupplementalFile(String filename) {
+      return new File(getSupplementalDirectory(), filename);
   }
   
   public static boolean isSupplementalName(String localeName) {
@@ -2582,7 +2609,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     try {
       return make("supplementalData", false);
     } catch (RuntimeException e) {
-      return Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*").make("supplementalData", false);
+      return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalData", false);
     }
   }
   
@@ -2590,7 +2617,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     try {
       return make("supplementalMetadata", false);
     } catch (RuntimeException e) {
-      return Factory.make(Utility.SUPPLEMENTAL_DIRECTORY, ".*").make("supplementalMetadata", false);
+      return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalMetadata", false);
     }
   }
   
@@ -2669,7 +2696,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
   
   public Collection<String> getExtraPaths(Collection<String> toAddTo) {
-    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
     Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
     // units
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
@@ -2705,7 +2732,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public Set<String> getExcludedZones() {
     synchronized (this) {
       if (excludedZones == null) {
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
         excludedZones = new HashSet<String>(supplementalData.getSingleRegionZones());
         List<String> singleCountries = Arrays.asList(
                 new XPathParts()

@@ -750,6 +750,14 @@ import com.ibm.icu.util.ULocale;
           */
     }
     
+    /**
+     * Return the path to supplemental data.
+     */
+    public File getSupplementalDirectory() {
+        File suppDir =  new File(dir+"/../"+"supplemental");
+        return suppDir;
+    }
+    
     /** 
      * XMLSource API. Unimplemented.
      */
@@ -1763,4 +1771,6 @@ import com.ibm.icu.util.ULocale;
         } // end for
         return null; // couldn't find a slot..
     }
+    
+    
 }

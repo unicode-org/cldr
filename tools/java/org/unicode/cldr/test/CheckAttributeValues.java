@@ -41,7 +41,7 @@ public class CheckAttributeValues extends CheckCLDR {
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
     static Map code_type_replacement = new TreeMap();
-    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    SupplementalDataInfo supplementalData;
     
     boolean isEnglish;
     PluralInfo pluralInfo;
@@ -131,6 +131,7 @@ public class CheckAttributeValues extends CheckCLDR {
           return this;
         }
         
+        supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
         pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
         
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);

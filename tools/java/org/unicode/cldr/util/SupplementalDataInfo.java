@@ -399,7 +399,11 @@ public class SupplementalDataInfo {
       instance = new SupplementalDataInfo();
       MyHandler myHandler = instance.new MyHandler();
       XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-      for (File file : new File(canonicalpath).listFiles()) {
+      File files[] = new File(canonicalpath).listFiles();
+      if(files==null) {
+        throw new InternalError("Could not list XML Files from " + canonicalpath);
+      }
+      for (File file : files) {
         String name = file.toString();
         if (!name.endsWith(".xml")) continue;
         xfr.read(name, -1, true);
@@ -1151,3 +1155,4 @@ public class SupplementalDataInfo {
     return null;
   }
 }
+

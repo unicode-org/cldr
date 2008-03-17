@@ -123,7 +123,7 @@ public class CheckForExemplars extends CheckCLDR {
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
       result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
       .setMessage("The characters \u200E{0}\u200E are not used in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
-    } else if (path.contains("/localeDisplayNames") && !scriptRegionExemplars.containsAll(value)) {
+    } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern") && !scriptRegionExemplars.containsAll(value)) {
       UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(scriptRegionExemplars);
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
       result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)

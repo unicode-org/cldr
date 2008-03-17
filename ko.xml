@@ -1207,6 +1207,64 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
+						</monthWidth>
+						<monthWidth type="narrow">
 							<month type="1">1월</month>
 							<month type="2">2월</month>
 							<month type="3">3월</month>
@@ -1233,34 +1291,6 @@
 							<month type="10">10월</month>
 							<month type="11">11월</month>
 							<month type="12">12월</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">1월</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">1</month>
-							<month type="2">2월</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">2</month>
-							<month type="3">3월</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">3</month>
-							<month type="4">4월</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">4</month>
-							<month type="5">5월</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">5</month>
-							<month type="6">6월</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">6</month>
-							<month type="7">7월</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">7</month>
-							<month type="8">8월</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">8</month>
-							<month type="9">9월</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">9</month>
-							<month type="10">10월</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">10</month>
-							<month type="11">11월</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">11</month>
-							<month type="12">12월</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">12</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1411,8 +1441,9 @@
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">H시 m분 s초</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM월 d일 (E)</dateFormatItem>
+                                                <dateFormatItem id="MMMd">MMM월 d일</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM월 d일</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">MM. dd</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1001" draft="unconfirmed">MM. dd.</dateFormatItem>
 						<dateFormatItem id="MMdd" alt="proposed-x1002" draft="unconfirmed">MM-dd</dateFormatItem>
@@ -1424,7 +1455,7 @@
 						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">YY. M.</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1002" draft="unconfirmed">yy. MM.</dateFormatItem>
 						<dateFormatItem id="yyMM" alt="proposed-x1003" draft="unconfirmed">YY/MM</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy년 MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM">yy년 MMM월</dateFormatItem>
 						<dateFormatItem id="yyQ">yy년 Q분기</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1001" draft="unconfirmed">yy년도 제Q사분기</dateFormatItem>
 						<dateFormatItem id="yyQ" alt="proposed-x1002" draft="unconfirmed">Q yy</dateFormatItem>

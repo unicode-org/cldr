@@ -926,14 +926,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="2" draft="provisional">2月</month>
-							<month type="3" draft="provisional">3月</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy-M</dateFormatItem>
@@ -1035,7 +1027,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMMd</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="yyMMM" draft="unconfirmed">yyMMM</dateFormatItem>

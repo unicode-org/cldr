@@ -26,7 +26,7 @@ public class MailSender {
      */
     public static synchronized void log(String to, String what, Throwable t) {
         try{ 
-          OutputStream file = new FileOutputStream("cldrmail.log", true); // Append
+          OutputStream file = new FileOutputStream(SurveyMain.cldrHome +  "/cldrmail.log", true); // Append
           PrintWriter pw = new PrintWriter(file);
           
           pw.println (new Date().toString() + ": " + to + " : " + what);

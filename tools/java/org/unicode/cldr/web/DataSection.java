@@ -1276,12 +1276,33 @@ public class DataSection extends Registerable {
         List checkCldrResult = new ArrayList();
         
         // iterate over everything in this prefix ..
-        
+        Set<String> baseXpaths = new HashSet<String>();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
+            String xpath = (String)it.next();
+            baseXpaths.add(xpath);
+        }
+        Set<String> allXpaths = new HashSet<String>();
+        allXpaths.addAll(baseXpaths);
+        aFile.getExtraPaths(allXpaths);
+        Set<String> extraXpaths = new HashSet<String>();
+        extraXpaths.addAll(allXpaths);
+        extraXpaths.removeAll(baseXpaths);
+        for(String xpath : extraXpaths) {
+            if(!xpath.startsWith(xpathPrefix)) {
+                //System.err.println("-- "+xpath);
+                allXpaths.remove(xpath);
+            } else {
+                //System.err.println("@@ "+xpath);
+            }
+        }
+        for(String xpath : allXpaths) {
             boolean confirmOnly = false;
             String isToggleFor= null;
-            String xpath = (String)it.next();
 
+            if(!xpath.startsWith(xpathPrefix)) {
+                System.err.println("@@ BAD XPATH " + xpath);
+                continue;
+            }
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
 ///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
                 
@@ -1349,7 +1370,11 @@ public class DataSection extends Registerable {
          /*   }*/
             
             if(fullPath == null) {
-                System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                if(extraXpaths.contains(xpath)) {
+                    // it's just an extra xpath. 
+                } else {
+                    System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                }
                 fullPath = xpath;
             }
 

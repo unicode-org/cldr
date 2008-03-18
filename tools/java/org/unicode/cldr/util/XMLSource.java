@@ -1005,6 +1005,12 @@ public abstract class XMLSource implements Freezable {
     public Comments getXpathComments() {
       return mySource.getXpathComments();
     }
+    /**
+     * Pass the supplemental information from the original XMLSource
+     */
+    public File getSupplementalDirectory() {
+        return mySource.getSupplementalDirectory();
+    }
     public void setXpathComments(Comments path) {
       throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");		
     }

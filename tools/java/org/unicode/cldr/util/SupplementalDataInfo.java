@@ -312,6 +312,27 @@ public class SupplementalDataInfo {
     }
   }
   
+  public static class CurrencyNumberInfo {
+    int digits;
+    int rounding;
+    double roundingIncrement;
+    
+    public int getDigits() {
+      return digits;
+    }
+    public int getRounding() {
+      return rounding;
+    }
+    public double getRoundingIncrement() {
+      return roundingIncrement;
+    }
+    public CurrencyNumberInfo(int digits, int rounding) {
+      this.digits = digits;
+      this.rounding = rounding;
+      roundingIncrement = rounding * Math.pow(10.0, -digits);
+    }
+  }
+  
   private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
   
   private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap();
@@ -337,6 +358,8 @@ public class SupplementalDataInfo {
   
   private Relation<String, String> containment = new Relation(new TreeMap(),
       TreeSet.class);
+  
+  private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap();
   
   private Set<String> multizone = new TreeSet();
   
@@ -445,6 +468,7 @@ public class SupplementalDataInfo {
     alias_zone = Collections.unmodifiableMap(alias_zone);
     references = Collections.unmodifiableMap(references);
     likelySubtags = Collections.unmodifiableMap(likelySubtags);
+    currencyToCurrencyNumberInfo = Collections.unmodifiableMap(currencyToCurrencyNumberInfo);
     
     metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
     typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
@@ -614,6 +638,15 @@ public class SupplementalDataInfo {
           containment.putAll(parts.getAttributeValue(-1, "type"), Arrays
               .asList(parts.getAttributeValue(-1, "contains").split("\\s+")));
           return;
+        }
+        if (level1.equals("currencyData")) {
+          String level2 = parts.getElement(2);
+          if (level2.equals("fractions")) {
+            // <info iso4217="ADP" digits="0" rounding="0"/>
+            currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"), 
+                    new CurrencyNumberInfo(Integer.parseInt(parts.getAttributeValue(3, "digits")), 
+                            Integer.parseInt(parts.getAttributeValue(3, "rounding"))));
+          }
         }
         if (level1.equals("timezoneData")) {
           String level2 = parts.getElement(2);
@@ -1161,6 +1194,16 @@ public class SupplementalDataInfo {
       locale = LanguageTagParser.getParent(locale);
     }
     return null;
+  }
+
+  static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2,0);
+  
+  public CurrencyNumberInfo getCurrencyNumberInfo(String currency) {
+    CurrencyNumberInfo result = currencyToCurrencyNumberInfo.get(currency);
+    if (result == null) {
+      result = DEFAULT_NUMBER_INFO;
+    }
+    return result;
   }
 }
 

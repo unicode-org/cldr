@@ -310,9 +310,23 @@ public class ExampleGenerator {
     String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
     String unitPattern = cldrFile.getStringValue(unitPatternPath);
     DecimalFormat x = icuServiceBuilder.getNumberFormat(1);
+    int decimalCount = -1;
+    if (parts.contains("currency")) {
+      // TODO get the currency decimals directly from supplemental info.
+      DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(parts.getAttributeValue(-2, "type"));
+      decimalCount = currencyFormat.getMinimumFractionDigits();
+    }
     String result = "";
-    for (Double example : exampleCount) {
+    for (double example : exampleCount) {
+      if (decimalCount >= 0) {
+        final boolean isInteger = example == Math.round(example);
+        if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
+        int currentCount = isInteger ? 0 : decimalCount;
+        x.setMaximumFractionDigits(currentCount);
+        x.setMinimumFractionDigits(currentCount);
+      }
       String formattedNumber = x.format(example);
+
       if (value == null) {
         String clippedPath = parts.toString(-1);
         clippedPath += "/" + parts.getElement(-1);

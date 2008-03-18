@@ -502,7 +502,7 @@ public class ConsoleCheckCLDR {
         for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
           String path = "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
           String prettyPath = prettyPathMaker.getPrettyPath(path, false);
-          if (!pathFilter.reset(path).matches()) continue;
+          if (pathFilter != null && !pathFilter.reset(path).matches()) continue;
           String fullPath = file.getStringValue(path);
           if (fullPath != null) continue;
           String example = exampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
@@ -643,6 +643,9 @@ private static void showIndexHead(PrintWriter generated_html_index) {
 //  Status pathStatus = new Status();
     for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
       String path = pit.next();
+      if (file.isPathExcludedForSurvey(path)) {
+        continue;
+      }
       addPrettyPath(file, prettyPathMaker, noaliases, filterDraft, target, path);
     }
   }

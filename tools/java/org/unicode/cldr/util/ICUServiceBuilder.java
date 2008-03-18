@@ -28,6 +28,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 public class ICUServiceBuilder {
   public static Currency NO_CURRENCY = Currency.getInstance("XXX");
@@ -54,6 +55,7 @@ public class ICUServiceBuilder {
   private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap();
   private Map<String, NumberFormat> cacheNumberFormats = new HashMap();
   DecimalFormatSymbols cacheDecimalFormatSymbols = null;
+  private SupplementalDataInfo supplementalData;
   
 //private Factory cldrFactory;
 //public ICUServiceBuilder setCLDRFactory(Factory cldrFactory) {
@@ -83,6 +85,7 @@ public class ICUServiceBuilder {
   }
   public ICUServiceBuilder setCldrFile(CLDRFile cldrFile) {
     this.cldrFile = cldrFile.getResolved();
+    supplementalData = SupplementalDataInfo.getInstance(this.cldrFile.getSupplementalDirectory());
     cacheDateFormats.clear();
     cacheNumberFormats.clear();
     cacheDateFormatSymbols.clear();
@@ -301,13 +304,13 @@ public class ICUServiceBuilder {
     String displayName;
     int fractDigits;
     double roundingIncrement;
-    MyCurrency(String code, String symbol, String displayName, String fractDigits, String roundingIncrement) {
+    
+    MyCurrency(String code, String symbol, String displayName, CurrencyNumberInfo currencyNumberInfo) {
       super(code);
       this.symbol = symbol == null ? code : symbol;
       this.displayName = displayName == null ? code : displayName;
-      this.fractDigits = fractDigits == null ? 2 : Integer.parseInt(fractDigits);
-      this.roundingIncrement = roundingIncrement == null ? 0.0 
-          : Integer.parseInt(roundingIncrement) * Math.pow(10.0, -this.fractDigits);
+      this.fractDigits = currencyNumberInfo.getDigits();
+      this.roundingIncrement = currencyNumberInfo.getRoundingIncrement();
     }
     public String getName(ULocale locale,
         int nameStyle,
@@ -345,6 +348,7 @@ public class ICUServiceBuilder {
     public int getDefaultFractionDigits() {
       return fractDigits;
     }
+    
     public boolean equals(Object other) {
       MyCurrency that = (MyCurrency) other;
       return roundingIncrement == that.roundingIncrement
@@ -434,10 +438,12 @@ public class ICUServiceBuilder {
         pattern = fixCurrencySpacing(pattern, currencySymbol);
       }
       
+      CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(key1);
+      
       mc = new MyCurrency(key1, 
           currencySymbol, 
           cldrFile.getWinningValue(prefix + "displayName"),
-          null, null);
+          info);
       
 //    String possible = null;
 //    possible = cldrFile.getWinningValue(prefix + "decimal"); 
@@ -449,6 +455,8 @@ public class ICUServiceBuilder {
     result = new DecimalFormat(pattern, symbols);
     if (mc != null) {
       result.setCurrency(mc);
+      result.setMaximumFractionDigits(mc.getDefaultFractionDigits());
+      result.setMinimumFractionDigits(mc.getDefaultFractionDigits());
     } else {
       result.setCurrency(NO_CURRENCY);
     }

@@ -844,6 +844,8 @@
                 <quarters>
                     <alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
                 </quarters>
+                <am>AM</am>
+                <pm>PM</pm>
                 <eras>
                     <eraNames>
                         <alias source="locale" path="../eraAbbr"/>
@@ -1281,6 +1283,8 @@
                 <quarters>
                     <alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
                 </quarters>
+                <am>AM</am>
+                <pm>PM</pm>
                 <eras>
                     <eraNames>
                         <alias source="locale" path="../eraAbbr"/>
@@ -1317,6 +1321,12 @@
                         </dateFormat>
                     </dateFormatLength>
                 </dateFormats>
+                <timeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+                </timeFormats>
+                <dateTimeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+                </dateTimeFormats>
             </calendar>
         </calendars>
         <timeZoneNames>

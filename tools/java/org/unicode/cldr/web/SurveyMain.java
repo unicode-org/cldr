@@ -40,6 +40,8 @@ import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 import org.unicode.cldr.test.*;
+import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
+import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
@@ -263,10 +265,12 @@ public class SurveyMain extends HttpServlet {
         GREGORIAN_CALENDAR,
         OTHER_CALENDARS,
         "references",
+        LDMLConstants.LOCALEDISPLAYPATTERN,
         xOTHER
     };
     public static final String GREGO_XPATH = "//ldml/dates/"+LDMLConstants.CALENDARS+"/"+LDMLConstants.CALENDAR+"[@type=\"gregorian\"]";
     public static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
+    public static final String LOCALEDISPLAYPATTERN_XPATH= LOCALEDISPLAYNAMES+LDMLConstants.LOCALEDISPLAYPATTERN;
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
     
@@ -3839,6 +3843,8 @@ public class SurveyMain extends HttpServlet {
                         showPathList(subCtx, GREGO_XPATH, null);
                     } else if(which.equals(OTHER_CALENDARS)) {
                         showPathList(subCtx, OTHER_CALENDARS_XPATH, null);
+                    } else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
+                        showPathList(subCtx, LOCALEDISPLAYPATTERN_XPATH, null);
                     } else if(xOTHER.equals(which)) {
                         showPathList(subCtx, "//ldml", null);
                     } else {
@@ -4310,6 +4316,8 @@ public class SurveyMain extends HttpServlet {
             theMenu=GREGORIAN_CALENDAR;
         } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
             theMenu=OTHER_CALENDARS;
+        } else if(path.startsWith(LOCALEDISPLAYPATTERN_XPATH)) {
+            theMenu=LDMLConstants.LOCALEDISPLAYPATTERN;
         } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
             theMenu=CURRENCIES;
         } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
@@ -5211,6 +5219,9 @@ public class SurveyMain extends HttpServlet {
         if(/* !zoomedIn */ true) {
             ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'>");
             // dataitems_header.jspf
+            // some context
+            ctx.put("DataSection", section);
+            ctx.put("zoomedIn", new Boolean(zoomedIn));
             ctx.includeFragment("dataitems_header.jsp");
             ctx.println("</td></tr>");
         }
@@ -6219,8 +6230,11 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</th>");
         
         // ##3 display / Baseline
+        ExampleContext exampleContext = new ExampleContext();
 
-        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+//        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT,
+                exampleContext, ExampleType.ENGLISH);
         int baseCols = 1;
 
         ctx.println("<th rowspan='"+rowSpan+"'  style='padding-left: 4px;' colspan='"+baseCols+"' valign='top' align='left' class='botgray'>");
@@ -6260,14 +6274,14 @@ public class SurveyMain extends HttpServlet {
         if((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring in the inheritedValue if it has a meaningful test..
             topCurrent = p.inheritedValue;
         }
-        printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
+        printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
         DataSection.DataRow.CandidateItem topProposed = null;
         if(proposedItems.size() > 0) {
             topProposed = proposedItems.get(0);
         }
-        printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
+        printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
 
         boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
 
@@ -6388,7 +6402,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
+                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
 
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
@@ -6396,7 +6410,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList);
+                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
                                 
                 ctx.println("</tr>");
             }
@@ -6681,7 +6695,8 @@ public class SurveyMain extends HttpServlet {
      * @param warningsList if an item has warnings or errors, or demos, add them to this list.
      */ 
     void printCells(WebContext ctx, DataSection section, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, String resultXpath, String ourVoteXpath,
-        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> warningsList, List<String> refsList) {
+        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> warningsList, List<String> refsList,
+        ExampleContext exampleContext) {
         // ##6.1 proposed - print the TOP item
         
         int colspan = zoomedIn?1:2;
@@ -6692,7 +6707,7 @@ public class SurveyMain extends HttpServlet {
         if(item != null) {
             //if(item.value != null) {  // Always generate examples, even on null values.
                 itemExample = section.exampleGenerator.getExampleHtml(item.xpath, item.value,
-                            zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
+                            zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
             //}
             if((item.tests != null) || (item.examples != null)) {
                 haveTests = true;
@@ -6704,7 +6719,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
         if((item != null)&&(item.value != null)) {
-            printDataRowItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify, zoomedIn);
+            printDataRowItem(ctx, p, item, fieldHash, resultXpath, ourVoteXpath, canModify, zoomedIn, exampleContext);
         }
         ctx.println("</td>");    
         // 6.3 - If we are zoomed in, we WILL have an additional column withtests and/or references.
@@ -6753,7 +6768,8 @@ public class SurveyMain extends HttpServlet {
 
     static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 
-    void printDataRowItem(WebContext ctx, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, String resultXpath, String ourVoteXpath, boolean canModify, boolean zoomedIn) {
+    void printDataRowItem(WebContext ctx, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, 
+            String resultXpath, String ourVoteXpath, boolean canModify, boolean zoomedIn, ExampleContext exampleContext) {
     //ctx.println("<div style='border: 2px dashed red'>altProposed="+item.altProposed+", inheritFrom="+item.inheritFrom+", confirmOnly="+new Boolean(p.confirmOnly)+"</div><br>");
         boolean winner = 
             ((resultXpath!=null)&&

@@ -1,5 +1,11 @@
 <%@ include file="stcontext.jspf" %><%-- setup 'ctx' --%>
 
+<!-- 
+xpath: <%= dataSection.xpathPrefix %>  (will be //ldml for misc ..)
+zoomed in: <%= zoomedIn %>
+
+ -->
+
 <i>For details and help on any item, zoom in by clicking on the status icon: 
              <%=   ctx.iconHtml("okay",null) +", "+
                 ctx.iconHtml("ques",null) + ", " +

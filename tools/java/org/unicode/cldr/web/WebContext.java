@@ -908,4 +908,11 @@ public class WebContext implements Cloneable {
             t.printStackTrace();
         }
     }
+
+    public void put(String string, Object object) {
+        temporaryStuff.put(string, object);
+    }
+    public Object get(String string) {
+        return temporaryStuff.get(string);
+    }
 }

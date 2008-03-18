@@ -1298,9 +1298,11 @@ public class DataSection extends Registerable {
         for(String xpath : allXpaths) {
             boolean confirmOnly = false;
             String isToggleFor= null;
-
             if(!xpath.startsWith(xpathPrefix)) {
-                System.err.println("@@ BAD XPATH " + xpath);
+                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
+                continue;
+            } else if(aFile.isPathExcludedForSurvey(xpath)) {
+                if(SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
                 continue;
             }
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
@@ -1832,10 +1834,15 @@ public class DataSection extends Registerable {
                     String suff = suffs[i];
                     
                     // synthesize a new pea..
-                    DataSection.DataRow myp = getDataRow(zone+suff);
+                    String rowXpath = zone+suff;
+                    String base_xpath_string = podBase+ourSuffix+suff;
+                    if(resolvedFile.isPathExcludedForSurvey(base_xpath_string)) {
+                       if(SurveyMain.isUnofficial) System.err.println("@@ synthesized+excluded:" + base_xpath_string);
+                       continue;
+                    }
+                    DataSection.DataRow myp = getDataRow(rowXpath);
                     
                     // set it up..
-                    String base_xpath_string = podBase+ourSuffix+suff;
                     int base_xpath = sm.xpt.getByXpath(base_xpath_string);
                     myp.base_xpath = base_xpath;
                     
@@ -1916,6 +1923,7 @@ public class DataSection extends Registerable {
                 "//ldml/"+"dates/timeZoneNames/metazone",
             // OTHERROOTS
                 SurveyMain.GREGO_XPATH,
+                SurveyMain.LOCALEDISPLAYPATTERN_XPATH,
                 SurveyMain.OTHER_CALENDARS_XPATH
         };
          

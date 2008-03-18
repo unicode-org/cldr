@@ -1502,7 +1502,6 @@ public class DataSection extends Registerable {
                 // Set up 'shim' tests, to display coverage
                 p.setShimTests(base_xpath,this.sm.xpt.getById(base_xpath),checkCldr,options);
 //                System.err.println("Shimmed! "+xpath);
-                continue; // SRL
             } else if(!isReferences) {
                 if(p.inheritedValue == null) {
                     p.updateInheritedValue(vettedParent);

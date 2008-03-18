@@ -1892,10 +1892,10 @@ public class SurveyMain extends HttpServlet {
         Set s = new TreeSet();
         Set badSet = new TreeSet();
         try {
-			PreparedStatement psMySubmit = conn.prepareStatement("select COUNT(id) from CLDR_DATA where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psMyVet = conn.prepareStatement("select COUNT(id) from CLDR_VET where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psnSubmit = conn.prepareStatement("select COUNT(id) from CLDR_DATA where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psnVet = conn.prepareStatement("select COUNT(id) from CLDR_VET where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psMySubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psMyVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psnSubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement psnVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
 			synchronized(reg) {
             java.sql.ResultSet rs = reg.list(org);
@@ -6156,13 +6156,13 @@ public class SurveyMain extends HttpServlet {
                     if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
                         statusIcon = ctx.iconHtml("squo", "No New Values");
                     } else if(p.confirmStatus != Vetting.Status.APPROVED) {
-                        statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
+                        statusIcon = (ctx.iconHtml("ques-2","Not Approved, but no alternatives"));
                     } else {
                         statusIcon = ctx.iconHtml("okay", "Approved Item");
                     }
                 } else {
                     if(!p.hasMultipleProposals && (p.confirmStatus != Vetting.Status.APPROVED)) {
-                        statusIcon = (ctx.iconHtml("squo","Not Approved, but no alternatives"));
+                        statusIcon = (ctx.iconHtml("ques-2","Not Approved, but no alternatives"));
                     } else {
                         statusIcon = okayIcon;
                     }

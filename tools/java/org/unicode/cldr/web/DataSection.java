@@ -494,6 +494,8 @@ public class DataSection extends Registerable {
                         inheritedValue.isParentFallback = true;
                     }
                 }
+            } else {
+                if(SurveyMain.isUnofficial) System.err.println("already have inherited @ " + base_xpath_string);
             }
         }
        
@@ -1102,6 +1104,7 @@ public class DataSection extends Registerable {
                               "^([^/]*)/([^/]*)/time$", "$1/time/$2",
                               "^([^/]*)/([^/]*)/date", "$1/date/$2",
                               "/alias$", "",
+                              "displayName\\[@count=\"([^\"]*)\"\\]$", "displayName ($1)",
                               "dateTimes/date/availablesItem", "available date formats:",
                              /* "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]","/availableDateFormats/$1" */
 //                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
@@ -1229,11 +1232,12 @@ public class DataSection extends Registerable {
                 doExcludeAlways=false;
                 excludeCurrencies=true; // = "//ldml/numbers/currencies";
                 removePrefix = "//ldml/numbers/";
-                canName=false;  // sort numbers by code
+                canName = false;  // sort numbers by code
                 useShorten = true;
             } else {
                 removePrefix = "//ldml/numbers/currencies/currency";
                 useShorten = true;
+                canName = false; // because symbols are included
 //                hackCurrencyDisplay = true;
             }
         } else if(xpathPrefix.startsWith("//ldml/dates")) {
@@ -1282,19 +1286,17 @@ public class DataSection extends Registerable {
             baseXpaths.add(xpath);
         }
         Set<String> allXpaths = new HashSet<String>();
-        allXpaths.addAll(baseXpaths);
-        aFile.getExtraPaths(allXpaths);
         Set<String> extraXpaths = new HashSet<String>();
-        extraXpaths.addAll(allXpaths);
+
+        allXpaths.addAll(baseXpaths);
+        aFile.getExtraPaths(xpathPrefix,extraXpaths);
         extraXpaths.removeAll(baseXpaths);
-        for(String xpath : extraXpaths) {
-            if(!xpath.startsWith(xpathPrefix)) {
-                //System.err.println("-- "+xpath);
-                allXpaths.remove(xpath);
-            } else {
-                //System.err.println("@@ "+xpath);
-            }
-        }
+        allXpaths.addAll(extraXpaths);
+
+//        // Process extra paths.
+//        System.err.println("@@X@ base: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
+//        addExtraPaths(aFile, src, checkCldr, baselineFile, options, extraXpaths);
+        
         for(String xpath : allXpaths) {
             boolean confirmOnly = false;
             String isToggleFor= null;
@@ -1305,6 +1307,7 @@ public class DataSection extends Registerable {
                 if(SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
                 continue;
             }
+            boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
 ///*srl*/  if(xpath.indexOf("Adak")!=-1)
 ///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
                 
@@ -1352,32 +1355,13 @@ public class DataSection extends Registerable {
             //int xpath_id = src.xpt.getByXpath(fullPath);
             int base_xpath = src.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = src.xpt.getById(base_xpath);
-            
-      //      String originalBaseXpath = baseXpath;
 
-            // Check for attribute types
-            /*
-            AttributeChoice attributeChoice = AttributeChoice.createChoice(baseXpath);
-            if(attributeChoice != null) {
-                confirmOnly = true;
-                attributeChoice = null;*/
-/*                
-                // MAY need a remapping.
-                String attributeBasePath = attributeChoice.baseXpath;
-                if(!attributeBasePath.equals(baseXpath)) {
-//                    System.err.println("BasePath " + baseXpath + " >> " + attributeBasePath);
-                    baseXpath = attributeBasePath;
-                }
-*/
-         /*   }*/
-            
-            if(fullPath == null) {
-                if(extraXpaths.contains(xpath)) {
-                    // it's just an extra xpath. 
+            if(fullPath == null) { 
+                if(isExtraPath) {
+                    fullPath=xpath; // (this is normal for 'extra' paths)
                 } else {
-                    System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                    throw new InternalError("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
                 }
-                fullPath = xpath;
             }
 
             if(needFullPathPattern.matcher(xpath).matches()) {
@@ -1436,7 +1420,7 @@ public class DataSection extends Registerable {
             
             if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
             
-            String value = aFile.getStringValue(xpath);
+            String value = isExtraPath?null:aFile.getStringValue(xpath);
 
 //if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
 
@@ -1448,6 +1432,7 @@ public class DataSection extends Registerable {
                 } else {
                     type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
                 }
+//                if(isExtraPath && SurveyMain.isUnofficial) System.err.println("About to replace ["+value+"] value: " + xpath);
                 value = lastType;
                 confirmOnly = true; // can't acccept new data for this.
             }
@@ -1470,25 +1455,14 @@ public class DataSection extends Registerable {
             }
             
             if(value == null) {
-//                throw new InternalError("Value of " + xpath + " is null.");
-/*                if(attributeChoice == null) {
-                  System.err.println("Value of " + xpath + " is null.");
-                }*/
-                 value = "(NOTHING)";
+                value = "(NOTHING)";  /* This is set to prevent crashes.. */
             }
             
-//if(ndebug)    System.err.println("n02  "+(System.currentTimeMillis()-nextTime));
-//if("gsw".equals(type))            System.out.println("* T=" + type + ", X= " + xpath + ", v=" + value);
+            // determine 'alt' param
             String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
 
 //    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
     
-            /*
-            xpp.clear();
-            xpp.initialize(xpath);
-            String lelement = xpp.getElement(-1); */
-            /* all of these are always at the end */
-            
             /* FULL path processing (references.. alt proposed.. ) */
             xpp.clear();
             xpp.initialize(fullPath);
@@ -1498,62 +1472,69 @@ public class DataSection extends Registerable {
             String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
             if(TRACE_TIME) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
-            
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             
+            // Now we are ready to add the data
+            
+            // Load the 'data row' which represents one user visible row of options 
+            // (may be nested in the case of alt types)
             DataRow p = getDataRow(type, altType);
-            if(TRACE_TIME) System.err.println("n04b  "+(System.currentTimeMillis()-nextTime));
-            
-            p.winningXpathId = src.getWinningPathId(base_xpath, locale);
-            
-            if(TRACE_TIME) System.err.println("n04c  "+(System.currentTimeMillis()-nextTime));
-///*srl*/ if(xpath.indexOf("Acre")!=-1) {System.err.println("MM ["+fullPath+"] item:"+type+" - " + altProposed + "  v="+value); }
-
-            
-///*srl*/   if(type.equals("HK")) { System.err.println("@@ alt: " + alt + " -> " + altProposed + " // " + altType + " - type = " + type); }
             p.base_xpath = base_xpath;
-            DataRow superP = getDataRow(type);
-            if(TRACE_TIME) System.err.println("n04d  "+(System.currentTimeMillis()-nextTime));
-//if("gsw".equals(type)) /*SRL*/System.err.println(locale+"T:{"+type+"}, xps: {"+peaSuffixXpath+"}");
+            p.winningXpathId = src.getWinningPathId(base_xpath, locale);
+
+            DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
+            
             peaSuffixXpath = fullSuffixXpath; // for now...
+            
             if(peaSuffixXpath!=null) {
                 p.xpathSuffix = peaSuffixXpath;
-                superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath);
-///*srl*/         if(type.equals("HK")) { System.err.println("SuperP's xps = " + superP.xpathSuffix); }
+                superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath); // initialize parent row without alt
             }
-    
-            if(TRACE_TIME) System.err.println("n04e  "+(System.currentTimeMillis()-nextTime));
+
             if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
                 p.zoomOnly = superP.zoomOnly = true;
             }
             p.confirmOnly = superP.confirmOnly = confirmOnly;
-            if(TRACE_TIME) System.err.println("n04f  "+(System.currentTimeMillis()-nextTime));
 
-            if(!isReferences) {
+            if(isExtraPath) {
+                // Set up 'shim' tests, to display coverage
+                p.setShimTests(base_xpath,this.sm.xpt.getById(base_xpath),checkCldr,options);
+//                System.err.println("Shimmed! "+xpath);
+                continue; // SRL
+            } else if(!isReferences) {
                 if(p.inheritedValue == null) {
                     p.updateInheritedValue(vettedParent);
-                    if(TRACE_TIME) System.err.println("n04f0  "+(System.currentTimeMillis()-nextTime));
                 }
                 if(superP.inheritedValue == null) {
                     superP.updateInheritedValue(vettedParent);
-                    if(TRACE_TIME) System.err.println("n04f1  "+(System.currentTimeMillis()-nextTime));
                 }
             }
+            
+            // voting 
+            // bitwise OR in the voting types. Needed for sorting.
+            if(p.voteType == 0) {
+                int vtypes[] = new int[1];
+                vtypes[0]=0;
+                /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
+                p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
+                p.allVoteType |= vtypes[0];
+                superP.allVoteType |= p.allVoteType;
+                p.voteType = vtypes[0]; // no mask
+            }
+            
+            // Is this a toggle pair with another item?
             if(isToggleFor != null) {
                 if(superP.toggleWith == null) {
                     superP.updateToggle(fullPath, isToggleFor);
-                    if(TRACE_TIME) System.err.println("n04f2  "+(System.currentTimeMillis()-nextTime));
                 }
                 if(p.toggleWith == null) {
                     p.updateToggle(fullPath, isToggleFor);
-                    if(TRACE_TIME) System.err.println("n04f3  "+(System.currentTimeMillis()-nextTime));
                 }
             }
-            if(TRACE_TIME) System.err.println("n04g  "+(System.currentTimeMillis()-nextTime));
             
-            
+            // Is it an attribute choice? (obsolete)
 /*            if(attributeChoice != null) {
                 p.attributeChoice = attributeChoice;
                 p.valuesList = p.attributeChoice.valuesList;
@@ -1564,6 +1545,7 @@ public class DataSection extends Registerable {
                 }
             }*/
             
+            // Some special cases.. a popup menu of values
             if(p.type.startsWith("layout/inText")) {
                 p.valuesList = LAYOUT_INTEXT_VALUES;
                 superP.valuesList = p.valuesList;
@@ -1601,16 +1583,10 @@ public class DataSection extends Registerable {
                 }
             } else {
                 if(superP.displayName == null) {
-                    superP.displayName = baselineFile.getStringValue(xpath(superP)); // isn't this what it's for?
-///*srl*/                  if(p.type.equals("HK") || p.type.equals("MO")) {
-///*srl*/                        System.err.println("SP["+xpath(superP)+"] = " + superP.displayName);
-///*srl*/                  }
+                    superP.displayName = baselineFile.getStringValue(xpath(superP)); 
                 }
                 if(p.displayName == null) {
                     p.displayName = baselineFile.getStringValue(baseXpath);
-///*srl*/                    if(p.type.equals("HK") || p.type.equals("MO")) {
-///*srl*/                        System.err.println("P["+baseXpath+"] = " + p.displayName);
-///*srl*/                    }
                 }
             }
     
@@ -1635,14 +1611,8 @@ public class DataSection extends Registerable {
             }
             CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
             String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
-
-//            if(sm.isUnofficial && base_xpath == 85091) {
-//    /*srl*/  System.err.println("inher "+locale+":"+base_xpath+": xpath " + xpath + ", pwf " + sourceLocaleStatus.pathWhereFound + ", val: " + value);
-//           }
-
-            
             boolean isInherited = !(sourceLocale.equals(locale));
-            
+
             // with xpath munging, attributeChoice items show up as code fallback. Correct it.
 /*            if(attributeChoice!=null && isInherited) {
                 if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
@@ -1650,17 +1620,14 @@ public class DataSection extends Registerable {
                     sourceLocale = locale;
                 }
             }*/
-///*SRL*/     if(xpath.indexOf("Acre")>-1) {
-//                System.err.println(locale + " - CHI0 - " + xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
-//            }
             // ** IF it is inherited, do NOT add any Items.   
             if(isInherited) {
-//                if("gsw".equals(type)) System.err.println("BAIL?? "+ xpath + " V:"+value+" - I:"+isInherited+ " - source="+sourceLocale);
                 if(!isReferences) {
                     p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
                 }
                 continue;
             }
+            
             
             if(TRACE_TIME) System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
     
@@ -1691,20 +1658,27 @@ public class DataSection extends Registerable {
             
             
             String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
-            boolean isCodeFallback = (setInheritFrom!=null)&&
-                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
-            if((checkCldr != null)/*&&(altProposed == null)*/) {
-                checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
-                checkCldr.getExamples(xpath, fullPath, value, options, examplesResult);
+//            boolean isCodeFallback = (setInheritFrom!=null)&&
+//                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
+            
+            if(isExtraPath) { // No real data items if it's an extra path.
+                continue; 
             }
-            DataSection.DataRow.CandidateItem myItem;
+            
+            // ***** Set up Candidate Items *****
+            // These are the items users may choose between
+            //
+            if((checkCldr != null)/*&&(altProposed == null)*/) {
+                checkCldr.check(xpath, fullPath, isExtraPath?null:value, options, checkCldrResult);
+                checkCldr.getExamples(xpath, fullPath, isExtraPath?null:value, options, examplesResult);
+            }
+            DataSection.DataRow.CandidateItem myItem = null;
             
 /*            if(p.attributeChoice != null) {
                 String newValue = p.attributeChoice.valueOfXpath(fullPath);
 //       System.err.println("ac:"+fullPath+" -> " + newValue);
                 value = newValue;
             }*/
-            
             if(TRACE_TIME) System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
             myItem = p.addItem( value, altProposed, null);
 //if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
@@ -1736,20 +1710,8 @@ public class DataSection extends Registerable {
                 p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
             }
             myItem.inheritFrom = setInheritFrom;
-
             // store who voted for what. [ this could be loaded at displaytime..]
            //myItem.votes = sm.vet.gatherVotes(locale, xpath);
-
-            // bitwise OR in the voting types. Needed for sorting.
-            if(p.voteType == 0) {
-                int vtypes[] = new int[1];
-                vtypes[0]=0;
-                /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
-                p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
-                p.allVoteType |= vtypes[0];
-				superP.allVoteType |= p.allVoteType;
-                p.voteType = vtypes[0]; // no mask
-            }
             
             if(!examplesResult.isEmpty()) {
                 // reuse the same ArrayList  unless it contains something                
@@ -1772,6 +1734,31 @@ public class DataSection extends Registerable {
 //        aFile.close();
     }
 
+//    /**
+//     * Create a 'shim' row for each of the named paths
+//     * @param extraXpaths
+//     */
+//    private void addExtraPaths(CLDRFile aFile, CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options, Set<String> extraXpaths) {
+//        
+//        for(String xpath : extraXpaths) {
+//            DataSection.DataRow myp = getDataRow(xpath);
+//            int base_xpath = sm.xpt.getByXpath(xpath);
+//            myp.base_xpath = base_xpath;
+//            
+//            if(myp.xpathSuffix == null) {
+//                myp.xpathSuffix = xpath.substring(xpathPrefix.length());
+//                
+//                // set up the pea
+//                if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
+//                    myp.zoomOnly = true;
+//                }
+//
+//                // set up tests
+//                System.err.println("@@@shimmy - " + xpath);
+//                myp.setShimTests(base_xpath,xpath,checkCldr,options);
+//            }
+//        }
+//    }
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */

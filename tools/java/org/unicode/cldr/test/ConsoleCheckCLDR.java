@@ -346,7 +346,7 @@ public class ConsoleCheckCLDR {
         addPrettyPaths(displayFile, displayFile.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, true, englishPaths);
         englishPaths = Collections.unmodifiableSet(englishPaths); // for robustness
       }
-      paths.addAll(englishPaths);
+      // paths.addAll(englishPaths);
       
       UnicodeSet missingExemplars = new UnicodeSet();
       if (checkFlexibleDates) {

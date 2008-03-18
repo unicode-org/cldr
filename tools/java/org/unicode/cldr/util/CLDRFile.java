@@ -2701,13 +2701,22 @@ public class CLDRFile implements Freezable, Iterable<String> {
     // units
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
     for (Count count : pluralCounts) {
-      toAddTo.add("//ldml/units/unit[@type=\"default\"]/unitPattern[@count=\"" + count + "\"]");
+      toAddTo.add("//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]");
       for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
         toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
       }
       if (count.equals("one") || pluralCounts.size() == 1) continue;
       for (String unit : codes) {
         toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+      }
+    }
+    return toAddTo;
+  }
+  
+  public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {
+    for (String item : getExtraPaths()) {
+      if (item.startsWith(prefix)) {
+        toAddTo.add(item);
       }
     }
     return toAddTo;

@@ -440,6 +440,7 @@ public class CoverageLevel {
         "|.*/pattern(?!Digit)" +
       ")" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
+      "|units/unit" +
       ")").matcher("");
   
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]

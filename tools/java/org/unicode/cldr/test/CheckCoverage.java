@@ -135,7 +135,7 @@ public class CheckCoverage extends CheckCLDR {
           }
 
           if (requiredLevel == null) { 
-               requiredLevel = Level.BASIC; 
+               requiredLevel = Level.MINIMAL; 
           }
         }
         if (DEBUG) {

@@ -4830,12 +4830,12 @@ public class SurveyMain extends HttpServlet {
         if(allMetazones == null) {
             ElapsedTimer et = new ElapsedTimer();    
             XPathParts parts = new XPathParts(null,null);
-            CLDRDBSource mySrc = makeDBSource(getDBConnection(), null, new ULocale("root"));
             Set aset = new TreeSet();
-            for(Iterator i = mySrc.iterator("//ldml/"+"dates/timeZoneNames/zone");i.hasNext();) {
+            CLDRFile mySupp = getFactory().make("supplementalData",false);
+            for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
                 String xpath = i.next().toString();
                 parts.set(xpath);
-                String mzone = parts.getAttributeValue(-1,"mzone");
+                String mzone = parts.getAttributeValue(-1,"other");
                 if(mzone != null) {
                     aset.add(mzone);
                 }

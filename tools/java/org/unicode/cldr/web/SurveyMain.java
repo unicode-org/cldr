@@ -6236,6 +6236,23 @@ public class SurveyMain extends HttpServlet {
         
         // ##3 display / Baseline
         ExampleContext exampleContext = new ExampleContext();
+        
+        // calculate winner
+        // ##5 current control ---
+        DataSection.DataRow.CandidateItem topCurrent = null;
+        if(currentItems.size() > 0) {
+            topCurrent = currentItems.get(0);
+        }
+        if((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring in the inheritedValue if it has a meaningful test..
+            topCurrent = p.inheritedValue;
+        }
+        
+        // Prime the Pump
+        if(topCurrent != null) {
+            /* ignored */ section.exampleGenerator.getExampleHtml(topCurrent.xpath, topCurrent.value,
+                    zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+        }
+        
 
 //        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
         String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT,
@@ -6271,14 +6288,6 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
         }
         
-        // ##5 current control ---
-        DataSection.DataRow.CandidateItem topCurrent = null;
-        if(currentItems.size() > 0) {
-            topCurrent = currentItems.get(0);
-        }
-        if((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring in the inheritedValue if it has a meaningful test..
-            topCurrent = p.inheritedValue;
-        }
         printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
@@ -6865,7 +6874,7 @@ public class SurveyMain extends HttpServlet {
             item.xpathId == p.base_xpath) {   // its xpath is the base xpath.
             ctx.print(ctx.iconHtml("star","CLDR "+getOldVersion()+" item"));
         } else if (isUnofficial && item.isParentFallback) {
-            ctx.print(ctx.iconHtml("okay","parent fallback"));
+//            ctx.print(ctx.iconHtml("okay","parent fallback"));
         }
         
         if(zoomedIn) {

@@ -1104,7 +1104,9 @@ public class DataSection extends Registerable {
                               "^([^/]*)/([^/]*)/time$", "$1/time/$2",
                               "^([^/]*)/([^/]*)/date", "$1/date/$2",
                               "/alias$", "",
-                              "displayName\\[@count=\"([^\"]*)\"\\]$", "displayName ($1)",
+                              "/displayName\\[@count=\"([^\"]*)\"\\]$", "/count=$1",
+                              "\\[@count=\"([^\"]*)\"\\]$", "/count=$1",
+                              "^unit/([^/]*)/unit([^/]*)/", "$1/$2/",
                               "dateTimes/date/availablesItem", "available date formats:",
                              /* "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]","/availableDateFormats/$1" */
 //                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
@@ -1144,9 +1146,10 @@ public class DataSection extends Registerable {
                                                     "\\[@alt=\"[^\"]*\"\\]|"+ // ???
                                                     "/displayName$|"+  // for currency
                                                     "/standard/standard$"     );
-         mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
+         mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+  // these are excluded when 'misc' is chosen.
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
+                                              "^//ldml/units.*|"+
                                               "^//ldml/references.*|"+
                                               "^//ldml/dates/timeZoneNames/zone.*|"+
                                               "^//ldml/dates/timeZoneNames/metazone.*|"+
@@ -1227,6 +1230,12 @@ public class DataSection extends Registerable {
             excludeMost = true;
             useShorten = true;
             removePrefix="//ldml/";
+        }else if(xpathPrefix.startsWith("//ldml/units")) {
+            canName=false;
+            excludeMost=false;
+            doExcludeAlways=false;
+            removePrefix = "//ldml/units/";
+            useShorten=true;
         }else if(xpathPrefix.startsWith("//ldml/numbers")) {
             if(-1 == xpathPrefix.indexOf("currencies")) {
                 doExcludeAlways=false;
@@ -1272,7 +1281,7 @@ public class DataSection extends Registerable {
         } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
             useShorten = true;
             removePrefix = "//ldml/localeDisplayNames/types/type";
-            keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/celander, pinyin/collation.  Reverse this for sorting...
+            keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/calendar, pinyin/collation.  Reverse this for sorting...
         } else if(xpathPrefix.equals("//ldml/references")) {
             isReferences = true;
             canName = false; // disable 'view by name'  for references
@@ -1301,10 +1310,10 @@ public class DataSection extends Registerable {
             boolean confirmOnly = false;
             String isToggleFor= null;
             if(!xpath.startsWith(xpathPrefix)) {
-                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
+//                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
                 continue;
             } else if(aFile.isPathExcludedForSurvey(xpath)) {
-                if(SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
+//                if(SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
                 continue;
             }
             boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
@@ -1910,7 +1919,8 @@ public class DataSection extends Registerable {
             // OTHERROOTS
                 SurveyMain.GREGO_XPATH,
                 SurveyMain.LOCALEDISPLAYPATTERN_XPATH,
-                SurveyMain.OTHER_CALENDARS_XPATH
+                SurveyMain.OTHER_CALENDARS_XPATH,
+                "//ldml/units"
         };
          
         // is it one of the static bases?

@@ -264,9 +264,10 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.NUMBERS,
         GREGORIAN_CALENDAR,
         OTHER_CALENDARS,
-        "references",
         LDMLConstants.LOCALEDISPLAYPATTERN,
-        xOTHER
+        "units",
+        xOTHER,
+        "references"
     };
     public static final String GREGO_XPATH = "//ldml/dates/"+LDMLConstants.CALENDARS+"/"+LDMLConstants.CALENDAR+"[@type=\"gregorian\"]";
     public static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
@@ -3845,6 +3846,8 @@ public class SurveyMain extends HttpServlet {
                         showPathList(subCtx, OTHER_CALENDARS_XPATH, null);
                     } else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
                         showPathList(subCtx, LOCALEDISPLAYPATTERN_XPATH, null);
+                    } else if(which.equals("units")) {
+                        showPathList(subCtx, "//ldml/units", null);
                     } else if(xOTHER.equals(which)) {
                         showPathList(subCtx, "//ldml", null);
                     } else {
@@ -4322,6 +4325,8 @@ public class SurveyMain extends HttpServlet {
             theMenu=CURRENCIES;
         } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
             theMenu=TIMEZONES;
+        } else if(path.startsWith( "//ldml/"+"units")){
+            theMenu="units";
         } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/metazone")){
             theMenu=METAZONES;
         } else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
@@ -6964,7 +6969,7 @@ public class SurveyMain extends HttpServlet {
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
                 if(displaySet.canName) {
-                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
+                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, this.BASELINE_NAME+"-"+"Name");
                 }
             }
             

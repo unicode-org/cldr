@@ -20,6 +20,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -463,7 +464,7 @@ public class ConsoleCheckCLDR {
               }
               continue;
             }
-            showValue(prettyPath, localeID, example, path, value, fullPath, statusString, exampleContext);
+            showValue(file, prettyPath, localeID, example, path, value, fullPath, statusString, exampleContext);
             showedOne = true;
 
             subtotalCount.add(status.getType(), 1);
@@ -480,7 +481,7 @@ public class ConsoleCheckCLDR {
             // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
           }
           if (showAll && !showedOne) {
-            showValue(prettyPath, localeID, example, path, value, fullPath, "noerr", exampleContext);
+            showValue(file, prettyPath, localeID, example, path, value, fullPath, "noerr", exampleContext);
             //pathShower.showHeader(path, value);
           }
 
@@ -624,17 +625,17 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   }
 
   private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example, ExampleContext exampleContext) {
-    if (example != null) {
-      showValue(prettyPath, localeID, example, path, value, fullPath, "ok", exampleContext);
-    }
+//    if (example != null) {
+//      showValue(prettyPath, localeID, example, path, value, fullPath, "ok", exampleContext);
+//    }
     if (SHOW_EXAMPLES == Zoomed.IN) {
       String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN, exampleContext, ExampleType.NATIVE);
       if (longExample != null && !longExample.equals(example)) {
-        showValue(prettyPath, localeID, longExample, path, value, fullPath, "ok-in", exampleContext);
+        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, longExample, path, value, fullPath, "ok-in", exampleContext);
       }
       String help = exampleGenerator.getHelpHtml(path, value);
       if (help != null) {
-        showValue(prettyPath, localeID, help, path, value, fullPath, "ok-help", exampleContext);
+        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, help, path, value, fullPath, "ok-help", exampleContext);
       }
     }
   }
@@ -693,7 +694,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   private static ExampleGenerator englishExampleGenerator;
   private static Object lastLocaleID = null;
   
-  private static void showValue(String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
+  private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
     example = example == null ? "" : "<" + example + ">";
     String englishExample = null;
     if (SHOW_EXAMPLES != null) {
@@ -705,6 +706,9 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
     String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
     String cleanPrettyPath = prettyPathMaker.getOutputForm(prettyPath);
+    Status status = new Status();
+    String source = cldrFile.getSourceLocaleID(path, status);
+    
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
         + "\t" + cleanPrettyPath
@@ -714,6 +718,8 @@ private static void showIndexHead(PrintWriter generated_html_index) {
         + "\t" + example
         + "\t" + statusString
         + "\t" + fullPath
+        + (source.equals(localeID) ? "" : "\t" + source)
+        + (status.pathWhereFound.equals(path) ? "" : "\t" + status.pathWhereFound)
         );
     if (generated_html != null) {
       if (!localeID.equals(lastHtmlLocaleID)) {

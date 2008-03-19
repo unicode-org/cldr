@@ -448,11 +448,29 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Get a string value from an xpath.
    */
   public String getStringValue(String xpath) {
-    return dataSource.getValueAtPath(xpath);
+    String result = dataSource.getValueAtPath(xpath);
+    if (result == null && dataSource.isResolving()) {
+      final String fallbackPath = getFallbackPath(xpath);
+      if (fallbackPath != null) {
+        result = dataSource.getValueAtPath(fallbackPath);
+      }
+    }
+    return result;
+  }
+
+  private String getFallbackPath(String xpath) {
+    if (xpath.contains("[@count=") || xpath.contains("/currency") && xpath.contains("/displayName")) {
+      // remove final attributes
+      int lastSlash = xpath.lastIndexOf('/');
+      int nextBracket = xpath.indexOf('[', lastSlash);
+      String clippedPath = xpath.substring(0,nextBracket);
+      return getCountPath(clippedPath, null);
+    }
+    return null;
   }
   
   /**
-   * Get a string value from an xpath.
+   * Get the full path from a distinguished path
    */
   public String getFullXPath(String xpath) {
     return dataSource.getFullPath(xpath);
@@ -464,7 +482,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * @param status the distinguished path where the item was found. Pass in null if you don't care.
    */
   public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
-    return dataSource.getSourceLocaleID(distinguishedXPath, status);
+    String result =  dataSource.getSourceLocaleID(distinguishedXPath, status);
+    if (result == null && dataSource.isResolving()) {
+      final String fallbackPath = getFallbackPath(distinguishedXPath);
+      if (fallbackPath != null) {
+        result = dataSource.getSourceLocaleID(fallbackPath, status);
+      }
+    }
+    return result;
   }
   
   /**
@@ -2703,14 +2728,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
     Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
     // units
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
-    for (Count count : pluralCounts) {
-      toAddTo.add("//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]");
-      for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
-        toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
-      }
-      if (count.equals(Count.one) || pluralCounts.size() == 1) continue;
-      for (String unit : codes) {
-        toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+    if (pluralCounts.size() != 1) {
+      for (Count count : pluralCounts) {
+        toAddTo.add("//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]");
+        for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
+          toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
+        }
+        if (count.equals(Count.one) || pluralCounts.size() == 1) continue;
+        for (String unit : codes) {
+          toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+        }
       }
     }
     return toAddTo;
@@ -2760,14 +2787,14 @@ public class CLDRFile implements Freezable, Iterable<String> {
 
   public String getCountPath(String xpath, Count count) {
     String result;
-    if (getStringValue(result = getWinningPath(xpath + "[@count=\"" + count + "\"]")) != null) {
+    if (count != null && dataSource.getValueAtPath(result = getWinningPath(xpath + "[@count=\"" + count + "\"]")) != null) {
       return result;
     }
-    if (getStringValue(result = getWinningPath(xpath)) != null) {
+    if (dataSource.getValueAtPath(result = getWinningPath(xpath)) != null) {
       return result;
     }
     for (Count count2 : Count.values()) {
-      if (getStringValue(result = getWinningPath(xpath + "[@count=\"" + count2 + "\"]")) != null) {
+      if (dataSource.getValueAtPath(result = getWinningPath(xpath + "[@count=\"" + count2 + "\"]")) != null) {
         return result;
       }
     }

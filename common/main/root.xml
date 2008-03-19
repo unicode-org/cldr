@@ -1429,29 +1429,28 @@
     <units>
         <!-- http://physics.nist.gov/cuu/Units/outside.html -->
         <unit type="any">
-            <!-- {0} is the formatted number, {1} is the unit -->
-            <unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+            <unitPattern count="one">{0,number,0.##} {1}</unitPattern>
         </unit>
         <unit type="day">
-            <unitName count="other" draft="unconfirmed">d</unitName>
+            <unitName count="one">d</unitName>
         </unit>
         <unit type="hour">
-            <unitName count="other" draft="unconfirmed">h</unitName>
+            <unitName count="one">h</unitName>
         </unit>
         <unit type="minute">
-            <unitName count="other" draft="unconfirmed">min</unitName>
+            <unitName count="one">min</unitName>
         </unit>
         <unit type="month">
-            <unitName count="other" draft="unconfirmed">m</unitName>
+            <unitName count="one">m</unitName>
         </unit>
         <unit type="second">
-            <unitName count="other" draft="unconfirmed">s</unitName>
+            <unitName count="one">s</unitName>
         </unit>
         <unit type="week">
-            <unitName count="other" draft="unconfirmed">w</unitName>
+            <unitName count="one">w</unitName>
         </unit>
         <unit type="year">
-            <unitName count="other" draft="unconfirmed">y</unitName>
+            <unitName count="one">y</unitName>
         </unit>
     </units>
     <posix>

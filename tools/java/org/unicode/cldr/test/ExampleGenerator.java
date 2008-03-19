@@ -28,6 +28,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.IOException;
 import java.text.ChoiceFormat;
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -306,26 +307,34 @@ public class ExampleGenerator {
     } else {
       exampleCount = context.getExampleCount();
     }
-    // first see if there is a unit pattern in this type.
-    String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
-    String unitPattern = cldrFile.getStringValue(unitPatternPath);
-    DecimalFormat x = icuServiceBuilder.getNumberFormat(1);
-    int decimalCount = -1;
-    if (parts.contains("currency")) {
-      // TODO get the currency decimals directly from supplemental info.
-      DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(parts.getAttributeValue(-2, "type"));
-      decimalCount = currencyFormat.getMinimumFractionDigits();
-    }
     String result = "";
     for (double example : exampleCount) {
+      // first see if there is a unit pattern in this type.
+      if (type == ExampleType.ENGLISH) {
+        count = plurals.getCount(example);
+      }
+      String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
+      String unitPattern = cldrFile.getStringValue(unitPatternPath);
+      DecimalFormat decimalFormat = icuServiceBuilder.getNumberFormat(1);
+      MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
+      Format[] formats = unitPatternFormat.getFormatsByArgumentIndex();
+      DecimalFormat unitDecimalFormat = (DecimalFormat) formats[0];
+      unitDecimalFormat.setDecimalFormatSymbols(decimalFormat.getDecimalFormatSymbols());
+      //Map arguments = new HashMap();
+
+      int decimalCount = -1;
+      if (parts.contains("currency")) {
+        // TODO get the currency decimals directly from supplemental info.
+        DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(parts.getAttributeValue(-2, "type"));
+        decimalCount = currencyFormat.getMinimumFractionDigits();
+      }
       if (decimalCount >= 0) {
         final boolean isInteger = example == Math.round(example);
         if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
         int currentCount = isInteger ? 0 : decimalCount;
-        x.setMaximumFractionDigits(currentCount);
-        x.setMinimumFractionDigits(currentCount);
+        decimalFormat.setMaximumFractionDigits(currentCount);
+        decimalFormat.setMinimumFractionDigits(currentCount);
       }
-      String formattedNumber = x.format(example);
 
       if (value == null) {
         String clippedPath = parts.toString(-1);
@@ -333,10 +342,20 @@ public class ExampleGenerator {
         String fallbackPath = cldrFile.getCountPath(clippedPath, count);
         value = cldrFile.getStringValue(fallbackPath);
       }
+      
+      // finally, format the result
+      unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
+      //arguments.put("quantity", example);
+      //arguments.put("unit", value);
+      String resultItem = unitPatternFormat.format(new Object[]{example, value});
+      resultItem = setBackground(resultItem).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
+      resultItem = finalizeBackground(resultItem);
+      
+      // now add to list
       if (result.length() != 0) {
         result += ", ";
       }
-      result += format(unitPattern, formattedNumber, value);
+      result += resultItem;
     }
     return result;
   }

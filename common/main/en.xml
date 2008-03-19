@@ -4274,9 +4274,8 @@
 			<unitName count="other">days</unitName>
 		</unit>
 		<unit type="any">
-			<!-- {0} is the formatted number, {1} is the unit -->
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+            <unitPattern count="one">{0,number,0.##} {1}</unitPattern>
+            <unitPattern count="other">{0,number,0.##} {1}</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitName count="one">hour</unitName>

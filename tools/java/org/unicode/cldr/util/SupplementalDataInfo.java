@@ -1181,6 +1181,10 @@ public class SupplementalDataInfo {
       // TODO Auto-generated method stub
       return pluralRulesString;
     }
+    
+    public Count getDefault() {
+      return null;
+    }
   }
 
   public Set<String> getPluralLocales() {

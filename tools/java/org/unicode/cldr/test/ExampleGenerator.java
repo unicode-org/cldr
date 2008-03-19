@@ -702,6 +702,16 @@ public class ExampleGenerator {
 
     int column = 0;
 
+    /**
+     * Create a HelpMessages object from a filename.
+     * The file has to be in the format of a table of <keyRegex,htmlText> pairs, 
+     * where the key is a keyRegex expression and htmlText is arbitrary HTML text. For example:
+     * <p>{@link http://unicode.org/cldr/data/tools/java/org/unicode/cldr/util/data/chart_messages.html}
+     *  is used for chart messages, where the key is the name of the chart.
+     * <p>{@link http://unicode.org/cldr/data/tools/java/org/unicode/cldr/util/data/test_help_messages.html}
+     * is used for help messages in the survey tool, where the key is an xpath.
+     * @param filename
+     */
     public HelpMessages(String filename) {
       currentColumn[0] = new StringBuilder();
       currentColumn[1] = new StringBuilder();
@@ -775,10 +785,18 @@ public class ExampleGenerator {
       }
     }
 
-    public String find(String xpath) {
+    /**
+     * Get message corresponding to a key out of the file set on this object. 
+     * For many files, the key will be an xpath, but it doesn't have to be. 
+     * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
+     * will be concatenated together in order to get the result.
+     * @param key
+     * @return
+     */
+    public String find(String key) {
       StringBuilder result = new StringBuilder();
       for (int i = 0; i < keys.size(); ++i) {
-        if (keys.get(i).reset(xpath).matches()) {
+        if (keys.get(i).reset(key).matches()) {
           if (result.length() != 0) {
             result.append("\r\n");
           }

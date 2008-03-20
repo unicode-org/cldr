@@ -10,7 +10,7 @@ zoomed in: <%= zoomedIn %>
              <%=   ctx.iconHtml("okay",null) +", "+
                 ctx.iconHtml("ques",null) + ", " +
                 ctx.iconHtml("warn",null) + ", " +
-                ctx.iconHtml("stop",null) + " " +
+                ctx.iconHtml("stop",null) + ", " +
                 ctx.iconHtml("squo",null) + " "  %>
                     </i>
                     <br>

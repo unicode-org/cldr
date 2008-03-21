@@ -17,20 +17,17 @@ $s	= [-] ; # separator -- lenient parsers will use [-_]
 # Now do the components. The structure is slightly different to allow for capturing the right components.
 # The notation (?:....) is a non-capturing version of (...): so the "?:" can be deleted if someone doesn't care about capturing.
 
-$extlang	= (?: $s $alpha{3} ) ;	# *3("-" 3ALPHA)
-$language	= (?: $alpha{2,3} $extlang{0,3} | $alpha{4,8} ) ;	# (2*3ALPHA [ extlang ]) / 4ALPHA / 5*8ALPHA
+$language	= (?: $alpha{2,3} | $alpha{4,8} ) ;	# ABNF (2*3ALPHA) / 4ALPHA / 5*8ALPHA
 
 $script	= (?: $alpha{4} ) ;	# 4ALPHA 
 
 $region	= (?: $alpha{2} | $digit{3} ) ;	 # 2ALPHA / 3DIGIT
 
-$variantSub	= (?: $digit $alphanum{3} | $alphanum{5,8} ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
-$variant	= (?: $variantSub (?: $s $variantSub )* ) ;	# *("-" variant), 5*8alphanum / (DIGIT 3alphanum)
+$variant	= (?: $alphanum{5,8} | $digit $alphanum{3} ) ;	# 5*8alphanum / (DIGIT 3alphanum)
 
-$extensionSub	= (?: $singleton (?: $s $alphanum{2,8} )+ ) ;	# singleton 1*("-" (2*8alphanum))
-$extension	= (?: $extensionSub (?: $s $extensionSub )* ) ;	# singleton 1*("-" (2*8alphanum))
+$extension	= (?: $singleton (?: $s $alphanum{2,8} )+ ) ;	# singleton 1*("-" (2*8alphanum))
 
-$privateuse	= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# ("x"/"X") 1*("-" (1*8alphanum))
+$privateuse	= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# "x" 1*("-" (1*8alphanum))
 
 # Define certain grandfathered codes, since otherwise the regex is pretty useless.
 # Since these are limited, this is safe even later changes to the registry --
@@ -39,29 +36,39 @@ $privateuse	= (?: $x (?: $s $alphanum{1,8} )+ ) ;	# ("x"/"X") 1*("-" (1*8alphanu
 # http://www.iana.org/assignments/language-subtag-registry
 # Note that these have to be compared case insensitively, requiring (?i) below.
 
-$grandfathered	= (?: (?i)
+$grandfathered	= (?: (?i) # case-insensitive
 		en $s GB $s oed
-	|	i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
-	|	sgn $s (?: BE $s fr | BE $s nl | CH $s de)
+    |   i $s (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )
+    |   no $s (?: bok | nyn )
+	|	sgn $s (?: BE $s (?: fr | nl) | CH $s de)
+    |   zh $s (?: cmn (?: $s Hans | $s Hant )? | gan | min (?: $s nan)? | wuu | yue)
 );
 
-# For well-formedness, we don't need the ones that would otherwise pass, so they are commented out here
+# For well-formedness, we don't need the ones that would otherwise pass.
+# For validity, they need to be checked.
 
-#	|	art $s lojban
-#	|	cel $s gaulish
-#	|	en $s (?: boont | GB $s oed | scouse )
-#	|	no $s (?: bok | nyn)
-#	|	zh $s (?: cmn | cmn $s Hans | cmn $s Hant | gan | guoyu | hakka | min | min $s nan | wuu | xiang | yue)
+# $grandfatheredWellFormed = (?:
+#         art $s lojban
+#     |	cel $s gaulish
+#     |	zh $s (?: guoyu | hakka | xiang )
+# );
+
+# We separate items that we want to capture as a single group
+
+$variantGroup   = (?: $variant (?: $s $variant )* ) ; # special for multiples
+$extensionGroup = (?: $extension (?: $s $extension )* ) ;   # special for multiples
 
 # Here is the final breakdown, with capturing groups for each of these components
-# The language, variants, extensions, grandfathered, and private-use may have interior '-'
+# The variants, extensions, grandfathered, and private-use may have interior '-'
  
 $root =
-	 (?: ($language)
+    (?: ($language)
 		(?: $s ($script) )? 40%
 		(?: $s ($region) )? 40%
-		(?: $s ($variant) )? 10%
-		(?: $s ($extension) )? 5%
-		(?: $s ($privateuse) )? 5% ) 90%
-	|	($grandfathered) 5%
+		(?: $s ($variantGroup) )? 10%
+		(?: $s ($extensionGroup) )? 5%
+		(?: $s ($privateuse) )? 5% 
+	) 90%
+#    |   ($grandfatheredWellFormed) 5%
+    |   ($grandfathered) 5%
 	|	($privateuse) 5% ;

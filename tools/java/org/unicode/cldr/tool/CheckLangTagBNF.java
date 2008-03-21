@@ -18,35 +18,34 @@ import com.ibm.icu.dev.test.util.BNF;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Quoter;
 
+/**
+ * Tests language tags.
+ * <p>Internally, it generates a Regex Pattern for BCP 47 language tags, plus an ICU BNF pattern.
+ * The first is a regular Java/Perl style pattern.
+ * The ICU BNF will general random strings that will match that regex.
+ * <p>Use -Dbnf=xxx for the source regex definition file, and -Dtest=yyy for the test file
+ * @author markdavis
+ *
+ */
 class CheckLangTagBNF {
+  private static final String LANGUAGE_TAG_TEST_FILE = Utility.getProperty("test");
+  private static final String BNF_DEFINITION_FILE = Utility.getProperty("bnf");
+
   private String rules;
   private String generationRules;
   private Pattern pattern;
   private BNF bnf;
-  static String[] groupNames = {"whole", "lang", "script", "region", "variants", "extensions", 
+  
+  private static final String[] groupNames = {"whole", "lang", "script", "region", "variants", "extensions", 
   			"privateuse", "grandfathered", "privateuse"
   	};
-  //  String[] tests = {
-  //      "TRUE",
-  //      "en",
-  //      "en-US", 
-  //      "en-Latn", 
-  //      "en-Latn-US", 
-  //      "en-enx", 
-  //      "x-12345678-a", 
-  //      "en-enx-eny-enz-latn-us", 
-  //      "FALSE",
-  //      "en-enx-eny-enz-enw", 
-  //      "en-Latn-US-lojban-gaulish",
-  //      "en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678",
-  //      "en-Latn-001",
-  //      "en-gb-oed", // grandfathered
-  //      "badtagsfromhere",
-  //      "b-fish",
-  //      "en-UK-oed",
-  //      "en-US-Latn", 
-  //  };
   
+  /**
+   * Set the regex to use for testing, based on the contents of a file.
+   * @param filename
+   * @return
+   * @throws IOException
+   */
   public CheckLangTagBNF setFromFile(String filename) throws IOException {
     BufferedReader in = BagFormatter.openUTF8Reader("", filename);
     Utility.VariableReplacer result = new Utility.VariableReplacer();
@@ -124,9 +123,16 @@ class CheckLangTagBNF {
     return generationRules;
   }
 
+  /**
+   * Tests a file for correctness. 
+   * There are two special lines in the file: WELL-FORMED and ILL-FORMED,
+   * that signal the start of each section.
+   * @param args
+   * @throws IOException
+   */
   public static void main(String[] args) throws IOException {
       CheckLangTagBNF bnfData = new CheckLangTagBNF();
-      bnfData.setFromFile("/Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/langtagRegex.txt");
+      bnfData.setFromFile(BNF_DEFINITION_FILE);
       String contents = bnfData.getRules();
       Pattern pat = bnfData.getPattern();
       Matcher regexLanguageTag = pat.matcher("");
@@ -172,7 +178,7 @@ class CheckLangTagBNF {
   		LanguageTagParser ltp = new LanguageTagParser();
       boolean expected = true;
       int errorCount = 0;
-      BufferedReader in = BagFormatter.openUTF8Reader("", "/Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/langtagTest.txt");
+      BufferedReader in = BagFormatter.openUTF8Reader("", LANGUAGE_TAG_TEST_FILE);
       
   		for (int i = 0; ; ++i) {
         String test = in.readLine();

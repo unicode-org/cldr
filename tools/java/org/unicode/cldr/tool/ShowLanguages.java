@@ -85,7 +85,7 @@ public class ShowLanguages {
   
   public static void main(String[] args) throws IOException {
     cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-    english = cldrFactory.make("en", false);
+    english = cldrFactory.make("en", true);
     printLanguageData(cldrFactory, "index.html");
     //cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
     //printLanguageData(cldrFactory, "language_info2.txt");
@@ -889,7 +889,7 @@ public class ShowLanguages {
         .addColumn("Target Lang","class='target'",null,"class='target'",true).setSortPriority(3).setBreakSpans(true)
         .addColumn("Target Script","class='target'",null,"class='target'",true).setSortPriority(4)
         .addColumn("Target Region","class='target'",null,"class='target'",true).setSortPriority(5)
-        .addColumn("Source ID","class='source'",null,"class='source'",true)
+        .addColumn("Source ID","class='source'","<a name=\"{0}\">{0}</a>","class='source'",true)
         .addColumn("Target ID","class='target'",null,"class='target'",true)
         ;
         Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();
@@ -916,7 +916,7 @@ public class ShowLanguages {
 
     private String getName(final int type, final String value) {
       if (value == null || value.equals("") || value.equals("und")) {
-        return "?";
+        return "\u00A0";
       }
       String result = english.getName(type, value);
       if (result == null) {
@@ -1127,7 +1127,7 @@ public class ShowLanguages {
       ;
       TreeSet<String> languages = new TreeSet();
       Collection<Comparable[]> data = new ArrayList<Comparable[]>();
-      String msg = "<br><i>click on each country code</i>";
+      String msg = "<br><i>Please click on each country code</i>";
       for (String territoryName : territoryLanguageData.keySet()) {
         Map<String,Object>results = territoryLanguageData.get(territoryName);
         Set<Pair<Double,Pair<Double,String>>> language = (Set<Pair<Double,Pair<Double,String>>>)results.get("language");
@@ -1159,7 +1159,7 @@ public class ShowLanguages {
             }
             String territoryCode = (String)results.get("code");
             Comparable[] items = new Comparable[]{
-                getLanguageName(languageCode) + msg,
+                getLanguageName(languageCode) + getLanguagePluralMessage(msg, languageCode),
                 languageCode,
                 //bug,
                 territoryName  + getOfficialStatus(territoryCode, languageCode),
@@ -1176,7 +1176,7 @@ public class ShowLanguages {
       }
       for (String languageCode : languages) {
         Comparable[] items = new Comparable[]{
-            getLanguageName(languageCode) + msg,
+            getLanguageName(languageCode) + getLanguagePluralMessage(msg, languageCode),
             languageCode,
             //bug,
             addBug(1217, "<i>add new</i>", "<email>", "add territory to " + getLanguageName(languageCode) + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
@@ -1194,6 +1194,13 @@ public class ShowLanguages {
       String value = tablePrinter.addRows(flattened).toTable();
       pw2.println(value);
       pw2.close();
+    }
+
+    private String getLanguagePluralMessage(String msg, String languageCode) {
+      String mainLanguageCode = new LanguageTagParser().set(languageCode).getLanguage();
+      String messageWithPlurals = msg + ", on <a href='language_plural_rules.html#" + mainLanguageCode + "'>plurals</a>" +
+      		", and on <a href='likely_subtags.html#" + mainLanguageCode + "'>likely-subtags</a>";
+      return messageWithPlurals;
     }
     
     private String getLanguageName(String languageCode) {
@@ -1394,7 +1401,7 @@ public class ShowLanguages {
 //        tablePrinter.addRow(items);
           tablePrinter.addRow()
           .addCell(territoryName)
-          .addCell(territoryCode)
+          .addCell(getTerritoryWithLikelyLink(territoryCode))
           .addCell(population)
           .addCell(territoryLiteracy)
           .addCell(gdp)
@@ -1429,7 +1436,7 @@ public class ShowLanguages {
 //      tablePrinter.addRow(items);
         tablePrinter.addRow()
         .addCell(territoryName)
-        .addCell(territoryCode)
+        .addCell(getTerritoryWithLikelyLink(territoryCode))
         .addCell(population)
         .addCell(territoryLiteracy)
         .addCell(gdp)
@@ -1450,6 +1457,10 @@ public class ShowLanguages {
       String value = tablePrinter.toTable();
       pw2.println(value);
       pw2.close();
+    }
+
+    private String getTerritoryWithLikelyLink(String territoryCode) {
+      return "<a href='likely_subtags.html#und_"+ territoryCode + "'>" + territoryCode + "</a>";
     }
     
     
@@ -1847,7 +1858,7 @@ public class ShowLanguages {
       final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null));
 
       final TablePrinter tablePrinter = new TablePrinter()
-      .addColumn("Language Name","class='source'",null,"class='source'",true).setSortPriority(0)
+      .addColumn("Language Name","class='source'",null,"class='source'",true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
       .addColumn("Code","class='source'","<a name=\"{0}\">{0}</a>","class='source'",true)
       .addColumn("Category","class='target'",null,"class='target'",true).setBreakSpans(true)
       .addColumn("Examples","class='target'",null,"class='target'",true)

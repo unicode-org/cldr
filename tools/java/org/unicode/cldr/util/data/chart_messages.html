@@ -50,8 +50,10 @@ data has not yet been gathered or processed. Languages with a small
 population may be omitted. </p>
 		<p>Official status is supplied where available, formatted as {O}. Hovering with the mouse shows a short description.</p>
 		<ul>
-			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with the 
-			<i>bug</i> or <i>add new</i> links, below.</li>
+            <li><b>Likely languages and scripts:</b>To see (and verify) the
+             likely languages and scripts for this subtag, click on the country code.</li>
+            <li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with the 
+            <i>bug</i> or <i>add new</i> links, below.</li>
 			<li><b>XML Source:</b>
 			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">
 			supplementalData.xml</a> (see the &lt;territoryInfo&gt;, &lt;calendarData&gt;, &lt;weekData&gt;, and 
@@ -279,22 +281,23 @@ brackets before or after the English name, eg "Vanuatu [VU]"</p>
 		There are a number of situations where it is useful to be able to 
 		find the most likely language, script, or region, if that information is otherwise missing. 
 		For example:<ul>
-			<li><span class="changedspan">Given the language "zh" and the region "TW", what is the 
+			<li><span>Given the language "zh" and the region "TW", what is the 
 			most likely script?</span></li>
-			<li><span class="changedspan">Given the script "Thai" what is the most likely language 
+			<li><span>Given the script "Thai" what is the most likely language 
 			or region?</span></li>
-			<li><span class="changedspan">Given the region TW, what is the most likely language and 
+			<li><span>Given the region TW, what is the most likely language and 
 			script?</span></li>
 		</ul>
-		<p><span class="changedspan">Conversely, given a locale, it is useful to find out which 
+		<p><span>Conversely, given a locale, it is useful to find out which 
 		fields (language, script, or region) may be superfluous, in the sense that they contain the 
 		likely tags. For example, "en_Latn" can be simplified down to "en" since "Latn" is the 
 		likely script for "en"; "ja_Japn_JP" can be simplified down to "ja".</span></p>
-		<p><span class="changedspan">The <i>likelySubtag</i> supplemental data provides default 
+		<p><span>The <i>likelySubtag</i> supplemental data provides default 
 		information for computing these values. This data is based on the default content data, the 
 		population data, and the the suppress-script data in [<a href="http://unicode.org/draft/reports/tr35/tr35.html#BCP47">BCP47</a>]. 
 		It is heuristically derived, and may change over time. The chart shows how the data "fills 
-		in" the missing fields, represented as question-marks.</span></p>
+		in" the missing fields in the <span class='source'>source values</span> to get the
+		<span class='target'>target values</span>.</span></p>
 		<ul>
 			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>.</li>

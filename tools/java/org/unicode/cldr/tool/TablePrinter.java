@@ -290,7 +290,7 @@ public class TablePrinter {
         }
         if (identical != 1) {
           if (!gotSpace) result.append(' ');
-          result.append("rowSpan='").append(identical).append('\'');
+          result.append(" rowSpan='").append(identical).append('\'');
         }
         result.append('>');
         

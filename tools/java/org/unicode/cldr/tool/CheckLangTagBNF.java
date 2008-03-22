@@ -62,14 +62,14 @@ class CheckLangTagBNF {
       if (line.charAt(0) == '\uFEFF') line = line.substring(1);
       int hashPos = line.indexOf('#');
       if (hashPos >= 0) line = line.substring(0, hashPos);
-      line = line.trim(); // this may seem redundant, but we need it for the test for final ;
-      if (line.length() == 0) continue;
-      generationRuleBuffer.append(line).append("\r\n");
+      String trimline = line.trim();
+      if (trimline.length() == 0) continue;
+      generationRuleBuffer.append(trimline).append("\r\n");
 
       String[] lineParts = line.split(";");
       for (int i = 0; i < lineParts.length; ++i) {
-        String linePart = lineParts[i].trim();
-        if (linePart.length() == 0) continue;
+        String linePart = lineParts[i]; // .trim().replace("\\s+", " ");
+        if (linePart.trim().length() == 0) continue;
         int equalsPos = linePart.indexOf('=');
         if (equalsPos >= 0) {
           if (variable != null) {
@@ -79,12 +79,12 @@ class CheckLangTagBNF {
           definition.append(linePart.substring(equalsPos+1).trim());
         } else { // no equals, so
           if (variable == null) {
-            throw new IllegalArgumentException("Missing ':=' at " + count + ") " + line);
+            throw new IllegalArgumentException("Missing '=' at " + count + ") " + line);
           }
-          definition.append(linePart);
+          definition.append("\r\n").append(linePart);
         }
         // we are terminated if i is not at the end, or the line ends with a ;
-        if (i < lineParts.length - 1 || line.endsWith(";")) {
+        if (i < lineParts.length - 1 || trimline.endsWith(";")) {
           result.add(variable, result.replace(definition.toString()));
           variable = null; // signal we have no variable
           definition.setLength(0);
@@ -100,6 +100,26 @@ class CheckLangTagBNF {
     generationRules = generationRuleBuffer.toString().replaceAll("\\?:", "").replaceAll("\\(\\?i\\)","");
     pattern = Pattern.compile(resolved, Pattern.COMMENTS);
     return this;
+  }
+  
+  private static Random random = new Random(3);
+  
+  private static String randomizeAsciiCase(String s) {
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < s.length(); ++i) {
+      char c = s.charAt(i);
+      if ('A' <= c && c <= 'Z') {
+        if (random.nextBoolean()) {
+          c += 32;
+        }
+      } else if ('a' <= c && c <= 'z') {
+        if (random.nextBoolean()) {
+          c -= 32;
+        }
+      }
+      result.append(c);
+    }
+    return result.toString();
   }
 
   public BNF getBnf() {
@@ -140,6 +160,7 @@ class CheckLangTagBNF {
     BNF bnf = bnfData.getBnf();
     for (int i = 0; i < 100; ++i) {
       String trial = bnf.next();
+      trial = randomizeAsciiCase(trial);
       System.out.println(trial);
       if (!regexLanguageTag.reset(trial).matches()) {
         throw new IllegalArgumentException("Regex generation fails with: " + trial);

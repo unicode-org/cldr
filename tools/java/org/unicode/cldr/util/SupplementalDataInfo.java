@@ -337,11 +337,15 @@ public class SupplementalDataInfo {
     }
   }
   
-  public static class CurrencyDateInfo {
+  public static class CurrencyDateInfo implements Comparable<CurrencyDateInfo> {
+    public static final Date END_OF_TIME = new Date(Long.MAX_VALUE);
+    public static final Date START_OF_TIME = new Date(Long.MIN_VALUE);
+    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     public CurrencyDateInfo(String currency, String startDate, String endDate) {
       this.currency = currency;
-      start = parseDate(startDate, null);
-      end = parseDate(endDate, null);
+      start = parseDate(startDate, START_OF_TIME);
+      end = parseDate(endDate, END_OF_TIME);
     }
     String currency;
     Date start;
@@ -357,7 +361,8 @@ public class SupplementalDataInfo {
       ParseException e2 = null;
       for (int i = 0; i < simpleFormats.length; ++i) {
         try {
-          return simpleFormats[i].parse(dateString);
+          Date result = simpleFormats[i].parse(dateString);
+          return result;
         } catch (ParseException e) {
           if (e2 == null) {
             e2 = e;
@@ -377,6 +382,24 @@ public class SupplementalDataInfo {
 
     public Date getEnd() {
       return end;
+    }
+
+    public int compareTo(CurrencyDateInfo o) {
+      int result = start.getDate() - o.start.getDate();
+      if (result != 0) return result;
+      result = end.getDate() - o.end.getDate();
+      if (result != 0) return result;
+      return currency.compareTo(o.currency);
+    }
+    
+    public String toString() {
+      return "{" + formatDate(start) + ", " + formatDate(end) + ", " + currency + "}";
+    }
+
+    public static String formatDate(Date date) {
+      if (date.equals(START_OF_TIME)) return "-∞";
+      if (date.equals(END_OF_TIME)) return "∞";
+      return dateFormat.format(date);
     }
   }
 

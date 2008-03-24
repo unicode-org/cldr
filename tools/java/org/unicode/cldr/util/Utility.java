@@ -86,7 +86,7 @@ public class Utility {
 	static final boolean DEBUG_SHOW_BAT = false;
 	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
 	// set the base directory with -Dcldrdata=<value>
-	public static final String BASE_DIRECTORY = Utility.getProperty("cldrdata", "../../");	// get up to <CLDR>
+	public static final String BASE_DIRECTORY = Utility.getProperty("cldrdata", null);	// get up to <CLDR>
 	public static final String UTIL_DATA_DIR = 	BASE_DIRECTORY + "util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
     public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";

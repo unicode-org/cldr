@@ -267,4 +267,15 @@ public class Relation<K, V> implements Freezable {
     }
     return result;
   }
+
+  public Set<V> removeAll(Collection<K> toBeRemoved) {
+    Set<V> result = new LinkedHashSet();
+    for (K key : toBeRemoved) {
+      final Set<V> removals = data.remove(key);
+      if (removals != null) {
+        result.addAll(removals);
+      }
+    }
+    return result;
+  }
 }

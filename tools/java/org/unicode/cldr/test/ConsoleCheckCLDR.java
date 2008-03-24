@@ -708,6 +708,8 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     String cleanPrettyPath = prettyPathMaker.getOutputForm(prettyPath);
     Status status = new Status();
     String source = cldrFile.getSourceLocaleID(path, status);
+    String fillinValue = cldrFile.getFillInValue(path);
+    fillinValue = fillinValue == null ? "" : fillinValue.equals(value) ? "=" : fillinValue;
     
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
@@ -715,6 +717,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
         + "\t" + getEnglishPathValue(path)
         + "\t" + englishExample
         + "\t" + value
+        + "\t‹" + fillinValue + "›"
         + "\t" + example
         + "\t" + statusString
         + "\t" + fullPath

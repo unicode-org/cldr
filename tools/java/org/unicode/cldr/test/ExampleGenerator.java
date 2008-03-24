@@ -314,7 +314,7 @@ public class ExampleGenerator {
         count = plurals.getCount(example);
       }
       String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
-      String unitPattern = cldrFile.getStringValue(unitPatternPath);
+      String unitPattern = cldrFile.getWinningValue(unitPatternPath);
       DecimalFormat decimalFormat = icuServiceBuilder.getNumberFormat(1);
       MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
       Format[] formats = unitPatternFormat.getFormatsByArgumentIndex();

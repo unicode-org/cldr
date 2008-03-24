@@ -459,11 +459,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
 
   private String getFallbackPath(String xpath) {
-    if (xpath.contains("[@count=") || xpath.contains("/currency") && xpath.contains("/displayName")) {
+    //  || xpath.contains("/currency") && xpath.contains("/displayName")
+    int pos = xpath.indexOf("[@count=");
+    if (pos >= 0) {
       // remove final attributes
-      int lastSlash = xpath.lastIndexOf('/');
-      int nextBracket = xpath.indexOf('[', lastSlash);
-      String clippedPath = xpath.substring(0,nextBracket);
+      int start = xpath.indexOf("[@count=");
+      int end = xpath.indexOf(']',start)+1;
+      String clippedPath = xpath.substring(0,start) + xpath.substring(end);
       return getCountPath(clippedPath, null);
     }
     return null;
@@ -2785,20 +2787,62 @@ public class CLDRFile implements Freezable, Iterable<String> {
     }
   }
 
+  /**
+   * Get the path with the given count. Acts like there is an alias in Root to count="".
+   * Input Count may be null. Returns null if nothing is found.
+   * @param xpath
+   * @param count
+   * @return
+   */
   public String getCountPath(String xpath, Count count) {
     String result;
-    if (count != null && dataSource.getValueAtPath(result = getWinningPath(xpath + "[@count=\"" + count + "\"]")) != null) {
-      return result;
-    }
-    if (dataSource.getValueAtPath(result = getWinningPath(xpath)) != null) {
-      return result;
-    }
-    for (Count count2 : Count.values()) {
-      if (dataSource.getValueAtPath(result = getWinningPath(xpath + "[@count=\"" + count2 + "\"]")) != null) {
+    if (count != null) {
+      result = getWinningPath(xpath + "[@count=\"" + count + "\"]");
+      if (isNotRoot(result)) {
         return result;
       }
     }
-    return result;
+    return getWinningPath(xpath);
   }
   
+  /**
+   * Returns a value to be used for "filling in" a "Change" value in the survey
+   * tool. Currently returns the following.
+   * <ul>
+   * <li>The "winning" value (if not inherited). Example: if "Donnerstag" has the most votes for
+   * 'thursday', then clicking on the empty field will fill in "Donnerstag"
+   * <li>The singular form. Example: if the value for 'hour' is "heure", then
+   * clicking on the entry field for 'hours' will insert "heure".
+   * <li>The parent's value. Example: if I'm
+   * in [de_CH] and there are no proposals for 'thursday', then clicking on the
+   * empty field will fill in "Donnerstag" from [de].
+   * <li>Otherwise don't fill in anything, and return null.
+   * </ul>
+   * 
+   * @return
+   */
+  public String getFillInValue(String distinguishedPath) {
+    String winningPath = getWinningPath(distinguishedPath);
+    if (isNotRoot(winningPath)) {
+      return getStringValue(winningPath);
+    }
+    String fallbackPath = getFallbackPath(winningPath);
+    if (fallbackPath != null) {
+      String value = getWinningValue(fallbackPath);
+      if (value != null) {
+        return value;
+      }
+    }
+    return getStringValue(winningPath);
+  }
+  
+  /**
+   * returns true if the source of the path exists, and is neither root nor code-fallback
+   * @param distinguishedPath
+   * @return
+   */
+  public boolean isNotRoot(String distinguishedPath) {
+    String source = getSourceLocaleID(distinguishedPath, null);
+    return source != null && !source.equals("root") && !source.equals(XMLSource.CODE_FALLBACK_ID);
+  }
 }

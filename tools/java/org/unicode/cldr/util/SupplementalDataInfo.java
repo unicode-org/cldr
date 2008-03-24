@@ -3,8 +3,10 @@ package org.unicode.cldr.util;
 import org.omg.CORBA.TRANSIENT;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
@@ -12,10 +14,12 @@ import com.ibm.icu.util.Freezable;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -333,6 +337,49 @@ public class SupplementalDataInfo {
     }
   }
   
+  public static class CurrencyDateInfo {
+    public CurrencyDateInfo(String currency, String startDate, String endDate) {
+      this.currency = currency;
+      start = parseDate(startDate, null);
+      end = parseDate(endDate, null);
+    }
+    String currency;
+    Date start;
+    Date end;
+    
+    static DateFormat[] simpleFormats = { new SimpleDateFormat("yyyy-MM-dd"),
+      new SimpleDateFormat("yyyy-MM"), new SimpleDateFormat("yyyy"), };
+
+    Date parseDate(String dateString, Date defaultDate) {
+      if (dateString == null) {
+        return defaultDate;
+      }
+      ParseException e2 = null;
+      for (int i = 0; i < simpleFormats.length; ++i) {
+        try {
+          return simpleFormats[i].parse(dateString);
+        } catch (ParseException e) {
+          if (e2 == null) {
+            e2 = e;
+          }
+        }
+      }
+      throw (IllegalArgumentException)new IllegalArgumentException().initCause(e2);  
+    }
+
+    public String getCurrency() {
+      return currency;
+    }
+
+    public Date getStart() {
+      return start;
+    }
+
+    public Date getEnd() {
+      return end;
+    }
+  }
+
   private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
   
   private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap();
@@ -360,7 +407,9 @@ public class SupplementalDataInfo {
       TreeSet.class);
   
   private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap();
-  
+
+  private Relation<String, CurrencyDateInfo> territoryToCurrencyDateInfo = new Relation(new TreeMap(), LinkedHashSet.class);
+
   private Set<String> multizone = new TreeSet();
   
   private Map<String, String> zone_territory = new TreeMap();
@@ -469,6 +518,7 @@ public class SupplementalDataInfo {
     references = Collections.unmodifiableMap(references);
     likelySubtags = Collections.unmodifiableMap(likelySubtags);
     currencyToCurrencyNumberInfo = Collections.unmodifiableMap(currencyToCurrencyNumberInfo);
+    territoryToCurrencyDateInfo.freeze();
     
     metazoneToRegionToZone = Utility.protectCollection(metazoneToRegionToZone);
     typeToTagToReplacement = Utility.protectCollection(typeToTagToReplacement);
@@ -646,6 +696,21 @@ public class SupplementalDataInfo {
             currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"), 
                     new CurrencyNumberInfo(Integer.parseInt(parts.getAttributeValue(3, "digits")), 
                             Integer.parseInt(parts.getAttributeValue(3, "rounding"))));
+            return;
+          }
+          /*
+           * <region iso3166="AD">
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="ESP" from="1873" to="2002-02-28"/>
+
+           */
+          if (level2.equals("region")) {
+            territoryToCurrencyDateInfo.put(parts.getAttributeValue(2, "iso3166"), 
+                    new CurrencyDateInfo(parts.getAttributeValue(3, "iso4217"),
+                            parts.getAttributeValue(3, "from"),
+                            parts.getAttributeValue(3, "to")
+                            ));
+            return;
           }
         }
         if (level1.equals("timezoneData")) {
@@ -1208,6 +1273,15 @@ public class SupplementalDataInfo {
       result = DEFAULT_NUMBER_INFO;
     }
     return result;
+  }
+  
+  /**
+   * Returns ordered set of currency data information
+   * @param territory
+   * @return
+   */
+  public Set<CurrencyDateInfo> getCurrencyDateInfo(String territory) {
+    return territoryToCurrencyDateInfo.getAll(territory);
   }
 }
 

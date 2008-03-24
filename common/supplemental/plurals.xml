@@ -4,7 +4,7 @@
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <plurals>
-        <pluralRules locales="ja ko tr vi"/> <!-- if locale is known to have no plurals -->
+        <pluralRules locales="ja ko tr vi zh"/> <!-- if locale is known to have no plurals -->
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>
@@ -27,8 +27,8 @@
             <pluralRule count="two">n is 2</pluralRule>
         </pluralRules>
         <pluralRules locales="ro">
-            <pluralRule count="zero">n is 0 OR n is not 1 AND n mod 100 in 1..19</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>
+            <pluralRule count="few">n is 0 OR n is not 1 AND n mod 100 in 1..19</pluralRule>
         </pluralRules>
 	     <pluralRules locales="lt">
 	       <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11..19</pluralRule>

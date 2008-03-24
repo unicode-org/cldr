@@ -29,6 +29,10 @@ public class TestSupplementalInfo extends TestFmwk {
   public static void main(String[] args) {
     new TestSupplementalInfo().run(args);
   }
+  
+  public void TestCompleteness() {
+    assertEquals("API doesn't support: " + supplementalDataInfo.getSkippedElements(), 0, supplementalDataInfo.getSkippedElements().size());
+  }
 
   // these are settings for exceptional cases we want to allow
   private static final Set<String> EXCEPTION_CURRENCIES_WITH_NEW = new TreeSet<String>(Arrays.asList("NZD", "PGK"));
@@ -71,6 +75,9 @@ public class TestSupplementalInfo extends TestFmwk {
         final String currency = dateInfo.getCurrency();
         final Date start = dateInfo.getStart();
         final Date end = dateInfo.getEnd();
+        if (dateInfo.getErrors().length() != 0) {
+          errln("parsing " + territory + "\t" + dateInfo.toString() + "\t" + dateInfo.getErrors());
+        }
         Date firstValue = currencyFirstValid.get(currency);
         if (firstValue == null || firstValue.compareTo(start) < 0) {
           currencyFirstValid.put(currency, start);
@@ -135,7 +142,7 @@ public class TestSupplementalInfo extends TestFmwk {
     // TODO make this an error, except for allowed exceptions.
     logln("Currencies without Territories: " + remainder);
     assertEquals("Modern territory missing currency: " + territoriesWithoutModernCurrencies, 
-            territoriesWithoutModernCurrencies.size(), 0);
+            0, territoriesWithoutModernCurrencies.size());
   }
 
 }

@@ -342,17 +342,21 @@ public class SupplementalDataInfo {
     public static final Date START_OF_TIME = new Date(Long.MIN_VALUE);
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+    private String currency;
+    private Date start;
+    private Date end;
+    private String errors = "";
+
     public CurrencyDateInfo(String currency, String startDate, String endDate) {
       this.currency = currency;
       start = parseDate(startDate, START_OF_TIME);
       end = parseDate(endDate, END_OF_TIME);
     }
-    String currency;
-    Date start;
-    Date end;
     
-    static DateFormat[] simpleFormats = { new SimpleDateFormat("yyyy-MM-dd"),
-      new SimpleDateFormat("yyyy-MM"), new SimpleDateFormat("yyyy"), };
+    static DateFormat[] simpleFormats = { 
+      new SimpleDateFormat("yyyy-MM-dd"),
+      new SimpleDateFormat("yyyy-MM"), 
+      new SimpleDateFormat("yyyy"), };
 
     Date parseDate(String dateString, Date defaultDate) {
       if (dateString == null) {
@@ -364,6 +368,9 @@ public class SupplementalDataInfo {
           Date result = simpleFormats[i].parse(dateString);
           return result;
         } catch (ParseException e) {
+          if (i == 0) {
+            errors += dateString + " ";
+          }
           if (e2 == null) {
             e2 = e;
           }
@@ -382,6 +389,10 @@ public class SupplementalDataInfo {
 
     public Date getEnd() {
       return end;
+    }
+
+    public String getErrors() {
+      return errors;
     }
 
     public int compareTo(CurrencyDateInfo o) {

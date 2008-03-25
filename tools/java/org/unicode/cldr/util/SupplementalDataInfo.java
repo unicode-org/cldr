@@ -32,8 +32,32 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+/**
+ * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
+ * <p>To create, use SupplementalDataInfo.getInstance
+ * <p>To add API for new structure, you will generally:
+ * <ul><li>add a Map or Relation as a data member,
+ * <li>put a check and handler in MyHandler for the paths that you consume, 
+ * <li>make the data member immutable in makeStuffSave, and
+ * <li>add a getter for the data member
+ * </ul>
+ * @author markdavis
+ */
+
 public class SupplementalDataInfo {
   
+//TODO add structure for items shown by TestSupplementalData to be missing
+  /*[calendarData/calendar, 
+   * characters/character-fallback, 
+   * measurementData/measurementSystem, measurementData/paperSize, 
+   * metadata/attributeOrder, metadata/blocking, metadata/coverageAdditions, metadata/deprecated, metadata/distinguishing, metadata/elementOrder, metadata/serialElements, metadata/skipDefaultLocale, metadata/suppress, metadata/validity, metazoneInfo/timezone, 
+   * timezoneData/mapTimezones, 
+   * weekData/firstDay, weekData/minDays, weekData/weekendEnd, weekData/weekendStart]
+  */
+ 
+  /**
+   * Official status of languages
+   */
   public enum OfficialStatus {
     unknown, de_facto_official, official, official_regional, official_minority;
     
@@ -58,7 +82,7 @@ public class SupplementalDataInfo {
   };
   
   /**
-   * Struct for return data
+   * Population data for different languages.
    */
   public static final class PopulationData implements Freezable {
     private double population = Double.NaN;
@@ -167,6 +191,9 @@ public class SupplementalDataInfo {
   
   static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
   
+  /**
+   * Simple language/script/region information
+   */
   public static class BasicLanguageData implements
   Comparable<BasicLanguageData>, Freezable {
     public enum Type {
@@ -316,6 +343,9 @@ public class SupplementalDataInfo {
     }
   }
   
+  /**
+   * Information about currency digits and rounding.
+   */
   public static class CurrencyNumberInfo {
     int digits;
     int rounding;
@@ -337,6 +367,9 @@ public class SupplementalDataInfo {
     }
   }
   
+  /**
+   * Information about when currencies are in use in territories
+   */
   public static class CurrencyDateInfo implements Comparable<CurrencyDateInfo> {
     public static final Date END_OF_TIME = new Date(Long.MAX_VALUE);
     public static final Date START_OF_TIME = new Date(Long.MIN_VALUE);
@@ -601,6 +634,9 @@ public class SupplementalDataInfo {
 //    return Collections.unmodifiableMap(temp);
 //  }
   
+  /**
+   * Core function used to process each of the paths, and add the data to the appropriate data member.
+   */
   class MyHandler extends XMLFileReader.SimpleHandler {
     private static final double MAX_POPULATION = 3000000000.0;
     
@@ -612,203 +648,35 @@ public class SupplementalDataInfo {
       try {
         parts.set(path);
         String level1 = parts.getElement(1);
-        // copy the rest from ShowLanguages later
-        if (level1.equals("territoryInfo")) {
-          // <territoryInfo>
-          // <territory type="AD" gdp="1840000000" literacyPercent="100"
-          // population="66000"> <!--Andorra-->
-          // <languagePopulation type="ca" populationPercent="50"/>
-          // <!--Catalan-->
-          
-          Map<String, String> territoryAttributes = parts.getAttributes(2);
-          String territory = territoryAttributes.get("type");
-          double territoryPopulation = parseDouble(territoryAttributes.get("population"));
-          if (failsRangeCheck("population", territoryPopulation, 0, MAX_POPULATION)) return;
-          
-          double territoryLiteracyPercent = parseDouble(territoryAttributes.get("literacyPercent"));
-          double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
-          if (territoryToPopulationData.get(territory) == null) {
-            territoryToPopulationData.put(territory, new PopulationData()
-                .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                .setGdp(territoryGdp));
-          }
-          if (parts.size() > 3) {
-            
-            Map<String, String> languageInTerritoryAttributes = parts
-            .getAttributes(3);
-            String language = languageInTerritoryAttributes.get("type");
-            double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("literacyPercent"));
-            if (Double.isNaN(languageLiteracyPercent))
-              languageLiteracyPercent = territoryLiteracyPercent;
-            double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
-            double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
-            //double languageGdp = languagePopulationPercent * territoryGdp;
-            
-            // store
-            Map<String, PopulationData> territoryLanguageToPopulation = territoryToLanguageToPopulationData
-            .get(territory);
-            if (territoryLanguageToPopulation == null) {
-              territoryToLanguageToPopulationData.put(territory,
-                  territoryLanguageToPopulation = new TreeMap());
-            }
-            OfficialStatus officialStatus = OfficialStatus.unknown;
-            String officialStatusString = languageInTerritoryAttributes.get("officialStatus");
-            if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
-            
-            PopulationData newData = new PopulationData()
-            .setPopulation(languagePopulation)
-            .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-            .setOfficialStatus(officialStatus)
-            //.setGdp(languageGdp)
-            ;
-            newData.freeze();
-            if (territoryLanguageToPopulation.get(language) != null) {
-              System.out
-              .println("Internal Problem in supplementalData: multiple data items for "
-                  + language + ", " + territory + "\tSkipping " + newData);
-              return;
-            }
-            
-            territoryLanguageToPopulation.put(language, newData);
-            // add the language, using the Pair fields to get the ordering right
-            languageToTerritories2.put(language, new Pair(newData.getOfficialStatus().isMajor() ? 0 : 1, new Pair(-newData.getLiteratePopulation(), territory)));
-            
-            // now collect data for languages globally
-            PopulationData data = languageToPopulation.get(language);
-            if (data == null) {
-              languageToPopulation.put(language, data = new PopulationData().set(newData));
-            } else {
-              data.add(newData);
-            }
-            if (false && language.equals("en")) {
-              System.out.println(territory + "\tnewData:\t" + newData + "\tdata:\t" + data);   
-            }
-            String baseLanguage = languageTagParser.set(language).getLanguage();
-            if (!baseLanguage.equals(language)) {
-              languageToScriptVariants.put(baseLanguage,language);
-              
-              data = baseLanguageToPopulation.get(baseLanguage);
-              if (data == null)
-                baseLanguageToPopulation.put(baseLanguage,
-                    data = new PopulationData());
-              data.add(newData);
-            }
-          }
-          return;
-        }
-        if (level1.equals("languageData")) {
-          // <languageData>
-          // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
-          // Reflecting submitted data, cldrbug #1013 -->
-          // <language type="ab" scripts="Cyrl" territories="GE"
-          // alt="secondary"/>
-          String language = (String) parts.getAttributeValue(2, "type");
-          BasicLanguageData languageData = new BasicLanguageData();
-          languageData
-          .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-              : BasicLanguageData.Type.secondary);
-          languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-          .setTerritories(parts.getAttributeValue(2, "territories"));
-          languageToBasicLanguageData.put(language, languageData);
-          return;
-        }
+        String level2 = parts.size() < 3 ? null : parts.getElement(2);
         if (level1.equals("generation") || level1.equals("version")) {
           // skip
           return;
         }
+
+        // copy the rest from ShowLanguages later
+        if (level1.equals("territoryInfo")) {
+          if (handleTerritoryInfo()) {
+            return;
+          }
+        }
+        if (level1.equals("languageData")) {
+          handleLanguageData();
+          return;
+        }
         if (level1.equals("territoryContainment")) {
-          // <group type="001" contains="002 009 019 142 150"/>
-          containment.putAll(parts.getAttributeValue(-1, "type"), Arrays
-              .asList(parts.getAttributeValue(-1, "contains").split("\\s+")));
+          handleTerritoryContainment();
           return;
         }
         if (level1.equals("currencyData")) {
-          String level2 = parts.getElement(2);
-          if (level2.equals("fractions")) {
-            // <info iso4217="ADP" digits="0" rounding="0"/>
-            currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"), 
-                    new CurrencyNumberInfo(Integer.parseInt(parts.getAttributeValue(3, "digits")), 
-                            Integer.parseInt(parts.getAttributeValue(3, "rounding"))));
+          if (handleCurrencyData(level2)) {
             return;
-          }
-          /*
-           * <region iso3166="AD">
-            <currency iso4217="EUR" from="1999-01-01"/>
-            <currency iso4217="ESP" from="1873" to="2002-02-28"/>
-
-           */
-          if (level2.equals("region")) {
-            territoryToCurrencyDateInfo.put(parts.getAttributeValue(2, "iso3166"), 
-                    new CurrencyDateInfo(parts.getAttributeValue(3, "iso4217"),
-                            parts.getAttributeValue(3, "from"),
-                            parts.getAttributeValue(3, "to")
-                            ));
-            return;
-          }
+            }
         }
         if (level1.equals("timezoneData")) {
-          String level2 = parts.getElement(2);
-          // <zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GL
-          // ID KI KZ MH MN MX MY NZ PF PT RU SJ UA UM US UZ"
-          // tzidVersion="2007c">
-          // <zoneItem type="Africa/Abidjan" territory="CI"/>
-          // <zoneItem type="Africa/Asmera" territory="ER"
-          // aliases="Africa/Asmara"/>
-          if (level2.equals("zoneFormatting")) {
-            if (multizone.size() == 0) {
-              multizone.addAll(Arrays.asList(parts.getAttributeValue(2,
-              "multizone").trim().split("\\s+")));
-            }
-            String zone = parts.getAttributeValue(3, "type");
-            String territory = parts.getAttributeValue(3, "territory");
-            String aliases = parts.getAttributeValue(3, "aliases");
-            if (territory != null) {
-              zone_territory.put(zone, territory);
-            } else {
-              throw new IllegalArgumentException("Problem in data");
-            }
-            // include the item itself
-            Collection<String> aliasArray = new LinkedHashSet<String>();
-            //aliasArray.add(zone);
-            if (aliases != null) {
-              aliasArray.addAll(Arrays.asList(aliases.split("\\s+")));
-            }
-            for (String alias : aliasArray) {
-              alias_zone.put(alias, zone);
-              zone_aliases.put(zone, alias);
-            }
-
-            
+          if (handleTimezoneData(level2)) {
             return;
           }
-          
-          /*
-           * <mapTimezones type="metazones">
-           *  <mapZone other="Acre"  territory="001" type="America/Rio_Branco"/>
-           */
-          if (level2.equals("mapTimezones") && "metazones".equals(parts.getAttributeValue(2,"type"))) {
-            String mzone = parts.getAttributeValue(3,"other");
-            String region = parts.getAttributeValue(3,"territory");
-            String zone = parts.getAttributeValue(3,"type");
-            Map<String, String> regionToZone = metazoneToRegionToZone.get(mzone);
-            if (regionToZone == null) metazoneToRegionToZone.put(mzone, regionToZone = new HashMap<String,String>());
-            regionToZone.put(region, zone);
-            return;
-          }
-          
-          if (level1.equals("alias")) {
-            
-          }
-          if (!skippedElements.contains(level1 + "/" + level2)) {
-            skippedElements.add(level1 + "/" + level2);
-            if (false)
-              System.out.println("TODO: Skipped Element: " + level1 + " - ... "
-                  + path + "...");
-          }
-          // <mapTimezones type="windows"> <mapZone other="Dateline"
-          // type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line
-          // West-->
         }
         
         if (level1.equals("plurals")) {
@@ -824,45 +692,18 @@ public class SupplementalDataInfo {
         }
         
         if (level1.equals("likelySubtags")) {
-          String from = parts.getAttributeValue(-1, "from");
-          String to = parts.getAttributeValue(-1, "to");
-          likelySubtags.put(from, to);
+          handleLikelySubtags();
           return;
         }
         
         if (level1.equals("metadata")) {
-          String level2 = parts.getElement(2);
-          if (parts.contains("defaultContent")) {
-            String defContent = parts.getAttributeValue(-1, "locales").trim();
-            String [] defLocales = defContent.split("\\s+");
-            defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
+          if (handleMetadata(level2)) {
             return;
-          }
-          if (level2.equals("alias")) {
-//            <alias>
-//            <!-- grandfathered 3066 codes -->
-//            <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
-            String level3 = parts.getElement(3);
-            if (!level3.endsWith("Alias")) {
-              throw new IllegalArgumentException();
-            }
-            level3 = level3.substring(0,level3.length() - "Alias".length());
-            Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(level3);
-            if (tagToReplacement == null) {
-              typeToTagToReplacement.put(level3, tagToReplacement = new TreeMap<String, List<String>>());
-            }
-            final String replacement = parts.getAttributeValue(3,"replacement");
-            tagToReplacement.put(parts.getAttributeValue(3,"type").replace("-","_"), replacement == null ? null : Arrays.asList(replacement.replace("-","_").split("\\s+")));
           }
         }
         
         if (level1.equals("codeMappings")) {
-          String level2 = parts.getElement(2);
-          if (level2.equals("territoryCodes")) {
-            // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
-            String type = parts.getAttributeValue(-1, "type");
-            numericTerritoryMapping.put(type, Integer.parseInt(parts.getAttributeValue(-1, "numeric")));
-            alpha3TerritoryMapping.put(type, parts.getAttributeValue(-1, "alpha3"));
+          if (handleCodeMappings(level2)) {
             return;
           }
         }
@@ -870,14 +711,251 @@ public class SupplementalDataInfo {
         // capture elements we didn't look at, since we should cover everything.
         // this helps for updates
         
-        if (!skippedElements.contains(level1)) {
-          skippedElements.add(level1);
+        final String skipKey = level1 + (level2 == null ? "" : "/" + level2);
+        if (!skippedElements.contains(skipKey)) {
+          skippedElements.add(skipKey);
         }
         // System.out.println("Skipped Element: " + path);
       } catch (Exception e) {
         throw (IllegalArgumentException) new IllegalArgumentException("path: "
             + path + ",\tvalue: " + value).initCause(e);
       }
+    }
+
+    private boolean handleCodeMappings(String level2) {
+      if (level2.equals("territoryCodes")) {
+        // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
+        String type = parts.getAttributeValue(-1, "type");
+        numericTerritoryMapping.put(type, Integer.parseInt(parts.getAttributeValue(-1, "numeric")));
+        alpha3TerritoryMapping.put(type, parts.getAttributeValue(-1, "alpha3"));
+        return true;
+      }
+      return false;
+    }
+
+    private void handleLikelySubtags() {
+      String from = parts.getAttributeValue(-1, "from");
+      String to = parts.getAttributeValue(-1, "to");
+      likelySubtags.put(from, to);
+    }
+
+    private boolean handleTimezoneData(String level2) {
+      if (level2.equals("zoneFormatting")) {
+        handleZoneFormatting();
+        return true;
+      }
+      
+      /*
+       * <mapTimezones type="metazones">
+       *  <mapZone other="Acre"  territory="001" type="America/Rio_Branco"/>
+       */
+      if (level2.equals("mapTimezones") && "metazones".equals(parts.getAttributeValue(2,"type"))) {
+        String mzone = parts.getAttributeValue(3,"other");
+        String region = parts.getAttributeValue(3,"territory");
+        String zone = parts.getAttributeValue(3,"type");
+        Map<String, String> regionToZone = metazoneToRegionToZone.get(mzone);
+        if (regionToZone == null) metazoneToRegionToZone.put(mzone, regionToZone = new HashMap<String,String>());
+        regionToZone.put(region, zone);
+        return true;
+      }
+      
+      // <mapTimezones type="windows"> <mapZone other="Dateline"
+      // type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line
+      // West-->
+      return false;
+    }
+
+    private boolean handleMetadata(String level2) {
+      if (parts.contains("defaultContent")) {
+        String defContent = parts.getAttributeValue(-1, "locales").trim();
+        String [] defLocales = defContent.split("\\s+");
+        defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
+        return true;
+      }
+      if (level2.equals("alias")) {
+//        <alias>
+//        <!-- grandfathered 3066 codes -->
+//        <languageAlias type="art-lojban" replacement="jbo"/> <!-- Lojban -->
+        String level3 = parts.getElement(3);
+        if (!level3.endsWith("Alias")) {
+          throw new IllegalArgumentException();
+        }
+        level3 = level3.substring(0,level3.length() - "Alias".length());
+        Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(level3);
+        if (tagToReplacement == null) {
+          typeToTagToReplacement.put(level3, tagToReplacement = new TreeMap<String, List<String>>());
+        }
+        final String replacement = parts.getAttributeValue(3,"replacement");
+        tagToReplacement.put(parts.getAttributeValue(3,"type").replace("-","_"), replacement == null ? null : Arrays.asList(replacement.replace("-","_").split("\\s+")));
+        return true;
+      }
+      return false;
+    }
+
+    private boolean handleTerritoryInfo() {
+
+      // <territoryInfo>
+      // <territory type="AD" gdp="1840000000" literacyPercent="100"
+      // population="66000"> <!--Andorra-->
+      // <languagePopulation type="ca" populationPercent="50"/>
+      // <!--Catalan-->
+      
+      Map<String, String> territoryAttributes = parts.getAttributes(2);
+      String territory = territoryAttributes.get("type");
+      double territoryPopulation = parseDouble(territoryAttributes.get("population"));
+      if (failsRangeCheck("population", territoryPopulation, 0, MAX_POPULATION)) {
+        return true;
+      }
+      
+      double territoryLiteracyPercent = parseDouble(territoryAttributes.get("literacyPercent"));
+      double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
+      if (territoryToPopulationData.get(territory) == null) {
+        territoryToPopulationData.put(territory, new PopulationData()
+            .setPopulation(territoryPopulation)
+            .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+            .setGdp(territoryGdp));
+      }
+      if (parts.size() > 3) {
+        
+        Map<String, String> languageInTerritoryAttributes = parts
+        .getAttributes(3);
+        String language = languageInTerritoryAttributes.get("type");
+        double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("literacyPercent"));
+        if (Double.isNaN(languageLiteracyPercent))
+          languageLiteracyPercent = territoryLiteracyPercent;
+        double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
+        double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
+        //double languageGdp = languagePopulationPercent * territoryGdp;
+        
+        // store
+        Map<String, PopulationData> territoryLanguageToPopulation = territoryToLanguageToPopulationData
+        .get(territory);
+        if (territoryLanguageToPopulation == null) {
+          territoryToLanguageToPopulationData.put(territory,
+              territoryLanguageToPopulation = new TreeMap());
+        }
+        OfficialStatus officialStatus = OfficialStatus.unknown;
+        String officialStatusString = languageInTerritoryAttributes.get("officialStatus");
+        if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
+        
+        PopulationData newData = new PopulationData()
+        .setPopulation(languagePopulation)
+        .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+        .setOfficialStatus(officialStatus)
+        //.setGdp(languageGdp)
+        ;
+        newData.freeze();
+        if (territoryLanguageToPopulation.get(language) != null) {
+          System.out
+          .println("Internal Problem in supplementalData: multiple data items for "
+              + language + ", " + territory + "\tSkipping " + newData);
+          return true;
+        }
+        
+        territoryLanguageToPopulation.put(language, newData);
+        // add the language, using the Pair fields to get the ordering right
+        languageToTerritories2.put(language, new Pair(newData.getOfficialStatus().isMajor() ? 0 : 1, new Pair(-newData.getLiteratePopulation(), territory)));
+        
+        // now collect data for languages globally
+        PopulationData data = languageToPopulation.get(language);
+        if (data == null) {
+          languageToPopulation.put(language, data = new PopulationData().set(newData));
+        } else {
+          data.add(newData);
+        }
+        if (false && language.equals("en")) {
+          System.out.println(territory + "\tnewData:\t" + newData + "\tdata:\t" + data);   
+        }
+        String baseLanguage = languageTagParser.set(language).getLanguage();
+        if (!baseLanguage.equals(language)) {
+          languageToScriptVariants.put(baseLanguage,language);
+          
+          data = baseLanguageToPopulation.get(baseLanguage);
+          if (data == null)
+            baseLanguageToPopulation.put(baseLanguage,
+                data = new PopulationData());
+          data.add(newData);
+        }
+      }
+      return true;
+    }
+
+    private boolean handleCurrencyData(String level2) {
+      if (level2.equals("fractions")) {
+        // <info iso4217="ADP" digits="0" rounding="0"/>
+        currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"), 
+                new CurrencyNumberInfo(Integer.parseInt(parts.getAttributeValue(3, "digits")), 
+                        Integer.parseInt(parts.getAttributeValue(3, "rounding"))));
+        return true;
+      }
+      /*
+       * <region iso3166="AD">
+        <currency iso4217="EUR" from="1999-01-01"/>
+        <currency iso4217="ESP" from="1873" to="2002-02-28"/>
+       */
+      if (level2.equals("region")) {
+        territoryToCurrencyDateInfo.put(parts.getAttributeValue(2, "iso3166"), 
+                new CurrencyDateInfo(parts.getAttributeValue(3, "iso4217"),
+                        parts.getAttributeValue(3, "from"),
+                        parts.getAttributeValue(3, "to")
+                        ));
+        return true;
+      }
+
+      return false;
+    }
+
+    private void handleZoneFormatting() {
+      // <zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GL
+      // ID KI KZ MH MN MX MY NZ PF PT RU SJ UA UM US UZ"
+      // tzidVersion="2007c">
+      // <zoneItem type="Africa/Abidjan" territory="CI"/>
+      // <zoneItem type="Africa/Asmera" territory="ER"
+      // aliases="Africa/Asmara"/>
+      if (multizone.size() == 0) {
+        multizone.addAll(Arrays.asList(parts.getAttributeValue(2,
+        "multizone").trim().split("\\s+")));
+      }
+      String zone = parts.getAttributeValue(3, "type");
+      String territory = parts.getAttributeValue(3, "territory");
+      String aliases = parts.getAttributeValue(3, "aliases");
+      if (territory != null) {
+        zone_territory.put(zone, territory);
+      } else {
+        throw new IllegalArgumentException("Problem in data");
+      }
+      // include the item itself
+      Collection<String> aliasArray = new LinkedHashSet<String>();
+      //aliasArray.add(zone);
+      if (aliases != null) {
+        aliasArray.addAll(Arrays.asList(aliases.split("\\s+")));
+      }
+      for (String alias : aliasArray) {
+        alias_zone.put(alias, zone);
+        zone_aliases.put(zone, alias);
+      }
+    }
+
+    private void handleTerritoryContainment() {
+      // <group type="001" contains="002 009 019 142 150"/>
+      containment.putAll(parts.getAttributeValue(-1, "type"), Arrays
+          .asList(parts.getAttributeValue(-1, "contains").split("\\s+")));
+    }
+
+    private void handleLanguageData() {
+      // <languageData>
+      // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
+      // Reflecting submitted data, cldrbug #1013 -->
+      // <language type="ab" scripts="Cyrl" territories="GE"
+      // alt="secondary"/>
+      String language = (String) parts.getAttributeValue(2, "type");
+      BasicLanguageData languageData = new BasicLanguageData();
+      languageData
+      .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+          : BasicLanguageData.Type.secondary);
+      languageData.setScripts(parts.getAttributeValue(2, "scripts"))
+      .setTerritories(parts.getAttributeValue(2, "territories"));
+      languageToBasicLanguageData.put(language, languageData);
     }
     
     private boolean failsRangeCheck(String path, double input, double min, double max) {
@@ -1290,6 +1368,11 @@ public class SupplementalDataInfo {
     return localeToPluralInfo.keySet();
   }
   
+  /**
+   * Returns the plural info for a given locale.
+   * @param locale
+   * @return
+   */
   public PluralInfo getPlurals(String locale) {
     while (locale != null) {
       PluralInfo result = localeToPluralInfo.get(locale);
@@ -1299,7 +1382,7 @@ public class SupplementalDataInfo {
     return null;
   }
 
-  static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2,0);
+  private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2,0);
   
   public CurrencyNumberInfo getCurrencyNumberInfo(String currency) {
     CurrencyNumberInfo result = currencyToCurrencyNumberInfo.get(currency);

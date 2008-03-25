@@ -2477,8 +2477,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 ctx.println("</div>");
             }
-//            int preset_fromint = ctx.fieldInt("preset_from", -1);
-            int preset_fromint = -1;
+            int preset_fromint = ctx.fieldInt("preset_from", -1);
             String preset_do = ctx.field("preset_do");
             if(preset_do.equals(LIST_ACTION_NONE)) {
                 preset_do="nothing";

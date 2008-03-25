@@ -15,6 +15,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import org.unicode.cldr.icu.CollectionUtilities;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -31,6 +32,7 @@ import java.text.ChoiceFormat;
 import java.text.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -259,6 +261,10 @@ public class ExampleGenerator {
       if (parts.contains("units")) {
         return result = handleUnits(parts, xpath, value, context, type);
       }
+      if (parts.contains("intervalFormats")) {
+        return result = handleIntervalFormats(parts, xpath, value, context, type);
+      }
+      
       // didn't detect anything, return empty-handed
       return null;
       
@@ -279,6 +285,76 @@ public class ExampleGenerator {
           cache.put(cacheKey, result);
         }
       }      
+    }
+  }
+
+  IntervalFormat intervalFormat = new IntervalFormat();
+
+  private String handleIntervalFormats(XPathParts parts2, String xpath, String value,
+          ExampleContext context, ExampleType type) {
+    if (!parts2.getAttributeValue(3, "type").equals("gregorian")) {
+      return null;
+    }
+    if (parts2.getElement(6).equals("intervalFormatFallback")) {
+      return null; // TODO test this too
+    }
+    // intervalFormatFallback
+    // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
+    // find where to split the value
+    intervalFormat.setPattern(value);
+    return intervalFormat.format(FIRST_INTERVAL, SECOND_INTERVAL);
+  }
+
+  Date FIRST_INTERVAL = new Date(108,1,3,5,7,9);
+  Date SECOND_INTERVAL = new Date(109,2,4,6,8,10);
+  
+  class IntervalFormat {
+    DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
+    SimpleDateFormat firstFormat = new SimpleDateFormat();
+    SimpleDateFormat secondFormat = new SimpleDateFormat();
+    StringBuilder first = new StringBuilder();
+    StringBuilder second = new StringBuilder();
+    BitSet letters = new BitSet();
+
+    public String format(Date earlier, Date later) {
+      return firstFormat.format(earlier) + secondFormat.format(later);
+    }
+    
+    public IntervalFormat setPattern(String pattern) {
+      formatParser.set(pattern);
+      first.setLength(0);
+      second.setLength(0);
+      boolean doFirst = true;
+      letters.clear();
+
+      for (Object item : formatParser.getItems()) {
+        if (item instanceof DateTimePatternGenerator.VariableField) {
+          char c = item.toString().charAt(0);
+          if (letters.get(c)) {
+            doFirst = false;
+          } else {
+            letters.set(c);
+          }
+          if (doFirst) {
+            first.append(item); 
+          } else {
+            second.append(item);
+          }
+        } else {
+          if (doFirst) {
+            first.append(formatParser.quoteLiteral((String)item)); 
+          } else {
+            second.append(formatParser.quoteLiteral((String)item));
+          }
+        }
+      }
+      String calendar = parts.findAttributeValue("calendar", "type");
+      firstFormat = icuServiceBuilder.getDateFormat(calendar, first.toString());
+      firstFormat.setTimeZone(ZONE_SAMPLE);
+
+      secondFormat = icuServiceBuilder.getDateFormat(calendar, second.toString());
+      secondFormat.setTimeZone(ZONE_SAMPLE);
+      return this;
     }
   }
 

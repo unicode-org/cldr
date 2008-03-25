@@ -54,7 +54,8 @@ public class SupplementalDataInfo {
    * timezoneData/mapTimezones, 
    * weekData/firstDay, weekData/minDays, weekData/weekendEnd, weekData/weekendStart]
    */
-
+// TODO: verify that we get everything by writing the files solely from the API, and verifying identity.
+  
   /**
    * Official status of languages
    */

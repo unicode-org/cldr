@@ -1823,6 +1823,11 @@ public class SurveyMain extends HttpServlet {
         boolean showCodes = false; //ctx.prefBool(PREF_SHOWCODES);
         printHeader(ctx, "Locale Coverage");
 
+        if(!UserRegistry.userIsVetter(ctx.session.user)) {
+            ctx.print("Not authorized.");
+        }
+        
+        
         printUserTableWithHelp(ctx, "/LocaleCoverage");
 
         ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
@@ -1882,7 +1887,7 @@ public class SurveyMain extends HttpServlet {
         Hashtable localeStatus = null;
         Hashtable nullStatus = null;
         
-        if(UserRegistry.userIsTC(ctx.session.user)) {
+        {
             conn = getDBConnection();
             userMap = new TreeMap();
             nullMap = new TreeMap();
@@ -2282,6 +2287,7 @@ public class SurveyMain extends HttpServlet {
 
     static final String LIST_ACTION_CHANGE_EMAIL = "setemail_";
     static final String LIST_ACTION_CHANGE_NAME = "setname_";
+    static final String LIST_ACTION_CHANGE_PASSWORD = "setpass_";
     
     public static final String changeAtTo40(String s) {
         return s.replaceAll("@","%40");
@@ -2589,7 +2595,31 @@ public class SurveyMain extends HttpServlet {
                             ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
                         } else if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
                             // change of other stuff.
-                            if(action.equals(LIST_ACTION_CHANGE_EMAIL) ||
+                            if(UserRegistry.userIsAdmin(ctx.session.user) && action.equals(LIST_ACTION_CHANGE_PASSWORD)) {
+                                String what = "password";
+                                UserRegistry.InfoType type = UserRegistry.InfoType.INFO_PASSWORD;
+                                
+                                String s0 = ctx.field("string0"+what);
+                                String s1 = ctx.field("string1"+what);
+                                if(s0.equals(s1)&&s0.length()>0) {
+                                    ctx.println("<h4>Change "+what+" to <tt class='codebox'>"+s0+"</tt></h4>");
+                                    action = ""; // don't popup the menu again.
+                                    
+                                    msg = reg.updateInfo(ctx, theirId, theirEmail, type, s0);
+                                    ctx.println("<div class='fnotebox'>"+msg+"</div>");
+                                    ctx.println("<i>click Change again to see changes</i>");                                    
+                                } else {
+                                    ctx.println("<h4>Change " + what+"</h4>");
+                                    if(s0.length()>0) {
+                                        ctx.println("<p class='ferrbox'>Both fields must match.</p>");
+                                    }
+                                    ctx.println("<label><b>New "+what+ ":</b><input type='password' name='string0"+what+"' value='"+s0+"'></label><br>");
+                                    ctx.println("<label><b>New "+what+ ":</b><input type='password' name='string1"+what+"'> (confirm)</label>");
+                                    
+                                    ctx.println("<br><br>");
+                                    ctx.println("(Suggested password: <tt>"+UserRegistry.makePassword(theirEmail)+"</tt> )");
+                                }
+                            } else if(action.equals(LIST_ACTION_CHANGE_EMAIL) ||
                                  action.equals(LIST_ACTION_CHANGE_NAME)) {
                                 String what = action.equals(LIST_ACTION_CHANGE_EMAIL)?"Email":"Name";
                                 UserRegistry.InfoType type = action.equals(LIST_ACTION_CHANGE_EMAIL)?UserRegistry.InfoType.INFO_EMAIL:UserRegistry.InfoType.INFO_NAME;
@@ -2702,6 +2732,16 @@ public class SurveyMain extends HttpServlet {
                                     ctx.print (" SELECTED ");
                                 }
                                 ctx.println(" value='" + LIST_ACTION_CHANGE_NAME + "'>Change Name...</option>");
+
+                                // CHANGE PASSWORD
+                                if(UserRegistry.userIsAdmin(ctx.session.user)) {
+                                    ctx.print(" <option  ");
+                                    if(LIST_ACTION_CHANGE_PASSWORD.equals(action)) {
+                                        ctx.print (" SELECTED ");
+                                    }
+                                    ctx.println(" value='" + LIST_ACTION_CHANGE_PASSWORD+ "'>Change Password...</option>");
+                                }
+                            
                             }
                         }
                         ctx.println("    </select>");

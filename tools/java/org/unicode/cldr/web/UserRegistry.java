@@ -86,6 +86,7 @@ public class UserRegistry {
     PreparedStatement queryEmailStmt = null;
     PreparedStatement updateInfoEmailStmt = null;
     PreparedStatement updateInfoNameStmt = null;
+    PreparedStatement updateInfoPasswordStmt = null;
     PreparedStatement touchStmt = null;
 
 
@@ -410,6 +411,7 @@ public class UserRegistry {
             
             updateInfoEmailStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set email=? WHERE id=? AND email=?");
             updateInfoNameStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set name=? WHERE id=? AND email=?");
+            updateInfoPasswordStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set password=? WHERE id=? AND email=?");
             
             removeIntLoc = conn.prepareStatement("DELETE FROM "+CLDR_INTEREST+" WHERE uid=?");
             updateIntLoc = conn.prepareStatement("INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)");
@@ -892,7 +894,7 @@ public class UserRegistry {
         return msg;
     }
     
-    public enum InfoType { INFO_EMAIL, INFO_NAME };
+    public enum InfoType { INFO_EMAIL, INFO_NAME, INFO_PASSWORD };
     
     String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
         if(ctx.session.user.userlevel > TC) {
@@ -912,6 +914,9 @@ public class UserRegistry {
                         break;
                     case INFO_NAME:
                         updateInfoStmt = updateInfoNameStmt;
+                        break;
+                    case INFO_PASSWORD:
+                        updateInfoStmt = updateInfoPasswordStmt;
                         break;
                     default:
                         return("[unknown type: " + type.toString() +"]");

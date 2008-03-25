@@ -670,3 +670,30 @@ span.marks b {
 	padding: 1px;
 	border:  1px solid green;
 }
+
+div.topnotices {
+	/* A border may not be a good idea here, becasue this box may not be present. */
+}
+
+div.topnotices a {
+	color:  black;
+}
+
+div.topnotices p {
+	text-align: center;
+	margin: 0; 
+	padding:  4px;
+}
+
+div.topnotices p.admin {
+	background-color: red;
+}
+
+div.topnotices p.unofficial {
+	background-color: goldenrod;
+}
+
+div.topnotices p.beta {
+	background-color: yellow;
+}
+

@@ -1286,23 +1286,25 @@ public class SurveyMain extends HttpServlet {
         
         ctx.println("</head>");
         ctx.println("<body onload='this.focus(); top.focus(); ContextWindow.focus(); top.parent.focus(); '>");
+        ctx.print("<div class='topnotices'>");
         if(/*!isUnofficial && */ 
             ((ctx.session!=null && ctx.session.user!=null && UserRegistry.userIsAdmin(ctx.session.user))||
                 false)) {
-            ctx.print("<div title='You're an admin!' style='text-align: center; margin: 0; background-color: red;'>");
+            ctx.print("<p class='admin' title='You're an admin!'>");
             ctx.printHelpLink("/Admin",ctx.iconHtml("stop","Admin!")+"Be careful, you are an administrator!");
-            ctx.println("</div>");
+            ctx.println("</p>");
         }
         if(isUnofficial) {
-            ctx.print("<div title='Not an official SurveyTool' style='text-align: center; margin: 0; background-color: goldenrod;'>");
+            ctx.print("<p class='unofficial' title='Not an official SurveyTool' >");
             ctx.printHelpLink("/Unofficial",ctx.iconHtml("warn","Unofficial Site")+"Unofficial");
-            ctx.println("</div>");
+            ctx.println("</p>");
         }
         if(isPhaseBeta()) {
-            ctx.print("<div title='Survey Tool is in Beta' style='text-align: center; margin: 0; background-color: yellow;'>");
+            ctx.print("<p class='beta' title='Survey Tool is in Beta' >");
             ctx.printHelpLink("/Beta",ctx.iconHtml("warn","beta")+"SurveyTool is in Beta. Any data added here will NOT go into CLDR.");
-            ctx.println("</div>");
+            ctx.println("</p>");
         }
+        ctx.print("</div>");
         showSpecialHeader(ctx);
         ctx.println("<script type='text/javascript'><!-- \n" +
                     "function show(what)\n" +

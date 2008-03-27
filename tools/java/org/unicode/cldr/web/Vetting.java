@@ -995,6 +995,10 @@ public class Vetting {
         int updates = 0;
         int base_xpath=-1;
         long lastU = System.currentTimeMillis();
+        
+        if(SurveyMain.db_Mysql) {
+            throw new InternalError("Not implemented for mysql");
+        }
         // two lists here.
         //  #1  results that are missing (unique CLDR_DATA.base_xpath but no CLDR_RESULT).  Use 'insert' instead of 'update', no 'old' data.
         //  #2  results that are out of date (CLDR_VET with same base_xpath but later modtime.).  Use 'update' instead of 'insert'. (better yet, use an updatable resultset).
@@ -1711,7 +1715,7 @@ public class Vetting {
 				//String itemValue = "(could not find item#"+vote_xpath+")";
                 String itemValue = null;
 				if(crs.next()) {
-					itemValue = crs.getString(1);
+					itemValue = SurveyMain.getStringUTF8(crs,1);
 					orig_xpath = crs.getInt(2);
 				}
 
@@ -1725,7 +1729,7 @@ public class Vetting {
 			queryValue.setInt(2,base_xpath);
 			rs = queryValue.executeQuery();
 			if(rs.next()) {
-				String itemValue = rs.getString(1);
+				String itemValue = SurveyMain.getStringUTF8(rs,1);
 				int origXpath = rs.getInt(2);
 				existingVote(base_xpath, origXpath, itemValue);
 			}
@@ -1739,7 +1743,7 @@ public class Vetting {
             if(rs.next()) {
                 int vote_xpath = rs.getInt(1);
                 int origXpath = rs.getInt(2);
-                String value = rs.getString(3);
+                String value = SurveyMain.getStringUTF8(rs,3);
                 defaultVote("Google", vote_xpath, origXpath, value);
             }
             
@@ -1751,7 +1755,7 @@ public class Vetting {
                 int xpath = rs.getInt(1);
                 int origXpath = rs.getInt(2);
                 // 3 : alt_type
-                String value = rs.getString(4);
+                String value = SurveyMain.getStringUTF8(rs,4);
                 Chad c = getChad(xpath, origXpath, value);
             }
             

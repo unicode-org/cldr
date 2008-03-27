@@ -934,6 +934,7 @@ import com.ibm.icu.util.ULocale;
         }
         //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
     } catch(SQLException se) {
+        se.printStackTrace();
         logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
         throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
     }

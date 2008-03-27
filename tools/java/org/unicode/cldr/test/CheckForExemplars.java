@@ -27,6 +27,7 @@ public class CheckForExemplars extends CheckCLDR {
   
   UnicodeSet exemplars;
   UnicodeSet scriptRegionExemplars;
+  UnicodeSet scriptRegionExemplarsWithParens;
   UnicodeSet currencySymbolExemplars;
   boolean skip;
   Collator col;
@@ -64,6 +65,7 @@ public class CheckForExemplars extends CheckCLDR {
     exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
     
     scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
+    scriptRegionExemplarsWithParens = (UnicodeSet) new UnicodeSet(exemplars).removeAll(";,").freeze();
     
     currencySymbolExemplars = safeGetExemplars("currencySymbol", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (currencySymbolExemplars == null) {
@@ -122,12 +124,15 @@ public class CheckForExemplars extends CheckCLDR {
       UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
       String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
       result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-      .setMessage("The characters \u200E{0}\u200E are not used in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
-    } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern") && !scriptRegionExemplars.containsAll(value)) {
-      UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(scriptRegionExemplars);
-      String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-      .setMessage("The characters \u200E{0}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{fixedMissing}));
+              .setMessage("The characters \u200E{0}\u200E are not used in this language, according to " + informationMessage + ".", new Object[]{fixedMissing}));
+    } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
+      UnicodeSet appropriateExemplars = path.contains("_") ? scriptRegionExemplarsWithParens : scriptRegionExemplars;
+      if (!appropriateExemplars.containsAll(value)) {
+        UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(appropriateExemplars);
+        String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
+        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+                .setMessage("The characters \u200E{0}\u200E are discouraged in display names. Please choose the best single name.", new Object[]{fixedMissing}));
+      }
     }
     // check for spaces 
     if (!path.startsWith("//ldml/references/reference") && !path.endsWith("/insertBetween")) {

@@ -70,6 +70,7 @@ public class ExampleGenerator {
   public final static double NUMBER_SAMPLE = 12345.6789;
 
   public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
+  public final static TimeZone GMT_ZONE_SAMPLE = TimeZone.getTimeZone("Etc/GMT-3");
 
   public final static Date DATE_SAMPLE;
 
@@ -289,6 +290,17 @@ public class ExampleGenerator {
   }
 
   IntervalFormat intervalFormat = new IntervalFormat();
+  
+  static Date FIRST_INTERVAL = new Date(108,1,13,5,7,9);
+  static Map<String,Date> SECOND_INTERVAL = Utility.asMap(new Object[][]{
+          {"y", new Date(109,2,14,17,8,10)},
+          {"M", new Date(108,2,14,17,8,10)},
+          {"d", new Date(108,1,14,17,8,10)},
+          {"a", new Date(108,1,13,17,8,10)},
+          {"h", new Date(108,1,13,6,8,10)},
+          {"m", new Date(108,1,13,5,8,10)}
+          });
+
 
   private String handleIntervalFormats(XPathParts parts2, String xpath, String value,
           ExampleContext context, ExampleType type) {
@@ -298,15 +310,15 @@ public class ExampleGenerator {
     if (parts2.getElement(6).equals("intervalFormatFallback")) {
       return null; // TODO test this too
     }
+    String greatestDifference = parts2.getAttributeValue(-1, "id");
+
     // intervalFormatFallback
     // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
     // find where to split the value
     intervalFormat.setPattern(value);
-    return intervalFormat.format(FIRST_INTERVAL, SECOND_INTERVAL);
+    return intervalFormat.format(FIRST_INTERVAL, SECOND_INTERVAL.get(greatestDifference));
   }
 
-  Date FIRST_INTERVAL = new Date(108,1,3,5,7,9);
-  Date SECOND_INTERVAL = new Date(109,2,4,6,8,10);
   
   class IntervalFormat {
     DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
@@ -350,10 +362,10 @@ public class ExampleGenerator {
       }
       String calendar = parts.findAttributeValue("calendar", "type");
       firstFormat = icuServiceBuilder.getDateFormat(calendar, first.toString());
-      firstFormat.setTimeZone(ZONE_SAMPLE);
+      firstFormat.setTimeZone(GMT_ZONE_SAMPLE);
 
       secondFormat = icuServiceBuilder.getDateFormat(calendar, second.toString());
-      secondFormat.setTimeZone(ZONE_SAMPLE);
+      secondFormat.setTimeZone(GMT_ZONE_SAMPLE);
       return this;
     }
   }

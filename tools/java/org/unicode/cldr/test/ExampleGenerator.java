@@ -70,7 +70,7 @@ public class ExampleGenerator {
   public final static double NUMBER_SAMPLE = 12345.6789;
 
   public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
-  public final static TimeZone GMT_ZONE_SAMPLE = TimeZone.getTimeZone("Etc/GMT-3");
+  public final static TimeZone GMT_ZONE_SAMPLE = TimeZone.getTimeZone("Etc/GMT");
 
   public final static Date DATE_SAMPLE;
 
@@ -291,14 +291,22 @@ public class ExampleGenerator {
 
   IntervalFormat intervalFormat = new IntervalFormat();
   
-  static Date FIRST_INTERVAL = new Date(108,1,13,5,7,9);
+  static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
+  
+  private static Date getDate(int year, int month, int date, int hour, int minute, int second, TimeZone zone) {
+    generatingCalendar.setTimeZone(GMT_ZONE_SAMPLE);
+    generatingCalendar.set(year, month, date, hour, minute, second);
+    return generatingCalendar.getTime();
+  }
+
+  static Date FIRST_INTERVAL = getDate(2008,1,13,5,7,9, GMT_ZONE_SAMPLE);
   static Map<String,Date> SECOND_INTERVAL = Utility.asMap(new Object[][]{
-          {"y", new Date(109,2,14,17,8,10)},
-          {"M", new Date(108,2,14,17,8,10)},
-          {"d", new Date(108,1,14,17,8,10)},
-          {"a", new Date(108,1,13,17,8,10)},
-          {"h", new Date(108,1,13,6,8,10)},
-          {"m", new Date(108,1,13,5,8,10)}
+          {"y", getDate(2009,2,14,17,8,10, GMT_ZONE_SAMPLE)},
+          {"M", getDate(2008,2,14,17,8,10, GMT_ZONE_SAMPLE)},
+          {"d", getDate(2008,1,14,17,8,10, GMT_ZONE_SAMPLE)},
+          {"a", getDate(2008,1,13,17,8,10, GMT_ZONE_SAMPLE)},
+          {"h", getDate(2008,1,13,6,8,10, GMT_ZONE_SAMPLE)},
+          {"m", getDate(2008,1,13,5,8,10, GMT_ZONE_SAMPLE)}
           });
 
 
@@ -319,7 +327,6 @@ public class ExampleGenerator {
     return intervalFormat.format(FIRST_INTERVAL, SECOND_INTERVAL.get(greatestDifference));
   }
 
-  
   class IntervalFormat {
     DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
     SimpleDateFormat firstFormat = new SimpleDateFormat();

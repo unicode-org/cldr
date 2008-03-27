@@ -14,6 +14,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -23,15 +24,40 @@ public class TestPaths extends TestFmwk {
   public static void main(String[] args) {
     new TestPaths().run(args);
   }
+  
+  public void TestGetFullPath() {
+    Status status = new Status();
+    
+    for (String locale : getPathsToTest()) {
+      CLDRFile file = testInfo.cldrFactory.make(locale, true);
+      logln(locale);
+
+      for (Iterator<String> it = file.iterator(); it.hasNext();) {
+        String path = it.next();
+        String fullPath = file.getFullXPath(path);
+        String value = file.getStringValue(path);
+        String source = file.getSourceLocaleID(path, status);
+        if (fullPath == null) {
+          errln("Locale: " + locale + ",\t FullPath: " + path);
+        }
+        if (value == null) {
+          errln("Locale: " + locale + ",\t Value: " + path);
+        }
+        if (source == null) {
+          errln("Locale: " + locale + ",\t Source: " + path);
+        }
+        if (status.pathWhereFound == null) {
+          errln("Locale: " + locale + ",\t Found Path: " + path);
+        }
+      }
+    }
+  }
 
   public void TestPretty() {
     PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
     Set<String> pathsSeen = new HashSet<String>();
     
-    Collection<String> localesToTest = params.inclusion  < 5 ? Arrays.asList("root", "en", "ja")
-            : params.inclusion  < 10 ? testInfo.cldrFactory.getAvailableLanguages()
-                    : testInfo.cldrFactory.getAvailable();
-    for (String locale : localesToTest) {
+    for (String locale : getPathsToTest()) {
       CLDRFile file = testInfo.cldrFactory.make(locale, true);
       logln(locale);
 
@@ -55,5 +81,11 @@ public class TestPaths extends TestFmwk {
         }
       }
     }
+  }
+
+  private Collection<String> getPathsToTest() {
+    return params.inclusion  < 5 ? Arrays.asList("root", "en", "ja")
+            : params.inclusion  < 10 ? testInfo.cldrFactory.getAvailableLanguages()
+                    : testInfo.cldrFactory.getAvailable();
   }
 }

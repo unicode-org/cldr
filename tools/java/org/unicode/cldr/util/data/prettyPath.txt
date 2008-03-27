@@ -79,6 +79,9 @@ $element=[a-zA-Z0-9]+;
 '$%%/dateTimeFormats/availableFormats/dateFormatItem[@id="' ($avalue) '"]' > '|pattern|other-' $1;
 '$%%/dateTimeFormats/appendItems/appendItem[@request="' ($avalue) '"]' > '|pattern|others-append-' $1;
 
+'$%%/dateTimeFormats/intervalFormats/intervalFormatItem[@id="' ($avalue) '"]/greatestDifference[@id="' ($avalue) '"]'     > '|pattern|interval-' $1 '-' $2;
+'$%%/dateTimeFormats/intervalFormats/intervalFormatFallback'     > '|pattern|interval-fallback';
+
 '$%%/dateFormats/default' > '|default|dateFormat';
 '$%%/timeFormats/default' > '|default|timeFormat';
 '$%%/months/default' > '|default|monthFormat';

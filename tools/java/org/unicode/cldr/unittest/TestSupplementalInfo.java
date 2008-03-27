@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
@@ -21,17 +22,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestSupplementalInfo extends TestFmwk {
-  static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
-  static StandardCodes sc = StandardCodes.make();
-  static Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-  static CLDRFile english = cldrFactory.make("en", true);
+  static TestInfo testInfo = new TestInfo();
 
   public static void main(String[] args) {
     new TestSupplementalInfo().run(args);
   }
   
   public void TestCompleteness() {
-    assertEquals("API doesn't support: " + supplementalDataInfo.getSkippedElements(), 0, supplementalDataInfo.getSkippedElements().size());
+    assertEquals("API doesn't support: " + testInfo.supplementalDataInfo.getSkippedElements(), 0, testInfo.supplementalDataInfo.getSkippedElements().size());
   }
 
   // these are settings for exceptional cases we want to allow
@@ -54,20 +52,20 @@ public class TestSupplementalInfo extends TestFmwk {
    * @param args
    */
   public void TestCurrency() {
-    Set<String> currencyCodes = sc.getGoodAvailableCodes("currency");
+    Set<String> currencyCodes = testInfo.sc.getGoodAvailableCodes("currency");
     Relation<String,Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
     Relation<String,Pair<String, CurrencyDateInfo>> modernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
-    Set<String> territoriesWithoutModernCurrencies = new TreeSet(sc.getGoodAvailableCodes("territory"));
+    Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.sc.getGoodAvailableCodes("territory"));
     Map<String,Date> currencyFirstValid = new TreeMap();
     Map<String,Date> currencyLastValid = new TreeMap();
     territoriesWithoutModernCurrencies.remove("ZZ");
     
-    for (String territory : sc.getGoodAvailableCodes("territory")) {
-      if (supplementalDataInfo.getContained(territory) != null) {
+    for (String territory : testInfo.sc.getGoodAvailableCodes("territory")) {
+      if (testInfo.supplementalDataInfo.getContained(territory) != null) {
         territoriesWithoutModernCurrencies.remove(territory);
         continue;
       }
-      Set<CurrencyDateInfo> currencyInfo = supplementalDataInfo.getCurrencyDateInfo(territory);
+      Set<CurrencyDateInfo> currencyInfo = testInfo.supplementalDataInfo.getCurrencyDateInfo(territory);
       if (currencyInfo == null) {
         continue; // error, but will pick up below.
       }
@@ -92,7 +90,7 @@ public class TestSupplementalInfo extends TestFmwk {
         } else {
           nonModernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));          
         }
-        logln(territory + "\t" + dateInfo.toString() + "\t" + english.getName(CLDRFile.CURRENCY_NAME, currency));
+        logln(territory + "\t" + dateInfo.toString() + "\t" + testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency));
       }
     }
     // fix up 
@@ -100,7 +98,7 @@ public class TestSupplementalInfo extends TestFmwk {
     // now print error messages
     logln("Modern Codes: " + modernCurrencyCodes);
     for (String currency : modernCurrencyCodes.keySet()) {
-      final String name = english.getName(CLDRFile.CURRENCY_NAME, currency);
+      final String name = testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency);
       if (oldMatcher.reset(name).find()) {
         errln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + modernCurrencyCodes.getAll(currency));
       }
@@ -115,7 +113,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
     logln("Non-Modern Codes (with dates): " + nonModernCurrencyCodes);
     for (String currency : nonModernCurrencyCodes.keySet()) {
-      final String name = english.getName(CLDRFile.CURRENCY_NAME, currency);
+      final String name = testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency);
       if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
         logln("Has 'new' in name but NOT used since " + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
       } else if (!oldMatcher.reset(name).find() && !OK_TO_NOT_HAVE_OLD.contains(currency)){
@@ -123,13 +121,13 @@ public class TestSupplementalInfo extends TestFmwk {
                 + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
         for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes.getAll(currency)) {
           final String territory = pair.getFirst();
-          Set<CurrencyDateInfo> currencyInfo = supplementalDataInfo.getCurrencyDateInfo(territory);
+          Set<CurrencyDateInfo> currencyInfo = testInfo.supplementalDataInfo.getCurrencyDateInfo(territory);
           for (CurrencyDateInfo dateInfo : currencyInfo) {
             if (dateInfo.getEnd().compareTo(NOW) < 0) {
               continue;
             }
             logln("\tCurrencies used instead: " + territory + "\t" + dateInfo
-                    + "\t" + english.getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
+                    + "\t" + testInfo.english.getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
            
           }
         }

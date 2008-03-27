@@ -360,7 +360,7 @@ public class ExampleGenerator {
 
   private String handleUnits(XPathParts parts, String xpath, String value, ExampleContext context, ExampleType type) {
     if (parts.contains("unitName")) {
-      return formatCountValue(parts, value, null, context, type);
+      return formatCountValue(parts, value, Count.one, context, type);
     }
     return null;
   }

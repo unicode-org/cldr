@@ -2732,11 +2732,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
     if (pluralCounts.size() != 1) {
       for (Count count : pluralCounts) {
+        if (count.equals(Count.one)) continue;
         toAddTo.add("//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]");
         for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
           toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
         }
-        if (count.equals(Count.one) || pluralCounts.size() == 1) continue;
         for (String unit : codes) {
           toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
         }

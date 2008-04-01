@@ -268,10 +268,10 @@ other cases, the possible actions for you are are: <ul>
 		<td>
 		<h3>Numbers</h3>
 		<p>Numbers
-are formatted using patterns, like "mm-dd". Different characters stand
-for different parts of the number. You need to use '.' for the decimal
+are formatted using patterns, like "#,###.00". Different characters stand
+for different parts of the number: they don't have their normal meaning!<span style="font-style: italic;"> In particular, you need to use '.' for the decimal
 point and ',' for the thousands (grouping) separator, even if they are
-not used in your language. Here are the special characters used in
+not used that way in your language. </span>Here are the special characters used in
 number patterns. </p>
 		<table style="border-collapse: collapse;" id="table2" border="1" bordercolor="#009900" cellspacing="0">
 			<caption><b>Number Format Symbols</b></caption>
@@ -309,7 +309,7 @@ change it using the Feedback link.</td>
 			<tr>
 				<td style="text-align: center; vertical-align: top;">...;...</td>
 				<td style="vertical-align: top; text-align: left;">If your language uses different formats for negative numbers than just adding "-" at the front, 
-				you can put in two patterns. For example: #,##0.00¤;(#,##0.00¤) is used to make negative currencies appear like "(<font face="Times New Roman">1'234,56£)" 
+				you can put in <span style="font-style: italic;">two</span> patterns. For example: #,##0.00¤;(#,##0.00¤) is used to make negative currencies appear like "(<font face="Times New Roman">1'234,56£)" 
 				instead of "-1'234,56£"</font></td>
 			</tr>
 		</tbody></table>
@@ -334,7 +334,7 @@ after a semicolon.</li>
 		</td>
 	</tr>
 	<tr>
-		<td>//ldml/dates/calendars/.*/(pattern|dateFormatItem).*</td>
+		<td>//ldml/dates/calendars/.*/(pattern|dateFormatItem|intervalFormats).*</td>
 		<td>
 		<h3>Formats for Dates and Times</h3>
 		<p>Dates
@@ -392,18 +392,73 @@ for each field, according to the following table.</p>
 			<tr>
 				<td style="text-align: center; vertical-align: top;">'a'</td>
 				<td style="vertical-align: top; text-align: left;">since letters have special meaning, if you want a real letter, you need to put it in single quotes. 
-				For a real single quote, use ''.</td>
+				For a real single quote, use '' (that is, two adjacent ' characters).</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top;" colspan="2">
 				<p style="text-align: left;">* Some fields use M or MM for numeric (eg, 1 or 01); MMM for abbreviated (eg, Sept); and MMMM for full (eg, September)</p>
 				</td>
 			</tr>
+		</tbody></table><br></td>
+	</tr>
+	<tr><td>//ldml/dates/calendars/.*/intervalFormats.*</td><td><h3>Interval Formats</h3><p>Interval
+formats are used for a range of dates or times specified by a
+start and end, such as "Sept 10-12" (meaning the 10th of September
+through the 12th of September). The
+pattern will be something like "MMM d–d", where some of the fields are
+repeated -- typically with some kind of punctuation mark separating the
+two fields, but some fields in the second part are omitted. The way
+this pattern is used is that the part up to the first
+repeated field is formatted with the first date, and the remainder is
+formatted with the second date. For example:</p>
+		<table style="border-collapse: collapse;" id="table7" border="1" bordercolor="#009900" cellspacing="0">
+			<caption><b>Interval Formatting</b></caption>
+			<tbody><tr>
+				<th style="vertical-align: top;"><strong>Format String</strong></th>
+				<th style="text-align: center;"><strong>Date 1</strong></th>
+				<th style="text-align: center;"><strong>Date 2</strong></th><th>Result</th>
+			</tr>
+			<tr>
+				<td align="center">MMM d–d</td>
+				<td align="center">2008-09-13</td>
+				<td align="center">2008-09-15</td><td style="text-align: center;">Sept. 13–15</td>
+			</tr>
+			<tr>
+				<td align="center">MMMM–MMMM, yyyy</td>
+				<td align="center">2008-09-01</td>
+				<td align="center">2008-11-31</td><td style="text-align: center;">September-November, 2008</td>
+			</tr>
+			
 		</tbody></table>
-		<p align="left">Some languages use two different forms of strings (<i>stand-alone</i> and <i>format</i>) depending on the context. Typically the <i>stand-alone</i> 
+		<p>Each
+combination of fields can be used with dates that differ by different
+amounts. For example, a format for the fields "yMMMd" (year,
+abbreviated month, and day) could be used with two dates that differ by
+year, month, or day -- each type of difference might need a different
+pattern.&nbsp;For example:</p>
+		<table style="border-collapse: collapse;" id="table7" border="1" bordercolor="#009900" cellspacing="0">
+			<caption><b>Greatest Difference</b></caption>
+			<tbody><tr>
+				
+				<th style="text-align: center;"><strong>Date 1</strong></th>
+				<th style="text-align: center;"><strong>Date 2</strong></th><th>Greatest Difference</th><th>Format String</th><th>Shares</th>
+			</tr>
+			<tr>
+				
+				<td align="center">2008-09-13</td>
+				<td align="center"><span style="font-weight: bold;">2009</span>-09-15</td><td style="text-align: center;">year</td><td style="text-align: center;">MMM d, yyyy – MMM d, yyyy</td><td style="text-align: center; font-style: italic;">nothing</td>
+			</tr>
+			<tr>
+				
+				<td align="center">2008-09-01</td>
+				<td align="center">2008-<span style="font-weight: bold;">11</span>-31</td><td style="text-align: center;">month</td><td style="text-align: center;">MMM d – MMM d, yyyy</td><td style="text-align: center; font-style: italic;">year</td>
+			</tr><tr><td align="center">2008-09-01</td><td align="center">2008-09-<span style="font-weight: bold;">05</span></td><td style="text-align: center;">day</td><td style="text-align: center;">MMM d–d, yyyy</td><td style="text-align: center; font-style: italic;">year and month</td></tr>
+			
+		</tbody></table>
+		<br>Look carefully at each of the examples to see the kinds of formats that would be used in your language.</td></tr><tr><td>//ldml/dates/calendars/.*Context.*</td><td><h3>Stand-Alone vs. Format Styles</h3><p align="left">Some languages use two different forms of strings (<i>stand-alone</i> and <i>format</i>) depending on the context. Typically the <i>stand-alone</i> 
 		version is the nominative form of the word, and the <i>format</i> version is in the genitive.</p>
 		<p align="left">Make
-sure that the correct form is chosen, especially for the months. That
+sure that the correct forms are provided, especially for the months, and used in the patterns. That
 is, suppose that the language uses "Dezembro" for December when
 standing alone, but "Dezembru" when with a date (meaning the nth day <em>of</em> that month). Then the formats for months could be something like:</p>
 		<table style="border-collapse: collapse;" id="table7" border="1" bordercolor="#009900" cellspacing="0">
@@ -429,13 +484,54 @@ standing alone, but "Dezembru" when with a date (meaning the nth day <em>of</em>
 				<td align="center">1 Dez. 53</td>
 			</tr>
 		</tbody></table>
+		<p align="left">Similarly,
+suppose that your language formats months differently if they have
+vowels, eg "14 de gener de 2008" but "14 d'abril de 2008". In that
+case, the stand-alone and format versions of the months should be:</p><table style="border-collapse: collapse;" id="table7" border="1" bordercolor="#009900" cellspacing="0">
+			
+			<tbody><tr>
+				
+				<td align="center"><strong>Format Month</strong></td>
+				<td><span style="font-weight: bold;">Stand-Alone Month</span></td>
+			</tr>
+			<tr>
+				
+				<td align="center">de gener</td>
+				<td>gener</td>
+			</tr>
+			<tr>
+				
+				<td align="center">d'abril</td>
+				<td>abril</td>
+			</tr>
+			
+		</tbody></table>
+		<p align="left">These must be coordinated with the format strings, which can't have the extra "de" before the month:</p><table style="border-collapse: collapse;" id="table7" border="1" bordercolor="#009900" cellspacing="0">
+			
+			<tbody><tr>
+				<th style="vertical-align: top;"><strong>Format String</strong></th>
+				
+				<th>Date</th><td align="center"><strong>Result</strong></td>
+			</tr>
+			<tr>
+				<td colspan="1" rowspan="2" align="center">LLL</td>
+				
+				<td>2008-1-14</td><td align="center">gener</td>
+			</tr>
+			<tr>
+				
+				
+				<td>2008-4-14</td><td align="center">abril</td>
+			</tr>
+			<tr>
+				<td colspan="1" rowspan="2" align="center">d MMM 'de' yyyy</td>
+				
+				<td>2008-1-14</td><td align="center">14 d'abril de 2008</td>
+			</tr><tr><td>2008-4-14</td><td>14 de gener de 2008</td></tr>
+		</tbody></table>
 		<p align="left">That
 is, if your language uses two different forms, then make sure that
-there are two forms of the months or days where necessary, <i>and</i> 
-		in all of the date patterns, use LLL or LLLL stand-alone form where it is needed (instead MMM and MMMM).</p>
-		</td>
-	</tr>
-	<tr>
+there are two forms of the months or days where necessary, <i>and</i> adjust the date patterns to use the LLL or LLLL stand-alone form or MMM and MMMM format forms, as needed.</p></td></tr><tr>
 		<td>//ldml/dates/calendars/calendar.*timeFormatLength</td>
 		<td>
 		<h3>Standard Time Formats</h3>
@@ -849,7 +945,7 @@ use French names for countries that aren't translated. The codes you
 need to use are <a target="_blank" href="http://unicode.org/cldr/apps/survey?p_codes=t">locale codes</a>, not the 
 		names or translations; thus you would put in "<code>fr</code>" or "<code>fr_BE</code>",<i> not</i> "French" or "<span class="loser">français</span>".</p>
 		</td>
-	</tr><tr><td>//ldml/(units/unit/.* | numbers/currencies/currency[^/]*/displayName.*)</td><td><h3>Units</h3><p>Localized units provide more natural ways of expressing unit phrases
+	</tr><tr><td>//ldml/(units/unit|numbers/currencies/currency.*/displayName).*</td><td><h3>Localized Units</h3><p>Localized units provide more natural ways of expressing unit phrases
 that vary in plural form, such as "1 hour" vs "2 hours". While they
 cannot express all the intricacies of natural languages, they allow for
 more natural phrasing than constructions like "1 hour(s)".<span style="font-style: italic; color: black;"></span><span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></p><p style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;">Please&nbsp;</span>review the draft rules that CLDR is using for plurals for your language, at <a href="http://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html">Language Plural Rules</a>, and the description there about&nbsp;the plural categories.</p><p>Each unit may have multiple plural forms, one for each category. These are composed with numbers using a <span style="font-style: italic;">unitPattern</span>
@@ -885,10 +981,11 @@ there is a script; for example, &nbsp;"uz-Arab" =&gt; "ouzbek (arabe)".</p>If th
 certain compound language (locale) names, you can also supply specific
 translations. Thus for the whole locale 'en_GB', you can provide a
 translation like "Australian English".</p></td></tr><tr><td>//ldml/localeDisplayNames/codePatterns/codePattern.*</td><td><h3>Code Patterns</h3>Code
-patterns are used in lists where the name of the language/script/region
-is not available -- the code (like "de" for German) will be substituted
-for the {0} placeholder. &nbsp;Thus you if the language code 'zaz' is
-not translated in your language, you might see in a list something like:<br><ul><li>English</li><li>French</li><li>Language: zaz</li><li>Spanish</li></ul>The
+patterns are used in lists where the name of the language, script, or
+region is not available -- the code (like "de" for German) will be
+substituted for the {0} placeholder. &nbsp;Thus you if the language
+code 'zaz' is not translated in your language, you might see in a list
+something like:<br><ul><li>English</li><li>French</li><li>Language: zaz</li><li>Spanish</li></ul>The
 last line is the result of substituting the code 'zaz' into the code
 pattern. You can choose the pattern that makes sense for your language;
 if the best choice is to just use the code alone, then use {0}.</td></tr>

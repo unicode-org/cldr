@@ -790,6 +790,12 @@ public class ExampleGenerator {
    * Private class to get the messages from a help file.
    */
   public static class HelpMessages {
+    private static final Matcher CLEANUP_BOOKMARK = Pattern.compile("[^a-zA-Z0-9]").matcher("");
+
+    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>\r\n");
+
+    private static final Matcher HEADER_HTML = Pattern.compile("<h[0-9]>(.*)</h[0-9]>").matcher("");
+
     List<Matcher> keys = new ArrayList();
 
     List<String> values = new ArrayList();
@@ -894,16 +900,57 @@ public class ExampleGenerator {
      * @return
      */
     public String find(String key) {
+      return find(key, DEFAULT_HEADER_PATTERN);
+    }
+    
+    /**
+     * Get message corresponding to a key out of the file set on this object. 
+     * For many files, the key will be an xpath, but it doesn't have to be. 
+     * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
+     * will be concatenated together in order to get the result.
+     * @param key
+     * @param addHeader true if you want a header formed by looking at all the hN elements.
+     * @return
+     */
+    public String find(String key, MessageFormat headerPattern) {
+      StringBuilder header = new StringBuilder();
       StringBuilder result = new StringBuilder();
+      int keyCount = 0;
       for (int i = 0; i < keys.size(); ++i) {
         if (keys.get(i).reset(key).matches()) {
           if (result.length() != 0) {
             result.append("\r\n");
           }
-          result.append(values.get(i));
+          String value = values.get(i);
+          if (headerPattern != null) {
+            HEADER_HTML.reset(value);
+            int lastEnd = 0;
+            StringBuilder newValue = new StringBuilder();
+            while (HEADER_HTML.find()) {
+              String contents = HEADER_HTML.group(1);
+              if (contents.contains("<")) {
+                continue; // disallow other formatting
+              }
+              String bookmark = "HM_" + CLEANUP_BOOKMARK.reset(contents).replaceAll("_");
+              keyCount++;
+              if (header.length() > 0) {
+                header.append(" | ");
+              }
+              header.append("<a href='#").append(bookmark).append("'>").append(contents).append("</a>");
+              newValue.append(value.substring(lastEnd, HEADER_HTML.start(1)));
+              newValue.append("<a name='").append(bookmark).append("'>").append(contents).append("</a>");
+              lastEnd = HEADER_HTML.end(1);
+            }
+            newValue.append(value.substring(lastEnd));
+            value = newValue.toString();
+          }
+          result.append(value);
         }
       }
       if (result.length() != 0) {
+        if (keyCount > 1) {
+          result.insert(0, headerPattern.format(new Object[]{header.toString()}));
+        }
         return result.toString();
       }
       return null;

@@ -11,12 +11,7 @@ DIV.1st {
 	PADDING-TOP: 4px
 }
 -->
-</style>
-
-
-
-
-</head>
+</style></head>
 <body>
 
 <h1 align="center">Chart Messages</h1>
@@ -296,25 +291,30 @@ brackets before or after the English name, eg "Vanuatu [VU]"</p>
 		information for computing these values. This data is based on the default content data, the 
 		population data, and the the suppress-script data in [<a href="http://unicode.org/draft/reports/tr35/tr35.html#BCP47">BCP47</a>]. 
 		It is heuristically derived, and may change over time. The chart shows how the data "fills 
-		in" the missing fields in the <span class='source'>source values</span> to get the
-		<span class='target'>target values</span>.</span></p>
+		in" the missing fields in the <span class="source">source values</span> to get the
+		<span class="target">target values</span>.</span></p>
 		<ul>
 			<li><b>Reporting Defects:</b> If you find errors or omissions in this data, please report the information with a
 			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>.</li>
 		</ul>
 		</td>
 	</tr><tr><td>language_plural_rules</td><td><p>Languages
-vary in how they handle plurals of nouns or unit expressions ("hours", "meters"). Some languages have two forms, like English;
-some languages have fewer; and some languages have more. CLDR uses short, mnemonic tags for these
-plural categories: <span style="font-family: monospace;">zero</span>, <span style="font-family: monospace;"></span><span style="font-family: monospace;">one</span><span style="font-family: monospace;"></span>, <span style="font-family: monospace;">two</span><span style="font-family: monospace;"></span>, <span style="font-family: monospace;">few</span><span style="font-family: monospace;"></span>, <span style="font-family: monospace;">many</span>, and <span style="font-family: monospace;">other.</span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></p><p>These categories are used to provide localized units, with a more natural ways of expressing phrases
+vary in how they handle plurals of nouns or unit expressions ("hours",
+"meters", and so on). Some languages have two forms, like English;
+some languages have no forms; and some languages have multiple forms
+(see <a href="#sl">Slovenian</a> below). CLDR uses short, mnemonic tags for these
+plural categories: <span style="font-family: monospace;"></span></p><ul><li><span style="font-family: monospace;">zero</span><span style="font-family: monospace;"></span></li><li><span style="font-family: monospace;">one</span><span style="font-family: monospace;"></span> (singular)</li><li><span style="font-family: monospace;">two</span><span style="font-family: monospace;"></span> (dual)</li><li><span style="font-family: monospace;">few</span><span style="font-family: monospace;"></span> (paucal)</li><li><span style="font-family: monospace;">many</span></li><li><span style="font-family: monospace;"></span><span style="font-family: monospace;">other</span> (general plural form -- also used if the language only has a single form)<span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></li></ul><p>These categories are used to provide localized units, with a more natural ways of expressing phrases
 that vary in plural form, such as "1 hour" vs "2 hours". While they
 cannot express all the intricacies of natural languages, they allow for
-more natural phrasing than constructions like "1 hour(s)".</p><p><span style="font-style: italic; color: black;"><span style="font-weight: bold;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span></span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.</p><p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p><ol><li>Data is only available for a limited set of languages.</li><li>The available data may need adjustment.</li><li>The&nbsp;plural
+more natural phrasing than constructions like "1 hour(s)".</p><p><span style="font-style: italic; color: black;"><span style="font-weight: bold;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span></span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.</p><p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p><ol><li>Data is only available for a limited set of languages, so please supply data for missing cases!</li><li>The available data may need adjustment if it is inaccurate.</li><li>The&nbsp;plural
 forms of decimal values have yet to be determined. Please look over
 examples of decimal values (such as 1.31) to see which plural form they
 should have. The default in the absence of other information is for
-them to have the category&nbsp;<span style="font-family: monospace;">other</span>.</li></ol><ul><li><b>Reporting Defects:</b> When you find errors or omissions in this data, please report the information with a
-			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>. Try to give examples of how the forms may differ.</li></ul></td></tr>
+them to have the category&nbsp;<span style="font-family: monospace;">other</span>.<br><br>That
+is, in expressions like the following (where "hours" could be any
+countable nouns: minutes, degrees, meters, and so on), what categories
+should the numbers fall into?</li><ul><li>0.23 hours</li><li>1.23 hours</li><li>2.23 hours</li><li>5.23 hours</li><li>...</li></ul></ol><ul><li><b>Reporting Defects:</b> When you find errors or omissions in this data, please report the information with a
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>. Try to give examples of how the forms may differ. Here's an example:</li></ul><div style="margin-left: 80px;">The proposed Ukrainian (uk) plural rules are:<br>one: 1, 21, 31, 41, 51, 61...<br>few: 2-4, 22-24, 32-34...<br>other: 0, 5-20, 25-30, 35-40...; 1.31, 2.31, 5.31...<br><br>Although rules for integer values are correct, there needs to be four categories, with an extra one for fractions. For example:<br>1 день<br>2 дні<br>5 днів<br>1.31 дня<br>2.31 дня<br>5.31 дня</div></td></tr>
 </tbody></table>
 <p>The text to insert can be fairly arbitrary HTML. The software that
 reads this table will search the first column (eg between &lt;td&gt;

@@ -208,6 +208,16 @@ public class ICUServiceBuilder {
     formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
     formatData.setWeekdays(getArray(prefix, "day", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
 
+    // quarters
+    
+    formatData.setQuarters(getArray(prefix, "quarter", "format", "wide"), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+    formatData.setQuarters(getArray(prefix, "quarter", "format", "abbreviated"), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+    formatData.setQuarters(getArray(prefix, "quarter", "format", "narrow"), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
+    
+    formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "wide"), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+    formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "abbreviated"), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+    formatData.setQuarters(getArray(prefix, "quarter", "stand-alone", "narrow"), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
+
     cacheDateFormatSymbols.put(key, formatData);
     return formatData;
   }
@@ -246,6 +256,8 @@ public class ICUServiceBuilder {
     return value;
   }
   
+  //enum ArrayType {day, month, quarter};
+  
   private String[] getArray(String key, String type, String context, String width) {
     String prefix = key + type + "s/" 
     + type + "Context[@type=\"" + context + "\"]/"
@@ -253,7 +265,8 @@ public class ICUServiceBuilder {
     + type + "[@type=\"";
     String postfix = "\"]";
     boolean isDay = type.equals("day");
-    List temp = getArray(prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, isDay ? 7 : 12);
+    final int arrayCount = isDay ? 7 : type.equals("month") ? 12 : 4;
+    List temp = getArray(prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, arrayCount);
     if (isDay) temp.add(0,"");
     String[] result = (String[])temp.toArray(new String[temp.size()]);
     checkFound(result);

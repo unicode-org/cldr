@@ -248,7 +248,7 @@ public class ExampleGenerator {
         return result = handleExemplarCharacters(value, zoomed);
       }
       if (parts.contains("localeDisplayNames")) {
-        return result = handleDisplayNames(xpath, value);
+        return result = handleDisplayNames(xpath, parts, value);
       }
       if (parts.contains("currency")) {
         return result = handleCurrency(xpath, value, context, type);
@@ -625,19 +625,24 @@ public class ExampleGenerator {
     return result;
   }
 
-  private String handleDisplayNames(String xpath, String value) {
+  private String handleDisplayNames(String xpath, XPathParts parts, String value) {
     String result = null;
-    if (xpath.contains("/codePatterns")) {
-      //parts.set(xpath);
-      result = format(value, setBackground("CODE"));
+    if (parts.contains("codePatterns")) {
+      String type = parts.getAttributeValue(-1, "type");
+      result = format(value, setBackground(
+              type.equals("language") ? "ace"
+                      : type.equals("script") ? "Avst"
+                          : type.equals("territory") ? "057" : "CODE"));
       result = finalizeBackground(result);
+    } else if (parts.contains("localeDisplayPattern")) {
+      result = cldrFile.getName("uz_Arab_AF");
     } else if (parts.contains("languages") ) {
       String type = parts.getAttributeValue(-1, "type");
       if (type.contains("_")) {
         if (value != null && !value.equals(type)) {
           result = value;
         } else {
-          result = cldrFile.getName(parts.set(xpath).findAttributeValue("language", "type"));
+          result = cldrFile.getName(parts.findAttributeValue("language", "type"));
         }
       }
     }

@@ -180,7 +180,7 @@ next release. Please file a bug to request that this be done.</i></li>
 	<tr>
 		<td>//ldml/localeDisplayNames/languages.*\[@type="[^"]*_[^"]*"\].*</td>
 		<td>
-		<h3>Complex Language Codes</h3>
+		<h3>Compound Language Codes</h3>
 		<p>Some language codes are more complex, of the form "en_AU" for <i>Australian English</i>.
 If you don't add a translation, then those will be represented by a
 format like "αγγλικά (Αυστραλία)". That is, the translation would be
@@ -195,7 +195,10 @@ should always be translated. </p>
 			<li>Similarly "Iberian Spanish" is the style of Spanish used in Spain (as opposed to Latin America).</li>
 			<li>"Swiss High German" (<i>Schweizer Hochdeutsch</i>), also called "Swiss Standard German", has the code <code>de_CH</code>.</li>
 			<li>"Swiss German" (<i>Schwyzerdütsch</i>) has the code <code>gsw</code>.</li>
-		</ul>
+		</ul><p>A
+pattern is used to control how the translations for language and region
+codes are composed into a name when the compound code doesn't have a
+specific translation. See the section "localeDisplayPattern".</p>
 		</td>
 	</tr>
 	<tr>
@@ -849,24 +852,46 @@ need to use are <a target="_blank" href="http://unicode.org/cldr/apps/survey?p_c
 	</tr><tr><td>//ldml/(units/unit/.* | numbers/currencies/currency[^/]*/displayName.*)</td><td><h3>Units</h3><p>Localized units provide more natural ways of expressing unit phrases
 that vary in plural form, such as "1 hour" vs "2 hours". While they
 cannot express all the intricacies of natural languages, they allow for
-more natural phrasing than constructions like "1 hour(s)".</p><p><span style="font-style: italic; color: black;"><span style="font-weight: bold;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span></span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.<span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></p><p><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;">Please review</span></span> <span class="loser"></span>the draft rules that CLDR is using for plurals for your language, at <a href="http://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html">Language Plural Rules</a>.</p><p>Thus each unit may have multiple plural forms. These are composed with numbers using a <span style="font-style: italic;">unitPattern</span>
-of the form "{0} {1}". A formatted number will be substituted in place
-of the "{0}", while the unit value will be subsituted in place of the
-"{1}". For example, for English if the unit is an <span style="font-family: monospace;">hour</span> and the number is <span style="font-family: monospace;">1234</span>, then the number is looked up to get the rule category <span style="font-family: monospace;">other</span>. The number is then formatted into "1,234" and composed with the unitName for <span style="font-family: monospace;">other</span> and the unitPattern for <span style="font-family: monospace;">other</span> to get the final result. Examples are in the table below.
+more natural phrasing than constructions like "1 hour(s)".<span style="font-style: italic; color: black;"></span><span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></p><p style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;">Please&nbsp;</span>review the draft rules that CLDR is using for plurals for your language, at <a href="http://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html">Language Plural Rules</a>, and the description there about&nbsp;the plural categories.</p><p>Each unit may have multiple plural forms, one for each category. These are composed with numbers using a <span style="font-style: italic;">unitPattern</span>
+of the form "{0...} {1}". A formatted number will be substituted in place
+of the "{0...}", while the unit value will be subsituted in place of the
+"{1}".</p><p>For example, for English if the unit is an <span style="font-family: monospace;">hour</span> and the number is <span style="font-family: monospace;">1234</span>, then the number is looked up to get the rule category <span style="font-family: monospace;">other</span>. The number is then formatted into "1,234" and composed with the unitName for <span style="font-family: monospace;">other</span> and the unitPattern for <span style="font-family: monospace;">other</span> to get the final result. Examples are in the table below.
 		</p><table style="border-collapse: collapse;" id="table11" border="1" bordercolor="#009900" cellspacing="0">
 			<tbody><tr>
 				<th>Locale</th><th style="vertical-align: top;"><strong>Unit</strong></th>
-				<th style="text-align: center;"><strong>Number</strong></th><th>Formatted Number</th><th>Plural Category</th><th>unitName</th><th>unitPattern</th><th>Final Result</th>
+				<th style="text-align: center;"><strong>Number</strong></th><th>Formatted number</th><th>Plural category</th><th>unitName for category</th><th>unitPattern for category</th><th>Final Result</th>
 			</tr>
-			<tr><td style="font-family: monospace;">en</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">0</td><td style="text-align: center;">"0"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"hours"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"0 hours"</td></tr><tr><td style="font-family: monospace;">en</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1</td><td style="text-align: center;">"1"</td><td style="text-align: center; font-family: monospace;">one</td><td style="text-align: center;">"hour"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"0 hours"</td></tr><tr>
+			<tr><td style="font-family: monospace;">en</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">0</td><td style="text-align: center;">"0"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"hours"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"0 hours"</td></tr><tr><td style="font-family: monospace;">en</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1</td><td style="text-align: center;">"1"</td><td style="text-align: center; font-family: monospace;">one</td><td style="text-align: center;">"hour"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"0 hours"</td></tr><tr>
 				<td style="font-family: monospace;">en</td><td style="text-align: center;"><b><code>hour</code></b></td>
-				<td style="text-align: center; font-family: monospace;">1234</td><td style="text-align: center;">"1,234"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"hours"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"1,234 hours"</td>
-			</tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">0</td><td style="text-align: center;">"0"</td><td style="text-align: center; font-family: monospace; background-color: rgb(255, 204, 204);">one</td><td style="text-align: center;">"heure"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"0 heure"</td></tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1</td><td style="text-align: center;">"1"</td><td style="text-align: center; font-family: monospace;">one</td><td style="text-align: center;">"heure"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"1 heure"</td></tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1234</td><td style="text-align: center;">"1 234"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"heures"</td><td style="text-align: center;">"{0} {1}"</td><td style="text-align: center;">"1 234 heures"</td></tr>
+				<td style="text-align: center; font-family: monospace;">1234</td><td style="text-align: center;">"1,234"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"hours"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"1,234 hours"</td>
+			</tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">0</td><td style="text-align: center;">"0"</td><td style="text-align: center; font-family: monospace; background-color: rgb(255, 204, 204);">one</td><td style="text-align: center;">"heure"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"0 heure"</td></tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1</td><td style="text-align: center;">"1"</td><td style="text-align: center; font-family: monospace;">one</td><td style="text-align: center;">"heure"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"1 heure"</td></tr><tr><td style="font-family: monospace;">fr</td><td style="text-align: center;"><b><code>hour</code></b></td><td style="text-align: center; font-family: monospace;">1234</td><td style="text-align: center;">"1 234"</td><td style="text-align: center; font-family: monospace;">other</td><td style="text-align: center;">"heures"</td><td style="text-align: center;">"{0...} {1}"</td><td style="text-align: center;">"1 234 heures"</td></tr>
 			
 			
 		</tbody></table>
-		<span class="loser"></span><p>There is one "default"&nbsp;<span style="font-style: italic;">unitPattern</span> for each plural category, listed under the unit "any". If the particular unit needs a special&nbsp;<span style="font-style: italic;">unitPattern</span>, then one can also be added.</p><p>To request a change in the plural rules, or the addition of specialized unitPattern values, please file a request in a
-			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>.</p></td></tr>
+		<span class="loser"></span><p>There is one "default"&nbsp;<span style="font-style: italic;">unitPattern</span> for each plural category, listed under the unit "any". If the particular unit needs a special&nbsp;<span style="font-style: italic;">unitPattern</span>
+for a particular plural category, then one can also be added. That is,
+suppose that for a particular language, in the plural the number goes
+after the translation of <span style="font-style: italic;">hour</span> instead of before. Then for the unit <span style="font-family: monospace;">hour</span>, and&nbsp;rule category <span style="font-family: monospace;">other</span>,<span style="font-family: monospace;"> </span>the&nbsp;<span style="font-style: italic;">unitPattern</span> can be different if needed.</p><p>To request a change in the plural rules, or the addition of specialized&nbsp;<span style="font-style: italic;">unitPattern</span> values, please file a request in a
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>.</p></td></tr><tr><td>//ldml/localeDisplayNames/localeDisplayPattern/localePattern.*</td><td><h3>Locale Display Patterns</h3><br>Locale
+display patterns are used to format a compound language (locale) name
+such as 'en_AU' or 'uz_Arab'. The pattern is something like "{0}
+({1})". When the locale is formatted,
+the language is substituted for {0}, and the region or script for {1}.
+<br><p>For example, take "en_AU". First the language code 'en' is
+translated, such as to "anglais", then the country is translated, such
+as "Australie". The patterns is used to put those together, into
+something like "anglais (Australie)". &nbsp;This works the same way if
+there is a script; for example, &nbsp;"uz-Arab" =&gt; "ouzbek (arabe)".</p>If there is both a script and a region, then a list is formed using the <span style="font-style: italic;">separator</span>, then {1} is replaced by that list, such as "uz-Arab-AF" =&gt; "ouzbek (arabe, Afghanistan)"<br><p>For
+certain compound language (locale) names, you can also supply specific
+translations. Thus for the whole locale 'en_GB', you can provide a
+translation like "Australian English".</p></td></tr><tr><td>//ldml/localeDisplayNames/codePatterns/codePattern.*</td><td><h3>Code Patterns</h3>Code
+patterns are used in lists where the name of the language/script/region
+is not available -- the code (like "de" for German) will be substituted
+for the {0} placeholder. &nbsp;Thus you if the language code 'zaz' is
+not translated in your language, you might see in a list something like:<br><ul><li>English</li><li>French</li><li>Language: zaz</li><li>Spanish</li></ul>The
+last line is the result of substituting the code 'zaz' into the code
+pattern. You can choose the pattern that makes sense for your language;
+if the best choice is to just use the code alone, then use {0}.</td></tr>
 </tbody></table>
 <p>The text to insert can be fairly arbitrary HTML. The software that
 reads this table will search the first column (eg between &lt;td&gt;

@@ -102,10 +102,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!-- UCA Rules -->
 <!ELEMENT icu:UCARules EMPTY >
-<!ATTLIST icu:UCARules icu:uca_rules NMTOKEN #IMPLIED >
+<!ATTLIST icu:UCARules icu:uca_rules CDATA #REQUIRED >
 
 <!-- Dependencies Rules -->
 <!ELEMENT icu:depends EMPTY >
-<!ATTLIST icu:depends icu:dependency NMTOKEN #IMPLIED >
+<!ATTLIST icu:depends icu:dependency CDATA #REQUIRED >
 
 <!-- ######################################################### -->

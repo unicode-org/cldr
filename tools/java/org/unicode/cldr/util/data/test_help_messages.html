@@ -150,6 +150,17 @@ name of the region. So you might say the equivalent of "South Region of
 Africa", or add clarifying language like "<span class="loser"><i>Amérique du Nord continentale</i>" vs "<i>Amérique du Nord</i>". If you have any question as to 
 		the extent of any region, see <a href="http://www.unicode.org/cldr/data/charts/supplemental/territory_containment_un_m_49.html">Territory Containment</a>.
 		</span></p>
+		<ul>
+			<li>A common question is
+whether to capitalize or not. With a new locale, use whatever is normal
+practice for what should occur in <b>menus</b>. For an existing locale,
+<i>especially during the vetting period,</i> follow what is used for the
+other items already translated.<ul>
+			<li><i>If
+the capitalization convention as a whole for a language needs to be
+changed, that should be done before the data submission phase for the
+next release. Please file a bug to request that this be done.</i></li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -167,7 +178,10 @@ terms that imply exclusion or multiplicity such as "other" (autre),
 etc. or "languages" (plural).</li>
 			<li>A common question is
 whether to capitalize or not. With a new locale, use whatever is normal
-practice for what should occur in menus. For an existing locale, <i>especially during the vetting period,</i> follow what is used for the other items already translated. This is the practice for territories and other types of items too.<ul>
+practice for what should occur in <b>menus</b>. For an existing locale,
+<i>especially during the vetting period,</i> follow what is used for the
+other items already translated. This is the practice for scripts,
+territories and other types of items too.<ul>
 			<li><i>If
 the capitalization convention as a whole for a language needs to be
 changed, that should be done before the data submission phase for the
@@ -210,6 +224,17 @@ only a few scripts are really necessary to translate: those that are
 used in distinguishing the most common languages that are written in
 multiple ways. These are Hant and Hans (for traditional and simplified
 Chinese), Cyrillic, Arabic, and Latin.</p>
+		<ul>
+			<li>A common question is
+whether to capitalize or not. With a new locale, use whatever is normal
+practice for what should occur in <b>menus</b>. For an existing locale,
+<i>especially during the vetting period,</i> follow what is used for the
+other items already translated.<ul>
+			<li><i>If
+the capitalization convention as a whole for a language needs to be
+changed, that should be done before the data submission phase for the
+next release. Please file a bug to request that this be done.</i></li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -224,6 +249,17 @@ currency code can be translated in two ways:</p>
 		<ul>
 			<li>As a symbol for use in formatting amounts (such as "12 345,68 <b>US$</b>"), and</li>
 			<li>As a name, typically used to show a list of currencies (such as "<b>dollar des États-Unis</b>")</li>
+			<li>With names, the common question of
+whether to capitalize or not, arises. With the introduction of pluralized
+units in CLDR 1.6, it is recognized that currency names may be used equally
+in menus and flowed text.  Therefore, for a new locale, use whatever 
+practice is best suited for use in either <b>menus</b> or <b>flowed text</b>
+<i>(we recognize that the capitalization rule you adopt may have limitations,
+and we endeavour to add additional features to the Survey Tool, in the future
+to alleviate some of these limitations )</i>.
+For an existing locale,
+<i>especially during the vetting period,</i> follow what is used for the
+other items already translated.
 		</ul>
 		</td>
 	</tr>

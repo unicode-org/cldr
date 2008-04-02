@@ -17,8 +17,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST special icu:version CDATA #IMPLIED>
 
 <!ELEMENT icu:version EMPTY>
-<!ATTLIST icu:version icu:specialVersion  CDATA #FIXED "1.4" >
-<!ATTLIST icu:version icu:requiredLDMLVersion CDATA #FIXED "1.4" >
+<!ATTLIST icu:version icu:specialVersion  CDATA #FIXED "1.6" >
+<!ATTLIST icu:version icu:requiredLDMLVersion CDATA #FIXED "1.6" >
 
 <!-- ICU Scripts -->
 
@@ -101,5 +101,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT icu:leapSymbol ( #PCDATA ) >
 
 <!-- UCA Rules -->
+<!ELEMENT icu:UCARules EMPTY >
+<!ATTLIST icu:UCARules icu:uca_rules NMTOKEN #IMPLIED >
+
+<!-- Dependencies Rules -->
+<!ELEMENT icu:depends EMPTY >
+<!ATTLIST icu:depends icu:dependency NMTOKEN #IMPLIED >
 
 <!-- ######################################################### -->

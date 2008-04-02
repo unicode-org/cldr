@@ -43,6 +43,8 @@
         <pluralRules locales="hr ru sr uk be bs">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
+            <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>
+            <!-- rest are plurals -->
         </pluralRules>
         <pluralRules locales="cs sk">
             <pluralRule count="one">n is 1</pluralRule>

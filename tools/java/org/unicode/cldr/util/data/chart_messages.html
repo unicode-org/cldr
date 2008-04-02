@@ -306,15 +306,52 @@ some languages have no forms; and some languages have multiple forms
 plural categories: <span style="font-family: monospace;"></span></p><ul><li><span style="font-family: monospace;">zero</span><span style="font-family: monospace;"></span></li><li><span style="font-family: monospace;">one</span><span style="font-family: monospace;"></span> (singular)</li><li><span style="font-family: monospace;">two</span><span style="font-family: monospace;"></span> (dual)</li><li><span style="font-family: monospace;">few</span><span style="font-family: monospace;"></span> (paucal)</li><li><span style="font-family: monospace;">many</span></li><li><span style="font-family: monospace;"></span><span style="font-family: monospace;">other</span> (general plural form -- also used if the language only has a single form)<span style="font-family: monospace;"></span><span style="font-style: italic;"><span style="color: rgb(153, 0, 0); font-weight: bold;"></span></span></li></ul><p>These categories are used to provide localized units, with a more natural ways of expressing phrases
 that vary in plural form, such as "1 hour" vs "2 hours". While they
 cannot express all the intricacies of natural languages, they allow for
-more natural phrasing than constructions like "1 hour(s)".</p><p><span style="font-style: italic; color: black;"><span style="font-weight: bold;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span></span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.</p><p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p><ol><li>Data is only available for a limited set of languages, so please supply data for missing cases!</li><li>The available data may need adjustment if it is inaccurate.</li><li>The&nbsp;plural
-forms of decimal values have yet to be determined. Please look over
+more natural phrasing than constructions like "1 hour(s)".</p><p><span style="font-style: italic; color: black;"> These categories are only mnemonics -- the names don't necessarily imply the exact contents of the category.&nbsp;</span>For example, for both&nbsp;English and French the number 1 has the category <span style="font-family: monospace;">one</span> (singular). In English, every other number has a plural form, and is given the category <span style="font-family: monospace;">other</span>. French is similar, except that the number 0 also has the category <span style="font-family: monospace;">one</span> and not&nbsp;<span style="font-family: monospace;">other</span> or <span style="font-family: monospace;">zero</span>, because the form of units qualified by 0 is also singular.</p><p>Note
+that these categories may be different from the forms used for pronouns
+or other parts of speech. In particular, they are solely concerned with
+changes that would need to be made if different numbers, expressed with
+decimal digits, are used with a sentence. If there is a dual form in
+the language, but it isn't used with decimal numbers, it should not be
+reflected in the categories. That is, the key feature to look for
+is:&nbsp;</p><div style="margin-left: 40px;"><p>If you were to
+substitute a different number for "1" in a sentence or phrase, would
+the rest of the text be required to change? For example, in a caption
+for a video: </p></div><p style="margin-left: 40px; text-align: center;">"Duration: 1 hour" → "Duration: 3.2 hour<span style="text-decoration: underline; color: rgb(153, 0, 0);">s</span>"</p><p style="color: rgb(153, 0, 0); font-style: italic; font-weight: bold;">The following is draft data for this version of CLDR, so please look it over carefully. Known omissions are:</p><ol><li>Data is only available for a limited set of languages, so please supply data for missing cases!</li><li>The available data may need adjustment if it is inaccurate.</li><li>The&nbsp;plural
+forms of numbers with decimals have yet to be determined. Please look over
 examples of decimal values (such as 1.31) to see which plural form they
 should have. The default in the absence of other information is for
 them to have the category&nbsp;<span style="font-family: monospace;">other</span>.<br><br>That
 is, in expressions like the following (where "hours" could be any
 countable nouns: minutes, degrees, meters, and so on), what categories
 should the numbers fall into?</li><ul><li>0.23 hours</li><li>1.23 hours</li><li>2.23 hours</li><li>5.23 hours</li><li>...</li></ul></ol><ul><li><b>Reporting Defects:</b> When you find errors or omissions in this data, please report the information with a
-			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>. Try to give examples of how the forms may differ. Here's an example:</li></ul><div style="margin-left: 80px;">The proposed Ukrainian (uk) plural rules are:<br>one: 1, 21, 31, 41, 51, 61...<br>few: 2-4, 22-24, 32-34...<br>other: 0, 5-20, 25-30, 35-40...; 1.31, 2.31, 5.31...<br><br>Although rules for integer values are correct, there needs to be four categories, with an extra one for fractions. For example:<br>1 день<br>2 дні<br>5 днів<br>1.31 дня<br>2.31 дня<br>5.31 дня</div></td></tr>
+			<a target="_blank" href="http://unicode.org/cldr/bugs/locale-bugs">bug report</a>. Please give examples of how the forms may differ. Here's an example:</li></ul>
+		<table id="table3" style="margin: 1em; border-collapse: collapse;" border="1" bordercolor="#990000">
+			<tbody><tr>
+				<th align="left">Sample Bug Report</th>
+				
+			</tr>
+			<tr>
+				<td colspan="1" rowspan="1">The draft Ukrainian (uk) plural rules are:<br>one: 1, 21, 31, 41, 51, 61...<br>few: 2-4, 22-24, 32-34...<br>other: 0, 5-20, 25-30, 35-40...; 1.31, 2.31, 5.31...<br><br>Although rules for integer values are correct, there needs to be four categories, with an extra one for fractions. For example:<br><div style="margin-left: 40px;">1 день<br>2 дні<br>5 днів<br>1.31 дня<br>2.31 дня<br>5.31 дня</div> </td>
+				
+			</tr>
+			<tr>
+				
+				
+			</tr>
+			<tr>
+				
+				
+			</tr>
+			<tr>
+				
+				
+			</tr>
+			<tr>
+				
+				
+			</tr>
+		</tbody></table>
+		</td></tr>
 </tbody></table>
 <p>The text to insert can be fairly arbitrary HTML. The software that
 reads this table will search the first column (eg between &lt;td&gt;

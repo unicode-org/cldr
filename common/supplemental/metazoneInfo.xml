@@ -116,6 +116,13 @@
 		<timezone type="America/Buenos_Aires">
 			<usesMetazone mzone="Argentina"/>
 		</timezone>
+		<timezone type="America/Argentina/San_Luis">
+			<usesMetazone to="1991-03-01 02:00" mzone="Argentina"/>
+			<usesMetazone to="1991-05-07 04:00" from="1991-03-01 02:00" mzone="Argentina_Western"/>
+			<usesMetazone to="2004-05-31 03:00" from="1991-05-07 04:00" mzone="Argentina"/>
+			<usesMetazone to="2004-07-25 04:00" from="2004-05-31 03:00" mzone="Argentina_Western"/>
+			<usesMetazone from="2004-07-25 04:00" mzone="Argentina"/>
+		</timezone>
 		<timezone type="Pacific/Pago_Pago">
 			<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
 			<usesMetazone from="1983-10-30 12:00" mzone="Samoa"/>
@@ -200,6 +207,9 @@
 			<usesMetazone mzone="Africa_Western"/>
 		</timezone>
 		<timezone type="Atlantic/Bermuda">
+			<usesMetazone mzone="Atlantic"/>
+		</timezone>
+		<timezone type="America/St_Barthelemy">
 			<usesMetazone mzone="Atlantic"/>
 		</timezone>
 		<timezone type="Asia/Brunei">
@@ -802,6 +812,9 @@
 		<timezone type="Europe/Skopje">
 			<usesMetazone mzone="Europe_Central"/>
 		</timezone>
+		<timezone type="America/Marigot">
+			<usesMetazone mzone="Atlantic"/>
+		</timezone>
 		<timezone type="Africa/Bamako">
 			<usesMetazone mzone="GMT"/>
 		</timezone>
@@ -1093,9 +1106,6 @@
 			<usesMetazone mzone="Europe_Central"/>
 		</timezone>
 		<timezone type="Arctic/Longyearbyen">
-			<usesMetazone mzone="Europe_Central"/>
-		</timezone>
-		<timezone type="Atlantic/Jan_Mayen">
 			<usesMetazone mzone="Europe_Central"/>
 		</timezone>
 		<timezone type="Europe/Bratislava">

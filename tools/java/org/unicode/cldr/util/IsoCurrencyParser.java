@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -9,6 +10,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 public class IsoCurrencyParser {
   static Map<String,String> iso4217CountryToCountryCode = new TreeMap();
@@ -24,15 +29,19 @@ public class IsoCurrencyParser {
         {"BOSNIA & HERZEGOVINA", "BA"},
         {"CONGO, THE DEMOCRATIC REPUBLIC OF", "CD"},
         {"C\u00D4TE D'IVOIRE", "CI"},
+        {"C\uFFFDTE D'IVOIRE", "CI"},
         {"HEARD ISLAND AND McDONALD ISLANDS", "HM"},
         {"INTERNATIONAL MONETARY FUND (I.M.F)", "ZZ"},
         {"IRAN (ISLAMIC REPUBLIC OF)", "IR"},
         {"MICRONESIA (FEDERATED STATES OF)", "FM"},
         {"R\u00C9UNION", "RE"},
+        {"R\uFFFDUNION", "RE"},
         {"S\u00C3O TOME AND PRINCIPE", "ST"},
+        {"S\uFFFDO TOME AND PRINCIPE", "ST"},
         {"SERBIA AND MONTENEGRO *", "CS"},
         {"VIRGIN ISLANDS (BRITISH)", "VG"},
         {"VIRGIN ISLANDS (US)", "VI"},
+        {"VIRGIN ISLANDS (U.S.)", "VI"},
         {"ZZ", "ZZ"},
     };
     for (String[] pair : extras) {
@@ -51,7 +60,7 @@ public class IsoCurrencyParser {
     public Data(String countryCode, String name, String numericCode) {
       this.countryCode = getCountryCode(countryCode);
       this.name = name;
-      this.numericCode = numericCode.equals("Nil") ? -1 : Integer.parseInt(numericCode);
+      this.numericCode = numericCode.equals("Nil") || numericCode.length() == 0 ? -1 : Integer.parseInt(numericCode);
     }
     
     String getCountryCode(String iso4217Country) {
@@ -103,31 +112,9 @@ public class IsoCurrencyParser {
   
   private IsoCurrencyParser() {
     String line = null;
-    String[] parts = new String[0];
-    String lastCountry = "";
     Set<String> currencies = new TreeSet();
     try {
-      BufferedReader in = Utility.getUTF8Data("currencycodeslist.txt");
-      while (true) {
-        line = in.readLine();
-        if (line == null) break;
-        if (line.startsWith("Last modified")) {
-          version = line.substring(14).trim();
-          continue;
-        }
-        parts = line.split("\t");
-        if (parts.length == 0) continue;
-        if (parts.length < 4 || parts[3].equals("Numeric") || parts[3].equals("")) {
-          //System.out.format("Skipping %s\r\n", Arrays.asList(parts));
-          continue;
-        }
-        // AFGHANISTAN  Afghani AFN 971
-        String countryCode = parts[0].length() == 0 ? lastCountry : parts[0];
-        Data data = new Data(countryCode, parts[1], parts[3]);
-        codeList.put(parts[2], data);
-        lastCountry = countryCode;
-      }
-      in.close();
+      version = getFlatList(codeList);
       // codeList = (Map<String, Data>) Utility.protectCollection(codeList);
       oldValues.removeAll(codeList.keySet());
       StandardCodes sc = StandardCodes.make();
@@ -142,10 +129,48 @@ public class IsoCurrencyParser {
 //      if (remainder.size() != 0) {
 //        throw new IllegalArgumentException("Missing value; update internal list");
 //      }
+    } catch (RuntimeException e) {
+      throw e;
     } catch (Exception e) {
-      throw (RuntimeException) new IllegalArgumentException(Arrays.asList(parts).toString()).initCause(e);
+      throw (RuntimeException) new IllegalArgumentException().initCause(e);
     }
   }
+/*
+ *   private Relation<String,Data> codeList = new Relation(new TreeMap(), TreeSet.class, null);
+  private String version;
+
+ */
+  // just public for testing
+  public static String getFlatList(Relation<String,Data> codeList) throws IOException {
+    String[] parts = new String[0];
+    String lastCountry = "";
+    String line;
+    String version = null;
+    BufferedReader in = Utility.getUTF8Data("currencycodeslist.txt");
+    while (true) {
+      line = in.readLine();
+      if (line == null) break;
+      if (line.startsWith("Last modified")) {
+        version = line.substring(14).trim();
+        continue;
+      }
+      parts = line.split("\t");
+      if (parts.length == 0) continue;
+      if (parts.length < 4 || parts[3].equals("Numeric") || parts[3].equals("")) {
+        //System.out.format("Skipping %s\r\n", Arrays.asList(parts));
+        continue;
+      }
+      // AFGHANISTAN  Afghani AFN 971
+      String countryCode = parts[0].length() != 0 ? parts[0] : lastCountry;
+      Data data = new Data(countryCode, parts[1], parts[3]);
+      codeList.put(parts[2], data);
+      lastCountry = countryCode.equals("ZIMBABWE") ? "ZZ" : countryCode;
+    }
+    in.close();
+    return version;
+  }
+  
+
 
   Set<String> oldValues = new TreeSet(Arrays.asList(new String[]{
       "ADP", "AFA", "AOK", "AON", "AOR", "ARA", "ARP", "ATS", "AZM", 

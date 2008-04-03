@@ -285,6 +285,18 @@ is 2007a.</li>
 	<li>Repeat C and D until no changes occur.<ul>
 		<li>When you are all done, there should ONLY be additions to $tzid and zoneItem's.</li>
 	</ul>
+  <li>For any of the timezones that are added, changed, or deleted, you
+will need to make the appropriate metazone updates to
+supplemental/metazoneInfo.xml.&nbsp; For each zone, you will need to
+read the Olson TZ data file ( they are grouped by continent ), and
+compute the transition times ( in GMT, not local time ) for any
+metazone transitions.&nbsp; A metazone transition usually occurs when
+the abbreviation changes, for example, from E%sT to C%sT.&nbsp; If a
+zone is simply starting or stopping observence of DST, then usually no
+metazone transition is necessary.&nbsp; Example, going from E%sT to EST
+is NOT a metazone transition.<br>
+    <br>
+  </li>
 	<p>
 	</p></li><li>Check in the new supplemental files and the data files in ...org\unicode\cldr\util\data<ul>
 		<li>just the data files that are already checked in (eg check in 'africa', but not 'factory')</li>

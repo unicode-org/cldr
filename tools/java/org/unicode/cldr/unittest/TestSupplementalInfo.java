@@ -11,25 +11,27 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestSupplementalInfo extends TestFmwk {
-  static TestInfo testInfo = new TestInfo();
+  static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
     new TestSupplementalInfo().run(args);
   }
   
   public void TestCompleteness() {
-    assertEquals("API doesn't support: " + testInfo.supplementalDataInfo.getSkippedElements(), 0, testInfo.supplementalDataInfo.getSkippedElements().size());
+    assertEquals("API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements(), 0, testInfo.getSupplementalDataInfo().getSkippedElements().size());
   }
 
   // these are settings for exceptional cases we want to allow
@@ -52,20 +54,21 @@ public class TestSupplementalInfo extends TestFmwk {
    * @param args
    */
   public void TestCurrency() {
-    Set<String> currencyCodes = testInfo.sc.getGoodAvailableCodes("currency");
+    IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
+    Set<String> currencyCodes = testInfo.getStandardCodes().getGoodAvailableCodes("currency");
     Relation<String,Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
     Relation<String,Pair<String, CurrencyDateInfo>> modernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
-    Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.sc.getGoodAvailableCodes("territory"));
+    Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.getStandardCodes().getGoodAvailableCodes("territory"));
     Map<String,Date> currencyFirstValid = new TreeMap();
     Map<String,Date> currencyLastValid = new TreeMap();
     territoriesWithoutModernCurrencies.remove("ZZ");
     
-    for (String territory : testInfo.sc.getGoodAvailableCodes("territory")) {
-      if (testInfo.supplementalDataInfo.getContained(territory) != null) {
+    for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
+      if (testInfo.getSupplementalDataInfo().getContained(territory) != null) {
         territoriesWithoutModernCurrencies.remove(territory);
         continue;
       }
-      Set<CurrencyDateInfo> currencyInfo = testInfo.supplementalDataInfo.getCurrencyDateInfo(territory);
+      Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(territory);
       if (currencyInfo == null) {
         continue; // error, but will pick up below.
       }
@@ -90,30 +93,54 @@ public class TestSupplementalInfo extends TestFmwk {
         } else {
           nonModernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));          
         }
-        logln(territory + "\t" + dateInfo.toString() + "\t" + testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency));
+        logln(territory + "\t" + dateInfo.toString() + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
       }
     }
     // fix up 
     nonModernCurrencyCodes.removeAll(modernCurrencyCodes.keySet());
+    Relation<String, String> isoCurrenciesToCountries = new Relation(new TreeMap(), TreeSet.class)
+            .addAllInverted(isoCodes.getCountryToCodes());
+
     // now print error messages
     logln("Modern Codes: " + modernCurrencyCodes);
+    Set<String> missing = new TreeSet<String>(isoCurrenciesToCountries.keySet());
+    missing.removeAll(modernCurrencyCodes.keySet());
+    assertEquals("Missing codes compared to ISO: " + missing, 0, missing.size());
+    
     for (String currency : modernCurrencyCodes.keySet()) {
-      final String name = testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency);
+      Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
+      final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
+      
+      Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
+      if (isoCountries == null) {
+        isoCountries = new TreeSet<String>();
+      }
+
+      TreeSet<String> cldrCountries = new TreeSet<String>();
+      for (Pair<String, CurrencyDateInfo> x : data) {
+        cldrCountries.add(x.getFirst());
+      }
+      if (!isoCountries.equals(cldrCountries)) {
+        errln("Mismatch between ISO and Cldr modern currencies for "  + currency + "\t" + isoCountries + "\t" + cldrCountries);
+        showCountries("iso-cldr", isoCountries, cldrCountries, missing);
+        showCountries("cldr-iso", cldrCountries, isoCountries, missing);
+      }
+
       if (oldMatcher.reset(name).find()) {
-        errln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + modernCurrencyCodes.getAll(currency));
+        errln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + data);
       }
       if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
         // find the first use. If older than 5 years, flag as error
         if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {   
-          errln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + modernCurrencyCodes.getAll(currency));
+          errln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
         } else {
-          logln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + modernCurrencyCodes.getAll(currency));
+          logln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
         }
       }
     }
     logln("Non-Modern Codes (with dates): " + nonModernCurrencyCodes);
     for (String currency : nonModernCurrencyCodes.keySet()) {
-      final String name = testInfo.english.getName(CLDRFile.CURRENCY_NAME, currency);
+      final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
       if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
         logln("Has 'new' in name but NOT used since " + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
       } else if (!oldMatcher.reset(name).find() && !OK_TO_NOT_HAVE_OLD.contains(currency)){
@@ -121,13 +148,13 @@ public class TestSupplementalInfo extends TestFmwk {
                 + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
         for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes.getAll(currency)) {
           final String territory = pair.getFirst();
-          Set<CurrencyDateInfo> currencyInfo = testInfo.supplementalDataInfo.getCurrencyDateInfo(territory);
+          Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(territory);
           for (CurrencyDateInfo dateInfo : currencyInfo) {
             if (dateInfo.getEnd().compareTo(NOW) < 0) {
               continue;
             }
             logln("\tCurrencies used instead: " + territory + "\t" + dateInfo
-                    + "\t" + testInfo.english.getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
+                    + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
            
           }
         }
@@ -141,6 +168,16 @@ public class TestSupplementalInfo extends TestFmwk {
     logln("Currencies without Territories: " + remainder);
     assertEquals("Modern territory missing currency: " + territoriesWithoutModernCurrencies, 
             0, territoriesWithoutModernCurrencies.size());
+  }
+
+  private void showCountries(final String title, Set<String> isoCountries,
+          Set<String> cldrCountries, Set<String> missing) {
+    missing.clear();
+    missing.addAll(isoCountries);
+    missing.removeAll(cldrCountries);
+    for (String country : missing) {
+      errln("\t\tExtra in " + title + "\t" + country + " - " + testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, country));
+    }
   }
 
 }

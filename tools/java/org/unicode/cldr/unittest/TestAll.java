@@ -15,11 +15,45 @@ import com.ibm.icu.dev.test.TestFmwk.TestGroup;
  */
 public class TestAll extends TestGroup {
   static class TestInfo {
-    SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
-    StandardCodes sc = StandardCodes.make();
-    Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-    CLDRFile english = cldrFactory.make("en", true);
-    CLDRFile root = cldrFactory.make("root", true);
+    private static TestInfo INSTANCE = null;
+    private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    private StandardCodes sc = StandardCodes.make();
+    private Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+    private CLDRFile english = getCldrFactory().make("en", true);
+    private CLDRFile root = getCldrFactory().make("root", true);
+    
+    public static TestInfo getInstance() {
+      synchronized (TestInfo.class) {
+        if (INSTANCE == null) {
+          INSTANCE = new TestInfo();
+        }
+      }
+      return INSTANCE;
+    }
+    
+    private TestInfo() {}
+    
+    public SupplementalDataInfo getSupplementalDataInfo() {
+      return supplementalDataInfo;
+    }
+    public Factory getCldrFactory() {
+      return cldrFactory;
+    }
+    public StandardCodes getStandardCodes() {
+      return sc;
+    }
+    public void setEnglish(CLDRFile english) {
+      this.english = english;
+    }
+    public CLDRFile getEnglish() {
+      return english;
+    }
+    public void setRoot(CLDRFile root) {
+      this.root = root;
+    }
+    public CLDRFile getRoot() {
+      return root;
+    }
   }
 
   public static void main(String[] args) {

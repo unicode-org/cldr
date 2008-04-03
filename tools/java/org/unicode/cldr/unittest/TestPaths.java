@@ -19,7 +19,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestPaths extends TestFmwk {
-  static TestInfo testInfo = new TestInfo();
+  static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
     new TestPaths().run(args);
@@ -29,7 +29,7 @@ public class TestPaths extends TestFmwk {
     Status status = new Status();
     
     for (String locale : getPathsToTest()) {
-      CLDRFile file = testInfo.cldrFactory.make(locale, true);
+      CLDRFile file = testInfo.getCldrFactory().make(locale, true);
       logln(locale);
 
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
@@ -58,7 +58,7 @@ public class TestPaths extends TestFmwk {
     Set<String> pathsSeen = new HashSet<String>();
     
     for (String locale : getPathsToTest()) {
-      CLDRFile file = testInfo.cldrFactory.make(locale, true);
+      CLDRFile file = testInfo.getCldrFactory().make(locale, true);
       logln(locale);
 
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
@@ -85,7 +85,7 @@ public class TestPaths extends TestFmwk {
 
   private Collection<String> getPathsToTest() {
     return params.inclusion  < 5 ? Arrays.asList("root", "en", "ja")
-            : params.inclusion  < 10 ? testInfo.cldrFactory.getAvailableLanguages()
-                    : testInfo.cldrFactory.getAvailable();
+            : params.inclusion  < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
+                    : testInfo.getCldrFactory().getAvailable();
   }
 }

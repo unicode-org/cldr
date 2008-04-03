@@ -19,7 +19,7 @@ import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestExternalCodeAPIs extends TestFmwk {
-  static TestInfo testInfo = new TestInfo();
+  static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
     new TestExternalCodeAPIs().run(args);

@@ -11,17 +11,17 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestLocale extends TestFmwk {
-  static TestInfo testInfo = new TestInfo();
+  static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
     new TestLocale().run(args);
   }
 
   public void TestLocaleNamePattern() {
-    assertEquals("Locale name", "Chinese", testInfo.english.getName("zh"));
-    assertEquals("Locale name", "Chinese (United States)", testInfo.english.getName("zh-US"));
-    assertEquals("Locale name", "Chinese (Arabic, United States)", testInfo.english.getName("zh-Arab-US"));
-    CLDRFile japanese = testInfo.cldrFactory.make("ja", true);
+    assertEquals("Locale name", "Chinese", testInfo.getEnglish().getName("zh"));
+    assertEquals("Locale name", "Chinese (United States)", testInfo.getEnglish().getName("zh-US"));
+    assertEquals("Locale name", "Chinese (Arabic, United States)", testInfo.getEnglish().getName("zh-Arab-US"));
+    CLDRFile japanese = testInfo.getCldrFactory().make("ja", true);
     assertEquals("Locale name", "中国語", japanese.getName("zh"));
     assertEquals("Locale name", "中国語（アメリカ合衆国）", japanese.getName("zh-US"));
     assertEquals("Locale name", "中国語（アラビア文字、アメリカ合衆国）", japanese.getName("zh-Arab-US"));

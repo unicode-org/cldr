@@ -50,6 +50,7 @@ public class IsoCurrencyParser {
   }
   
   private Relation<String,Data> codeList = new Relation(new TreeMap(), TreeSet.class, null);
+  private Relation<String,String> countryToCodes = new Relation(new TreeMap(), TreeSet.class, null);
   private String version;
   
   public static class Data implements Comparable {
@@ -115,7 +116,7 @@ public class IsoCurrencyParser {
     Set<String> currencies = new TreeSet();
     try {
       StandardCodes sc = StandardCodes.make();
-      version = getFlatList(codeList);
+      version = getFlatList();
       oldValues.addAll(sc.getAvailableCodes("currency"));
       oldValues.removeAll(codeList.keySet());
       for (String code : oldValues) {
@@ -124,6 +125,7 @@ public class IsoCurrencyParser {
         codeList.put(code, data);
       }
       codeList.freeze();
+      countryToCodes.freeze();
 //      Set<String> remainder = new TreeSet(codeList.keySet());
 //      System.out.format("MISSING: %s\r\n", Utility.join(oldValues," "));
 //      remainder.removeAll(StandardCodes.make().getAvailableCodes("currency"));
@@ -142,7 +144,7 @@ public class IsoCurrencyParser {
 
  */
   // just public for testing
-  public static String getFlatList(Relation<String,Data> codeList) throws IOException {
+  private String getFlatList() throws IOException {
     String[] parts = new String[0];
     String lastCountry = "";
     String line;
@@ -165,6 +167,7 @@ public class IsoCurrencyParser {
       String countryCode = parts[0].length() != 0 ? parts[0] : lastCountry;
       Data data = new Data(countryCode, parts[1], parts[3]);
       codeList.put(parts[2], data);
+      countryToCodes.put(data.getCountryCode(),parts[2]);
       lastCountry = countryCode.equals("ZIMBABWE") ? "ZZ" : countryCode;
     }
     in.close();
@@ -195,4 +198,8 @@ public class IsoCurrencyParser {
       "YDD", "YUD", "YUM", "YUN",
       "ZAL", "ZRN", "ZRZ"
   }));
+
+  public Relation<String, String> getCountryToCodes() {
+    return countryToCodes;
+  }
 }

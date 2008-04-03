@@ -634,9 +634,13 @@ public class ZoneParser {
 ## Zone SystemV/HST10   -10:00  -       HST
    */
 
-  static String[] FIX_DEPRECATED_ZONE_DATA = { "Africa/Timbuktu",
-      "America/Argentina/ComodRivadavia", "Europe/Belfast", "Pacific/Yap" };
+  static String[] FIX_DEPRECATED_ZONE_DATA = { 
+      "Africa/Timbuktu",
+      "America/Argentina/ComodRivadavia", 
+      "Europe/Belfast", 
+      "Pacific/Yap" };
   static {
+    // The format is <new name>, <old name>
     String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
         { "America/Atikokan", "America/Coral_Harbour" },
         { "America/Argentina/Buenos_Aires", "America/Buenos_Aires" },
@@ -648,6 +652,8 @@ public class ZoneParser {
         { "America/Indiana/Indianapolis", "America/Indianapolis" },
         { "Africa/Asmara", "Africa/Asmera" },
         { "Atlantic/Faroe", "Atlantic/Faeroe" },
+        { "Asia/Kolkata", "Asia/Calcutta" },
+        { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
     };
     FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
     RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA,

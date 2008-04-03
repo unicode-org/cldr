@@ -83,26 +83,26 @@ public class Utility {
 			}
 		}
 
-	static final boolean DEBUG_SHOW_BAT = false;
-	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
-	// set the base directory with -Dcldrdata=<value>
-	public static final String BASE_DIRECTORY = Utility.getProperty("cldrdata", null);	// get up to <CLDR>
-	public static final String UTIL_DATA_DIR = 	BASE_DIRECTORY + "util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
-    public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
-	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
-    public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
-    /**
-     * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
-     * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
-     */
-    public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
-    /**
-     * Only the default, if no other directory is specified.
-     */
-    public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
-    public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
-    public static final String CHART_DIRECTORY = BASE_DIRECTORY + "diff/";
-    public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
+		static final boolean DEBUG_SHOW_BAT = false;
+		/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
+		// set the base directory with -Dcldrdata=<value>
+		public static final String BASE_DIRECTORY = Utility.getProperty("cldrdata", null);	// get up to <CLDR>
+		public static final String UTIL_DATA_DIR = 	BASE_DIRECTORY + "tools/java/org/unicode/cldr/util/data/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+		public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
+		public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
+		public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
+		/**
+		 * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
+		 * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
+		 */
+		public static final String SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
+		/**
+		 * Only the default, if no other directory is specified.
+		 */
+		public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = COMMON_DIRECTORY + "supplemental/";
+		public static final String GEN_DIRECTORY = BASE_DIRECTORY + "dropbox/gen/";
+		public static final String CHART_DIRECTORY = BASE_DIRECTORY + "diff/";
+		public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
 
 	
 	/** If the generated BAT files are to work, this needs to be set right */

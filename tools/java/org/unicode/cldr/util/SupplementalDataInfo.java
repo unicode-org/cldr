@@ -1314,7 +1314,8 @@ public class SupplementalDataInfo {
         }
         typeToExamples3.put(type, b.toString());
       }
-      String otherExamples = typeToExamples3.get(Count.other) + "; " + fractionalExamples + "...";
+      final String baseOtherExamples = typeToExamples3.get(Count.other);
+      String otherExamples = (baseOtherExamples == null ? "" :  baseOtherExamples + "; ") + fractionalExamples + "...";
       typeToExamples3.put(Count.other, otherExamples);
 
       for (Count type : typeToExample2.keySet()) {

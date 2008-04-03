@@ -32,6 +32,8 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestLocale",
                     "org.unicode.cldr.unittest.TestSupplementalInfo",
                     "org.unicode.cldr.unittest.TestPaths",
+                    "org.unicode.cldr.unittest.TestExternalCodeAPIs",
+                    
             },
     "All tests in CLDR");
   }

@@ -4,9 +4,35 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * Extremely simple class for parsing HTML. Extremely lenient. Call next() until DONE is returned.
+ * Extremely simple class for parsing HTML. Extremely lenient. Call next() until
+ * DONE is returned.
+ * <p>
+ * Element content will be returned in the following sequence:
+ * 
+ * <pre>
+ *  ELEMENT_START  
+ *  ELEMENT strong
+ *  ELEMENT_END 
+ *  ELEMENT_CONTENT Alphabetic code
+ *  ELEMENT_START 
+ *  ELEMENT_POP 
+ *  ELEMENT strong
+ *  ELEMENT_END 
+ * </pre>
+ * 
+ * while attributes will be returned as:
+ * 
+ * <pre>
+ *  ELEMENT_START 
+ *  ELEMENT div
+ *  ATTRIBUTE id
+ *  ATTRIBUTE_CONTENT mainContent
+ *  ELEMENT_END
+ * </pre>
+ * 
+ * 
  * @author markdavis
- *
+ * 
  */
 public class SimpleHtmlParser {
   public enum Type {
@@ -73,6 +99,7 @@ public class SimpleHtmlParser {
           if (ch <= ' ') {
             if (equals(result, "!--")) {
               state = State.IN_QUOTE;
+              result.setLength(0);
               break;
             }
             state = State.AFTER_ELEMENT;
@@ -154,11 +181,16 @@ public class SimpleHtmlParser {
           break;
 
         case IN_QUOTE:
-          result.append(ch);
-          if (ch == 0 || ch == '>' && endsWith(result, "-->")) {
+          if (ch == 0) {
             state = State.IN_CONTENT;
             return Type.QUOTE;
           }
+          if (ch == '>' && endsWith(result, "--")) {
+            result.setLength(result.length()-2);
+            state = State.IN_CONTENT;
+            return Type.QUOTE;
+          }
+          result.append(ch);
           break;
       }
     }

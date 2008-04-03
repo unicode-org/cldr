@@ -2076,18 +2076,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             } else if (name.equals(LDMLConstants.NUMBERS)) {
                 res = parseNumbers(loc, xpath);
             } else if (name.equals(LDMLConstants.COLLATIONS)) {
-                if(sourceDir.indexOf("coll")>0) {
-                    if (locName.equals("root")) {
-                        ICUResourceWriter.ResourceProcess process = new ICUResourceWriter.ResourceProcess();
-                    process.name="UCARules";
-                    process.ext="uca_rules";
-                        process.val = "../unidata/UCARules.txt";
-                        res = process;
-                        process.next = parseCollations(loc, xpath);
-                    } else {
-                        res = parseCollations(loc, xpath);
-                    }
-                }
+                res = parseCollations(loc, xpath);
             } else if (name.equals(LDMLConstants.POSIX)) {
                 res = parsePosix(loc, xpath);
             } else if (name.equals(LDMLConstants.SEGMENTATIONS)) {
@@ -5873,6 +5862,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     //private static final String ICU_CLASS        = "icu:class";
     //private static final String ICU_IMPORT       = "icu:import";
     //private static final String ICU_APPEND       = "icu:append";
+    private static final String ICU_UCARULES = "icu:UCARules";
+    private static final String ICU_UCA_RULES = "icu:uca_rules";
+    private static final String ICU_DEPENDS = "icu:depends";
     private static final String ICU_DEPENDENCY = "icu:dependency";
 
     private ICUResourceWriter.Resource parseBoundaries(Node root, StringBuffer xpath){
@@ -6089,6 +6081,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                             "//ldml/characters/special/icu:scripts");
                     res.name = LOCALE_SCRIPT;
                 }
+            } else if (name.equals(ICU_UCARULES)) {
+                ICUResourceWriter.ResourceProcess process = new ICUResourceWriter.ResourceProcess();
+                process.name="UCARules";
+                process.ext="uca_rules";
+                process.val=loc.findAttributeValue(xpath,ICU_UCA_RULES);
+                res = process;
+            } else if (name.equals(ICU_DEPENDS)) {
+                ICUResourceWriter.ResourceProcess process = new ICUResourceWriter.ResourceProcess();
+                process.name="depends";
+                process.ext="dependency";
+                process.val=loc.findAttributeValue(xpath,ICU_DEPENDENCY);
+                res = process;
             } else if (xpath.startsWith("//ldml/special/"+ICU_BRKITR_DATA)) {
                 res = parseBrkItrData(loc, "//ldml/special/"+ICU_BRKITR_DATA);
             } else if (name.equals(ICU_IS_LEAP_MONTH) || name.equals(ICU_LEAP_SYMBOL) || name.equals(ICU_NON_LEAP_SYMBOL)) {

@@ -114,15 +114,16 @@ public class IsoCurrencyParser {
     String line = null;
     Set<String> currencies = new TreeSet();
     try {
-      version = getFlatList(codeList);
-      // codeList = (Map<String, Data>) Utility.protectCollection(codeList);
-      oldValues.removeAll(codeList.keySet());
       StandardCodes sc = StandardCodes.make();
+      version = getFlatList(codeList);
+      oldValues.addAll(sc.getAvailableCodes("currency"));
+      oldValues.removeAll(codeList.keySet());
       for (String code : oldValues) {
         String name = sc.getData("currency", code);
         Data data = new Data("ZZ", name, "-1");
         codeList.put(code, data);
       }
+      codeList.freeze();
 //      Set<String> remainder = new TreeSet(codeList.keySet());
 //      System.out.format("MISSING: %s\r\n", Utility.join(oldValues," "));
 //      remainder.removeAll(StandardCodes.make().getAvailableCodes("currency"));

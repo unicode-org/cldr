@@ -259,16 +259,17 @@ public class SurveyMain extends HttpServlet {
     public static final String GREGORIAN_CALENDAR = "gregorian calendar";
     public static final String OTHER_CALENDARS = "other calendars";
     // 
+    public String CALENDARS_ITEMS[];
+
     public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
         LDMLConstants.NUMBERS,
-        GREGORIAN_CALENDAR,
-        OTHER_CALENDARS,
         LDMLConstants.LOCALEDISPLAYPATTERN,
         "units",
         xOTHER,
         "references"
     };
+
     public static final String GREGO_XPATH = "//ldml/dates/"+LDMLConstants.CALENDARS+"/"+LDMLConstants.CALENDAR+"[@type=\"gregorian\"]";
     public static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
     public static final String LOCALEDISPLAYPATTERN_XPATH= LOCALEDISPLAYNAMES+LDMLConstants.LOCALEDISPLAYPATTERN;
@@ -3743,6 +3744,15 @@ public class SurveyMain extends HttpServlet {
             }
             printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
         }
+        subCtx.println("<p class='hang'> Calendars: ");
+        if ( CALENDARS_ITEMS == null )
+           CALENDARS_ITEMS = getCalendarsItems();
+        for(n =0 ; n < CALENDARS_ITEMS.length; n++) {        
+            if(n>0) {
+                ctx.print(" | ");
+            }
+            printMenu(subCtx, which, CALENDARS_ITEMS[n]);
+        }
         subCtx.println("</p> <p class='hang'>Other Items: ");
         
         for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
@@ -3782,6 +3792,24 @@ public class SurveyMain extends HttpServlet {
         subCtx.println("</td></tr></table>");
     }
     
+    public String[] getCalendarsItems()
+    {
+    //  TODO : Make this data driven from supplementalMetaData ;
+    //  I couldn't get the xpath right....
+    //        CLDRFile mySupp = getFactory().make("supplementalMetaData",false);
+    //        String xpath = "//supplementalData/metadata/validity/variable[@id=\"$calendar\"][@type=\"choice\"]";
+    //        String items = mySupp.getStringValue(xpath);
+    //        if ( items != null ) {
+    //           return (items.split(" "));
+    //        }
+    //       else {
+
+        String defaultCalendarsItems = "gregorian buddhist coptic ethiopic chinese hebrew indian islamic islamic-civil japanese persian roc";
+               return ( defaultCalendarsItems.split(" ") );
+
+    //        }
+    }
+
     /**
         * show the actual locale data..
      * @param ctx context
@@ -3875,6 +3903,14 @@ public class SurveyMain extends HttpServlet {
                     } else {
                         showLocaleCodeList(subCtx, which);
                     }
+                    return;
+                }
+            }
+
+            for(int j=0;j<CALENDARS_ITEMS.length;j++) {
+                if(CALENDARS_ITEMS[j].equals(which)) {
+                    String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
+                    showPathList(subCtx, CAL_XPATH, null);
                     return;
                 }
             }

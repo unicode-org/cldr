@@ -102,7 +102,7 @@ public class TestSupplementalInfo extends TestFmwk {
             .addAllInverted(isoCodes.getCountryToCodes());
 
     // now print error messages
-    logln("Modern Codes: " + modernCurrencyCodes);
+    logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
     Set<String> missing = new TreeSet<String>(isoCurrenciesToCountries.keySet());
     missing.removeAll(modernCurrencyCodes.keySet());
     assertEquals("Missing codes compared to ISO: " + missing, 0, missing.size());
@@ -138,7 +138,7 @@ public class TestSupplementalInfo extends TestFmwk {
         }
       }
     }
-    logln("Non-Modern Codes (with dates): " + nonModernCurrencyCodes);
+    logln("Non-Modern Codes (with dates): " + nonModernCurrencyCodes.size() + "\t" + nonModernCurrencyCodes);
     for (String currency : nonModernCurrencyCodes.keySet()) {
       final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
       if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {

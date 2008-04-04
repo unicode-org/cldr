@@ -24,6 +24,9 @@ to finish on the current code base.
 * Tomcat 6.0.8+  http://tomcat.apache.org 
   - Download and install
   -  place catalina-ant.jar into Ant's lib/ directory
+  MD: Read RUNNING.txt for instructions on installing.
+  MD: catalina-ant.jar is in apache-tomcat-XXX/server/lib/
+  MD: In eclipse, the Ant lib directory is in eclipse/plugins/org.appache.ant_XXX/lib
      Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
 * Apache Derby 10.2.2.0+  http://db.apache.org/derby/
 * International Classes for Unicode, for Java  (icu4j) plus Utilities,

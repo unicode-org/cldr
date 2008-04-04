@@ -3603,6 +3603,17 @@ XXX	Code for transations where no currency is involved
 		  </eras>
 		</calendar>
 		<calendar type="ethiopic" territories="ET"/>
+		<calendar type="indian" territories="IN">
+		  <eras>
+		      <era type="0" start="79"/>
+		  </eras>
+		</calendar>
+		<calendar type="roc" territories="TW">
+		  <eras>
+		      <era type="0" end="1911"/>
+		      <era type="1" start="1912"/>
+		  </eras>
+		</calendar>
 	</calendarData>
     <weekData>
           <minDays count="1" territories="001" />

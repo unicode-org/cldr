@@ -1221,7 +1221,7 @@ public class SupplementalDataInfo {
    */
   public static class PluralInfo {
     public enum Count {
-      zero, one, two, few, many, other;
+      zero, one, two, few, many, hundredone, hundredtwo, other;
       public static final List<Count> SEARCH_LIST = Arrays.asList(new Count[]{Count.one, Count.other, Count.zero, Count.two, Count.few, Count.many});
     }
     static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");

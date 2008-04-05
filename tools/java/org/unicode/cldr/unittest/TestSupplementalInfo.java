@@ -77,7 +77,7 @@ public class TestSupplementalInfo extends TestFmwk {
         final Date start = dateInfo.getStart();
         final Date end = dateInfo.getEnd();
         if (dateInfo.getErrors().length() != 0) {
-          errln("parsing " + territory + "\t" + dateInfo.toString() + "\t" + dateInfo.getErrors());
+          warnln("parsing " + territory + "\t" + dateInfo.toString() + "\t" + dateInfo.getErrors());
         }
         Date firstValue = currencyFirstValid.get(currency);
         if (firstValue == null || firstValue.compareTo(start) < 0) {
@@ -105,7 +105,9 @@ public class TestSupplementalInfo extends TestFmwk {
     logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
     Set<String> missing = new TreeSet<String>(isoCurrenciesToCountries.keySet());
     missing.removeAll(modernCurrencyCodes.keySet());
-    assertEquals("Missing codes compared to ISO: " + missing, 0, missing.size());
+    if (missing.size() != 0) {
+      errln("Missing codes compared to ISO: " + missing);
+    }
     
     for (String currency : modernCurrencyCodes.keySet()) {
       Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
@@ -121,20 +123,20 @@ public class TestSupplementalInfo extends TestFmwk {
         cldrCountries.add(x.getFirst());
       }
       if (!isoCountries.equals(cldrCountries)) {
-        errln("Mismatch between ISO and Cldr modern currencies for "  + currency + "\t" + isoCountries + "\t" + cldrCountries);
+        warnln("Mismatch between ISO and Cldr modern currencies for "  + currency + "\t" + isoCountries + "\t" + cldrCountries);
         showCountries("iso-cldr", isoCountries, cldrCountries, missing);
         showCountries("cldr-iso", cldrCountries, isoCountries, missing);
       }
 
       if (oldMatcher.reset(name).find()) {
-        errln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + data);
+        warnln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + data);
       }
       if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
         // find the first use. If older than 5 years, flag as error
         if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {   
-          errln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
+          warnln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
         } else {
-          logln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
+          warnln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
         }
       }
     }
@@ -166,8 +168,9 @@ public class TestSupplementalInfo extends TestFmwk {
     remainder.removeAll(nonModernCurrencyCodes.keySet());
     // TODO make this an error, except for allowed exceptions.
     logln("Currencies without Territories: " + remainder);
-    assertEquals("Modern territory missing currency: " + territoriesWithoutModernCurrencies, 
-            0, territoriesWithoutModernCurrencies.size());
+    if (territoriesWithoutModernCurrencies.size() != 0) {
+      warnln("Modern territory missing currency: " + territoriesWithoutModernCurrencies);
+    }
   }
 
   private void showCountries(final String title, Set<String> isoCountries,
@@ -176,7 +179,7 @@ public class TestSupplementalInfo extends TestFmwk {
     missing.addAll(isoCountries);
     missing.removeAll(cldrCountries);
     for (String country : missing) {
-      errln("\t\tExtra in " + title + "\t" + country + " - " + testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, country));
+      warnln("\t\tExtra in " + title + "\t" + country + " - " + testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, country));
     }
   }
 

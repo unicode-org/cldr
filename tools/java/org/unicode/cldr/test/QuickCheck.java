@@ -54,6 +54,7 @@ public class QuickCheck {
   public static void main(String[] args) throws IOException {
     localeRegex = System.getProperty("LOCALE");
     if (localeRegex == null) localeRegex = ".*";
+    
     showInfo = System.getProperty("SHOW") != null;
     System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
     

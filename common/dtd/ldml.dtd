@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.109 $
-$Date: 2008-03-19 00:18:19 $
+$Revision: 1.110 $
+$Date: 2008-04-05 00:11:59 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(fallback?, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, collations?, posix?, segmentations?, references?, special*))) >
@@ -545,11 +545,10 @@ $Date: 2008-03-19 00:18:19 $
 <!ATTLIST dateFormat validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT displayName ( #PCDATA ) >
-<!ATTLIST displayName count (zero | one | two | few | many | other) #IMPLIED> <!-- only for currencies -->
+<!ATTLIST displayName count (zero | one | two | few | many | hundredone | hundredtwo | other) #IMPLIED> <!-- only for currencies -->
 <!ATTLIST displayName draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST displayName references CDATA #IMPLIED >
 <!ATTLIST displayName alt CDATA #IMPLIED >
-
 
 <!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) >
 <!ATTLIST timeFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -787,24 +786,12 @@ $Date: 2008-03-19 00:18:19 $
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers (alias | (plurals?, symbols?, decimalFormats?, scientificFormats?, percentFormats?, currencyFormats?, currencies?, special*)) >
+<!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, percentFormats?, currencyFormats?, currencies?, special*)) >
 <!ATTLIST numbers draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST numbers standard CDATA #IMPLIED >
 <!ATTLIST numbers references CDATA #IMPLIED >
 <!ATTLIST numbers alt CDATA #IMPLIED >
 <!ATTLIST numbers validSubLocales CDATA #IMPLIED >
-
-<!ELEMENT plurals (alias | (pluralRule*, special*)) >
-<!ATTLIST plurals draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
-<!ATTLIST plurals references CDATA #IMPLIED >
-<!ATTLIST plurals alt CDATA #IMPLIED >
-<!ATTLIST plurals validSubLocales CDATA #IMPLIED >
-
-<!ELEMENT pluralRule ( #PCDATA ) >
-<!ATTLIST pluralRule count (zero | one | two | few | many) #REQUIRED > <!-- other is implicitly everything else -->
-<!ATTLIST pluralRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
-<!ATTLIST pluralRule references CDATA #IMPLIED >
-<!ATTLIST pluralRule alt CDATA #IMPLIED >
 
 <!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) >
 <!ATTLIST symbols draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -949,7 +936,7 @@ $Date: 2008-03-19 00:18:19 $
 <!ATTLIST percentFormat alt CDATA #IMPLIED >
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, special*)) >
+<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, unitPattern*, special*)) >
 <!ATTLIST currencyFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
 
@@ -1022,14 +1009,14 @@ $Date: 2008-03-19 00:18:19 $
 <!ATTLIST unit validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT unitPattern ( #PCDATA ) >
-<!ATTLIST unitPattern count (zero | one | two | few | many | other) #IMPLIED >
+<!ATTLIST unitPattern count (zero | one | two | few | many | hundredone | hundredtwo | other) #IMPLIED >
 <!ATTLIST unitPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST unitPattern references CDATA #IMPLIED >
 <!ATTLIST unitPattern alt CDATA #IMPLIED >
 <!ATTLIST unitPattern validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT unitName ( #PCDATA ) >
-<!ATTLIST unitName count (zero | one | two | few | many | other) #IMPLIED >
+<!ATTLIST unitName count (zero | one | two | few | many | hundredone | hundredtwo | other) #IMPLIED >
 <!ATTLIST unitName draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST unitName references CDATA #IMPLIED >
 <!ATTLIST unitName alt CDATA #IMPLIED >

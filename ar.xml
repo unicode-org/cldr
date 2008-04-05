@@ -2311,6 +2311,14 @@
 					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+            <unitPattern>{0,number,0.##} {1}</unitPattern>
+            <unitPattern count="zero"/>
+            <unitPattern count="two"/>
+            <unitPattern count="few"/>
+            <unitPattern count="many"/>
+            <unitPattern count="hundredone"/>
+            <unitPattern count="hundredtwo"/>
+            <unitPattern count="other"/>
 		</currencyFormats>
 		<!-- Please note that the Arabic translated currency symbols include the Right to
 			 Left Marker <RLM> to position the dot properly on the boundary between

@@ -695,7 +695,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   private static Object lastLocaleID = null;
   
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
-    example = example == null ? "" : "<" + example + ">";
+    example = example == null ? "" : example;
     String englishExample = null;
     if (SHOW_EXAMPLES != null) {
       if (getExampleGenerator() == null) {
@@ -714,11 +714,11 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
         + "\t" + cleanPrettyPath
-        + "\t" + getEnglishPathValue(path)
-        + "\t" + englishExample
-        + "\t" + value
-        + "\t‹" + fillinValue + "›"
-        + "\t" + example
+        + "\t〈" + getEnglishPathValue(path) + "〉"
+        + "\t【" + englishExample + "】"
+        + "\t〈" + value + "〉"
+        + "\t«" + fillinValue + "»"
+        + "\t【" + example + "】"
         + "\t" + statusString
         + "\t" + fullPath
         + (source.equals(localeID) ? "" : "\t" + source)

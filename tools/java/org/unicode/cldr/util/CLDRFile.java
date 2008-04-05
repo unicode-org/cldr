@@ -2734,8 +2734,8 @@ public class CLDRFile implements Freezable, Iterable<String> {
     if (pluralCounts.size() != 1) {
       for (Count count : pluralCounts) {
         if (count.equals(Count.one)) continue;
-        final String anyPatternPath = "//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]";
-        toAddTo.add(anyPatternPath);
+        //final String anyPatternPath = "//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]";
+        //toAddTo.add(anyPatternPath);
         for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
           final String unitPattern = "//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + count + "\"]";
           String value = getWinningValue(unitPattern);

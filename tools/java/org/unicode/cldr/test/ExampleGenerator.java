@@ -262,6 +262,9 @@ public class ExampleGenerator {
       if (parts.contains("units")) {
         return result = handleUnits(parts, xpath, value, context, type);
       }
+      if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
+        return result = formatCountValue(xpath, parts, value, context, type);
+      } 
       if (parts.contains("intervalFormats")) {
         return result = handleIntervalFormats(parts, xpath, value, context, type);
       }
@@ -378,20 +381,27 @@ public class ExampleGenerator {
   }
 
   private String handleUnits(XPathParts parts, String xpath, String value, ExampleContext context, ExampleType type) {
-    if (parts.contains("unitName")) {
-      return formatCountValue(parts, value, Count.one, context, type);
+    if (parts.contains("unitName") || parts.contains("unitPattern")) {
+      return formatCountValue(xpath, parts, value, context, type);
     }
     return null;
   }
 
-  private String formatCountValue(XPathParts parts, String value, Count countDefault, ExampleContext context, ExampleType type) {
+  private String formatCountValue(String xpath, XPathParts parts, String value, ExampleContext context, ExampleType type) {
     final PluralInfo plurals = supplementalDataInfo.getPlurals(cldrFile.getLocaleID());
+    String unitType = parts.getAttributeValue(-2, "type");
+    if (unitType == null) {
+      unitType = "USD"; // sample for currency pattern
+    }
+    final boolean isPattern = parts.contains("unitPattern");
+    final boolean isCurrency = !parts.contains("units");
+
     Count count = null;
     final List<Double> exampleCount;
     if (type != ExampleType.ENGLISH) {
       String countString = parts.getAttributeValue(-1, "count");
       if (countString == null) {
-        count = countDefault;
+        count = Count.one;
       } else {
         count = Count.valueOf(countString);
       }
@@ -408,29 +418,6 @@ public class ExampleGenerator {
       if (type == ExampleType.ENGLISH) {
         count = plurals.getCount(example);
       }
-      String unitPatternPath = cldrFile.getCountPath("//ldml/units/unit[@type=\"any\"]/unitPattern", count);
-      String unitPattern = cldrFile.getWinningValue(unitPatternPath);
-      DecimalFormat decimalFormat = icuServiceBuilder.getNumberFormat(1);
-      MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
-      Format[] formats = unitPatternFormat.getFormatsByArgumentIndex();
-      DecimalFormat unitDecimalFormat = (DecimalFormat) formats[0];
-      unitDecimalFormat.setDecimalFormatSymbols(decimalFormat.getDecimalFormatSymbols());
-      //Map arguments = new HashMap();
-
-      int decimalCount = -1;
-      if (parts.contains("currency")) {
-        // TODO get the currency decimals directly from supplemental info.
-        DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(parts.getAttributeValue(-2, "type"));
-        decimalCount = currencyFormat.getMinimumFractionDigits();
-      }
-      if (decimalCount >= 0) {
-        final boolean isInteger = example == Math.round(example);
-        if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
-        int currentCount = isInteger ? 0 : decimalCount;
-        decimalFormat.setMaximumFractionDigits(currentCount);
-        decimalFormat.setMinimumFractionDigits(currentCount);
-      }
-
       if (value == null) {
         String clippedPath = parts.toString(-1);
         clippedPath += "/" + parts.getElement(-1);
@@ -438,14 +425,62 @@ public class ExampleGenerator {
         value = cldrFile.getStringValue(fallbackPath);
       }
       
-      // finally, format the result
-      unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
+      // get the pattern if our path is not a pattern
+      String unitPattern;
+      String unitName;
+      if (isPattern) {
+        // //ldml/numbers/currencies/currency[@type="USD"]/displayName
+        String unitNamePath = cldrFile.getCountPath(isCurrency 
+                ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
+                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
+                        count);
+        unitName = cldrFile.getWinningValue(unitNamePath);
+        unitPattern = value;
+      } else {
+        String unitPatternPath = cldrFile.getCountPath(isCurrency 
+                ? "//ldml/numbers/currencyFormats/unitPattern" 
+                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern", 
+                        count);
+        unitPattern = cldrFile.getWinningValue(unitPatternPath);
+        unitName = value;
+      }
+      DecimalFormat decimalFormat = icuServiceBuilder.getNumberFormat(1);
+      MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
+
+      // if there is a format on item #0, then reset the symbols, 
+      // and reset the decimals IF it is a currency
+
+      Format[] formats = unitPatternFormat.getFormatsByArgumentIndex();
+      if (formats.length > 0) {
+        DecimalFormat unitDecimalFormat = (DecimalFormat) formats[0];
+        if (unitDecimalFormat != null) {
+          unitDecimalFormat.setDecimalFormatSymbols(decimalFormat.getDecimalFormatSymbols());
+          //Map arguments = new HashMap();
+
+          // TODO get the currency decimals directly from supplemental info.
+          if (isCurrency) {
+            DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
+            int decimalCount = currencyFormat.getMinimumFractionDigits();
+
+            final boolean isInteger = example == Math.round(example);
+            if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
+            
+            int currentCount = isInteger ? 0 : decimalCount;
+            unitDecimalFormat.setMaximumFractionDigits(currentCount);
+            unitDecimalFormat.setMinimumFractionDigits(currentCount);
+
+            // finally, format the result
+          }
+          unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
+        }
+      }
       //arguments.put("quantity", example);
       //arguments.put("unit", value);
-      String resultItem = unitPatternFormat.format(new Object[]{example, value});
-      resultItem = setBackground(resultItem).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-      resultItem = finalizeBackground(resultItem);
-      
+      String resultItem = unitPatternFormat.format(new Object[]{example, unitName});
+
+      resultItem = setBackground(resultItem).replace(unitName, backgroundEndSymbol + unitName + backgroundStartSymbol);
+      resultItem = finalizeBackground(resultItem, isPattern);
+
       // now add to list
       if (result.length() != 0) {
         result += ", ";
@@ -563,7 +598,7 @@ public class ExampleGenerator {
         }
       }
     }
-    result = finalizeBackground(result);
+    result = finalizeBackground(result, false);
     return result;
   }
 
@@ -588,7 +623,7 @@ public class ExampleGenerator {
       }
       dateFormat.setTimeZone(ZONE_SAMPLE);
       result = dateFormat.format(DATE_SAMPLE);
-      result = finalizeBackground(result);
+      result = finalizeBackground(result, false);
     } else if (parts.contains("numbers")) {
       DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
       result = numberFormat.format(NUMBER_SAMPLE);
@@ -609,10 +644,10 @@ public class ExampleGenerator {
       DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
       result = x.format(NUMBER_SAMPLE);
       result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-      result = finalizeBackground(result);
+      result = finalizeBackground(result, false);
       return result;
     } else if (parts.contains("displayName")) {
-      return formatCountValue(parts, value, Count.one, context, type);
+      return formatCountValue(xpath, parts, value, context, type);
     }
     return null;
   }
@@ -621,7 +656,7 @@ public class ExampleGenerator {
     String result;
     SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
     result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)));
-    result = finalizeBackground(result);
+    result = finalizeBackground(result, false);
     return result;
   }
 
@@ -633,7 +668,7 @@ public class ExampleGenerator {
               type.equals("language") ? "ace"
                       : type.equals("script") ? "Avst"
                           : type.equals("territory") ? "057" : "CODE"));
-      result = finalizeBackground(result);
+      result = finalizeBackground(result, false);
     } else if (parts.contains("localeDisplayPattern")) {
       result = cldrFile.getName("uz_Arab_AF");
     } else if (parts.contains("languages") ) {
@@ -694,15 +729,19 @@ public class ExampleGenerator {
   /**
    * This is called just before we return a result. It fixes the special characters that were added by setBackground.
    * @param input string with special characters from setBackground.
+   * @param invert TODO
    * @return string with HTML for the background.
    */
-  private String finalizeBackground(String input) {
-    return input == null ? input : input.replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove
-        // null
-        // runs
-        .replace(backgroundEndSymbol + backgroundStartSymbol, "") // remove null
-        // runs
-        .replace(backgroundStartSymbol, backgroundStart).replace(backgroundEndSymbol, backgroundEnd);
+  private String finalizeBackground(String input, boolean invert) {
+    if (invert) input = backgroundEndSymbol + input + backgroundStartSymbol;
+    return input == null ? input : input
+            .replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove null runs
+            // null
+            // runs
+            .replace(backgroundEndSymbol + backgroundStartSymbol, "") // remove null runs
+            // runs
+            .replace(backgroundStartSymbol, invert ? backgroundEnd : backgroundStart)
+            .replace(backgroundEndSymbol, invert ? backgroundStart : backgroundEnd);
   }
 
   static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");

@@ -23,7 +23,7 @@ public class CheckForExemplars extends CheckCLDR {
   //private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
   // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
   static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern",
-    "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references"};
+    "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references", "/unitPattern"};
   
   UnicodeSet exemplars;
   UnicodeSet scriptRegionExemplars;

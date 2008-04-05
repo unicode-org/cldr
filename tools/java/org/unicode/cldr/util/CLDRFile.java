@@ -458,15 +458,16 @@ public class CLDRFile implements Freezable, Iterable<String> {
     return result;
   }
 
+  /**
+   * Only call if xpath doesn't exist in the current file.
+   * <p>For now, just handle counts: see getCountPath
+   * @param xpath
+   * @return
+   */
   private String getFallbackPath(String xpath) {
     //  || xpath.contains("/currency") && xpath.contains("/displayName")
-    int pos = xpath.indexOf("[@count=");
-    if (pos >= 0) {
-      // remove final attributes
-      int start = xpath.indexOf("[@count=");
-      int end = xpath.indexOf(']',start)+1;
-      String clippedPath = xpath.substring(0,start) + xpath.substring(end);
-      return getCountPath(clippedPath, null);
+    if (xpath.contains("[@count=")) {
+      String result = getWinningCountPathWithFallback(xpath, Count.one);
     }
     return null;
   }
@@ -2733,7 +2734,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
     if (pluralCounts.size() != 1) {
       for (Count count : pluralCounts) {
-        if (count.equals(Count.one)) continue;
+        //if (count.equals(Count.one)) continue;
         //final String anyPatternPath = "//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]";
         //toAddTo.add(anyPatternPath);
         for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
@@ -2805,21 +2806,30 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
 
   /**
-   * Get the path with the given count. Acts like there is an alias in Root to count="".
-   * Input Count may be null. Returns null if nothing is found.
+   * Get the path with the given count. For unitPatterns, falls back to Count.one. For others, falls back to Count.one, then no count.
+   * <p>The fallback acts like an alias in root.
    * @param xpath
-   * @param count
+   * @param count Count may be null. Returns null if nothing is found.
    * @return
    */
-  public String getCountPath(String xpath, Count count) {
+  public String getWinningCountPathWithFallback(String xpathWithNoCount, Count count) {
     String result;
-    if (count != null) {
-      result = getWinningPath(xpath + "[@count=\"" + count + "\"]");
-      if (isNotRoot(result)) {
+    XPathParts parts = new XPathParts().set(xpathWithNoCount);
+    boolean isUnitPattern = parts.contains("unitPattern");
+    parts.addAttribute("count", count.toString());
+    result = getWinningPath(parts.toString());
+    if (isNotRoot(result) || count == Count.one && isUnitPattern) {
+      return result;
+    }
+    // remove count attributes
+    if (count != Count.one) {
+      parts.addAttribute("count", "one");
+      result = getWinningPath(parts.toString());
+      if (isNotRoot(result) || isUnitPattern) {
         return result;
       }
     }
-    return getWinningPath(xpath);
+    return getWinningPath(xpathWithNoCount); // may fall back to root
   }
   
   /**

@@ -273,7 +273,9 @@ public class XPathParts {
 	public boolean containsAttribute(String attribute) {
 		for (int i = 0; i < elements.size(); ++i) {
 			Element element = elements.get(i);
-			if (element.getAttribute(attribute) != null) return true;
+			if (element.getAttribute(attribute) != null) {
+			  return true;
+			}
 		}
 		return false;
 	}

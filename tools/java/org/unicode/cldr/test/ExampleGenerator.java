@@ -388,6 +388,9 @@ public class ExampleGenerator {
   }
 
   private String formatCountValue(String xpath, XPathParts parts, String value, ExampleContext context, ExampleType type) {
+    if (!parts.containsAttribute("count")) { // no examples for items that don't format
+      return null;
+    }
     final PluralInfo plurals = supplementalDataInfo.getPlurals(cldrFile.getLocaleID());
     String unitType = parts.getAttributeValue(-2, "type");
     if (unitType == null) {
@@ -401,7 +404,8 @@ public class ExampleGenerator {
     if (type != ExampleType.ENGLISH) {
       String countString = parts.getAttributeValue(-1, "count");
       if (countString == null) {
-        count = Count.one;
+        //count = Count.one;
+        return null;
       } else {
         count = Count.valueOf(countString);
       }
@@ -421,7 +425,7 @@ public class ExampleGenerator {
       if (value == null) {
         String clippedPath = parts.toString(-1);
         clippedPath += "/" + parts.getElement(-1);
-        String fallbackPath = cldrFile.getCountPath(clippedPath, count);
+        String fallbackPath = cldrFile.getWinningCountPathWithFallback(clippedPath, count);
         value = cldrFile.getStringValue(fallbackPath);
       }
       
@@ -430,14 +434,14 @@ public class ExampleGenerator {
       String unitName;
       if (isPattern) {
         // //ldml/numbers/currencies/currency[@type="USD"]/displayName
-        String unitNamePath = cldrFile.getCountPath(isCurrency 
+        String unitNamePath = cldrFile.getWinningCountPathWithFallback(isCurrency 
                 ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
                         : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
                         count);
         unitName = cldrFile.getWinningValue(unitNamePath);
         unitPattern = value;
       } else {
-        String unitPatternPath = cldrFile.getCountPath(isCurrency 
+        String unitPatternPath = cldrFile.getWinningCountPathWithFallback(isCurrency 
                 ? "//ldml/numbers/currencyFormats/unitPattern" 
                         : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern", 
                         count);

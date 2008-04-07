@@ -1042,11 +1042,13 @@ public abstract class XMLSource implements Freezable {
       { "gb2312han", "collation" },
       { "gregorian", "calendar" },
       { "hebrew", "calendar" },
+      { "indian", "calendar" },
       { "islamic", "calendar" },
       { "islamic-civil", "calendar" },
       { "japanese", "calendar" },
       { "phonebook", "collation" },
       { "pinyin", "collation" },
+      { "roc", "calendar" },
       { "stroke", "collation" },
       { "traditional", "collation" } };
     private static final boolean SKIP_SINGLEZONES = false;

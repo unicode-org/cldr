@@ -448,36 +448,33 @@ public class ExampleGenerator {
         unitPattern = cldrFile.getWinningValue(unitPatternPath);
         unitName = value;
       }
-      DecimalFormat decimalFormat = icuServiceBuilder.getNumberFormat(1);
+
       MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
 
-      // if there is a format on item #0, then reset the symbols, 
-      // and reset the decimals IF it is a currency
+      // get the format for the currency
+      // TODO fix this for special currency overrides
 
-      Format[] formats = unitPatternFormat.getFormatsByArgumentIndex();
-      if (formats.length > 0) {
-        DecimalFormat unitDecimalFormat = (DecimalFormat) formats[0];
-        if (unitDecimalFormat != null) {
-          unitDecimalFormat.setDecimalFormatSymbols(decimalFormat.getDecimalFormatSymbols());
-          //Map arguments = new HashMap();
+      DecimalFormat unitDecimalFormat = icuServiceBuilder.getNumberFormat(1); // decimal
+      //Map arguments = new HashMap();
 
-          // TODO get the currency decimals directly from supplemental info.
-          if (isCurrency) {
-            DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
-            int decimalCount = currencyFormat.getMinimumFractionDigits();
+      if (isCurrency) {
+        DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
+        int decimalCount = currencyFormat.getMinimumFractionDigits();
 
-            final boolean isInteger = example == Math.round(example);
-            if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
-            
-            int currentCount = isInteger ? 0 : decimalCount;
-            unitDecimalFormat.setMaximumFractionDigits(currentCount);
-            unitDecimalFormat.setMinimumFractionDigits(currentCount);
+        final boolean isInteger = example == Math.round(example);
+        if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
 
-            // finally, format the result
-          }
-          unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
-        }
+        // int currentCount = isInteger ? 0 : decimalCount;
+        unitDecimalFormat.setMaximumFractionDigits(decimalCount);
+        unitDecimalFormat.setMinimumFractionDigits(decimalCount);
+
+        // finally, format the result
+      } else {
+        unitDecimalFormat.setMinimumFractionDigits(0);
       }
+      
+      unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
+
       //arguments.put("quantity", example);
       //arguments.put("unit", value);
       String resultItem = unitPatternFormat.format(new Object[]{example, unitName});

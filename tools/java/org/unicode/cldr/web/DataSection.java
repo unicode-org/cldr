@@ -1777,12 +1777,16 @@ public class DataSection extends Registerable {
             // Make sure the pod contains the peas we'd like to see.
             // regular zone
             
-            Set mzones = sm.getMetazones();
-            
             Iterator zoneIterator;
             
             if(isMetazones) {
-                zoneIterator = sm.getMetazones().iterator();
+                if ( xpathPrefix.indexOf('_') > 0 ) {
+                    String [] pieces = xpathPrefix.split("_",2);
+                    xpathPrefix = pieces[0];
+                    zoneIterator = sm.getMetazones(pieces[1]).iterator();
+                } else {
+                    zoneIterator = sm.getMetazones().iterator();
+                }
             } else {
                 zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid").iterator();
             }

@@ -248,7 +248,6 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES,
         CURRENCIES,
         TIMEZONES,
-        METAZONES,
         CODEPATTERNS,
         MEASNAMES
     };
@@ -260,6 +259,7 @@ public class SurveyMain extends HttpServlet {
     public static final String OTHER_CALENDARS = "other calendars";
     // 
     public String CALENDARS_ITEMS[];
+    public String METAZONES_ITEMS[];
 
     public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
@@ -3753,6 +3753,17 @@ public class SurveyMain extends HttpServlet {
             }
             printMenu(subCtx, which, CALENDARS_ITEMS[n]);
         }
+
+        subCtx.println("<p class='hang'> Metazones: ");
+        if ( METAZONES_ITEMS == null )
+           METAZONES_ITEMS = getMetazonesItems();
+        for(n =0 ; n < METAZONES_ITEMS.length; n++) {        
+            if(n>0) {
+                ctx.print(" | ");
+            }
+            printMenu(subCtx, which, METAZONES_ITEMS[n]);
+        }
+
         subCtx.println("</p> <p class='hang'>Other Items: ");
         
         for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
@@ -3810,6 +3821,13 @@ public class SurveyMain extends HttpServlet {
     //        }
     }
 
+    public String[] getMetazonesItems()
+    {
+
+        String defaultMetazonesItems= "Africa America Antarctica Asia Australia Europe Atlantic Indian Pacific";
+        return ( defaultMetazonesItems.split(" ") );
+
+    }
     /**
         * show the actual locale data..
      * @param ctx context
@@ -3898,8 +3916,6 @@ public class SurveyMain extends HttpServlet {
                         showPathList(subCtx, "//ldml/"+NUMBERSCURRENCIES, null);
                     } else if(which.equals(TIMEZONES)) {
                         showTimeZones(subCtx);
-                    } else if(which.equals(METAZONES)) {
-                        showMetaZones(subCtx);
                     } else {
                         showLocaleCodeList(subCtx, which);
                     }
@@ -3911,6 +3927,13 @@ public class SurveyMain extends HttpServlet {
                 if(CALENDARS_ITEMS[j].equals(which)) {
                     String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
                     showPathList(subCtx, CAL_XPATH, null);
+                    return;
+                }
+            }
+
+            for(int j=0;j<METAZONES_ITEMS.length;j++) {
+                if(METAZONES_ITEMS[j].equals(which)) {
+                    showMetazones(subCtx,which);
                     return;
                 }
             }
@@ -4936,6 +4959,23 @@ public class SurveyMain extends HttpServlet {
         return allMetazones;
     }
 
+    public Set getMetazones(String subclass) {
+        ElapsedTimer et = new ElapsedTimer();    
+        XPathParts parts = new XPathParts(null,null);
+        Set aset = new TreeSet();
+        CLDRFile mySupp = getFactory().make("supplementalData",false);
+        for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
+            String xpath = i.next().toString();
+            parts.set(xpath);
+            String mzone = parts.getAttributeValue(-1,"other");
+            String type = parts.getAttributeValue(-1,"type");
+            String territory = parts.getAttributeValue(-1,"territory");
+            if(mzone != null && territory.equals("001") && type.startsWith(subclass)) {
+                aset.add(mzone);
+            }
+        }
+        return aset;
+    }
 
     /**
     * show the webpage for one of the 'locale codes' items.. 
@@ -5000,8 +5040,8 @@ public class SurveyMain extends HttpServlet {
     public SupplementalData supplemental = null;
 
 
-    public void showMetaZones(WebContext ctx) {
-        showPathList(ctx, "//ldml/"+"dates/timeZoneNames/metazone", null);
+    public void showMetazones(WebContext ctx, String continent) {
+        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone_"+continent,null);
     }
 
     /**

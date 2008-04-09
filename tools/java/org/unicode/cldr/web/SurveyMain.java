@@ -7195,19 +7195,10 @@ public class SurveyMain extends HttpServlet {
                     }
                     if(displayList != null) {
                         String iString = displayList.get(i).toString();
-                        String endString = displayList.get(end).toString();
                         if(iString.length() > PAGER_SHORTEN_WIDTH) {
                             iString = iString.substring(0,PAGER_SHORTEN_WIDTH)+"\u2026";
-                            endString="";
                         }
-                        if(endString.length()>PAGER_SHORTEN_WIDTH) {
-                            endString = endString.substring(0,PAGER_SHORTEN_WIDTH)+"\u2026";
-                        }
-                        if(end>i) {
-                            ctx.print(iString+"\u2013"+endString);
-                        } else {
-                            ctx.print(iString);
-                        }
+                        ctx.print(iString);
                     } else {
                         ctx.print( ""+(i+1) );
                         ctx.print( "\u2013" + (end+1));

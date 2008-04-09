@@ -2,11 +2,6 @@ package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.TestFmwk;
 

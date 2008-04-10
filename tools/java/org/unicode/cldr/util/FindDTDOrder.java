@@ -32,7 +32,7 @@ import com.ibm.icu.dev.test.util.XEquivalenceMap;
 class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   static final boolean SHOW_ALL = false;
 
-  static final boolean SHOW_PROGRESS = true;
+  static final boolean SHOW_PROGRESS = Utility.getProperty("verbose") != null;
 
   private boolean recordingAttributeElements;
 
@@ -209,8 +209,7 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     orderingList.addAll(missing);
 
     // finish up
-    if (log != null)
-      log.println("Successful Ordering");
+    log.println("Successful Ordering");
     log.print("Attributes: ");
     log.println(getJavaList(attributeList));
     attributeList.removeAll(CLDRFile.attributeOrdering.getOrder());
@@ -398,15 +397,15 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     for (int i = 0; i < list.length; ++i) {
       if (list[i].length() == 0)
         continue;
-      if (list[i].equals("ANY")) {
-        System.out.println("WARNING- SHOULD NOT HAVE 'ANY': " + name + "\t"
+      if (list[i].equals("ANY") && !name.equals("special")) {
+        System.err.println("WARNING- SHOULD NOT HAVE 'ANY': " + name + "\t"
             + model);
       }
       if (SUBELEMENT_SKIP_LIST.contains(list[i]))
         continue;
       // if (log != null) log.print("\t" + list[i]);
       if (mc.contains(list[i])) {
-        System.out.println("Duplicate element in definition of  " + name
+        System.err.println("Warning: Duplicate element in definition of  " + name
             + ":\t" + list[i] + ":\t" + Arrays.asList(list) + ":\t" + mc);
       } else {
         mc.add(list[i]);
@@ -447,7 +446,7 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       log.println("attributeDecl");
     // if (SHOW_ALL && log != null) log.println("Attribute\t" + eName + "\t" +
     // aName + "\t" + type + "\t" + mode + "\t" + value);
-    System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type
+    if (SHOW_PROGRESS) System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type
         + "\t" + mode + "\t" + value);
     if (!skipCommon.contains(aName)) {
       attributeList.add(aName);

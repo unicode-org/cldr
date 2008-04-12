@@ -80,7 +80,7 @@ public class DisplayAndInputProcessor {
     }
     try {
       // fix grouping separator if space
-      if (!path.startsWith("//ldml/numbers/symbols/group")) {
+      if (path.startsWith("//ldml/numbers/symbols/group")) {
         if (value.equals(" ")) {
           value = "\u00A0";
         }

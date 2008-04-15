@@ -596,8 +596,6 @@ public class SurveyMain extends HttpServlet {
                 }
                 
                 ctx.println("elapsed time: " + et + "<br>");
-                //conn.close(); 
-                //     (auto close)
             } catch(SQLException se) {
                 String complaint = "SQL err: " + unchainSqlException(se);
                 
@@ -2270,6 +2268,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 ctx.println("</table>");
             }
+            SurveyMain.closeDBConnection(conn);
 		}
 
         printFooter(ctx);
@@ -4256,6 +4255,7 @@ public class SurveyMain extends HttpServlet {
                 int nrInFiles = inFiles.length;
                 progressWhat = "writing " +kind;
                 progressMax = nrInFiles;
+                Connection conn = getDBConnection();
                 for(int i=0;i<nrInFiles;i++) {
                     progressCount = i;
                     String fileName = inFiles[i].getName();
@@ -4264,8 +4264,9 @@ public class SurveyMain extends HttpServlet {
                     lastfile = fileName;
                     File outFile = new File(outdir, fileName);
                     
-                    CLDRDBSource dbSource = makeDBSource(getDBConnection(), null, new ULocale(localeName), vetted);
+                    CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale(localeName), vetted);
                     CLDRFile file;
+                    
                     if(resolved == false) {
                         file = makeCLDRFile(dbSource);
                     } else { 
@@ -4298,6 +4299,7 @@ public class SurveyMain extends HttpServlet {
                         }
                     }
                 }
+                SurveyMain.closeDBConnection(conn);
             } finally {
                 progressWhat = null;
             }
@@ -4393,7 +4395,8 @@ public class SurveyMain extends HttpServlet {
                 throw new InternalError("No such locale: " + s);
             } else {
                 response.setContentType("application/xml; charset=utf-8");
-                CLDRDBSource dbSource = makeDBSource(getDBConnection(), null, new ULocale(theLocale), finalData);
+                Connection conn = getDBConnection();
+                CLDRDBSource dbSource = makeDBSource(conn, null, new ULocale(theLocale), finalData);
                 CLDRFile file;
                 if(resolved == false) {
                     file= makeCLDRFile(dbSource);
@@ -4402,6 +4405,7 @@ public class SurveyMain extends HttpServlet {
                 }
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
                 file.write(response.getWriter());
+                SurveyMain.closeDBConnection(conn);
             }
         }
         return true;
@@ -4836,7 +4840,7 @@ public class SurveyMain extends HttpServlet {
      * @param locale
      * @return
      */
-    UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
+    public UserLocaleStuff getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
         // has this locale been invalidated?
         UserLocaleStuff uf = getOldUserFile(ctx);
         //UserLocaleStuff uf = null;

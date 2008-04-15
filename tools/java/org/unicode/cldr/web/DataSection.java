@@ -495,7 +495,7 @@ public class DataSection extends Registerable {
                     }
                 }
             } else {
-                if(SurveyMain.isUnofficial) System.err.println("already have inherited @ " + base_xpath_string);
+//                if(SurveyMain.isUnofficial) System.err.println("already have inherited @ " + base_xpath_string);
             }
         }
        
@@ -1369,7 +1369,11 @@ public class DataSection extends Registerable {
                 if(isExtraPath) {
                     fullPath=xpath; // (this is normal for 'extra' paths)
                 } else {
-                    throw new InternalError("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                    //System.err.println("Extrapath: " +isExtraPath + ", base:"+baseXpath);
+                    
+                    System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+                    //continue;
+                    fullPath = xpath;
                 }
             }
 
@@ -1836,7 +1840,7 @@ public class DataSection extends Registerable {
                     String rowXpath = zone+suff;
                     String base_xpath_string = podBase+ourSuffix+suff;
                     if(resolvedFile.isPathExcludedForSurvey(base_xpath_string)) {
-                       if(SurveyMain.isUnofficial) System.err.println("@@ synthesized+excluded:" + base_xpath_string);
+//                       if(SurveyMain.isUnofficial) System.err.println("@@ synthesized+excluded:" + base_xpath_string);
                        continue;
                     }
                     DataSection.DataRow myp = getDataRow(rowXpath);

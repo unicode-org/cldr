@@ -14,6 +14,7 @@ package org.unicode.cldr.web;
 import java.util.*;
 import javax.mail.*;
 import java.io.*;
+import java.nio.charset.Charset;
 
 import javax.mail.internet.*;
 
@@ -82,7 +83,8 @@ public class MailSender {
                 ourMessage.setReplyTo(replyTo);
             }
             ourMessage.setSubject(subject);
-            ourMessage.setText(body+footer);
+            Charset charset = Charset.forName("UTF-8");
+            ourMessage.setText(body+footer, charset.name());
             if(smtp != null) {
                 Transport.send(ourMessage);
             }

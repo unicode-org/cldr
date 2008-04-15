@@ -383,7 +383,7 @@ public class DataSection extends Registerable {
         }
         
         Hashtable subRows = null;
-        
+
         public DataRow getSubDataRow(String altType) {
             if(altType == null) {
                 return this;
@@ -552,6 +552,12 @@ public class DataSection extends Registerable {
             toggleWith = notMyDataRow;
             
         }
+
+        public boolean isName() {
+          return NAME_TYPE_PATTERN.matcher(type).matches();
+        }
+        
+        static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
     }
 
     Hashtable rowsHash = new Hashtable(); // hashtable of type->Pea
@@ -842,138 +848,11 @@ public class DataSection extends Registerable {
 
         
         if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-            newSet = new TreeSet(new Comparator() {
-    //                        com.ibm.icu.text.Collator myCollator = rbc;
-                public int compare(Object o1, Object o2){
-                    DataRow p1 = (DataRow) o1;
-                    DataRow p2 = (DataRow) o2;
-                    if(p1==p2) { 
-                        return 0;
-                    }
-                    return myCollator.compare(p1.type, p2.type);
-                }
-            });
+            newSet = new TreeSet(COMPARE_CODE);
         } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-            newSet = new TreeSet(new Comparator() {
-            
-                int categorizeDataRow(DataRow p, Partition partitions[]) {
-                    int rv = -1;
-                    for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
-                        if(partitions[i].pm.isMember(p)) {
-                            rv = i;
-                        }
-                    }
-                    if(rv==-1) {
-                    }
-                    return rv;
-                }
-                
-                final Partition[] warningSort = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
-                                                                       createVettingPartitions();
-    //                        com.ibm.icu.text.Collator myCollator = rbc;
-                public int compare(Object o1, Object o2){
-                    DataRow p1 = (DataRow) o1;
-                    DataRow p2 = (DataRow) o2;
-
-                    
-                    if(p1==p2) {
-                        return 0;
-                    }
-                    
-                    int rv = 0; // neg:  a < b.  pos: a> b
-                    
-                    if(p1.reservedForSort==-1) {
-                        p1.reservedForSort = categorizeDataRow(p1, warningSort);
-                    }
-                    if(p2.reservedForSort==-1) {
-                        p2.reservedForSort = categorizeDataRow(p2, warningSort);
-                    }
-                    
-                    if(rv == 0) {
-                        if(p1.reservedForSort < p2.reservedForSort) {
-                            return -1;
-                        } else if(p1.reservedForSort > p2.reservedForSort) {
-                            return 1;
-                        }
-                    }
-
-                   if(rv == 0) { // try to avoid a compare
-                        String p1d  = null;
-                        String p2d  = null;
-                        if(canName) {
-                          p1d = p1.displayName;
-                          p2d = p2.displayName;
-                        }
-                        if(p1d == null ) {
-                            p1d = p1.type;
-                            if(p1d == null) {
-                                p1d = "(null)";
-                            }
-                        }
-                        if(p2d == null ) {
-                            p2d = p2.type;
-                            if(p2d == null) {
-                                p2d = "(null)";
-                            }
-                        }
-                        rv = myCollator.compare(p1d, p2d);
-                    }
-
-                    if(rv == 0) {
-                        String p1d  = p1.type;
-                        String p2d  = p2.type;
-                        if(p1d == null ) {
-                            p1d = "(null)";
-                        }
-                        if(p2d == null ) {
-                            p2d = "(null)";
-                        }
-                        rv = myCollator.compare(p1d, p2d);
-                    }
-                                        
-                    if(rv < 0) {
-                        return -1;
-                    } else if(rv > 0) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                }
-            });
+            newSet = new TreeSet(COMPARE_PRIORITY);
         } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
-            newSet = new TreeSet(new Comparator() {
-    //                        com.ibm.icu.text.Collator myCollator = rbc;
-                public int compare(Object o1, Object o2){
-                    DataRow p1 = (DataRow) o1;
-                    DataRow p2 = (DataRow) o2;
-                    if(p1==p2) { 
-                        return 0;
-                    }
-                    String p1d = p1.displayName;
-                    if(p1.displayName == null ) {
-                            p1d = p1.type;
-    //                                throw new InternalError("item p1 w/ null display: " + p1.type);
-                    }
-                    String p2d = p2.displayName;
-                    if(p2.displayName == null ) {
-                            p2d = p2.type;
-    //                                throw new InternalError("item p2 w/ null display: " + p2.type);
-                    }
-                    int rv = myCollator.compare(p1d, p2d);
-                    if(rv == 0) {
-                        p1d  = p1.type;
-                        p2d  = p2.type;
-                        if(p1d == null ) {
-                            p1d = "(null)";
-                        }
-                        if(p2d == null ) {
-                            p2d = "(null)";
-                        }
-                        rv = myCollator.compare(p1d, p2d);
-                    }
-                    return rv;
-                }
-            });
+            newSet = new TreeSet(COMPARE_NAME);
         } else {
             throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
         }
@@ -1000,6 +879,150 @@ public class DataSection extends Registerable {
 
         return aList;
     }
+    
+    /**
+     * Comparator that just compares codes
+     */
+    final Comparator<DataRow> COMPARE_CODE = new Comparator<DataRow>() {
+      //                        com.ibm.icu.text.Collator myCollator = rbc;
+      public int compare(DataRow p1, DataRow p2){
+        if(p1==p2) { 
+          return 0;
+        }
+        return myCollator.compare(p1.type, p2.type);
+      }
+    };
+    
+    /**
+     * Comparator that compares priorities, then codes (used to be priorities, then names, then codes)
+     */
+    final Comparator<DataRow> COMPARE_PRIORITY = new Comparator<DataRow>() {
+
+      int categorizeDataRow(DataRow p, Partition partitions[]) {
+        int rv = -1;
+        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
+          if(partitions[i].pm.isMember(p)) {
+            rv = i;
+          }
+        }
+        if(rv==-1) {
+        }
+        return rv;
+      }
+
+      final Partition[] warningSort = SurveyMain.isPhaseSubmit()?createSubmitPartitions():
+        createVettingPartitions();
+//    com.ibm.icu.text.Collator myCollator = rbc;
+      public int compare(DataRow p1, DataRow p2){
+        if(p1==p2) {
+          return 0;
+        }
+
+        int rv = 0; // neg:  a < b.  pos: a> b
+
+        if(p1.reservedForSort==-1) {
+          p1.reservedForSort = categorizeDataRow(p1, warningSort);
+        }
+        if(p2.reservedForSort==-1) {
+          p2.reservedForSort = categorizeDataRow(p2, warningSort);
+        }
+
+        if(rv == 0) {
+          if(p1.reservedForSort < p2.reservedForSort) {
+            return -1;
+          } else if(p1.reservedForSort > p2.reservedForSort) {
+            return 1;
+          }
+        }
+        final boolean p1IsName = p1.isName();
+        final boolean p2IsName = p2.isName();
+        if (p1IsName != p2IsName) { // do this for transitivity, so that names sort first if there are mixtures
+          return p1IsName ? -1 : 1;
+        } else if (p1IsName) {
+          return COMPARE_NAME.compare(p1,p2);
+        }
+        return COMPARE_CODE.compare(p1,p2);
+
+//        if(rv == 0) { // try to avoid a compare
+//          String p1d  = null;
+//          String p2d  = null;
+//          if(canName) {
+//            p1d = p1.displayName;
+//            p2d = p2.displayName;
+//          }
+//          if(p1d == null ) {
+//            p1d = p1.type;
+//            if(p1d == null) {
+//              p1d = "(null)";
+//            }
+//          }
+//          if(p2d == null ) {
+//            p2d = p2.type;
+//            if(p2d == null) {
+//              p2d = "(null)";
+//            }
+//          }
+//          rv = myCollator.compare(p1d, p2d);
+//        }
+//
+//        if(rv == 0) {
+//          // Question for Steven. It doesn't appear that the null checks would be needed, since they aren't in COMPARE_BY_CODE
+//          String p1d  = p1.type;
+//          String p2d  = p2.type;
+//          if(p1d == null ) {
+//            p1d = "(null)";
+//          }
+//          if(p2d == null ) {
+//            p2d = "(null)";
+//          }
+//          rv = myCollator.compare(p1d, p2d);
+//        }
+//
+//        if(rv < 0) {
+//          return -1;
+//        } else if(rv > 0) {
+//          return 1;
+//        } else {
+//          return 0;
+//        }
+      }
+    };
+
+    /**
+     * Comparator that compares names, then codes
+     */
+    final Comparator<DataRow> COMPARE_NAME = new Comparator<DataRow>() {
+      //                        com.ibm.icu.text.Collator myCollator = rbc;
+      public int compare(DataRow p1, DataRow p2){
+        if(p1==p2) { 
+          return 0;
+        }
+        String p1d = p1.displayName;
+        if(p1.displayName == null ) {
+          p1d = p1.type;
+          //                                throw new InternalError("item p1 w/ null display: " + p1.type);
+        }
+        String p2d = p2.displayName;
+        if(p2.displayName == null ) {
+          p2d = p2.type;
+          //                                throw new InternalError("item p2 w/ null display: " + p2.type);
+        }
+        int rv = myCollator.compare(p1d, p2d);
+        if(rv == 0) {
+          p1d  = p1.type;
+          p2d  = p2.type;
+          if(p1d == null ) {
+            p1d = "(null)";
+          }
+          if(p2d == null ) {
+            p2d = "(null)";
+          }
+          rv = myCollator.compare(p1d, p2d);
+        }
+        return rv;
+      }
+    };
+
     
     /** Returns a list parallel to that of getList() but of Strings suitable for display. 
     (Alternate idea: just make toString() do so on Pea.. advantage here is we can adjust for sort mode.) **/

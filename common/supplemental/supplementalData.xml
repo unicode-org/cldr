@@ -1226,9 +1226,9 @@ XXX	Code for transations where no currency is involved
 		<language type="cgg" territories="UG" alt="secondary"/>
 		<language type="ch" scripts="Latn" territories="GU"/>
 		<language type="chk" scripts="Latn" territories="FM"/>
-		<language type="chr" scripts="Cher" territories="US" alt="secondary"/>
 		<language type="chm" scripts="Cyrl Latn"/>
 		<language type="chr" scripts="Cher Latn"/>
+		<language type="chr" territories="US" alt="secondary"/>
 		<language type="cja" scripts="Cham Deva" alt="secondary"/>
 		<language type="cjm" scripts="Arab"/>
 		<language type="cjm" scripts="Cham" alt="secondary"/>
@@ -1849,7 +1849,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="96.5" officialStatus="de_facto_official"/>	<!--English-->
 		</territory>
 		<territory type="AT" gdp="267600000000" literacyPercent="98" population="8100000">	<!--Austria-->
-			<languagePopulation type="de" populationPercent="92.6" officialStatus="official"/>	<!--German-->
+			<languagePopulation type="de" populationPercent="97.5" officialStatus="official"/>	<!--German-->
 			<languagePopulation type="hr" populationPercent="1.23" officialStatus="official_regional"/>	<!--Croatian-->
 			<languagePopulation type="sl" populationPercent="0.383" officialStatus="official_regional"/>	<!--Slovenian-->
 			<languagePopulation type="hu" populationPercent="0.272" officialStatus="official_regional"/>	<!--Hungarian-->
@@ -1897,7 +1897,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="de" populationPercent="1.5" officialStatus="official"/>	<!--German-->
 		</territory>
 		<territory type="BF" gdp="16950000000" literacyPercent="21.8" population="12000000">	<!--Burkina Faso-->
-			<languagePopulation type="mos" populationPercent="41.7" references="R1055"/>	<!--Mossi-->
+			<languagePopulation type="mos" populationPercent="41.7" references="R1108"/>	<!--Mossi-->
 			<languagePopulation type="dyu" populationPercent="33.3" references="R1091"/>	<!--Dyula-->
 			<languagePopulation type="fr" populationPercent="22.5" officialStatus="official"/>	<!--French-->
 		</territory>
@@ -2152,8 +2152,13 @@ XXX	Code for transations where no currency is involved
 		<territory type="FI" gdp="161500000000" literacyPercent="100" population="5200000">	<!--Finland-->
 			<languagePopulation type="fi" populationPercent="90.4" officialStatus="official"/>	<!--Finnish-->
 			<languagePopulation type="sv" populationPercent="5.77" officialStatus="official"/>	<!--Swedish-->
+			<languagePopulation type="ru" populationPercent="0.808" references="R1109"/>	<!--Russian-->
+			<languagePopulation type="en" populationPercent="0.187" references="R1109"/>	<!--English-->
 			<languagePopulation type="et" populationPercent="0.115"/>	<!--Estonian-->
+			<languagePopulation type="rom" populationPercent="0.096" references="R1110"/>	<!--Romany-->
 			<languagePopulation type="se" populationPercent="0.038"/>	<!--Northern Sami-->
+			<languagePopulation type="smn" populationPercent="0.012" references="R1111"/>	<!--Inari Sami-->
+			<languagePopulation type="sms" populationPercent="0.012" references="R1111"/>	<!--Skolt Sami-->
 		</territory>
 		<territory type="FJ" gdp="5380000000" literacyPercent="93" population="850000">	<!--Fiji-->
 			<languagePopulation type="hi" populationPercent="43.5" references="R1097"/>	<!--Hindi-->
@@ -2247,7 +2252,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="GN" gdp="18990000000" literacyPercent="29.5" population="8100000">	<!--Guinea-->
 			<languagePopulation type="fr" populationPercent="29.6" officialStatus="official" references="R1040"/>	<!--French-->
-			<languagePopulation type="emk" populationPercent="23.5" references="R1040"/>	<!--Eastern Maninkakan-->
+			<languagePopulation type="emk" populationPercent="23.5" references="R1112"/>	<!--Eastern Maninkakan-->
 			<languagePopulation type="sus" populationPercent="11.2"/>	<!--Susu-->
 			<languagePopulation type="kpe" populationPercent="3.83"/>	<!--Kpelle-->
 		</territory>
@@ -2987,6 +2992,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="koi" populationPercent="0.086" officialStatus="official_regional"/>	<!--Komi-Permyak-->
 			<languagePopulation type="lbe" populationPercent="0.079" officialStatus="official_regional"/>	<!--Lak-->
 			<languagePopulation type="mrj" populationPercent="0.047"/>	<!--Western Mari-->
+			<languagePopulation type="alt" populationPercent="0.014"/>	<!--Southern Altai-->
 			<languagePopulation type="fi" populationPercent="0.012"/>	<!--Finnish-->
 			<languagePopulation type="sr_Latn" populationPercent="0.004"/>	<!--Serbian (Latin)-->
 			<languagePopulation type="mn_Cyrl" populationPercent="0.001"/>	<!--Mongolian (Cyrillic)-->
@@ -3034,7 +3040,7 @@ XXX	Code for transations where no currency is involved
 			<languagePopulation type="it" populationPercent="0.2"/>	<!--Italian-->
 		</territory>
 		<territory type="SJ" gdp="0" literacyPercent="99.1" population="2700">	<!--Svalbard and Jan Mayen-->
-			<languagePopulation type="nb" populationPercent="55.6" officialStatus="official" references="R1106"/>	<!--Norwegian Bokmål-->
+			<languagePopulation type="nb" populationPercent="55.6" officialStatus="official" references="R1113"/>	<!--Norwegian Bokmål-->
 			<languagePopulation type="ru" populationPercent="44.4" references="R1074"/>	<!--Russian-->
 		</territory>
 		<territory type="SK" gdp="87320000000" literacyPercent="99.6" population="5400000">	<!--Slovakia-->
@@ -3311,7 +3317,7 @@ XXX	Code for transations where no currency is involved
 		</territory>
 		<territory type="ZZ" gdp="0" literacyPercent="0" population="0">	<!--Unknown or Invalid Region-->
 			<languagePopulation type="eo" writingPercent="99" populationPercent="100" references="R1031"/>	<!--Esperanto-->
-			<languagePopulation type="vo" writingPercent="99" populationPercent="100" references="R1107"/>	<!--Volapük-->
+			<languagePopulation type="vo" writingPercent="99" populationPercent="100" references="R1114"/>	<!--Volapük-->
 			<languagePopulation type="ia" writingPercent="99" populationPercent="100"/>	<!--Interlingua-->
 		</territory>
 	</territoryInfo>

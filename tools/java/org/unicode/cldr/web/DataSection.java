@@ -57,7 +57,7 @@ public class DataSection extends Registerable {
         return System.currentTimeMillis() - touchTime;
     }
     // UI strings
-    boolean canName = true;
+    boolean canName = true; // can the Display Name be used for sorting?
     boolean simple = false; // is it a 'simple code list'?
     
     public static final String DATASECTION_MISSING = "Inherited";
@@ -73,6 +73,8 @@ public class DataSection extends Registerable {
     public String[] LAYOUT_INTEXT_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" }; // layout/inText/* - from UTS35
     public String[] LAYOUT_INLIST_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed"}; // layout/inList/* - from UTS35
     public String[] METAZONE_COMMONLYUSED_VALUES = { "true","false" }; // layout/inText/* - from UTS35
+
+    static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
 
     public String xpathPrefix = null;
     
@@ -557,7 +559,6 @@ public class DataSection extends Registerable {
           return NAME_TYPE_PATTERN.matcher(type).matches();
         }
         
-        static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
     }
 
     Hashtable rowsHash = new Hashtable(); // hashtable of type->Pea

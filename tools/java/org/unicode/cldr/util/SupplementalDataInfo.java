@@ -698,7 +698,7 @@ public class SupplementalDataInfo {
         }
 
         if (level1.equals("metadata")) {
-          if (handleMetadata(level2)) {
+          if (handleMetadata(level2, value)) {
             return;
           }
         }
@@ -766,7 +766,7 @@ public class SupplementalDataInfo {
       return false;
     }
 
-    private boolean handleMetadata(String level2) {
+    private boolean handleMetadata(String level2, String value) {
       if (parts.contains("defaultContent")) {
         String defContent = parts.getAttributeValue(-1, "locales").trim();
         String [] defLocales = defContent.split("\\s+");
@@ -788,6 +788,18 @@ public class SupplementalDataInfo {
         }
         final String replacement = parts.getAttributeValue(3,"replacement");
         tagToReplacement.put(parts.getAttributeValue(3,"type").replace("-","_"), replacement == null ? null : Arrays.asList(replacement.replace("-","_").split("\\s+")));
+        return true;
+      }
+      if (level2.equals("attributeOrder")) {
+        attributeOrder = Arrays.asList(value.trim().split("\\s+"));
+        return true;
+      }
+      if (level2.equals("elementOrder")) {
+        elementOrder = Arrays.asList(value.trim().split("\\s+"));
+        return true;
+      }
+      if (level2.equals("serialElements")) {
+        serialElements = Arrays.asList(value.trim().split("\\s+"));
         return true;
       }
       return false;
@@ -1401,6 +1413,22 @@ public class SupplementalDataInfo {
    */
   public Set<CurrencyDateInfo> getCurrencyDateInfo(String territory) {
     return territoryToCurrencyDateInfo.getAll(territory);
+  }
+
+  private List<String> attributeOrder;
+  private List<String> elementOrder;
+  private List<String> serialElements;
+
+  public List<String> getAttributeOrder() {
+    return attributeOrder;
+  }
+
+  public List<String> getElementOrder() {
+    return elementOrder;
+  }
+
+  public List<String> getSerialElements() {
+    return serialElements;
   }
 }
 

@@ -9,19 +9,25 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 
 /**
  * Top level test used to run all other tests as a batch.
  */
 public class TestAll extends TestGroup {
-  static class TestInfo {
+  public static class TestInfo {
     private static TestInfo INSTANCE = null;
     private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
     private StandardCodes sc = StandardCodes.make();
     private Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
     private CLDRFile english = getCldrFactory().make("en", true);
     private CLDRFile root = getCldrFactory().make("root", true);
-    
+    private RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
+    {
+      col.setNumericCollation(true);
+    }
+
     public static TestInfo getInstance() {
       synchronized (TestInfo.class) {
         if (INSTANCE == null) {
@@ -54,6 +60,9 @@ public class TestAll extends TestGroup {
     public CLDRFile getRoot() {
       return root;
     }
+    public Collator getCollator() {
+      return col;
+    }
   }
 
   public static void main(String[] args) {
@@ -67,6 +76,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestSupplementalInfo",
                     "org.unicode.cldr.unittest.TestPaths",
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
+                    "org.unicode.cldr.unittest.TestMetadata",
                     
             },
     "All tests in CLDR");

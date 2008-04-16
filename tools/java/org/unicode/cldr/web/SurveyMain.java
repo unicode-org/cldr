@@ -3804,7 +3804,7 @@ public class SurveyMain extends HttpServlet {
         subCtx.println("</td></tr></table>");
     }
     
-    public String[] getCalendarsItems()
+    public static String[] getCalendarsItems()
     {
     //  TODO : Make this data driven from supplementalMetaData ;
     //  I couldn't get the xpath right....
@@ -4421,10 +4421,17 @@ public class SurveyMain extends HttpServlet {
                     theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
                 }
             }
-        } else if(path.startsWith(GREGO_XPATH)) {
-            theMenu=GREGORIAN_CALENDAR;
+//        } else if(path.startsWith(GREGO_XPATH)) {
+//            theMenu=GREGORIAN_CALENDAR;
         } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
-            theMenu=OTHER_CALENDARS;
+            String items[] = getCalendarsItems();
+            for(String which : items) {
+                String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
+                if(path.startsWith(CAL_XPATH)) {
+                    theMenu = which;
+                    break;
+                }
+            }
         } else if(path.startsWith(LOCALEDISPLAYPATTERN_XPATH)) {
             theMenu=LDMLConstants.LOCALEDISPLAYPATTERN;
         } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
@@ -8496,6 +8503,7 @@ public class SurveyMain extends HttpServlet {
     private boolean externalErrorFailed = false;
          
     private synchronized boolean externalErrorRead() {
+        if(externalErrorFailed) return false;
         String externalErrorName = cldrHome + "/" + "count.txt";
 
         long now = System.currentTimeMillis();

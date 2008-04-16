@@ -2980,7 +2980,9 @@ if(true == true)    throw new InternalError("removed from use.");
                     String theMenu = (String)ii.next();
                     Set subSet = (Set)ht.get(theMenu);
                     ctx.print("<a href='"+ctx.base()+"?"+
-                        "_="+loc+"&amp;x="+theMenu+"&amp;only=disputed#"+DataSection.CHANGES_DISPUTED+"'>"+
+                        "_="+loc+"&amp;x="+theMenu+ 
+                                    /* "&amp;only=disputed"+ */  // disputed only is broken.
+                                "#"+DataSection.CHANGES_DISPUTED+"'>"+
                            theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
                         
                     if(showAllXpaths) {

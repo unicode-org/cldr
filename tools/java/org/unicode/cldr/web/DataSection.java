@@ -777,20 +777,22 @@ public class DataSection extends Registerable {
                             return (p.hasWarnings);
                         }
                     }),
-                new Partition("Unconfirmed", 
+// Later, we might want more groups.
+//                  INDETERMINATE (-1),
+//                  APPROVED (0),
+//                  CONTRIBUTED (1),
+//                  PROVISIONAL (2),
+//                  UNCONFIRMED (3);
+                new Partition("Not approved", 
                     new PartitionMembership() { 
                         public boolean isMember(DataRow p) {
-                            // == insufficient votes
-                            return  (p.allVoteType == Vetting.RES_INSUFFICIENT) ||
-                                (p.allVoteType == Vetting.RES_NO_VOTES);
+                          return p.winningXpathId != -1 && p.confirmStatus != Vetting.Status.APPROVED;
                         }
                     }),
-                new Partition("Changes Proposed: Tentatively Approved", 
+                new Partition("Approved", 
                     new PartitionMembership() { 
                         public boolean isMember(DataRow p) {
-                            return ((p.hasProps)&&
-                                ((p.allVoteType & Vetting.RES_BAD_MASK)==0)&&
-                                    (p.allVoteType>0)); // has proposed, and has a 'good' mark. Excludes by definition RES_NO_CHANGE
+                          return p.winningXpathId != -1; // will be APPROVED
                         }
                     }),
                 new Partition("Others", 

@@ -783,10 +783,11 @@ public class DataSection extends Registerable {
 //                  CONTRIBUTED (1),
 //                  PROVISIONAL (2),
 //                  UNCONFIRMED (3);
-                new Partition("Not approved", 
+                new Partition("Not Approved", 
                     new PartitionMembership() { 
                         public boolean isMember(DataRow p) {
-                          return p.winningXpathId != -1 && p.confirmStatus != Vetting.Status.APPROVED;
+                          return p.winningXpathId != -1 && p.confirmStatus != Vetting.Status.APPROVED
+                          || p.winningXpathId == -1 && p.hasMultipleProposals;
                         }
                     }),
                 new Partition("Approved", 
@@ -795,12 +796,18 @@ public class DataSection extends Registerable {
                           return p.winningXpathId != -1; // will be APPROVED
                         }
                     }),
-                new Partition("Others", 
+                new Partition("Missing", 
                     new PartitionMembership() { 
                         public boolean isMember(DataRow p) {
-                            return true;
+                          return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
                         }
                     }),
+                new Partition("Inherited", 
+                        new PartitionMembership() { 
+                            public boolean isMember(DataRow p) {
+                                return true;
+                            }
+                        }),
         };
         return theTestPartitions;
     }        

@@ -1346,7 +1346,7 @@ public class ShowLanguages {
       TablePrinter tablePrinter = new TablePrinter()
       //tablePrinter.setSortPriorities(0,4)
       .addColumn("Territory", "class='source'", null, "class='source'", true).setSortPriority(0).setBreakSpans(true).setRepeatHeader(true)
-      .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true)
+      .addColumn("Code", "class='source'", "<a name=\"{0}\" href='likely_subtags.html#und_{0}'>{0}</a>", "class='source'", true)
       .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,###.0}", "class='targetRight'", true)
       .addColumn("Terr. Literacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
       .addColumn("Terr. GDP ($M PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true) 
@@ -1401,7 +1401,7 @@ public class ShowLanguages {
 //        tablePrinter.addRow(items);
           tablePrinter.addRow()
           .addCell(territoryName)
-          .addCell(getTerritoryWithLikelyLink(territoryCode))
+          .addCell(territoryCode)
           .addCell(population)
           .addCell(territoryLiteracy)
           .addCell(gdp)
@@ -1436,7 +1436,7 @@ public class ShowLanguages {
 //      tablePrinter.addRow(items);
         tablePrinter.addRow()
         .addCell(territoryName)
-        .addCell(getTerritoryWithLikelyLink(territoryCode))
+        .addCell(territoryCode)
         .addCell(population)
         .addCell(territoryLiteracy)
         .addCell(gdp)
@@ -1459,9 +1459,9 @@ public class ShowLanguages {
       pw2.close();
     }
 
-    private String getTerritoryWithLikelyLink(String territoryCode) {
-      return "<a href='likely_subtags.html#und_"+ territoryCode + "'>" + territoryCode + "</a>";
-    }
+//    private String getTerritoryWithLikelyLink(String territoryCode) {
+//      return "<a href='likely_subtags.html#und_"+ territoryCode + "'>" + territoryCode + "</a>";
+//    }
     
     
     

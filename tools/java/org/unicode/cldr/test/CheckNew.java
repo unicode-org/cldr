@@ -75,12 +75,12 @@ public class CheckNew extends CheckCLDR {
             "There may have been a conflict introduced as a result of fixing default contents -- please confirm the right value.", new Object[] {}));
       }
     }
-    // We check certain root values that were pushed into children. So the the locale is not a direct decendent of root, and we have a value the same as root's...
-    if (!skip && isNotBase && !path.startsWith("//ldml/identity/") && value!=null && value.equals(root.getWinningValue(path))) {
-      skip = true;
-      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage(
-          "There may have been a conflict introduced as a result of fixing default contents: please confirm the right value.", new Object[] {}));
-    }
+//    // We check certain root values that were pushed into children. So the the locale is not a direct decendent of root, and we have a value the same as root's...
+//    if (!skip && isNotBase && !path.startsWith("//ldml/identity/") && value!=null && value.equals(root.getWinningValue(path))) {
+//      skip = true;
+//      result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage(
+//          "There may have been a conflict introduced as a result of fixing default contents: please confirm the right value.", new Object[] {}));
+//    }
     
     if (skip) return this;
     

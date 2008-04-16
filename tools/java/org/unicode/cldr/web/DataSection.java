@@ -58,7 +58,7 @@ public class DataSection extends Registerable {
     }
     // UI strings
     boolean canName = true; // can the Display Name be used for sorting?
-    boolean simple = false; // is it a 'simple code list'?
+//    boolean simple = false; // is it a 'simple code list'?
     
     public static final String DATASECTION_MISSING = "Inherited";
     public static final String DATASECTION_NORMAL = "Normal";
@@ -132,7 +132,7 @@ public class DataSection extends Registerable {
     }
     
     /**
-     * Given a hash, see addExampleEntry, retrieve the ExampleEntry which has pod, pea, item and status
+     * Given a hash, see addExampleEntry, retrieve the ExampleEntry which has section, row, candidateitem and status
      */
     ExampleEntry getExampleEntry(String hash) {
         synchronized(exampleHash) {
@@ -148,7 +148,7 @@ public class DataSection extends Registerable {
     public String xpath(DataRow p) {
         String path = xpathPrefix;
         if(path == null) {
-            throw new InternalError("Can't handle mixed peas with no prefix");
+            throw new InternalError("Can't handle mixed rows with no prefix");
         }
         if(p.xpathSuffix == null) {
             if(p.type != null) {
@@ -184,15 +184,15 @@ public class DataSection extends Registerable {
      *
      */
     public class DataRow {
-        DataRow parentRow = this; // parent - defaults to self if it is a super pea (i.e. parent without any alt)
+        DataRow parentRow = this; // parent - defaults to self if it is a "super" (i.e. parent without any alternate)
         
-        // what kind of pea is this?
-        public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
+        // what kind of row is this?
+        public boolean confirmOnly = false; // if true: don't accept new data, this row is something that might be confusing to input.
         public boolean zoomOnly = false; // if true - don't show any editing in the zoomout view, they must zoom in.
-        public DataRow toggleWith = null; // pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
-        public boolean toggleValue = false;
-        String[] valuesList = null; // if non null - list of acceptable values.
-        public AttributeChoice attributeChoice = null; // pea is an attributed list of items
+//        public DataRow toggleWith = null;    // obsolete: pea is a TOGGLE ( true / false ) with another pea.   Special rules apply.
+//        public boolean toggleValue = false;  // obsolete: 
+        String[] valuesList = null; // if non null - list of acceptable values.  If null, freeform input
+//        public AttributeChoice attributeChoice = null; // obsolete: is an attributed list of items
         
         public String type = null;
         public String uri = null; // URI for the type
@@ -222,22 +222,23 @@ public class DataSection extends Registerable {
         String aliasFromLocale  = null; // locale, if different
         int aliasFromXpath      = -1;   // xpath, if different
         
-        boolean hasProps = false;
-        boolean hasMultipleProposals = false;
-        boolean hasInherited = false;
+        boolean hasProps = false; // true if has some proposed items
+        boolean hasMultipleProposals = false; // true if more than 1 proposal is available
+        boolean hasInherited = false; // True if has inherited value
         public int allVoteType = 0; // bitmask of all voting types included
         public int voteType = 0; // status of THIS item
-        public int reservedForSort = -1; // reserved to use in collator.
+        public int reservedForSort = -1; // ordering for use in collator.
+        
 //        String inheritFrom = null;
 //        String pathWhereFound = null;
         /**
          * The Item is a particular alternate which could be chosen 
-         * It was unfortunately previously named "Item"
+         * It was previously named "Item"
          */
         public class CandidateItem implements java.lang.Comparable {
             String pathWhereFound = null;
             String inheritFrom = null;
-            boolean isParentFallback = false; // true if it is not actually part of this locale,but is just the parent fallback ( Pea.inheritedValue );
+            boolean isParentFallback = false; // true if it is not actually part of this locale,but is just the parent fallback ( .inheritedValue );
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public int submitter = -1; // if this was submitted via ST, record user id. ( NOT from XML - in other words, we won't be parsing 'proposed-uXX' items. ) 
             public String value = null; // actual value
@@ -311,21 +312,21 @@ public class DataSection extends Registerable {
                     }
                 }
                 if(weHaveTests) {
-                    /* pea */ hasTests = true;
+                    /* row */ hasTests = true;
                     parentRow.hasTests = true;
                                         
                     if(((winningXpathId==-1)&&(xpathId==base_xpath)) || (xpathId == winningXpathId)) {
-                        if(errorCount>0) /* pea */ hasErrors = true;
-                        if(warningCount>0) /* pea */ hasWarnings = true;
+                        if(errorCount>0) /* row */ hasErrors = true;
+                        if(warningCount>0) /* row */ hasWarnings = true;
                         // propagate to parent
-                        if(errorCount>0) /* pea */ parentRow.hasErrors = true;
-                        if(warningCount>0) /* pea */ parentRow.hasWarnings = true;
+                        if(errorCount>0) /* row */ parentRow.hasErrors = true;
+                        if(warningCount>0) /* row */ parentRow.hasWarnings = true;
                     }
                    
-                    if(errorCount>0) /* pea */ { itemErrors=true;  anyItemHasErrors = true;  parentRow.anyItemHasErrors = true; }
-                    if(warningCount>0) /* pea */ anyItemHasWarnings = true;
+                    if(errorCount>0) /* row */ { itemErrors=true;  anyItemHasErrors = true;  parentRow.anyItemHasErrors = true; }
+                    if(warningCount>0) /* row */ anyItemHasWarnings = true;
                     // propagate to parent
-                    if(warningCount>0) /* pea */ parentRow.anyItemHasWarnings = true;
+                    if(warningCount>0) /* row */ parentRow.anyItemHasWarnings = true;
                 }
                 return weHaveTests;
             }
@@ -335,7 +336,7 @@ public class DataSection extends Registerable {
         CandidateItem inheritedValue = null; // vetted value inherited from parent
         
         public String toString() {
-            return "{Pea t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
+            return "{DataRow t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
         }
         
         public Set items = new TreeSet(new Comparator() {
@@ -364,7 +365,12 @@ public class DataSection extends Registerable {
             return pi;
         }
         
-        String myFieldHash = null;
+        String myFieldHash = null; /** Cache of field hash **/
+        
+        /**
+         * Calculate the hash used for HTML forms for this row
+         * @return
+         */
         public String fieldHash() { // deterministic. No need for sync.
             if(myFieldHash == null) {
                 String ret = "";
@@ -403,10 +409,20 @@ public class DataSection extends Registerable {
             return p;
         }
         
+        /**
+         * Calculate the item from the vetted parent locale, without any tests
+         * @param vettedParent CLDRFile for the parent locale, resolved with vetting on
+         */
         void updateInheritedValue(CLDRFile vettedParent) {
             updateInheritedValue(vettedParent,null, null);
         }
         
+        /**
+         * Calculate the item from the vetted parent locale, possibly including tests
+         * @param vettedParent CLDRFile for the parent locale, resolved with vetting on
+         * @param checkCldr The tests to use
+         * @param options Test options
+         */
         void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr, Map options) {
             long lastTime = System.currentTimeMillis();
             if(vettedParent == null) {
@@ -473,6 +489,14 @@ public class DataSection extends Registerable {
             if(TRACE_TIME) System.err.println("@@10:"+(System.currentTimeMillis()-lastTime));
         }
  
+        /**
+         * A Shim is a candidate item which does not correspond to actual XML data, but is synthesized. 
+         * 
+         * @param base_xpath
+         * @param base_xpath_string
+         * @param checkCldr
+         * @param options
+         */
         void setShimTests(int base_xpath,String base_xpath_string,CheckCLDR checkCldr,Map options) {
             CandidateItem shimItem = inheritedValue;
             
@@ -499,6 +523,13 @@ public class DataSection extends Registerable {
             }
         }
        
+        /**
+         * Utility function
+         * @param str String to modify
+         * @param oldEnd old suffix
+         * @param newEnd new suffix
+         * @return the modified string
+         */
         private String replaceEndWith(String str, String oldEnd, String newEnd) {
             if(!str.endsWith(oldEnd)) {
                 throw new InternalError("expected " + str + " to end with " + oldEnd);
@@ -506,52 +537,52 @@ public class DataSection extends Registerable {
             return str.substring(0,str.length()-oldEnd.length())+newEnd;
         }
         
-        void updateToggle(String path, String attribute) {
-            if(true == true) {
-                confirmOnly = true;
-                return; /// Disable toggles - for now.
-            }
-            
-            
-            
-            XPathParts parts = new XPathParts(null,null);
-            parts.initialize(path);
-            String lelement = parts.getElement(-1);
-            String eAtt = parts.findAttributeValue(lelement, attribute);
-            if(eAtt == null) {
-                System.err.println(this + " - no attribute " + attribute + " in " + path);
-            }
-            toggleValue = eAtt.equals("true");
-            
-            //System.err.println("Pea: " + type + " , toggle of val: " + myValue + " at xpath " + path);
-            String myValueSuffix = "[@"+attribute+"=\""+toggleValue+"\"]";
-            String notMyValueSuffix = "[@"+attribute+"=\""+!toggleValue+"\"]";
-            
-            if(!type.endsWith(myValueSuffix)) {
-                throw new InternalError("toggle: expected "+ type + " to end with " + myValueSuffix);
-            }
-            
-            String typeNoValue =  type.substring(0,type.length()-myValueSuffix.length());
-            String notMyType = typeNoValue+notMyValueSuffix;
-            
-            
-            DataRow notMyDataRow = getDataRow(notMyType);
-            if(notMyDataRow.toggleWith == null) {
-                notMyDataRow.toggleValue = !toggleValue;
-                notMyDataRow.toggleWith = this;
-
-                String my_base_xpath_string = sm.xpt.getById(base_xpath);
-                String not_my_base_xpath_string = replaceEndWith(my_base_xpath_string, myValueSuffix, notMyValueSuffix);
-                notMyDataRow.base_xpath = sm.xpt.getByXpath(not_my_base_xpath_string);
-
-                notMyDataRow.xpathSuffix = replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
-
-                //System.err.println("notMyPea.xpath = " + xpath(notMyPea));
-            }
-            
-            toggleWith = notMyDataRow;
-            
-        }
+//        void updateToggle(String path, String attribute) {
+//            if(true == true) {
+//                confirmOnly = true;
+//                return; /// Disable toggles - for now.
+//            }
+//            
+//            
+//            
+//            XPathParts parts = new XPathParts(null,null);
+//            parts.initialize(path);
+//            String lelement = parts.getElement(-1);
+//            String eAtt = parts.findAttributeValue(lelement, attribute);
+//            if(eAtt == null) {
+//                System.err.println(this + " - no attribute " + attribute + " in " + path);
+//            }
+//            toggleValue = eAtt.equals("true");
+//            
+//            //System.err.println("DataRow: " + type + " , toggle of val: " + myValue + " at xpath " + path);
+//            String myValueSuffix = "[@"+attribute+"=\""+toggleValue+"\"]";
+//            String notMyValueSuffix = "[@"+attribute+"=\""+!toggleValue+"\"]";
+//            
+//            if(!type.endsWith(myValueSuffix)) {
+//                throw new InternalError("toggle: expected "+ type + " to end with " + myValueSuffix);
+//            }
+//            
+//            String typeNoValue =  type.substring(0,type.length()-myValueSuffix.length());
+//            String notMyType = typeNoValue+notMyValueSuffix;
+//            
+//            
+//            DataRow notMyDataRow = getDataRow(notMyType);
+//            if(notMyDataRow.toggleWith == null) {
+//                notMyDataRow.toggleValue = !toggleValue;
+//                notMyDataRow.toggleWith = this;
+//
+//                String my_base_xpath_string = sm.xpt.getById(base_xpath);
+//                String not_my_base_xpath_string = replaceEndWith(my_base_xpath_string, myValueSuffix, notMyValueSuffix);
+//                notMyDataRow.base_xpath = sm.xpt.getByXpath(not_my_base_xpath_string);
+//
+//                notMyDataRow.xpathSuffix = replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
+//
+//                //System.err.println("notMyRow.xpath = " + xpath(notMyRow));
+//            }
+//            
+//            toggleWith = notMyDataRow;
+//            
+//        }
 
         public boolean isName() {
           return NAME_TYPE_PATTERN.matcher(type).matches();
@@ -559,10 +590,10 @@ public class DataSection extends Registerable {
         
     }
 
-    Hashtable rowsHash = new Hashtable(); // hashtable of type->Pea
+    Hashtable rowsHash = new Hashtable(); // hashtable of type->Row
  
     /**
-     * get all peas.. unsorted.
+     * get all rows.. unsorted.
      */
     public Collection getAll() {
         return rowsHash.values();
@@ -599,16 +630,16 @@ public class DataSection extends Registerable {
     };
 
     /** 
-     * A class representing a list of peas, in sorted and divided order.
+     * A class representing a list of rows, in sorted and divided order.
      */
     public class DisplaySet {
         public int size() {
-            return peas.size();
+            return rows.size();
         }
         String sortMode = null;
         public boolean canName = true; // can use the 'name' view?
-        public List peas; // list of peas in sorted order
-        public List displayPeas; // list of Strings suitable for display
+        public List rows; // list of peas in sorted order
+        public List displayRows; // list of Strings suitable for display
         /**
          * Partitions divide up the peas into sets, such as 'proposed', 'normal', etc.
          * The 'limit' is one more than the index number of the last item.
@@ -617,11 +648,11 @@ public class DataSection extends Registerable {
         
         public Partition partitions[];  // display group partitions.  Might only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
 
-        public DisplaySet(List myPeas, List myDisplayPeas, String sortMode) {
+        public DisplaySet(List myRows, List myDisplayRows, String sortMode) {
             this.sortMode = sortMode;
             
-            peas = myPeas;
-            displayPeas = myDisplayPeas;
+            rows = myRows;
+            displayRows = myDisplayRows;
 
             /*
             if(matcher != null) {
@@ -654,7 +685,7 @@ public class DataSection extends Registerable {
                 // find the starts
                 int lastGood = 0;
                 DataRow peasArray[] = null;
-                peasArray = (DataRow[])peas.toArray(new DataRow[0]);
+                peasArray = (DataRow[])rows.toArray(new DataRow[0]);
                 for(int i=0;i<peasArray.length;i++) {
                     DataRow p = peasArray[i];
                                         
@@ -677,7 +708,7 @@ public class DataSection extends Registerable {
                 // catch the last item
                 if((testPartitions[lastGood].start != -1) &&
                     (testPartitions[lastGood].limit == -1)) {
-                    testPartitions[lastGood].limit = peas.size(); // limit = off the end.
+                    testPartitions[lastGood].limit = rows.size(); // limit = off the end.
                 }
                     
                 for(int j=0;j<testPartitions.length;j++) {
@@ -690,7 +721,7 @@ public class DataSection extends Registerable {
                 }
             } else {
                 // default partition
-                v.add(new Partition(null, 0, peas.size()));
+                v.add(new Partition(null, 0, rows.size()));
             }
             partitions = (Partition[])v.toArray(new Partition[0]); // fold it up
         }
@@ -1033,17 +1064,22 @@ public class DataSection extends Registerable {
 
     
     /** Returns a list parallel to that of getList() but of Strings suitable for display. 
-    (Alternate idea: just make toString() do so on Pea.. advantage here is we can adjust for sort mode.) **/
+    (Alternate idea: just make toString() do so on Row.. advantage here is we can adjust for sort mode.) **/
     public List getDisplayList(String sortMode) {
         return getDisplayList(sortMode, getList(sortMode));
     }
-    
+    /**
+     * Returns a list parallel to that of getList, but of Strings suitable for display
+     * @param sortMode
+     * @param matcher regex to determine matching rows
+     * @return
+     */
     public List getDisplayList(String sortMode, Pattern matcher) {
         return getDisplayList(sortMode, getList(sortMode, matcher));
     }
     
-    public List getDisplayList(String sortMode, List inPeas) {
-        final List myPeas = inPeas;
+    public List getDisplayList(String sortMode, List inRows) {
+        final List myPeas = inRows;
         if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
             return new AbstractList() {
                 private List ps = myPeas;
@@ -1070,6 +1106,7 @@ public class DataSection extends Registerable {
     }
 
 	/**
+	 * Create, populate, and complete a DataSection given the specified locale and prefix
 	 * @param ctx context to use (contains CLDRDBSource, etc.)
 	 * @param locale locale
 	 * @param prefix XPATH prefix
@@ -1077,7 +1114,7 @@ public class DataSection extends Registerable {
 	 */
 	public static DataSection make(WebContext ctx, String locale, String prefix, boolean simple) {
 		DataSection section = new DataSection(ctx.sm, locale, prefix);
-        section.simple = simple;
+//        section.simple = simple;
         SurveyMain.UserLocaleStuff uf = ctx.sm.getUserFile(ctx, ctx.session.user, ctx.locale);
   
         CLDRDBSource ourSrc = uf.dbSource;
@@ -1581,15 +1618,15 @@ public class DataSection extends Registerable {
                 p.voteType = vtypes[0]; // no mask
             }
             
-            // Is this a toggle pair with another item?
-            if(isToggleFor != null) {
-                if(superP.toggleWith == null) {
-                    superP.updateToggle(fullPath, isToggleFor);
-                }
-                if(p.toggleWith == null) {
-                    p.updateToggle(fullPath, isToggleFor);
-                }
-            }
+//            // Is this a toggle pair with another item?
+//            if(isToggleFor != null) {
+//                if(superP.toggleWith == null) {
+//                    superP.updateToggle(fullPath, isToggleFor);
+//                }
+//                if(p.toggleWith == null) {
+//                    p.updateToggle(fullPath, isToggleFor);
+//                }
+//            }
             
             // Is it an attribute choice? (obsolete)
 /*            if(attributeChoice != null) {

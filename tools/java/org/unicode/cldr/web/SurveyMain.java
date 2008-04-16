@@ -382,20 +382,20 @@ public class SurveyMain extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>CLDR tool broken</title>");
+                out.println("<title>CLDR Survey Tool offline</title>");
                 out.println("<link rel='stylesheet' type='text/css' href='"+ request.getContextPath() + "/" + "surveytool.css" + "'>");
                 out.println("</head>");
                 out.println("<body>");
                 showSpecialHeader(out);
-                out.println("<h1>CLDR Survey Tool is down, because:</h1>");
+                out.println("<h1>The CLDR Survey Tool is offline</h1>");
                 out.println("<pre class='ferrbox'>" + isBusted + "</pre><br>");
                 out.println("<hr>");
                 if(!isUnofficial) {
                     out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
                     out.println("<hr>");
                 }
-                out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
-                            " (you are unhappy visitor #" + pages + ")</i>");
+                out.println("An Administrator must intervene to bring the Survey Tool back online. <br> " + 
+                            " <i>This message has been viewed " + pages + " time(s)</i>");
 
 //                if(false) { // dump static tables.
 //                    response.setContentType("application/xml; charset=utf-8");
@@ -5323,7 +5323,7 @@ public class SurveyMain extends HttpServlet {
                     }
             //        System.out.println("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load a new pod here - may be invalid by the modifications above.
-                    section.simple=simple;
+//                    section.simple=simple;
                     if(exemplar_only) {
                         showPeas(ctx, section, canModify, DataSection.EXEMPLAR_ONLY, false);
                     } else {
@@ -5598,7 +5598,7 @@ public class SurveyMain extends HttpServlet {
             }
     
             
-            for(ListIterator i = dSet.peas.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
+            for(ListIterator i = dSet.rows.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
                 DataSection.DataRow p = (DataSection.DataRow)i.next();
                 
                 if(partialPeas) { // are we only showing some peas?
@@ -5814,94 +5814,95 @@ public class SurveyMain extends HttpServlet {
 			}
         }
         
-        if(p.attributeChoice != null) {
-            // it's not a toggle.. but it is an attribute choice.
-
-            String altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
-            boolean unvote = false;
-            String voteForChoice = null;
-            boolean hadChange = false;
-            
-            if(voteForItem != null) {
-                voteForChoice = voteForItem.value;
-            } else if(choice.equals(DONTCARE)) {
-                unvote = true;
-            } else if(choice.equals(CHANGETO) && (choice_v.length()>0)) {
-                voteForChoice = choice_v;
-                for(Iterator j = p.items.iterator();j.hasNext();) {
-                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-                    if(item.value.equals(voteForChoice)) {
-                        voteForItem = item; // found an item
-                    }
-                }
-            } else {
-                return false;
-            }
-            
-            if(unvote) {
-                for(String v : p.valuesList) {
-                    String unvoteXpath = p.attributeChoice.xpathForChoice(v);
-                    int unvoteXpathId = xpt.xpathToBaseXpathId(unvoteXpath);                    
-                    
-                    int oldNoVote = vet.queryVote(section.locale, ctx.session.user.id, unvoteXpathId);
-                    
-                    if(oldNoVote != -1) {
-                        doVote(ctx, section.locale, -1, unvoteXpathId);
-                        hadChange = true;
-                    }
-                }
-                if(hadChange) {
-                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: Removing vote <br>");
-                    return true;
-                }
-            } else {
-                // vote for item
-                boolean updateImpliedVotes = false;
-                // yes vote first
-                String yesPath = p.attributeChoice.xpathForChoice(voteForChoice);
-                int yesId = xpt.xpathToBaseXpathId(yesPath);
-                if(voteForItem == null) {
-                    // no item existed - create it.
-                    String yesPathMinusAlt = XPathTable.removeAlt(yesPath);
-                    String newProp = ourSrc.addDataToNextSlot(cf, section.locale, yesPathMinusAlt, p.altType, 
-                        altPrefix, ctx.session.user.id, voteForChoice, choice_r); // removal
-                    doUnVote(ctx, section.locale, yesId); // remove explicit vote - the implied votes will pick up the vote
-                    updateImpliedVotes = true;
-                    hadChange = true;
-                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:creating new item "+voteForChoice+" <br>");
-                } else {
-                    // voting for an existing item.
-                    int oldYesVote = vet.queryVote(section.locale, ctx.session.user.id, yesId);
-                    if(oldYesVote != voteForItem.xpathId) {
-                        doVote(ctx, section.locale, voteForItem.xpathId, yesId);
-                        hadChange = true;
-                    }
-                }
-                
-                // vote REMOVE on the rest
-                for(String v : p.valuesList) {
-                    if(v.equals(voteForChoice)) continue; // skip the new item
-                    String noPath = p.attributeChoice.xpathForChoice(v);
-                    int noId = xpt.xpathToBaseXpathId(noPath);
-                    
-                    int oldNoVote = vet.queryVote(section.locale, ctx.session.user.id, noId);
-                    // remove vote
-                    
-                    if(oldNoVote != -1) {
-                        hadChange = true;
-                        doVote(ctx, section.locale, -1, noId);
-                    }
-                }
-
-
-                if(hadChange) {
-                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: vote succeeded <br>");
-                    return true;
-                }
-            }            
-
-            return false;
-        }
+        // OBSOLETE
+//        if(p.attributeChoice != null) {
+//            // it's not a toggle.. but it is an attribute choice.
+//
+//            String altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
+//            boolean unvote = false;
+//            String voteForChoice = null;
+//            boolean hadChange = false;
+//            
+//            if(voteForItem != null) {
+//                voteForChoice = voteForItem.value;
+//            } else if(choice.equals(DONTCARE)) {
+//                unvote = true;
+//            } else if(choice.equals(CHANGETO) && (choice_v.length()>0)) {
+//                voteForChoice = choice_v;
+//                for(Iterator j = p.items.iterator();j.hasNext();) {
+//                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
+//                    if(item.value.equals(voteForChoice)) {
+//                        voteForItem = item; // found an item
+//                    }
+//                }
+//            } else {
+//                return false;
+//            }
+//            
+//            if(unvote) {
+//                for(String v : p.valuesList) {
+//                    String unvoteXpath = p.attributeChoice.xpathForChoice(v);
+//                    int unvoteXpathId = xpt.xpathToBaseXpathId(unvoteXpath);                    
+//                    
+//                    int oldNoVote = vet.queryVote(section.locale, ctx.session.user.id, unvoteXpathId);
+//                    
+//                    if(oldNoVote != -1) {
+//                        doVote(ctx, section.locale, -1, unvoteXpathId);
+//                        hadChange = true;
+//                    }
+//                }
+//                if(hadChange) {
+//                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: Removing vote <br>");
+//                    return true;
+//                }
+//            } else {
+//                // vote for item
+//                boolean updateImpliedVotes = false;
+//                // yes vote first
+//                String yesPath = p.attributeChoice.xpathForChoice(voteForChoice);
+//                int yesId = xpt.xpathToBaseXpathId(yesPath);
+//                if(voteForItem == null) {
+//                    // no item existed - create it.
+//                    String yesPathMinusAlt = XPathTable.removeAlt(yesPath);
+//                    String newProp = ourSrc.addDataToNextSlot(cf, section.locale, yesPathMinusAlt, p.altType, 
+//                        altPrefix, ctx.session.user.id, voteForChoice, choice_r); // removal
+//                    doUnVote(ctx, section.locale, yesId); // remove explicit vote - the implied votes will pick up the vote
+//                    updateImpliedVotes = true;
+//                    hadChange = true;
+//                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>:creating new item "+voteForChoice+" <br>");
+//                } else {
+//                    // voting for an existing item.
+//                    int oldYesVote = vet.queryVote(section.locale, ctx.session.user.id, yesId);
+//                    if(oldYesVote != voteForItem.xpathId) {
+//                        doVote(ctx, section.locale, voteForItem.xpathId, yesId);
+//                        hadChange = true;
+//                    }
+//                }
+//                
+//                // vote REMOVE on the rest
+//                for(String v : p.valuesList) {
+//                    if(v.equals(voteForChoice)) continue; // skip the new item
+//                    String noPath = p.attributeChoice.xpathForChoice(v);
+//                    int noId = xpt.xpathToBaseXpathId(noPath);
+//                    
+//                    int oldNoVote = vet.queryVote(section.locale, ctx.session.user.id, noId);
+//                    // remove vote
+//                    
+//                    if(oldNoVote != -1) {
+//                        hadChange = true;
+//                        doVote(ctx, section.locale, -1, noId);
+//                    }
+//                }
+//
+//
+//                if(hadChange) {
+//                    ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: vote succeeded <br>");
+//                    return true;
+//                }
+//            }            
+//
+//            return false;
+//        }
         
         // handle a change of REFERENCE.
         // If there was a reference - see if they MIGHT be changing reference
@@ -5909,7 +5910,7 @@ public class SurveyMain extends HttpServlet {
 //        }
         
 		
-		boolean didSomething = false;
+		boolean didSomething = false;  // Was any item modified?
 		
 		if(deleteItems != null) {
 			for(DataSection.DataRow.CandidateItem item : deleteItems) {
@@ -6466,13 +6467,13 @@ public class SurveyMain extends HttpServlet {
                     //fClass = "badinputbox";
                     badInputBox = true;
                 }
-                if((p.toggleWith != null)&&(p.toggleValue == true)) {
+                /* if((p.toggleWith != null)&&(p.toggleValue == true)) {
                     ctx.print("<select onclick=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'>");
                     ctx.print("  <option value=''></option> ");
                     ctx.print("  <option value='true'>true</option> ");
                     ctx.print("  <option value='false'>false</option> ");
                     ctx.println("</select>");
-                } else if(p.valuesList != null) {
+                } else */ if(p.valuesList != null) {
                     ctx.print("<select onclick=\"document.getElementById('"+fieldHash+"_ch').click()\" name='"+fieldHash+"_v'>");
                     ctx.print("  <option value=''></option> ");
                     for(String s : p.valuesList ) {
@@ -7079,7 +7080,7 @@ public class SurveyMain extends HttpServlet {
     showSearchMode = true;// all
         List displayList = null;
         if(displaySet != null) {
-            displayList = displaySet.displayPeas;
+            displayList = displaySet.displayRows;
         }
         ctx.println("<div class='pager' style='margin: 2px'>");
         if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.localeString())) { // at least street level
@@ -7699,7 +7700,9 @@ public class SurveyMain extends HttpServlet {
         } catch(InternalError e) {
             e.printStackTrace();
         }
-        isBusted = what;
+        if(isBusted!=null) { // Keep original failure message.
+            isBusted = what;
+        }
         logger.severe(what);
     }
 
@@ -8011,12 +8014,12 @@ public class SurveyMain extends HttpServlet {
         }
         catch (SQLException e)
         {
-            busted("On DB startup: " + unchainSqlException(e));
+            busted("On database startup: " + unchainSqlException(e));
             return;
         }
         catch (Throwable t)
         {
-            busted("Some error on DB startup: " + t.toString());
+            busted("Other error on database startup: " + t.toString());
             t.printStackTrace();
             return;
         }

@@ -413,8 +413,13 @@ public class CookieSession {
 //    static final int REAP_TO = 8000; //often.
 // production:
     public static final int GUEST_TO =  10 * MILLIS_IN_MIN; /** Expire Guest sessions after 10 min **/
+    public static final int GUEST_TO_10 =  2 * MILLIS_IN_MIN; /** Expire Guest sessions after 2 min **/
+    public static final int GUEST_TO_40 =  0; /** Expire Guest sessions immediately **/
+    
     public static final int USER_TO =  1 * 60 * MILLIS_IN_MIN; /** Expire non-guest sessions after 1 hours **/
     public static final int REAP_TO = 4 * MILLIS_IN_MIN; /** Only reap once every 4 mintutes **/
+    public static final int REAP_TO_10 = 30*1000; /** Only reap once every 4 mintutes **/
+    public static final int REAP_TO_40 = 0; /** Only reap once every 4 mintutes **/
 
     static long lastReap = 0; /** last time reaped.  Starts at 0, so reap immediately **/
     
@@ -426,8 +431,26 @@ public class CookieSession {
      */
     public static void reap() {        
         synchronized(gHash) {
+            int allCount = gHash.size(); // count of ALL users
             // reap..
-            if((System.currentTimeMillis()-lastReap) < REAP_TO) {
+            int reap_to = REAP_TO;
+            if(allCount > 40) {
+                reap_to = REAP_TO_40;
+            } else if(allCount > 10) {
+                reap_to = REAP_TO_10;
+            }
+            int guest_to = GUEST_TO;
+            if(allCount > 40) {
+                guest_to = GUEST_TO_40;
+            } else if(allCount > 10) {
+                guest_to = GUEST_TO_10;
+            }
+            
+            long elapsed = (System.currentTimeMillis()-lastReap);
+            
+//            System.err.println("reap: elapsed " + elapsed + ", nGuests " + nGuests +", reap_to:"+reap_to+", guest_to:"+guest_to + ", gHash count: " + gHash.size());
+            
+            if(elapsed < reap_to) {
                 return;
             }
             int guests=0;
@@ -435,11 +458,14 @@ public class CookieSession {
             lastReap=System.currentTimeMillis();
            // System.out.println("reaping..");
             // step 0: reap all guests older than time
+            
+            
+        
             for(Iterator i = gHash.values().iterator();i.hasNext();) {
                 CookieSession cs = (CookieSession)i.next();
                 
                 if(cs.user == null) {
-                    if(cs.age() > GUEST_TO) {
+                    if(cs.age() > guest_to) {
 //                        System.out.println("Reaped guest session: " + cs.id + " after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
                         cs.remove();
                         // concurrent modify . . . (i.e. rescan.)

@@ -28,6 +28,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
 import org.unicode.cldr.test.DateTimePatternGenerator;
+import org.unicode.cldr.test.ExampleGenerator;
+
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Normalizer;
@@ -4454,7 +4456,7 @@ public class SurveyMain extends HttpServlet {
         String dbVer = makeDBSource(ctx, null,ctx.locale).getSourceRevision();
         
         // what should users be notified about?
-        if(isPhaseVetting() || isPhaseVettingClosed()) {
+        if(isPhaseSubmit() || isPhaseVetting() || isPhaseVettingClosed()) {
             String localeName = ctx.localeString();
             String groupName = ctx.locale.getLanguage();
             int vetStatus = vet.status(localeName);
@@ -4463,7 +4465,7 @@ public class SurveyMain extends HttpServlet {
             if(genCount > 0) {
                 ctx.println("<h2>Errors which need your attention:</h2><a href='"+externalErrorUrl(groupName)+"'>Error Count ("+genCount+")</a><p>");
             } else if(genCount < 0) {
-                ctx.println("<i>(error reading the counts file.)</i><br>");
+                ctx.println("<!-- (error reading the counts file.) -->");
             }
             int orgDisp = 0;
             if(ctx.session.user != null) {
@@ -4785,6 +4787,15 @@ public class SurveyMain extends HttpServlet {
         public CLDRFile cldrfile = null;
         public CLDRDBSource dbSource = null;
         public Hashtable hash = new Hashtable();
+        private ExampleGenerator exampleGenerator = null;
+        
+        public ExampleGenerator getExampleGenerator() {
+            if(exampleGenerator==null) {
+                exampleGenerator = new ExampleGenerator(new CLDRFile(dbSource,true), dbSource.sm.fileBase + "/../supplemental/");
+                exampleGenerator.setVerboseErrors(dbSource.sm.twidBool("ExampleGenerator.setVerboseErrors"));
+            }
+            return exampleGenerator;
+        }
         
         public UserLocaleStuff(String locale) {
             super(lcr, locale);
@@ -5618,10 +5629,10 @@ public class SurveyMain extends HttpServlet {
                         if(n!=-1) {
                             zone = zone.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
                         }
-                        showDataRow(ctx, section, p, ourDir, cf, ourSrc, canModify,ctx.base()+"?"+
+                        showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,ctx.base()+"?"+
                                 "_="+ctx.locale+"&amp;x=timezones&amp;zone="+zone,refs,checkCldr, zoomedIn);                
                     } else {
-                        showDataRow(ctx, section, p, ourDir, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
+                        showDataRow(ctx, section, p, ourDir, uf, cf, ourSrc, canModify,null,refs,checkCldr, zoomedIn);
                     }
                 } catch(Throwable t) {
                     // failed to show pea. 
@@ -5633,7 +5644,7 @@ public class SurveyMain extends HttpServlet {
                     for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
                         DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
                         try {
-                            showDataRow(ctx, section, subDataRow, ourDir, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
+                            showDataRow(ctx, section, subDataRow, ourDir, uf, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
                         } catch(Throwable t) {
                             // failed to show sub-pea.
                             ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+section.xpath(subDataRow)+"."+subDataRow.altType+"</b><br>");
@@ -6104,15 +6115,15 @@ public class SurveyMain extends HttpServlet {
         return rs;
     }
 
-    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, 
+    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
         CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
-        showDataRow(ctx,section,p,ourDir,cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
+        showDataRow(ctx,section,p,ourDir,uf, cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
     }
 
     /**
      * Show a single pea
      */
-    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, CLDRFile cf, 
+    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, String ourDir, UserLocaleStuff uf, CLDRFile cf, 
         CLDRDBSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr, boolean zoomedIn) {
 
         String ourAlign = "left";
@@ -6370,7 +6381,7 @@ public class SurveyMain extends HttpServlet {
         
         // Prime the Pump
         if(topCurrent != null) {
-            /* ignored */ section.exampleGenerator.getExampleHtml(topCurrent.xpath, topCurrent.value,
+            /* ignored */ uf.getExampleGenerator().getExampleHtml(topCurrent.xpath, topCurrent.value,
                     zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
         }
         
@@ -6409,14 +6420,14 @@ public class SurveyMain extends HttpServlet {
             ctx.print("<td rowspan='"+rowSpan+"' ></td>"); // empty box for baseline
         }
         
-        printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
+        printCells(ctx,section,p,topCurrent,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
         DataSection.DataRow.CandidateItem topProposed = null;
         if(proposedItems.size() > 0) {
             topProposed = proposedItems.get(0);
         }
-        printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
+        printCells(ctx,section,p,topProposed,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
 
         boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
 
@@ -6537,7 +6548,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
+                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
 
                 // #6.1, 6.2 - proposed items
                 if(proposedItems.size() > row) {
@@ -6545,7 +6556,7 @@ public class SurveyMain extends HttpServlet {
                 } else {
                     item = null;
                 }
-                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,zoomedIn, warningsList, refsList, exampleContext);
+                printCells(ctx,section, p,item,fieldHash,resultXpath,ourVoteXpath,canModify,ourAlign,ourDir,uf,zoomedIn, warningsList, refsList, exampleContext);
                                 
                 ctx.println("</tr>");
             }
@@ -6830,7 +6841,7 @@ public class SurveyMain extends HttpServlet {
      * @param warningsList if an item has warnings or errors, or demos, add them to this list.
      */ 
     void printCells(WebContext ctx, DataSection section, DataSection.DataRow p, DataSection.DataRow.CandidateItem item, String fieldHash, String resultXpath, String ourVoteXpath,
-        boolean canModify, String ourAlign, String ourDir, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> warningsList, List<String> refsList,
+        boolean canModify, String ourAlign, String ourDir, UserLocaleStuff uf, boolean zoomedIn, List<DataSection.DataRow.CandidateItem> warningsList, List<String> refsList,
         ExampleContext exampleContext) {
         // ##6.1 proposed - print the TOP item
         
@@ -6841,7 +6852,7 @@ public class SurveyMain extends HttpServlet {
         
         if(item != null) {
             //if(item.value != null) {  // Always generate examples, even on null values.
-                itemExample = section.exampleGenerator.getExampleHtml(item.xpath, item.value,
+                itemExample = uf.getExampleGenerator().getExampleHtml(item.xpath, item.value,
                             zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
             //}
             if((item.tests != null) || (item.examples != null)) {

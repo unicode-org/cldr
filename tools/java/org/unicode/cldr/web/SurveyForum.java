@@ -50,6 +50,7 @@ public class SurveyForum {
     /* --------- FORUM ------------- */
     static final String F_FORUM = "forum";
     static final String F_XPATH = "xpath";
+    static final String F_PATH = "path";
     static final String F_DO = "d";
     static final String F_LIST = "list";
     static final String F_VIEW = "view";

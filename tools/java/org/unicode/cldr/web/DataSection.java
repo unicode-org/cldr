@@ -85,8 +85,6 @@ public class DataSection extends Registerable {
     
     public boolean hasExamples = false;
     
-    public ExampleGenerator exampleGenerator = null;
-
     public String intgroup; 
     DataSection(SurveyMain sm, String loc, String prefix) {
         super(sm.lcr,loc); // initialize call to LCR
@@ -1089,7 +1087,22 @@ public class DataSection extends Registerable {
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-			
+
+            
+            
+            /**
+             * TODO: Mark says:   "getHelpHtml() is independent of locale. Whichever locale you 
+             * call it on, you'll get the same answer. So you can call it always on English 
+             * (or any other language) if you want. Its code just uses the static class 
+             * HelpMessages, and a file for the source. So you can create your own static class
+             * once for that, like:
+             *    static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
+             *  That is what I'd recommend. "
+             */
+            section.helpHtml = uf.getExampleGenerator().getHelpHtml(prefix,null);
+
+            
+            
             com.ibm.icu.dev.test.util.ElapsedTimer cet;
             if(SHOW_TIME) {
                 cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
@@ -1106,8 +1119,6 @@ public class DataSection extends Registerable {
 				int allCount = section.getAll().size();
                 System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
             }
-            section.exampleGenerator = new ExampleGenerator(new CLDRFile(ourSrc,true), ctx.sm.fileBase + "/../supplemental/");
-            section.exampleGenerator.setVerboseErrors(ctx.sm.twidBool("ExampleGenerator.setVerboseErrors"));
         }
 		return section;
 	}
@@ -1236,6 +1247,7 @@ public class DataSection extends Registerable {
         }
         // what to exclude under 'misc'
         int t = 10;
+        
         
         CLDRFile vettedParent = null;
         String parentLoc = WebContext.getParent(locale);
@@ -1989,6 +2001,11 @@ public class DataSection extends Registerable {
         }
         
         return "//ldml"; // the "misc" pile.
+    }
+    
+    private String helpHtml = null;
+    public String getHelpHtml() {
+        return helpHtml;
     }
     
 }

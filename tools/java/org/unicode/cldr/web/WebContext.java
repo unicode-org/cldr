@@ -849,7 +849,7 @@ public class WebContext implements Cloneable {
     }
     
     public void printHelpHtml(DataSection section, String xpath) {
-        String helpHtml = section.exampleGenerator.getHelpHtml(xpath,null);
+        String helpHtml = section.getHelpHtml();
         if(helpHtml != null)  {
             println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
         }        

@@ -6,13 +6,19 @@
     <generation date="$Date$"/>
     <metadata>
         <attributeOrder>
+
             _q type id choice key registry source target path day date version count lines characters iso4217 before from to mzone number time casing list uri digits rounding iso3166 hex request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary variableTop normalization numeric strength elements element attributes attribute aliases attributeValue contains multizone order other replacement scripts services territories territory tzidVersion value values variant variants visibility alpha3 code end exclude fips10 gdp internet literacyPercent locales officialStatus population populationPercent start used writingPercent validSubLocales standard references alt draft
+
         </attributeOrder>
         <elementOrder>
+
             ldml alternate attributeOrder attributes blockingItems calendarSystem character character-fallback codePattern codesByTerritory comment context cp deprecatedItems distinguishingItems elementOrder first_variable fractions identity info languageAlias languageCodes languageCoverage languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag mapTimezones mapZone pluralRule pluralRules reference region scriptAlias scriptCoverage serialElements substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform usesMetazone validity alias appendItem base beforeCurrency afterCurrency currencyMatch dateFormatItem day deprecated distinguishing blocking coverageAdditions era eraNames eraAbbr eraNarrow exemplarCharacters fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat intervalFormatFallback intervalFormatItem key localeDisplayNames layout localeDisplayPattern languages localePattern localeSeparator localizedPatternChars dateRangePattern calendars long mapping measurementSystem measurementSystemName messages minDays firstDay month months monthNames monthAbbr days dayNames dayAbbr orientation inList inText paperSize pattern displayName quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd regionFormat fallbackFormat abbreviationFallback preferenceOrdering relative reset p pc rule s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth percentFormat percentFormatLength quarterContext quarterWidth scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight suppress_contractions optimize rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies t tc q qc i ic extend territories timeFormat timeFormatLength timeZoneNames type unit unitPattern unitName variable attributeValues variables segmentRules variantAlias variants keys types measurementSystemNames codePatterns version generation currencyData language script territory territoryContainment languageData territoryInfo calendarData variant week am pm eras dateFormats timeFormats dateTimeFormats fields weekData measurementData timezoneData characters delimiters measurement dates numbers transforms metadata codeMappings likelySubtags metazoneInfo plurals telephoneCodeData units collations posix segmentations references weekendStart weekendEnd width x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData
+
         </elementOrder>
         <serialElements>
+
             attributeValues base comment extend first_non_ignorable first_primary_ignorable first_secondary_ignorable first_tertiary_ignorable first_trailing first_variable i ic languagePopulation last_non_ignorable last_primary_ignorable last_secondary_ignorable last_tertiary_ignorable last_trailing last_variable optimize p pc q qc reset rules s sc settings suppress_contractions t tRule tc variable x
+
         </serialElements>
         <suppress>
             <attributes attribute="_q"/>
@@ -185,215 +191,423 @@
 				VALENCIA
 			</variable>
 			<!-- currency version 2008-01-25 -->
+
 			<variable id="$currency" type="choice">
+
 				ADP AED AFA AFN ALK ALL AMD ANG AOA AOK AON AOR ARA ARP ARS ARY ATS AUD AWG AZM
+
 				AZN
+
 				BAD BAM BBD BDT BEC BEF BEL BGJ BGK BGL BGN BHD BIF BMD BND BOB BOP BOV BRB BRC
+
 				BRE BRL BRN BRR BSD BTN BUK BWP BYB BYR BZD
+
 				CAD CDF CHE CHF CHW CLF CLP CNX CNY COP COU CRC CSD CSJ CSK CUP CVE CYP CZK
+
 				DDM DEM DJF DKK DOP DZD
+
 				ECS ECV EEK EGP EQE ERN ESA ESB ESP ETB EUR
+
 				FIM FJD FKP FRF
+
 				GBP GEK GEL GHC GHS GIP GMD GNE GNF GNS GQE GRD GTQ GWE GWP GYD
+
 				HKD HNL HRD HRK HTG HUF
+
 				IDR IEP ILP ILR ILS INR IQD IRR ISJ ISK ITL
+
 				JMD JOD JPY
+
 				KES KGS KHR KMF KPW KRW KWD KYD KZT
+
 				LAJ LAK LBP LKR LRD LSL LSM LTL LTT LUC LUF LUL LVL LVR LYD
+
 				MAD MAF MDL MGA MGF MKD MLF MMK MNT MOP MRO MTL MTP MUR MVQ MVR MWK MXN MXP MXV
+
 				MYR MZE MZM MZN
+
 				NAD NGN NIC NIO NLG NOK NPR NZD
+
 				OMR
+
 				PAB PEH PEI PEN PES PGK PHP PKR PLN PLZ PTE PYG
+
 				QAR
+
 				RHD ROK ROL RON RSD RUB RUR RWF
+
 				SAR SBD SCR SDD SDG SDP SEK SGD SHP SIT SKK SLL SOS SRD SRG STD SUR SVC SYP SZL
+
 				THB TJR TJS TMM TND TOP TPE TRL TRY TTD TWD TZS
+
 				UAH UAK UGS UGW UGX USD USN USS UYI UYN UYP UYU UZS
+
 				VEB VEF VNC VND VUV
+
 				WST
+
 				XAF XAG XAU XBA XBB XBC XBD XCD XDR XEU XFO XFU XOF XPD XPF XPT XRE XTS XXX
+
 				YDD YER YUD YUM YUN
+
 				ZAL ZAR ZMK ZRN ZRZ ZWC ZWD
+
 			</variable>
+
 			<!-- end of data generated by CountItems -->
 			<!-- start of data generated with CountItems from language tag registry + CLDR-specific items as per http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
             <variable id="$tzid" type="choice">
+
                 Africa/Abidjan Africa/Accra Africa/Addis_Ababa Africa/Algiers Africa/Asmera
+
                 Africa/Bamako Africa/Bangui Africa/Banjul Africa/Bissau Africa/Blantyre
+
                 Africa/Brazzaville Africa/Bujumbura
+
                 Africa/Cairo Africa/Casablanca Africa/Ceuta Africa/Conakry
+
                 Africa/Dakar Africa/Dar_es_Salaam Africa/Djibouti Africa/Douala
+
                 Africa/El_Aaiun
+
                 Africa/Freetown
+
                 Africa/Gaborone
+
                 Africa/Harare
+
                 Africa/Johannesburg
+
                 Africa/Kampala Africa/Khartoum Africa/Kigali Africa/Kinshasa
+
                 Africa/Lagos Africa/Libreville Africa/Lome Africa/Luanda Africa/Lubumbashi
+
                 Africa/Lusaka
+
                 Africa/Malabo Africa/Maputo Africa/Maseru Africa/Mbabane Africa/Mogadishu
+
                 Africa/Monrovia
+
                 Africa/Nairobi Africa/Ndjamena Africa/Niamey Africa/Nouakchott
+
                 Africa/Ouagadougou
+
                 Africa/Porto-Novo
+
                 Africa/Sao_Tome
+
                 Africa/Timbuktu Africa/Tripoli Africa/Tunis
+
                 Africa/Windhoek
+
                 America/Adak America/Anchorage America/Anguilla America/Antigua
+
                 America/Araguaina
+
                 America/Argentina/ComodRivadavia
+
                 America/Argentina/La_Rioja
+
                 America/Argentina/Rio_Gallegos
+
                 America/Argentina/San_Juan America/Argentina/San_Luis
+
                 America/Argentina/Tucuman
+
                 America/Argentina/Ushuaia
+
                 America/Aruba America/Asuncion
+
                 America/Bahia America/Barbados America/Belem America/Belize
+
                 America/Blanc-Sablon America/Boa_Vista America/Bogota America/Boise
+
                 America/Buenos_Aires
+
                 America/Cambridge_Bay America/Campo_Grande America/Cancun America/Caracas
+
                 America/Catamarca America/Cayenne America/Cayman America/Chicago
+
                 America/Chihuahua America/Coral_Harbour America/Cordoba America/Costa_Rica
+
                 America/Cuiaba America/Curacao
+
                 America/Danmarkshavn America/Dawson America/Dawson_Creek America/Denver
+
                 America/Detroit America/Dominica
+
                 America/Edmonton America/Eirunepe America/El_Salvador
+
                 America/Fortaleza
+
                 America/Glace_Bay America/Godthab America/Goose_Bay America/Grand_Turk
+
                 America/Grenada America/Guadeloupe America/Guatemala America/Guayaquil
+
                 America/Guyana
+
                 America/Halifax America/Havana America/Hermosillo
+
                 America/Indiana/Knox
+
                 America/Indiana/Marengo
+
                 America/Indiana/Petersburg
+
                 America/Indiana/Tell_City
+
                 America/Indiana/Vevay America/Indiana/Vincennes
+
                 America/Indiana/Winamac
+
                 America/Indianapolis America/Inuvik America/Iqaluit
+
                 America/Jamaica America/Jujuy America/Juneau
+
                 America/Kentucky/Monticello
+
                 America/La_Paz America/Lima America/Los_Angeles America/Louisville
+
                 America/Maceio America/Managua America/Manaus America/Marigot
+
                 America/Martinique America/Mazatlan America/Mendoza America/Menominee
+
                 America/Merida America/Mexico_City America/Miquelon America/Moncton
+
                 America/Monterrey America/Montevideo America/Montreal America/Montserrat
+
                 America/Nassau America/New_York America/Nipigon America/Nome America/Noronha
+
                 America/North_Dakota/Center
+
                 America/North_Dakota/New_Salem
+
                 America/Panama America/Pangnirtung America/Paramaribo America/Phoenix
+
                 America/Port_of_Spain America/Port-au-Prince America/Porto_Velho
+
                 America/Puerto_Rico
+
                 America/Rainy_River America/Rankin_Inlet America/Recife America/Regina
+
                 America/Resolute America/Rio_Branco
+
                 America/Santiago America/Santo_Domingo America/Sao_Paulo America/Scoresbysund
+
                 America/Shiprock America/St_Barthelemy America/St_Johns America/St_Kitts
+
                 America/St_Lucia America/St_Thomas America/St_Vincent America/Swift_Current
+
                 America/Tegucigalpa America/Thule America/Thunder_Bay America/Tijuana
+
                 America/Toronto America/Tortola
+
                 America/Vancouver
+
                 America/Whitehorse America/Winnipeg
+
                 America/Yakutat America/Yellowknife
+
                 Antarctica/Casey
+
                 Antarctica/Davis Antarctica/DumontDUrville
+
                 Antarctica/Mawson Antarctica/McMurdo
+
                 Antarctica/Palmer
+
                 Antarctica/Rothera
+
                 Antarctica/South_Pole Antarctica/Syowa
+
                 Antarctica/Vostok
+
                 Arctic/Longyearbyen
+
                 Asia/Aden Asia/Almaty Asia/Amman Asia/Anadyr Asia/Aqtau Asia/Aqtobe
+
                 Asia/Ashgabat
+
                 Asia/Baghdad Asia/Bahrain Asia/Baku Asia/Bangkok Asia/Beirut Asia/Bishkek
+
                 Asia/Brunei
+
                 Asia/Calcutta Asia/Choibalsan Asia/Chongqing Asia/Colombo
+
                 Asia/Damascus Asia/Dhaka Asia/Dili Asia/Dubai Asia/Dushanbe
+
                 Asia/Gaza
+
                 Asia/Harbin Asia/Hong_Kong Asia/Hovd
+
                 Asia/Irkutsk
+
                 Asia/Jakarta Asia/Jayapura Asia/Jerusalem
+
                 Asia/Kabul Asia/Kamchatka Asia/Karachi Asia/Kashgar Asia/Katmandu
+
                 Asia/Krasnoyarsk Asia/Kuala_Lumpur Asia/Kuching Asia/Kuwait
+
                 Asia/Macau Asia/Magadan Asia/Makassar Asia/Manila Asia/Muscat
+
                 Asia/Nicosia Asia/Novosibirsk
+
                 Asia/Omsk Asia/Oral
+
                 Asia/Phnom_Penh Asia/Pontianak Asia/Pyongyang
+
                 Asia/Qatar Asia/Qyzylorda
+
                 Asia/Rangoon Asia/Riyadh
+
                 Asia/Saigon Asia/Sakhalin Asia/Samarkand Asia/Seoul Asia/Shanghai
+
                 Asia/Singapore
+
                 Asia/Taipei Asia/Tashkent Asia/Tbilisi Asia/Tehran Asia/Thimphu Asia/Tokyo
+
                 Asia/Ulaanbaatar Asia/Urumqi
+
                 Asia/Vientiane Asia/Vladivostok
+
                 Asia/Yakutsk Asia/Yekaterinburg Asia/Yerevan
+
                 Atlantic/Azores
+
                 Atlantic/Bermuda
+
                 Atlantic/Canary Atlantic/Cape_Verde
+
                 Atlantic/Faeroe
+
                 Atlantic/Madeira
+
                 Atlantic/Reykjavik
+
                 Atlantic/South_Georgia Atlantic/St_Helena Atlantic/Stanley
+
                 Australia/Adelaide
+
                 Australia/Brisbane Australia/Broken_Hill
+
                 Australia/Currie
+
                 Australia/Darwin
+
                 Australia/Eucla
+
                 Australia/Hobart
+
                 Australia/Lindeman Australia/Lord_Howe
+
                 Australia/Melbourne
+
                 Australia/Perth
+
                 Australia/Sydney
+
                 Etc/GMT Etc/GMT-1 Etc/GMT-2 Etc/GMT-3 Etc/GMT-4 Etc/GMT-5 Etc/GMT-6 Etc/GMT-7
+
                 Etc/GMT-8 Etc/GMT-9 Etc/GMT-10 Etc/GMT-11 Etc/GMT-12 Etc/GMT-13 Etc/GMT-14
+
                 Etc/GMT+1 Etc/GMT+2 Etc/GMT+3 Etc/GMT+4 Etc/GMT+5 Etc/GMT+6 Etc/GMT+7 Etc/GMT+8
+
                 Etc/GMT+9 Etc/GMT+10 Etc/GMT+11 Etc/GMT+12
+
                 Etc/Unknown
+
                 Europe/Amsterdam Europe/Andorra Europe/Athens
+
                 Europe/Belfast Europe/Belgrade Europe/Berlin Europe/Bratislava Europe/Brussels
+
                 Europe/Bucharest Europe/Budapest
+
                 Europe/Chisinau Europe/Copenhagen
+
                 Europe/Dublin
+
                 Europe/Gibraltar Europe/Guernsey
+
                 Europe/Helsinki
+
                 Europe/Isle_of_Man Europe/Istanbul
+
                 Europe/Jersey
+
                 Europe/Kaliningrad Europe/Kiev
+
                 Europe/Lisbon Europe/Ljubljana Europe/London Europe/Luxembourg
+
                 Europe/Madrid Europe/Malta Europe/Mariehamn Europe/Minsk Europe/Monaco
+
                 Europe/Moscow
+
                 Europe/Oslo
+
                 Europe/Paris Europe/Podgorica Europe/Prague
+
                 Europe/Riga Europe/Rome
+
                 Europe/Samara Europe/San_Marino Europe/Sarajevo Europe/Simferopol Europe/Skopje
+
                 Europe/Sofia Europe/Stockholm
+
                 Europe/Tallinn Europe/Tirane
+
                 Europe/Uzhgorod
+
                 Europe/Vaduz Europe/Vatican Europe/Vienna Europe/Vilnius Europe/Volgograd
+
                 Europe/Warsaw
+
                 Europe/Zagreb Europe/Zaporozhye Europe/Zurich
+
                 Indian/Antananarivo
+
                 Indian/Chagos Indian/Christmas Indian/Cocos Indian/Comoro
+
                 Indian/Kerguelen
+
                 Indian/Mahe Indian/Maldives Indian/Mauritius Indian/Mayotte
+
                 Indian/Reunion
+
                 Pacific/Apia Pacific/Auckland
+
                 Pacific/Chatham
+
                 Pacific/Easter Pacific/Efate Pacific/Enderbury
+
                 Pacific/Fakaofo Pacific/Fiji Pacific/Funafuti
+
                 Pacific/Galapagos Pacific/Gambier Pacific/Guadalcanal Pacific/Guam
+
                 Pacific/Honolulu
+
                 Pacific/Johnston
+
                 Pacific/Kiritimati Pacific/Kosrae Pacific/Kwajalein
+
                 Pacific/Majuro Pacific/Marquesas Pacific/Midway
+
                 Pacific/Nauru Pacific/Niue Pacific/Norfolk Pacific/Noumea
+
                 Pacific/Pago_Pago Pacific/Palau Pacific/Pitcairn Pacific/Ponape
+
                 Pacific/Port_Moresby
+
                 Pacific/Rarotonga
+
                 Pacific/Saipan
+
                 Pacific/Tahiti Pacific/Tarawa Pacific/Tongatapu Pacific/Truk
+
                 Pacific/Wake Pacific/Wallis
+
                 Pacific/Yap
+
             </variable>
+
 			<!-- end of data generated by CountItems -->
 			<variable id="$altList" type="choice">
 				variant list secondary email www short
@@ -584,6 +798,7 @@
             <zoneAlias type="SystemV/YST9" replacement="Pacific/Gambier"/>
             <zoneAlias type="SystemV/HST10" replacement="Pacific/Honolulu"/>
             <zoneAlias type="HST" replacement="Pacific/Honolulu"/>       
+
             <zoneAlias type="Atlantic/Jan_Mayen" replacement="Europe/Oslo"/>
         </alias>
         <deprecated>
@@ -631,9 +846,9 @@
         <defaultContent locales="
 			aa_ET af_ZA ak_GH am_ET ar_EG as_IN az_Cyrl_AZ az_Latn az_Latn_AZ
 			be_BY bg_BG bn_BD bo_CN bs_BA byn_ER
-			ca_ES cch_NG cop_Arab cop_Arab_EG cs_CZ cy_GB
+			ca_ES cch_NG chr_US cop_Arab cop_Arab_EG cs_CZ cy_GB
 			da_DK de_DE dv_MV dz_BT
-			ee_GH el_GR en_US es_ES et_EE eu_ES
+			ee_GH el_GR en_Dsrt_US en_US es_ES et_EE eu_ES
 			fa_IR fi_FI fo_FO fr_FR fur_IT
 			ga_IE gaa_GH gez_ER gl_ES gu_IN gv_GB
 			ha_Arab_NG ha_Latn ha_Latn_NG haw_US he_IL hi_IN hr_HR hu_HU hy_AM

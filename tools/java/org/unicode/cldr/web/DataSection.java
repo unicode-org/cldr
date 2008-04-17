@@ -828,7 +828,15 @@ public class DataSection extends Registerable {
                 new Partition("Missing", 
                     new PartitionMembership() { 
                         public boolean isMember(DataRow p) {
-                          return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
+                          //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
+                          return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
+                          ( "root".equals(p.inheritedValue.inheritFrom) 
+                                  || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
+                          /*
+       p.winningXpathId==-1 &&    // no winning item
+       p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
+           ( "root".equals(p.inheritedValue.inheritFrom) ||XMLSource.CODE_FALLBACK_ID,equals(p.inheritedValue.inheritFrom) )
+                           */
                         }
                     }),
                 new Partition("Inherited", 

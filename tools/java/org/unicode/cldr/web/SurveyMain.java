@@ -1793,19 +1793,19 @@ public class SurveyMain extends HttpServlet {
         if(ctx.session.user == null)  {
             ctx.println("You are a <b>Visitor</b>. <a class='notselected' href='" + ctx.jspLink("login.jsp") +"'>Login</a><br>");
             
-            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-                ctx.print(" | ");
-            }
+//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
+//                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
+//                ctx.print(" | ");
+//            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
             ctx.println("<br>");
         } else {
             ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
             ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a><br>");
-            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) {
-                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-                ctx.print(" | ");
-            }
+//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) {
+//                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
+//                ctx.print(" | ");
+//            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
             ctx.print(" | ");
             printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
@@ -4704,7 +4704,7 @@ public class SurveyMain extends HttpServlet {
                 //subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
                 subCtx.removeQuery(QUERY_SECTION);
 
-               if(true && (this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) == true) {
+               if(true && (this.phase()==Phase.VETTING || isPhaseVettingClosed()) == true) {
                     
                     if((numDisputed>0)||(numErrors>0)) {
                         ctx.print("<h2>Disputed items that need your attention:</h2>");

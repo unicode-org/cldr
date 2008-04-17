@@ -51,7 +51,7 @@ public class CheckCoverage extends CheckCLDR {
       
         if (isSkipTest()) return this;
         
-        if (getCldrFileToCheck().isPathExcludedForSurvey(path)) return this;
+        if (getResolvedCldrFileToCheck().isPathExcludedForSurvey(path)) return this;
         
         // skip if we are not the winning path
         if (!getResolvedCldrFileToCheck().isWinningPath(path)) {

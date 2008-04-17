@@ -433,6 +433,10 @@ public class WebContext implements Cloneable {
         return context() + request.getServletPath();
     }
     
+    public static String base(HttpServletRequest request) {
+        return schemeHostPort(request)+request.getContextPath() + request.getServletPath();
+    }
+    
     public String context() { 
         return request.getContextPath();
     }
@@ -470,16 +474,34 @@ public class WebContext implements Cloneable {
         return request.getServerName();
     }
     
+    static String userIP(HttpServletRequest request) {
+        return request.getRemoteAddr();
+    }
+
+    /**
+     * return the hostname of the web server
+     */
+    static String serverName(HttpServletRequest request) {
+        return request.getServerName();
+    }
+    
     String serverHostport() {
+        return serverHostport(request);
+    }
+    static String serverHostport(HttpServletRequest request) {
         int port = request.getServerPort();
         if(port == 80) {
-            return serverName();
+            return serverName(request);
         } else {
-            return serverName() + ":"+port;
+            return serverName(request) + ":"+port;
         }
     }
     String schemeHostPort() {
-        return request.getScheme()+"://" + serverHostport();
+        return schemeHostPort(request);
+    }
+    
+    static String schemeHostPort(HttpServletRequest request) {
+        return request.getScheme()+"://" + serverHostport(request);
     }
     
 // print api

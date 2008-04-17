@@ -44,6 +44,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
@@ -62,6 +63,9 @@ import java.util.Properties;
 
 
 import com.ibm.icu.lang.UCharacter;
+import com.sun.corba.se.impl.activation.ProcessMonitorThread;
+import com.sun.corba.se.impl.activation.ServerTableEntry;
+import com.sun.corba.se.impl.orbutil.ORBConstants;
 
 /**
  * The main servlet class of Survey Tool
@@ -113,6 +117,9 @@ public class SurveyMain extends HttpServlet {
     ElapsedTimer uptime = new ElapsedTimer("ST uptime: {0}");
     ElapsedTimer startupTime = new ElapsedTimer("{0} until first GET/POST");
     public static String isBusted = null;
+    private String isBustedStack = null;
+    private Throwable isBustedThrowable = null;
+    private ElapsedTimer isBustedTimer = null;
     ServletConfig config = null;
 
     
@@ -174,6 +181,7 @@ public class SurveyMain extends HttpServlet {
     static long specialTimer = 0; // 0 means off.  Nonzero:  expiry time of countdown.
     static int progressMax = 0;  // "an operation is in progress"
     static int progressCount = 0;
+    static String progressSub = null; 
     static String progressWhat = null;
     
     public static java.util.Properties survprops = null;
@@ -278,7 +286,23 @@ public class SurveyMain extends HttpServlet {
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
     
+    public static final String SHOWHIDE_SCRIPT = "<script type='text/javascript'><!-- \n" +
+                                                "function show(what)\n" +
+                                                "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n" +
+                                                "function hide(what)\n" +
+                                                "{document.getElementById(what).style.display=\"none\";\ndocument.getElementById(\"h_\"+what).style.display=\"block\";}\n" +
+                                                "--></script>";
     
+    static final HelpMessages surveyToolSystemMessages = new HelpMessages("st_sysmsg.html");
+    
+    static String sysmsg(String msg) {
+        try {
+            return surveyToolSystemMessages.find(msg);
+        } catch(Throwable t) {
+            System.err.println("Err " + t.toString() + " while trying to load sysmsg " + msg);
+            return "[MISSING MSG: " + msg+"]";
+        }
+    }
     /**
      * Servlet initializer
      */
@@ -288,7 +312,8 @@ public class SurveyMain extends HttpServlet {
         super.init(config);
         cldrHome = config.getInitParameter("cldr.home");
         this.config = config;
-        doStartup();
+        startupThread.start();
+        System.err.println("Startup thread launched");
     }
 
     public SurveyMain() {
@@ -337,39 +362,44 @@ public class SurveyMain extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException
     {
-        if(startupTime != null) {
-            String startupMsg = null;
-            startupMsg = (startupTime.toString());
-//            logger.info(startupMsg);  // log how long startup took
-            startupTime = null;
+        if(!ensureStartup(request, response)) {
+            return;
         }
         
-        String remoteIP = request.getRemoteAddr();
-        
-        for( String badIP : BAD_IPS ) {  // no spiders, please.
-            if(badIP.equals(remoteIP)) {
-                response.sendRedirect(URL_CLDR);
+        if(isBusted==null) {
+            if(startupTime != null) {
+                String startupMsg = null;
+                startupMsg = (startupTime.toString());
+    //            logger.info(startupMsg);  // log how long startup took
+                startupTime = null;
+            }
+            
+            String remoteIP = request.getRemoteAddr();
+            
+            for( String badIP : BAD_IPS ) {  // no spiders, please.
+                if(badIP.equals(remoteIP)) {
+                    response.sendRedirect(URL_CLDR);
+                }
+            }
+            
+            response.setHeader("Cache-Control", "no-cache");
+            response.setDateHeader("Expires",0);
+            response.setHeader("Pragma","no-cache");
+            response.setDateHeader("Max-Age",0);
+            response.setHeader("Robots", "noindex,nofollow");
+            
+            // handle raw xml
+            if(doRawXml(request,response)) {
+                // not counted.
+                xpages++;
+                return; 
+            }
+            pages++;
+            
+            if((pages % 100)==0) {
+                freeMem(pages,xpages);        
             }
         }
-        
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires",0);
-        response.setHeader("Pragma","no-cache");
-        response.setDateHeader("Max-Age",0);
-        response.setHeader("Robots", "noindex,nofollow");
-        
-        // handle raw xml
-        if(doRawXml(request,response)) {
-            // not counted.
-            xpages++;
-            return; 
-        }
-        pages++;
-        
-        if((pages % 100)==0) {
-            freeMem(pages,xpages);        
-        }
-        
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
         
         /**
@@ -384,18 +414,24 @@ public class SurveyMain extends HttpServlet {
                 out.println("<head>");
                 out.println("<title>CLDR Survey Tool offline</title>");
                 out.println("<link rel='stylesheet' type='text/css' href='"+ request.getContextPath() + "/" + "surveytool.css" + "'>");
+                out.println(SHOWHIDE_SCRIPT);
                 out.println("</head>");
                 out.println("<body>");
                 showSpecialHeader(out);
                 out.println("<h1>The CLDR Survey Tool is offline</h1>");
-                out.println("<pre class='ferrbox'>" + isBusted + "</pre><br>");
+                out.println("<div class='ferrbox'><pre>" + isBusted +"</pre><hr>");
+                out.println("\n");
+                out.println(getShortened((SurveyForum.HTMLSafe(isBustedStack).replaceAll("\t", "&nbsp;&nbsp;&nbsp;").replaceAll("\n", "<br>"))));
+                out.println("</div><br>");
+                
+                
                 out.println("<hr>");
                 if(!isUnofficial) {
                     out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
                     out.println("<hr>");
                 }
                 out.println("An Administrator must intervene to bring the Survey Tool back online. <br> " + 
-                            " <i>This message has been viewed " + pages + " time(s)</i>");
+                            " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer + "</i>");
 
 //                if(false) { // dump static tables.
 //                    response.setContentType("application/xml; charset=utf-8");
@@ -448,6 +484,51 @@ public class SurveyMain extends HttpServlet {
         ctx.close();
     }
     
+    /**
+     * Make sure we're started up, otherwise tell 'em, "please wait.."
+     * @param request
+     * @param response
+     * @return true if started, false if we are not (on false, get out, we're done printing..)
+     * @throws IOException
+     */
+    private boolean ensureStartup(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if(!isSetup) {
+            boolean isGET = "GET".equals(request.getMethod());
+            int sec = 4;
+            String base = WebContext.base(request);
+            if(isGET) {
+                String qs  = "";
+                if(request.getQueryString()!=null&&request.getQueryString().length()>0) {
+                    qs = "?"+request.getQueryString();
+                }
+                response.setHeader("Refresh", sec+"; "+base+qs);
+            }
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head>");
+            out.println("<title>"+sysmsg("startup_title")+"</title>");
+            out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
+            out.println("</head><body>");
+            out.print(sysmsg("startup_header"));
+            if(progressWhat != null) {
+                out.println(getProgress()+"<br><hr><br>");
+            }
+            out.print(sysmsg("startup_wait"));
+            out.println("<br><i> "+uptime+"</i><br>");
+            if(!isGET) {
+                out.println("(Sorry,  we can't automatically retry your "+request.getMethod()+" request - you may attempt Reload in a few seconds "+
+                            "<a href='"+base+"'>or click here</a><br>");
+            } else {
+                out.println("We will <a href='"+base+"'>retry in "+sec+" seconds, or you may click here.</a>");
+            }
+            out.print(sysmsg("startup_footer"));
+            out.print("</body></html>");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /** SQL Console
     */
     private void doSql(WebContext ctx)
@@ -1307,12 +1388,7 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.print("</div>");
         showSpecialHeader(ctx);
-        ctx.println("<script type='text/javascript'><!-- \n" +
-                    "function show(what)\n" +
-                    "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n" +
-                    "function hide(what)\n" +
-                    "{document.getElementById(what).style.display=\"none\";\ndocument.getElementById(\"h_\"+what).style.display=\"block\";}\n" +
-                    "--></script>");
+        ctx.println(SHOWHIDE_SCRIPT);
         
     }
     
@@ -1348,13 +1424,12 @@ public class SurveyMain extends HttpServlet {
             }
             out.print("<br>");
             if(progressWhat != null) {
-                ctx.print("<b>"+progressWhat+"</b> in progress:");
                 showProgress(ctx);
             }
             out.println("</div><br>");
         } else {
             if(progressWhat != null) {
-                ctx.print("<div class='specialHeader'>SurveyTool may be busy: <b>"+progressWhat+"</b> in progress<br>");
+                ctx.print("<div class='specialHeader'>SurveyTool may be busy: <br>");
                 showProgress(ctx);
                 ctx.print("</div><br>");
             }
@@ -1363,9 +1438,69 @@ public class SurveyMain extends HttpServlet {
     
     public static final int PROGRESS_WID=100; /** Progress bar width **/
         
+    
+    /**
+     * Done with progress, reset to nothing.
+     */
+    public void clearProgress() {
+        progressWhat = null;
+        progressMax = 0;
+        progressCount = 0;
+        progressSub = null;
+    }
+    
+    /**
+     * Initialize a progress that will not show the actual count, but treat the count as a number from 0-100
+     * @param what the user-visible string
+     */
+    public void setProgress(String what) {
+        setProgress(what, -100);
+    }
+    
+    /**
+     * Initialize a Progress. 
+     * @param what what is progressing
+     * @param max the max count, or <0 if it is an un-numbered percentage (0-100 without specific numbers)
+     */
+    public void setProgress(String what, int max) {
+            progressWhat = what;
+            progressMax = max;
+            progressCount = 0;
+            progressSub = null;
+    }
+    
+    /**
+     * Update on the progress
+     * @param count current count - up to Max
+     */
+    public void updateProgress(int count) {
+        progressCount = count;
+    }
+    
+    public void updateProgress(int count, String what) {
+        progressCount = count;
+        progressSub = what;
+    }
+    
+    /**
+     * Print out the progress
+     * @param ctx
+     */
     public void showProgress(WebContext ctx) {
+        ctx.print(getProgress());
+    }
+    
+    public String getProgress() {
+        StringBuffer buf = new StringBuffer();
+                
         double max = progressMax;
-        if(max<=0) return;
+        if(max < 0) { // negative: assume it is a percentage
+            max = 100.0;
+        }
+        if(max<=0) return "";
+
+        buf.append("<b>"+progressWhat+"</b> in progress:");
+
         double cur = progressCount;
         if(cur>max) {
             cur = max;
@@ -1380,18 +1515,25 @@ public class SurveyMain extends HttpServlet {
         int barX = (int)barWid;
         int remainX = PROGRESS_WID-barX;
         
-        ctx.print("<table border=0 style='padding: 0; border-style: collapse;'><tr height='12'>");
+        buf.append("<table border=0 style='padding: 0; border-style: collapse;'><tr height='12'>");
         if(barX > 0) {
-            ctx.print("<td width='"+barX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: blue;'>");
-            ctx.print("</td>");
+            buf.append("<td width='"+barX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: blue;'>");
+            buf.append("</td>");
         }
         if(remainX >0) {
-            ctx.print("<td width='"+remainX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: #ddd;'>");
-            ctx.print("</td>");
+            buf.append("<td width='"+remainX+"' style='padding: 0; margin: 0; border: 1px solid black; background-color: #ddd;'>");
+            buf.append("</td>");
         }
-        ctx.print("</table>");
+        buf.append("</table>");
         NumberFormat pctFmt=  NumberFormat.getPercentInstance();
-        ctx.print(progressCount+" of "+progressMax+" &mdash; " + pctFmt.format(pct));
+        if(progressMax>=0) { //  only show the actual number if >0
+            buf.append(progressCount+" of "+progressMax+" &mdash; ");
+        }
+        buf.append( pctFmt.format(pct));
+        if(progressSub != null) {
+            buf.append(" &mdash; "+progressSub);
+        }
+        return buf.toString();
     }
     
     public void printFooter(WebContext ctx)
@@ -1499,6 +1641,7 @@ public class SurveyMain extends HttpServlet {
         }
         String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
+//        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
         user = reg.get(password,email,ctx.userIP());
 
         if(ctx.request == null && ctx.session != null) {
@@ -4923,9 +5066,12 @@ public class SurveyMain extends HttpServlet {
         if(aliasMap==null) {
             Hashtable h = new Hashtable();
             Set locales  = getLocalesSet();
-            ElapsedTimer et = new ElapsedTimer();    
+            ElapsedTimer et = new ElapsedTimer();
+            setProgress("Parse locales from XML", locales.size());
+            int n=0;
             System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
             for(Object loc : locales) {
+                updateProgress(n++, loc.toString());
                 try {
                     Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
                     Node[] aliasItems = 
@@ -4943,12 +5089,13 @@ public class SurveyMain extends HttpServlet {
                 } catch (Throwable t) {
                     System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                     t.printStackTrace();
-                    busted("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                    busted("isLocaleAliased: Failed load/validate on: " + loc + " - ", t);
                     throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                 }
             }
             System.err.println("Finished verify+alias check of " + locales.size()+ ", " + h.size() + " aliased locales found in " + et.toString());
             aliasMap = h;
+            clearProgress();
         }
         return (String)aliasMap.get(id);
     }
@@ -7327,160 +7474,208 @@ public class SurveyMain extends HttpServlet {
           exception.printStackTrace();
         }
     }
+    
+    /**
+     * Class to startup ST in background
+     */
+    Thread startupThread = new Thread() {
+        public void run() {
+            try {
+                doStartup();
+            } catch(Throwable t) {
+                busted("On StartupThread", t);
+            }
+        }
+    };
+
+    /**
+     * Startup function. Called from another thread.
+     * @throws ServletException
+     */
     public synchronized void doStartup() throws ServletException {
         if(isSetup == true) {
             return;
         }
 
-        // set up CheckCLDR
-        //CheckCLDR.SHOW_TIMES=true;
-
-        survprops = new java.util.Properties(); 
-
-        if(cldrHome == null) {
-            cldrHome = System.getProperty("catalina.home");
-            if(cldrHome == null) {  
-                busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
-                return;
-            } 
-            File homeFile = new File(cldrHome, "cldr");
-
-            if(!homeFile.isDirectory()) {
-                createBasicCldr(homeFile); // attempt to create
-            }
-
-            if(!homeFile.isDirectory()) {
-                busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
-                return;
-            }
-            cldrHome = homeFile.getAbsolutePath();
-        }
-
-        logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
-
         try {
-            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
-            survprops.load(is);
-            is.close();
-        } catch(java.io.IOException ioe) {
-            /*throw new UnavailableException*/
-            logger.log(java.util.logging.Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
-            busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
-                    + ioe.toString()); /* .initCause(ioe);*/
-            return;
-        }
-        
-        // set up DB properties
-        setupDBProperties(survprops);
-        
-        // phase
-        {
-            String phaseString = survprops.getProperty("CLDR_PHASE",null);
+            setProgress("Main Startup");
+            // set up CheckCLDR
+            //CheckCLDR.SHOW_TIMES=true;
+    
+            updateProgress(0);
+            int nn = progressCount;
+            
+            updateProgress(nn++, "Initializing..");
+            
+            survprops = new java.util.Properties(); 
+    
+            if(cldrHome == null) {
+                cldrHome = System.getProperty("catalina.home");
+                if(cldrHome == null) {  
+                    busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
+                    return;
+                } 
+                File homeFile = new File(cldrHome, "cldr");
+    
+                if(!homeFile.isDirectory()) {
+                    createBasicCldr(homeFile); // attempt to create
+                }
+    
+                if(!homeFile.isDirectory()) {
+                    busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+                    return;
+                }
+                cldrHome = homeFile.getAbsolutePath();
+            }
+    
+            logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
+            updateProgress(nn++, "Loading configuration");
+    
             try {
-                if(phaseString!=null) {
-                    currentPhase = (Phase.valueOf(phaseString));
-                }
-            } catch(IllegalArgumentException iae) {
-                System.err.println("Error trying to parse CLDR_PHASE: " + iae.toString());
+                java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
+                survprops.load(is);
+                updateProgress(nn++, "Loading configuration..");
+                is.close();
+            } catch(java.io.IOException ioe) {
+                /*throw new UnavailableException*/
+                logger.log(java.util.logging.Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
+                busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ", ioe);
+                return;
             }
-            if(currentPhase == null) {
-                StringBuffer allValues = new StringBuffer();
-                for (Phase v : Phase.values()) {
-                     allValues.append(v.name());
-                     allValues.append(' ');
+            
+            updateProgress(nn++, "Setup DB config");
+            // set up DB properties
+            setupDBProperties(survprops);
+            updateProgress(nn++, "Setup phase..");
+            
+            // phase
+            {
+                String phaseString = survprops.getProperty("CLDR_PHASE",null);
+                try {
+                    if(phaseString!=null) {
+                        currentPhase = (Phase.valueOf(phaseString));
+                    }
+                } catch(IllegalArgumentException iae) {
+                    System.err.println("Error trying to parse CLDR_PHASE: " + iae.toString());
                 }
-                busted("Could not parse CLDR_PHASE - should be one of ( "+allValues+") but instead got "+phaseString);
+                if(currentPhase == null) {
+                    StringBuffer allValues = new StringBuffer();
+                    for (Phase v : Phase.values()) {
+                         allValues.append(v.name());
+                         allValues.append(' ');
+                    }
+                    busted("Could not parse CLDR_PHASE - should be one of ( "+allValues+") but instead got "+phaseString);
+                }
             }
-        }
-        newVersion=survprops.getProperty("CLDR_NEWVERSION","CLDR_NEWVERSION");
-        oldVersion=survprops.getProperty("CLDR_OLDVERSION","CLDR_OLDVERSION");
+            updateProgress(nn++, "Setup props..");
+            newVersion=survprops.getProperty("CLDR_NEWVERSION","CLDR_NEWVERSION");
+            oldVersion=survprops.getProperty("CLDR_OLDVERSION","CLDR_OLDVERSION");
+    
+            vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
+            updateProgress(nn++, "Setup dirs.."); // @@@
+            vetdir = new File(vetdata);
+            if(!vetdir.isDirectory()) {
+                vetdir.mkdir();
+                System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
+            }
+            if(!vetdir.isDirectory()) {
+                busted("CLDR_VET_DATA isn't a directory: " + vetdata);
+                return;
+            }
+    //        if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
+    //            try {
+    //                loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
+    //                loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
+    //                logger.addHandler(loggingHandler);
+    //                logger.setUseParentHandlers(false);
+    //            } catch(Throwable ioe){
+    //                busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
+    //                return;
+    //            }
+    //        }
+    
+            updateProgress(nn++, "Setup vap and message..");
+            vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
+            if((vap==null)||(vap.length()==0)) {
+                /*throw new UnavailableException*/
+                busted("No vetting password set. (CLDR_VAP in cldr.properties)");
+                return;
+            }
+            if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
+                isUnofficial = false;
+            }
+            vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
+            cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+            // System.getProperty("CLDR_COMMON") + "/main" is ignored.
+            fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
+            specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
+            specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
+            
+            lockOut = survprops.getProperty("CLDR_LOCKOUT");
+            
+            if(!new File(fileBase).isDirectory()) {
+                busted("CLDR_COMMON isn't a directory: " + fileBase);
+                return;
+            }
+    
+            if(!new File(vetweb).isDirectory()) {
+                busted("CLDR_VET_WEB isn't a directory: " + vetweb);
+                return;
+            }
+            updateProgress(nn++, "Setup cache..");
+    
+            File cacheDir = new File(cldrHome, "cache");
+        //    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+            CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
+            CachingEntityResolver.createAndEmptyCacheDir();
 
-        vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
-        vetdir = new File(vetdata);
-        if(!vetdir.isDirectory()) {
-            vetdir.mkdir();
-            System.err.println("## creating empty vetdir: " + vetdir.getAbsolutePath());
-        }
-        if(!vetdir.isDirectory()) {
-            busted("CLDR_VET_DATA isn't a directory: " + vetdata);
-            return;
-        }
-//        if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
-//            try {
-//                loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
-//                loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
-//                logger.addHandler(loggingHandler);
-//                logger.setUseParentHandlers(false);
-//            } catch(Throwable ioe){
-//                busted("Couldn't add log handler for logfile (" + vetdata+"/"+LOGFILE +"): " + ioe.toString());
-//                return;
-//            }
-//        }
+            updateProgress(nn++, "Setup supplemental..");
 
-        vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
-        if((vap==null)||(vap.length()==0)) {
-            /*throw new UnavailableException*/
-            busted("No vetting password set. (CLDR_VAP in cldr.properties)");
-            return;
+            supplemental = new SupplementalData(fileBase + "/../supplemental/");
+    
+    
+    
+    
+          //  int status = 0;
+        //    logger.info(" ------------------ " + new Date().toString() + " ---------------");
+            if(isBusted != null) {
+                return; // couldn't write the log
+            }
+            if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+                logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
+                busted("message: " + specialMessage);
+            }
+            /*
+             SurveyMain m = new SurveyMain();  ???
+             
+             if(!m.reg.read()) {
+                 busted("Couldn't load user registry [at least put an empty file there]   - exiting");
+                 return;
+             }
+             */
+            updateProgress(nn++, "Setup warnings..");
+            if(!readWarnings()) {
+                // already busted
+                return;
+            }
+            
+            updateProgress(nn++, "Setup baseline..");
+            
+            // load baseline file
+            getBaselineFile();
+            
+            doStartupDB(); // will take over progress 50-60
+        } finally {
+            clearProgress(); // at least clear the progress bar.
         }
-        if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
-            isUnofficial = false;
-        }
-        vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
-        cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-        // System.getProperty("CLDR_COMMON") + "/main" is ignored.
-        fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
-        specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
-        specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
         
-        lockOut = survprops.getProperty("CLDR_LOCKOUT");
-        
-        if(!new File(fileBase).isDirectory()) {
-            busted("CLDR_COMMON isn't a directory: " + fileBase);
-            return;
-        }
-
-        if(!new File(vetweb).isDirectory()) {
-            busted("CLDR_VET_WEB isn't a directory: " + vetweb);
-            return;
-        }
-
-        File cacheDir = new File(cldrHome, "cache");
-    //    logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
-        CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
-        CachingEntityResolver.createAndEmptyCacheDir();
-
-        supplemental = new SupplementalData(fileBase + "/../supplemental/");
-
-        isSetup = true;
-
-
-
-      //  int status = 0;
-    //    logger.info(" ------------------ " + new Date().toString() + " ---------------");
-        if(isBusted != null) {
-            return; // couldn't write the log
-        }
-        if ((specialMessage!=null)&&(specialMessage.length()>0)) {
-            logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
-            busted("message: " + specialMessage);
-        }
-        /*
-         SurveyMain m = new SurveyMain();  ???
-         
-         if(!m.reg.read()) {
-             busted("Couldn't load user registry [at least put an empty file there]   - exiting");
-             return;
-         }
+        /** 
+         * Cause locale alias to be checked.
          */
-        if(!readWarnings()) {
-            // already busted
-            return;
-        }
-
-        doStartupDB();
+        isLocaleAliased("mt_MT");
 
         logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
+        isSetup = true;
     }
 
     public void destroy() {
@@ -7701,14 +7896,43 @@ public class SurveyMain extends HttpServlet {
 
 
     protected void busted(String what) {
+        busted(what, null, null);
+    }
+    
+    /**
+     * Report an error with a SQLException
+     * @param what the error
+     * @param se the SQL Exception
+     */
+    protected void busted(String what, SQLException se) {
+        busted(what, se, unchainSqlException(se));
+    }
+    
+    protected void busted(String what, Throwable t) {
+        if(t instanceof SQLException) {
+            busted(what, (SQLException)t);
+        } else {
+            busted(what, t, t.toString());
+        }
+    }
+    
+    protected void busted(String what, Throwable t, String stack) {
         System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
         try {
             throw new InternalError("broke here");
         } catch(InternalError e) {
             e.printStackTrace();
         }
-        if(isBusted!=null) { // Keep original failure message.
+        if(isBusted==null) { // Keep original failure message.
             isBusted = what;
+            if(stack == null) {
+                stack = "(no stack)\n";
+            }
+            isBustedStack = stack + "\n"+"["+new Date().toGMTString()+"] "; 
+            isBustedThrowable = t;
+            isBustedTimer = new ElapsedTimer();
+        } else { 
+            System.err.println("[was already busted, not overriding old message.]");
         }
         logger.severe(what);
     }
@@ -7757,15 +7981,23 @@ public class SurveyMain extends HttpServlet {
     static long shortN = 0;
     static final int MAX_CHARS = 100;
     static final int LARGER_MAX_CHARS = 256;
-    static final String SHORT_A = "(Click to show entire warning.)";
+    static final String SHORT_A = "(Click to show entire message.)";
     static final String SHORT_B = "(hide.)";
-    private synchronized void printShortened(WebContext ctx, String str) {
-        printShortened(ctx, str, MAX_CHARS);
+    private static void printShortened(WebContext ctx, String str) {
+        ctx.println(getShortened(str));
     }
     
-    private synchronized void printShortened(WebContext ctx, String str, int max) {
+    private static void printShortened(WebContext ctx, String str, int max) {
+        ctx.println(getShortened(str, max));
+    }
+    
+    private static String getShortened(String str) {
+        return getShortened(str, MAX_CHARS);        
+    }
+    
+    private static synchronized String  getShortened(String str, int max) {
         if(str.length()<(max+1+SHORT_A.length())) {
-            ctx.println(str);
+            return (str);
         } else {
             int cutlen = max;
             String key = CookieSession.cheapEncode(shortN++);
@@ -7789,18 +8021,22 @@ public class SurveyMain extends HttpServlet {
             if((newline > 2) && (newline < cutlen)) {
                 cutlen = newline;
             }
-            printShortened(ctx,str.substring(0,cutlen), str, key); 
+            return getShortened(str.substring(0,cutlen), str, key); 
         }
     }
 
     private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
-            ctx.println("<span id='h_ww"+warnHash+"'>" + shortStr + "... ");
-            ctx.print("<a href='javascript:show(\"ww" + warnHash + "\")'>" + 
-                        SHORT_A+"</a></span>");
-            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                        "<span style='display: none'  id='ww" + warnHash + "'>" +
-                        longStr + "<a href='javascript:hide(\"ww" + warnHash + "\")'>" + 
-                        SHORT_B+"</a></span>");
+            ctx.println(getShortened(shortStr, longStr, warnHash));
+    }
+
+    private static String getShortened(String shortStr, String longStr, String warnHash ) {
+        return  ("<span id='h_ww"+warnHash+"'>" + shortStr + "... ") +
+                ("<a href='javascript:show(\"ww" + warnHash + "\")'>" + 
+                    SHORT_A+"</a></span>") +
+                ("<!-- <noscript>Warning: </noscript> -->" + 
+                    "<span style='display: none'  id='ww" + warnHash + "'>" +
+                    longStr + "<a href='javascript:hide(\"ww" + warnHash + "\")'>" + 
+                    SHORT_B+"</a></span>");
     }
 
 
@@ -7963,7 +8199,7 @@ public class SurveyMain extends HttpServlet {
             return nc;
         } catch (SQLException se) {
             se.printStackTrace();
-            busted("Fatal in getDBConnection: " + unchainSqlException(se));
+            busted("Fatal in getDBConnection", se);
             return null;
         }
     }
@@ -7980,7 +8216,7 @@ public class SurveyMain extends HttpServlet {
 //            nc.setAutoCommit(false);
 //            return nc;
 //        } catch (SQLException se) {
-//            busted("Fatal in getDBConnection: " + unchainSqlException(se));
+//            busted("Fatal in getDBConnection: "", se);
 //            return null;
 //        }
 //    }
@@ -7991,6 +8227,9 @@ public class SurveyMain extends HttpServlet {
 
     private void doStartupDB()
     {
+        int nn = progressCount; // save
+        setProgress("Database Setup");
+        updateProgress(nn += 5, "begin.."); // restore
         //dbDir_u = new File(cldrHome,CLDR_DB_U);
         //boolean doesExist = dbDir.isDirectory();
     ///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
@@ -7998,21 +8237,25 @@ public class SurveyMain extends HttpServlet {
     //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
         try
         { 
+            updateProgress(nn++, "Load "+db_driver); // restore
             Object o = Class.forName(db_driver).newInstance();
             try {
                 java.sql.Driver drv = (java.sql.Driver)o;
+                updateProgress(nn++, "Check "+db_driver); // restore
                 dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
              //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
             } catch(Throwable t) {
                 dbInfo = "unknown";
             }
             logger.info("loaded "+db_driver+" driver " + o + " - " + dbInfo);
+            updateProgress(nn++, "Create DB"); // restore
             Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
     //        logger.info("Connected to database " + cldrdb);
     ///*U*/        Connection conn_u = getU_DBConnection(";create=true");
     //        logger.info("Connected to user database " + cldrdb_u);
             
             // set up our main tables.
+            updateProgress(nn++, "Commit DB"); // restore
             conn.commit();        
             conn.close(); 
             
@@ -8021,21 +8264,25 @@ public class SurveyMain extends HttpServlet {
         }
         catch (SQLException e)
         {
-            busted("On database startup: " + unchainSqlException(e));
+            busted("On database startup", e);
             return;
         }
         catch (Throwable t)
         {
-            busted("Other error on database startup: " + t.toString());
+            busted("Other error on database startup",t);
             t.printStackTrace();
             return;
         }
         // now other tables..
+        updateProgress(nn++, "Setup databases "); // restore
         try {
+            updateProgress(nn++, "Setup  "+UserRegistry.CLDR_USERS); // restore
             Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
             boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
+            updateProgress(nn++, "Create UserRegistry  "+UserRegistry.CLDR_USERS); // restore
             reg = UserRegistry.createRegistry(logger, uConn, this);
             if(!doesExist_u) { // only import users on first run through..
+                updateProgress(nn++, "Import old users"); // restore
                 reg.importOldUsers(vetdata);
             }
             
@@ -8046,35 +8293,40 @@ public class SurveyMain extends HttpServlet {
 //            }
             
         } catch (SQLException e) {
-            busted("On UserRegistry startup: " + unchainSqlException(e));
+            busted("On UserRegistry startup", e);
             return;
         }
+        updateProgress(nn++, "Create XPT"); // restore
         try {
             xpt = XPathTable.createTable(logger, getDBConnection(), this);
         } catch (SQLException e) {
-            busted("On XPathTable startup: " + unchainSqlException(e));
+            busted("On XPathTable startup", e);
             return;
         }
         // note: make xpt before CLDRDBSource..
+        updateProgress(nn++, "Create CLDR_DATA"); // restore
         try {
             CLDRDBSource.setupDB(logger, getDBConnection(), this);
         } catch (SQLException e) {
-            busted("On CLDRDBSource startup: " + unchainSqlException(e));
+            busted("On CLDRDBSource startup", e);
             return;
         }
+        updateProgress(nn++, "Create Vetting"); // restore
         try {
             vet = Vetting.createTable(logger, getDBConnection(), this);
         } catch (SQLException e) {
             e.printStackTrace();
-            busted("On Vetting startup: " + unchainSqlException(e));
+            busted("On Vetting startup", e);
             return;
         }
+        updateProgress(nn++, "Create fora"); // restore
         try {
             fora = SurveyForum.createTable(logger, getDBConnection(), this);
         } catch (SQLException e) {
-            busted("On Fora startup: " + unchainSqlException(e));
+            busted("On Fora startup", e);
             return;
         }
+        updateProgress(nn++, " DB setup complete."); // restore
     }    
 
     public static final String unchainSqlException(SQLException e) {
@@ -8250,7 +8502,7 @@ public class SurveyMain extends HttpServlet {
             }
         } catch (SQLException se)
         {
-            busted("While looking for table '" + table + "': " + unchainSqlException(se));
+            busted("While looking for table '" + table + "': ", se);
             return false; // NOTREACHED
         }
     }

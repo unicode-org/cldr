@@ -1,6 +1,12 @@
-﻿$avalue=[^"]*;
+﻿# File that produces shorter names
+# Variables for attribute values and elements
+$avalue=[^"]*;
 $element=[a-zA-Z0-9]+;
+
+# Complete noise
 '//ldml' > ;
+
+# First codes list
 '/localeDisplayNames/languages/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
 '/localeDisplayNames/scripts/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;
 '/localeDisplayNames/territories/' ($element) '[@type="' ($avalue) '"]' > '0-names|' $1 '|' $2;

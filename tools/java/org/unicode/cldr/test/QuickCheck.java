@@ -43,7 +43,8 @@ public class QuickCheck {
   
   private static boolean showInfo = false;
   
-  private static String sourceDirectory;
+  private static String commonDirectory;
+  private static String mainDirectory;
   
   private static boolean showForceZoom;
   
@@ -52,25 +53,25 @@ public class QuickCheck {
   private static Exception[] internalException = new Exception[1];
   
   public static void main(String[] args) throws IOException {
-    localeRegex = System.getProperty("LOCALE");
+    localeRegex = Utility.getProperty("locale");
     if (localeRegex == null) localeRegex = ".*";
     
-    showInfo = System.getProperty("SHOW") != null;
-    System.out.println("ShowInfo: " + showInfo + "\t\t(use -DSHOW) to enable");
+    showInfo = Utility.getProperty("showinfo","false","true").matches("(?i)T|TRUE");
     
-    sourceDirectory = System.getProperty("SOURCE");
-    if (sourceDirectory == null) sourceDirectory = Utility.COMMON_DIRECTORY + "main";
-    System.out.println("Main Source Directory: " + sourceDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+    commonDirectory = Utility.COMMON_DIRECTORY; // Utility.getProperty("common", Utility.COMMON_DIRECTORY);
+    //if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
+    //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+
+    mainDirectory = Utility.getProperty("main", Utility.COMMON_DIRECTORY + "main");
+    //System.out.println("Main Source Directory: " + commonDirectory + "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+
+    showForceZoom = Utility.getProperty("forcezoom","false","true").matches("(?i)T|TRUE");
     
-    showForceZoom = System.getProperty("FORCED") != null;
-    System.out.println("Force Zoomed Edit?: " + showForceZoom + "\t\t(use -DFORCED) to enable");
+    resolved = Utility.getProperty("resolved","false","true").matches("(?i)T|TRUE");
     
-    resolved = System.getProperty("RESOLVED") != null;
-    System.out.println("Resolved?: " + resolved + "\t\t(use -RESOLVED) to enable");
+    boolean paths = Utility.getProperty("paths", "true").matches("(?i)T|TRUE");
     
-    boolean paths = Utility.getProperty("PATHS", "TRUE", "TRUE").matches("(?i)T|TRUE");
-    
-    pretty = Utility.getProperty("PRETTY", "TRUE", "TRUE").matches("(?i)T|TRUE");
+    pretty = Utility.getProperty("pretty", "true").matches("(?i)T|TRUE");
     
     double startTime = System.currentTimeMillis();
     checkDtds();
@@ -87,12 +88,12 @@ public class QuickCheck {
   }
   
   private static void checkDtds() throws IOException {
-    checkDtds(Utility.COMMON_DIRECTORY + "supplemental");
-    checkDtds(sourceDirectory);
-    checkDtds(Utility.COMMON_DIRECTORY + "collation");
-    checkDtds(Utility.COMMON_DIRECTORY + "segments");
-    checkDtds(Utility.COMMON_DIRECTORY + "test");
-    checkDtds(Utility.COMMON_DIRECTORY + "transforms");
+    checkDtds(mainDirectory);
+    checkDtds(commonDirectory + "supplemental");
+    checkDtds(commonDirectory + "collation");
+    checkDtds(commonDirectory + "segments");
+    checkDtds(commonDirectory + "test");
+    checkDtds(commonDirectory + "transforms");
   }
   
   private static void checkDtds(String directory) throws IOException {
@@ -155,18 +156,19 @@ public class QuickCheck {
     Relation<String,String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     Relation<String,String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
     XPathParts parts = new XPathParts();
-    Factory cldrFactory = Factory.make(sourceDirectory, localeRegex);
+    Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
+    CLDRFile english = cldrFactory.make("en", true);
     
     Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator), TreeSet.class, null);
     for (String locale : cldrFactory.getAvailable()) {
-      if (locale.equals("root") && !localeRegex.equals("root"))
-        continue;
+//      if (locale.equals("root") && !localeRegex.equals("root"))
+//        continue;
       CLDRFile file = cldrFactory.make(locale, resolved);
       if (file.isNonInheriting())
         continue;
       DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
       
-      System.out.println(locale);
+      System.out.println(locale + "\t-\t" + english.getName(locale));
       
       for (Iterator<String> it = file.iterator(); it.hasNext();) {
         String path = it.next();
@@ -179,16 +181,16 @@ public class QuickCheck {
         }
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
         if (!displayValue.equals(value)) {
-          System.out.println(locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
+          System.out.println("\t" + locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
         }
         String inputValue = displayAndInputProcessor.processInput(path, value, internalException);
         if (internalException[0] != null) {
-          System.out.println(locale + "\tdisplayAndInputProcessor internal error <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
+          System.out.println("\t" + locale + "\tdisplayAndInputProcessor internal error <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
           internalException[0].printStackTrace(System.out);
         }
         if (!inputValue.equals(value)) {
           displayAndInputProcessor.processInput(path, value, internalException); // for debugging
-          System.out.println(locale + "\tdisplayAndInputProcessor changes input value <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
+          System.out.println("\t" + locale + "\tdisplayAndInputProcessor changes input value <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
         }
         
         pathToLocale.put(path, locale);
@@ -211,6 +213,7 @@ public class QuickCheck {
         }
       }
     }
+    System.out.println();
     
     System.out.format("Distinguishing Elements: %s\r\n", distinguishing);
     System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);

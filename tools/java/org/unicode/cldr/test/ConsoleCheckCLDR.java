@@ -26,6 +26,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 
 import java.io.File;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -193,6 +195,7 @@ public class ConsoleCheckCLDR {
     }
     
     if (options[GENERATE_HTML].doesOccur) {
+      coverageLevel = Level.MODERN; // reset
       generated_html_directory = options[GENERATE_HTML].value;
       if (generated_html_directory == null) {
         generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
@@ -200,7 +203,7 @@ public class ConsoleCheckCLDR {
       generated_html_count = BagFormatter.openUTF8Writer(generated_html_directory, "count.txt");
       generated_html_summary = BagFormatter.openUTF8Writer(generated_html_directory, "summary.html");
       showIndexHead(generated_html_summary);
-      startGeneratedTable(generated_html_summary);
+      startGeneratedTable(generated_html_summary, generated_html_summary_table);
     }
     
     // check stuff
@@ -239,8 +242,8 @@ public class ConsoleCheckCLDR {
     Map m = new TreeMap();
     //double testNumber = 0;
     Map<String,String> options = new HashMap<String,String>();
-    Counter totalCount = new Counter();
-    Counter subtotalCount = new Counter();
+    Counter<String> totalCount = new Counter();
+    Counter<String> subtotalCount = new Counter();
     FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
     Set<String> englishPaths = null;
     
@@ -304,11 +307,12 @@ public class ConsoleCheckCLDR {
       // generate HTML if asked for
       if (generated_html_directory != null) {
         String baseLanguage = localeIDParser.set(localeID).getLanguage();
-        
+
         if (!baseLanguage.equals(lastBaseLanguage)) {
           lastBaseLanguage = baseLanguage;
           openGeneratedHtml(localeID, baseLanguage);
         }
+
       }
       
       if (user != null) {
@@ -329,7 +333,8 @@ public class ConsoleCheckCLDR {
         if (checkOnSubmit) {
           if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
         }
-        showSummary(checkCldr, localeID, level, statusString);
+        showValue(file, null, localeID, null, null, null, null, statusString, null);
+        // showSummary(checkCldr, localeID, level, statusString);
         subtotalCount.add(status.getType(), 1);
       }
       paths.clear();
@@ -409,6 +414,15 @@ public class ConsoleCheckCLDR {
           prettyPathMaker.getOriginal(prettyPath);
         }
         
+        if (!file.isWinningPath(path)) {
+          continue;
+        }
+        if (!isLanguageLocale) {
+          if (!localeID.equals(file.getSourceLocaleID(path, null))) {
+            continue;
+          }
+        }
+        
         if (path.contains("@alt")) {
             if (path.contains("proposed")) continue;
         }
@@ -480,14 +494,21 @@ public class ConsoleCheckCLDR {
             }
             // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
           }
-          if (showAll && !showedOne) {
-            showValue(file, prettyPath, localeID, example, path, value, fullPath, "noerr", exampleContext);
-            //pathShower.showHeader(path, value);
+          if (!showedOne) {
+            if (fullPath != null && draftStatusMatcher.reset(fullPath).find()) {
+              final String draftStatus = draftStatusMatcher.group(1);
+              showValue(file, prettyPath, localeID, example, path, value, fullPath, draftStatus, exampleContext);
+              subtotalCount.add(draftStatus.toString(), 1);
+              totalCount.add(draftStatus.toString(), 1);
+            } else if (showAll) {
+              showValue(file, prettyPath, localeID, example, path, value, fullPath, "ok", exampleContext);
+              //pathShower.showHeader(path, value);
+            }
           }
 
         }
       }
-      showSummary(checkCldr, localeID, level, "Paths:\t" + pathCount);
+      showSummary(checkCldr, localeID, level, "Items (including inherited):\t" + pathCount);
       if (missingExemplars.size() != 0) {
         showSummary(checkCldr, localeID, level, "Total missing:\t" + missingExemplars);
       }
@@ -522,26 +543,10 @@ public class ConsoleCheckCLDR {
       generated_html_count.close();
       generated_html_summary.println("</table></body></html>");
       generated_html_summary.close();
+      
      PrintWriter generated_html_index = BagFormatter.openUTF8Writer(generated_html_directory, "index.html");
       showIndexHead(generated_html_index);
-      generated_html_index.println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
-      
-      TablePrinter indexTablePrinter = new TablePrinter().addColumn("Locale Group").addColumn("Error Count").setCellAttributes("align='right'");
-      for (String key : sortedHtmlIndexLines.keySet()) {
-        Pair<String,Integer> pair = sortedHtmlIndexLines.get(key);
-        String htmlOpenedFileLanguage = pair.getFirst();
-        Integer count = pair.getSecond();
-        if (count == 0) {
-          continue;
-        }
-        indexTablePrinter.addRow()
-        .addCell( "<a href='" + htmlOpenedFileLanguage + ".html'>" + getNameAndLocale(htmlOpenedFileLanguage, false) + "</a>")
-        .addCell(count)
-        .finishRow();
-      }
-      
-      generated_html_index.println(indexTablePrinter.toTable());
-      generated_html_index.println("</table></html>");
+      showSummaryTable(generated_html_index);
       generated_html_index.close();
     }
 
@@ -556,6 +561,62 @@ public class ConsoleCheckCLDR {
     }
   }
 
+  private static void showLocaleTable(PrintWriter generated_html_index, ErrorCount counts) {
+    generated_html_index.println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
+
+    TablePrinter indexTablePrinter = new TablePrinter();
+    for (ErrorType type : ErrorType.toShow) {
+      String columnTitle = UCharacter.toTitleCase(type.toString(), null);
+      if (ErrorType.coverage.contains(type)) {
+        columnTitle = "Missing Coverage: " + columnTitle;
+      } else if (ErrorType.unapproved.contains(type)) {
+        columnTitle = "Missing Votes: " + columnTitle;
+      }
+      indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
+    }
+    indexTablePrinter.addRow();
+    for (ErrorType type : ErrorType.toShow) {
+      indexTablePrinter.addCell(counts.getCount(type));
+    }
+    indexTablePrinter.finishRow();
+    generated_html_index.println(indexTablePrinter.toTable());
+    generated_html_index.println("</table></html>");
+  }
+
+  
+  private static void showSummaryTable(PrintWriter generated_html_index) {
+    generated_html_index.println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
+    
+    TablePrinter indexTablePrinter = new TablePrinter().addColumn("Locale Group");
+    for (ErrorType type : ErrorType.toShow) {
+      String columnTitle = UCharacter.toTitleCase(type.toString(), null);
+      if (ErrorType.coverage.contains(type)) {
+        columnTitle = "Missing Coverage: " + columnTitle;
+      } else if (ErrorType.unapproved.contains(type)) {
+        columnTitle = "Missing Votes: " + columnTitle;
+      }
+      indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
+    }
+    for (String key : sortedHtmlIndexLines.keySet()) {
+      Pair<String,ErrorCount> pair = sortedHtmlIndexLines.get(key);
+      String htmlOpenedFileLanguage = pair.getFirst();
+      ErrorCount counts = pair.getSecond();
+      if (counts.total() == 0) {
+        continue;
+      }
+      indexTablePrinter.addRow()
+      .addCell( "<a href='" + htmlOpenedFileLanguage + ".html'>" + getNameAndLocale(htmlOpenedFileLanguage, false) + "</a>");
+      for (ErrorType type : ErrorType.toShow) {
+        indexTablePrinter.addCell(counts.getCount(type));
+      }
+      indexTablePrinter.finishRow();
+    }      
+    generated_html_index.println(indexTablePrinter.toTable());
+    generated_html_index.println("</table></html>");
+  }
+
+  static Matcher draftStatusMatcher = Pattern.compile("\\[@draft=\"([^\"]*)\"]").matcher("");
+  
   private static String checkValidDirectory(String sourceDirectory, String correction) {
 	  File temp = new File(sourceDirectory);
 	  String canonicalPath = null;
@@ -583,16 +644,54 @@ private static void showIndexHead(PrintWriter generated_html_index) {
         "However, it should let you see the problems and make sure that they get taken care of.)</i></p>");
   }
 
-  private static int htmlErrorsPerBaseLanguage = 0;
+  enum ErrorType {
+    error, warning, 
+    contributed, provisional, unconfirmed, 
+    posix, minimal, basic, moderate, modern, comprehensive, optional,
+    unknown;
+    static EnumSet<ErrorType> unapproved = EnumSet.range(ErrorType.contributed, ErrorType.unconfirmed);
+    static EnumSet<ErrorType> coverage = EnumSet.range(ErrorType.posix, ErrorType.optional);
+    static EnumSet<ErrorType> toShow = EnumSet.complementOf(EnumSet.range(ErrorType.comprehensive, ErrorType.unknown));
+  };
+  
+  static class ErrorCount implements Comparable<ErrorCount> {
+    private Counter<ErrorType> counter = new Counter<ErrorType>();
+
+    public int compareTo(ErrorCount o) {
+      // we don't really need a good comparison - aren't going to be sorting
+      return total() < o.total() ? -1 : total() > o.total() ? 1 : 0;
+    }
+    public long total() {
+      return counter.getTotal();
+    }
+    public void clear() {
+      counter.clear();
+    }
+    public Set<ErrorType> keyset() {
+      return counter.keySet();
+    }
+    public long getCount(ErrorType input) {
+      return counter.getCount(input);
+    }
+    public void increment(ErrorType errorType) {
+      counter.add(errorType, 1);
+    }
+  }
+  
+  private static ErrorCount htmlErrorsPerBaseLanguage = new ErrorCount();
   private static String htmlOpenedFileLanguage = null;
-  private static TreeMap<String,Pair<String,Integer>> sortedHtmlIndexLines = new TreeMap();  
+  private static TreeMap<String, Pair<String,ErrorCount>> sortedHtmlIndexLines = new TreeMap();  
   
   private static void closeGeneratedHtml() {
+    generated_html.println("<table border='1' style='border-collapse: collapse' bordercolor='#CCCCFF'>");
+    generated_html.println(generated_html_table.toTable());
     generated_html.println("</table></body></html>");
-    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage, false), 
-        new Pair<String,Integer>(htmlOpenedFileLanguage, htmlErrorsPerBaseLanguage));
     generated_html.close();
-    htmlErrorsPerBaseLanguage = 0;
+    generated_html_table = null;
+    
+    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage, false), 
+        new Pair<String,ErrorCount>(htmlOpenedFileLanguage, htmlErrorsPerBaseLanguage));
+    htmlErrorsPerBaseLanguage = new ErrorCount();
   }
 
   private static void openGeneratedHtml(String localeID, String baseLanguage) throws IOException {
@@ -600,6 +699,10 @@ private static void showIndexHead(PrintWriter generated_html_index) {
       closeGeneratedHtml();
     }
     generated_html = BagFormatter.openUTF8Writer(generated_html_directory, baseLanguage + ".html");
+    generated_html_table = new TablePrinter();
+    showLineHeaders(generated_html_table);
+    //showLineHeaders(generated_html_table);
+
     htmlOpenedFileLanguage = baseLanguage;
     generated_html.println("<html>" +
         "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
@@ -614,14 +717,18 @@ private static void showIndexHead(PrintWriter generated_html_index) {
             "However, it should let you see the problems and make sure that they get taken care of.)</i></p>"); 
   }
 
-  private static void startGeneratedTable(PrintWriter output) {
-    output.println(
-        "<table border='1' style='border-collapse: collapse' bordercolor='#CCCCFF'>" +
-        "<tr><th>Locale</th><th>Section Link</th><th>Section/Code</th><th>English</th><th>Proposed 1.5</th><th>Error Description</th></tr>");
+  private static void startGeneratedTable(PrintWriter output, TablePrinter table) {
+    showLineHeaders(table);
   }
   
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
-    System.out.println(getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value);
+    String line = getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value;
+    System.out.println(line);
+//    if (generated_html != null) {
+//      line = TransliteratorUtilities.toHTML.transform(line);
+//      line = line.replace("\t", "</td><td>");
+//      generated_html.println("<table><tr><td>" + line + "</td></tr></table>");
+//    }
   }
 
   private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID, ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example, ExampleContext exampleContext) {
@@ -694,35 +801,55 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   private static ExampleGenerator englishExampleGenerator;
   private static Object lastLocaleID = null;
   
+  static Matcher coverageMatcher = Pattern.compile("meet ([a-z]*) coverage").matcher(""); // HACK TODO fix
+  
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
     example = example == null ? "" : example;
     String englishExample = null;
-    if (SHOW_EXAMPLES != null) {
+    final String englishPathValue = path == null ? null : getEnglishPathValue(path);
+    if (SHOW_EXAMPLES != null && path != null) {
       if (getExampleGenerator() == null) {
         setExampleGenerator(new ExampleGenerator(CheckCLDR.getDisplayInformation(), Utility.SUPPLEMENTAL_DIRECTORY));
       }
-      englishExample = getExampleGenerator().getExampleHtml(path, getEnglishPathValue(path), ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
+      englishExample = getExampleGenerator().getExampleHtml(path, englishPathValue, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
     }
     englishExample = englishExample == null ? "" : "<" + englishExample + ">";
-    String shortStatus = statusString.equals("ok") ? "ok" : statusString.startsWith("Warning") ? "warn" : statusString.startsWith("Error") ? "err" : "???";
-    String cleanPrettyPath = prettyPathMaker.getOutputForm(prettyPath);
+    ErrorType shortStatus = statusString.equals("ok") ? null 
+            : statusString.startsWith("Error") ? ErrorType.error 
+                    : statusString.startsWith("Warning") ? ErrorType.warning 
+                            : statusString.equals("contributed") ? ErrorType.contributed 
+                                    : statusString.equals("provisional") ? ErrorType.provisional 
+                                            : statusString.equals("unconfirmed") ? ErrorType.unconfirmed 
+                                                    : ErrorType.unknown ;
+    if (shortStatus == ErrorType.unknown) {
+      System.out.println("Unknown error type");
+    }
+    if (shortStatus == ErrorType.warning) {
+      if (coverageMatcher.reset(statusString).find()) {
+        shortStatus = ErrorType.valueOf(coverageMatcher.group(1));
+      }
+    }
+    String cleanPrettyPath = path == null ? null : prettyPathMaker.getOutputForm(prettyPath);
     Status status = new Status();
-    String source = cldrFile.getSourceLocaleID(path, status);
-    String fillinValue = cldrFile.getFillInValue(path);
+    String source = path == null ? null : cldrFile.getSourceLocaleID(path, status);
+    String fillinValue = path == null ? null : cldrFile.getFillInValue(path);
     fillinValue = fillinValue == null ? "" : fillinValue.equals(value) ? "=" : fillinValue;
+    
+    final String otherSource = path == null ? null : (source.equals(localeID) ? "" : "\t" + source);
+    final String otherPath = path == null ? null : (status.pathWhereFound.equals(path) ? "" : "\t" + status.pathWhereFound);
     
     System.out.println(getLocaleAndName(localeID)
         + "\t" + shortStatus
         + "\t" + cleanPrettyPath
-        + "\t〈" + getEnglishPathValue(path) + "〉"
+        + "\t〈" + englishPathValue + "〉"
         + "\t【" + englishExample + "】"
         + "\t〈" + value + "〉"
         + "\t«" + fillinValue + "»"
         + "\t【" + example + "】"
         + "\t" + statusString
         + "\t" + fullPath
-        + (source.equals(localeID) ? "" : "\t" + source)
-        + (status.pathWhereFound.equals(path) ? "" : "\t" + status.pathWhereFound)
+        + otherSource
+        + otherPath
         );
     if (generated_html != null) {
       if (!localeID.equals(lastHtmlLocaleID)) {
@@ -733,39 +860,42 @@ private static void showIndexHead(PrintWriter generated_html_index) {
           htmlErrorsPerLocale = 0;
         }
         generated_html_summary.flush();
-        startGeneratedTable(generated_html);
+        //startGeneratedTable(generated_html, generated_html_table);
         lastHtmlLocaleID = localeID;
       }
       htmlErrorsPerLocale++;
-      htmlErrorsPerBaseLanguage++;
-      String menuPath = PathUtilities.xpathToMenu(path);
-      String link = "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
-      showLine(generated_html, localeID, path, value, statusString, cleanPrettyPath, menuPath, link);
-      showLine(generated_html_summary, localeID, path, value, statusString, cleanPrettyPath, menuPath, link);
+      htmlErrorsPerBaseLanguage.increment(shortStatus);
+
+      String menuPath = path == null ? null : PathUtilities.xpathToMenu(path);
+      String link = path == null ? null : "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
+      showLine(generated_html_table, localeID, path, value, shortStatus, cleanPrettyPath, menuPath, link);
+      showLine(generated_html_summary_table, localeID, path, value, shortStatus, cleanPrettyPath, menuPath, link);
     }
     if (generated_html_count != null) {
       generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);
     }
   }
+  
+  static TablePrinter generated_html_table = new TablePrinter();
+  static TablePrinter generated_html_summary_table = new TablePrinter();
 
-  private static void showLine(PrintWriter printWriter, String localeID, String path, String value, String statusString, String cleanPrettyPath, String menuPath, String link) {
-    printWriter.println( "<tr>" +
-        "<td>" + getNameAndLocale(localeID, true)
-          + "</td><td>"
-          + "<a href='" + link +
-          "'>" + menuPath + "</a>"
-          + "</td><td>"
-        //+ TransliteratorUtilities.toHTML.transliterate(shortStatus)
-        //+ "</td><td>" 
-        + safeForHtml(cleanPrettyPath)
-        + "</td><td>" + safeForHtml(getEnglishPathValue(path))
-        //+ "</td><td>" + englishExample
-        + "</td><td>" + safeForHtml(value)
-        //+ "</td><td>" + example
-        + "</td><td>" + safeForHtml(statusString)
-        //+ "</td><td>" + fullPath
-        + "</td></tr>"
-        );
+  private static void showLine(TablePrinter table, String localeID, String path, String value, ErrorType shortStatus, String cleanPrettyPath, String menuPath, String link) {
+    table.addRow()
+      .addCell(shortStatus)
+      .addCell(getNameAndLocale(localeID, true))
+      .addCell(menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>")
+      .addCell(safeForHtml(path == null ? null : getEnglishPathValue(path)))
+      .addCell(safeForHtml(value))
+      .finishRow();
+  }
+  
+  private static void showLineHeaders(TablePrinter table) {
+    table
+    .addColumn("Problem").setSortPriority(0)
+    .addColumn("Locale").setSortPriority(1)
+    .addColumn("Link")
+    .addColumn("English")
+    .addColumn("Native");
   }
   
   static String lastHtmlLocaleID = "";

@@ -111,7 +111,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
       return (String)xpath_value.get(xpath);
     }
     public File getSupplementalDirectory() {
-      return new File(factory.getSourceDirectory()+ File.separator + "../supplemental/");
+      final File result = new File(factory.getSourceDirectory()+ File.separator + "../supplemental/");
+      if (result.isDirectory()) {
+        return result;
+      }
+      return new File(Utility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
     }
     public String getFullPathAtDPath(String xpath) {
       String result = (String) xpath_fullXPath.get(xpath);

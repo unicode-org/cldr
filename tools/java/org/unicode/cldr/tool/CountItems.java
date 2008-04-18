@@ -24,12 +24,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -458,74 +461,8 @@ public class CountItems {
     Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
 
-    System.out.println("Writing zonePrettyPath");
-    Set<String> masked = new HashSet();
-    Map<String, String> zoneNew_Old = new TreeMap(col);
-    String lastZone = "XXX";
-    for (String zone : new TreeSet<String>(zone_country.keySet())) {
-      String[] parts = zone.split("/");
-      String newPrefix = zone_country.get(zone); // english.getName("tzid", zone_country.get(zone), false).replace(' ', '_');
-      if (newPrefix.equals("001")) {
-        newPrefix = "ZZ";
-      }
-      parts[0] = newPrefix;
-      String newName;
-      if (parts.length > 2) {
-        System.out.println("\tMultifield: " + zone);
-        if (parts.length == 3 && parts[1].equals("Argentina")) {
-          newName = parts[0] + "/" + parts[1];
-        } else {
-          newName = Utility.join(parts, "/");
-        }
-      } else {
-        newName = Utility.join(parts, "/");
-      }
-      zoneNew_Old.put(newName, zone);
-      if (zone.startsWith(lastZone)) {
-        masked.add(zone); // find "masked items" and do them first.
-      } else {
-        lastZone = zone;
-      }
-    }
-
-    Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
-    String lastCountry = "";
-    for (int i = 0; i < 2; ++i) {
-      Set<String> orderedList = zoneNew_Old.keySet();
-      if (i == 0) {
-        Log
-            .println("# Short IDs for zone names: country code + last part of TZID");
-        Log
-            .println("# First are items that would be masked, and are moved forwards and sorted in reverse order");
-        Log.println();
-        Comparator c;
-        Set<String> temp = new TreeSet(new ReverseComparator(col));
-        temp.addAll(orderedList);
-        orderedList = temp;
-      } else {
-        Log.println();
-        Log.println("# Normal items, sorted by country code");
-        Log.println();
-      }
-
-      // do masked items first
-
-      for (String newName : orderedList) {
-        String oldName = zoneNew_Old.get(newName);
-        if (masked.contains(oldName) != (i == 0)) {
-          continue;
-        }
-        String newCountry = newName.split("/")[0];
-        if (!newCountry.equals(lastCountry)) {
-          Log.println("# " + newCountry + "\t"
-              + english.getName("territory", newCountry));
-          lastCountry = newCountry;
-        }
-        Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
-      }
-    }
-    Log.close();
-    System.out.println("Done Writing zonePrettyPath");
+    writeZonePrettyPath(col, zone_country, english);
+    writeMetazonePrettyPath();
 
     Map old_new = sc.getZoneLinkold_new();
     Map new_old = new TreeMap();
@@ -618,6 +555,126 @@ public class CountItems {
     assert (tzid.toString().equals(broken.replace(sep, " ")));
     System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken
         + "\r\n\t\t\t</variable>");
+  }
+
+  public static void writeMetazonePrettyPath() {
+    TestInfo testInfo = TestInfo.getInstance();
+    Map<String, Map<String, String>> map = testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
+    Map zoneToCountry = testInfo.getStandardCodes().getZoneToCounty();
+    Set<Pair<String,String>> results = new TreeSet();
+    Map<String,String> countryToContinent = getCountryToContinent(testInfo.getSupplementalDataInfo(), testInfo.getEnglish());
+    
+    for (String metazone : map.keySet()) {
+      Map<String, String> regionToZone = map.get(metazone);
+      String zone = regionToZone.get("001");
+      if (zone == null) {
+        throw new IllegalArgumentException("Missing 001 for metazone " + metazone);
+      }
+      String continent = zone.split("/")[0];
+      
+      final Object country = zoneToCountry.get(zone);
+      results.add(new Pair<String,String>(continent + "\t" + country + "\t" + countryToContinent.get(country) + "\t" + metazone, metazone));
+    }
+    for (Pair<String,String> line : results) {
+      System.out.println("'" + line.getSecond() + "'\t>\t'\t" + line.getFirst() + "\t'");
+    }
+  }
+
+  private static Map<String, String> getCountryToContinent(SupplementalDataInfo supplementalDataInfo, CLDRFile english) {
+    Relation<String,String> countryToContinent = new Relation(new TreeMap(), TreeSet.class);
+    Set<String> continents = new HashSet<String>(Arrays.asList("002", "019", "142", "150", "009"));
+    // note: we don't need more than 3 levels
+    for (String continent : continents) {
+      final Set<String> subcontinents = supplementalDataInfo.getContained(continent);
+      countryToContinent.putAll(subcontinents, continent);
+      for (String subcontinent : subcontinents) {
+        if (subcontinent.equals("QU")) continue;
+        final Set<String> countries = supplementalDataInfo.getContained(subcontinent);
+        countryToContinent.putAll(countries, continent);
+      }
+    }
+    // convert to map
+    Map<String, String> results = new TreeMap<String, String>();
+    for (String item : countryToContinent.keySet()) {
+      final Set<String> containees = countryToContinent.getAll(item);
+      if (containees.size() != 1) {
+        throw new IllegalArgumentException(item + "\t" + containees);
+      }
+      results.put(item, english.getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+    }
+    return results;
+  }
+
+  private static void writeZonePrettyPath(RuleBasedCollator col, Map<String, String> zone_country,
+          CLDRFile english) throws IOException {
+    System.out.println("Writing zonePrettyPath");
+    Set<String> masked = new HashSet();
+    Map<String, String> zoneNew_Old = new TreeMap(col);
+    String lastZone = "XXX";
+    for (String zone : new TreeSet<String>(zone_country.keySet())) {
+      String[] parts = zone.split("/");
+      String newPrefix = zone_country.get(zone); // english.getName("tzid", zone_country.get(zone), false).replace(' ', '_');
+      if (newPrefix.equals("001")) {
+        newPrefix = "ZZ";
+      }
+      parts[0] = newPrefix;
+      String newName;
+      if (parts.length > 2) {
+        System.out.println("\tMultifield: " + zone);
+        if (parts.length == 3 && parts[1].equals("Argentina")) {
+          newName = parts[0] + "/" + parts[1];
+        } else {
+          newName = Utility.join(parts, "/");
+        }
+      } else {
+        newName = Utility.join(parts, "/");
+      }
+      zoneNew_Old.put(newName, zone);
+      if (zone.startsWith(lastZone)) {
+        masked.add(zone); // find "masked items" and do them first.
+      } else {
+        lastZone = zone;
+      }
+    }
+
+    Log.setLog(Utility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
+    String lastCountry = "";
+    for (int i = 0; i < 2; ++i) {
+      Set<String> orderedList = zoneNew_Old.keySet();
+      if (i == 0) {
+        Log
+            .println("# Short IDs for zone names: country code + last part of TZID");
+        Log
+            .println("# First are items that would be masked, and are moved forwards and sorted in reverse order");
+        Log.println();
+        Comparator c;
+        Set<String> temp = new TreeSet(new ReverseComparator(col));
+        temp.addAll(orderedList);
+        orderedList = temp;
+      } else {
+        Log.println();
+        Log.println("# Normal items, sorted by country code");
+        Log.println();
+      }
+
+      // do masked items first
+
+      for (String newName : orderedList) {
+        String oldName = zoneNew_Old.get(newName);
+        if (masked.contains(oldName) != (i == 0)) {
+          continue;
+        }
+        String newCountry = newName.split("/")[0];
+        if (!newCountry.equals(lastCountry)) {
+          Log.println("# " + newCountry + "\t"
+              + english.getName("territory", newCountry));
+          lastCountry = newCountry;
+        }
+        Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
+      }
+    }
+    Log.close();
+    System.out.println("Done Writing zonePrettyPath");
   }
 
   public static class ReverseComparator<T> implements Comparator<T> {

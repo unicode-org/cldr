@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -1208,6 +1209,12 @@ public static <T> T clone(T source) {
    */
   public static String getProperty(String key, String valueIfNull, String valueIfEmpty) {
     String result = System.getProperty(key);
+    if (result == null) {
+      result = System.getProperty(key.toUpperCase(Locale.ENGLISH));
+    }
+    if (result == null) {
+      result = System.getProperty(key.toLowerCase(Locale.ENGLISH));
+    }
     if (result == null) {
       result = valueIfNull;
     } else if (result.length() == 0) {

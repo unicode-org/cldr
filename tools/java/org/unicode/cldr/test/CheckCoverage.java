@@ -16,6 +16,7 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
@@ -102,13 +103,16 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
-        supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
-        PluralInfo pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
-        if (pluralInfo == supplementalData.getPlurals("root")) {
-          possibleErrors.add(new CheckStatus()
-          .setCause(this).setType(CheckStatus.errorType)
-          .setMessage("Missing Plural Information - Contact CLDR representative about fixing.", 
-                  new Object[]{}));          
+        final String localeID = cldrFileToCheck.getLocaleID();
+        if (localeID.equals(new LanguageTagParser().set(localeID).getLanguageScript())) {
+          supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
+          PluralInfo pluralInfo = supplementalData.getPlurals(localeID);
+          if (pluralInfo == supplementalData.getPlurals("root")) {
+            possibleErrors.add(new CheckStatus()
+            .setCause(this).setType(CheckStatus.errorType)
+            .setMessage("Missing Plural Information - see supplemental plural charts to file bug.", 
+                    new Object[]{}));          
+          }
         }
 
         if (Phase.FINAL_TESTING == getPhase()) {
@@ -116,7 +120,7 @@ public class CheckCoverage extends CheckCLDR {
         }
         if (options != null && options.get("CheckCoverage.skip") != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        if (cldrFileToCheck.getLocaleID().equals("root")) return this;
+        if (localeID.equals("root")) return this;
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         
         // Set to minimal if not in data submission
@@ -131,7 +135,7 @@ public class CheckCoverage extends CheckCLDR {
               }
           }
           if (requiredLevel == null) {
-            requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
+            requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
           }
 
           if (requiredLevel == null) { 

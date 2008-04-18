@@ -1052,6 +1052,10 @@ public class SupplementalDataInfo {
   public Set<String> getContainers() {
     return containment.keySet();
   }
+  
+  public Relation<String, String> getTerritoryToContained() {
+    return containment;
+  }
 
   public Set<String> getSkippedElements() {
     return skippedElements;

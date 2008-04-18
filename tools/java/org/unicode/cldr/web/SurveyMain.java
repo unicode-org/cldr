@@ -5050,6 +5050,7 @@ public class SurveyMain extends HttpServlet {
     private synchronized void resetLocaleCaches() {
         localeListMap = null;
         allMetazones = null;
+        metazoneContinentMap = null;
         localeListSet = null;
         aliasMap = null;
         gBaselineFile=null;
@@ -5104,6 +5105,7 @@ public class SurveyMain extends HttpServlet {
      * Master list of metazones. Don't access this directly.
      */
     private static Set allMetazones = null;
+    public static Map<String,String> metazoneContinentMap = null;
 
     /**
      * Maintain a master list of metazones, culled from root.
@@ -5146,6 +5148,28 @@ public class SurveyMain extends HttpServlet {
         return aset;
     }
 
+    public String getMetazoneContinent(String xpath) {
+       XPathParts parts = new XPathParts(null,null);
+       // Build the metazone -> continent map from supplemental & cache it.
+       if ( metazoneContinentMap == null ) {
+           metazoneContinentMap = new HashMap<String,String>();
+           CLDRFile mySupp = getFactory().make("supplementalData",false);
+           for(Iterator i = mySupp.iterator("//supplementalData/timezoneData/mapTimezones[@type=\"metazones\"]/mapZone");i.hasNext();) {
+               String suppxpath = i.next().toString();
+               parts.set(suppxpath);
+               String mzone = parts.getAttributeValue(-1,"other");
+               String type = parts.getAttributeValue(-1,"type");
+               String territory = parts.getAttributeValue(-1,"territory");
+               if(mzone != null && territory.equals("001")) {
+                  metazoneContinentMap.put(mzone,type.substring(0,type.indexOf("/")));
+               }
+           }
+        }
+
+       parts.set(xpath);
+       String thisMetazone = parts.getAttributeValue(3,"type");
+       return metazoneContinentMap.get(thisMetazone);
+    }
     /**
     * show the webpage for one of the 'locale codes' items.. 
      * @param ctx the web context

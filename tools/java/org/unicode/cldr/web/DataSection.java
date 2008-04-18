@@ -1284,6 +1284,7 @@ public class DataSection extends Registerable {
         long lastTime = -1;
         long longestTime = -1;
         String longestPath = "NONE";
+        String workPrefix = xpathPrefix;
         long nextTime = -1;
         int count=0;
         long countStart = 0;
@@ -1316,6 +1317,7 @@ public class DataSection extends Registerable {
         boolean doExcludeAlways = true;
         boolean isReferences = false;
         String removePrefix = null;
+        String continent = null;
         if(xpathPrefix.equals("//ldml")) {
             excludeMost = true;
             useShorten = true;
@@ -1348,6 +1350,8 @@ public class DataSection extends Registerable {
             } else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 removePrefix = "//ldml/dates/timeZoneNames/metazone";
                 excludeMetaZones = false;
+                continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+                workPrefix = "//ldml/dates/timeZoneNames/metazone";
 //        System.err.println("ZZ1");
             } else {
                 removePrefix = "//ldml/dates/calendars/calendar";
@@ -1380,7 +1384,7 @@ public class DataSection extends Registerable {
         
         // iterate over everything in this prefix ..
         Set<String> baseXpaths = new HashSet<String>();
-        for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
+        for(Iterator it = aFile.iterator(workPrefix);it.hasNext();) {
             String xpath = (String)it.next();
             baseXpaths.add(xpath);
         }
@@ -1388,7 +1392,7 @@ public class DataSection extends Registerable {
         Set<String> extraXpaths = new HashSet<String>();
 
         allXpaths.addAll(baseXpaths);
-        aFile.getExtraPaths(xpathPrefix,extraXpaths);
+        aFile.getExtraPaths(workPrefix,extraXpaths);
         extraXpaths.removeAll(baseXpaths);
         allXpaths.addAll(extraXpaths);
 
@@ -1399,7 +1403,7 @@ public class DataSection extends Registerable {
         for(String xpath : allXpaths) {
             boolean confirmOnly = false;
             String isToggleFor= null;
-            if(!xpath.startsWith(xpathPrefix)) {
+            if(!xpath.startsWith(workPrefix)) {
 //                if(SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
                 continue;
             } else if(aFile.isPathExcludedForSurvey(xpath)) {
@@ -1443,6 +1447,8 @@ public class DataSection extends Registerable {
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
 //if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
+            } else if( continent != null && !sm.getMetazoneContinent(xpath).equals(continent)) {
+                continue;
             }
             
             if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
@@ -1480,7 +1486,7 @@ public class DataSection extends Registerable {
             String peaSuffixXpath = null; // if non null:  write to suffixXpath
             
             // these need to work on the base
-            String fullSuffixXpath = baseXpath.substring(xpathPrefix.length(),baseXpath.length());
+            String fullSuffixXpath = baseXpath.substring(workPrefix.length(),baseXpath.length());
             if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
                 displaySuffixXpath = baseXpath;
             } else {

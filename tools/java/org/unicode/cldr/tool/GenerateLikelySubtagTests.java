@@ -126,7 +126,7 @@ public class GenerateLikelySubtagTests {
     return "\"" +toAlt + "\"";
   }
   
-  static String maximize(String languageTag, Map<String, String> toMaximized) {
+  public static String maximize(String languageTag, Map<String, String> toMaximized) {
     LanguageTagParser ltp = new LanguageTagParser();
     if (DEBUG && languageTag.equals("es" + TAG_SEPARATOR + "Hans" + TAG_SEPARATOR + "CN")) {
       System.out.print(""); // debug

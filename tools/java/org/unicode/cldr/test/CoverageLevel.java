@@ -6,23 +6,6 @@
  */
 package org.unicode.cldr.test;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.InternalCldrException;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalData;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Utility;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,6 +20,24 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.tool.GenerateLikelySubtagTests;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Relation;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Supports testing of paths in a file to see if they meet the coverage levels according to the UTS.<br>
@@ -56,8 +57,8 @@ public class CoverageLevel {
    * @author davis
    *
    */
-  public static class Level implements Comparable {
-    private static List all = new ArrayList();
+  public static class Level implements Comparable<Level> {
+    private static List<Level> all = new ArrayList<Level>();
     private byte level;
     private String name;
     private String altName;
@@ -92,7 +93,7 @@ public class CoverageLevel {
       return name;
     }
     
-    public int compareTo(Object o) {
+    public int compareTo(Level o) {
       int otherLevel = ((Level) o).level;
       return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
     }
@@ -110,37 +111,37 @@ public class CoverageLevel {
   private static Object sync = new Object();
   
   // commmon stuff, set once
-  private static Map coverageData = new TreeMap();
-  private static Map base_language_level = new TreeMap();
-  private static Map base_script_level = new TreeMap();
-  private static Map base_territory_level = new TreeMap();
-  private static Map base_currency_level = new TreeMap();
-  private static Map base_timezone_level = new TreeMap();
+  private static Map<String, Map<String, String>> coverageData = new TreeMap<String, Map<String, String>>();
+  private static Map<String, Level> base_language_level = new TreeMap<String, Level>();
+  private static Map<String, Level> base_script_level = new TreeMap<String, Level>();
+  private static Map<String, Level> base_territory_level = new TreeMap<String, Level>();
+  private static Map<String, Level> base_currency_level = new TreeMap<String, Level>();
+  private static Map<String, Level> base_timezone_level = new TreeMap<String, Level>();
   
-  private static Set minimalCurrencies;
-  private static Set minimalTimezones;
-  private static Set moderateTimezones;
+  private static Set<String> minimalCurrencies;
+  private static Set<String> minimalTimezones;
+  private static Set<String> moderateTimezones;
   
-  private static Set euroCountries;
-  private static Set territoryContainment = new TreeSet();
-  private static Set euroLanguages = new TreeSet();
+  private static Set<String> euroCountries;
+  private static Set<String> territoryContainment = new TreeSet<String>();
+  private static Set<String> euroLanguages = new TreeSet<String>();
   
-  private static Map language_scripts = new TreeMap();
+  private static Relation<String,String> language_scripts = new Relation(new TreeMap(), TreeSet.class);;
   
-  private static Map language_territories = new TreeMap();
-  private static Map fallback_language_territories = new TreeMap();
-  private static Map territory_languages = new TreeMap();
+  private static Relation<String,String> language_territories = new Relation(new TreeMap(), TreeSet.class);
+  private static Relation<String,String> fallback_language_territories = new Relation(new TreeMap(), TreeSet.class);
+  private static Relation<String,String> territory_languages = new Relation(new TreeMap(), TreeSet.class);
   
-  private static Set modernLanguages = new TreeSet();
-  private static Set modernScripts = new TreeSet();
-  private static Set modernTerritories = new TreeSet();
+  private static Set<String> modernLanguages = new TreeSet<String>();
+  private static Set<String> modernScripts = new TreeSet<String>();
+  private static Set<String> modernTerritories = new TreeSet<String>();
   //private static Map locale_requiredLevel = new TreeMap();
-  private static Map territory_currency = new TreeMap();
-  private static Map territory_timezone = new TreeMap();
-  private static Map territory_calendar = new TreeMap();
-  private static Set modernCurrencies = new TreeSet();
+  private static Map<String,Set<String>> territory_currency = new TreeMap<String,Set<String>>();
+  private static Map<String,Set<String>> territory_timezone = new TreeMap<String,Set<String>>();
+  private static Map<String,Set<String>> territory_calendar = new TreeMap<String,Set<String>>();
+  private static Set<String> modernCurrencies = new TreeSet<String>();
   
-  private static Map<String,Level> posixCoverage = new TreeMap();
+  private static Map<String,Level> posixCoverage = new TreeMap<String, Level>();
   // current stuff, set according to file
   
   private boolean initialized = false;
@@ -149,17 +150,17 @@ public class CoverageLevel {
   
   private transient XPathParts parts = new XPathParts(null, null);
   
-  private Map<String, CoverageLevel.Level> language_level = new TreeMap();
+  private Map<String, Level> language_level = new TreeMap<String, Level>();
   
-  private Map script_level = new TreeMap();
-  private Map zone_level = new TreeMap();
-  private Map<String, CoverageLevel.Level> metazone_level = new TreeMap();
+  private Map<String, Level> script_level = new TreeMap<String, Level>();
+  private Map<String, Level> zone_level = new TreeMap<String, Level>();
+  private Map<String, CoverageLevel.Level> metazone_level = new TreeMap<String, Level>();
   
-  private Map territory_level = new TreeMap();
-  private Map currency_level = new TreeMap();
-  private Map calendar_level = new TreeMap();
+  private Map<String, Level> territory_level = new TreeMap<String, Level>();
+  private Map<String, Level> currency_level = new TreeMap<String, Level>();
+  private Map<String, Level> calendar_level = new TreeMap<String, Level>();
 
-  private static Map<String,String> defaultTerritory = new TreeMap();
+  private static Map<String,String> defaultTerritory = new TreeMap<String,String>();
   
   private static StandardCodes sc = StandardCodes.make();
   
@@ -264,7 +265,7 @@ public class CoverageLevel {
     
     script_level.putAll(base_script_level);
     try {
-      Set scriptsForLanguage = (Set) language_scripts.get(language);
+      Set<String> scriptsForLanguage = language_scripts.getAll(language);
       if (scriptsForLanguage != null && scriptsForLanguage.size() > 1) {
         putAll(script_level, scriptsForLanguage, CoverageLevel.Level.MINIMAL, true);
       }
@@ -273,10 +274,10 @@ public class CoverageLevel {
     }
     
     territory_level.putAll(base_territory_level);
-    Set mainTerritories = (Set) language_territories.get(language);
+    Set<String> mainTerritories = language_territories.getAll(language);
     putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
     if (mainTerritories == null || mainTerritories.size() == 0) {
-      mainTerritories = (Set) fallback_language_territories.get(language);
+      mainTerritories = fallback_language_territories.getAll(language);
       putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
     }
 
@@ -386,10 +387,10 @@ public class CoverageLevel {
     }
   }
   
-  private static void addToValueSet(Map targetMap, Object key, Object value, Class classForNew) {
-    Collection valueSet = (Collection) targetMap.get(key);
+  private static <K,V> void addToValueSet(Map<K,Set<V>> targetMap, K key, V value, Class<Set<V>> classForNew) {
+    Set<V> valueSet = targetMap.get(key);
     if (valueSet == null) try {
-      targetMap.put(key, valueSet = (Collection)classForNew.newInstance());
+      targetMap.put(key, valueSet = classForNew.newInstance());
     } catch (Exception e) {
       throw new IllegalArgumentException("Cannot create collection with " + classForNew.getName());
     }
@@ -595,7 +596,7 @@ public class CoverageLevel {
       //if(euroCountries != null) {
       for (Iterator it = euroCountries.iterator(); it.hasNext();) {
         String territory = (String) it.next();
-        Collection languages = (Collection)territory_languages.get(territory);
+        Collection languages = territory_languages.getAll(territory);
         euroLanguages.addAll(languages);
       }
       //}
@@ -608,7 +609,7 @@ public class CoverageLevel {
               + territory, ULocale.ENGLISH)
               + "\t" + territory
               + "\t\u2192\t");
-          Collection languages = (Collection) territory_languages.get(territory);
+          Collection languages = territory_languages.getAll(territory);
           if (languages == null || languages.size() == 0) {
             System.out.print("-NONE-");
           } else for (Iterator it2 = languages.iterator(); it2.hasNext();) {
@@ -1032,10 +1033,15 @@ public class CoverageLevel {
   private static void getData(CLDRFile data) {
     
     
-    // filter out non-modern
+    // Get the modern languages, scripts, and territories from a more accurate source
+    
     Set<String> officialModernLanguages = new HashSet<String>();
     Set<String> officialModernTerritories = new HashSet<String>();
+    Set<String> officialModernScripts = new HashSet<String>();
     SupplementalDataInfo info = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    Map<String, String> likelySubtags = info.getLikelySubtags();
+    LanguageTagParser languageTagParser = new LanguageTagParser();
+
     for (String territory : info.getTerritoriesWithPopulationData()) {
       for (String language : info.getLanguagesForTerritoryWithPopulationData(territory)) {
         PopulationData languageInfo = info.getLanguageAndTerritoryPopulationData(language, territory);
@@ -1043,15 +1049,31 @@ public class CoverageLevel {
         if (officialStatus != OfficialStatus.unknown) {
           officialModernLanguages.add(language);
           officialModernTerritories.add(territory);
-          Utility.addTreeMapChain(language_territories, language, territory);
-          addToValueSet(territory_languages, territory, language, ArrayList.class);
-          //Utility.addTreeMapChain(language_territories, type, territorySet);
-          //addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
+          
+          String baseLanguage = languageTagParser.set(language).getLanguage();
+          String script = languageTagParser.getScript();
+          
+          language_territories.put(baseLanguage, territory);
+          territory_languages.put(territory, baseLanguage);
+          if (script.length() == 0) {
+            final String maxFrom = GenerateLikelySubtagTests.maximize(language, likelySubtags);
+            if (maxFrom != null) {
+              script = languageTagParser.set(maxFrom).getScript();
+            }
+          }
+          officialModernScripts.add(script);
+          language_scripts.put(baseLanguage, script);
         }
       }
     }
+    officialModernScripts.add("Kore");
+    officialModernScripts.add("Hani");
+    officialModernScripts.add("Japn");
+    // protect, just to avoid errors
     officialModernLanguages = Collections.unmodifiableSet(officialModernLanguages);
     officialModernTerritories = Collections.unmodifiableSet(officialModernTerritories);
+    officialModernScripts = Collections.unmodifiableSet(officialModernScripts);
+    
     
     modernTerritories = officialModernTerritories;
 
@@ -1104,7 +1126,7 @@ public class CoverageLevel {
             Set territorySet = new TreeSet(Arrays
                 .asList(territories
                     .split("\\s+")));
-            Utility.addTreeMapChain(fallback_language_territories, type, territorySet);
+            fallback_language_territories.putAll(type, territorySet);
           }
           continue;
         }
@@ -1116,10 +1138,17 @@ public class CoverageLevel {
         }
         String scripts = parts.getAttributeValue(-1, "scripts");
         if (scripts != null) {
-          Set scriptSet = new TreeSet(Arrays.asList(scripts
-              .split("\\s+")));
-          modernScripts.addAll(scriptSet);
-          Utility.addTreeMapChain(language_scripts, type, scriptSet);
+          Set<String> scriptSet = new TreeSet(Arrays.asList(scripts
+                  .split("\\s+")));
+          for (String script : scriptSet) {
+            if (officialModernScripts.contains(script)) {
+              modernScripts.add(script);
+              language_scripts.put(type, script);
+            } else {
+              System.out.println("SKIPPING " + script);
+              continue;
+            }
+          }
         }
 //        String territories = parts.getAttributeValue(-1, "territories");
 //        if (territories != null) {

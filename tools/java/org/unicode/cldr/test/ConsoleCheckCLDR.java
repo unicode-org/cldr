@@ -71,7 +71,6 @@ public class ConsoleCheckCLDR {
   static Zoomed SHOW_EXAMPLES = null;
   static PrintWriter generated_html = null;
   static PrintWriter generated_html_count = null;
-  static PrintWriter generated_html_summary = null;
   static  PrettyPath prettyPathMaker = new PrettyPath();
   static  String generated_html_directory = null;
 
@@ -218,9 +217,6 @@ public class ConsoleCheckCLDR {
         generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
       }
       generated_html_count = BagFormatter.openUTF8Writer(generated_html_directory, "count.txt");
-      generated_html_summary = BagFormatter.openUTF8Writer(generated_html_directory, "summary.html");
-      showIndexHead(generated_html_summary);
-      startGeneratedTable(generated_html_summary, generated_html_summary_table);
     }
     
     // check stuff
@@ -530,11 +526,9 @@ public class ConsoleCheckCLDR {
     }
     
     if (generated_html_directory != null) {
-      generated_html_count.close();
-      generated_html_summary.println("</table></body></html>");
-      generated_html_summary.close();
-      
-     PrintWriter generated_html_index = BagFormatter.openUTF8Writer(generated_html_directory, "index.html");
+      writeErrorCountsText();
+
+      PrintWriter generated_html_index = BagFormatter.openUTF8Writer(generated_html_directory, "index.html");
       showIndexHead(generated_html_index);
       showSummaryTable(generated_html_index);
       generated_html_index.close();
@@ -700,10 +694,6 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     generated_html.println("</body></html>");
     generated_html.close();
     generated_html_table = null;
-    
-    sortedHtmlIndexLines.put(getNameAndLocale(htmlOpenedFileLanguage, false), 
-        new Pair<String,ErrorCount>(htmlOpenedFileLanguage, htmlErrorsPerBaseLanguage));
-    htmlErrorsPerBaseLanguage = new ErrorCount();
   }
 
   private static void openGeneratedHtml(String localeID, String baseLanguage) throws IOException {
@@ -863,37 +853,47 @@ private static void showIndexHead(PrintWriter generated_html_index) {
         shortStatus = ErrorType.minimal;
       }
       if (!localeID.equals(lastHtmlLocaleID)) {
-        if (htmlErrorsPerLocale != 0) {
-          generated_html_count.println(lastHtmlLocaleID + ";\tcount:\t" + htmlErrorsPerLocale);
-          generated_html_count.flush();
-          htmlErrorsPerLocale = 0;
-        }
-        generated_html_summary.flush();
+        writeErrorCountsText();
         //startGeneratedTable(generated_html, generated_html_table);
         lastHtmlLocaleID = localeID;
       }
-      htmlErrorsPerLocale++;
+      htmlErrorsPerLocale.increment(shortStatus);
       htmlErrorsPerBaseLanguage.increment(shortStatus);
 
       String menuPath = path == null ? null : PathUtilities.xpathToMenu(path);
       String link = path == null ? null : "http://unicode.org/cldr/apps/survey?_=" + localeID + "&x=" + menuPath;
       showLine(generated_html_table, localeID, path, value, shortStatus, menuPath, link);
-      showLine(generated_html_summary_table, localeID, path, value, shortStatus, menuPath, link);
     }
     if (generated_html_count != null) {
       generated_html_count.println(lastHtmlLocaleID + ";\tpath:\t" + path);
     }
   }
 
+  private static void writeErrorCountsText() {
+    if (htmlErrorsPerLocale.total() != 0) {
+      generated_html_count.print(lastHtmlLocaleID + ";\tcounts");
+      for (ErrorType type : ErrorType.toShow) {
+        generated_html_count.print(";\t" + type + "=" + htmlErrorsPerLocale.getCount(type));
+      }
+      generated_html_count.println();
+      generated_html_count.flush();
+
+      sortedHtmlIndexLines.put(lastHtmlLocaleID, 
+              new Pair<String,ErrorCount>(lastHtmlLocaleID, htmlErrorsPerLocale));
+      htmlErrorsPerLocale = new ErrorCount();
+    }
+  }
+
   static TablePrinter generated_html_table = new TablePrinter();
-  static TablePrinter generated_html_summary_table = new TablePrinter();
 
   private static void showLine(TablePrinter table, String localeID, String path, String value, ErrorType shortStatus, String menuPath, String link) {
+    final String prettyPath = prettyPathMaker.getPrettyPath(path, true);
     table.addRow()
       .addCell(shortStatus)
       .addCell(getLinkedLocale(localeID))
       .addCell(getLocaleName(localeID))
-      .addCell(menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>")
+      .addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
+      .addCell(prettyPathMaker.getOutputForm(prettyPath)) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
       .addCell(safeForHtml(path == null ? null : getEnglishPathValue(path)))
       .addCell(safeForHtml(value))
       .finishRow();
@@ -905,13 +905,14 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     .addColumn("Problem").setSortPriority(0).setSpanRows(true).setBreakSpans(true)
     .addColumn("Locale").setSortPriority(1).setSpanRows(true).setBreakSpans(true)
     .addColumn("Name").setSpanRows(true).setBreakSpans(true)
-    .addColumn("Section").setSortPriority(2).setSpanRows(true)
-    .addColumn("English").setSortPriority(3)
-    .addColumn("Native");
+    .addColumn("HIDDEN").setSortPriority(2).setHidden(true)
+    .addColumn("Path").setCellAttributes("width=30%")
+    .addColumn("English").setCellAttributes("width=20%")
+    .addColumn("Native").setCellAttributes("width=20%");
   }
   
   static String lastHtmlLocaleID = "";
-  static int htmlErrorsPerLocale = 0;
+  static ErrorCount htmlErrorsPerLocale = new ErrorCount();
 
   private static String safeForHtml(String value) {
     return value == null ? "" : TransliteratorUtilities.toHTML.transliterate(value);
@@ -1042,6 +1043,6 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     return localizedName;
   }
   public static String getLinkedLocale(String locale) {
-    return "<a href='http://unicode.org/cldr/data/common/main/" + locale + ".xml'>" + locale + "</a>";
+    return "<a href='http://unicode.org/cldr/apps/survey?_=" + locale + "'>" + locale + "</a>";
   }
 }

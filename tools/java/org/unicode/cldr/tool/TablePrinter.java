@@ -77,6 +77,7 @@ public class TablePrinter {
     boolean spanRows;
     MessageFormat cellPattern;
     private boolean repeatHeader;
+    private boolean hidden;
     
     public Column(String header) {
       this.header = header;
@@ -109,6 +110,10 @@ public class TablePrinter {
 
     public void setRepeatHeader(boolean b) {
       repeatHeader = b;
+    }
+
+    public void setHidden(boolean b) {
+      hidden = b;
     }
   }
   
@@ -272,8 +277,10 @@ public class TablePrinter {
       // check to see if we repeat the header
       if (i != 0) {
         for (int j = 0; j < sortedFlat[i].length; ++j) {
-          if (columns.get(j).repeatHeader && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
-            showHeader(result);
+          final Column column = columns.get(j);
+          if (column.repeatHeader && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
+              showHeader(result);
+
           }
         }
       }
@@ -281,6 +288,9 @@ public class TablePrinter {
       for (int j = 0; j < sortedFlat[i].length; ++j) {
         int identical = findIdentical(sortedFlat, i, j);
         if (identical == 0) continue;
+        if (columnsFlat[j].hidden) {
+          continue;
+        }
         result.append("<td");
         boolean gotSpace = false;
         if (columnsFlat[j].cellAttributes != null) {
@@ -316,6 +326,9 @@ public class TablePrinter {
   private void showHeader(StringBuilder result) {
     result.append("\t<tr>");
     for (int j = 0; j < columnsFlat.length; ++j) {
+      if (columnsFlat[j].hidden) {
+        continue;
+      }
       result.append("<th");
       if (columnsFlat[j].headerAttributes != null) {
         result.append(' ').append(columnsFlat[j].headerAttributes);
@@ -408,5 +421,10 @@ public class TablePrinter {
     double width = 100*(log ? Math.log(value)/Math.log(max) : value/max);
     if (!(width>=0.5)) return ""; // do the comparison this way to catch NaN
     return "<table class='" + htmlClass + "' width='" + width + "%'><tr><td>\u200B</td></tr></table>";
+  }
+
+  public TablePrinter setHidden(boolean b) {
+    columns.get(columns.size()-1).setHidden(b);
+    return this;
   }
 }

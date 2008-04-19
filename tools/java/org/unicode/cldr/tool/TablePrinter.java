@@ -280,7 +280,7 @@ public class TablePrinter {
           final Column column = columns.get(j);
           if (column.repeatHeader && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
               showHeader(result);
-
+              break;
           }
         }
       }

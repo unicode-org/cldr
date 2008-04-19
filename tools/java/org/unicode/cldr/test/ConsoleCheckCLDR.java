@@ -217,6 +217,8 @@ public class ConsoleCheckCLDR {
         generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
       }
       generated_html_count = BagFormatter.openUTF8Writer(generated_html_directory, "count.txt");
+      //PrintWriter cssFile = BagFormatter.openUTF8Writer(generated_html_directory, "index.css");
+      //Utility;
     }
     
     // check stuff
@@ -543,33 +545,34 @@ public class ConsoleCheckCLDR {
     }
   }
 
-  private static void showLocaleTable(PrintWriter generated_html_index, ErrorCount counts) {
-    generated_html_index.println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
-
-    TablePrinter indexTablePrinter = new TablePrinter();
-    for (ErrorType type : ErrorType.toShow) {
-      String columnTitle = UCharacter.toTitleCase(type.toString(), null);
-      if (ErrorType.coverage.contains(type)) {
-        columnTitle = "Missing Coverage: " + columnTitle;
-      } else if (ErrorType.unapproved.contains(type)) {
-        columnTitle = "Missing Votes: " + columnTitle;
-      }
-      indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
-    }
-    indexTablePrinter.addRow();
-    for (ErrorType type : ErrorType.toShow) {
-      indexTablePrinter.addCell(counts.getCount(type));
-    }
-    indexTablePrinter.finishRow();
-    generated_html_index.println(indexTablePrinter.toTable());
-    generated_html_index.println("</table></html>");
-  }
+//  private static void showLocaleTable(PrintWriter generated_html_index, ErrorCount counts) {
+//    generated_html_index.println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>"); 
+//
+//    TablePrinter indexTablePrinter = new TablePrinter();
+//    for (ErrorType type : ErrorType.toShow) {
+//      String columnTitle = UCharacter.toTitleCase(type.toString(), null);
+//      if (ErrorType.coverage.contains(type)) {
+//        columnTitle = "Missing Coverage: " + columnTitle;
+//      } else if (ErrorType.unapproved.contains(type)) {
+//        columnTitle = "Missing Votes: " + columnTitle;
+//      }
+//      indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
+//    }
+//    indexTablePrinter.addRow();
+//    for (ErrorType type : ErrorType.toShow) {
+//      indexTablePrinter.addCell(counts.getCount(type));
+//    }
+//    indexTablePrinter.finishRow();
+//    generated_html_index.println(indexTablePrinter.toTable());
+//    generated_html_index.println("</table></html>");
+//  }
 
   
   private static void showSummaryTable(PrintWriter generated_html_index) {
     TablePrinter indexTablePrinter = new TablePrinter()
       .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
-      .addColumn("Locale Group").setSortPriority(0).setSortAscending(false)
+      .addColumn("BASE").setRepeatHeader(true).setHidden(true)
+      .addColumn("Locale")
       .addColumn("Name");
     for (ErrorType type : ErrorType.toShow) {
       String columnTitle = UCharacter.toTitleCase(type.toString(), null);
@@ -580,6 +583,7 @@ public class ConsoleCheckCLDR {
       }
       indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
     }
+    LanguageTagParser ltp = new LanguageTagParser();
     for (String key : sortedHtmlIndexLines.keySet()) {
       Pair<String,ErrorCount> pair = sortedHtmlIndexLines.get(key);
       String htmlOpenedFileLanguage = pair.getFirst();
@@ -587,8 +591,10 @@ public class ConsoleCheckCLDR {
       if (counts.total() == 0) {
         continue;
       }
+      final String baseLanguage = ltp.set(htmlOpenedFileLanguage).getLanguage();
       indexTablePrinter.addRow()
-      .addCell("<a href='" + htmlOpenedFileLanguage + ".html'>" + htmlOpenedFileLanguage + "</a>")
+      .addCell(baseLanguage)
+      .addCell("<a href='" + baseLanguage + ".html'>" + htmlOpenedFileLanguage + "</a>")
       .addCell(getLocaleName(htmlOpenedFileLanguage));
       for (ErrorType type : ErrorType.toShow) {
         indexTablePrinter.addCell(counts.getCount(type));
@@ -619,7 +625,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     generated_html_index.println("<html>" +
         "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
         "<title>Error Report Index</title></head>" +
-        "<style>td {vertical-align:top}</style>" +
+        "<link rel='stylesheet' href='errors.css' type='text/css'>" +
         "<body>" +
         "<h1>Error Report Index</h1>" +
         "<p>The following errors have been detected in the locales. " +
@@ -709,9 +715,10 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     generated_html.println("<html>" +
         "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
         "<title>Errors in " + getNameAndLocale(localeID, false) + "</title></head>" +
-        "<style>td {vertical-align:top}</style>" +
+        "<link rel='stylesheet' href='errors.css' type='text/css'>" +
         "<body>" +
         "<h1>Errors in " + getNameAndLocale(localeID, false) + "</h1>" +
+        "<p><a href='index.html'>Index</a></p>" +
         "<p>The following errors have been detected in the locale " + getNameAndLocale(localeID, false) + ". " +
             "Please review and correct them. " +
             "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
@@ -720,9 +727,9 @@ private static void showIndexHead(PrintWriter generated_html_index) {
             "However, it should let you see the problems and make sure that they get taken care of.)</i></p>"); 
   }
 
-  private static void startGeneratedTable(PrintWriter output, TablePrinter table) {
-    showLineHeaders(table);
-  }
+//  private static void startGeneratedTable(PrintWriter output, TablePrinter table) {
+//    showLineHeaders(table);
+//  }
   
   private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
     String line = getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value;
@@ -878,38 +885,39 @@ private static void showIndexHead(PrintWriter generated_html_index) {
       generated_html_count.println();
       generated_html_count.flush();
 
-      sortedHtmlIndexLines.put(lastHtmlLocaleID, 
-              new Pair<String,ErrorCount>(lastHtmlLocaleID, htmlErrorsPerLocale));
+      sortedHtmlIndexLines.put(lastHtmlLocaleID, new Pair<String,ErrorCount>(lastHtmlLocaleID, htmlErrorsPerLocale));
       htmlErrorsPerLocale = new ErrorCount();
     }
   }
 
   static TablePrinter generated_html_table = new TablePrinter();
-
-  private static void showLine(TablePrinter table, String localeID, String path, String value, ErrorType shortStatus, String menuPath, String link) {
-    final String prettyPath = prettyPathMaker.getPrettyPath(path, true);
-    table.addRow()
-      .addCell(shortStatus)
-      .addCell(getLinkedLocale(localeID))
-      .addCell(getLocaleName(localeID))
-      .addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
-      .addCell(prettyPathMaker.getOutputForm(prettyPath)) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
-      .addCell(safeForHtml(path == null ? null : getEnglishPathValue(path)))
-      .addCell(safeForHtml(value))
-      .finishRow();
-  }
   
   private static void showLineHeaders(TablePrinter table) {
     table
     .setTableAttributes("border='1px' style='border-collapse: collapse' bordercolor='#CCCCFF'")
-    .addColumn("Problem").setSortPriority(0).setSpanRows(true).setBreakSpans(true)
-    .addColumn("Locale").setSortPriority(1).setSpanRows(true).setBreakSpans(true)
+    .addColumn("Problem").setSortPriority(0).setSpanRows(true).setBreakSpans(true).setRepeatHeader(true)
+    .addColumn("Locale").setSortPriority(1).setSpanRows(true).setBreakSpans(true).setRepeatHeader(true)
     .addColumn("Name").setSpanRows(true).setBreakSpans(true)
     .addColumn("HIDDEN").setSortPriority(2).setHidden(true)
     .addColumn("Path").setCellAttributes("width=30%")
     .addColumn("English").setCellAttributes("width=20%")
     .addColumn("Native").setCellAttributes("width=20%");
   }
+  
+  private static void showLine(TablePrinter table, String localeID, String path, String value, ErrorType shortStatus, String menuPath, String link) {
+    final String prettyPath = path == null ? "general" : prettyPathMaker.getPrettyPath(path, true);
+    final String outputForm = path == null ? "general" : prettyPathMaker.getOutputForm(prettyPath);
+    table.addRow()
+      .addCell(shortStatus)
+      .addCell(getLinkedLocale(localeID))
+      .addCell(getLocaleName(localeID))
+      .addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
+      .addCell(outputForm) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
+      .addCell(safeForHtml(path == null ? null : getEnglishPathValue(path)))
+      .addCell(safeForHtml(value))
+      .finishRow();
+  }
+
   
   static String lastHtmlLocaleID = "";
   static ErrorCount htmlErrorsPerLocale = new ErrorCount();

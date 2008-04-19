@@ -13,8 +13,11 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import org.unicode.cldr.icu.CollectionUtilities;
+
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -23,7 +26,10 @@ public class CheckForExemplars extends CheckCLDR {
   //private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
   // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
   static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern",
-    "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references", "/unitPattern"};
+    "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references", "/unitPattern",
+    "/intervalFormatItem",
+    "/localeDisplayNames/variants/"
+    };
   
   UnicodeSet exemplars;
   UnicodeSet scriptRegionExemplars;
@@ -33,6 +39,7 @@ public class CheckForExemplars extends CheckCLDR {
   Collator col;
   Collator spaceCol;
   String informationMessage;
+  Status otherPathStatus = new Status();
   
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFile == null) return this;
@@ -100,7 +107,14 @@ public class CheckForExemplars extends CheckCLDR {
     } else if(getCldrFileToCheck() == null) {
       throw new InternalCldrException("no file to check!");
     }
-    String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, null);
+    String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, otherPathStatus);
+    
+    // if we are an alias to another path, then skip
+    if (!path.equals(otherPathStatus.pathWhereFound)) {
+      return this;
+    }
+    
+    // now check locale source
     if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
       return this;
     } else if ("root".equals(sourceLocale)) {

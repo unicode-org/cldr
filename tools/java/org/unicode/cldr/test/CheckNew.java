@@ -23,11 +23,12 @@ public class CheckNew extends CheckCLDR {
           //"|relative" + 
           //"|calendars.*/fields" +
           //"|languages.*_"
-          "currency\\[@type=\"TR[LY]\"\\]/displayName"
-          + "|script\\[@type=\"Cans\"\\]"
-          + "|localeDisplayPattern"
+          //"currency\\[@type=\"TR[LY]\"\\]/displayName"
+          //+ "|script\\[@type=\"Cans\"\\]"
+          //+ "|localeDisplayPattern"
           //"|displayName.*\\[@count=\""
           //+ "|exemplarCharacters\\[.*auxiliary"
+          "xxxxxx" // need something to avoid always matching
           + ").*").matcher("");
 
   //  dateTimes/availableDateFormats/NEW
@@ -68,13 +69,13 @@ public class CheckNew extends CheckCLDR {
     
     boolean skip = false;
     // now see if our value is the same as Root's for certain items
-    if (!isEnglishOrRoot && shouldntBeRoot.reset(path).matches()) {
-      if (value.equals(root.getWinningValue(path))) {
-        skip = true;
-        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage(
-            "There may have been a conflict introduced as a result of fixing default contents -- please confirm the right value.", new Object[] {}));
-      }
-    }
+//    if (!isEnglishOrRoot && shouldntBeRoot.reset(path).matches()) {
+//      if (value.equals(root.getWinningValue(path))) {
+//        skip = true;
+//        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType).setMessage(
+//            "There may have been a conflict introduced as a result of fixing default contents -- please confirm the right value.", new Object[] {}));
+//      }
+//    }
 //    // We check certain root values that were pushed into children. So the the locale is not a direct decendent of root, and we have a value the same as root's...
 //    if (!skip && isNotBase && !path.startsWith("//ldml/identity/") && value!=null && value.equals(root.getWinningValue(path))) {
 //      skip = true;

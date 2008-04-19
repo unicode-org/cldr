@@ -428,7 +428,7 @@ public class CoverageLevel {
   
   Matcher minimalPatterns = Pattern.compile(
       "/(" +
-      "characters/exemplarCharacters*(?!\\[@type=\"currencySymbol\"])" +
+      "characters/exemplarCharacters(?!\\[@type=\"currencySymbol\"])" +
       "|calendar\\[\\@type\\=\"gregorian\"\\].*(" +
         "\\[@type=\"format\"].*\\[@type=\"(wide|abbreviated)\"]" +
         "|\\[@type=\"stand-alone\"].*\\[@type=\"narrow\"]" +
@@ -440,7 +440,7 @@ public class CoverageLevel {
         "|.*/pattern(?!Digit)" +
       ")" +
       "|timeZoneNames/(hourFormat|gmtFormat|regionFormat)" +
-      "|units/unit" +
+      "|units/unit.*/unitName" +
       ")").matcher("");
   
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]
@@ -516,8 +516,12 @@ public class CoverageLevel {
       if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
         result = CoverageLevel.Level.OPTIONAL;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
-        String currency = parts.getAttributeValue(-2, "type");
-        result = (CoverageLevel.Level) currency_level.get(currency);
+        if (parts.getAttributeValue(-1, "count") != null) {
+          result = Level.UNDETERMINED;
+        } else {
+          String currency = parts.getAttributeValue(-2, "type");
+          result = (CoverageLevel.Level) currency_level.get(currency);
+        }
       }
     } else if (part1.equals("identity")) {
       result = Level.UNDETERMINED;

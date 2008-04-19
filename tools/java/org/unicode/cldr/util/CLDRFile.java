@@ -494,6 +494,9 @@ public class CLDRFile implements Freezable, Iterable<String> {
       final String fallbackPath = getFallbackPath(distinguishedXPath);
       if (fallbackPath != null) {
         result = dataSource.getSourceLocaleID(fallbackPath, status);
+        if (status.pathWhereFound.equals(distinguishedXPath)) {
+          status.pathWhereFound = fallbackPath;
+        }
       }
     }
     return result;

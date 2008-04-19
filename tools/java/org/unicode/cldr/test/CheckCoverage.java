@@ -127,20 +127,7 @@ public class CheckCoverage extends CheckCLDR {
         if (Phase.SUBMISSION != getPhase()) {
           requiredLevel = Level.MINIMAL;
         } else {
-          requiredLevel = null;
-          if (options != null) {
-              String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
-              if (optionLevel != null) {
-                requiredLevel = CoverageLevel.Level.get(optionLevel);
-              }
-          }
-          if (requiredLevel == null) {
-            requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
-          }
-
-          if (requiredLevel == null) { 
-               requiredLevel = Level.MINIMAL; 
-          }
+          requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
         }
         if (DEBUG) {
           System.out.println("requiredLevel: " + requiredLevel);

@@ -41,60 +41,60 @@ public class CheckExemplars extends CheckCLDR {
 	}
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-    if (fullPath == null) return this; // skip paths that we don't have
-    if (path.indexOf("/exemplarCharacters") < 0) return this;
-		boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
-        checkExemplar(value, result, isAuxiliary);
+	  if (fullPath == null) return this; // skip paths that we don't have
+	  if (path.indexOf("/exemplarCharacters") < 0) return this;
+	  boolean isAuxiliary = path.indexOf("auxiliary") >= 0;
+	  checkExemplar(value, result, isAuxiliary);
 
-        // check relation to auxiliary set
-        try {       	
-        	UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
-        	if (path.indexOf("auxiliary") < 0) {
-        		// check for auxiliary anyway
-        		
-        		UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
-        		
-        		if (auxiliarySet == null) {
-        			result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-        					.setMessage("Missing Auxiliary Set")
-        					.setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   			
-        		}
-        		
-        	} else { // auxiliary
-        		UnicodeSet auxiliarySet = new UnicodeSet(value);
-        		if (auxiliarySet.containsSome(mainSet)) {
-        			UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
-        			if (overlap.size() != 0) {
-        				String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
-        				result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-        						.setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
-        			}
-        		}
-        	}
+	  // check relation to auxiliary set
+	  try {       	
+	    UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+	    if (path.indexOf("auxiliary") < 0) {
+	      // check for auxiliary anyway
 
-                Boolean localeIsRTL = false;
-                String opath = getResolvedCldrFileToCheck().getFullXPath("//ldml/layout/orientation");
-                XPathParts oparts = new XPathParts(null,null);
-                oparts.initialize(opath);
-                String lelement = oparts.getElement(-1);
-                String charOrientation = oparts.findAttributeValue(lelement,"characters");
-                if ( charOrientation.equals("right-to-left")) {
-                   localeIsRTL = true;
-                }
+	      UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
 
-                UnicodeSetIterator mi = new UnicodeSetIterator(mainSet);
-                while (mi.next()) {
-		   if ( mi.codepoint != UnicodeSetIterator.IS_STRING && 
-                       ( UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT ||
-                         UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC ) &&
-                         ! localeIsRTL ) {
-        	       result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-        	             .setMessage("Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
-                       break;
-                   }
-                }
-        } catch (Exception e) {} // if these didn't parse, checkExemplar will be called anyway at some point
- 		return this;
+	      if (auxiliarySet == null) {
+	        result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+	                .setMessage("Missing Auxiliary Set")
+	                .setHTMLMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   			
+	      }
+
+	    } else { // auxiliary
+	      UnicodeSet auxiliarySet = new UnicodeSet(value);
+	      if (auxiliarySet.containsSome(mainSet)) {
+	        UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
+	        if (overlap.size() != 0) {
+	          String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
+	          result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
+	                  .setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
+	        }
+	      }
+	    }
+
+	    Boolean localeIsRTL = false;
+	    String opath = getResolvedCldrFileToCheck().getFullXPath("//ldml/layout/orientation");
+	    XPathParts oparts = new XPathParts(null,null);
+	    oparts.initialize(opath);
+	    String lelement = oparts.getElement(-1);
+	    String charOrientation = oparts.findAttributeValue(lelement,"characters");
+	    if ( charOrientation.equals("right-to-left")) {
+	      localeIsRTL = true;
+	    }
+
+	    UnicodeSetIterator mi = new UnicodeSetIterator(mainSet);
+	    while (mi.next()) {
+	      if ( mi.codepoint != UnicodeSetIterator.IS_STRING && 
+	              ( UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT ||
+	                      UCharacter.getDirection(mi.codepoint) == UCharacterDirection.RIGHT_TO_LEFT_ARABIC ) &&
+	                      ! localeIsRTL ) {
+	        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+	                .setMessage("Main exemplar set contains RTL characters, but orientation of this locale is not RTL."));
+	        break;
+	      }
+	    }
+	  } catch (Exception e) {} // if these didn't parse, checkExemplar will be called anyway at some point
+	  return this;
 	}
 
 	private void checkExemplar(String v, List<CheckStatus> result, boolean isAuxiliary) {

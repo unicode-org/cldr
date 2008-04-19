@@ -8,6 +8,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -53,8 +54,7 @@ public class QuickCheck {
   private static Exception[] internalException = new Exception[1];
   
   public static void main(String[] args) throws IOException {
-    localeRegex = Utility.getProperty("locale");
-    if (localeRegex == null) localeRegex = ".*";
+    localeRegex = Utility.getProperty("locale", ".*");
     
     showInfo = Utility.getProperty("showinfo","false","true").matches("(?i)T|TRUE");
     
@@ -197,6 +197,22 @@ public class QuickCheck {
         
         // also check for non-distinguishing attributes
         if (path.contains("/identity")) continue;
+        
+        // make sure we don't have problem alts
+        if (path.contains("proposed")) {
+          String sourceLocale = file.getSourceLocaleID(path, null);
+          if (locale.equals(sourceLocale)) {
+            String nonAltPath = file.getNondraftNonaltXPath(path);
+            if (!path.equals(nonAltPath)) {
+              String nonAltLocale = file.getSourceLocaleID(nonAltPath, null);
+              String nonAltValue = file.getStringValue(nonAltPath);
+              if (nonAltValue == null || !locale.equals(nonAltLocale)) {
+                System.out.println("\t" + locale + "\tProblem alt=proposed <" + value + ">\t\t" + path);
+              }
+            }
+          }
+        }
+        
         String fullPath = file.getFullXPath(path);
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {

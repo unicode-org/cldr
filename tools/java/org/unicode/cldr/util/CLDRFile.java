@@ -1944,25 +1944,25 @@ public class CLDRFile implements Freezable, Iterable<String> {
       name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
       if (name == null) name = original;
     } else {
-    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION));
-    if (name != null && !isCompound) {
-      haveScript = haveRegion = true;
-    } else {
-      name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT));
-      if (name != null && !isCompound) {
-        haveScript = true;
+      name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION));
+      if (name != null) {
+        haveScript = haveRegion = true;
       } else {
-        name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION));
-        if (name != null && !isCompound) {
-          haveRegion = true;
+        name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT));
+        if (name != null) {
+          haveScript = true;
         } else {
-          name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
-          if (name == null) name = original;
+          name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION));
+          if (name != null) {
+            haveRegion = true;
+          } else {
+            name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
+            if (name == null) name = original;
+          }
         }
       }
     }
-    }
-    
+
     String nameSeparator = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
     String sname;
     String extras = "";

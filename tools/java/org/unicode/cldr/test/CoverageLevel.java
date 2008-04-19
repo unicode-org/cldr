@@ -1038,7 +1038,7 @@ public class CoverageLevel {
     Set<String> officialModernLanguages = new HashSet<String>();
     Set<String> officialModernTerritories = new HashSet<String>();
     Set<String> officialModernScripts = new HashSet<String>();
-    SupplementalDataInfo info = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    SupplementalDataInfo info = SupplementalDataInfo.getInstance(data.getSupplementalDirectory());
     Map<String, String> likelySubtags = info.getLikelySubtags();
     LanguageTagParser languageTagParser = new LanguageTagParser();
 

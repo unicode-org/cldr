@@ -13,9 +13,12 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -23,6 +26,7 @@ import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -1026,9 +1030,36 @@ public class CoverageLevel {
   private static Set multizoneTerritories = null;
   
   private static void getData(CLDRFile data) {
+    
+    
+    // filter out non-modern
+    Set<String> officialModernLanguages = new HashSet<String>();
+    Set<String> officialModernTerritories = new HashSet<String>();
+    SupplementalDataInfo info = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+    for (String territory : info.getTerritoriesWithPopulationData()) {
+      for (String language : info.getLanguagesForTerritoryWithPopulationData(territory)) {
+        PopulationData languageInfo = info.getLanguageAndTerritoryPopulationData(language, territory);
+        OfficialStatus officialStatus = languageInfo.getOfficialStatus();
+        if (officialStatus != OfficialStatus.unknown) {
+          officialModernLanguages.add(language);
+          officialModernTerritories.add(territory);
+          Utility.addTreeMapChain(language_territories, language, territory);
+          addToValueSet(territory_languages, territory, language, ArrayList.class);
+          //Utility.addTreeMapChain(language_territories, type, territorySet);
+          //addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
+        }
+      }
+    }
+    officialModernLanguages = Collections.unmodifiableSet(officialModernLanguages);
+    officialModernTerritories = Collections.unmodifiableSet(officialModernTerritories);
+    
+    modernTerritories = officialModernTerritories;
+
     String lastCurrencyYear = Integer.toString(1900 + new Date().getYear() - 2);
     
     XPathParts parts = new XPathParts();
+    
+    // TODO change to use SupplementalDataInfo
 
     // optimization -- don't get the paths in sorted order.
     // data.iterator(null, CLDRFile.ldmlComparator)
@@ -1077,7 +1108,12 @@ public class CoverageLevel {
           }
           continue;
         }
-        modernLanguages.add(type);
+        if (officialModernLanguages.contains(type)) {
+          modernLanguages.add(type);
+        } else {
+          //System.out.println("SKIPPING " + type);
+          continue;
+        }
         String scripts = parts.getAttributeValue(-1, "scripts");
         if (scripts != null) {
           Set scriptSet = new TreeSet(Arrays.asList(scripts
@@ -1085,15 +1121,21 @@ public class CoverageLevel {
           modernScripts.addAll(scriptSet);
           Utility.addTreeMapChain(language_scripts, type, scriptSet);
         }
-        String territories = parts.getAttributeValue(-1, "territories");
-        if (territories != null) {
-          Set territorySet = new TreeSet(Arrays
-              .asList(territories
-                  .split("\\s+")));
-          modernTerritories.addAll(territorySet);
-          Utility.addTreeMapChain(language_territories, type, territorySet);
-          addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
-        }
+//        String territories = parts.getAttributeValue(-1, "territories");
+//        if (territories != null) {
+//          Set<String> territorySet = new TreeSet(Arrays
+//              .asList(territories
+//                  .split("\\s+")));
+//          for (String territory : territorySet) {
+//            if (officialModernTerritories.contains(territory)) {
+//              modernTerritories.add(territory);
+//            } else {
+//              System.out.println("*SKIPPING " + type);
+//            }
+//          }
+          //Utility.addTreeMapChain(language_territories, type, territorySet);
+          //addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
+        //}
       } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
         //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
         // if the 'to' value is less than 10 years, it is not modern
@@ -1118,7 +1160,7 @@ public class CoverageLevel {
         }
       }
     }
-    // filter out non-modern
+
     
 //    Set<String> old = modernLanguages;
 //    modernCurrencies = new TreeSet();

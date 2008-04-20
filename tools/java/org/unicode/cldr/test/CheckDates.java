@@ -137,7 +137,7 @@ public class CheckDates extends CheckCLDR {
       	}
       }
       if (path.indexOf("[@type=\"narrow\"]") >= 0) {
-        int end = isNarrowEnough(value);
+        int end = isNarrowEnough(value, bi);
         String locale = getCldrFileToCheck().getLocaleID();
         // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to warningType in this case?)
         if (end != value.length() && !locale.equals("th") && !locale.startsWith("th_")) {
@@ -370,7 +370,7 @@ public class CheckDates extends CheckCLDR {
   }
   
   
-  private int isNarrowEnough(String value) {
+  public static int isNarrowEnough(String value, BreakIterator bi) {
     if (value.length() <= 1) return value.length();
     int current = 0;
     // skip any leading digits, for CJK
@@ -378,6 +378,10 @@ public class CheckDates extends CheckCLDR {
     
     bi.setText(value);
     if (current != 0) bi.preceding(current+1); // get safe spot, possibly before
+    current = bi.next();
+    if (current == bi.DONE) {
+      return value.length();
+    }
     current = bi.next();
     if (current == bi.DONE) {
       return value.length();
@@ -391,6 +395,7 @@ public class CheckDates extends CheckCLDR {
 //  }
     return current;
   }
+  
   static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:]]");
   static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");
   

@@ -1,9 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.util.ULocale;
 
 public class TestLocale extends TestFmwk {
   static TestInfo testInfo = TestInfo.getInstance();
@@ -26,5 +29,13 @@ public class TestLocale extends TestFmwk {
     assertEquals("Extended language translation", "Simplified Chinese (Singapore)", testInfo.getEnglish().getName("zh_Hans_SG"));
     assertEquals("Extended language translation", "U.S. English", testInfo.getEnglish().getName("en-US"));
     assertEquals("Extended language translation", "U.S. English (Arabic)", testInfo.getEnglish().getName("en-Arab-US"));
+  }
+  public void TestNarrowEnough() {
+    BreakIterator bi = BreakIterator.getCharacterInstance(ULocale.ENGLISH);
+    assertEquals("Narrow Enough", 1, CheckDates.isNarrowEnough("a", bi));
+    assertEquals("Narrow Enough", 2, CheckDates.isNarrowEnough("ab", bi));
+    assertEquals("Narrow Enough", 2, CheckDates.isNarrowEnough("abc", bi));
+    assertEquals("Narrow Enough", 4, CheckDates.isNarrowEnough("a\u0308b\u0308", bi));
+    assertEquals("Narrow Enough", 4, CheckDates.isNarrowEnough("a\u0308b\u0308c\u0308", bi));
   }
 }

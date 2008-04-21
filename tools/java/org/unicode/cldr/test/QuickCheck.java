@@ -52,8 +52,11 @@ public class QuickCheck {
   private static boolean resolved;
   
   private static Exception[] internalException = new Exception[1];
+
+  private static boolean verbose;
   
   public static void main(String[] args) throws IOException {
+    verbose = Utility.getProperty("verbose","false","true").matches("(?i)T|TRUE");
     localeRegex = Utility.getProperty("locale", ".*");
     
     showInfo = Utility.getProperty("showinfo","false","true").matches("(?i)T|TRUE");
@@ -180,7 +183,7 @@ public class QuickCheck {
           throw new IllegalArgumentException(locale + "\tError: in null value at " + path);
         }
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
-        if (!displayValue.equals(value)) {
+        if (false && !displayValue.equals(value)) {
           System.out.println("\t" + locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
         }
         String inputValue = displayAndInputProcessor.processInput(path, value, internalException);
@@ -188,7 +191,7 @@ public class QuickCheck {
           System.out.println("\t" + locale + "\tdisplayAndInputProcessor internal error <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
           internalException[0].printStackTrace(System.out);
         }
-        if (!inputValue.equals(value)) {
+        if (verbose && !inputValue.equals(value)) {
           displayAndInputProcessor.processInput(path, value, internalException); // for debugging
           System.out.println("\t" + locale + "\tdisplayAndInputProcessor changes input value <" + value + ">\t=>\t<" + inputValue + ">\t\t" + path);
         }
@@ -220,7 +223,7 @@ public class QuickCheck {
           String element = parts.getElement(i);
           for (String attribute : parts.getAttributeKeys(i)) {
             if (skipAttributes.contains(attribute)) continue;
-            if (file.isDistinguishing(element, attribute)) {
+            if (CLDRFile.isDistinguishing(element, attribute)) {
               distinguishing.put(element, attribute);
             } else {
               nonDistinguishing.put(element, attribute);
@@ -235,17 +238,19 @@ public class QuickCheck {
     System.out.format("Nondistinguishing Elements: %s\r\n", nonDistinguishing);
     System.out.format("Skipped %s\r\n", skipAttributes);
     
-    System.out.println("\r\nPaths to skip in Survey Tool");
-    for (String path : pathToLocale.keySet()) {
-      if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
-        System.out.println("Skipping: " + path);
+    if (verbose) {
+      System.out.println("\r\nPaths to skip in Survey Tool");
+      for (String path : pathToLocale.keySet()) {
+        if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
+          System.out.println("Skipping: " + path);
+        }
       }
-    }
-    
-    System.out.println("\r\nPaths to force zoom in Survey Tool");
-    for (String path : pathToLocale.keySet()) {
-      if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
-        System.out.println("Forced Zoom Edit: " + path);
+      
+      System.out.println("\r\nPaths to force zoom in Survey Tool");
+      for (String path : pathToLocale.keySet()) {
+        if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(path).matches()) {
+          System.out.println("Forced Zoom Edit: " + path);
+        }
       }
     }
     

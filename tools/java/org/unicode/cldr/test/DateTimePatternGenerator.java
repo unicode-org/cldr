@@ -744,10 +744,17 @@ public class DateTimePatternGenerator implements Freezable, Cloneable {
     static final public int ZONE = 15; 
     
     /**
+     * Special field for Chinese Month (l)
      * @draft ICU 3.6
      * @provisional This API might change or be removed in a future release.
      */
-    static final public int TYPE_LIMIT = 16;
+    static final public int MONTH_EXTENSION = 16;
+    
+    /**
+     * @draft ICU 3.6
+     * @provisional This API might change or be removed in a future release.
+     */
+    static final public int TYPE_LIMIT = 17;
     
     /**
      * An AppendItem format is a pattern used to append a field if there is no
@@ -1647,6 +1654,7 @@ public class DateTimePatternGenerator implements Freezable, Cloneable {
         new TypeInfo('L',MONTH,SHORT - DELTA,3,3,3),
         new TypeInfo('L',MONTH,LONG - DELTA,3,4,3),
         new TypeInfo('L',MONTH,NARROW - DELTA,3,5,20),
+        new TypeInfo('l',MONTH_EXTENSION,SHORT,1,1,20),
         
         new TypeInfo('w',WEEK_OF_YEAR,NUMERIC,1,1,2),
         new TypeInfo('W',WEEK_OF_MONTH,NUMERIC + DELTA,1,1,20),

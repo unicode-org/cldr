@@ -105,9 +105,14 @@ public class DisplayAndInputProcessor {
       if (path.contains("/exemplarCharacters")) {
         // clean up the user's input.
         // first, fix up the '['
+        value = value.trim();
 
-        if (!value.startsWith("[") && !value.endsWith("]")) {
-          value = "[" + value + "]";
+        if (!value.startsWith("[")) {
+          value = "[" + value;
+        }
+
+        if (!value.endsWith("]")) {
+          value = value + "]";
         }
 
         UnicodeSet exemplar = new UnicodeSet(value);

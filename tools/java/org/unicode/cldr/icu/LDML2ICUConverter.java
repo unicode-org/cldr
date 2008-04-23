@@ -2076,7 +2076,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             } else if (name.equals(LDMLConstants.NUMBERS)) {
                 res = parseNumbers(loc, xpath);
             } else if (name.equals(LDMLConstants.COLLATIONS)) {
-                res = parseCollations(loc, xpath);
+               if (sourceDir.indexOf("coll") > 0 ) {
+                  res = parseCollations(loc, xpath);
+               }
             } else if (name.equals(LDMLConstants.POSIX)) {
                 res = parsePosix(loc, xpath);
             } else if (name.equals(LDMLConstants.SEGMENTATIONS)) {

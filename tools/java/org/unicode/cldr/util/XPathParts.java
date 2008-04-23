@@ -561,7 +561,12 @@ public class XPathParts {
     }
     
 		public void putAttribute(String attribute, String value) {
-			getAttributes().put(attribute, value);
+			final Map<String, String> attributes2 = getAttributes();
+      if (value == null) {
+        attributes2.remove(attribute);
+      } else {
+        attributes2.put(attribute, value);
+      }
 		}
 
 		public String toString() {
@@ -670,22 +675,30 @@ public class XPathParts {
 //		}
 
 		private Map<String,String> getAttributes() {
-			if (attributes == null) attributes = new TreeMap<String,String>(attributeComparator);
+			if (attributes == null) {
+			  attributes = new TreeMap<String,String>(attributeComparator);
+			}
 			return attributes;
 		}
 
 		private int getAttributeCount() {
-			if (attributes == null) return 0;
+			if (attributes == null) {
+			  return 0;
+			}
 			return attributes.size();
 		}
 
 		private Set getAttributeKeys() {
-			if (attributes == null) return Collections.EMPTY_SET;
+			if (attributes == null) {
+			  return Collections.EMPTY_SET;
+			}
 			return attributes.keySet();
 		}
 
 		private String getAttribute(String attribute) {
-			if (attributes == null) return null;
+			if (attributes == null) {
+			  return null;
+			}
 			return attributes.get(attribute);
 		}
 	}

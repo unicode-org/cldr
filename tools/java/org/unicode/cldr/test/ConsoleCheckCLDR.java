@@ -815,7 +815,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   
 
   private static void showHeaderLine() {
-    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tOtherSource?\tOtherPath?");
+    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tAliasedSource?\tAliasedPath?");
   }
 
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
@@ -836,12 +836,16 @@ private static void showIndexHead(PrintWriter generated_html_index) {
       englishExample = englishExample == null ? "" : "<" + englishExample + ">";
       String cleanPrettyPath = path == null ? null : prettyPathMaker.getOutputForm(prettyPath);
       Status status = new Status();
-      String source = path == null ? null : cldrFile.getSourceLocaleID(path, status);
+      String sourceLocaleID = path == null ? null : cldrFile.getSourceLocaleID(path, status);
       String fillinValue = path == null ? null : cldrFile.getFillInValue(path);
       fillinValue = fillinValue == null ? "" : fillinValue.equals(value) ? "=" : fillinValue;
       
-      final String otherSource = path == null ? null : (source.equals(localeID) ? "" : "\t" + source);
-      final String otherPath = path == null ? null : (status.pathWhereFound.equals(path) ? "" : "\t" + status.pathWhereFound);
+      final String otherSource = path == null ? null 
+              : (sourceLocaleID.equals(localeID) ? "" 
+                      : "\t" + sourceLocaleID);
+      final String otherPath = path == null ? null 
+              : (status.pathWhereFound.equals(path) ? "" 
+                      : "\t" + status.pathWhereFound);
       System.out.println(
               getLocaleAndName(localeID)
               + "\t" + subtotalCount.getCount(shortStatus)

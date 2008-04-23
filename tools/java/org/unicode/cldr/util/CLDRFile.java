@@ -471,7 +471,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   private String getFallbackPath(String xpath) {
     //  || xpath.contains("/currency") && xpath.contains("/displayName")
     if (xpath.contains("[@count=")) {
-      String result = getWinningCountPathWithFallback(xpath, Count.one);
+      return getWinningCountPathWithFallback(xpath, Count.one);
     }
     return null;
   }
@@ -482,25 +482,29 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public String getFullXPath(String xpath) {
     String result = dataSource.getFullPath(xpath);
     if (result == null && dataSource.isResolving()) {
-      result = getFallbackPath(xpath);
+      String fallback = getFallbackPath(xpath);
+      if (fallback != null) {
+        // TODO, add attributes from fallback into main
+        result = xpath;
+      }
     }
     return result;
   }
   
   /**
-   * Find out where the value was found (for resolving locales)
+   * Find out where the value was found (for resolving locales). Returns code-fallback as the location if nothing is found
    * @param distinguishedXPath path (must be distinguished!)
    * @param status the distinguished path where the item was found. Pass in null if you don't care.
    */
   public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
-    String result =  dataSource.getSourceLocaleID(distinguishedXPath, status);
-    if (result == null && dataSource.isResolving()) {
+    String result = dataSource.getSourceLocaleID(distinguishedXPath, status);
+    if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
       final String fallbackPath = getFallbackPath(distinguishedXPath);
-      if (fallbackPath != null) {
+      if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
         result = dataSource.getSourceLocaleID(fallbackPath, status);
-        if (status.pathWhereFound.equals(distinguishedXPath)) {
-          status.pathWhereFound = fallbackPath;
-        }
+//        if (status != null && status.pathWhereFound.equals(distinguishedXPath)) {
+//          status.pathWhereFound = fallbackPath;
+//        }
       }
     }
     return result;
@@ -2817,7 +2821,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
   }
 
   /**
-   * Get the path with the given count. For unitPatterns, falls back to Count.one. For others, falls back to Count.one, then no count.
+   * Get the path with the given count. 
+   * It acts like there is an alias in root from count=n to count=one, 
+   * then for currencies from count=one to no count
+   * <br>For unitPatterns, falls back to Count.one.
+   * <br>For others, falls back to Count.one, then no count.
    * <p>The fallback acts like an alias in root.
    * @param xpath
    * @param count Count may be null. Returns null if nothing is found.
@@ -2827,22 +2835,39 @@ public class CLDRFile implements Freezable, Iterable<String> {
     String result;
     XPathParts parts = new XPathParts().set(xpathWithNoCount);
     boolean isUnitPattern = parts.contains("unitPattern");
-    parts.addAttribute("count", count.toString());
-    result = getWinningPath(parts.toString());
-    if (isNotRoot(result) || count == Count.one && isUnitPattern) {
+    
+    // try the given count first
+    result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, count);
+    if (result != null && (isUnitPattern || isNotRoot(result))) {
       return result;
     }
-    // remove count attributes
+    // now try one
     if (count != Count.one) {
-      parts.addAttribute("count", "one");
-      result = getWinningPath(parts.toString());
-      if (isNotRoot(result) || isUnitPattern) {
+      result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, Count.one);
+      if (result != null && (isUnitPattern || isNotRoot(result))) {
+        return result;
+      }
+    }
+    // now try deletion (for currency)
+    if (!isUnitPattern) {
+      result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, null);
+      if (result != null) {
         return result;
       }
     }
     return getWinningPath(xpathWithNoCount); // may fall back to root
   }
   
+  private String getWinningCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,
+          Count count) {
+    parts.addAttribute("count", count == null ? null : count.toString());
+    final String newPath = parts.toString();
+    if (!newPath.equals(xpathWithNoCount)) {
+      return getWinningPath(newPath);
+    }
+    return null;
+  }
+
   /**
    * Returns a value to be used for "filling in" a "Change" value in the survey
    * tool. Currently returns the following.

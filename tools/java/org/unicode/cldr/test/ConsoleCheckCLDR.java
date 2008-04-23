@@ -399,7 +399,7 @@ public class ConsoleCheckCLDR {
           prettyPathMaker.getOriginal(prettyPath);
         }
         
-        if (!file.isWinningPath(path)) {
+        if (!showAll && !file.isWinningPath(path)) {
           continue;
         }
         final String sourceLocaleID = file.getSourceLocaleID(path, otherPath);

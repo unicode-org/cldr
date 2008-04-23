@@ -2863,7 +2863,10 @@ public class CLDRFile implements Freezable, Iterable<String> {
     parts.addAttribute("count", count == null ? null : count.toString());
     final String newPath = parts.toString();
     if (!newPath.equals(xpathWithNoCount)) {
-      return getWinningPath(newPath);
+      if (dataSource.getValueAtPath(newPath) != null) {
+        return newPath;
+      }
+      //return getWinningPath(newPath);
     }
     return null;
   }

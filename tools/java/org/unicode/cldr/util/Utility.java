@@ -1113,8 +1113,8 @@ public static <T> T clone(T source) {
   }
 
   public static void showOptions(String[] args) {
-    Properties props = System.getProperties();
-    System.out.println("Arguments: " + join(args," ") + (props == null ? "" : " " + props));
+    //Properties props = System.getProperties();
+    System.out.println("Arguments: " + join(args," ")); //  + (props == null ? "" : " " + props));
   }
 
   public static boolean checkEquals(Object a, Object b) {

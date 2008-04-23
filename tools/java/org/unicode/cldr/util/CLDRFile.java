@@ -480,7 +480,11 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Get the full path from a distinguished path
    */
   public String getFullXPath(String xpath) {
-    return dataSource.getFullPath(xpath);
+    String result = dataSource.getFullPath(xpath);
+    if (result == null && dataSource.isResolving()) {
+      result = getFallbackPath(xpath);
+    }
+    return result;
   }
   
   /**

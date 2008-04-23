@@ -265,7 +265,7 @@ public class ConsoleCheckCLDR {
     
     Set<String> fatalErrors = new TreeSet<String>();
     
-    if (SHOW_LOCALE) System.out.println("Locale\tStatus\tCode\tEng.Value\tEng.Ex.\tLoc.Value\tLoc.Ex\tError/Warning\tPath");
+    showHeaderLine();
     
     SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
 
@@ -813,6 +813,11 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   
   static Matcher coverageMatcher = Pattern.compile("meet ([a-z]*) coverage").matcher(""); // HACK TODO fix
   
+
+  private static void showHeaderLine() {
+    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tOtherSource?\tOtherPath?");
+  }
+
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
     ErrorType shortStatus = ErrorType.fromStatusString(statusString);
     subtotalCount.increment(shortStatus);

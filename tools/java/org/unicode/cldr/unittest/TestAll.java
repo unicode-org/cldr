@@ -16,54 +16,6 @@ import com.ibm.icu.text.RuleBasedCollator;
  * Top level test used to run all other tests as a batch.
  */
 public class TestAll extends TestGroup {
-  public static class TestInfo {
-    private static TestInfo INSTANCE = null;
-    private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
-    private StandardCodes sc = StandardCodes.make();
-    private Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
-    private CLDRFile english = getCldrFactory().make("en", true);
-    private CLDRFile root = getCldrFactory().make("root", true);
-    private RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
-    {
-      col.setNumericCollation(true);
-    }
-
-    public static TestInfo getInstance() {
-      synchronized (TestInfo.class) {
-        if (INSTANCE == null) {
-          INSTANCE = new TestInfo();
-        }
-      }
-      return INSTANCE;
-    }
-    
-    private TestInfo() {}
-    
-    public SupplementalDataInfo getSupplementalDataInfo() {
-      return supplementalDataInfo;
-    }
-    public Factory getCldrFactory() {
-      return cldrFactory;
-    }
-    public StandardCodes getStandardCodes() {
-      return sc;
-    }
-    public void setEnglish(CLDRFile english) {
-      this.english = english;
-    }
-    public CLDRFile getEnglish() {
-      return english;
-    }
-    public void setRoot(CLDRFile root) {
-      this.root = root;
-    }
-    public CLDRFile getRoot() {
-      return root;
-    }
-    public Collator getCollator() {
-      return col;
-    }
-  }
 
   public static void main(String[] args) {
     new TestAll().run(args);
@@ -78,10 +30,83 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestPaths",
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                     "org.unicode.cldr.unittest.TestMetadata",
+                    "org.unicode.cldr.unittest.TestUtilities",
                     
             },
     "All tests in CLDR");
   }
 
   public static final String CLASS_TARGET_NAME  = "CLDR";
+  
+  public static class TestInfo {
+    static TestInfo INSTANCE = null;
+    SupplementalDataInfo supplementalDataInfo;
+    StandardCodes sc;
+    Factory cldrFactory;
+    CLDRFile english;
+    CLDRFile root;
+    RuleBasedCollator col;
+
+    public static TestInfo getInstance() {
+      synchronized (TestInfo.class) {
+        if (INSTANCE == null) {
+          INSTANCE = new TestInfo();
+        }
+      }
+      return INSTANCE;
+    }
+    
+    private TestInfo() {}
+    
+    public SupplementalDataInfo getSupplementalDataInfo() {
+      synchronized(this) {
+        if (supplementalDataInfo == null) {
+          supplementalDataInfo = SupplementalDataInfo.getInstance(Utility.SUPPLEMENTAL_DIRECTORY);
+        }
+      }
+      return supplementalDataInfo;
+    }
+    public StandardCodes getStandardCodes() {
+      synchronized(this) {
+        if (sc == null) {
+          sc = StandardCodes.make();
+        }
+      }
+      return sc;
+    }
+    public Factory getCldrFactory() {
+      synchronized(this) {
+        if (cldrFactory == null) {
+          cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+        }
+      }
+      return cldrFactory;
+    }
+    public CLDRFile getEnglish() {
+      synchronized(this) {
+        if (english == null) {
+          english = getCldrFactory().make("en", true);
+        }
+      }
+      return english;
+    }
+    public CLDRFile getRoot() {
+      synchronized(this) {
+        if (root == null) {
+          root = getCldrFactory().make("root", true);
+        }
+      }
+      return root;
+    }
+    public Collator getCollator() {
+      synchronized(this) {
+        if (col == null) {
+          col = (RuleBasedCollator) Collator.getInstance();
+          col.setNumericCollation(true);
+        }
+      }
+      return col;
+    }
+  }
+
 }

@@ -80,7 +80,7 @@ public class Vetting {
     public static final String RES_LIST = "0IXD??ATGUNR"; /** list of strings for type 2**n.  @see typeToStr **/
 	public static final String TWID_VET_VERBOSE = "Vetting_Verbose"; /** option string for toggling verbosity in vetting **/
 	boolean VET_VERBOSE=false; /** option boolean for verbose vetting, defaults to false **/
-	static boolean MARK_NO_DISQUALIFY = false; // mark items with errors, don't disqualify. Makes proposed-x555 items.
+	static final boolean MARK_NO_DISQUALIFY = false; // mark items with errors, don't disqualify. Makes proposed-x555 items.
     
     /**
      * Convert a vetting type to a string

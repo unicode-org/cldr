@@ -6,66 +6,75 @@
  */
 package org.unicode.cldr.web;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.URLEncoder;
-import java.lang.ref.SoftReference;
-import java.util.regex.*;
-
-// logging
-//import java.util.logging.Level; // conflicts with coverage level
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
-// servlet imports
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-// DOM imports
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
-
-import org.unicode.cldr.test.DateTimePatternGenerator;
+import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
-
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.UnicodeSet;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-
-import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
-import org.unicode.cldr.util.*;
-import org.unicode.cldr.icu.*;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CachingEntityResolver;
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalData;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
-// sql imports
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSetMetaData;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-
-import java.util.Properties;
-
-
-import com.ibm.icu.lang.UCharacter;
-import com.sun.corba.se.impl.activation.ProcessMonitorThread;
-import com.sun.corba.se.impl.activation.ServerTableEntry;
-import com.sun.corba.se.impl.orbutil.ORBConstants;
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 /**
  * The main servlet class of Survey Tool
@@ -4855,21 +4864,60 @@ public class SurveyMain extends HttpServlet {
         return gBaselineExample;
     }
 
-    public synchronized String getDirectionFor(ULocale locale) {
-        // TODO: use orientation.
-        String locStr = locale.toString();
-        String script = locale.getScript();
-        if(locStr.startsWith("ps") ||
-           locStr.startsWith("fa") ||
-           locStr.startsWith("ar") ||
-           locStr.startsWith("syr") ||
-           locStr.startsWith("he") ||
-           "Arab".equals(script)) {
+    public synchronized String getHTMLDirectionFor(ULocale locale) {
+        String dir = getDirectionalityFor(locale.getBaseName());
+        if(dir.equals("left-to-right")) {
+            return "ltr";
+        } else if(dir.equals("right-to-left")) {
             return "rtl";
+        } else if(dir.equals("top-to-bottom")) {
+            return "ltr"; // !
         } else {
+            System.err.println("Could not get directionality for " + locale + "- got "+dir + " - assuming ltr");
             return "ltr";
         }
+//        // TODO: use orientation.
+//        String locStr = locale.toString();
+//        String script = locale.getScript();
+//        if(locStr.startsWith("ps") ||
+//           locStr.startsWith("fa") ||
+//           locStr.startsWith("ar") ||
+//           locStr.startsWith("syr") ||
+//           locStr.startsWith("he") ||
+//           "Arab".equals(script)) {
+//            return "rtl";
+//        } else {
+//            return "ltr";
+//        }
     }
+    
+    public synchronized String getDirectionalityFor(String id) {
+        final boolean DDEBUG=false;
+        if (DDEBUG) System.err.println("Checking directionality for " + id);
+        if(aliasMap==null) {
+            checkAllLocales();
+        }
+        while(id != null) {
+            String aliasTo = isLocaleAliased(id);
+            if (DDEBUG) System.err.println("Alias -> "+aliasTo);
+            if(aliasTo != null 
+                    && !aliasTo.equals(id)) { // prevent loops
+                id = aliasTo;
+                if (DDEBUG) System.err.println(" -> "+id);
+                continue;
+            }
+            String dir = directionMap.get(id);
+            if (DDEBUG) System.err.println(" dir:"+dir);
+            if(dir!=null) {
+                return dir;
+            }
+            id = LDMLUtilities.getParent(id);
+            if (DDEBUG) System.err.println(" .. -> :"+id);
+        }
+        if (DDEBUG) System.err.println("err: could not get directionality of root");
+        return "left-to-right"; //fallback
+    }
+
     
     public Map basicOptionsMap() {
         Map options = new HashMap();
@@ -5059,46 +5107,76 @@ public class SurveyMain extends HttpServlet {
     
     
     private static Hashtable aliasMap = null;
+    private static Hashtable<String,String> directionMap = null;
 
+    private synchronized void checkAllLocales() {
+        if(aliasMap!=null) return;
+        
+        Hashtable aliasMapNew = new Hashtable();
+        Hashtable directionMapNew = new Hashtable();
+        Set locales  = getLocalesSet();
+        ElapsedTimer et = new ElapsedTimer();
+        setProgress("Parse locales from XML", locales.size());
+        int n=0;
+        System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
+        for(Object loc : locales) {
+            updateProgress(n++, loc.toString());
+            try {
+                Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
+                
+                // look for directionality
+                Node[] directionalityItems = 
+                    LDMLUtilities.getNodeListAsArray(d,"//ldml/layout/orientation");
+                if(directionalityItems!=null&&directionalityItems.length>0) {
+                    String direction = LDMLUtilities.getAttributeValue(directionalityItems[0], LDMLConstants.CHARACTERS);
+                    if(direction != null&& direction.length()>0) {
+                        directionMapNew.put(loc.toString(), direction);
+                    }
+                }
+
+                
+                Node[] aliasItems = 
+                            LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
+                            
+                if((aliasItems==null) || (aliasItems.length==0)) {
+                    continue;
+                } else if(aliasItems.length>1) {
+                    throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                }
+
+                String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
+                
+                aliasMapNew.put(loc.toString(),aliasTo);
+            } catch (Throwable t) {
+                System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                t.printStackTrace();
+                busted("isLocaleAliased: Failed load/validate on: " + loc + " - ", t);
+                throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+            }
+        }
+        System.err.println("Finished verify+alias check of " + locales.size()+ ", " + aliasMapNew.size() + " aliased locales found in " + et.toString());
+        aliasMap = aliasMapNew;
+        directionMap = directionMapNew;
+        clearProgress();
+    }
+    
     /**
      * Is this locale fully aliased? If true, returns what it is aliased to.
      */
     public synchronized String isLocaleAliased(String id) {
         if(aliasMap==null) {
-            Hashtable h = new Hashtable();
-            Set locales  = getLocalesSet();
-            ElapsedTimer et = new ElapsedTimer();
-            setProgress("Parse locales from XML", locales.size());
-            int n=0;
-            System.err.println("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
-            for(Object loc : locales) {
-                updateProgress(n++, loc.toString());
-                try {
-                    Document d = LDMLUtilities.parse(fileBase+"/"+loc.toString()+".xml", false);
-                    Node[] aliasItems = 
-                                LDMLUtilities.getNodeListAsArray(d,"//ldml/alias");
-								
-                    if((aliasItems==null) || (aliasItems.length==0)) {
-                        continue;
-                    } else if(aliasItems.length>1) {
-                        throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
-                    }
-
-                    String aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
-					
-                    h.put(loc.toString(),aliasTo);
-                } catch (Throwable t) {
-                    System.err.println("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
-                    t.printStackTrace();
-                    busted("isLocaleAliased: Failed load/validate on: " + loc + " - ", t);
-                    throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
-                }
-            }
-            System.err.println("Finished verify+alias check of " + locales.size()+ ", " + h.size() + " aliased locales found in " + et.toString());
-            aliasMap = h;
-            clearProgress();
+            checkAllLocales();
         }
         return (String)aliasMap.get(id);
+    }
+
+    public ULocale isLocaleAliased(ULocale id) {
+        String aliasTo = isLocaleAliased(id.getBaseName());
+        if(aliasTo!=null) {
+            return new ULocale(aliasTo);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -5669,7 +5747,7 @@ public class SurveyMain extends HttpServlet {
             Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
             Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
             
-            String ourDir = getDirectionFor(ctx.locale);
+            String ourDir = getHTMLDirectionFor(ctx.locale);
     //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
             // calculate references
             if(section.xpathPrefix.indexOf("references")==-1) {
@@ -5864,7 +5942,7 @@ public class SurveyMain extends HttpServlet {
      * @return
      */
     boolean processPeaChanges(WebContext ctx, DataSection oldSection, CLDRFile cf, CLDRDBSource ourSrc) {
-        String ourDir = getDirectionFor(ctx.locale);
+        String ourDir = getHTMLDirectionFor(ctx.locale);
         boolean someDidChange = false;
         if(oldSection != null) {
             for(Iterator i = oldSection.getAll().iterator();i.hasNext();) {
@@ -6558,9 +6636,13 @@ public class SurveyMain extends HttpServlet {
             topCurrent = p.inheritedValue;
         }
         
-        // Prime the Pump
+        // Prime the Pump  - Native must be called first.
         if(topCurrent != null) {
             /* ignored */ uf.getExampleGenerator().getExampleHtml(topCurrent.xpath, topCurrent.value,
+                    zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+        } else {
+            // no top item, so use NULL
+            /* ignored */ uf.getExampleGenerator().getExampleHtml(section.xpath(p), null,
                     zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
         }
         
@@ -7030,17 +7112,15 @@ public class SurveyMain extends HttpServlet {
         boolean haveReferences = (item != null) && (item.references!=null) && (refsList != null);
         
         if(item != null) {
-            //if(item.value != null) {  // Always generate examples, even on null values.
-                itemExample = uf.getExampleGenerator().getExampleHtml(item.xpath, item.value,
-                            zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
-            //}
+            itemExample = uf.getExampleGenerator().getExampleHtml(item.xpath, item.value,
+                        zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
             if((item.tests != null) || (item.examples != null)) {
                 haveTests = true;
             }
         } else {
-//			itemExample = pod.exampleGenerator.getExampleHtml(pod.xpath(p), null,
-//						zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
-		}
+            itemExample = uf.getExampleGenerator().getExampleHtml(section.xpath(p), null,
+                    zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+        }
         
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ourDir+"' valign='top'>");
         if((item != null)&&(item.value != null)) {
@@ -7696,8 +7776,10 @@ public class SurveyMain extends HttpServlet {
         /** 
          * Cause locale alias to be checked.
          */
-        isLocaleAliased("mt_MT");
-
+//        if(!SurveyMain.isUnofficial) { // only do this for official
+            isLocaleAliased("mt_MT");
+       // }
+        
         logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
         isSetup = true;
     }
@@ -7776,7 +7858,7 @@ public class SurveyMain extends HttpServlet {
 
     private static Set localeListSet = null;
 
-    static synchronized protected Set getLocalesSet() {
+    static synchronized public Set getLocalesSet() {
         if(localeListSet == null ) {
             File inFiles[] = getInFiles();
             int nrInFiles = inFiles.length;
@@ -7794,7 +7876,7 @@ public class SurveyMain extends HttpServlet {
         return localeListSet;
     }
 
-    static protected String[] getLocales() {
+    static public String[] getLocales() {
         return (String[])getLocalesSet().toArray(new String[0]);
     }
 

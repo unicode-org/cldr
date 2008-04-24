@@ -121,7 +121,7 @@
 			<language type="zu" draft="unconfirmed">زُولُو</language>
 		</languages>
 		<scripts>
-			<script type="Arab" alt="proposed-x1001" draft="unconfirmed">العربية</script>
+			<script type="Arab" draft="unconfirmed">العربية</script>
 			<script type="Zxxx" draft="provisional">Zxxx</script>
 			<script type="Zzzz" draft="provisional">Zzzz</script>
 		</scripts>
@@ -328,9 +328,9 @@
 			<territory type="ZZ" draft="provisional">Unknown or Invalid Region</territory>
 		</territories>
 		<keys>
-			<key type="calendar" alt="proposed-x1001" draft="unconfirmed">ur</key>
-			<key type="collation" alt="proposed-x1001" draft="unconfirmed">ur</key>
-			<key type="currency" alt="proposed-x1001" draft="unconfirmed">ur</key>
+			<key type="calendar" draft="unconfirmed">ur</key>
+			<key type="collation" draft="unconfirmed">ur</key>
+			<key type="currency" draft="unconfirmed">ur</key>
 		</keys>
 	</localeDisplayNames>
 	<layout>
@@ -338,7 +338,7 @@
 	</layout>
 	<characters>
 		<exemplarCharacters>[ء-ؤ ئ-ب ٻ پ ة-ث ٹ ٺ ټ ٽ ج چ ح-ذ ڈ ر ز ڑ ژ س-غ ف ق ک گ ل-ن ں ه ھ ہ و ي ی ے]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[]</exemplarCharacters>
 		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[ء-ؤ ئ-ب ٻ پ ة-ث ٹ ٺ ټ ٽ ج چ ح-ذ ڈ ر ز ڑ ژ س-غ ف ق ک گ ل-ن ں ه ھ و ی ے]</exemplarCharacters>
 	</characters>
 	<dates>
@@ -502,63 +502,62 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">محرم</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">صفر</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">ر بيع الاول</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">ر بيع الثانی</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">جمادی الاول</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">جمادی الثانی</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">رجب</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">شعبان</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">رمضان</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">شوال</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">ذيقعدہ</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">دسمبر</month>
-							<month type="12" alt="proposed-x1002" draft="unconfirmed">ذی الحجہ</month>
+							<month type="1" draft="unconfirmed">محرم</month>
+							<month type="2" draft="unconfirmed">صفر</month>
+							<month type="3" draft="unconfirmed">ر بيع الاول</month>
+							<month type="4" draft="unconfirmed">ر بيع الثانی</month>
+							<month type="5" draft="unconfirmed">جمادی الاول</month>
+							<month type="6" draft="unconfirmed">جمادی الثانی</month>
+							<month type="7" draft="unconfirmed">رجب</month>
+							<month type="8" draft="unconfirmed">شعبان</month>
+							<month type="9" draft="unconfirmed">رمضان</month>
+							<month type="10" draft="unconfirmed">شوال</month>
+							<month type="11" draft="unconfirmed">ذيقعدہ</month>
+							<month type="12" draft="unconfirmed">دسمبر</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="wide">
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">يکشنبہ</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">دو شنبہ</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">سہ شنبہ</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">چہار شنبہ</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">پنجشنبہ</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">جمعہ</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">شنبہ</day>
+							<day type="sun" draft="unconfirmed">يکشنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چہار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنجشنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
-							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">پہلی سہ ماہی</quarter>
-							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">دوسری سہ ماہی</quarter>
-							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">تيسری سہ ماہی</quarter>
-							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">چوتهی سہ ماہی</quarter>
+							<quarter type="1" draft="unconfirmed">پہلی سہ ماہی</quarter>
+							<quarter type="2" draft="unconfirmed">دوسری سہ ماہی</quarter>
+							<quarter type="3" draft="unconfirmed">تيسری سہ ماہی</quarter>
+							<quarter type="4" draft="unconfirmed">چوتهی سہ ماہی</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<eras>
 					<eraNames>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">قبل مسيح</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">عيسوی سن</era>
+						<era type="0" draft="unconfirmed">قبل مسيح</era>
+						<era type="1" draft="unconfirmed">عيسوی سن</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">ق م</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">CE</era>
+						<era type="0" draft="unconfirmed">ق م</era>
+						<era type="1" draft="unconfirmed">CE</era>
 					</eraAbbr>
 				</eras>
 				<fields>
 					<field type="day">
-						<relative type="0" alt="proposed-x1001" draft="unconfirmed">آج</relative>
-						<relative type="1" alt="proposed-x1001" draft="unconfirmed">کل</relative>
-						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">کل</relative>
+						<relative type="0" draft="unconfirmed">آج</relative>
+						<relative type="1" draft="unconfirmed">کل</relative>
+						<relative type="-1" draft="unconfirmed">کل</relative>
 					</field>
 					<field type="dayperiod">
-						<displayName alt="proposed-x1001" draft="unconfirmed">رات/صبح</displayName>
+						<displayName draft="unconfirmed">رات/صبح</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -703,7 +702,7 @@
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern alt="proposed-x1001" draft="unconfirmed">¤#,##0.00</pattern>
+					<pattern draft="unconfirmed">¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

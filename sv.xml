@@ -1811,7 +1811,7 @@
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<regionFormat alt="proposed-x1001" draft="unconfirmed">{0}tid</regionFormat>
-			<fallbackFormat alt="proposed-x1001" draft="unconfirmed">{1}, {0}</fallbackFormat>
+			<fallbackFormat draft="unconfirmed">{1}, {0}</fallbackFormat>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity>Comodoro Rivadavia</exemplarCity>
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Comod. Rivadavia</exemplarCity>
@@ -1842,7 +1842,7 @@
 			</zone>
 			<!-- Argentina -->
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Argentina/Rio Gallegos</exemplarCity>
+				<exemplarCity draft="unconfirmed">Argentina/Rio Gallegos</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity draft="contributed">Córdoba</exemplarCity>
@@ -1865,13 +1865,13 @@
 				<exemplarCity>Porto Novo</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Eirunepé</exemplarCity>
+				<exemplarCity draft="unconfirmed">Eirunepé</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Cuiabá</exemplarCity>
+				<exemplarCity draft="unconfirmed">Cuiabá</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Brasilien/Belem</exemplarCity>
+				<exemplarCity draft="unconfirmed">Brasilien/Belem</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
@@ -1946,16 +1946,16 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Färöarna</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Qaanaaq</exemplarCity>
+				<exemplarCity draft="unconfirmed">Qaanaaq</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthåb</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ittoqqortoormiit</exemplarCity>
+				<exemplarCity draft="unconfirmed">Ittoqqortoormiit</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Danmarkshamn</exemplarCity>
+				<exemplarCity draft="unconfirmed">Danmarkshamn</exemplarCity>
 			</zone>
 			<zone type="Africa/Malabo">
 				<exemplarCity>Malobo</exemplarCity>
@@ -2019,7 +2019,7 @@
 				<exemplarCity>Podgorika</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ulan Bator</exemplarCity>
+				<exemplarCity draft="unconfirmed">Ulan Bator</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
 				<exemplarCity>Tjojbalsan</exemplarCity>
@@ -2031,7 +2031,7 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Macao S.A.R. Kina</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Nuoachott</exemplarCity>
+				<exemplarCity draft="unconfirmed">Nuoachott</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldiverna</exemplarCity>
@@ -2125,8 +2125,7 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Zaporozjzja</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Tid i Alaska</exemplarCity>
-				<exemplarCity alt="proposed-x1002" draft="unconfirmed">Alaska/Anchorage</exemplarCity>
+				<exemplarCity draft="unconfirmed">Tid i Alaska</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>North Dakota</exemplarCity>
@@ -2206,7 +2205,7 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Alaskasommartid</daylight>
 				</long>
 				<short>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Alaskanormaltid</daylight>
+					<daylight draft="unconfirmed">Alaskanormaltid</daylight>
 				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -2285,7 +2284,7 @@
 				<short>
 					<generic draft="contributed">AT (saudiarabisk)</generic>
 					<standard draft="contributed">AST (saudiarabisk)</standard>
-					<daylight alt="proposed-x1001" draft="unconfirmed">ADT (saudiarabisk)</daylight>
+					<daylight draft="unconfirmed">ADT (saudiarabisk)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina">
@@ -2314,7 +2313,7 @@
 				<short>
 					<generic draft="contributed">AT</generic>
 					<standard draft="contributed">AST</standard>
-					<daylight alt="proposed-x1001" draft="unconfirmed">ADT</daylight>
+					<daylight draft="unconfirmed">ADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2736,10 +2735,10 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list alt="proposed-x1001" draft="unconfirmed">,</list>
-			<patternDigit alt="proposed-x1001" draft="unconfirmed">nr</patternDigit>
+			<list draft="unconfirmed">,</list>
+			<patternDigit draft="unconfirmed">nr</patternDigit>
 			<minusSign>−</minusSign>
-			<exponential alt="proposed-x1001" draft="unconfirmed">×10^</exponential>
+			<exponential draft="unconfirmed">×10^</exponential>
 			<nan draft="unconfirmed">¤¤¤</nan>
 		</symbols>
 		<decimalFormats>

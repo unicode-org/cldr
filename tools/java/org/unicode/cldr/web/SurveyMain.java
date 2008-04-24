@@ -5453,7 +5453,7 @@ public class SurveyMain extends HttpServlet {
         showPeas(ctx, section, canModify, zoneXpath+"/exemplarCity", true);
         printSectionTableClose(ctx, section);
         
-        ctx.printHelpHtml(section, zoneXpath+"/exemplarCity");
+        ctx.printHelpHtml(zoneXpath+"/exemplarCity");
 
         if(currentMetaZone != null) {
             // #2 there's a MZ active. Explain it.
@@ -5466,7 +5466,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
             }
             
-            ctx.printHelpHtml(metazoneSection, metazoneXpath);
+            ctx.printHelpHtml(metazoneXpath);
 
             // show the table of active zones
             ctx.println("<h4>Metazone History</h4>");
@@ -5523,7 +5523,7 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
         }
         
-        ctx.printHelpHtml(section, zoneXpath);
+        ctx.printHelpHtml(zoneXpath);
         
         printPathListClose(ctx);
     }

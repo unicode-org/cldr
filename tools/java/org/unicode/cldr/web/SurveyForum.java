@@ -576,7 +576,7 @@ public class SurveyForum {
         sm.printSectionTableClose(ctx, section);
         sm.printPathListClose(ctx);
         
-        ctx.printHelpHtml(section, xpath);
+        ctx.printHelpHtml(xpath);
     }
     
     void printForumMenu(WebContext ctx, String forum) {

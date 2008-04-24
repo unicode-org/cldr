@@ -13,6 +13,8 @@ import java.util.*;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.test.*;
+import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+
 import com.ibm.icu.util.ULocale;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -870,8 +872,20 @@ public class WebContext implements Cloneable {
                 4*1024));       
     }
     
-    public void printHelpHtml(DataSection section, String xpath) {
-        String helpHtml = section.getHelpHtml();
+    static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
+
+    public void printHelpHtml(String xpath) {
+        /*
+     * TODO: Mark says:   "getHelpHtml() is independent of locale. Whichever locale you 
+     * call it on, you'll get the same answer. So you can call it always on English 
+     * (or any other language) if you want. Its code just uses the static class 
+     * HelpMessages, and a file for the source. So you can create your own static class
+     * once for that, like:
+     *    static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
+     *  That is what I'd recommend. "
+     
+*/
+        String helpHtml = surveyToolHelpMessages.find(xpath);
         if(helpHtml != null)  {
             println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
         }        

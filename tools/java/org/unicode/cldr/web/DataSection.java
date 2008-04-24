@@ -1134,17 +1134,6 @@ public class DataSection extends Registerable {
             }
 
             
-            
-            /**
-             * TODO: Mark says:   "getHelpHtml() is independent of locale. Whichever locale you 
-             * call it on, you'll get the same answer. So you can call it always on English 
-             * (or any other language) if you want. Its code just uses the static class 
-             * HelpMessages, and a file for the source. So you can create your own static class
-             * once for that, like:
-             *    static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
-             *  That is what I'd recommend. "
-             */
-            section.helpHtml = uf.getExampleGenerator().getHelpHtml(prefix,null);
 
             
             
@@ -2053,10 +2042,4 @@ public class DataSection extends Registerable {
         
         return "//ldml"; // the "misc" pile.
     }
-    
-    private String helpHtml = null;
-    public String getHelpHtml() {
-        return helpHtml;
-    }
-    
 }

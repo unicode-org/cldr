@@ -1243,16 +1243,16 @@
 			<calendar type="buddhist">
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM d</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-x1001" draft="unconfirmed">MMMM d</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">yy MMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMd" draft="unconfirmed">MMMM d</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">yy MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" alt="proposed-x1002" draft="unconfirmed">MMMM d</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1002" draft="unconfirmed">yy MMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1465,7 +1465,7 @@
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
-						<dateFormatItem id="yyQQQQ" draft="unconfirmed">QQQQ yy</dateFormatItem>
+						<dateFormatItem id="yyQQQQ" alt="proposed-x1001" draft="unconfirmed">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyy">yyyy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -1595,7 +1595,7 @@
 							<month type="5">Şevat</month>
 							<month type="6">Veadar</month>
 							<month type="9">İyar</month>
-							<month type="13" draft="unconfirmed">Ellul</month>
+							<month type="13" alt="proposed-x1001" draft="unconfirmed">Ellul</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tişri</month>
@@ -1603,7 +1603,7 @@
 							<month type="5">Şevat</month>
 							<month type="6">Veadar</month>
 							<month type="9">İyar</month>
-							<month type="13" draft="unconfirmed">Ellul</month>
+							<month type="13" alt="proposed-x1001" draft="unconfirmed">Ellul</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1671,13 +1671,13 @@
 							<month type="2" draft="provisional">Ordibeheşt</month>
 							<month type="3" draft="provisional">Hordad</month>
 							<month type="3" alt="proposed-x1001" draft="unconfirmed">Hordâd</month>
-							<month type="5" draft="unconfirmed">Mordâd</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">Mordâd</month>
 							<month type="6" draft="provisional">Şehriver</month>
 							<month type="6" alt="proposed-x1001" draft="unconfirmed">Şehrivar</month>
-							<month type="8" draft="unconfirmed">Âbân</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">Âbân</month>
 							<month type="9" draft="provisional">Azer</month>
 							<month type="9" alt="proposed-x1001" draft="unconfirmed">Âzar</month>
-							<month type="10" draft="unconfirmed">Daî</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">Daî</month>
 							<month type="11" draft="provisional">Behmen</month>
 							<month type="11" alt="proposed-x1001" draft="unconfirmed">Behman</month>
 							<month type="12" draft="provisional">Esfend</month>
@@ -1689,13 +1689,13 @@
 							<month type="2" draft="provisional">Ordibeheşt</month>
 							<month type="3" draft="provisional">Hordad</month>
 							<month type="3" alt="proposed-x1001" draft="unconfirmed">Hordâd</month>
-							<month type="5" draft="unconfirmed">Mordâd</month>
+							<month type="5" alt="proposed-x1001" draft="unconfirmed">Mordâd</month>
 							<month type="6" draft="provisional">Şehriver</month>
 							<month type="6" alt="proposed-x1001" draft="unconfirmed">Şehrivar</month>
-							<month type="8" draft="unconfirmed">Âbân</month>
+							<month type="8" alt="proposed-x1001" draft="unconfirmed">Âbân</month>
 							<month type="9" draft="provisional">Azer</month>
 							<month type="9" alt="proposed-x1001" draft="unconfirmed">Âzar</month>
-							<month type="10" draft="unconfirmed">Daî</month>
+							<month type="10" alt="proposed-x1001" draft="unconfirmed">Daî</month>
 							<month type="11" draft="provisional">Behmen</month>
 							<month type="11" alt="proposed-x1001" draft="unconfirmed">Behman</month>
 							<month type="12" draft="provisional">Esfend</month>
@@ -1723,13 +1723,13 @@
 				<exemplarCity>Güney Kutbu</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="unconfirmed">Dumont D'Urville</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Dumont D'Urville</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="provisional">Viyana</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
-				<exemplarCity draft="unconfirmed">Melborn</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Melborn</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidney</exemplarCity>
@@ -1748,16 +1748,16 @@
 			</zone>
 			<!-- Democratic Republic of the Congo -->
 			<zone type="Africa/Kinshasa">
-				<exemplarCity draft="unconfirmed">Kinşasa</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kinşasa</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="unconfirmed">Lubumbaşi</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Lubumbaşi</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity draft="provisional">Zürih</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
-				<exemplarCity draft="unconfirmed">Easter Adası</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Easter Adası</exemplarCity>
 			</zone>
 			<!-- China -->
 			<zone type="Asia/Kashgar">
@@ -1953,7 +1953,7 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Mexico</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity draft="unconfirmed">Kankun</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Kankun</exemplarCity>
 			</zone>
 			<!-- Mexico
 				 Malaysia
@@ -2058,14 +2058,14 @@
 				<exemplarCity>Zaporojye</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity draft="unconfirmed">Alaska Saati</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Alaska Saati</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity draft="unconfirmed">Şikago</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Şikago</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<daylight draft="unconfirmed">Doğu (Indianapolis) Yaz Saati</daylight>
+					<daylight alt="proposed-x1001" draft="unconfirmed">Doğu (Indianapolis) Yaz Saati</daylight>
 				</long>
 			</zone>
 			<!-- Uzbekistan -->

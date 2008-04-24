@@ -7,10 +7,10 @@
 		<language type="zh"/>
 	</identity>
 	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localePattern>{0}（{1}）</localePattern>
-			<localeSeparator>、</localeSeparator>
-		</localeDisplayPattern>
+        <localeDisplayPattern>
+            <localePattern>{0}（{1}）</localePattern>
+            <localeSeparator>、</localeSeparator>
+        </localeDisplayPattern>
 		<languages>
 			<language type="aa">阿法文</language>
 			<language type="aa" alt="proposed-x1001" draft="unconfirmed">阿法尔语</language>
@@ -206,9 +206,9 @@
 			<language type="elx" alt="proposed-x1001" draft="unconfirmed">埃兰文</language>
 			<language type="en">英文</language>
 			<language type="en" alt="proposed-x1001" draft="unconfirmed">英语</language>
-			<language type="en_AU" draft="unconfirmed">英语（澳大利亚）</language>
-			<language type="en_GB" draft="unconfirmed">英语（英国）</language>
-			<language type="en_US" draft="unconfirmed">英语（美国）</language>
+			<language type="en_AU" alt="proposed-x1001" draft="unconfirmed">英语（澳大利亚）</language>
+			<language type="en_GB" alt="proposed-x1001" draft="unconfirmed">英语（英国）</language>
+			<language type="en_US" alt="proposed-x1001" draft="unconfirmed">英语（美国）</language>
 			<language type="enm">中古英文</language>
 			<language type="eo">世界文</language>
 			<language type="eo" alt="proposed-x1001" draft="unconfirmed">世界语</language>
@@ -621,7 +621,7 @@
 			<language type="ps" alt="proposed-x1001" draft="unconfirmed">普什图语</language>
 			<language type="pt">葡萄牙文</language>
 			<language type="pt" alt="proposed-x1001" draft="unconfirmed">葡萄牙语</language>
-			<language type="pt_BR" draft="unconfirmed">葡萄牙语（巴西）</language>
+			<language type="pt_BR" alt="proposed-x1001" draft="unconfirmed">葡萄牙语（巴西）</language>
 			<language type="pt_PT">依伯利亚葡萄牙文</language>
 			<language type="pt_PT" alt="proposed-x1001" draft="unconfirmed">葡萄牙语（葡萄牙）</language>
 			<language type="qu">盖丘亚文</language>
@@ -1401,7 +1401,7 @@
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">yyyy-MM-dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1410,7 +1410,7 @@
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">yyyy-MM-dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1794,7 +1794,7 @@
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">yyyy-MM-dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1803,7 +1803,7 @@
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">yyyy-MM-dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -2212,7 +2212,8 @@
 				<exemplarCity alt="proposed-x1001" draft="unconfirmed">伊基克</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity draft="unconfirmed">庞贡唐</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">庞贡唐</exemplarCity>
+				<exemplarCity alt="proposed-x1002" draft="unconfirmed">潘尼尔东</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>蒙克顿</exemplarCity>
@@ -2576,7 +2577,8 @@
 				<exemplarCity>恩德贝里</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
-				<exemplarCity draft="unconfirmed">基里巴斯（圣诞岛）</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">克里斯马斯</exemplarCity>
+				<exemplarCity alt="proposed-x1002" draft="unconfirmed">基里巴斯（圣诞岛）</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity>塔拉瓦</exemplarCity>
@@ -3362,8 +3364,8 @@
 					<daylight alt="proposed-x1001" draft="unconfirmed">Almaty 白昼时间</daylight>
 				</long>
 				<short>
-					<standard draft="unconfirmed">ALMT</standard>
-					<daylight draft="unconfirmed">ALMST</daylight>
+					<standard alt="proposed-x1001" draft="unconfirmed">ALMT</standard>
+					<daylight alt="proposed-x1001" draft="unconfirmed">ALMST</daylight>
 				</short>
 				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>

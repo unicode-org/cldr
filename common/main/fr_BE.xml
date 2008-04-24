@@ -13,7 +13,7 @@
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd-MMM-yy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -31,8 +31,8 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMdd" draft="unconfirmed">dd-MMM</dateFormatItem>
-						<dateFormatItem id="yyMMM" draft="unconfirmed">MMM-yy</dateFormatItem>
+						<dateFormatItem id="MMMdd" alt="proposed-x1001" draft="unconfirmed">dd-MMM</dateFormatItem>
+						<dateFormatItem id="yyMMM" alt="proposed-x1001" draft="unconfirmed">MMM-yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">du {0} au {1}</intervalFormatFallback>

@@ -14,7 +14,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd日MMMM月yyyy年</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">dd日MMMM月yyyy年</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -25,7 +25,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd-MMM-yy</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">dd-MMM-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -38,7 +38,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">ahh:mm:ss</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">ahh:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
@@ -50,7 +50,7 @@
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="unconfirmed">ahh:mm</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">ahh:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
@@ -64,7 +64,7 @@
 					<availableFormats>
 						<dateFormatItem id="MMMMd" draft="provisional">MMMM月d日</dateFormatItem>
 						<dateFormatItem id="Md" draft="provisional">M月d日</dateFormatItem>
-						<dateFormatItem id="yyMM" draft="unconfirmed">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMM" alt="proposed-x1001" draft="unconfirmed">MM/yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0}至{1}</intervalFormatFallback>

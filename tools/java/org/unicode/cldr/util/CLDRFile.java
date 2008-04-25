@@ -454,7 +454,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public String getStringValue(String xpath) {
     String result = dataSource.getValueAtPath(xpath);
     if (result == null && dataSource.isResolving()) {
-      final String fallbackPath = getFallbackPath(xpath);
+      final String fallbackPath = getFallbackPath(xpath, false);
       if (fallbackPath != null) {
         result = dataSource.getValueAtPath(fallbackPath);
       }
@@ -466,12 +466,13 @@ public class CLDRFile implements Freezable, Iterable<String> {
    * Only call if xpath doesn't exist in the current file.
    * <p>For now, just handle counts: see getCountPath
    * @param xpath
+   * @param winning TODO
    * @return
    */
-  private String getFallbackPath(String xpath) {
+  private String getFallbackPath(String xpath, boolean winning) {
     //  || xpath.contains("/currency") && xpath.contains("/displayName")
     if (xpath.contains("[@count=")) {
-      return getWinningCountPathWithFallback(xpath, Count.one);
+      return getCountPathWithFallback(xpath, Count.one, winning);
     }
     return null;
   }
@@ -482,7 +483,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public String getFullXPath(String xpath) {
     String result = dataSource.getFullPath(xpath);
     if (result == null && dataSource.isResolving()) {
-      String fallback = getFallbackPath(xpath);
+      String fallback = getFallbackPath(xpath, true);
       if (fallback != null) {
         // TODO, add attributes from fallback into main
         result = xpath;
@@ -499,7 +500,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
   public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
     String result = dataSource.getSourceLocaleID(distinguishedXPath, status);
     if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
-      final String fallbackPath = getFallbackPath(distinguishedXPath);
+      final String fallbackPath = getFallbackPath(distinguishedXPath, false);
       if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
         result = dataSource.getSourceLocaleID(fallbackPath, status);
 //        if (status != null && status.pathWhereFound.equals(distinguishedXPath)) {
@@ -2823,46 +2824,50 @@ public class CLDRFile implements Freezable, Iterable<String> {
   /**
    * Get the path with the given count. 
    * It acts like there is an alias in root from count=n to count=one, 
-   * then for currencies from count=one to no count
+   * then for currency display names from count=one to no count
    * <br>For unitPatterns, falls back to Count.one.
    * <br>For others, falls back to Count.one, then no count.
    * <p>The fallback acts like an alias in root.
    * @param xpath
    * @param count Count may be null. Returns null if nothing is found.
+   * @param winning TODO
    * @return
    */
-  public String getWinningCountPathWithFallback(String xpathWithNoCount, Count count) {
+  public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
     String result;
-    XPathParts parts = new XPathParts().set(xpathWithNoCount);
-    boolean isUnitPattern = parts.contains("unitPattern");
+    XPathParts parts = new XPathParts().set(xpath);
+    boolean isDisplayName = parts.contains("displayName");
     
     // try the given count first
-    result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, count);
-    if (result != null && (isUnitPattern || isNotRoot(result))) {
+    result = getCountPathWithFallback2(parts, xpath, count, winning);
+    if (result != null && isNotRoot(result)) {
       return result;
     }
     // now try one
     if (count != Count.one) {
-      result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, Count.one);
-      if (result != null && (isUnitPattern || isNotRoot(result))) {
+      result = getCountPathWithFallback2(parts, xpath, Count.one, winning);
+      if (result != null && isNotRoot(result)) {
         return result;
       }
     }
     // now try deletion (for currency)
-    if (!isUnitPattern) {
-      result = getWinningCountPathWithFallback2(parts, xpathWithNoCount, null);
-      if (result != null) {
-        return result;
-      }
+    if (isDisplayName) {
+      result = getCountPathWithFallback2(parts, xpath, null, winning);
     }
-    return getWinningPath(xpathWithNoCount); // may fall back to root
+    return result;
   }
   
-  private String getWinningCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,
-          Count count) {
+  private String getCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,
+          Count count, boolean winning) {
     parts.addAttribute("count", count == null ? null : count.toString());
-    final String newPath = parts.toString();
+    String newPath = parts.toString();
     if (!newPath.equals(xpathWithNoCount)) {
+      if (winning) {
+        String temp = getWinningPath(newPath);
+        if (temp != null) {
+          newPath = temp;
+        }
+      }
       if (dataSource.getValueAtPath(newPath) != null) {
         return newPath;
       }
@@ -2892,7 +2897,7 @@ public class CLDRFile implements Freezable, Iterable<String> {
     if (isNotRoot(winningPath)) {
       return getStringValue(winningPath);
     }
-    String fallbackPath = getFallbackPath(winningPath);
+    String fallbackPath = getFallbackPath(winningPath, true);
     if (fallbackPath != null) {
       String value = getWinningValue(fallbackPath);
       if (value != null) {

@@ -423,9 +423,9 @@ public class ExampleGenerator {
         count = plurals.getCount(example);
       }
       if (value == null) {
-        String clippedPath = parts.toString(-1);
-        clippedPath += "/" + parts.getElement(-1);
-        String fallbackPath = cldrFile.getWinningCountPathWithFallback(clippedPath, count);
+        //String clippedPath = parts.toString(-1);
+        //clippedPath += "/" + parts.getElement(-1);
+        String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
         value = cldrFile.getStringValue(fallbackPath);
       }
       
@@ -488,20 +488,20 @@ public class ExampleGenerator {
 
   private String getUnitPattern(String unitType, final boolean isCurrency, Count count) {
     String unitPattern;
-    String unitPatternPath = cldrFile.getWinningCountPathWithFallback(isCurrency 
+    String unitPatternPath = cldrFile.getCountPathWithFallback(isCurrency 
             ? "//ldml/numbers/currencyFormats/unitPattern" 
                     : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern", 
-                    count);
+                    count, true);
     unitPattern = cldrFile.getWinningValue(unitPatternPath);
     return unitPattern;
   }
 
   private String getUnitName(String unitType, final boolean isCurrency, Count count) {
     String unitName;
-    String unitNamePath = cldrFile.getWinningCountPathWithFallback(isCurrency 
+    String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency 
             ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
                     : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
-                    count);
+                    count, true);
     unitName = cldrFile.getWinningValue(unitNamePath);
     return unitName;
   }

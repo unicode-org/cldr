@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.56 $
-    $Date: 2008-04-05 00:11:59 $
+    $Revision: 1.57 $
+    $Date: 2008-04-25 17:11:15 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, territoryInfo?, calendarData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, references? ) >
@@ -361,7 +361,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRules references CDATA #IMPLIED >
 
 <!ELEMENT pluralRule ( #PCDATA ) >
-<!ATTLIST pluralRule count (zero | one | two | few | many | hundredone | hundredtwo) #REQUIRED > <!-- 'other' is implicitly everything else -->
+<!ATTLIST pluralRule count (zero | one | two | few | many) #REQUIRED > <!-- 'other' is implicitly everything else -->
 <!ATTLIST pluralRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST pluralRule references CDATA #IMPLIED >
 

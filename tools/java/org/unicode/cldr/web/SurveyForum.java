@@ -249,7 +249,7 @@ public class SurveyForum {
     
     String returnUrl(WebContext ctx, String locale, int base_xpath) {
         String xpath = sm.xpt.getById(base_xpath);
-        String theMenu = SurveyMain.xpathToMenu(xpath);
+        String theMenu = PathUtilities.xpathToMenu(xpath);
         if(theMenu==null) {
             theMenu="raw";
         }

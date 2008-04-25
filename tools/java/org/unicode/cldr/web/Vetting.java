@@ -19,6 +19,8 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 import com.ibm.icu.util.ULocale;
+
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
@@ -2651,7 +2653,7 @@ if(true == true)    throw new InternalError("removed from use.");
 							
 							String path = sm.xpt.getById(xp);
 							
-							String theMenu = SurveyMain.xpathToMenu(path);
+							String theMenu = PathUtilities.xpathToMenu(path);
 							
 							if(theMenu != null) {
 								if(type == Vetting.RES_DISPUTED) {
@@ -2887,7 +2889,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				String aLoc = rs.getString(1);
 				int aXpath = rs.getInt(2);
 				String path = sm.xpt.getById(aXpath);
-				String theMenu = SurveyMain.xpathToMenu(path);
+				String theMenu = PathUtilities.xpathToMenu(path);
                 
 				if(theMenu==null) {
 					theMenu="raw";

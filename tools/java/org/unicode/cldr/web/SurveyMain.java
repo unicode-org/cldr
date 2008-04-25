@@ -61,6 +61,7 @@ import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.XMLSource;
@@ -248,30 +249,10 @@ public class SurveyMain extends HttpServlet {
     static final int REFS_SHORTEN_WIDTH = 120;
 
 
-    // ===== types of data and menu names
-    static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
-    static final String CURRENCIES = "currencies";
-    static final String TIMEZONES = "timezones";
-    static final String METAZONES = "metazones";
-    static final String MEASNAMES = "measurementSystemNames";
     static final String MEASNAME = "measurementSystemName";
-    static final String CODEPATTERNS = "codePatterns";
     static final String CODEPATTERN = "codePattern";
-    public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/"+CURRENCIES;
-    public static final String CURRENCYTYPE = "//ldml/"+NUMBERSCURRENCIES+"/currency[@type='";
-    /**
-     *  All of the data items under LOCALEDISPLAYNAMES (menu items)
-     */
-    static final String LOCALEDISPLAYNAMES_ITEMS[] = { 
-        LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES,
-        LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES,
-        CURRENCIES,
-        TIMEZONES,
-        CODEPATTERNS,
-        MEASNAMES
-    };
+    public static final String CURRENCYTYPE = "//ldml/"+PathUtilities.NUMBERSCURRENCIES+"/currency[@type='";
     public static String xMAIN = "general";
-    public static String xOTHER = "misc";
     public static String xREMOVE = "REMOVE";
 
     public static final String GREGORIAN_CALENDAR = "gregorian calendar";
@@ -285,13 +266,11 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.NUMBERS,
         LDMLConstants.LOCALEDISPLAYPATTERN,
         "units",
-        xOTHER,
+        PathUtilities.xOTHER,
         "references"
     };
 
     public static final String GREGO_XPATH = "//ldml/dates/"+LDMLConstants.CALENDARS+"/"+LDMLConstants.CALENDAR+"[@type=\"gregorian\"]";
-    public static final String OTHER_CALENDARS_XPATH = "//ldml/dates/calendars/calendar";
-    public static final String LOCALEDISPLAYPATTERN_XPATH= LOCALEDISPLAYNAMES+LDMLConstants.LOCALEDISPLAYPATTERN;
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
     
@@ -3833,9 +3812,9 @@ public class SurveyMain extends HttpServlet {
             subtype = LDMLConstants.LANGUAGE;
         } else if(type.equals(LDMLConstants.SCRIPTS)) {
             subtype = LDMLConstants.SCRIPT;
-        } else if(type.equals(MEASNAMES)) {
+        } else if(type.equals(PathUtilities.MEASNAMES)) {
             subtype = MEASNAME;
-        } else if(type.equals(CODEPATTERNS)) {
+        } else if(type.equals(PathUtilities.CODEPATTERNS)) {
             subtype = CODEPATTERN;
         } else if(type.equals(LDMLConstants.TERRITORIES)) {
             subtype = LDMLConstants.TERRITORY;
@@ -3891,15 +3870,15 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</td><td style='padding-left: 1em;'>");
         
         subCtx.println("<p class='hang'> Code Lists: ");
-        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+        for(n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
             if(n>0) {
                 ctx.print(" | ");
             }
-            printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
+            printMenu(subCtx, which, PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n]);
         }
         subCtx.println("<p class='hang'> Calendars: ");
         if ( CALENDARS_ITEMS == null )
-           CALENDARS_ITEMS = getCalendarsItems();
+           CALENDARS_ITEMS = PathUtilities.getCalendarsItems();
         for(n =0 ; n < CALENDARS_ITEMS.length; n++) {        
             if(n>0) {
                 ctx.print(" | ");
@@ -3956,24 +3935,6 @@ public class SurveyMain extends HttpServlet {
         subCtx.println("</td></tr></table>");
     }
     
-    public static String[] getCalendarsItems()
-    {
-    //  TODO : Make this data driven from supplementalMetaData ;
-    //  I couldn't get the xpath right....
-    //        CLDRFile mySupp = getFactory().make("supplementalMetaData",false);
-    //        String xpath = "//supplementalData/metadata/validity/variable[@id=\"$calendar\"][@type=\"choice\"]";
-    //        String items = mySupp.getStringValue(xpath);
-    //        if ( items != null ) {
-    //           return (items.split(" "));
-    //        }
-    //       else {
-
-        String defaultCalendarsItems = "gregorian buddhist coptic ethiopic chinese hebrew indian islamic islamic-civil japanese persian roc";
-               return ( defaultCalendarsItems.split(" ") );
-
-    //        }
-    }
-
     public String[] getMetazonesItems()
     {
 
@@ -4063,11 +4024,11 @@ public class SurveyMain extends HttpServlet {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery(QUERY_LOCALE,ctx.localeString());
             subCtx.addQuery(QUERY_SECTION,which);
-            for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-                if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
-                    if(which.equals(CURRENCIES)) {
-                        showPathList(subCtx, "//ldml/"+NUMBERSCURRENCIES, null);
-                    } else if(which.equals(TIMEZONES)) {
+            for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+                if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+                    if(which.equals(PathUtilities.CURRENCIES)) {
+                        showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
+                    } else if(which.equals(PathUtilities.TIMEZONES)) {
                         showTimeZones(subCtx);
                     } else {
                         showLocaleCodeList(subCtx, which);
@@ -4096,12 +4057,12 @@ public class SurveyMain extends HttpServlet {
                     if(which.equals(GREGORIAN_CALENDAR)) {
                         showPathList(subCtx, GREGO_XPATH, null);
                     } else if(which.equals(OTHER_CALENDARS)) {
-                        showPathList(subCtx, OTHER_CALENDARS_XPATH, null);
+                        showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
                     } else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
-                        showPathList(subCtx, LOCALEDISPLAYPATTERN_XPATH, null);
+                        showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
                     } else if(which.equals("units")) {
                         showPathList(subCtx, "//ldml/units", null);
-                    } else if(xOTHER.equals(which)) {
+                    } else if(PathUtilities.xOTHER.equals(which)) {
                         showPathList(subCtx, "//ldml", null);
                     } else {
                         showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
@@ -4565,48 +4526,6 @@ public class SurveyMain extends HttpServlet {
         return true;
     }
 
-    public static String xpathToMenu(String path) {                    
-        String theMenu=null;
-        if(path.startsWith(LOCALEDISPLAYNAMES)) {
-            for(int i=0;i<LOCALEDISPLAYNAMES_ITEMS.length;i++) {
-                if(path.startsWith(LOCALEDISPLAYNAMES+LOCALEDISPLAYNAMES_ITEMS[i])) {
-                    theMenu=LOCALEDISPLAYNAMES_ITEMS[i];
-                }
-            }
-//        } else if(path.startsWith(GREGO_XPATH)) {
-//            theMenu=GREGORIAN_CALENDAR;
-        } else if(path.startsWith(OTHER_CALENDARS_XPATH)) {
-            String items[] = getCalendarsItems();
-            for(String which : items) {
-                String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
-                if(path.startsWith(CAL_XPATH)) {
-                    theMenu = which;
-                    break;
-                }
-            }
-        } else if(path.startsWith(LOCALEDISPLAYPATTERN_XPATH)) {
-            theMenu=LDMLConstants.LOCALEDISPLAYPATTERN;
-        } else if(path.startsWith("//ldml/"+NUMBERSCURRENCIES)) {
-            theMenu=CURRENCIES;
-        } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/zone")){
-            theMenu=TIMEZONES;
-        } else if(path.startsWith( "//ldml/"+"units")){
-            theMenu="units";
-        } else if(path.startsWith( "//ldml/"+"dates/timeZoneNames/metazone")){
-            theMenu=METAZONES;
-        } else if(path.startsWith( "//ldml/"+LDMLConstants.CHARACTERS)) {
-            theMenu = LDMLConstants.CHARACTERS;
-        } else if(path.startsWith( "//ldml/"+LDMLConstants.NUMBERS)) {
-            theMenu = LDMLConstants.NUMBERS;
-        } else if(path.startsWith( "//ldml/"+LDMLConstants.REFERENCES)) {
-            theMenu = LDMLConstants.REFERENCES;
-        } else {
-            theMenu=xOTHER;
-            // other?
-        }
-        return theMenu;
-    }
-
     /**
     * Show the 'main info about this locale' (General) panel.
      */
@@ -4643,7 +4562,7 @@ public class SurveyMain extends HttpServlet {
                             while(rs.next()) {
                                 int xp = rs.getInt(1);                               
                                 String path = xpt.getById(xp);                               
-                                String theMenu = xpathToMenu(path);
+                                String theMenu = PathUtilities.xpathToMenu(path);
                                 if(theMenu != null) {
                                     odItems.add(theMenu);
                                 }
@@ -4682,7 +4601,7 @@ public class SurveyMain extends HttpServlet {
                             
                             String path = xpt.getById(xp);
                             
-                            String theMenu = xpathToMenu(path);
+                            String theMenu = PathUtilities.xpathToMenu(path);
                             
                             if(theMenu != null) {
                                 if(type == Vetting.RES_DISPUTED) {
@@ -5256,7 +5175,7 @@ public class SurveyMain extends HttpServlet {
      * @param fullSet the set of tags denoting the expected full-set, or null if none.
      */
     public void showLocaleCodeList(WebContext ctx, String which) {
-        showPathList(ctx, LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
+        showPathList(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
     }
 
     public void showPathListExample(WebContext ctx, String xpath, String lastElement,
@@ -6909,7 +6828,7 @@ public class SurveyMain extends HttpServlet {
                             }
                             ctx.println("<br>");
                         } else {                        
-                            String theMenu = SurveyMain.xpathToMenu(xpt.getById(p.parentRow.base_xpath));
+                            String theMenu = PathUtilities.xpathToMenu(xpt.getById(p.parentRow.base_xpath));
                             if(theMenu==null) {
                                 theMenu="raw";
                             }

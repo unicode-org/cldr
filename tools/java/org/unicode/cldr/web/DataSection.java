@@ -2006,13 +2006,13 @@ public class DataSection extends Registerable {
         // is it one of the prefixes we can check statically?
         String staticBases[] = { 
             // LOCALEDISPLAYNAMES
-                "//ldml/"+SurveyMain.NUMBERSCURRENCIES,
+                "//ldml/"+PathUtilities.NUMBERSCURRENCIES,
                 "//ldml/"+"dates/timeZoneNames/zone",
                 "//ldml/"+"dates/timeZoneNames/metazone",
             // OTHERROOTS
                 SurveyMain.GREGO_XPATH,
-                SurveyMain.LOCALEDISPLAYPATTERN_XPATH,
-                SurveyMain.OTHER_CALENDARS_XPATH,
+                PathUtilities.LOCALEDISPLAYPATTERN_XPATH,
+                PathUtilities.OTHER_CALENDARS_XPATH,
                 "//ldml/units"
         };
          
@@ -2024,9 +2024,9 @@ public class DataSection extends Registerable {
         }
             
         // dynamic LOCALEDISPLAYNAMES
-        for(n =0 ; n < SurveyMain.LOCALEDISPLAYNAMES_ITEMS.length; n++) {   // is it a simple code list?
-            base = SurveyMain.LOCALEDISPLAYNAMES+SurveyMain.LOCALEDISPLAYNAMES_ITEMS[n]+
-                '/'+SurveyMain.typeToSubtype(SurveyMain.LOCALEDISPLAYNAMES_ITEMS[n]);  // see: SurveyMain.showLocaleCodeList()
+        for(n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {   // is it a simple code list?
+            base = PathUtilities.LOCALEDISPLAYNAMES+PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n]+
+                '/'+SurveyMain.typeToSubtype(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n]);  // see: SurveyMain.showLocaleCodeList()
             if(xpath.startsWith(base)) {
                 return base;
             }

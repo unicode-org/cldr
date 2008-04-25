@@ -4,7 +4,9 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,6 +44,8 @@ public class VoteResolver {
     Organization organization;
     Level        level;
     String       name;
+    Set<String> locales = new TreeSet<String>();
+    
     public VoterInfo(Organization organization, Level level, String name) {
       this.organization = organization;
       this.level = level;
@@ -256,12 +260,13 @@ public class VoteResolver {
   }
 
   static class MyHandler extends XMLFileReader.SimpleHandler {
+    private static final boolean DEBUG = true;
     Map<Integer, VoterInfo> testVoterToInfo = new TreeMap<Integer, VoterInfo>();
     Matcher matcher = Pattern.compile(
             "//users\\[@host=\"([^\"]*)\"]" +
             "/user\\[@id=\"([^\"]*)\"]\\[@email=\"([^\"]*)\"]" +
             "/(" +
-              "org|name|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]|locale.*" +
+              "org|name|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]|locales\\[@type=\"([^\"]*)\"]/locale\\[@id=\"([^\"]*)\"]" +
             ")").matcher(""); // (?:\\[@([a-z]+)=\"([^\"]*))? (?:\\[@([a-z]+)=\"([^\"]*))?
 /*
 //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/level[@n="1"][@type="TC"] 
@@ -270,11 +275,13 @@ public class VoteResolver {
 //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/locales[@type="edit"]
  */
     public void handlePathValue(String path, String value) {
-      //System.out.println(path + "\t" + value);
+      if (DEBUG) System.out.println(path + "\t" + value);
       if (matcher.reset(path).matches()) {
-//        for (int i = 1; i <= matcher.groupCount(); ++i) {
-//          System.out.println(i + "\t" + matcher.group(i));
-//        }
+        if (DEBUG) {
+          for (int i = 1; i <= matcher.groupCount(); ++i) {
+            System.out.println(i + "\t" + matcher.group(i));
+          }
+        }
         int id = Integer.parseInt(matcher.group(2));
         VoterInfo voterInfo = testVoterToInfo.get(id);
         if (voterInfo == null) {
@@ -294,10 +301,34 @@ public class VoteResolver {
         } else if (mainType.startsWith("level")) {
           String level = matcher.group(6).toLowerCase();
           voterInfo.level = Level.valueOf(level);
+        } else if (mainType.startsWith("locale")) {
+          voterInfo.locales.add(matcher.group(8).split("_")[0]);
         }
       } else {
         System.out.println("\t???");
       }
     }
+  }
+
+  public static Map<String, Map<Organization, Relation<Level,Integer>>> getLocaleToVetters() {
+    Map<String, Map<Organization, Relation<Level,Integer>>> result = new TreeMap<String, Map<Organization, Relation<Level,Integer>>>();
+    for (int voter : voterToInfo.keySet()) {
+      VoterInfo info = voterToInfo.get(voter);
+      if (info.level == Level.locked) {
+        continue;
+      }
+      for (String locale : info.locales) {
+        Map<Organization, Relation<Level,Integer>> orgToVoter= result.get(locale);
+        if (orgToVoter == null) {
+          result.put(locale, orgToVoter = new TreeMap<Organization, Relation<Level,Integer>>());
+        }
+        Relation<Level, Integer> rel = orgToVoter.get(info.organization);
+        if (rel == null) {
+          orgToVoter.put(info.organization, rel = new Relation(new TreeMap(), TreeSet.class));
+        }
+        rel.put(info.level, voter);
+      }
+    }
+    return result;
   }
 }

@@ -102,9 +102,9 @@ public class ExampleGenerator {
 
   private static final String NONE = "\uFFFF";
 
-  private static final String backgroundStartSymbol = "\uE1234";
+  private static final String backgroundStartSymbol = "\uE234";
 
-  private static final String backgroundEndSymbol = "\uE1235";
+  private static final String backgroundEndSymbol = "\uE235";
 
   // Matcher skipMatcher = Pattern.compile(
   // "/localeDisplayNames(?!"
@@ -429,25 +429,21 @@ public class ExampleGenerator {
         value = cldrFile.getStringValue(fallbackPath);
       }
       
-      // get the pattern if our path is not a pattern
+      // If we have a pattern, get the unit from the count
+      // If we have a unit, get the pattern from the count
+      // English is special; both values are retrieved based on the count.
       String unitPattern;
       String unitName;
       if (isPattern) {
         // //ldml/numbers/currencies/currency[@type="USD"]/displayName
-        String unitNamePath = cldrFile.getWinningCountPathWithFallback(isCurrency 
-                ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
-                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
-                        count);
-        unitName = cldrFile.getWinningValue(unitNamePath);
-        unitPattern = value;
+        unitName = getUnitName(unitType, isCurrency, count);
+        unitPattern = type != ExampleType.ENGLISH ? value : getUnitPattern(unitType, isCurrency, count);
       } else {
-        String unitPatternPath = cldrFile.getWinningCountPathWithFallback(isCurrency 
-                ? "//ldml/numbers/currencyFormats/unitPattern" 
-                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern", 
-                        count);
-        unitPattern = cldrFile.getWinningValue(unitPatternPath);
-        unitName = value;
+        unitPattern = getUnitPattern(unitType, isCurrency, count);
+        unitName = type != ExampleType.ENGLISH ? value : getUnitName(unitType, isCurrency, count);
       }
+      
+      unitPattern = setBackground(unitPattern);
 
       MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
 
@@ -478,8 +474,7 @@ public class ExampleGenerator {
       //arguments.put("quantity", example);
       //arguments.put("unit", value);
       String resultItem = unitPatternFormat.format(new Object[]{example, unitName});
-
-      resultItem = setBackground(resultItem).replace(unitName, backgroundEndSymbol + unitName + backgroundStartSymbol);
+      //resultItem = setBackground(resultItem).replace(unitName, backgroundEndSymbol + unitName + backgroundStartSymbol);
       resultItem = finalizeBackground(resultItem, isPattern);
 
       // now add to list
@@ -489,6 +484,26 @@ public class ExampleGenerator {
       result += resultItem;
     }
     return result;
+  }
+
+  private String getUnitPattern(String unitType, final boolean isCurrency, Count count) {
+    String unitPattern;
+    String unitPatternPath = cldrFile.getWinningCountPathWithFallback(isCurrency 
+            ? "//ldml/numbers/currencyFormats/unitPattern" 
+                    : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern", 
+                    count);
+    unitPattern = cldrFile.getWinningValue(unitPatternPath);
+    return unitPattern;
+  }
+
+  private String getUnitName(String unitType, final boolean isCurrency, Count count) {
+    String unitName;
+    String unitNamePath = cldrFile.getWinningCountPathWithFallback(isCurrency 
+            ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
+                    : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
+                    count);
+    unitName = cldrFile.getWinningValue(unitNamePath);
+    return unitName;
   }
 
   private String handleNumberSymbol() {
@@ -745,7 +760,7 @@ public class ExampleGenerator {
             .replace(backgroundEndSymbol, invert ? backgroundStart : backgroundEnd);
   }
 
-  static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
+  public static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
 
   /**
    * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's all

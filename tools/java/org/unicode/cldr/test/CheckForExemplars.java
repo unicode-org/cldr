@@ -8,6 +8,8 @@ package org.unicode.cldr.test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
@@ -31,15 +33,29 @@ public class CheckForExemplars extends CheckCLDR {
     "/localeDisplayNames/variants/"
     };
   
-  UnicodeSet exemplars;
-  UnicodeSet scriptRegionExemplars;
-  UnicodeSet scriptRegionExemplarsWithParens;
-  UnicodeSet currencySymbolExemplars;
-  boolean skip;
-  Collator col;
-  Collator spaceCol;
-  String informationMessage;
-  Status otherPathStatus = new Status();
+  private UnicodeSet exemplars;
+  private UnicodeSet scriptRegionExemplars;
+  private UnicodeSet scriptRegionExemplarsWithParens;
+  private UnicodeSet currencySymbolExemplars;
+  private boolean skip;
+  private Collator col;
+  private Collator spaceCol;
+  private String informationMessage;
+  private Status otherPathStatus = new Status();
+  private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
+  static final Pattern supposedToBeMessageFormatPath = Pattern.compile("/(" +
+          "codePattern" +
+          "|dateRangePattern" +
+          "|dateTimeFormat/pattern" +
+          "|appendItem" +
+          "|intervalFormatFallback" +
+          "|hoursFormat" +
+          "|gmtFormat" +
+          "|regionFormat" +
+          "|fallbackFormat" +
+          "|unitPattern" +
+      ")");
+  private Matcher supposedToBeMessageFormat = supposedToBeMessageFormatPath.matcher("");
   
   public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
     if (cldrFile == null) return this;
@@ -122,9 +138,28 @@ public class CheckForExemplars extends CheckCLDR {
       if (true) return this;
       if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
     }
-    for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
-      if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
+    
+    // add checks for patterns. Make sure that all and only the message format patterns have {n}
+    boolean hasMessageFormatFields = patternMatcher.reset(value).find();
+    boolean supposedToHaveMessageFormatFields = supposedToBeMessageFormat.reset(path).find();
+    if (hasMessageFormatFields != supposedToHaveMessageFormatFields) {
+      result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+              .setMessage(supposedToHaveMessageFormatFields 
+                      ? "This field is a message pattern, and should have '{0}, {1},' etc. See the English for an example."
+                      : "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
+                      new Object[]{}));
+
     }
+    if (supposedToHaveMessageFormatFields) {
+      // check the other characters in the message format patterns
+      value = patternMatcher.replaceAll("#");
+    } else {
+      // end checks for patterns
+      for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
+        if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
+      }
+    }
+    
     if (path.startsWith("//ldml/posix/messages")) return this;
     
     if (path.contains("/currency") && path.endsWith("/symbol")) {

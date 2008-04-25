@@ -39,17 +39,18 @@ public class TestAll extends TestGroup {
   public static final String CLASS_TARGET_NAME  = "CLDR";
   
   public static class TestInfo {
-    static TestInfo INSTANCE = null;
-    SupplementalDataInfo supplementalDataInfo;
-    StandardCodes sc;
-    Factory cldrFactory;
-    CLDRFile english;
-    CLDRFile root;
-    RuleBasedCollator col;
+    private static TestInfo INSTANCE = null;
+    private SupplementalDataInfo supplementalDataInfo;
+    private StandardCodes sc;
+    private Factory cldrFactory;
+    private CLDRFile english;
+    private CLDRFile root;
+    private RuleBasedCollator col;
 
     public static TestInfo getInstance() {
       synchronized (TestInfo.class) {
         if (INSTANCE == null) {
+          Utility.checkValidDirectory(Utility.BASE_DIRECTORY, "You have to set -Dcheckdata=<validdirectory>");
           INSTANCE = new TestInfo();
         }
       }

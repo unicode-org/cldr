@@ -16,12 +16,15 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.Relation;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -65,6 +68,12 @@ import java.util.regex.Pattern;
  *
  */
 public class ConsoleCheckCLDR {
+  private static final String ERROR_CHART_HEADER = "Please review and correct them. " +
+              "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
+              "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
+              "(There were production problems in integrating it fully into the Survey tool. " +
+              "However, it should let you see the problems and make sure that they get taken care of.)</i></p>" +
+              "<p>Coverage depends on your organizations goals: the highest tier languages should include up to Modern.";
   public static boolean showStackTrace = false;
   public static boolean errorsOnly = false;
   static boolean SHOW_LOCALE = true;
@@ -91,7 +100,8 @@ public class ConsoleCheckCLDR {
   SOURCE_DIRECTORY = 13,
   USER = 14,
   PHASE = 15,
-  GENERATE_HTML = 16
+  GENERATE_HTML = 16,
+  VOTE_RESOLVE = 17
   ;
   
   private static final UOption[] options = {
@@ -111,7 +121,8 @@ public class ConsoleCheckCLDR {
     UOption.create("source_directory", 's',  UOption.REQUIRES_ARG).setDefault(Utility.MAIN_DIRECTORY),
     UOption.create("user", 'u',  UOption.REQUIRES_ARG),
     UOption.create("phase", 'z',  UOption.REQUIRES_ARG),
-    UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG),
+    UOption.create("generate_html", 'g',  UOption.OPTIONAL_ARG).setDefault(Utility.GEN_DIRECTORY + "errors/"),
+    UOption.create("vote resolution", 'v',  UOption.REQUIRES_ARG),
   };
   private static final Comparator<String> baseFirstCollator = new Comparator<String>() {
     LanguageTagParser languageTagParser1 = new LanguageTagParser();
@@ -134,7 +145,7 @@ public class ConsoleCheckCLDR {
     "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
     "-txxx \t Filter the Checks: xxx is a regular expression, eg -t.*number.*. To check all BUT a given test, use the style -t ((?!.*CheckZones).*)",
     "-oxxx \t Organization: ibm, google, ....; filters locales and uses Locales.txt for coverage tests",
-    "-x \t Turn on examples (actually a summary of the demo)",
+    "-x \t Turn on examples (actually a summary of the demo). Takes optional parameter: in -- for the zoomed in view.",
     "-d \t Turn on special date format checks",
     "-a \t Show all paths",
     "-e \t Show errors only (with -ef, only final processing errors)",
@@ -212,13 +223,15 @@ public class ConsoleCheckCLDR {
     
     if (options[GENERATE_HTML].doesOccur) {
       coverageLevel = Level.MODERN; // reset
-      generated_html_directory = options[GENERATE_HTML].value;
-      if (generated_html_directory == null) {
-        generated_html_directory = Utility.GEN_DIRECTORY + "errors/";
-      }
+      generated_html_directory = Utility.checkValidDirectory(options[GENERATE_HTML].value,null);
       generated_html_count = BagFormatter.openUTF8Writer(generated_html_directory, "count.txt");
       //PrintWriter cssFile = BagFormatter.openUTF8Writer(generated_html_directory, "index.css");
       //Utility;
+    }
+    
+    if (options[VOTE_RESOLVE].doesOccur) {
+      VoteResolver.setTestData(options[VOTE_RESOLVE].value);
+      voteResolver = new VoteResolver();
     }
     
     // check stuff
@@ -227,7 +240,9 @@ public class ConsoleCheckCLDR {
 //  System.out.println(cc.compare("Antarctica/Rothera", "America/Indianapolis"));
     
     
-    String sourceDirectory = checkValidDirectory(options[SOURCE_DIRECTORY].value, "Fix with -s. Use -h for help.");
+    String sourceDirectory = Utility.checkValidDirectory(options[SOURCE_DIRECTORY].value, "Fix with -s. Use -h for help.");
+    final String resolveVotesDirectory = options[VOTE_RESOLVE].doesOccur ? Utility.checkValidFile(options[VOTE_RESOLVE].value, false, null) : null;
+
 
     String user = options[USER].value;
     
@@ -243,7 +258,11 @@ public class ConsoleCheckCLDR {
     System.out.println("show all: " + showAll);
     System.out.println("errors only?: " + errorsOnly);
     System.out.println("generate html: " + generated_html_directory);
+    System.out.println("resolve votes: " + resolveVotesDirectory);
     
+    if (resolveVotesDirectory != null) {
+      showResolvedVotes(resolveVotesDirectory);
+    }
     // set up the test
     Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter);
     CheckCLDR checkCldr = CheckCLDR.getCheckAll(checkFilter);
@@ -568,20 +587,37 @@ public class ConsoleCheckCLDR {
 //  }
 
   
+  private static void showResolvedVotes(String resolveVotesDirectory) {
+    VoteResolver.setTestData(resolveVotesDirectory);
+    Map<String, Map<Organization, Relation<VoteResolver.Level, Integer>>> map = VoteResolver.getLocaleToVetters();
+  }
+
+  private static void showIndexHead(PrintWriter generated_html_index) {
+    generated_html_index.println("<html>" +
+        "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
+        "<title>Error Report Index</title></head>" +
+        "<link rel='stylesheet' href='errors.css' type='text/css'>" +
+        "<body>" +
+        "<h1>Error Report Index</h1>" +
+        "<p>The following errors have been detected in the locales. " +
+        ERROR_CHART_HEADER);
+  }
+
   private static void showSummaryTable(PrintWriter generated_html_index) {
     TablePrinter indexTablePrinter = new TablePrinter()
       .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
       .addColumn("BASE").setRepeatHeader(true).setHidden(true)
-      .addColumn("Locale")
+      .addColumn("Locale").setCellPattern("<a name=\"{1}\" href=\"{0}.html\">{0}</a>") // link to base, anchor with full
       .addColumn("Name");
     for (ErrorType type : ErrorType.toShow) {
       String columnTitle = UCharacter.toTitleCase(type.toString(), null);
-      if (ErrorType.coverage.contains(type)) {
+      final boolean coverage = ErrorType.coverage.contains(type);
+      if (coverage) {
         columnTitle = "Missing Coverage: " + columnTitle;
-      } else if (ErrorType.unapproved.contains(type)) {
+      } else if (ErrorType.unapproved.contains(type)){
         columnTitle = "Missing Votes: " + columnTitle;
       }
-      indexTablePrinter.addColumn(columnTitle).setCellAttributes("align='right'");
+      indexTablePrinter.addColumn(columnTitle).setHeaderAttributes("class='" + type + "'").setCellAttributes("class='" + type + "'");
     }
     LanguageTagParser ltp = new LanguageTagParser();
     for (String key : sortedHtmlIndexLines.keySet()) {
@@ -594,7 +630,7 @@ public class ConsoleCheckCLDR {
       final String baseLanguage = ltp.set(htmlOpenedFileLanguage).getLanguage();
       indexTablePrinter.addRow()
       .addCell(baseLanguage)
-      .addCell("<a href='" + baseLanguage + ".html'>" + htmlOpenedFileLanguage + "</a>")
+      .addCell(htmlOpenedFileLanguage)
       .addCell(getLocaleName(htmlOpenedFileLanguage));
       for (ErrorType type : ErrorType.toShow) {
         indexTablePrinter.addCell(counts.getCount(type));
@@ -607,34 +643,6 @@ public class ConsoleCheckCLDR {
 
   static Matcher draftStatusMatcher = Pattern.compile("\\[@draft=\"([^\"]*)\"]").matcher("");
   
-  private static String checkValidDirectory(String sourceDirectory, String correction) {
-	  File temp = new File(sourceDirectory);
-	  String canonicalPath = null;
-	  try {
-		  canonicalPath = temp.getCanonicalPath();
-	  } catch (IOException e) {
-	  }
-	  if (!temp.isDirectory() || canonicalPath == null) {
-		  throw new RuntimeException("Directory not found: " + sourceDirectory + (canonicalPath == null ? "" : " => " + canonicalPath) 
-				  + "\r\n" + correction);
-	  }
-	  return canonicalPath;
-  }
-
-private static void showIndexHead(PrintWriter generated_html_index) {
-    generated_html_index.println("<html>" +
-        "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
-        "<title>Error Report Index</title></head>" +
-        "<link rel='stylesheet' href='errors.css' type='text/css'>" +
-        "<body>" +
-        "<h1>Error Report Index</h1>" +
-        "<p>The following errors have been detected in the locales. " +
-        "Please review and correct them.</p>" +
-        "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
-        "(There were production problems in integrating it fully into the Survey tool. " +
-        "However, it should let you see the problems and make sure that they get taken care of.)</i></p>");
-  }
-
   enum ErrorType {
     ok,
     error, warning, 
@@ -708,23 +716,18 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     }
     generated_html = BagFormatter.openUTF8Writer(generated_html_directory, baseLanguage + ".html");
     generated_html_table = new TablePrinter();
-    showLineHeaders(generated_html_table);
+    showLineHeaders(generated_html_table, localeID);
     //showLineHeaders(generated_html_table);
 
     htmlOpenedFileLanguage = baseLanguage;
-    generated_html.println("<html>" +
-        "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
-        "<title>Errors in " + getNameAndLocale(localeID, false) + "</title></head>" +
-        "<link rel='stylesheet' href='errors.css' type='text/css'>" +
-        "<body>" +
-        "<h1>Errors in " + getNameAndLocale(localeID, false) + "</h1>" +
-        "<p><a href='index.html'>Index</a></p>" +
-        "<p>The following errors have been detected in the locale " + getNameAndLocale(localeID, false) + ". " +
-            "Please review and correct them. " +
-            "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
-            "<p><i>This list is only generated daily, and so may not reflect fixes you have made until tomorrow. " +
-            "(There were production problems in integrating it fully into the Survey tool. " +
-            "However, it should let you see the problems and make sure that they get taken care of.)</i></p>"); 
+    generated_html.println("<html>"
+            + "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
+            + "<title>Errors in " + getNameAndLocale(localeID, false) + "</title></head>"
+            + "<link rel='stylesheet' href='errors.css' type='text/css'>" + "<body>"
+            + "<h1>Errors in " + getNameAndLocale(localeID, false) + "</h1>"
+            + "<p><a href='index.html#" + localeID + "'>Index</a></p>"
+            + "<p>The following errors have been detected in the locale "
+            + getNameAndLocale(localeID, false) + ". " + ERROR_CHART_HEADER); 
   }
 
 //  private static void startGeneratedTable(PrintWriter output, TablePrinter table) {
@@ -748,11 +751,11 @@ private static void showIndexHead(PrintWriter generated_html_index) {
     if (SHOW_EXAMPLES == Zoomed.IN) {
       String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN, exampleContext, ExampleType.NATIVE);
       if (longExample != null && !longExample.equals(example)) {
-        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, longExample, path, value, fullPath, "ok-in", exampleContext);
+        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, longExample, path, value, fullPath, "ok", exampleContext);
       }
       String help = exampleGenerator.getHelpHtml(path, value);
       if (help != null) {
-        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, help, path, value, fullPath, "ok-help", exampleContext);
+        showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, help, path, value, fullPath, "ok", exampleContext);
       }
     }
   }
@@ -815,7 +818,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   
 
   private static void showHeaderLine() {
-    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tAliasedSource?\tAliasedPath?");
+    if (SHOW_LOCALE) System.out.println("Locale\tNo.\tStatus\tPPath\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\tError/Warning Msg\tFull Path\tAliasedSource/Path?");
   }
 
   private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example, String path, String value, String fullPath, String statusString, ExampleContext exampleContext) {
@@ -833,7 +836,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
         }
         englishExample = getExampleGenerator().getExampleHtml(path, englishPathValue, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
       }
-      englishExample = englishExample == null ? "" : "<" + englishExample + ">";
+      englishExample = englishExample == null ? "" : englishExample;
       String cleanPrettyPath = path == null ? null : prettyPathMaker.getOutputForm(prettyPath);
       Status status = new Status();
       String sourceLocaleID = path == null ? null : cldrFile.getSourceLocaleID(path, status);
@@ -901,27 +904,32 @@ private static void showIndexHead(PrintWriter generated_html_index) {
 
   static TablePrinter generated_html_table = new TablePrinter();
   
-  private static void showLineHeaders(TablePrinter table) {
+  private static void showLineHeaders(TablePrinter table, String localeID) {
     table
     .setTableAttributes("border='1px' style='border-collapse: collapse' bordercolor='#CCCCFF'")
-    .addColumn("Problem").setSortPriority(0).setSpanRows(true).setBreakSpans(true).setRepeatHeader(true)
+    .addColumn("Problem").setCellAttributes("class=\"{0}\"").setSortPriority(0).setSpanRows(true)
+      .setBreakSpans(true).setRepeatHeader(true).setHeaderCell(true)
     .addColumn("Locale").setSortPriority(1).setSpanRows(true).setBreakSpans(true).setRepeatHeader(true)
     .addColumn("Name").setSpanRows(true).setBreakSpans(true)
-    .addColumn("HIDDEN").setSortPriority(2).setHidden(true)
-    .addColumn("Path").setCellAttributes("width=30%")
-    .addColumn("English").setCellAttributes("width=20%")
-    .addColumn("Native").setCellAttributes("width=20%");
+    //.addColumn("HIDDEN").setSortPriority(2).setHidden(true)
+    .addColumn("Section").setSortPriority(2).setCellPattern("<a href=''http://unicode.org/cldr/apps/survey?_=" + localeID + "&x={0}''>{0}</a>").setSpanRows(true)
+    .addColumn("English")
+    .addColumn("Native");
   }
   
   private static void showLine(TablePrinter table, String localeID, String path, String value, ErrorType shortStatus, String menuPath, String link) {
-    final String prettyPath = path == null ? "general" : prettyPathMaker.getPrettyPath(path, true);
-    final String outputForm = path == null ? "general" : prettyPathMaker.getOutputForm(prettyPath);
+    String section = path == null ? null : org.unicode.cldr.web.SurveyMain.xpathToMenu(path);
+    if (section == null) {
+      section = "general";
+    }
+    //final String prettyPath = path == null ? "general" : prettyPathMaker.getPrettyPath(path, true);
+    //final String outputForm = path == null ? "general" : prettyPathMaker.getOutputForm(prettyPath);
     table.addRow()
       .addCell(shortStatus)
       .addCell(getLinkedLocale(localeID))
       .addCell(getLocaleName(localeID))
-      .addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
-      .addCell(outputForm) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
+      //.addCell(prettyPath) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
+      .addCell(section) // menuPath == null ? "" : "<a href='" + link + "'>" + menuPath + "</a>"
       .addCell(safeForHtml(path == null ? null : getEnglishPathValue(path)))
       .addCell(safeForHtml(value))
       .finishRow();
@@ -930,6 +938,7 @@ private static void showIndexHead(PrintWriter generated_html_index) {
   
   static String lastHtmlLocaleID = "";
   static ErrorCount htmlErrorsPerLocale = new ErrorCount();
+  private static VoteResolver voteResolver;
 
   private static String safeForHtml(String value) {
     return value == null ? "" : TransliteratorUtilities.toHTML.transliterate(value);

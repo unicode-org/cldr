@@ -72,19 +72,20 @@ public class TablePrinter {
   private static class Column {
     String header;
     String headerAttributes;
-    String cellAttributes;
+    MessageFormat cellAttributes;
     
     boolean spanRows;
     MessageFormat cellPattern;
     private boolean repeatHeader;
     private boolean hidden;
+    private boolean isHeader;
     
     public Column(String header) {
       this.header = header;
     }
     
     public Column setCellAttributes(String cellAttributes) {
-      this.cellAttributes = cellAttributes;
+      this.cellAttributes = new MessageFormat(cellAttributes);
       return this;
     }
     
@@ -114,6 +115,10 @@ public class TablePrinter {
 
     public void setHidden(boolean b) {
       hidden = b;
+    }
+
+    public void setHeaderCell(boolean b) {
+      isHeader = true;
     }
   }
   
@@ -259,6 +264,8 @@ public class TablePrinter {
   public String toTableInternal(Comparable[][] sortedFlat) {
     //TreeSet<String[]> sorted = new TreeSet();
     //sorted.addAll(data);
+    Object[] patternArgs = new Object[columns.size() + 1];
+
     Arrays.sort(sortedFlat, columnSorter);
     
     columnsFlat = columns.toArray(new Column[0]);
@@ -274,6 +281,7 @@ public class TablePrinter {
     showHeader(result);
     
     for (int i = 0; i < sortedFlat.length; ++i) {
+      System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
       // check to see if we repeat the header
       if (i != 0) {
         for (int j = 0; j < sortedFlat[i].length; ++j) {
@@ -291,29 +299,35 @@ public class TablePrinter {
         if (columnsFlat[j].hidden) {
           continue;
         }
-        result.append("<td");
+        patternArgs[0] = sortedFlat[i][j];
+        result.append(columnsFlat[j].isHeader ? "<td" : "<th");
         boolean gotSpace = false;
         if (columnsFlat[j].cellAttributes != null) {
-          
-          result.append(' ').append(columnsFlat[j].cellAttributes);
-          gotSpace = true;
+          try {
+            result.append(' ').append(columnsFlat[j].cellAttributes.format(patternArgs));
+            gotSpace = true;
+          } catch (RuntimeException e) {
+            throw (RuntimeException) new IllegalArgumentException("cellAttributes<" + i + ", " + j + "> = " + sortedFlat[i][j]).initCause(e);
+          }
         }
         if (identical != 1) {
           if (!gotSpace) result.append(' ');
-          result.append(" rowSpan='").append(identical).append('\'');
+          result.append("rowSpan='").append(identical).append('\'');
         }
         result.append('>');
         
         if (columnsFlat[j].cellPattern != null) {
           try {
-            result.append(columnsFlat[j].cellPattern.format(new Object[]{sortedFlat[i][j]}));
+            patternArgs[0] = sortedFlat[i][j];
+            System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
+            result.append(columnsFlat[j].cellPattern.format(patternArgs));
           } catch (RuntimeException e) {
-            throw (RuntimeException) new IllegalArgumentException("<" + i + ", " + j + "> = " + sortedFlat[i][j]).initCause(e);
+            throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = " + sortedFlat[i][j]).initCause(e);
           }
         } else {
           result.append(sortedFlat[i][j]);
         }
-        result.append("</td>");
+        result.append(columnsFlat[j].isHeader ? "</td>" : "</th>");
       }
       result.append("</tr>\r\n");
     }
@@ -425,6 +439,11 @@ public class TablePrinter {
 
   public TablePrinter setHidden(boolean b) {
     columns.get(columns.size()-1).setHidden(b);
+    return this;
+  }
+
+  public TablePrinter setHeaderCell(boolean b) {
+    columns.get(columns.size()-1).setHeaderCell(b);
     return this;
   }
 }

@@ -1239,4 +1239,28 @@ public static <T> T clone(T source) {
   public static boolean getProperty(String string, boolean b) {
     return getProperty(string, b ? "true" : "false", "true").matches("(?i)T|TRUE");
   }
+
+  public static String checkValidDirectory(String sourceDirectory) {
+    return checkValidFile(sourceDirectory, true, null);
+  }
+
+  public static String checkValidDirectory(String sourceDirectory, String correction) {
+    return checkValidFile(sourceDirectory, true, correction);
+  }
+  
+  public static String checkValidFile(String sourceDirectory, boolean checkForDirectory, String correction) {
+    File file = null;
+    String canonicalPath = null;
+    try {
+      file = new File(sourceDirectory);
+      canonicalPath = file.getCanonicalPath() + File.separatorChar;
+    } catch (Exception e) {
+    }
+    if (file == null || canonicalPath == null || checkForDirectory && !file.isDirectory()) {
+      throw new RuntimeException("Directory not found: " + sourceDirectory + (canonicalPath == null ? "" : " => " + canonicalPath) 
+          + (correction == null ? "" : "\r\n" + correction));
+    }
+    return canonicalPath;
+  }
+
 }

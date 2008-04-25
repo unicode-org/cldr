@@ -133,9 +133,9 @@ public class CLDRModify {
 		checkSuboptions(options[JOIN_ARGS], allMergeOptions);
 		
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
-		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
-		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
-		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
+		String mergeDir = Utility.checkValidDirectory(options[JOIN].value);	// Utility.COMMON_DIRECTORY + "main/";
+		String sourceDir = Utility.checkValidDirectory(options[SOURCEDIR].value);	// Utility.COMMON_DIRECTORY + "main/";
+		String targetDir = Utility.checkValidDirectory(options[DESTDIR].value);	// Utility.GEN_DIRECTORY + "main/";
 		boolean makeResolved = options[RESOLVE].doesOccur;	// Utility.COMMON_DIRECTORY + "main/";
 		
 		Log.setLog(targetDir + "log.txt");

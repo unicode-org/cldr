@@ -76,9 +76,10 @@ public class TablePrinter {
     
     boolean spanRows;
     MessageFormat cellPattern;
-    private boolean repeatHeader;
-    private boolean hidden;
-    private boolean isHeader;
+    private boolean repeatHeader = false;
+    private boolean hidden = false;
+    private boolean isHeader = false;
+    private boolean divider = false;
     
     public Column(String header) {
       this.header = header;
@@ -118,7 +119,11 @@ public class TablePrinter {
     }
 
     public void setHeaderCell(boolean b) {
-      isHeader = true;
+      isHeader = b;
+    }
+
+    public void setDivider(boolean b) {
+      divider = b;
     }
   }
   
@@ -271,25 +276,37 @@ public class TablePrinter {
     columnsFlat = columns.toArray(new Column[0]);
     
     StringBuilder result = new StringBuilder();
+
+    result.append("<table");
     if (tableAttributes != null) {
-      result.append("<table");
-      if (tableAttributes != null) {
-        result.append(' ').append(tableAttributes);
-      }
-      result.append(">\r\n");
+      result.append(' ').append(tableAttributes);
     }
+    result.append(">\r\n");
+
     showHeader(result);
+    int visibleWidth = 0;
+    for (int j = 0; j < columns.size(); ++j) {
+      if (!columnsFlat[j].hidden) {
+        ++visibleWidth;
+      }
+    }
     
     for (int i = 0; i < sortedFlat.length; ++i) {
       System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
       // check to see if we repeat the header
       if (i != 0) {
+        boolean divider = false;
         for (int j = 0; j < sortedFlat[i].length; ++j) {
           final Column column = columns.get(j);
           if (column.repeatHeader && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
               showHeader(result);
               break;
+          } else if (column.divider && !sortedFlat[i-1][j].equals(sortedFlat[i][j])) {
+            divider = true;
           }
+        }
+        if (divider) {
+          result.append("\t<tr><td class='divider' colspan='" + visibleWidth + "'></td></tr>");
         }
       }
       result.append("\t<tr>");
@@ -300,19 +317,16 @@ public class TablePrinter {
           continue;
         }
         patternArgs[0] = sortedFlat[i][j];
-        result.append(columnsFlat[j].isHeader ? "<td" : "<th");
-        boolean gotSpace = false;
+        result.append(columnsFlat[j].isHeader ? "<th" : "<td");
         if (columnsFlat[j].cellAttributes != null) {
           try {
             result.append(' ').append(columnsFlat[j].cellAttributes.format(patternArgs));
-            gotSpace = true;
           } catch (RuntimeException e) {
             throw (RuntimeException) new IllegalArgumentException("cellAttributes<" + i + ", " + j + "> = " + sortedFlat[i][j]).initCause(e);
           }
         }
         if (identical != 1) {
-          if (!gotSpace) result.append(' ');
-          result.append("rowSpan='").append(identical).append('\'');
+          result.append(" rowSpan='").append(identical).append('\'');
         }
         result.append('>');
         
@@ -327,7 +341,7 @@ public class TablePrinter {
         } else {
           result.append(sortedFlat[i][j]);
         }
-        result.append(columnsFlat[j].isHeader ? "</td>" : "</th>");
+        result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
       }
       result.append("</tr>\r\n");
     }
@@ -444,6 +458,11 @@ public class TablePrinter {
 
   public TablePrinter setHeaderCell(boolean b) {
     columns.get(columns.size()-1).setHeaderCell(b);
+    return this;
+  }
+
+  public TablePrinter setRepeatDivider(boolean b) {
+    columns.get(columns.size()-1).setDivider(b);
     return this;
   }
 }

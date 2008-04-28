@@ -13,8 +13,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -56,15 +58,10 @@ public class LanguageTagParser {
 	/**
 	 * @return Returns the extensions.
 	 */
-	public List getExtensions() {
+	public Map getExtensions() {
 		return frozenExtensions;
 	}
-	/**
-	 * @return Returns the extlangs.
-	 */
-	public List getExtlangs() {
-		return frozenExtlangs;
-	}
+
 	/**
 	 * @return Returns the original, preparsed language tag
 	 */
@@ -104,16 +101,14 @@ public class LanguageTagParser {
 	private String original;
 	private boolean grandfathered = false;
 	private String language;
-	private List extlangs = new ArrayList();
 	private String script;
 	private String region;
 	private List variants = new ArrayList();
-	private List extensions = new ArrayList();
-	private String localeExtensions = new String();
+	private Map<String,String> extensions = new LinkedHashMap<String,String>();
+	private LinkedHashMap<String,String> localeExtensions = new LinkedHashMap<String,String>();
 	
-	private List frozenExtlangs = Collections.unmodifiableList(extlangs);
 	private List frozenVariants = Collections.unmodifiableList(variants);
-	private List frozenExtensions = Collections.unmodifiableList(extensions);
+	private Map<String,String> frozenExtensions = Collections.unmodifiableMap(extensions);
 	
 	private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]");
 	private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]");
@@ -138,14 +133,23 @@ public class LanguageTagParser {
 		// clear everything out
 		language = region = script = "";
 		grandfathered = false;
-		extlangs.clear();
 		variants.clear();
 		extensions.clear();
+    localeExtensions.clear();
 		original = languageTag;
-		localeExtensions = "";
 		int localeExtensionsPosition = languageTag.indexOf('@');
 		if (localeExtensionsPosition >= 0) {
-			localeExtensions = languageTag.substring(localeExtensionsPosition);
+			final String localeExtensionsString = languageTag.substring(localeExtensionsPosition + 1);
+			for (String keyValue : localeExtensionsString.split(";")) {
+			  final String[] keyValuePair = keyValue.split("\\=");
+        final String key = keyValuePair[0];
+        final String value = keyValuePair[1];
+        if (keyValuePair.length != 2 || !ALPHANUM.containsAll(key) || !ALPHANUM.containsAll(value)) {
+          throwError(keyValue, "Invalid key/value pair");
+        }
+			  localeExtensions.put(key, value);
+			}
+			
 			languageTag = languageTag.substring(0, localeExtensionsPosition);
 		}
 		
@@ -173,12 +177,6 @@ public class LanguageTagParser {
 		try { // The try block is to catch the out-of-tokens case. Easier than checking each time.
 			language = subtag.toLowerCase(Locale.ENGLISH);
 			subtag = getSubtag(st); // prepare for next
-			
-			// check for extlangs, three letters
-			while (subtag.length() == 3 && ALPHA.containsAll(subtag)) {
-				extlangs.add(subtag.toLowerCase(Locale.ENGLISH));
-				subtag = getSubtag(st); // prepare for next
-			}
 			
 			// check for script, 4 letters
 			if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
@@ -227,16 +225,15 @@ public class LanguageTagParser {
 	public boolean isValid() {
 		if (grandfathered) return true; // don't need further checking, since we already did so when parsing
 		if (!validates(language, "language")) return false;
-		if (extlangs.size() != 0) return false; // currently no extlangs
 		if (!validates(script, "script")) return false;
 		if (!validates(region, "territory")) return false;
 		for (Iterator it = variants.iterator(); it.hasNext();) {
 			if (!validates((String)it.next(), "variant")) return false;
 		}
-		for (Iterator it = extensions.iterator(); it.hasNext();) {
-			char ch = ((String)it.next()).charAt(0);
-			if (!X.contains(ch)) return false;
-		}
+//		for (Iterator it = extensions.iterator(); it.hasNext();) {
+//			char ch = ((String)it.next()).charAt(0);
+//			if (!X.contains(ch)) return false;
+//		}
 		return true; // passed the gauntlet
 	}
 	
@@ -253,18 +250,28 @@ public class LanguageTagParser {
 	 * @param minLength TODO
 	 */
 	private String getExtension(String subtag, StringTokenizer st, int minLength) {
-		if (!st.hasMoreElements()) throwError(subtag, "Private Use / Extension requires subsequent subtag");
+    final String key = subtag;
+    if (extensions.containsKey(key)) {
+      throwError(subtag, "Can't have two extensions with the same key");
+    }
+		if (!st.hasMoreElements()) {
+		  throwError(subtag, "Private Use / Extension requires subsequent subtag");
+		}
 		StringBuffer result = new StringBuffer();
-		result.append(subtag);
 		try {
 			while (st.hasMoreElements()) {
 				subtag = getSubtag(st);
-				if (subtag.length() < minLength) return subtag;
-				result.append('-').append(subtag);
+				if (subtag.length() < minLength) {
+				  return subtag;
+				}
+				if (result.length() != 0) {
+				    result.append('-');
+				}
+				result.append(subtag);
 			}
 			return null;
 		} finally {
-			extensions.add(result.toString());
+			extensions.put(key, result.toString());
 		}
 	}
 	
@@ -292,7 +299,7 @@ public class LanguageTagParser {
 	/**
 	 * @return Returns the localeExtensions.
 	 */
-	public String getLocaleExtensions() {
+	public Map<String,String> getLocaleExtensions() {
 		return localeExtensions;
 	}
   
@@ -364,5 +371,9 @@ public class LanguageTagParser {
     } else {
       this.language = language;
     }
+  }
+  public LanguageTagParser setLocaleExtensions(LinkedHashMap<String, String> localeExtensions) {
+    this.localeExtensions = localeExtensions;
+    return this;
   }
 }

@@ -5,6 +5,10 @@ package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -17,6 +21,7 @@ import org.unicode.cldr.util.Utility;
 import com.ibm.icu.dev.test.util.BNF;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Quoter;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Tests language tags.
@@ -24,6 +29,7 @@ import com.ibm.icu.dev.test.util.Quoter;
  * The first is a regular Java/Perl style pattern.
  * The ICU BNF will general random strings that will match that regex.
  * <p>Use -Dbnf=xxx for the source regex definition file, and -Dtest=yyy for the test file
+ * Example: -Dbnf=/Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/langtagRegex.txt
  * @author markdavis
  *
  */
@@ -37,7 +43,7 @@ class CheckLangTagBNF {
   private BNF bnf;
 
   private static final String[] groupNames = {"whole", "lang", "script", "region", "variants", "extensions", 
-    "privateuse", "grandfathered", "privateuse"
+    "privateuse", "grandfathered", "privateuse", "localeExtensions"
   };
 
   /**
@@ -66,29 +72,31 @@ class CheckLangTagBNF {
       if (trimline.length() == 0) continue;
       generationRuleBuffer.append(trimline).append("\r\n");
 
-      String[] lineParts = line.split(";");
-      for (int i = 0; i < lineParts.length; ++i) {
-        String linePart = lineParts[i]; // .trim().replace("\\s+", " ");
-        if (linePart.trim().length() == 0) continue;
-        int equalsPos = linePart.indexOf('=');
-        if (equalsPos >= 0) {
-          if (variable != null) {
-            throw new IllegalArgumentException("Missing ';' before " + count + ") " + line);
-          }
-          variable = linePart.substring(0,equalsPos).trim();
-          definition.append(linePart.substring(equalsPos+1).trim());
-        } else { // no equals, so
-          if (variable == null) {
-            throw new IllegalArgumentException("Missing '=' at " + count + ") " + line);
-          }
-          definition.append("\r\n").append(linePart);
+      // String[] lineParts = line.split(";");
+      String linePart = line; // lineParts[i]; // .trim().replace("\\s+", " ");
+      if (linePart.trim().length() == 0) continue;
+      boolean terminated = trimline.endsWith(";");
+      if (terminated) {
+        linePart = linePart.substring(0,linePart.lastIndexOf(';'));
+      }
+      int equalsPos = linePart.indexOf('=');
+      if (equalsPos >= 0) {
+        if (variable != null) {
+          throw new IllegalArgumentException("Missing ';' before " + count + ") " + line);
         }
-        // we are terminated if i is not at the end, or the line ends with a ;
-        if (i < lineParts.length - 1 || trimline.endsWith(";")) {
-          result.add(variable, result.replace(definition.toString()));
-          variable = null; // signal we have no variable
-          definition.setLength(0);
+        variable = linePart.substring(0,equalsPos).trim();
+        definition.append(linePart.substring(equalsPos+1).trim());
+      } else { // no equals, so
+        if (variable == null) {
+          throw new IllegalArgumentException("Missing '=' at " + count + ") " + line);
         }
+        definition.append("\r\n").append(linePart);
+      }
+      // we are terminated if i is not at the end, or the line ends with a ;
+      if (terminated) {
+        result.add(variable, result.replace(definition.toString()));
+        variable = null; // signal we have no variable
+        definition.setLength(0);
       }
     }
     if (variable != null) {
@@ -156,6 +164,21 @@ class CheckLangTagBNF {
     String contents = bnfData.getRules();
     Pattern pat = bnfData.getPattern();
     Matcher regexLanguageTag = pat.matcher("");
+    
+    Locale loc = new Locale("fOo","fIi","bAr");
+    System.out.println("locale.getLanguage " + loc.getLanguage());
+    System.out.println("locale.getCountry " + loc.getCountry());
+    System.out.println("locale.getVariant " + loc.getVariant());
+
+    ULocale loc2 = new ULocale("eS_latN-eS@currencY=EUR;collatioN=traditionaL");
+    System.out.println("ulocale.getLanguage " + loc2.getLanguage());
+    System.out.println("ulocale.getScript " + loc2.getScript());
+    System.out.println("ulocale.getCountry " + loc2.getCountry());
+    System.out.println("ulocale.getVariant " + loc2.getVariant());
+    for (Iterator it = loc2.getKeywords(); it.hasNext();) {
+      String keyword = (String) it.next();
+      System.out.println("\tulocale.getKeywords " + keyword + " = " + loc2.getKeywordValue(keyword));
+    }
 
     BNF bnf = bnfData.getBnf();
     for (int i = 0; i < 100; ++i) {
@@ -197,6 +220,7 @@ class CheckLangTagBNF {
     //    System.out.println();
 
     LanguageTagParser ltp = new LanguageTagParser();
+    SimpleLocaleParser simpleLocaleParser = new SimpleLocaleParser();
     boolean expected = true;
     int errorCount = 0;
     BufferedReader in = BagFormatter.openUTF8Reader("", LANGUAGE_TAG_TEST_FILE);
@@ -220,24 +244,14 @@ class CheckLangTagBNF {
         expected = false;
         continue;
       }
-      try {
-        System.out.println("Parsing " + test);
-        ltp.set(test);
-        if (ltp.getLanguage().length() != 0) System.out.println("\tlang:    \t" + ltp.getLanguage() + (ltp.isGrandfathered() ? " (grandfathered)" : ""));
-        if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
-        if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
-        if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());
-        if (ltp.getExtensions().size() != 0) System.out.println("\textensions:\t" + ltp.getExtensions());
-        System.out.println("\tisValid?\t" + ltp.isValid());
-      } catch (Exception e) {
-        System.out.println("\t" + e.getMessage());
-        System.out.println("\tisValid?\tfalse");
-      }
+      System.out.println("Parsing " + test);
+      checkParse(ltp, simpleLocaleParser, test);
       boolean matches = regexLanguageTag.reset(test).matches();
       if (matches != expected) {
         System.out.println("*** TEST FAILURE ***");
         ++errorCount;
       }
+
       System.out.println("\tregex?\t" + matches + (matches == expected ? "" : "\t EXPECTED: " + expected + " for\t" + test));
       if (matches) {
         for (int j = 0; j <= regexLanguageTag.groupCount(); ++j) {
@@ -248,5 +262,50 @@ class CheckLangTagBNF {
       }
     }
     System.out.println("Error count: " + errorCount);
+  }
+
+  private static void checkParse(LanguageTagParser ltp, SimpleLocaleParser slp, String test) {
+    try {
+      ltp.set(test);
+      boolean couldParse = slp.set(test);
+      if (!couldParse) {
+        System.out.println("###Coundn't parse: test");
+      } else {
+        System.out.println("Simple Parser: " + slp.toString());
+        String lang = ltp.getLanguage();
+        if (lang.length() == 0) {
+          lang = "und";
+        }
+        checkStrings("language", lang, slp.getLanguage());
+        checkStrings("script", ltp.getScript(), slp.getScript());
+        checkStrings("country", ltp.getRegion(), slp.getCountry());
+        checkStrings("variants", ltp.getVariants(), slp.getVariants());
+        Map<String,String> foo = new LinkedHashMap();
+        foo.putAll(ltp.getExtensions());
+        foo.putAll(ltp.getLocaleExtensions());
+        checkStrings("variants", foo, slp.getExtensions());
+      }
+      
+      if (ltp.getLanguage().length() != 0) System.out.println("\tlang:    \t" + ltp.getLanguage() + (ltp.isGrandfathered() ? " (grandfathered)" : ""));
+      if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
+      if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
+      if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());
+      if (ltp.getExtensions().size() != 0) System.out.println("\textensions:\t" + ltp.getExtensions());
+      if (ltp.getLocaleExtensions().size() != 0) System.out.println("\tlocale extensions:\t" + ltp.getLocaleExtensions());
+      System.out.println("\tisValid?\t" + ltp.isValid());
+    } catch (Exception e) {
+      System.out.println("\t" + e.getMessage());
+      System.out.println("\tisValid?\tfalse");
+    }
+  }
+
+  private static <T> void checkStrings(String message, T object1, T object2) {
+    if (!object1.equals(object2)) {
+      if (object1.toString().equalsIgnoreCase(object2.toString())) {
+        System.out.println("$$$Case Difference at " + message + "<" + object1 + "> != <" + object2 + ">");
+      } else {
+        System.out.println("###Difference at " + message + "<" + object1 + "> != <" + object2 + ">");
+      }
+    }
   }
 }

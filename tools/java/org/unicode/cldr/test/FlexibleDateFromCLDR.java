@@ -206,24 +206,30 @@ class FlexibleDateFromCLDR {
 	DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
 
     boolean isPreferred12Hour = false;
-    
+
     static private String[] DISPLAY_NAME_MAP = {
-        "era", "year", "quarter", "month", "week", "week_in_month", "weekday", 
-        "day", "day_of_year", "day_of_week_in_month", "dayperiod", 
-        "hour", "minute", "second", "fractional_second", "zone"
+      "era", "year", "quarter", "month", "week", "week_in_month", "weekday", 
+      "day", "day_of_year", "day_of_week_in_month", "dayperiod", 
+      "hour", "minute", "second", "fractional_second", "zone", "-"
     };
 
-    static private String[] APPEND_ITEM_NAME_MAP = {
-        "G", "y", "Q", "M", "w", "W", "e", 
-        "d", "D", "F", "a", 
-        "h", "m", "s", "S", "v"
+    static private String[] APPEND_ITEM_NAME_MAP_OLD = {
+      "G", "y", "Q", "M", "w", "W", "e", 
+      "d", "D", "F", "a", 
+      "h", "m", "s", "S", "v", "-"
     };
     
+    static private String[] APPEND_ITEM_NAME_MAP = {
+      "Era", "Year", "Quarter", "Month", "Week", "Week", "Day-Of-Week", 
+      "Day", "Day", "Day-Of-Week", "-", 
+      "Hour", "Minute", "Second", "-", "Timezone", "-"
+    };
+
     int getIndex(String s, String[] strings) {
-        for (int i = 0; i < strings.length; ++i) {
-            if (s.equals(strings[i])) return i;
-        }
-        return -1;
+      for (int i = 0; i < strings.length; ++i) {
+        if (s.equals(strings[i])) return i;
+      }
+      return -1;
     }
     
     PatternInfo patternInfo = new PatternInfo();

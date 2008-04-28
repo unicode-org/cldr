@@ -155,6 +155,14 @@ class SimpleLocaleParser {
   public List<String> getVariants() {
     return variants;
   }
+  
+  /**
+   * Return the first variant, for compatibility 
+   * @return first (uppercased) variant
+   */
+  public String getVariant() {
+    return variants.size() == 0 ? "" : variants.iterator().next();
+  }
   /**
    * Return immutable map of key/value extensions. Includes BCP 47 extensions and private use, also locale keyword extensions. If the entire code is private use,
    * then the language is set to "und" for consistency.

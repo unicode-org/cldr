@@ -1238,7 +1238,6 @@ public class SupplementalDataInfo {
   public static class PluralInfo {
     public enum Count {
       zero, one, two, few, many, other;
-      public static final List<Count> SEARCH_LIST = Arrays.asList(new Count[]{Count.one, Count.other, Count.zero, Count.two, Count.few, Count.many});
     }
     static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
 
@@ -1262,8 +1261,8 @@ public class SupplementalDataInfo {
       pluralRules = PluralRules.createRules(pluralRulesString);
       Set targetKeywords = pluralRules.getKeywords();
 
-      Map<Count,List<Double>> typeToExample2 = new TreeMap<Count,List<Double>>();
-      Map<Integer,Count> exampleToType2 = new TreeMap<Integer,Count>();
+      Map<Count,List<Double>> countToExampleListRaw = new TreeMap<Count,List<Double>>();
+      Map<Integer,Count> exampleToCountRaw = new TreeMap<Integer,Count>();
       Map<Count,UnicodeSet> typeToExamples2 = new TreeMap<Count,UnicodeSet>();
 
       for (int i = 0; i < 1000; ++i) {
@@ -1281,7 +1280,7 @@ public class SupplementalDataInfo {
       List<Double> fractions = new ArrayList(0);
 
       // add fractional samples
-      Map<Count,String> typeToExamples3 = new TreeMap<Count,String>();
+      Map<Count,String> countToStringExampleRaw = new TreeMap<Count,String>();
       for (Count type : typeToExamples2.keySet()) {
         UnicodeSet uset = typeToExamples2.get(type);
         int sample = uset.getRangeStart(0);
@@ -1293,8 +1292,8 @@ public class SupplementalDataInfo {
         Integer sampleInteger = sample;
         final ArrayList<Double> arrayList = new ArrayList<Double>();
         arrayList.add((double)sample);
-        typeToExample2.put(type, arrayList);
-        exampleToType2.put(sampleInteger, type);
+        countToExampleListRaw.put(type, arrayList);
+        exampleToCountRaw.put(sampleInteger, type);
 
         // add fractional examples
         if (fractionalExamples.length() != 0) {
@@ -1328,23 +1327,29 @@ public class SupplementalDataInfo {
             count+=2;
           }
         }
-        typeToExamples3.put(type, b.toString());
+        countToStringExampleRaw.put(type, b.toString());
       }
-      final String baseOtherExamples = typeToExamples3.get(Count.other);
+      final String baseOtherExamples = countToStringExampleRaw.get(Count.other);
       String otherExamples = (baseOtherExamples == null ? "" :  baseOtherExamples + "; ") + fractionalExamples + "...";
-      typeToExamples3.put(Count.other, otherExamples);
+      countToStringExampleRaw.put(Count.other, otherExamples);
+      // add fractions
+      List<Double> list_temp = countToExampleListRaw.get(Count.other);
+      if (list_temp == null) {
+        countToExampleListRaw.put(Count.other, list_temp = new ArrayList<Double>(0));
+      }
+      list_temp.addAll(fractions);
 
-      for (Count type : typeToExample2.keySet()) {
-        List<Double> list = typeToExample2.get(type);
-        if (type.equals(Count.other)) {
-          list.addAll(fractions);
-        }
+      for (Count type : countToExampleListRaw.keySet()) {
+        List<Double> list = countToExampleListRaw.get(type);
+//        if (type.equals(Count.other)) {
+//          list.addAll(fractions);
+//        }
         list = Collections.unmodifiableList(list);
       }
 
-      countToExampleList = Collections.unmodifiableMap(typeToExample2);
-      countToStringExample = Collections.unmodifiableMap(typeToExamples3);
-      exampleToCount = Collections.unmodifiableMap(exampleToType2);
+      countToExampleList = Collections.unmodifiableMap(countToExampleListRaw);
+      countToStringExample = Collections.unmodifiableMap(countToStringExampleRaw);
+      exampleToCount = Collections.unmodifiableMap(exampleToCountRaw);
     }
 
     public String toString() {

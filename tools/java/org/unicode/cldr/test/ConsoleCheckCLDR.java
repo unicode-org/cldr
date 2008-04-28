@@ -219,11 +219,11 @@ public class ConsoleCheckCLDR {
       coverageLevel = Level.MODERN; // reset
       ErrorFile.generated_html_directory = options[GENERATE_HTML].value;
       ErrorFile.generated_html_count = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, "count.txt");
-      try {
-        ErrorFile.voteFactory = CLDRFile.Factory.make(sourceDirectory + "../../proposed/main/", ".*");
-      } catch (RuntimeException e) {
-        ErrorFile.voteFactory = null;
-      }
+//      try {
+//        ErrorFile.voteFactory = CLDRFile.Factory.make(sourceDirectory + "../../proposed/main/", ".*");
+//      } catch (RuntimeException e) {
+//        ErrorFile.voteFactory = null;
+//      }
       //PrintWriter cssFile = BagFormatter.openUTF8Writer(generated_html_directory, "index.css");
       //Utility;
     }

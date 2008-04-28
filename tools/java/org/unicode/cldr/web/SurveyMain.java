@@ -2260,7 +2260,7 @@ public class SurveyMain extends HttpServlet {
             String ln = (String)li.next();
             String aLocale = (String)lm.get(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
-            ctx.print(" <td nowrap valign='top'>");
+            ctx.print(" <td valign='top'>");
             boolean has = (s.contains(aLocale));
             if(has) {
                 ctx.print("<span class='selected'>");
@@ -3560,7 +3560,7 @@ public class SurveyMain extends HttpServlet {
             
             n++;
             ctx.print("<tr class='row" + (n%2) + "'>");
-            ctx.print(" <td nowrap valign='top'>");
+            ctx.print(" <td valign='top'>");
             printLocaleLink(ctx, aLocale, ln);
             ctx.println(" </td>");
             
@@ -3613,7 +3613,7 @@ public class SurveyMain extends HttpServlet {
             String ln = (String)li.next();
             String aLocale = (String)lm.get(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
-            ctx.print(" <td nowrap valign='top'>");
+            ctx.print(" <td valign='top'>");
             printLocaleLink(baseContext, aLocale, ln);
             if(showCodes) {
                 ctx.println("<br><tt>" + aLocale + "</tt>");

@@ -142,6 +142,7 @@ public class Vetting {
      */
     private void setupDB() throws SQLException
     {
+        
         synchronized(conn) {
             String sql = null;
 //            logger.info("Vetting DB: initializing...");
@@ -293,6 +294,7 @@ public class Vetting {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            if(false) System.out.println("EXPLAIN EXTENDED " + sql.replaceAll("\\?", "'?'")+";");
         } catch ( SQLException se ) {
             String complaint = "Vetter:  Couldn't prepare " + name + " - " + SurveyMain.unchainSqlException(se) + " - " + sql;
             logger.severe(complaint);
@@ -3127,6 +3129,152 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
             }
             return false;
+        }
+    }
+    
+    public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
+        out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\"  count=\""+xpathSet.size()+"\" >");
+        writeXpathFragment(out, xpathSet);
+        out.println("</xpathTable>");
+    }
+
+    public void writeXpathFragment(PrintWriter out, Set<Integer> xpathSet) {
+        for(int path : xpathSet) {
+            out.println("<xpath id=\""+path+"\">"+xmlescape(sm.xpt.getById(path))+"</xpath>");
+        }
+    }
+
+    /**
+     * Write a single vote file
+     * @param conn2 DB connection to use
+     * @param source source of current locale
+     * @param file CLDRFile to read from
+     * @param ourDate canonical date for generation
+     * @throws SQLException 
+     */
+    public void writeVoteFile(PrintWriter out, Connection conn2, CLDRDBSource source, CLDRFile file, String ourDate, Set<Integer> xpathSet) throws SQLException {
+        boolean embeddedXpathTable = false;
+        
+        if(xpathSet == null) {
+            xpathSet = new TreeSet<Integer>();
+            embeddedXpathTable=true;
+        }
+
+        String locale = source.getLocaleID();
+        XPathParts xpp = new XPathParts(null,null);
+        boolean isResolved = source.isResolving();
+        String oldVersion = SurveyMain.getOldVersion();
+        String newVersion = SurveyMain.getNewVersion();
+        out.println("<locale-votes host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\" "+
+                "oldVersion=\""+oldVersion+"\" currentVersion=\""+newVersion+"\" "+
+                "resolved=\""+isResolved+"\" locale=\""+locale+"\">");
+
+        PreparedStatement resultsByBase = conn2.prepareStatement(
+                   "select cldr_output.output_xpath,cldr_output.output_full_xpath," +
+                       "cldr_output.status,cldr_output.data_xpath from " +
+                       "cldr_output" +
+                       " where cldr_output.locale=? and cldr_output.base_xpath=?");
+        PreparedStatement votesByValue = conn2.prepareStatement("select submitter from cldr_vet where locale=? and vote_xpath=?");
+        /*
+         *                                                         "(locale VARCHAR(20) NOT NULL, " +
+                                                                "base_xpath INT NOT NULL," +
+                                                                "output_xpath INT NOT NULL," +
+                                                                "output_full_xpath INT NOT NULL," +
+                                                                "data_xpath INT NOT NULL, " +
+                                                                "status SMALLINT)");
+
+         */
+        resultsByBase.setString(1, locale);
+        votesByValue.setString(1, locale);
+                
+        Statement basesByLocale = conn2.createStatement();
+        ResultSet base_result = basesByLocale.executeQuery("select distinct cldr_vet.base_xpath from cldr_vet where cldr_vet.locale='"+locale+"'");
+
+        
+        int n=0;
+        
+        while(base_result.next()) {
+            n++;
+            int baseXpath = base_result.getInt(1);
+            boolean hadRow = false;
+            resultsByBase.setInt(2, baseXpath);
+            ResultSet results = resultsByBase.executeQuery();
+            boolean sawBasePath = false;
+            while(results.next()) {
+                if(!hadRow) {
+                    hadRow=true;
+                    out.println("\t<row baseXpath=\""+baseXpath+"\">"); // result=\""+resultXpath+"\">");
+                    xpathSet.add(baseXpath);
+                    //out.println("\t\t<xpath type=\"base\" id=\""+baseXpath+"\">"+xmlescape(sm.xpt.getById(baseXpath))+"</xpath>");
+                }
+                int outPath = results.getInt(1);
+                int outFull = results.getInt(2);
+                String outFullString = sm.xpt.getById(outFull);
+//                int outStatus = results.getInt(3);
+//                Status status = Status.find(outStatus);
+                int outDataPath = results.getInt(4);
+                boolean isBase = (outPath==baseXpath) ;
+                
+                if (isBase) { sawBasePath = true; }
+//                boolean hadVotes = false;
+                xpp.clear();
+                xpp.initialize(outFullString);
+                String lelement = xpp.getElement(-1);
+                String iDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+                if(iDraft == null || iDraft.length()==0) {
+                    iDraft = "confirmed";
+                }
+                xpathSet.add(outFull);
+//                xpathSet.add(outDataPath);
+                out.print("\t\t<item xpath=\""+outFull+"\" type=\""+
+                        (isBase?"optimal":"proposal")+"\" id=\""+outDataPath+"\" status=\""+iDraft+"\""+">");
+                if(outDataPath==baseXpath) {
+                    String oxpath = source.getOrigXpath(outDataPath, false);
+                    String eDraft = null;
+                    if(oxpath == null) {
+                        eDraft = "unknown";
+                    } else {
+                        xpp.clear();
+                        xpp.initialize(oxpath);
+                        String lelement2 = xpp.getElement(-1);
+                        /* all of these are always at the end */
+    //                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+                        eDraft = xpp.findAttributeValue(lelement2,LDMLConstants.DRAFT);
+                        if(eDraft == null) {
+                            eDraft = "confirmed";
+                        }
+                    }
+                    out.print("\t\t\t<old status=\""+eDraft+"\"/>"); // blue star
+                }
+//                out.print("<xpath >"+xmlescape(outFullString)+"</xpath>");
+
+                votesByValue.setInt(2, outDataPath);
+
+                ResultSet votes = votesByValue.executeQuery();
+                while(votes.next()) {
+                    int submitter = votes.getInt(1);
+                    out.print("\t\t\t<vote user=\""+submitter+"\"/>");
+                }
+                
+                out.println("\t\t</item>");
+            }
+            if(hadRow) {
+                out.println("\t</row>");
+            }
+        }
+        if(embeddedXpathTable) {
+            out.println(" <xpathTable count=\""+xpathSet.size()+"\">");
+            writeXpathFragment(out,xpathSet);
+            out.println(" </xpathTable>");
+        }
+        out.println("</locale-votes>");
+    }
+
+    private String xmlescape(String str) {
+        if(str.indexOf('&')>=0) {
+            return str.replaceAll("&", "\\&amp;");
+        } else {
+            return str;
         }
     }
 }

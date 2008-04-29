@@ -1057,12 +1057,21 @@ import com.ibm.icu.util.ULocale;
      * @see XPathTable
      */
     public String getOrigXpath(int pathid) {
+        return getOrigXpath(pathid, finalData);
+    }
+    /**
+     * get the 'original' xpath from a path-id#
+     * @param pathid ID# of a path
+     * @return the original xpath string
+     * @see XPathTable
+     */
+    public String getOrigXpath(int pathid, boolean useFinalData) {
         String locale = getLocaleID();
         //synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
             try {
 				ResultSet rs;
 				
-				if(!finalData) {
+				if(!useFinalData) {
 					stmts.oxpathFromXpath.setInt(1,pathid);
 					stmts.oxpathFromXpath.setString(2,locale);
 					rs = stmts.oxpathFromXpath.executeQuery();

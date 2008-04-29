@@ -486,10 +486,14 @@ public class SurveyMain extends HttpServlet {
             String base = WebContext.base(request);
             if(isGET) {
                 String qs  = "";
+                String pi = "";
+                if(request.getPathInfo()!=null&&request.getPathInfo().length()>0) {
+                    pi = request.getPathInfo();
+                }
                 if(request.getQueryString()!=null&&request.getQueryString().length()>0) {
                     qs = "?"+request.getQueryString();
                 }
-                response.setHeader("Refresh", sec+"; "+base+qs);
+                response.setHeader("Refresh", sec+"; "+base+pi+qs);
             }
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
@@ -4128,6 +4132,7 @@ public class SurveyMain extends HttpServlet {
 
     public static final String XML_PREFIX="/xml/main";
     public static final String VXML_PREFIX="/vxml/main";
+    public static final String TXML_PREFIX="/txml/main";
     public static final String RXML_PREFIX="/rxml/main";
     public static final String FEED_PREFIX="/feed";
     
@@ -4137,18 +4142,23 @@ public class SurveyMain extends HttpServlet {
         boolean users=false;
         boolean translators=false;
         boolean sql = false;
+        boolean data=false;
         String lastfile = null;
+        String ourDate = new Date().toString(); // canonical date
         int nrOutFiles = 0;
         if(kind.equals("sql")) {
             sql= true;
         } else if(kind.equals("xml")) {
             vetted = false;
+            data=true;
             resolved = false;
         } else if(kind.equals("vxml")) {
             vetted = true;
+            data=true;
             resolved = false;
         } else if(kind.equals("rxml")) {
             vetted = true;
+            data=true;
             resolved = true;
         } else if(kind.equals("users")) {
             users = true;
@@ -4157,13 +4167,26 @@ public class SurveyMain extends HttpServlet {
         } else {
             throw new IllegalArgumentException("unknown output: " + kind);
         }
-        
         File outdir = new File(vetdir, kind);
+        File voteDir = null;
+        if(data) voteDir = new File(outdir, "votes");
         if(outdir.exists() && outdir.isDirectory()) {
             File backup = new File(vetdir, kind+".old");
             
             // delete backup
             if(backup.exists() && backup.isDirectory()) {
+                File backupVoteDir = new File(backup, "votes");
+                if(backupVoteDir.exists()) {
+                    File cachedBFiles[] = backupVoteDir.listFiles();
+                    if(cachedBFiles != null) {
+                        for(File f : cachedBFiles) {
+                            if(f.isFile()) {
+                                f.delete();
+                            }
+                        }
+                    }
+                    backupVoteDir.delete();
+                }
                 File cachedFiles[] = backup.listFiles();
                 if(cachedFiles != null) {
                     for(File f : cachedFiles) {
@@ -4185,6 +4208,9 @@ public class SurveyMain extends HttpServlet {
         if(!outdir.mkdir()) {
             throw new InternalError("Can't create outdir " + outdir.getAbsolutePath());
         }
+        if(voteDir!=null && !voteDir.mkdir()) {
+            throw new InternalError("Can't create voteDir " + voteDir.getAbsolutePath());
+        }
         
         System.err.println("Writing " + kind);
         long lastTime = System.currentTimeMillis();
@@ -4200,6 +4226,7 @@ public class SurveyMain extends HttpServlet {
 
                 out.println("-- dump of CLDR data from " + cldrdb);
                 out.println("-- mysql bias mode");
+                out.println("-- "+ourDate);
                 out.println();
                 
                 synchronized(reg) {
@@ -4272,7 +4299,7 @@ public class SurveyMain extends HttpServlet {
     //                throw new InternalError("UTF8 unsupported?").setCause(e);
                 out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
-                out.println("<users host=\""+localhost()+"\">");
+                out.println("<users generated=\""+ourDate+"\" host=\""+localhost()+"\">");
                 String org = null;
                 try { synchronized(reg) {
                     java.sql.ResultSet rs = reg.list(org);
@@ -4369,7 +4396,8 @@ public class SurveyMain extends HttpServlet {
                 File inFiles[] = getInFiles();
                 int nrInFiles = inFiles.length;
                 progressWhat = "writing " +kind;
-                progressMax = nrInFiles;
+                progressMax = nrInFiles+1;
+                Set<Integer> xpathSet = new TreeSet<Integer>();
                 Connection conn = getDBConnection();
                 for(int i=0;i<nrInFiles;i++) {
                     progressCount = i;
@@ -4413,8 +4441,59 @@ public class SurveyMain extends HttpServlet {
                             System.err.println("Last file written: " + kind + " / " + lastfile);
                         }
                     }
+                    lastfile = fileName + " - vote data";
+                    // write voteFile
+                    File voteFile = new File(voteDir,fileName);
+                    try {
+                        PrintWriter utf8OutStream = new PrintWriter(
+                            new OutputStreamWriter(
+                                new FileOutputStream(voteFile), "UTF8"));
+                        this.vet.writeVoteFile(utf8OutStream, conn, dbSource, file, ourDate, xpathSet);
+                        nrOutFiles++;
+                        utf8OutStream.close();
+                        lastfile = null;
+        //            } catch (UnsupportedEncodingException e) {
+        //                throw new InternalError("UTF8 unsupported?").setCause(e);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new InternalError("IO Exception on vote file "+e.toString());
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                        throw new InternalError("SQL Exception on vote file "+SurveyMain.unchainSqlException(e));
+                    } finally {
+                        if(lastfile != null) {
+                            System.err.println("Last  vote file written: " + kind + " / " + lastfile);
+                        }
+                    }
+
                 }
                 SurveyMain.closeDBConnection(conn);
+
+                progressWhat = "writing " +"xpathTable";
+                lastfile = "xpathTable.xml" + " - xpath table";
+                // write voteFile
+                File xpathFile = new File(voteDir,"xpathTable.xml");
+                try {
+                    PrintWriter utf8OutStream = new PrintWriter(
+                        new OutputStreamWriter(
+                            new FileOutputStream(xpathFile), "UTF8"));
+                    this.vet.writeXpaths(utf8OutStream, ourDate, xpathSet);
+                    nrOutFiles++;
+                    utf8OutStream.close();
+                    lastfile = null;
+    //            } catch (UnsupportedEncodingException e) {
+    //                throw new InternalError("UTF8 unsupported?").setCause(e);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw new InternalError("IO Exception on vote file "+e.toString());
+                } finally {
+                    if(lastfile != null) {
+                        System.err.println("Last  vote file written: " + kind + " / " + lastfile);
+                    }
+                }
+                
+                
             } finally {
                 progressWhat = null;
             }
@@ -4427,7 +4506,7 @@ public class SurveyMain extends HttpServlet {
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
-        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
+        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
             return false;
         }
         
@@ -4437,6 +4516,7 @@ public class SurveyMain extends HttpServlet {
 
         boolean finalData = false;
         boolean resolved = false;
+        boolean voteData = false;
         
         if(s.startsWith(VXML_PREFIX)) {
             finalData = true;
@@ -4457,6 +4537,17 @@ public class SurveyMain extends HttpServlet {
                 return true;
             }
             s = s.substring(RXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else if(s.startsWith(TXML_PREFIX)) {
+            finalData = true;
+            resolved=false;
+            voteData = true;
+
+            if(s.equals(TXML_PREFIX)) {
+                WebContext ctx = new WebContext(request,response);
+                response.sendRedirect(ctx.schemeHostPort()+ctx.base()+TXML_PREFIX+"/");
+                return true;
+            }
+            s = s.substring(TXML_PREFIX.length()+1,s.length()); //   "foo.xml"
         } else {
             if(s.equals(XML_PREFIX)) {
                 WebContext ctx = new WebContext(request,response);
@@ -4519,7 +4610,17 @@ public class SurveyMain extends HttpServlet {
                     file = new CLDRFile(dbSource,true);
                 }
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
-                file.write(response.getWriter());
+                if(voteData) {
+                    try {
+                        vet.writeVoteFile(response.getWriter(), conn, dbSource, file, new Date().toString(), null);
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                        System.err.println("<!-- exception: "+e+" -->");
+                    }
+                } else {
+                    file.write(response.getWriter());
+                }
                 SurveyMain.closeDBConnection(conn);
             }
         }

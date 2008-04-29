@@ -89,26 +89,27 @@ public final class Counter<T> implements Iterable<T> {
   
   private static class EntryComparator<T> implements Comparator<Entry<T>>{
     int ordering;
-    boolean byValue = false;
-    public EntryComparator(boolean ascending, boolean byValue) {
+    Comparator<T> byValue;
+    
+    public EntryComparator(boolean ascending, Comparator<T> byValue) {
       ordering = ascending ? 1 : -1;
       this.byValue = byValue;
     }
     public int compare(Entry<T> o1, Entry<T> o2) {
       if (o1.count.value < o2.count.value) return -ordering;
       if (o1.count.value > o2.count.value) return ordering;
-      if (byValue) {
-        return ((Comparable<T>)o1.value).compareTo(o2.value);
+      if (byValue != null) {
+        return byValue.compare(o1.value, o2.value);
       }
       return o1.uniqueness - o2.uniqueness;
     }
   }
 
   public Set<T> getKeysetSortedByCount(boolean ascending) {
-    return getKeysetSortedByCount(ascending, false);
+    return getKeysetSortedByCount(ascending, null);
   }
   
-  public Set<T> getKeysetSortedByCount(boolean ascending, boolean byValue) {
+  public Set<T> getKeysetSortedByCount(boolean ascending, Comparator<T> byValue) {
     Set<Entry<T>> count_key = new TreeSet<Entry<T>>(new EntryComparator<T>(ascending, byValue));
     int counter = 0;
     for (T key : map.keySet()) {

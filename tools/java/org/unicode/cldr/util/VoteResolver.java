@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,6 +10,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ULocale;
 
 /**
  * This class implements the vote resolution process agreed to by the CLDR
@@ -210,6 +214,7 @@ public class VoteResolver {
    * Static info read from file
    */
   private static Map<Integer, VoterInfo> voterToInfo;
+  
   /**
    * Data built internally
    */
@@ -221,6 +226,7 @@ public class VoteResolver {
   private String                         lastReleaseValue;
   private Status                         lastReleaseStatus;
   private boolean                        resolved;
+  private final Comparator<String> ucaCollator = Collator.getInstance(ULocale.ENGLISH);
 
   /**
    * Call this method first, for a new path. You'll then call add for each value
@@ -252,7 +258,7 @@ public class VoteResolver {
     resolved = true;
     // get the votes for each organization
     Counter<String> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
-    Iterator<String> iterator = totals.getKeysetSortedByCount(false, true).iterator();
+    Iterator<String> iterator = totals.getKeysetSortedByCount(false, ucaCollator).iterator();
     // if there are no (unconflicted) votes, return lastRelease
     if (!iterator.hasNext()) {
       winningStatus = lastReleaseStatus;

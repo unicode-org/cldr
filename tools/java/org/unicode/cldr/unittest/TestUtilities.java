@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +21,9 @@ import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class TestUtilities extends TestFmwk {
   private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
@@ -63,6 +66,8 @@ public class TestUtilities extends TestFmwk {
 
   public void TestCounter() {
     Counter<String> counter = new Counter<String>();
+    Comparator<String> uca = Collator.getInstance(ULocale.ENGLISH);
+    
     counter.add("c", 95);
     counter.add("b", 50);
     counter.add("b", 101);
@@ -79,17 +84,17 @@ public class TestUtilities extends TestFmwk {
     assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"), new ArrayList(counter
             .getKeysetSortedByKey()));
 
-    assertEquals("getKeysetSortedByCount", Arrays.asList("d", "c", "a", "b"), new ArrayList(counter
-            .getKeysetSortedByCount(true, false)));
+    assertEquals("getKeysetSortedByCount(true, null)", Arrays.asList("d", "c", "a", "b"), new ArrayList(counter
+            .getKeysetSortedByCount(true, null)));
 
-    assertEquals("getKeysetSortedByCount, value", Arrays.asList("d", "a", "c", "b"), new ArrayList(
-            counter.getKeysetSortedByCount(true, true)));
+    assertEquals("getKeysetSortedByCount(true, uca), value", Arrays.asList("d", "a", "c", "b"), new ArrayList(
+            counter.getKeysetSortedByCount(true, uca)));
 
-    assertEquals("getKeysetSortedByCount, descending", Arrays.asList("b", "c", "a", "d"),
-            new ArrayList(counter.getKeysetSortedByCount(false, false)));
+    assertEquals("getKeysetSortedByCount(false, null), descending", Arrays.asList("b", "c", "a", "d"),
+            new ArrayList(counter.getKeysetSortedByCount(false, null)));
 
-    assertEquals("getKeysetSortedByCount, descending, value", Arrays.asList("b", "a", "c", "d"),
-            new ArrayList(counter.getKeysetSortedByCount(false, true)));
+    assertEquals("getKeysetSortedByCount(false, uca), descending, value", Arrays.asList("b", "a", "c", "d"),
+            new ArrayList(counter.getKeysetSortedByCount(false, uca)));
   }
 
   public void TestVoteResolverData() {

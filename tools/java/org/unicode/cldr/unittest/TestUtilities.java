@@ -23,6 +23,8 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestUtilities extends TestFmwk {
+  private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
+  private static final boolean DEBUG = false;
   static TestInfo testInfo = TestInfo.getInstance();
 
   public static void main(String[] args) {
@@ -91,8 +93,9 @@ public class TestUtilities extends TestFmwk {
   }
 
   public void TestVoteResolverData() {
-    VoteResolver.setTestData("/Users/markdavis/Downloads/users.xml");
-    Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver.getLocaleToVetters();
+    VoteResolver.setVoterToInfo("/Users/markdavis/Downloads/users.xml");
+    Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
+            .getLocaleToVetters();
     for (String locale : map.keySet()) {
       Map<Organization, Relation<Level, Integer>> orgToLevelToVoter = map.get(locale);
       String localeName = null;
@@ -102,41 +105,75 @@ public class TestUtilities extends TestFmwk {
         e.printStackTrace();
         throw e;
       }
-      for (Organization org : orgToLevelToVoter.keySet()) {
-        System.out.print(locale + "\t" + localeName + "\t" + org + ":");
-        final Relation<Level, Integer> levelToVoter = orgToLevelToVoter.get(org);
-        for (Level level : levelToVoter.keySet()) {
-          System.out.print("\t" + level + "=" + levelToVoter.getAll(level).size());
+      if (DEBUG) {
+        for (Organization org : orgToLevelToVoter.keySet()) {
+          log(locale + "\t" + localeName + "\t" + org + ":");
+          final Relation<Level, Integer> levelToVoter = orgToLevelToVoter.get(org);
+          for (Level level : levelToVoter.keySet()) {
+            log("\t" + level + "=" + levelToVoter.getAll(level).size());
+          }
+          logln("");
         }
-        System.out.println();
       }
     }
   }
 
   public void TestVoteResolver() {
-    VoteResolver.setTestData(Utility.asMap(new Object[][] {
+    VoteResolver.setVoterToInfo(Utility.asMap(new Object[][] {
+        { 888, new VoterInfo(Organization.guest, Level.street, "O. Henry") }, 
+        { 777, new VoterInfo(Organization.gnome, Level.street, "S. Henry") }, 
         { 666, new VoterInfo(Organization.google, Level.vetter, "J. Smith") },
         { 555, new VoterInfo(Organization.google, Level.street, "S. Jones") },
         { 444, new VoterInfo(Organization.google, Level.vetter, "S. Samuels") },
         { 333, new VoterInfo(Organization.apple, Level.vetter, "A. Mutton") },
         { 222, new VoterInfo(Organization.adobe, Level.expert, "A. Aldus") },
-        { 111, new VoterInfo(Organization.ibm, Level.street, "J. Henry") }, }));
+        { 111, new VoterInfo(Organization.ibm, Level.street, "J. Henry") },
+        }));
     VoteResolver resolver = new VoteResolver();
     String[] tests = {
-        // check that identical values get the alphabetically lowest
-        "oldValue=last", "oldStatus=provisional", "555=next", "666=best", "value=best",
-        "conflicts=[]", "status=provisional", "check",
-        // now give next a slight edge
-        "444=next", "value=next", "status=provisional", "check",
-        // set up a case of conflict within organization
-        "555=null", "value=last", "conflicts=[google]", "status=provisional", "check",
-        // now cross-organizational conflict
-        // also check for max value in same organization (4, 1) => 4 not 5
-        "444=null", "555=best", "conflicts=[]", "333=app", "value=app", "check",
-        // now clear winner 8 over 4
-        "222=primo", "value=primo", "status=approved", "check",
-        // now not so clear, throw in a street value. So it is 8 to 5. This turns into provisional, which seems odd
-        "111=best", "value=primo", "status=provisional", "check", };
+            "oldValue=old-value",
+            "oldStatus=provisional",
+            "comment=Check that identical values get the alphabetically lowest",
+            "555=next",
+            "666=best",
+            "value=best",
+            "conflicts=[]",
+            "status=contributed",
+            "check",
+            
+            "comment=now give next a slight edge (5 to 4)",
+            "444=next",
+            "value=next",
+            "status=contributed",
+            "check",
+            
+            "comment=set up a case of conflict within organization",
+            "555=null",
+            "value=old-value",
+            "conflicts=[google]",
+            "status=provisional",
+            "check",
+            
+            "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
+            "444=null",
+            "555=best",
+            "conflicts=[]",
+            "333=app",
+            "value=app",
+            "check",
+            
+            "comment=now clear winner 8 over 4",
+            "222=primo",
+            "value=primo",
+            "status=approved",
+            "check",
+            
+            "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
+            "111=best",
+            "value=primo",
+            "status=contributed",
+            "check",
+    };
     String expectedValue = null;
     String expectedConflicts = null;
     Status expectedStatus = null;
@@ -149,8 +186,11 @@ public class TestUtilities extends TestFmwk {
       String[] item = test.split("=");
       String name = item[0];
       String value = item.length < 2 ? null : item[1];
-      if (name.equalsIgnoreCase("oldValue")) {
+      if (name.equalsIgnoreCase("comment")) {
+        logln("#\t" + value);
+      } else if (name.equalsIgnoreCase("oldValue")) {
         oldValue = value;
+        resolver.newPath(oldValue, oldStatus);
       } else if (name.equalsIgnoreCase("oldStatus")) {
         oldStatus = Status.valueOf(value);
         resolver.newPath(oldValue, oldStatus);
@@ -162,15 +202,14 @@ public class TestUtilities extends TestFmwk {
         expectedConflicts = value;
       } else if (name.equalsIgnoreCase("clear")) {
         values.clear();
-      } else if (!name.equalsIgnoreCase("check")) {
+      } else if (DIGITS.containsAll(name)) {
         final int voter = Integer.parseInt(name);
         if (value == null || value.equals("null")) {
           values.remove(voter);
         } else {
-
           values.put(voter, value);
         }
-      } else {
+      } else if (name.equalsIgnoreCase("check")) {
         counter++;
         resolver.newPath(oldValue, oldStatus);
         for (int voter : values.keySet()) {
@@ -181,6 +220,8 @@ public class TestUtilities extends TestFmwk {
         assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
         assertEquals(counter + " org", expectedConflicts, resolver.getConflictedOrganizations()
                 .toString());
+      } else {
+        errln("unknown command: " + test);
       }
     }
   }

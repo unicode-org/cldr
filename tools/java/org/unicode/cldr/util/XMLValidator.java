@@ -1,13 +1,13 @@
 /*
  ******************************************************************************
- * Copyright (C) 2003-2004, International Business Machines Corporation and   *
+ * Copyright (C) 2003-2008, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
 /**
  * @author Ram Viswanadha
  *
- * This tool validates xml against DTD ... IE 6 does not do a good job
+ * This tool validates xml against DTD or valid XML ... IE 6 does not do a good job
  */
 package org.unicode.cldr.util;
 
@@ -31,17 +31,31 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 public class XMLValidator {
+    public static boolean parseonly=false;
+    
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("No files specified. Validation failed");
             return;
         }
         for (int i = 0; i < args.length; i++) {
-            System.out.println("Processing file " + args[i]);
-            /* Document doc = */parse(args[i]);
-            
+            if(args[i].equals("--help")) {
+                usage();
+                return;
+            } else if(args[i].equals("--parseonly")) {
+                System.err.println("# DTD Validation is disabled. Will only check for well formed XML.");
+                parseonly = true;
+            } else {
+                System.out.println("Processing file " + args[i]);
+                /* Document doc = */parse(args[i]);
+            }
         }
-
+        if(parseonly) {
+            System.err.println("# DTD Validation is disabled. Only checked for well formed XML.");
+        }
+    }
+    private static void usage() {
+        System.err.println("usage:  "+XMLValidator.class.getName()+" [ --help ] [ --parseonly ] file ...");
     }
     /**
      * Utility method to translate a String filename to URL.
@@ -112,8 +126,10 @@ public class XMLValidator {
 
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
-        dfactory.setNamespaceAware(true);
-        dfactory.setValidating(true);
+        if(!parseonly) {
+            dfactory.setNamespaceAware(true);
+            dfactory.setValidating(true);
+        }
         // Set other attributes here as needed
         //applyAttributes(dfactory, attributes);
 
